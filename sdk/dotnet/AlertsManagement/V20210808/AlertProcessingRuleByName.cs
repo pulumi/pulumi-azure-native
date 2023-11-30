@@ -7,15 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.AlertsManagement
+namespace Pulumi.AzureNative.AlertsManagement.V20210808
 {
     /// <summary>
     /// Alert processing rule object containing target scopes, conditions and scheduling logic.
-    /// Azure REST API version: 2021-08-08.
-    /// 
-    /// Other available API versions: 2023-05-01-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:alertsmanagement:AlertProcessingRuleByName")]
+    [AzureNativeResourceType("azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName")]
     public partial class AlertProcessingRuleByName : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +60,12 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AlertProcessingRuleByName(string name, AlertProcessingRuleByNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:alertsmanagement:AlertProcessingRuleByName", name, args ?? new AlertProcessingRuleByNameArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName", name, args ?? new AlertProcessingRuleByNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AlertProcessingRuleByName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:alertsmanagement:AlertProcessingRuleByName", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -79,9 +76,9 @@ namespace Pulumi.AzureNative.AlertsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:AlertProcessingRuleByName"},
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName"},
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName"},
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName"},
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20230501preview:AlertProcessingRuleByName"},
                 },

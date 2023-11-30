@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.AlertsManagement.Inputs
+namespace Pulumi.AzureNative.AlertsManagement.V20210808.Inputs
 {
 
     /// <summary>

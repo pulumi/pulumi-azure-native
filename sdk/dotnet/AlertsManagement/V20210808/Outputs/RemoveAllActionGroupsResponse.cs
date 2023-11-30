@@ -7,24 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.AlertsManagement.Outputs
+namespace Pulumi.AzureNative.AlertsManagement.V20210808.Outputs
 {
 
     /// <summary>
-    /// The logic for the correlation.
+    /// Indicates if all action groups should be removed.
     /// </summary>
     [OutputType]
-    public sealed class CorrelateByResponse
+    public sealed class RemoveAllActionGroupsResponse
     {
         /// <summary>
-        /// The JPath of the property that the alerts should be correlated by.
+        /// Action that should be applied.
+        /// Expected value is 'RemoveAllActionGroups'.
         /// </summary>
-        public readonly string? Field;
+        public readonly string ActionType;
 
         [OutputConstructor]
-        private CorrelateByResponse(string? field)
+        private RemoveAllActionGroupsResponse(string actionType)
         {
-            Field = field;
+            ActionType = actionType;
         }
     }
 }
