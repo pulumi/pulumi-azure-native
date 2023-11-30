@@ -20,7 +20,6 @@
   "azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule": "azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule",
   "azure-native:alertsmanagement/v20190601:SmartDetectorAlertRule": "azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule",
   "azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup": "azure-native:alertsmanagement/v20230301:PrometheusRuleGroup",
-  "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName": "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName",
   "azure-native:analysisservices/v20160516:ServerDetails": "azure-native:analysisservices/v20170801beta:ServerDetails",
   "azure-native:analysisservices/v20170714:ServerDetails": "azure-native:analysisservices/v20170801beta:ServerDetails",
   "azure-native:analysisservices/v20170801:ServerDetails": "azure-native:analysisservices/v20170801beta:ServerDetails",
