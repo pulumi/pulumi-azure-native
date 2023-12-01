@@ -74,7 +74,7 @@ Object.defineProperty(exports, "disablePulumiPartnerId", {
 });
 
 /**
- * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+ * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
  */
 export declare const environment: string | undefined;
 Object.defineProperty(exports, "environment", {
@@ -107,7 +107,7 @@ Object.defineProperty(exports, "metadataHost", {
 });
 
 /**
- * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+ * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
  */
 export declare const msiEndpoint: string | undefined;
 Object.defineProperty(exports, "msiEndpoint", {
@@ -118,7 +118,7 @@ Object.defineProperty(exports, "msiEndpoint", {
 });
 
 /**
- * Your cloud service or provider’s token to exchange for an Azure token. 
+ * Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
  */
 export declare const oidcRequestToken: string | undefined;
 Object.defineProperty(exports, "oidcRequestToken", {

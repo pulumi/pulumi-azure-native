@@ -60,7 +60,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def environment(self) -> Optional[str]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         """
         return __config__.get('environment')
 
@@ -81,14 +81,14 @@ class _ExportableConfig(types.ModuleType):
     @property
     def msi_endpoint(self) -> Optional[str]:
         """
-        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         """
         return __config__.get('msiEndpoint')
 
     @property
     def oidc_request_token(self) -> Optional[str]:
         """
-        Your cloud service or provider’s token to exchange for an Azure token. 
+        Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         """
         return __config__.get('oidcRequestToken')
 

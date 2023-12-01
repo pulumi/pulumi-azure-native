@@ -41,7 +41,7 @@ This will disable the Pulumi Partner ID which is used if a custom `partnerId` is
 
 environment: Optional[str]
 """
-The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
 """
 
 location: Optional[str]
@@ -56,12 +56,12 @@ The Hostname of the Azure Metadata Service.
 
 msiEndpoint: Optional[str]
 """
-The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
 """
 
 oidcRequestToken: Optional[str]
 """
-Your cloud service or provider’s token to exchange for an Azure token. 
+Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
 """
 
 oidcRequestUrl: Optional[str]

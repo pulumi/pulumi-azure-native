@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<string?> _environment = new __Value<string?>(() => __config.Get("environment"));
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         /// </summary>
         public static string? Environment
         {
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<string?> _msiEndpoint = new __Value<string?>(() => __config.Get("msiEndpoint"));
         /// <summary>
-        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         /// </summary>
         public static string? MsiEndpoint
         {
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<string?> _oidcRequestToken = new __Value<string?>(() => __config.Get("oidcRequestToken"));
         /// <summary>
-        /// Your cloud service or provider’s token to exchange for an Azure token. 
+        /// Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         /// </summary>
         public static string? OidcRequestToken
         {

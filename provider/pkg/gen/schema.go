@@ -95,7 +95,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				},
 				"environment": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.",
+					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.",
 				},
 				"location": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -117,7 +117,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				},
 				"msiEndpoint": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
+					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.",
 				},
 				"metadataHost": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -135,7 +135,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				},
 				"oidcRequestToken": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "Your cloud service or provider’s token to exchange for an Azure token. ",
+					Description: "Your cloud service or provider’s bearer token to exchange for an OIDC ID token.",
 				},
 				"oidcRequestUrl": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -184,7 +184,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				"environment": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Default:     "public",
-					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.",
+					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.",
 				},
 				"location": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -224,7 +224,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				},
 				"oidcRequestToken": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "Your provider’s token to exchange for an OIDC token.",
+					Description: "Your cloud service or provider’s bearer token to exchange for an OIDC ID token.",
 				},
 				"oidcRequestUrl": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
