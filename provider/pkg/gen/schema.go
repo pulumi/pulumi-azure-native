@@ -322,8 +322,8 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			}
 
 			// Populate invokes.
-			gen.genPostInvokes(items.Invokes)
-			gen.genGetInvokes(items.GetInvokes)
+			gen.genPostInvokes(items.POST_Invokes)
+			gen.genGetInvokes(items.GET_Invokes)
 			warnings = append(warnings, gen.warnings...)
 		}
 	}
@@ -958,7 +958,7 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 }
 
 // genFunctions defines functions for list* (listKeys, listSecrets, etc.)
-// and get* (getFullUrl, getBastionShareableLink, etc.) POST endpoints.
+// and get* (getFullUrl, getBastionShareableLink, etc.) POST and GET endpoints.
 func (g *packageGenerator) genFunctions(typeName, path string, pathItem *spec.PathItem, operation *spec.Operation, swagger *openapi.Spec) {
 	module := g.moduleName()
 	gen := moduleGenerator{

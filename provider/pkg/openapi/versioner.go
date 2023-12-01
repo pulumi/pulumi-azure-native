@@ -129,7 +129,7 @@ func RemoveResources(providers AzureProviders, removable RemovableResources) Azu
 				}
 				filteredResources.Resources[resourceName] = resource
 			}
-			for invokeName, invoke := range resources.Invokes {
+			for invokeName, invoke := range resources.POST_Invokes {
 				if removable.CanBeRemoved(provider, invokeName, version) {
 					removedInvokeCount++
 					continue
@@ -147,12 +147,12 @@ func RemoveResources(providers AzureProviders, removable RemovableResources) Azu
 					removedInvokeCount++
 					continue
 				}
-				filteredResources.Invokes[invokeName] = invoke
+				filteredResources.POST_Invokes[invokeName] = invoke
 			}
 			// If there are no resources left, we can remove the version entirely.
-			if version != "" && len(filteredResources.Resources) == 0 && len(filteredResources.Invokes) > 0 {
-				removedInvokeCount += len(filteredResources.Invokes)
-				for invokeName := range filteredResources.Invokes {
+			if version != "" && len(filteredResources.Resources) == 0 && len(filteredResources.POST_Invokes) > 0 {
+				removedInvokeCount += len(filteredResources.POST_Invokes)
+				for invokeName := range filteredResources.POST_Invokes {
 					log.Printf("Removable invoke: azure-native:%s/%s:%s", strings.ToLower(provider), version, invokeName)
 				}
 				continue

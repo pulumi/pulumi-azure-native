@@ -24,10 +24,10 @@ func TestListDiagnosticCategoriesShouldBeAdded(t *testing.T) {
 
 	addGetFunctionIfRequired(version, pathItem, path, nil /* swagger */)
 
-	assert.Empty(t, version.Invokes)
-	assert.NotEmpty(t, version.GetInvokes)
+	assert.Empty(t, version.POST_Invokes)
+	assert.NotEmpty(t, version.GET_Invokes)
 
-	invoke, ok := version.GetInvokes["listDiagnosticSettingsCategory"]
+	invoke, ok := version.GET_Invokes["listDiagnosticSettingsCategory"]
 	assert.True(t, ok)
 	assert.Equal(t, path, invoke.Path)
 }

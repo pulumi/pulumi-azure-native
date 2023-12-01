@@ -201,7 +201,7 @@ func findPathChanges(providers openapi.AzureProviders,
 
 			spec, ok := cur.Resources[resourceName]
 			if !ok {
-				spec, ok = cur.Invokes[resourceName]
+				spec, ok = cur.POST_Invokes[resourceName]
 			}
 			if !ok {
 				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
@@ -215,7 +215,7 @@ func findPathChanges(providers openapi.AzureProviders,
 
 			prevSpec, ok := prev.Resources[resourceName]
 			if !ok {
-				prevSpec, ok = prev.Invokes[resourceName]
+				prevSpec, ok = prev.POST_Invokes[resourceName]
 			}
 			if !ok {
 				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{

@@ -49,16 +49,16 @@ type DiscoveryDiagnostics struct {
 
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {
-	Resources  map[ResourceName]*ResourceSpec
-	Invokes    map[InvokeName]*ResourceSpec
-	GetInvokes map[InvokeName]*ResourceSpec
+	Resources    map[ResourceName]*ResourceSpec
+	POST_Invokes map[InvokeName]*ResourceSpec
+	GET_Invokes  map[InvokeName]*ResourceSpec
 }
 
 func NewVersionResources() VersionResources {
 	return VersionResources{
-		Resources:  map[ResourceName]*ResourceSpec{},
-		Invokes:    map[InvokeName]*ResourceSpec{},
-		GetInvokes: map[InvokeName]*ResourceSpec{},
+		Resources:    map[ResourceName]*ResourceSpec{},
+		POST_Invokes: map[InvokeName]*ResourceSpec{},
+		GET_Invokes:  map[InvokeName]*ResourceSpec{},
 	}
 }
 
@@ -69,7 +69,7 @@ type DefaultVersionLock = map[ProviderName]map[DefinitionName]ApiVersion
 
 func (v VersionResources) All() map[string]*ResourceSpec {
 	specs := map[string]*ResourceSpec{}
-	for s, resourceSpec := range v.Invokes {
+	for s, resourceSpec := range v.POST_Invokes {
 		specs[s] = resourceSpec
 	}
 	for s, resourceSpec := range v.Resources {
@@ -167,7 +167,7 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 				resourceCopy := *resource
 				resourceCopy.PreviousVersion = previousResourceVersions[resourceName]
 				resources[resourceName] = &resourceCopy
-			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
+			} else if invoke, ok := versionResources.POST_Invokes[resourceName]; ok {
 				invokeCopy := *invoke
 				invokeCopy.PreviousVersion = previousResourceVersions[resourceName]
 				invokes[resourceName] = &invokeCopy
@@ -175,9 +175,9 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 		}
 	}
 	return VersionResources{
-		Resources:  resources,
-		Invokes:    invokes,
-		GetInvokes: getInvokes,
+		Resources:    resources,
+		POST_Invokes: invokes,
+		GET_Invokes:  getInvokes,
 	}
 }
 
@@ -519,7 +519,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			nameDisambiguations = append(nameDisambiguations, *disambiguation)
 		}
 		if typeName != "" {
-			version.Invokes[prefix+typeName] = &ResourceSpec{
+			version.POST_Invokes[prefix+typeName] = &ResourceSpec{
 				Path:     path,
 				PathItem: &pathItem,
 				Swagger:  swagger,
@@ -552,7 +552,7 @@ func addGetFunctionIfRequired(version VersionResources, pathItem spec.PathItem, 
 			prefix = "list"
 		}
 
-		version.GetInvokes[prefix+typeName] = &ResourceSpec{
+		version.GET_Invokes[prefix+typeName] = &ResourceSpec{
 			Path:     path,
 			PathItem: &pathItem,
 			Swagger:  swagger,

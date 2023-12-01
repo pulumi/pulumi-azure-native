@@ -12,6 +12,8 @@ import (
 func shouldIncludeGETInvoke(path string, op *spec.Operation) bool {
 	return op != nil &&
 		!op.Deprecated &&
+
+		// #2419
 		strings.HasSuffix(path, "/providers/Microsoft.Insights/diagnosticSettingsCategories") &&
 		op.OperationProps.ID == "DiagnosticSettingsCategory_List"
 }
