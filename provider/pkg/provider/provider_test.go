@@ -313,3 +313,23 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 }
+
+func TestSpecialInputs(t *testing.T) {
+	inputs := resource.PropertyMap{
+		"unrelated": resource.NewStringProperty("foo"),
+	}
+	olds := resource.PropertyMap{
+		"unrelated":      resource.NewStringProperty("foo"),
+		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{}),
+	}
+
+	err := adjustInputsForSpecialCases(inputs,
+		"azure-native:storage:StorageAccount",
+		func() (resource.PropertyMap, error) {
+			return olds, nil
+		})
+	assert.NoError(t, err)
+
+	// Was not in inputs but was added to reset it back to default.
+	assert.Contains(t, inputs, resource.PropertyKey("networkRuleSet"))
+}

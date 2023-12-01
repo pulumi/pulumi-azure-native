@@ -1199,31 +1199,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		}, nil
 	}
 
-	// Special case for storage accounts: if networkRuleSet was specified and then removed, set it
-	// back to the default value because Azure will interpret omission as "no changes".
-	// https://github.com/pulumi/pulumi-azure-native/issues/2507
-	if !req.GetPreview() && resourceKey == "azure-native:storage:StorageAccount" {
-		oldState, err := readOlds()
-		if err != nil {
-			return nil, err
-		}
-
-		networkRuleSet := resource.PropertyKey("networkRuleSet")
-		if !inputs.HasValue(networkRuleSet) && oldState.HasValue(networkRuleSet) {
-			const defaultNetworkRuleSetJson = `{
-				"bypass":              "AzureServices",
-				"defaultAction":       "Allow",
-				"ipRules":             [],
-				"virtualNetworkRules": []
-			}`
-			var m map[string]interface{}
-			err := json.Unmarshal([]byte(defaultNetworkRuleSetJson), &m)
-			if err != nil {
-				return nil, err
-			}
-			inputs[networkRuleSet] = resource.NewPropertyValue(m)
-		}
-	}
+	adjustInputsForSpecialCases(inputs, resourceKey, readOlds)
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
@@ -1287,6 +1263,32 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	return &rpc.UpdateResponse{
 		Properties: checkpoint,
 	}, nil
+}
+
+// Add or modify certain inputs of certain resourcesto make updates conform to the Pulumi resource model.
+func adjustInputsForSpecialCases(inputs resource.PropertyMap, resourceKey string, readOlds func() (resource.PropertyMap, error)) error {
+	// Special case for storage accounts: if networkRuleSet was specified and then removed, set it
+	// back to the default value because Azure will interpret omission as "no changes".
+	// https://github.com/pulumi/pulumi-azure-native/issues/2507
+	keyParts := strings.Split(resourceKey, ":")
+	if len(keyParts) == 3 && keyParts[2] == "StorageAccount" && (keyParts[1] == "storage" || strings.HasPrefix(keyParts[1], "storage/")) {
+		oldState, err := readOlds()
+		if err != nil {
+			return err
+		}
+
+		networkRuleSet := resource.PropertyKey("networkRuleSet")
+		if !inputs.HasValue(networkRuleSet) && oldState.HasValue(networkRuleSet) {
+			defaultNetworkRuleSetJson := map[string]interface{}{
+				"bypass":              "AzureServices",
+				"defaultAction":       "Allow",
+				"ipRules":             []interface{}{},
+				"virtualNetworkRules": []interface{}{},
+			}
+			inputs[networkRuleSet] = resource.NewPropertyValue(defaultNetworkRuleSetJson)
+		}
+	}
+	return nil
 }
 
 // Delete tears down an existing resource with the given ID. If it fails, the resource is assumed
