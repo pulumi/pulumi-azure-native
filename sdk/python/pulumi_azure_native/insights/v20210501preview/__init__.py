@@ -9,6 +9,7 @@ from .diagnostic_setting import *
 from .get_diagnostic_setting import *
 from .get_management_group_diagnostic_setting import *
 from .get_subscription_diagnostic_setting import *
+from .list_diagnostic_settings_category import *
 from .management_group_diagnostic_setting import *
 from .subscription_diagnostic_setting import *
 from ._inputs import *

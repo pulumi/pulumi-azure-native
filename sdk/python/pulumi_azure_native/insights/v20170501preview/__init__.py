@@ -6,6 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from .get_subscription_diagnostic_setting import *
+from .list_diagnostic_settings_category import *
 from .subscription_diagnostic_setting import *
 from ._inputs import *
 from . import outputs

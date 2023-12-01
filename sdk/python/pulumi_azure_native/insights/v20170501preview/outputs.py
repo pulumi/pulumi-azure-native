@@ -10,8 +10,65 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
+    'DiagnosticSettingsCategoryResourceResponse',
     'SubscriptionLogSettingsResponse',
 ]
+
+@pulumi.output_type
+class DiagnosticSettingsCategoryResourceResponse(dict):
+    """
+    The diagnostic settings category resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str,
+                 category_type: Optional[str] = None):
+        """
+        The diagnostic settings category resource.
+        :param str id: Azure resource Id
+        :param str name: Azure resource name
+        :param str type: Azure resource type
+        :param str category_type: The type of the diagnostic settings category.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if category_type is not None:
+            pulumi.set(__self__, "category_type", category_type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Azure resource name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="categoryType")
+    def category_type(self) -> Optional[str]:
+        """
+        The type of the diagnostic settings category.
+        """
+        return pulumi.get(self, "category_type")
+
 
 @pulumi.output_type
 class SubscriptionLogSettingsResponse(dict):
