@@ -322,8 +322,8 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			}
 
 			// Populate invokes.
-			gen.genPostInvokes(items.POST_Invokes)
-			gen.genGetInvokes(items.GET_Invokes)
+			gen.genInvokes(items.POST_Invokes, "POST")
+			gen.genInvokes(items.GET_Invokes, "GET")
 			warnings = append(warnings, gen.warnings...)
 		}
 	}
@@ -388,15 +388,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	}, nil
 }
 
-func (g *packageGenerator) genPostInvokes(invokes map[string]*openapi.ResourceSpec) {
-	g.genInvokes(invokes, true)
-}
-
-func (g *packageGenerator) genGetInvokes(invokes map[string]*openapi.ResourceSpec) {
-	g.genInvokes(invokes, false)
-}
-
-func (g *packageGenerator) genInvokes(invokes map[string]*openapi.ResourceSpec, post bool) {
+func (g *packageGenerator) genInvokes(invokes map[string]*openapi.ResourceSpec, httpMethod string) {
 	var invokeNames []string
 	for invokeName := range invokes {
 		invokeNames = append(invokeNames, invokeName)
@@ -406,12 +398,17 @@ func (g *packageGenerator) genInvokes(invokes map[string]*openapi.ResourceSpec, 
 	for _, invokeName := range invokeNames {
 		invoke := invokes[invokeName]
 
-		op := invoke.PathItem.Get
-		if post {
+		var op *spec.Operation
+		switch httpMethod {
+		case "POST":
 			op = invoke.PathItem.Post
+		case "GET":
+			op = invoke.PathItem.Get
+		default:
+			panic(fmt.Sprintf("Unsupported HTTP method %s", httpMethod))
 		}
 
-		g.genFunctions(invokeName, invoke.Path, invoke.PathItem, op, invoke.Swagger)
+		g.genFunctions(invokeName, invoke.Path, invoke.PathItem.Parameters, op, invoke.Swagger)
 	}
 }
 
@@ -959,7 +956,7 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 
 // genFunctions defines functions for list* (listKeys, listSecrets, etc.)
 // and get* (getFullUrl, getBastionShareableLink, etc.) POST and GET endpoints.
-func (g *packageGenerator) genFunctions(typeName, path string, pathItem *spec.PathItem, operation *spec.Operation, swagger *openapi.Spec) {
+func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec.Parameter, operation *spec.Operation, swagger *openapi.Spec) {
 	module := g.moduleName()
 	gen := moduleGenerator{
 		pkg:                g.pkg,
@@ -979,7 +976,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, pathItem *spec.Pa
 		return
 	}
 
-	parameters := swagger.MergeParameters(operation.Parameters, pathItem.Parameters)
+	parameters := swagger.MergeParameters(operation.Parameters, specParams)
 	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, nil)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
