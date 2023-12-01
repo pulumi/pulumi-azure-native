@@ -48,7 +48,7 @@
   },
   "AlertsManagement": {
     "ActionRuleByName": "2019-05-05-preview",
-    "AlertProcessingRuleByName": "2023-05-01-preview",
+    "AlertProcessingRuleByName": "2021-08-08",
     "PrometheusRuleGroup": "2023-03-01",
     "SmartDetectorAlertRule": "2021-04-01"
   },

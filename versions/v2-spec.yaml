@@ -20,7 +20,7 @@ AlertsManagement:
     tracking: "2023-03-01"
     additions:
         ActionRuleByName: 2019-05-05-preview
-        AlertProcessingRuleByName: 2023-05-01-preview
+        AlertProcessingRuleByName: "2021-08-08"
         SmartDetectorAlertRule: "2021-04-01"
 AnalysisServices:
     tracking: "2017-08-01"

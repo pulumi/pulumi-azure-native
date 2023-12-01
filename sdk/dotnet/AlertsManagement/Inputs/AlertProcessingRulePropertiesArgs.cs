@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.AlertsManagement.Inputs
     public sealed class AlertProcessingRulePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        private InputList<object>? _actions;
+        private InputList<Union<Inputs.AddActionGroupsArgs, Inputs.RemoveAllActionGroupsArgs>>? _actions;
 
         /// <summary>
         /// Actions to be applied.
         /// </summary>
-        public InputList<object> Actions
+        public InputList<Union<Inputs.AddActionGroupsArgs, Inputs.RemoveAllActionGroupsArgs>> Actions
         {
-            get => _actions ?? (_actions = new InputList<object>());
+            get => _actions ?? (_actions = new InputList<Union<Inputs.AddActionGroupsArgs, Inputs.RemoveAllActionGroupsArgs>>());
             set => _actions = value;
         }
 
