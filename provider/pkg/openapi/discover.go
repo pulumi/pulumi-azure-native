@@ -72,6 +72,9 @@ func (v VersionResources) All() map[string]*ResourceSpec {
 	for s, resourceSpec := range v.POST_Invokes {
 		specs[s] = resourceSpec
 	}
+	for s, resourceSpec := range v.GET_Invokes {
+		specs[s] = resourceSpec
+	}
 	for s, resourceSpec := range v.Resources {
 		specs[s] = resourceSpec
 	}
