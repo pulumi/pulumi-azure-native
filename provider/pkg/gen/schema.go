@@ -90,11 +90,16 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 					Description: "The Tenant ID which should be used.",
 				},
 				"auxiliaryTenantIds": {
-					TypeSpec: pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+					Description: "Any additional Tenant IDs which should be used for authentication.",
 				},
 				"environment": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.",
+				},
+				"location": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.",
 				},
 				"clientCertificatePath": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -107,18 +112,26 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				},
 				"useMsi": {
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
-					Description: "Allowed Managed Service Identity be used for Authentication.",
+					Description: "Allow Managed Service Identity be used for Authentication.",
 					Default:     false,
 				},
 				"msiEndpoint": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
 				},
+				"metadataHost": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Hostname of the Azure Metadata Service.",
+				},
 
 				"useOidc": {
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
-					Description: "Allowed OpenID Connect (OIDC) to be used for Authentication.",
+					Description: "Allow OpenID Connect (OIDC) to be used for Authentication.",
 					Default:     false,
+				},
+				"oidcToken": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The OIDC token to exchange for an Azure token.",
 				},
 				"oidcRequestToken": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -173,6 +186,10 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 					Default:     "public",
 					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.",
 				},
+				"location": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.",
+				},
 				"clientCertificatePath": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.",
@@ -189,7 +206,11 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				},
 				"msiEndpoint": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
+					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.",
+				},
+				"metadataHost": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Hostname of the Azure Metadata Service.",
 				},
 
 				"useOidc": {

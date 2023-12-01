@@ -41,6 +41,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["disablePulumiPartnerId"] = pulumi.output(args ? args.disablePulumiPartnerId : undefined).apply(JSON.stringify);
             resourceInputs["environment"] = (args ? args.environment : undefined) ?? "public";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadataHost"] = args ? args.metadataHost : undefined;
             resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
             resourceInputs["oidcRequestToken"] = args ? args.oidcRequestToken : undefined;
             resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
@@ -89,7 +91,15 @@ export interface ProviderArgs {
      */
     environment?: pulumi.Input<string>;
     /**
-     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+     * The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * The Hostname of the Azure Metadata Service.
+     */
+    metadataHost?: pulumi.Input<string>;
+    /**
+     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      */
     msiEndpoint?: pulumi.Input<string>;
     /**

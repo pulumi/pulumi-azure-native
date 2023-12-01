@@ -121,7 +121,19 @@ namespace Pulumi.AzureNative
         public Input<string>? Environment { get; set; }
 
         /// <summary>
-        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        /// The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The Hostname of the Azure Metadata Service.
+        /// </summary>
+        [Input("metadataHost")]
+        public Input<string>? MetadataHost { get; set; }
+
+        /// <summary>
+        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         /// </summary>
         [Input("msiEndpoint")]
         public Input<string>? MsiEndpoint { get; set; }

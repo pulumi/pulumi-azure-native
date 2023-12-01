@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 declare var exports: any;
 const __config = new pulumi.Config("azure-native");
 
+/**
+ * Any additional Tenant IDs which should be used for authentication.
+ */
 export declare const auxiliaryTenantIds: string[] | undefined;
 Object.defineProperty(exports, "auxiliaryTenantIds", {
     get() {
@@ -82,6 +85,28 @@ Object.defineProperty(exports, "environment", {
 });
 
 /**
+ * The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+ */
+export declare const location: string | undefined;
+Object.defineProperty(exports, "location", {
+    get() {
+        return __config.get("location");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Hostname of the Azure Metadata Service.
+ */
+export declare const metadataHost: string | undefined;
+Object.defineProperty(exports, "metadataHost", {
+    get() {
+        return __config.get("metadataHost");
+    },
+    enumerable: true,
+});
+
+/**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
  */
 export declare const msiEndpoint: string | undefined;
@@ -110,6 +135,17 @@ export declare const oidcRequestUrl: string | undefined;
 Object.defineProperty(exports, "oidcRequestUrl", {
     get() {
         return __config.get("oidcRequestUrl");
+    },
+    enumerable: true,
+});
+
+/**
+ * The OIDC token to exchange for an Azure token.
+ */
+export declare const oidcToken: string | undefined;
+Object.defineProperty(exports, "oidcToken", {
+    get() {
+        return __config.get("oidcToken");
     },
     enumerable: true,
 });
@@ -148,7 +184,7 @@ Object.defineProperty(exports, "tenantId", {
 });
 
 /**
- * Allowed Managed Service Identity be used for Authentication.
+ * Allow Managed Service Identity be used for Authentication.
  */
 export declare const useMsi: boolean;
 Object.defineProperty(exports, "useMsi", {
@@ -159,7 +195,7 @@ Object.defineProperty(exports, "useMsi", {
 });
 
 /**
- * Allowed OpenID Connect (OIDC) to be used for Authentication.
+ * Allow OpenID Connect (OIDC) to be used for Authentication.
  */
 export declare const useOidc: boolean;
 Object.defineProperty(exports, "useOidc", {
