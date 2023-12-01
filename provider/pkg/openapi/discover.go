@@ -372,6 +372,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	}
 
 	pathItem := swagger.Paths.Paths[path]
+	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]
 
 	if ok := resources.HasCustomDelete(path); ok {
 		pathItem.Delete = &spec.Operation{
@@ -381,8 +382,15 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		}
 	}
 
-	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]
 	var nameDisambiguations []resources.NameDisambiguation
+	recordDisambiguation := func(disambiguation *resources.NameDisambiguation) []resources.NameDisambiguation {
+		if disambiguation != nil {
+			disambiguation.FileLocation = fileLocation
+			nameDisambiguations = append(nameDisambiguations, *disambiguation)
+		}
+		return nameDisambiguations
+	}
+
 	// Add a resource entry.
 	if pathItem.Put != nil && !pathItem.Put.Deprecated {
 		hasDelete := pathItem.Delete != nil && !pathItem.Delete.Deprecated
@@ -396,10 +404,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			}
 
 			typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
-			if disambiguation != nil {
-				disambiguation.FileLocation = fileLocation
-				nameDisambiguations = append(nameDisambiguations, *disambiguation)
-			}
+			nameDisambiguations = recordDisambiguation(disambiguation)
 
 			if typeName != "" && (hasDelete || defaultState != nil) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
@@ -418,10 +423,8 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			}
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
 			typeName, disambiguation := resources.ResourceName(pathItem.Head.ID, path)
-			if disambiguation != nil {
-				disambiguation.FileLocation = fileLocation
-				nameDisambiguations = append(nameDisambiguations, *disambiguation)
-			}
+			nameDisambiguations = recordDisambiguation(disambiguation)
+
 			if typeName != "" && hasDelete {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
@@ -441,10 +444,8 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			case pathItemList.Post != nil && !pathItemList.Post.Deprecated:
 				typeName, disambiguation = resources.ResourceName(pathItemList.Post.ID, path)
 			}
-			if disambiguation != nil {
-				disambiguation.FileLocation = fileLocation
-				nameDisambiguations = append(nameDisambiguations, *disambiguation)
-			}
+			nameDisambiguations = recordDisambiguation(disambiguation)
+
 			if typeName != "" {
 				var defaultBody map[string]interface{}
 				defaultState := defaults.GetDefaultResourceState(path)
@@ -475,10 +476,8 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
 		defaultState := defaults.GetDefaultResourceState(path)
 		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
-		if disambiguation != nil {
-			disambiguation.FileLocation = fileLocation
-			nameDisambiguations = append(nameDisambiguations, *disambiguation)
-		}
+		nameDisambiguations = recordDisambiguation(disambiguation)
+
 		if typeName != "" && defaultState != nil {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
@@ -517,10 +516,8 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		}
 
 		typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
-		if disambiguation != nil {
-			disambiguation.FileLocation = fileLocation
-			nameDisambiguations = append(nameDisambiguations, *disambiguation)
-		}
+		nameDisambiguations = recordDisambiguation(disambiguation)
+
 		if typeName != "" {
 			version.POST_Invokes[prefix+typeName] = &ResourceSpec{
 				Path:     path,
@@ -531,10 +528,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	}
 
 	disambiguation := addGetFunctionIfRequired(version, pathItem, path, swagger)
-	if disambiguation != nil {
-		disambiguation.FileLocation = fileLocation
-		nameDisambiguations = append(nameDisambiguations, *disambiguation)
-	}
+	nameDisambiguations = recordDisambiguation(disambiguation)
 
 	return nameDisambiguations
 }
