@@ -117,6 +117,11 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 				props.requiredProperties.Delete("username")
 				props.requiredSpecs.Delete("username")
 			}
+			// incompatible type "azure-native:testbase:TargetOSInfo" for resource "Package" ("azure-native:testbase:Package"): required properties do not match: only required in A: targetOSs
+			if tok == "azure-native:testbase:TargetOSInfo" {
+				props.requiredProperties.Delete("targetOSs")
+				props.requiredSpecs.Delete("targetOSs")
+			}
 
 			spec := pschema.ComplexTypeSpec{
 				ObjectTypeSpec: pschema.ObjectTypeSpec{
