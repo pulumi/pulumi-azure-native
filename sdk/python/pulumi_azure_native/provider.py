@@ -21,6 +21,8 @@ class ProviderArgs:
                  client_secret: Optional[pulumi.Input[str]] = None,
                  disable_pulumi_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata_host: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
                  oidc_request_url: Optional[pulumi.Input[str]] = None,
@@ -38,9 +40,11 @@ class ProviderArgs:
         :param pulumi.Input[str] client_id: The Client ID which should be used.
         :param pulumi.Input[str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
-        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
-        :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
-        :param pulumi.Input[str] oidc_request_token: Your provider’s token to exchange for an OIDC token.
+        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        :param pulumi.Input[str] location: The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+        :param pulumi.Input[str] metadata_host: The Hostname of the Azure Metadata Service.
+        :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
+        :param pulumi.Input[str] oidc_request_token: Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         :param pulumi.Input[str] oidc_request_url: The URL to initiate the `oidcRequestToken` OIDC token exchange.
         :param pulumi.Input[str] oidc_token: The OIDC token to exchange for an Azure token.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -65,6 +69,10 @@ class ProviderArgs:
             environment = 'public'
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if metadata_host is not None:
+            pulumi.set(__self__, "metadata_host", metadata_host)
         if msi_endpoint is not None:
             pulumi.set(__self__, "msi_endpoint", msi_endpoint)
         if oidc_request_token is not None:
@@ -164,7 +172,7 @@ class ProviderArgs:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[str]]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         """
         return pulumi.get(self, "environment")
 
@@ -173,10 +181,34 @@ class ProviderArgs:
         pulumi.set(self, "environment", value)
 
     @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="metadataHost")
+    def metadata_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Hostname of the Azure Metadata Service.
+        """
+        return pulumi.get(self, "metadata_host")
+
+    @metadata_host.setter
+    def metadata_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata_host", value)
+
+    @property
     @pulumi.getter(name="msiEndpoint")
     def msi_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         """
         return pulumi.get(self, "msi_endpoint")
 
@@ -188,7 +220,7 @@ class ProviderArgs:
     @pulumi.getter(name="oidcRequestToken")
     def oidc_request_token(self) -> Optional[pulumi.Input[str]]:
         """
-        Your provider’s token to exchange for an OIDC token.
+        Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         """
         return pulumi.get(self, "oidc_request_token")
 
@@ -293,6 +325,8 @@ class Provider(pulumi.ProviderResource):
                  client_secret: Optional[pulumi.Input[str]] = None,
                  disable_pulumi_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata_host: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
                  oidc_request_url: Optional[pulumi.Input[str]] = None,
@@ -314,9 +348,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] client_id: The Client ID which should be used.
         :param pulumi.Input[str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
-        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
-        :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
-        :param pulumi.Input[str] oidc_request_token: Your provider’s token to exchange for an OIDC token.
+        :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        :param pulumi.Input[str] location: The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+        :param pulumi.Input[str] metadata_host: The Hostname of the Azure Metadata Service.
+        :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
+        :param pulumi.Input[str] oidc_request_token: Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         :param pulumi.Input[str] oidc_request_url: The URL to initiate the `oidcRequestToken` OIDC token exchange.
         :param pulumi.Input[str] oidc_token: The OIDC token to exchange for an Azure token.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -356,6 +392,8 @@ class Provider(pulumi.ProviderResource):
                  client_secret: Optional[pulumi.Input[str]] = None,
                  disable_pulumi_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata_host: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
                  oidc_request_url: Optional[pulumi.Input[str]] = None,
@@ -383,6 +421,8 @@ class Provider(pulumi.ProviderResource):
             if environment is None:
                 environment = 'public'
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["location"] = location
+            __props__.__dict__["metadata_host"] = metadata_host
             __props__.__dict__["msi_endpoint"] = msi_endpoint
             __props__.__dict__["oidc_request_token"] = oidc_request_token
             __props__.__dict__["oidc_request_url"] = oidc_request_url

@@ -10,6 +10,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 auxiliaryTenantIds: Optional[str]
+"""
+Any additional Tenant IDs which should be used for authentication.
+"""
 
 clientCertificatePassword: Optional[str]
 """
@@ -38,22 +41,37 @@ This will disable the Pulumi Partner ID which is used if a custom `partnerId` is
 
 environment: Optional[str]
 """
-The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+"""
+
+location: Optional[str]
+"""
+The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+"""
+
+metadataHost: Optional[str]
+"""
+The Hostname of the Azure Metadata Service.
 """
 
 msiEndpoint: Optional[str]
 """
-The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
 """
 
 oidcRequestToken: Optional[str]
 """
-Your cloud service or provider’s token to exchange for an Azure token. 
+Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
 """
 
 oidcRequestUrl: Optional[str]
 """
 The URL to initiate the OIDC token exchange. 
+"""
+
+oidcToken: Optional[str]
+"""
+The OIDC token to exchange for an Azure token.
 """
 
 partnerId: Optional[str]
@@ -73,11 +91,11 @@ The Tenant ID which should be used.
 
 useMsi: bool
 """
-Allowed Managed Service Identity be used for Authentication.
+Allow Managed Service Identity be used for Authentication.
 """
 
 useOidc: bool
 """
-Allowed OpenID Connect (OIDC) to be used for Authentication.
+Allow OpenID Connect (OIDC) to be used for Authentication.
 """
 

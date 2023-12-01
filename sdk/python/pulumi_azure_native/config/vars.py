@@ -17,6 +17,9 @@ __config__ = pulumi.Config('azure-native')
 class _ExportableConfig(types.ModuleType):
     @property
     def auxiliary_tenant_ids(self) -> Optional[str]:
+        """
+        Any additional Tenant IDs which should be used for authentication.
+        """
         return __config__.get('auxiliaryTenantIds')
 
     @property
@@ -57,21 +60,35 @@ class _ExportableConfig(types.ModuleType):
     @property
     def environment(self) -> Optional[str]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         """
         return __config__.get('environment')
 
     @property
+    def location(self) -> Optional[str]:
+        """
+        The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+        """
+        return __config__.get('location')
+
+    @property
+    def metadata_host(self) -> Optional[str]:
+        """
+        The Hostname of the Azure Metadata Service.
+        """
+        return __config__.get('metadataHost')
+
+    @property
     def msi_endpoint(self) -> Optional[str]:
         """
-        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         """
         return __config__.get('msiEndpoint')
 
     @property
     def oidc_request_token(self) -> Optional[str]:
         """
-        Your cloud service or provider’s token to exchange for an Azure token. 
+        Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         """
         return __config__.get('oidcRequestToken')
 
@@ -81,6 +98,13 @@ class _ExportableConfig(types.ModuleType):
         The URL to initiate the OIDC token exchange. 
         """
         return __config__.get('oidcRequestUrl')
+
+    @property
+    def oidc_token(self) -> Optional[str]:
+        """
+        The OIDC token to exchange for an Azure token.
+        """
+        return __config__.get('oidcToken')
 
     @property
     def partner_id(self) -> Optional[str]:
@@ -106,14 +130,14 @@ class _ExportableConfig(types.ModuleType):
     @property
     def use_msi(self) -> bool:
         """
-        Allowed Managed Service Identity be used for Authentication.
+        Allow Managed Service Identity be used for Authentication.
         """
         return __config__.get_bool('useMsi') or False
 
     @property
     def use_oidc(self) -> bool:
         """
-        Allowed OpenID Connect (OIDC) to be used for Authentication.
+        Allow OpenID Connect (OIDC) to be used for Authentication.
         """
         return __config__.get_bool('useOidc') or False
 

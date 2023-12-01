@@ -41,6 +41,8 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["disablePulumiPartnerId"] = pulumi.output(args ? args.disablePulumiPartnerId : undefined).apply(JSON.stringify);
             resourceInputs["environment"] = (args ? args.environment : undefined) ?? "public";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadataHost"] = args ? args.metadataHost : undefined;
             resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
             resourceInputs["oidcRequestToken"] = args ? args.oidcRequestToken : undefined;
             resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
@@ -85,15 +87,23 @@ export interface ProviderArgs {
      */
     disablePulumiPartnerId?: pulumi.Input<boolean>;
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
      */
     environment?: pulumi.Input<string>;
     /**
-     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+     * The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * The Hostname of the Azure Metadata Service.
+     */
+    metadataHost?: pulumi.Input<string>;
+    /**
+     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      */
     msiEndpoint?: pulumi.Input<string>;
     /**
-     * Your provider’s token to exchange for an OIDC token.
+     * Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
      */
     oidcRequestToken?: pulumi.Input<string>;
     /**

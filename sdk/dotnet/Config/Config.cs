@@ -33,6 +33,9 @@ namespace Pulumi.AzureNative
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("azure-native");
 
         private static readonly __Value<ImmutableArray<string>> _auxiliaryTenantIds = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("auxiliaryTenantIds"));
+        /// <summary>
+        /// Any additional Tenant IDs which should be used for authentication.
+        /// </summary>
         public static ImmutableArray<string> AuxiliaryTenantIds
         {
             get => _auxiliaryTenantIds.Get();
@@ -91,7 +94,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<string?> _environment = new __Value<string?>(() => __config.Get("environment"));
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         /// </summary>
         public static string? Environment
         {
@@ -99,9 +102,29 @@ namespace Pulumi.AzureNative
             set => _environment.Set(value);
         }
 
+        private static readonly __Value<string?> _location = new __Value<string?>(() => __config.Get("location"));
+        /// <summary>
+        /// The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+        /// </summary>
+        public static string? Location
+        {
+            get => _location.Get();
+            set => _location.Set(value);
+        }
+
+        private static readonly __Value<string?> _metadataHost = new __Value<string?>(() => __config.Get("metadataHost"));
+        /// <summary>
+        /// The Hostname of the Azure Metadata Service.
+        /// </summary>
+        public static string? MetadataHost
+        {
+            get => _metadataHost.Get();
+            set => _metadataHost.Set(value);
+        }
+
         private static readonly __Value<string?> _msiEndpoint = new __Value<string?>(() => __config.Get("msiEndpoint"));
         /// <summary>
-        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         /// </summary>
         public static string? MsiEndpoint
         {
@@ -111,7 +134,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<string?> _oidcRequestToken = new __Value<string?>(() => __config.Get("oidcRequestToken"));
         /// <summary>
-        /// Your cloud service or provider’s token to exchange for an Azure token. 
+        /// Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         /// </summary>
         public static string? OidcRequestToken
         {
@@ -127,6 +150,16 @@ namespace Pulumi.AzureNative
         {
             get => _oidcRequestUrl.Get();
             set => _oidcRequestUrl.Set(value);
+        }
+
+        private static readonly __Value<string?> _oidcToken = new __Value<string?>(() => __config.Get("oidcToken"));
+        /// <summary>
+        /// The OIDC token to exchange for an Azure token.
+        /// </summary>
+        public static string? OidcToken
+        {
+            get => _oidcToken.Get();
+            set => _oidcToken.Set(value);
         }
 
         private static readonly __Value<string?> _partnerId = new __Value<string?>(() => __config.Get("partnerId"));
@@ -161,7 +194,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi") ?? false);
         /// <summary>
-        /// Allowed Managed Service Identity be used for Authentication.
+        /// Allow Managed Service Identity be used for Authentication.
         /// </summary>
         public static bool? UseMsi
         {
@@ -171,7 +204,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<bool?> _useOidc = new __Value<bool?>(() => __config.GetBoolean("useOidc") ?? false);
         /// <summary>
-        /// Allowed OpenID Connect (OIDC) to be used for Authentication.
+        /// Allow OpenID Connect (OIDC) to be used for Authentication.
         /// </summary>
         public static bool? UseOidc
         {

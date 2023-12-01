@@ -115,19 +115,31 @@ namespace Pulumi.AzureNative
         public Input<bool>? DisablePulumiPartnerId { get; set; }
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
 
         /// <summary>
-        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        /// The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The Hostname of the Azure Metadata Service.
+        /// </summary>
+        [Input("metadataHost")]
+        public Input<string>? MetadataHost { get; set; }
+
+        /// <summary>
+        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         /// </summary>
         [Input("msiEndpoint")]
         public Input<string>? MsiEndpoint { get; set; }
 
         /// <summary>
-        /// Your provider’s token to exchange for an OIDC token.
+        /// Your cloud service or provider’s bearer token to exchange for an OIDC ID token.
         /// </summary>
         [Input("oidcRequestToken")]
         public Input<string>? OidcRequestToken { get; set; }
