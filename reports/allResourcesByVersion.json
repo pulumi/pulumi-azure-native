@@ -2694,6 +2694,9 @@
     ],
     "2023-08-04-preview": [
       "AzureBareMetalStorageInstance"
+    ],
+    "2023-11-01-preview": [
+      "AzureBareMetalStorageInstance"
     ]
   },
   "Batch": {
@@ -3965,6 +3968,13 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2022-08-03": [
+      "Gallery",
+      "GalleryApplication",
+      "GalleryApplicationVersion",
+      "GalleryImage",
+      "GalleryImageVersion"
     ],
     "2022-09-04": [
       "CloudService"
@@ -6656,6 +6666,19 @@
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
       "Workspace"
+    ],
+    "2023-11-01-preview": [
+      "AppAttachPackage",
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
     ]
   },
   "DevCenter": {
@@ -8144,6 +8167,9 @@
     ]
   },
   "EdgeMarketplace": {
+    "2023-08-01": [
+      "getOfferAccessToken"
+    ],
     "2023-08-01-preview": [
       "getOfferAccessToken"
     ]
@@ -8297,6 +8323,20 @@
       "listlistAssociatedTrafficFilter"
     ],
     "2023-10-01-preview": [
+      "Monitor",
+      "TagRule",
+      "getBillingInfo",
+      "getOrganizationApiKey",
+      "getOrganizationElasticToAzureSubscriptionMapping",
+      "listAllTrafficFilter",
+      "listConnectedPartnerResource",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
+    ],
+    "2023-11-01-preview": [
       "Monitor",
       "TagRule",
       "getBillingInfo",
@@ -8975,6 +9015,10 @@
       "DedicatedHsm"
     ],
     "2022-08-31-preview": [
+      "CloudHsmCluster",
+      "CloudHsmClusterPrivateEndpointConnection"
+    ],
+    "2023-12-10-preview": [
       "CloudHsmCluster",
       "CloudHsmClusterPrivateEndpointConnection"
     ]
@@ -11945,6 +11989,22 @@
     "2023-05-01": [
       "Account",
       "BackupPolicy",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2023-05-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
       "Pool",
       "Snapshot",
       "SnapshotPolicy",
@@ -19548,6 +19608,12 @@
       "StorageTarget",
       "amlFilesystem",
       "getRequiredAmlFSSubnetsSize"
+    ],
+    "2023-11-01-preview": [
+      "Cache",
+      "StorageTarget",
+      "amlFilesystem",
+      "getRequiredAmlFSSubnetsSize"
     ]
   },
   "StorageMover": {
@@ -19936,6 +20002,25 @@
       "TestBaseAccount",
       "getBillingHubServiceFreeHourBalance",
       "getBillingHubServiceUsage",
+      "getPackageDownloadURL",
+      "getTestBaseAccountFileUploadUrl",
+      "getTestResultConsoleLogDownloadURL",
+      "getTestResultDownloadURL",
+      "getTestResultVideoDownloadURL"
+    ],
+    "2023-11-01-preview": [
+      "ActionRequest",
+      "Credential",
+      "CustomImage",
+      "CustomerEvent",
+      "DraftPackage",
+      "FavoriteProcess",
+      "ImageDefinition",
+      "Package",
+      "TestBaseAccount",
+      "getBillingHubServiceFreeHourBalance",
+      "getBillingHubServiceUsage",
+      "getDraftPackagePath",
       "getPackageDownloadURL",
       "getTestBaseAccountFileUploadUrl",
       "getTestResultConsoleLogDownloadURL",

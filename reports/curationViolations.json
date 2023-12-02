@@ -260,6 +260,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "TestBase",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "Workloads",
     "Detail": "expected no additions but found some"
   }
