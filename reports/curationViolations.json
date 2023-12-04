@@ -228,10 +228,6 @@
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "NetworkCloud",
-    "Detail": "expected no additions but found some"
-  },
-  {
     "Provider": "NotificationHubs",
     "Detail": "expected tracking stable but found preview"
   },
@@ -257,6 +253,10 @@
   },
   {
     "Provider": "ServiceFabric",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "TestBase",
     "Detail": "expected no additions but found some"
   },
   {
