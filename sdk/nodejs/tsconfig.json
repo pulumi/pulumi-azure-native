@@ -6928,6 +6928,7 @@
         "insights/guestDiagnosticsSetting.ts",
         "insights/guestDiagnosticsSettingsAssociation.ts",
         "insights/index.ts",
+        "insights/listDiagnosticSettingsCategory.ts",
         "insights/listEASubscriptionListMigrationDatePost.ts",
         "insights/logProfile.ts",
         "insights/managementGroupDiagnosticSetting.ts",

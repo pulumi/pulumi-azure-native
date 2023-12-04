@@ -12,22 +12,38 @@ func TestListDiagnosticCategoriesShouldBeAdded(t *testing.T) {
 
 	version := NewVersionResources()
 
-	pathItem := spec.PathItem{
-		PathItemProps: spec.PathItemProps{
-			Get: &spec.Operation{
-				OperationProps: spec.OperationProps{
-					ID: "DiagnosticSettingsCategory_List",
+	swagger := Spec{
+
+		Swagger: spec.Swagger{
+			SwaggerProps: spec.SwaggerProps{
+				Info: &spec.Info{
+					InfoProps: spec.InfoProps{
+						Version: "2020-01-01",
+					},
+				},
+				Paths: &spec.Paths{
+					Paths: map[string]spec.PathItem{
+						path: {
+							PathItemProps: spec.PathItemProps{
+								Get: &spec.Operation{
+									OperationProps: spec.OperationProps{
+										ID: "DiagnosticSettingsCategory_List",
+									},
+								},
+							},
+						},
+					},
 				},
 			},
 		},
 	}
 
-	addGetFunctionIfRequired(version, pathItem, path, nil /* swagger */)
+	addResourcesAndInvokes(version, "/file/path", path, &swagger)
 
-	assert.Empty(t, version.POST_Invokes)
-	assert.NotEmpty(t, version.GET_Invokes)
+	assert.Empty(t, version.Resources)
+	assert.NotEmpty(t, version.Invokes)
 
-	invoke, ok := version.GET_Invokes["listDiagnosticSettingsCategory"]
+	invoke, ok := version.Invokes["listDiagnosticSettingsCategory"]
 	assert.True(t, ok)
 	assert.Equal(t, path, invoke.Path)
 }

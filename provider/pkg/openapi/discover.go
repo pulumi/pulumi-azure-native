@@ -49,16 +49,14 @@ type DiscoveryDiagnostics struct {
 
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {
-	Resources    map[ResourceName]*ResourceSpec
-	POST_Invokes map[InvokeName]*ResourceSpec
-	GET_Invokes  map[InvokeName]*ResourceSpec
+	Resources map[ResourceName]*ResourceSpec
+	Invokes   map[InvokeName]*ResourceSpec
 }
 
 func NewVersionResources() VersionResources {
 	return VersionResources{
-		Resources:    map[ResourceName]*ResourceSpec{},
-		POST_Invokes: map[InvokeName]*ResourceSpec{},
-		GET_Invokes:  map[InvokeName]*ResourceSpec{},
+		Resources: map[ResourceName]*ResourceSpec{},
+		Invokes:   map[InvokeName]*ResourceSpec{},
 	}
 }
 
@@ -69,10 +67,7 @@ type DefaultVersionLock = map[ProviderName]map[DefinitionName]ApiVersion
 
 func (v VersionResources) All() map[string]*ResourceSpec {
 	specs := map[string]*ResourceSpec{}
-	for s, resourceSpec := range v.POST_Invokes {
-		specs[s] = resourceSpec
-	}
-	for s, resourceSpec := range v.GET_Invokes {
+	for s, resourceSpec := range v.Invokes {
 		specs[s] = resourceSpec
 	}
 	for s, resourceSpec := range v.Resources {
@@ -162,7 +157,6 @@ func ApplyDeprecations(providers AzureProviders, deprecated ProviderVersionList)
 func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions map[ResourceName]ApiVersion, previousResourceVersions map[ResourceName]ApiVersion) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
-	getInvokes := map[string]*ResourceSpec{}
 	for _, resourceName := range codegen.SortedKeys(defaultResourceVersions) {
 		apiVersion := defaultResourceVersions[resourceName]
 		if versionResources, ok := versionMap[ApiToSdkVersion(apiVersion)]; ok {
@@ -170,7 +164,7 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 				resourceCopy := *resource
 				resourceCopy.PreviousVersion = previousResourceVersions[resourceName]
 				resources[resourceName] = &resourceCopy
-			} else if invoke, ok := versionResources.POST_Invokes[resourceName]; ok {
+			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
 				invokeCopy := *invoke
 				invokeCopy.PreviousVersion = previousResourceVersions[resourceName]
 				invokes[resourceName] = &invokeCopy
@@ -178,9 +172,8 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 		}
 	}
 	return VersionResources{
-		Resources:    resources,
-		POST_Invokes: invokes,
-		GET_Invokes:  getInvokes,
+		Resources: resources,
+		Invokes:   invokes,
 	}
 }
 
@@ -371,6 +364,12 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		versionMap[apiVersion] = version
 	}
 
+	return addResourcesAndInvokes(version, fileLocation, path, swagger)
+}
+
+func addResourcesAndInvokes(version VersionResources, fileLocation, path string, swagger *Spec) []resources.NameDisambiguation {
+	apiVersion := ApiToSdkVersion(swagger.Info.Version)
+
 	pathItem := swagger.Paths.Paths[path]
 	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]
 
@@ -391,7 +390,27 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		return nameDisambiguations
 	}
 
-	// Add a resource entry.
+	// Add a resource entry, if appropriate HTTP endpoints are defined.
+	foundResourceOrInvoke := false
+	addResource := func(typeName string, defaultBody map[string]interface{}, pathItemList *spec.PathItem) {
+		version.Resources[typeName] = &ResourceSpec{
+			Path:         path,
+			PathItem:     &pathItem,
+			Swagger:      swagger,
+			DefaultBody:  defaultBody,
+			PathItemList: pathItemList,
+		}
+		foundResourceOrInvoke = true
+	}
+	addInvoke := func(typeName string) {
+		version.Invokes[typeName] = &ResourceSpec{
+			Path:     path,
+			PathItem: &pathItem,
+			Swagger:  swagger,
+		}
+		foundResourceOrInvoke = true
+	}
+
 	if pathItem.Put != nil && !pathItem.Put.Deprecated {
 		hasDelete := pathItem.Delete != nil && !pathItem.Delete.Deprecated
 
@@ -414,12 +433,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 				if defaultState != nil {
 					defaultBody = defaultState.State
 				}
-				version.Resources[typeName] = &ResourceSpec{
-					Path:        path,
-					PathItem:    &pathItem,
-					Swagger:     swagger,
-					DefaultBody: defaultBody,
-				}
+				addResource(typeName, defaultBody, nil /* pathItemList */)
 			}
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
 			typeName, disambiguation := resources.ResourceName(pathItem.Head.ID, path)
@@ -429,11 +443,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
-				version.Resources[typeName] = &ResourceSpec{
-					Path:     path,
-					PathItem: &pathItem,
-					Swagger:  swagger,
-				}
+				addResource(typeName, nil /* defaultBody */, nil /* pathItemList */)
 			}
 		case hasList:
 			var typeName string
@@ -461,13 +471,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
-				version.Resources[typeName] = &ResourceSpec{
-					Path:         path,
-					PathItem:     &pathItem,
-					PathItemList: &pathItemList,
-					Swagger:      swagger,
-					DefaultBody:  defaultBody,
-				}
+				addResource(typeName, defaultBody, &pathItemList)
 			}
 		}
 	}
@@ -482,12 +486,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 			}
-			version.Resources[typeName] = &ResourceSpec{
-				Path:        path,
-				PathItem:    &pathItem,
-				Swagger:     swagger,
-				DefaultBody: defaultState.State,
-			}
+			addResource(typeName, defaultState.State, nil /* pathItemList */)
 		}
 	}
 
@@ -516,46 +515,29 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		}
 
 		typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
-		nameDisambiguations = recordDisambiguation(disambiguation)
-
 		if typeName != "" {
-			version.POST_Invokes[prefix+typeName] = &ResourceSpec{
-				Path:     path,
-				PathItem: &pathItem,
-				Swagger:  swagger,
-			}
+			addInvoke(prefix + typeName)
+			nameDisambiguations = recordDisambiguation(disambiguation)
 		}
 	}
 
-	disambiguation := addGetFunctionIfRequired(version, pathItem, path, swagger)
-	nameDisambiguations = recordDisambiguation(disambiguation)
+	// Add an invoke if a GET endpoint is defined, but only if we haven't added a resource for this path yet.
+	// Resources can be read through the Pulumi resource model without a dedicated invoke.
+	if !foundResourceOrInvoke && pathItem.Get != nil && shouldIncludeInvoke(path, pathItem.Get) {
+		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
+		if typeName != "" {
+			operation := operationFromOperationID(pathItem.Get.OperationProps.ID)
+			prefix := "get"
+			if operation == "list" {
+				prefix = "list"
+			}
+
+			addInvoke(prefix + typeName)
+			recordDisambiguation(disambiguation)
+		}
+	}
 
 	return nameDisambiguations
-}
-
-// Check if this GET operation is one we want to include. If so, create a resource name and
-// record an accordingly named GET invoke in `version`. Return the resource name disambiguation,
-// which may be nil.
-func addGetFunctionIfRequired(version VersionResources, pathItem spec.PathItem, path string, swagger *Spec) *resources.NameDisambiguation {
-	if pathItem.Get == nil || !shouldIncludeGETInvoke(path, pathItem.Get) {
-		return nil
-	}
-
-	typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
-	if typeName != "" {
-		operation := operationFromOperationID(pathItem.Get.OperationProps.ID)
-		prefix := "get"
-		if operation == "list" {
-			prefix = "list"
-		}
-
-		version.GET_Invokes[prefix+typeName] = &ResourceSpec{
-			Path:     path,
-			PathItem: &pathItem,
-			Swagger:  swagger,
-		}
-	}
-	return disambiguation
 }
 
 // DiagnosticSettingsCategory_List -> list

@@ -322,8 +322,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			}
 
 			// Populate invokes.
-			gen.genInvokes(items.POST_Invokes, "POST")
-			gen.genInvokes(items.GET_Invokes, "GET")
+			gen.genInvokes(items.Invokes)
 			warnings = append(warnings, gen.warnings...)
 		}
 	}
@@ -388,7 +387,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	}, nil
 }
 
-func (g *packageGenerator) genInvokes(invokes map[string]*openapi.ResourceSpec, httpMethod string) {
+func (g *packageGenerator) genInvokes(invokes map[string]*openapi.ResourceSpec) {
 	var invokeNames []string
 	for invokeName := range invokes {
 		invokeNames = append(invokeNames, invokeName)
@@ -398,14 +397,12 @@ func (g *packageGenerator) genInvokes(invokes map[string]*openapi.ResourceSpec, 
 	for _, invokeName := range invokeNames {
 		invoke := invokes[invokeName]
 
-		var op *spec.Operation
-		switch httpMethod {
-		case "POST":
-			op = invoke.PathItem.Post
-		case "GET":
+		op := invoke.PathItem.Post
+		if op == nil {
 			op = invoke.PathItem.Get
-		default:
-			panic(fmt.Sprintf("Unsupported HTTP method %s", httpMethod))
+		}
+		if op == nil {
+			panic(fmt.Sprintf("Invoke %s has no POST or GET operation", invokeName))
 		}
 
 		g.genFunctions(invokeName, invoke.Path, invoke.PathItem.Parameters, op, invoke.Swagger)

@@ -281,7 +281,7 @@ func findRemovedInvokesFromResources(providers openapi.AzureProviders, removedRe
 					continue
 				}
 			}
-			for invokeName, invoke := range resources.POST_Invokes {
+			for invokeName, invoke := range resources.Invokes {
 				fullyQualifiedName := openapi.ToFullyQualifiedName(provider, invokeName, version)
 				// Check if the "resource" removal is actually an invoke.
 				if removedResources.CanBeRemoved(provider, invokeName, version) {

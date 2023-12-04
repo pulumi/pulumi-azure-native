@@ -73,7 +73,7 @@ func TestSqueezeSimple(t *testing.T) {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
 					},
 				},
-				POST_Invokes: map[InvokeName]*ResourceSpec{
+				Invokes: map[InvokeName]*ResourceSpec{
 					"invokeA": {
 						// Sits under resourceA
 						Path: "/someprefix/Microsoft.Foo/res1/{res2Name}/invokeA",
@@ -81,12 +81,6 @@ func TestSqueezeSimple(t *testing.T) {
 					"invokeB": {
 						// Sits under resourceB
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}/invokeB",
-					},
-				},
-				GET_Invokes: map[InvokeName]*ResourceSpec{
-					"invokeC": {
-						// Sits under resourceA
-						Path: "/someprefix/Microsoft.Foo/res1/{res2Name}/invokeC",
 					},
 				},
 			},
@@ -99,8 +93,7 @@ func TestSqueezeSimple(t *testing.T) {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
 					},
 				},
-				POST_Invokes: map[InvokeName]*ResourceSpec{},
-				GET_Invokes:  map[InvokeName]*ResourceSpec{},
+				Invokes: map[InvokeName]*ResourceSpec{},
 			},
 		},
 	}
@@ -119,12 +112,11 @@ func TestSqueezeSimple(t *testing.T) {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
 					},
 				},
-				POST_Invokes: map[InvokeName]*ResourceSpec{
+				Invokes: map[InvokeName]*ResourceSpec{
 					"invokeB": {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}/invokeB",
 					},
 				},
-				GET_Invokes: map[InvokeName]*ResourceSpec{},
 			},
 			"version2": {
 				Resources: map[ResourceName]*ResourceSpec{
@@ -135,8 +127,7 @@ func TestSqueezeSimple(t *testing.T) {
 						Path: "/someprefix/Microsoft.Foo/res2/{res2Name}",
 					},
 				},
-				POST_Invokes: map[InvokeName]*ResourceSpec{},
-				GET_Invokes:  map[InvokeName]*ResourceSpec{},
+				Invokes: map[InvokeName]*ResourceSpec{},
 			},
 		},
 	}
