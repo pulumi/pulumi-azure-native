@@ -2461,12 +2461,18 @@
     "DocumentProcessor": "2022-09-15-preview"
   },
   "TestBase": {
+    "ActionRequest": "2023-11-01-preview",
+    "Credential": "2023-11-01-preview",
+    "CustomImage": "2023-11-01-preview",
     "CustomerEvent": "2022-04-01-preview",
+    "DraftPackage": "2023-11-01-preview",
     "FavoriteProcess": "2022-04-01-preview",
+    "ImageDefinition": "2023-11-01-preview",
     "Package": "2022-04-01-preview",
     "TestBaseAccount": "2022-04-01-preview",
     "getBillingHubServiceFreeHourBalance": "2022-04-01-preview",
     "getBillingHubServiceUsage": "2022-04-01-preview",
+    "getDraftPackagePath": "2023-11-01-preview",
     "getPackageDownloadURL": "2022-04-01-preview",
     "getTestBaseAccountFileUploadUrl": "2022-04-01-preview",
     "getTestResultConsoleLogDownloadURL": "2022-04-01-preview",
