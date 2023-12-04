@@ -255,6 +255,11 @@ export type GuestDiagnosticsSettingsAssociation = import("./guestDiagnosticsSett
 export const GuestDiagnosticsSettingsAssociation: typeof import("./guestDiagnosticsSettingsAssociation").GuestDiagnosticsSettingsAssociation = null as any;
 utilities.lazyLoad(exports, ["GuestDiagnosticsSettingsAssociation"], () => require("./guestDiagnosticsSettingsAssociation"));
 
+export { ListDiagnosticSettingsCategoryArgs, ListDiagnosticSettingsCategoryResult, ListDiagnosticSettingsCategoryOutputArgs } from "./listDiagnosticSettingsCategory";
+export const listDiagnosticSettingsCategory: typeof import("./listDiagnosticSettingsCategory").listDiagnosticSettingsCategory = null as any;
+export const listDiagnosticSettingsCategoryOutput: typeof import("./listDiagnosticSettingsCategory").listDiagnosticSettingsCategoryOutput = null as any;
+utilities.lazyLoad(exports, ["listDiagnosticSettingsCategory","listDiagnosticSettingsCategoryOutput"], () => require("./listDiagnosticSettingsCategory"));
+
 export { ListEASubscriptionListMigrationDatePostArgs, ListEASubscriptionListMigrationDatePostResult } from "./listEASubscriptionListMigrationDatePost";
 export const listEASubscriptionListMigrationDatePost: typeof import("./listEASubscriptionListMigrationDatePost").listEASubscriptionListMigrationDatePost = null as any;
 export const listEASubscriptionListMigrationDatePostOutput: typeof import("./listEASubscriptionListMigrationDatePost").listEASubscriptionListMigrationDatePostOutput = null as any;

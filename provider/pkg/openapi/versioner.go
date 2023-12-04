@@ -119,10 +119,7 @@ func RemoveResources(providers AzureProviders, removable RemovableResources) Azu
 	for provider, versions := range providers {
 		newVersions := ProviderVersions{}
 		for version, resources := range versions {
-			filteredResources := VersionResources{
-				Resources: map[string]*ResourceSpec{},
-				Invokes:   map[string]*ResourceSpec{},
-			}
+			filteredResources := NewVersionResources()
 			removedResourcePaths := []string{}
 			for resourceName, resource := range resources.Resources {
 				if removable.CanBeRemoved(provider, resourceName, version) {

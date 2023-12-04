@@ -56,6 +56,7 @@ from .get_workbook import *
 from .get_workbook_template import *
 from .guest_diagnostics_setting import *
 from .guest_diagnostics_settings_association import *
+from .list_diagnostic_settings_category import *
 from .list_ea_subscription_list_migration_date_post import *
 from .log_profile import *
 from .management_group_diagnostic_setting import *

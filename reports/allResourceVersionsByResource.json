@@ -9669,6 +9669,10 @@
     "guestDiagnosticsSetting": [
       "2018-06-01-preview"
     ],
+    "listDiagnosticSettingsCategory": [
+      "2017-05-01-preview",
+      "2021-05-01-preview"
+    ],
     "listEASubscriptionListMigrationDatePost": [
       "2017-10-01"
     ]

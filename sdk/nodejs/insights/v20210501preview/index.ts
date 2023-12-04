@@ -25,6 +25,11 @@ export const getSubscriptionDiagnosticSetting: typeof import("./getSubscriptionD
 export const getSubscriptionDiagnosticSettingOutput: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriptionDiagnosticSetting","getSubscriptionDiagnosticSettingOutput"], () => require("./getSubscriptionDiagnosticSetting"));
 
+export { ListDiagnosticSettingsCategoryArgs, ListDiagnosticSettingsCategoryResult, ListDiagnosticSettingsCategoryOutputArgs } from "./listDiagnosticSettingsCategory";
+export const listDiagnosticSettingsCategory: typeof import("./listDiagnosticSettingsCategory").listDiagnosticSettingsCategory = null as any;
+export const listDiagnosticSettingsCategoryOutput: typeof import("./listDiagnosticSettingsCategory").listDiagnosticSettingsCategoryOutput = null as any;
+utilities.lazyLoad(exports, ["listDiagnosticSettingsCategory","listDiagnosticSettingsCategoryOutput"], () => require("./listDiagnosticSettingsCategory"));
+
 export { ManagementGroupDiagnosticSettingArgs } from "./managementGroupDiagnosticSetting";
 export type ManagementGroupDiagnosticSetting = import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting;
 export const ManagementGroupDiagnosticSetting: typeof import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting = null as any;

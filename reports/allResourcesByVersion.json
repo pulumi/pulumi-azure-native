@@ -9406,7 +9406,8 @@
     ],
     "2017-05-01-preview": [
       "DiagnosticSetting",
-      "SubscriptionDiagnosticSetting"
+      "SubscriptionDiagnosticSetting",
+      "listDiagnosticSettingsCategory"
     ],
     "2017-10-01": [
       "listEASubscriptionListMigrationDatePost"
@@ -9503,7 +9504,8 @@
       "AutoscaleSetting",
       "DiagnosticSetting",
       "ManagementGroupDiagnosticSetting",
-      "SubscriptionDiagnosticSetting"
+      "SubscriptionDiagnosticSetting",
+      "listDiagnosticSettingsCategory"
     ],
     "2021-07-01-preview": [
       "PrivateEndpointConnection",

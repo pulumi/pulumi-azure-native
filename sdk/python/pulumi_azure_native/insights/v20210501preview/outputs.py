@@ -11,6 +11,7 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
+    'DiagnosticSettingsCategoryResourceResponse',
     'LogSettingsResponse',
     'ManagementGroupLogSettingsResponse',
     'MetricSettingsResponse',
@@ -18,6 +19,85 @@ __all__ = [
     'SubscriptionLogSettingsResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class DiagnosticSettingsCategoryResourceResponse(dict):
+    """
+    The diagnostic settings category resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 category_groups: Optional[Sequence[str]] = None,
+                 category_type: Optional[str] = None):
+        """
+        The diagnostic settings category resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: The system metadata related to this resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param Sequence[str] category_groups: the collection of what category groups are supported.
+        :param str category_type: The type of the diagnostic settings category.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if category_groups is not None:
+            pulumi.set(__self__, "category_groups", category_groups)
+        if category_type is not None:
+            pulumi.set(__self__, "category_type", category_type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata related to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="categoryGroups")
+    def category_groups(self) -> Optional[Sequence[str]]:
+        """
+        the collection of what category groups are supported.
+        """
+        return pulumi.get(self, "category_groups")
+
+    @property
+    @pulumi.getter(name="categoryType")
+    def category_type(self) -> Optional[str]:
+        """
+        The type of the diagnostic settings category.
+        """
+        return pulumi.get(self, "category_type")
+
 
 @pulumi.output_type
 class LogSettingsResponse(dict):

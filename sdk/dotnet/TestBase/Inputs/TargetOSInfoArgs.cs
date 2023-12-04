@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.TestBase.Inputs
         [Input("osUpdateType", required: true)]
         public Input<string> OsUpdateType { get; set; } = null!;
 
-        [Input("targetOSs", required: true)]
+        [Input("targetOSs")]
         private InputList<string>? _targetOSs;
 
         /// <summary>

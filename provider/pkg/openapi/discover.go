@@ -53,6 +53,13 @@ type VersionResources struct {
 	Invokes   map[InvokeName]*ResourceSpec
 }
 
+func NewVersionResources() VersionResources {
+	return VersionResources{
+		Resources: map[ResourceName]*ResourceSpec{},
+		Invokes:   map[InvokeName]*ResourceSpec{},
+	}
+}
+
 type ProviderVersionList = map[ProviderName][]ApiVersion
 
 // DefaultVersionLock is an amalgamation of multiple API versions
@@ -353,14 +360,18 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	apiVersion := ApiToSdkVersion(swagger.Info.Version)
 	version, ok := versionMap[apiVersion]
 	if !ok {
-		version = VersionResources{
-			Resources: map[string]*ResourceSpec{},
-			Invokes:   map[string]*ResourceSpec{},
-		}
+		version = NewVersionResources()
 		versionMap[apiVersion] = version
 	}
 
+	return addResourcesAndInvokes(version, fileLocation, path, swagger)
+}
+
+func addResourcesAndInvokes(version VersionResources, fileLocation, path string, swagger *Spec) []resources.NameDisambiguation {
+	apiVersion := ApiToSdkVersion(swagger.Info.Version)
+
 	pathItem := swagger.Paths.Paths[path]
+	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]
 
 	if ok := resources.HasCustomDelete(path); ok {
 		pathItem.Delete = &spec.Operation{
@@ -370,9 +381,36 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		}
 	}
 
-	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]
 	var nameDisambiguations []resources.NameDisambiguation
-	// Add a resource entry.
+	recordDisambiguation := func(disambiguation *resources.NameDisambiguation) []resources.NameDisambiguation {
+		if disambiguation != nil {
+			disambiguation.FileLocation = fileLocation
+			nameDisambiguations = append(nameDisambiguations, *disambiguation)
+		}
+		return nameDisambiguations
+	}
+
+	// Add a resource entry, if appropriate HTTP endpoints are defined.
+	foundResourceOrInvoke := false
+	addResource := func(typeName string, defaultBody map[string]interface{}, pathItemList *spec.PathItem) {
+		version.Resources[typeName] = &ResourceSpec{
+			Path:         path,
+			PathItem:     &pathItem,
+			Swagger:      swagger,
+			DefaultBody:  defaultBody,
+			PathItemList: pathItemList,
+		}
+		foundResourceOrInvoke = true
+	}
+	addInvoke := func(typeName string) {
+		version.Invokes[typeName] = &ResourceSpec{
+			Path:     path,
+			PathItem: &pathItem,
+			Swagger:  swagger,
+		}
+		foundResourceOrInvoke = true
+	}
+
 	if pathItem.Put != nil && !pathItem.Put.Deprecated {
 		hasDelete := pathItem.Delete != nil && !pathItem.Delete.Deprecated
 
@@ -385,10 +423,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			}
 
 			typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
-			if disambiguation != nil {
-				disambiguation.FileLocation = fileLocation
-				nameDisambiguations = append(nameDisambiguations, *disambiguation)
-			}
+			nameDisambiguations = recordDisambiguation(disambiguation)
 
 			if typeName != "" && (hasDelete || defaultState != nil) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
@@ -398,28 +433,17 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 				if defaultState != nil {
 					defaultBody = defaultState.State
 				}
-				version.Resources[typeName] = &ResourceSpec{
-					Path:        path,
-					PathItem:    &pathItem,
-					Swagger:     swagger,
-					DefaultBody: defaultBody,
-				}
+				addResource(typeName, defaultBody, nil /* pathItemList */)
 			}
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
 			typeName, disambiguation := resources.ResourceName(pathItem.Head.ID, path)
-			if disambiguation != nil {
-				disambiguation.FileLocation = fileLocation
-				nameDisambiguations = append(nameDisambiguations, *disambiguation)
-			}
+			nameDisambiguations = recordDisambiguation(disambiguation)
+
 			if typeName != "" && hasDelete {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
-				version.Resources[typeName] = &ResourceSpec{
-					Path:     path,
-					PathItem: &pathItem,
-					Swagger:  swagger,
-				}
+				addResource(typeName, nil /* defaultBody */, nil /* pathItemList */)
 			}
 		case hasList:
 			var typeName string
@@ -430,10 +454,8 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			case pathItemList.Post != nil && !pathItemList.Post.Deprecated:
 				typeName, disambiguation = resources.ResourceName(pathItemList.Post.ID, path)
 			}
-			if disambiguation != nil {
-				disambiguation.FileLocation = fileLocation
-				nameDisambiguations = append(nameDisambiguations, *disambiguation)
-			}
+			nameDisambiguations = recordDisambiguation(disambiguation)
+
 			if typeName != "" {
 				var defaultBody map[string]interface{}
 				defaultState := defaults.GetDefaultResourceState(path)
@@ -449,13 +471,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
-				version.Resources[typeName] = &ResourceSpec{
-					Path:         path,
-					PathItem:     &pathItem,
-					PathItemList: &pathItemList,
-					Swagger:      swagger,
-					DefaultBody:  defaultBody,
-				}
+				addResource(typeName, defaultBody, &pathItemList)
 			}
 		}
 	}
@@ -464,20 +480,13 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
 		defaultState := defaults.GetDefaultResourceState(path)
 		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
-		if disambiguation != nil {
-			disambiguation.FileLocation = fileLocation
-			nameDisambiguations = append(nameDisambiguations, *disambiguation)
-		}
+		nameDisambiguations = recordDisambiguation(disambiguation)
+
 		if typeName != "" && defaultState != nil {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 			}
-			version.Resources[typeName] = &ResourceSpec{
-				Path:        path,
-				PathItem:    &pathItem,
-				Swagger:     swagger,
-				DefaultBody: defaultState.State,
-			}
+			addResource(typeName, defaultState.State, nil /* pathItemList */)
 		}
 	}
 
@@ -485,8 +494,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	if pathItem.Post != nil && !pathItem.Post.Deprecated {
 		parts := strings.Split(path, "/")
 		operationName := strings.ToLower(parts[len(parts)-1])
-		parts = strings.Split(pathItem.Post.OperationProps.ID, "_")
-		operationId := strings.ToLower(parts[len(parts)-1])
+		operationId := operationFromOperationID(pathItem.Post.OperationProps.ID)
 		prefix := ""
 		switch {
 		case strings.HasPrefix(operationName, "list"):
@@ -507,17 +515,33 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		}
 
 		typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
-		if disambiguation != nil {
-			disambiguation.FileLocation = fileLocation
-			nameDisambiguations = append(nameDisambiguations, *disambiguation)
-		}
 		if typeName != "" {
-			version.Invokes[prefix+typeName] = &ResourceSpec{
-				Path:     path,
-				PathItem: &pathItem,
-				Swagger:  swagger,
-			}
+			addInvoke(prefix + typeName)
+			nameDisambiguations = recordDisambiguation(disambiguation)
 		}
 	}
+
+	// Add an invoke if a GET endpoint is defined, but only if we haven't added a resource for this path yet.
+	// Resources can be read through the Pulumi resource model without a dedicated invoke.
+	if !foundResourceOrInvoke && pathItem.Get != nil && shouldIncludeInvoke(path, pathItem.Get) {
+		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
+		if typeName != "" {
+			operation := operationFromOperationID(pathItem.Get.OperationProps.ID)
+			prefix := "get"
+			if operation == "list" {
+				prefix = "list"
+			}
+
+			addInvoke(prefix + typeName)
+			recordDisambiguation(disambiguation)
+		}
+	}
+
 	return nameDisambiguations
+}
+
+// DiagnosticSettingsCategory_List -> list
+func operationFromOperationID(opID string) string {
+	parts := strings.Split(opID, "_")
+	return strings.ToLower(parts[len(parts)-1])
 }
