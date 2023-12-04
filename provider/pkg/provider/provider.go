@@ -12,6 +12,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"reflect"
 	"regexp"
 	"strings"
 	"time"
@@ -1055,19 +1056,23 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 		// The current approach is complicated but it's aimed to minimize the noise while refreshing:
 		// 0. We have "old" inputs and outputs before refresh and "new" outputs read from Azure.
-		// 1. Project old outputs to their corresponding input shape (exclude read-only properties).
-		oldInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, oldState.Mappable())
-		// 2a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
+
+		// 1. If we previously reset inputs to their default value, remove them so we don't get them in
+		// the projected output. This would cause unnecessary changes on refresh.
+		plainOldState := mappableOldState(res, oldState)
+		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
+		oldInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, plainOldState)
+		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
 		// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
 		outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, &res)
-		// 2b. Project new outputs to their corresponding input shape (exclude read-only properties).
+		// 3b. Project new outputs to their corresponding input shape (exclude read-only properties).
 		newInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, outputsWithoutIgnores)
-		// 3. Calculate the difference between two projections. This should give us actual significant changes
+		// 4. Calculate the difference between two projections. This should give us actual significant changes
 		// that happened in Azure between the last resource update and its current state.
 		oldInputPropertyMap := resource.NewPropertyMapFromMap(oldInputProjection)
 		newInputPropertyMap := resource.NewPropertyMapFromMap(newInputProjection)
 		diff := oldInputPropertyMap.Diff(newInputPropertyMap)
-		// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
+		// 5. Apply this difference to the actual inputs (not a projection) that we have in state.
 		inputs = applyDiff(inputs, diff)
 	}
 
@@ -1092,6 +1097,19 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	return &rpc.ReadResponse{Id: id, Properties: checkpoint, Inputs: inputsRecord}, nil
+}
+
+// Converts oldState into a serializable object map, with the resource's default values from metadata removed.
+func mappableOldState(res resources.AzureAPIResource, oldState resource.PropertyMap) map[string]interface{} {
+	plainOldState := oldState.Mappable()
+	for property, defaultValue := range res.DefaultProperties {
+		val, ok := plainOldState[property]
+		if ok && reflect.DeepEqual(val, defaultValue) {
+			logging.V(5).Infof("removing property %q with default value from old state", property)
+			delete(plainOldState, property)
+		}
+	}
+	return plainOldState
 }
 
 func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]interface{}, oldInputs resource.PropertyMap, res *resources.AzureAPIResource) map[string]interface{} {
@@ -1199,7 +1217,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		}, nil
 	}
 
-	adjustInputsForSpecialCases(inputs, resourceKey, readOlds)
+	restoreDefaultInputsForRemovedProperties(inputs, res, readOlds)
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
@@ -1265,29 +1283,24 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}, nil
 }
 
-// Add or modify certain inputs of certain resourcesto make updates conform to the Pulumi resource model.
-func adjustInputsForSpecialCases(inputs resource.PropertyMap, resourceKey string, readOlds func() (resource.PropertyMap, error)) error {
-	// Special case for storage accounts: if networkRuleSet was specified and then removed, set it
-	// back to the default value because Azure will interpret omission as "no changes".
-	// https://github.com/pulumi/pulumi-azure-native/issues/2507
-	keyParts := strings.Split(resourceKey, ":")
-	if len(keyParts) == 3 && keyParts[2] == "StorageAccount" && (keyParts[1] == "storage" || strings.HasPrefix(keyParts[1], "storage/")) {
-		oldState, err := readOlds()
+func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res resources.AzureAPIResource, readOlds func() (resource.PropertyMap, error)) error {
+	var oldState resource.PropertyMap
+	if res.DefaultProperties != nil {
+		var err error
+		oldState, err = readOlds()
 		if err != nil {
 			return err
 		}
+	}
 
-		networkRuleSet := resource.PropertyKey("networkRuleSet")
-		if !inputs.HasValue(networkRuleSet) && oldState.HasValue(networkRuleSet) {
-			defaultNetworkRuleSetJson := map[string]interface{}{
-				"bypass":              "AzureServices",
-				"defaultAction":       "Allow",
-				"ipRules":             []interface{}{},
-				"virtualNetworkRules": []interface{}{},
-			}
-			inputs[networkRuleSet] = resource.NewPropertyValue(defaultNetworkRuleSetJson)
+	for property, defaultValue := range res.DefaultProperties {
+		key := resource.PropertyKey(property)
+		if !inputs.HasValue(key) && oldState.HasValue(key) {
+			logging.V(5).Infof("setting removed property %q to default value", property)
+			inputs[key] = resource.NewPropertyValue(defaultValue)
 		}
 	}
+
 	return nil
 }
 

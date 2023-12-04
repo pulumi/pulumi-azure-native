@@ -107,6 +107,8 @@ type AzureAPIResource struct {
 	AutoLocationDisabled bool `json:"autoLocationDisabled,omitempty"`
 	// Containers within the request body that are required even if no properties are set within it.
 	RequiredContainers [][]string `json:"requiredContainers,omitempty"`
+	// Default values to be used when the property is removed or in importing. Must be top-level properties.
+	DefaultProperties map[string]interface{}
 }
 
 func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {

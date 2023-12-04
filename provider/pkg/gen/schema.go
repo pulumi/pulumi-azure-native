@@ -871,6 +871,21 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
 		RequiredContainers:   requiredContainers,
 	}
+
+	// Special case for storage accounts: if networkRuleSet was specified and then removed, set it
+	// back to the default value because Azure will interpret omission as "no changes".
+	// https://github.com/pulumi/pulumi-azure-native/issues/2507
+	if resource.typeName == "StorageAccount" {
+		r.DefaultProperties = map[string]interface{}{
+			"networkRuleSet": map[string]interface{}{
+				"bypass":              "AzureServices",
+				"defaultAction":       "Allow",
+				"ipRules":             []interface{}{},
+				"virtualNetworkRules": []interface{}{},
+			},
+		}
+	}
+
 	g.metadata.Resources[resourceTok] = r
 
 	g.generateExampleReferences(resourceTok, path, swagger)
