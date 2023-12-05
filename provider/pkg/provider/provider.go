@@ -12,6 +12,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"reflect"
 	"regexp"
 	"strings"
 	"time"
@@ -1055,19 +1056,23 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 		// The current approach is complicated but it's aimed to minimize the noise while refreshing:
 		// 0. We have "old" inputs and outputs before refresh and "new" outputs read from Azure.
-		// 1. Project old outputs to their corresponding input shape (exclude read-only properties).
-		oldInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, oldState.Mappable())
-		// 2a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
+
+		// 1. If we previously reset inputs to their default value, remove them so we don't get them in
+		// the projected output. This would cause unnecessary changes on refresh.
+		plainOldState := mappableOldState(res, oldState)
+		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
+		oldInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, plainOldState)
+		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
 		// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
 		outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, &res)
-		// 2b. Project new outputs to their corresponding input shape (exclude read-only properties).
+		// 3b. Project new outputs to their corresponding input shape (exclude read-only properties).
 		newInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, outputsWithoutIgnores)
-		// 3. Calculate the difference between two projections. This should give us actual significant changes
+		// 4. Calculate the difference between two projections. This should give us actual significant changes
 		// that happened in Azure between the last resource update and its current state.
 		oldInputPropertyMap := resource.NewPropertyMapFromMap(oldInputProjection)
 		newInputPropertyMap := resource.NewPropertyMapFromMap(newInputProjection)
 		diff := oldInputPropertyMap.Diff(newInputPropertyMap)
-		// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
+		// 5. Apply this difference to the actual inputs (not a projection) that we have in state.
 		inputs = applyDiff(inputs, diff)
 	}
 
@@ -1092,6 +1097,19 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	return &rpc.ReadResponse{Id: id, Properties: checkpoint, Inputs: inputsRecord}, nil
+}
+
+// Converts oldState into a serializable object map, with the resource's default values from metadata removed.
+func mappableOldState(res resources.AzureAPIResource, oldState resource.PropertyMap) map[string]interface{} {
+	plainOldState := oldState.Mappable()
+	for property, defaultValue := range res.DefaultProperties {
+		val, ok := plainOldState[property]
+		if ok && reflect.DeepEqual(val, defaultValue) {
+			logging.V(5).Infof("removing property %q with default value from old state", property)
+			delete(plainOldState, property)
+		}
+	}
+	return plainOldState
 }
 
 func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]interface{}, oldInputs resource.PropertyMap, res *resources.AzureAPIResource) map[string]interface{} {
@@ -1161,18 +1179,18 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
+	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
 	if req.GetPreview() {
 		// The preview outputs are inputs + a limited list of outputs that are universally immutable.
 		// We know that their values won't change, so it's safe to propagate the values to dependent
 		// resources during the preview.
 		outputs := k.converter.PreviewOutputs(inputs, res.Response)
-
-		oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
-		})
-		if err != nil {
-			return nil, err
-		}
 
 		stableOutputs := []string{"name", "location"}
 		for _, name := range stableOutputs {
@@ -1194,6 +1212,8 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			Properties: previewOutputs,
 		}, nil
 	}
+
+	restoreDefaultInputsForRemovedProperties(inputs, res, oldState)
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
@@ -1257,6 +1277,18 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	return &rpc.UpdateResponse{
 		Properties: checkpoint,
 	}, nil
+}
+
+func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res resources.AzureAPIResource, oldState resource.PropertyMap) error {
+	for property, defaultValue := range res.DefaultProperties {
+		key := resource.PropertyKey(property)
+		if !inputs.HasValue(key) && oldState.HasValue(key) {
+			logging.V(5).Infof("setting removed property %q to default value", property)
+			inputs[key] = resource.NewPropertyValue(defaultValue)
+		}
+	}
+
+	return nil
 }
 
 // Delete tears down an existing resource with the given ID. If it fails, the resource is assumed

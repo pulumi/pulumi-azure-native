@@ -870,6 +870,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		ReadPath:             readPath,
 		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
 		RequiredContainers:   requiredContainers,
+		DefaultProperties:    propertyDefaults(module, resource.typeName),
 	}
 	g.metadata.Resources[resourceTok] = r
 

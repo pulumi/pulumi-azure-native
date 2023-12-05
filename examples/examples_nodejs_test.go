@@ -157,6 +157,44 @@ func TestVnetSubnetsResolution(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestStorageAccountNetworkRule(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "storageaccount-networkrule"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join("storageaccount-networkrule", "step2"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						assert.NotNil(t, stackInfo.Deployment)
+						assert.NotNil(t, stackInfo.Deployment.Resources)
+
+						found := false
+						for _, resource := range stackInfo.Deployment.Resources {
+							if resource.Type == "azure-native:storage:StorageAccount" {
+								found = true
+
+								networkRuleSet, ok := resource.Outputs["networkRuleSet"]
+								assert.True(t, ok)
+								networkRuleSetMap, ok := networkRuleSet.(map[string]interface{})
+								assert.True(t, ok)
+
+								assert.Equal(t, "Allow", networkRuleSetMap["defaultAction"])
+								assert.Empty(t, networkRuleSetMap["ipRules"])
+
+								break
+							}
+						}
+						assert.True(t, found, "no storage account found in deployed resources")
+					},
+				},
+			},
+			Verbose: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
