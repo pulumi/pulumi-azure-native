@@ -18,6 +18,96 @@
       "ResourceName": "Volume",
       "Version": "v20230301preview",
       "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "BareMetalMachine",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "BareMetalMachineKeySet",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "BmcKeySet",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "CloudServicesNetwork",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "Cluster",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "ClusterManager",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "Console",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "L2Network",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "L3Network",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "MetricsConfiguration",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "Rack",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "StorageAppliance",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "TrunkedNetwork",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "VirtualMachine",
+      "Version": "v20221212preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "NetworkCloud",
+      "ResourceName": "Volume",
+      "Version": "v20221212preview",
+      "IsPrevious": true
     }
   ]
 }
