@@ -45,9 +45,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly bool? DisableCertValidation;
         /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
         /// </summary>
         public readonly object? Headers;
+        /// <summary>
+        /// Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
+        /// </summary>
+        public readonly object? HttpRequestTimeout;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -76,6 +80,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Activity state. This is an optional property and if not provided, the state will be Active by default.
         /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// Option to disable invoking HTTP GET on location given in response header of a HTTP 202 Response. If set true, it stops invoking HTTP GET on http location given in response header. If set false then continues to invoke HTTP GET call on location given in http response headers.
+        /// </summary>
+        public readonly bool? TurnOffAsync;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'WebActivity'.
@@ -108,6 +116,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? headers,
 
+            object? httpRequestTimeout,
+
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
 
             ImmutableArray<Outputs.LinkedServiceReferenceResponse> linkedServices,
@@ -121,6 +131,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Outputs.ActivityPolicyResponse? policy,
 
             string? state,
+
+            bool? turnOffAsync,
 
             string type,
 
@@ -136,6 +148,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Description = description;
             DisableCertValidation = disableCertValidation;
             Headers = headers;
+            HttpRequestTimeout = httpRequestTimeout;
             LinkedServiceName = linkedServiceName;
             LinkedServices = linkedServices;
             Method = method;
@@ -143,6 +156,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
             State = state;
+            TurnOffAsync = turnOffAsync;
             Type = type;
             Url = url;
             UserProperties = userProperties;

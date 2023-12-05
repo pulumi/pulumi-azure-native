@@ -76,6 +76,8 @@ def get_offer_access_token(offer_id: Optional[str] = None,
     get access token.
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2023-08-01.
+
 
     :param str offer_id: Id of the offer
     :param str request_id: The name of the publisher.
@@ -102,6 +104,8 @@ def get_offer_access_token_output(offer_id: Optional[pulumi.Input[str]] = None,
     """
     get access token.
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2023-08-01.
 
 
     :param str offer_id: Id of the offer

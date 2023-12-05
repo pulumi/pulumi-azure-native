@@ -372,7 +372,7 @@ class Pool(pulumi.CustomResource):
         Contains information about a pool.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2020-05-01.
+        Other available API versions: 2020-05-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -408,7 +408,7 @@ class Pool(pulumi.CustomResource):
         Contains information about a pool.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2020-05-01.
+        Other available API versions: 2020-05-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -494,7 +494,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state_transition_time"] = None
             __props__.__dict__["resize_operation_status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20170901:Pool"), pulumi.Alias(type_="azure-native:batch/v20181201:Pool"), pulumi.Alias(type_="azure-native:batch/v20190401:Pool"), pulumi.Alias(type_="azure-native:batch/v20190801:Pool"), pulumi.Alias(type_="azure-native:batch/v20200301:Pool"), pulumi.Alias(type_="azure-native:batch/v20200501:Pool"), pulumi.Alias(type_="azure-native:batch/v20200901:Pool"), pulumi.Alias(type_="azure-native:batch/v20210101:Pool"), pulumi.Alias(type_="azure-native:batch/v20210601:Pool"), pulumi.Alias(type_="azure-native:batch/v20220101:Pool"), pulumi.Alias(type_="azure-native:batch/v20220601:Pool"), pulumi.Alias(type_="azure-native:batch/v20221001:Pool"), pulumi.Alias(type_="azure-native:batch/v20230501:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20170901:Pool"), pulumi.Alias(type_="azure-native:batch/v20181201:Pool"), pulumi.Alias(type_="azure-native:batch/v20190401:Pool"), pulumi.Alias(type_="azure-native:batch/v20190801:Pool"), pulumi.Alias(type_="azure-native:batch/v20200301:Pool"), pulumi.Alias(type_="azure-native:batch/v20200501:Pool"), pulumi.Alias(type_="azure-native:batch/v20200901:Pool"), pulumi.Alias(type_="azure-native:batch/v20210101:Pool"), pulumi.Alias(type_="azure-native:batch/v20210601:Pool"), pulumi.Alias(type_="azure-native:batch/v20220101:Pool"), pulumi.Alias(type_="azure-native:batch/v20220601:Pool"), pulumi.Alias(type_="azure-native:batch/v20221001:Pool"), pulumi.Alias(type_="azure-native:batch/v20230501:Pool"), pulumi.Alias(type_="azure-native:batch/v20231101:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:batch:Pool',

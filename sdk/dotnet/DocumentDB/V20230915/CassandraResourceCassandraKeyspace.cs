@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20230915
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:CassandraResourceCassandraKeyspace"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:CassandraResourceCassandraKeyspace"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:CassandraResourceCassandraKeyspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115:CassandraResourceCassandraKeyspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

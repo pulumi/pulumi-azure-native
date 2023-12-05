@@ -10,15 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20230601.Outputs
 {
 
+    /// <summary>
+    /// User assigned managed identity details
+    /// </summary>
     [OutputType]
     public sealed class UserAssignedManagedIdentityDetailsResponse
     {
+        /// <summary>
+        /// The ARM id of the assigned identity.
+        /// </summary>
         public readonly string? IdentityArmId;
+        /// <summary>
+        /// The name of the assigned identity.
+        /// </summary>
         public readonly string? IdentityName;
         /// <summary>
-        /// User assigned identity properties
+        /// User assigned managed identity properties
         /// </summary>
-        public readonly Outputs.UserAssignedIdentityResponse? UserAssignedIdentityProperties;
+        public readonly Outputs.UserAssignedIdentityPropertiesResponse? UserAssignedIdentityProperties;
 
         [OutputConstructor]
         private UserAssignedManagedIdentityDetailsResponse(
@@ -26,7 +35,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230601.Outputs
 
             string? identityName,
 
-            Outputs.UserAssignedIdentityResponse? userAssignedIdentityProperties)
+            Outputs.UserAssignedIdentityPropertiesResponse? userAssignedIdentityProperties)
         {
             IdentityArmId = identityArmId;
             IdentityName = identityName;

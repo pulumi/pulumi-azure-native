@@ -1259,9 +1259,6 @@ NetworkAnalytics:
     tracking: "2023-11-15"
 NetworkCloud:
     tracking: 2023-05-01-preview
-    additions:
-        DefaultCniNetwork: 2022-12-12-preview
-        HybridAksCluster: 2022-12-12-preview
 NetworkFunction:
     tracking: "2022-11-01"
 NotificationHubs:
@@ -1538,6 +1535,13 @@ Syntex:
     tracking: 2022-09-15-preview
 TestBase:
     tracking: 2022-04-01-preview
+    additions:
+        ActionRequest: 2023-11-01-preview
+        Credential: 2023-11-01-preview
+        CustomImage: 2023-11-01-preview
+        DraftPackage: 2023-11-01-preview
+        ImageDefinition: 2023-11-01-preview
+        getDraftPackagePath: 2023-11-01-preview
 TimeSeriesInsights:
     tracking: "2020-05-15"
     additions:

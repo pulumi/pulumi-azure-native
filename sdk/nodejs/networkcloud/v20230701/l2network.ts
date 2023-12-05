@@ -156,7 +156,7 @@ export class L2Network extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:L2Network" }, { type: "azure-native:networkcloud/v20221212preview:L2Network" }, { type: "azure-native:networkcloud/v20230501preview:L2Network" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:L2Network" }, { type: "azure-native:networkcloud/v20230501preview:L2Network" }, { type: "azure-native:networkcloud/v20231001preview:L2Network" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(L2Network.__pulumiType, name, resourceInputs, opts);
     }

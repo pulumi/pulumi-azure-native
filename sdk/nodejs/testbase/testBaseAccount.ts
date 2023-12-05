@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The Test Base Account resource.
  * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+ *
+ * Other available API versions: 2023-11-01-preview.
  */
 export class TestBaseAccount extends pulumi.CustomResource {
     /**
@@ -116,7 +118,7 @@ export class TestBaseAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:TestBaseAccount" }, { type: "azure-native:testbase/v20220401preview:TestBaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:TestBaseAccount" }, { type: "azure-native:testbase/v20220401preview:TestBaseAccount" }, { type: "azure-native:testbase/v20231101preview:TestBaseAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TestBaseAccount.__pulumiType, name, resourceInputs, opts);
     }

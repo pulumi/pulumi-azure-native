@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp
     /// Capacity pool resource
     /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2017-08-15, 2019-07-01, 2022-11-01-preview, 2023-05-01.
+    /// Other available API versions: 2017-08-15, 2019-07-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
@@ -162,6 +162,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Pool"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

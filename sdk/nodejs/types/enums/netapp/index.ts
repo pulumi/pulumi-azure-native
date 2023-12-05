@@ -7,6 +7,7 @@ import * as v20220501 from "./v20220501";
 import * as v20221101 from "./v20221101";
 import * as v20221101preview from "./v20221101preview";
 import * as v20230501 from "./v20230501";
+import * as v20230501preview from "./v20230501preview";
 
 export {
     v20211001,
@@ -14,6 +15,7 @@ export {
     v20221101,
     v20221101preview,
     v20230501,
+    v20230501preview,
 };
 
 export const ApplicationType = {

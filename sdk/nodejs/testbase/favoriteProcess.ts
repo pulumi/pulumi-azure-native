@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * A favorite process identifier.
  * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+ *
+ * Other available API versions: 2023-11-01-preview.
  */
 export class FavoriteProcess extends pulumi.CustomResource {
     /**
@@ -93,7 +95,7 @@ export class FavoriteProcess extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:FavoriteProcess" }, { type: "azure-native:testbase/v20220401preview:FavoriteProcess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:FavoriteProcess" }, { type: "azure-native:testbase/v20220401preview:FavoriteProcess" }, { type: "azure-native:testbase/v20231101preview:FavoriteProcess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FavoriteProcess.__pulumiType, name, resourceInputs, opts);
     }

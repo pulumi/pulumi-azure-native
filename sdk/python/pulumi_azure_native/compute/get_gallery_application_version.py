@@ -151,6 +151,8 @@ def get_gallery_application_version(expand: Optional[str] = None,
     Retrieves information about a gallery Application Version.
     Azure REST API version: 2022-03-03.
 
+    Other available API versions: 2022-08-03.
+
 
     :param str expand: The expand expression to apply on the operation.
     :param str gallery_application_name: The name of the gallery Application Definition in which the Application Version resides.
@@ -189,6 +191,8 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
     """
     Retrieves information about a gallery Application Version.
     Azure REST API version: 2022-03-03.
+
+    Other available API versions: 2022-08-03.
 
 
     :param str expand: The expand expression to apply on the operation.

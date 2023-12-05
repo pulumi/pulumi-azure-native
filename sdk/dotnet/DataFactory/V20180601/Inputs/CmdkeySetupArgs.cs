@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> Password { get; set; } = null!;
 
         /// <summary>
-        /// The server name of data source access.
+        /// The server name of data source access. Type: string.
         /// </summary>
         [Input("targetName", required: true)]
         public Input<object> TargetName { get; set; } = null!;
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The user name of data source access.
+        /// The user name of data source access. Type: string.
         /// </summary>
         [Input("userName", required: true)]
         public Input<object> UserName { get; set; } = null!;

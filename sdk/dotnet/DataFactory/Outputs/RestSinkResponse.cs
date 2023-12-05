@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class RestSinkResponse
     {
         /// <summary>
-        /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        /// The additional HTTP headers in the request to the RESTful API. Type: key value pairs (value should be string type).
         /// </summary>
         public readonly object? AdditionalHeaders;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? DisableMetricsCollection;
         /// <summary>
-        /// Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. 
+        /// Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? HttpCompressionType;
         /// <summary>

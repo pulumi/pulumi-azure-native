@@ -24,8 +24,11 @@ if typing.TYPE_CHECKING:
     v20230301preview = __v20230301preview
     import pulumi_azure_native.storagecache.v20230501 as __v20230501
     v20230501 = __v20230501
+    import pulumi_azure_native.storagecache.v20231101preview as __v20231101preview
+    v20231101preview = __v20231101preview
 else:
     v20210301 = _utilities.lazy_import('pulumi_azure_native.storagecache.v20210301')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.storagecache.v20230301preview')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.storagecache.v20230501')
+    v20231101preview = _utilities.lazy_import('pulumi_azure_native.storagecache.v20231101preview')
 

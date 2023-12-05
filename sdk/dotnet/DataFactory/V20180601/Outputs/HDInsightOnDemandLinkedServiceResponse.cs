@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object ClusterResourceGroup;
         /// <summary>
-        /// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
+        /// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
         /// </summary>
         public readonly object ClusterSize;
         /// <summary>

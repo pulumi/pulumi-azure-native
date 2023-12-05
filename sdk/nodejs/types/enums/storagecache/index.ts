@@ -5,11 +5,13 @@
 import * as v20210301 from "./v20210301";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
+import * as v20231101preview from "./v20231101preview";
 
 export {
     v20210301,
     v20230301preview,
     v20230501,
+    v20231101preview,
 };
 
 export const AmlFilesystemIdentityType = {

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Specifies information about the Shared Image Gallery that you want to create or update.
  * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+ *
+ * Other available API versions: 2022-08-03.
  */
 export class Gallery extends pulumi.CustomResource {
     /**
@@ -118,7 +120,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20180601:Gallery" }, { type: "azure-native:compute/v20190301:Gallery" }, { type: "azure-native:compute/v20190701:Gallery" }, { type: "azure-native:compute/v20191201:Gallery" }, { type: "azure-native:compute/v20200930:Gallery" }, { type: "azure-native:compute/v20210701:Gallery" }, { type: "azure-native:compute/v20211001:Gallery" }, { type: "azure-native:compute/v20220103:Gallery" }, { type: "azure-native:compute/v20220303:Gallery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20180601:Gallery" }, { type: "azure-native:compute/v20190301:Gallery" }, { type: "azure-native:compute/v20190701:Gallery" }, { type: "azure-native:compute/v20191201:Gallery" }, { type: "azure-native:compute/v20200930:Gallery" }, { type: "azure-native:compute/v20210701:Gallery" }, { type: "azure-native:compute/v20211001:Gallery" }, { type: "azure-native:compute/v20220103:Gallery" }, { type: "azure-native:compute/v20220303:Gallery" }, { type: "azure-native:compute/v20220803:Gallery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gallery.__pulumiType, name, resourceInputs, opts);
     }

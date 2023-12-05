@@ -21,9 +21,17 @@ namespace Pulumi.AzureNative.TestBase.Outputs
         /// </summary>
         public readonly ImmutableArray<string> BaselineOSs;
         /// <summary>
+        /// Insider Channel Ids. Only used for feature update.
+        /// </summary>
+        public readonly ImmutableArray<string> InsiderChannelIds;
+        /// <summary>
         /// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
         /// </summary>
         public readonly string OsUpdateType;
+        /// <summary>
+        /// Specifies the ids of the target OSs from Custom Images to be tested.
+        /// </summary>
+        public readonly ImmutableArray<string> TargetOSImageIds;
         /// <summary>
         /// Specifies the target OSs to be tested.
         /// </summary>
@@ -33,12 +41,18 @@ namespace Pulumi.AzureNative.TestBase.Outputs
         private TargetOSInfoResponse(
             ImmutableArray<string> baselineOSs,
 
+            ImmutableArray<string> insiderChannelIds,
+
             string osUpdateType,
+
+            ImmutableArray<string> targetOSImageIds,
 
             ImmutableArray<string> targetOSs)
         {
             BaselineOSs = baselineOSs;
+            InsiderChannelIds = insiderChannelIds;
             OsUpdateType = osUpdateType;
+            TargetOSImageIds = targetOSImageIds;
             TargetOSs = targetOSs;
         }
     }

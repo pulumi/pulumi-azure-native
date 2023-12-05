@@ -37,6 +37,14 @@ namespace Pulumi.AzureNative.TestBase.Outputs
         /// </summary>
         public readonly string ContentType;
         /// <summary>
+        /// Specifies whether to enroll Intune before the command.
+        /// </summary>
+        public readonly bool? EnrollIntuneBefore;
+        /// <summary>
+        /// Specifies whether to install first party applications before running the command.
+        /// </summary>
+        public readonly bool? Install1PAppBefore;
+        /// <summary>
         /// Specifies the max run time of the command.
         /// </summary>
         public readonly int? MaxRunTime;
@@ -44,6 +52,14 @@ namespace Pulumi.AzureNative.TestBase.Outputs
         /// The name of the command.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies whether the command is assigned to be executed after in-place upgrade.
+        /// </summary>
+        public readonly bool? PostUpgrade;
+        /// <summary>
+        /// Specifies whether the command is assigned to be executed before in-place upgrade.
+        /// </summary>
+        public readonly bool? PreUpgrade;
         /// <summary>
         /// Specifies whether to restart the VM after the command executed.
         /// </summary>
@@ -69,9 +85,17 @@ namespace Pulumi.AzureNative.TestBase.Outputs
 
             string contentType,
 
+            bool? enrollIntuneBefore,
+
+            bool? install1PAppBefore,
+
             int? maxRunTime,
 
             string name,
+
+            bool? postUpgrade,
+
+            bool? preUpgrade,
 
             bool? restartAfter,
 
@@ -84,8 +108,12 @@ namespace Pulumi.AzureNative.TestBase.Outputs
             ApplyUpdateBefore = applyUpdateBefore;
             Content = content;
             ContentType = contentType;
+            EnrollIntuneBefore = enrollIntuneBefore;
+            Install1PAppBefore = install1PAppBefore;
             MaxRunTime = maxRunTime;
             Name = name;
+            PostUpgrade = postUpgrade;
+            PreUpgrade = preUpgrade;
             RestartAfter = restartAfter;
             RunAsInteractive = runAsInteractive;
             RunElevated = runElevated;

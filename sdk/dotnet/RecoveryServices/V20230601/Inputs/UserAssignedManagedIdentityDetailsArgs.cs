@@ -10,13 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20230601.Inputs
 {
 
+    /// <summary>
+    /// User assigned managed identity details
+    /// </summary>
     public sealed class UserAssignedManagedIdentityDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARM id of the assigned identity.
+        /// </summary>
         [Input("identityArmId")]
         public Input<string>? IdentityArmId { get; set; }
 
+        /// <summary>
+        /// The name of the assigned identity.
+        /// </summary>
         [Input("identityName")]
         public Input<string>? IdentityName { get; set; }
+
+        /// <summary>
+        /// User assigned managed identity properties
+        /// </summary>
+        [Input("userAssignedIdentityProperties")]
+        public Input<Inputs.UserAssignedIdentityPropertiesArgs>? UserAssignedIdentityProperties { get; set; }
 
         public UserAssignedManagedIdentityDetailsArgs()
         {

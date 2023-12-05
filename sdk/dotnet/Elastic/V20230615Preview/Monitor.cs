@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Elastic.V20230615Preview
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230601:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20230701preview:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20231001preview:Monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20231101preview:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

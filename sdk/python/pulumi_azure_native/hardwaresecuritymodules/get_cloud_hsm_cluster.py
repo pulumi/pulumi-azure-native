@@ -196,6 +196,8 @@ def get_cloud_hsm_cluster(cloud_hsm_cluster_name: Optional[str] = None,
     Gets the specified Cloud HSM Cluster
     Azure REST API version: 2022-08-31-preview.
 
+    Other available API versions: 2023-12-10-preview.
+
 
     :param str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -229,6 +231,8 @@ def get_cloud_hsm_cluster_output(cloud_hsm_cluster_name: Optional[pulumi.Input[s
     """
     Gets the specified Cloud HSM Cluster
     Azure REST API version: 2022-08-31-preview.
+
+    Other available API versions: 2023-12-10-preview.
 
 
     :param str cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.

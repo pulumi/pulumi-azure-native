@@ -46,6 +46,18 @@ namespace Pulumi.AzureNative.TestBase.Inputs
         public InputUnion<string, Pulumi.AzureNative.TestBase.ContentType> ContentType { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether to enroll Intune before the command.
+        /// </summary>
+        [Input("enrollIntuneBefore")]
+        public Input<bool>? EnrollIntuneBefore { get; set; }
+
+        /// <summary>
+        /// Specifies whether to install first party applications before running the command.
+        /// </summary>
+        [Input("install1PAppBefore")]
+        public Input<bool>? Install1PAppBefore { get; set; }
+
+        /// <summary>
         /// Specifies the max run time of the command.
         /// </summary>
         [Input("maxRunTime")]
@@ -56,6 +68,18 @@ namespace Pulumi.AzureNative.TestBase.Inputs
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the command is assigned to be executed after in-place upgrade.
+        /// </summary>
+        [Input("postUpgrade")]
+        public Input<bool>? PostUpgrade { get; set; }
+
+        /// <summary>
+        /// Specifies whether the command is assigned to be executed before in-place upgrade.
+        /// </summary>
+        [Input("preUpgrade")]
+        public Input<bool>? PreUpgrade { get; set; }
 
         /// <summary>
         /// Specifies whether to restart the VM after the command executed.

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+    /// 
+    /// Other available API versions: 2022-08-03.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource
@@ -110,6 +112,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:Gallery"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:Gallery"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220303:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220803:Gallery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

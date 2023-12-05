@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? WriteBatchTimeout;
         /// <summary>
-        /// Write behavior when copying data into sql server. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        /// Write behavior when copying data into sql server. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? WriteBehavior;
 

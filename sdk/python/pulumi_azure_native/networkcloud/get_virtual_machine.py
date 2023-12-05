@@ -409,7 +409,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     Get properties of the provided virtual machine.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -463,7 +463,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     Get properties of the provided virtual machine.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

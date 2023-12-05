@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     public sealed class RestSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: key value pairs (value should be string type).
         /// </summary>
         [Input("additionalColumns")]
         public Input<object>? AdditionalColumns { get; set; }

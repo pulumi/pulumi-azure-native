@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     /// <summary>
     /// Resource information with extended details.
     /// Azure REST API version: 2022-08-31-preview.
+    /// 
+    /// Other available API versions: 2023-12-10-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:CloudHsmCluster")]
     public partial class CloudHsmCluster : global::Pulumi.CustomResource
@@ -114,6 +116,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

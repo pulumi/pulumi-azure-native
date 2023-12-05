@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> Password;
         /// <summary>
-        /// The server name of data source access.
+        /// The server name of data source access. Type: string.
         /// </summary>
         public readonly object TargetName;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The user name of data source access.
+        /// The user name of data source access. Type: string.
         /// </summary>
         public readonly object UserName;
 

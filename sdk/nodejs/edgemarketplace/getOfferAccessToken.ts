@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * get access token.
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-08-01.
  */
 export function getOfferAccessToken(args: GetOfferAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetOfferAccessTokenResult> {
 
@@ -53,6 +55,8 @@ export interface GetOfferAccessTokenResult {
 /**
  * get access token.
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-08-01.
  */
 export function getOfferAccessTokenOutput(args: GetOfferAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfferAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getOfferAccessToken(a, opts))

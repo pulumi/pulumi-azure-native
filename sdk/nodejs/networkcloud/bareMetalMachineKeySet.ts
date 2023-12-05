@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2023-10-01-preview.
  */
 export class BareMetalMachineKeySet extends pulumi.CustomResource {
     /**
@@ -183,7 +183,7 @@ export class BareMetalMachineKeySet extends pulumi.CustomResource {
             resourceInputs["userListStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20230501preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20230701:BareMetalMachineKeySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230501preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20230701:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20231001preview:BareMetalMachineKeySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BareMetalMachineKeySet.__pulumiType, name, resourceInputs, opts);
     }

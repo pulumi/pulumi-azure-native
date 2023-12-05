@@ -160,6 +160,8 @@ def get_test_base_account(resource_group_name: Optional[str] = None,
     Gets a Test Base Account.
     Azure REST API version: 2022-04-01-preview.
 
+    Other available API versions: 2023-11-01-preview.
+
 
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
@@ -190,6 +192,8 @@ def get_test_base_account_output(resource_group_name: Optional[pulumi.Input[str]
     """
     Gets a Test Base Account.
     Azure REST API version: 2022-04-01-preview.
+
+    Other available API versions: 2023-11-01-preview.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource.

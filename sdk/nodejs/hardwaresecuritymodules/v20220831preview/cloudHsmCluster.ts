@@ -129,7 +129,7 @@ export class CloudHsmCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules:CloudHsmCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules:CloudHsmCluster" }, { type: "azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudHsmCluster.__pulumiType, name, resourceInputs, opts);
     }

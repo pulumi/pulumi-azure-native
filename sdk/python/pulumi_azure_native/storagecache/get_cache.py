@@ -304,7 +304,7 @@ def get_cache(cache_name: Optional[str] = None,
     Returns a cache.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2020-10-01, 2021-03-01, 2023-03-01-preview.
+    Other available API versions: 2020-10-01, 2021-03-01, 2023-03-01-preview, 2023-11-01-preview.
 
 
     :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -349,7 +349,7 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
     Returns a cache.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2020-10-01, 2021-03-01, 2023-03-01-preview.
+    Other available API versions: 2020-10-01, 2021-03-01, 2023-03-01-preview, 2023-11-01-preview.
 
 
     :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.

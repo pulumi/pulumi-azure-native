@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
-        /// The endpoint of the Azure Function App. URL will be in the format https://&lt;accountName&gt;.azurewebsites.net.
+        /// The endpoint of the Azure Function App. URL will be in the format https://&lt;accountName&gt;.azurewebsites.net. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object FunctionAppUrl;
         /// <summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
-        /// Allowed token audiences for azure function.
+        /// Allowed token audiences for azure function. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ResourceId;
         /// <summary>

@@ -5,15 +5,40 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ActionRequestArgs } from "./actionRequest";
+export type ActionRequest = import("./actionRequest").ActionRequest;
+export const ActionRequest: typeof import("./actionRequest").ActionRequest = null as any;
+utilities.lazyLoad(exports, ["ActionRequest"], () => require("./actionRequest"));
+
+export { CredentialArgs } from "./credential";
+export type Credential = import("./credential").Credential;
+export const Credential: typeof import("./credential").Credential = null as any;
+utilities.lazyLoad(exports, ["Credential"], () => require("./credential"));
+
+export { CustomImageArgs } from "./customImage";
+export type CustomImage = import("./customImage").CustomImage;
+export const CustomImage: typeof import("./customImage").CustomImage = null as any;
+utilities.lazyLoad(exports, ["CustomImage"], () => require("./customImage"));
+
 export { CustomerEventArgs } from "./customerEvent";
 export type CustomerEvent = import("./customerEvent").CustomerEvent;
 export const CustomerEvent: typeof import("./customerEvent").CustomerEvent = null as any;
 utilities.lazyLoad(exports, ["CustomerEvent"], () => require("./customerEvent"));
 
+export { DraftPackageArgs } from "./draftPackage";
+export type DraftPackage = import("./draftPackage").DraftPackage;
+export const DraftPackage: typeof import("./draftPackage").DraftPackage = null as any;
+utilities.lazyLoad(exports, ["DraftPackage"], () => require("./draftPackage"));
+
 export { FavoriteProcessArgs } from "./favoriteProcess";
 export type FavoriteProcess = import("./favoriteProcess").FavoriteProcess;
 export const FavoriteProcess: typeof import("./favoriteProcess").FavoriteProcess = null as any;
 utilities.lazyLoad(exports, ["FavoriteProcess"], () => require("./favoriteProcess"));
+
+export { GetActionRequestArgs, GetActionRequestResult, GetActionRequestOutputArgs } from "./getActionRequest";
+export const getActionRequest: typeof import("./getActionRequest").getActionRequest = null as any;
+export const getActionRequestOutput: typeof import("./getActionRequest").getActionRequestOutput = null as any;
+utilities.lazyLoad(exports, ["getActionRequest","getActionRequestOutput"], () => require("./getActionRequest"));
 
 export { GetBillingHubServiceFreeHourBalanceArgs, GetBillingHubServiceFreeHourBalanceResult, GetBillingHubServiceFreeHourBalanceOutputArgs } from "./getBillingHubServiceFreeHourBalance";
 export const getBillingHubServiceFreeHourBalance: typeof import("./getBillingHubServiceFreeHourBalance").getBillingHubServiceFreeHourBalance = null as any;
@@ -25,15 +50,40 @@ export const getBillingHubServiceUsage: typeof import("./getBillingHubServiceUsa
 export const getBillingHubServiceUsageOutput: typeof import("./getBillingHubServiceUsage").getBillingHubServiceUsageOutput = null as any;
 utilities.lazyLoad(exports, ["getBillingHubServiceUsage","getBillingHubServiceUsageOutput"], () => require("./getBillingHubServiceUsage"));
 
+export { GetCredentialArgs, GetCredentialResult, GetCredentialOutputArgs } from "./getCredential";
+export const getCredential: typeof import("./getCredential").getCredential = null as any;
+export const getCredentialOutput: typeof import("./getCredential").getCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getCredential","getCredentialOutput"], () => require("./getCredential"));
+
+export { GetCustomImageArgs, GetCustomImageResult, GetCustomImageOutputArgs } from "./getCustomImage";
+export const getCustomImage: typeof import("./getCustomImage").getCustomImage = null as any;
+export const getCustomImageOutput: typeof import("./getCustomImage").getCustomImageOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomImage","getCustomImageOutput"], () => require("./getCustomImage"));
+
 export { GetCustomerEventArgs, GetCustomerEventResult, GetCustomerEventOutputArgs } from "./getCustomerEvent";
 export const getCustomerEvent: typeof import("./getCustomerEvent").getCustomerEvent = null as any;
 export const getCustomerEventOutput: typeof import("./getCustomerEvent").getCustomerEventOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomerEvent","getCustomerEventOutput"], () => require("./getCustomerEvent"));
 
+export { GetDraftPackageArgs, GetDraftPackageResult, GetDraftPackageOutputArgs } from "./getDraftPackage";
+export const getDraftPackage: typeof import("./getDraftPackage").getDraftPackage = null as any;
+export const getDraftPackageOutput: typeof import("./getDraftPackage").getDraftPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getDraftPackage","getDraftPackageOutput"], () => require("./getDraftPackage"));
+
+export { GetDraftPackagePathArgs, GetDraftPackagePathResult, GetDraftPackagePathOutputArgs } from "./getDraftPackagePath";
+export const getDraftPackagePath: typeof import("./getDraftPackagePath").getDraftPackagePath = null as any;
+export const getDraftPackagePathOutput: typeof import("./getDraftPackagePath").getDraftPackagePathOutput = null as any;
+utilities.lazyLoad(exports, ["getDraftPackagePath","getDraftPackagePathOutput"], () => require("./getDraftPackagePath"));
+
 export { GetFavoriteProcessArgs, GetFavoriteProcessResult, GetFavoriteProcessOutputArgs } from "./getFavoriteProcess";
 export const getFavoriteProcess: typeof import("./getFavoriteProcess").getFavoriteProcess = null as any;
 export const getFavoriteProcessOutput: typeof import("./getFavoriteProcess").getFavoriteProcessOutput = null as any;
 utilities.lazyLoad(exports, ["getFavoriteProcess","getFavoriteProcessOutput"], () => require("./getFavoriteProcess"));
+
+export { GetImageDefinitionArgs, GetImageDefinitionResult, GetImageDefinitionOutputArgs } from "./getImageDefinition";
+export const getImageDefinition: typeof import("./getImageDefinition").getImageDefinition = null as any;
+export const getImageDefinitionOutput: typeof import("./getImageDefinition").getImageDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getImageDefinition","getImageDefinitionOutput"], () => require("./getImageDefinition"));
 
 export { GetPackageArgs, GetPackageResult, GetPackageOutputArgs } from "./getPackage";
 export const getPackage: typeof import("./getPackage").getPackage = null as any;
@@ -70,6 +120,11 @@ export const getTestResultVideoDownloadURL: typeof import("./getTestResultVideoD
 export const getTestResultVideoDownloadURLOutput: typeof import("./getTestResultVideoDownloadURL").getTestResultVideoDownloadURLOutput = null as any;
 utilities.lazyLoad(exports, ["getTestResultVideoDownloadURL","getTestResultVideoDownloadURLOutput"], () => require("./getTestResultVideoDownloadURL"));
 
+export { ImageDefinitionArgs } from "./imageDefinition";
+export type ImageDefinition = import("./imageDefinition").ImageDefinition;
+export const ImageDefinition: typeof import("./imageDefinition").ImageDefinition = null as any;
+utilities.lazyLoad(exports, ["ImageDefinition"], () => require("./imageDefinition"));
+
 export { PackageArgs } from "./package";
 export type Package = import("./package").Package;
 export const Package: typeof import("./package").Package = null as any;
@@ -86,19 +141,31 @@ export * from "../types/enums/testbase";
 
 // Export sub-modules:
 import * as v20220401preview from "./v20220401preview";
+import * as v20231101preview from "./v20231101preview";
 
 export {
     v20220401preview,
+    v20231101preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:testbase:ActionRequest":
+                return new ActionRequest(name, <any>undefined, { urn })
+            case "azure-native:testbase:Credential":
+                return new Credential(name, <any>undefined, { urn })
+            case "azure-native:testbase:CustomImage":
+                return new CustomImage(name, <any>undefined, { urn })
             case "azure-native:testbase:CustomerEvent":
                 return new CustomerEvent(name, <any>undefined, { urn })
+            case "azure-native:testbase:DraftPackage":
+                return new DraftPackage(name, <any>undefined, { urn })
             case "azure-native:testbase:FavoriteProcess":
                 return new FavoriteProcess(name, <any>undefined, { urn })
+            case "azure-native:testbase:ImageDefinition":
+                return new ImageDefinition(name, <any>undefined, { urn })
             case "azure-native:testbase:Package":
                 return new Package(name, <any>undefined, { urn })
             case "azure-native:testbase:TestBaseAccount":

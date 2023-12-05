@@ -136,7 +136,7 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
     Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
     Azure REST API version: 2023-04-06.
 
-    Other available API versions: 2023-08-04-preview.
+    Other available API versions: 2023-08-04-preview, 2023-11-01-preview.
 
 
     :param str azure_bare_metal_storage_instance_name: Name of the AzureBareMetalStorage on Azure instance.
@@ -167,7 +167,7 @@ def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instan
     Gets an Azure BareMetal Storage instance for the specified subscription, resource group, and instance name.
     Azure REST API version: 2023-04-06.
 
-    Other available API versions: 2023-08-04-preview.
+    Other available API versions: 2023-08-04-preview, 2023-11-01-preview.
 
 
     :param str azure_bare_metal_storage_instance_name: Name of the AzureBareMetalStorage on Azure instance.

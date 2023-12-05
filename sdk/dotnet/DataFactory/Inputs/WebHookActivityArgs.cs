@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
         /// </summary>
         [Input("headers")]
         public Input<object>? Headers { get; set; }

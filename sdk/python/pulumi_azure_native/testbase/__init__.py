@@ -6,12 +6,22 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .action_request import *
+from .credential import *
+from .custom_image import *
 from .customer_event import *
+from .draft_package import *
 from .favorite_process import *
+from .get_action_request import *
 from .get_billing_hub_service_free_hour_balance import *
 from .get_billing_hub_service_usage import *
+from .get_credential import *
+from .get_custom_image import *
 from .get_customer_event import *
+from .get_draft_package import *
+from .get_draft_package_path import *
 from .get_favorite_process import *
+from .get_image_definition import *
 from .get_package import *
 from .get_package_download_url import *
 from .get_test_base_account import *
@@ -19,6 +29,7 @@ from .get_test_base_account_file_upload_url import *
 from .get_test_result_console_log_download_url import *
 from .get_test_result_download_url import *
 from .get_test_result_video_download_url import *
+from .image_definition import *
 from .package import *
 from .test_base_account import *
 from ._inputs import *
@@ -28,6 +39,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.testbase.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
+    import pulumi_azure_native.testbase.v20231101preview as __v20231101preview
+    v20231101preview = __v20231101preview
 else:
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.testbase.v20220401preview')
+    v20231101preview = _utilities.lazy_import('pulumi_azure_native.testbase.v20231101preview')
 

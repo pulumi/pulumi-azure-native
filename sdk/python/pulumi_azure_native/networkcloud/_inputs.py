@@ -19,10 +19,7 @@ __all__ = [
     'AttachedNetworkConfigurationArgs',
     'BareMetalMachineConfigurationDataArgs',
     'BgpAdvertisementArgs',
-    'BgpPeerArgs',
     'BgpServiceLoadBalancerConfigurationArgs',
-    'CniBgpConfigurationArgs',
-    'CommunityAdvertisementArgs',
     'ControlPlaneNodeConfigurationArgs',
     'EgressEndpointArgs',
     'EndpointDependencyArgs',
@@ -456,59 +453,6 @@ class BgpAdvertisementArgs:
 
 
 @pulumi.input_type
-class BgpPeerArgs:
-    def __init__(__self__, *,
-                 as_number: pulumi.Input[float],
-                 peer_ip: pulumi.Input[str],
-                 password: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[float] as_number: The ASN (Autonomous System Number) of the BGP peer.
-        :param pulumi.Input[str] peer_ip: The IPv4 or IPv6 address to peer with the associated CNI Network. The IP version type will drive a peering with the same version type from the Default CNI Network. For example, IPv4 to IPv4 or IPv6 to IPv6.
-        :param pulumi.Input[str] password: The password for this peering neighbor. It defaults to no password if not specified.
-        """
-        pulumi.set(__self__, "as_number", as_number)
-        pulumi.set(__self__, "peer_ip", peer_ip)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-
-    @property
-    @pulumi.getter(name="asNumber")
-    def as_number(self) -> pulumi.Input[float]:
-        """
-        The ASN (Autonomous System Number) of the BGP peer.
-        """
-        return pulumi.get(self, "as_number")
-
-    @as_number.setter
-    def as_number(self, value: pulumi.Input[float]):
-        pulumi.set(self, "as_number", value)
-
-    @property
-    @pulumi.getter(name="peerIp")
-    def peer_ip(self) -> pulumi.Input[str]:
-        """
-        The IPv4 or IPv6 address to peer with the associated CNI Network. The IP version type will drive a peering with the same version type from the Default CNI Network. For example, IPv4 to IPv4 or IPv6 to IPv6.
-        """
-        return pulumi.get(self, "peer_ip")
-
-    @peer_ip.setter
-    def peer_ip(self, value: pulumi.Input[str]):
-        pulumi.set(self, "peer_ip", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password for this peering neighbor. It defaults to no password if not specified.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-
-@pulumi.input_type
 class BgpServiceLoadBalancerConfigurationArgs:
     def __init__(__self__, *,
                  bgp_advertisements: Optional[pulumi.Input[Sequence[pulumi.Input['BgpAdvertisementArgs']]]] = None,
@@ -579,134 +523,6 @@ class BgpServiceLoadBalancerConfigurationArgs:
     @ip_address_pools.setter
     def ip_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressPoolArgs']]]]):
         pulumi.set(self, "ip_address_pools", value)
-
-
-@pulumi.input_type
-class CniBgpConfigurationArgs:
-    def __init__(__self__, *,
-                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input['BgpPeerArgs']]]] = None,
-                 community_advertisements: Optional[pulumi.Input[Sequence[pulumi.Input['CommunityAdvertisementArgs']]]] = None,
-                 node_mesh_password: Optional[pulumi.Input[str]] = None,
-                 service_external_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 service_load_balancer_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['BgpPeerArgs']]] bgp_peers: The list of BgpPeer entities that the Hybrid AKS cluster will peer with in addition to peering that occurs automatically with the switch fabric.
-        :param pulumi.Input[Sequence[pulumi.Input['CommunityAdvertisementArgs']]] community_advertisements: The list of prefix community advertisement properties. Each prefix community specifies a prefix, and the
-               communities that should be associated with that prefix when it is announced.
-        :param pulumi.Input[str] node_mesh_password: The password of the Calico node mesh. It defaults to a randomly-generated string when not provided.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_external_prefixes: The subnet blocks in CIDR format for Kubernetes service external IPs to be advertised over BGP.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_load_balancer_prefixes: The subnet blocks in CIDR format for Kubernetes load balancers. Load balancer IPs will only be advertised if they
-               are within one of these blocks.
-        """
-        if bgp_peers is not None:
-            pulumi.set(__self__, "bgp_peers", bgp_peers)
-        if community_advertisements is not None:
-            pulumi.set(__self__, "community_advertisements", community_advertisements)
-        if node_mesh_password is not None:
-            pulumi.set(__self__, "node_mesh_password", node_mesh_password)
-        if service_external_prefixes is not None:
-            pulumi.set(__self__, "service_external_prefixes", service_external_prefixes)
-        if service_load_balancer_prefixes is not None:
-            pulumi.set(__self__, "service_load_balancer_prefixes", service_load_balancer_prefixes)
-
-    @property
-    @pulumi.getter(name="bgpPeers")
-    def bgp_peers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BgpPeerArgs']]]]:
-        """
-        The list of BgpPeer entities that the Hybrid AKS cluster will peer with in addition to peering that occurs automatically with the switch fabric.
-        """
-        return pulumi.get(self, "bgp_peers")
-
-    @bgp_peers.setter
-    def bgp_peers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BgpPeerArgs']]]]):
-        pulumi.set(self, "bgp_peers", value)
-
-    @property
-    @pulumi.getter(name="communityAdvertisements")
-    def community_advertisements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommunityAdvertisementArgs']]]]:
-        """
-        The list of prefix community advertisement properties. Each prefix community specifies a prefix, and the
-        communities that should be associated with that prefix when it is announced.
-        """
-        return pulumi.get(self, "community_advertisements")
-
-    @community_advertisements.setter
-    def community_advertisements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommunityAdvertisementArgs']]]]):
-        pulumi.set(self, "community_advertisements", value)
-
-    @property
-    @pulumi.getter(name="nodeMeshPassword")
-    def node_mesh_password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password of the Calico node mesh. It defaults to a randomly-generated string when not provided.
-        """
-        return pulumi.get(self, "node_mesh_password")
-
-    @node_mesh_password.setter
-    def node_mesh_password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "node_mesh_password", value)
-
-    @property
-    @pulumi.getter(name="serviceExternalPrefixes")
-    def service_external_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The subnet blocks in CIDR format for Kubernetes service external IPs to be advertised over BGP.
-        """
-        return pulumi.get(self, "service_external_prefixes")
-
-    @service_external_prefixes.setter
-    def service_external_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "service_external_prefixes", value)
-
-    @property
-    @pulumi.getter(name="serviceLoadBalancerPrefixes")
-    def service_load_balancer_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The subnet blocks in CIDR format for Kubernetes load balancers. Load balancer IPs will only be advertised if they
-        are within one of these blocks.
-        """
-        return pulumi.get(self, "service_load_balancer_prefixes")
-
-    @service_load_balancer_prefixes.setter
-    def service_load_balancer_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "service_load_balancer_prefixes", value)
-
-
-@pulumi.input_type
-class CommunityAdvertisementArgs:
-    def __init__(__self__, *,
-                 communities: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 subnet_prefix: pulumi.Input[str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] communities: The list of community strings to announce with this prefix.
-        :param pulumi.Input[str] subnet_prefix: The subnet in CIDR format for which properties should be advertised.
-        """
-        pulumi.set(__self__, "communities", communities)
-        pulumi.set(__self__, "subnet_prefix", subnet_prefix)
-
-    @property
-    @pulumi.getter
-    def communities(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The list of community strings to announce with this prefix.
-        """
-        return pulumi.get(self, "communities")
-
-    @communities.setter
-    def communities(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "communities", value)
-
-    @property
-    @pulumi.getter(name="subnetPrefix")
-    def subnet_prefix(self) -> pulumi.Input[str]:
-        """
-        The subnet in CIDR format for which properties should be advertised.
-        """
-        return pulumi.get(self, "subnet_prefix")
-
-    @subnet_prefix.setter
-    def subnet_prefix(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subnet_prefix", value)
 
 
 @pulumi.input_type

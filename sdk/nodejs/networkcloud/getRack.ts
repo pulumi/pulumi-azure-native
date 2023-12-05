@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of the provided rack.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2023-10-01-preview.
  */
 export function getRack(args: GetRackArgs, opts?: pulumi.InvokeOptions): Promise<GetRackResult> {
 
@@ -99,7 +99,7 @@ export interface GetRackResult {
  * Get properties of the provided rack.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2023-10-01-preview.
  */
 export function getRackOutput(args: GetRackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRackResult> {
     return pulumi.output(args).apply((a: any) => getRack(a, opts))

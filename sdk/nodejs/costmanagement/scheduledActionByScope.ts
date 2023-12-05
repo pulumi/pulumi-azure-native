@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Scheduled action definition.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2023-08-01.
+ * Other available API versions: 2023-04-01-preview, 2023-08-01, 2023-11-01.
  */
 export class ScheduledActionByScope extends pulumi.CustomResource {
     /**
@@ -151,7 +151,7 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
             resourceInputs["viewId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20220401preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20220601preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20221001:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20230301:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20230401preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20230801:ScheduledActionByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20220401preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20220601preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20221001:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20230301:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20230401preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20230801:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20231101:ScheduledActionByScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledActionByScope.__pulumiType, name, resourceInputs, opts);
     }

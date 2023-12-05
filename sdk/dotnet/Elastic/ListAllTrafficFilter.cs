@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Elastic
         /// List of elastic traffic filters in the account
         /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview.
         /// </summary>
         public static Task<ListAllTrafficFilterResult> InvokeAsync(ListAllTrafficFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAllTrafficFilterResult>("azure-native:elastic:listAllTrafficFilter", args ?? new ListAllTrafficFilterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Elastic
         /// List of elastic traffic filters in the account
         /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview.
         /// </summary>
         public static Output<ListAllTrafficFilterResult> Invoke(ListAllTrafficFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAllTrafficFilterResult>("azure-native:elastic:listAllTrafficFilter", args ?? new ListAllTrafficFilterInvokeArgs(), options.WithDefaults());

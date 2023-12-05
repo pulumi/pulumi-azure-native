@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:ApplicationGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:ApplicationGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:ApplicationGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:ApplicationGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

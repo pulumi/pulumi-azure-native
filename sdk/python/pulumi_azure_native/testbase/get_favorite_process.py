@@ -102,6 +102,8 @@ def get_favorite_process(favorite_process_resource_name: Optional[str] = None,
     Gets a favorite process for a Test Base Package.
     Azure REST API version: 2022-04-01-preview.
 
+    Other available API versions: 2023-11-01-preview.
+
 
     :param str favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
     :param str package_name: The resource name of the Test Base Package.
@@ -133,6 +135,8 @@ def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.
     """
     Gets a favorite process for a Test Base Package.
     Azure REST API version: 2022-04-01-preview.
+
+    Other available API versions: 2023-11-01-preview.
 
 
     :param str favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.

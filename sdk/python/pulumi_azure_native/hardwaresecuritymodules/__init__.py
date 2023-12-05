@@ -21,7 +21,10 @@ if typing.TYPE_CHECKING:
     v20211130 = __v20211130
     import pulumi_azure_native.hardwaresecuritymodules.v20220831preview as __v20220831preview
     v20220831preview = __v20220831preview
+    import pulumi_azure_native.hardwaresecuritymodules.v20231210preview as __v20231210preview
+    v20231210preview = __v20231210preview
 else:
     v20211130 = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20211130')
     v20220831preview = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20220831preview')
+    v20231210preview = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20231210preview')
 

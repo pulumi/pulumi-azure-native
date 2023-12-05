@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a Test Base Account.
  * Azure REST API version: 2022-04-01-preview.
+ *
+ * Other available API versions: 2023-11-01-preview.
  */
 export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountResult> {
 
@@ -79,6 +81,8 @@ export interface GetTestBaseAccountResult {
 /**
  * Gets a Test Base Account.
  * Azure REST API version: 2022-04-01-preview.
+ *
+ * Other available API versions: 2023-11-01-preview.
  */
 export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountResult> {
     return pulumi.output(args).apply((a: any) => getTestBaseAccount(a, opts))

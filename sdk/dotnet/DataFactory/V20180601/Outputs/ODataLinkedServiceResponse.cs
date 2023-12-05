@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
-        /// The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        /// The additional HTTP headers in the request to RESTful API used for authorization. Type: key value pairs (value should be string type).
         /// </summary>
         public readonly object? AuthHeaders;
         /// <summary>

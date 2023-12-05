@@ -98,7 +98,7 @@ class TagRule(pulumi.CustomResource):
         Capture logs and metrics of Azure resources based on ARM tags.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
 
-        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +117,7 @@ class TagRule(pulumi.CustomResource):
         Capture logs and metrics of Azure resources based on ARM tags.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
 
-        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TagRuleArgs args: The arguments to use to populate this resource's properties.
@@ -158,7 +158,7 @@ class TagRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20200701:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20200701preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20210901preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20211001preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20220505preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20220701preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20220901preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230201preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230501preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230601:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230615preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230701preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20231001preview:TagRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:elastic/v20200701:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20200701preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20210901preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20211001preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20220505preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20220701preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20220901preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230201preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230501preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230601:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230615preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20230701preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20231001preview:TagRule"), pulumi.Alias(type_="azure-native:elastic/v20231101preview:TagRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagRule, __self__).__init__(
             'azure-native:elastic:TagRule',

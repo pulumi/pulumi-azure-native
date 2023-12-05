@@ -244,7 +244,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["workloadResourceIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Cluster" }, { type: "azure-native:networkcloud/v20221212preview:Cluster" }, { type: "azure-native:networkcloud/v20230501preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Cluster" }, { type: "azure-native:networkcloud/v20230501preview:Cluster" }, { type: "azure-native:networkcloud/v20231001preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

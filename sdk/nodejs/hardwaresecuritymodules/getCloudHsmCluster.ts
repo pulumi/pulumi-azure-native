@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified Cloud HSM Cluster
  * Azure REST API version: 2022-08-31-preview.
+ *
+ * Other available API versions: 2023-12-10-preview.
  */
 export function getCloudHsmCluster(args: GetCloudHsmClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudHsmClusterResult> {
 
@@ -91,6 +93,8 @@ export interface GetCloudHsmClusterResult {
 /**
  * Gets the specified Cloud HSM Cluster
  * Azure REST API version: 2022-08-31-preview.
+ *
+ * Other available API versions: 2023-12-10-preview.
  */
 export function getCloudHsmClusterOutput(args: GetCloudHsmClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudHsmClusterResult> {
     return pulumi.output(args).apply((a: any) => getCloudHsmCluster(a, opts))

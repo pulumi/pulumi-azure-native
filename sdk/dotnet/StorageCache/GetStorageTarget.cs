@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.StorageCache
         /// Returns a Storage Target from a cache.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2019-11-01, 2021-03-01.
+        /// Other available API versions: 2019-11-01, 2021-03-01, 2023-11-01-preview.
         /// </summary>
         public static Task<GetStorageTargetResult> InvokeAsync(GetStorageTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.StorageCache
         /// Returns a Storage Target from a cache.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2019-11-01, 2021-03-01.
+        /// Other available API versions: 2019-11-01, 2021-03-01, 2023-11-01-preview.
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());

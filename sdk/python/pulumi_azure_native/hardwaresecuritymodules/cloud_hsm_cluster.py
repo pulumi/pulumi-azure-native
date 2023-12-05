@@ -220,6 +220,8 @@ class CloudHsmCluster(pulumi.CustomResource):
         Resource information with extended details.
         Azure REST API version: 2022-08-31-preview.
 
+        Other available API versions: 2023-12-10-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_generated_domain_name_label_scope: The Cloud HSM Cluster's auto-generated Domain Name Label Scope
@@ -244,6 +246,8 @@ class CloudHsmCluster(pulumi.CustomResource):
         """
         Resource information with extended details.
         Azure REST API version: 2022-08-31-preview.
+
+        Other available API versions: 2023-12-10-preview.
 
         :param str resource_name: The name of the resource.
         :param CloudHsmClusterArgs args: The arguments to use to populate this resource's properties.
@@ -296,7 +300,7 @@ class CloudHsmCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmCluster"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudHsmCluster, __self__).__init__(
             'azure-native:hardwaresecuritymodules:CloudHsmCluster',

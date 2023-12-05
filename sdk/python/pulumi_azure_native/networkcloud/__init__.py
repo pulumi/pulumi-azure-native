@@ -14,7 +14,6 @@ from .cloud_services_network import *
 from .cluster import *
 from .cluster_manager import *
 from .console import *
-from .default_cni_network import *
 from .get_agent_pool import *
 from .get_bare_metal_machine import *
 from .get_bare_metal_machine_key_set import *
@@ -23,8 +22,6 @@ from .get_cloud_services_network import *
 from .get_cluster import *
 from .get_cluster_manager import *
 from .get_console import *
-from .get_default_cni_network import *
-from .get_hybrid_aks_cluster import *
 from .get_kubernetes_cluster import *
 from .get_l2_network import *
 from .get_l3_network import *
@@ -34,7 +31,6 @@ from .get_storage_appliance import *
 from .get_trunked_network import *
 from .get_virtual_machine import *
 from .get_volume import *
-from .hybrid_aks_cluster import *
 from .kubernetes_cluster import *
 from .l2_network import *
 from .l3_network import *
@@ -49,14 +45,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.networkcloud.v20221212preview as __v20221212preview
-    v20221212preview = __v20221212preview
     import pulumi_azure_native.networkcloud.v20230501preview as __v20230501preview
     v20230501preview = __v20230501preview
     import pulumi_azure_native.networkcloud.v20230701 as __v20230701
     v20230701 = __v20230701
+    import pulumi_azure_native.networkcloud.v20231001preview as __v20231001preview
+    v20231001preview = __v20231001preview
 else:
-    v20221212preview = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20221212preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20230501preview')
     v20230701 = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20230701')
+    v20231001preview = _utilities.lazy_import('pulumi_azure_native.networkcloud.v20231001preview')
 

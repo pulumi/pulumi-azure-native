@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? MaxConcurrentConnections { get; set; }
 
         /// <summary>
-        /// The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        /// The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         /// </summary>
         [Input("partitionOption")]
         public Input<object>? PartitionOption { get; set; }

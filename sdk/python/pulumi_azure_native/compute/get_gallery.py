@@ -174,6 +174,8 @@ def get_gallery(expand: Optional[str] = None,
     Retrieves information about a Shared Image Gallery.
     Azure REST API version: 2022-03-03.
 
+    Other available API versions: 2022-08-03.
+
 
     :param str expand: The expand query option to apply on the operation.
     :param str gallery_name: The name of the Shared Image Gallery.
@@ -211,6 +213,8 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Retrieves information about a Shared Image Gallery.
     Azure REST API version: 2022-03-03.
+
+    Other available API versions: 2022-08-03.
 
 
     :param str expand: The expand query option to apply on the operation.

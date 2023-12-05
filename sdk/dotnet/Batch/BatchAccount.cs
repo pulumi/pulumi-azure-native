@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Batch
     /// Contains information about an Azure Batch account.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
     /// 
-    /// Other available API versions: 2017-01-01, 2022-01-01.
+    /// Other available API versions: 2017-01-01, 2022-01-01, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:BatchAccount")]
     public partial class BatchAccount : global::Pulumi.CustomResource
@@ -185,6 +185,7 @@ namespace Pulumi.AzureNative.Batch
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20221001:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20230501:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20231101:BatchAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

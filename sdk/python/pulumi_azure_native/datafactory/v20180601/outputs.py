@@ -10754,7 +10754,7 @@ class AzureFunctionActivityResponse(dict):
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -10845,7 +10845,7 @@ class AzureFunctionActivityResponse(dict):
     @pulumi.getter
     def headers(self) -> Optional[Any]:
         """
-        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
         """
         return pulumi.get(self, "headers")
 
@@ -10934,7 +10934,7 @@ class AzureFunctionLinkedServiceResponse(dict):
                  resource_id: Optional[Any] = None):
         """
         Azure Function linked service.
-        :param Any function_app_url: The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net.
+        :param Any function_app_url: The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'AzureFunction'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -10945,7 +10945,7 @@ class AzureFunctionLinkedServiceResponse(dict):
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] function_key: Function or Host key for Azure Function App.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
-        :param Any resource_id: Allowed token audiences for azure function.
+        :param Any resource_id: Allowed token audiences for azure function. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "function_app_url", function_app_url)
         pulumi.set(__self__, "type", 'AzureFunction')
@@ -10972,7 +10972,7 @@ class AzureFunctionLinkedServiceResponse(dict):
     @pulumi.getter(name="functionAppUrl")
     def function_app_url(self) -> Any:
         """
-        The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net.
+        The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "function_app_url")
 
@@ -11053,7 +11053,7 @@ class AzureFunctionLinkedServiceResponse(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[Any]:
         """
-        Allowed token audiences for azure function.
+        Allowed token audiences for azure function. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "resource_id")
 
@@ -11499,7 +11499,7 @@ class AzureMLExecutePipelineActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'AzureMLExecutePipeline'.
         :param Any continue_on_step_failure: Whether to continue execution of other steps in the PipelineRun if a step fails. This information will be passed in the continueOnStepFailure property of the published pipeline execution request. Type: boolean (or Expression with resultType boolean).
-        :param Any data_path_assignments: Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
+        :param Any data_path_assignments: Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object (or Expression with resultType object).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any experiment_name: Run history experiment name of the pipeline run. This information will be passed in the ExperimentName property of the published pipeline execution request. Type: string (or Expression with resultType string).
@@ -11576,7 +11576,7 @@ class AzureMLExecutePipelineActivityResponse(dict):
     @pulumi.getter(name="dataPathAssignments")
     def data_path_assignments(self) -> Optional[Any]:
         """
-        Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
+        Dictionary used for changing data path assignments without retraining. Values will be passed in the dataPathAssignments property of the published pipeline execution request. Type: object (or Expression with resultType object).
         """
         return pulumi.get(self, "data_path_assignments")
 
@@ -15561,7 +15561,7 @@ class AzureSqlSourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any produce_additional_types: Which additional types to produce.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -15644,7 +15644,7 @@ class AzureSqlSourceResponse(dict):
     @pulumi.getter(name="partitionOption")
     def partition_option(self) -> Optional[Any]:
         """
-        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "partition_option")
 
@@ -18560,10 +18560,10 @@ class CmdkeySetupResponse(dict):
         """
         The custom setup of running cmdkey commands.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of data source access.
-        :param Any target_name: The server name of data source access.
+        :param Any target_name: The server name of data source access. Type: string.
         :param str type: The type of custom setup.
                Expected value is 'CmdkeySetup'.
-        :param Any user_name: The user name of data source access.
+        :param Any user_name: The user name of data source access. Type: string.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "target_name", target_name)
@@ -18582,7 +18582,7 @@ class CmdkeySetupResponse(dict):
     @pulumi.getter(name="targetName")
     def target_name(self) -> Any:
         """
-        The server name of data source access.
+        The server name of data source access. Type: string.
         """
         return pulumi.get(self, "target_name")
 
@@ -18599,7 +18599,7 @@ class CmdkeySetupResponse(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> Any:
         """
-        The user name of data source access.
+        The user name of data source access. Type: string.
         """
         return pulumi.get(self, "user_name")
 
@@ -36861,7 +36861,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         """
         HDInsight ondemand linked service.
         :param Any cluster_resource_group: The resource group where the cluster belongs. Type: string (or Expression with resultType string).
-        :param Any cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
+        :param Any cluster_size: Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
         :param Any host_subscription_id: The customer’s subscription to host the cluster. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Azure Storage linked service to be used by the on-demand cluster for storing and processing data.
         :param Any tenant: The Tenant id/name to which the service principal belongs. Type: string (or Expression with resultType string).
@@ -36984,7 +36984,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
     @pulumi.getter(name="clusterSize")
     def cluster_size(self) -> Any:
         """
-        Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
+        Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
         """
         return pulumi.get(self, "cluster_size")
 
@@ -39463,7 +39463,7 @@ class HttpLinkedServiceResponse(dict):
                Expected value is 'HttpServer'.
         :param Any url: The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: key value pairs (value should be string type).
         :param str authentication_type: The authentication type to be used to connect to the HTTP server.
         :param Any cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
@@ -39531,7 +39531,7 @@ class HttpLinkedServiceResponse(dict):
     @pulumi.getter(name="authHeaders")
     def auth_headers(self) -> Optional[Any]:
         """
-        The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        The additional HTTP headers in the request to RESTful API used for authorization. Type: key value pairs (value should be string type).
         """
         return pulumi.get(self, "auth_headers")
 
@@ -51320,7 +51320,7 @@ class ODataLinkedServiceResponse(dict):
         :param Any aad_resource_id: Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).
         :param str aad_service_principal_credential_type: Specify the credential type (key or cert) is used for service principal.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
-        :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: key value pairs (value should be string type).
         :param str authentication_type: Type of authentication used to connect to the OData service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
@@ -51417,7 +51417,7 @@ class ODataLinkedServiceResponse(dict):
     @pulumi.getter(name="authHeaders")
     def auth_headers(self) -> Optional[Any]:
         """
-        The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
+        The additional HTTP headers in the request to RESTful API used for authorization. Type: key value pairs (value should be string type).
         """
         return pulumi.get(self, "auth_headers")
 
@@ -60638,9 +60638,9 @@ class RestSinkResponse(dict):
         A copy activity Rest service Sink.
         :param str type: Copy sink type.
                Expected value is 'RestSink'.
-        :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: key value pairs (value should be string type).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param Any http_compression_type: Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. 
+        :param Any http_compression_type: Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any request_interval: The time to await before sending next request, in milliseconds 
@@ -60687,7 +60687,7 @@ class RestSinkResponse(dict):
     @pulumi.getter(name="additionalHeaders")
     def additional_headers(self) -> Optional[Any]:
         """
-        The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        The additional HTTP headers in the request to the RESTful API. Type: key value pairs (value should be string type).
         """
         return pulumi.get(self, "additional_headers")
 
@@ -60703,7 +60703,7 @@ class RestSinkResponse(dict):
     @pulumi.getter(name="httpCompressionType")
     def http_compression_type(self) -> Optional[Any]:
         """
-        Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. 
+        Http Compression Type to Send data in compressed format with Optimal Compression Level, Default is None. And The Only Supported option is Gzip. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "http_compression_type")
 
@@ -60831,7 +60831,7 @@ class RestSourceResponse(dict):
         A copy activity Rest service source.
         :param str type: Copy source type.
                Expected value is 'RestSource'.
-        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: key value pairs (value should be string type).
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -60880,7 +60880,7 @@ class RestSourceResponse(dict):
     @pulumi.getter(name="additionalColumns")
     def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: key value pairs (value should be string type).
         """
         return pulumi.get(self, "additional_columns")
 
@@ -72438,7 +72438,7 @@ class SqlDWSourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -72518,7 +72518,7 @@ class SqlDWSourceResponse(dict):
     @pulumi.getter(name="partitionOption")
     def partition_option(self) -> Optional[Any]:
         """
-        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "partition_option")
 
@@ -72716,7 +72716,7 @@ class SqlMISinkResponse(dict):
         :param 'SqlUpsertSettingsResponse' upsert_settings: SQL upsert settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Any write_behavior: White behavior when copying data into azure SQL MI. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        :param Any write_behavior: White behavior when copying data into azure SQL MI. Type: string (or Expression with resultType string)
         """
         pulumi.set(__self__, "type", 'SqlMISink')
         if disable_metrics_collection is not None:
@@ -72875,7 +72875,7 @@ class SqlMISinkResponse(dict):
     @pulumi.getter(name="writeBehavior")
     def write_behavior(self) -> Optional[Any]:
         """
-        White behavior when copying data into azure SQL MI. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        White behavior when copying data into azure SQL MI. Type: string (or Expression with resultType string)
         """
         return pulumi.get(self, "write_behavior")
 
@@ -72949,7 +72949,7 @@ class SqlMISourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any produce_additional_types: Which additional types to produce.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -73032,7 +73032,7 @@ class SqlMISourceResponse(dict):
     @pulumi.getter(name="partitionOption")
     def partition_option(self) -> Optional[Any]:
         """
-        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "partition_option")
 
@@ -73410,7 +73410,7 @@ class SqlServerSinkResponse(dict):
         :param 'SqlUpsertSettingsResponse' upsert_settings: SQL upsert settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Any write_behavior: Write behavior when copying data into sql server. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        :param Any write_behavior: Write behavior when copying data into sql server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SqlServerSink')
         if disable_metrics_collection is not None:
@@ -73569,7 +73569,7 @@ class SqlServerSinkResponse(dict):
     @pulumi.getter(name="writeBehavior")
     def write_behavior(self) -> Optional[Any]:
         """
-        Write behavior when copying data into sql server. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        Write behavior when copying data into sql server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "write_behavior")
 
@@ -73643,7 +73643,7 @@ class SqlServerSourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any produce_additional_types: Which additional types to produce.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -73726,7 +73726,7 @@ class SqlServerSourceResponse(dict):
     @pulumi.getter(name="partitionOption")
     def partition_option(self) -> Optional[Any]:
         """
-        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "partition_option")
 
@@ -74198,7 +74198,7 @@ class SqlSinkResponse(dict):
         :param 'SqlUpsertSettingsResponse' upsert_settings: SQL upsert settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Any write_behavior: Write behavior when copying data into sql. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        :param Any write_behavior: Write behavior when copying data into sql. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SqlSink')
         if disable_metrics_collection is not None:
@@ -74357,7 +74357,7 @@ class SqlSinkResponse(dict):
     @pulumi.getter(name="writeBehavior")
     def write_behavior(self) -> Optional[Any]:
         """
-        Write behavior when copying data into sql. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        Write behavior when copying data into sql. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "write_behavior")
 
@@ -74428,7 +74428,7 @@ class SqlSourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -74508,7 +74508,7 @@ class SqlSourceResponse(dict):
     @pulumi.getter(name="partitionOption")
     def partition_option(self) -> Optional[Any]:
         """
-        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
+        The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange". Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "partition_option")
 
@@ -80126,12 +80126,16 @@ class WebActivityResponse(dict):
             suggest = "depends_on"
         elif key == "disableCertValidation":
             suggest = "disable_cert_validation"
+        elif key == "httpRequestTimeout":
+            suggest = "http_request_timeout"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
         elif key == "linkedServices":
             suggest = "linked_services"
         elif key == "onInactiveMarkAs":
             suggest = "on_inactive_mark_as"
+        elif key == "turnOffAsync":
+            suggest = "turn_off_async"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -80159,11 +80163,13 @@ class WebActivityResponse(dict):
                  description: Optional[str] = None,
                  disable_cert_validation: Optional[bool] = None,
                  headers: Optional[Any] = None,
+                 http_request_timeout: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
                  on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  state: Optional[str] = None,
+                 turn_off_async: Optional[bool] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Web activity.
@@ -80179,12 +80185,14 @@ class WebActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param bool disable_cert_validation: When set to true, Certificate validation will be disabled.
-        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
+        :param Any http_request_timeout: Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Sequence['LinkedServiceReferenceResponse'] linked_services: List of linked services passed to web endpoint.
         :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
+        :param bool turn_off_async: Option to disable invoking HTTP GET on location given in response header of a HTTP 202 Response. If set true, it stops invoking HTTP GET on http location given in response header. If set false then continues to invoke HTTP GET call on location given in http response headers.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "method", method)
@@ -80207,6 +80215,8 @@ class WebActivityResponse(dict):
             pulumi.set(__self__, "disable_cert_validation", disable_cert_validation)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
+        if http_request_timeout is not None:
+            pulumi.set(__self__, "http_request_timeout", http_request_timeout)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
         if linked_services is not None:
@@ -80217,6 +80227,8 @@ class WebActivityResponse(dict):
             pulumi.set(__self__, "policy", policy)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if turn_off_async is not None:
+            pulumi.set(__self__, "turn_off_async", turn_off_async)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -80313,9 +80325,17 @@ class WebActivityResponse(dict):
     @pulumi.getter
     def headers(self) -> Optional[Any]:
         """
-        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
         """
         return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="httpRequestTimeout")
+    def http_request_timeout(self) -> Optional[Any]:
+        """
+        Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
+        """
+        return pulumi.get(self, "http_request_timeout")
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -80356,6 +80376,14 @@ class WebActivityResponse(dict):
         Activity state. This is an optional property and if not provided, the state will be Active by default.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="turnOffAsync")
+    def turn_off_async(self) -> Optional[bool]:
+        """
+        Option to disable invoking HTTP GET on location given in response header of a HTTP 202 Response. If set true, it stops invoking HTTP GET on http location given in response header. If set false then continues to invoke HTTP GET call on location given in http response headers.
+        """
+        return pulumi.get(self, "turn_off_async")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -80621,7 +80649,7 @@ class WebHookActivityResponse(dict):
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
         :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'SecureInputOutputPolicyResponse' policy: Activity policy.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -80725,7 +80753,7 @@ class WebHookActivityResponse(dict):
     @pulumi.getter
     def headers(self) -> Optional[Any]:
         """
-        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
         """
         return pulumi.get(self, "headers")
 

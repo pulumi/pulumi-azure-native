@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// <summary>
     /// Schema for App Attach Package properties.
     /// Azure REST API version: 2023-10-04-preview.
+    /// 
+    /// Other available API versions: 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:AppAttachPackage")]
     public partial class AppAttachPackage : global::Pulumi.CustomResource
@@ -105,6 +107,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:AppAttachPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:AppAttachPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001preview:TagInheritanceSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221005preview:TagInheritanceSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230801:TagInheritanceSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:TagInheritanceSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

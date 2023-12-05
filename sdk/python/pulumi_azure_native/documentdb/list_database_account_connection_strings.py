@@ -52,7 +52,7 @@ def list_database_account_connection_strings(account_name: Optional[str] = None,
     Lists the connection strings for the specified Azure Cosmos DB database account.
     Azure REST API version: 2023-04-15.
 
-    Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+    Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -76,7 +76,7 @@ def list_database_account_connection_strings_output(account_name: Optional[pulum
     Lists the connection strings for the specified Azure Cosmos DB database account.
     Azure REST API version: 2023-04-15.
 
-    Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview.
+    Other available API versions: 2020-03-01, 2020-06-01-preview, 2020-09-01, 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15.
 
 
     :param str account_name: Cosmos DB database account name.

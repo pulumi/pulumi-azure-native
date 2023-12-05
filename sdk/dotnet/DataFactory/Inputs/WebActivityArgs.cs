@@ -70,10 +70,16 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<bool>? DisableCertValidation { get; set; }
 
         /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
         /// </summary>
         [Input("headers")]
         public Input<object>? Headers { get; set; }
+
+        /// <summary>
+        /// Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
+        /// </summary>
+        [Input("httpRequestTimeout")]
+        public Input<object>? HttpRequestTimeout { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -122,6 +128,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("state")]
         public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityState>? State { get; set; }
+
+        /// <summary>
+        /// Option to disable invoking HTTP GET on location given in response header of a HTTP 202 Response. If set true, it stops invoking HTTP GET on http location given in response header. If set false then continues to invoke HTTP GET call on location given in http response headers.
+        /// </summary>
+        [Input("turnOffAsync")]
+        public Input<bool>? TurnOffAsync { get; set; }
 
         /// <summary>
         /// Type of activity.

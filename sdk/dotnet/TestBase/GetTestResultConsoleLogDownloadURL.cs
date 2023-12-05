@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Gets the download URL of the test execution console log file.
         /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-01-preview.
         /// </summary>
         public static Task<GetTestResultConsoleLogDownloadURLResult> InvokeAsync(GetTestResultConsoleLogDownloadURLArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestResultConsoleLogDownloadURLResult>("azure-native:testbase:getTestResultConsoleLogDownloadURL", args ?? new GetTestResultConsoleLogDownloadURLArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// Gets the download URL of the test execution console log file.
         /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-01-preview.
         /// </summary>
         public static Output<GetTestResultConsoleLogDownloadURLResult> Invoke(GetTestResultConsoleLogDownloadURLInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestResultConsoleLogDownloadURLResult>("azure-native:testbase:getTestResultConsoleLogDownloadURL", args ?? new GetTestResultConsoleLogDownloadURLInvokeArgs(), options.WithDefaults());

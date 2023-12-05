@@ -27,11 +27,35 @@ namespace Pulumi.AzureNative.TestBase.Inputs
             set => _baselineOSs = value;
         }
 
+        [Input("insiderChannelIds")]
+        private InputList<string>? _insiderChannelIds;
+
+        /// <summary>
+        /// Insider Channel Ids. Only used for feature update.
+        /// </summary>
+        public InputList<string> InsiderChannelIds
+        {
+            get => _insiderChannelIds ?? (_insiderChannelIds = new InputList<string>());
+            set => _insiderChannelIds = value;
+        }
+
         /// <summary>
         /// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
         /// </summary>
         [Input("osUpdateType", required: true)]
         public Input<string> OsUpdateType { get; set; } = null!;
+
+        [Input("targetOSImageIds")]
+        private InputList<string>? _targetOSImageIds;
+
+        /// <summary>
+        /// Specifies the ids of the target OSs from Custom Images to be tested.
+        /// </summary>
+        public InputList<string> TargetOSImageIds
+        {
+            get => _targetOSImageIds ?? (_targetOSImageIds = new InputList<string>());
+            set => _targetOSImageIds = value;
+        }
 
         [Input("targetOSs")]
         private InputList<string>? _targetOSs;

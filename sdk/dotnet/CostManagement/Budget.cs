@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement
     /// A budget resource.
     /// Azure REST API version: 2023-04-01-preview.
     /// 
-    /// Other available API versions: 2019-04-01-preview, 2023-08-01.
+    /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Budget")]
     public partial class Budget : global::Pulumi.CustomResource
@@ -152,6 +152,7 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20190401preview:Budget"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:Budget"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230801:Budget"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:Budget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

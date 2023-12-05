@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:L3Network"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20221212preview:L3Network"},
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:L3Network"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:L3Network"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

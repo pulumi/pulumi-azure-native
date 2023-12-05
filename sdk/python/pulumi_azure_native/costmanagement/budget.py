@@ -309,7 +309,7 @@ class Budget(pulumi.CustomResource):
         A budget resource.
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2019-04-01-preview, 2023-08-01.
+        Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -397,7 +397,7 @@ class Budget(pulumi.CustomResource):
         A budget resource.
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2019-04-01-preview, 2023-08-01.
+        Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.
@@ -453,7 +453,7 @@ class Budget(pulumi.CustomResource):
             __props__.__dict__["forecast_spend"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:Budget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:Budget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Budget, __self__).__init__(
             'azure-native:costmanagement:Budget',

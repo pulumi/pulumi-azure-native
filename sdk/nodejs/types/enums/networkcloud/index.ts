@@ -2,14 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20221212preview from "./v20221212preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20230701 from "./v20230701";
+import * as v20231001preview from "./v20231001preview";
 
 export {
-    v20221212preview,
     v20230501preview,
     v20230701,
+    v20231001preview,
 };
 
 export const AdvertiseToFabric = {

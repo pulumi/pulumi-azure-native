@@ -113,6 +113,8 @@ def get_customer_event(customer_event_name: Optional[str] = None,
     Gets a Test Base CustomerEvent.
     Azure REST API version: 2022-04-01-preview.
 
+    Other available API versions: 2023-11-01-preview.
+
 
     :param str customer_event_name: The resource name of the Test Base Customer event.
     :param str resource_group_name: The name of the resource group that contains the resource.
@@ -142,6 +144,8 @@ def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] =
     """
     Gets a Test Base CustomerEvent.
     Azure REST API version: 2022-04-01-preview.
+
+    Other available API versions: 2023-11-01-preview.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.

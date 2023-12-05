@@ -18,6 +18,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230601.Outputs
     {
         public readonly string? InstantRPDetails;
         public readonly int? InstantRpRetentionRangeInDays;
+        /// <summary>
+        /// User assigned managed identity details
+        /// </summary>
         public readonly Outputs.UserAssignedManagedIdentityDetailsResponse? UserAssignedManagedIdentityDetails;
 
         [OutputConstructor]

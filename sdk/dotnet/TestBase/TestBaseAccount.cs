@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.TestBase
     /// <summary>
     /// The Test Base Account resource.
     /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:TestBaseAccount")]
     public partial class TestBaseAccount : global::Pulumi.CustomResource
@@ -97,6 +99,7 @@ namespace Pulumi.AzureNative.TestBase
                 {
                     new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:TestBaseAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:TestBaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20231101preview:TestBaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

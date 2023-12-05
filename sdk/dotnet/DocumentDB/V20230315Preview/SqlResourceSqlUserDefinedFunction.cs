@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:SqlResourceSqlUserDefinedFunction"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915:SqlResourceSqlUserDefinedFunction"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:SqlResourceSqlUserDefinedFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115:SqlResourceSqlUserDefinedFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

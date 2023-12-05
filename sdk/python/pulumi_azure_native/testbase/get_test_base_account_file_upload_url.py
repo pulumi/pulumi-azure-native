@@ -64,6 +64,8 @@ def get_test_base_account_file_upload_url(blob_name: Optional[str] = None,
     Gets the file upload URL of a Test Base Account.
     Azure REST API version: 2022-04-01-preview.
 
+    Other available API versions: 2023-11-01-preview.
+
 
     :param str blob_name: The custom file name of the uploaded blob.
     :param str resource_group_name: The name of the resource group that contains the resource.
@@ -89,6 +91,8 @@ def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Inpu
     """
     Gets the file upload URL of a Test Base Account.
     Azure REST API version: 2022-04-01-preview.
+
+    Other available API versions: 2023-11-01-preview.
 
 
     :param str blob_name: The custom file name of the uploaded blob.

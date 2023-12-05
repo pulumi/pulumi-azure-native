@@ -21,6 +21,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230601.Inputs
         [Input("instantRpRetentionRangeInDays")]
         public Input<int>? InstantRpRetentionRangeInDays { get; set; }
 
+        /// <summary>
+        /// User assigned managed identity details
+        /// </summary>
         [Input("userAssignedManagedIdentityDetails")]
         public Input<Inputs.UserAssignedManagedIdentityDetailsArgs>? UserAssignedManagedIdentityDetails { get; set; }
 

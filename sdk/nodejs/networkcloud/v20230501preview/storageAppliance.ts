@@ -192,7 +192,7 @@ export class StorageAppliance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:StorageAppliance" }, { type: "azure-native:networkcloud/v20221212preview:StorageAppliance" }, { type: "azure-native:networkcloud/v20230701:StorageAppliance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:StorageAppliance" }, { type: "azure-native:networkcloud/v20230701:StorageAppliance" }, { type: "azure-native:networkcloud/v20231001preview:StorageAppliance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAppliance.__pulumiType, name, resourceInputs, opts);
     }

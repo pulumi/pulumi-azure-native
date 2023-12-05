@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves information about a Shared Image Gallery.
  * Azure REST API version: 2022-03-03.
+ *
+ * Other available API versions: 2022-08-03.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
 
@@ -93,6 +95,8 @@ export interface GetGalleryResult {
 /**
  * Retrieves information about a Shared Image Gallery.
  * Azure REST API version: 2022-03-03.
+ *
+ * Other available API versions: 2022-08-03.
  */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
     return pulumi.output(args).apply((a: any) => getGallery(a, opts))

@@ -97,7 +97,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         Describes an identity resource.
         Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30.
 
-        Other available API versions: 2015-08-31-preview.
+        Other available API versions: 2015-08-31-preview, 2023-07-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         Describes an identity resource.
         Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30.
 
-        Other available API versions: 2015-08-31-preview.
+        Other available API versions: 2015-08-31-preview, 2023-07-31-preview.
 
         :param str resource_name: The name of the resource.
         :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.
@@ -158,7 +158,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedidentity/v20150831preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20181130:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20210930preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20220131preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20230131:UserAssignedIdentity")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedidentity/v20150831preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20181130:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20210930preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20220131preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20230131:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20230731preview:UserAssignedIdentity")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserAssignedIdentity, __self__).__init__(
             'azure-native:managedidentity:UserAssignedIdentity',

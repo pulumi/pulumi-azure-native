@@ -65,6 +65,8 @@ def get_test_result_video_download_url(package_name: Optional[str] = None,
     Gets the download URL of the test execution screen recording.
     Azure REST API version: 2022-04-01-preview.
 
+    Other available API versions: 2023-11-01-preview.
+
 
     :param str package_name: The resource name of the Test Base Package.
     :param str resource_group_name: The name of the resource group that contains the resource.
@@ -93,6 +95,8 @@ def get_test_result_video_download_url_output(package_name: Optional[pulumi.Inpu
     """
     Gets the download URL of the test execution screen recording.
     Azure REST API version: 2022-04-01-preview.
+
+    Other available API versions: 2023-11-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.

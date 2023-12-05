@@ -45,11 +45,6 @@ export type Console = import("./console").Console;
 export const Console: typeof import("./console").Console = null as any;
 utilities.lazyLoad(exports, ["Console"], () => require("./console"));
 
-export { DefaultCniNetworkArgs } from "./defaultCniNetwork";
-export type DefaultCniNetwork = import("./defaultCniNetwork").DefaultCniNetwork;
-export const DefaultCniNetwork: typeof import("./defaultCniNetwork").DefaultCniNetwork = null as any;
-utilities.lazyLoad(exports, ["DefaultCniNetwork"], () => require("./defaultCniNetwork"));
-
 export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./getAgentPool";
 export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
 export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
@@ -89,16 +84,6 @@ export { GetConsoleArgs, GetConsoleResult, GetConsoleOutputArgs } from "./getCon
 export const getConsole: typeof import("./getConsole").getConsole = null as any;
 export const getConsoleOutput: typeof import("./getConsole").getConsoleOutput = null as any;
 utilities.lazyLoad(exports, ["getConsole","getConsoleOutput"], () => require("./getConsole"));
-
-export { GetDefaultCniNetworkArgs, GetDefaultCniNetworkResult, GetDefaultCniNetworkOutputArgs } from "./getDefaultCniNetwork";
-export const getDefaultCniNetwork: typeof import("./getDefaultCniNetwork").getDefaultCniNetwork = null as any;
-export const getDefaultCniNetworkOutput: typeof import("./getDefaultCniNetwork").getDefaultCniNetworkOutput = null as any;
-utilities.lazyLoad(exports, ["getDefaultCniNetwork","getDefaultCniNetworkOutput"], () => require("./getDefaultCniNetwork"));
-
-export { GetHybridAksClusterArgs, GetHybridAksClusterResult, GetHybridAksClusterOutputArgs } from "./getHybridAksCluster";
-export const getHybridAksCluster: typeof import("./getHybridAksCluster").getHybridAksCluster = null as any;
-export const getHybridAksClusterOutput: typeof import("./getHybridAksCluster").getHybridAksClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getHybridAksCluster","getHybridAksClusterOutput"], () => require("./getHybridAksCluster"));
 
 export { GetKubernetesClusterArgs, GetKubernetesClusterResult, GetKubernetesClusterOutputArgs } from "./getKubernetesCluster";
 export const getKubernetesCluster: typeof import("./getKubernetesCluster").getKubernetesCluster = null as any;
@@ -144,11 +129,6 @@ export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
-
-export { HybridAksClusterArgs } from "./hybridAksCluster";
-export type HybridAksCluster = import("./hybridAksCluster").HybridAksCluster;
-export const HybridAksCluster: typeof import("./hybridAksCluster").HybridAksCluster = null as any;
-utilities.lazyLoad(exports, ["HybridAksCluster"], () => require("./hybridAksCluster"));
 
 export { KubernetesClusterArgs } from "./kubernetesCluster";
 export type KubernetesCluster = import("./kubernetesCluster").KubernetesCluster;
@@ -200,14 +180,14 @@ utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 export * from "../types/enums/networkcloud";
 
 // Export sub-modules:
-import * as v20221212preview from "./v20221212preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20230701 from "./v20230701";
+import * as v20231001preview from "./v20231001preview";
 
 export {
-    v20221212preview,
     v20230501preview,
     v20230701,
+    v20231001preview,
 };
 
 const _module = {
@@ -230,10 +210,6 @@ const _module = {
                 return new ClusterManager(name, <any>undefined, { urn })
             case "azure-native:networkcloud:Console":
                 return new Console(name, <any>undefined, { urn })
-            case "azure-native:networkcloud:DefaultCniNetwork":
-                return new DefaultCniNetwork(name, <any>undefined, { urn })
-            case "azure-native:networkcloud:HybridAksCluster":
-                return new HybridAksCluster(name, <any>undefined, { urn })
             case "azure-native:networkcloud:KubernetesCluster":
                 return new KubernetesCluster(name, <any>undefined, { urn })
             case "azure-native:networkcloud:L2Network":

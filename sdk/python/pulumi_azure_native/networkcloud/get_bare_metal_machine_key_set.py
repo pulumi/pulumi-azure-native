@@ -254,7 +254,7 @@ def get_bare_metal_machine_key_set(bare_metal_machine_key_set_name: Optional[str
     Get bare metal machine key set of the provided cluster.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2023-10-01-preview.
 
 
     :param str bare_metal_machine_key_set_name: The name of the bare metal machine key set.
@@ -298,7 +298,7 @@ def get_bare_metal_machine_key_set_output(bare_metal_machine_key_set_name: Optio
     Get bare metal machine key set of the provided cluster.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01.
+    Other available API versions: 2023-07-01, 2023-10-01-preview.
 
 
     :param str bare_metal_machine_key_set_name: The name of the bare metal machine key set.

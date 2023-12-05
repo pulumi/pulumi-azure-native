@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
  *
- * Other available API versions: 2022-12-12-preview, 2023-07-01.
+ * Other available API versions: 2023-07-01, 2023-10-01-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -249,7 +249,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["workloadResourceIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:Cluster" }, { type: "azure-native:networkcloud/v20230501preview:Cluster" }, { type: "azure-native:networkcloud/v20230701:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230501preview:Cluster" }, { type: "azure-native:networkcloud/v20230701:Cluster" }, { type: "azure-native:networkcloud/v20231001preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

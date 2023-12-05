@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? WriteBatchTimeout { get; set; }
 
         /// <summary>
-        /// White behavior when copying data into azure SQL MI. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        /// White behavior when copying data into azure SQL MI. Type: string (or Expression with resultType string)
         /// </summary>
         [Input("writeBehavior")]
         public Input<object>? WriteBehavior { get; set; }

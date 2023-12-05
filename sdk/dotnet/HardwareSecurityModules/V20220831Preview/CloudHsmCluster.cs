@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20220831Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules:CloudHsmCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -150,6 +150,7 @@ __all__ = [
     'StorageMappingInputPropertiesArgs',
     'SubProtectionPolicyArgs',
     'TieringPolicyArgs',
+    'UserAssignedIdentityPropertiesArgs',
     'UserAssignedManagedIdentityDetailsArgs',
     'VMwareCbtContainerMappingInputArgs',
     'VMwareCbtDiskInputArgs',
@@ -15986,6 +15987,7 @@ class SnapshotBackupAdditionalDetailsArgs:
                  user_assigned_managed_identity_details: Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']] = None):
         """
         Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        :param pulumi.Input['UserAssignedManagedIdentityDetailsArgs'] user_assigned_managed_identity_details: User assigned managed identity details
         """
         if instant_rp_details is not None:
             pulumi.set(__self__, "instant_rp_details", instant_rp_details)
@@ -16015,6 +16017,9 @@ class SnapshotBackupAdditionalDetailsArgs:
     @property
     @pulumi.getter(name="userAssignedManagedIdentityDetails")
     def user_assigned_managed_identity_details(self) -> Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']]:
+        """
+        User assigned managed identity details
+        """
         return pulumi.get(self, "user_assigned_managed_identity_details")
 
     @user_assigned_managed_identity_details.setter
@@ -16242,18 +16247,70 @@ class TieringPolicyArgs:
 
 
 @pulumi.input_type
+class UserAssignedIdentityPropertiesArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None):
+        """
+        User assigned managed identity properties
+        :param pulumi.Input[str] client_id: The client ID of the assigned identity.
+        :param pulumi.Input[str] principal_id: The principal ID of the assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+
+@pulumi.input_type
 class UserAssignedManagedIdentityDetailsArgs:
     def __init__(__self__, *,
                  identity_arm_id: Optional[pulumi.Input[str]] = None,
-                 identity_name: Optional[pulumi.Input[str]] = None):
+                 identity_name: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_properties: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']] = None):
+        """
+        User assigned managed identity details
+        :param pulumi.Input[str] identity_arm_id: The ARM id of the assigned identity.
+        :param pulumi.Input[str] identity_name: The name of the assigned identity.
+        :param pulumi.Input['UserAssignedIdentityPropertiesArgs'] user_assigned_identity_properties: User assigned managed identity properties
+        """
         if identity_arm_id is not None:
             pulumi.set(__self__, "identity_arm_id", identity_arm_id)
         if identity_name is not None:
             pulumi.set(__self__, "identity_name", identity_name)
+        if user_assigned_identity_properties is not None:
+            pulumi.set(__self__, "user_assigned_identity_properties", user_assigned_identity_properties)
 
     @property
     @pulumi.getter(name="identityArmId")
     def identity_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM id of the assigned identity.
+        """
         return pulumi.get(self, "identity_arm_id")
 
     @identity_arm_id.setter
@@ -16263,11 +16320,26 @@ class UserAssignedManagedIdentityDetailsArgs:
     @property
     @pulumi.getter(name="identityName")
     def identity_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the assigned identity.
+        """
         return pulumi.get(self, "identity_name")
 
     @identity_name.setter
     def identity_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_name", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityProperties")
+    def user_assigned_identity_properties(self) -> Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]:
+        """
+        User assigned managed identity properties
+        """
+        return pulumi.get(self, "user_assigned_identity_properties")
+
+    @user_assigned_identity_properties.setter
+    def user_assigned_identity_properties(self, value: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]):
+        pulumi.set(self, "user_assigned_identity_properties", value)
 
 
 @pulumi.input_type

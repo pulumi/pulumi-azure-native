@@ -125,6 +125,8 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
     Gets the federated identity credential.
     Azure REST API version: 2023-01-31.
 
+    Other available API versions: 2023-07-31-preview.
+
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -155,6 +157,8 @@ def get_federated_identity_credential_output(federated_identity_credential_resou
     """
     Gets the federated identity credential.
     Azure REST API version: 2023-01-31.
+
+    Other available API versions: 2023-07-31-preview.
 
 
     :param str federated_identity_credential_resource_name: The name of the federated identity credential resource.

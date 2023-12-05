@@ -212,7 +212,7 @@ __all__ = [
     'SystemDataResponse',
     'TieringPolicyResponse',
     'UpgradeDetailsResponse',
-    'UserAssignedIdentityResponse',
+    'UserAssignedIdentityPropertiesResponse',
     'UserAssignedManagedIdentityDetailsResponse',
     'UserIdentityResponse',
     'VCenterPropertiesResponse',
@@ -30392,6 +30392,7 @@ class SnapshotBackupAdditionalDetailsResponse(dict):
                  user_assigned_managed_identity_details: Optional['outputs.UserAssignedManagedIdentityDetailsResponse'] = None):
         """
         Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        :param 'UserAssignedManagedIdentityDetailsResponse' user_assigned_managed_identity_details: User assigned managed identity details
         """
         if instant_rp_details is not None:
             pulumi.set(__self__, "instant_rp_details", instant_rp_details)
@@ -30413,6 +30414,9 @@ class SnapshotBackupAdditionalDetailsResponse(dict):
     @property
     @pulumi.getter(name="userAssignedManagedIdentityDetails")
     def user_assigned_managed_identity_details(self) -> Optional['outputs.UserAssignedManagedIdentityDetailsResponse']:
+        """
+        User assigned managed identity details
+        """
         return pulumi.get(self, "user_assigned_managed_identity_details")
 
 
@@ -30934,9 +30938,9 @@ class UpgradeDetailsResponse(dict):
 
 
 @pulumi.output_type
-class UserAssignedIdentityResponse(dict):
+class UserAssignedIdentityPropertiesResponse(dict):
     """
-    User assigned identity properties
+    User assigned managed identity properties
     """
     @staticmethod
     def __key_warning(key: str):
@@ -30947,30 +30951,32 @@ class UserAssignedIdentityResponse(dict):
             suggest = "principal_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
+        UserAssignedIdentityPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
+        UserAssignedIdentityPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
+                 client_id: Optional[str] = None,
+                 principal_id: Optional[str] = None):
         """
-        User assigned identity properties
+        User assigned managed identity properties
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
+    def client_id(self) -> Optional[str]:
         """
         The client ID of the assigned identity.
         """
@@ -30978,7 +30984,7 @@ class UserAssignedIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
+    def principal_id(self) -> Optional[str]:
         """
         The principal ID of the assigned identity.
         """
@@ -30987,6 +30993,9 @@ class UserAssignedIdentityResponse(dict):
 
 @pulumi.output_type
 class UserAssignedManagedIdentityDetailsResponse(dict):
+    """
+    User assigned managed identity details
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31011,9 +31020,12 @@ class UserAssignedManagedIdentityDetailsResponse(dict):
     def __init__(__self__, *,
                  identity_arm_id: Optional[str] = None,
                  identity_name: Optional[str] = None,
-                 user_assigned_identity_properties: Optional['outputs.UserAssignedIdentityResponse'] = None):
+                 user_assigned_identity_properties: Optional['outputs.UserAssignedIdentityPropertiesResponse'] = None):
         """
-        :param 'UserAssignedIdentityResponse' user_assigned_identity_properties: User assigned identity properties
+        User assigned managed identity details
+        :param str identity_arm_id: The ARM id of the assigned identity.
+        :param str identity_name: The name of the assigned identity.
+        :param 'UserAssignedIdentityPropertiesResponse' user_assigned_identity_properties: User assigned managed identity properties
         """
         if identity_arm_id is not None:
             pulumi.set(__self__, "identity_arm_id", identity_arm_id)
@@ -31025,18 +31037,24 @@ class UserAssignedManagedIdentityDetailsResponse(dict):
     @property
     @pulumi.getter(name="identityArmId")
     def identity_arm_id(self) -> Optional[str]:
+        """
+        The ARM id of the assigned identity.
+        """
         return pulumi.get(self, "identity_arm_id")
 
     @property
     @pulumi.getter(name="identityName")
     def identity_name(self) -> Optional[str]:
+        """
+        The name of the assigned identity.
+        """
         return pulumi.get(self, "identity_name")
 
     @property
     @pulumi.getter(name="userAssignedIdentityProperties")
-    def user_assigned_identity_properties(self) -> Optional['outputs.UserAssignedIdentityResponse']:
+    def user_assigned_identity_properties(self) -> Optional['outputs.UserAssignedIdentityPropertiesResponse']:
         """
-        User assigned identity properties
+        User assigned managed identity properties
         """
         return pulumi.get(self, "user_assigned_identity_properties")
 

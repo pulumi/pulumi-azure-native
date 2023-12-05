@@ -804,7 +804,7 @@ class Volume(pulumi.CustomResource):
         Volume resource
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2017-08-15, 2019-05-01, 2019-07-01, 2019-08-01, 2020-02-01, 2021-10-01, 2022-11-01-preview, 2023-05-01.
+        Other available API versions: 2017-08-15, 2019-05-01, 2019-07-01, 2019-08-01, 2020-02-01, 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -862,7 +862,7 @@ class Volume(pulumi.CustomResource):
         Volume resource
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2017-08-15, 2019-05-01, 2019-07-01, 2019-08-01, 2020-02-01, 2021-10-01, 2022-11-01-preview, 2023-05-01.
+        Other available API versions: 2017-08-15, 2019-05-01, 2019-07-01, 2019-08-01, 2020-02-01, 2021-10-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
@@ -1042,7 +1042,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["t2_network"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_group_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20221101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20230501:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20170815:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20190801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20191101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200701:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20200901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20201201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210201:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210601:Volume"), pulumi.Alias(type_="azure-native:netapp/v20210801:Volume"), pulumi.Alias(type_="azure-native:netapp/v20211001:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Volume"), pulumi.Alias(type_="azure-native:netapp/v20221101:Volume"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:Volume"), pulumi.Alias(type_="azure-native:netapp/v20230501:Volume"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-native:netapp:Volume',

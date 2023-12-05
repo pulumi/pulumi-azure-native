@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
  * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
+ *
+ * Other available API versions: 2022-08-03.
  */
 export class GalleryApplication extends pulumi.CustomResource {
     /**
@@ -131,7 +133,7 @@ export class GalleryApplication extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:GalleryApplication" }, { type: "azure-native:compute/v20190701:GalleryApplication" }, { type: "azure-native:compute/v20191201:GalleryApplication" }, { type: "azure-native:compute/v20200930:GalleryApplication" }, { type: "azure-native:compute/v20210701:GalleryApplication" }, { type: "azure-native:compute/v20211001:GalleryApplication" }, { type: "azure-native:compute/v20220103:GalleryApplication" }, { type: "azure-native:compute/v20220303:GalleryApplication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:GalleryApplication" }, { type: "azure-native:compute/v20190701:GalleryApplication" }, { type: "azure-native:compute/v20191201:GalleryApplication" }, { type: "azure-native:compute/v20200930:GalleryApplication" }, { type: "azure-native:compute/v20210701:GalleryApplication" }, { type: "azure-native:compute/v20211001:GalleryApplication" }, { type: "azure-native:compute/v20220103:GalleryApplication" }, { type: "azure-native:compute/v20220303:GalleryApplication" }, { type: "azure-native:compute/v20220803:GalleryApplication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryApplication.__pulumiType, name, resourceInputs, opts);
     }

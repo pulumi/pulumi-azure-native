@@ -258,7 +258,7 @@ class Console(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machine_access_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:Console")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20230701:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:Console")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Console, __self__).__init__(
             'azure-native:networkcloud/v20230501preview:Console',

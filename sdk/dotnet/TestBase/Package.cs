@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.TestBase
     /// <summary>
     /// The Test Base Package resource.
     /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+    /// 
+    /// Other available API versions: 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:Package")]
     public partial class Package : global::Pulumi.CustomResource
@@ -151,6 +153,7 @@ namespace Pulumi.AzureNative.TestBase
                 {
                     new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:Package"},
                     new global::Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:Package"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20231101preview:Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

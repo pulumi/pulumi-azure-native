@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Resource information with extended details.
  * Azure REST API version: 2022-08-31-preview.
+ *
+ * Other available API versions: 2023-12-10-preview.
  */
 export class CloudHsmCluster extends pulumi.CustomResource {
     /**
@@ -130,7 +132,7 @@ export class CloudHsmCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules/v20220831preview:CloudHsmCluster" }, { type: "azure-native:hardwaresecuritymodules/v20231210preview:CloudHsmCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudHsmCluster.__pulumiType, name, resourceInputs, opts);
     }

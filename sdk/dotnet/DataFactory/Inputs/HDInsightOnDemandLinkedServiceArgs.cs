@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object> ClusterResourceGroup { get; set; } = null!;
 
         /// <summary>
-        /// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: string (or Expression with resultType string).
+        /// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
         /// </summary>
         [Input("clusterSize", required: true)]
         public Input<object> ClusterSize { get; set; } = null!;

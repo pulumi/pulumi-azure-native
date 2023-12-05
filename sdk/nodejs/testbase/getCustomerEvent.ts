@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a Test Base CustomerEvent.
  * Azure REST API version: 2022-04-01-preview.
+ *
+ * Other available API versions: 2023-11-01-preview.
  */
 export function getCustomerEvent(args: GetCustomerEventArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerEventResult> {
 
@@ -68,6 +70,8 @@ export interface GetCustomerEventResult {
 /**
  * Gets a Test Base CustomerEvent.
  * Azure REST API version: 2022-04-01-preview.
+ *
+ * Other available API versions: 2023-11-01-preview.
  */
 export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerEventResult> {
     return pulumi.output(args).apply((a: any) => getCustomerEvent(a, opts))

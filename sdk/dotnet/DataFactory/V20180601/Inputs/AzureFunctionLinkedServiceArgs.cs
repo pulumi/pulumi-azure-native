@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? EncryptedCredential { get; set; }
 
         /// <summary>
-        /// The endpoint of the Azure Function App. URL will be in the format https://&lt;accountName&gt;.azurewebsites.net.
+        /// The endpoint of the Azure Function App. URL will be in the format https://&lt;accountName&gt;.azurewebsites.net. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("functionAppUrl", required: true)]
         public Input<object> FunctionAppUrl { get; set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Allowed token audiences for azure function.
+        /// Allowed token audiences for azure function. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("resourceId")]
         public Input<object>? ResourceId { get; set; }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Monitor resource.
  * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01.
  *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview.
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20200701:Monitor" }, { type: "azure-native:elastic/v20200701preview:Monitor" }, { type: "azure-native:elastic/v20210901preview:Monitor" }, { type: "azure-native:elastic/v20211001preview:Monitor" }, { type: "azure-native:elastic/v20220505preview:Monitor" }, { type: "azure-native:elastic/v20220701preview:Monitor" }, { type: "azure-native:elastic/v20220901preview:Monitor" }, { type: "azure-native:elastic/v20230201preview:Monitor" }, { type: "azure-native:elastic/v20230501preview:Monitor" }, { type: "azure-native:elastic/v20230601:Monitor" }, { type: "azure-native:elastic/v20230615preview:Monitor" }, { type: "azure-native:elastic/v20230701preview:Monitor" }, { type: "azure-native:elastic/v20231001preview:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20200701:Monitor" }, { type: "azure-native:elastic/v20200701preview:Monitor" }, { type: "azure-native:elastic/v20210901preview:Monitor" }, { type: "azure-native:elastic/v20211001preview:Monitor" }, { type: "azure-native:elastic/v20220505preview:Monitor" }, { type: "azure-native:elastic/v20220701preview:Monitor" }, { type: "azure-native:elastic/v20220901preview:Monitor" }, { type: "azure-native:elastic/v20230201preview:Monitor" }, { type: "azure-native:elastic/v20230501preview:Monitor" }, { type: "azure-native:elastic/v20230601:Monitor" }, { type: "azure-native:elastic/v20230615preview:Monitor" }, { type: "azure-native:elastic/v20230701preview:Monitor" }, { type: "azure-native:elastic/v20231001preview:Monitor" }, { type: "azure-native:elastic/v20231101preview:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }

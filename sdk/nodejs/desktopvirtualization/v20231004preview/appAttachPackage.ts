@@ -123,7 +123,7 @@ export class AppAttachPackage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:AppAttachPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:AppAttachPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppAttachPackage.__pulumiType, name, resourceInputs, opts);
     }
