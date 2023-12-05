@@ -1179,10 +1179,11 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
-	readOlds := func() (resource.PropertyMap, error) {
-		return plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
-		})
+	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+		Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+	})
+	if err != nil {
+		return nil, err
 	}
 
 	if req.GetPreview() {
@@ -1190,11 +1191,6 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		// We know that their values won't change, so it's safe to propagate the values to dependent
 		// resources during the preview.
 		outputs := k.converter.PreviewOutputs(inputs, res.Response)
-
-		oldState, err := readOlds()
-		if err != nil {
-			return nil, err
-		}
 
 		stableOutputs := []string{"name", "location"}
 		for _, name := range stableOutputs {
@@ -1217,7 +1213,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		}, nil
 	}
 
-	restoreDefaultInputsForRemovedProperties(inputs, res, readOlds)
+	restoreDefaultInputsForRemovedProperties(inputs, res, oldState)
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
@@ -1283,16 +1279,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}, nil
 }
 
-func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res resources.AzureAPIResource, readOlds func() (resource.PropertyMap, error)) error {
-	var oldState resource.PropertyMap
-	if res.DefaultProperties != nil {
-		var err error
-		oldState, err = readOlds()
-		if err != nil {
-			return err
-		}
-	}
-
+func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res resources.AzureAPIResource, oldState resource.PropertyMap) error {
 	for property, defaultValue := range res.DefaultProperties {
 		key := resource.PropertyKey(property)
 		if !inputs.HasValue(key) && oldState.HasValue(key) {

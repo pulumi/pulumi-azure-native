@@ -314,7 +314,7 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 	})
 }
 
-func TestSpecialInputs(t *testing.T) {
+func TestRestoreDefaultInputs(t *testing.T) {
 	inputs := resource.PropertyMap{
 		"unrelated": resource.NewStringProperty("foo"),
 	}
@@ -323,13 +323,105 @@ func TestSpecialInputs(t *testing.T) {
 		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{}),
 	}
 
-	err := adjustInputsForSpecialCases(inputs,
-		"azure-native:storage:StorageAccount",
-		func() (resource.PropertyMap, error) {
-			return olds, nil
-		})
+	res := resources.AzureAPIResource{
+		DefaultProperties: map[string]interface{}{
+			"networkRuleSet": map[string]interface{}{
+				"defaultAction": "Allow",
+			},
+		},
+	}
+
+	err := restoreDefaultInputsForRemovedProperties(inputs, res, olds)
 	assert.NoError(t, err)
 
 	// Was not in inputs but was added to reset it back to default.
 	assert.Contains(t, inputs, resource.PropertyKey("networkRuleSet"))
+}
+
+func TestDoNotRestoreDefaultInputsIfInputPresent(t *testing.T) {
+	inputs := resource.PropertyMap{
+		"unrelated": resource.NewStringProperty("bar"),
+		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
+			"defaultAction": resource.NewStringProperty("Deny"),
+		}),
+	}
+	olds := resource.PropertyMap{
+		"unrelated":      resource.NewStringProperty("foo"),
+		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{}),
+	}
+
+	res := resources.AzureAPIResource{
+		DefaultProperties: map[string]interface{}{
+			"networkRuleSet": map[string]interface{}{
+				"defaultAction": "Allow",
+			},
+		},
+	}
+
+	err := restoreDefaultInputsForRemovedProperties(inputs, res, olds)
+	assert.NoError(t, err)
+
+	assert.Contains(t, inputs, resource.PropertyKey("networkRuleSet"))
+	// Input "deny" was not overwritten with default "allow"
+	assert.Equal(t, "Deny", inputs["networkRuleSet"].ObjectValue()["defaultAction"].StringValue())
+}
+
+func TestRestoreDefaultInputsIsNoopWithoutDefaultProperties(t *testing.T) {
+	inputs := resource.PropertyMap{}
+
+	olds := resource.PropertyMap{
+		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{}),
+	}
+
+	res := resources.AzureAPIResource{} // no defaults
+
+	err := restoreDefaultInputsForRemovedProperties(inputs, res, olds)
+	assert.NoError(t, err)
+	assert.Empty(t, inputs)
+
+	// same with empty defaults
+	res.DefaultProperties = map[string]interface{}{}
+	err = restoreDefaultInputsForRemovedProperties(inputs, res, olds)
+	assert.NoError(t, err)
+	assert.Empty(t, inputs)
+}
+
+func TestMappableOldStateIsNoopWithoutDefaults(t *testing.T) {
+	res := resources.AzureAPIResource{} // no defaults
+	m := mappableOldState(res, resource.PropertyMap{
+		"foo": resource.NewStringProperty("bar"),
+	})
+	assert.Equal(t, map[string]interface{}{"foo": "bar"}, m)
+}
+
+func TestMappableOldStatePreservesNonDefaults(t *testing.T) {
+	res := resources.AzureAPIResource{
+		DefaultProperties: map[string]interface{}{
+			"networkRuleSet": map[string]interface{}{
+				"defaultAction": "Allow",
+			},
+		},
+	}
+	m := mappableOldState(res, resource.PropertyMap{
+		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
+			"defaultAction": resource.NewStringProperty("Deny"),
+		}),
+	})
+	assert.Equal(t, "Deny", m["networkRuleSet"].(map[string]interface{})["defaultAction"])
+}
+
+func TestMappableOldStateRemovesDefaults(t *testing.T) {
+	res := resources.AzureAPIResource{
+		DefaultProperties: map[string]interface{}{
+			"networkRuleSet": map[string]interface{}{
+				"defaultAction": "Allow",
+			},
+		},
+	}
+	m := mappableOldState(res, resource.PropertyMap{
+		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
+			"defaultAction": resource.NewStringProperty("Allow"),
+		}),
+	})
+	assert.Empty(t, m)
 }
