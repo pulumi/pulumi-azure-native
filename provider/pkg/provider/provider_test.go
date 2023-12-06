@@ -410,7 +410,7 @@ func TestMappableOldStatePreservesNonDefaults(t *testing.T) {
 	assert.Equal(t, "Deny", m["networkRuleSet"].(map[string]interface{})["defaultAction"])
 }
 
-func TestMappableOldStateRemovesDefaults(t *testing.T) {
+func TestMappableOldStateRemovesDefaultsThatWereInputs(t *testing.T) {
 	res := resources.AzureAPIResource{
 		DefaultProperties: map[string]interface{}{
 			"networkRuleSet": map[string]interface{}{
@@ -419,9 +419,33 @@ func TestMappableOldStateRemovesDefaults(t *testing.T) {
 		},
 	}
 	m := mappableOldState(res, resource.PropertyMap{
+		"__inputs": resource.NewObjectProperty(resource.PropertyMap{
+			"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
+				"defaultAction": resource.NewStringProperty("Allow"),
+			}),
+		}),
 		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
 			"defaultAction": resource.NewStringProperty("Allow"),
 		}),
 	})
-	assert.Empty(t, m)
+	assert.Contains(t, m, "__inputs")
+	assert.NotContains(t, m, "networkRuleSet")
+}
+
+func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
+	res := resources.AzureAPIResource{
+		DefaultProperties: map[string]interface{}{
+			"networkRuleSet": map[string]interface{}{
+				"defaultAction": "Allow",
+			},
+		},
+	}
+	m := mappableOldState(res, resource.PropertyMap{
+		"__inputs": resource.NewObjectProperty(resource.PropertyMap{}),
+		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
+			"defaultAction": resource.NewStringProperty("Allow"),
+		}),
+	})
+	assert.Contains(t, m, "__inputs")
+	assert.Contains(t, m, "networkRuleSet")
 }

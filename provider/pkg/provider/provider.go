@@ -1102,9 +1102,16 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 // Converts oldState into a serializable object map, with the resource's default values from metadata removed.
 func mappableOldState(res resources.AzureAPIResource, oldState resource.PropertyMap) map[string]interface{} {
 	plainOldState := oldState.Mappable()
+	previousInputsRaw, ok := plainOldState["__inputs"]
+	if !ok {
+		return plainOldState
+	}
+	previousInputs := previousInputsRaw.(map[string]interface{})
+
 	for property, defaultValue := range res.DefaultProperties {
+		_, wasInPreviousInputs := previousInputs[property]
 		val, ok := plainOldState[property]
-		if ok && reflect.DeepEqual(val, defaultValue) {
+		if ok && wasInPreviousInputs && reflect.DeepEqual(val, defaultValue) {
 			logging.V(5).Infof("removing property %q with default value from old state", property)
 			delete(plainOldState, property)
 		}
