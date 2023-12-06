@@ -1730,7 +1730,8 @@
       "2022-08-01-preview",
       "2023-01-01",
       "2023-02-01",
-      "2023-03-01-preview"
+      "2023-03-01-preview",
+      "2023-04-01"
     ],
     "accessreviewhistorydefinitions": [
       "2021-11-16-preview"
@@ -1801,6 +1802,12 @@
     "findorphanroleassignments": [
       "2019-04-01-preview"
     ],
+    "listpolicydefinitionversions": [
+      "2023-04-01"
+    ],
+    "listpolicysetdefinitionversions": [
+      "2023-04-01"
+    ],
     "locks": [
       "2015-01-01",
       "2015-05-01-preview",
@@ -1847,7 +1854,8 @@
       "2020-08-01",
       "2020-09-01",
       "2021-06-01",
-      "2022-06-01"
+      "2022-06-01",
+      "2023-04-01"
     ],
     "policydefinitions": [
       "2015-10-01-preview",
@@ -1861,7 +1869,11 @@
       "2020-03-01",
       "2020-08-01",
       "2020-09-01",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-01"
+    ],
+    "policydefinitions/versions": [
+      "2023-04-01"
     ],
     "policyexemptions": [
       "2020-07-01-preview",
@@ -1877,7 +1889,11 @@
       "2020-03-01",
       "2020-08-01",
       "2020-09-01",
-      "2021-06-01"
+      "2021-06-01",
+      "2023-04-01"
+    ],
+    "policysetdefinitions/versions": [
+      "2023-04-01"
     ],
     "privatelinkassociations": [
       "2020-05-01",
@@ -7129,13 +7145,22 @@
   },
   "community": {
     "": [
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01"
+    ],
+    "communitytrainings": [
+      "2023-11-01"
     ],
     "locations": [
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01"
+    ],
+    "locations/operationstatuses": [
+      "2023-11-01"
     ],
     "operations": [
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01"
     ]
   },
   "compute": {
@@ -13430,7 +13455,9 @@
       "2023-07-07-preview",
       "2023-09-05",
       "2023-10-04-preview",
-      "2023-10-09-privatepreview"
+      "2023-10-09-privatepreview",
+      "2023-11-01-preview",
+      "2023-11-29-privatepreview"
     ],
     "appattachpackages": [
       "2022-09-01-privatepreview",
@@ -13741,7 +13768,9 @@
       "2023-07-07-preview",
       "2023-09-05",
       "2023-10-04-preview",
-      "2023-10-09-privatepreview"
+      "2023-10-09-privatepreview",
+      "2023-11-01-preview",
+      "2023-11-29-privatepreview"
     ],
     "scalingplans": [
       "2019-01-23-preview",
@@ -29131,10 +29160,12 @@
     "accounts": [
       "2020-12-01-preview",
       "2021-07-01",
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "accounts/kafkaconfigurations": [
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "checknameavailability": [
       "2020-12-01-preview",
@@ -29153,15 +29184,18 @@
       "2021-12-01"
     ],
     "locations/listfeatures": [
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "locations/operationresults": [
       "2020-12-01-preview",
       "2021-07-01",
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "locations/usages": [
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "operations": [
       "2020-12-01-preview",
