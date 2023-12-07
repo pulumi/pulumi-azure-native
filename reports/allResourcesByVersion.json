@@ -4065,6 +4065,28 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2023-09-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
     ]
   },
   "ConfidentialLedger": {
@@ -6280,13 +6302,6 @@
       "ResourceGuard"
     ],
     "2023-06-01-preview": [
-      "BackupInstance",
-      "BackupPolicy",
-      "BackupVault",
-      "DppResourceGuardProxy",
-      "ResourceGuard"
-    ],
-    "2023-08-01": [
       "BackupInstance",
       "BackupPolicy",
       "BackupVault",
