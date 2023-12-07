@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20231101preview:Asset"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20231101preview:Asset" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

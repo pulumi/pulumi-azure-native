@@ -95,9 +95,9 @@ namespace Pulumi.AzureNative.EdgeOrder
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:OrderItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:OrderItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:OrderItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:OrderItem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

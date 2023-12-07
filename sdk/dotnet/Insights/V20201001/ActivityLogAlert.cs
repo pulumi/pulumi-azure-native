@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.Insights.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:ActivityLogAlert"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20170401:ActivityLogAlert"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230101preview:ActivityLogAlert"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:ActivityLogAlert" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20170401:ActivityLogAlert" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230101preview:ActivityLogAlert" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

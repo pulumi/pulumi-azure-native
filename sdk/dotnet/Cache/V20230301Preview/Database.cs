@@ -112,17 +112,17 @@ namespace Pulumi.AzureNative.Cache.V20230301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cache:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201001preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20221101preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230701:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230801preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231001preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231101:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201001preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20221101preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230701:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230801preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231001preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231101:Database" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

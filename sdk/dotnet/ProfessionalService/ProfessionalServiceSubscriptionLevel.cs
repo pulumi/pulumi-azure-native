@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.ProfessionalService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:professionalservice/v20230701preview:ProfessionalServiceSubscriptionLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:professionalservice/v20230701preview:ProfessionalServiceSubscriptionLevel" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

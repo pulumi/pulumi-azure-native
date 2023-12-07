@@ -65,9 +65,9 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedStorageAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedStorageAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedStorageAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedStorageAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

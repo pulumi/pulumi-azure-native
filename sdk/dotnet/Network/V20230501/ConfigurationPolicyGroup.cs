@@ -88,16 +88,16 @@ namespace Pulumi.AzureNative.Network.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:ConfigurationPolicyGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:ConfigurationPolicyGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:ConfigurationPolicyGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:ConfigurationPolicyGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

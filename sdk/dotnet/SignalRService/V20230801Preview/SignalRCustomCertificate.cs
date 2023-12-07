@@ -82,12 +82,12 @@ namespace Pulumi.AzureNative.SignalRService.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRCustomCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRCustomCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRCustomCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalRCustomCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRCustomCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRCustomCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalRCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRCustomCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

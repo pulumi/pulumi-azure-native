@@ -162,9 +162,9 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:AgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:AgentPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:AgentPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

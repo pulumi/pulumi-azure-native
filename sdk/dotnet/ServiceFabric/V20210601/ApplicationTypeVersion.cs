@@ -94,13 +94,13 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:ApplicationTypeVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:ApplicationTypeVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:ApplicationTypeVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:ApplicationTypeVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:ApplicationTypeVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:ApplicationTypeVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:ApplicationTypeVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:ApplicationTypeVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:ApplicationTypeVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

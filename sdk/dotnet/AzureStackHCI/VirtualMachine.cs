@@ -137,9 +137,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

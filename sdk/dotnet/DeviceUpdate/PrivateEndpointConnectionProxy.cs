@@ -83,11 +83,11 @@ namespace Pulumi.AzureNative.DeviceUpdate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy"},
-                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20230701:PrivateEndpointConnectionProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20230701:PrivateEndpointConnectionProxy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

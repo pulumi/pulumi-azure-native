@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.EventGrid.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:PartnerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:PartnerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:PartnerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:PartnerConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

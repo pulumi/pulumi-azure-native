@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.Orbital
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20220301:Contact"},
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20221101:Contact"},
+                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20220301:Contact" },
+                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20221101:Contact" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

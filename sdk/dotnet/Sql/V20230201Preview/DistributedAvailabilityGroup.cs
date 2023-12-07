@@ -106,16 +106,16 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DistributedAvailabilityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DistributedAvailabilityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DistributedAvailabilityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

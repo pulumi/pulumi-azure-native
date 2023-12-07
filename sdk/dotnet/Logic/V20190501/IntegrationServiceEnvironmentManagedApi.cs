@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Logic.V20190501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationServiceEnvironmentManagedApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:IntegrationServiceEnvironmentManagedApi" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.Automanage.V20220504
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automanage:ConfigurationProfileAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage:ConfigurationProfileAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20200630preview:ConfigurationProfileAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

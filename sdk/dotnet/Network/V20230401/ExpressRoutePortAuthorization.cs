@@ -82,16 +82,16 @@ namespace Pulumi.AzureNative.Network.V20230401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230501:ExpressRoutePortAuthorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:ExpressRoutePortAuthorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230501:ExpressRoutePortAuthorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:ExpressRoutePortAuthorization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -97,11 +97,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:InventoryItem"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231001:InventoryItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:InventoryItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231001:InventoryItem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

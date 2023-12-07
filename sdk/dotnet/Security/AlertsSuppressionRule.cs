@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:AlertsSuppressionRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:AlertsSuppressionRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

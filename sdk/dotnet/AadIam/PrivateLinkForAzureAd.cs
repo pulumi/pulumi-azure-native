@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam:privateLinkForAzureAd"},
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:PrivateLinkForAzureAd"},
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:privateLinkForAzureAd"},
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd"},
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:privateLinkForAzureAd"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam:privateLinkForAzureAd" },
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:PrivateLinkForAzureAd" },
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:privateLinkForAzureAd" },
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:PrivateLinkForAzureAd" },
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:privateLinkForAzureAd" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

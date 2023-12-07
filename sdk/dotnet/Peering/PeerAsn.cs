@@ -85,16 +85,16 @@ namespace Pulumi.AzureNative.Peering
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20201001:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:PeerAsn"},
-                    new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:PeerAsn"},
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190801preview:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20190901preview:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200101preview:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20200401:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20201001:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210101:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20210601:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220101:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20220601:PeerAsn" },
+                    new global::Pulumi.Alias { Type = "azure-native:peering/v20221001:PeerAsn" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

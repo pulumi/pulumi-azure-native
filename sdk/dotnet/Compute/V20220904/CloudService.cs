@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.Compute.V20220904
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:CloudService"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201001preview:CloudService"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:CloudService"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220404:CloudService"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:CloudService" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201001preview:CloudService" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:CloudService" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220404:CloudService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

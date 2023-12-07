@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

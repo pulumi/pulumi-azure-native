@@ -179,7 +179,7 @@ namespace Pulumi.AzureNative.DataLakeStore
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

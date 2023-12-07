@@ -221,8 +221,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201005privatepreview:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201005privatepreview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

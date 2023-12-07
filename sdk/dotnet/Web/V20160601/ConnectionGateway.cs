@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.Web.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:ConnectionGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:ConnectionGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

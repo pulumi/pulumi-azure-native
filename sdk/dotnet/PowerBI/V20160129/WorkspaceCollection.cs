@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.PowerBI.V20160129
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerbi:WorkspaceCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:powerbi:WorkspaceCollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

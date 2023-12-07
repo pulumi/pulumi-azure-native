@@ -142,17 +142,17 @@ namespace Pulumi.AzureNative.Cdn.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Origin"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20191231:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Origin" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Origin" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

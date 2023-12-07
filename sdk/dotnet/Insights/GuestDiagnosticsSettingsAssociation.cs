@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

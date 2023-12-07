@@ -91,14 +91,14 @@ namespace Pulumi.AzureNative.DevCenter
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:Schedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

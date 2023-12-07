@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.OffAzure.V20230606
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure:ServerSitesController"},
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:ServerSitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

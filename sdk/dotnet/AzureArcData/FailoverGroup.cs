@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.AzureArcData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:FailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:FailoverGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

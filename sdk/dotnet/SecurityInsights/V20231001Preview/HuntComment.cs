@@ -70,13 +70,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:HuntComment"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:HuntComment"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:HuntComment"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:HuntComment"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:HuntComment"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:HuntComment"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:HuntComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:HuntComment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

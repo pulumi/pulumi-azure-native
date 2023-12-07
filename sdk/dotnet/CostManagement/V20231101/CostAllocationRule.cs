@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.CostManagement.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:CostAllocationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20200301preview:CostAllocationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230801:CostAllocationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:CostAllocationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20200301preview:CostAllocationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230801:CostAllocationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

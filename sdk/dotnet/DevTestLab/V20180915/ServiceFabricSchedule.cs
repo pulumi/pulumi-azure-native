@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:ServiceFabricSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:ServiceFabricSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

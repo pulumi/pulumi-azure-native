@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.ManagedServices.V20221001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices:RegistrationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

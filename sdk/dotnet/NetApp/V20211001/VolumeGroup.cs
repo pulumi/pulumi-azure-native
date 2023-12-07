@@ -82,16 +82,16 @@ namespace Pulumi.AzureNative.NetApp.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:VolumeGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:VolumeGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20210801:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:VolumeGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:VolumeGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -154,16 +154,16 @@ namespace Pulumi.AzureNative.Compute.V20220803
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:GalleryImage"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220303:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220303:GalleryImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

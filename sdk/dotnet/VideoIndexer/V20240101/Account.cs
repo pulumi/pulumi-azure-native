@@ -112,13 +112,13 @@ namespace Pulumi.AzureNative.VideoIndexer.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211018preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211027preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211110preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20220413preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20220720preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20220801:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211018preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211027preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20211110preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20220413preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20220720preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20220801:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

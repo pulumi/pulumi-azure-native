@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.SecurityDevOps.V20220901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securitydevops:GitHubConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securitydevops:GitHubConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

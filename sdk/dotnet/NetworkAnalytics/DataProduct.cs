@@ -191,7 +191,7 @@ namespace Pulumi.AzureNative.NetworkAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkanalytics/v20231115:DataProduct"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkanalytics/v20231115:DataProduct" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

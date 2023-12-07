@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager:Step"},
-                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Step"},
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager:Step" },
+                    new global::Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:Step" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

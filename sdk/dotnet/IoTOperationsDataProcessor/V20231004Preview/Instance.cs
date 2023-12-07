@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor.V20231004Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperationsdataprocessor:Instance"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperationsdataprocessor:Instance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

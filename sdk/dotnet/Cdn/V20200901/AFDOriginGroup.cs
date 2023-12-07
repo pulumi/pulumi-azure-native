@@ -97,12 +97,12 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:AFDOriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDOriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDOriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDOriginGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:AFDOriginGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDOriginGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:AFDOriginGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

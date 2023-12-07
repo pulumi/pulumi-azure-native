@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer:EdgeModule"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:EdgeModule"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer:EdgeModule" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:EdgeModule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

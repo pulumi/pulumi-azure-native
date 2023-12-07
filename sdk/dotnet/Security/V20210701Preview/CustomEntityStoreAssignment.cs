@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:CustomEntityStoreAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:CustomEntityStoreAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

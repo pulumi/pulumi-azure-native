@@ -151,17 +151,17 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:VirtualMachineRunCommandByVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:VirtualMachineRunCommandByVirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -95,10 +95,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:AKSService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:AKSService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:AKSService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:AKSService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:AKSService" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200515preview:AKSService" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:AKSService" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:AKSService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

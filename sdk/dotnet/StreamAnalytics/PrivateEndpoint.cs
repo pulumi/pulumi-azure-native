@@ -73,8 +73,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:PrivateEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:PrivateEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301preview:PrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

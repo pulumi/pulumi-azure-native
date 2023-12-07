@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:GovernanceRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:GovernanceRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

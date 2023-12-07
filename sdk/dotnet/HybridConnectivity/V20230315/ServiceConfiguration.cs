@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20230315
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity:ServiceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridconnectivity:ServiceConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

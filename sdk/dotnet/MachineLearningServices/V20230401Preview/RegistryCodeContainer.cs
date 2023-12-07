@@ -64,14 +64,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:RegistryCodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:RegistryCodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:RegistryCodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:RegistryCodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:RegistryCodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:RegistryCodeContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:RegistryCodeContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:RegistryCodeContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:RegistryCodeContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

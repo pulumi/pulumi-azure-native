@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IotHubDataConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IotHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IotHubDataConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

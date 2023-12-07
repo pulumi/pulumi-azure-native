@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:HybridIdentityMetadatum"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:HybridIdentityMetadatum" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:HybridIdentityMetadatum" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.IoTCentral
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20211101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20211101preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.HybridCompute.V20231003Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:License"},
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230620preview:License"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:License" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230620preview:License" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -112,15 +112,15 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180419:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

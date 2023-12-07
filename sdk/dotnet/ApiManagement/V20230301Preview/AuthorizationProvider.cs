@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:AuthorizationProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:AuthorizationProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:AuthorizationProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:AuthorizationProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:AuthorizationProvider" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

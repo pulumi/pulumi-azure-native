@@ -149,12 +149,12 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20190501:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:FrontDoor"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210601:FrontDoor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190401:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20190501:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210601:FrontDoor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

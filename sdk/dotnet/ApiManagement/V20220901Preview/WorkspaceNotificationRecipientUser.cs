@@ -58,8 +58,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceNotificationRecipientUser"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceNotificationRecipientUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:WorkspaceNotificationRecipientUser" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceNotificationRecipientUser" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

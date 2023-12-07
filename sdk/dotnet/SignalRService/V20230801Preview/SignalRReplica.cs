@@ -97,9 +97,9 @@ namespace Pulumi.AzureNative.SignalRService.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRReplica"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRReplica"},
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRReplica"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRReplica" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRReplica" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRReplica" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

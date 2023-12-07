@@ -124,14 +124,14 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20200401preview:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20200401preview:SqlPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

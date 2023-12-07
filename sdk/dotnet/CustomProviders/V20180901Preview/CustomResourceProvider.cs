@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customproviders:CustomResourceProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:customproviders:CustomResourceProvider" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

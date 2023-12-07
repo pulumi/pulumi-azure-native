@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801preview:EdgeDevice"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801preview:EdgeDevice" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

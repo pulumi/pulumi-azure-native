@@ -91,17 +91,17 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:DiskAccess"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskAccess"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:DiskAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskAccess" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

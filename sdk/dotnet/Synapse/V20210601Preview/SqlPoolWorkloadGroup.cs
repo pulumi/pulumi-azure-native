@@ -88,13 +88,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolWorkloadGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolWorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:SqlPoolWorkloadGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolWorkloadGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolWorkloadGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolWorkloadGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolWorkloadGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolWorkloadGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

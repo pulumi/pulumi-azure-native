@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:ExportConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:ExportConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

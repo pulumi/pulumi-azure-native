@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Scom.V20230707Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scom:MonitoredResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:scom:MonitoredResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

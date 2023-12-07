@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20211201preview:ScopeAccessReviewHistoryDefinitionById"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20211201preview:ScopeAccessReviewHistoryDefinitionById" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

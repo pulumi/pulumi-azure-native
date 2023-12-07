@@ -79,10 +79,10 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:LinkedService"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedService"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedService"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedService"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20151101preview:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20190801preview:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:LinkedService" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:LinkedService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

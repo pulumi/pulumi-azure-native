@@ -85,10 +85,10 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:ApplicationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:ApplicationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:ApplicationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:ApplicationGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:ApplicationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:ApplicationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:ApplicationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:ApplicationGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

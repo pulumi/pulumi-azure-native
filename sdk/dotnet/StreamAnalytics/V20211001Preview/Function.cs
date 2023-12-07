@@ -58,10 +58,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Function"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Function"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Function"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Function"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics:Function" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:Function" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:Function" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:Function" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

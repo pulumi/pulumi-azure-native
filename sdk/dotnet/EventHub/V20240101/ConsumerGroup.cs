@@ -82,17 +82,17 @@ namespace Pulumi.AzureNative.EventHub.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20140901:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:ConsumerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:ConsumerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20140901:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:ConsumerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:ConsumerGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

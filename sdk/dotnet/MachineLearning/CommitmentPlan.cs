@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.MachineLearning
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:CommitmentPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:CommitmentPlan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

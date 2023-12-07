@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:Project" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

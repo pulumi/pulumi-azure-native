@@ -76,15 +76,15 @@ namespace Pulumi.AzureNative.Management.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:management:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20171101preview:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20180101preview:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20180301preview:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20191101:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20200201:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:management/v20230401:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:management:ManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20171101preview:ManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20180101preview:ManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20180301preview:ManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20191101:ManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20200201:ManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20200501:ManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20201001:ManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:management/v20230401:ManagementGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

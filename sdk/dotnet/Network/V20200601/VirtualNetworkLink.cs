@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualNetworkLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:VirtualNetworkLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:VirtualNetworkLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualNetworkLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180901:VirtualNetworkLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:VirtualNetworkLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

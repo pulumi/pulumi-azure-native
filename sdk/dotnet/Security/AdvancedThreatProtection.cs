@@ -59,8 +59,8 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:AdvancedThreatProtection"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101:AdvancedThreatProtection"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:AdvancedThreatProtection" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101:AdvancedThreatProtection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
