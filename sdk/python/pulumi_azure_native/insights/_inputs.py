@@ -236,17 +236,13 @@ class AccessModeSettingsArgs:
 class ActionGroupArgs:
     def __init__(__self__, *,
                  action_group_id: pulumi.Input[str],
-                 action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webhook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         A pointer to an Azure Action Group.
         :param pulumi.Input[str] action_group_id: The resource ID of the Action Group. This cannot be null or empty.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: Predefined list of properties and configuration items for the action group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
-        if action_properties is not None:
-            pulumi.set(__self__, "action_properties", action_properties)
         if webhook_properties is not None:
             pulumi.set(__self__, "webhook_properties", webhook_properties)
 
@@ -261,18 +257,6 @@ class ActionGroupArgs:
     @action_group_id.setter
     def action_group_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_group_id", value)
-
-    @property
-    @pulumi.getter(name="actionProperties")
-    def action_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Predefined list of properties and configuration items for the action group.
-        """
-        return pulumi.get(self, "action_properties")
-
-    @action_properties.setter
-    def action_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "action_properties", value)
 
     @property
     @pulumi.getter(name="webhookProperties")

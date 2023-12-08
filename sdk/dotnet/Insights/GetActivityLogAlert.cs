@@ -13,18 +13,18 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get an Activity Log Alert rule.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2020-10-01.
         /// 
-        /// Other available API versions: 2017-04-01, 2020-10-01.
+        /// Other available API versions: 2017-04-01, 2023-01-01-preview.
         /// </summary>
         public static Task<GetActivityLogAlertResult> InvokeAsync(GetActivityLogAlertArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActivityLogAlertResult>("azure-native:insights:getActivityLogAlert", args ?? new GetActivityLogAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an Activity Log Alert rule.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2020-10-01.
         /// 
-        /// Other available API versions: 2017-04-01, 2020-10-01.
+        /// Other available API versions: 2017-04-01, 2023-01-01-preview.
         /// </summary>
         public static Output<GetActivityLogAlertResult> Invoke(GetActivityLogAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActivityLogAlertResult>("azure-native:insights:getActivityLogAlert", args ?? new GetActivityLogAlertInvokeArgs(), options.WithDefaults());
@@ -112,10 +112,6 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The tenant GUID. Must be provided for tenant-level and management group events rules.
-        /// </summary>
-        public readonly string? TenantScope;
-        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -140,8 +136,6 @@ namespace Pulumi.AzureNative.Insights
 
             ImmutableDictionary<string, string>? tags,
 
-            string? tenantScope,
-
             string type)
         {
             Actions = actions;
@@ -153,7 +147,6 @@ namespace Pulumi.AzureNative.Insights
             Name = name;
             Scopes = scopes;
             Tags = tags;
-            TenantScope = tenantScope;
             Type = type;
         }
     }

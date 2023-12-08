@@ -284,8 +284,6 @@ class ActionGroupResponse(dict):
         suggest = None
         if key == "actionGroupId":
             suggest = "action_group_id"
-        elif key == "actionProperties":
-            suggest = "action_properties"
         elif key == "webhookProperties":
             suggest = "webhook_properties"
 
@@ -302,17 +300,13 @@ class ActionGroupResponse(dict):
 
     def __init__(__self__, *,
                  action_group_id: str,
-                 action_properties: Optional[Mapping[str, str]] = None,
                  webhook_properties: Optional[Mapping[str, str]] = None):
         """
         A pointer to an Azure Action Group.
         :param str action_group_id: The resource ID of the Action Group. This cannot be null or empty.
-        :param Mapping[str, str] action_properties: Predefined list of properties and configuration items for the action group.
         :param Mapping[str, str] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
-        if action_properties is not None:
-            pulumi.set(__self__, "action_properties", action_properties)
         if webhook_properties is not None:
             pulumi.set(__self__, "webhook_properties", webhook_properties)
 
@@ -323,14 +317,6 @@ class ActionGroupResponse(dict):
         The resource ID of the Action Group. This cannot be null or empty.
         """
         return pulumi.get(self, "action_group_id")
-
-    @property
-    @pulumi.getter(name="actionProperties")
-    def action_properties(self) -> Optional[Mapping[str, str]]:
-        """
-        Predefined list of properties and configuration items for the action group.
-        """
-        return pulumi.get(self, "action_properties")
 
     @property
     @pulumi.getter(name="webhookProperties")
