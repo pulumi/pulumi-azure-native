@@ -21,10 +21,6 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string ActionGroupId;
         /// <summary>
-        /// Predefined list of properties and configuration items for the action group.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? ActionProperties;
-        /// <summary>
         /// the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? WebhookProperties;
@@ -33,12 +29,9 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private ActionGroupResponse(
             string actionGroupId,
 
-            ImmutableDictionary<string, string>? actionProperties,
-
             ImmutableDictionary<string, string>? webhookProperties)
         {
             ActionGroupId = actionGroupId;
-            ActionProperties = actionProperties;
             WebhookProperties = webhookProperties;
         }
     }

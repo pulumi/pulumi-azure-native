@@ -1204,7 +1204,7 @@
   },
   "Insights": {
     "ActionGroup": "2023-01-01",
-    "ActivityLogAlert": "2023-01-01-preview",
+    "ActivityLogAlert": "2020-10-01",
     "AlertRule": "2016-03-01",
     "AnalyticsItem": "2015-05-01",
     "AutoscaleSetting": "2022-10-01",

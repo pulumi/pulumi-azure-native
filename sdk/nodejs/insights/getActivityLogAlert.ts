@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get an Activity Log Alert rule.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2020-10-01.
  *
- * Other available API versions: 2017-04-01, 2020-10-01.
+ * Other available API versions: 2017-04-01, 2023-01-01-preview.
  */
 export function getActivityLogAlert(args: GetActivityLogAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityLogAlertResult> {
 
@@ -68,15 +68,11 @@ export interface GetActivityLogAlertResult {
     /**
      * A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
      */
-    readonly scopes?: string[];
+    readonly scopes: string[];
     /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * The tenant GUID. Must be provided for tenant-level and management group events rules.
-     */
-    readonly tenantScope?: string;
     /**
      * The type of the resource.
      */
@@ -84,9 +80,9 @@ export interface GetActivityLogAlertResult {
 }
 /**
  * Get an Activity Log Alert rule.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2020-10-01.
  *
- * Other available API versions: 2017-04-01, 2020-10-01.
+ * Other available API versions: 2017-04-01, 2023-01-01-preview.
  */
 export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityLogAlertResult> {
     return pulumi.output(args).apply((a: any) => getActivityLogAlert(a, opts))
