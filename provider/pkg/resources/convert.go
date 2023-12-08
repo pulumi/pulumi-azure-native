@@ -93,7 +93,15 @@ func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value inter
 			}
 			return result
 		}
-
+		// Convert can be called for either turning user inputs into a request body or for turning a response body
+		// into SDK outputs. In the latter case, we need to turn string sets back into arrays.
+		if prop.IsStringSet {
+			result := make([]interface{}, 0)
+			for key := range valueMap {
+				result = append(result, key)
+			}
+			return result
+		}
 		return value
 	case reflect.Slice, reflect.Array:
 		if prop.IsStringSet {
