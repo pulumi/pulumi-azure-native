@@ -386,6 +386,7 @@
     "MachineExtension": "2022-12-15-preview",
     "MarketplaceGalleryImage": "2022-12-15-preview",
     "NetworkInterface": "2022-12-15-preview",
+    "SecuritySetting": "2023-11-01-preview",
     "StorageContainer": "2022-12-15-preview",
     "Update": "2023-03-01",
     "UpdateRun": "2023-03-01",
