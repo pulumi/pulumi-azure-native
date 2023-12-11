@@ -51,6 +51,41 @@ func (k *SdkShapeConverter) GetType(name string) (AzureAPIType, bool, error) {
 
 type convertPropValues func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{}
 
+// convertSdkPropToRequestBodyPropValue converts an SDK property to a value to be used in a request body.
+func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop *AzureAPIProperty, value interface{}) interface{} {
+	return k.convertPropValue(prop, value, func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+		// Detect if we are dealing with a special case of a SubResource type with an ID property.
+		// These properties reference a sub-ID of the currently modified resource (e.g.
+		// an ID of a backend pool in a load balancer while creating the load balancer).
+		// In that case, we allow users to specify a relative ID ($self/backendPool/abc) instead of
+		// specifying the full Azure resource ID explicitly.
+		// The block below takes care of resolving those relative IDs to absolute IDs.
+		typeNameParts := strings.Split(typeName, ":")
+		if len(typeNameParts) == 3 && typeNameParts[2] == "SubResource" {
+			if relId, ok := values["id"].(string); ok && strings.HasPrefix(relId, "$self/") {
+				values["id"] = strings.Replace(relId, "$self", id, 1)
+			}
+		}
+
+		// Otherwise, delegate to the normal map convertion flow.
+		return k.SdkPropertiesToRequestBody(props, values, id)
+	})
+}
+
+// convertBodyPropToSdkPropValue converts a value from a request body to an SDK property value.
+func (k *SdkShapeConverter) convertBodyPropToSdkPropValue(prop *AzureAPIProperty, value interface{}) interface{} {
+	return k.convertPropValue(prop, value, func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+		return k.BodyPropertiesToSDK(props, values)
+	})
+}
+
+// convertOutputToInputPropValue converts an output value back to an input value.
+func (k *SdkShapeConverter) convertOutputToInputPropValue(prop *AzureAPIProperty, value interface{}) interface{} {
+	return k.convertPropValue(prop, value, func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+		return k.sdkOutputsToSDKInputs(props, values)
+	})
+}
+
 func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value interface{}, convertMap convertPropValues) interface{} {
 	if value == nil {
 		return nil
@@ -134,24 +169,6 @@ func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value inter
 func (k *SdkShapeConverter) SdkPropertiesToRequestBody(props map[string]AzureAPIProperty,
 	values map[string]interface{}, id string) map[string]interface{} {
 	result := map[string]interface{}{}
-	convertMap := func(typeName string, props map[string]AzureAPIProperty,
-		values map[string]interface{}) map[string]interface{} {
-		// Detect if we are dealing with a special case of a SubResource type with an ID property.
-		// These properties reference a sub-ID of the currently modified resource (e.g.
-		// an ID of a backend pool in a load balancer while creating the load balancer).
-		// In that case, we allow users to specify a relative ID ($self/backendPool/abc) instead of
-		// specifying the full Azure resource ID explicitly.
-		// The block below takes care of resolving those relative IDs to absolute IDs.
-		typeNameParts := strings.Split(typeName, ":")
-		if len(typeNameParts) == 3 && typeNameParts[2] == "SubResource" {
-			if relId, ok := values["id"].(string); ok && strings.HasPrefix(relId, "$self/") {
-				values["id"] = strings.Replace(relId, "$self", id, 1)
-			}
-		}
-
-		// Otherwise, delegate to the normal map convertion flow.
-		return k.SdkPropertiesToRequestBody(props, values, id)
-	}
 
 	for name, prop := range props {
 		p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
@@ -165,7 +182,7 @@ func (k *SdkShapeConverter) SdkPropertiesToRequestBody(props map[string]AzureAPI
 			}
 
 			container := k.buildContainer(result, prop.Containers)
-			container[name] = k.convertPropValue(&p, value, convertMap)
+			container[name] = k.convertSdkPropToRequestBodyPropValue(id, &p, value)
 		}
 	}
 	return result
@@ -192,9 +209,7 @@ func (k *SdkShapeConverter) buildContainer(parent map[string]interface{}, path [
 func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]AzureAPIProperty,
 	response map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
-	convertMap := func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
-		return k.BodyPropertiesToSDK(props, values)
-	}
+
 	for name, prop := range props {
 		p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
 		sdkName := name
@@ -219,7 +234,7 @@ func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]AzureAPIPropert
 			}
 
 			if value != nil {
-				result[sdkName] = k.convertPropValue(&p, value, convertMap)
+				result[sdkName] = k.convertBodyPropToSdkPropValue(&p, value)
 			}
 		}
 	}
@@ -266,9 +281,6 @@ func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []AzureAPIParameter,
 
 func (k *SdkShapeConverter) sdkOutputsToSDKInputs(props map[string]AzureAPIProperty, outputs map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
-	convertMap := func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
-		return k.sdkOutputsToSDKInputs(props, values)
-	}
 	for name, prop := range props {
 		sdkName := name
 		if prop.SdkName != "" {
@@ -280,7 +292,7 @@ func (k *SdkShapeConverter) sdkOutputsToSDKInputs(props map[string]AzureAPIPrope
 			}
 
 			p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
-			result[sdkName] = k.convertPropValue(&p, value, convertMap)
+			result[sdkName] = k.convertOutputToInputPropValue(&p, value)
 		}
 	}
 	return result
