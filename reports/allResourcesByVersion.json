@@ -2685,6 +2685,17 @@
       "StorageContainer",
       "VirtualHardDisk",
       "VirtualMachineInstance"
+    ],
+    "2023-11-01-preview": [
+      "ArcSetting",
+      "Cluster",
+      "DeploymentSetting",
+      "EdgeDevice",
+      "Extension",
+      "SecuritySetting",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
     ]
   },
   "BareMetalInfrastructure": {
@@ -4045,6 +4056,28 @@
       "Snapshot"
     ],
     "2023-07-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
+    ],
+    "2023-09-01": [
       "AvailabilitySet",
       "CapacityReservation",
       "CapacityReservationGroup",
@@ -5772,6 +5805,10 @@
     "2023-03-01": [
       "Job",
       "listJobCredentials"
+    ],
+    "2023-12-01": [
+      "Job",
+      "listJobCredentials"
     ]
   },
   "DataBoxEdge": {
@@ -6280,13 +6317,6 @@
       "ResourceGuard"
     ],
     "2023-06-01-preview": [
-      "BackupInstance",
-      "BackupPolicy",
-      "BackupVault",
-      "DppResourceGuardProxy",
-      "ResourceGuard"
-    ],
-    "2023-08-01": [
       "BackupInstance",
       "BackupPolicy",
       "BackupVault",
@@ -9853,6 +9883,10 @@
     "2023-11-01-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
+    ],
+    "2024-01-01": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
     ]
   },
   "KubernetesConfiguration": {
@@ -11117,6 +11151,13 @@
       "MaintenanceConfiguration"
     ],
     "2023-09-01-preview": [
+      "ConfigurationAssignment",
+      "ConfigurationAssignmentParent",
+      "ConfigurationAssignmentsForResourceGroup",
+      "ConfigurationAssignmentsForSubscription",
+      "MaintenanceConfiguration"
+    ],
+    "2023-10-01-preview": [
       "ConfigurationAssignment",
       "ConfigurationAssignmentParent",
       "ConfigurationAssignmentsForResourceGroup",
