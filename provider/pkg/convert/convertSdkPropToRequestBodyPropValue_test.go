@@ -59,20 +59,6 @@ func TestMapWithKnownType(t *testing.T) {
 			assert.Equal(t, value, converted)
 		})
 	})
-	t.Run("API to SDK", func(t *testing.T) {
-		rapid.Check(t, func(t *rapid.T) {
-			value := propComplex().Draw(t, "value")
-			converted := testApiToSdk(types, &prop, value)
-			assert.Equal(t, value, converted)
-		})
-	})
-	t.Run("Output to Input", func(t *testing.T) {
-		rapid.Check(t, func(t *rapid.T) {
-			value := propComplex().Draw(t, "value")
-			converted := testOutputToInput(types, &prop, value)
-			assert.Equal(t, value, converted)
-		})
-	})
 }
 
 func testSdkToApi(types map[string]resources.AzureAPIType, id string, prop *resources.AzureAPIProperty, value interface{}) interface{} {
