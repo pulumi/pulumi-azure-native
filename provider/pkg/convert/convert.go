@@ -1,14 +1,12 @@
 // Copyright 2016-2020, Pulumi Corporation.
 
-package resources
+package convert
 
 import (
-	"fmt"
 	"reflect"
-	"regexp"
 	"strings"
 
-	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
@@ -19,41 +17,41 @@ const TypeAny = "pulumi.json#/Any"
 // SdkShapeConverter providers functions to convert between HTTP request/response shapes and
 // Pulumi SDK shapes (with flattening, renaming, etc.).
 type SdkShapeConverter struct {
-	Types        map[string]AzureAPIType
-	PartialTypes PartialMap[AzureAPIType]
+	Types        map[string]resources.AzureAPIType
+	PartialTypes resources.PartialMap[resources.AzureAPIType]
 }
 
-func NewSdkShapeConverterPartial(ptypes PartialMap[AzureAPIType]) SdkShapeConverter {
+func NewSdkShapeConverterPartial(ptypes resources.PartialMap[resources.AzureAPIType]) SdkShapeConverter {
 	return SdkShapeConverter{
 		Types:        nil,
 		PartialTypes: ptypes,
 	}
 }
 
-func NewSdkShapeConverterFull(types map[string]AzureAPIType) SdkShapeConverter {
+func NewSdkShapeConverterFull(types map[string]resources.AzureAPIType) SdkShapeConverter {
 	return SdkShapeConverter{
 		Types:        types,
-		PartialTypes: NewPartialMap[AzureAPIType](),
+		PartialTypes: resources.NewPartialMap[resources.AzureAPIType](),
 	}
 }
 
-func (k *SdkShapeConverter) GetType(name string) (AzureAPIType, bool, error) {
+func (k *SdkShapeConverter) GetType(name string) (resources.AzureAPIType, bool, error) {
 	if k.Types != nil {
 		typ, ok := k.Types[name]
 		if ok {
 			return typ, true, nil
 		}
-		return AzureAPIType{}, false, nil
+		return resources.AzureAPIType{}, false, nil
 	}
 
 	return k.PartialTypes.Get(name)
 }
 
-type convertPropValues func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{}
+type convertPropValues func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{}
 
 // convertSdkPropToRequestBodyPropValue converts an SDK property to a value to be used in a request body.
-func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop *AzureAPIProperty, value interface{}) interface{} {
-	return k.convertPropValue(prop, value, func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop *resources.AzureAPIProperty, value interface{}) interface{} {
+	return k.convertPropValue(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
 		// Detect if we are dealing with a special case of a SubResource type with an ID property.
 		// These properties reference a sub-ID of the currently modified resource (e.g.
 		// an ID of a backend pool in a load balancer while creating the load balancer).
@@ -73,20 +71,20 @@ func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop
 }
 
 // convertBodyPropToSdkPropValue converts a value from a request body to an SDK property value.
-func (k *SdkShapeConverter) convertBodyPropToSdkPropValue(prop *AzureAPIProperty, value interface{}) interface{} {
-	return k.convertPropValue(prop, value, func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+func (k *SdkShapeConverter) convertBodyPropToSdkPropValue(prop *resources.AzureAPIProperty, value interface{}) interface{} {
+	return k.convertPropValue(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
 		return k.BodyPropertiesToSDK(props, values)
 	})
 }
 
 // convertOutputToInputPropValue converts an output value back to an input value.
-func (k *SdkShapeConverter) convertOutputToInputPropValue(prop *AzureAPIProperty, value interface{}) interface{} {
-	return k.convertPropValue(prop, value, func(typeName string, props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+func (k *SdkShapeConverter) convertOutputToInputPropValue(prop *resources.AzureAPIProperty, value interface{}) interface{} {
+	return k.convertPropValue(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
 		return k.sdkOutputsToSDKInputs(props, values)
 	})
 }
 
-func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value interface{}, convertMap convertPropValues) interface{} {
+func (k *SdkShapeConverter) convertPropValue(prop *resources.AzureAPIProperty, value interface{}, convertMap convertPropValues) interface{} {
 	if value == nil {
 		return nil
 	}
@@ -166,7 +164,7 @@ func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value inter
 }
 
 // SdkPropertiesToRequestBody converts a map of SDK properties to JSON request body to be sent to an HTTP API.
-func (k *SdkShapeConverter) SdkPropertiesToRequestBody(props map[string]AzureAPIProperty,
+func (k *SdkShapeConverter) SdkPropertiesToRequestBody(props map[string]resources.AzureAPIProperty,
 	values map[string]interface{}, id string) map[string]interface{} {
 	result := map[string]interface{}{}
 
@@ -206,7 +204,7 @@ func (k *SdkShapeConverter) buildContainer(parent map[string]interface{}, path [
 }
 
 // BodyPropertiesToSDK converts a JSON request- or response body to the SDK shape.
-func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]AzureAPIProperty,
+func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]resources.AzureAPIProperty,
 	response map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 
@@ -243,7 +241,7 @@ func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]AzureAPIPropert
 
 // ResponseToSdkInputs calculates a map of input values that would produce the given resource path and
 // response. This is useful when we need to import an existing resource based on its current properties.
-func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []AzureAPIParameter,
+func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []resources.AzureAPIParameter,
 	pathValues map[string]string, response map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for _, param := range parameters {
@@ -279,7 +277,7 @@ func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []AzureAPIParameter,
 	return result
 }
 
-func (k *SdkShapeConverter) sdkOutputsToSDKInputs(props map[string]AzureAPIProperty, outputs map[string]interface{}) map[string]interface{} {
+func (k *SdkShapeConverter) sdkOutputsToSDKInputs(props map[string]resources.AzureAPIProperty, outputs map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for name, prop := range props {
 		sdkName := name
@@ -300,7 +298,7 @@ func (k *SdkShapeConverter) sdkOutputsToSDKInputs(props map[string]AzureAPIPrope
 
 // SDKOutputsToSDKInputs converts resource outputs (not a response body, but already valid outputs) to corresponding
 // resource inputs, excluding the read-only properties from the map.
-func (k *SdkShapeConverter) SDKOutputsToSDKInputs(parameters []AzureAPIParameter, outputs map[string]interface{}) map[string]interface{} {
+func (k *SdkShapeConverter) SDKOutputsToSDKInputs(parameters []resources.AzureAPIParameter, outputs map[string]interface{}) map[string]interface{} {
 	for _, param := range parameters {
 		if param.Location == body {
 			return k.sdkOutputsToSDKInputs(param.Body.Properties, outputs)
@@ -315,7 +313,7 @@ func (k *SdkShapeConverter) SDKOutputsToSDKInputs(parameters []AzureAPIParameter
 //   - A boolean 'false' in the response is equivalent to a no-value in the expected map
 //   - Any non-empty map or slice leads to the 'false' result (may need to revise if any API endpoints have default
 //     non-empty collections, but none are found yet)
-func (k *SdkShapeConverter) IsDefaultResponse(putParameters []AzureAPIParameter, response map[string]interface{},
+func (k *SdkShapeConverter) IsDefaultResponse(putParameters []resources.AzureAPIParameter, response map[string]interface{},
 	defaultBody map[string]interface{}) bool {
 	for _, param := range putParameters {
 		if param.Location == body {
@@ -361,7 +359,7 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []AzureAPIParameter,
 // PreviewOutputs calculates a map of outputs at the time of initial resource creation. It takes the provided resource
 // inputs and maps them to the outputs shape, adding unknowns for all properties that are not defined in inputs.
 func (k *SdkShapeConverter) PreviewOutputs(inputs resource.PropertyMap,
-	props map[string]AzureAPIProperty) resource.PropertyMap {
+	props map[string]resources.AzureAPIProperty) resource.PropertyMap {
 	result := resource.PropertyMap{}
 	for name, prop := range props {
 		p := prop
@@ -380,7 +378,7 @@ func (k *SdkShapeConverter) PreviewOutputs(inputs resource.PropertyMap,
 }
 
 func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue,
-	prop *AzureAPIProperty) resource.PropertyValue {
+	prop *resources.AzureAPIProperty) resource.PropertyValue {
 	if prop == nil {
 		return resource.MakeComputed(resource.NewStringProperty(""))
 	}
@@ -464,48 +462,13 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 	return resource.MakeComputed(k.makeComputedValue(prop))
 }
 
-func (k *SdkShapeConverter) makeComputedValue(prop *AzureAPIProperty) resource.PropertyValue {
+func (k *SdkShapeConverter) makeComputedValue(prop *resources.AzureAPIProperty) resource.PropertyValue {
 	if prop != nil && prop.Const != nil {
 		return resource.NewStringProperty(prop.Const.(string))
 	}
 	// To mark something as computed, we always use a string property with an
 	// empty string, regardless of the type.
 	return resource.NewStringProperty("")
-}
-
-// ParseResourceID extracts templated values from the given resource ID based on the names of those templated
-// values in an HTTP path. The structure of id and path must match: we validate it by building a regular
-// expression based on the path parameters and matching the id.
-func ParseResourceID(id, path string) (map[string]string, error) {
-	pathParts := strings.Split(path, "/")
-	regexParts := make([]string, len(pathParts))
-	for i, s := range pathParts {
-		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
-			name := s[1 : len(s)-1]
-			regexParts[i] = fmt.Sprintf("(?P<%s>.*?)", name)
-		} else {
-			regexParts[i] = pathParts[i]
-		}
-	}
-
-	expr := fmt.Sprintf("(?i)^%s$", strings.Join(regexParts, "/"))
-	pattern, err := regexp.Compile(expr)
-	if err != nil {
-		return nil, errors.Wrapf(err, "failed to compile expression '%s' for path '%s'", expr, path)
-	}
-
-	match := pattern.FindStringSubmatch(id)
-	if len(match) < len(pattern.SubexpNames()) {
-		return nil, errors.Errorf("failed to parse '%s' against the path '%s'", id, path)
-	}
-
-	result := map[string]string{}
-	for i, name := range pattern.SubexpNames() {
-		if i > 0 && name != "" {
-			result[name] = match[i]
-		}
-	}
-	return result, nil
 }
 
 // removeEmptyCollections returns nil if the given value is a default map or array with no values.

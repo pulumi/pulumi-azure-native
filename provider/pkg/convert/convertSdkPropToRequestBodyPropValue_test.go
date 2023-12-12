@@ -1,15 +1,16 @@
-package resources
+package convert
 
 import (
 	"testing"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/stretchr/testify/assert"
 	"pgregory.net/rapid"
 )
 
 func TestNoChangeWithNoPropSchema(t *testing.T) {
-	types := map[string]AzureAPIType{}
-	prop := AzureAPIProperty{}
+	types := map[string]resources.AzureAPIType{}
+	prop := resources.AzureAPIProperty{}
 	t.Run("SDK to API", func(t *testing.T) {
 		rapid.Check(t, func(t *rapid.T) {
 			id := rapid.String().Draw(t, "id")
@@ -36,16 +37,16 @@ func TestNoChangeWithNoPropSchema(t *testing.T) {
 
 func TestMapWithKnownType(t *testing.T) {
 	id := "id"
-	types := map[string]AzureAPIType{
+	types := map[string]resources.AzureAPIType{
 		"myType": {
-			Properties: map[string]AzureAPIProperty{
+			Properties: map[string]resources.AzureAPIProperty{
 				"prop1": {
 					Type: "string",
 				},
 			},
 		},
 	}
-	prop := AzureAPIProperty{
+	prop := resources.AzureAPIProperty{
 		Type: "object",
 		Ref:  "#/types/myType",
 	}
@@ -74,17 +75,17 @@ func TestMapWithKnownType(t *testing.T) {
 	})
 }
 
-func testSdkToApi(types map[string]AzureAPIType, id string, prop *AzureAPIProperty, value interface{}) interface{} {
+func testSdkToApi(types map[string]resources.AzureAPIType, id string, prop *resources.AzureAPIProperty, value interface{}) interface{} {
 	c := NewSdkShapeConverterFull(types)
 	return c.convertSdkPropToRequestBodyPropValue(id, prop, value)
 }
 
-func testApiToSdk(types map[string]AzureAPIType, prop *AzureAPIProperty, value interface{}) interface{} {
+func testApiToSdk(types map[string]resources.AzureAPIType, prop *resources.AzureAPIProperty, value interface{}) interface{} {
 	c := NewSdkShapeConverterFull(types)
 	return c.convertBodyPropToSdkPropValue(prop, value)
 }
 
-func testOutputToInput(types map[string]AzureAPIType, prop *AzureAPIProperty, value interface{}) interface{} {
+func testOutputToInput(types map[string]resources.AzureAPIType, prop *resources.AzureAPIProperty, value interface{}) interface{} {
 	c := NewSdkShapeConverterFull(types)
 	return c.convertOutputToInputPropValue(prop, value)
 }

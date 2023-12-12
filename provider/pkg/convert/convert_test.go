@@ -1,18 +1,19 @@
 // Copyright 2016-2020, Pulumi Corporation.
 
-package resources
+package convert
 
 import (
 	"testing"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 )
 
-var resourceMap = &AzureAPIMetadata{
-	Types: map[string]AzureAPIType{
+var resourceMap = &resources.AzureAPIMetadata{
+	Types: map[string]resources.AzureAPIType{
 		"azure-native:testing:Structure": {
-			Properties: map[string]AzureAPIProperty{
+			Properties: map[string]resources.AzureAPIProperty{
 				"v1": {},
 				"v2": {},
 				"v3-odd": {
@@ -28,7 +29,7 @@ var resourceMap = &AzureAPIMetadata{
 			},
 		},
 		"azure-native:testing:StructureResponse": {
-			Properties: map[string]AzureAPIProperty{
+			Properties: map[string]resources.AzureAPIProperty{
 				"v1": {},
 				"v2": {},
 				"v3-odd": {
@@ -42,22 +43,22 @@ var resourceMap = &AzureAPIMetadata{
 			},
 		},
 		"azure-native:testing:More": {
-			Properties: map[string]AzureAPIProperty{
+			Properties: map[string]resources.AzureAPIProperty{
 				"items": {
-					Items: &AzureAPIProperty{
+					Items: &resources.AzureAPIProperty{
 						Ref: "#/types/azure-native:testing:MoreItem",
 					},
 				},
 				"itemsMap": {
 					Type: "object",
-					AdditionalProperties: &AzureAPIProperty{
+					AdditionalProperties: &resources.AzureAPIProperty{
 						Ref: "#/types/azure-native:testing:MoreItem",
 					},
 				},
 			},
 		},
 		"azure-native:testing:MoreItem": {
-			Properties: map[string]AzureAPIProperty{
+			Properties: map[string]resources.AzureAPIProperty{
 				"aaa": {
 					SdkName: "Aaa",
 				},
@@ -67,7 +68,7 @@ var resourceMap = &AzureAPIMetadata{
 			},
 		},
 		"azure-native:testing:OptionA": {
-			Properties: map[string]AzureAPIProperty{
+			Properties: map[string]resources.AzureAPIProperty{
 				"type": {
 					Const: "AAA",
 				},
@@ -77,7 +78,7 @@ var resourceMap = &AzureAPIMetadata{
 			},
 		},
 		"azure-native:testing:OptionB": {
-			Properties: map[string]AzureAPIProperty{
+			Properties: map[string]resources.AzureAPIProperty{
 				"type": {
 					Const: "BBB",
 				},
@@ -87,20 +88,20 @@ var resourceMap = &AzureAPIMetadata{
 			},
 		},
 		"azure-native:testing:SubResource": {
-			Properties: map[string]AzureAPIProperty{
+			Properties: map[string]resources.AzureAPIProperty{
 				"id": {
 					Type: "string",
 				},
 			},
 		},
 	},
-	Resources: map[string]AzureAPIResource{
+	Resources: map[string]resources.AzureAPIResource{
 		"r1": {
-			PutParameters: []AzureAPIParameter{
+			PutParameters: []resources.AzureAPIParameter{
 				{
 					Location: "body",
-					Body: &AzureAPIType{
-						Properties: map[string]AzureAPIProperty{
+					Body: &resources.AzureAPIType{
+						Properties: map[string]resources.AzureAPIProperty{
 							"name": {},
 							"x-threshold": {
 								SdkName: "threshold",
@@ -143,12 +144,12 @@ var resourceMap = &AzureAPIMetadata{
 				{
 					Location: "path",
 					Name:     "NetworkInterfaceName",
-					Value: &AzureAPIProperty{
+					Value: &resources.AzureAPIProperty{
 						SdkName: "networkInterfaceName",
 					},
 				},
 			},
-			Response: map[string]AzureAPIProperty{
+			Response: map[string]resources.AzureAPIProperty{
 				"name": {},
 				"x-threshold": {
 					SdkName: "threshold",
@@ -345,52 +346,6 @@ func TestSdkPropertiesToRequestBodySubResource(t *testing.T) {
 	assert.Equal(t, expectedBody, actualBody)
 }
 
-type resourceIDCase struct {
-	id   string
-	path string
-}
-
-func TestParseInvalidResourceID(t *testing.T) {
-	cases := []resourceIDCase{
-		// ID shorter than Path
-		{"/resourceGroup/myrg", "/resourceGroup/{resourceGroup}/subResource"},
-		// ID longer than Path
-		{"/resourceGroup/myrg/cdn/mycdn", "/resourceGroup/{resourceGroup}/cdn"},
-		// Segment names don't match
-		{"/resourceGroup/myrg/foo/mycdn", "/resourceGroup/{resourceGroup}/bar/{cdn}"},
-	}
-	for _, testCase := range cases {
-		_, err := ParseResourceID(testCase.id, testCase.path)
-		assert.Error(t, err)
-	}
-}
-
-func TestParseFullResourceID(t *testing.T) {
-	id := "/subscriptions/0282681f-7a9e-123b-40b2-96babd57a8a1/resourcegroups/pulumi-name/providers/Microsoft.Network/networkInterfaces/pulumi-nic/ipConfigurations/ipconfig1"
-	path := "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}"
-	actual, err := ParseResourceID(id, path)
-	assert.NoError(t, err)
-	expected := map[string]string{
-		"subscriptionID":       "0282681f-7a9e-123b-40b2-96babd57a8a1",
-		"resourceGroupName":    "pulumi-name",
-		"networkInterfaceName": "pulumi-nic",
-		"ipConfigurationName":  "ipconfig1",
-	}
-	assert.Equal(t, expected, actual)
-}
-
-func TestParseScopedResourceID(t *testing.T) {
-	id := "/subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev/providers/Microsoft.Authorization/roleAssignments/2a88abc7-f599-0eba-a21f-a1817e597115"
-	path := "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}"
-	actual, err := ParseResourceID(id, path)
-	assert.NoError(t, err)
-	expected := map[string]string{
-		"scope":              "subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev",
-		"roleAssignmentName": "2a88abc7-f599-0eba-a21f-a1817e597115",
-	}
-	assert.Equal(t, expected, actual)
-}
-
 var responseForInputCalculation = map[string]interface{}{
 	"name":        "MyResource",
 	"x-threshold": 123,
@@ -526,8 +481,8 @@ func TestSDKOutputsToSDKInputs(t *testing.T) {
 func TestPreviewOutputs(t *testing.T) {
 	type testCase struct {
 		inputs   map[string]interface{}
-		metadata map[string]AzureAPIProperty
-		types    map[string]AzureAPIType
+		metadata map[string]resources.AzureAPIProperty
+		types    map[string]resources.AzureAPIType
 	}
 	preview := func(testCase testCase) resource.PropertyMap {
 		inputMap := resource.NewPropertyMapFromMap(testCase.inputs)
@@ -540,7 +495,7 @@ func TestPreviewOutputs(t *testing.T) {
 			inputs: map[string]interface{}{
 				"prop1": "value",
 			},
-			metadata: map[string]AzureAPIProperty{
+			metadata: map[string]resources.AzureAPIProperty{
 				"x-renamed": {
 					SdkName: "prop1",
 				},
@@ -553,7 +508,7 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("constant property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"type": {
 				Const: "AAA",
 			},
@@ -588,7 +543,7 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("string property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"name": {
 				Type: "string",
 			},
@@ -629,7 +584,7 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("number property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"threshold": {
 				Type: "number",
 			},
@@ -670,7 +625,7 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("bool property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"enabled": {
 				Type: "boolean",
 			},
@@ -711,14 +666,14 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("union property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"union": {
 				OneOf: []string{"#/types/azure-native:testing:OptionA", "#/types/azure-native:testing:OptionB"},
 			},
 		}
-		types := map[string]AzureAPIType{
+		types := map[string]resources.AzureAPIType{
 			"azure-native:testing:OptionA": {
-				Properties: map[string]AzureAPIProperty{
+				Properties: map[string]resources.AzureAPIProperty{
 					"type": {
 						Const: "AAA",
 					},
@@ -728,7 +683,7 @@ func TestPreviewOutputs(t *testing.T) {
 				},
 			},
 			"azure-native:testing:OptionB": {
-				Properties: map[string]AzureAPIProperty{
+				Properties: map[string]resources.AzureAPIProperty{
 					"type": {
 						Const: "BBB",
 					},
@@ -783,10 +738,10 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("string array property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"array": {
 				Type: "array",
-				Items: &AzureAPIProperty{
+				Items: &resources.AzureAPIProperty{
 					Type: "string",
 				},
 			},
@@ -850,10 +805,10 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("string map property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"object": {
 				Type: "object",
-				AdditionalProperties: &AzureAPIProperty{
+				AdditionalProperties: &resources.AzureAPIProperty{
 					Type: "string",
 				},
 			},
@@ -918,14 +873,14 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("complex property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"complex": {
 				Ref: "#/types/azure-native:testing:StructureResponse",
 			},
 		}
-		types := map[string]AzureAPIType{
+		types := map[string]resources.AzureAPIType{
 			"azure-native:testing:StructureResponse": {
-				Properties: map[string]AzureAPIProperty{
+				Properties: map[string]resources.AzureAPIProperty{
 					"v1": {
 						Type: "string",
 					},
@@ -992,10 +947,10 @@ func TestPreviewOutputs(t *testing.T) {
 	})
 
 	t.Run("string set property", func(t *testing.T) {
-		metadata := map[string]AzureAPIProperty{
+		metadata := map[string]resources.AzureAPIProperty{
 			"userAssignedIdentities": {
 				Type: "object",
-				AdditionalProperties: &AzureAPIProperty{
+				AdditionalProperties: &resources.AzureAPIProperty{
 					Type: "string",
 				},
 			},
