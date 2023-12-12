@@ -35,6 +35,7 @@ require (
 	google.golang.org/protobuf v1.31.0
 	gopkg.in/yaml.v3 v3.0.1
 	modernc.org/sqlite v1.10.0
+	pgregory.net/rapid v1.1.0
 )
 
 require (
