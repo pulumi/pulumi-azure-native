@@ -10,216 +10,6 @@ import (
 	"pgregory.net/rapid"
 )
 
-// TODO: Remove this test once we've created new tests for all kinds of data covered here.
-func TestLegacy(t *testing.T) {
-	var body = map[string]interface{}{
-		"name":        "MyResource",
-		"x-threshold": 123,
-		"structure": map[string]interface{}{
-			"v1":     "value1",
-			"v2":     2,
-			"v3-odd": "odd-value",
-			"props": map[string]interface{}{
-				"v4-nested": true,
-			},
-		},
-		"properties": map[string]interface{}{
-			"p1": "prop1",
-			"p2": "prop2",
-			"more": map[string]interface{}{
-				"items": []interface{}{
-					map[string]interface{}{"aaa": "111", "ccc": map[string]interface{}{"bbb": "333"}},
-					map[string]interface{}{"aaa": "222"},
-				},
-				"itemsMap": map[string]interface{}{
-					"key1": map[string]interface{}{"aaa": "444", "ccc": map[string]interface{}{"bbb": "555"}},
-					"key2": map[string]interface{}{"aaa": "666"},
-				},
-			},
-		},
-		"union": map[string]interface{}{
-			"type": "BBB",
-			"bb": map[string]interface{}{
-				"b": "valueOfB",
-			},
-		},
-		"tags": map[string]interface{}{
-			"createdBy":   "admin",
-			"application": "dashboard",
-		},
-		"trivia": map[string]interface{}{
-			"emptyBool":   false,
-			"emptyNumber": 0,
-			"emptyString": "",
-			"emptyArray":  []string{},
-		},
-	}
-	pathValues := map[string]string{
-		"subscriptionID":       "0282681f-7a9e-123b-40b2-96babd57a8a1",
-		"resourceGroupName":    "rg-name",
-		"NetworkInterfaceName": "nic-name",
-	}
-
-	types := map[string]map[string]resources.AzureAPIProperty{
-		"azure-native:testing:Structure": {
-			"v1": {},
-			"v2": {},
-			"v3-odd": {
-				SdkName: "v3",
-			},
-			"v4-nested": {
-				SdkName:    "v4",
-				Containers: []string{"props"},
-			},
-			"v5": {
-				Ref: "#/types/azure-native:testing:SubResource",
-			},
-		},
-		"azure-native:testing:StructureResponse": {
-			"v1": {},
-			"v2": {},
-			"v3-odd": {
-				SdkName: "v3",
-			},
-			"v4-nested": {
-				SdkName:    "v4",
-				Containers: []string{"props"},
-			},
-			"v5ReadOnly": {},
-		},
-		"azure-native:testing:More": {
-			"items": {
-				Items: &resources.AzureAPIProperty{
-					Ref: "#/types/azure-native:testing:MoreItem",
-				},
-			},
-			"itemsMap": {
-				Type: "object",
-				AdditionalProperties: &resources.AzureAPIProperty{
-					Ref: "#/types/azure-native:testing:MoreItem",
-				},
-			},
-		},
-		"azure-native:testing:MoreItem": {
-			"aaa": {
-				SdkName: "Aaa",
-			},
-			"bbb": {
-				Containers: []string{"ccc"},
-			},
-		},
-		"azure-native:testing:OptionA": {
-			"type": {
-				Const: "AAA",
-			},
-			"a": {
-				Containers: []string{"aa"},
-			},
-		},
-		"azure-native:testing:OptionB": {
-			"type": {
-				Const: "BBB",
-			},
-			"b": {
-				Containers: []string{"bb"},
-			},
-		},
-		"azure-native:testing:SubResource": {
-			"id": {
-				Type: "string",
-			},
-		},
-	}
-
-	actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
-		pathParameters: []resources.AzureAPIParameter{
-			{
-				Location: "path",
-				Name:     "subscriptionId",
-			},
-			{
-				Location: "path",
-				Name:     "resourceGroupName",
-			},
-			{
-				Location: "path",
-				Name:     "NetworkInterfaceName",
-				Value: &resources.AzureAPIProperty{
-					SdkName: "networkInterfaceName",
-				},
-			},
-		},
-		bodyParameters: map[string]resources.AzureAPIProperty{
-			"name": {},
-			"x-threshold": {
-				SdkName: "threshold",
-			},
-			"structure": {
-				Ref: "#/types/azure-native:testing:Structure",
-			},
-			"p1": {
-				Containers: []string{"properties"},
-			},
-			"p2": {
-				Containers: []string{"properties"},
-			},
-			"p3": {
-				Containers: []string{"properties", "document", "body"},
-			},
-			"more": {
-				Containers: []string{"properties"},
-				Ref:        "#/types/azure-native:testing:More",
-			},
-			"union": {
-				OneOf: []string{"#/types/azure-native:testing:OptionA", "#/types/azure-native:testing:OptionB"},
-			},
-			"tags":         {},
-			"untypedArray": {},
-			"untypedDict": {
-				Ref: TypeAny,
-			},
-		},
-		pathValues: pathValues,
-		types:      types,
-		body:       body,
-	})
-
-	var expected = map[string]interface{}{
-		"resourceGroupName":    "rg-name",
-		"networkInterfaceName": "nic-name",
-		"name":                 "MyResource",
-		"threshold":            123,
-		"structure": map[string]interface{}{
-			"v1": "value1",
-			"v2": 2,
-			"v3": "odd-value",
-			"v4": true,
-		},
-		"p1": "prop1",
-		"p2": "prop2",
-		"more": map[string]interface{}{
-			"items": []interface{}{
-				map[string]interface{}{"Aaa": "111", "bbb": "333"},
-				map[string]interface{}{"Aaa": "222"},
-			},
-			"itemsMap": map[string]interface{}{
-				"key1": map[string]interface{}{"Aaa": "444", "bbb": "555"},
-				"key2": map[string]interface{}{"Aaa": "666"},
-			},
-		},
-		"union": map[string]interface{}{
-			"type": "BBB",
-			"b":    "valueOfB",
-		},
-		"tags": map[string]interface{}{
-			"createdBy":   "admin",
-			"application": "dashboard",
-		},
-	}
-
-	assert.Equal(t, expected, actual)
-}
-
 func TestPathParams(t *testing.T) {
 	t.Run("simple", func(t *testing.T) {
 		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
@@ -278,12 +68,34 @@ func TestPathParams(t *testing.T) {
 	})
 }
 
+// TODO: Add extra test for string sets.
+
 func TestBodyProps(t *testing.T) {
-	t.Run("untyped simple value", rapid.MakeCheck(func(t *rapid.T) {
+	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")
 		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"untyped": {},
+			},
+			body: map[string]interface{}{
+				"untyped": value,
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"untyped": value,
+		}
+
+		assert.Equal(t, expected, actual)
+	}))
+
+	t.Run("any type values", rapid.MakeCheck(func(t *rapid.T) {
+		value := propNestedComplex().Draw(t, "value")
+		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"untyped": {
+					Ref: TypeAny,
+				},
 			},
 			body: map[string]interface{}{
 				"untyped": value,
@@ -332,7 +144,7 @@ func TestBodyProps(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
-	t.Run("containered", func(t *testing.T) {
+	t.Run("containers", func(t *testing.T) {
 		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"prop": {
@@ -342,6 +154,31 @@ func TestBodyProps(t *testing.T) {
 			body: map[string]interface{}{
 				"container": map[string]interface{}{
 					"prop": "value",
+				},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"prop": "value",
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("nested containers", func(t *testing.T) {
+		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"prop": {
+					Containers: []string{"a", "b", "c"},
+				},
+			},
+			body: map[string]interface{}{
+				"a": map[string]interface{}{
+					"b": map[string]interface{}{
+						"c": map[string]interface{}{
+							"prop": "value",
+						},
+					},
 				},
 			},
 		})
@@ -403,6 +240,75 @@ func TestBodyProps(t *testing.T) {
 
 		var expected = map[string]interface{}{
 			"emptyDict": nil,
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("typed array doesn't change items", func(t *testing.T) {
+		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"typedArray": {
+					Type: "array",
+					Items: &resources.AzureAPIProperty{
+						Type: "string",
+					},
+				},
+			},
+			body: map[string]interface{}{
+				"typedArray": []interface{}{"a", "b", 3},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"typedArray": []interface{}{"a", "b", 3},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("typed map doesn't change items", func(t *testing.T) {
+		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"typedMap": {
+					Type: "object",
+					AdditionalProperties: &resources.AzureAPIProperty{
+						Type: "string",
+					},
+				},
+			},
+			body: map[string]interface{}{
+				"typedMap": map[string]interface{}{"a": "b", "c": 3},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"typedMap": map[string]interface{}{"a": "b", "c": 3},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("string set", func(t *testing.T) {
+		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"userAssignedIdentities": {
+					Type:        "object",
+					IsStringSet: true,
+				},
+			},
+			body: map[string]interface{}{
+				"userAssignedIdentities": map[string]interface{}{
+					"a": "b",
+					"c": map[string]interface{}{
+						"d": "e",
+					},
+				},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"userAssignedIdentities": []interface{}{"a", "c"},
 		}
 
 		assert.Equal(t, expected, actual)
@@ -563,85 +469,81 @@ func TestNestedTypes(t *testing.T) {
 	})
 }
 
-func TestReferencedTypes(t *testing.T) {
-	actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
-		types: map[string]map[string]resources.AzureAPIProperty{
-			"azure-native:testing:Structure": {
-				"x-renamed": {
-					SdkName: "renamed",
-				},
-				"containered": {
-					Containers: []string{"props"},
-				},
-				"subResource": {
-					Ref: "#/types/azure-native:testing:SubResource",
-				},
+func TestUnionTypes(t *testing.T) {
+	types := map[string]map[string]resources.AzureAPIProperty{
+		"azure-native:testing:OptionA": {
+			"type": {
+				Const: "AAA",
 			},
-			"azure-native:testing:SubResource": {
-				"subField": {
-					Type: "string",
-				},
+			"a": {
+				Containers: []string{"aa"},
 			},
 		},
-		bodyParameters: map[string]resources.AzureAPIProperty{
-			"structure": {
-				Ref: "#/types/azure-native:testing:Structure",
+		"azure-native:testing:OptionB": {
+			"type": {
+				Const: "BBB",
 			},
-		},
-		body: map[string]interface{}{
-			"structure": map[string]interface{}{
-				"x-renamed": "renamed-value",
-				"props": map[string]interface{}{
-					"containered": true,
-				},
-				"subResource": map[string]interface{}{
-					"subField": "sub-value",
-				},
-			},
-		},
-	})
-
-	var expected = map[string]interface{}{
-		"structure": map[string]interface{}{
-			"renamed":     "renamed-value",
-			"containered": true,
-			"subResource": map[string]interface{}{
-				"subField": "sub-value",
+			"b": {
+				Containers: []string{"bb"},
 			},
 		},
 	}
-
-	assert.Equal(t, expected, actual)
-}
-
-func TestSubTypeRename(t *testing.T) {
-	actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
-		types: map[string]map[string]resources.AzureAPIProperty{
-			"azure-native:testing:Structure": {
-				"x-renamed": {
-					SdkName: "renamed",
-				},
-			},
-		},
-		bodyParameters: map[string]resources.AzureAPIProperty{
-			"structure": {
-				Ref: "#/types/azure-native:testing:Structure",
-			},
-		},
-		body: map[string]interface{}{
-			"structure": map[string]interface{}{
-				"x-renamed": "renamed-value",
-			},
-		},
-	})
-
-	var expected = map[string]interface{}{
-		"structure": map[string]interface{}{
-			"renamed": "renamed-value",
+	bodyParams := map[string]resources.AzureAPIProperty{
+		"union": {
+			OneOf: []string{"#/types/azure-native:testing:OptionA", "#/types/azure-native:testing:OptionB"},
 		},
 	}
-
-	assert.Equal(t, expected, actual)
+	t.Run("neither", func(t *testing.T) {
+		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
+			types:          types,
+			bodyParameters: bodyParams,
+			body:           map[string]interface{}{},
+		})
+		expected := map[string]interface{}{}
+		assert.Equal(t, expected, actual)
+	})
+	t.Run("option a", func(t *testing.T) {
+		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
+			types:          types,
+			bodyParameters: bodyParams,
+			body: map[string]interface{}{
+				"union": map[string]interface{}{
+					"type": "AAA",
+					"aa": map[string]interface{}{
+						"a": "value",
+					},
+				},
+			},
+		})
+		expected := map[string]interface{}{
+			"union": map[string]interface{}{
+				"type": "AAA",
+				"a":    "value",
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+	t.Run("option b", func(t *testing.T) {
+		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
+			types:          types,
+			bodyParameters: bodyParams,
+			body: map[string]interface{}{
+				"union": map[string]interface{}{
+					"type": "BBB",
+					"bb": map[string]interface{}{
+						"b": "value",
+					},
+				},
+			},
+		})
+		expected := map[string]interface{}{
+			"union": map[string]interface{}{
+				"type": "BBB",
+				"b":    "value",
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
 }
 
 type responseToSdkInputsTestCase struct {
