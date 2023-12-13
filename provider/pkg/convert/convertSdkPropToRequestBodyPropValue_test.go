@@ -75,30 +75,3 @@ func testOutputToInput(types map[string]resources.AzureAPIType, prop *resources.
 	c := NewSdkShapeConverterFull(types)
 	return c.convertOutputToInputPropValue(prop, value)
 }
-
-func propSimpleValue() *rapid.Generator[interface{}] {
-	return rapid.OneOf[interface{}](
-		rapid.String().AsAny(),
-		rapid.Int().AsAny(),
-		rapid.Float64().AsAny(),
-		rapid.Bool().AsAny(),
-	)
-}
-
-func propNonRecursiveMap() *rapid.Generator[map[string]interface{}] {
-	gen := rapid.MapOf(rapid.String(), propSimpleValue())
-	return gen
-}
-
-func propNonRecursiveArray() *rapid.Generator[[]interface{}] {
-	gen := rapid.SliceOf(propSimpleValue())
-	return gen
-}
-
-func propComplex() *rapid.Generator[any] {
-	return rapid.OneOf[interface{}](
-		propSimpleValue(),
-		propNonRecursiveMap().AsAny(),
-		propNonRecursiveArray().AsAny(),
-	)
-}
