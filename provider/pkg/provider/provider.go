@@ -32,6 +32,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -77,7 +78,7 @@ type azureNativeProvider struct {
 	metadataBytes   []byte
 	fullPkgSpec     *schema.PackageSpec
 	fullResourceMap *resources.AzureAPIMetadata
-	converter       *resources.SdkShapeConverter
+	converter       *convert.SdkShapeConverter
 	customResources map[string]*resources.CustomResource
 	rgLocationMap   map[string]string
 }
@@ -97,7 +98,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		return nil, err
 	}
 
-	converter := resources.NewSdkShapeConverterPartial(resourceMap.Types)
+	converter := convert.NewSdkShapeConverterPartial(resourceMap.Types)
 
 	// Return the new provider
 	return &azureNativeProvider{
@@ -607,7 +608,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 		return failures
 	}
 
-	if prop == nil || prop.Ref == resources.TypeAny {
+	if prop == nil || prop.Ref == convert.TypeAny {
 		return failures
 	}
 

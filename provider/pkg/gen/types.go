@@ -21,6 +21,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -207,7 +208,7 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 		// > A schema without a type matches any data type – numbers, strings, objects, and so on.
 		// Azure uses a 'naked' object type for the same purpose: to specify 'any' type.
 		return &pschema.TypeSpec{
-			Ref: resources.TypeAny,
+			Ref: convert.TypeAny,
 		}, nil
 
 	default:
