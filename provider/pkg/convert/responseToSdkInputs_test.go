@@ -239,7 +239,7 @@ func TestPathParams(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
-	t.Run("subscription", func(t *testing.T) {
+	t.Run("subscription is removed", func(t *testing.T) {
 		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
 			pathParameters: []resources.AzureAPIParameter{
 				pathParam("subscriptionId"),
@@ -249,7 +249,6 @@ func TestPathParams(t *testing.T) {
 			},
 		})
 
-		// SubscriptionId is not included in the inputs
 		var expected = map[string]interface{}{}
 
 		assert.Equal(t, expected, actual)
@@ -257,18 +256,22 @@ func TestPathParams(t *testing.T) {
 
 	t.Run("renamed", func(t *testing.T) {
 		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
-			bodyParameters: map[string]resources.AzureAPIProperty{
-				"x-threshold": {
-					SdkName: "threshold",
+			pathParameters: []resources.AzureAPIParameter{
+				{
+					Name:     "x-threshold",
+					Location: "path",
+					Value: &resources.AzureAPIProperty{
+						SdkName: "threshold",
+					},
 				},
 			},
-			body: map[string]interface{}{
-				"x-threshold": 123,
+			pathValues: map[string]string{
+				"x-threshold": "123",
 			},
 		})
 
 		var expected = map[string]interface{}{
-			"threshold": 123,
+			"threshold": "123",
 		}
 
 		assert.Equal(t, expected, actual)
