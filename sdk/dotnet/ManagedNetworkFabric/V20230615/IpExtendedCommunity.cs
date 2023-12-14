@@ -100,8 +100,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric:IpExtendedCommunity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:IpExtendedCommunity"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric:IpExtendedCommunity" },
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:IpExtendedCommunity" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

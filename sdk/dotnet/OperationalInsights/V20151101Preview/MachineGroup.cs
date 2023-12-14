@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:MachineGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:MachineGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

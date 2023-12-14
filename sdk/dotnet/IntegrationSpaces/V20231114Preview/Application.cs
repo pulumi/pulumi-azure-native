@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces.V20231114Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:integrationspaces:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:integrationspaces:Application" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

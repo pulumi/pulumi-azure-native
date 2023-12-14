@@ -137,13 +137,13 @@ namespace Pulumi.AzureNative.Web.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:KubeEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:KubeEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:KubeEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:KubeEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:KubeEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:KubeEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:KubeEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:KubeEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.ContainerService.V20230815Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice:FleetUpdateStrategy"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231015:FleetUpdateStrategy"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:FleetUpdateStrategy" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231015:FleetUpdateStrategy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

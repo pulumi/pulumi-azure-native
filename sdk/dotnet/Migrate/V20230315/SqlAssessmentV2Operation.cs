@@ -291,7 +291,7 @@ namespace Pulumi.AzureNative.Migrate.V20230315
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:SqlAssessmentV2Operation"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:SqlAssessmentV2Operation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

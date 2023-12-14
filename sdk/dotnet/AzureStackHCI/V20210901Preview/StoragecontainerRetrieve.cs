@@ -106,15 +106,15 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:StoragecontainerRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:storagecontainerRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:StoragecontainerRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:storagecontainerRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:StoragecontainerRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:storagecontainerRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:StoragecontainerRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:storagecontainerRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:StoragecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:storagecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:StoragecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:storagecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:StoragecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:storagecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:StoragecontainerRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:storagecontainerRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

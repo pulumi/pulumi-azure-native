@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking:TrafficControllerInterface"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20221001preview:TrafficControllerInterface"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20221001preview:TrafficControllerInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

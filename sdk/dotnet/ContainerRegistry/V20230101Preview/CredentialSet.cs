@@ -89,11 +89,11 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:CredentialSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:CredentialSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230701:CredentialSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:CredentialSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:CredentialSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:CredentialSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:CredentialSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230701:CredentialSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:CredentialSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:CredentialSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

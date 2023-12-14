@@ -73,9 +73,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ArchiveVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:ArchiveVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ArchiveVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ArchiveVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:ArchiveVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ArchiveVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

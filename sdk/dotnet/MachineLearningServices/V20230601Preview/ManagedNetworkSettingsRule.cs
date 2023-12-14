@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ManagedNetworkSettingsRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:ManagedNetworkSettingsRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:ManagedNetworkSettingsRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:ManagedNetworkSettingsRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:ManagedNetworkSettingsRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

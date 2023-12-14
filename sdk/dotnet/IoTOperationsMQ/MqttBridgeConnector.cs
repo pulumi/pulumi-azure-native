@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperationsmq/v20231004preview:MqttBridgeConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperationsmq/v20231004preview:MqttBridgeConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

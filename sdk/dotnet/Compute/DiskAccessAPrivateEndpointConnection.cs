@@ -73,15 +73,15 @@ namespace Pulumi.AzureNative.Compute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskAccessAPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

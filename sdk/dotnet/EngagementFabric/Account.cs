@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.EngagementFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:engagementfabric/v20180901preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:engagementfabric/v20180901preview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

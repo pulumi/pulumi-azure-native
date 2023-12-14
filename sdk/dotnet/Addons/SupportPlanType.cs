@@ -59,8 +59,8 @@ namespace Pulumi.AzureNative.Addons
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:addons/v20170515:SupportPlanType"},
-                    new global::Pulumi.Alias { Type = "azure-native:addons/v20180301:SupportPlanType"},
+                    new global::Pulumi.Alias { Type = "azure-native:addons/v20170515:SupportPlanType" },
+                    new global::Pulumi.Alias { Type = "azure-native:addons/v20180301:SupportPlanType" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

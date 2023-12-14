@@ -127,10 +127,10 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Watcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Watcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Watcher"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Watcher"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Watcher" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

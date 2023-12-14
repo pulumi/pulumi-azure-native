@@ -88,14 +88,14 @@ namespace Pulumi.AzureNative.Compute.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20221101:CapacityReservationGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:CapacityReservationGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:CapacityReservationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220301:CapacityReservationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:CapacityReservationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20221101:CapacityReservationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:CapacityReservationGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

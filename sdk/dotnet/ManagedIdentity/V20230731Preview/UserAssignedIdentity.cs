@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20230731Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity:UserAssignedIdentity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20150831preview:UserAssignedIdentity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20181130:UserAssignedIdentity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20210930preview:UserAssignedIdentity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:UserAssignedIdentity"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230131:UserAssignedIdentity"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity:UserAssignedIdentity" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20150831preview:UserAssignedIdentity" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20181130:UserAssignedIdentity" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20210930preview:UserAssignedIdentity" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:UserAssignedIdentity" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedidentity/v20230131:UserAssignedIdentity" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

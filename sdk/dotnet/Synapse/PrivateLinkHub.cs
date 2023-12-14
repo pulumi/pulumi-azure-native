@@ -79,13 +79,13 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateLinkHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateLinkHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateLinkHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:PrivateLinkHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateLinkHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateLinkHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateLinkHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateLinkHub" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

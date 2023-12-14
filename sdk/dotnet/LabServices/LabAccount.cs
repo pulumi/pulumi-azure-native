@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:LabAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:LabAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

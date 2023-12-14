@@ -70,13 +70,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ApplicationAccelerator"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApplicationAccelerator"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApplicationAccelerator"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApplicationAccelerator"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ApplicationAccelerator"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:ApplicationAccelerator"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:ApplicationAccelerator"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ApplicationAccelerator" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApplicationAccelerator" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApplicationAccelerator" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApplicationAccelerator" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ApplicationAccelerator" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:ApplicationAccelerator" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:ApplicationAccelerator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

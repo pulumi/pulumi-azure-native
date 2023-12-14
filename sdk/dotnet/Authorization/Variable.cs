@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220801preview:Variable"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20220801preview:Variable" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -130,16 +130,16 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Policy"},
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20190615preview:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200331:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200415:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:Policy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

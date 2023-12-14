@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:RaiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:RaiPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

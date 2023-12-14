@@ -79,16 +79,16 @@ namespace Pulumi.AzureNative.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:CassandraResourceCassandraView"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:CassandraResourceCassandraView"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:CassandraResourceCassandraView" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:CassandraResourceCassandraView" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

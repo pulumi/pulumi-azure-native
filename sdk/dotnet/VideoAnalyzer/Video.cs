@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:Video"},
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:Video"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20210501preview:Video" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer/v20211101preview:Video" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

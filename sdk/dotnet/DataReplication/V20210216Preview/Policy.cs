@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DataReplication.V20210216Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datareplication:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:datareplication:Policy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

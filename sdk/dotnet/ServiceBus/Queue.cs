@@ -199,15 +199,15 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Queue"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Queue"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Queue" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Queue" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

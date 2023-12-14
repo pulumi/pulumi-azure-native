@@ -61,10 +61,10 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20230904
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift:SyncIdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220904:SyncIdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230401:SyncIdentityProvider"},
-                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230701preview:SyncIdentityProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift:SyncIdentityProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220904:SyncIdentityProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230401:SyncIdentityProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230701preview:SyncIdentityProvider" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

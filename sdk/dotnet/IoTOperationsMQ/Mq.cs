@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperationsmq/v20231004preview:Mq"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperationsmq/v20231004preview:Mq" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkTap"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkTap" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

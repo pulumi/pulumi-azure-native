@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logz:MetricsSource"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz:MetricsSource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -64,14 +64,14 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:ManagedServerDnsAlias"},
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ManagedServerDnsAlias"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql:ManagedServerDnsAlias" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:ManagedServerDnsAlias" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ManagedServerDnsAlias" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedServerDnsAlias" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedServerDnsAlias" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedServerDnsAlias" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:ManagedServerDnsAlias" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ManagedServerDnsAlias" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:ComponentCurrentBillingFeature"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:ComponentCurrentBillingFeature" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Community
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:community/v20231101:CommunityTraining"},
+                    new global::Pulumi.Alias { Type = "azure-native:community/v20231101:CommunityTraining" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

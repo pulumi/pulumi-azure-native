@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.VisualStudio.V20171101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:visualstudio:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:visualstudio/v20140401preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:visualstudio:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:visualstudio/v20140401preview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

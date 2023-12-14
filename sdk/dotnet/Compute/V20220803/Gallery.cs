@@ -100,16 +100,16 @@ namespace Pulumi.AzureNative.Compute.V20220803
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220303:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20180601:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20211001:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220103:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20220303:Gallery" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -163,15 +163,15 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Namespace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

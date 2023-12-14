@@ -81,13 +81,13 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:WorkspaceSqlAadAdmin" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

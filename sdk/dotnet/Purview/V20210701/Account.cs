@@ -149,9 +149,9 @@ namespace Pulumi.AzureNative.Purview.V20210701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:purview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:purview/v20201201preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:purview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:purview/v20201201preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

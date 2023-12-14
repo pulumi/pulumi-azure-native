@@ -67,16 +67,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:Schedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:Schedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:Schedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceVirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceVirtualNetworkRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

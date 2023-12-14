@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerplatform:EnterprisePolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:powerplatform:EnterprisePolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

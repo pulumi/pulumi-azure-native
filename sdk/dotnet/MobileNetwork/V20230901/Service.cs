@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.MobileNetwork.V20230901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Webhook"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Webhook" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Webhook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

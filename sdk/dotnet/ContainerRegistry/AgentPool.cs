@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:AgentPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

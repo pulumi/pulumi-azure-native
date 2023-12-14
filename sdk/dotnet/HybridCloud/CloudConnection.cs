@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.HybridCloud
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcloud/v20230101preview:CloudConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcloud/v20230101preview:CloudConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.DataCatalog
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datacatalog/v20160330:ADCCatalog"},
+                    new global::Pulumi.Alias { Type = "azure-native:datacatalog/v20160330:ADCCatalog" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

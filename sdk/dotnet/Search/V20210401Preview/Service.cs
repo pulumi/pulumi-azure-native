@@ -172,14 +172,14 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20150819:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20220901:Service"},
-                    new global::Pulumi.Alias { Type = "azure-native:search/v20231101:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:search:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20150819:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200313:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20220901:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20231101:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

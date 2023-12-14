@@ -143,15 +143,15 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20170401:ActionGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180301:ActionGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180901:ActionGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20190301:ActionGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20190601:ActionGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210901:ActionGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20220401:ActionGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:ActionGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230101:ActionGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20170401:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180301:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180901:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20190301:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20190601:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210901:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20220401:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230101:ActionGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

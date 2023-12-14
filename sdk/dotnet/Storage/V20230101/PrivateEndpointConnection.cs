@@ -70,17 +70,17 @@ namespace Pulumi.AzureNative.Storage.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

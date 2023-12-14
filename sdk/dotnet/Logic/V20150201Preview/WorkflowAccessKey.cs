@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logic:WorkflowAccessKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:logic:WorkflowAccessKey" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:SecurityContact"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20200101preview:SecurityContact"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:SecurityContact" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20200101preview:SecurityContact" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

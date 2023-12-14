@@ -100,15 +100,15 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221001:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20160201preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221001:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

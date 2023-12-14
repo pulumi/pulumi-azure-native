@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:portal:UserSettingsWithLocation"},
+                    new global::Pulumi.Alias { Type = "azure-native:portal:UserSettingsWithLocation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

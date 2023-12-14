@@ -109,10 +109,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:GuestAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:GuestAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

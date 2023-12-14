@@ -70,13 +70,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:PrivateEndpointConnectionByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

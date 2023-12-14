@@ -253,9 +253,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:BareMetalMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:BareMetalMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:BareMetalMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:BareMetalMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:BareMetalMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:BareMetalMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

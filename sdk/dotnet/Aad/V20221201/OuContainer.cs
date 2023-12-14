@@ -124,12 +124,12 @@ namespace Pulumi.AzureNative.Aad.V20221201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aad:OuContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20170601:OuContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20200101:OuContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210301:OuContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210501:OuContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:aad/v20220901:OuContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:aad:OuContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20170601:OuContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20200101:OuContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210301:OuContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20210501:OuContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:aad/v20220901:OuContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:TopicSpace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:TopicSpace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:TopicSpace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:TopicSpace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

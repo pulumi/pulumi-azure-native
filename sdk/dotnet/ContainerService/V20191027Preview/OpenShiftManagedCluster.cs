@@ -142,10 +142,10 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice:OpenShiftManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190430:OpenShiftManagedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190930preview:OpenShiftManagedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:OpenShiftManagedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190430:OpenShiftManagedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20190930preview:OpenShiftManagedCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

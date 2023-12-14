@@ -145,11 +145,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Datastore"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:Datastore"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:Datastore"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:Datastore"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231001:Datastore"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Datastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:Datastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:Datastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:Datastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231001:Datastore" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

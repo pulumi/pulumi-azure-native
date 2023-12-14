@@ -178,15 +178,15 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSub"},
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230801preview:WebPubSub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230801preview:WebPubSub" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

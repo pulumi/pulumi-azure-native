@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Security.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:AzureServersSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:AzureServersSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

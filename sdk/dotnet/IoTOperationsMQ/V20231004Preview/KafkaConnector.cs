@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ.V20231004Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperationsmq:KafkaConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperationsmq:KafkaConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

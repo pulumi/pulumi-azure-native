@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotcentral:App"},
-                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20180901:App"},
-                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20210601:App"},
+                    new global::Pulumi.Alias { Type = "azure-native:iotcentral:App" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20180901:App" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotcentral/v20210601:App" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
