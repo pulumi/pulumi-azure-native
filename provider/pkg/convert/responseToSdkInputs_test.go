@@ -68,8 +68,6 @@ func TestPathParams(t *testing.T) {
 	})
 }
 
-// TODO: Add extra test for string sets.
-
 func TestBodyProps(t *testing.T) {
 	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")

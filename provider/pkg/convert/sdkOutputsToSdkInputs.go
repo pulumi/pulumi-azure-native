@@ -34,7 +34,7 @@ func (k *SdkShapeConverter) sdkOutputsToSDKInputs(props map[string]resources.Azu
 
 // convertOutputToInputPropValue converts an output value back to an input value.
 func (k *SdkShapeConverter) convertOutputToInputPropValue(prop *resources.AzureAPIProperty, value interface{}) interface{} {
-	return k.convertPropValue(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+	return k.convertTypedObjects(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
 		return k.sdkOutputsToSDKInputs(props, values)
 	})
 }

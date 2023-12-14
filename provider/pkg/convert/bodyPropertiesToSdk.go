@@ -29,6 +29,7 @@ func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]resources.Azure
 
 		if value, has := values[name]; has {
 			if prop.Const != nil && value != prop.Const {
+				// Returning nil indicates that the given value is not of the expected type.
 				return nil
 			}
 
@@ -42,7 +43,7 @@ func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]resources.Azure
 
 // convertBodyPropToSdkPropValue converts a value from a request body to an SDK property value.
 func (k *SdkShapeConverter) convertBodyPropToSdkPropValue(prop *resources.AzureAPIProperty, value interface{}) interface{} {
-	return k.convertPropValue(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+	return k.convertTypedObjects(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
 		return k.BodyPropertiesToSDK(props, values)
 	})
 }

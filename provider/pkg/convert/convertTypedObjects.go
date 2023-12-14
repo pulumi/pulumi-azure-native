@@ -9,9 +9,11 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 )
 
-type convertPropValues func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{}
+// Returning nil indicates that the given value is not of the expected type.
+type convertTypedObject func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{}
 
-func (k *SdkShapeConverter) convertPropValue(prop *resources.AzureAPIProperty, value interface{}, convertMap convertPropValues) interface{} {
+// convertTypedObjects recursively finds map types with a known type and calls convertMap on them.
+func (k *SdkShapeConverter) convertTypedObjects(prop *resources.AzureAPIProperty, value interface{}, convertObject convertTypedObject) interface{} {
 	if value == nil {
 		return nil
 	}
@@ -26,7 +28,7 @@ func (k *SdkShapeConverter) convertPropValue(prop *resources.AzureAPIProperty, v
 				continue
 			}
 
-			request := convertMap(typeName, typ.Properties, value.(map[string]interface{}))
+			request := convertObject(typeName, typ.Properties, value.(map[string]interface{}))
 			if request != nil {
 				return request
 			}
@@ -43,13 +45,13 @@ func (k *SdkShapeConverter) convertPropValue(prop *resources.AzureAPIProperty, v
 			if !ok || err != nil {
 				return value
 			}
-			return convertMap(typeName, typ.Properties, valueMap)
+			return convertObject(typeName, typ.Properties, valueMap)
 		}
 
 		if prop.AdditionalProperties != nil {
 			result := map[string]interface{}{}
 			for key, item := range valueMap {
-				result[key] = k.convertPropValue(prop.AdditionalProperties, item, convertMap)
+				result[key] = k.convertTypedObjects(prop.AdditionalProperties, item, convertObject)
 			}
 			return result
 		}
@@ -83,7 +85,7 @@ func (k *SdkShapeConverter) convertPropValue(prop *resources.AzureAPIProperty, v
 		result := make([]interface{}, 0)
 		s := reflect.ValueOf(value)
 		for i := 0; i < s.Len(); i++ {
-			result = append(result, k.convertPropValue(prop.Items, s.Index(i).Interface(), convertMap))
+			result = append(result, k.convertTypedObjects(prop.Items, s.Index(i).Interface(), convertObject))
 		}
 		return result
 	}

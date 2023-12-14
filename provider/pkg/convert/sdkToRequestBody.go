@@ -10,7 +10,7 @@ import (
 
 // convertSdkPropToRequestBodyPropValue converts an SDK property to a value to be used in a request body.
 func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop *resources.AzureAPIProperty, value interface{}) interface{} {
-	return k.convertPropValue(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+	return k.convertTypedObjects(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
 		// Detect if we are dealing with a special case of a SubResource type with an ID property.
 		// These properties reference a sub-ID of the currently modified resource (e.g.
 		// an ID of a backend pool in a load balancer while creating the load balancer).
