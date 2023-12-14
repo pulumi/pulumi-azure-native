@@ -7,267 +7,372 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/stretchr/testify/assert"
+	"pgregory.net/rapid"
 )
 
-func TestSDKOutputsToSDKInputs(t *testing.T) {
-	var resourceMap = &resources.AzureAPIMetadata{
-		Types: map[string]resources.AzureAPIType{
-			"azure-native:testing:Structure": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"v1": {},
-					"v2": {},
-					"v3-odd": {
-						SdkName: "v3",
-					},
-					"v4-nested": {
-						SdkName:    "v4",
-						Containers: []string{"props"},
-					},
-					"v5": {
-						Ref: "#/types/azure-native:testing:SubResource",
-					},
+func TestSdkOutputsToSdkInputs(t *testing.T) {
+	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
+		value := propNestedComplex().Draw(t, "value")
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"untyped": {},
+			},
+			outputs: map[string]interface{}{
+				"untyped": value,
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"untyped": value,
+		}
+
+		assert.Equal(t, expected, actual)
+	}))
+
+	t.Run("any type values", rapid.MakeCheck(func(t *rapid.T) {
+		value := propNestedComplex().Draw(t, "value")
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"untyped": {
+					Ref: TypeAny,
 				},
 			},
-			"azure-native:testing:StructureResponse": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"v1": {},
-					"v2": {},
-					"v3-odd": {
-						SdkName: "v3",
-					},
-					"v4-nested": {
-						SdkName:    "v4",
-						Containers: []string{"props"},
-					},
-					"v5ReadOnly": {},
+			outputs: map[string]interface{}{
+				"untyped": value,
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"untyped": value,
+		}
+
+		assert.Equal(t, expected, actual)
+	}))
+
+	t.Run("renamed", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"x-threshold": {
+					SdkName: "threshold",
 				},
 			},
-			"azure-native:testing:More": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"items": {
-						Items: &resources.AzureAPIProperty{
-							Ref: "#/types/azure-native:testing:MoreItem",
-						},
-					},
-					"itemsMap": {
-						Type: "object",
-						AdditionalProperties: &resources.AzureAPIProperty{
-							Ref: "#/types/azure-native:testing:MoreItem",
-						},
-					},
+			outputs: map[string]interface{}{
+				"threshold": 123,
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"threshold": 123,
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("mismatched const returns nil", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"const": {
+					Const: "value",
 				},
 			},
-			"azure-native:testing:MoreItem": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"aaa": {
-						SdkName: "Aaa",
-					},
-					"bbb": {
-						Containers: []string{"ccc"},
-					},
+			outputs: map[string]interface{}{
+				"const": "other",
+			},
+		})
+
+		var expected map[string]interface{} = nil
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("array of empties not changed", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"emptyArray": {
+					Type: "array",
 				},
 			},
-			"azure-native:testing:OptionA": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"type": {
-						Const: "AAA",
-					},
-					"a": {
-						Containers: []string{"aa"},
-					},
+			outputs: map[string]interface{}{
+				"emptyArray": []interface{}{nil, []interface{}{}, map[string]interface{}{}},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"emptyArray": []interface{}{nil, []interface{}{}, map[string]interface{}{}},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("map of empties unchanged", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"emptyDict": {
+					Type: "object",
 				},
 			},
-			"azure-native:testing:OptionB": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"type": {
-						Const: "BBB",
-					},
-					"b": {
-						Containers: []string{"bb"},
-					},
-				},
+			outputs: map[string]interface{}{
+				"emptyDict": map[string]interface{}{"a": nil, "b": map[string]interface{}{}, "c": []interface{}{}},
 			},
-			"azure-native:testing:SubResource": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"id": {
+		})
+
+		var expected = map[string]interface{}{
+			"emptyDict": map[string]interface{}{"a": nil, "b": map[string]interface{}{}, "c": []interface{}{}},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("typed array doesn't change items", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"typedArray": {
+					Type: "array",
+					Items: &resources.AzureAPIProperty{
 						Type: "string",
 					},
 				},
 			},
-		},
-		Resources: map[string]resources.AzureAPIResource{
-			"r1": {
-				PutParameters: []resources.AzureAPIParameter{
-					{
-						Location: "body",
-						Body: &resources.AzureAPIType{
-							Properties: map[string]resources.AzureAPIProperty{
-								"name": {},
-								"x-threshold": {
-									SdkName: "threshold",
-								},
-								"structure": {
-									Ref: "#/types/azure-native:testing:Structure",
-								},
-								"p1": {
-									Containers: []string{"properties"},
-								},
-								"p2": {
-									Containers: []string{"properties"},
-								},
-								"p3": {
-									Containers: []string{"properties", "document", "body"},
-								},
-								"more": {
-									Containers: []string{"properties"},
-									Ref:        "#/types/azure-native:testing:More",
-								},
-								"union": {
-									OneOf: []string{"#/types/azure-native:testing:OptionA", "#/types/azure-native:testing:OptionB"},
-								},
-								"tags":         {},
-								"untypedArray": {},
-								"untypedDict": {
-									Ref: TypeAny,
-								},
-							},
-						},
-					},
-					{
-						Location: "path",
-						Name:     "subscriptionId",
-					},
-					{
-						Location: "path",
-						Name:     "resourceGroupName",
-					},
-					{
-						Location: "path",
-						Name:     "NetworkInterfaceName",
-						Value: &resources.AzureAPIProperty{
-							SdkName: "networkInterfaceName",
-						},
+			outputs: map[string]interface{}{
+				"typedArray": []interface{}{"a", "b", 3},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"typedArray": []interface{}{"a", "b", 3},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("typed map doesn't change items", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"typedMap": {
+					Type: "object",
+					AdditionalProperties: &resources.AzureAPIProperty{
+						Type: "string",
 					},
 				},
-				Response: map[string]resources.AzureAPIProperty{
+			},
+			outputs: map[string]interface{}{
+				"typedMap": map[string]interface{}{"a": "b", "c": 3},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"typedMap": map[string]interface{}{"a": "b", "c": 3},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("string set mapped back to string list", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"userAssignedIdentities": {
+					Type:        "object",
+					IsStringSet: true,
+				},
+			},
+			outputs: map[string]interface{}{
+				"userAssignedIdentities": map[string]interface{}{
+					"a": "b",
+					"c": map[string]interface{}{
+						"d": "e",
+					},
+				},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"userAssignedIdentities": []string{"a", "c"},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+}
+
+func TestSdkOutputsToSdkInputsNestedTypes(t *testing.T) {
+	bodyParams := map[string]resources.AzureAPIProperty{
+		"nested": {
+			Ref: "#/types/azure-native:testing:SubType",
+		},
+	}
+	t.Run("untyped simple value", rapid.MakeCheck(func(t *rapid.T) {
+		value := propNestedComplex().Draw(t, "value")
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:SubType": {
+					"value": {},
+				},
+			},
+			bodyParameters: bodyParams,
+			outputs: map[string]interface{}{
+				"nested": map[string]interface{}{
+					"value": value,
+				},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"nested": map[string]interface{}{
+				"value": value,
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	}))
+
+	t.Run("empty object unchanged", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:SubType": {
 					"name": {},
-					"x-threshold": {
-						SdkName: "threshold",
-					},
-					"structure": {
-						Ref: "#/types/azure-native:testing:StructureResponse",
-					},
-					"p1": {
-						Containers: []string{"properties"},
-					},
-					"p2": {
-						Containers: []string{"properties"},
-					},
-					"p3": {
-						Containers: []string{"properties", "document", "body"},
-					},
-					"more": {
-						Containers: []string{"properties"},
-						Ref:        "#/types/azure-native:testing:More",
-					},
-					"union": {
-						OneOf: []string{"#/types/azure-native:testing:OptionA", "#/types/azure-native:testing:OptionB"},
-					},
-					"tags":         {},
-					"untypedArray": {},
-					"untypedDict": {
-						Ref: TypeAny,
-					},
-					"readOnly": {},
 				},
 			},
-		},
-	}
+			bodyParameters: bodyParams,
+			outputs: map[string]interface{}{
+				"nested": map[string]interface{}{},
+			},
+		})
 
-	var c = SdkShapeConverter{Types: resourceMap.Types}
+		var expected = map[string]interface{}{
+			"nested": map[string]interface{}{},
+		}
 
-	var sampleSdkProps = map[string]interface{}{
-		"name":      "MyResource",
-		"threshold": 123,
-		"structure": map[string]interface{}{
-			"v1": "value1",
-			"v2": 2,
-			"v3": "odd-value",
-			"v4": true,
-		},
-		"p1": "prop1",
-		"p2": "prop2",
-		"p3": "prop3",
-		"more": map[string]interface{}{
-			"items": []interface{}{
-				map[string]interface{}{"Aaa": "111", "bbb": "333"},
-				map[string]interface{}{"Aaa": "222"},
-			},
-			"itemsMap": map[string]interface{}{
-				"key1": map[string]interface{}{"Aaa": "444", "bbb": "555"},
-				"key2": map[string]interface{}{"Aaa": "666"},
-			},
-		},
-		"union": map[string]interface{}{
-			"type": "BBB",
-			"b":    "valueOfB",
-		},
-		"tags": map[string]interface{}{
-			"createdBy":   "admin",
-			"application": "dashboard",
-		},
-		"untypedArray": []interface{}{
-			map[string]interface{}{"key1": "value1"},
-			map[string]interface{}{"key1": "value2"},
-		},
-		"untypedDict": map[string]interface{}{
-			"key1": "value1",
-			"key2": "value2",
-		},
-	}
+		assert.Equal(t, expected, actual)
+	})
 
-	// Produced by copying sampleSdkProps plus some extra properties.
-	outputs := map[string]interface{}{
-		"name":      "MyResource",
-		"threshold": 123,
-		"structure": map[string]interface{}{
-			"v1":         "value1",
-			"v2":         2,
-			"v3":         "odd-value",
-			"v4":         true,
-			"v5ReadOnly": "calculated",
-		},
-		"p1": "prop1",
-		"p2": "prop2",
-		"p3": "prop3",
-		"more": map[string]interface{}{
-			"items": []interface{}{
-				map[string]interface{}{"Aaa": "111", "bbb": "333"},
-				map[string]interface{}{"Aaa": "222"},
+	t.Run("sub-id not ignored", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:SubType": {
+					"id": {},
+				},
 			},
-			"itemsMap": map[string]interface{}{
-				"key1": map[string]interface{}{"Aaa": "444", "bbb": "555"},
-				"key2": map[string]interface{}{"Aaa": "666"},
+			bodyParameters: bodyParams,
+			outputs: map[string]interface{}{
+				"nested": map[string]interface{}{
+					"id": "id-value",
+				},
 			},
-		},
-		"union": map[string]interface{}{
-			"type": "BBB",
-			"b":    "valueOfB",
-		},
-		"tags": map[string]interface{}{
-			"createdBy":   "admin",
-			"application": "dashboard",
-		},
-		"untypedArray": []interface{}{
-			map[string]interface{}{"key1": "value1"},
-			map[string]interface{}{"key1": "value2"},
-		},
-		"untypedDict": map[string]interface{}{
-			"key1": "value1",
-			"key2": "value2",
-		},
-		"readOnly": 12345,
+		})
+
+		var expected = map[string]interface{}{
+			"nested": map[string]interface{}{
+				"id": "id-value",
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("renamed", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:SubType": {
+					"x-renamed": {
+						SdkName: "renamed",
+					},
+				},
+			},
+			bodyParameters: bodyParams,
+			outputs: map[string]interface{}{
+				"nested": map[string]interface{}{
+					"renamed": "value",
+				},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"nested": map[string]interface{}{
+				"renamed": "value",
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("mismatched const ignored", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:SubType": {
+					"const": {
+						Const: "value",
+					},
+				},
+			},
+			bodyParameters: bodyParams,
+			outputs: map[string]interface{}{
+				"nested": map[string]interface{}{
+					"const": "other",
+				},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"nested": map[string]interface{}(nil),
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("string set mapped back to string list", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"userAssignedIdentities": {
+					Type:        "object",
+					IsStringSet: true,
+				},
+			},
+			outputs: map[string]interface{}{
+				"nested": map[string]interface{}{
+					"userAssignedIdentities": map[string]interface{}{
+						"a": "b",
+						"c": map[string]interface{}{
+							"d": "e",
+						},
+					},
+				},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"nested": map[string]interface{}{
+				"userAssignedIdentities": []string{"a", "c"},
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+}
+
+type sdkOutputsToSDKInputsTestCase struct {
+	outputs         map[string]interface{}
+	bodyParameters  map[string]resources.AzureAPIProperty
+	extraParameters []resources.AzureAPIParameter
+	types           map[string]map[string]resources.AzureAPIProperty
+}
+
+func testSdkOutputsToSDKInputs(testCase sdkOutputsToSDKInputsTestCase) map[string]interface{} {
+	types := map[string]resources.AzureAPIType{}
+	if testCase.types != nil {
+		for typeName, typeProperties := range testCase.types {
+			types[typeName] = resources.AzureAPIType{
+				Properties: typeProperties,
+			}
+		}
 	}
-	inputs := c.SDKOutputsToSDKInputs(resourceMap.Resources["r1"].PutParameters, outputs)
-	assert.Equal(t, sampleSdkProps, inputs)
+	c := SdkShapeConverter{Types: types}
+	parameters := testCase.extraParameters
+	if testCase.bodyParameters != nil {
+		parameters = append(parameters, resources.AzureAPIParameter{
+			Location: body,
+			Body: &resources.AzureAPIType{
+				Properties: testCase.bodyParameters,
+			},
+		})
+	}
+	return c.SDKOutputsToSDKInputs(parameters, testCase.outputs)
 }
