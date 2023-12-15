@@ -2,6 +2,7 @@ package convert
 
 import (
 	"reflect"
+	"sort"
 	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -87,29 +88,18 @@ func (k *SdkShapeConverter) convertTypedSdkOutputObjectsToSdkInput(prop *resourc
 			}
 			return result
 		}
-		// Convert can be called for either turning user inputs into a request body or for turning a response body
-		// into SDK outputs. In the latter case, we need to turn string sets back into arrays.
 		if prop.IsStringSet {
 			result := make([]interface{}, 0)
 			for key := range valueMap {
 				result = append(result, key)
 			}
+			sort.SliceStable(result, func(i, j int) bool {
+				return result[i].(string) < result[j].(string)
+			})
 			return result
 		}
 		return value
 	case reflect.Slice, reflect.Array:
-		if prop.IsStringSet {
-			emptyValue := struct{}{}
-			setResult := map[string]interface{}{}
-			for _, setItem := range value.([]interface{}) {
-				if reflect.TypeOf(setItem).Kind() != reflect.String {
-					// This should have been handled by validation
-					continue
-				}
-				setResult[setItem.(string)] = emptyValue
-			}
-			return setResult
-		}
 		if prop.Items == nil {
 			return value
 		}

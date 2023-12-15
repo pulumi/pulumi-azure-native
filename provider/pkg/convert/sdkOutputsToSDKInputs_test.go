@@ -186,7 +186,7 @@ func TestSdkOutputsToSdkInputs(t *testing.T) {
 		})
 
 		var expected = map[string]interface{}{
-			"userAssignedIdentities": []string{"a", "c"},
+			"userAssignedIdentities": []interface{}{"a", "c"},
 		}
 
 		assert.Equal(t, expected, actual)
@@ -194,6 +194,8 @@ func TestSdkOutputsToSdkInputs(t *testing.T) {
 }
 
 func TestSdkOutputsToSdkInputsNestedTypes(t *testing.T) {
+	// Use the same body shape for all sub-tests
+	// but change the definition of SubType in each test.
 	bodyParams := map[string]resources.AzureAPIProperty{
 		"nested": {
 			Ref: "#/types/azure-native:testing:SubType",
@@ -320,12 +322,15 @@ func TestSdkOutputsToSdkInputsNestedTypes(t *testing.T) {
 
 	t.Run("string set mapped back to string list", func(t *testing.T) {
 		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
-			bodyParameters: map[string]resources.AzureAPIProperty{
-				"userAssignedIdentities": {
-					Type:        "object",
-					IsStringSet: true,
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:SubType": {
+					"userAssignedIdentities": {
+						Type:        "object",
+						IsStringSet: true,
+					},
 				},
 			},
+			bodyParameters: bodyParams,
 			outputs: map[string]interface{}{
 				"nested": map[string]interface{}{
 					"userAssignedIdentities": map[string]interface{}{
@@ -340,7 +345,7 @@ func TestSdkOutputsToSdkInputsNestedTypes(t *testing.T) {
 
 		var expected = map[string]interface{}{
 			"nested": map[string]interface{}{
-				"userAssignedIdentities": []string{"a", "c"},
+				"userAssignedIdentities": []interface{}{"a", "c"},
 			},
 		}
 
