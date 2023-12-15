@@ -23,8 +23,9 @@ func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []resources.AzureAPIP
 			}
 			result[sdkName] = pathValues[name]
 		case param.Location == body:
-			bodyProps := k.ResponseBodyToSdkOutputs(param.Body.Properties, responseBody)
-			for k, v := range bodyProps {
+			outputs := k.ResponseBodyToSdkOutputs(param.Body.Properties, responseBody)
+			inputs := k.SdkOutputsToSdkInputs([]resources.AzureAPIParameter{param}, outputs)
+			for k, v := range inputs {
 				switch {
 				case k == "id":
 					// Some resources have a top-level `id` property which is (probably incorrectly) marked as
