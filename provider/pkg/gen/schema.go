@@ -857,21 +857,24 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	requiredContainers := mergeRequiredContainers(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok))
 
 	r := resources.AzureAPIResource{
-		APIVersion:                    swagger.Info.Version,
-		Path:                          resource.Path,
-		UpdateMethod:                  updateMethod,
-		PutParameters:                 resourceRequest.parameters,
-		Response:                      resourceResponse.properties,
-		DefaultBody:                   resource.DefaultBody,
-		Singleton:                     resource.PathItem.Delete == nil,
-		PutAsyncStyle:                 g.getAsyncStyle(updateOp),
-		DeleteAsyncStyle:              g.getAsyncStyle(resource.PathItem.Delete),
-		ReadMethod:                    readMethod,
-		ReadPath:                      readPath,
-		AutoLocationDisabled:          resources.AutoLocationDisabled(resource.Path),
-		RequiredContainers:            requiredContainers,
-		DefaultProperties:             propertyDefaults(module, resource.typeName),
-		SubResourcesToMaintainIfUnset: collectSubResourceToMaintainIfUnset(resourceRequest.parameters, g.lookupType),
+		APIVersion:           swagger.Info.Version,
+		Path:                 resource.Path,
+		UpdateMethod:         updateMethod,
+		PutParameters:        resourceRequest.parameters,
+		Response:             resourceResponse.properties,
+		DefaultBody:          resource.DefaultBody,
+		Singleton:            resource.PathItem.Delete == nil,
+		PutAsyncStyle:        g.getAsyncStyle(updateOp),
+		DeleteAsyncStyle:     g.getAsyncStyle(resource.PathItem.Delete),
+		ReadMethod:           readMethod,
+		ReadPath:             readPath,
+		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
+		RequiredContainers:   requiredContainers,
+		DefaultProperties:    propertyDefaults(module, resource.typeName),
+	}
+
+	if body := r.BodyParameter(); body != nil {
+		r.SubResourcesToMaintainIfUnset = collectSubResourceToMaintainIfUnset(*body, g.lookupType)
 	}
 
 	g.metadata.Resources[resourceTok] = r
@@ -880,24 +883,20 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	return nil
 }
 
-func collectSubResourceToMaintainIfUnset(params []resources.AzureAPIParameter, typeLookup typeLookupFunc) [][]string {
+func collectSubResourceToMaintainIfUnset(body resources.AzureAPIParameter, typeLookup typeLookupFunc) [][]string {
 	result := [][]string{}
-	for _, param := range params {
-		if param.Location != "body" || param.Body == nil {
-			continue
-		}
-		traverseProperties(
-			param.Body.Properties,
-			typeLookup,
-			[]string{},
-			func(propName string, prop resources.AzureAPIProperty, path []string) {
-				if prop.MaintainSubResourceIfUnset {
-					// make a copy of path since the original might be passed to other callbacks
-					pathToProperty := append([]string{}, path...)
-					result = append(result, append(pathToProperty, propName))
-				}
-			})
-	}
+	traverseProperties(
+		body.Body.Properties,
+		typeLookup,
+		[]string{}, // start with an empty path since we're at the top level
+		func(propName string, prop resources.AzureAPIProperty, path []string) {
+			if prop.MaintainSubResourceIfUnset {
+				// make a copy of path since the original might be passed to other callbacks
+				pathToProperty := append([]string{}, path...)
+				result = append(result, append(pathToProperty, propName))
+			}
+		})
+
 	return result
 }
 

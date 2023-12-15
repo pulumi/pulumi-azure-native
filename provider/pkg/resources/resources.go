@@ -119,14 +119,21 @@ type AzureAPIResource struct {
 }
 
 func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {
-	for _, param := range res.PutParameters {
-		if param.Location == "body" {
-			if prop, ok := param.Body.Properties[key]; ok {
-				return prop, true
-			}
+	if body := res.BodyParameter(); body != nil {
+		if prop, ok := body.Body.Properties[key]; ok {
+			return prop, true
 		}
 	}
 	return AzureAPIProperty{}, false
+}
+
+func (res *AzureAPIResource) BodyParameter() *AzureAPIParameter {
+	for _, param := range res.PutParameters {
+		if param.Location == "body" || param.Body != nil {
+			return &param
+		}
+	}
+	return nil
 }
 
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.

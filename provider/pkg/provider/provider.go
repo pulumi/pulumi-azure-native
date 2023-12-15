@@ -1145,11 +1145,8 @@ func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Conte
 
 func findUnsetSubResourceProperties(res *resources.AzureAPIResource, oldInputs resource.PropertyMap) []string {
 	var propertiesToRemove []string
-	for _, param := range res.PutParameters {
-		if param.Location != "body" || param.Body == nil {
-			continue
-		}
-		for propName, prop := range param.Body.Properties {
+	if body := res.BodyParameter(); body != nil {
+		for propName, prop := range body.Body.Properties {
 			if !prop.MaintainSubResourceIfUnset {
 				continue
 			}
@@ -1493,14 +1490,8 @@ func findUnsetProperties(candidateProperties map[string]resources.AzureAPIProper
 
 func findSubResourceProperties(res *resources.AzureAPIResource) map[string]resources.AzureAPIProperty {
 	subResourceProperties := map[string]resources.AzureAPIProperty{}
-	for _, param := range res.PutParameters {
-		if param.Location != "body" {
-			continue
-		}
-		if param.Body.Properties == nil {
-			continue
-		}
-		for propName, prop := range param.Body.Properties {
+	if body := res.BodyParameter(); body != nil {
+		for propName, prop := range body.Body.Properties {
 			if prop.MaintainSubResourceIfUnset {
 				subResourceProperties[propName] = prop
 			}
