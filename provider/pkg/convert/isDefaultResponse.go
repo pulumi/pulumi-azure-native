@@ -16,7 +16,7 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []resources.AzureAPI
 	defaultBody map[string]interface{}) bool {
 	for _, param := range putParameters {
 		if param.Location == body {
-			for key, value := range k.BodyPropertiesToSDK(param.Body.Properties, response) {
+			for key, value := range k.ResponseBodyToSdkOutputs(param.Body.Properties, response) {
 				switch reflect.TypeOf(value).Kind() {
 				case reflect.Slice, reflect.Array:
 					collection := reflect.ValueOf(value)

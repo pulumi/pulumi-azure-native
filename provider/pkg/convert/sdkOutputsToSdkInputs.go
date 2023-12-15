@@ -2,9 +2,9 @@ package convert
 
 import "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
-// SDKOutputsToSDKInputs converts resource outputs (not a response body, but already valid outputs) to corresponding
+// SdkOutputsToSdkInputs converts resource outputs (not a response body, but already valid outputs) to corresponding
 // resource inputs, excluding the read-only properties from the map.
-func (k *SdkShapeConverter) SDKOutputsToSDKInputs(parameters []resources.AzureAPIParameter, outputs map[string]interface{}) map[string]interface{} {
+func (k *SdkShapeConverter) SdkOutputsToSdkInputs(parameters []resources.AzureAPIParameter, outputs map[string]interface{}) map[string]interface{} {
 	for _, param := range parameters {
 		if param.Location == body {
 			return k.sdkOutputsToSDKInputs(param.Body.Properties, outputs)

@@ -10,10 +10,10 @@ import (
 	"pgregory.net/rapid"
 )
 
-func TestBodyPropsToSdk(t *testing.T) {
+func TestResponseBodyToSdkOutputs(t *testing.T) {
 	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"untyped": {},
 			},
@@ -31,7 +31,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 
 	t.Run("any type values", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"untyped": {
 					Ref: TypeAny,
@@ -50,7 +50,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	}))
 
 	t.Run("renamed", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"x-threshold": {
 					SdkName: "threshold",
@@ -69,7 +69,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 
 	t.Run("containers", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"prop": {
 					Containers: []string{"container"},
@@ -90,7 +90,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 
 	t.Run("nested containers", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"prop": {
 					Containers: []string{"a", "b", "c"},
@@ -115,7 +115,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 
 	t.Run("mismatched const returns nil", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"const": {
 					Const: "value",
@@ -132,7 +132,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 
 	t.Run("array of empties not changed", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"emptyArray": {
 					Type: "array",
@@ -151,7 +151,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 
 	t.Run("map of empties unchanged", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"emptyDict": {
 					Type: "object",
@@ -170,7 +170,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 
 	t.Run("typed array doesn't change items", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"typedArray": {
 					Type: "array",
@@ -192,7 +192,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 
 	t.Run("typed map doesn't change items", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"typedMap": {
 					Type: "object",
@@ -214,7 +214,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 
 	t.Run("string set unchanged for outputs", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			bodyParameters: map[string]resources.AzureAPIProperty{
 				"userAssignedIdentities": {
 					Type:        "object",
@@ -244,7 +244,7 @@ func TestBodyPropsToSdk(t *testing.T) {
 	})
 }
 
-func TestBodyPropsToSdkNestedTypes(t *testing.T) {
+func TestResponseBodyToSdkOutputsNestedTypes(t *testing.T) {
 	bodyParams := map[string]resources.AzureAPIProperty{
 		"nested": {
 			Ref: "#/types/azure-native:testing:SubType",
@@ -252,7 +252,7 @@ func TestBodyPropsToSdkNestedTypes(t *testing.T) {
 	}
 	t.Run("untyped simple value", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			types: map[string]map[string]resources.AzureAPIProperty{
 				"azure-native:testing:SubType": {
 					"value": {},
@@ -276,7 +276,7 @@ func TestBodyPropsToSdkNestedTypes(t *testing.T) {
 	}))
 
 	t.Run("empty object unchanged", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			types: map[string]map[string]resources.AzureAPIProperty{
 				"azure-native:testing:SubType": {
 					"name": {},
@@ -296,7 +296,7 @@ func TestBodyPropsToSdkNestedTypes(t *testing.T) {
 	})
 
 	t.Run("sub-id not ignored", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			types: map[string]map[string]resources.AzureAPIProperty{
 				"azure-native:testing:SubType": {
 					"id": {},
@@ -320,7 +320,7 @@ func TestBodyPropsToSdkNestedTypes(t *testing.T) {
 	})
 
 	t.Run("renamed", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			types: map[string]map[string]resources.AzureAPIProperty{
 				"azure-native:testing:SubType": {
 					"x-renamed": {
@@ -346,7 +346,7 @@ func TestBodyPropsToSdkNestedTypes(t *testing.T) {
 	})
 
 	t.Run("containered", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			types: map[string]map[string]resources.AzureAPIProperty{
 				"azure-native:testing:SubType": {
 					"containered": {
@@ -374,7 +374,7 @@ func TestBodyPropsToSdkNestedTypes(t *testing.T) {
 	})
 
 	t.Run("mismatched const ignored", func(t *testing.T) {
-		actual := testBodyPropertiesToSdk(bodyPropertiesToSdkTestCase{
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
 			types: map[string]map[string]resources.AzureAPIProperty{
 				"azure-native:testing:SubType": {
 					"const": {
@@ -398,13 +398,13 @@ func TestBodyPropsToSdkNestedTypes(t *testing.T) {
 	})
 }
 
-type bodyPropertiesToSdkTestCase struct {
+type responseBodyToSdkOutputsTestCase struct {
 	body           map[string]interface{}
 	bodyParameters map[string]resources.AzureAPIProperty
 	types          map[string]map[string]resources.AzureAPIProperty
 }
 
-func testBodyPropertiesToSdk(testCase bodyPropertiesToSdkTestCase) map[string]interface{} {
+func testResponseBodyToSdkOutputs(testCase responseBodyToSdkOutputsTestCase) map[string]interface{} {
 	types := map[string]resources.AzureAPIType{}
 	if testCase.types != nil {
 		for typeName, typeProperties := range testCase.types {
@@ -417,5 +417,5 @@ func testBodyPropertiesToSdk(testCase bodyPropertiesToSdkTestCase) map[string]in
 	if testCase.bodyParameters == nil {
 		testCase.bodyParameters = map[string]resources.AzureAPIProperty{}
 	}
-	return c.BodyPropertiesToSDK(testCase.bodyParameters, testCase.body)
+	return c.ResponseBodyToSdkOutputs(testCase.bodyParameters, testCase.body)
 }

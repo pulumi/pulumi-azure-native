@@ -4,8 +4,8 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 )
 
-// BodyPropertiesToSDK converts a JSON request- or response body to the SDK shape.
-func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]resources.AzureAPIProperty,
+// ResponseBodyToSdkOutputs converts a JSON request- or response body to the SDK shape.
+func (k *SdkShapeConverter) ResponseBodyToSdkOutputs(props map[string]resources.AzureAPIProperty,
 	response map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 
@@ -44,6 +44,6 @@ func (k *SdkShapeConverter) BodyPropertiesToSDK(props map[string]resources.Azure
 // convertBodyPropToSdkPropValue converts a value from a request body to an SDK property value.
 func (k *SdkShapeConverter) convertBodyPropToSdkPropValue(prop *resources.AzureAPIProperty, value interface{}) interface{} {
 	return k.convertTypedObjects(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
-		return k.BodyPropertiesToSDK(props, values)
+		return k.ResponseBodyToSdkOutputs(props, values)
 	})
 }

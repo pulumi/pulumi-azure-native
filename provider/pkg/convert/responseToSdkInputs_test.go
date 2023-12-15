@@ -10,7 +10,7 @@ import (
 	"pgregory.net/rapid"
 )
 
-func TestPathParams(t *testing.T) {
+func TestResponseToSdkInputsPathParams(t *testing.T) {
 	t.Run("simple", func(t *testing.T) {
 		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
 			pathParameters: []resources.AzureAPIParameter{
@@ -68,7 +68,7 @@ func TestPathParams(t *testing.T) {
 	})
 }
 
-func TestBodyProps(t *testing.T) {
+func TestResponseToSdkInputsBodyProps(t *testing.T) {
 	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")
 		actual := testResponseToSdkInputs(responseToSdkInputsTestCase{
@@ -313,7 +313,7 @@ func TestBodyProps(t *testing.T) {
 	})
 }
 
-func TestNestedTypes(t *testing.T) {
+func TestResponseToSdkInputsNestedTypes(t *testing.T) {
 	bodyParams := map[string]resources.AzureAPIProperty{
 		"nested": {
 			Ref: "#/types/azure-native:testing:SubType",
@@ -467,7 +467,7 @@ func TestNestedTypes(t *testing.T) {
 	})
 }
 
-func TestUnionTypes(t *testing.T) {
+func TestResponseToSdkInputsUnionTypes(t *testing.T) {
 	types := map[string]map[string]resources.AzureAPIProperty{
 		"azure-native:testing:OptionA": {
 			"type": {

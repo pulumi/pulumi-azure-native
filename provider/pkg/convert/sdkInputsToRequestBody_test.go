@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func getSdkPropertiesToRequestBodyConverter() SdkShapeConverter {
+func getSdkInputsToRequestBodyConverter() SdkShapeConverter {
 	return SdkShapeConverter{
 		Types: map[string]resources.AzureAPIType{
 			"azure-native:testing:Structure": {
@@ -186,8 +186,8 @@ func getSampleResource() resources.AzureAPIResource {
 	}
 }
 
-func TestSdkPropertiesToRequestBody(t *testing.T) {
-	c := getSdkPropertiesToRequestBodyConverter()
+func TestSdkInputsToRequestBody(t *testing.T) {
+	c := getSdkInputsToRequestBodyConverter()
 	bodyProperties := getSampleResource().PutParameters[0].Body.Properties
 	var sampleSdkProps = map[string]interface{}{
 		"name":      "MyResource",
@@ -228,7 +228,7 @@ func TestSdkPropertiesToRequestBody(t *testing.T) {
 			"key2": "value2",
 		},
 	}
-	data := c.SdkPropertiesToRequestBody(bodyProperties, sampleSdkProps, "/sub/123/rg/my/virtualNetwork/abc")
+	data := c.SdkInputsToRequestBody(bodyProperties, sampleSdkProps, "/sub/123/rg/my/virtualNetwork/abc")
 	sampleAPIPackage := map[string]interface{}{
 		"name":        "MyResource",
 		"x-threshold": 123,
@@ -281,8 +281,8 @@ func TestSdkPropertiesToRequestBody(t *testing.T) {
 	assert.Equal(t, sampleAPIPackage, data)
 }
 
-func TestSdkPropertiesToRequestBodyEmptyCollections(t *testing.T) {
-	c := getSdkPropertiesToRequestBodyConverter()
+func TestSdkInputsToRequestBodyEmptyCollections(t *testing.T) {
+	c := getSdkInputsToRequestBodyConverter()
 	var emptyCollectionData = map[string]interface{}{
 		"more": map[string]interface{}{
 			"items":    make([]interface{}, 0),
@@ -298,12 +298,12 @@ func TestSdkPropertiesToRequestBodyEmptyCollections(t *testing.T) {
 		},
 	}
 	bodyProperties := getSampleResource().PutParameters[0].Body.Properties
-	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, emptyCollectionData, "")
+	actualBody := c.SdkInputsToRequestBody(bodyProperties, emptyCollectionData, "")
 	assert.Equal(t, expectedBody, actualBody)
 }
 
-func TestSdkPropertiesToRequestBodyNilCollections(t *testing.T) {
-	c := getSdkPropertiesToRequestBodyConverter()
+func TestSdkInputsToRequestBodyNilCollections(t *testing.T) {
+	c := getSdkInputsToRequestBodyConverter()
 	var nilCollectionData = map[string]interface{}{
 		"more": map[string]interface{}{
 			"items":    nil,
@@ -319,12 +319,12 @@ func TestSdkPropertiesToRequestBodyNilCollections(t *testing.T) {
 		},
 	}
 	bodyProperties := getSampleResource().PutParameters[0].Body.Properties
-	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, nilCollectionData, "")
+	actualBody := c.SdkInputsToRequestBody(bodyProperties, nilCollectionData, "")
 	assert.Equal(t, expectedBody, actualBody)
 }
 
-func TestSdkPropertiesToRequestBodySubResource(t *testing.T) {
-	c := getSdkPropertiesToRequestBodyConverter()
+func TestSdkInputsToRequestBodySubResource(t *testing.T) {
+	c := getSdkInputsToRequestBodyConverter()
 	var sdkData = map[string]interface{}{
 		"structure": map[string]interface{}{
 			"v5": map[string]interface{}{
@@ -340,6 +340,6 @@ func TestSdkPropertiesToRequestBodySubResource(t *testing.T) {
 		},
 	}
 	bodyProperties := getSampleResource().PutParameters[0].Body.Properties
-	actualBody := c.SdkPropertiesToRequestBody(bodyProperties, sdkData, "/sub/456/rg/my/network/abc")
+	actualBody := c.SdkInputsToRequestBody(bodyProperties, sdkData, "/sub/456/rg/my/network/abc")
 	assert.Equal(t, expectedBody, actualBody)
 }

@@ -9,7 +9,7 @@ import (
 // ResponseToSdkInputs calculates a map of input values that would produce the given resource path and
 // response. This is useful when we need to import an existing resource based on its current properties.
 func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []resources.AzureAPIParameter,
-	pathValues map[string]string, response map[string]interface{}) map[string]interface{} {
+	pathValues map[string]string, responseBody map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for _, param := range parameters {
 		switch {
@@ -23,7 +23,7 @@ func (k *SdkShapeConverter) ResponseToSdkInputs(parameters []resources.AzureAPIP
 			}
 			result[sdkName] = pathValues[name]
 		case param.Location == body:
-			bodyProps := k.BodyPropertiesToSDK(param.Body.Properties, response)
+			bodyProps := k.ResponseBodyToSdkOutputs(param.Body.Properties, responseBody)
 			for k, v := range bodyProps {
 				switch {
 				case k == "id":

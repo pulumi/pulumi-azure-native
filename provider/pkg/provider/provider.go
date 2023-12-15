@@ -340,7 +340,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		}
 
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	}
 
 	// Serialize and return RPC outputs.
@@ -929,7 +929,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}
 
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	}
 
 	// Store both outputs and inputs into the state.
@@ -956,7 +956,7 @@ func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context
 	if getErr != nil {
 		return nil, getErr
 	}
-	outputs := k.converter.BodyPropertiesToSDK(res.Response, getResp)
+	outputs := k.converter.ResponseBodyToSdkOutputs(res.Response, getResp)
 	obj := checkpointObject(inputs, outputs)
 	return plugin.MarshalProperties(
 		obj,
@@ -1012,17 +1012,17 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	case res.ReadMethod == "HEAD":
 		err = k.azureHead(ctx, url, res.APIVersion)
 		response = oldState.Mappable()
-		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	case res.ReadMethod == "POST":
 		bodyParams := map[string]interface{}{}
 		queryParams := map[string]interface{}{
 			"api-version": res.APIVersion,
 		}
 		response, err = k.azurePost(ctx, url, bodyParams, queryParams)
-		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	default:
 		response, err = k.azureGet(ctx, url, res.APIVersion)
-		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	}
 	if err != nil {
 		if reqErr, ok := err.(*azure.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
@@ -1062,12 +1062,12 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		// the projected output. This would cause unnecessary changes on refresh.
 		plainOldState := mappableOldState(res, oldState)
 		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
-		oldInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, plainOldState)
+		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
 		// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
 		outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, &res)
 		// 3b. Project new outputs to their corresponding input shape (exclude read-only properties).
-		newInputProjection := k.converter.SDKOutputsToSDKInputs(res.PutParameters, outputsWithoutIgnores)
+		newInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
 		// 4. Calculate the difference between two projections. This should give us actual significant changes
 		// that happened in Azure between the last resource update and its current state.
 		oldInputPropertyMap := resource.NewPropertyMapFromMap(oldInputProjection)
@@ -1268,7 +1268,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		}
 
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs = k.converter.BodyPropertiesToSDK(res.Response, response)
+		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	}
 
 	// Store both outputs and inputs into the state.
@@ -1347,7 +1347,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				continue
 			}
 			if param.Location == "body" {
-				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody, id)
+				requestBody := k.converter.SdkInputsToRequestBody(param.Body.Properties, res.DefaultBody, id)
 
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
 				_, _, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.UpdateMethod, res.PutAsyncStyle)
@@ -1905,7 +1905,7 @@ func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []r
 		if param.Location != "body" {
 			continue
 		}
-		body = k.converter.SdkPropertiesToRequestBody(param.Body.Properties, methodInputs, id)
+		body = k.converter.SdkInputsToRequestBody(param.Body.Properties, methodInputs, id)
 		break
 	}
 

@@ -44,7 +44,7 @@ func FlattenParams(
 			if !ok {
 				return nil, fmt.Errorf("expect body for param %s to be a map, received %T", k, v)
 			}
-			flattened := converter.BodyPropertiesToSDK(paramMetadata.Body.Properties, inBody)
+			flattened := converter.ResponseBodyToSdkOutputs(paramMetadata.Body.Properties, inBody)
 			mergeMap(out, flattened)
 			continue
 		}

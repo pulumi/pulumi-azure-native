@@ -374,5 +374,5 @@ func testSdkOutputsToSDKInputs(testCase sdkOutputsToSDKInputsTestCase) map[strin
 			},
 		})
 	}
-	return c.SDKOutputsToSDKInputs(parameters, testCase.outputs)
+	return c.SdkOutputsToSdkInputs(parameters, testCase.outputs)
 }
