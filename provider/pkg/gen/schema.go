@@ -864,20 +864,21 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	requiredContainers := mergeRequiredContainers(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok))
 
 	r := resources.AzureAPIResource{
-		APIVersion:           swagger.Info.Version,
-		Path:                 resource.Path,
-		UpdateMethod:         updateMethod,
-		PutParameters:        resourceRequest.parameters,
-		Response:             resourceResponse.properties,
-		DefaultBody:          resource.DefaultBody,
-		Singleton:            resource.PathItem.Delete == nil,
-		PutAsyncStyle:        g.getAsyncStyle(updateOp),
-		DeleteAsyncStyle:     g.getAsyncStyle(resource.PathItem.Delete),
-		ReadMethod:           readMethod,
-		ReadPath:             readPath,
-		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
-		RequiredContainers:   requiredContainers,
-		DefaultProperties:    propertyDefaults(module, resource.typeName),
+		APIVersion:                    swagger.Info.Version,
+		Path:                          resource.Path,
+		UpdateMethod:                  updateMethod,
+		PutParameters:                 resourceRequest.parameters,
+		Response:                      resourceResponse.properties,
+		DefaultBody:                   resource.DefaultBody,
+		Singleton:                     resource.PathItem.Delete == nil,
+		PutAsyncStyle:                 g.getAsyncStyle(updateOp),
+		DeleteAsyncStyle:              g.getAsyncStyle(resource.PathItem.Delete),
+		ReadMethod:                    readMethod,
+		ReadPath:                      readPath,
+		AutoLocationDisabled:          resources.AutoLocationDisabled(resource.Path),
+		RequiredContainers:            requiredContainers,
+		DefaultProperties:             propertyDefaults(module, resource.typeName),
+		SubResourcesToMaintainIfUnset: collectSubResourceToMaintainIfUnset(resourceRequest.parameters, g.lookupType),
 	}
 
 	g.metadata.Resources[resourceTok] = r
@@ -885,6 +886,51 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	g.generateExampleReferences(resourceTok, path, swagger)
 	g.skippedForceNewTypes = append(g.skippedForceNewTypes, gen.skippedForceNewTypes...)
 	return nil
+}
+
+func collectSubResourceToMaintainIfUnset(params []resources.AzureAPIParameter, typeLookup typeLookupFunc) [][]string {
+	result := [][]string{}
+	for _, param := range params {
+		if param.Location != "body" || param.Body == nil {
+			continue
+		}
+		traverseProperties(
+			param.Body.Properties,
+			typeLookup,
+			[]string{},
+			func(propName string, prop resources.AzureAPIProperty, path []string) {
+				if prop.MaintainSubResourceIfUnset {
+					// make a copy of path since the original might be passed to other callbacks
+					pathToProperty := append([]string{}, path...)
+					result = append(result, append(pathToProperty, propName))
+				}
+			})
+	}
+	return result
+}
+
+type typeLookupFunc func(ref string) (resources.AzureAPIType, bool)
+
+func (g *packageGenerator) lookupType(ref string) (resources.AzureAPIType, bool) {
+	refTypeName := strings.TrimPrefix(ref, "#/types/")
+	t, ok := g.metadata.Types[refTypeName]
+	return t, ok
+}
+
+func traverseProperties(props map[string]resources.AzureAPIProperty, lookupType typeLookupFunc, path []string, f func(propName string, prop resources.AzureAPIProperty, path []string)) {
+	for propName, prop := range props {
+		if prop.Ref != "" {
+			refType, ok := lookupType(prop.Ref)
+			if !ok {
+				fmt.Printf("Cannot traverse properties of %s: failed to find ref %s\n", propName, prop.Ref)
+				continue
+			}
+			if ok {
+				traverseProperties(refType.Properties, lookupType, append(path, propName), f)
+			}
+		}
+		f(propName, prop, path)
+	}
 }
 
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
