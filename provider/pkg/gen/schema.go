@@ -873,9 +873,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		DefaultProperties:    propertyDefaults(module, resource.typeName),
 	}
 
-	if body := r.BodyParameter(); body != nil {
-		r.SubResourcesToMaintainIfUnset = collectSubResourceToMaintainIfUnset(*body, g.lookupType)
-	}
+	r.CollectSubResourceToMaintainIfUnset(g.lookupType)
 
 	g.metadata.Resources[resourceTok] = r
 
@@ -883,45 +881,10 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	return nil
 }
 
-func collectSubResourceToMaintainIfUnset(body resources.AzureAPIParameter, typeLookup typeLookupFunc) [][]string {
-	result := [][]string{}
-	traverseProperties(
-		body.Body.Properties,
-		typeLookup,
-		[]string{}, // start with an empty path since we're at the top level
-		func(propName string, prop resources.AzureAPIProperty, path []string) {
-			if prop.MaintainSubResourceIfUnset {
-				// make a copy of path since the original might be passed to other callbacks
-				pathToProperty := append([]string{}, path...)
-				result = append(result, append(pathToProperty, propName))
-			}
-		})
-
-	return result
-}
-
-type typeLookupFunc func(ref string) (resources.AzureAPIType, bool)
-
 func (g *packageGenerator) lookupType(ref string) (resources.AzureAPIType, bool) {
 	refTypeName := strings.TrimPrefix(ref, "#/types/")
 	t, ok := g.metadata.Types[refTypeName]
 	return t, ok
-}
-
-func traverseProperties(props map[string]resources.AzureAPIProperty, lookupType typeLookupFunc, path []string, f func(propName string, prop resources.AzureAPIProperty, path []string)) {
-	for propName, prop := range props {
-		if prop.Ref != "" {
-			refType, ok := lookupType(prop.Ref)
-			if !ok {
-				fmt.Printf("Cannot traverse properties of %s: failed to find ref %s\n", propName, prop.Ref)
-				continue
-			}
-			if ok {
-				traverseProperties(refType.Properties, lookupType, append(path, propName), f)
-			}
-		}
-		f(propName, prop, path)
-	}
 }
 
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {

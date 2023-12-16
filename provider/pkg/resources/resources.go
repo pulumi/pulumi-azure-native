@@ -118,6 +118,46 @@ type AzureAPIResource struct {
 	SubResourcesToMaintainIfUnset [][]string `json:"subResourcesToMaintainIfUnset,omitempty"`
 }
 
+type TypeLookupFunc func(ref string) (AzureAPIType, bool)
+
+func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, path []string, f func(propName string, prop AzureAPIProperty, path []string)) {
+	for propName, prop := range props {
+		if prop.Ref != "" {
+			refType, ok := lookupType(prop.Ref)
+			if !ok {
+				fmt.Printf("Cannot traverse properties of %s: failed to find ref %s\n", propName, prop.Ref)
+				continue
+			}
+			if ok {
+				TraverseProperties(refType.Properties, lookupType, append(path, propName), f)
+			}
+		}
+		f(propName, prop, path)
+	}
+}
+
+func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup TypeLookupFunc) {
+	body := res.BodyParameter()
+	if body == nil {
+		return
+	}
+
+	result := [][]string{}
+	TraverseProperties(
+		body.Body.Properties,
+		typeLookup,
+		[]string{}, // start with an empty path since we're at the top level
+		func(propName string, prop AzureAPIProperty, path []string) {
+			if prop.MaintainSubResourceIfUnset {
+				// make a copy of path since the original might be passed to other callbacks
+				pathToProperty := append([]string{}, path...)
+				result = append(result, append(pathToProperty, propName))
+			}
+		})
+
+	res.SubResourcesToMaintainIfUnset = result
+}
+
 func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {
 	if body := res.BodyParameter(); body != nil {
 		if prop, ok := body.Body.Properties[key]; ok {
