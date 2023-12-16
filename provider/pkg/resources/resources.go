@@ -120,7 +120,12 @@ type AzureAPIResource struct {
 
 type TypeLookupFunc func(ref string) (AzureAPIType, bool)
 
-func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, path []string, f func(propName string, prop AzureAPIProperty, path []string)) {
+func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, f func(propName string, prop AzureAPIProperty, path []string)) {
+	// Start the traversal with an empty path and an empty set of seen types for cycle detection.
+	traverseProperties(props, lookupType, []string{}, map[string]struct{}{}, f)
+}
+
+func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, path []string, seen map[string]struct{}, f func(propName string, prop AzureAPIProperty, path []string)) {
 	for propName, prop := range props {
 		if prop.Ref != "" {
 			refType, ok := lookupType(prop.Ref)
@@ -128,10 +133,12 @@ func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 				fmt.Printf("Cannot traverse properties of %s: failed to find ref %s\n", propName, prop.Ref)
 				continue
 			}
-			if ok {
-				TraverseProperties(refType.Properties, lookupType, append(path, propName), f)
+			if _, visited := seen[prop.Ref]; !visited {
+				seen[prop.Ref] = struct{}{}
+				traverseProperties(refType.Properties, lookupType, append(path, propName), seen, f)
 			}
 		}
+
 		f(propName, prop, path)
 	}
 }
@@ -146,7 +153,6 @@ func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup Type
 	TraverseProperties(
 		body.Body.Properties,
 		typeLookup,
-		[]string{}, // start with an empty path since we're at the top level
 		func(propName string, prop AzureAPIProperty, path []string) {
 			if prop.MaintainSubResourceIfUnset {
 				// make a copy of path since the original might be passed to other callbacks
