@@ -136,7 +136,7 @@ def get_configuration_assignments_for_resource_group(configuration_assignment_na
     Get configuration assignment for resource..
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-09-01-preview.
+    Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -167,7 +167,7 @@ def get_configuration_assignments_for_resource_group_output(configuration_assign
     Get configuration assignment for resource..
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-09-01-preview.
+    Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name

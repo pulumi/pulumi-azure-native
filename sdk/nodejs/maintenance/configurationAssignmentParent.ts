@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Configuration Assignment
  * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
  *
- * Other available API versions: 2023-04-01, 2023-09-01-preview.
+ * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
  */
 export class ConfigurationAssignmentParent extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230401:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentParent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230401:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20231001preview:ConfigurationAssignmentParent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationAssignmentParent.__pulumiType, name, resourceInputs, opts);
     }

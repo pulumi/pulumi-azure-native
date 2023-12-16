@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the update summaries for the cluster
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
  */
 export class UpdateSummary extends pulumi.CustomResource {
     /**
@@ -135,7 +135,7 @@ export class UpdateSummary extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20221201:UpdateSummary" }, { type: "azure-native:azurestackhci/v20221215preview:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230201:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230301:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230601:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230801:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230801preview:UpdateSummary" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20221201:UpdateSummary" }, { type: "azure-native:azurestackhci/v20221215preview:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230201:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230301:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230601:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230801:UpdateSummary" }, { type: "azure-native:azurestackhci/v20230801preview:UpdateSummary" }, { type: "azure-native:azurestackhci/v20231101preview:UpdateSummary" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UpdateSummary.__pulumiType, name, resourceInputs, opts);
     }

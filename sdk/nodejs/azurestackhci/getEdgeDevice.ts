@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a EdgeDevice
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-11-01-preview.
  */
 export function getEdgeDevice(args: GetEdgeDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeDeviceResult> {
 
@@ -63,6 +65,8 @@ export interface GetEdgeDeviceResult {
 /**
  * Get a EdgeDevice
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-11-01-preview.
  */
 export function getEdgeDeviceOutput(args: GetEdgeDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeDeviceResult> {
     return pulumi.output(args).apply((a: any) => getEdgeDevice(a, opts))

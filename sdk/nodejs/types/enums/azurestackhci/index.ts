@@ -12,6 +12,7 @@ import * as v20230701preview from "./v20230701preview";
 import * as v20230801 from "./v20230801";
 import * as v20230801preview from "./v20230801preview";
 import * as v20230901preview from "./v20230901preview";
+import * as v20231101preview from "./v20231101preview";
 
 export {
     v20210901preview,
@@ -24,6 +25,7 @@ export {
     v20230801,
     v20230801preview,
     v20230901preview,
+    v20231101preview,
 };
 
 export const AvailabilityType = {
@@ -46,6 +48,22 @@ export const CloudInitDataSource = {
  * Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
  */
 export type CloudInitDataSource = (typeof CloudInitDataSource)[keyof typeof CloudInitDataSource];
+
+export const ComplianceAssignmentType = {
+    /**
+     * Report on the state of the machine, but don't make changes.
+     */
+    Audit: "Audit",
+    /**
+     * Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.
+     */
+    ApplyAndAutoCorrect: "ApplyAndAutoCorrect",
+} as const;
+
+/**
+ * Secured Core Compliance Assignment
+ */
+export type ComplianceAssignmentType = (typeof ComplianceAssignmentType)[keyof typeof ComplianceAssignmentType];
 
 export const DeploymentMode = {
     /**

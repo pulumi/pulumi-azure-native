@@ -21,10 +21,16 @@ class GetLongTermRetentionPolicyResult:
     """
     A long term retention policy.
     """
-    def __init__(__self__, id=None, monthly_retention=None, name=None, type=None, week_of_year=None, weekly_retention=None, yearly_retention=None):
+    def __init__(__self__, backup_storage_access_tier=None, id=None, make_backups_immutable=None, monthly_retention=None, name=None, type=None, week_of_year=None, weekly_retention=None, yearly_retention=None):
+        if backup_storage_access_tier and not isinstance(backup_storage_access_tier, str):
+            raise TypeError("Expected argument 'backup_storage_access_tier' to be a str")
+        pulumi.set(__self__, "backup_storage_access_tier", backup_storage_access_tier)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if make_backups_immutable and not isinstance(make_backups_immutable, bool):
+            raise TypeError("Expected argument 'make_backups_immutable' to be a bool")
+        pulumi.set(__self__, "make_backups_immutable", make_backups_immutable)
         if monthly_retention and not isinstance(monthly_retention, str):
             raise TypeError("Expected argument 'monthly_retention' to be a str")
         pulumi.set(__self__, "monthly_retention", monthly_retention)
@@ -45,12 +51,28 @@ class GetLongTermRetentionPolicyResult:
         pulumi.set(__self__, "yearly_retention", yearly_retention)
 
     @property
+    @pulumi.getter(name="backupStorageAccessTier")
+    def backup_storage_access_tier(self) -> Optional[str]:
+        """
+        The BackupStorageAccessTier for the LTR backups
+        """
+        return pulumi.get(self, "backup_storage_access_tier")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="makeBackupsImmutable")
+    def make_backups_immutable(self) -> Optional[bool]:
+        """
+        The setting whether to make LTR backups immutable
+        """
+        return pulumi.get(self, "make_backups_immutable")
 
     @property
     @pulumi.getter(name="monthlyRetention")
@@ -107,7 +129,9 @@ class AwaitableGetLongTermRetentionPolicyResult(GetLongTermRetentionPolicyResult
         if False:
             yield self
         return GetLongTermRetentionPolicyResult(
+            backup_storage_access_tier=self.backup_storage_access_tier,
             id=self.id,
+            make_backups_immutable=self.make_backups_immutable,
             monthly_retention=self.monthly_retention,
             name=self.name,
             type=self.type,
@@ -139,7 +163,9 @@ def get_long_term_retention_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230501preview:getLongTermRetentionPolicy', __args__, opts=opts, typ=GetLongTermRetentionPolicyResult).value
 
     return AwaitableGetLongTermRetentionPolicyResult(
+        backup_storage_access_tier=pulumi.get(__ret__, 'backup_storage_access_tier'),
         id=pulumi.get(__ret__, 'id'),
+        make_backups_immutable=pulumi.get(__ret__, 'make_backups_immutable'),
         monthly_retention=pulumi.get(__ret__, 'monthly_retention'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),

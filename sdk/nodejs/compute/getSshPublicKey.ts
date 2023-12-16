@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Retrieves information about an SSH public key.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2023-09-01.
  */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
 
@@ -63,7 +63,7 @@ export interface GetSshPublicKeyResult {
  * Retrieves information about an SSH public key.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2023-09-01.
  */
 export function getSshPublicKeyOutput(args: GetSshPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSshPublicKeyResult> {
     return pulumi.output(args).apply((a: any) => getSshPublicKey(a, opts))

@@ -94,9 +94,17 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
     public sealed class GetLongTermRetentionPolicyResult
     {
         /// <summary>
+        /// The BackupStorageAccessTier for the LTR backups
+        /// </summary>
+        public readonly string? BackupStorageAccessTier;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The setting whether to make LTR backups immutable
+        /// </summary>
+        public readonly bool? MakeBackupsImmutable;
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format.
         /// </summary>
@@ -124,7 +132,11 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
 
         [OutputConstructor]
         private GetLongTermRetentionPolicyResult(
+            string? backupStorageAccessTier,
+
             string id,
+
+            bool? makeBackupsImmutable,
 
             string? monthlyRetention,
 
@@ -138,7 +150,9 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
 
             string? yearlyRetention)
         {
+            BackupStorageAccessTier = backupStorageAccessTier;
             Id = id;
+            MakeBackupsImmutable = makeBackupsImmutable;
             MonthlyRetention = monthlyRetention;
             Name = name;
             Type = type;

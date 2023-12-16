@@ -167,7 +167,7 @@ class Image(pulumi.CustomResource):
         The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class Image(pulumi.CustomResource):
         The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param ImageArgs args: The arguments to use to populate this resource's properties.
@@ -237,7 +237,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-native:compute/v20170330:Image"), pulumi.Alias(type_="azure-native:compute/v20171201:Image"), pulumi.Alias(type_="azure-native:compute/v20180401:Image"), pulumi.Alias(type_="azure-native:compute/v20180601:Image"), pulumi.Alias(type_="azure-native:compute/v20181001:Image"), pulumi.Alias(type_="azure-native:compute/v20190301:Image"), pulumi.Alias(type_="azure-native:compute/v20190701:Image"), pulumi.Alias(type_="azure-native:compute/v20191201:Image"), pulumi.Alias(type_="azure-native:compute/v20200601:Image"), pulumi.Alias(type_="azure-native:compute/v20201201:Image"), pulumi.Alias(type_="azure-native:compute/v20210301:Image"), pulumi.Alias(type_="azure-native:compute/v20210401:Image"), pulumi.Alias(type_="azure-native:compute/v20210701:Image"), pulumi.Alias(type_="azure-native:compute/v20211101:Image"), pulumi.Alias(type_="azure-native:compute/v20220301:Image"), pulumi.Alias(type_="azure-native:compute/v20220801:Image"), pulumi.Alias(type_="azure-native:compute/v20221101:Image"), pulumi.Alias(type_="azure-native:compute/v20230301:Image"), pulumi.Alias(type_="azure-native:compute/v20230701:Image")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20160430preview:Image"), pulumi.Alias(type_="azure-native:compute/v20170330:Image"), pulumi.Alias(type_="azure-native:compute/v20171201:Image"), pulumi.Alias(type_="azure-native:compute/v20180401:Image"), pulumi.Alias(type_="azure-native:compute/v20180601:Image"), pulumi.Alias(type_="azure-native:compute/v20181001:Image"), pulumi.Alias(type_="azure-native:compute/v20190301:Image"), pulumi.Alias(type_="azure-native:compute/v20190701:Image"), pulumi.Alias(type_="azure-native:compute/v20191201:Image"), pulumi.Alias(type_="azure-native:compute/v20200601:Image"), pulumi.Alias(type_="azure-native:compute/v20201201:Image"), pulumi.Alias(type_="azure-native:compute/v20210301:Image"), pulumi.Alias(type_="azure-native:compute/v20210401:Image"), pulumi.Alias(type_="azure-native:compute/v20210701:Image"), pulumi.Alias(type_="azure-native:compute/v20211101:Image"), pulumi.Alias(type_="azure-native:compute/v20220301:Image"), pulumi.Alias(type_="azure-native:compute/v20220801:Image"), pulumi.Alias(type_="azure-native:compute/v20221101:Image"), pulumi.Alias(type_="azure-native:compute/v20230301:Image"), pulumi.Alias(type_="azure-native:compute/v20230701:Image"), pulumi.Alias(type_="azure-native:compute/v20230901:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Image, __self__).__init__(
             'azure-native:compute:Image',

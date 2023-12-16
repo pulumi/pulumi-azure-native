@@ -112,6 +112,8 @@ def get_edge_device(edge_device_name: Optional[str] = None,
     Get a EdgeDevice
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2023-11-01-preview.
+
 
     :param str edge_device_name: Name of Device
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -138,6 +140,8 @@ def get_edge_device_output(edge_device_name: Optional[pulumi.Input[str]] = None,
     """
     Get a EdgeDevice
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2023-11-01-preview.
 
 
     :param str edge_device_name: Name of Device

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Edge device resource
     /// Azure REST API version: 2023-08-01-preview.
+    /// 
+    /// Other available API versions: 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:DeploymentSetting")]
     public partial class DeploymentSetting : global::Pulumi.CustomResource
@@ -90,6 +92,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801preview:DeploymentSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:DeploymentSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

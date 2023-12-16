@@ -96,6 +96,7 @@ __all__ = [
     'DefenderForServersGcpOfferingResponseVmScanners',
     'DenylistCustomAlertRuleResponse',
     'DevOpsConfigurationPropertiesResponse',
+    'ExtensionResponse',
     'GcpCredentialsDetailsPropertiesResponse',
     'GcpOrganizationalDataMemberResponse',
     'GcpOrganizationalDataOrganizationResponse',
@@ -123,6 +124,7 @@ __all__ = [
     'JitNetworkAccessRequestVirtualMachineResponse',
     'OnPremiseResourceDetailsResponse',
     'OnPremiseSqlResourceDetailsResponse',
+    'OperationStatusResponse',
     'PathRecommendationResponse',
     'ProtectionModeResponse',
     'ProxyServerPropertiesResponse',
@@ -5099,6 +5101,91 @@ class DevOpsConfigurationPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ExtensionResponse(dict):
+    """
+    A plan's extension properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "operationStatus":
+            suggest = "operation_status"
+        elif key == "additionalExtensionProperties":
+            suggest = "additional_extension_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_enabled: str,
+                 name: str,
+                 operation_status: 'outputs.OperationStatusResponse',
+                 additional_extension_properties: Optional[Any] = None):
+        """
+        A plan's extension properties
+        :param str is_enabled: Indicates whether the extension is enabled.
+        :param str name: The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup. Required for Kubernetes inventory, identity and network exposure detection, attack path analysis and risk hunting as part of the cloud security explorer.
+               Available for CloudPosture plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.
+               Available for StorageAccounts plan.<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.
+               Available for StorageAccounts and CloudPosture plans.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.
+               Available for CloudPosture and Containers plans.
+        :param 'OperationStatusResponse' operation_status: Optional. A status describing the success/failure of the extension's enablement/disablement operation.
+        :param Any additional_extension_properties: Property values associated with the extension.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operation_status", operation_status)
+        if additional_extension_properties is not None:
+            pulumi.set(__self__, "additional_extension_properties", additional_extension_properties)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> str:
+        """
+        Indicates whether the extension is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The extension name. Supported values are: <br><br>**AgentlessDiscoveryForKubernetes** - API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup. Required for Kubernetes inventory, identity and network exposure detection, attack path analysis and risk hunting as part of the cloud security explorer.
+        Available for CloudPosture plan.<br><br>**OnUploadMalwareScanning** - Limits the GB to be scanned per month for each storage account within the subscription. Once this limit reached on a given storage account, Blobs won't be scanned during current calendar month.
+        Available for StorageAccounts plan.<br><br>**SensitiveDataDiscovery** - Sensitive data discovery identifies Blob storage container with sensitive data such as credentials, credit cards, and more, to help prioritize and investigate security events.
+        Available for StorageAccounts and CloudPosture plans.<br><br>**ContainerRegistriesVulnerabilityAssessments** - Provides vulnerability management for images stored in your container registries.
+        Available for CloudPosture and Containers plans.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationStatus")
+    def operation_status(self) -> 'outputs.OperationStatusResponse':
+        """
+        Optional. A status describing the success/failure of the extension's enablement/disablement operation.
+        """
+        return pulumi.get(self, "operation_status")
+
+    @property
+    @pulumi.getter(name="additionalExtensionProperties")
+    def additional_extension_properties(self) -> Optional[Any]:
+        """
+        Property values associated with the extension.
+        """
+        return pulumi.get(self, "additional_extension_properties")
+
+
+@pulumi.output_type
 class GcpCredentialsDetailsPropertiesResponse(dict):
     """
     GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
@@ -7171,6 +7258,41 @@ class OnPremiseSqlResourceDetailsResponse(dict):
         Azure resource Id of the workspace the machine is attached to
         """
         return pulumi.get(self, "workspace_id")
+
+
+@pulumi.output_type
+class OperationStatusResponse(dict):
+    """
+    A status describing the success/failure of the extension's enablement/disablement operation.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        A status describing the success/failure of the extension's enablement/disablement operation.
+        :param str code: The operation status code.
+        :param str message: Additional information regarding the success/failure of the operation.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        The operation status code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Additional information regarding the success/failure of the operation.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type

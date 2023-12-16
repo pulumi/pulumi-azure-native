@@ -176,6 +176,8 @@ def get_key_value(config_store_name: Optional[str] = None,
     Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2023-08-01-preview.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str key_value_name: Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
@@ -210,6 +212,8 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2023-08-01-preview.
 
 
     :param str config_store_name: The name of the configuration store.

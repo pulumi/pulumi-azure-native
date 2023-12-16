@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The operation to get the VMSS VM extension.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01.
+ * Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01, 2023-09-01.
  */
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
 
@@ -121,7 +121,7 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
  * The operation to get the VMSS VM extension.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01.
+ * Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01, 2023-09-01.
  */
 export function getVirtualMachineScaleSetVMExtensionOutput(args: GetVirtualMachineScaleSetVMExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMExtension(a, opts))

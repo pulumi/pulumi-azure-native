@@ -318,7 +318,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         Describes a VMSS VM Extension.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01.
+        Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -350,7 +350,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
         Describes a VMSS VM Extension.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01.
+        Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -418,7 +418,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
             __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachineScaleSetVMExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachineScaleSetVMExtension"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachineScaleSetVMExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineScaleSetVMExtension, __self__).__init__(
             'azure-native:compute:VirtualMachineScaleSetVMExtension',

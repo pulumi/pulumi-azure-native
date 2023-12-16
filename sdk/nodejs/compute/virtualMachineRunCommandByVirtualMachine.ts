@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a Virtual Machine run command.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2023-09-01.
  */
 export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResource {
     /**
@@ -172,7 +172,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220801:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230701:VirtualMachineRunCommandByVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20220801:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20230901:VirtualMachineRunCommandByVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

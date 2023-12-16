@@ -113,6 +113,8 @@ def get_private_endpoint_connection(config_store_name: Optional[str] = None,
     Gets the specified private endpoint connection associated with the configuration store.
     Azure REST API version: 2023-03-01.
 
+    Other available API versions: 2023-08-01-preview.
+
 
     :param str config_store_name: The name of the configuration store.
     :param str private_endpoint_connection_name: Private endpoint connection name
@@ -142,6 +144,8 @@ def get_private_endpoint_connection_output(config_store_name: Optional[pulumi.In
     """
     Gets the specified private endpoint connection associated with the configuration store.
     Azure REST API version: 2023-03-01.
+
+    Other available API versions: 2023-08-01-preview.
 
 
     :param str config_store_name: The name of the configuration store.

@@ -218,7 +218,7 @@ class ConnectedCluster(pulumi.CustomResource):
         Represents a connected cluster.
         Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview.
+        Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,7 +244,7 @@ class ConnectedCluster(pulumi.CustomResource):
         Represents a connected cluster.
         Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview.
+        Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param ConnectedClusterArgs args: The arguments to use to populate this resource's properties.
@@ -311,7 +311,7 @@ class ConnectedCluster(pulumi.CustomResource):
             __props__.__dict__["total_core_count"] = None
             __props__.__dict__["total_node_count"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetes/v20200101preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20210301:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20210401preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20211001:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20220501preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20221001preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20231101preview:ConnectedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetes/v20200101preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20210301:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20210401preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20211001:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20220501preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20221001preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20231101preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20240101:ConnectedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectedCluster, __self__).__init__(
             'azure-native:kubernetes:ConnectedCluster',

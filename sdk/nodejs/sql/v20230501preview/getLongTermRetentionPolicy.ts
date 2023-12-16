@@ -42,9 +42,17 @@ export interface GetLongTermRetentionPolicyArgs {
  */
 export interface GetLongTermRetentionPolicyResult {
     /**
+     * The BackupStorageAccessTier for the LTR backups
+     */
+    readonly backupStorageAccessTier?: string;
+    /**
      * Resource ID.
      */
     readonly id: string;
+    /**
+     * The setting whether to make LTR backups immutable
+     */
+    readonly makeBackupsImmutable?: boolean;
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format.
      */

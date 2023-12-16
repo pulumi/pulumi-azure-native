@@ -97,7 +97,6 @@ namespace Pulumi.AzureNative.DataProtection.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230501:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230601preview:ResourceGuard"},
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230801:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230801preview:ResourceGuard"},
                 },
             };

@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// <summary>
         /// The cache size
         /// </summary>
-        public readonly int CacheSize;
+        public readonly int? CacheSize;
         /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             Outputs.AutoScalePropertiesResponse? autoScale,
 
-            int cacheSize,
+            int? cacheSize,
 
             string creationDate,
 

@@ -147,7 +147,7 @@ class CapacityReservation(pulumi.CustomResource):
         Specifies information about the capacity reservation.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-04-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,7 +169,7 @@ class CapacityReservation(pulumi.CustomResource):
         Specifies information about the capacity reservation.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-04-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.
@@ -224,7 +224,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210401:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20210701:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20211101:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20220301:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20220801:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20221101:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20230301:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20230701:CapacityReservation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210401:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20210701:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20211101:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20220301:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20220801:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20221101:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20230301:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20230701:CapacityReservation"), pulumi.Alias(type_="azure-native:compute/v20230901:CapacityReservation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityReservation, __self__).__init__(
             'azure-native:compute:CapacityReservation',

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// Lists the access key for the specified configuration store.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2019-02-01-preview.
+        /// Other available API versions: 2019-02-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Task<ListConfigurationStoreKeysResult> InvokeAsync(ListConfigurationStoreKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeysResult>("azure-native:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// Lists the access key for the specified configuration store.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2019-02-01-preview.
+        /// Other available API versions: 2019-02-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Output<ListConfigurationStoreKeysResult> Invoke(ListConfigurationStoreKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeysResult>("azure-native:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysInvokeArgs(), options.WithDefaults());

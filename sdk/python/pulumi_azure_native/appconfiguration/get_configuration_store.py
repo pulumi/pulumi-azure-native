@@ -244,7 +244,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
     Gets the properties of the specified configuration store.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2019-02-01-preview.
+    Other available API versions: 2019-02-01-preview, 2023-08-01-preview.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -284,7 +284,7 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
     Gets the properties of the specified configuration store.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2019-02-01-preview.
+    Other available API versions: 2019-02-01-preview, 2023-08-01-preview.
 
 
     :param str config_store_name: The name of the configuration store.

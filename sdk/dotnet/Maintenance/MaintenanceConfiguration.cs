@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance
     /// Maintenance configuration record type
     /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-04-01.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-09-01-preview.
+    /// Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource
@@ -149,6 +149,7 @@ namespace Pulumi.AzureNative.Maintenance
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20221101preview:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:MaintenanceConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:MaintenanceConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20231001preview:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

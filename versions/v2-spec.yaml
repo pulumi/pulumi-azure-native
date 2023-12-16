@@ -177,6 +177,7 @@ AzureStackHCI:
         MachineExtension: 2022-12-15-preview
         MarketplaceGalleryImage: 2022-12-15-preview
         NetworkInterface: 2022-12-15-preview
+        SecuritySetting: 2023-11-01-preview
         StorageContainer: 2022-12-15-preview
         VirtualHardDisk: 2022-12-15-preview
         VirtualMachine: 2022-12-15-preview
@@ -1418,6 +1419,7 @@ Security:
         GovernanceRule: 2022-01-01-preview
         IotSecuritySolution: "2019-08-01"
         JitNetworkAccessPolicy: "2020-01-01"
+        Pricing: "2024-01-01"
         SecurityConnector: 2023-03-01-preview
         SecurityConnectorApplication: 2022-07-01-preview
         SecurityContact: 2020-01-01-preview

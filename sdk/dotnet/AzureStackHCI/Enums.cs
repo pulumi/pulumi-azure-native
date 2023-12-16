@@ -71,6 +71,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
+    /// Secured Core Compliance Assignment
+    /// </summary>
+    [EnumType]
+    public readonly struct ComplianceAssignmentType : IEquatable<ComplianceAssignmentType>
+    {
+        private readonly string _value;
+
+        private ComplianceAssignmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Report on the state of the machine, but don't make changes.
+        /// </summary>
+        public static ComplianceAssignmentType Audit { get; } = new ComplianceAssignmentType("Audit");
+        /// <summary>
+        /// Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.
+        /// </summary>
+        public static ComplianceAssignmentType ApplyAndAutoCorrect { get; } = new ComplianceAssignmentType("ApplyAndAutoCorrect");
+
+        public static bool operator ==(ComplianceAssignmentType left, ComplianceAssignmentType right) => left.Equals(right);
+        public static bool operator !=(ComplianceAssignmentType left, ComplianceAssignmentType right) => !left.Equals(right);
+
+        public static explicit operator string(ComplianceAssignmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComplianceAssignmentType other && Equals(other);
+        public bool Equals(ComplianceAssignmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The deployment mode for cluster deployment.
     /// </summary>
     [EnumType]

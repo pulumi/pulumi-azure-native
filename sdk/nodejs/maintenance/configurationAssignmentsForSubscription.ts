@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Configuration Assignment
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-09-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
  */
 export class ConfigurationAssignmentsForSubscription extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class ConfigurationAssignmentsForSubscription extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20230401:ConfigurationAssignmentsForSubscription" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20230401:ConfigurationAssignmentsForSubscription" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForSubscription" }, { type: "azure-native:maintenance/v20231001preview:ConfigurationAssignmentsForSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationAssignmentsForSubscription.__pulumiType, name, resourceInputs, opts);
     }

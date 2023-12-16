@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get specified Update
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
  */
 export function getUpdate(args: GetUpdateArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateResult> {
 
@@ -135,7 +135,7 @@ export interface GetUpdateResult {
  * Get specified Update
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
  */
 export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateResult> {
     return pulumi.output(args).apply((a: any) => getUpdate(a, opts))

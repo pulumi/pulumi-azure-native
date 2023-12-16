@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AvailabilityType',
     'CloudInitDataSource',
+    'ComplianceAssignmentType',
     'DeploymentMode',
     'DiagnosticLevel',
     'DiskFileFormat',
@@ -47,6 +48,20 @@ class CloudInitDataSource(str, Enum):
     """
     NO_CLOUD = "NoCloud"
     AZURE = "Azure"
+
+
+class ComplianceAssignmentType(str, Enum):
+    """
+    Secured Core Compliance Assignment
+    """
+    AUDIT = "Audit"
+    """
+    Report on the state of the machine, but don't make changes.
+    """
+    APPLY_AND_AUTO_CORRECT = "ApplyAndAutoCorrect"
+    """
+    Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation.
+    """
 
 
 class DeploymentMode(str, Enum):

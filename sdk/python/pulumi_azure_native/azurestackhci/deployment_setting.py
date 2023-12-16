@@ -129,6 +129,8 @@ class DeploymentSetting(pulumi.CustomResource):
         Edge device resource
         Azure REST API version: 2023-08-01-preview.
 
+        Other available API versions: 2023-11-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arc_node_resource_ids: Azure resource ids of Arc machines to be part of cluster.
@@ -147,6 +149,8 @@ class DeploymentSetting(pulumi.CustomResource):
         """
         Edge device resource
         Azure REST API version: 2023-08-01-preview.
+
+        Other available API versions: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DeploymentSettingArgs args: The arguments to use to populate this resource's properties.
@@ -199,7 +203,7 @@ class DeploymentSetting(pulumi.CustomResource):
             __props__.__dict__["reported_properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:DeploymentSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:DeploymentSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:DeploymentSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentSetting, __self__).__init__(
             'azure-native:azurestackhci:DeploymentSetting',

@@ -22,6 +22,7 @@ class BigDataPoolArgs:
                  auto_pause: Optional[pulumi.Input['AutoPausePropertiesArgs']] = None,
                  auto_scale: Optional[pulumi.Input['AutoScalePropertiesArgs']] = None,
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
                  custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input['DynamicExecutorAllocationArgs']] = None,
@@ -46,6 +47,7 @@ class BigDataPoolArgs:
         :param pulumi.Input['AutoPausePropertiesArgs'] auto_pause: Auto-pausing properties
         :param pulumi.Input['AutoScalePropertiesArgs'] auto_scale: Auto-scaling properties
         :param pulumi.Input[str] big_data_pool_name: Big Data pool name
+        :param pulumi.Input[int] cache_size: The cache size
         :param pulumi.Input[Sequence[pulumi.Input['LibraryInfoArgs']]] custom_libraries: List of custom libraries/packages associated with the spark pool.
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input['DynamicExecutorAllocationArgs'] dynamic_executor_allocation: Dynamic Executor Allocation
@@ -72,6 +74,8 @@ class BigDataPoolArgs:
             pulumi.set(__self__, "auto_scale", auto_scale)
         if big_data_pool_name is not None:
             pulumi.set(__self__, "big_data_pool_name", big_data_pool_name)
+        if cache_size is not None:
+            pulumi.set(__self__, "cache_size", cache_size)
         if custom_libraries is not None:
             pulumi.set(__self__, "custom_libraries", custom_libraries)
         if default_spark_log_folder is not None:
@@ -166,6 +170,18 @@ class BigDataPoolArgs:
     @big_data_pool_name.setter
     def big_data_pool_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "big_data_pool_name", value)
+
+    @property
+    @pulumi.getter(name="cacheSize")
+    def cache_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The cache size
+        """
+        return pulumi.get(self, "cache_size")
+
+    @cache_size.setter
+    def cache_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_size", value)
 
     @property
     @pulumi.getter(name="customLibraries")
@@ -380,6 +396,7 @@ class BigDataPool(pulumi.CustomResource):
                  auto_pause: Optional[pulumi.Input[pulumi.InputType['AutoPausePropertiesArgs']]] = None,
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']]] = None,
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
                  custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']]] = None,
@@ -408,6 +425,7 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AutoPausePropertiesArgs']] auto_pause: Auto-pausing properties
         :param pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']] auto_scale: Auto-scaling properties
         :param pulumi.Input[str] big_data_pool_name: Big Data pool name
+        :param pulumi.Input[int] cache_size: The cache size
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]] custom_libraries: List of custom libraries/packages associated with the spark pool.
         :param pulumi.Input[str] default_spark_log_folder: The default folder where Spark logs will be written.
         :param pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']] dynamic_executor_allocation: Dynamic Executor Allocation
@@ -455,6 +473,7 @@ class BigDataPool(pulumi.CustomResource):
                  auto_pause: Optional[pulumi.Input[pulumi.InputType['AutoPausePropertiesArgs']]] = None,
                  auto_scale: Optional[pulumi.Input[pulumi.InputType['AutoScalePropertiesArgs']]] = None,
                  big_data_pool_name: Optional[pulumi.Input[str]] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
                  custom_libraries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LibraryInfoArgs']]]]] = None,
                  default_spark_log_folder: Optional[pulumi.Input[str]] = None,
                  dynamic_executor_allocation: Optional[pulumi.Input[pulumi.InputType['DynamicExecutorAllocationArgs']]] = None,
@@ -486,6 +505,7 @@ class BigDataPool(pulumi.CustomResource):
             __props__.__dict__["auto_pause"] = auto_pause
             __props__.__dict__["auto_scale"] = auto_scale
             __props__.__dict__["big_data_pool_name"] = big_data_pool_name
+            __props__.__dict__["cache_size"] = cache_size
             __props__.__dict__["custom_libraries"] = custom_libraries
             __props__.__dict__["default_spark_log_folder"] = default_spark_log_folder
             __props__.__dict__["dynamic_executor_allocation"] = dynamic_executor_allocation
@@ -509,7 +529,6 @@ class BigDataPool(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
-            __props__.__dict__["cache_size"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["last_succeeded_timestamp"] = None
             __props__.__dict__["name"] = None
@@ -581,7 +600,7 @@ class BigDataPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> pulumi.Output[int]:
+    def cache_size(self) -> pulumi.Output[Optional[int]]:
         """
         The cache size
         """

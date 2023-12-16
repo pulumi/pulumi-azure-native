@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Specifies information about the Dedicated host.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2023-09-01.
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**
@@ -151,7 +151,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:DedicatedHost" }, { type: "azure-native:compute/v20190701:DedicatedHost" }, { type: "azure-native:compute/v20191201:DedicatedHost" }, { type: "azure-native:compute/v20200601:DedicatedHost" }, { type: "azure-native:compute/v20201201:DedicatedHost" }, { type: "azure-native:compute/v20210301:DedicatedHost" }, { type: "azure-native:compute/v20210401:DedicatedHost" }, { type: "azure-native:compute/v20210701:DedicatedHost" }, { type: "azure-native:compute/v20211101:DedicatedHost" }, { type: "azure-native:compute/v20220301:DedicatedHost" }, { type: "azure-native:compute/v20220801:DedicatedHost" }, { type: "azure-native:compute/v20221101:DedicatedHost" }, { type: "azure-native:compute/v20230301:DedicatedHost" }, { type: "azure-native:compute/v20230701:DedicatedHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:DedicatedHost" }, { type: "azure-native:compute/v20190701:DedicatedHost" }, { type: "azure-native:compute/v20191201:DedicatedHost" }, { type: "azure-native:compute/v20200601:DedicatedHost" }, { type: "azure-native:compute/v20201201:DedicatedHost" }, { type: "azure-native:compute/v20210301:DedicatedHost" }, { type: "azure-native:compute/v20210401:DedicatedHost" }, { type: "azure-native:compute/v20210701:DedicatedHost" }, { type: "azure-native:compute/v20211101:DedicatedHost" }, { type: "azure-native:compute/v20220301:DedicatedHost" }, { type: "azure-native:compute/v20220801:DedicatedHost" }, { type: "azure-native:compute/v20221101:DedicatedHost" }, { type: "azure-native:compute/v20230301:DedicatedHost" }, { type: "azure-native:compute/v20230701:DedicatedHost" }, { type: "azure-native:compute/v20230901:DedicatedHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedHost.__pulumiType, name, resourceInputs, opts);
     }

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Compute
         /// Gets a virtual machine from a VM scale set.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2023-07-01.
+        /// Other available API versions: 2023-07-01, 2023-09-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMResult> InvokeAsync(GetVirtualMachineScaleSetVMArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-native:compute:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Compute
         /// Gets a virtual machine from a VM scale set.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2023-07-01.
+        /// Other available API versions: 2023-07-01, 2023-09-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMResult> Invoke(GetVirtualMachineScaleSetVMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMResult>("azure-native:compute:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMInvokeArgs(), options.WithDefaults());

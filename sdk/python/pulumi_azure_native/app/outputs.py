@@ -1042,7 +1042,7 @@ class BuildConfigurationResponse(dict):
         """
         Configuration of the build.
         :param str base_os: Base OS used to build and run the app.
-        :param Sequence['EnvironmentVariableResponse'] environment_variables: List of environment variables to be passed to the build and application runtime.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: List of environment variables to be passed to the build.
         :param str platform: Platform to be used to build and run the app.
         :param str platform_version: Platform version to be used to build and run the app.
         :param Sequence['PreBuildStepResponse'] pre_build_steps: List of steps to perform before the build.
@@ -1070,7 +1070,7 @@ class BuildConfigurationResponse(dict):
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
         """
-        List of environment variables to be passed to the build and application runtime.
+        List of environment variables to be passed to the build.
         """
         return pulumi.get(self, "environment_variables")
 

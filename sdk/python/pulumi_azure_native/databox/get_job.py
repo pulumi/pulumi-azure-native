@@ -317,7 +317,7 @@ def get_job(expand: Optional[str] = None,
     Gets information about the specified job.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2019-09-01, 2023-03-01.
+    Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.
@@ -366,7 +366,7 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     Gets information about the specified job.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2019-09-01, 2023-03-01.
+    Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01.
 
 
     :param str expand: $expand is supported on details parameter for job, which provides details on the job stages.

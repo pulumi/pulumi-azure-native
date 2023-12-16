@@ -27,10 +27,12 @@ export * from "../types/enums/databox";
 // Export sub-modules:
 import * as v20221201 from "./v20221201";
 import * as v20230301 from "./v20230301";
+import * as v20231201 from "./v20231201";
 
 export {
     v20221201,
     v20230301,
+    v20231201,
 };
 
 const _module = {

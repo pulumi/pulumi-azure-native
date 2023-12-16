@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Synapse
         /// The cache size
         /// </summary>
         [Output("cacheSize")]
-        public Output<int> CacheSize { get; private set; } = null!;
+        public Output<int?> CacheSize { get; private set; } = null!;
 
         /// <summary>
         /// The time when the Big Data pool was created.
@@ -228,6 +228,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Input("bigDataPoolName")]
         public Input<string>? BigDataPoolName { get; set; }
+
+        /// <summary>
+        /// The cache size
+        /// </summary>
+        [Input("cacheSize")]
+        public Input<int>? CacheSize { get; set; }
 
         [Input("customLibraries")]
         private InputList<Inputs.LibraryInfoArgs>? _customLibraries;

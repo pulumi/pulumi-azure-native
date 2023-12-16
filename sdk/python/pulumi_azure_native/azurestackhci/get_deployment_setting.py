@@ -149,6 +149,8 @@ def get_deployment_setting(cluster_name: Optional[str] = None,
     Get a DeploymentSetting
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2023-11-01-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str deployment_settings_name: Name of Deployment Setting
@@ -181,6 +183,8 @@ def get_deployment_setting_output(cluster_name: Optional[pulumi.Input[str]] = No
     """
     Get a DeploymentSetting
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2023-11-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

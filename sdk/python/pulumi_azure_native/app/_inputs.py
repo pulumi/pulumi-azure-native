@@ -934,7 +934,7 @@ class BuildConfigurationArgs:
         """
         Configuration of the build.
         :param pulumi.Input[str] base_os: Base OS used to build and run the app.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: List of environment variables to be passed to the build and application runtime.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: List of environment variables to be passed to the build.
         :param pulumi.Input[str] platform: Platform to be used to build and run the app.
         :param pulumi.Input[str] platform_version: Platform version to be used to build and run the app.
         :param pulumi.Input[Sequence[pulumi.Input['PreBuildStepArgs']]] pre_build_steps: List of steps to perform before the build.
@@ -966,7 +966,7 @@ class BuildConfigurationArgs:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
         """
-        List of environment variables to be passed to the build and application runtime.
+        List of environment variables to be passed to the build.
         """
         return pulumi.get(self, "environment_variables")
 

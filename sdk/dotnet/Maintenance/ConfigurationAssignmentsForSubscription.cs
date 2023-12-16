@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Maintenance
     /// Configuration Assignment
     /// Azure REST API version: 2023-04-01.
     /// 
-    /// Other available API versions: 2023-09-01-preview.
+    /// Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:ConfigurationAssignmentsForSubscription")]
     public partial class ConfigurationAssignmentsForSubscription : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.Maintenance
                 {
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:ConfigurationAssignmentsForSubscription"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20231001preview:ConfigurationAssignmentsForSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

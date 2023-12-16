@@ -272,6 +272,7 @@ namespace Pulumi.AzureNative.Compute.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220801:VirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20221101:VirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230301:VirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

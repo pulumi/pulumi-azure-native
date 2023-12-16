@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
+import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
@@ -34,6 +37,14 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LongTermRetentionPolicy.__pulumiType;
     }
 
+    /**
+     * The BackupStorageAccessTier for the LTR backups
+     */
+    public readonly backupStorageAccessTier!: pulumi.Output<string | undefined>;
+    /**
+     * The setting whether to make LTR backups immutable
+     */
+    public readonly makeBackupsImmutable!: pulumi.Output<boolean | undefined>;
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format.
      */
@@ -79,7 +90,9 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
+            resourceInputs["backupStorageAccessTier"] = args ? args.backupStorageAccessTier : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["makeBackupsImmutable"] = args ? args.makeBackupsImmutable : undefined;
             resourceInputs["monthlyRetention"] = args ? args.monthlyRetention : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -90,6 +103,8 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["backupStorageAccessTier"] = undefined /*out*/;
+            resourceInputs["makeBackupsImmutable"] = undefined /*out*/;
             resourceInputs["monthlyRetention"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -109,9 +124,17 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
  */
 export interface LongTermRetentionPolicyArgs {
     /**
+     * The BackupStorageAccessTier for the LTR backups
+     */
+    backupStorageAccessTier?: pulumi.Input<string | enums.sql.v20230501preview.BackupStorageAccessTier>;
+    /**
      * The name of the database.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * The setting whether to make LTR backups immutable
+     */
+    makeBackupsImmutable?: pulumi.Input<boolean>;
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format.
      */

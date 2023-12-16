@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Maintenance.V20221101Preview
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:ConfigurationAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:ConfigurationAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:ConfigurationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20231001preview:ConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

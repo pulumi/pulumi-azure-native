@@ -56,9 +56,11 @@ export * from "../types/enums/appconfiguration";
 
 // Export sub-modules:
 import * as v20230301 from "./v20230301";
+import * as v20230801preview from "./v20230801preview";
 
 export {
     v20230301,
+    v20230801preview,
 };
 
 const _module = {

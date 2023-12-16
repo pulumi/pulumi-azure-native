@@ -44,6 +44,7 @@ from .get_governance_assignment import *
 from .get_governance_rule import *
 from .get_iot_security_solution import *
 from .get_jit_network_access_policy import *
+from .get_pricing import *
 from .get_security_connector import *
 from .get_security_connector_application import *
 from .get_security_contact import *
@@ -60,6 +61,7 @@ from .list_azure_dev_ops_org_available import *
 from .list_git_hub_owner_available import *
 from .list_git_lab_group_available import *
 from .list_git_lab_subgroup import *
+from .pricing import *
 from .security_connector import *
 from .security_connector_application import *
 from .security_contact import *
@@ -111,6 +113,8 @@ if typing.TYPE_CHECKING:
     v20231001preview = __v20231001preview
     import pulumi_azure_native.security.v20231115 as __v20231115
     v20231115 = __v20231115
+    import pulumi_azure_native.security.v20240101 as __v20240101
+    v20240101 = __v20240101
 else:
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
     v20190101 = _utilities.lazy_import('pulumi_azure_native.security.v20190101')
@@ -131,4 +135,5 @@ else:
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.security.v20230901preview')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.security.v20231001preview')
     v20231115 = _utilities.lazy_import('pulumi_azure_native.security.v20231115')
+    v20240101 = _utilities.lazy_import('pulumi_azure_native.security.v20240101')
 

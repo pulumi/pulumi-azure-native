@@ -469,6 +469,43 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
+    /// </summary>
+    [EnumType]
+    public readonly struct Enforce : IEquatable<Enforce>
+    {
+        private readonly string _value;
+
+        private Enforce(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False")
+        /// </summary>
+        public static Enforce False { get; } = new Enforce("False");
+        /// <summary>
+        /// Prevents overrides and forces the current scope's pricing configuration to all descendants
+        /// </summary>
+        public static Enforce True { get; } = new Enforce("True");
+
+        public static bool operator ==(Enforce left, Enforce right) => left.Equals(right);
+        public static bool operator !=(Enforce left, Enforce right) => !left.Equals(right);
+
+        public static explicit operator string(Enforce value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Enforce other && Equals(other);
+        public bool Equals(Enforce other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the environment data.
     /// </summary>
     [EnumType]
@@ -712,6 +749,43 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// Indicates whether the extension is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct IsEnabled : IEquatable<IsEnabled>
+    {
+        private readonly string _value;
+
+        private IsEnabled(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates the extension is enabled
+        /// </summary>
+        public static IsEnabled True { get; } = new IsEnabled("True");
+        /// <summary>
+        /// Indicates the extension is disabled
+        /// </summary>
+        public static IsEnabled False { get; } = new IsEnabled("False");
+
+        public static bool operator ==(IsEnabled left, IsEnabled right) => left.Equals(right);
+        public static bool operator !=(IsEnabled left, IsEnabled right) => !left.Equals(right);
+
+        public static explicit operator string(IsEnabled value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IsEnabled other && Equals(other);
+        public bool Equals(IsEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines the minimal alert severity which will be sent as email notifications
     /// </summary>
     [EnumType]
@@ -887,6 +961,43 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OrganizationMembershipType other && Equals(other);
         public bool Equals(OrganizationMembershipType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
+    /// </summary>
+    [EnumType]
+    public readonly struct PricingTier : IEquatable<PricingTier>
+    {
+        private readonly string _value;
+
+        private PricingTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Get free Microsoft Defender for Cloud experience with basic security features
+        /// </summary>
+        public static PricingTier Free { get; } = new PricingTier("Free");
+        /// <summary>
+        /// Get the standard Microsoft Defender for Cloud experience with advanced security features
+        /// </summary>
+        public static PricingTier Standard { get; } = new PricingTier("Standard");
+
+        public static bool operator ==(PricingTier left, PricingTier right) => left.Equals(right);
+        public static bool operator !=(PricingTier left, PricingTier right) => !left.Equals(right);
+
+        public static explicit operator string(PricingTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PricingTier other && Equals(other);
+        public bool Equals(PricingTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

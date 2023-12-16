@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Kubernetes
     /// Represents a connected cluster.
     /// Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
     /// 
-    /// Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview.
+    /// Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetes:ConnectedCluster")]
     public partial class ConnectedCluster : global::Pulumi.CustomResource
@@ -170,6 +170,7 @@ namespace Pulumi.AzureNative.Kubernetes
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20221001preview:ConnectedCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20231101preview:ConnectedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20240101:ConnectedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

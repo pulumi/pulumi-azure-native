@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
     public partial class LongTermRetentionPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The BackupStorageAccessTier for the LTR backups
+        /// </summary>
+        [Output("backupStorageAccessTier")]
+        public Output<string?> BackupStorageAccessTier { get; private set; } = null!;
+
+        /// <summary>
+        /// The setting whether to make LTR backups immutable
+        /// </summary>
+        [Output("makeBackupsImmutable")]
+        public Output<bool?> MakeBackupsImmutable { get; private set; } = null!;
+
+        /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format.
         /// </summary>
         [Output("monthlyRetention")]
@@ -115,10 +127,22 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
     public sealed class LongTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The BackupStorageAccessTier for the LTR backups
+        /// </summary>
+        [Input("backupStorageAccessTier")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20230501Preview.BackupStorageAccessTier>? BackupStorageAccessTier { get; set; }
+
+        /// <summary>
         /// The name of the database.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The setting whether to make LTR backups immutable
+        /// </summary>
+        [Input("makeBackupsImmutable")]
+        public Input<bool>? MakeBackupsImmutable { get; set; }
 
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format.

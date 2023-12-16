@@ -195,6 +195,11 @@ export const getJitNetworkAccessPolicy: typeof import("./getJitNetworkAccessPoli
 export const getJitNetworkAccessPolicyOutput: typeof import("./getJitNetworkAccessPolicy").getJitNetworkAccessPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getJitNetworkAccessPolicy","getJitNetworkAccessPolicyOutput"], () => require("./getJitNetworkAccessPolicy"));
 
+export { GetPricingArgs, GetPricingResult, GetPricingOutputArgs } from "./getPricing";
+export const getPricing: typeof import("./getPricing").getPricing = null as any;
+export const getPricingOutput: typeof import("./getPricing").getPricingOutput = null as any;
+utilities.lazyLoad(exports, ["getPricing","getPricingOutput"], () => require("./getPricing"));
+
 export { GetSecurityConnectorArgs, GetSecurityConnectorResult, GetSecurityConnectorOutputArgs } from "./getSecurityConnector";
 export const getSecurityConnector: typeof import("./getSecurityConnector").getSecurityConnector = null as any;
 export const getSecurityConnectorOutput: typeof import("./getSecurityConnector").getSecurityConnectorOutput = null as any;
@@ -275,6 +280,11 @@ export const listGitLabSubgroup: typeof import("./listGitLabSubgroup").listGitLa
 export const listGitLabSubgroupOutput: typeof import("./listGitLabSubgroup").listGitLabSubgroupOutput = null as any;
 utilities.lazyLoad(exports, ["listGitLabSubgroup","listGitLabSubgroupOutput"], () => require("./listGitLabSubgroup"));
 
+export { PricingArgs } from "./pricing";
+export type Pricing = import("./pricing").Pricing;
+export const Pricing: typeof import("./pricing").Pricing = null as any;
+utilities.lazyLoad(exports, ["Pricing"], () => require("./pricing"));
+
 export { SecurityConnectorArgs } from "./securityConnector";
 export type SecurityConnector = import("./securityConnector").SecurityConnector;
 export const SecurityConnector: typeof import("./securityConnector").SecurityConnector = null as any;
@@ -339,6 +349,7 @@ import * as v20230501 from "./v20230501";
 import * as v20230901preview from "./v20230901preview";
 import * as v20231001preview from "./v20231001preview";
 import * as v20231115 from "./v20231115";
+import * as v20240101 from "./v20240101";
 
 export {
     v20170801preview,
@@ -360,6 +371,7 @@ export {
     v20230901preview,
     v20231001preview,
     v20231115,
+    v20240101,
 };
 
 const _module = {
@@ -408,6 +420,8 @@ const _module = {
                 return new IotSecuritySolution(name, <any>undefined, { urn })
             case "azure-native:security:JitNetworkAccessPolicy":
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
+            case "azure-native:security:Pricing":
+                return new Pricing(name, <any>undefined, { urn })
             case "azure-native:security:SecurityConnector":
                 return new SecurityConnector(name, <any>undefined, { urn })
             case "azure-native:security:SecurityConnectorApplication":

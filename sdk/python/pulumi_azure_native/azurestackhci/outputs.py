@@ -72,6 +72,7 @@ __all__ = [
     'RouteResponse',
     'RouteTableResponse',
     'ScaleUnitsResponse',
+    'SecurityComplianceStatusResponse',
     'SecuritySettingsResponse',
     'SoftwareAssurancePropertiesResponse',
     'SshConfigurationResponse',
@@ -4175,6 +4176,97 @@ class ScaleUnitsResponse(dict):
         Deployment Data to deploy AzureStackHCI Cluster.
         """
         return pulumi.get(self, "deployment_data")
+
+
+@pulumi.output_type
+class SecurityComplianceStatusResponse(dict):
+    """
+    Security compliance properties of the resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataAtRestEncrypted":
+            suggest = "data_at_rest_encrypted"
+        elif key == "dataInTransitProtected":
+            suggest = "data_in_transit_protected"
+        elif key == "lastUpdated":
+            suggest = "last_updated"
+        elif key == "securedCoreCompliance":
+            suggest = "secured_core_compliance"
+        elif key == "wdacCompliance":
+            suggest = "wdac_compliance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityComplianceStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityComplianceStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityComplianceStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_at_rest_encrypted: str,
+                 data_in_transit_protected: str,
+                 last_updated: str,
+                 secured_core_compliance: str,
+                 wdac_compliance: str):
+        """
+        Security compliance properties of the resource
+        :param str data_at_rest_encrypted: Indicates whether data at-rest encryption is enabled on Azure Stack HCI clustered volumes.
+        :param str data_in_transit_protected: Indicates whether HCI cluster has data in-transit protection.
+        :param str last_updated: Time in UTC when compliance status was last updated.
+        :param str secured_core_compliance: Indicates whether HCI hosts meets secured-core server requirements.
+        :param str wdac_compliance: Indicates whether HCI hosts have enforced consistent Windows Defender Application Control.
+        """
+        pulumi.set(__self__, "data_at_rest_encrypted", data_at_rest_encrypted)
+        pulumi.set(__self__, "data_in_transit_protected", data_in_transit_protected)
+        pulumi.set(__self__, "last_updated", last_updated)
+        pulumi.set(__self__, "secured_core_compliance", secured_core_compliance)
+        pulumi.set(__self__, "wdac_compliance", wdac_compliance)
+
+    @property
+    @pulumi.getter(name="dataAtRestEncrypted")
+    def data_at_rest_encrypted(self) -> str:
+        """
+        Indicates whether data at-rest encryption is enabled on Azure Stack HCI clustered volumes.
+        """
+        return pulumi.get(self, "data_at_rest_encrypted")
+
+    @property
+    @pulumi.getter(name="dataInTransitProtected")
+    def data_in_transit_protected(self) -> str:
+        """
+        Indicates whether HCI cluster has data in-transit protection.
+        """
+        return pulumi.get(self, "data_in_transit_protected")
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> str:
+        """
+        Time in UTC when compliance status was last updated.
+        """
+        return pulumi.get(self, "last_updated")
+
+    @property
+    @pulumi.getter(name="securedCoreCompliance")
+    def secured_core_compliance(self) -> str:
+        """
+        Indicates whether HCI hosts meets secured-core server requirements.
+        """
+        return pulumi.get(self, "secured_core_compliance")
+
+    @property
+    @pulumi.getter(name="wdacCompliance")
+    def wdac_compliance(self) -> str:
+        """
+        Indicates whether HCI hosts have enforced consistent Windows Defender Application Control.
+        """
+        return pulumi.get(self, "wdac_compliance")
 
 
 @pulumi.output_type

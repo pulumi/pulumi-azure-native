@@ -1559,6 +1559,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "appconfiguration/v20230801preview",
+  "fqn": "pulumi_azure_native.appconfiguration.v20230801preview",
+  "classes": {
+   "azure-native:appconfiguration/v20230801preview:ConfigurationStore": "ConfigurationStore",
+   "azure-native:appconfiguration/v20230801preview:KeyValue": "KeyValue",
+   "azure-native:appconfiguration/v20230801preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:appconfiguration/v20230801preview:Replica": "Replica"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "appplatform",
   "fqn": "pulumi_azure_native.appplatform",
   "classes": {
@@ -2435,6 +2446,7 @@ _utilities.register(
    "azure-native:azurestackhci:MachineExtension": "MachineExtension",
    "azure-native:azurestackhci:MarketplaceGalleryImage": "MarketplaceGalleryImage",
    "azure-native:azurestackhci:NetworkInterface": "NetworkInterface",
+   "azure-native:azurestackhci:SecuritySetting": "SecuritySetting",
    "azure-native:azurestackhci:StorageContainer": "StorageContainer",
    "azure-native:azurestackhci:Update": "Update",
    "azure-native:azurestackhci:UpdateRun": "UpdateRun",
@@ -2581,6 +2593,22 @@ _utilities.register(
    "azure-native:azurestackhci/v20230901preview:StorageContainer": "StorageContainer",
    "azure-native:azurestackhci/v20230901preview:VirtualHardDisk": "VirtualHardDisk",
    "azure-native:azurestackhci/v20230901preview:VirtualMachineInstance": "VirtualMachineInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20231101preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20231101preview",
+  "classes": {
+   "azure-native:azurestackhci/v20231101preview:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20231101preview:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20231101preview:DeploymentSetting": "DeploymentSetting",
+   "azure-native:azurestackhci/v20231101preview:EdgeDevice": "EdgeDevice",
+   "azure-native:azurestackhci/v20231101preview:Extension": "Extension",
+   "azure-native:azurestackhci/v20231101preview:SecuritySetting": "SecuritySetting",
+   "azure-native:azurestackhci/v20231101preview:Update": "Update",
+   "azure-native:azurestackhci/v20231101preview:UpdateRun": "UpdateRun",
+   "azure-native:azurestackhci/v20231101preview:UpdateSummary": "UpdateSummary"
   }
  },
  {
@@ -3384,6 +3412,31 @@ _utilities.register(
    "azure-native:compute/v20230701:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
    "azure-native:compute/v20230701:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
    "azure-native:compute/v20230701:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "compute/v20230901",
+  "fqn": "pulumi_azure_native.compute.v20230901",
+  "classes": {
+   "azure-native:compute/v20230901:AvailabilitySet": "AvailabilitySet",
+   "azure-native:compute/v20230901:CapacityReservation": "CapacityReservation",
+   "azure-native:compute/v20230901:CapacityReservationGroup": "CapacityReservationGroup",
+   "azure-native:compute/v20230901:DedicatedHost": "DedicatedHost",
+   "azure-native:compute/v20230901:DedicatedHostGroup": "DedicatedHostGroup",
+   "azure-native:compute/v20230901:Image": "Image",
+   "azure-native:compute/v20230901:ProximityPlacementGroup": "ProximityPlacementGroup",
+   "azure-native:compute/v20230901:RestorePoint": "RestorePoint",
+   "azure-native:compute/v20230901:RestorePointCollection": "RestorePointCollection",
+   "azure-native:compute/v20230901:SshPublicKey": "SshPublicKey",
+   "azure-native:compute/v20230901:VirtualMachine": "VirtualMachine",
+   "azure-native:compute/v20230901:VirtualMachineExtension": "VirtualMachineExtension",
+   "azure-native:compute/v20230901:VirtualMachineRunCommandByVirtualMachine": "VirtualMachineRunCommandByVirtualMachine",
+   "azure-native:compute/v20230901:VirtualMachineScaleSet": "VirtualMachineScaleSet",
+   "azure-native:compute/v20230901:VirtualMachineScaleSetExtension": "VirtualMachineScaleSetExtension",
+   "azure-native:compute/v20230901:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
+   "azure-native:compute/v20230901:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
+   "azure-native:compute/v20230901:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
   }
  },
  {
@@ -4371,6 +4424,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databox/v20231201",
+  "fqn": "pulumi_azure_native.databox.v20231201",
+  "classes": {
+   "azure-native:databox/v20231201:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databoxedge",
   "fqn": "pulumi_azure_native.databoxedge",
   "classes": {
@@ -4764,18 +4825,6 @@ _utilities.register(
    "azure-native:dataprotection/v20230601preview:BackupVault": "BackupVault",
    "azure-native:dataprotection/v20230601preview:DppResourceGuardProxy": "DppResourceGuardProxy",
    "azure-native:dataprotection/v20230601preview:ResourceGuard": "ResourceGuard"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "dataprotection/v20230801",
-  "fqn": "pulumi_azure_native.dataprotection.v20230801",
-  "classes": {
-   "azure-native:dataprotection/v20230801:BackupInstance": "BackupInstance",
-   "azure-native:dataprotection/v20230801:BackupPolicy": "BackupPolicy",
-   "azure-native:dataprotection/v20230801:BackupVault": "BackupVault",
-   "azure-native:dataprotection/v20230801:DppResourceGuardProxy": "DppResourceGuardProxy",
-   "azure-native:dataprotection/v20230801:ResourceGuard": "ResourceGuard"
   }
  },
  {
@@ -7604,6 +7653,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "kubernetes/v20240101",
+  "fqn": "pulumi_azure_native.kubernetes.v20240101",
+  "classes": {
+   "azure-native:kubernetes/v20240101:ConnectedCluster": "ConnectedCluster"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "kubernetesconfiguration",
   "fqn": "pulumi_azure_native.kubernetesconfiguration",
   "classes": {
@@ -8526,6 +8583,18 @@ _utilities.register(
    "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForResourceGroup": "ConfigurationAssignmentsForResourceGroup",
    "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForSubscription": "ConfigurationAssignmentsForSubscription",
    "azure-native:maintenance/v20230901preview:MaintenanceConfiguration": "MaintenanceConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "maintenance/v20231001preview",
+  "fqn": "pulumi_azure_native.maintenance.v20231001preview",
+  "classes": {
+   "azure-native:maintenance/v20231001preview:ConfigurationAssignment": "ConfigurationAssignment",
+   "azure-native:maintenance/v20231001preview:ConfigurationAssignmentParent": "ConfigurationAssignmentParent",
+   "azure-native:maintenance/v20231001preview:ConfigurationAssignmentsForResourceGroup": "ConfigurationAssignmentsForResourceGroup",
+   "azure-native:maintenance/v20231001preview:ConfigurationAssignmentsForSubscription": "ConfigurationAssignmentsForSubscription",
+   "azure-native:maintenance/v20231001preview:MaintenanceConfiguration": "MaintenanceConfiguration"
   }
  },
  {
@@ -11479,6 +11548,7 @@ _utilities.register(
    "azure-native:security:GovernanceRule": "GovernanceRule",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
+   "azure-native:security:Pricing": "Pricing",
    "azure-native:security:SecurityConnector": "SecurityConnector",
    "azure-native:security:SecurityConnectorApplication": "SecurityConnectorApplication",
    "azure-native:security:SecurityContact": "SecurityContact",
@@ -11654,6 +11724,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20231115",
   "classes": {
    "azure-native:security/v20231115:APICollectionByAzureApiManagementService": "APICollectionByAzureApiManagementService"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20240101",
+  "fqn": "pulumi_azure_native.security.v20240101",
+  "classes": {
+   "azure-native:security/v20240101:Pricing": "Pricing"
   }
  },
  {

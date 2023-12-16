@@ -18,6 +18,7 @@ __all__ = [
     'CloudName',
     'DataSource',
     'DevOpsProvisioningState',
+    'Enforce',
     'EnvironmentType',
     'EventSource',
     'ExportData',
@@ -25,10 +26,12 @@ __all__ = [
     'GovernanceRuleSourceResourceType',
     'GovernanceRuleType',
     'ImplementationEffort',
+    'IsEnabled',
     'MinimalSeverity',
     'OfferingType',
     'Operator',
     'OrganizationMembershipType',
+    'PricingTier',
     'PropertyType',
     'Protocol',
     'RecommendationConfigStatus',
@@ -219,6 +222,20 @@ class DevOpsProvisioningState(str, Enum):
     DELETION_FAILURE = "DeletionFailure"
 
 
+class Enforce(str, Enum):
+    """
+    If set to "False", it allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False"). If set to "True", it prevents overrides and forces this pricing configuration on all the descendants of this scope. This field is only available for subscription-level pricing.
+    """
+    FALSE = "False"
+    """
+    Allows the descendants of this scope to override the pricing configuration set on this scope (allows setting inherited="False")
+    """
+    TRUE = "True"
+    """
+    Prevents overrides and forces the current scope's pricing configuration to all descendants
+    """
+
+
 class EnvironmentType(str, Enum):
     """
     The type of the environment data.
@@ -299,6 +316,20 @@ class ImplementationEffort(str, Enum):
     LOW = "Low"
     MODERATE = "Moderate"
     HIGH = "High"
+
+
+class IsEnabled(str, Enum):
+    """
+    Indicates whether the extension is enabled.
+    """
+    TRUE = "True"
+    """
+    Indicates the extension is enabled
+    """
+    FALSE = "False"
+    """
+    Indicates the extension is disabled
+    """
 
 
 class MinimalSeverity(str, Enum):
@@ -390,6 +421,20 @@ class OrganizationMembershipType(str, Enum):
     """
     MEMBER = "Member"
     ORGANIZATION = "Organization"
+
+
+class PricingTier(str, Enum):
+    """
+    Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
+    """
+    FREE = "Free"
+    """
+    Get free Microsoft Defender for Cloud experience with basic security features
+    """
+    STANDARD = "Standard"
+    """
+    Get the standard Microsoft Defender for Cloud experience with advanced security features
+    """
 
 
 class PropertyType(str, Enum):

@@ -210,7 +210,7 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
     The operation to get the extension.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2021-11-01, 2023-07-01.
+    Other available API versions: 2021-11-01, 2023-07-01, 2023-09-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -253,7 +253,7 @@ def get_virtual_machine_scale_set_extension_output(expand: Optional[pulumi.Input
     The operation to get the extension.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2021-11-01, 2023-07-01.
+    Other available API versions: 2021-11-01, 2023-07-01, 2023-09-01.
 
 
     :param str expand: The expand expression to apply on the operation.

@@ -80,6 +80,8 @@ class EdgeDevice(pulumi.CustomResource):
         Edge device resource
         Azure REST API version: 2023-08-01-preview.
 
+        Other available API versions: 2023-11-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DeviceConfigurationArgs']] device_configuration: Device Configuration
@@ -95,6 +97,8 @@ class EdgeDevice(pulumi.CustomResource):
         """
         Edge device resource
         Azure REST API version: 2023-08-01-preview.
+
+        Other available API versions: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EdgeDeviceArgs args: The arguments to use to populate this resource's properties.
@@ -134,7 +138,7 @@ class EdgeDevice(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:EdgeDevice")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:EdgeDevice"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:EdgeDevice")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EdgeDevice, __self__).__init__(
             'azure-native:azurestackhci:EdgeDevice',

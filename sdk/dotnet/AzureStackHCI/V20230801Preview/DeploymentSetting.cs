@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230801Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:DeploymentSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:DeploymentSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

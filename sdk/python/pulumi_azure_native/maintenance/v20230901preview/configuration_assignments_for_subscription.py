@@ -170,7 +170,7 @@ class ConfigurationAssignmentsForSubscription(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance:ConfigurationAssignmentsForSubscription"), pulumi.Alias(type_="azure-native:maintenance/v20230401:ConfigurationAssignmentsForSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maintenance:ConfigurationAssignmentsForSubscription"), pulumi.Alias(type_="azure-native:maintenance/v20230401:ConfigurationAssignmentsForSubscription"), pulumi.Alias(type_="azure-native:maintenance/v20231001preview:ConfigurationAssignmentsForSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationAssignmentsForSubscription, __self__).__init__(
             'azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForSubscription',
