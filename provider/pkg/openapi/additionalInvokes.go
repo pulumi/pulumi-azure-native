@@ -10,10 +10,11 @@ import (
 // GET endpoints to functions. The assumption is that most of those aren't very useful. If we do want
 // to include specific ones, we add them here. See, e.g., #2419.
 func shouldIncludeInvoke(path string, op *spec.Operation) bool {
-	return op != nil &&
-		!op.Deprecated &&
+	return op != nil && !op.Deprecated && (
+	// #2419
+	(strings.HasSuffix(path, "/providers/Microsoft.Insights/diagnosticSettingsCategories") &&
+		op.OperationProps.ID == "DiagnosticSettingsCategory_List") ||
 
-		// #2419
-		strings.HasSuffix(path, "/providers/Microsoft.Insights/diagnosticSettingsCategories") &&
-		op.OperationProps.ID == "DiagnosticSettingsCategory_List"
+		strings.HasSuffix(path, "/providers/Microsoft.MarketplaceOrdering/agreements/{publisherId}/offers/{offerId}/plans/{planId}/sign") ||
+		strings.HasSuffix(path, "/providers/Microsoft.MarketplaceOrdering/agreements/{publisherId}/offers/{offerId}/plans/{planId}/cancel"))
 }

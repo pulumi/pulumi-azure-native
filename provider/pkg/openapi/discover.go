@@ -511,7 +511,11 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			// - It's about a key, a token, or credentials.
 			prefix = "get"
 		default:
-			return nameDisambiguations
+			if !foundResourceOrInvoke && shouldIncludeInvoke(path, pathItem.Post) {
+				prefix = operationId
+			} else {
+				return nameDisambiguations
+			}
 		}
 
 		typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
@@ -533,7 +537,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			}
 
 			addInvoke(prefix + typeName)
-			recordDisambiguation(disambiguation)
+			nameDisambiguations = recordDisambiguation(disambiguation)
 		}
 	}
 
