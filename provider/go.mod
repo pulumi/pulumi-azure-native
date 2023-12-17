@@ -4,6 +4,7 @@ go 1.21.0
 
 require (
 	github.com/Azure/azure-sdk-for-go v68.0.0+incompatible
+	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.9.1
 	github.com/Azure/go-autorest/autorest v0.11.29
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/brianvoe/gofakeit/v6 v6.16.0
@@ -13,7 +14,7 @@ require (
 	github.com/go-openapi/spec v0.20.4
 	github.com/go-openapi/swag v0.21.1
 	github.com/golang/protobuf v1.5.3
-	github.com/google/uuid v1.3.0
+	github.com/google/uuid v1.3.1
 	github.com/hashicorp/go-azure-helpers v0.51.0
 	github.com/hashicorp/go-multierror v1.1.1
 	github.com/hashicorp/hcl/v2 v2.17.0
@@ -42,6 +43,7 @@ require (
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
 	cloud.google.com/go/longrunning v0.5.1 // indirect
 	dario.cat/mergo v1.0.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/internal v1.5.1 // indirect
 	github.com/Azure/go-autorest/autorest/adal v0.9.23 // indirect
 	github.com/BurntSushi/toml v1.2.1 // indirect
 	github.com/armon/go-metrics v0.4.0 // indirect
