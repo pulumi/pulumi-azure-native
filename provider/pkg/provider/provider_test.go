@@ -10,7 +10,7 @@ import (
 
 func TestWritePropertiesToBody(t *testing.T) {
 	t.Run("empty", func(t *testing.T) {
-		missingProperties := map[string]resources.AzureAPIProperty{}
+		missingProperties := []propertyPath{}
 		bodyParams := map[string]interface{}{}
 		response := map[string]interface{}{}
 
@@ -19,11 +19,13 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 
 	t.Run("top-level", func(t *testing.T) {
-		missingProperties := map[string]resources.AzureAPIProperty{
-			"remote": {
+		missingProperties := []propertyPath{{
+			property: resources.AzureAPIProperty{
 				Type: "string",
 			},
-		}
+			propertyName: "remote",
+			path:         []string{},
+		}}
 		bodyParams := map[string]interface{}{
 			"existing": "value",
 		}
@@ -40,12 +42,13 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 
 	t.Run("properties container", func(t *testing.T) {
-		missingProperties := map[string]resources.AzureAPIProperty{
-			"remote": {
-				Type:       "string",
-				Containers: []string{"properties"},
+		missingProperties := []propertyPath{{
+			property: resources.AzureAPIProperty{
+				Type: "string",
 			},
-		}
+			propertyName: "remote",
+			path:         []string{"properties"},
+		}}
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{
 				"existing": "value",
@@ -66,12 +69,13 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 
 	t.Run("existing properties are maintained", func(t *testing.T) {
-		missingProperties := map[string]resources.AzureAPIProperty{
-			"remote": {
-				Type:       "string",
-				Containers: []string{"properties"},
+		missingProperties := []propertyPath{{
+			property: resources.AzureAPIProperty{
+				Type: "string",
 			},
-		}
+			propertyName: "remote",
+			path:         []string{"properties"},
+		}}
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{
 				"existing": "value",
@@ -94,12 +98,13 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 
 	t.Run("properties missed from remote", func(t *testing.T) {
-		missingProperties := map[string]resources.AzureAPIProperty{
-			"remote": {
-				Type:       "string",
-				Containers: []string{"properties"},
+		missingProperties := []propertyPath{{
+			property: resources.AzureAPIProperty{
+				Type: "string",
 			},
-		}
+			propertyName: "remote",
+			path:         []string{"properties"},
+		}}
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{
 				"existing": "value",
@@ -120,12 +125,13 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 
 	t.Run("properties container missing from remote", func(t *testing.T) {
-		missingProperties := map[string]resources.AzureAPIProperty{
-			"remote": {
-				Type:       "string",
-				Containers: []string{"properties"},
+		missingProperties := []propertyPath{{
+			property: resources.AzureAPIProperty{
+				Type: "string",
 			},
-		}
+			propertyName: "remote",
+			path:         []string{"properties"},
+		}}
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{
 				"existing": "value",
@@ -142,12 +148,13 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 
 	t.Run("properties container missing in body", func(t *testing.T) {
-		missingProperties := map[string]resources.AzureAPIProperty{
-			"remote": {
-				Type:       "string",
-				Containers: []string{"properties"},
+		missingProperties := []propertyPath{{
+			property: resources.AzureAPIProperty{
+				Type: "string",
 			},
-		}
+			propertyName: "remote",
+			path:         []string{"properties"},
+		}}
 		bodyParams := map[string]interface{}{}
 		response := map[string]interface{}{
 			"properties": map[string]interface{}{
@@ -164,12 +171,13 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 
 	t.Run("empty with container", func(t *testing.T) {
-		missingProperties := map[string]resources.AzureAPIProperty{
-			"remote": {
-				Type:       "string",
-				Containers: []string{"properties"},
+		missingProperties := []propertyPath{{
+			property: resources.AzureAPIProperty{
+				Type: "string",
 			},
-		}
+			propertyName: "remote",
+			path:         []string{"properties"},
+		}}
 		bodyParams := map[string]interface{}{}
 		response := map[string]interface{}{}
 		writePropertiesToBody(missingProperties, bodyParams, response)
@@ -181,93 +189,8 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 }
 
-func TestFindSubResourcePropertiesToMaintain(t *testing.T) {
-	t.Run("empty", func(t *testing.T) {
-		res := &resources.AzureAPIResource{}
-		bodyParams := map[string]interface{}{}
-		actual := findSubResourcePropertiesToMaintain(res, bodyParams)
-		expected := map[string]resources.AzureAPIProperty{}
-		assert.Equal(t, expected, actual)
-	})
+func TestMaintainSubResourcePropertiesIfNotSet(t *testing.T) {
 
-	t.Run("single prop", func(t *testing.T) {
-		prop := resources.AzureAPIProperty{
-			Type:                       "string",
-			MaintainSubResourceIfUnset: true,
-		}
-		res := &resources.AzureAPIResource{
-			PutParameters: []resources.AzureAPIParameter{
-				{
-					Location: "body",
-					Body: &resources.AzureAPIType{
-						Properties: map[string]resources.AzureAPIProperty{
-							"prop": prop,
-						},
-					},
-				},
-			},
-		}
-		bodyParams := map[string]interface{}{}
-		actual := findSubResourcePropertiesToMaintain(res, bodyParams)
-		expected := map[string]resources.AzureAPIProperty{
-			"prop": prop,
-		}
-		assert.Equal(t, expected, actual)
-	})
-
-	t.Run("containered missing prop", func(t *testing.T) {
-		prop := resources.AzureAPIProperty{
-			Type:                       "string",
-			MaintainSubResourceIfUnset: true,
-			Containers:                 []string{"properties"},
-		}
-		res := &resources.AzureAPIResource{
-			PutParameters: []resources.AzureAPIParameter{
-				{
-					Location: "body",
-					Body: &resources.AzureAPIType{
-						Properties: map[string]resources.AzureAPIProperty{
-							"prop": prop,
-						},
-					},
-				},
-			},
-		}
-		bodyParams := map[string]interface{}{}
-		actual := findSubResourcePropertiesToMaintain(res, bodyParams)
-		expected := map[string]resources.AzureAPIProperty{
-			"prop": prop,
-		}
-		assert.Equal(t, expected, actual)
-	})
-
-	t.Run("containered existing prop", func(t *testing.T) {
-		prop := resources.AzureAPIProperty{
-			Type:                       "string",
-			MaintainSubResourceIfUnset: true,
-			Containers:                 []string{"properties"},
-		}
-		res := &resources.AzureAPIResource{
-			PutParameters: []resources.AzureAPIParameter{
-				{
-					Location: "body",
-					Body: &resources.AzureAPIType{
-						Properties: map[string]resources.AzureAPIProperty{
-							"prop": prop,
-						},
-					},
-				},
-			},
-		}
-		bodyParams := map[string]interface{}{
-			"properties": map[string]interface{}{
-				"prop": "value",
-			},
-		}
-		actual := findSubResourcePropertiesToMaintain(res, bodyParams)
-		expected := map[string]resources.AzureAPIProperty{}
-		assert.Equal(t, expected, actual)
-	})
 }
 
 func TestFindUnsetSubResourceProperties(t *testing.T) {
