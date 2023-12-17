@@ -889,10 +889,10 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	return nil
 }
 
-func (g *packageGenerator) lookupType(ref string) (resources.AzureAPIType, bool) {
+func (g *packageGenerator) lookupType(ref string) (*resources.AzureAPIType, bool, error) {
 	refTypeName := strings.TrimPrefix(ref, "#/types/")
 	t, ok := g.metadata.Types[refTypeName]
-	return t, ok
+	return &t, ok, nil
 }
 
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
