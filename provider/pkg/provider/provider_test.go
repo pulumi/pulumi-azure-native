@@ -189,8 +189,63 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 }
 
-func TestMaintainSubResourcePropertiesIfNotSet(t *testing.T) {
+func TestFindUnsetPropertiesToMaintain(t *testing.T) {
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"properties": {
+							Type: "object",
+							Ref:  "#/types/azure-native:keyvault:VaultProperties",
+						},
+					},
+				},
+			},
+		},
+		SubResourcesToMaintainIfUnset: [][]string{{"properties", "accessPolicies"}},
+	}
 
+	provider := azureNativeProvider{
+		// Mock the type lookup to only return the type referenced in the resource above
+		lookupType: func(ref string) (*resources.AzureAPIType, bool, error) {
+			if ref == "#/types/azure-native:keyvault:VaultProperties" {
+				return &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"accessPolicies": {
+							Type: "array",
+							Items: &resources.AzureAPIProperty{
+								Type: "object",
+								Ref:  "#/types/azure-native:keyvault:AccessPolicyEntry",
+							},
+						},
+					},
+				}, true, nil
+			}
+			return nil, false, nil
+		},
+	}
+
+	t.Run("KV accessPolicies is not set", func(t *testing.T) {
+		bodyParams := map[string]interface{}{
+			"properties": map[string]interface{}{},
+		}
+		unset := provider.findUnsetPropertiesToMaintain(&res, bodyParams)
+		assert.Equal(t, 1, len(unset))
+		assert.Equal(t, "accessPolicies", unset[0].propertyName)
+		assert.Equal(t, []string{"properties", "accessPolicies"}, unset[0].path)
+	})
+
+	t.Run("KV accessPolicies is set", func(t *testing.T) {
+		bodyParams := map[string]interface{}{
+			"properties": map[string]interface{}{
+				"accessPolicies": []interface{}{},
+			},
+		}
+		unset := provider.findUnsetPropertiesToMaintain(&res, bodyParams)
+		assert.Empty(t, unset)
+	})
 }
 
 func TestFindUnsetSubResourceProperties(t *testing.T) {

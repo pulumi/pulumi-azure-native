@@ -81,6 +81,7 @@ type azureNativeProvider struct {
 	converter       *convert.SdkShapeConverter
 	customResources map[string]*resources.CustomResource
 	rgLocationMap   map[string]string
+	lookupType      resources.TypeLookupFunc
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
@@ -101,7 +102,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	converter := convert.NewSdkShapeConverterPartial(resourceMap.Types)
 
 	// Return the new provider
-	return &azureNativeProvider{
+	p := &azureNativeProvider{
 		host:          host,
 		name:          name,
 		version:       version,
@@ -111,7 +112,9 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		schemaBytes:   schemaBytes,
 		converter:     &converter,
 		rgLocationMap: map[string]string{},
-	}, nil
+	}
+	p.lookupType = p.lookupTypeDefault
+	return p, nil
 }
 
 // LoadMetadataPartial partially deserializes the provided json byte array into an AzureAPIMetadata
@@ -145,6 +148,14 @@ func (k *azureNativeProvider) getFullMetadata() (*resources.AzureAPIMetadata, er
 	}
 
 	return k.fullResourceMap, nil
+}
+
+// Looks up a type reference, with or without the #/types/ prefix, in the resource map.
+// Typically used via lookupType so it can be overridden for tests.
+func (k *azureNativeProvider) lookupTypeDefault(ref string) (*resources.AzureAPIType, bool, error) {
+	typeName := strings.TrimPrefix(ref, "#/types/")
+	t, ok, err := k.resourceMap.Types.Get(typeName)
+	return &t, ok, err
 }
 
 func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
@@ -623,7 +634,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 
 		// Typed object: validate all properties by looking up its type definition.
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ, ok, err := k.resourceMap.Types.Get(typeName)
+		typ, ok, err := k.lookupTypeDefault(prop.Ref)
 		if err != nil {
 			return append(failures, &rpc.CheckFailure{
 				Reason: fmt.Sprintf("error decoding type spec '%s': %v", typeName, err),
@@ -635,7 +646,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 			})
 		}
 
-		failures = append(failures, k.validateType(ctx, &typ, value)...)
+		failures = append(failures, k.validateType(ctx, typ, value)...)
 	case []interface{}:
 		if prop.Type != "array" && !prop.IsStringSet {
 			return append(failures, &rpc.CheckFailure{
@@ -1468,7 +1479,7 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 	curBody := bodyParams
 	curRes := body.Body.Properties
 	for _, path := range res.SubResourcesToMaintainIfUnset {
-		for _, pathEl := range path {
+		for i, pathEl := range path {
 			p, ok := curRes[pathEl]
 			if !ok {
 				logging.V(5).Infof("failed to find property path %s in %v", strings.Join(path, ","), res.Path)
@@ -1483,6 +1494,12 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 				})
 				break
 			}
+
+			// At the end of the path we don't need to go deeper via references and map lookups.
+			if i == len(path)-1 {
+				break
+			}
+
 			curBody, ok = v.(map[string]interface{})
 			if !ok {
 				missingProperties = append(missingProperties, propertyPath{
@@ -1494,10 +1511,9 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 			}
 
 			if strings.HasPrefix(p.Ref, "#/types/azure-native") {
-				refTypeName := strings.TrimPrefix(p.Ref, "#/types/")
-				typ, ok, err := k.resourceMap.Types.Get(refTypeName)
+				typ, ok, err := k.lookupType(p.Ref)
 				if err != nil || !ok {
-					logging.V(5).Infof("failed to find type %s: %v", refTypeName, err)
+					logging.V(5).Infof("failed to find type %s: %v", p.Ref, err)
 					break
 				}
 				curRes = typ.Properties
