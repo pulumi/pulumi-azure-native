@@ -188,6 +188,32 @@ func TestWritePropertiesToBody(t *testing.T) {
 		}
 		assert.Equal(t, expected, bodyParams)
 	})
+
+	t.Run("Nested array missing from body", func(t *testing.T) {
+		missingProperties := []propertyPath{{
+			property: resources.AzureAPIProperty{
+				Type: "array",
+			},
+			propertyName: "accessPolicies",
+			path:         []string{"properties", "accessPolicies"},
+		}}
+		bodyParams := map[string]interface{}{
+			"properties": map[string]interface{}{},
+		}
+		response := map[string]interface{}{
+			"properties": map[string]interface{}{
+				"accessPolicies": []interface{}{},
+			},
+		}
+		writePropertiesToBody(missingProperties, bodyParams, response)
+		expected := map[string]interface{}{
+			// Container is auto-created
+			"properties": map[string]interface{}{
+				"accessPolicies": []interface{}{},
+			},
+		}
+		assert.Equal(t, expected, bodyParams)
+	})
 }
 
 func TestFindUnsetSubResourceProperties(t *testing.T) {

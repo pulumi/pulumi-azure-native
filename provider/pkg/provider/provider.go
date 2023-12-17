@@ -872,7 +872,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}, nil
 	}
 
-	// Construct ARM REST API body and query from intputs
+	// Construct ARM REST API body and query from inputs
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
 		res.PutParameters,
@@ -919,6 +919,8 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		ctx, cancel := azureContext(ctx, req.Timeout)
 		defer cancel()
 
+		k.setUnsetPropertiesToMaintainToDefaults(res, bodyParams)
+
 		// Submit the `PUT` against the ARM endpoint
 		response, created, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
@@ -958,6 +960,35 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		Id:         id,
 		Properties: checkpoint,
 	}, nil
+}
+
+// Properties of sub-resources that can be maintained as separate resources might not be present in the inputs.
+// During create, howver, no sub-resources can exist yet so we set these properties to their default values in
+// case they are required.
+func (k *azureNativeProvider) setUnsetPropertiesToMaintainToDefaults(res resources.AzureAPIResource, bodyParams map[string]interface{}) {
+	unset := k.findUnsetPropertiesToMaintain(&res, bodyParams)
+	for _, p := range unset {
+		cur := bodyParams
+		for _, pathEl := range p.path[:len(p.path)-1] {
+			curObj, ok := cur[pathEl]
+			if !ok {
+				break
+			}
+			cur, ok = curObj.(map[string]any)
+			if !ok {
+				break
+			}
+		}
+		switch p.property.Type {
+		case "string":
+			cur[p.propertyName] = ""
+		case "array":
+			cur[p.propertyName] = []any{}
+		case "object":
+			cur[p.propertyName] = map[string]any{}
+			// TODO,tkappler integer, number, boolean don't seem to make sense here but we should probably cover them
+		}
+	}
 }
 
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
@@ -1440,34 +1471,35 @@ func (k *azureNativeProvider) maintainSubResourcePropertiesIfNotSet(ctx context.
 	return nil
 }
 
-func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, responseBody map[string]interface{}) map[string]interface{} {
+func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) map[string]interface{} {
 	writtenProperties := map[string]interface{}{}
 	for _, prop := range missingProperties {
 		currentBodyContainer := bodyParams
-		currentResponseContainer := responseBody
+		currentStateContainer := remoteState
 		for _, containerName := range prop.path {
 			innerBodyContainer, bodyOk := currentBodyContainer[containerName]
-			innerStateContainer, stateOk := currentResponseContainer[containerName]
+			innerStateContainer, stateOk := currentStateContainer[containerName]
 			if !bodyOk {
 				innerBodyContainer = map[string]interface{}{}
 				currentBodyContainer[containerName] = innerBodyContainer
 			}
 			if !stateOk {
 				innerStateContainer = map[string]interface{}{}
-				currentResponseContainer[containerName] = innerStateContainer
+				currentStateContainer[containerName] = innerStateContainer
 			}
-			var ok bool
-			currentBodyContainer, ok = innerBodyContainer.(map[string]interface{})
-			currentResponseContainer, ok = innerStateContainer.(map[string]interface{})
-			if !ok { // we've reached a leaf node (primitive type)
+			innerBodyObj, innerBodyIsObject := innerBodyContainer.(map[string]interface{})
+			innerStateObj, innerStateIsObject := innerStateContainer.(map[string]interface{})
+			if !innerBodyIsObject || !innerStateIsObject { // we've reached a leaf node (primitive type)
 				break
 			}
+			currentBodyContainer = innerBodyObj
+			currentStateContainer = innerStateObj
 		}
 
-		responseValue, ok := currentResponseContainer[prop.propertyName]
+		stateValue, ok := currentStateContainer[prop.propertyName]
 		if ok {
-			currentBodyContainer[prop.propertyName] = responseValue
-			writtenProperties[fmt.Sprintf("%s.%s", strings.Join(prop.path, "."), prop.propertyName)] = responseValue
+			currentBodyContainer[prop.propertyName] = stateValue
+			writtenProperties[fmt.Sprintf("%s.%s", strings.Join(prop.path, "."), prop.propertyName)] = stateValue
 		}
 	}
 	return writtenProperties
