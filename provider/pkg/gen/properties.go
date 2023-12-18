@@ -306,6 +306,10 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		MaintainSubResourceIfUnset: maintainSubResourceIfUnset,
 	}
 
+	if identifiers, ok := schema.Extensions.GetStringSlice(extensionIdentifiers); ok && typeSpec.Type == "array" {
+		metadataProperty.ArrayIdentifiers = identifiers
+	}
+
 	// Input types only get extra information attached
 	if !isOutput {
 		if m.isEnum(&schemaProperty.TypeSpec) {

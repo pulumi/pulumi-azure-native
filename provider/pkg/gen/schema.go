@@ -547,6 +547,7 @@ const (
 	extensionClientName         = "x-ms-client-name"
 	extensionDiscriminatorValue = "x-ms-discriminator-value"
 	extensionEnum               = "x-ms-enum"
+	extensionIdentifiers        = "x-ms-identifiers" // ids in keyed arrays
 	extensionLongRunning        = "x-ms-long-running-operation"
 	extensionLongRunningDefault = "azure-async-operation"
 	extensionLongRunningOpts    = "x-ms-long-running-operation-options"
