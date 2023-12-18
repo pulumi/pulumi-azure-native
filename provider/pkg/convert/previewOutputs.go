@@ -40,20 +40,6 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 			return resource.NewStringProperty(asString)
 		}
 	}
-	switch prop.Type {
-	case "boolean":
-		if inputValue.IsBool() {
-			return inputValue
-		}
-	case "integer", "number":
-		if inputValue.IsNumber() {
-			return inputValue
-		}
-	case "string":
-		if inputValue.IsString() {
-			return inputValue
-		}
-	}
 	switch {
 	case prop.Type == "boolean" && inputValue.IsBool():
 		return inputValue
