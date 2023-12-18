@@ -47,6 +47,7 @@ func (k *SdkShapeConverter) convertOutputToInputPropValue(prop *resources.AzureA
 
 // convertTypedSdkOutputObjectsToSdkInput recursively finds map types with a known type and calls convertMap on them.
 func (k *SdkShapeConverter) convertTypedSdkOutputObjectsToSdkInput(prop *resources.AzureAPIProperty, value interface{}, convertObject convertTypedObject) interface{} {
+	// This line is unreachable in the current implementation, but good to have for safety to prevent Kind() of a nil type from causing a nil pointer dereference.
 	if value == nil {
 		return nil
 	}

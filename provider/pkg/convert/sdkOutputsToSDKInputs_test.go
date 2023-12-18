@@ -11,6 +11,16 @@ import (
 )
 
 func TestSdkOutputsToSdkInputs(t *testing.T) {
+	t.Run("nil outputs returns nil", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			outputs: nil,
+		})
+
+		var expected map[string]interface{} = nil
+
+		assert.Equal(t, expected, actual)
+	})
+
 	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")
 		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
@@ -187,6 +197,52 @@ func TestSdkOutputsToSdkInputs(t *testing.T) {
 
 		var expected = map[string]interface{}{
 			"userAssignedIdentities": []interface{}{"a", "c"},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("missing ref type continues with no change", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"p": {
+					Ref: "#/types/azure-native:testing:Type1",
+				},
+			},
+			outputs: map[string]interface{}{
+				"p": map[string]interface{}{
+					"k": "v",
+				},
+			},
+		})
+
+		expected := map[string]interface{}{
+			"p": map[string]interface{}{
+				"k": "v",
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("missing oneOf type continues with no change", func(t *testing.T) {
+		actual := testSdkOutputsToSDKInputs(sdkOutputsToSDKInputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"oneOf": {
+					OneOf: []string{"#types/azure-native:testing:Type1", "#types/azure-native:testing:Type2"},
+				},
+			},
+			outputs: map[string]interface{}{
+				"oneOf": map[string]interface{}{
+					"prop1": "value",
+				},
+			},
+		})
+
+		expected := map[string]interface{}{
+			"oneOf": map[string]interface{}{
+				"prop1": "value",
+			},
 		}
 
 		assert.Equal(t, expected, actual)

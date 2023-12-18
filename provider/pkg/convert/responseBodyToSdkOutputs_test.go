@@ -11,6 +11,16 @@ import (
 )
 
 func TestResponseBodyToSdkOutputs(t *testing.T) {
+	t.Run("nil body returns empty map", func(t *testing.T) {
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
+			body: nil,
+		})
+
+		expected := map[string]interface{}{}
+
+		assert.Equal(t, expected, actual)
+	})
+
 	t.Run("untyped non-empty values remain unchanged", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")
 		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
@@ -242,6 +252,52 @@ func TestResponseBodyToSdkOutputs(t *testing.T) {
 
 		assert.Equal(t, expected, actual)
 	})
+
+	t.Run("missing ref type continues with no change", func(t *testing.T) {
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"p": {
+					Ref: "#/types/azure-native:testing:Type1",
+				},
+			},
+			body: map[string]interface{}{
+				"p": map[string]interface{}{
+					"k": "v",
+				},
+			},
+		})
+
+		expected := map[string]interface{}{
+			"p": map[string]interface{}{
+				"k": "v",
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("missing oneOf type continues with no change", func(t *testing.T) {
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
+			bodyParameters: map[string]resources.AzureAPIProperty{
+				"oneOf": {
+					OneOf: []string{"#types/azure-native:testing:Type1", "#types/azure-native:testing:Type2"},
+				},
+			},
+			body: map[string]interface{}{
+				"oneOf": map[string]interface{}{
+					"prop1": "value",
+				},
+			},
+		})
+
+		expected := map[string]interface{}{
+			"oneOf": map[string]interface{}{
+				"prop1": "value",
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
 }
 
 func TestResponseBodyToSdkOutputsNestedTypes(t *testing.T) {
@@ -250,6 +306,27 @@ func TestResponseBodyToSdkOutputsNestedTypes(t *testing.T) {
 			Ref: "#/types/azure-native:testing:SubType",
 		},
 	}
+	t.Run("nil property values are dropped", func(t *testing.T) {
+		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:SubType": {
+					"name": {},
+				},
+			},
+			bodyParameters: bodyParams,
+			body: map[string]interface{}{
+				"nested": map[string]interface{}{
+					"name": nil,
+				},
+			},
+		})
+
+		var expected = map[string]interface{}{
+			"nested": map[string]interface{}{},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
 	t.Run("untyped simple value", rapid.MakeCheck(func(t *rapid.T) {
 		value := propNestedComplex().Draw(t, "value")
 		actual := testResponseBodyToSdkOutputs(responseBodyToSdkOutputsTestCase{
