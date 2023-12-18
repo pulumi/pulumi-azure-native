@@ -6,6 +6,7 @@ package examples
 import (
 	"encoding/json"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
@@ -190,6 +191,72 @@ func TestStorageAccountNetworkRule(t *testing.T) {
 				},
 			},
 			Verbose: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccKeyVaultAccessPoliciesTs(t *testing.T) {
+	skipIfShort(t)
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "keyvault-accesspolicies"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join("keyvault-accesspolicies", "2-update-keyvault"),
+					Additive: true,
+					// Check that the stand-alone AccessPolicies are still there, not deleted by the Vault update.
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						assert.NotNil(t, stackInfo.Deployment)
+						assert.NotNil(t, stackInfo.Deployment.Resources)
+
+						accessPolicies := 0
+						for _, resource := range stackInfo.Deployment.Resources {
+							if resource.Type == "azure-native:keyvault:AccessPolicy" {
+								accessPolicies++
+							}
+						}
+						assert.Equal(t, 2, accessPolicies)
+					},
+				},
+				{
+					Dir:      filepath.Join("keyvault-accesspolicies", "3-update-accesspolicies"),
+					Additive: true,
+					// Check that the stand-alone AccessPolicies were updated resp. deleted.
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						assert.NotNil(t, stackInfo.Deployment)
+						assert.NotNil(t, stackInfo.Deployment.Resources)
+
+						ap1Found := false
+						for _, resource := range stackInfo.Deployment.Resources {
+							urn := string(resource.URN)
+							if strings.HasSuffix(urn, "keyvault:AccessPolicy::ap1") {
+								ap1Found = true
+								accessPolicy, ok := resource.Outputs["accessPolicy"]
+								assert.True(t, ok, "Property 'accessPolicy' not found")
+								accessPolicyObj, ok := accessPolicy.(map[string]interface{})
+								assert.True(t, ok, "Property 'accessPolicy' is not an object")
+
+								permissions, ok := accessPolicyObj["permissions"]
+								assert.True(t, ok, "Property 'accessPolicy.permissions' not found")
+								permissionsObj, ok := permissions.(map[string]interface{})
+								assert.True(t, ok, "Property 'accessPolicy.permissions' is not an object")
+
+								keyPermissions, ok := permissionsObj["keys"]
+								assert.True(t, ok, "Property 'accessPolicy.permissions.keys' not found")
+								keyPermissionsArray, ok := keyPermissions.([]any)
+								assert.True(t, ok, "Property 'accessPolicy.permissions.keys' is not an array")
+
+								assert.Equal(t, 1, len(keyPermissionsArray))
+								assert.Equal(t, "get", keyPermissionsArray[0].(string))
+							} else if strings.HasSuffix(urn, "keyvault:AccessPolicy::ap2") {
+								t.Errorf("AccessPolicy ap2 should have been deleted")
+							}
+						}
+						assert.True(t, ap1Found, "AccessPolicy ap1 not found")
+					},
+				},
+			},
 		})
 
 	integration.ProgramTest(t, &test)
