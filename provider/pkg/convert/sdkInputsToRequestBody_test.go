@@ -310,6 +310,30 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
+	t.Run("string set with non-strings", func(t *testing.T) {
+		actual := convert(testCaseArgs{
+			props: map[string]resources.AzureAPIProperty{
+				"userAssignedIdentities": {
+					IsStringSet: true,
+					Type:        "object",
+				},
+			},
+			inputs: map[string]interface{}{
+				"userAssignedIdentities": []interface{}{
+					"a", "b", 3,
+				},
+			},
+		})
+		expected := map[string]interface{}{
+			"userAssignedIdentities": map[string]interface{}{
+				"a": struct{}{},
+				"b": struct{}{},
+				// 3 gets ignored
+			},
+		}
+		assert.Equal(t, expected, actual)
+	})
+
 	t.Run("missing ref type continues with no change", func(t *testing.T) {
 		actual := convert(testCaseArgs{
 			props: map[string]resources.AzureAPIProperty{
@@ -350,6 +374,71 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		expected := map[string]interface{}{
 			"oneOf": map[string]interface{}{
 				"prop1": "value",
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("oneOf type", func(t *testing.T) {
+		actual := convert(testCaseArgs{
+			props: map[string]resources.AzureAPIProperty{
+				"oneOf": {
+					OneOf: []string{"#types/azure-native:testing:Type1", "#types/azure-native:testing:Type2"},
+				},
+			},
+			inputs: map[string]interface{}{
+				"oneOf": map[string]interface{}{
+					"prop1": "type1",
+				},
+			},
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:Type1": {
+					"prop1": {
+						Const: "type1",
+					},
+				},
+			},
+		})
+
+		expected := map[string]interface{}{
+			"oneOf": map[string]interface{}{
+				"prop1": "type1",
+			},
+		}
+
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("mismatching oneOf type", func(t *testing.T) {
+		actual := convert(testCaseArgs{
+			types: map[string]map[string]resources.AzureAPIProperty{
+				"azure-native:testing:Type1": {
+					"prop1": {
+						Const: "type1",
+					},
+				},
+				"azure-native:testing:Type2": {
+					"prop1": {
+						Const: "type2",
+					},
+				},
+			},
+			props: map[string]resources.AzureAPIProperty{
+				"oneOf": {
+					OneOf: []string{"#types/azure-native:testing:Type1", "#types/azure-native:testing:Type2"},
+				},
+			},
+			inputs: map[string]interface{}{
+				"oneOf": map[string]interface{}{
+					"prop1": "foo",
+				},
+			},
+		})
+
+		expected := map[string]interface{}{
+			"oneOf": map[string]interface{}{
+				"prop1": "foo",
 			},
 		}
 
