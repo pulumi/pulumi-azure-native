@@ -333,11 +333,11 @@ HybridContainerService:
   exclusions:
     # Temporarily remove additional resources from 2023-11-15-preview as they conflict with types from 2022-09-01-preview
     # We could consider trying to upgrade the tracking version to 2023-11-15-preview once we're sure it's available in all regions.
-    KubernetesVersions: 2023-11-15-preview
-    VMSkus: 2023-11-15-preview
-    listprovisionedClusterInstanceAdminKubeconfig: 2023-11-15-preview
-    listprovisionedClusterInstanceUserKubeconfig: 2023-11-15-preview
-    provisionedClusterInstance: 2023-11-15-preview
+    KubernetesVersions: "2024-01-01"
+    VMSkus: "2024-01-01"
+    listprovisionedClusterInstanceAdminKubeconfig: "2024-01-01"
+    listprovisionedClusterInstanceUserKubeconfig: "2024-01-01"
+    provisionedClusterInstance: "2024-01-01"
 HybridData:
 HybridNetwork:
   notes: |
