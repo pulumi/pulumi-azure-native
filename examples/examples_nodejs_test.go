@@ -200,7 +200,8 @@ func TestAccKeyVaultAccessPoliciesTs(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "keyvault-accesspolicies"),
+			ExpectRefreshChanges: false,
+			Dir:                  filepath.Join(getCwd(t), "keyvault-accesspolicies"),
 			EditDirs: []integration.EditDir{
 				{
 					Dir:      filepath.Join("keyvault-accesspolicies", "2-update-keyvault"),
