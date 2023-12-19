@@ -1,7 +1,6 @@
 package gen
 
 import (
-	"encoding/json"
 	"fmt"
 	"strings"
 
@@ -138,7 +137,7 @@ func isPrimitiveType(t schema.TypeSpec) bool {
 
 // unionOneOfTypes checks that two oneOf types are allowed to be represented as a single schema type.
 func unionOneOfTypes(oneOf, other schema.TypeSpec) (*schema.TypeSpec, error) {
-	contract.Assert(oneOf.OneOf != nil)
+	contract.Assertf(oneOf.OneOf != nil, "Type %v is not a oneOf", oneOf)
 	if isPrimitiveType(other) {
 		// Check if type exists in oneOf.
 		for _, t := range oneOf.OneOf {
@@ -235,10 +234,10 @@ func unionOneOfTypes(oneOf, other schema.TypeSpec) (*schema.TypeSpec, error) {
 // 	}
 // 	return nil, errors.Errorf("cannot union oneOf with specified type %v", other)
 // }
-
-func oneOfTypeKey(t schema.TypeSpec) string {
-	// convert to json
-	b, err := json.Marshal(t)
-	contract.Assert(err == nil)
-	return string(b)
-}
+//
+// func oneOfTypeKey(t schema.TypeSpec) string {
+// 	// convert to json
+// 	b, err := json.Marshal(t)
+// 	contract.Assert(err == nil)
+// 	return string(b)
+// }
