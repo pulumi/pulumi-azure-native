@@ -1,6 +1,7 @@
 package provider
 
 import (
+	"context"
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -189,49 +190,65 @@ func TestWritePropertiesToBody(t *testing.T) {
 	})
 }
 
-func TestFindUnsetPropertiesToMaintain(t *testing.T) {
-	res := resources.AzureAPIResource{
+func TestFindUnsetSubResourceProperties(t *testing.T) {
+	resWithSubResource := &resources.AzureAPIResource{
 		PutParameters: []resources.AzureAPIParameter{
 			{
 				Location: "body",
 				Body: &resources.AzureAPIType{
 					Properties: map[string]resources.AzureAPIProperty{
-						"properties": {
-							Type: "object",
-							Ref:  "#/types/azure-native:keyvault:VaultProperties",
+						"subResource": {
+							Type: "string",
 						},
 					},
 				},
 			},
 		},
-		SubResourcesToMaintainIfUnset: [][]string{{"properties", "accessPolicies"}},
+		SubResourcesToMaintainIfUnset: [][]string{{"subResource"}},
 	}
 
-	provider := azureNativeProvider{
-		// Mock the type lookup to only return the type referenced in the resource above
-		lookupType: func(ref string) (*resources.AzureAPIType, bool, error) {
-			if ref == "#/types/azure-native:keyvault:VaultProperties" {
-				return &resources.AzureAPIType{
-					Properties: map[string]resources.AzureAPIProperty{
-						"accessPolicies": {
-							Type: "array",
-							Items: &resources.AzureAPIProperty{
-								Type: "object",
-								Ref:  "#/types/azure-native:keyvault:AccessPolicyEntry",
-							},
-						},
-					},
-				}, true, nil
-			}
-			return nil, false, nil
-		},
-	}
+	provider := azureNativeProvider{}
+
+	t.Run("empty", func(t *testing.T) {
+		res := &resources.AzureAPIResource{}
+		oldInputs := map[string]any{}
+		actual := provider.findUnsetPropertiesToMaintain(res, oldInputs)
+		expected := []propertyPath{}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("sub-resource not set", func(t *testing.T) {
+		oldInputs := map[string]any{
+			"existing": "value",
+		}
+		actual := provider.findUnsetPropertiesToMaintain(resWithSubResource, oldInputs)
+		expected := []propertyPath{{
+			property:     resWithSubResource.PutParameters[0].Body.Properties["subResource"],
+			propertyName: "subResource",
+			path:         []string{"subResource"},
+		}}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("sub-resource set", func(t *testing.T) {
+		oldInputs := map[string]any{
+			"existing":    "value",
+			"subResource": "value",
+		}
+		actual := provider.findUnsetPropertiesToMaintain(resWithSubResource, oldInputs)
+		expected := []propertyPath{}
+		assert.Equal(t, expected, actual)
+	})
+}
+
+func TestFindUnsetSubResourcePropertiesFollowingTypeRefs(t *testing.T) {
+	res, provider := setUpResourceWithRefAndProviderWithTypeLookup()
 
 	t.Run("KV accessPolicies is not set", func(t *testing.T) {
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{},
 		}
-		unset := provider.findUnsetPropertiesToMaintain(&res, bodyParams)
+		unset := provider.findUnsetPropertiesToMaintain(res, bodyParams)
 		assert.Equal(t, 1, len(unset))
 		assert.Equal(t, "accessPolicies", unset[0].propertyName)
 		assert.Equal(t, []string{"properties", "accessPolicies"}, unset[0].path)
@@ -243,52 +260,8 @@ func TestFindUnsetPropertiesToMaintain(t *testing.T) {
 				"accessPolicies": []interface{}{},
 			},
 		}
-		unset := provider.findUnsetPropertiesToMaintain(&res, bodyParams)
+		unset := provider.findUnsetPropertiesToMaintain(res, bodyParams)
 		assert.Empty(t, unset)
-	})
-}
-
-func TestFindUnsetSubResourceProperties(t *testing.T) {
-	resWithSubResource := &resources.AzureAPIResource{
-		PutParameters: []resources.AzureAPIParameter{
-			{
-				Location: "body",
-				Body: &resources.AzureAPIType{
-					Properties: map[string]resources.AzureAPIProperty{
-						"subResource": {
-							Type:                       "string",
-							MaintainSubResourceIfUnset: true,
-						},
-					},
-				},
-			},
-		},
-	}
-	t.Run("empty", func(t *testing.T) {
-		res := &resources.AzureAPIResource{}
-		oldInputs := resource.PropertyMap{}
-		actual := findUnsetSubResourceProperties(res, oldInputs)
-		var expected []string
-		assert.Equal(t, expected, actual)
-	})
-
-	t.Run("sub-resource not set", func(t *testing.T) {
-		oldInputs := resource.PropertyMap{
-			"existing": resource.NewStringProperty("value"),
-		}
-		actual := findUnsetSubResourceProperties(resWithSubResource, oldInputs)
-		expected := []string{"subResource"}
-		assert.Equal(t, expected, actual)
-	})
-
-	t.Run("sub-resource set", func(t *testing.T) {
-		oldInputs := resource.PropertyMap{
-			"existing":    resource.NewStringProperty("value"),
-			"subResource": resource.NewStringProperty("value"),
-		}
-		actual := findUnsetSubResourceProperties(resWithSubResource, oldInputs)
-		var expected []string
-		assert.Equal(t, expected, actual)
 	})
 }
 
@@ -426,4 +399,119 @@ func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
 	})
 	assert.Contains(t, m, "__inputs")
 	assert.Contains(t, m, "networkRuleSet")
+}
+
+func TestDeleteFromMap(t *testing.T) {
+	m := map[string]any{
+		"a": "scalar",
+		"b": map[string]any{
+			"b.a": "scalar",
+			"b.b": map[string]any{
+				"b.b.a": map[string]any{},
+			},
+		},
+	}
+
+	deleted := deleteFromMap(m, []string{"a"})
+	assert.True(t, deleted)
+	assert.NotContains(t, m, "a")
+	assert.Contains(t, m, "b")
+
+	deleted = deleteFromMap(m, []string{"b", "b.b", "b.b.a"})
+	assert.True(t, deleted)
+	assert.Contains(t, m, "b")
+	b := m["b"].(map[string]any)
+	assert.Contains(t, b, "b.a")
+	assert.Contains(t, b, "b.b")
+	bb := b["b.b"].(map[string]any)
+	assert.NotContains(t, bb, "b.b.a")
+
+	assert.False(t, deleteFromMap(m, []string{"b", "notfound"}))
+}
+
+func TestRemoveUnsetSubResourceProperties(t *testing.T) {
+	ctx := context.Background()
+
+	res, provider := setUpResourceWithRefAndProviderWithTypeLookup()
+
+	t.Run("empty", func(t *testing.T) {
+		empty := &resources.AzureAPIResource{}
+		oldInputs := resource.PropertyMap{}
+		sdkResponse := map[string]any{}
+		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, empty)
+		expected := map[string]any{}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("remove", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{}
+		sdkResponse := map[string]any{
+			"properties": map[string]any{
+				"accessPolicies": []any{},
+			},
+		}
+		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
+		expected := map[string]any{"properties": map[string]any{}}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("preserve", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			resource.PropertyKey("properties"): resource.NewObjectProperty(resource.PropertyMap{
+				resource.PropertyKey("accessPolicies"): resource.NewArrayProperty([]resource.PropertyValue{}),
+			}),
+		}
+		sdkResponse := map[string]any{
+			"properties": map[string]any{
+				"accessPolicies": []any{},
+			},
+		}
+		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
+		expected := sdkResponse
+		assert.Equal(t, expected, actual)
+	})
+}
+
+// Helper to avoid repeating the same setup code in multiple tests. Returns a resource with a
+// "properties" property of type azure-native:keyvault:VaultProperties, which the returned provider
+// will return when asked to look up that type.
+func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResource, *azureNativeProvider) {
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"properties": {
+							Type: "object",
+							Ref:  "#/types/azure-native:keyvault:VaultProperties",
+						},
+					},
+				},
+			},
+		},
+		SubResourcesToMaintainIfUnset: [][]string{{"properties", "accessPolicies"}},
+	}
+
+	provider := azureNativeProvider{
+		// Mock the type lookup to only return the type referenced in the resource above
+		lookupType: func(ref string) (*resources.AzureAPIType, bool, error) {
+			if ref == "#/types/azure-native:keyvault:VaultProperties" {
+				return &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"accessPolicies": {
+							Type: "array",
+							Items: &resources.AzureAPIProperty{
+								Type: "object",
+								Ref:  "#/types/azure-native:keyvault:AccessPolicyEntry",
+							},
+						},
+					},
+				}, true, nil
+			}
+			return nil, false, nil
+		},
+	}
+
+	return &res, &provider
 }

@@ -1131,8 +1131,10 @@ func mappableOldState(res resources.AzureAPIResource, oldState resource.Property
 	return plainOldState
 }
 
+// removeUnsetSubResourceProperties removes sub-resource properties from new outputs which weren't set in the old inputs.
+// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
 func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]interface{}, oldInputs resource.PropertyMap, res *resources.AzureAPIResource) map[string]interface{} {
-	propertiesToRemove := findUnsetSubResourceProperties(res, oldInputs)
+	propertiesToRemove := k.findUnsetPropertiesToMaintain(res, oldInputs.Mappable())
 
 	if len(propertiesToRemove) == 0 {
 		return sdkResponse
@@ -1149,29 +1151,32 @@ func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Conte
 	}
 
 	for _, prop := range propertiesToRemove {
-		delete(result, prop)
+		deleteFromMap(result, prop.path)
 	}
 	return result
 }
 
-func findUnsetSubResourceProperties(res *resources.AzureAPIResource, oldInputs resource.PropertyMap) []string {
-	var propertiesToRemove []string
-	if body := res.BodyParameter(); body != nil {
-		for propName, prop := range body.Body.Properties {
-			if !prop.MaintainSubResourceIfUnset {
-				continue
+func deleteFromMap(m map[string]interface{}, path []string) bool {
+	container := m
+	for i, key := range path {
+		if i == len(path)-1 {
+			_, found := container[key]
+			if found {
+				delete(container, key)
 			}
-			key := propName
-			if prop.SdkName != "" {
-				key = prop.SdkName
-			}
-			propKey := resource.PropertyKey(key)
-			if !oldInputs.HasValue(propKey) {
-				propertiesToRemove = append(propertiesToRemove, key)
-			}
+			return found
+		}
+
+		value, ok := container[key]
+		if !ok {
+			return false
+		}
+		container, ok = value.(map[string]interface{})
+		if !ok {
+			return false
 		}
 	}
-	return propertiesToRemove
+	return false
 }
 
 // Update updates an existing resource with new values.
@@ -1471,8 +1476,8 @@ func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[stri
 func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}) []propertyPath {
 	missingProperties := []propertyPath{}
 
-	body := res.BodyParameter()
-	if body == nil {
+	body, ok := res.BodyParameter()
+	if !ok {
 		return missingProperties
 	}
 

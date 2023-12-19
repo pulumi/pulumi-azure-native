@@ -87,3 +87,61 @@ func TestAutoName(t *testing.T) {
 		assert.Equal(t, expected, string(actual))
 	}
 }
+
+func TestTraverseProperties(t *testing.T) {
+	properties := map[string]AzureAPIProperty{
+		"properties": {
+			Type: "object",
+			Ref:  "#/types/azure-native:keyvault:VaultProperties",
+		},
+		"location": {
+			Type: "string",
+		},
+	}
+
+	// Mock the type lookup to only return the type referenced in the resource above
+	lookupType := func(ref string) (*AzureAPIType, bool, error) {
+		if ref == "#/types/azure-native:keyvault:VaultProperties" {
+			return &AzureAPIType{
+				Properties: map[string]AzureAPIProperty{
+					"accessPolicies": {
+						Type: "array",
+						Items: &AzureAPIProperty{
+							Type: "object",
+							Ref:  "#/types/azure-native:keyvault:AccessPolicyEntry",
+						},
+						Containers: []string{"container"}, // not the case in the real KV spec but we want to test this
+					},
+				},
+			}, true, nil
+		}
+		if ref == "#/types/azure-native:keyvault:AccessPolicyEntry" {
+			return &AzureAPIType{
+				Properties: map[string]AzureAPIProperty{
+					"permissions": {
+						Type: "array",
+						Items: &AzureAPIProperty{
+							Type: "string", // not true in the real KV spec but good enough
+						},
+					},
+				},
+			}, true, nil
+		}
+		return nil, false, nil
+	}
+
+	visited := map[string][]string{}
+	visitor := func(name string, property AzureAPIProperty, path []string) {
+		visited[name] = path
+	}
+
+	TraverseProperties(properties, lookupType, visitor)
+
+	expected := map[string][]string{
+		"properties":     {},
+		"accessPolicies": {"properties", "container"},
+		"permissions":    {"properties", "container", "accessPolicies"},
+		"location":       {},
+	}
+	assert.Equal(t, expected, visited)
+}

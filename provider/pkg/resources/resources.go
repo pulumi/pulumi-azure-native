@@ -61,12 +61,17 @@ type AzureAPIProperty struct {
 	IsStringSet bool `json:"isStringSet,omitempty"`
 	// Default is the default value for the parameter, if any
 	Default interface{} `json:"default,omitempty"`
-	// Some resources are nested beneath other resources, but are also made available as a property on the parent.
-	// When updating the parent, if the list of nested resources is not specified as a property on the parent, the child resources will be deleted.
-	// When refreshing the parent, the list of nested resources will be populated from the current state - resulting in an unwanted diff.
-	// We work around this by setting MaintainSubResourceIfUnset to true for the properties containing a list of nested resources.
-	// When updating or refreshing the parent, if the list of nested resources was not originally specified inline, we'll maintain the existing sub-resources transparently.
-	MaintainSubResourceIfUnset bool `json:"maintainSubResourceIfUnset,omitempty"`
+	// Some resources are nested beneath other resources, but are also made available as a property
+	// on the parent. This flag temporarily marks properties that hold such sub-resources, for
+	// later aggregation. For more detail, see AzureAPIResource.SubResourcesToMaintainIfUnset.
+	maintainSubResourceIfUnset bool
+}
+
+// We don't want this property exposed because it gets aggregated into
+// AzureAPIResource.SubResourcesToMaintainIfUnset, but we need to track it during schema
+// generation from the gen package.
+func (prop *AzureAPIProperty) SetMaintainSubResourceIfUnset(val bool) {
+	prop.maintainSubResourceIfUnset = val
 }
 
 // AzureAPIType represents the shape of an object property.
@@ -127,16 +132,22 @@ func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 
 func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, path []string, seen map[string]struct{}, f func(propName string, prop AzureAPIProperty, path []string)) {
 	for propName, prop := range props {
-		if prop.Ref != "" && strings.HasPrefix(prop.Ref, "#/types/azure-native") {
-			refType, ok, err := lookupType(prop.Ref)
+		path = append(path, prop.Containers...)
+
+		ref := prop.Ref
+		if ref == "" && prop.Items != nil {
+			ref = prop.Items.Ref
+		}
+		if ref != "" && strings.HasPrefix(ref, "#/types/azure-native") {
+			refType, ok, err := lookupType(ref)
 			if !ok || err != nil {
-				fmt.Printf("Cannot traverse properties of %s: failed to find ref %s: %v\n", propName, prop.Ref, err)
+				fmt.Printf("Cannot traverse properties of %s: failed to find ref %s: %v\n", propName, ref, err)
 				continue
 			}
-			if _, visited := seen[prop.Ref]; !visited {
-				seen[prop.Ref] = struct{}{}
-				nextPath := append(path, prop.Containers...)
-				nextPath = append(nextPath, propName)
+			if _, visited := seen[ref]; !visited {
+				seen[ref] = struct{}{}
+				nextPath := append([]string{}, path...)
+				nextPath = append(path, propName)
 				traverseProperties(refType.Properties, lookupType, nextPath, seen, f)
 			}
 		}
@@ -146,8 +157,8 @@ func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 }
 
 func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup TypeLookupFunc) {
-	body := res.BodyParameter()
-	if body == nil {
+	body, hasBody := res.BodyParameter()
+	if !hasBody {
 		return
 	}
 
@@ -156,7 +167,7 @@ func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup Type
 		body.Body.Properties,
 		typeLookup,
 		func(propName string, prop AzureAPIProperty, path []string) {
-			if prop.MaintainSubResourceIfUnset {
+			if prop.maintainSubResourceIfUnset {
 				// make a copy of path since the original might be passed to other callbacks
 				pathToProperty := append([]string{}, path...)
 				result = append(result, append(pathToProperty, propName))
@@ -167,7 +178,7 @@ func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup Type
 }
 
 func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {
-	if body := res.BodyParameter(); body != nil {
+	if body, ok := res.BodyParameter(); ok {
 		if prop, ok := body.Body.Properties[key]; ok {
 			return prop, true
 		}
@@ -175,13 +186,14 @@ func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool)
 	return AzureAPIProperty{}, false
 }
 
-func (res *AzureAPIResource) BodyParameter() *AzureAPIParameter {
+// BodyParameter returns the body parameter of a resource's PUT parameters, if any.
+func (res *AzureAPIResource) BodyParameter() (*AzureAPIParameter, bool) {
 	for _, param := range res.PutParameters {
 		if param.Location == "body" || param.Body != nil {
-			return &param
+			return &param, true
 		}
 	}
-	return nil
+	return nil, false
 }
 
 // AzureAPIExample provides a pointer to examples relevant to a resource from the Azure REST API spec.
