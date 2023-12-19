@@ -1,7 +1,6 @@
 package gen
 
 import (
-	"encoding/json"
 	"fmt"
 	"strings"
 
@@ -81,15 +80,23 @@ func mergeTypeSpec(t1, t2 schema.TypeSpec) (*schema.TypeSpec, error) {
 		if t1.Type == t2.Type {
 			return &t1, nil
 		}
+		if t1.Type == "integer" && t2.Type == "number" || t1.Type == "number" && t2.Type == "integer" {
+			// If one is an integer and the other is a number, the merged type is number.
+			return &schema.TypeSpec{Type: "number"}, nil
+		}
 	}
 
-	// Simple case: both types are the same ref.
-	if t1.Ref == t2.Ref && t1.Ref != "" {
-		return &t1, nil
+	if t1.Ref != "" && t2.Ref != "" {
+		// Simple case: both types are the same ref.
+		if t1.Ref == t2.Ref {
+			return &t1, nil
+		}
+		// Refs don't match - fail with error.
+		return nil, errors.Errorf("refs do not match: %s vs %s", t1.Ref, t2.Ref)
 	}
 
 	if t1.Type == "array" && t2.Type == "array" {
-		contract.Assert(t1.Items != nil && t2.Items != nil)
+		contract.Assertf(t1.Items != nil && t2.Items != nil, "Type %v is missing items (other: %v)", t1, t2)
 		// Both are arrays - merge the element types.
 		items, err := mergeTypeSpec(*t1.Items, *t2.Items)
 		if err != nil {
@@ -130,7 +137,7 @@ func isPrimitiveType(t schema.TypeSpec) bool {
 
 // unionOneOfTypes checks that two oneOf types are allowed to be represented as a single schema type.
 func unionOneOfTypes(oneOf, other schema.TypeSpec) (*schema.TypeSpec, error) {
-	contract.Assert(oneOf.OneOf != nil)
+	contract.Assertf(oneOf.OneOf != nil, "Type %v is not a oneOf", oneOf)
 	if isPrimitiveType(other) {
 		// Check if type exists in oneOf.
 		for _, t := range oneOf.OneOf {
@@ -227,10 +234,10 @@ func unionOneOfTypes(oneOf, other schema.TypeSpec) (*schema.TypeSpec, error) {
 // 	}
 // 	return nil, errors.Errorf("cannot union oneOf with specified type %v", other)
 // }
-
-func oneOfTypeKey(t schema.TypeSpec) string {
-	// convert to json
-	b, err := json.Marshal(t)
-	contract.Assert(err == nil)
-	return string(b)
-}
+//
+// func oneOfTypeKey(t schema.TypeSpec) string {
+// 	// convert to json
+// 	b, err := json.Marshal(t)
+// 	contract.Assert(err == nil)
+// 	return string(b)
+// }

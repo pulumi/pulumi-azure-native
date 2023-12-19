@@ -34,6 +34,55 @@ func Test_mergeTypes(t *testing.T) {
 		wantErr bool
 	}{
 		{
+			name: "object and enum",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: schema.TypeSpec{
+							Type: "number",
+						},
+					},
+				}),
+				t2: schema.ComplexTypeSpec{
+					ObjectTypeSpec: schema.ObjectTypeSpec{
+						Type: "string",
+					},
+					Enum: []schema.EnumValueSpec{
+						{Value: "foo"},
+					},
+				},
+			},
+			wantErr: true,
+		},
+
+		{
+			name: "integer and number becomes number",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: schema.TypeSpec{
+							Type: "number",
+						},
+					},
+				}),
+				t2: objectComplexType(map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: schema.TypeSpec{
+							Type: "integer",
+						},
+					},
+				}),
+			},
+			want: objectComplexType(map[string]schema.PropertySpec{
+				"foo": {
+					TypeSpec: schema.TypeSpec{
+						Type: "number",
+					},
+				},
+			}),
+		},
+
+		{
 			name: "includes both distinct properties",
 			args: args{
 				t1: objectComplexType(map[string]schema.PropertySpec{
@@ -93,6 +142,20 @@ func Test_mergeTypes(t *testing.T) {
 			want: objectComplexType(map[string]schema.PropertySpec{
 				"foo": refPropertySpec("#/definitions/ResourceId"),
 			}),
+		},
+
+		{
+			name: "non-matching refs",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": refPropertySpec("#/definitions/A"),
+				}),
+				t2: objectComplexType(map[string]schema.PropertySpec{
+					"foo": refPropertySpec("#/definitions/B"),
+				}),
+				isOutput: true,
+			},
+			wantErr: true,
 		},
 
 		{
@@ -232,6 +295,19 @@ func Test_mergeTypes(t *testing.T) {
 		},
 
 		{
+			name: "array of incompatible refs",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": arrayPropertySpec(refType("#/definitions/A")),
+				}),
+				t2: objectComplexType(map[string]schema.PropertySpec{
+					"foo": arrayPropertySpec(refType("#/definitions/B")),
+				}),
+			},
+			wantErr: true,
+		},
+
+		{
 			name: "map of strings",
 			args: args{
 				t1: objectComplexType(map[string]schema.PropertySpec{
@@ -244,6 +320,86 @@ func Test_mergeTypes(t *testing.T) {
 			want: objectComplexType(map[string]schema.PropertySpec{
 				"foo": objectPropertySpec(stringType()),
 			}),
+		},
+
+		{
+			name: "map of incompatible types",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": objectPropertySpec(refType("#/definitions/A")),
+				}),
+				t2: objectComplexType(map[string]schema.PropertySpec{
+					"foo": objectPropertySpec(refType("#/definitions/B")),
+				}),
+			},
+			wantErr: true,
+		},
+
+		{
+			name: "non-mergable types",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": objectPropertySpec(refType("#/definitions/A")),
+				}),
+				t2: objectComplexType(map[string]schema.PropertySpec{
+					"foo": arrayPropertySpec(refType("#/definitions/A")),
+				}),
+			},
+			wantErr: true,
+		},
+
+		{
+			name: "merge oneOf with primative",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: oneOfType(refType("#/definitions/A"), refType("#/definitions/B")),
+					},
+				}),
+				t2: objectComplexType(map[string]schema.PropertySpec{
+					"foo": stringPropertySpec(),
+				}),
+			},
+			want: objectComplexType(map[string]schema.PropertySpec{
+				"foo": {
+					TypeSpec: oneOfType(refType("#/definitions/A"), refType("#/definitions/B"), stringType()),
+				},
+			}),
+		},
+
+		{
+			name: "merge oneOfs with different discriminators",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: discriminatedType("a", map[string]string{"a": "#/definitions/A", "b": "#/definitions/B"}, refType("#/definitions/A"), refType("#/definitions/B")),
+					},
+				}),
+				t2: objectComplexType(map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: discriminatedType("b", map[string]string{"a": "#/definitions/A", "c": "#/definitions/C"}, refType("#/definitions/A"), refType("#/definitions/C")),
+					},
+				}),
+			},
+			wantErr: true,
+		},
+
+		{
+			name: "merge oneOfs with array",
+			args: args{
+				t1: objectComplexType(map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: oneOfType(refType("#/definitions/A"), refType("#/definitions/B"), stringType()),
+					},
+				}),
+				t2: objectComplexType(map[string]schema.PropertySpec{
+					"foo": {
+						TypeSpec: arrayType(refType("#/definitions/A")),
+					},
+				}),
+			},
+			// cannot union oneOf with specified type
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
