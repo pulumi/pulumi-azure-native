@@ -5,6 +5,7 @@ package resources
 import (
 	"fmt"
 	"regexp"
+	"sort"
 	"strings"
 
 	"github.com/gedex/inflector"
@@ -132,7 +133,15 @@ func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 }
 
 func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, path []string, seen map[string]struct{}, f func(propName string, prop AzureAPIProperty, path []string)) {
-	for propName, prop := range props {
+	// Sort the properties to ensure stable output
+	propNames := make([]string, 0, len(props))
+	for propName := range props {
+		propNames = append(propNames, propName)
+	}
+	sort.StringSlice(propNames).Sort()
+
+	for _, propName := range propNames {
+		prop := props[propName]
 		pathCopy := append([]string{}, path...)
 		pathCopy = append(pathCopy, prop.Containers...)
 
