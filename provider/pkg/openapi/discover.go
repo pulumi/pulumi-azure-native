@@ -333,6 +333,10 @@ var excludeRegexes = []*regexp.Regexp{
 	// This preview version defines two types with the same name (one enum, one object) which fails to pass our codegen.
 	// It's old, preview, and not important - so exclude the files of this version.
 	regexp.MustCompile(".*frontdoor/resource-manager/Microsoft.Network/preview/2018-08-01-preview.*"),
+	// This version conflicts with the managed folder version:
+	// servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2023-11-01-preview
+	// This causes a conflict in the version-specific folder, not the default version folder, so we have to completely exclude it.
+	regexp.MustCompile(".*servicefabric/resource-manager/Microsoft.ServiceFabric/preview/2023-11-01-preview.*"),
 }
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
