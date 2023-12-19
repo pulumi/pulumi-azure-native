@@ -133,7 +133,8 @@ func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 
 func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, path []string, seen map[string]struct{}, f func(propName string, prop AzureAPIProperty, path []string)) {
 	for propName, prop := range props {
-		path = append(path, prop.Containers...)
+		pathCopy := append([]string{}, path...)
+		pathCopy = append(pathCopy, prop.Containers...)
 
 		ref := prop.Ref
 		if ref == "" && prop.Items != nil {
@@ -147,13 +148,12 @@ func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 			}
 			if _, visited := seen[ref]; !visited {
 				seen[ref] = struct{}{}
-				nextPath := append([]string{}, path...)
-				nextPath = append(path, propName)
+				nextPath := append(pathCopy, propName)
 				traverseProperties(refType.Properties, lookupType, nextPath, seen, f)
 			}
 		}
 
-		f(propName, prop, path)
+		f(propName, prop, pathCopy)
 	}
 }
 
@@ -171,7 +171,8 @@ func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup Type
 			if prop.maintainSubResourceIfUnset {
 				// make a copy of path since the original might be passed to other callbacks
 				pathToProperty := append([]string{}, path...)
-				result = append(result, append(pathToProperty, propName))
+				pathToProperty = append(pathToProperty, propName)
+				result = append(result, pathToProperty)
 			}
 		})
 
