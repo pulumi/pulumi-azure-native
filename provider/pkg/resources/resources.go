@@ -117,10 +117,11 @@ type AzureAPIResource struct {
 	// Some resources are nested beneath other resources, but are also made available as a property on the parent.
 	// When updating the parent, if the list of nested resources is not specified as a property on the parent, the child resources will be deleted.
 	// When refreshing the parent, the list of nested resources will be populated from the current state - resulting in an unwanted diff.
-	// We work around this by adding these properties containing a list of nested resources to SubResourcesToMaintainIfUnset.
+	// We work around this by adding these properties containing a list of nested resources to ApiPathsToSubResourcesToMaintainIfUnset.
 	// When updating or refreshing the parent, if the list of nested resources was not originally specified inline, we'll maintain the existing sub-resources transparently.
 	// The values are property paths pointing to the property, like ["property"] (top-level) or ["container", "property"].
-	SubResourcesToMaintainIfUnset [][]string `json:"subResourcesToMaintainIfUnset,omitempty"`
+	// The paths are in API-shape, that is, they contain flattened containers and the names are not SDK names.
+	ApiPathsToSubResourcesToMaintainIfUnset [][]string `json:"subResourcesToMaintainIfUnset,omitempty"`
 }
 
 type TypeLookupFunc func(ref string) (*AzureAPIType, bool, error)
@@ -174,7 +175,7 @@ func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup Type
 			}
 		})
 
-	res.SubResourcesToMaintainIfUnset = result
+	res.ApiPathsToSubResourcesToMaintainIfUnset = result
 }
 
 func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {

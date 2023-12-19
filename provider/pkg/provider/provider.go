@@ -1483,7 +1483,7 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 
 	curBody := bodyParams
 	curRes := body.Body.Properties
-	for _, path := range res.SubResourcesToMaintainIfUnset {
+	for _, path := range res.ApiPathsToSubResourcesToMaintainIfUnset {
 		for i, pathEl := range path {
 			p, ok := curRes[pathEl]
 			if !ok {

@@ -204,7 +204,7 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 				},
 			},
 		},
-		SubResourcesToMaintainIfUnset: [][]string{{"subResource"}},
+		ApiPathsToSubResourcesToMaintainIfUnset: [][]string{{"subResource"}},
 	}
 
 	provider := azureNativeProvider{}
@@ -490,7 +490,7 @@ func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResourc
 				},
 			},
 		},
-		SubResourcesToMaintainIfUnset: [][]string{{"properties", "accessPolicies"}},
+		ApiPathsToSubResourcesToMaintainIfUnset: [][]string{{"properties", "accessPolicies"}},
 	}
 
 	provider := azureNativeProvider{
