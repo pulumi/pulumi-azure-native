@@ -127,7 +127,7 @@ func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 
 func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, path []string, seen map[string]struct{}, f func(propName string, prop AzureAPIProperty, path []string)) {
 	for propName, prop := range props {
-		if prop.Ref != "" {
+		if prop.Ref != "" && strings.HasPrefix(prop.Ref, "#/types/azure-native") {
 			refType, ok, err := lookupType(prop.Ref)
 			if !ok || err != nil {
 				fmt.Printf("Cannot traverse properties of %s: failed to find ref %s: %v\n", propName, prop.Ref, err)
@@ -135,7 +135,9 @@ func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 			}
 			if _, visited := seen[prop.Ref]; !visited {
 				seen[prop.Ref] = struct{}{}
-				traverseProperties(refType.Properties, lookupType, append(path, propName), seen, f)
+				nextPath := append(path, prop.Containers...)
+				nextPath = append(nextPath, propName)
+				traverseProperties(refType.Properties, lookupType, nextPath, seen, f)
 			}
 		}
 
