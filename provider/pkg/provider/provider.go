@@ -581,7 +581,7 @@ func (k *azureNativeProvider) validateType(ctx string, typ *resources.AzureAPITy
 	}
 
 	for name, prop := range typ.Properties {
-		p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
+		p := prop // https://go.dev/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
 		if prop.SdkName != "" {
 			name = prop.SdkName
 		}

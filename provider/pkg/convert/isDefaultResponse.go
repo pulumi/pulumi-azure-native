@@ -20,6 +20,7 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []resources.AzureAPI
 				switch reflect.TypeOf(value).Kind() {
 				case reflect.Slice, reflect.Array:
 					collection := reflect.ValueOf(value)
+					// TODO: Add support for non-empty collections in the case that provider/pkg/openapi/defaults/defaultResourcesState has non-empty arrays added.
 					if collection.Len() > 0 {
 						return false
 					}

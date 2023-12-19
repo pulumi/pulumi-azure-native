@@ -13,7 +13,7 @@ func (k *SdkShapeConverter) ResponseBodyToSdkOutputs(props map[string]resources.
 	result := map[string]interface{}{}
 
 	for name, prop := range props {
-		p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
+		p := prop // https://go.dev/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
 		sdkName := name
 		if prop.SdkName != "" {
 			sdkName = prop.SdkName

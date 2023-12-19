@@ -31,7 +31,7 @@ func (k *SdkShapeConverter) sdkOutputsToSDKInputs(props map[string]resources.Azu
 				return nil
 			}
 
-			p := prop // https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
+			p := prop // https://go.dev/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
 			result[sdkName] = k.convertOutputToInputPropValue(&p, value)
 		}
 	}
