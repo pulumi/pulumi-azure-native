@@ -296,15 +296,15 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	metadataProperty := resources.AzureAPIProperty{
-		OneOf:                      m.getOneOfValues(typeSpec),
-		Ref:                        schemaProperty.Ref,
-		Items:                      m.itemTypeToProperty(typeSpec.Items),
-		AdditionalProperties:       m.itemTypeToProperty(typeSpec.AdditionalProperties),
-		ForceNew:                   forceNew,
-		IsStringSet:                isStringSet,
-		Default:                    defaultValue,
-		MaintainSubResourceIfUnset: maintainSubResourceIfUnset,
+		OneOf:                m.getOneOfValues(typeSpec),
+		Ref:                  schemaProperty.Ref,
+		Items:                m.itemTypeToProperty(typeSpec.Items),
+		AdditionalProperties: m.itemTypeToProperty(typeSpec.AdditionalProperties),
+		ForceNew:             forceNew,
+		IsStringSet:          isStringSet,
+		Default:              defaultValue,
 	}
+	metadataProperty.SetMaintainSubResourceIfUnset(maintainSubResourceIfUnset)
 
 	if identifiers, ok := schema.Extensions.GetStringSlice(extensionIdentifiers); ok && typeSpec.Type == "array" {
 		metadataProperty.ArrayIdentifiers = identifiers

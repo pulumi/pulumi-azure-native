@@ -184,7 +184,7 @@ func (res *AzureAPIResource) PathsToSubResourcePropertiesToMaintain(includeConta
 		typeLookup,
 		includeContainers,
 		func(propName string, prop AzureAPIProperty, path []string) {
-			if prop.MaintainSubResourceIfUnset {
+			if prop.maintainSubResourceIfUnset {
 				// make a copy of path since the original might be passed to other callbacks
 				pathToProperty := append([]string{}, path...)
 				pathToProperty = append(pathToProperty, propName)
