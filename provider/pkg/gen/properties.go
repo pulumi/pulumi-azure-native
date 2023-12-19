@@ -377,13 +377,13 @@ func mergeRequiredContainers(a, b RequiredContainers) RequiredContainers {
 	return result
 }
 
-// forceNew return true if a property with a given name requires a replacement in the resource
-// that is currently being generated, based on forceNewMap.
+// forceNew returns true if a change to a given property requires a replacement in the resource
+// that is currently being generated, based on forceNewMap and the "x-ms-mutability" API spec extension.
 func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, isType bool) bool {
 	// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
 	// updatable by default.
 	// Note: a non-updatable property at a subtype level (a property of a property of a resource) does not
-	// mandate the replacement of the whole resource. Anyway, it's used very seldom (2 places at the time of writing).
+	// mandate the replacement of the whole resource.
 	// Example: `StorageAccount.encryption.services.blob.keyType` is non-updatable, but a user can remove `blob`
 	// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
 	// very disruptive).

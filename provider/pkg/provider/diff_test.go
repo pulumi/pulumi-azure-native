@@ -3,7 +3,7 @@
 package provider
 
 import (
-	"encoding/json"
+	"strings"
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -116,8 +116,7 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 			"p3": {V: true},
 		},
 	}
-	emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-	actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+	actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":          {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":          {Kind: rpc.PropertyDiff_ADD},
@@ -180,8 +179,7 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 			},
 		},
 	}
-	emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-	actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+	actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
 		"Prop2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
@@ -214,24 +212,21 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 		},
 	}
 	fooTypeName := "azure-native:foobar/v20200101:FooType"
-	fullTypes := map[string]resources.AzureAPIType{
-		"azure-native:foobar/v20200101:FooType": {
-			Properties: map[string]resources.AzureAPIProperty{
-				"ps1": {},
-				"ps2": {ForceNew: true},
-			},
-		},
+	lookupType := func(t string) (*resources.AzureAPIType, bool, error) {
+		if strings.HasSuffix(t, fooTypeName) {
+			return &resources.AzureAPIType{
+				Properties: map[string]resources.AzureAPIProperty{
+					"ps1": {},
+					"ps2": {ForceNew: true},
+				},
+			}, true, nil
+		}
+		return nil, false, nil
 	}
-	typeData, err := json.Marshal(fullTypes)
-	require.NoError(t, err)
-	var types resources.PartialMap[resources.AzureAPIType]
-	err = json.Unmarshal(typeData, &types)
-	require.NoError(t, err)
 
-	testType, ok, err := types.Get(fooTypeName)
+	_, ok, err := lookupType(fooTypeName)
 	require.NoError(t, err)
 	require.True(t, ok)
-	assert.Equal(t, testType, fullTypes[fooTypeName])
 
 	diff := resource.ObjectDiff{
 		Updates: map[resource.PropertyKey]resource.ValueDiff{
@@ -289,7 +284,7 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 			},
 		},
 	}
-	actual := calculateDetailedDiff(&res, resources.GoMap[resources.AzureAPIType](fullTypes), &diff)
+	actual := calculateDetailedDiff(&res, lookupType, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":        {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":        {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
@@ -474,8 +469,7 @@ func TestResourceGroupNameDiffingIsCaseInsensitive(t *testing.T) {
 					},
 				},
 			}
-			emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-			actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+			actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 			expected := map[string]*rpc.PropertyDiff{}
 			assert.Equal(t, expected, actual)
 		}
@@ -507,8 +501,7 @@ func TestLocationDiffingIsInsensitiveToSpacesAndCasing(t *testing.T) {
 					},
 				},
 			}
-			emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-			actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+			actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 			expected := map[string]*rpc.PropertyDiff{}
 			assert.Equal(t, expected, actual)
 		}
@@ -553,8 +546,7 @@ func TestSkuDiffingIsInsensitiveToAksPermutations(t *testing.T) {
 				},
 			},
 		}
-		emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-		actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+		actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 		if testCase[4] == "equal" {
 			expected := map[string]*rpc.PropertyDiff{}
 			assert.Equal(t, expected, actual)
@@ -562,6 +554,10 @@ func TestSkuDiffingIsInsensitiveToAksPermutations(t *testing.T) {
 			assert.Equal(t, 1, len(actual))
 		}
 	}
+}
+
+var emptyTypes resources.TypeLookupFunc = func(t string) (*resources.AzureAPIType, bool, error) {
+	return nil, false, nil
 }
 
 func TestChangesAndReplacements_AddedPropertyCausesDiff(t *testing.T) {
@@ -616,4 +612,65 @@ func calculateChangesAndReplacementsForOneAddedProperty(t *testing.T, value stri
 	}
 
 	return calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+}
+
+func TestDiffKeyedArrays(t *testing.T) {
+	old := []resource.PropertyValue{
+		{V: resource.PropertyMap{
+			"p1": {V: "unchanged"},
+			"p2": {V: "v2"},
+			"p3": {V: "v3"},
+		}},
+		{V: resource.PropertyMap{
+			"p1": {V: "updated"},
+			"p2": {V: "v2"},
+			"p3": {V: "v3"},
+		}},
+		{V: resource.PropertyMap{
+			"p1": {V: "will be deleted"},
+			"p2": {V: "v2"},
+			"p3": {V: "v3"},
+		}},
+	}
+	new := []resource.PropertyValue{
+		{V: resource.PropertyMap{
+			"p1": {V: "updated"},
+			"p2": {V: "v2222"},
+			"p3": {V: "v3333"},
+		}},
+		{V: resource.PropertyMap{
+			"p1": {V: "new"},
+			"p2": {V: "v222"},
+		}},
+		{V: resource.PropertyMap{
+			"p1": {V: "unchanged"},
+			"p2": {V: "v2"},
+			"p3": {V: "v3"},
+		}},
+	}
+	keys := []string{"p1"}
+
+	properties := map[string]resources.AzureAPIProperty{}
+	diff := diffKeyedArrays(properties, keys, old, new, "")
+
+	assert.NotNil(t, diff)
+	assert.NotNil(t, diff.Old)
+	assert.NotNil(t, diff.New)
+
+	assert.Equal(t, 1, len(diff.Array.Adds))
+	assert.Equal(t, new[1], diff.Array.Adds[1])
+
+	assert.Equal(t, 1, len(diff.Array.Updates))
+	assert.Contains(t, diff.Array.Updates, 0)
+	update := diff.Array.Updates[0]
+	assert.NotNil(t, update.Object)
+	assert.Contains(t, update.Object.Updates, resource.PropertyKey("p2"))
+	assert.Contains(t, update.Object.Updates, resource.PropertyKey("p3"))
+	assert.Contains(t, update.Object.Sames, resource.PropertyKey("p1"))
+
+	assert.Equal(t, 1, len(diff.Array.Sames))
+	assert.Equal(t, old[0], diff.Array.Sames[2])
+
+	assert.Equal(t, 1, len(diff.Array.Deletes))
+	assert.Equal(t, old[2], diff.Array.Deletes[2])
 }
