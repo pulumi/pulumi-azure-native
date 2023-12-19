@@ -22,6 +22,7 @@ import (
 
 	"github.com/go-openapi/spec"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -406,7 +407,7 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 // API property definition of that element type. It only converts the relevant subset of properties,
 // and does so recursively.
 func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *resources.AzureAPIProperty {
-	if typ == nil || typ.Ref == resources.TypeAny {
+	if typ == nil || typ.Ref == convert.TypeAny {
 		return nil
 	}
 
