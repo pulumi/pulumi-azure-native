@@ -328,7 +328,9 @@ func (cred azCoreTokenCredential) GetToken(ctx context.Context, options policy.T
 		return azcore.AccessToken{}, err
 	}
 	return azcore.AccessToken{
-		Token:     token,
+		Token: token,
+		// This hard-coded expiry is not ideal but we don't know the lifetime of the token at this
+		// point because the Azure response containing it is down the call stack in go-azure-helpers.
 		ExpiresOn: time.Now().Add(2 * time.Hour),
 	}, nil
 }
