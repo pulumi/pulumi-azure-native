@@ -81,6 +81,10 @@ func mergeTypeSpec(t1, t2 schema.TypeSpec) (*schema.TypeSpec, error) {
 		if t1.Type == t2.Type {
 			return &t1, nil
 		}
+		if t1.Type == "integer" && t2.Type == "number" || t1.Type == "number" && t2.Type == "integer" {
+			// If one is an integer and the other is a number, the merged type is number.
+			return &schema.TypeSpec{Type: "number"}, nil
+		}
 	}
 
 	if t1.Ref != "" && t2.Ref != "" {
