@@ -83,13 +83,17 @@ func mergeTypeSpec(t1, t2 schema.TypeSpec) (*schema.TypeSpec, error) {
 		}
 	}
 
-	// Simple case: both types are the same ref.
-	if t1.Ref == t2.Ref && t1.Ref != "" {
-		return &t1, nil
+	if t1.Ref != "" && t2.Ref != "" {
+		// Simple case: both types are the same ref.
+		if t1.Ref == t2.Ref {
+			return &t1, nil
+		}
+		// Refs don't match - fail with error.
+		return nil, errors.Errorf("refs do not match: %s vs %s", t1.Ref, t2.Ref)
 	}
 
 	if t1.Type == "array" && t2.Type == "array" {
-		contract.Assert(t1.Items != nil && t2.Items != nil)
+		contract.Assertf(t1.Items != nil && t2.Items != nil, "Type %v is missing items (other: %v)", t1, t2)
 		// Both are arrays - merge the element types.
 		items, err := mergeTypeSpec(*t1.Items, *t2.Items)
 		if err != nil {
