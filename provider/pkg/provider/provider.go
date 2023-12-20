@@ -985,7 +985,10 @@ func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resour
 		for _, pathEl := range p.path[:len(p.path)-1] {
 			curObj, ok := cur[pathEl]
 			if !ok {
-				break
+				newContainer := map[string]any{}
+				cur[pathEl] = newContainer
+				cur = newContainer
+				continue
 			}
 			cur, ok = curObj.(map[string]any)
 			if !ok {
@@ -993,7 +996,7 @@ func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resour
 			}
 		}
 
-		cur[p.propertyName] = []any{}
+		cur[p.path[len(p.path)-1]] = []any{}
 	}
 }
 

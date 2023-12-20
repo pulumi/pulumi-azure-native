@@ -529,3 +529,43 @@ func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResourc
 
 	return &res, &provider
 }
+
+func TestSetUnsetSubresourcePropertiesToDefaults(t *testing.T) {
+	res, provider := setUpResourceWithRefAndProviderWithTypeLookup()
+
+	t.Run("unchanged", func(t *testing.T) {
+		body := map[string]any{
+			"properties": map[string]any{
+				"accessPolicies": []any{},
+			},
+		}
+		provider.setUnsetSubresourcePropertiesToDefaults(*res, body)
+		assert.Equal(t, map[string]any{
+			"properties": map[string]any{
+				"accessPolicies": []any{},
+			},
+		}, body)
+	})
+
+	t.Run("simple missing", func(t *testing.T) {
+		body := map[string]any{
+			"properties": map[string]any{},
+		}
+		provider.setUnsetSubresourcePropertiesToDefaults(*res, body)
+		assert.Equal(t, map[string]any{
+			"properties": map[string]any{
+				"accessPolicies": []any{},
+			},
+		}, body)
+	})
+
+	t.Run("nested missing", func(t *testing.T) {
+		body := map[string]any{}
+		provider.setUnsetSubresourcePropertiesToDefaults(*res, body)
+		assert.Equal(t, map[string]any{
+			"properties": map[string]any{
+				"accessPolicies": []any{},
+			},
+		}, body)
+	})
+}
