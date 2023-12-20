@@ -37,6 +37,7 @@ ApiCenter:
 ApiManagement:
     tracking: "2022-08-01"
     additions:
+        PolicyRestriction: 2023-05-01-preview
         ProductApiLink: 2022-09-01-preview
         ProductGroupLink: 2022-09-01-preview
         Schema: 2021-04-01-preview
@@ -624,7 +625,10 @@ DataLakeStore:
 DataMigration:
     tracking: "2021-06-30"
     additions:
+        DatabaseMigrationsMongoToCosmosDbRUMongo: 2023-07-15-preview
+        DatabaseMigrationsMongoToCosmosDbvCoreMongo: 2023-07-15-preview
         DatabaseMigrationsSqlDb: 2022-03-30-preview
+        MigrationService: 2023-07-15-preview
         SqlMigrationService: 2022-03-30-preview
         listSqlMigrationServiceAuthKeys: 2022-03-30-preview
         listSqlMigrationServiceMonitoringData: 2022-03-30-preview
@@ -1001,6 +1005,7 @@ Maps:
     tracking: "2021-02-01"
     additions:
         PrivateAtlase: 2020-02-01-preview
+        PrivateEndpointConnection: 2023-12-01-preview
         listAccountSas: 2021-12-01-preview
 Marketplace:
     tracking: "2023-01-01"
