@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A Database Migration Service resource
  * Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
  *
- * Other available API versions: 2022-03-30-preview.
+ * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -135,7 +135,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["virtualSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20171115preview:Service" }, { type: "azure-native:datamigration/v20180315preview:Service" }, { type: "azure-native:datamigration/v20180331preview:Service" }, { type: "azure-native:datamigration/v20180419:Service" }, { type: "azure-native:datamigration/v20180715preview:Service" }, { type: "azure-native:datamigration/v20210630:Service" }, { type: "azure-native:datamigration/v20211030preview:Service" }, { type: "azure-native:datamigration/v20220130preview:Service" }, { type: "azure-native:datamigration/v20220330preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20171115preview:Service" }, { type: "azure-native:datamigration/v20180315preview:Service" }, { type: "azure-native:datamigration/v20180331preview:Service" }, { type: "azure-native:datamigration/v20180419:Service" }, { type: "azure-native:datamigration/v20180715preview:Service" }, { type: "azure-native:datamigration/v20210630:Service" }, { type: "azure-native:datamigration/v20211030preview:Service" }, { type: "azure-native:datamigration/v20220130preview:Service" }, { type: "azure-native:datamigration/v20220330preview:Service" }, { type: "azure-native:datamigration/v20230715preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

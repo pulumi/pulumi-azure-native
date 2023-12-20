@@ -1300,6 +1300,111 @@
       "listWorkspaceNamedValue",
       "listWorkspacePolicyFragmentReferences",
       "listWorkspaceSubscriptionSecrets"
+    ],
+    "2023-05-01-preview": [
+      "Api",
+      "ApiDiagnostic",
+      "ApiIssue",
+      "ApiIssueAttachment",
+      "ApiIssueComment",
+      "ApiManagementService",
+      "ApiOperation",
+      "ApiOperationPolicy",
+      "ApiPolicy",
+      "ApiRelease",
+      "ApiSchema",
+      "ApiTagDescription",
+      "ApiVersionSet",
+      "ApiWiki",
+      "Authorization",
+      "AuthorizationAccessPolicy",
+      "AuthorizationProvider",
+      "AuthorizationServer",
+      "Backend",
+      "Cache",
+      "Certificate",
+      "ContentItem",
+      "ContentType",
+      "Diagnostic",
+      "Documentation",
+      "EmailTemplate",
+      "Gateway",
+      "GatewayApiEntityTag",
+      "GatewayCertificateAuthority",
+      "GatewayHostnameConfiguration",
+      "GlobalSchema",
+      "GraphQLApiResolver",
+      "GraphQLApiResolverPolicy",
+      "Group",
+      "GroupUser",
+      "IdentityProvider",
+      "Logger",
+      "NamedValue",
+      "NotificationRecipientEmail",
+      "NotificationRecipientUser",
+      "OpenIdConnectProvider",
+      "Policy",
+      "PolicyFragment",
+      "PolicyRestriction",
+      "PrivateEndpointConnectionByName",
+      "Product",
+      "ProductApi",
+      "ProductApiLink",
+      "ProductGroup",
+      "ProductGroupLink",
+      "ProductPolicy",
+      "ProductWiki",
+      "Subscription",
+      "Tag",
+      "TagApiLink",
+      "TagByApi",
+      "TagByOperation",
+      "TagByProduct",
+      "TagOperationLink",
+      "TagProductLink",
+      "User",
+      "Workspace",
+      "WorkspaceApi",
+      "WorkspaceApiOperation",
+      "WorkspaceApiOperationPolicy",
+      "WorkspaceApiPolicy",
+      "WorkspaceApiRelease",
+      "WorkspaceApiSchema",
+      "WorkspaceApiVersionSet",
+      "WorkspaceGlobalSchema",
+      "WorkspaceGroup",
+      "WorkspaceGroupUser",
+      "WorkspaceNamedValue",
+      "WorkspaceNotificationRecipientEmail",
+      "WorkspaceNotificationRecipientUser",
+      "WorkspacePolicy",
+      "WorkspacePolicyFragment",
+      "WorkspaceProduct",
+      "WorkspaceProductApiLink",
+      "WorkspaceProductGroupLink",
+      "WorkspaceProductPolicy",
+      "WorkspaceSubscription",
+      "WorkspaceTag",
+      "WorkspaceTagApiLink",
+      "WorkspaceTagOperationLink",
+      "WorkspaceTagProductLink",
+      "getApiManagementServiceDomainOwnershipIdentifier",
+      "getApiManagementServiceSsoToken",
+      "getAuthorizationLoginLinkPost",
+      "getUserSharedAccessToken",
+      "listAuthorizationServerSecrets",
+      "listGatewayDebugCredentials",
+      "listGatewayKeys",
+      "listGatewayTrace",
+      "listIdentityProviderSecrets",
+      "listNamedValue",
+      "listOpenIdConnectProviderSecrets",
+      "listPolicyFragmentReferences",
+      "listSubscriptionSecrets",
+      "listTenantAccessSecrets",
+      "listWorkspaceNamedValue",
+      "listWorkspacePolicyFragmentReferences",
+      "listWorkspaceSubscriptionSecrets"
     ]
   },
   "App": {
@@ -1980,6 +2085,44 @@
       "listServiceTestKeys"
     ],
     "2023-11-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "Apm",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuild",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "ContainerRegistry",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listApmSecretKeys",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
+      "listServiceGloballyEnabledApms",
+      "listServiceTestKeys"
+    ],
+    "2023-12-01": [
       "ApiPortal",
       "ApiPortalCustomDomain",
       "Apm",
@@ -4105,6 +4248,13 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2023-10-02": [
+      "Disk",
+      "DiskAccess",
+      "DiskAccessAPrivateEndpointConnection",
+      "DiskEncryptionSet",
+      "Snapshot"
     ]
   },
   "ConfidentialLedger": {
@@ -5421,6 +5571,16 @@
       "View",
       "ViewByScope"
     ],
+    "2023-09-01": [
+      "Budget",
+      "CostAllocationRule",
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
+      "SettingByScope",
+      "View",
+      "ViewByScope"
+    ],
     "2023-11-01": [
       "Budget",
       "CostAllocationRule",
@@ -6203,6 +6363,20 @@
       "Task",
       "listSqlMigrationServiceAuthKeys",
       "listSqlMigrationServiceMonitoringData"
+    ],
+    "2023-07-15-preview": [
+      "DatabaseMigrationsMongoToCosmosDbRUMongo",
+      "DatabaseMigrationsMongoToCosmosDbvCoreMongo",
+      "DatabaseMigrationsSqlDb",
+      "File",
+      "MigrationService",
+      "Project",
+      "Service",
+      "ServiceTask",
+      "SqlMigrationService",
+      "Task",
+      "listSqlMigrationServiceAuthKeys",
+      "listSqlMigrationServiceMonitoringData"
     ]
   },
   "DataProtection": {
@@ -6868,6 +7042,9 @@
   },
   "DevOpsInfrastructure": {
     "2023-10-30-preview": [
+      "Pool"
+    ],
+    "2023-12-13-preview": [
       "Pool"
     ]
   },
@@ -9431,6 +9608,16 @@
       "listprovisionedClusterInstanceUserKubeconfig",
       "provisionedClusterInstance",
       "virtualNetworkRetrieve"
+    ],
+    "2024-01-01": [
+      "HybridIdentityMetadatum",
+      "KubernetesVersions",
+      "VMSkus",
+      "agentPool",
+      "listprovisionedClusterInstanceAdminKubeconfig",
+      "listprovisionedClusterInstanceUserKubeconfig",
+      "provisionedClusterInstance",
+      "virtualNetworkRetrieve"
     ]
   },
   "HybridData": {
@@ -11375,6 +11562,13 @@
     "2023-08-01-preview": [
       "Account",
       "Creator",
+      "listAccountKeys",
+      "listAccountSas"
+    ],
+    "2023-12-01-preview": [
+      "Account",
+      "Creator",
+      "PrivateEndpointConnection",
       "listAccountKeys",
       "listAccountSas"
     ]
@@ -15720,7 +15914,11 @@
       "Workspace"
     ],
     "2022-10-01": [
+      "Cluster",
       "Table",
+      "Workspace"
+    ],
+    "2023-09-01": [
       "Workspace"
     ]
   },
@@ -16520,6 +16718,9 @@
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
       "ResourceGuardProxy",
+      "Vault"
+    ],
+    "2023-08-01": [
       "Vault"
     ]
   },
@@ -18133,6 +18334,16 @@
       "getmanagedMaintenanceWindowStatus"
     ],
     "2023-11-01-preview": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
+    ],
+    "2023-12-01-preview": [
       "ManagedCluster",
       "ManagedClusterApplication",
       "ManagedClusterApplicationType",

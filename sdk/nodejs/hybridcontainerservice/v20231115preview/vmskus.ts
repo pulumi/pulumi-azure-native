@@ -83,6 +83,8 @@ export class VMSkus extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20240101:VMSkus" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VMSkus.__pulumiType, name, resourceInputs, opts);
     }
 }

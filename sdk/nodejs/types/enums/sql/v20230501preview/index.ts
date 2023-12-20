@@ -440,6 +440,19 @@ export const ManagedServerCreateMode = {
  */
 export type ManagedServerCreateMode = (typeof ManagedServerCreateMode)[keyof typeof ManagedServerCreateMode];
 
+export const MinimalTlsVersion = {
+    None: "None",
+    MinimalTlsVersion_1_0: "1.0",
+    MinimalTlsVersion_1_1: "1.1",
+    MinimalTlsVersion_1_2: "1.2",
+    MinimalTlsVersion_1_3: "1.3",
+} as const;
+
+/**
+ * Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
+ */
+export type MinimalTlsVersion = (typeof MinimalTlsVersion)[keyof typeof MinimalTlsVersion];
+
 export const PrincipalType = {
     User: "User",
     Group: "Group",

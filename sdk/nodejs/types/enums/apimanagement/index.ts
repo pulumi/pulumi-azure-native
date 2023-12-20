@@ -13,6 +13,7 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20220801 from "./v20220801";
 import * as v20220901preview from "./v20220901preview";
 import * as v20230301preview from "./v20230301preview";
+import * as v20230501preview from "./v20230501preview";
 
 export {
     v20161010,
@@ -26,6 +27,7 @@ export {
     v20220801,
     v20220901preview,
     v20230301preview,
+    v20230501preview,
 };
 
 export const AlwaysLog = {
@@ -490,6 +492,22 @@ export const PolicyFragmentContentFormat = {
  * Format of the policy fragment content.
  */
 export type PolicyFragmentContentFormat = (typeof PolicyFragmentContentFormat)[keyof typeof PolicyFragmentContentFormat];
+
+export const PolicyRestrictionRequireBase = {
+    /**
+     * The policy is required to have base policy
+     */
+    True: "true",
+    /**
+     * The policy does not require to have base policy
+     */
+    False: "false",
+} as const;
+
+/**
+ * Indicates if base policy should be enforced for the policy document.
+ */
+export type PolicyRestrictionRequireBase = (typeof PolicyRestrictionRequireBase)[keyof typeof PolicyRestrictionRequireBase];
 
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
     /// Azure REST API version: 2023-10-30-preview.
+    /// 
+    /// Other available API versions: 2023-12-13-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devopsinfrastructure:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
@@ -114,6 +116,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20231030preview:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20231213preview:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

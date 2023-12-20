@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration
     /// A file resource
     /// Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-07-15-preview.
     /// 
-    /// Other available API versions: 2022-03-30-preview.
+    /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:File")]
     public partial class File : global::Pulumi.CustomResource
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.DataMigration
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:File"},
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:File"},
                     new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:File"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20230715preview:File"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -78,6 +78,7 @@ from .get_named_value import *
 from .get_open_id_connect_provider import *
 from .get_policy import *
 from .get_policy_fragment import *
+from .get_policy_restriction import *
 from .get_private_endpoint_connection_by_name import *
 from .get_product import *
 from .get_product_api_link import *
@@ -143,6 +144,7 @@ from .notification_recipient_user import *
 from .open_id_connect_provider import *
 from .policy import *
 from .policy_fragment import *
+from .policy_restriction import *
 from .private_endpoint_connection_by_name import *
 from .product import *
 from .product_api import *
@@ -223,6 +225,8 @@ if typing.TYPE_CHECKING:
     v20220901preview = __v20220901preview
     import pulumi_azure_native.apimanagement.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
+    import pulumi_azure_native.apimanagement.v20230501preview as __v20230501preview
+    v20230501preview = __v20230501preview
 else:
     v20161010 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20161010')
     v20170301 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20170301')
@@ -240,4 +244,5 @@ else:
     v20220801 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20220801')
     v20220901preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20220901preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230301preview')
+    v20230501preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20230501preview')
 

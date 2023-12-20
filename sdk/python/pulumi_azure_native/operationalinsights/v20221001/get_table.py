@@ -180,7 +180,7 @@ class GetTableResult:
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> Optional[int]:
         """
-        The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
+        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         """
         return pulumi.get(self, "total_retention_in_days")
 

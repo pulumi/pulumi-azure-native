@@ -84,7 +84,7 @@ export interface GetServerResult {
      */
     readonly location: string;
     /**
-     * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+     * Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
      */
     readonly minimalTlsVersion?: string;
     /**

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A task resource
  * Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
  *
- * Other available API versions: 2022-03-30-preview.
+ * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
 export class Task extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20171115preview:Task" }, { type: "azure-native:datamigration/v20180315preview:Task" }, { type: "azure-native:datamigration/v20180331preview:Task" }, { type: "azure-native:datamigration/v20180419:Task" }, { type: "azure-native:datamigration/v20180715preview:Task" }, { type: "azure-native:datamigration/v20210630:Task" }, { type: "azure-native:datamigration/v20211030preview:Task" }, { type: "azure-native:datamigration/v20220130preview:Task" }, { type: "azure-native:datamigration/v20220330preview:Task" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20171115preview:Task" }, { type: "azure-native:datamigration/v20180315preview:Task" }, { type: "azure-native:datamigration/v20180331preview:Task" }, { type: "azure-native:datamigration/v20180419:Task" }, { type: "azure-native:datamigration/v20180715preview:Task" }, { type: "azure-native:datamigration/v20210630:Task" }, { type: "azure-native:datamigration/v20211030preview:Task" }, { type: "azure-native:datamigration/v20220130preview:Task" }, { type: "azure-native:datamigration/v20220330preview:Task" }, { type: "azure-native:datamigration/v20230715preview:Task" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Task.__pulumiType, name, resourceInputs, opts);
     }

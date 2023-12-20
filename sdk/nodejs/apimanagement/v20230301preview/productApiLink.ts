@@ -83,7 +83,7 @@ export class ProductApiLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductApiLink" }, { type: "azure-native:apimanagement/v20220901preview:ProductApiLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductApiLink" }, { type: "azure-native:apimanagement/v20220901preview:ProductApiLink" }, { type: "azure-native:apimanagement/v20230501preview:ProductApiLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductApiLink.__pulumiType, name, resourceInputs, opts);
     }

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get deployment log file URL
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
  */
 export function getDeploymentLogFileUrl(args: GetDeploymentLogFileUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentLogFileUrlResult> {
 
@@ -53,7 +53,7 @@ export interface GetDeploymentLogFileUrlResult {
  * Get deployment log file URL
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
  */
 export function getDeploymentLogFileUrlOutput(args: GetDeploymentLogFileUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentLogFileUrlResult> {
     return pulumi.output(args).apply((a: any) => getDeploymentLogFileUrl(a, opts))

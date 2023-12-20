@@ -182,7 +182,7 @@ class Service(pulumi.CustomResource):
         A Database Migration Service resource
         Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
 
-        Other available API versions: 2022-03-30-preview.
+        Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,7 +206,7 @@ class Service(pulumi.CustomResource):
         A Database Migration Service resource
         Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
 
-        Other available API versions: 2022-03-30-preview.
+        Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -259,7 +259,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Service"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Service"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Service"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Service"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:datamigration:Service',

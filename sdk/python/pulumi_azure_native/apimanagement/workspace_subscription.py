@@ -250,7 +250,7 @@ class WorkspaceSubscription(pulumi.CustomResource):
         Subscription details.
         Azure REST API version: 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,7 +280,7 @@ class WorkspaceSubscription(pulumi.CustomResource):
         Subscription details.
         Azure REST API version: 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -350,7 +350,7 @@ class WorkspaceSubscription(pulumi.CustomResource):
             __props__.__dict__["start_date"] = None
             __props__.__dict__["state_comment"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceSubscription"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceSubscription, __self__).__init__(
             'azure-native:apimanagement:WorkspaceSubscription',

@@ -1265,6 +1265,40 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
     }
 
     /// <summary>
+    /// Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
+    /// </summary>
+    [EnumType]
+    public readonly struct MinimalTlsVersion : IEquatable<MinimalTlsVersion>
+    {
+        private readonly string _value;
+
+        private MinimalTlsVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MinimalTlsVersion None { get; } = new MinimalTlsVersion("None");
+        public static MinimalTlsVersion MinimalTlsVersion_1_0 { get; } = new MinimalTlsVersion("1.0");
+        public static MinimalTlsVersion MinimalTlsVersion_1_1 { get; } = new MinimalTlsVersion("1.1");
+        public static MinimalTlsVersion MinimalTlsVersion_1_2 { get; } = new MinimalTlsVersion("1.2");
+        public static MinimalTlsVersion MinimalTlsVersion_1_3 { get; } = new MinimalTlsVersion("1.3");
+
+        public static bool operator ==(MinimalTlsVersion left, MinimalTlsVersion right) => left.Equals(right);
+        public static bool operator !=(MinimalTlsVersion left, MinimalTlsVersion right) => !left.Equals(right);
+
+        public static explicit operator string(MinimalTlsVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MinimalTlsVersion other && Equals(other);
+        public bool Equals(MinimalTlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Principal Type of the sever administrator.
     /// </summary>
     [EnumType]

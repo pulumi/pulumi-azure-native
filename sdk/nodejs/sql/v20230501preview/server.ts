@@ -78,7 +78,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+     * Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
      */
     public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -227,9 +227,9 @@ export interface ServerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+     * Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
      */
-    minimalTlsVersion?: pulumi.Input<string>;
+    minimalTlsVersion?: pulumi.Input<string | enums.sql.v20230501preview.MinimalTlsVersion>;
     /**
      * The resource id of a user assigned identity to be used by default.
      */

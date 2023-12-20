@@ -196,7 +196,7 @@ def get_service(group_name: Optional[str] = None,
     The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
     Azure REST API version: 2021-06-30.
 
-    Other available API versions: 2022-03-30-preview.
+    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
 
 
     :param str group_name: Name of the resource group
@@ -232,7 +232,7 @@ def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
     The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
     Azure REST API version: 2021-06-30.
 
-    Other available API versions: 2022-03-30-preview.
+    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
 
 
     :param str group_name: Name of the resource group

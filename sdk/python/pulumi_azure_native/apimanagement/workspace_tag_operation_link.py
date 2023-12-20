@@ -126,7 +126,7 @@ class WorkspaceTagOperationLink(pulumi.CustomResource):
         Tag-operation link details.
         Azure REST API version: 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +147,7 @@ class WorkspaceTagOperationLink(pulumi.CustomResource):
         Tag-operation link details.
         Azure REST API version: 2022-09-01-preview.
 
-        Other available API versions: 2023-03-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceTagOperationLinkArgs args: The arguments to use to populate this resource's properties.
@@ -197,7 +197,7 @@ class WorkspaceTagOperationLink(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceTagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceTagOperationLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceTagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspaceTagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceTagOperationLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceTagOperationLink, __self__).__init__(
             'azure-native:apimanagement:WorkspaceTagOperationLink',

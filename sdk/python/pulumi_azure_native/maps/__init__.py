@@ -11,9 +11,11 @@ from .creator import *
 from .get_account import *
 from .get_creator import *
 from .get_private_atlase import *
+from .get_private_endpoint_connection import *
 from .list_account_keys import *
 from .list_account_sas import *
 from .private_atlase import *
+from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
 
@@ -31,6 +33,8 @@ if typing.TYPE_CHECKING:
     v20230601 = __v20230601
     import pulumi_azure_native.maps.v20230801preview as __v20230801preview
     v20230801preview = __v20230801preview
+    import pulumi_azure_native.maps.v20231201preview as __v20231201preview
+    v20231201preview = __v20231201preview
 else:
     v20180501 = _utilities.lazy_import('pulumi_azure_native.maps.v20180501')
     v20200201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20200201preview')
@@ -38,4 +42,5 @@ else:
     v20211201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20211201preview')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.maps.v20230601')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.maps.v20230801preview')
+    v20231201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20231201preview')
 

@@ -126,7 +126,7 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         /// </summary>
         public readonly string? MinimalTlsVersion;
         /// <summary>

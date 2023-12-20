@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// <summary>
         /// Get a Pool
         /// Azure REST API version: 2023-10-30-preview.
+        /// 
+        /// Other available API versions: 2023-12-13-preview.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:devopsinfrastructure:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// <summary>
         /// Get a Pool
         /// Azure REST API version: 2023-10-30-preview.
+        /// 
+        /// Other available API versions: 2023-12-13-preview.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devopsinfrastructure:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());

@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.CostManagement.V20230801
                 {
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement:CostAllocationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20200301preview:CostAllocationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230901:CostAllocationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:CostAllocationRule"},
                 },
             };

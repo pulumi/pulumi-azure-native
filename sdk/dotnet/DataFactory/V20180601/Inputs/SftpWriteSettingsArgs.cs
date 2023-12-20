@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("maxConcurrentConnections")]
         public Input<object>? MaxConcurrentConnections { get; set; }
 
+        [Input("metadata")]
+        private InputList<Inputs.MetadataItemArgs>? _metadata;
+
+        /// <summary>
+        /// Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        /// </summary>
+        public InputList<Inputs.MetadataItemArgs> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputList<Inputs.MetadataItemArgs>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// Specifies the timeout for writing each chunk to SFTP server. Default value: 01:00:00 (one hour). Type: string (or Expression with resultType string).
         /// </summary>

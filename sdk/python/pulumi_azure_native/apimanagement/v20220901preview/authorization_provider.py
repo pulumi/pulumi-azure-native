@@ -190,7 +190,7 @@ class AuthorizationProvider(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:AuthorizationProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:AuthorizationProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AuthorizationProvider, __self__).__init__(
             'azure-native:apimanagement/v20220901preview:AuthorizationProvider',

@@ -26,7 +26,7 @@ class ServerArgs:
                  is_i_pv6_enabled: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']]] = None,
                  restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
@@ -44,7 +44,7 @@ class ServerArgs:
         :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] is_i_pv6_enabled: Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        :param pulumi.Input[Union[str, 'MinimalTlsVersion']] minimal_tls_version: Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
@@ -194,14 +194,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="minimalTlsVersion")
-    def minimal_tls_version(self) -> Optional[pulumi.Input[str]]:
+    def minimal_tls_version(self) -> Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]]:
         """
-        Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         """
         return pulumi.get(self, "minimal_tls_version")
 
     @minimal_tls_version.setter
-    def minimal_tls_version(self, value: Optional[pulumi.Input[str]]):
+    def minimal_tls_version(self, value: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]]):
         pulumi.set(self, "minimal_tls_version", value)
 
     @property
@@ -290,7 +290,7 @@ class Server(pulumi.CustomResource):
                  is_i_pv6_enabled: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -312,7 +312,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] is_i_pv6_enabled: Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        :param pulumi.Input[Union[str, 'MinimalTlsVersion']] minimal_tls_version: Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -353,7 +353,7 @@ class Server(pulumi.CustomResource):
                  is_i_pv6_enabled: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimal_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccessFlag']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -527,7 +527,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         """
         return pulumi.get(self, "minimal_tls_version")
 

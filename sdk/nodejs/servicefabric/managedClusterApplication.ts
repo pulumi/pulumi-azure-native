@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The application resource.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview.
  */
 export class ManagedClusterApplication extends pulumi.CustomResource {
     /**
@@ -131,7 +131,7 @@ export class ManagedClusterApplication extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20210501:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20210701preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20210901privatepreview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20211101preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20220101:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20220201preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20220601preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20220801preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20221001preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230201preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230301preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230701preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230901preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20231101preview:ManagedClusterApplication" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20210501:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20210701preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20210901privatepreview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20211101preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20220101:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20220201preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20220601preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20220801preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20221001preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230201preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230301preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230701preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20230901preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20231101preview:ManagedClusterApplication" }, { type: "azure-native:servicefabric/v20231201preview:ManagedClusterApplication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedClusterApplication.__pulumiType, name, resourceInputs, opts);
     }

@@ -299,6 +299,7 @@ namespace Pulumi.AzureNative.Compute.V20220702
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:Disk"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:Disk"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:Disk"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20231002:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

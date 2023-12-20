@@ -59,6 +59,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datamigration:DatabaseMigrationsSqlDb"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20230715preview:DatabaseMigrationsSqlDb"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

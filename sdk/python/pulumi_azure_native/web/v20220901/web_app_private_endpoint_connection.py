@@ -18,6 +18,7 @@ class WebAppPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkConnectionStateArgs']] = None):
@@ -25,11 +26,14 @@ class WebAppPrivateEndpointConnectionArgs:
         The set of arguments for constructing a WebAppPrivateEndpointConnection resource.
         :param pulumi.Input[str] name: Name of the site.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Private IPAddresses mapped to the remote private endpoint
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input['PrivateLinkConnectionStateArgs'] private_link_service_connection_state: The state of a private link connection
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if private_endpoint_connection_name is not None:
@@ -60,6 +64,18 @@ class WebAppPrivateEndpointConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Private IPAddresses mapped to the remote private endpoint
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_addresses", value)
 
     @property
     @pulumi.getter
@@ -100,6 +116,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
@@ -111,6 +128,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Private IPAddresses mapped to the remote private endpoint
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of the site.
         :param pulumi.Input[pulumi.InputType['PrivateLinkConnectionStateArgs']] private_link_service_connection_state: The state of a private link connection
@@ -140,6 +158,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
@@ -154,6 +173,7 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAppPrivateEndpointConnectionArgs.__new__(WebAppPrivateEndpointConnectionArgs)
 
+            __props__.__dict__["ip_addresses"] = ip_addresses
             __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -163,7 +183,6 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["ip_addresses"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None

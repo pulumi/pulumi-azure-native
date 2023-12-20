@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Certificate details.
  * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview.
+ * Other available API versions: 2016-07-07, 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:Certificate" }, { type: "azure-native:apimanagement/v20161010:Certificate" }, { type: "azure-native:apimanagement/v20170301:Certificate" }, { type: "azure-native:apimanagement/v20180101:Certificate" }, { type: "azure-native:apimanagement/v20180601preview:Certificate" }, { type: "azure-native:apimanagement/v20190101:Certificate" }, { type: "azure-native:apimanagement/v20191201:Certificate" }, { type: "azure-native:apimanagement/v20191201preview:Certificate" }, { type: "azure-native:apimanagement/v20200601preview:Certificate" }, { type: "azure-native:apimanagement/v20201201:Certificate" }, { type: "azure-native:apimanagement/v20210101preview:Certificate" }, { type: "azure-native:apimanagement/v20210401preview:Certificate" }, { type: "azure-native:apimanagement/v20210801:Certificate" }, { type: "azure-native:apimanagement/v20211201preview:Certificate" }, { type: "azure-native:apimanagement/v20220401preview:Certificate" }, { type: "azure-native:apimanagement/v20220801:Certificate" }, { type: "azure-native:apimanagement/v20220901preview:Certificate" }, { type: "azure-native:apimanagement/v20230301preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:Certificate" }, { type: "azure-native:apimanagement/v20161010:Certificate" }, { type: "azure-native:apimanagement/v20170301:Certificate" }, { type: "azure-native:apimanagement/v20180101:Certificate" }, { type: "azure-native:apimanagement/v20180601preview:Certificate" }, { type: "azure-native:apimanagement/v20190101:Certificate" }, { type: "azure-native:apimanagement/v20191201:Certificate" }, { type: "azure-native:apimanagement/v20191201preview:Certificate" }, { type: "azure-native:apimanagement/v20200601preview:Certificate" }, { type: "azure-native:apimanagement/v20201201:Certificate" }, { type: "azure-native:apimanagement/v20210101preview:Certificate" }, { type: "azure-native:apimanagement/v20210401preview:Certificate" }, { type: "azure-native:apimanagement/v20210801:Certificate" }, { type: "azure-native:apimanagement/v20211201preview:Certificate" }, { type: "azure-native:apimanagement/v20220401preview:Certificate" }, { type: "azure-native:apimanagement/v20220801:Certificate" }, { type: "azure-native:apimanagement/v20220901preview:Certificate" }, { type: "azure-native:apimanagement/v20230301preview:Certificate" }, { type: "azure-native:apimanagement/v20230501preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

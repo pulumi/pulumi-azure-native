@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the authorization specified by its identifier.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Task<GetAuthorizationResult> InvokeAsync(GetAuthorizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationResult>("azure-native:apimanagement:getAuthorization", args ?? new GetAuthorizationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// Gets the details of the authorization specified by its identifier.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:apimanagement:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());

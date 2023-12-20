@@ -182,7 +182,7 @@ class GetServerResult:
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> Optional[str]:
         """
-        Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         """
         return pulumi.get(self, "minimal_tls_version")
 

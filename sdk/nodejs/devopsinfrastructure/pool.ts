@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
  * Azure REST API version: 2023-10-30-preview.
+ *
+ * Other available API versions: 2023-12-13-preview.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -145,7 +147,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devopsinfrastructure/v20231030preview:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devopsinfrastructure/v20231030preview:Pool" }, { type: "azure-native:devopsinfrastructure/v20231213preview:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }

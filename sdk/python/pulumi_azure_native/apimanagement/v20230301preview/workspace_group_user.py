@@ -179,7 +179,7 @@ class WorkspaceGroupUser(pulumi.CustomResource):
             __props__.__dict__["registration_date"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceGroupUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceGroupUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspaceGroupUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspaceGroupUser"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:WorkspaceGroupUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceGroupUser, __self__).__init__(
             'azure-native:apimanagement/v20230301preview:WorkspaceGroupUser',

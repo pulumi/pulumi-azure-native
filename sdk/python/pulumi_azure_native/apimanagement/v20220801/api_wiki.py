@@ -151,7 +151,7 @@ class ApiWiki(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiWiki")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiWiki"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:ApiWiki")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiWiki, __self__).__init__(
             'azure-native:apimanagement/v20220801:ApiWiki',

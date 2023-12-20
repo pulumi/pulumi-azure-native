@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A task resource
  * Azure REST API version: 2021-06-30.
  *
- * Other available API versions: 2022-03-30-preview.
+ * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
 export class ServiceTask extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class ServiceTask extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20180715preview:ServiceTask" }, { type: "azure-native:datamigration/v20210630:ServiceTask" }, { type: "azure-native:datamigration/v20211030preview:ServiceTask" }, { type: "azure-native:datamigration/v20220130preview:ServiceTask" }, { type: "azure-native:datamigration/v20220330preview:ServiceTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20180715preview:ServiceTask" }, { type: "azure-native:datamigration/v20210630:ServiceTask" }, { type: "azure-native:datamigration/v20211030preview:ServiceTask" }, { type: "azure-native:datamigration/v20220130preview:ServiceTask" }, { type: "azure-native:datamigration/v20220330preview:ServiceTask" }, { type: "azure-native:datamigration/v20230715preview:ServiceTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceTask.__pulumiType, name, resourceInputs, opts);
     }

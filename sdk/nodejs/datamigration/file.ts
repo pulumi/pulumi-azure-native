@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A file resource
  * Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-07-15-preview.
  *
- * Other available API versions: 2022-03-30-preview.
+ * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
 export class File extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class File extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20180715preview:File" }, { type: "azure-native:datamigration/v20210630:File" }, { type: "azure-native:datamigration/v20211030preview:File" }, { type: "azure-native:datamigration/v20220130preview:File" }, { type: "azure-native:datamigration/v20220330preview:File" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20180715preview:File" }, { type: "azure-native:datamigration/v20210630:File" }, { type: "azure-native:datamigration/v20211030preview:File" }, { type: "azure-native:datamigration/v20220130preview:File" }, { type: "azure-native:datamigration/v20220330preview:File" }, { type: "azure-native:datamigration/v20230715preview:File" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(File.__pulumiType, name, resourceInputs, opts);
     }

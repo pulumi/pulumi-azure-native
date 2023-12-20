@@ -159,7 +159,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceCapping"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Workspace" }, { type: "azure-native:operationalinsights/v20151101preview:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-native:operationalinsights/v20211201preview:Workspace" }, { type: "azure-native:operationalinsights/v20221001:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Workspace" }, { type: "azure-native:operationalinsights/v20151101preview:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-native:operationalinsights/v20211201preview:Workspace" }, { type: "azure-native:operationalinsights/v20221001:Workspace" }, { type: "azure-native:operationalinsights/v20230901:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

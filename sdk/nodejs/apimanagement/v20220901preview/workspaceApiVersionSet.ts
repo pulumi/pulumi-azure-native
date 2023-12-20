@@ -113,7 +113,7 @@ export class WorkspaceApiVersionSet extends pulumi.CustomResource {
             resourceInputs["versioningScheme"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceApiVersionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceApiVersionSet" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceApiVersionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceApiVersionSet.__pulumiType, name, resourceInputs, opts);
     }

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// Gets the budget for the scope by budget name.
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-11-01.
+        /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("azure-native:costmanagement:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// Gets the budget for the scope by budget name.
         /// Azure REST API version: 2023-04-01-preview.
         /// 
-        /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-11-01.
+        /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:costmanagement:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());

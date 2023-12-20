@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("maxConcurrentConnections")]
         public Input<object>? MaxConcurrentConnections { get; set; }
 
+        [Input("metadata")]
+        private InputList<Inputs.MetadataItemArgs>? _metadata;
+
+        /// <summary>
+        /// Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        /// </summary>
+        public InputList<Inputs.MetadataItemArgs> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputList<Inputs.MetadataItemArgs>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// The write setting type.
         /// Expected value is 'AzureFileStorageWriteSettings'.

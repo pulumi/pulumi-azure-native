@@ -81,6 +81,7 @@ __all__ = [
     'MigrateSsisTaskInputArgs',
     'MigrateSsisTaskPropertiesArgs',
     'MigrationValidationOptionsArgs',
+    'MongoConnectionInformationArgs',
     'MongoDbCollectionSettingsArgs',
     'MongoDbConnectionInfoArgs',
     'MongoDbDatabaseSettingsArgs',
@@ -88,6 +89,7 @@ __all__ = [
     'MongoDbShardKeyFieldArgs',
     'MongoDbShardKeySettingArgs',
     'MongoDbThrottlingSettingsArgs',
+    'MongoMigrationCollectionArgs',
     'MySqlConnectionInfoArgs',
     'OracleConnectionInfoArgs',
     'PostgreSqlConnectionInfoArgs',
@@ -4432,6 +4434,110 @@ class MigrationValidationOptionsArgs:
 
 
 @pulumi.input_type
+class MongoConnectionInformationArgs:
+    def __init__(__self__, *,
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 host: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 use_ssl: Optional[pulumi.Input[bool]] = None,
+                 user_name: Optional[pulumi.Input[str]] = None):
+        """
+        Mongo Connection
+        :param pulumi.Input[str] connection_string: ConnectionString to connect to Mongo.
+        :param pulumi.Input[str] host: Host of mongo connection.
+        :param pulumi.Input[str] password: Password to connect to Mongo.
+        :param pulumi.Input[int] port: Port of mongo connection.
+        :param pulumi.Input[bool] use_ssl: Whether to UseSsl or UseTls to connect to Mongo. Default is true.
+        :param pulumi.Input[str] user_name: User name to connect to Mongo.
+        """
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if use_ssl is not None:
+            pulumi.set(__self__, "use_ssl", use_ssl)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        ConnectionString to connect to Mongo.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[pulumi.Input[str]]:
+        """
+        Host of mongo connection.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password to connect to Mongo.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port of mongo connection.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="useSsl")
+    def use_ssl(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to UseSsl or UseTls to connect to Mongo. Default is true.
+        """
+        return pulumi.get(self, "use_ssl")
+
+    @use_ssl.setter
+    def use_ssl(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_ssl", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        User name to connect to Mongo.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
 class MongoDbCollectionSettingsArgs:
     def __init__(__self__, *,
                  can_delete: Optional[pulumi.Input[bool]] = None,
@@ -4829,6 +4935,78 @@ class MongoDbThrottlingSettingsArgs:
     @min_free_memory_mb.setter
     def min_free_memory_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_free_memory_mb", value)
+
+
+@pulumi.input_type
+class MongoMigrationCollectionArgs:
+    def __init__(__self__, *,
+                 source_collection: Optional[pulumi.Input[str]] = None,
+                 source_database: Optional[pulumi.Input[str]] = None,
+                 target_collection: Optional[pulumi.Input[str]] = None,
+                 target_database: Optional[pulumi.Input[str]] = None):
+        """
+        Mongo source and target database and collection details.
+        :param pulumi.Input[str] source_collection: Source collection name.
+        :param pulumi.Input[str] source_database: Source database name.
+        :param pulumi.Input[str] target_collection: Target collection name.
+        :param pulumi.Input[str] target_database: Target database name.
+        """
+        if source_collection is not None:
+            pulumi.set(__self__, "source_collection", source_collection)
+        if source_database is not None:
+            pulumi.set(__self__, "source_database", source_database)
+        if target_collection is not None:
+            pulumi.set(__self__, "target_collection", target_collection)
+        if target_database is not None:
+            pulumi.set(__self__, "target_database", target_database)
+
+    @property
+    @pulumi.getter(name="sourceCollection")
+    def source_collection(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source collection name.
+        """
+        return pulumi.get(self, "source_collection")
+
+    @source_collection.setter
+    def source_collection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_collection", value)
+
+    @property
+    @pulumi.getter(name="sourceDatabase")
+    def source_database(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source database name.
+        """
+        return pulumi.get(self, "source_database")
+
+    @source_database.setter
+    def source_database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_database", value)
+
+    @property
+    @pulumi.getter(name="targetCollection")
+    def target_collection(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target collection name.
+        """
+        return pulumi.get(self, "target_collection")
+
+    @target_collection.setter
+    def target_collection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_collection", value)
+
+    @property
+    @pulumi.getter(name="targetDatabase")
+    def target_database(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target database name.
+        """
+        return pulumi.get(self, "target_database")
+
+    @target_database.setter
+    def target_database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_database", value)
 
 
 @pulumi.input_type

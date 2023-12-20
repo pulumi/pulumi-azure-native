@@ -1059,6 +1059,43 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
+    /// Indicates if base policy should be enforced for the policy document.
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyRestrictionRequireBase : IEquatable<PolicyRestrictionRequireBase>
+    {
+        private readonly string _value;
+
+        private PolicyRestrictionRequireBase(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The policy is required to have base policy
+        /// </summary>
+        public static PolicyRestrictionRequireBase @True { get; } = new PolicyRestrictionRequireBase("true");
+        /// <summary>
+        /// The policy does not require to have base policy
+        /// </summary>
+        public static PolicyRestrictionRequireBase @False { get; } = new PolicyRestrictionRequireBase("false");
+
+        public static bool operator ==(PolicyRestrictionRequireBase left, PolicyRestrictionRequireBase right) => left.Equals(right);
+        public static bool operator !=(PolicyRestrictionRequireBase left, PolicyRestrictionRequireBase right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyRestrictionRequireBase value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyRestrictionRequireBase other && Equals(other);
+        public bool Equals(PolicyRestrictionRequireBase other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     /// </summary>
     [EnumType]

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DataMigration
         /// The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
         /// Azure REST API version: 2021-06-30.
         /// 
-        /// Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
+        /// Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DataMigration
         /// The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
         /// Azure REST API version: 2021-06-30.
         /// 
-        /// Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
+        /// Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());

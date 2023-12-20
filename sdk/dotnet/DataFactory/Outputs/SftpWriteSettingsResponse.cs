@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? MaxConcurrentConnections;
         /// <summary>
+        /// Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MetadataItemResponse> Metadata;
+        /// <summary>
         /// Specifies the timeout for writing each chunk to SFTP server. Default value: 01:00:00 (one hour). Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? OperationTimeout;
@@ -50,6 +54,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? maxConcurrentConnections,
 
+            ImmutableArray<Outputs.MetadataItemResponse> metadata,
+
             object? operationTimeout,
 
             string type,
@@ -59,6 +65,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             CopyBehavior = copyBehavior;
             DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
+            Metadata = metadata;
             OperationTimeout = operationTimeout;
             Type = type;
             UseTempFileRename = useTempFileRename;

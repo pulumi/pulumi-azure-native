@@ -213,6 +213,8 @@ class Pool(pulumi.CustomResource):
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2023-10-30-preview.
 
+        Other available API versions: 2023-12-13-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['StatefulArgs'], pulumi.InputType['StatelessAgentProfileArgs']]] agent_profile: Defines how the machine will be handled once it executed a job.
@@ -236,6 +238,8 @@ class Pool(pulumi.CustomResource):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
         Azure REST API version: 2023-10-30-preview.
+
+        Other available API versions: 2023-12-13-preview.
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -298,7 +302,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devopsinfrastructure/v20231030preview:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devopsinfrastructure/v20231030preview:Pool"), pulumi.Alias(type_="azure-native:devopsinfrastructure/v20231213preview:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:devopsinfrastructure:Pool',

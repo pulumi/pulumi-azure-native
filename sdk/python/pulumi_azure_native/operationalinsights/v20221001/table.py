@@ -36,7 +36,7 @@ class TableArgs:
         :param pulumi.Input['SchemaArgs'] schema: Table schema.
         :param pulumi.Input['SearchResultsArgs'] search_results: Parameters of the search job that initiated this table.
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[int] total_retention_in_days: The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
+        :param pulumi.Input[int] total_retention_in_days: The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -155,7 +155,7 @@ class TableArgs:
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
+        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         """
         return pulumi.get(self, "total_retention_in_days")
 
@@ -191,7 +191,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SchemaArgs']] schema: Table schema.
         :param pulumi.Input[pulumi.InputType['SearchResultsArgs']] search_results: Parameters of the search job that initiated this table.
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[int] total_retention_in_days: The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
+        :param pulumi.Input[int] total_retention_in_days: The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -399,7 +399,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
+        The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         """
         return pulumi.get(self, "total_retention_in_days")
 

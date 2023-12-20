@@ -33,6 +33,7 @@ __all__ = [
     'OperationNameFormat',
     'PolicyContentFormat',
     'PolicyFragmentContentFormat',
+    'PolicyRestrictionRequireBase',
     'PrivateEndpointServiceConnectionStatus',
     'ProductState',
     'Protocol',
@@ -456,6 +457,20 @@ class PolicyFragmentContentFormat(str, Enum):
     RAWXML = "rawxml"
     """
     The contents are inline and Content type is a non XML encoded policy document.
+    """
+
+
+class PolicyRestrictionRequireBase(str, Enum):
+    """
+    Indicates if base policy should be enforced for the policy document.
+    """
+    TRUE = "true"
+    """
+    The policy is required to have base policy
+    """
+    FALSE = "false"
+    """
+    The policy does not require to have base policy
     """
 
 

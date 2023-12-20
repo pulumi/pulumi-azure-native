@@ -123,7 +123,7 @@ def getmanaged_maintenance_window_status(cluster_name: Optional[str] = None,
     Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
     Azure REST API version: 2023-07-01-preview.
 
-    Other available API versions: 2023-09-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -153,7 +153,7 @@ def getmanaged_maintenance_window_status_output(cluster_name: Optional[pulumi.In
     Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
     Azure REST API version: 2023-07-01-preview.
 
-    Other available API versions: 2023-09-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Policy Contract details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
  */
 export class WorkspaceProductPolicy extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class WorkspaceProductPolicy extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceProductPolicy" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceProductPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceProductPolicy" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceProductPolicy" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceProductPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceProductPolicy.__pulumiType, name, resourceInputs, opts);
     }

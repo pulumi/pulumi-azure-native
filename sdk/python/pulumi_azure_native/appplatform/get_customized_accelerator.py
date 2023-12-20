@@ -114,7 +114,7 @@ def get_customized_accelerator(application_accelerator_name: Optional[str] = Non
     Get the customized accelerator.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
 
 
     :param str application_accelerator_name: The name of the application accelerator.
@@ -149,7 +149,7 @@ def get_customized_accelerator_output(application_accelerator_name: Optional[pul
     Get the customized accelerator.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
 
 
     :param str application_accelerator_name: The name of the application accelerator.

@@ -117,6 +117,18 @@ namespace Pulumi.AzureNative.Web
 
     public sealed class WebAppPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("ipAddresses")]
+        private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// Private IPAddresses mapped to the remote private endpoint
+        /// </summary>
+        public InputList<string> IpAddresses
+        {
+            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
+            set => _ipAddresses = value;
+        }
+
         /// <summary>
         /// Kind of resource.
         /// </summary>

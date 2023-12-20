@@ -6,12 +6,14 @@ import * as v20210201 from "./v20210201";
 import * as v20211201preview from "./v20211201preview";
 import * as v20230601 from "./v20230601";
 import * as v20230801preview from "./v20230801preview";
+import * as v20231201preview from "./v20231201preview";
 
 export {
     v20210201,
     v20211201preview,
     v20230601,
     v20230801preview,
+    v20231201preview,
 };
 
 export const Kind = {
@@ -34,6 +36,17 @@ export const Name = {
  * The name of the SKU, in standard format (such as S0).
  */
 export type Name = (typeof Name)[keyof typeof Name];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const SigningKey = {
     PrimaryKey: "primaryKey",

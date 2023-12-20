@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Service Fabric node type of a given managed cluster.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview.
  */
 export function getNodeType(args: GetNodeTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeTypeResult> {
 
@@ -243,7 +243,7 @@ export interface GetNodeTypeResult {
  * Get a Service Fabric node type of a given managed cluster.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview.
  */
 export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeTypeResult> {
     return pulumi.output(args).apply((a: any) => getNodeType(a, opts))

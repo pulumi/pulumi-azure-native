@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? MaxConcurrentConnections;
         /// <summary>
+        /// Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MetadataItemResponse> Metadata;
+        /// <summary>
         /// The write setting type.
         /// Expected value is 'LakeHouseWriteSettings'.
         /// </summary>
@@ -42,11 +46,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? maxConcurrentConnections,
 
+            ImmutableArray<Outputs.MetadataItemResponse> metadata,
+
             string type)
         {
             CopyBehavior = copyBehavior;
             DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
+            Metadata = metadata;
             Type = type;
         }
     }

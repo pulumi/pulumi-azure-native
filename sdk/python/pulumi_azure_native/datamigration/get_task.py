@@ -115,7 +115,7 @@ def get_task(expand: Optional[str] = None,
     The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
     Azure REST API version: 2021-06-30.
 
-    Other available API versions: 2022-03-30-preview.
+    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
 
 
     :param str expand: Expand the response
@@ -153,7 +153,7 @@ def get_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
     Azure REST API version: 2021-06-30.
 
-    Other available API versions: 2022-03-30-preview.
+    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
 
 
     :param str expand: Expand the response

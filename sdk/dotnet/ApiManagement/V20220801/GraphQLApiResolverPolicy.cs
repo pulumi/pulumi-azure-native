@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:GraphQLApiResolverPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GraphQLApiResolverPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GraphQLApiResolverPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GraphQLApiResolverPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

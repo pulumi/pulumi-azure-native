@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2023-01-02, 2023-04-02.
+ * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02.
  */
 export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20230402:DiskAccessAPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20230402:DiskAccessAPrivateEndpointConnection" }, { type: "azure-native:compute/v20231002:DiskAccessAPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccessAPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

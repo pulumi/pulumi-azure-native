@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Version Set Contract details.
     /// Azure REST API version: 2022-09-01-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview.
+    /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceApiVersionSet")]
     public partial class WorkspaceApiVersionSet : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:WorkspaceApiVersionSet"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:WorkspaceApiVersionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

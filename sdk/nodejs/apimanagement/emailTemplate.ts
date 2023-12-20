@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Email Template details.
  * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
  */
 export class EmailTemplate extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class EmailTemplate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:EmailTemplate" }, { type: "azure-native:apimanagement/v20180101:EmailTemplate" }, { type: "azure-native:apimanagement/v20180601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20190101:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20200601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20201201:EmailTemplate" }, { type: "azure-native:apimanagement/v20210101preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210801:EmailTemplate" }, { type: "azure-native:apimanagement/v20211201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20220401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20220801:EmailTemplate" }, { type: "azure-native:apimanagement/v20220901preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20230301preview:EmailTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:EmailTemplate" }, { type: "azure-native:apimanagement/v20180101:EmailTemplate" }, { type: "azure-native:apimanagement/v20180601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20190101:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20200601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20201201:EmailTemplate" }, { type: "azure-native:apimanagement/v20210101preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210801:EmailTemplate" }, { type: "azure-native:apimanagement/v20211201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20220401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20220801:EmailTemplate" }, { type: "azure-native:apimanagement/v20220901preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20230301preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20230501preview:EmailTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EmailTemplate.__pulumiType, name, resourceInputs, opts);
     }

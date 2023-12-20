@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Kind',
     'Name',
+    'PrivateEndpointServiceConnectionStatus',
     'SigningKey',
 ]
 
@@ -26,6 +27,15 @@ class Name(str, Enum):
     S0 = "S0"
     S1 = "S1"
     G2 = "G2"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class SigningKey(str, Enum):

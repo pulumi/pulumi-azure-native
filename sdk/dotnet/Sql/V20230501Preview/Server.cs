@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         /// </summary>
         [Output("minimalTlsVersion")]
         public Output<string?> MinimalTlsVersion { get; private set; } = null!;
@@ -255,10 +255,10 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+        /// Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
         /// </summary>
         [Input("minimalTlsVersion")]
-        public Input<string>? MinimalTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.V20230501Preview.MinimalTlsVersion>? MinimalTlsVersion { get; set; }
 
         /// <summary>
         /// The resource id of a user assigned identity to be used by default.

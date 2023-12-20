@@ -94,6 +94,8 @@ def get_database_migrations_sql_db(expand: Optional[str] = None,
     Retrieve the Database Migration resource.
     Azure REST API version: 2022-03-30-preview.
 
+    Other available API versions: 2023-07-15-preview.
+
 
     :param str expand: Complete migration details be included in the response.
     :param str migration_operation_id: Optional migration operation ID. If this is provided, then details of migration operation for that ID are retrieved. If not provided (default), then details related to most recent or current operation are retrieved.
@@ -127,6 +129,8 @@ def get_database_migrations_sql_db_output(expand: Optional[pulumi.Input[Optional
     """
     Retrieve the Database Migration resource.
     Azure REST API version: 2022-03-30-preview.
+
+    Other available API versions: 2023-07-15-preview.
 
 
     :param str expand: Complete migration details be included in the response.

@@ -110,6 +110,7 @@
     "OpenIdConnectProvider": "2022-08-01",
     "Policy": "2022-08-01",
     "PolicyFragment": "2022-08-01",
+    "PolicyRestriction": "2023-05-01-preview",
     "PrivateEndpointConnectionByName": "2022-08-01",
     "Product": "2022-08-01",
     "ProductApi": "2022-08-01",
@@ -767,8 +768,11 @@
     "VirtualNetworkRule": "2016-11-01"
   },
   "DataMigration": {
+    "DatabaseMigrationsMongoToCosmosDbRUMongo": "2023-07-15-preview",
+    "DatabaseMigrationsMongoToCosmosDbvCoreMongo": "2023-07-15-preview",
     "DatabaseMigrationsSqlDb": "2022-03-30-preview",
     "File": "2021-06-30",
+    "MigrationService": "2023-07-15-preview",
     "Project": "2021-06-30",
     "Service": "2021-06-30",
     "ServiceTask": "2021-06-30",
@@ -1549,6 +1553,7 @@
     "Account": "2021-02-01",
     "Creator": "2021-02-01",
     "PrivateAtlase": "2020-02-01-preview",
+    "PrivateEndpointConnection": "2023-12-01-preview",
     "listAccountKeys": "2021-02-01",
     "listAccountSas": "2021-12-01-preview"
   },

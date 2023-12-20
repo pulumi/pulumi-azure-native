@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An Azure resource which represents Maps Creator product and provides ability to manage private location data.
  * Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview.
  *
- * Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview.
+ * Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview.
  */
 export class Creator extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class Creator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maps/v20200201preview:Creator" }, { type: "azure-native:maps/v20210201:Creator" }, { type: "azure-native:maps/v20210701preview:Creator" }, { type: "azure-native:maps/v20211201preview:Creator" }, { type: "azure-native:maps/v20230601:Creator" }, { type: "azure-native:maps/v20230801preview:Creator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maps/v20200201preview:Creator" }, { type: "azure-native:maps/v20210201:Creator" }, { type: "azure-native:maps/v20210701preview:Creator" }, { type: "azure-native:maps/v20211201preview:Creator" }, { type: "azure-native:maps/v20230601:Creator" }, { type: "azure-native:maps/v20230801preview:Creator" }, { type: "azure-native:maps/v20231201preview:Creator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Creator.__pulumiType, name, resourceInputs, opts);
     }

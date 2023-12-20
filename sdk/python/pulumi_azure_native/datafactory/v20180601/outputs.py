@@ -6321,7 +6321,8 @@ class AzureBlobFSWriteSettingsResponse(dict):
                  block_size_in_mb: Optional[Any] = None,
                  copy_behavior: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 max_concurrent_connections: Optional[Any] = None):
+                 max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Azure blobFS write settings.
         :param str type: The write setting type.
@@ -6330,6 +6331,7 @@ class AzureBlobFSWriteSettingsResponse(dict):
         :param Any copy_behavior: The type of copy behavior for copy sink.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Sequence['MetadataItemResponse'] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         """
         pulumi.set(__self__, "type", 'AzureBlobFSWriteSettings')
         if block_size_in_mb is not None:
@@ -6340,6 +6342,8 @@ class AzureBlobFSWriteSettingsResponse(dict):
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter
@@ -6381,6 +6385,14 @@ class AzureBlobFSWriteSettingsResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -6979,7 +6991,8 @@ class AzureBlobStorageWriteSettingsResponse(dict):
                  block_size_in_mb: Optional[Any] = None,
                  copy_behavior: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 max_concurrent_connections: Optional[Any] = None):
+                 max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Azure blob write settings.
         :param str type: The write setting type.
@@ -6988,6 +7001,7 @@ class AzureBlobStorageWriteSettingsResponse(dict):
         :param Any copy_behavior: The type of copy behavior for copy sink.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Sequence['MetadataItemResponse'] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         """
         pulumi.set(__self__, "type", 'AzureBlobStorageWriteSettings')
         if block_size_in_mb is not None:
@@ -6998,6 +7012,8 @@ class AzureBlobStorageWriteSettingsResponse(dict):
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter
@@ -7039,6 +7055,14 @@ class AzureBlobStorageWriteSettingsResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -8994,7 +9018,8 @@ class AzureDataLakeStoreWriteSettingsResponse(dict):
                  copy_behavior: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  expiry_date_time: Optional[Any] = None,
-                 max_concurrent_connections: Optional[Any] = None):
+                 max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Azure data lake store write settings.
         :param str type: The write setting type.
@@ -9003,6 +9028,7 @@ class AzureDataLakeStoreWriteSettingsResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any expiry_date_time: Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Sequence['MetadataItemResponse'] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         """
         pulumi.set(__self__, "type", 'AzureDataLakeStoreWriteSettings')
         if copy_behavior is not None:
@@ -9013,6 +9039,8 @@ class AzureDataLakeStoreWriteSettingsResponse(dict):
             pulumi.set(__self__, "expiry_date_time", expiry_date_time)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter
@@ -9054,6 +9082,14 @@ class AzureDataLakeStoreWriteSettingsResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -10649,7 +10685,8 @@ class AzureFileStorageWriteSettingsResponse(dict):
                  type: str,
                  copy_behavior: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 max_concurrent_connections: Optional[Any] = None):
+                 max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Azure File Storage write settings.
         :param str type: The write setting type.
@@ -10657,6 +10694,7 @@ class AzureFileStorageWriteSettingsResponse(dict):
         :param Any copy_behavior: The type of copy behavior for copy sink.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Sequence['MetadataItemResponse'] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         """
         pulumi.set(__self__, "type", 'AzureFileStorageWriteSettings')
         if copy_behavior is not None:
@@ -10665,6 +10703,8 @@ class AzureFileStorageWriteSettingsResponse(dict):
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter
@@ -10698,6 +10738,14 @@ class AzureFileStorageWriteSettingsResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -31729,7 +31777,8 @@ class FileServerWriteSettingsResponse(dict):
                  type: str,
                  copy_behavior: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 max_concurrent_connections: Optional[Any] = None):
+                 max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         File server write settings.
         :param str type: The write setting type.
@@ -31737,6 +31786,7 @@ class FileServerWriteSettingsResponse(dict):
         :param Any copy_behavior: The type of copy behavior for copy sink.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Sequence['MetadataItemResponse'] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         """
         pulumi.set(__self__, "type", 'FileServerWriteSettings')
         if copy_behavior is not None:
@@ -31745,6 +31795,8 @@ class FileServerWriteSettingsResponse(dict):
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter
@@ -31778,6 +31830,14 @@ class FileServerWriteSettingsResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -44537,7 +44597,8 @@ class LakeHouseWriteSettingsResponse(dict):
                  type: str,
                  copy_behavior: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 max_concurrent_connections: Optional[Any] = None):
+                 max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None):
         """
         Microsoft Fabric LakeHouse Files write settings.
         :param str type: The write setting type.
@@ -44545,6 +44606,7 @@ class LakeHouseWriteSettingsResponse(dict):
         :param Any copy_behavior: The type of copy behavior for copy sink.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Sequence['MetadataItemResponse'] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         """
         pulumi.set(__self__, "type", 'LakeHouseWriteSettings')
         if copy_behavior is not None:
@@ -44553,6 +44615,8 @@ class LakeHouseWriteSettingsResponse(dict):
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
 
     @property
     @pulumi.getter
@@ -44586,6 +44650,14 @@ class LakeHouseWriteSettingsResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
@@ -69665,6 +69737,7 @@ class SftpWriteSettingsResponse(dict):
                  copy_behavior: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
+                 metadata: Optional[Sequence['outputs.MetadataItemResponse']] = None,
                  operation_timeout: Optional[Any] = None,
                  use_temp_file_rename: Optional[Any] = None):
         """
@@ -69674,6 +69747,7 @@ class SftpWriteSettingsResponse(dict):
         :param Any copy_behavior: The type of copy behavior for copy sink.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Sequence['MetadataItemResponse'] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
         :param Any operation_timeout: Specifies the timeout for writing each chunk to SFTP server. Default value: 01:00:00 (one hour). Type: string (or Expression with resultType string).
         :param Any use_temp_file_rename: Upload to temporary file(s) and rename. Disable this option if your SFTP server doesn't support rename operation. Type: boolean (or Expression with resultType boolean).
         """
@@ -69684,6 +69758,8 @@ class SftpWriteSettingsResponse(dict):
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if operation_timeout is not None:
             pulumi.set(__self__, "operation_timeout", operation_timeout)
         if use_temp_file_rename is not None:
@@ -69721,6 +69797,14 @@ class SftpWriteSettingsResponse(dict):
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Sequence['outputs.MetadataItemResponse']]:
+        """
+        Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter(name="operationTimeout")

@@ -40,7 +40,7 @@ export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
     /**
      * Private IPAddresses mapped to the remote private endpoint
      */
-    public /*out*/ readonly ipAddresses!: pulumi.Output<string[] | undefined>;
+    public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * Kind of resource.
      */
@@ -83,13 +83,13 @@ export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
+            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["ipAddresses"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -113,6 +113,10 @@ export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
  * The set of arguments for constructing a WebAppPrivateEndpointConnectionSlot resource.
  */
 export interface WebAppPrivateEndpointConnectionSlotArgs {
+    /**
+     * Private IPAddresses mapped to the remote private endpoint
+     */
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Kind of resource.
      */

@@ -149,7 +149,7 @@ class Account(pulumi.CustomResource):
         An Azure resource which represents access to a suite of Maps REST APIs.
         Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2018-05-01.
 
-        Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview.
+        Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class Account(pulumi.CustomResource):
         An Azure resource which represents access to a suite of Maps REST APIs.
         Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2018-05-01.
 
-        Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview.
+        Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -218,7 +218,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps/v20170101preview:Account"), pulumi.Alias(type_="azure-native:maps/v20180501:Account"), pulumi.Alias(type_="azure-native:maps/v20200201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20210201:Account"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Account"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20230601:Account"), pulumi.Alias(type_="azure-native:maps/v20230801preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps/v20170101preview:Account"), pulumi.Alias(type_="azure-native:maps/v20180501:Account"), pulumi.Alias(type_="azure-native:maps/v20200201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20210201:Account"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Account"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Account"), pulumi.Alias(type_="azure-native:maps/v20230601:Account"), pulumi.Alias(type_="azure-native:maps/v20230801preview:Account"), pulumi.Alias(type_="azure-native:maps/v20231201preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:maps:Account',

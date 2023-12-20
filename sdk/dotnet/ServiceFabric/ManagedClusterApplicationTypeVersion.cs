@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// An application type version resource for the specified application type name resource.
     /// Azure REST API version: 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ManagedClusterApplicationTypeVersion")]
     public partial class ManagedClusterApplicationTypeVersion : global::Pulumi.CustomResource
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.ServiceFabric
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230701preview:ManagedClusterApplicationTypeVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20230901preview:ManagedClusterApplicationTypeVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231101preview:ManagedClusterApplicationTypeVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231201preview:ManagedClusterApplicationTypeVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

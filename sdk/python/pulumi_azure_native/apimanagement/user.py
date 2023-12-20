@@ -250,7 +250,7 @@ class User(pulumi.CustomResource):
         User details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview.
+        Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,7 +278,7 @@ class User(pulumi.CustomResource):
         User details.
         Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview.
+        Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -346,7 +346,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["registration_date"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:User"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:User"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:User"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:User"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:User"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:User"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:User"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:User"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:User"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:User"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:User"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:User"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:User"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:User"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:User"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:User"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-native:apimanagement:User',

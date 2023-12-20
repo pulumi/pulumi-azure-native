@@ -198,7 +198,7 @@ class Project(pulumi.CustomResource):
         A project resource
         Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
 
-        Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
+        Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,7 +223,7 @@ class Project(pulumi.CustomResource):
         A project resource
         Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
 
-        Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
+        Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
@@ -282,7 +282,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Project"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Project")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Project"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
             'azure-native:datamigration:Project',

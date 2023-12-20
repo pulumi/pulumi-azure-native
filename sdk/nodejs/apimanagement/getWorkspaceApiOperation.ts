@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of the API Operation specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
  */
 export function getWorkspaceApiOperation(args: GetWorkspaceApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiOperationResult> {
 
@@ -101,7 +101,7 @@ export interface GetWorkspaceApiOperationResult {
  * Gets the details of the API Operation specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
  */
 export function getWorkspaceApiOperationOutput(args: GetWorkspaceApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiOperationResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceApiOperation(a, opts))

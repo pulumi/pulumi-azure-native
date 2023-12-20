@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
  * Azure REST API version: 2021-06-30.
  *
- * Other available API versions: 2022-03-30-preview.
+ * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -94,7 +94,7 @@ export interface GetServiceResult {
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
  * Azure REST API version: 2021-06-30.
  *
- * Other available API versions: 2022-03-30-preview.
+ * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

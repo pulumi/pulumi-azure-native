@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * disk access resource.
  * Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2023-01-02, 2023-04-02.
+ * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02.
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class DiskAccess extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-native:compute/v20210401:DiskAccess" }, { type: "azure-native:compute/v20210801:DiskAccess" }, { type: "azure-native:compute/v20211201:DiskAccess" }, { type: "azure-native:compute/v20220302:DiskAccess" }, { type: "azure-native:compute/v20220702:DiskAccess" }, { type: "azure-native:compute/v20230102:DiskAccess" }, { type: "azure-native:compute/v20230402:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-native:compute/v20210401:DiskAccess" }, { type: "azure-native:compute/v20210801:DiskAccess" }, { type: "azure-native:compute/v20211201:DiskAccess" }, { type: "azure-native:compute/v20220302:DiskAccess" }, { type: "azure-native:compute/v20220702:DiskAccess" }, { type: "azure-native:compute/v20230102:DiskAccess" }, { type: "azure-native:compute/v20230402:DiskAccess" }, { type: "azure-native:compute/v20231002:DiskAccess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccess.__pulumiType, name, resourceInputs, opts);
     }

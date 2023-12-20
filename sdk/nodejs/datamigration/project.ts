@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A project resource
  * Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
  *
- * Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview.
+ * Other available API versions: 2017-11-15-preview, 2018-03-31-preview, 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -142,7 +142,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20171115preview:Project" }, { type: "azure-native:datamigration/v20180315preview:Project" }, { type: "azure-native:datamigration/v20180331preview:Project" }, { type: "azure-native:datamigration/v20180419:Project" }, { type: "azure-native:datamigration/v20180715preview:Project" }, { type: "azure-native:datamigration/v20210630:Project" }, { type: "azure-native:datamigration/v20211030preview:Project" }, { type: "azure-native:datamigration/v20220130preview:Project" }, { type: "azure-native:datamigration/v20220330preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20171115preview:Project" }, { type: "azure-native:datamigration/v20180315preview:Project" }, { type: "azure-native:datamigration/v20180331preview:Project" }, { type: "azure-native:datamigration/v20180419:Project" }, { type: "azure-native:datamigration/v20180715preview:Project" }, { type: "azure-native:datamigration/v20210630:Project" }, { type: "azure-native:datamigration/v20211030preview:Project" }, { type: "azure-native:datamigration/v20220130preview:Project" }, { type: "azure-native:datamigration/v20220330preview:Project" }, { type: "azure-native:datamigration/v20230715preview:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }

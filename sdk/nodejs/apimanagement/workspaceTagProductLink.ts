@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Tag-product link details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
  */
 export class WorkspaceTagProductLink extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class WorkspaceTagProductLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceTagProductLink" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceTagProductLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceTagProductLink" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceTagProductLink" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceTagProductLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceTagProductLink.__pulumiType, name, resourceInputs, opts);
     }

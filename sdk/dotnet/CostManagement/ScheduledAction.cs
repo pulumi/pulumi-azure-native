@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement
     /// Scheduled action definition.
     /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-08-01, 2023-11-01.
+    /// Other available API versions: 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource
@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:ScheduledAction"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:ScheduledAction"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230801:ScheduledAction"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230901:ScheduledAction"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:ScheduledAction"},
                 },
             };

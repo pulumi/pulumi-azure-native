@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Dev Tool Portal resource
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
  */
 export class DevToolPortal extends pulumi.CustomResource {
     /**
@@ -88,7 +88,7 @@ export class DevToolPortal extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20221101preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230101preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230301preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230501preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230701preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230901preview:DevToolPortal" }, { type: "azure-native:appplatform/v20231101preview:DevToolPortal" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20221101preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230101preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230301preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230501preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230701preview:DevToolPortal" }, { type: "azure-native:appplatform/v20230901preview:DevToolPortal" }, { type: "azure-native:appplatform/v20231101preview:DevToolPortal" }, { type: "azure-native:appplatform/v20231201:DevToolPortal" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevToolPortal.__pulumiType, name, resourceInputs, opts);
     }

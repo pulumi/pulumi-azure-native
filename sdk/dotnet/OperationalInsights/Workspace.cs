@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// The top level Workspace resource container.
     /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
     /// 
-    /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview.
+    /// Other available API versions: 2015-11-01-preview, 2020-08-01, 2020-10-01, 2021-06-01, 2021-12-01-preview, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -170,6 +170,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace"},
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

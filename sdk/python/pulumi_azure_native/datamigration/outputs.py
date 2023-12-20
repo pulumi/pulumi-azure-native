@@ -163,6 +163,7 @@ __all__ = [
     'MigrationValidationDatabaseSummaryResultResponse',
     'MigrationValidationOptionsResponse',
     'MigrationValidationResultResponse',
+    'MongoConnectionInformationResponse',
     'MongoDbClusterInfoResponse',
     'MongoDbCollectionInfoResponse',
     'MongoDbCollectionProgressResponse',
@@ -178,6 +179,8 @@ __all__ = [
     'MongoDbShardKeyInfoResponse',
     'MongoDbShardKeySettingResponse',
     'MongoDbThrottlingSettingsResponse',
+    'MongoMigrationCollectionResponse',
+    'MongoMigrationProgressDetailsResponse',
     'MySqlConnectionInfoResponse',
     'NodeMonitoringDataResponse',
     'ODataErrorResponse',
@@ -16084,6 +16087,41 @@ class MigrationValidationResultResponse(dict):
 
 
 @pulumi.output_type
+class MongoConnectionInformationResponse(dict):
+    """
+    Mongo Connection
+    """
+    def __init__(__self__, *,
+                 host: Optional[str] = None,
+                 port: Optional[int] = None):
+        """
+        Mongo Connection
+        :param str host: Host of mongo connection.
+        :param int port: Port of mongo connection.
+        """
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        """
+        Host of mongo connection.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Port of mongo connection.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
 class MongoDbClusterInfoResponse(dict):
     """
     Describes a MongoDB data source
@@ -17638,6 +17676,192 @@ class MongoDbThrottlingSettingsResponse(dict):
         The number of megabytes of RAM that the migrator will try to avoid using
         """
         return pulumi.get(self, "min_free_memory_mb")
+
+
+@pulumi.output_type
+class MongoMigrationCollectionResponse(dict):
+    """
+    Mongo source and target database and collection details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "migrationProgressDetails":
+            suggest = "migration_progress_details"
+        elif key == "sourceCollection":
+            suggest = "source_collection"
+        elif key == "sourceDatabase":
+            suggest = "source_database"
+        elif key == "targetCollection":
+            suggest = "target_collection"
+        elif key == "targetDatabase":
+            suggest = "target_database"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoMigrationCollectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoMigrationCollectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoMigrationCollectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 migration_progress_details: 'outputs.MongoMigrationProgressDetailsResponse',
+                 source_collection: Optional[str] = None,
+                 source_database: Optional[str] = None,
+                 target_collection: Optional[str] = None,
+                 target_database: Optional[str] = None):
+        """
+        Mongo source and target database and collection details.
+        :param 'MongoMigrationProgressDetailsResponse' migration_progress_details: Detailed migration status. Not included by default.
+        :param str source_collection: Source collection name.
+        :param str source_database: Source database name.
+        :param str target_collection: Target collection name.
+        :param str target_database: Target database name.
+        """
+        pulumi.set(__self__, "migration_progress_details", migration_progress_details)
+        if source_collection is not None:
+            pulumi.set(__self__, "source_collection", source_collection)
+        if source_database is not None:
+            pulumi.set(__self__, "source_database", source_database)
+        if target_collection is not None:
+            pulumi.set(__self__, "target_collection", target_collection)
+        if target_database is not None:
+            pulumi.set(__self__, "target_database", target_database)
+
+    @property
+    @pulumi.getter(name="migrationProgressDetails")
+    def migration_progress_details(self) -> 'outputs.MongoMigrationProgressDetailsResponse':
+        """
+        Detailed migration status. Not included by default.
+        """
+        return pulumi.get(self, "migration_progress_details")
+
+    @property
+    @pulumi.getter(name="sourceCollection")
+    def source_collection(self) -> Optional[str]:
+        """
+        Source collection name.
+        """
+        return pulumi.get(self, "source_collection")
+
+    @property
+    @pulumi.getter(name="sourceDatabase")
+    def source_database(self) -> Optional[str]:
+        """
+        Source database name.
+        """
+        return pulumi.get(self, "source_database")
+
+    @property
+    @pulumi.getter(name="targetCollection")
+    def target_collection(self) -> Optional[str]:
+        """
+        Target collection name.
+        """
+        return pulumi.get(self, "target_collection")
+
+    @property
+    @pulumi.getter(name="targetDatabase")
+    def target_database(self) -> Optional[str]:
+        """
+        Target database name.
+        """
+        return pulumi.get(self, "target_database")
+
+
+@pulumi.output_type
+class MongoMigrationProgressDetailsResponse(dict):
+    """
+    Detailed status of collection migration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationInSeconds":
+            suggest = "duration_in_seconds"
+        elif key == "migrationError":
+            suggest = "migration_error"
+        elif key == "migrationStatus":
+            suggest = "migration_status"
+        elif key == "processedDocumentCount":
+            suggest = "processed_document_count"
+        elif key == "sourceDocumentCount":
+            suggest = "source_document_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoMigrationProgressDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoMigrationProgressDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoMigrationProgressDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration_in_seconds: int,
+                 migration_error: str,
+                 migration_status: str,
+                 processed_document_count: float,
+                 source_document_count: float):
+        """
+        Detailed status of collection migration.
+        :param int duration_in_seconds: Migration duration
+        :param str migration_error: Migration Error
+        :param str migration_status: Migration Status
+        :param float processed_document_count: Processed Document Count
+        :param float source_document_count: Source Document Count
+        """
+        pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+        pulumi.set(__self__, "migration_error", migration_error)
+        pulumi.set(__self__, "migration_status", migration_status)
+        pulumi.set(__self__, "processed_document_count", processed_document_count)
+        pulumi.set(__self__, "source_document_count", source_document_count)
+
+    @property
+    @pulumi.getter(name="durationInSeconds")
+    def duration_in_seconds(self) -> int:
+        """
+        Migration duration
+        """
+        return pulumi.get(self, "duration_in_seconds")
+
+    @property
+    @pulumi.getter(name="migrationError")
+    def migration_error(self) -> str:
+        """
+        Migration Error
+        """
+        return pulumi.get(self, "migration_error")
+
+    @property
+    @pulumi.getter(name="migrationStatus")
+    def migration_status(self) -> str:
+        """
+        Migration Status
+        """
+        return pulumi.get(self, "migration_status")
+
+    @property
+    @pulumi.getter(name="processedDocumentCount")
+    def processed_document_count(self) -> float:
+        """
+        Processed Document Count
+        """
+        return pulumi.get(self, "processed_document_count")
+
+    @property
+    @pulumi.getter(name="sourceDocumentCount")
+    def source_document_count(self) -> float:
+        """
+        Source Document Count
+        """
+        return pulumi.get(self, "source_document_count")
 
 
 @pulumi.output_type

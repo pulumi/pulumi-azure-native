@@ -101,7 +101,7 @@ def get_configuration_service(configuration_service_name: Optional[str] = None,
     Get the Application Configuration Service and its properties.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
 
 
     :param str configuration_service_name: The name of Application Configuration Service.
@@ -132,7 +132,7 @@ def get_configuration_service_output(configuration_service_name: Optional[pulumi
     Get the Application Configuration Service and its properties.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
 
 
     :param str configuration_service_name: The name of Application Configuration Service.

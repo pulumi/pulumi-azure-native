@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Authorization access policy contract.
  * Azure REST API version: 2022-08-01.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
  */
 export class AuthorizationAccessPolicy extends pulumi.CustomResource {
     /**
@@ -93,7 +93,7 @@ export class AuthorizationAccessPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220801:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationAccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220401preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220801:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationAccessPolicy" }, { type: "azure-native:apimanagement/v20230501preview:AuthorizationAccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AuthorizationAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }

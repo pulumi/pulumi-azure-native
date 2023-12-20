@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * APM Resource object
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
  */
 export class Apm extends pulumi.CustomResource {
     /**
@@ -88,7 +88,7 @@ export class Apm extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230501preview:Apm" }, { type: "azure-native:appplatform/v20230701preview:Apm" }, { type: "azure-native:appplatform/v20230901preview:Apm" }, { type: "azure-native:appplatform/v20231101preview:Apm" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230501preview:Apm" }, { type: "azure-native:appplatform/v20230701preview:Apm" }, { type: "azure-native:appplatform/v20230901preview:Apm" }, { type: "azure-native:appplatform/v20231101preview:Apm" }, { type: "azure-native:appplatform/v20231201:Apm" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Apm.__pulumiType, name, resourceInputs, opts);
     }

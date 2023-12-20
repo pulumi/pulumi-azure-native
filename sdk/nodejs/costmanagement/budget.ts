@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A budget resource.
  * Azure REST API version: 2023-04-01-preview.
  *
- * Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-11-01.
+ * Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -175,7 +175,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:Budget" }, { type: "azure-native:costmanagement/v20230401preview:Budget" }, { type: "azure-native:costmanagement/v20230801:Budget" }, { type: "azure-native:costmanagement/v20231101:Budget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:Budget" }, { type: "azure-native:costmanagement/v20230401preview:Budget" }, { type: "azure-native:costmanagement/v20230801:Budget" }, { type: "azure-native:costmanagement/v20230901:Budget" }, { type: "azure-native:costmanagement/v20231101:Budget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Budget.__pulumiType, name, resourceInputs, opts);
     }

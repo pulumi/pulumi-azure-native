@@ -44,6 +44,7 @@ __all__ = [
     'ManagedInstanceLicenseType',
     'ManagedInstanceProxyOverride',
     'ManagedServerCreateMode',
+    'MinimalTlsVersion',
     'PrincipalType',
     'PrivateLinkServiceConnectionStateStatus',
     'ReadOnlyEndpointFailoverPolicy',
@@ -426,6 +427,17 @@ class ManagedServerCreateMode(str, Enum):
     """
     DEFAULT = "Default"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+
+
+class MinimalTlsVersion(str, Enum):
+    """
+    Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
+    """
+    NONE = "None"
+    MINIMAL_TLS_VERSION_1_0 = "1.0"
+    MINIMAL_TLS_VERSION_1_1 = "1.1"
+    MINIMAL_TLS_VERSION_1_2 = "1.2"
+    MINIMAL_TLS_VERSION_1_3 = "1.3"
 
 
 class PrincipalType(str, Enum):

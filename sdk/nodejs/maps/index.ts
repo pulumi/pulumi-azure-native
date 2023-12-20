@@ -30,6 +30,11 @@ export const getPrivateAtlase: typeof import("./getPrivateAtlase").getPrivateAtl
 export const getPrivateAtlaseOutput: typeof import("./getPrivateAtlase").getPrivateAtlaseOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateAtlase","getPrivateAtlaseOutput"], () => require("./getPrivateAtlase"));
 
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
 export const listAccountKeysOutput: typeof import("./listAccountKeys").listAccountKeysOutput = null as any;
@@ -45,6 +50,11 @@ export type PrivateAtlase = import("./privateAtlase").PrivateAtlase;
 export const PrivateAtlase: typeof import("./privateAtlase").PrivateAtlase = null as any;
 utilities.lazyLoad(exports, ["PrivateAtlase"], () => require("./privateAtlase"));
 
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
 
 // Export enums:
 export * from "../types/enums/maps";
@@ -56,6 +66,7 @@ import * as v20210201 from "./v20210201";
 import * as v20211201preview from "./v20211201preview";
 import * as v20230601 from "./v20230601";
 import * as v20230801preview from "./v20230801preview";
+import * as v20231201preview from "./v20231201preview";
 
 export {
     v20180501,
@@ -64,6 +75,7 @@ export {
     v20211201preview,
     v20230601,
     v20230801preview,
+    v20231201preview,
 };
 
 const _module = {
@@ -76,6 +88,8 @@ const _module = {
                 return new Creator(name, <any>undefined, { urn })
             case "azure-native:maps:PrivateAtlase":
                 return new PrivateAtlase(name, <any>undefined, { urn })
+            case "azure-native:maps:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Monitoring Setting resource
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
  */
 export class MonitoringSetting extends pulumi.CustomResource {
     /**
@@ -87,7 +87,7 @@ export class MonitoringSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:MonitoringSetting" }, { type: "azure-native:appplatform/v20201101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20210601preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20210901preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20220101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20220301preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20220401:MonitoringSetting" }, { type: "azure-native:appplatform/v20220501preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20220901preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20221101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20221201:MonitoringSetting" }, { type: "azure-native:appplatform/v20230101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20230301preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20230501preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20230701preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20230901preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20231101preview:MonitoringSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:MonitoringSetting" }, { type: "azure-native:appplatform/v20201101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20210601preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20210901preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20220101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20220301preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20220401:MonitoringSetting" }, { type: "azure-native:appplatform/v20220501preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20220901preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20221101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20221201:MonitoringSetting" }, { type: "azure-native:appplatform/v20230101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20230301preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20230501preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20230701preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20230901preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20231101preview:MonitoringSetting" }, { type: "azure-native:appplatform/v20231201:MonitoringSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MonitoringSetting.__pulumiType, name, resourceInputs, opts);
     }

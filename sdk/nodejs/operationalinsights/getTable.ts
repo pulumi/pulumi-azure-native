@@ -93,7 +93,7 @@ export interface GetTableResult {
      */
     readonly systemData: outputs.operationalinsights.SystemDataResponse;
     /**
-     * The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
+     * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
      */
     readonly totalRetentionInDays?: number;
     /**

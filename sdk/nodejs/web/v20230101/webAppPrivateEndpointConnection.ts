@@ -40,7 +40,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Private IPAddresses mapped to the remote private endpoint
      */
-    public /*out*/ readonly ipAddresses!: pulumi.Output<string[] | undefined>;
+    public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * Kind of resource.
      */
@@ -80,12 +80,12 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ipAddresses"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -109,6 +109,10 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a WebAppPrivateEndpointConnection resource.
  */
 export interface WebAppPrivateEndpointConnectionArgs {
+    /**
+     * Private IPAddresses mapped to the remote private endpoint
+     */
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Kind of resource.
      */

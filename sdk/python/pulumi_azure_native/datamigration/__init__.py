@@ -6,10 +6,15 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .database_migrations_mongo_to_cosmos_db_ru_mongo import *
+from .database_migrations_mongo_to_cosmos_dbv_core_mongo import *
 from .database_migrations_sql_db import *
 from .file import *
+from .get_database_migrations_mongo_to_cosmos_db_ru_mongo import *
+from .get_database_migrations_mongo_to_cosmos_dbv_core_mongo import *
 from .get_database_migrations_sql_db import *
 from .get_file import *
+from .get_migration_service import *
 from .get_project import *
 from .get_service import *
 from .get_service_task import *
@@ -17,6 +22,7 @@ from .get_sql_migration_service import *
 from .get_task import *
 from .list_sql_migration_service_auth_keys import *
 from .list_sql_migration_service_monitoring_data import *
+from .migration_service import *
 from .project import *
 from .service import *
 from .service_task import *
@@ -33,8 +39,11 @@ if typing.TYPE_CHECKING:
     v20211030preview = __v20211030preview
     import pulumi_azure_native.datamigration.v20220330preview as __v20220330preview
     v20220330preview = __v20220330preview
+    import pulumi_azure_native.datamigration.v20230715preview as __v20230715preview
+    v20230715preview = __v20230715preview
 else:
     v20210630 = _utilities.lazy_import('pulumi_azure_native.datamigration.v20210630')
     v20211030preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20211030preview')
     v20220330preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20220330preview')
+    v20230715preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20230715preview')
 

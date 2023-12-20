@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
         /// Azure REST API version: 2022-03-30-preview.
+        /// 
+        /// Other available API versions: 2023-07-15-preview.
         /// </summary>
         public static Task<ListSqlMigrationServiceAuthKeysResult> InvokeAsync(ListSqlMigrationServiceAuthKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
         /// Azure REST API version: 2022-03-30-preview.
+        /// 
+        /// Other available API versions: 2023-07-15-preview.
         /// </summary>
         public static Output<ListSqlMigrationServiceAuthKeysResult> Invoke(ListSqlMigrationServiceAuthKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysInvokeArgs(), options.WithDefaults());

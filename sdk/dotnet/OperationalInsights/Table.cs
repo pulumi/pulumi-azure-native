@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
+        /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         /// </summary>
         [Output("totalRetentionInDays")]
         public Output<int?> TotalRetentionInDays { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<string>? TableName { get; set; }
 
         /// <summary>
-        /// The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention.
+        /// The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
         /// </summary>
         [Input("totalRetentionInDays")]
         public Input<int>? TotalRetentionInDays { get; set; }

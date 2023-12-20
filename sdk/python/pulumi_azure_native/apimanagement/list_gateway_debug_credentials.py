@@ -56,6 +56,8 @@ def list_gateway_debug_credentials(api_id: Optional[str] = None,
     Create new debug credentials for gateway.
     Azure REST API version: 2023-03-01-preview.
 
+    Other available API versions: 2023-05-01-preview.
+
 
     :param str api_id: Full resource Id of an API.
     :param str credentials_expire_after: Credentials expiration in ISO8601 format. Maximum duration of the credentials is PT1H. When property is not specified, them value PT1H is used.
@@ -89,6 +91,8 @@ def list_gateway_debug_credentials_output(api_id: Optional[pulumi.Input[str]] = 
     """
     Create new debug credentials for gateway.
     Azure REST API version: 2023-03-01-preview.
+
+    Other available API versions: 2023-05-01-preview.
 
 
     :param str api_id: Full resource Id of an API.

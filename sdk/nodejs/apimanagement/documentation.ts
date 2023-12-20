@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Markdown documentation details.
  * Azure REST API version: 2022-08-01.
  *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview.
+ * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
  */
 export class Documentation extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class Documentation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:Documentation" }, { type: "azure-native:apimanagement/v20220901preview:Documentation" }, { type: "azure-native:apimanagement/v20230301preview:Documentation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:Documentation" }, { type: "azure-native:apimanagement/v20220901preview:Documentation" }, { type: "azure-native:apimanagement/v20230301preview:Documentation" }, { type: "azure-native:apimanagement/v20230501preview:Documentation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Documentation.__pulumiType, name, resourceInputs, opts);
     }

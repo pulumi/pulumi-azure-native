@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * User details.
  * Azure REST API version: 2022-09-01-preview.
  *
- * Other available API versions: 2023-03-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-05-01-preview.
  */
 export class WorkspaceGroupUser extends pulumi.CustomResource {
     /**
@@ -132,7 +132,7 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceGroupUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceGroupUser" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceGroupUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceGroupUser.__pulumiType, name, resourceInputs, opts);
     }

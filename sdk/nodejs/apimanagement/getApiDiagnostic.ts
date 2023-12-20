@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of the Diagnostic for an API specified by its identifier.
  * Azure REST API version: 2022-08-01.
  *
- * Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview.
+ * Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
  */
 export function getApiDiagnostic(args: GetApiDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDiagnosticResult> {
 
@@ -104,7 +104,7 @@ export interface GetApiDiagnosticResult {
  * Gets the details of the Diagnostic for an API specified by its identifier.
  * Azure REST API version: 2022-08-01.
  *
- * Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview.
+ * Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview.
  */
 export function getApiDiagnosticOutput(args: GetApiDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDiagnosticResult> {
     return pulumi.output(args).apply((a: any) => getApiDiagnostic(a, opts))
