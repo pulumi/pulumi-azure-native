@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestWritePropertiesToBody(t *testing.T) {
@@ -21,9 +22,6 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("top-level", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			property: resources.AzureAPIProperty{
-				Type: "string",
-			},
 			propertyName: "remote",
 			path:         []string{},
 		}}
@@ -44,9 +42,6 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("properties container", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			property: resources.AzureAPIProperty{
-				Type: "string",
-			},
 			propertyName: "remote",
 			path:         []string{"properties"},
 		}}
@@ -71,9 +66,6 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("existing properties are maintained", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			property: resources.AzureAPIProperty{
-				Type: "string",
-			},
 			propertyName: "remote",
 			path:         []string{"properties"},
 		}}
@@ -100,9 +92,6 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("properties missed from remote", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			property: resources.AzureAPIProperty{
-				Type: "string",
-			},
 			propertyName: "remote",
 			path:         []string{"properties"},
 		}}
@@ -127,9 +116,6 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("properties container missing from remote", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			property: resources.AzureAPIProperty{
-				Type: "string",
-			},
 			propertyName: "remote",
 			path:         []string{"properties"},
 		}}
@@ -150,9 +136,6 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("properties container missing in body", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			property: resources.AzureAPIProperty{
-				Type: "string",
-			},
 			propertyName: "remote",
 			path:         []string{"properties"},
 		}}
@@ -173,9 +156,6 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("empty with container", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			property: resources.AzureAPIProperty{
-				Type: "string",
-			},
 			propertyName: "remote",
 			path:         []string{"properties"},
 		}}
@@ -191,9 +171,6 @@ func TestWritePropertiesToBody(t *testing.T) {
 
 	t.Run("Nested array missing from body", func(t *testing.T) {
 		missingProperties := []propertyPath{{
-			property: resources.AzureAPIProperty{
-				Type: "array",
-			},
 			propertyName: "accessPolicies",
 			path:         []string{"properties", "accessPolicies"},
 		}}
@@ -224,13 +201,13 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 				Body: &resources.AzureAPIType{
 					Properties: map[string]resources.AzureAPIProperty{
 						"subResource": {
-							Type: "string",
+							Type:                       "string",
+							MaintainSubResourceIfUnset: true,
 						},
 					},
 				},
 			},
 		},
-		ApiPathsToSubResourcesToMaintainIfUnset: [][]string{{"subResource"}},
 	}
 
 	provider := azureNativeProvider{}
@@ -249,7 +226,6 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 		}
 		actual := provider.findUnsetPropertiesToMaintain(resWithSubResource, oldInputs)
 		expected := []propertyPath{{
-			property:     resWithSubResource.PutParameters[0].Body.Properties["subResource"],
 			propertyName: "subResource",
 			path:         []string{"subResource"},
 		}}
@@ -275,7 +251,7 @@ func TestFindUnsetSubResourcePropertiesFollowingTypeRefs(t *testing.T) {
 			"properties": map[string]interface{}{},
 		}
 		unset := provider.findUnsetPropertiesToMaintain(res, bodyParams)
-		assert.Equal(t, 1, len(unset))
+		require.Equal(t, 1, len(unset))
 		assert.Equal(t, "accessPolicies", unset[0].propertyName)
 		assert.Equal(t, []string{"properties", "accessPolicies"}, unset[0].path)
 	})
@@ -516,7 +492,6 @@ func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResourc
 				},
 			},
 		},
-		ApiPathsToSubResourcesToMaintainIfUnset: [][]string{{"properties", "accessPolicies"}},
 	}
 
 	provider := azureNativeProvider{
@@ -531,8 +506,21 @@ func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResourc
 								Type: "object",
 								Ref:  "#/types/azure-native:keyvault:AccessPolicyEntry",
 							},
+							MaintainSubResourceIfUnset: true,
 						},
 					},
+				}, true, nil
+			}
+			if ref == "#/types/azure-native:keyvault:AccessPolicyEntry" {
+				return &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"permissions": {
+							Type: "array",
+							Items: &resources.AzureAPIProperty{
+								Type: "string",
+							},
+							Containers: []string{"container2", "container3"},
+						}},
 				}, true, nil
 			}
 			return nil, false, nil

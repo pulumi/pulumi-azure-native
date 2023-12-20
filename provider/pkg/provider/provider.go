@@ -919,7 +919,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		ctx, cancel := azureContext(ctx, req.Timeout)
 		defer cancel()
 
-		k.setUnsetPropertiesToMaintainToDefaults(res, bodyParams)
+		k.setUnsetSubresourcePropertiesToDefaults(res, bodyParams)
 
 		// Submit the `PUT` against the ARM endpoint
 		response, created, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
@@ -962,10 +962,23 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	}, nil
 }
 
-// Properties of sub-resources that can be maintained as separate resources might not be present in the inputs.
-// During create, howver, no sub-resources can exist yet so we set these properties to their default values in
-// case they are required.
-func (k *azureNativeProvider) setUnsetPropertiesToMaintainToDefaults(res resources.AzureAPIResource, bodyParams map[string]interface{}) {
+// Properties pointing to sub-resources that can be maintained as separate resources might not be
+// present in the inputs because the user wants to manage them as standalone resources. However,
+// auch a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
+// Key Vault's accessPolicies. Therefore, we set these properties to their default value here,
+// an empty array.
+// During create, no sub-resources can exist yet so there's no danger of overwriting existing values.
+//
+// Implementation note: we should make it possible to write custom resources that call code from
+// the default implementation as needed. This would allow us to cleanly implement special logic
+// like for Key Vault into custom resources without duplicating much code. In the Key Vault case,
+// the custom Read() would look like
+//
+//	provider.azureCanCreate(ctx, id, &res)
+//	setUnsetSubresourcePropertiesToDefaults(res, bodyParams) // custom
+//	k.azureCreateOrUpdate
+//	...
+func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resources.AzureAPIResource, bodyParams map[string]interface{}) {
 	unset := k.findUnsetPropertiesToMaintain(&res, bodyParams)
 	for _, p := range unset {
 		cur := bodyParams
@@ -979,15 +992,8 @@ func (k *azureNativeProvider) setUnsetPropertiesToMaintainToDefaults(res resourc
 				break
 			}
 		}
-		switch p.property.Type {
-		case "string":
-			cur[p.propertyName] = ""
-		case "array":
-			cur[p.propertyName] = []any{}
-		case "object":
-			cur[p.propertyName] = map[string]any{}
-			// TODO,tkappler integer, number, boolean don't seem to make sense here but we should probably cover them
-		}
+
+		cur[p.propertyName] = []any{}
 	}
 }
 
@@ -1444,7 +1450,6 @@ func (k *azureNativeProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.
 
 type propertyPath struct {
 	path         []string
-	property     resources.AzureAPIProperty
 	propertyName string
 }
 
@@ -1507,26 +1512,13 @@ func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[stri
 
 func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}) []propertyPath {
 	missingProperties := []propertyPath{}
-
-	body, ok := res.BodyParameter()
-	if !ok {
-		return missingProperties
-	}
-
-	curBody := bodyParams
-	curRes := body.Body.Properties
-	for _, path := range res.ApiPathsToSubResourcesToMaintainIfUnset {
+	for _, path := range res.PathsToSubResourcePropertiesToMaintain(true /* includeContainers i.e. API-shape */, k.lookupType) {
+		curBody := bodyParams
 		for i, pathEl := range path {
-			p, ok := curRes[pathEl]
-			if !ok {
-				logging.V(5).Infof("failed to find property path %s in %v", strings.Join(path, ","), res.Path)
-				break
-			}
 			v, ok := curBody[pathEl]
 			if !ok {
 				missingProperties = append(missingProperties, propertyPath{
 					path:         path,
-					property:     p,
 					propertyName: pathEl,
 				})
 				break
@@ -1541,19 +1533,9 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 			if !ok {
 				missingProperties = append(missingProperties, propertyPath{
 					path:         path,
-					property:     p,
 					propertyName: pathEl,
 				})
 				break
-			}
-
-			if strings.HasPrefix(p.Ref, "#/types/azure-native") {
-				typ, ok, err := k.lookupType(p.Ref)
-				if err != nil || !ok {
-					logging.V(5).Infof("failed to find type %s: %v", p.Ref, err)
-					break
-				}
-				curRes = typ.Properties
 			}
 		}
 	}

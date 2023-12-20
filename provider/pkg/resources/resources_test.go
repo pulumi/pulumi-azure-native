@@ -99,6 +99,18 @@ func TestTraverseProperties(t *testing.T) {
 		},
 	}
 
+	res := AzureAPIResource{
+		PutParameters: []AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &AzureAPIType{
+					Properties: properties,
+				},
+			},
+		},
+	}
+
 	// Mock the type lookup to only return the type referenced in the resource above
 	lookupType := func(ref string) (*AzureAPIType, bool, error) {
 		if ref == "#/types/azure-native:keyvault:VaultProperties" {
@@ -123,6 +135,14 @@ func TestTraverseProperties(t *testing.T) {
 						Items: &AzureAPIProperty{
 							Type: "string", // not true in the real KV spec but good enough
 						},
+						Containers:                 []string{"container2", "container3"},
+						MaintainSubResourceIfUnset: true,
+					},
+					"other_array": {
+						Type: "array",
+						Items: &AzureAPIProperty{
+							Type: "string",
+						},
 					},
 				},
 			}, true, nil
@@ -130,18 +150,51 @@ func TestTraverseProperties(t *testing.T) {
 		return nil, false, nil
 	}
 
-	visited := map[string][]string{}
-	visitor := func(name string, property AzureAPIProperty, path []string) {
-		visited[name] = path
-	}
+	t.Run("including containers", func(t *testing.T) {
+		visited := map[string][]string{}
+		visitor := func(name string, property AzureAPIProperty, path []string) {
+			visited[name] = path
+		}
 
-	TraverseProperties(properties, lookupType, visitor)
+		TraverseProperties(properties, lookupType, true, visitor)
 
-	expected := map[string][]string{
-		"properties":     {},
-		"accessPolicies": {"properties", "container"},
-		"permissions":    {"properties", "container", "accessPolicies"},
-		"location":       {},
-	}
-	assert.Equal(t, expected, visited)
+		expected := map[string][]string{
+			"properties":     {},
+			"accessPolicies": {"properties", "container"},
+			"permissions":    {"properties", "container", "accessPolicies", "container2", "container3"},
+			"other_array":    {"properties", "container", "accessPolicies"},
+			"location":       {},
+		}
+		assert.Equal(t, expected, visited)
+	})
+
+	t.Run("without containers", func(t *testing.T) {
+		visited := map[string][]string{}
+		visitor := func(name string, property AzureAPIProperty, path []string) {
+			visited[name] = path
+		}
+
+		TraverseProperties(properties, lookupType, false, visitor)
+
+		expected := map[string][]string{
+			"properties":     {},
+			"accessPolicies": {"properties"},
+			"permissions":    {"properties", "accessPolicies"},
+			"other_array":    {"properties", "accessPolicies"},
+			"location":       {},
+		}
+		assert.Equal(t, expected, visited)
+	})
+
+	t.Run("collect subresource properties with containers", func(t *testing.T) {
+		paths := res.PathsToSubResourcePropertiesToMaintain(true, lookupType)
+		assert.Equal(t, 1, len(paths))
+		assert.Equal(t, []string{"properties", "container", "accessPolicies", "container2", "container3", "permissions"}, paths[0])
+	})
+
+	t.Run("collect subresource properties without containers", func(t *testing.T) {
+		paths := res.PathsToSubResourcePropertiesToMaintain(false, lookupType)
+		assert.Equal(t, 1, len(paths))
+		assert.Equal(t, []string{"properties", "accessPolicies", "permissions"}, paths[0])
+	})
 }

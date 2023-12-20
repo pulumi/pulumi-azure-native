@@ -296,15 +296,15 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	metadataProperty := resources.AzureAPIProperty{
-		OneOf:                m.getOneOfValues(typeSpec),
-		Ref:                  schemaProperty.Ref,
-		Items:                m.itemTypeToProperty(typeSpec.Items),
-		AdditionalProperties: m.itemTypeToProperty(typeSpec.AdditionalProperties),
-		ForceNew:             forceNew,
-		IsStringSet:          isStringSet,
-		Default:              defaultValue,
+		OneOf:                      m.getOneOfValues(typeSpec),
+		Ref:                        schemaProperty.Ref,
+		Items:                      m.itemTypeToProperty(typeSpec.Items),
+		AdditionalProperties:       m.itemTypeToProperty(typeSpec.AdditionalProperties),
+		ForceNew:                   forceNew,
+		IsStringSet:                isStringSet,
+		Default:                    defaultValue,
+		MaintainSubResourceIfUnset: maintainSubResourceIfUnset,
 	}
-	metadataProperty.SetMaintainSubResourceIfUnset(maintainSubResourceIfUnset)
 
 	// Input types only get extra information attached
 	if !isOutput {

@@ -65,14 +65,7 @@ type AzureAPIProperty struct {
 	// Some resources are nested beneath other resources, but are also made available as a property
 	// on the parent. This flag temporarily marks properties that hold such sub-resources, for
 	// later aggregation. For more detail, see AzureAPIResource.SubResourcesToMaintainIfUnset.
-	maintainSubResourceIfUnset bool
-}
-
-// We don't want this property exposed because it gets aggregated into
-// AzureAPIResource.SubResourcesToMaintainIfUnset, but we need to track it during schema
-// generation from the gen package.
-func (prop *AzureAPIProperty) SetMaintainSubResourceIfUnset(val bool) {
-	prop.maintainSubResourceIfUnset = val
+	MaintainSubResourceIfUnset bool `json:"omitempty,maintainSubResourceIfUnset"`
 }
 
 // AzureAPIType represents the shape of an object property.
@@ -115,24 +108,21 @@ type AzureAPIResource struct {
 	RequiredContainers [][]string `json:"requiredContainers,omitempty"`
 	// Default values to be used when the property is removed or in importing. Must be top-level properties.
 	DefaultProperties map[string]interface{} `json:"defaultProperties,omitempty"`
-	// Some resources are nested beneath other resources, but are also made available as a property on the parent.
-	// When updating the parent, if the list of nested resources is not specified as a property on the parent, the child resources will be deleted.
-	// When refreshing the parent, the list of nested resources will be populated from the current state - resulting in an unwanted diff.
-	// We work around this by adding these properties containing a list of nested resources to ApiPathsToSubResourcesToMaintainIfUnset.
-	// When updating or refreshing the parent, if the list of nested resources was not originally specified inline, we'll maintain the existing sub-resources transparently.
-	// The values are property paths pointing to the property, like ["property"] (top-level) or ["container", "property"].
-	// The paths are in API-shape, that is, they contain flattened containers and the names are not SDK names.
-	ApiPathsToSubResourcesToMaintainIfUnset [][]string `json:"subResourcesToMaintainIfUnset,omitempty"`
 }
 
 type TypeLookupFunc func(ref string) (*AzureAPIType, bool, error)
 
-func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, f func(propName string, prop AzureAPIProperty, path []string)) {
+func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, includeContainers bool, f func(propName string, prop AzureAPIProperty, path []string)) {
 	// Start the traversal with an empty path and an empty set of seen types for cycle detection.
-	traverseProperties(props, lookupType, []string{}, map[string]struct{}{}, f)
+	traverseProperties(props, lookupType, includeContainers, []string{}, map[string]struct{}{}, f)
 }
 
-func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, path []string, seen map[string]struct{}, f func(propName string, prop AzureAPIProperty, path []string)) {
+func traverseProperties(props map[string]AzureAPIProperty,
+	lookupType TypeLookupFunc,
+	includeContainers bool,
+	path []string,
+	seen map[string]struct{},
+	f func(propName string, prop AzureAPIProperty, path []string)) {
 	// Sort the properties to ensure stable output
 	propNames := make([]string, 0, len(props))
 	for propName := range props {
@@ -143,7 +133,10 @@ func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 	for _, propName := range propNames {
 		prop := props[propName]
 		pathCopy := append([]string{}, path...)
-		pathCopy = append(pathCopy, prop.Containers...)
+
+		if includeContainers {
+			pathCopy = append(pathCopy, prop.Containers...)
+		}
 
 		ref := prop.Ref
 		if ref == "" && prop.Items != nil {
@@ -158,7 +151,7 @@ func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 			if _, visited := seen[ref]; !visited {
 				seen[ref] = struct{}{}
 				nextPath := append(pathCopy, propName)
-				traverseProperties(refType.Properties, lookupType, nextPath, seen, f)
+				traverseProperties(refType.Properties, lookupType, includeContainers, nextPath, seen, f)
 			}
 		}
 
@@ -166,18 +159,20 @@ func traverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookup
 	}
 }
 
-func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup TypeLookupFunc) {
+func (res *AzureAPIResource) PathsToSubResourcePropertiesToMaintain(includeContainers bool, typeLookup TypeLookupFunc) [][]string {
+	result := [][]string{}
+
 	body, hasBody := res.BodyParameter()
 	if !hasBody {
-		return
+		return result
 	}
 
-	result := [][]string{}
 	TraverseProperties(
 		body.Body.Properties,
 		typeLookup,
+		includeContainers,
 		func(propName string, prop AzureAPIProperty, path []string) {
-			if prop.maintainSubResourceIfUnset {
+			if prop.MaintainSubResourceIfUnset {
 				// make a copy of path since the original might be passed to other callbacks
 				pathToProperty := append([]string{}, path...)
 				pathToProperty = append(pathToProperty, propName)
@@ -185,7 +180,7 @@ func (res *AzureAPIResource) CollectSubResourceToMaintainIfUnset(typeLookup Type
 			}
 		})
 
-	res.ApiPathsToSubResourcesToMaintainIfUnset = result
+	return result
 }
 
 func (res *AzureAPIResource) LookupProperty(key string) (AzureAPIProperty, bool) {
