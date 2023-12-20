@@ -46,7 +46,7 @@ func BuildCustomResources(env *azure.Environment,
 	tokenAuth autorest.Authorizer,
 	kvBearerAuth autorest.Authorizer,
 	userAgent string,
-	tokenFactory azcore.TokenCredential) map[string]*CustomResource {
+	tokenFactory azcore.TokenCredential) (map[string]*CustomResource, error) {
 
 	kvClient := keyvault.New()
 	kvClient.Authorizer = kvBearerAuth
@@ -54,7 +54,7 @@ func BuildCustomResources(env *azure.Environment,
 
 	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenFactory, &arm.ClientOptions{})
 	if err != nil {
-		panic(err) // TODO,tkappler
+		return nil, err
 	}
 
 	storageAccountsClient := storage.NewAccountsClientWithBaseURI(env.ResourceManagerEndpoint, subscriptionID)
@@ -75,11 +75,11 @@ func BuildCustomResources(env *azure.Environment,
 	for _, r := range resources {
 		result[r.path] = r
 	}
-	return result
+	return result, nil
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
