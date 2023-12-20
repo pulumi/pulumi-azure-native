@@ -2025,6 +2025,7 @@ class VaultPropertiesResponse(dict):
         :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_rbac_authorization: Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored. When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
@@ -2111,6 +2112,7 @@ class VaultPropertiesResponse(dict):
     def access_policies(self) -> Optional[Sequence['outputs.AccessPolicyEntryResponse']]:
         """
         An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "access_policies")
 

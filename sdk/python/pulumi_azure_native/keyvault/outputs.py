@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessPolicyEntry',
     'AccessPolicyEntryResponse',
     'ActionResponse',
     'IPRuleResponse',
@@ -30,6 +31,7 @@ __all__ = [
     'ManagedHsmPropertiesResponse',
     'ManagedHsmSkuResponse',
     'NetworkRuleSetResponse',
+    'Permissions',
     'PermissionsResponse',
     'PrivateEndpointConnectionItemResponse',
     'PrivateEndpointResponse',
@@ -43,6 +45,83 @@ __all__ = [
     'VaultPropertiesResponse',
     'VirtualNetworkRuleResponse',
 ]
+
+@pulumi.output_type
+class AccessPolicyEntry(dict):
+    """
+    An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "applicationId":
+            suggest = "application_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPolicyEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPolicyEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_id: str,
+                 permissions: 'outputs.Permissions',
+                 tenant_id: str,
+                 application_id: Optional[str] = None):
+        """
+        An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+        :param str object_id: The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+        :param 'Permissions' permissions: Permissions the identity has for keys, secrets and certificates.
+        :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        :param str application_id:  Application ID of the client making request on behalf of a principal
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> 'outputs.Permissions':
+        """
+        Permissions the identity has for keys, secrets and certificates.
+        """
+        return pulumi.get(self, "permissions")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[str]:
+        """
+         Application ID of the client making request on behalf of a principal
+        """
+        return pulumi.get(self, "application_id")
+
 
 @pulumi.output_type
 class AccessPolicyEntryResponse(dict):
@@ -1168,6 +1247,65 @@ class NetworkRuleSetResponse(dict):
 
 
 @pulumi.output_type
+class Permissions(dict):
+    """
+    Permissions the identity has for keys, secrets, certificates and storage.
+    """
+    def __init__(__self__, *,
+                 certificates: Optional[Sequence[str]] = None,
+                 keys: Optional[Sequence[str]] = None,
+                 secrets: Optional[Sequence[str]] = None,
+                 storage: Optional[Sequence[str]] = None):
+        """
+        Permissions the identity has for keys, secrets, certificates and storage.
+        :param Sequence[Union[str, 'CertificatePermissions']] certificates: Permissions to certificates
+        :param Sequence[Union[str, 'KeyPermissions']] keys: Permissions to keys
+        :param Sequence[Union[str, 'SecretPermissions']] secrets: Permissions to secrets
+        :param Sequence[Union[str, 'StoragePermissions']] storage: Permissions to storage accounts
+        """
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[Sequence[str]]:
+        """
+        Permissions to certificates
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[Sequence[str]]:
+        """
+        Permissions to keys
+        """
+        return pulumi.get(self, "keys")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence[str]]:
+        """
+        Permissions to secrets
+        """
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional[Sequence[str]]:
+        """
+        Permissions to storage accounts
+        """
+        return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
 class PermissionsResponse(dict):
     """
     Permissions the identity has for keys, secrets, certificates and storage.
@@ -1894,6 +2032,7 @@ class VaultPropertiesResponse(dict):
         :param 'SkuResponse' sku: SKU details
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param Sequence['AccessPolicyEntryResponse'] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param bool enable_rbac_authorization: Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored. When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
         :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
@@ -1980,6 +2119,7 @@ class VaultPropertiesResponse(dict):
     def access_policies(self) -> Optional[Sequence['outputs.AccessPolicyEntryResponse']]:
         """
         An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "access_policies")
 

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessPolicyArgs } from "./accessPolicy";
+export type AccessPolicy = import("./accessPolicy").AccessPolicy;
+export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
+utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
+
 export { GetKeyArgs, GetKeyResult, GetKeyOutputArgs } from "./getKey";
 export const getKey: typeof import("./getKey").getKey = null as any;
 export const getKeyOutput: typeof import("./getKey").getKeyOutput = null as any;
@@ -82,6 +87,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:keyvault:AccessPolicy":
+                return new AccessPolicy(name, <any>undefined, { urn })
             case "azure-native:keyvault:Key":
                 return new Key(name, <any>undefined, { urn })
             case "azure-native:keyvault:MHSMPrivateEndpointConnection":

@@ -7814,6 +7814,7 @@
         "iotoperationsorchestrator/v20231004preview/instance.ts",
         "iotoperationsorchestrator/v20231004preview/solution.ts",
         "iotoperationsorchestrator/v20231004preview/target.ts",
+        "keyvault/accessPolicy.ts",
         "keyvault/getKey.ts",
         "keyvault/getMHSMPrivateEndpointConnection.ts",
         "keyvault/getManagedHsm.ts",
