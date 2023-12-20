@@ -233,20 +233,20 @@ func TestAccKeyVaultAccessPoliciesTs(t *testing.T) {
 							urn := string(resource.URN)
 							if strings.HasSuffix(urn, "keyvault:AccessPolicy::ap1") {
 								ap1Found = true
-								accessPolicy, ok := resource.Outputs["accessPolicy"]
-								assert.True(t, ok, "Property 'accessPolicy' not found")
+								accessPolicy, ok := resource.Outputs["policy"]
+								assert.True(t, ok, "Property 'policy' not found")
 								accessPolicyObj, ok := accessPolicy.(map[string]interface{})
-								assert.True(t, ok, "Property 'accessPolicy' is not an object")
+								assert.True(t, ok, "Property 'policy' is not an object")
 
 								permissions, ok := accessPolicyObj["permissions"]
-								assert.True(t, ok, "Property 'accessPolicy.permissions' not found")
+								assert.True(t, ok, "Property 'policy.permissions' not found")
 								permissionsObj, ok := permissions.(map[string]interface{})
-								assert.True(t, ok, "Property 'accessPolicy.permissions' is not an object")
+								assert.True(t, ok, "Property 'policy.permissions' is not an object")
 
 								keyPermissions, ok := permissionsObj["keys"]
-								assert.True(t, ok, "Property 'accessPolicy.permissions.keys' not found")
+								assert.True(t, ok, "Property 'policy.permissions.keys' not found")
 								keyPermissionsArray, ok := keyPermissions.([]any)
-								assert.True(t, ok, "Property 'accessPolicy.permissions.keys' is not an array")
+								assert.True(t, ok, "Property 'policy.permissions.keys' is not an array")
 
 								assert.Equal(t, 1, len(keyPermissionsArray))
 								assert.Equal(t, "get", keyPermissionsArray[0].(string))

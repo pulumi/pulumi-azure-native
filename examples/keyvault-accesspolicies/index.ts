@@ -25,7 +25,7 @@ const vault = new keyvault.Vault("vault", {
 const ap1 = new keyvault.AccessPolicy("ap1", {
     resourceGroupName: resourceGroup.name,
     vaultName: vault.name,
-    accessPolicy: {
+    policy: {
         objectId: config.objectId,
         permissions: {
             keys: [
@@ -48,7 +48,7 @@ const ap1 = new keyvault.AccessPolicy("ap1", {
 const ap2 = new keyvault.AccessPolicy("ap2", {
     resourceGroupName: resourceGroup.name,
     vaultName: vault.name,
-    accessPolicy: {
+    policy: {
         objectId: "00000000-0000-0000-0000-000000000000",
         permissions: {
             keys: [

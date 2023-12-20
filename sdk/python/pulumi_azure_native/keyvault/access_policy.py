@@ -17,30 +17,30 @@ __all__ = ['AccessPolicyArgs', 'AccessPolicy']
 @pulumi.input_type
 class AccessPolicyArgs:
     def __init__(__self__, *,
-                 access_policy: pulumi.Input['AccessPolicyEntryArgs'],
+                 policy: pulumi.Input['AccessPolicyEntryArgs'],
                  resource_group_name: pulumi.Input[str],
                  vault_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a AccessPolicy resource.
-        :param pulumi.Input['AccessPolicyEntryArgs'] access_policy: The definition of the access policy.
+        :param pulumi.Input['AccessPolicyEntryArgs'] policy: The definition of the access policy.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the vault.
         :param pulumi.Input[str] vault_name: Name of the Key Vault.
         """
-        pulumi.set(__self__, "access_policy", access_policy)
+        pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
 
     @property
-    @pulumi.getter(name="accessPolicy")
-    def access_policy(self) -> pulumi.Input['AccessPolicyEntryArgs']:
+    @pulumi.getter
+    def policy(self) -> pulumi.Input['AccessPolicyEntryArgs']:
         """
         The definition of the access policy.
         """
-        return pulumi.get(self, "access_policy")
+        return pulumi.get(self, "policy")
 
-    @access_policy.setter
-    def access_policy(self, value: pulumi.Input['AccessPolicyEntryArgs']):
-        pulumi.set(self, "access_policy", value)
+    @policy.setter
+    def policy(self, value: pulumi.Input['AccessPolicyEntryArgs']):
+        pulumi.set(self, "policy", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -72,7 +72,7 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy: Optional[pulumi.Input[pulumi.InputType['AccessPolicyEntryArgs']]] = None,
+                 policy: Optional[pulumi.Input[pulumi.InputType['AccessPolicyEntryArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -81,7 +81,7 @@ class AccessPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessPolicyEntryArgs']] access_policy: The definition of the access policy.
+        :param pulumi.Input[pulumi.InputType['AccessPolicyEntryArgs']] policy: The definition of the access policy.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the vault.
         :param pulumi.Input[str] vault_name: Name of the Key Vault.
         """
@@ -109,7 +109,7 @@ class AccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy: Optional[pulumi.Input[pulumi.InputType['AccessPolicyEntryArgs']]] = None,
+                 policy: Optional[pulumi.Input[pulumi.InputType['AccessPolicyEntryArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -121,9 +121,9 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessPolicyArgs.__new__(AccessPolicyArgs)
 
-            if access_policy is None and not opts.urn:
-                raise TypeError("Missing required property 'access_policy'")
-            __props__.__dict__["access_policy"] = access_policy
+            if policy is None and not opts.urn:
+                raise TypeError("Missing required property 'policy'")
+            __props__.__dict__["policy"] = policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -152,18 +152,18 @@ class AccessPolicy(pulumi.CustomResource):
 
         __props__ = AccessPolicyArgs.__new__(AccessPolicyArgs)
 
-        __props__.__dict__["access_policy"] = None
+        __props__.__dict__["policy"] = None
         __props__.__dict__["resource_group_name"] = None
         __props__.__dict__["vault_name"] = None
         return AccessPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="accessPolicy")
-    def access_policy(self) -> pulumi.Output[Optional['outputs.AccessPolicyEntry']]:
+    @pulumi.getter
+    def policy(self) -> pulumi.Output[Optional['outputs.AccessPolicyEntry']]:
         """
         The definition of the access policy.
         """
-        return pulumi.get(self, "access_policy")
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="resourceGroupName")

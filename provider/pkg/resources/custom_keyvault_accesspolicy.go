@@ -16,8 +16,8 @@ import (
 
 // Frequently used resource property names.
 const (
-	vaultName    = "vaultName"
-	accessPolicy = "accessPolicy"
+	vaultName = "vaultName"
+	policy    = "policy"
 )
 
 const path = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy"
@@ -31,7 +31,7 @@ var keyVaultAccessPolicyProperties = map[string]schema.PropertySpec{
 		TypeSpec:    schema.TypeSpec{Type: "string"},
 		Description: "Name of the Key Vault.",
 	},
-	accessPolicy: {
+	policy: {
 		// This type is generated from the Azure spec because the Vault resource references it.
 		TypeSpec:    schema.TypeSpec{Ref: "#/types/azure-native:keyvault:AccessPolicyEntry"},
 		Description: "The definition of the access policy.",
@@ -50,7 +50,7 @@ func keyVaultAccessPolicy(client *armkeyvault.VaultsClient) *CustomResource {
 				Properties:  keyVaultAccessPolicyProperties,
 			},
 			InputProperties: keyVaultAccessPolicyProperties,
-			RequiredInputs:  []string{resourceGroupName, vaultName, accessPolicy},
+			RequiredInputs:  []string{resourceGroupName, vaultName, policy},
 		},
 		Meta: &AzureAPIResource{
 			Path: path,
@@ -63,9 +63,9 @@ func keyVaultAccessPolicy(client *armkeyvault.VaultsClient) *CustomResource {
 					Location: "body",
 					Body: &AzureAPIType{
 						Properties: map[string]AzureAPIProperty{
-							accessPolicy: {Type: "#/types/azure-native:keyvault:AccessPolicyEntry"},
+							policy: {Type: "#/types/azure-native:keyvault:AccessPolicyEntry"},
 						},
-						RequiredProperties: []string{resourceGroupName, vaultName, accessPolicy},
+						RequiredProperties: []string{resourceGroupName, vaultName, policy},
 					},
 				},
 			},
@@ -95,8 +95,8 @@ func (c *accessPolicyClient) read(ctx context.Context, id string, properties res
 	}
 
 	// input from body
-	policy := properties[accessPolicy].ObjectValue()
-	objectId := policy["objectId"].StringValue()
+	policyObj := properties[policy].ObjectValue()
+	objectId := policyObj["objectId"].StringValue()
 
 	vaultResult, err := c.client.Get(ctx, parsedId.ResourceGroup, parsedId.VaultName, &armkeyvault.VaultsClientGetOptions{})
 	if err != nil {
@@ -119,7 +119,7 @@ func (c *accessPolicyClient) read(ctx context.Context, id string, properties res
 			return map[string]interface{}{
 				resourceGroupName: parsedId.ResourceGroup,
 				vaultName:         vaultResult.Name,
-				accessPolicy:      ape,
+				policy:            ape,
 			}, true, nil
 		}
 	}
@@ -143,8 +143,8 @@ func (c *accessPolicyClient) write(ctx context.Context, properties resource.Prop
 	}
 
 	if (found && !shouldExist) || (!found && shouldExist) {
-		policy := properties[accessPolicy].ObjectValue()
-		objectId := policy["objectId"].StringValue()
+		policyObj := properties[policy].ObjectValue()
+		objectId := policyObj["objectId"].StringValue()
 		msg := "access policy for %s already exists"
 		if shouldExist {
 			msg = "access policy for %s does not exist"
@@ -170,16 +170,16 @@ func (c *accessPolicyClient) modify(ctx context.Context, properties resource.Pro
 	rg := properties[resourceGroupName].StringValue()
 	vaultName := properties[vaultName].StringValue()
 
-	policy := properties[accessPolicy].ObjectValue()
-	objectId := policy["objectId"].StringValue()
-	tenantId := policy["tenantId"].StringValue()
+	policyObj := properties[policy].ObjectValue()
+	objectId := policyObj["objectId"].StringValue()
+	tenantId := policyObj["tenantId"].StringValue()
 	var applicationId string
-	if policy.HasValue("applicationId") {
-		applicationId = policy["applicationId"].StringValue()
+	if policyObj.HasValue("applicationId") {
+		applicationId = policyObj["applicationId"].StringValue()
 	}
 
 	var permissions armkeyvault.Permissions
-	if permissionMap, ok := policy["permissions"]; ok {
+	if permissionMap, ok := policyObj["permissions"]; ok {
 		permissionVals := permissionMap.ObjectValue()
 		permissions = propertyPermissionsToSdk(permissionVals)
 	}

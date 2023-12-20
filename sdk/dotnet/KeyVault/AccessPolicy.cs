@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The definition of the access policy.
         /// </summary>
-        [Output("accessPolicy")]
-        public Output<Outputs.AccessPolicyEntry?> AccessPolicy { get; private set; } = null!;
+        [Output("policy")]
+        public Output<Outputs.AccessPolicyEntry?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Name of the resource group that contains the vault.
@@ -81,8 +81,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// The definition of the access policy.
         /// </summary>
-        [Input("accessPolicy", required: true)]
-        public Input<Inputs.AccessPolicyEntryArgs> AccessPolicy { get; set; } = null!;
+        [Input("policy", required: true)]
+        public Input<Inputs.AccessPolicyEntryArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group that contains the vault.

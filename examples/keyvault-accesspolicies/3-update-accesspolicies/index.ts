@@ -26,7 +26,7 @@ const vault = new keyvault.Vault("vault", {
 const ap1 = new keyvault.AccessPolicy("ap1", {
     resourceGroupName: resourceGroup.name,
     vaultName: vault.name,
-    accessPolicy: {
+    policy: {
         objectId: config.objectId,
         permissions: {
             keys: [

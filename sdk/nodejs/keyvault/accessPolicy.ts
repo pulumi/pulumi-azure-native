@@ -40,7 +40,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The definition of the access policy.
      */
-    public readonly accessPolicy!: pulumi.Output<outputs.keyvault.AccessPolicyEntry | undefined>;
+    public readonly policy!: pulumi.Output<outputs.keyvault.AccessPolicyEntry | undefined>;
     /**
      * Name of the resource group that contains the vault.
      */
@@ -61,8 +61,8 @@ export class AccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessPolicy === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'accessPolicy'");
+            if ((!args || args.policy === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'policy'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -70,11 +70,11 @@ export class AccessPolicy extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         } else {
-            resourceInputs["accessPolicy"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["resourceGroupName"] = undefined /*out*/;
             resourceInputs["vaultName"] = undefined /*out*/;
         }
@@ -90,7 +90,7 @@ export interface AccessPolicyArgs {
     /**
      * The definition of the access policy.
      */
-    accessPolicy: pulumi.Input<inputs.keyvault.AccessPolicyEntryArgs>;
+    policy: pulumi.Input<inputs.keyvault.AccessPolicyEntryArgs>;
     /**
      * Name of the resource group that contains the vault.
      */
