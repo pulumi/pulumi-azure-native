@@ -82,13 +82,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:WorkspaceManagerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:WorkspaceManagerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:WorkspaceManagerGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:WorkspaceManagerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:WorkspaceManagerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:WorkspaceManagerGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.LabServices.V20181015
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:labservices:GalleryImage"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices:GalleryImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

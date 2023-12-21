@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.OffAzure.V20230606
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure:HypervClusterControllerCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:HypervClusterControllerCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

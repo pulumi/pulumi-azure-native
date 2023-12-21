@@ -131,10 +131,10 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:DomainTopicEventSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:DomainTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:DomainTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:DomainTopicEventSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

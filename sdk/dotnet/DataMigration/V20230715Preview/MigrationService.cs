@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.DataMigration.V20230715Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration:MigrationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration:MigrationService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

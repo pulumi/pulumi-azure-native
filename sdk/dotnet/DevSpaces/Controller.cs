@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DevSpaces
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devspaces/v20190401:Controller"},
+                    new global::Pulumi.Alias { Type = "azure-native:devspaces/v20190401:Controller" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

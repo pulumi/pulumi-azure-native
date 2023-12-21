@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

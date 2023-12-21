@@ -139,17 +139,17 @@ namespace Pulumi.AzureNative.AppConfiguration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20190201preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191001:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230301:ConfigurationStore"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230801preview:ConfigurationStore"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20190201preview:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191001:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230301:ConfigurationStore" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230801preview:ConfigurationStore" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

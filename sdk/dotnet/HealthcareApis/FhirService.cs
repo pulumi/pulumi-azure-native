@@ -163,16 +163,16 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:FhirService"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:FhirService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:FhirService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForMIPPolicySync"},
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:PrivateLinkServicesForMIPPolicySync"},
-                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForMIPPolicySync"},
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForMIPPolicySync" },
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:PrivateLinkServicesForMIPPolicySync" },
+                    new global::Pulumi.Alias { Type = "azure-native:m365securityandcompliance:privateLinkServicesForMIPPolicySync" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

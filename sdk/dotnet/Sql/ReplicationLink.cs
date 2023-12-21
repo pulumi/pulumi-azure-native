@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ReplicationLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ReplicationLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

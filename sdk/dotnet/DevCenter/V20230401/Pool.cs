@@ -118,14 +118,14 @@ namespace Pulumi.AzureNative.DevCenter.V20230401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

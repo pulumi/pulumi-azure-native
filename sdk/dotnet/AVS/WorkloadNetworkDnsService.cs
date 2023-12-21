@@ -103,12 +103,12 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsService"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsService"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDnsService"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDnsService"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkDnsService"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkDnsService"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkDnsService" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDnsService" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDnsService" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDnsService" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkDnsService" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkDnsService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

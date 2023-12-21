@@ -76,17 +76,17 @@ namespace Pulumi.AzureNative.Network.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:ManagementGroupNetworkManagerConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:ManagementGroupNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:ManagementGroupNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:ManagementGroupNetworkManagerConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

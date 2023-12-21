@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apicenter:Environment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apicenter:Environment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

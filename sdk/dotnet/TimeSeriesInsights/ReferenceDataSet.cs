@@ -91,12 +91,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet"},
-                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:ReferenceDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:ReferenceDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

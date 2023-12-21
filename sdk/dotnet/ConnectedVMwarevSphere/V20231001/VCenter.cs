@@ -142,11 +142,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20231001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:VCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:VCenter"},
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:VCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VCenter" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:VCenter" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VCenter" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:VCenter" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:VCenter" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

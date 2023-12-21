@@ -100,14 +100,14 @@ namespace Pulumi.AzureNative.DevCenter.V20230401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Project"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:Project" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

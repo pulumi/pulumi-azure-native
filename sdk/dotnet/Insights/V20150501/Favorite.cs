@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:Favorite"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:Favorite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

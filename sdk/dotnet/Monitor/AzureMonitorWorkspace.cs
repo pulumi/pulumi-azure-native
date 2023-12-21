@@ -113,8 +113,8 @@ namespace Pulumi.AzureNative.Monitor
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210603preview:AzureMonitorWorkspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20230403:AzureMonitorWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20210603preview:AzureMonitorWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20230403:AzureMonitorWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

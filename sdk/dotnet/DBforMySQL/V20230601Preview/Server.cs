@@ -178,16 +178,16 @@ namespace Pulumi.AzureNative.DBforMySQL.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220930preview:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:Server"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231001preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220930preview:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231001preview:Server" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

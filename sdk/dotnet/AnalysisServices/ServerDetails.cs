@@ -133,10 +133,10 @@ namespace Pulumi.AzureNative.AnalysisServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20160516:ServerDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170801:ServerDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170801beta:ServerDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20160516:ServerDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170801:ServerDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native:analysisservices/v20170801beta:ServerDetails" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

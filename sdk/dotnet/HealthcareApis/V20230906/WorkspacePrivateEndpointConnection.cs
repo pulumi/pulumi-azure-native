@@ -76,15 +76,15 @@ namespace Pulumi.AzureNative.HealthcareApis.V20230906
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:WorkspacePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:WorkspacePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:WorkspacePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:WorkspacePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:WorkspacePrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -211,10 +211,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:StreamingJob"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:StreamingJob"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:StreamingJob"},
-                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20211001preview:StreamingJob"},
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20160301:StreamingJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20170401preview:StreamingJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:StreamingJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:streamanalytics/v20211001preview:StreamingJob" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -70,14 +70,14 @@ namespace Pulumi.AzureNative.DevCenter.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Gallery"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Gallery"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Gallery" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Gallery" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

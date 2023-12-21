@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnosticLogger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:ApiDiagnosticLogger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

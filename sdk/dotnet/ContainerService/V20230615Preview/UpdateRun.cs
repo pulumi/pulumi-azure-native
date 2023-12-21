@@ -90,10 +90,10 @@ namespace Pulumi.AzureNative.ContainerService.V20230615Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice:UpdateRun"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230315preview:UpdateRun"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230815preview:UpdateRun"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231015:UpdateRun"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:UpdateRun" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230315preview:UpdateRun" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230815preview:UpdateRun" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231015:UpdateRun" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

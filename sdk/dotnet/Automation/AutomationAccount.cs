@@ -151,13 +151,13 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:AutomationAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:AutomationAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:AutomationAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

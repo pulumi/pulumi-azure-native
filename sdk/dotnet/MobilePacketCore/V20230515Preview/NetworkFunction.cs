@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.MobilePacketCore.V20230515Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilepacketcore:NetworkFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilepacketcore:NetworkFunction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

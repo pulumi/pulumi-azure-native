@@ -166,14 +166,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Update"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:Update"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:Update"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:Update"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:Update"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230601:Update"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801:Update"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:Update"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:Update" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:Update" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:Update" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:Update" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:Update" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230601:Update" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801:Update" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:Update" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

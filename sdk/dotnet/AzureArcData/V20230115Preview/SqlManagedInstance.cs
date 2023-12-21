@@ -88,13 +88,13 @@ namespace Pulumi.AzureNative.AzureArcData.V20230115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20211101:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:SqlManagedInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlManagedInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata:SqlManagedInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:SqlManagedInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210701preview:SqlManagedInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:SqlManagedInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20211101:SqlManagedInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:SqlManagedInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlManagedInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

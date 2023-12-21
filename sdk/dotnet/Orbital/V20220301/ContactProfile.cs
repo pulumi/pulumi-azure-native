@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.Orbital.V20220301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:orbital:ContactProfile"},
-                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20221101:ContactProfile"},
+                    new global::Pulumi.Alias { Type = "azure-native:orbital:ContactProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20221101:ContactProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

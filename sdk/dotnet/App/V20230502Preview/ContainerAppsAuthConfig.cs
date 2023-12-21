@@ -94,15 +94,15 @@ namespace Pulumi.AzureNative.App.V20230502Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ContainerAppsAuthConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ContainerAppsAuthConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ContainerAppsAuthConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ContainerAppsAuthConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

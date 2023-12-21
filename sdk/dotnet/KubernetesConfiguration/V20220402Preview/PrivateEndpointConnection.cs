@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -67,9 +67,9 @@ namespace Pulumi.AzureNative.AzureStack
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20170601:CustomerSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:CustomerSubscription"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20220601:CustomerSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20170601:CustomerSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:CustomerSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestack/v20220601:CustomerSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

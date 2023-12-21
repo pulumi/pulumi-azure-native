@@ -64,14 +64,14 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ApplicationLiveView"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApplicationLiveView"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApplicationLiveView"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApplicationLiveView"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ApplicationLiveView"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:ApplicationLiveView"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:ApplicationLiveView"},
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:ApplicationLiveView"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:ApplicationLiveView" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:ApplicationLiveView" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

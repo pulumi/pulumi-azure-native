@@ -76,11 +76,11 @@ namespace Pulumi.AzureNative.HDInsight.V20230415Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Application"},
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:Application" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

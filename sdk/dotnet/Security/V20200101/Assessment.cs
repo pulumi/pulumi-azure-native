@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.Security.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:Assessment"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:Assessment"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20210601:Assessment"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:Assessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20190101preview:Assessment" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20210601:Assessment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

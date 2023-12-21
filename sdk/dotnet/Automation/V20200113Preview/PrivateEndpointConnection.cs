@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

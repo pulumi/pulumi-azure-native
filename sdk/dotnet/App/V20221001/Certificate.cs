@@ -76,15 +76,15 @@ namespace Pulumi.AzureNative.App.V20221001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:Certificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:Certificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

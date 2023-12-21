@@ -82,12 +82,12 @@ namespace Pulumi.AzureNative.Automation.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation:ConnectionType"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:ConnectionType"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:ConnectionType"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:ConnectionType"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:ConnectionType"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:ConnectionType"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:ConnectionType" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:ConnectionType" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:ConnectionType" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:ConnectionType" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:ConnectionType" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:ConnectionType" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

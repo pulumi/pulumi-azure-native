@@ -136,15 +136,15 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180201:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401:Endpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

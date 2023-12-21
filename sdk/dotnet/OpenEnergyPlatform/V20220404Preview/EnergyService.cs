@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform.V20220404Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:openenergyplatform:EnergyService"},
-                    new global::Pulumi.Alias { Type = "azure-native:openenergyplatform/v20210601preview:EnergyService"},
+                    new global::Pulumi.Alias { Type = "azure-native:openenergyplatform:EnergyService" },
+                    new global::Pulumi.Alias { Type = "azure-native:openenergyplatform/v20210601preview:EnergyService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer:PipelineTopology"},
+                    new global::Pulumi.Alias { Type = "azure-native:videoanalyzer:PipelineTopology" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

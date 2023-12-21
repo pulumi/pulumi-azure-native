@@ -82,14 +82,14 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSitePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSitePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSitePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSitePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSitePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSitePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSitePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:StaticSitePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSitePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:StaticSitePrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

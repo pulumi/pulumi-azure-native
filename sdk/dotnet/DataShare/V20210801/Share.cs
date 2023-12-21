@@ -100,11 +100,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Share"},
-                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Share"},
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:Share" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:Share" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:Share" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:Share" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:Share" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

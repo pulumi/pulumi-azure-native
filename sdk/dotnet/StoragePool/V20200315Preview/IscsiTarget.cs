@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool:IscsiTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:IscsiTarget"},
-                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210801:IscsiTarget"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool:IscsiTarget" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210401preview:IscsiTarget" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagepool/v20210801:IscsiTarget" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

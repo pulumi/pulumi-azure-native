@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric:NetworkInterface"},
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkInterface"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric:NetworkInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

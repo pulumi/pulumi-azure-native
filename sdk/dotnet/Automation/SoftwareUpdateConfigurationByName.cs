@@ -109,9 +109,9 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:SoftwareUpdateConfigurationByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:SoftwareUpdateConfigurationByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

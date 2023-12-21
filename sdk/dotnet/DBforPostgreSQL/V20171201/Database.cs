@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Database" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

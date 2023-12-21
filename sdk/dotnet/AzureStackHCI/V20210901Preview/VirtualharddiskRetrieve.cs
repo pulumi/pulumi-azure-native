@@ -130,17 +130,17 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:virtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:virtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:virtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:VirtualharddiskRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:virtualharddiskRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:virtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:virtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:virtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:virtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:VirtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:virtualharddiskRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

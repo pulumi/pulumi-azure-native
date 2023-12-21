@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.Web.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteDatabaseConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:StaticSiteDatabaseConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteDatabaseConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:StaticSiteDatabaseConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

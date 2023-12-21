@@ -221,7 +221,7 @@ namespace Pulumi.AzureNative.TestBase
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20231101preview:DraftPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20231101preview:DraftPackage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

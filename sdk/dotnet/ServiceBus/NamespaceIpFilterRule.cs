@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceIpFilterRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceIpFilterRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

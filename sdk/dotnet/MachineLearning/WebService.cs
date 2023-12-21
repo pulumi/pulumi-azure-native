@@ -73,8 +73,8 @@ namespace Pulumi.AzureNative.MachineLearning
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:WebService"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20170101:WebService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20160501preview:WebService" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearning/v20170101:WebService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

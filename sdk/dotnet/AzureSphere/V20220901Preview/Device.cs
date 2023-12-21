@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azuresphere:Device"},
+                    new global::Pulumi.Alias { Type = "azure-native:azuresphere:Device" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

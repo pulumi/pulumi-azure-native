@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20230601preview:DataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:agfoodplatform/v20230601preview:DataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

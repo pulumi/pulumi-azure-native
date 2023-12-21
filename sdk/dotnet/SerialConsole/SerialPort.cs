@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.SerialConsole
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:serialconsole/v20180501:SerialPort"},
+                    new global::Pulumi.Alias { Type = "azure-native:serialconsole/v20180501:SerialPort" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -70,17 +70,17 @@ namespace Pulumi.AzureNative.Network.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:RoutingIntent"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:RoutingIntent"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210801:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220101:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:RoutingIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:RoutingIntent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -73,13 +73,13 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:WorkspaceManagerConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:WorkspaceManagerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:WorkspaceManagerConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:WorkspaceManagerConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

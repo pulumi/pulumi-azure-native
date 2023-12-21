@@ -112,17 +112,17 @@ namespace Pulumi.AzureNative.EventHub.V20230101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20140901:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:EventHub"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:EventHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20140901:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:EventHub" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:EventHub" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

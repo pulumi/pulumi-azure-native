@@ -229,9 +229,9 @@ namespace Pulumi.AzureNative.DevHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20220401preview:Workflow"},
-                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20221011preview:Workflow"},
-                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20230801:Workflow"},
+                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20220401preview:Workflow" },
+                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20221011preview:Workflow" },
+                    new global::Pulumi.Alias { Type = "azure-native:devhub/v20230801:Workflow" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

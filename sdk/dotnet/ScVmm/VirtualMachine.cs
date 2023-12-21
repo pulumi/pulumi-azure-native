@@ -193,9 +193,9 @@ namespace Pulumi.AzureNative.ScVmm
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:VirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:VirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:VirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

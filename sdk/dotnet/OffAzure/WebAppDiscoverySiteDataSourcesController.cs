@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:WebAppDiscoverySiteDataSourcesController"},
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:WebAppDiscoverySiteDataSourcesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

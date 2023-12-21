@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:saas:SaasSubscriptionLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:saas:SaasSubscriptionLevel" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

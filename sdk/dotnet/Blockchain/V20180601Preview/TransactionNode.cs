@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:blockchain:TransactionNode"},
+                    new global::Pulumi.Alias { Type = "azure-native:blockchain:TransactionNode" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

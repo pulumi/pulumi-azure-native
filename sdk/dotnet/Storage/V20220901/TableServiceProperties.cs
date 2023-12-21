@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.Storage.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:TableServiceProperties"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:TableServiceProperties"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:TableServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:TableServiceProperties" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
