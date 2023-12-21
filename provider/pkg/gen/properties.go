@@ -398,16 +398,15 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 
 	if hasMutabilityInfo && forcesRecreate {
 		if isType {
-			m.skippedForceNewTypes = append(m.skippedForceNewTypes, SkippedForceNewType{
+			m.forceNewTypes = append(m.forceNewTypes, ForceNewType{
 				Module:        m.module,
 				Provider:      m.prov,
 				ResourceName:  m.resourceName,
 				ReferenceName: schema.ReferenceContext.ReferenceName,
 				Property:      propertyName,
 			})
-		} else {
-			return true
 		}
+		return true
 	}
 
 	if resourceMap, ok := forceNewMap[m.prov]; ok {
