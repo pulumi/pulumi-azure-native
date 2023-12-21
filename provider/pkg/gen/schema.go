@@ -872,6 +872,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		RequiredContainers:   requiredContainers,
 		DefaultProperties:    propertyDefaults(module, resource.typeName),
 	}
+
 	g.metadata.Resources[resourceTok] = r
 
 	g.generateExampleReferences(resourceTok, path, swagger)

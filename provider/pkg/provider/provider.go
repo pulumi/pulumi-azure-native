@@ -81,6 +81,7 @@ type azureNativeProvider struct {
 	converter       *convert.SdkShapeConverter
 	customResources map[string]*resources.CustomResource
 	rgLocationMap   map[string]string
+	lookupType      resources.TypeLookupFunc
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
@@ -101,7 +102,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	converter := convert.NewSdkShapeConverterPartial(resourceMap.Types)
 
 	// Return the new provider
-	return &azureNativeProvider{
+	p := &azureNativeProvider{
 		host:          host,
 		name:          name,
 		version:       version,
@@ -111,7 +112,9 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		schemaBytes:   schemaBytes,
 		converter:     &converter,
 		rgLocationMap: map[string]string{},
-	}, nil
+	}
+	p.lookupType = p.lookupTypeDefault
+	return p, nil
 }
 
 // LoadMetadataPartial partially deserializes the provided json byte array into an AzureAPIMetadata
@@ -145,6 +148,14 @@ func (k *azureNativeProvider) getFullMetadata() (*resources.AzureAPIMetadata, er
 	}
 
 	return k.fullResourceMap, nil
+}
+
+// Looks up a type reference, with or without the #/types/ prefix, in the resource map.
+// Typically used via lookupType so it can be overridden for tests.
+func (k *azureNativeProvider) lookupTypeDefault(ref string) (*resources.AzureAPIType, bool, error) {
+	typeName := strings.TrimPrefix(ref, "#/types/")
+	t, ok, err := k.resourceMap.Types.Get(typeName)
+	return &t, ok, err
 }
 
 func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
@@ -623,7 +634,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 
 		// Typed object: validate all properties by looking up its type definition.
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ, ok, err := k.resourceMap.Types.Get(typeName)
+		typ, ok, err := k.lookupTypeDefault(prop.Ref)
 		if err != nil {
 			return append(failures, &rpc.CheckFailure{
 				Reason: fmt.Sprintf("error decoding type spec '%s': %v", typeName, err),
@@ -635,7 +646,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 			})
 		}
 
-		failures = append(failures, k.validateType(ctx, &typ, value)...)
+		failures = append(failures, k.validateType(ctx, typ, value)...)
 	case []interface{}:
 		if prop.Type != "array" && !prop.IsStringSet {
 			return append(failures, &rpc.CheckFailure{
@@ -861,7 +872,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}, nil
 	}
 
-	// Construct ARM REST API body and query from intputs
+	// Construct ARM REST API body and query from inputs
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
 		res.PutParameters,
@@ -908,6 +919,8 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		ctx, cancel := azureContext(ctx, req.Timeout)
 		defer cancel()
 
+		k.setUnsetSubresourcePropertiesToDefaults(res, bodyParams)
+
 		// Submit the `PUT` against the ARM endpoint
 		response, created, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
@@ -947,6 +960,44 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		Id:         id,
 		Properties: checkpoint,
 	}, nil
+}
+
+// Properties pointing to sub-resources that can be maintained as separate resources might not be
+// present in the inputs because the user wants to manage them as standalone resources. However,
+// auch a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
+// Key Vault's accessPolicies. Therefore, we set these properties to their default value here,
+// an empty array.
+// During create, no sub-resources can exist yet so there's no danger of overwriting existing values.
+//
+// Implementation note: we should make it possible to write custom resources that call code from
+// the default implementation as needed. This would allow us to cleanly implement special logic
+// like for Key Vault into custom resources without duplicating much code. In the Key Vault case,
+// the custom Read() would look like
+//
+//	provider.azureCanCreate(ctx, id, &res)
+//	setUnsetSubresourcePropertiesToDefaults(res, bodyParams) // custom
+//	k.azureCreateOrUpdate
+//	...
+func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resources.AzureAPIResource, bodyParams map[string]interface{}) {
+	unset := k.findUnsetPropertiesToMaintain(&res, bodyParams)
+	for _, p := range unset {
+		cur := bodyParams
+		for _, pathEl := range p.path[:len(p.path)-1] {
+			curObj, ok := cur[pathEl]
+			if !ok {
+				newContainer := map[string]any{}
+				cur[pathEl] = newContainer
+				cur = newContainer
+				continue
+			}
+			cur, ok = curObj.(map[string]any)
+			if !ok {
+				break
+			}
+		}
+
+		cur[p.path[len(p.path)-1]] = []any{}
+	}
 }
 
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
@@ -1120,8 +1171,10 @@ func mappableOldState(res resources.AzureAPIResource, oldState resource.Property
 	return plainOldState
 }
 
+// removeUnsetSubResourceProperties removes sub-resource properties from new outputs which weren't set in the old inputs.
+// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
 func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]interface{}, oldInputs resource.PropertyMap, res *resources.AzureAPIResource) map[string]interface{} {
-	propertiesToRemove := findUnsetSubResourceProperties(res, oldInputs)
+	propertiesToRemove := k.findUnsetPropertiesToMaintain(res, oldInputs.Mappable())
 
 	if len(propertiesToRemove) == 0 {
 		return sdkResponse
@@ -1138,32 +1191,32 @@ func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Conte
 	}
 
 	for _, prop := range propertiesToRemove {
-		delete(result, prop)
+		deleteFromMap(result, prop.path)
 	}
 	return result
 }
 
-func findUnsetSubResourceProperties(res *resources.AzureAPIResource, oldInputs resource.PropertyMap) []string {
-	var propertiesToRemove []string
-	for _, param := range res.PutParameters {
-		if param.Location != "body" || param.Body == nil {
-			continue
+func deleteFromMap(m map[string]interface{}, path []string) bool {
+	container := m
+	for i, key := range path {
+		if i == len(path)-1 {
+			_, found := container[key]
+			if found {
+				delete(container, key)
+			}
+			return found
 		}
-		for propName, prop := range param.Body.Properties {
-			if !prop.MaintainSubResourceIfUnset {
-				continue
-			}
-			key := propName
-			if prop.SdkName != "" {
-				key = prop.SdkName
-			}
-			propKey := resource.PropertyKey(key)
-			if !oldInputs.HasValue(propKey) {
-				propertiesToRemove = append(propertiesToRemove, key)
-			}
+
+		value, ok := container[key]
+		if !ok {
+			return false
+		}
+		container, ok = value.(map[string]interface{})
+		if !ok {
+			return false
 		}
 	}
-	return propertiesToRemove
+	return false
 }
 
 // Update updates an existing resource with new values.
@@ -1398,9 +1451,14 @@ func (k *azureNativeProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.
 	return &pbempty.Empty{}, nil
 }
 
+type propertyPath struct {
+	path         []string
+	propertyName string
+}
+
 func (k *azureNativeProvider) maintainSubResourcePropertiesIfNotSet(ctx context.Context, res *resources.AzureAPIResource, id string, bodyParams map[string]interface{}) error {
 	// Identify the properties we need to read
-	missingProperties := findSubResourcePropertiesToMaintain(res, bodyParams)
+	missingProperties := k.findUnsetPropertiesToMaintain(res, bodyParams)
 
 	if len(missingProperties) == 0 {
 		// Everything's already specified explicitly by the user, no need to do read.
@@ -1421,92 +1479,71 @@ func (k *azureNativeProvider) maintainSubResourcePropertiesIfNotSet(ctx context.
 	return nil
 }
 
-func writePropertiesToBody(missingProperties map[string]resources.AzureAPIProperty, bodyParams map[string]interface{}, responseBody map[string]interface{}) map[string]interface{} {
+func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) map[string]interface{} {
 	writtenProperties := map[string]interface{}{}
-	for propName, prop := range missingProperties {
+	for _, prop := range missingProperties {
 		currentBodyContainer := bodyParams
-		currentResponseContainer := responseBody
-		for _, containerName := range prop.Containers {
+		currentStateContainer := remoteState
+		for _, containerName := range prop.path {
 			innerBodyContainer, bodyOk := currentBodyContainer[containerName]
-			innerStateContainer, stateOk := currentResponseContainer[containerName]
+			innerStateContainer, stateOk := currentStateContainer[containerName]
 			if !bodyOk {
 				innerBodyContainer = map[string]interface{}{}
 				currentBodyContainer[containerName] = innerBodyContainer
 			}
 			if !stateOk {
 				innerStateContainer = map[string]interface{}{}
-				currentResponseContainer[containerName] = innerStateContainer
+				currentStateContainer[containerName] = innerStateContainer
 			}
-			currentBodyContainer = innerBodyContainer.(map[string]interface{})
-			currentResponseContainer = innerStateContainer.(map[string]interface{})
+			innerBodyObj, innerBodyIsObject := innerBodyContainer.(map[string]interface{})
+			innerStateObj, innerStateIsObject := innerStateContainer.(map[string]interface{})
+			if !innerBodyIsObject || !innerStateIsObject { // we've reached a leaf node (primitive type)
+				break
+			}
+			currentBodyContainer = innerBodyObj
+			currentStateContainer = innerStateObj
 		}
-		responseValue, ok := currentResponseContainer[propName]
+
+		stateValue, ok := currentStateContainer[prop.propertyName]
 		if ok {
-			currentBodyContainer[propName] = responseValue
-			writtenProperties[fmt.Sprintf("%s.%s", strings.Join(prop.Containers, "."), propName)] = responseValue
+			currentBodyContainer[prop.propertyName] = stateValue
+			writtenProperties[fmt.Sprintf("%s.%s", strings.Join(prop.path, "."), prop.propertyName)] = stateValue
 		}
 	}
 	return writtenProperties
 }
 
-func findSubResourcePropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}) map[string]resources.AzureAPIProperty {
-	// Find all properties which might need to be read
-	subResourceProperties := findSubResourceProperties(res)
-
-	if len(subResourceProperties) == 0 {
-		// No properties to be read
-		return subResourceProperties
-	}
-	// Filter to only properties which the user also hasn't set
-	return findUnsetProperties(subResourceProperties, bodyParams)
-}
-
-func findUnsetProperties(candidateProperties map[string]resources.AzureAPIProperty, bodyParams map[string]interface{}) map[string]resources.AzureAPIProperty {
-	missingProperties := map[string]resources.AzureAPIProperty{}
-	for propName, prop := range candidateProperties {
-		currentContainer := bodyParams
-		containerNotFound := false
-		for _, containerName := range prop.Containers {
-			innerContainer, ok := currentContainer[containerName]
+func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}) []propertyPath {
+	missingProperties := []propertyPath{}
+	for _, path := range res.PathsToSubResourcePropertiesToMaintain(true /* includeContainers i.e. API-shape */, k.lookupType) {
+		curBody := bodyParams
+		for i, pathEl := range path {
+			v, ok := curBody[pathEl]
 			if !ok {
-				containerNotFound = true
+				missingProperties = append(missingProperties, propertyPath{
+					path:         path,
+					propertyName: pathEl,
+				})
 				break
 			}
-			currentContainer, ok = innerContainer.(map[string]interface{})
+
+			// At the end of the path we don't need to go deeper via references and map lookups.
+			if i == len(path)-1 {
+				break
+			}
+
+			curBody, ok = v.(map[string]interface{})
 			if !ok {
-				containerNotFound = true
+				missingProperties = append(missingProperties, propertyPath{
+					path:         path,
+					propertyName: pathEl,
+				})
 				break
 			}
 		}
-
-		if containerNotFound {
-			// If the containers are not found, the property is also not defined
-			missingProperties[propName] = prop
-			continue
-		}
-		if _, ok := currentContainer[propName]; !ok {
-			missingProperties[propName] = prop
-		}
 	}
+
 	return missingProperties
-}
-
-func findSubResourceProperties(res *resources.AzureAPIResource) map[string]resources.AzureAPIProperty {
-	subResourceProperties := map[string]resources.AzureAPIProperty{}
-	for _, param := range res.PutParameters {
-		if param.Location != "body" {
-			continue
-		}
-		if param.Body.Properties == nil {
-			continue
-		}
-		for propName, prop := range param.Body.Properties {
-			if prop.MaintainSubResourceIfUnset {
-				subResourceProperties[propName] = prop
-			}
-		}
-	}
-	return subResourceProperties
 }
 
 func (k *azureNativeProvider) azureCreateOrUpdate(
