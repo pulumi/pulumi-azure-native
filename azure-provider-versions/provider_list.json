@@ -672,6 +672,15 @@
     "namespace": "Microsoft.Advisor",
     "resourceTypes": [
       {
+        "resourceType": "advisorScore",
+        "apiVersions": [
+          "2023-01-01",
+          "2022-10-01",
+          "2022-09-01",
+          "2020-07-01-preview"
+        ]
+      },
+      {
         "resourceType": "configurations",
         "apiVersions": [
           "2023-01-01",
@@ -696,6 +705,23 @@
         ]
       },
       {
+        "resourceType": "metadata",
+        "apiVersions": [
+          "2023-01-01-alpha",
+          "2023-01-01",
+          "2022-10-01",
+          "2022-09-01",
+          "2020-01-01-alpha",
+          "2020-01-01",
+          "2017-04-19-rc",
+          "2017-04-19-alpha",
+          "2017-04-19",
+          "2017-03-31-alpha",
+          "2017-03-31",
+          "2016-07-12-rc"
+        ]
+      },
+      {
         "resourceType": "operations",
         "apiVersions": [
           "2023-09-01-preview",
@@ -707,6 +733,14 @@
           "2017-03-31",
           "2016-07-12-preview",
           "2016-05-09-preview"
+        ]
+      },
+      {
+        "resourceType": "predict",
+        "apiVersions": [
+          "2023-01-01",
+          "2022-10-01",
+          "2022-09-01"
         ]
       },
       {
@@ -19812,6 +19846,12 @@
         "apiVersions": [
           "2023-05-01-preview"
         ]
+      },
+      {
+        "resourceType": "validate",
+        "apiVersions": [
+          "2023-05-01-preview"
+        ]
       }
     ]
   },
@@ -22186,12 +22226,14 @@
       {
         "resourceType": "kubernetesVersions",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-15-preview"
         ]
       },
       {
         "resourceType": "provisionedClusterInstances",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-15-preview"
         ]
       },
@@ -22231,12 +22273,14 @@
       {
         "resourceType": "skus",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-15-preview"
         ]
       },
       {
         "resourceType": "virtualNetworks",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-15-preview",
           "2022-09-01-preview",
           "2022-05-01-preview"
