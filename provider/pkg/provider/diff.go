@@ -28,11 +28,13 @@ func mapProperties(res resources.AzureAPIResource, lookupType resources.TypeLook
 	properties := map[string]resources.AzureAPIProperty{}
 	for _, p := range res.PutParameters {
 		if p.Location == body && p.Body != nil {
-			resources.TraverseProperties(p.Body.Properties, lookupType, func(name string, prop resources.AzureAPIProperty, path []string) {
-				path = append(path, name)
-				jsonPath := strings.Join(path, ".")
-				properties[jsonPath] = prop
-			})
+			resources.TraverseProperties(p.Body.Properties, lookupType,
+				false, // don't include flattened containers, we're comparing the SDK shape
+				func(name string, prop resources.AzureAPIProperty, path []string) {
+					path = append(path, name)
+					jsonPath := strings.Join(path, ".")
+					properties[jsonPath] = prop
+				})
 		}
 	}
 	return properties
