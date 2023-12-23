@@ -57,7 +57,7 @@ const ap2 = new keyvault.AccessPolicy("ap2", {
         },
         tenantId: config.tenantId,
     }
-});
+}, {dependsOn: [ap1]});
 
 export const rgName = resourceGroup.name;
 export const kvName = vault.name;

@@ -9,6 +9,7 @@ const resourceGroup = new resources.ResourceGroup("rg");
 
 const config = pulumi.output(authorization.getClientConfig());
 
+// enabledForDeployment changed back to false
 const vault = new keyvault.Vault("vault", {
     resourceGroupName: resourceGroup.name,
     location: resourceGroup.location,
@@ -18,11 +19,11 @@ const vault = new keyvault.Vault("vault", {
             name: keyvault.SkuName.Standard,
         },
         tenantId: config.tenantId,
-        enabledForDeployment: true,
+        enabledForDeployment: false,
     },
 });
 
-// ap1 has different permissions in step 3
+// ap1 has different permissions
 const ap1 = new keyvault.AccessPolicy("ap1", {
     resourceGroupName: resourceGroup.name,
     vaultName: vault.name,
@@ -40,7 +41,20 @@ const ap1 = new keyvault.AccessPolicy("ap1", {
     }
 });
 
-// ap2 is deleted in step 3
+// ap2 is deleted
 
 export const rgName = resourceGroup.name;
 export const kvName = vault.name;
+
+// Read the Vault's state directly from Azure. We export it so the test can use it to make
+// additional assertions that Pulumi's view of the world matches Azure's.
+// We use `apply` here as a barrier, ensuring the invoke runs after the vault is updated.
+const newVaultState = vault.properties?.apply(_ => {
+    return keyvault.getVaultOutput({
+        resourceGroupName: resourceGroup.name,
+        vaultName: vault.name,
+    });
+})
+
+export const numberOfAPs = newVaultState.properties.accessPolicies?.apply(aps => aps?.length || 0 );
+export const aps = newVaultState.properties.accessPolicies;

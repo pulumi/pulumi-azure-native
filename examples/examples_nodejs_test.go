@@ -11,6 +11,7 @@ import (
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestAccAppServiceTs(t *testing.T) {
@@ -208,8 +209,8 @@ func TestAccKeyVaultAccessPoliciesTs(t *testing.T) {
 					Additive: true,
 					// Check that the stand-alone AccessPolicies are still there, not deleted by the Vault update.
 					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
-						assert.NotNil(t, stackInfo.Deployment)
-						assert.NotNil(t, stackInfo.Deployment.Resources)
+						require.NotNil(t, stackInfo.Deployment)
+						require.NotNil(t, stackInfo.Deployment.Resources)
 
 						accessPolicies := 0
 						for _, resource := range stackInfo.Deployment.Resources {
@@ -218,6 +219,11 @@ func TestAccKeyVaultAccessPoliciesTs(t *testing.T) {
 							}
 						}
 						assert.Equal(t, 2, accessPolicies)
+
+						// check the number of policies as returned by Azure directly via invoke
+						numberOfAPs, ok := stackInfo.Outputs["numberOfAPs"].(float64)
+						require.True(t, ok)
+						assert.Equal(t, 2.0, numberOfAPs)
 					},
 				},
 				{
@@ -225,8 +231,8 @@ func TestAccKeyVaultAccessPoliciesTs(t *testing.T) {
 					Additive: true,
 					// Check that the stand-alone AccessPolicies were updated resp. deleted.
 					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
-						assert.NotNil(t, stackInfo.Deployment)
-						assert.NotNil(t, stackInfo.Deployment.Resources)
+						require.NotNil(t, stackInfo.Deployment)
+						require.NotNil(t, stackInfo.Deployment.Resources)
 
 						ap1Found := false
 						for _, resource := range stackInfo.Deployment.Resources {
@@ -234,27 +240,33 @@ func TestAccKeyVaultAccessPoliciesTs(t *testing.T) {
 							if strings.HasSuffix(urn, "keyvault:AccessPolicy::ap1") {
 								ap1Found = true
 								accessPolicy, ok := resource.Outputs["policy"]
-								assert.True(t, ok, "Property 'policy' not found")
+								require.True(t, ok, "Property 'policy' not found")
 								accessPolicyObj, ok := accessPolicy.(map[string]interface{})
-								assert.True(t, ok, "Property 'policy' is not an object")
+								require.True(t, ok, "Property 'policy' is not an object")
 
 								permissions, ok := accessPolicyObj["permissions"]
-								assert.True(t, ok, "Property 'policy.permissions' not found")
+								require.True(t, ok, "Property 'policy.permissions' not found")
 								permissionsObj, ok := permissions.(map[string]interface{})
-								assert.True(t, ok, "Property 'policy.permissions' is not an object")
+								require.True(t, ok, "Property 'policy.permissions' is not an object")
 
 								keyPermissions, ok := permissionsObj["keys"]
-								assert.True(t, ok, "Property 'policy.permissions.keys' not found")
+								require.True(t, ok, "Property 'policy.permissions.keys' not found")
 								keyPermissionsArray, ok := keyPermissions.([]any)
-								assert.True(t, ok, "Property 'policy.permissions.keys' is not an array")
+								require.True(t, ok, "Property 'policy.permissions.keys' is not an array")
 
-								assert.Equal(t, 1, len(keyPermissionsArray))
+								require.Equal(t, 1, len(keyPermissionsArray))
 								assert.Equal(t, "get", keyPermissionsArray[0].(string))
 							} else if strings.HasSuffix(urn, "keyvault:AccessPolicy::ap2") {
 								t.Errorf("AccessPolicy ap2 should have been deleted")
 							}
 						}
 						assert.True(t, ap1Found, "AccessPolicy ap1 not found")
+
+						// Check the number of policies as returned by Azure directly via invoke.
+						// This doesn't work here because we have no way of waiting for the deletion of ap2.
+						// numberOfAPs, ok := stackInfo.Outputs["numberOfAPs"].(float64)
+						// assert.True(t, ok)
+						// assert.Equal(t, 1.0, numberOfAPs)
 					},
 				},
 			},
