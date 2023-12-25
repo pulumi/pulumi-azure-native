@@ -672,6 +672,15 @@
     "namespace": "Microsoft.Advisor",
     "resourceTypes": [
       {
+        "resourceType": "advisorScore",
+        "apiVersions": [
+          "2023-01-01",
+          "2022-10-01",
+          "2022-09-01",
+          "2020-07-01-preview"
+        ]
+      },
+      {
         "resourceType": "configurations",
         "apiVersions": [
           "2023-01-01",
@@ -696,6 +705,23 @@
         ]
       },
       {
+        "resourceType": "metadata",
+        "apiVersions": [
+          "2023-01-01-alpha",
+          "2023-01-01",
+          "2022-10-01",
+          "2022-09-01",
+          "2020-01-01-alpha",
+          "2020-01-01",
+          "2017-04-19-rc",
+          "2017-04-19-alpha",
+          "2017-04-19",
+          "2017-03-31-alpha",
+          "2017-03-31",
+          "2016-07-12-rc"
+        ]
+      },
+      {
         "resourceType": "operations",
         "apiVersions": [
           "2023-09-01-preview",
@@ -707,6 +733,14 @@
           "2017-03-31",
           "2016-07-12-preview",
           "2016-05-09-preview"
+        ]
+      },
+      {
+        "resourceType": "predict",
+        "apiVersions": [
+          "2023-01-01",
+          "2022-10-01",
+          "2022-09-01"
         ]
       },
       {
@@ -2067,6 +2101,72 @@
       },
       {
         "resourceType": "Spring/apps/deployments/operationStatuses",
+        "apiVersions": [
+          "2023-11-01-preview",
+          "2023-09-01-preview",
+          "2023-07-01-preview",
+          "2023-05-01-preview",
+          "2023-03-01-preview",
+          "2023-01-01-preview",
+          "2022-12-01",
+          "2022-11-01-preview",
+          "2022-09-01-preview",
+          "2022-05-01-preview",
+          "2022-04-01",
+          "2022-03-01-preview",
+          "2022-01-01-preview",
+          "2021-09-01-preview",
+          "2021-06-01-preview",
+          "2020-11-01-preview",
+          "2020-07-01"
+        ]
+      },
+      {
+        "resourceType": "Spring/apps/domains",
+        "apiVersions": [
+          "2023-11-01-preview",
+          "2023-09-01-preview",
+          "2023-07-01-preview",
+          "2023-05-01-preview",
+          "2023-03-01-preview",
+          "2023-01-01-preview",
+          "2022-12-01",
+          "2022-11-01-preview",
+          "2022-09-01-preview",
+          "2022-05-01-preview",
+          "2022-04-01",
+          "2022-03-01-preview",
+          "2022-01-01-preview",
+          "2021-09-01-preview",
+          "2021-06-01-preview",
+          "2020-11-01-preview",
+          "2020-07-01"
+        ]
+      },
+      {
+        "resourceType": "Spring/apps/domains/operationResults",
+        "apiVersions": [
+          "2023-11-01-preview",
+          "2023-09-01-preview",
+          "2023-07-01-preview",
+          "2023-05-01-preview",
+          "2023-03-01-preview",
+          "2023-01-01-preview",
+          "2022-12-01",
+          "2022-11-01-preview",
+          "2022-09-01-preview",
+          "2022-05-01-preview",
+          "2022-04-01",
+          "2022-03-01-preview",
+          "2022-01-01-preview",
+          "2021-09-01-preview",
+          "2021-06-01-preview",
+          "2020-11-01-preview",
+          "2020-07-01"
+        ]
+      },
+      {
+        "resourceType": "Spring/apps/domains/operationStatuses",
         "apiVersions": [
           "2023-11-01-preview",
           "2023-09-01-preview",
@@ -10814,6 +10914,65 @@
     ]
   },
   {
+    "namespace": "Microsoft.ComputeSchedule",
+    "resourceTypes": [
+      {
+        "resourceType": "Locations",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/virtualmachinescanceloperations",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/virtualmachinesexecutedeallocate",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/virtualmachinesexecutehibernate",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/virtualmachinesexecutestart",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/virtualmachinesgetoperationstatus",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/virtualmachinessubmitdeallocate",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/virtualmachinessubmithibernate",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/virtualmachinessubmitstart",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.ConfidentialLedger",
     "resourceTypes": [
       {
@@ -13481,47 +13640,6 @@
           "2021-10-01",
           "2021-09-01",
           "2021-08-01"
-        ]
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.ContainerStorage",
-    "resourceTypes": [
-      {
-        "resourceType": "locations",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations/asyncoperations",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "pools",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "pools/snapshots",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "pools/volumes",
-        "apiVersions": [
-          "2023-07-01-preview"
         ]
       }
     ]
@@ -19812,6 +19930,12 @@
         "apiVersions": [
           "2023-05-01-preview"
         ]
+      },
+      {
+        "resourceType": "validate",
+        "apiVersions": [
+          "2023-05-01-preview"
+        ]
       }
     ]
   },
@@ -22186,12 +22310,14 @@
       {
         "resourceType": "kubernetesVersions",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-15-preview"
         ]
       },
       {
         "resourceType": "provisionedClusterInstances",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-15-preview"
         ]
       },
@@ -22231,12 +22357,14 @@
       {
         "resourceType": "skus",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-15-preview"
         ]
       },
       {
         "resourceType": "virtualNetworks",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-15-preview",
           "2022-09-01-preview",
           "2022-05-01-preview"
@@ -23204,6 +23332,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2022-10-01-preview",
           "2022-05-01-preview",
@@ -23218,6 +23347,7 @@
       {
         "resourceType": "connectedClusters",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2022-10-01-preview",
           "2022-05-01-preview",
@@ -23230,6 +23360,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2022-10-01-preview",
           "2022-05-01-preview",
@@ -23242,6 +23373,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2022-10-01-preview",
           "2022-05-01-preview",
@@ -23254,6 +23386,7 @@
       {
         "resourceType": "registeredSubscriptions",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2022-10-01-preview",
           "2022-05-01-preview",
@@ -25670,14 +25803,16 @@
     "namespace": "Microsoft.ManufacturingPlatform",
     "resourceTypes": [
       {
-        "resourceType": "Operations",
+        "resourceType": "locations",
         "apiVersions": [
+          "2024-02-01-preview",
           "2023-02-01-preview"
         ]
       },
       {
-        "resourceType": "locations",
+        "resourceType": "operations",
         "apiVersions": [
+          "2024-02-01-preview",
           "2023-02-01-preview"
         ]
       }
@@ -37794,7 +37929,6 @@
       {
         "resourceType": "securityContacts",
         "apiVersions": [
-          "2023-12-01-preview",
           "2020-01-01-preview",
           "2017-08-01-preview"
         ]
@@ -40145,8 +40279,15 @@
       {
         "resourceType": "connectors",
         "apiVersions": [
+          "2023-10-20-preview",
           "2023-04-17-preview",
           "2019-08-15-preview"
+        ]
+      },
+      {
+        "resourceType": "connectors/connectorSpaces",
+        "apiVersions": [
+          "2023-10-20-preview"
         ]
       },
       {
