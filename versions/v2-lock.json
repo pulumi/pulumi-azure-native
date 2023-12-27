@@ -962,6 +962,8 @@
     "SqlResourceSqlTrigger": "2023-04-15",
     "SqlResourceSqlUserDefinedFunction": "2023-04-15",
     "TableResourceTable": "2023-04-15",
+    "ThroughputPool": "2023-11-15-preview",
+    "ThroughputPoolAccount": "2023-11-15-preview",
     "listDatabaseAccountConnectionStrings": "2023-04-15",
     "listDatabaseAccountKeys": "2023-04-15",
     "listMongoClusterConnectionStrings": "2023-03-15-preview",
