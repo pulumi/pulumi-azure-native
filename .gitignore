@@ -18,6 +18,7 @@ provider/cmd/**/schema.go
 provider/cmd/**/schema-full.json
 provider/cmd/**/metadata-compact.json
 provider/cmd/**/*.gz
+provider/**/testdata/rapid
 **/version.txt
 **/nuget
 **/dist

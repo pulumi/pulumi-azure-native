@@ -4,6 +4,7 @@ package provider
 
 import (
 	"fmt"
+	"log"
 	"reflect"
 	"sort"
 	"strings"
@@ -136,7 +137,11 @@ func valueDiff(properties map[string]resources.AzureAPIProperty,
 
 		prop, ok := properties[path]
 		if ok && len(prop.ArrayIdentifiers) > 0 {
-			return diffKeyedArrays(properties, prop.ArrayIdentifiers, oldArr, newArr, path)
+			result, ok := diffKeyedArrays(properties, prop.ArrayIdentifiers, oldArr, newArr, path)
+			if ok {
+				return result
+			}
+			log.Printf("WARNING: arrays at %s have identifiers specified but could not be parsed as keyed arrays", path)
 		}
 
 		// If any elements exist in the new array but not the old, track them as adds.
@@ -526,7 +531,7 @@ type arrayElement struct {
 func diffKeyedArrays(properties map[string]resources.AzureAPIProperty,
 	keys []string,
 	old, new []resource.PropertyValue,
-	path string) *resource.ValueDiff {
+	path string) (*resource.ValueDiff, bool) {
 
 	adds := make(map[int]resource.PropertyValue)
 	deletes := make(map[int]resource.PropertyValue)
@@ -537,19 +542,19 @@ func diffKeyedArrays(properties map[string]resources.AzureAPIProperty,
 
 	oldIdValues := map[string]arrayElement{}
 	for i, oldItem := range old {
-		hash := hashObject(oldItem, sortedKeys)
-		if hash != "" {
-			oldIdValues[hash] = arrayElement{element: oldItem, index: i}
+		hash, ok := checkAndHashObject(oldItem, sortedKeys)
+		if !ok {
+			return nil, false
 		}
+		oldIdValues[hash] = arrayElement{element: oldItem, index: i}
 	}
 
 	newSeen := map[string]struct{}{}
 	for i, newItem := range new {
-		hash := hashObject(newItem, sortedKeys)
-		if hash == "" {
-			continue
+		hash, ok := checkAndHashObject(newItem, sortedKeys)
+		if !ok {
+			return nil, false
 		}
-
 		newSeen[hash] = struct{}{}
 
 		oldItem, ok := oldIdValues[hash]
@@ -559,8 +564,10 @@ func diffKeyedArrays(properties map[string]resources.AzureAPIProperty,
 			diff := valueDiff(properties, oldItem.element, newItem, path)
 			if diff == nil {
 				sames[i] = newItem
-			} else {
+			} else if diff.Object != nil || diff.Array != nil {
 				updates[i] = *diff
+			} else { // diffs in primitives only
+
 			}
 		}
 	}
@@ -572,6 +579,9 @@ func diffKeyedArrays(properties map[string]resources.AzureAPIProperty,
 		}
 	}
 
+	if len(adds) == 0 && len(deletes) == 0 && len(updates) == 0 {
+		return nil, true
+	}
 	return &resource.ValueDiff{
 		Old: resource.NewPropertyValue(old),
 		New: resource.NewPropertyValue(new),
@@ -581,22 +591,30 @@ func diffKeyedArrays(properties map[string]resources.AzureAPIProperty,
 			Sames:   sames,
 			Updates: updates,
 		},
-	}
+	}, true
 }
 
 // hashObject computes a deep hash of an object value using the object's property values indexed by
-// the given keys. Returns the empty string if the value is not an object.
-func hashObject(val resource.PropertyValue, sortedKeys []string) string {
+// the given keys. The second "ok" return value is false if the value is not actually an object or
+// doesn't have any of the keys. In that case, the keyed array diff cannot be applied.
+func checkAndHashObject(val resource.PropertyValue, sortedKeys []string) (string, bool) {
 	if !val.IsObject() {
-		logging.V(5).Infof("WARNING: diffKeyedArray: item %v is not an object\n", val)
-		return ""
+		logging.V(9).Infof("WARNING: diffKeyedArray: item %v is not an object\n", val)
+		return "", false
 	}
-
 	obj := val.ObjectValue()
-	idValues := make([]any, len(sortedKeys))
-	for i, key := range sortedKeys {
-		idValues[i] = obj[resource.PropertyKey(key)]
+
+	idValues := make([]any, 0, len(sortedKeys))
+	for _, key := range sortedKeys {
+		if val, ok := obj[resource.PropertyKey(key)]; ok {
+			idValues = append(idValues, val)
+		}
 	}
 
-	return string(deephash.Hash(idValues)[:])
+	if len(idValues) == 0 {
+		logging.V(9).Infof("WARNING: diffKeyedArray: item %v has none of the keys\n", obj)
+		return "", false
+	}
+
+	return string(deephash.Hash(idValues)[:]), true
 }
