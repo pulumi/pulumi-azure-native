@@ -284,7 +284,11 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	// If there's no object value type, then it's just a set of strings which we'll represent as a string
 	// array in the SDK, but leave the metadata to indicate we need to convert it.
 	isStringSet := typeSpec.Type == "object" && typeSpec.AdditionalProperties == nil && typeSpec.Ref == ""
-	forceNew := !isOutput && m.forceNew(resolvedProperty, name, isType)
+
+	var forceNew, forceNewFromReferencedTypes bool
+	if !isOutput {
+		forceNew, forceNewFromReferencedTypes = m.forceNew(resolvedProperty, name, isType)
+	}
 
 	schemaProperty := pschema.PropertySpec{
 		Description:          description,
@@ -302,14 +306,15 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	metadataProperty := resources.AzureAPIProperty{
-		OneOf:                      m.getOneOfValues(typeSpec),
-		Ref:                        schemaProperty.Ref,
-		Items:                      m.itemTypeToProperty(typeSpec.Items),
-		AdditionalProperties:       m.itemTypeToProperty(typeSpec.AdditionalProperties),
-		ForceNew:                   forceNew,
-		IsStringSet:                isStringSet,
-		Default:                    defaultValue,
-		MaintainSubResourceIfUnset: maintainSubResourceIfUnset,
+		OneOf:                               m.getOneOfValues(typeSpec),
+		Ref:                                 schemaProperty.Ref,
+		Items:                               m.itemTypeToProperty(typeSpec.Items),
+		AdditionalProperties:                m.itemTypeToProperty(typeSpec.AdditionalProperties),
+		ForceNew:                            forceNew,
+		ForceNewInferredFromReferencedTypes: forceNewFromReferencedTypes,
+		IsStringSet:                         isStringSet,
+		Default:                             defaultValue,
+		MaintainSubResourceIfUnset:          maintainSubResourceIfUnset,
 	}
 
 	if identifiers, ok := schema.Extensions.GetStringSlice(extensionIdentifiers); ok && typeSpec.Type == "array" {
@@ -385,7 +390,10 @@ func mergeRequiredContainers(a, b RequiredContainers) RequiredContainers {
 
 // forceNew returns true if a change to a given property requires a replacement in the resource
 // that is currently being generated, based on forceNewMap and the "x-ms-mutability" API spec extension.
-func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, isType bool) bool {
+// The second return value is true if the property forcing replacement is a property in a referenced type
+// (i.e., a property of a property).
+func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string,
+	isType bool) (forceNew bool, forceNewInferredFromReferencedTypes bool) {
 	// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
 	// updatable by default.
 	// Note: a non-updatable property at a subtype level (a property of a property of a resource) does not
@@ -405,19 +413,20 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 				ReferenceName: schema.ReferenceContext.ReferenceName,
 				Property:      propertyName,
 			})
+			return false, true
 		}
-		return true
+		return true, false
 	}
 
 	if resourceMap, ok := forceNewMap[m.prov]; ok {
 		if properties, ok := resourceMap[m.resourceName]; ok {
 			if properties.Has(propertyName) {
-				return true
+				return true, false
 			}
 		}
 	}
 
-	return false
+	return false, false
 }
 
 // propChangeForcesRecreate returns two booleans.
