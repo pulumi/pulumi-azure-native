@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.ExtendedLocation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210831preview:ResourceSyncRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210831preview:ResourceSyncRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

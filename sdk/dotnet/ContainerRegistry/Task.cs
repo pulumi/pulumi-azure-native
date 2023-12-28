@@ -152,9 +152,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:Task"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:Task"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:Task" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:Task" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:Task" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

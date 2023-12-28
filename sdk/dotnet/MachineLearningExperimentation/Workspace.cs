@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningexperimentation/v20170501preview:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningexperimentation/v20170501preview:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

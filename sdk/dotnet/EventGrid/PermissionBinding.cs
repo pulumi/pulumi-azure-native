@@ -93,8 +93,8 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:PermissionBinding"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:PermissionBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:PermissionBinding" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:PermissionBinding" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

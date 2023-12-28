@@ -124,14 +124,14 @@ namespace Pulumi.AzureNative.DevCenter.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:NetworkConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:NetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:NetworkConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

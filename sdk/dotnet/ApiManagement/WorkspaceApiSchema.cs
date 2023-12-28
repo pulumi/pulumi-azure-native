@@ -79,9 +79,9 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:WorkspaceApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceApiSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:WorkspaceApiSchema"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:WorkspaceApiSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:WorkspaceApiSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:WorkspaceApiSchema" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

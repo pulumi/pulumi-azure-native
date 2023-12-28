@@ -142,10 +142,10 @@ namespace Pulumi.AzureNative.AVS.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:ScriptExecution"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:ScriptExecution"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:ScriptExecution"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:ScriptExecution"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:ScriptExecution" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:ScriptExecution" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:ScriptExecution" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:ScriptExecution" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

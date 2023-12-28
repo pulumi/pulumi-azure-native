@@ -112,13 +112,13 @@ namespace Pulumi.AzureNative.App.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ConnectedEnvironment"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ConnectedEnvironment"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ConnectedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ConnectedEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

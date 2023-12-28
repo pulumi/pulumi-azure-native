@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:Namespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:Namespace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

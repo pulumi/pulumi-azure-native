@@ -58,9 +58,9 @@ namespace Pulumi.AzureNative.AVS.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:PlacementPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:PlacementPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:PlacementPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:PlacementPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:PlacementPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:PlacementPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

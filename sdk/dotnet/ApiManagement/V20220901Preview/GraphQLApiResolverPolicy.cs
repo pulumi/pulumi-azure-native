@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GraphQLApiResolverPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GraphQLApiResolverPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GraphQLApiResolverPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GraphQLApiResolverPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GraphQLApiResolverPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GraphQLApiResolverPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

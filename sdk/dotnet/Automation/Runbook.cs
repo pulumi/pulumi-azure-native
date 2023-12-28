@@ -163,12 +163,12 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Runbook"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20180630:Runbook"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Runbook"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Runbook"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Runbook"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:Runbook"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Runbook" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20180630:Runbook" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Runbook" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Runbook" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Runbook" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:Runbook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

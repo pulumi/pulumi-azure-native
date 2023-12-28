@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.App.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:DaprSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:DaprSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

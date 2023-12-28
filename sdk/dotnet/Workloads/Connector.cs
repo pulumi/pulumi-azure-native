@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:Connector"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:Connector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

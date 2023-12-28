@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

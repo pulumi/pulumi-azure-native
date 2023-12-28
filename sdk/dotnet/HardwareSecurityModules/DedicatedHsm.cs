@@ -113,8 +113,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"},
-                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm"},
+                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm" },
+                    new global::Pulumi.Alias { Type = "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

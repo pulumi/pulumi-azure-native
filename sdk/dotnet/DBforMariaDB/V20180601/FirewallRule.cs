@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb:FirewallRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

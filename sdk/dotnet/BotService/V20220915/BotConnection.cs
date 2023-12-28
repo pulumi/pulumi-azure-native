@@ -94,14 +94,14 @@ namespace Pulumi.AzureNative.BotService.V20220915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:botservice:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20171201:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20180712:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20200602:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:BotConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20230915preview:BotConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:botservice:BotConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20171201:BotConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20180712:BotConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20200602:BotConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210301:BotConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20210501preview:BotConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20220615preview:BotConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:botservice/v20230915preview:BotConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

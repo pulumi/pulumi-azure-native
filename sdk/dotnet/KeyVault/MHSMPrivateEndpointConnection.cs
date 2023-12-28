@@ -103,15 +103,15 @@ namespace Pulumi.AzureNative.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230701:MHSMPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230701:MHSMPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

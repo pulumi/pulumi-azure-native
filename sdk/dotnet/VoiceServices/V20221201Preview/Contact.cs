@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.VoiceServices.V20221201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:voiceservices:Contact"},
+                    new global::Pulumi.Alias { Type = "azure-native:voiceservices:Contact" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

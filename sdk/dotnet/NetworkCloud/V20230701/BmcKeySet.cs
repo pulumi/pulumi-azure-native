@@ -127,9 +127,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:BmcKeySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:BmcKeySet"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:BmcKeySet"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:BmcKeySet" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:BmcKeySet" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:BmcKeySet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

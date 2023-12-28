@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Security.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:Pricing"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:Pricing" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

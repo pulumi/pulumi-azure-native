@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.Automation.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation:PowerShell72Module"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:PowerShell72Module" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

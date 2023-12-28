@@ -82,12 +82,12 @@ namespace Pulumi.AzureNative.Automation.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automation:JobSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:JobSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:JobSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:JobSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:JobSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:JobSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:JobSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:JobSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

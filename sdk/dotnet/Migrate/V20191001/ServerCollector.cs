@@ -49,8 +49,8 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:ServerCollector"},
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ServerCollector"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:ServerCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ServerCollector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

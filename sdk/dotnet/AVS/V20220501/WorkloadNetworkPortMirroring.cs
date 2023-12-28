@@ -94,12 +94,12 @@ namespace Pulumi.AzureNative.AVS.V20220501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkPortMirroring"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkPortMirroring"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkPortMirroring"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkPortMirroring"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkPortMirroring" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkPortMirroring" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkPortMirroring" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkPortMirroring" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkPortMirroring" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

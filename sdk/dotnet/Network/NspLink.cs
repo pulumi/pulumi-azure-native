@@ -121,9 +121,9 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

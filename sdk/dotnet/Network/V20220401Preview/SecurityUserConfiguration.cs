@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserConfiguration"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -91,8 +91,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:IpPrefix"},
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:IpPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:IpPrefix" },
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:IpPrefix" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

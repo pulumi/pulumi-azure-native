@@ -82,14 +82,14 @@ namespace Pulumi.AzureNative.Network.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:RouteMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RouteMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:RouteMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:RouteMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:RouteMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:RouteMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:RouteMap"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:RouteMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:RouteMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220501:RouteMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220701:RouteMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220901:RouteMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:RouteMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:RouteMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:RouteMap" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:RouteMap" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

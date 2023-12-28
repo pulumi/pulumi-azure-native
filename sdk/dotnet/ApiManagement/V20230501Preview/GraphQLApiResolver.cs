@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.ApiManagement.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GraphQLApiResolver"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GraphQLApiResolver"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GraphQLApiResolver"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GraphQLApiResolver"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GraphQLApiResolver" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GraphQLApiResolver" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GraphQLApiResolver" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GraphQLApiResolver" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

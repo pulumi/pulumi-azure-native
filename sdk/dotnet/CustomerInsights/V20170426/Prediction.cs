@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:Prediction"},
+                    new global::Pulumi.Alias { Type = "azure-native:customerinsights:Prediction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -64,14 +64,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20231001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:RegistryComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:RegistryComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:RegistryComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:RegistryComponentVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:RegistryComponentVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:RegistryComponentVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:RegistryComponentVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:RegistryComponentVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:RegistryComponentVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:RegistryComponentVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -107,10 +107,10 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20140401:AutoscaleSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150401:AutoscaleSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210501preview:AutoscaleSetting"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20221001:AutoscaleSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20140401:AutoscaleSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150401:AutoscaleSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210501preview:AutoscaleSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20221001:AutoscaleSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

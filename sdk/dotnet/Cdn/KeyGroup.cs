@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:KeyGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:KeyGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

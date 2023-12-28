@@ -112,13 +112,13 @@ namespace Pulumi.AzureNative.Network.V20180501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20150504preview:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20160401:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20150504preview:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20160401:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20170901:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20171001:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:Zone" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

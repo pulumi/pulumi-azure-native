@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.Network.V20220701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateResolverVirtualNetworkLink"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateResolverVirtualNetworkLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

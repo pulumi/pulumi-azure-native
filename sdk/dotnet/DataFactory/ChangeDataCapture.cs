@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20180601:ChangeDataCapture"},
+                    new global::Pulumi.Alias { Type = "azure-native:datafactory/v20180601:ChangeDataCapture" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

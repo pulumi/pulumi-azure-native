@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateEndpointConnectionsForSCCPowershell" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsForSCCPowershell" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

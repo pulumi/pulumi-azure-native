@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.HybridCompute
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20231003preview:MachineRunCommand"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20231003preview:MachineRunCommand" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

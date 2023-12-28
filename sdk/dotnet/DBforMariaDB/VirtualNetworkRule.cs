@@ -73,8 +73,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:VirtualNetworkRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:VirtualNetworkRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:VirtualNetworkRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

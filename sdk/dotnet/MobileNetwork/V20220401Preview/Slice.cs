@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:Slice"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Slice"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Slice"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Slice"},
-                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:Slice"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:Slice" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Slice" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Slice" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Slice" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:Slice" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -70,15 +70,15 @@ namespace Pulumi.AzureNative.AppConfiguration.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:PrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230801preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200601:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230801preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

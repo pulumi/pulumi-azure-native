@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recommendationsservice:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:recommendationsservice/v20220201:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:recommendationsservice:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:recommendationsservice/v20220201:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

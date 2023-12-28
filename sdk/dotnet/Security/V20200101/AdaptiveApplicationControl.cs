@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.Security.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:AdaptiveApplicationControl"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20150601preview:AdaptiveApplicationControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:AdaptiveApplicationControl" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20150601preview:AdaptiveApplicationControl" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

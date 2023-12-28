@@ -112,17 +112,17 @@ namespace Pulumi.AzureNative.Cache.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cache:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20221101preview:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230301preview:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230701:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230801preview:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231001preview:RedisEnterprise"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231101:RedisEnterprise"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20221101preview:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230301preview:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230701:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230801preview:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231001preview:RedisEnterprise" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231101:RedisEnterprise" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:RulesEngine"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:RulesEngine"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:RulesEngine"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200101:RulesEngine" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200401:RulesEngine" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20200501:RulesEngine" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210601:RulesEngine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

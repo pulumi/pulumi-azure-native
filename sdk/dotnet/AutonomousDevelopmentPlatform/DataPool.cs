@@ -83,9 +83,9 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20200701preview:DataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

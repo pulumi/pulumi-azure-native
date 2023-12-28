@@ -97,10 +97,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StorageContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:StorageContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:StorageContainer"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:StorageContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:StorageContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

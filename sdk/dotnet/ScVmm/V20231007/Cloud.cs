@@ -118,10 +118,10 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm:Cloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:Cloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:Cloud"},
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:Cloud"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm:Cloud" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:Cloud" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:Cloud" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:Cloud" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

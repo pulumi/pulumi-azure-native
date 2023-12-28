@@ -175,15 +175,15 @@ namespace Pulumi.AzureNative.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20190501preview:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingEndpoint"},
-                    new global::Pulumi.Alias { Type = "azure-native:media/v20221101:StreamingEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20190501preview:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media/v20221101:StreamingEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

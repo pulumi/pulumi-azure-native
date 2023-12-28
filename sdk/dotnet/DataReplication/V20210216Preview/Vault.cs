@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.DataReplication.V20210216Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datareplication:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:datareplication:Vault" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

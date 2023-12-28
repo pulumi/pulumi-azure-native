@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:ACSSBackupConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:ACSSBackupConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

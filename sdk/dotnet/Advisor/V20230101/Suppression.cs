@@ -76,13 +76,13 @@ namespace Pulumi.AzureNative.Advisor.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:advisor:Suppression"},
-                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20160712preview:Suppression"},
-                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20170331:Suppression"},
-                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20170419:Suppression"},
-                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
-                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20220901:Suppression"},
-                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20221001:Suppression"},
+                    new global::Pulumi.Alias { Type = "azure-native:advisor:Suppression" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20160712preview:Suppression" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20170331:Suppression" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20170419:Suppression" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20220901:Suppression" },
+                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20221001:Suppression" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.App.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:DaprComponentResiliencyPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:DaprComponentResiliencyPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

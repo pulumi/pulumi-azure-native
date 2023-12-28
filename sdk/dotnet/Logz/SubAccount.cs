@@ -73,9 +73,9 @@ namespace Pulumi.AzureNative.Logz
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001:SubAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001preview:SubAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:SubAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001:SubAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20201001preview:SubAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:logz/v20220101preview:SubAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

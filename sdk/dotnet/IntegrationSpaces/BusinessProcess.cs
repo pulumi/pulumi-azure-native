@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:integrationspaces/v20231114preview:BusinessProcess"},
+                    new global::Pulumi.Alias { Type = "azure-native:integrationspaces/v20231114preview:BusinessProcess" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

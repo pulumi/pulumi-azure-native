@@ -136,17 +136,17 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:galleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:GalleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:galleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:galleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GalleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:galleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:GalleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:galleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:GalleryimageRetrieve"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:galleryimageRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:galleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:GalleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:galleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:GalleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:galleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GalleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:galleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:GalleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:galleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:GalleryimageRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:galleryimageRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

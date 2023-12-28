@@ -136,15 +136,15 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:Monitor"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:monitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

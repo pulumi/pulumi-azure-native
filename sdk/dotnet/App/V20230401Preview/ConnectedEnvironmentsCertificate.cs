@@ -76,13 +76,13 @@ namespace Pulumi.AzureNative.App.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironmentsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironmentsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ConnectedEnvironmentsCertificate"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ConnectedEnvironmentsCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ConnectedEnvironmentsCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ConnectedEnvironmentsCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -163,13 +163,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:ScalingPlanPooledSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule"},
-                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:ScalingPlanPooledSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:ScalingPlanPooledSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPooledSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

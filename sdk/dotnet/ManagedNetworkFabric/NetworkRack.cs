@@ -103,8 +103,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:NetworkRack"},
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkRack"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:NetworkRack" },
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:NetworkRack" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

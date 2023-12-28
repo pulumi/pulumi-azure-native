@@ -94,15 +94,15 @@ namespace Pulumi.AzureNative.Maps.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maps:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20180501:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20230601:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20231201preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20170101preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20180501:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20230601:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20231201preview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

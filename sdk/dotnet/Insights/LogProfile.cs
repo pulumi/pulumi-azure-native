@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20160301:LogProfile"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20160301:LogProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

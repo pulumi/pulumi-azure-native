@@ -73,14 +73,14 @@ namespace Pulumi.AzureNative.DevCenter
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:EnvironmentType"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:EnvironmentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:EnvironmentType" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:EnvironmentType" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:EnvironmentType" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:EnvironmentType" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:EnvironmentType" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:EnvironmentType" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:EnvironmentType" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:EnvironmentType" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

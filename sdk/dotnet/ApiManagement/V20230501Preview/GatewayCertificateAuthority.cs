@@ -58,17 +58,17 @@ namespace Pulumi.AzureNative.ApiManagement.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GatewayCertificateAuthority" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

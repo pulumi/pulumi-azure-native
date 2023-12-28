@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:CustomAssessmentAutomation"},
+                    new global::Pulumi.Alias { Type = "azure-native:security:CustomAssessmentAutomation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

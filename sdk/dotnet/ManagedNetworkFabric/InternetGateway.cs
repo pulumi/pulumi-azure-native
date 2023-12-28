@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:InternetGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:InternetGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -71,13 +71,13 @@ namespace Pulumi.AzureNative.ManagedServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20221001:RegistrationDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:managedservices/v20221001:RegistrationDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

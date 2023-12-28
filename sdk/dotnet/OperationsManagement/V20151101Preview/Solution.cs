@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationsmanagement:Solution"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationsmanagement:Solution" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

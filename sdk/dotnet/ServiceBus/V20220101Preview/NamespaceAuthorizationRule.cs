@@ -70,15 +70,15 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:NamespaceAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

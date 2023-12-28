@@ -160,10 +160,10 @@ namespace Pulumi.AzureNative.Workloads.V20230401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:SAPApplicationServerInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPApplicationServerInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPApplicationServerInstance"},
-                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPApplicationServerInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:SAPApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:SAPApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPApplicationServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SAPApplicationServerInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

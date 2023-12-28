@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20210801preview:Assignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20210801preview:Assignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

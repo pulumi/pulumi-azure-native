@@ -149,7 +149,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode"},
+                    new global::Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

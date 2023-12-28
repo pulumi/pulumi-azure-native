@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Web.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:CustomApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:CustomApi" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
