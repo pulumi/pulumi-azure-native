@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.TestBase
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20231101preview:Credential"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20231101preview:Credential" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

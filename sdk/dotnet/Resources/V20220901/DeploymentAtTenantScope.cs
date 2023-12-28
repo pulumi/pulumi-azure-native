@@ -70,16 +70,16 @@ namespace Pulumi.AzureNative.Resources.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtTenantScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20230701:DeploymentAtTenantScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtTenantScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20230701:DeploymentAtTenantScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

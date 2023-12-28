@@ -76,15 +76,15 @@ namespace Pulumi.AzureNative.NetApp.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:Subvolume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Subvolume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Subvolume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Subvolume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Subvolume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Subvolume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Subvolume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Subvolume"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:Subvolume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20211001:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Subvolume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:Subvolume" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

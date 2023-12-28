@@ -94,9 +94,9 @@ namespace Pulumi.AzureNative.TestBase.V20231101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:testbase:TestBaseAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:TestBaseAccount"},
-                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:TestBaseAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:testbase:TestBaseAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:TestBaseAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:TestBaseAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

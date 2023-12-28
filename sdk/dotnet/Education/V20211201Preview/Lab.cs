@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:education:Lab"},
+                    new global::Pulumi.Alias { Type = "azure-native:education:Lab" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

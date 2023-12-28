@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.DataLakeStore
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:VirtualNetworkRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:datalakestore/v20161101:VirtualNetworkRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

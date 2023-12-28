@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScope"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210701preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:PrivateLinkScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210701preview:PrivateLinkScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

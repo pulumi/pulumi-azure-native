@@ -100,8 +100,8 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm:VMInstanceGuestAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:VMInstanceGuestAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm:VMInstanceGuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:VMInstanceGuestAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

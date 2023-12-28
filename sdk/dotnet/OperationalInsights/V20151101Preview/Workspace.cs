@@ -106,14 +106,14 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Workspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20201001:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20210601:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20221001:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

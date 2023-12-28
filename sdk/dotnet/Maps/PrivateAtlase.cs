@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.Maps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:PrivateAtlase"},
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:PrivateAtlase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

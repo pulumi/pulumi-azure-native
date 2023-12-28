@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerplatform:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:powerplatform:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -274,9 +274,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualMachine"},
-                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

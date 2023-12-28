@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:DeviceSecurityGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20190801:DeviceSecurityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:DeviceSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20190801:DeviceSecurityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

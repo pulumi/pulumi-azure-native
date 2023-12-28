@@ -71,8 +71,8 @@ namespace Pulumi.AzureNative.Automanage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

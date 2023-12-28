@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

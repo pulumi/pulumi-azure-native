@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.HDInsight.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight:ClusterPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight:ClusterPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

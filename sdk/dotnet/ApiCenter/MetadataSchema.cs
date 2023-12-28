@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.ApiCenter
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:MetadataSchema"},
+                    new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:MetadataSchema" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

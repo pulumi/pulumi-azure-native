@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.App.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:Job"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

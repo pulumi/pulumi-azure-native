@@ -70,14 +70,14 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GlobalSchema"},
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GlobalSchema"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GlobalSchema" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GlobalSchema" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

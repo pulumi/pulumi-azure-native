@@ -154,15 +154,15 @@ namespace Pulumi.AzureNative.App.V20221001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ContainerApp"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ContainerApp"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ContainerApp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

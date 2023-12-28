@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20231030preview:Pool"},
-                    new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20231213preview:Pool"},
+                    new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20231030preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20231213preview:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

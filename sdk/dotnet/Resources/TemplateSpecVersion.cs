@@ -103,10 +103,10 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpecVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpecVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpecVersion"},
-                    new global::Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpecVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpecVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpecVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpecVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpecVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

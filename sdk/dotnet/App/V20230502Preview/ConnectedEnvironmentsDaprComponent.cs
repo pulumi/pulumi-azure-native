@@ -106,13 +106,13 @@ namespace Pulumi.AzureNative.App.V20230502Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsDaprComponent"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironmentsDaprComponent"},
-                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ConnectedEnvironmentsDaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsDaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironmentsDaprComponent" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ConnectedEnvironmentsDaprComponent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

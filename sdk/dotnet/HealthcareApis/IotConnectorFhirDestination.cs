@@ -91,16 +91,16 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:IotConnectorFhirDestination"},
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:IotConnectorFhirDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20220601:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:IotConnectorFhirDestination" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:IotConnectorFhirDestination" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

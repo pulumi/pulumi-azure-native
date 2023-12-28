@@ -121,13 +121,13 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:PartnerNamespace"},
-                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:PartnerNamespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerNamespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerNamespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerNamespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerNamespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerNamespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:PartnerNamespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:PartnerNamespace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -77,8 +77,8 @@ namespace Pulumi.AzureNative.GraphServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:graphservices/v20220922preview:Account"},
-                    new global::Pulumi.Alias { Type = "azure-native:graphservices/v20230413:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:graphservices/v20220922preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:graphservices/v20230413:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

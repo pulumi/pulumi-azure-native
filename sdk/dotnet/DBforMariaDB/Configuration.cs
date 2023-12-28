@@ -91,8 +91,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Configuration"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601preview:Configuration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

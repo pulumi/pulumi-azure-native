@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security/v20230101preview:SecurityOperator"},
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20230101preview:SecurityOperator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

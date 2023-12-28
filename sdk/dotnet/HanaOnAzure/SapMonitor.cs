@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hanaonazure/v20200207preview:SapMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:hanaonazure/v20200207preview:SapMonitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

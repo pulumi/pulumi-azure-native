@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric:RoutePolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:RoutePolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric:RoutePolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:RoutePolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

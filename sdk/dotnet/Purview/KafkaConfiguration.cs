@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Purview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:KafkaConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:KafkaConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

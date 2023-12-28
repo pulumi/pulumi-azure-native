@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.DataMigration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20230715preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20230715preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

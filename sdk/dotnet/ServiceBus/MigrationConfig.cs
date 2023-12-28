@@ -97,13 +97,13 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:MigrationConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:MigrationConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:MigrationConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:MigrationConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:MigrationConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:MigrationConfig"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:MigrationConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:MigrationConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:MigrationConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:MigrationConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:MigrationConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:MigrationConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:MigrationConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:MigrationConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

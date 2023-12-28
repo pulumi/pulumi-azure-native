@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:Experiment"},
+                    new global::Pulumi.Alias { Type = "azure-native:network:Experiment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

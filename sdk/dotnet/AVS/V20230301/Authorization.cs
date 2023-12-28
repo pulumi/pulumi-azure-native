@@ -76,13 +76,13 @@ namespace Pulumi.AzureNative.AVS.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:Authorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Authorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Authorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Authorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Authorization"},
-                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:Authorization"},
+                    new global::Pulumi.Alias { Type = "azure-native:avs:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200320:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Authorization" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:Authorization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

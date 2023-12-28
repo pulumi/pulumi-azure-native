@@ -73,15 +73,15 @@ namespace Pulumi.AzureNative.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:QueueAuthorizationRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:QueueAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:QueueAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:QueueAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:QueueAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:QueueAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:QueueAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:QueueAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20211101:QueueAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:QueueAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:QueueAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

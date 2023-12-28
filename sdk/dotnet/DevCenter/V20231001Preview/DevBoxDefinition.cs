@@ -124,14 +124,14 @@ namespace Pulumi.AzureNative.DevCenter.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter:DevBoxDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:DevBoxDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:DevBoxDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:DevBoxDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:DevBoxDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:DevBoxDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:DevBoxDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:DevBoxDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:DevBoxDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

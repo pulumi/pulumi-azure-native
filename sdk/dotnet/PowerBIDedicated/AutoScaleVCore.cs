@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.PowerBIDedicated
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:powerbidedicated/v20210101:AutoScaleVCore"},
+                    new global::Pulumi.Alias { Type = "azure-native:powerbidedicated/v20210101:AutoScaleVCore" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

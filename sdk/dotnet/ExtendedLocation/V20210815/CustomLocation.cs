@@ -118,9 +118,9 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210815
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation:CustomLocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210315preview:CustomLocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210831preview:CustomLocation"},
+                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation:CustomLocation" },
+                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210315preview:CustomLocation" },
+                    new global::Pulumi.Alias { Type = "azure-native:extendedlocation/v20210831preview:CustomLocation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

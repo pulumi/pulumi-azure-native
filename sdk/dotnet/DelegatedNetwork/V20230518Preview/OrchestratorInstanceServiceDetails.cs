@@ -124,10 +124,10 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20230518Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"},
-                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20230627preview:OrchestratorInstanceServiceDetails"},
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails" },
+                    new global::Pulumi.Alias { Type = "azure-native:delegatednetwork/v20230627preview:OrchestratorInstanceServiceDetails" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

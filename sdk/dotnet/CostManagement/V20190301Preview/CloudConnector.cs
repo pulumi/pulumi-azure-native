@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:CloudConnector"},
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20180801preview:CloudConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:CloudConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20180801preview:CloudConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

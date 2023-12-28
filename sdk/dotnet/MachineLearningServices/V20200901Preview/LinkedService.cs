@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:LinkedService"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:LinkedService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

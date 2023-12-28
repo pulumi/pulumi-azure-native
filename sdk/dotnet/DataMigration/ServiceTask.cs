@@ -73,12 +73,12 @@ namespace Pulumi.AzureNative.DataMigration
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:ServiceTask"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20210630:ServiceTask"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:ServiceTask"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:ServiceTask"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:ServiceTask"},
-                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20230715preview:ServiceTask"},
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:ServiceTask" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20210630:ServiceTask" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:ServiceTask" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:ServiceTask" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:ServiceTask" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20230715preview:ServiceTask" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

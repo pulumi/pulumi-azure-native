@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:ReportByBillingAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement:ReportByBillingAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

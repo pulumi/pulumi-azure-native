@@ -70,14 +70,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201105preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201105preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230601preview:Database" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

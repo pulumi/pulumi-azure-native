@@ -79,13 +79,13 @@ namespace Pulumi.AzureNative.Maintenance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20221101preview:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:ConfigurationAssignment"},
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20231001preview:ConfigurationAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:ConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20221101preview:ConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:ConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:ConfigurationAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance/v20231001preview:ConfigurationAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

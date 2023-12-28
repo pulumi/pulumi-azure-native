@@ -79,17 +79,17 @@ namespace Pulumi.AzureNative.Cache
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201001preview:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20221101preview:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230301preview:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230701:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230801preview:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231001preview:EnterprisePrivateEndpointConnection"},
-                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231101:EnterprisePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20201001preview:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210201preview:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210301:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20210801:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20220101:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20221101preview:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230301preview:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230701:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230801preview:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231001preview:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20231101:EnterprisePrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

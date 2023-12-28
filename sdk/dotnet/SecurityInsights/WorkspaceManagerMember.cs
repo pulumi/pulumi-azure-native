@@ -79,13 +79,13 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:WorkspaceManagerMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:WorkspaceManagerMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:WorkspaceManagerMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:WorkspaceManagerMember"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:WorkspaceManagerMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:WorkspaceManagerMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:WorkspaceManagerMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:WorkspaceManagerMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:WorkspaceManagerMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:WorkspaceManagerMember" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

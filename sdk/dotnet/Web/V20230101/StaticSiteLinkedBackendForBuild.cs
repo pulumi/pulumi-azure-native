@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.Web.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteLinkedBackendForBuild"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild"},
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSiteLinkedBackendForBuild"},
+                    new global::Pulumi.Alias { Type = "azure-native:web:StaticSiteLinkedBackendForBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSiteLinkedBackendForBuild" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

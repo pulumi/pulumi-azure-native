@@ -196,14 +196,14 @@ namespace Pulumi.AzureNative.Kubernetes.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210301:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210401preview:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20221001preview:ConnectedCluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20231101preview:ConnectedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210301:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20210401preview:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20220501preview:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20221001preview:ConnectedCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetes/v20231101preview:ConnectedCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

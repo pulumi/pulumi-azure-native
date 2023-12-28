@@ -148,10 +148,10 @@ namespace Pulumi.AzureNative.Insights.V20220615
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:WebTest"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:WebTest"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:WebTest"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20201005preview:WebTest"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:WebTest" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:WebTest" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:WebTest" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20201005preview:WebTest" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

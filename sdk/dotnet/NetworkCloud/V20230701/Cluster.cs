@@ -212,9 +212,9 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:Cluster"},
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

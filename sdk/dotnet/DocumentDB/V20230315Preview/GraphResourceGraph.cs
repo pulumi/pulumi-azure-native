@@ -76,16 +76,16 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:GraphResourceGraph"},
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:GraphResourceGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:GraphResourceGraph" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:GraphResourceGraph" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

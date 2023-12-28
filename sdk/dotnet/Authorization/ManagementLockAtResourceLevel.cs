@@ -77,9 +77,9 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtResourceLevel"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtResourceLevel"},
-                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtResourceLevel"},
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockAtResourceLevel" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockAtResourceLevel" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockAtResourceLevel" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

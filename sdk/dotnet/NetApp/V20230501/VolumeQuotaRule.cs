@@ -94,14 +94,14 @@ namespace Pulumi.AzureNative.NetApp.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:VolumeQuotaRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:VolumeQuotaRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220101:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:VolumeQuotaRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:VolumeQuotaRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

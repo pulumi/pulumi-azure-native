@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ScopeAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ScopeAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

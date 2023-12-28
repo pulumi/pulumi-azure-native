@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:AnalyticsConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221001preview:AnalyticsConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

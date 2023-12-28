@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Migrate
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20220501preview:WorkloadInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20220501preview:WorkloadInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

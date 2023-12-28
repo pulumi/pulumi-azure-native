@@ -91,8 +91,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:GuestAgent"},
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GuestAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:GuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GuestAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

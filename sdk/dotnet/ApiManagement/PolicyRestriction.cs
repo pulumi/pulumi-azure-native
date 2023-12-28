@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:PolicyRestriction"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:PolicyRestriction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

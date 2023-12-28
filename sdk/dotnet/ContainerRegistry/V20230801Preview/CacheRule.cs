@@ -89,11 +89,11 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:CacheRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:CacheRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:CacheRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230701:CacheRule"},
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:CacheRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:CacheRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:CacheRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:CacheRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230701:CacheRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:CacheRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

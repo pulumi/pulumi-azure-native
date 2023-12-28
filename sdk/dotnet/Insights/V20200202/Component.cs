@@ -220,10 +220,10 @@ namespace Pulumi.AzureNative.Insights.V20200202
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component"},
-                    new global::Pulumi.Alias { Type = "azure-native:insights/v20200202preview:Component"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:Component" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20150501:Component" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180501preview:Component" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20200202preview:Component" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

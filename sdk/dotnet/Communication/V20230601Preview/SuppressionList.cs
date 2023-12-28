@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Communication.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:communication:SuppressionList"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication:SuppressionList" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

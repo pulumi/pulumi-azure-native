@@ -202,13 +202,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ContentPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ContentPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ContentPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:ContentPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:ContentPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:ContentPackage"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:ContentPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ContentPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:ContentPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ContentPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:ContentPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:ContentPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:ContentPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:ContentPackage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

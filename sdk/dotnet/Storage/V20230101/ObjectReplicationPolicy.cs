@@ -82,17 +82,17 @@ namespace Pulumi.AzureNative.Storage.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:ObjectReplicationPolicy"},
-                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:ObjectReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:storage:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20190601:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210101:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210201:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210401:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210601:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210801:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20210901:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:ObjectReplicationPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:ObjectReplicationPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -103,10 +103,10 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:CustomizableConnectorDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:CustomizableConnectorDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:CustomizableConnectorDefinition"},
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:CustomizableConnectorDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:CustomizableConnectorDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:CustomizableConnectorDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:CustomizableConnectorDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:CustomizableConnectorDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

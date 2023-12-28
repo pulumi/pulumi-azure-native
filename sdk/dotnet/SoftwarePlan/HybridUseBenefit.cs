@@ -83,8 +83,8 @@ namespace Pulumi.AzureNative.SoftwarePlan
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:softwareplan/v20190601preview:HybridUseBenefit"},
-                    new global::Pulumi.Alias { Type = "azure-native:softwareplan/v20191201:HybridUseBenefit"},
+                    new global::Pulumi.Alias { Type = "azure-native:softwareplan/v20190601preview:HybridUseBenefit" },
+                    new global::Pulumi.Alias { Type = "azure-native:softwareplan/v20191201:HybridUseBenefit" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

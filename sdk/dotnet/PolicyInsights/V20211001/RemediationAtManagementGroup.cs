@@ -136,9 +136,9 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup"},
-                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights:RemediationAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20180701preview:RemediationAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:policyinsights/v20190701:RemediationAtManagementGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

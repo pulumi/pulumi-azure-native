@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

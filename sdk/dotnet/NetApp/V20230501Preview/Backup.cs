@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.NetApp.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Backup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
