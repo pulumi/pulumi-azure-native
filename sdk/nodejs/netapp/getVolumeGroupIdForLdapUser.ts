@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Returns the list of group Ids for a specific LDAP User
  * Azure REST API version: 2022-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01.
  */
 export function getVolumeGroupIdForLdapUser(args: GetVolumeGroupIdForLdapUserArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupIdForLdapUserResult> {
 
@@ -58,7 +58,7 @@ export interface GetVolumeGroupIdForLdapUserResult {
  * Returns the list of group Ids for a specific LDAP User
  * Azure REST API version: 2022-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01.
  */
 export function getVolumeGroupIdForLdapUserOutput(args: GetVolumeGroupIdForLdapUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupIdForLdapUserResult> {
     return pulumi.output(args).apply((a: any) => getVolumeGroupIdForLdapUser(a, opts))

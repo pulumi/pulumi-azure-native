@@ -165,6 +165,16 @@ export const getTableResourceTable: typeof import("./getTableResourceTable").get
 export const getTableResourceTableOutput: typeof import("./getTableResourceTable").getTableResourceTableOutput = null as any;
 utilities.lazyLoad(exports, ["getTableResourceTable","getTableResourceTableOutput"], () => require("./getTableResourceTable"));
 
+export { GetThroughputPoolArgs, GetThroughputPoolResult, GetThroughputPoolOutputArgs } from "./getThroughputPool";
+export const getThroughputPool: typeof import("./getThroughputPool").getThroughputPool = null as any;
+export const getThroughputPoolOutput: typeof import("./getThroughputPool").getThroughputPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getThroughputPool","getThroughputPoolOutput"], () => require("./getThroughputPool"));
+
+export { GetThroughputPoolAccountArgs, GetThroughputPoolAccountResult, GetThroughputPoolAccountOutputArgs } from "./getThroughputPoolAccount";
+export const getThroughputPoolAccount: typeof import("./getThroughputPoolAccount").getThroughputPoolAccount = null as any;
+export const getThroughputPoolAccountOutput: typeof import("./getThroughputPoolAccount").getThroughputPoolAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getThroughputPoolAccount","getThroughputPoolAccountOutput"], () => require("./getThroughputPoolAccount"));
+
 export { GraphResourceGraphArgs } from "./graphResourceGraph";
 export type GraphResourceGraph = import("./graphResourceGraph").GraphResourceGraph;
 export const GraphResourceGraph: typeof import("./graphResourceGraph").GraphResourceGraph = null as any;
@@ -285,6 +295,16 @@ export type TableResourceTable = import("./tableResourceTable").TableResourceTab
 export const TableResourceTable: typeof import("./tableResourceTable").TableResourceTable = null as any;
 utilities.lazyLoad(exports, ["TableResourceTable"], () => require("./tableResourceTable"));
 
+export { ThroughputPoolArgs } from "./throughputPool";
+export type ThroughputPool = import("./throughputPool").ThroughputPool;
+export const ThroughputPool: typeof import("./throughputPool").ThroughputPool = null as any;
+utilities.lazyLoad(exports, ["ThroughputPool"], () => require("./throughputPool"));
+
+export { ThroughputPoolAccountArgs } from "./throughputPoolAccount";
+export type ThroughputPoolAccount = import("./throughputPoolAccount").ThroughputPoolAccount;
+export const ThroughputPoolAccount: typeof import("./throughputPoolAccount").ThroughputPoolAccount = null as any;
+utilities.lazyLoad(exports, ["ThroughputPoolAccount"], () => require("./throughputPoolAccount"));
+
 
 // Export enums:
 export * from "../types/enums/documentdb";
@@ -298,6 +318,7 @@ import * as v20230415 from "./v20230415";
 import * as v20230915 from "./v20230915";
 import * as v20230915preview from "./v20230915preview";
 import * as v20231115 from "./v20231115";
+import * as v20231115preview from "./v20231115preview";
 
 export {
     v20210401preview,
@@ -308,6 +329,7 @@ export {
     v20230915,
     v20230915preview,
     v20231115,
+    v20231115preview,
 };
 
 const _module = {
@@ -366,6 +388,10 @@ const _module = {
                 return new SqlResourceSqlUserDefinedFunction(name, <any>undefined, { urn })
             case "azure-native:documentdb:TableResourceTable":
                 return new TableResourceTable(name, <any>undefined, { urn })
+            case "azure-native:documentdb:ThroughputPool":
+                return new ThroughputPool(name, <any>undefined, { urn })
+            case "azure-native:documentdb:ThroughputPoolAccount":
+                return new ThroughputPoolAccount(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Returns the list of currently active sessions on the Bastion.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
         /// </summary>
         public static Task<GetActiveSessionsResult> InvokeAsync(GetActiveSessionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveSessionsResult>("azure-native:network:getActiveSessions", args ?? new GetActiveSessionsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Returns the list of currently active sessions on the Bastion.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
         /// </summary>
         public static Output<GetActiveSessionsResult> Invoke(GetActiveSessionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveSessionsResult>("azure-native:network:getActiveSessions", args ?? new GetActiveSessionsInvokeArgs(), options.WithDefaults());

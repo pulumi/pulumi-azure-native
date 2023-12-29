@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Private Endpoint Connection Response Properties
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
     /// 
-    /// Other available API versions: 2023-06-01.
+    /// Other available API versions: 2023-06-01, 2023-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230201:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230401:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230601:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230801:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

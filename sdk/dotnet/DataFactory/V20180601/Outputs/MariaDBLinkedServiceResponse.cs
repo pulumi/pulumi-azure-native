@@ -29,9 +29,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? ConnectionString;
         /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        public readonly object? Database;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The version of the MariaDB driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
+        /// </summary>
+        public readonly object? DriverVersion;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
@@ -43,12 +51,24 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// The Azure key vault secret reference of password in connection string.
         /// </summary>
-        public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Pwd;
+        public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Password;
+        /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        public readonly object? Port;
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        public readonly object? Server;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'MariaDB'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        public readonly object? Username;
 
         [OutputConstructor]
         private MariaDBLinkedServiceResponse(
@@ -58,24 +78,39 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? connectionString,
 
+            object? database,
+
             string? description,
+
+            object? driverVersion,
 
             string? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
-            Outputs.AzureKeyVaultSecretReferenceResponse? pwd,
+            Outputs.AzureKeyVaultSecretReferenceResponse? password,
 
-            string type)
+            object? port,
+
+            object? server,
+
+            string type,
+
+            object? username)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Database = database;
             Description = description;
+            DriverVersion = driverVersion;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
-            Pwd = pwd;
+            Password = password;
+            Port = port;
+            Server = server;
             Type = type;
+            Username = username;
         }
     }
 }

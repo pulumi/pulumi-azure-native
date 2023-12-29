@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * call the GetItemOperationResult API.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-06-01.
+ * Other available API versions: 2023-06-01, 2023-08-01.
  */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
 
@@ -82,7 +82,7 @@ export interface GetProtectionIntentResult {
  * call the GetItemOperationResult API.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-06-01.
+ * Other available API versions: 2023-06-01, 2023-08-01.
  */
 export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionIntentResult> {
     return pulumi.output(args).apply((a: any) => getProtectionIntent(a, opts))

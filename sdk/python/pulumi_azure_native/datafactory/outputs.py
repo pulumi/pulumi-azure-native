@@ -474,8 +474,16 @@ __all__ = [
     'SalesforceServiceCloudObjectDatasetResponse',
     'SalesforceServiceCloudSinkResponse',
     'SalesforceServiceCloudSourceResponse',
+    'SalesforceServiceCloudV2LinkedServiceResponse',
+    'SalesforceServiceCloudV2ObjectDatasetResponse',
+    'SalesforceServiceCloudV2SinkResponse',
+    'SalesforceServiceCloudV2SourceResponse',
     'SalesforceSinkResponse',
     'SalesforceSourceResponse',
+    'SalesforceV2LinkedServiceResponse',
+    'SalesforceV2ObjectDatasetResponse',
+    'SalesforceV2SinkResponse',
+    'SalesforceV2SourceResponse',
     'SapBWLinkedServiceResponse',
     'SapBwCubeDatasetResponse',
     'SapBwSourceResponse',
@@ -20169,8 +20177,8 @@ class CopyActivityResponse(dict):
         """
         Copy activity.
         :param str name: Activity name.
-        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'LakeHouseTableSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceSinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
+        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'LakeHouseTableSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceServiceCloudV2SinkResponse', 'SalesforceSinkResponse', 'SalesforceV2SinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -45150,7 +45158,7 @@ class LookupActivityResponse(dict):
         Lookup activity.
         :param 'DatasetReferenceResponse' dataset: Lookup activity dataset reference.
         :param str name: Activity name.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
         :param str type: Type of activity.
                Expected value is 'Lookup'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -47195,6 +47203,8 @@ class MariaDBLinkedServiceResponse(dict):
             suggest = "connect_via"
         elif key == "connectionString":
             suggest = "connection_string"
+        elif key == "driverVersion":
+            suggest = "driver_version"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
 
@@ -47214,10 +47224,15 @@ class MariaDBLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[str] = None,
+                 driver_version: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 port: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         MariaDB server linked service.
         :param str type: Type of linked service.
@@ -47225,10 +47240,15 @@ class MariaDBLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any database: Database name for connection. Type: string.
         :param str description: Linked service description.
+        :param Any driver_version: The version of the MariaDB driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
-        :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
+        :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param Any port: The port for the connection. Type: integer.
+        :param Any server: Server name for connection. Type: string.
+        :param Any username: Username for authentication. Type: string.
         """
         pulumi.set(__self__, "type", 'MariaDB')
         if annotations is not None:
@@ -47237,14 +47257,24 @@ class MariaDBLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if driver_version is not None:
+            pulumi.set(__self__, "driver_version", driver_version)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if pwd is not None:
-            pulumi.set(__self__, "pwd", pwd)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -47281,11 +47311,27 @@ class MariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        Database name for connection. Type: string.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Linked service description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> Optional[Any]:
+        """
+        The version of the MariaDB driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
+        """
+        return pulumi.get(self, "driver_version")
 
     @property
     @pulumi.getter(name="encryptedCredential")
@@ -47305,11 +47351,35 @@ class MariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def pwd(self) -> Optional['outputs.AzureKeyVaultSecretReferenceResponse']:
+    def password(self) -> Optional['outputs.AzureKeyVaultSecretReferenceResponse']:
         """
         The Azure key vault secret reference of password in connection string.
         """
-        return pulumi.get(self, "pwd")
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[Any]:
+        """
+        The port for the connection. Type: integer.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        Server name for connection. Type: string.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[Any]:
+        """
+        Username for authentication. Type: string.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -50382,12 +50452,18 @@ class MySqlLinkedServiceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectionString":
-            suggest = "connection_string"
-        elif key == "connectVia":
+        if key == "connectVia":
             suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "driverVersion":
+            suggest = "driver_version"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
+        elif key == "useSystemTrustStore":
+            suggest = "use_system_trust_store"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MySqlLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -50401,48 +50477,69 @@ class MySqlLinkedServiceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 connection_string: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[str] = None,
+                 driver_version: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
-                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
+                 password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 port: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 ssl_mode: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None,
+                 username: Optional[Any] = None):
         """
         Linked service for MySQL data source.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'MySql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any database: Database name for connection. Type: string.
         :param str description: Linked service description.
+        :param Any driver_version: The version of the MySQL driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
+        :param Any port: The port for the connection. Type: integer.
+        :param Any server: Server name for connection. Type: string.
+        :param Any ssl_mode: SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
+        :param Any use_system_trust_store: Use system trust store for connection. Type: integer. 0: enable, 1: disable.
+        :param Any username: Username for authentication. Type: string.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'MySql')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if driver_version is not None:
+            pulumi.set(__self__, "driver_version", driver_version)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        """
-        return pulumi.get(self, "connection_string")
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if use_system_trust_store is not None:
+            pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -50470,12 +50567,36 @@ class MySqlLinkedServiceResponse(dict):
         return pulumi.get(self, "connect_via")
 
     @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        Database name for connection. Type: string.
+        """
+        return pulumi.get(self, "database")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Linked service description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> Optional[Any]:
+        """
+        The version of the MySQL driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
+        """
+        return pulumi.get(self, "driver_version")
 
     @property
     @pulumi.getter(name="encryptedCredential")
@@ -50500,6 +50621,46 @@ class MySqlLinkedServiceResponse(dict):
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[Any]:
+        """
+        The port for the connection. Type: integer.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        Server name for connection. Type: string.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[Any]:
+        """
+        SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter(name="useSystemTrustStore")
+    def use_system_trust_store(self) -> Optional[Any]:
+        """
+        Use system trust store for connection. Type: integer. 0: enable, 1: disable.
+        """
+        return pulumi.get(self, "use_system_trust_store")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[Any]:
+        """
+        Username for authentication. Type: string.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -62995,6 +63156,619 @@ class SalesforceServiceCloudSourceResponse(dict):
 
 
 @pulumi.output_type
+class SalesforceServiceCloudV2LinkedServiceResponse(dict):
+    """
+    Linked service for Salesforce Service Cloud V2.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersion":
+            suggest = "api_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "environmentUrl":
+            suggest = "environment_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceServiceCloudV2LinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceServiceCloudV2LinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceServiceCloudV2LinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 api_version: Optional[Any] = None,
+                 client_id: Optional[Any] = None,
+                 client_secret: Optional[Any] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[str] = None,
+                 environment_url: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for Salesforce Service Cloud V2.
+        :param str type: Type of linked service.
+               Expected value is 'SalesforceServiceCloudV2'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any api_version: The Salesforce API version used in ADF. The version must be larger than or equal to 47.0 which is required by Salesforce BULK API 2.0. Type: string (or Expression with resultType string).
+        :param Any client_id: The client Id for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any environment_url: The URL of Salesforce Service Cloud instance. For example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "type", 'SalesforceServiceCloudV2')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if environment_url is not None:
+            pulumi.set(__self__, "environment_url", environment_url)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'SalesforceServiceCloudV2'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[Any]:
+        """
+        The Salesforce API version used in ADF. The version must be larger than or equal to 47.0 which is required by Salesforce BULK API 2.0. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "api_version")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[Any]:
+        """
+        The client Id for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[Any]:
+        """
+        The client secret for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[str]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter(name="environmentUrl")
+    def environment_url(self) -> Optional[Any]:
+        """
+        The URL of Salesforce Service Cloud instance. For example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "environment_url")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class SalesforceServiceCloudV2ObjectDatasetResponse(dict):
+    """
+    The Salesforce Service Cloud V2 object dataset.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "objectApiName":
+            suggest = "object_api_name"
+        elif key == "reportId":
+            suggest = "report_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceServiceCloudV2ObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceServiceCloudV2ObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceServiceCloudV2ObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 object_api_name: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 report_id: Optional[Any] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None):
+        """
+        The Salesforce Service Cloud V2 object dataset.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str type: Type of dataset.
+               Expected value is 'SalesforceServiceCloudV2Object'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param str description: Dataset description.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Any object_api_name: The Salesforce Service Cloud V2 object API name. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
+        :param Any report_id: The Salesforce Service Cloud V2 reportId. Type: string (or Expression with resultType string).
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'SalesforceServiceCloudV2Object')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if object_api_name is not None:
+            pulumi.set(__self__, "object_api_name", object_api_name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if report_id is not None:
+            pulumi.set(__self__, "report_id", report_id)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset.
+        Expected value is 'SalesforceServiceCloudV2Object'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter(name="objectApiName")
+    def object_api_name(self) -> Optional[Any]:
+        """
+        The Salesforce Service Cloud V2 object API name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "object_api_name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="reportId")
+    def report_id(self) -> Optional[Any]:
+        """
+        The Salesforce Service Cloud V2 reportId. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "report_id")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+
+@pulumi.output_type
+class SalesforceServiceCloudV2SinkResponse(dict):
+    """
+    A copy activity Salesforce Service Cloud V2 sink.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "externalIdFieldName":
+            suggest = "external_id_field_name"
+        elif key == "ignoreNullValues":
+            suggest = "ignore_null_values"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+        elif key == "writeBehavior":
+            suggest = "write_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceServiceCloudV2SinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceServiceCloudV2SinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceServiceCloudV2SinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 disable_metrics_collection: Optional[Any] = None,
+                 external_id_field_name: Optional[Any] = None,
+                 ignore_null_values: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[str] = None):
+        """
+        A copy activity Salesforce Service Cloud V2 sink.
+        :param str type: Copy sink type.
+               Expected value is 'SalesforceServiceCloudV2Sink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any external_id_field_name: The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
+        :param Any ignore_null_values: The flag indicating whether or not to ignore null values from input dataset (except key fields) during write operation. Default value is false. If set it to true, it means ADF will leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation, versus ADF will update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param str write_behavior: The write behavior for the operation. Default is Insert.
+        """
+        pulumi.set(__self__, "type", 'SalesforceServiceCloudV2Sink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if external_id_field_name is not None:
+            pulumi.set(__self__, "external_id_field_name", external_id_field_name)
+        if ignore_null_values is not None:
+            pulumi.set(__self__, "ignore_null_values", ignore_null_values)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy sink type.
+        Expected value is 'SalesforceServiceCloudV2Sink'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="externalIdFieldName")
+    def external_id_field_name(self) -> Optional[Any]:
+        """
+        The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "external_id_field_name")
+
+    @property
+    @pulumi.getter(name="ignoreNullValues")
+    def ignore_null_values(self) -> Optional[Any]:
+        """
+        The flag indicating whether or not to ignore null values from input dataset (except key fields) during write operation. Default value is false. If set it to true, it means ADF will leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation, versus ADF will update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "ignore_null_values")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[str]:
+        """
+        The write behavior for the operation. Default is Insert.
+        """
+        return pulumi.get(self, "write_behavior")
+
+
+@pulumi.output_type
+class SalesforceServiceCloudV2SourceResponse(dict):
+    """
+    A copy activity Salesforce Service Cloud V2 source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalColumns":
+            suggest = "additional_columns"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "readBehavior":
+            suggest = "read_behavior"
+        elif key == "sOQLQuery":
+            suggest = "s_oql_query"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceServiceCloudV2SourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceServiceCloudV2SourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceServiceCloudV2SourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 additional_columns: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 read_behavior: Optional[Any] = None,
+                 s_oql_query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Salesforce Service Cloud V2 source.
+        :param str type: Copy source type.
+               Expected value is 'SalesforceServiceCloudV2Source'.
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any read_behavior: The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
+        :param Any s_oql_query: Database query. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SalesforceServiceCloudV2Source')
+        if additional_columns is not None:
+            pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if read_behavior is not None:
+            pulumi.set(__self__, "read_behavior", read_behavior)
+        if s_oql_query is not None:
+            pulumi.set(__self__, "s_oql_query", s_oql_query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy source type.
+        Expected value is 'SalesforceServiceCloudV2Source'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalColumns")
+    def additional_columns(self) -> Optional[Any]:
+        """
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "additional_columns")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="readBehavior")
+    def read_behavior(self) -> Optional[Any]:
+        """
+        The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "read_behavior")
+
+    @property
+    @pulumi.getter(name="sOQLQuery")
+    def s_oql_query(self) -> Optional[Any]:
+        """
+        Database query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "s_oql_query")
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+
+@pulumi.output_type
 class SalesforceSinkResponse(dict):
     """
     A copy activity Salesforce sink.
@@ -63290,6 +64064,633 @@ class SalesforceSourceResponse(dict):
         The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "read_behavior")
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+
+@pulumi.output_type
+class SalesforceV2LinkedServiceResponse(dict):
+    """
+    Linked service for Salesforce V2.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersion":
+            suggest = "api_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "environmentUrl":
+            suggest = "environment_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceV2LinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceV2LinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceV2LinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 api_version: Optional[Any] = None,
+                 client_id: Optional[Any] = None,
+                 client_secret: Optional[Any] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[str] = None,
+                 environment_url: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for Salesforce V2.
+        :param str type: Type of linked service.
+               Expected value is 'SalesforceV2'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any api_version: The Salesforce API version used in ADF. The version must be larger than or equal to 47.0 which is required by Salesforce BULK API 2.0. Type: string (or Expression with resultType string).
+        :param Any client_id: The client Id for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any environment_url: The URL of Salesforce instance. For example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "type", 'SalesforceV2')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if environment_url is not None:
+            pulumi.set(__self__, "environment_url", environment_url)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'SalesforceV2'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[Any]:
+        """
+        The Salesforce API version used in ADF. The version must be larger than or equal to 47.0 which is required by Salesforce BULK API 2.0. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "api_version")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[Any]:
+        """
+        The client Id for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[Any]:
+        """
+        The client secret for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[str]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter(name="environmentUrl")
+    def environment_url(self) -> Optional[Any]:
+        """
+        The URL of Salesforce instance. For example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "environment_url")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class SalesforceV2ObjectDatasetResponse(dict):
+    """
+    The Salesforce V2 object dataset.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "objectApiName":
+            suggest = "object_api_name"
+        elif key == "reportId":
+            suggest = "report_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceV2ObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceV2ObjectDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceV2ObjectDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 object_api_name: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 report_id: Optional[Any] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None):
+        """
+        The Salesforce V2 object dataset.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str type: Type of dataset.
+               Expected value is 'SalesforceV2Object'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param str description: Dataset description.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Any object_api_name: The Salesforce V2 object API name. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
+        :param Any report_id: The Salesforce V2 report Id. Type: string (or Expression with resultType string).
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'SalesforceV2Object')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if object_api_name is not None:
+            pulumi.set(__self__, "object_api_name", object_api_name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if report_id is not None:
+            pulumi.set(__self__, "report_id", report_id)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset.
+        Expected value is 'SalesforceV2Object'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter(name="objectApiName")
+    def object_api_name(self) -> Optional[Any]:
+        """
+        The Salesforce V2 object API name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "object_api_name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="reportId")
+    def report_id(self) -> Optional[Any]:
+        """
+        The Salesforce V2 report Id. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "report_id")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+
+@pulumi.output_type
+class SalesforceV2SinkResponse(dict):
+    """
+    A copy activity Salesforce V2 sink.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "externalIdFieldName":
+            suggest = "external_id_field_name"
+        elif key == "ignoreNullValues":
+            suggest = "ignore_null_values"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+        elif key == "writeBehavior":
+            suggest = "write_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceV2SinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceV2SinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceV2SinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 disable_metrics_collection: Optional[Any] = None,
+                 external_id_field_name: Optional[Any] = None,
+                 ignore_null_values: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[str] = None):
+        """
+        A copy activity Salesforce V2 sink.
+        :param str type: Copy sink type.
+               Expected value is 'SalesforceV2Sink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any external_id_field_name: The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
+        :param Any ignore_null_values: The flag indicating whether or not to ignore null values from input dataset (except key fields) during write operation. Default value is false. If set it to true, it means ADF will leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation, versus ADF will update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param str write_behavior: The write behavior for the operation. Default is Insert.
+        """
+        pulumi.set(__self__, "type", 'SalesforceV2Sink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if external_id_field_name is not None:
+            pulumi.set(__self__, "external_id_field_name", external_id_field_name)
+        if ignore_null_values is not None:
+            pulumi.set(__self__, "ignore_null_values", ignore_null_values)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy sink type.
+        Expected value is 'SalesforceV2Sink'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="externalIdFieldName")
+    def external_id_field_name(self) -> Optional[Any]:
+        """
+        The name of the external ID field for upsert operation. Default value is 'Id' column. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "external_id_field_name")
+
+    @property
+    @pulumi.getter(name="ignoreNullValues")
+    def ignore_null_values(self) -> Optional[Any]:
+        """
+        The flag indicating whether or not to ignore null values from input dataset (except key fields) during write operation. Default value is false. If set it to true, it means ADF will leave the data in the destination object unchanged when doing upsert/update operation and insert defined default value when doing insert operation, versus ADF will update the data in the destination object to NULL when doing upsert/update operation and insert NULL value when doing insert operation. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "ignore_null_values")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[str]:
+        """
+        The write behavior for the operation. Default is Insert.
+        """
+        return pulumi.get(self, "write_behavior")
+
+
+@pulumi.output_type
+class SalesforceV2SourceResponse(dict):
+    """
+    A copy activity Salesforce V2 source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalColumns":
+            suggest = "additional_columns"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "queryTimeout":
+            suggest = "query_timeout"
+        elif key == "readBehavior":
+            suggest = "read_behavior"
+        elif key == "sOQLQuery":
+            suggest = "s_oql_query"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SalesforceV2SourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SalesforceV2SourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SalesforceV2SourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 additional_columns: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 query_timeout: Optional[Any] = None,
+                 read_behavior: Optional[Any] = None,
+                 s_oql_query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity Salesforce V2 source.
+        :param str type: Copy source type.
+               Expected value is 'SalesforceV2Source'.
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any read_behavior: The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
+        :param Any s_oql_query: Database query. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SalesforceV2Source')
+        if additional_columns is not None:
+            pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if query_timeout is not None:
+            pulumi.set(__self__, "query_timeout", query_timeout)
+        if read_behavior is not None:
+            pulumi.set(__self__, "read_behavior", read_behavior)
+        if s_oql_query is not None:
+            pulumi.set(__self__, "s_oql_query", s_oql_query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy source type.
+        Expected value is 'SalesforceV2Source'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalColumns")
+    def additional_columns(self) -> Optional[Any]:
+        """
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "additional_columns")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="queryTimeout")
+    def query_timeout(self) -> Optional[Any]:
+        """
+        Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "query_timeout")
+
+    @property
+    @pulumi.getter(name="readBehavior")
+    def read_behavior(self) -> Optional[Any]:
+        """
+        The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "read_behavior")
+
+    @property
+    @pulumi.getter(name="sOQLQuery")
+    def s_oql_query(self) -> Optional[Any]:
+        """
+        Database query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "s_oql_query")
 
     @property
     @pulumi.getter(name="sourceRetryCount")

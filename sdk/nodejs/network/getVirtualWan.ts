@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Retrieves the details of a VirtualWAN.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01.
+ * Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
  */
 export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualWanResult> {
 
@@ -94,7 +94,7 @@ export interface GetVirtualWanResult {
  * Retrieves the details of a VirtualWAN.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01.
+ * Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
  */
 export function getVirtualWanOutput(args: GetVirtualWanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWanResult> {
     return pulumi.output(args).apply((a: any) => getVirtualWan(a, opts))

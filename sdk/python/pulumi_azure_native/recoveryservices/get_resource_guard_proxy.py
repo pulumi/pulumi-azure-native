@@ -122,7 +122,7 @@ def get_resource_guard_proxy(resource_group_name: Optional[str] = None,
     Returns ResourceGuardProxy under vault and with the name referenced in request
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01.
+    Other available API versions: 2023-06-01, 2023-08-01.
 
 
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -154,7 +154,7 @@ def get_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[s
     Returns ResourceGuardProxy under vault and with the name referenced in request
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01.
+    Other available API versions: 2023-06-01, 2023-08-01.
 
 
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DataProtection
         /// 
         /// Azure REST API version: 2023-01-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01.
+        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01.
         /// </summary>
         public static Task<GetResourceGuardResult> InvokeAsync(GetResourceGuardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DataProtection
         /// 
         /// Azure REST API version: 2023-01-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01.
+        /// Other available API versions: 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01.
         /// </summary>
         public static Output<GetResourceGuardResult> Invoke(GetResourceGuardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardInvokeArgs(), options.WithDefaults());

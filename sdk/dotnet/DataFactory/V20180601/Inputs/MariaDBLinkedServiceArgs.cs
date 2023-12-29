@@ -40,10 +40,22 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        [Input("database")]
+        public Input<object>? Database { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The version of the MariaDB driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
+        /// </summary>
+        [Input("driverVersion")]
+        public Input<object>? DriverVersion { get; set; }
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
@@ -66,8 +78,20 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// <summary>
         /// The Azure key vault secret reference of password in connection string.
         /// </summary>
-        [Input("pwd")]
-        public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? Pwd { get; set; }
+        [Input("password")]
+        public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? Password { get; set; }
+
+        /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        [Input("port")]
+        public Input<object>? Port { get; set; }
+
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        [Input("server")]
+        public Input<object>? Server { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -75,6 +99,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        [Input("username")]
+        public Input<object>? Username { get; set; }
 
         public MariaDBLinkedServiceArgs()
         {

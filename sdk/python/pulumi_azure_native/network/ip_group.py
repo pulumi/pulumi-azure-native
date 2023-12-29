@@ -131,7 +131,7 @@ class IpGroup(pulumi.CustomResource):
         The IpGroups resource information.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class IpGroup(pulumi.CustomResource):
         The IpGroups resource information.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param IpGroupArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +198,7 @@ class IpGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20190901:IpGroup"), pulumi.Alias(type_="azure-native:network/v20191101:IpGroup"), pulumi.Alias(type_="azure-native:network/v20191201:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200301:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200401:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200501:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200601:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200701:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200801:IpGroup"), pulumi.Alias(type_="azure-native:network/v20201101:IpGroup"), pulumi.Alias(type_="azure-native:network/v20210201:IpGroup"), pulumi.Alias(type_="azure-native:network/v20210301:IpGroup"), pulumi.Alias(type_="azure-native:network/v20210501:IpGroup"), pulumi.Alias(type_="azure-native:network/v20210801:IpGroup"), pulumi.Alias(type_="azure-native:network/v20220101:IpGroup"), pulumi.Alias(type_="azure-native:network/v20220501:IpGroup"), pulumi.Alias(type_="azure-native:network/v20220701:IpGroup"), pulumi.Alias(type_="azure-native:network/v20220901:IpGroup"), pulumi.Alias(type_="azure-native:network/v20221101:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230201:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230401:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230501:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230601:IpGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20190901:IpGroup"), pulumi.Alias(type_="azure-native:network/v20191101:IpGroup"), pulumi.Alias(type_="azure-native:network/v20191201:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200301:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200401:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200501:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200601:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200701:IpGroup"), pulumi.Alias(type_="azure-native:network/v20200801:IpGroup"), pulumi.Alias(type_="azure-native:network/v20201101:IpGroup"), pulumi.Alias(type_="azure-native:network/v20210201:IpGroup"), pulumi.Alias(type_="azure-native:network/v20210301:IpGroup"), pulumi.Alias(type_="azure-native:network/v20210501:IpGroup"), pulumi.Alias(type_="azure-native:network/v20210801:IpGroup"), pulumi.Alias(type_="azure-native:network/v20220101:IpGroup"), pulumi.Alias(type_="azure-native:network/v20220501:IpGroup"), pulumi.Alias(type_="azure-native:network/v20220701:IpGroup"), pulumi.Alias(type_="azure-native:network/v20220901:IpGroup"), pulumi.Alias(type_="azure-native:network/v20221101:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230201:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230401:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230501:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230601:IpGroup"), pulumi.Alias(type_="azure-native:network/v20230901:IpGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IpGroup, __self__).__init__(
             'azure-native:network:IpGroup',

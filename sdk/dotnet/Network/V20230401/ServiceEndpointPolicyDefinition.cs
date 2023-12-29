@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Network.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ServiceEndpointPolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:ServiceEndpointPolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:ServiceEndpointPolicyDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230901:ServiceEndpointPolicyDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

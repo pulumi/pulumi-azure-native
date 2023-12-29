@@ -57,6 +57,7 @@ __all__ = [
     'RecurrenceFrequency',
     'RestServiceAuthenticationType',
     'SalesforceSinkWriteBehavior',
+    'SalesforceV2SinkWriteBehavior',
     'SapCloudForCustomerSinkWriteBehavior',
     'SapHanaAuthenticationType',
     'ScriptActivityLogDestination',
@@ -547,6 +548,14 @@ class RestServiceAuthenticationType(str, Enum):
 
 
 class SalesforceSinkWriteBehavior(str, Enum):
+    """
+    The write behavior for the operation. Default is Insert.
+    """
+    INSERT = "Insert"
+    UPSERT = "Upsert"
+
+
+class SalesforceV2SinkWriteBehavior(str, Enum):
     """
     The write behavior for the operation. Default is Insert.
     """

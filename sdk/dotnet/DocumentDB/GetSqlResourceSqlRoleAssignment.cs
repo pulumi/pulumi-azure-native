@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
         /// Azure REST API version: 2023-04-15.
         /// 
-        /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15.
+        /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview.
         /// </summary>
         public static Task<GetSqlResourceSqlRoleAssignmentResult> InvokeAsync(GetSqlResourceSqlRoleAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlRoleAssignmentResult>("azure-native:documentdb:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
         /// Azure REST API version: 2023-04-15.
         /// 
-        /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15.
+        /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview.
         /// </summary>
         public static Output<GetSqlResourceSqlRoleAssignmentResult> Invoke(GetSqlResourceSqlRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlRoleAssignmentResult>("azure-native:documentdb:getSqlResourceSqlRoleAssignment", args ?? new GetSqlResourceSqlRoleAssignmentInvokeArgs(), options.WithDefaults());

@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Network.V20230601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:SecurityPartnerProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:SecurityPartnerProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:SecurityPartnerProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230901:SecurityPartnerProvider" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

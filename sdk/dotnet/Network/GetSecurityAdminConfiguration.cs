@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves a network manager security admin configuration.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01.
+        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
         /// </summary>
         public static Task<GetSecurityAdminConfigurationResult> InvokeAsync(GetSecurityAdminConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves a network manager security admin configuration.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01.
+        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
         /// </summary>
         public static Output<GetSecurityAdminConfigurationResult> Invoke(GetSecurityAdminConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationInvokeArgs(), options.WithDefaults());

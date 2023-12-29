@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.Network.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:RouteFilter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:RouteFilter" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:RouteFilter" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230901:RouteFilter" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -92,7 +92,7 @@ export class RoutingIntent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:RoutingIntent" }, { type: "azure-native:network/v20210501:RoutingIntent" }, { type: "azure-native:network/v20210801:RoutingIntent" }, { type: "azure-native:network/v20220101:RoutingIntent" }, { type: "azure-native:network/v20220501:RoutingIntent" }, { type: "azure-native:network/v20220701:RoutingIntent" }, { type: "azure-native:network/v20220901:RoutingIntent" }, { type: "azure-native:network/v20221101:RoutingIntent" }, { type: "azure-native:network/v20230401:RoutingIntent" }, { type: "azure-native:network/v20230501:RoutingIntent" }, { type: "azure-native:network/v20230601:RoutingIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:RoutingIntent" }, { type: "azure-native:network/v20210501:RoutingIntent" }, { type: "azure-native:network/v20210801:RoutingIntent" }, { type: "azure-native:network/v20220101:RoutingIntent" }, { type: "azure-native:network/v20220501:RoutingIntent" }, { type: "azure-native:network/v20220701:RoutingIntent" }, { type: "azure-native:network/v20220901:RoutingIntent" }, { type: "azure-native:network/v20221101:RoutingIntent" }, { type: "azure-native:network/v20230401:RoutingIntent" }, { type: "azure-native:network/v20230501:RoutingIntent" }, { type: "azure-native:network/v20230601:RoutingIntent" }, { type: "azure-native:network/v20230901:RoutingIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoutingIntent.__pulumiType, name, resourceInputs, opts);
     }

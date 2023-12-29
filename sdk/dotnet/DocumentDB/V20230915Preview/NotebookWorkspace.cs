@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20230915Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:NotebookWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915:NotebookWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115:NotebookWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:NotebookWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -36,14 +36,26 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// <summary>
         /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<object> ConnectionString { get; set; } = null!;
+        [Input("connectionString")]
+        public Input<object>? ConnectionString { get; set; }
+
+        /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        [Input("database")]
+        public Input<object>? Database { get; set; }
 
         /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The version of the MySQL driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
+        /// </summary>
+        [Input("driverVersion")]
+        public Input<object>? DriverVersion { get; set; }
 
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
@@ -70,11 +82,41 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? Password { get; set; }
 
         /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        [Input("port")]
+        public Input<object>? Port { get; set; }
+
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        [Input("server")]
+        public Input<object>? Server { get; set; }
+
+        /// <summary>
+        /// SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
+        /// </summary>
+        [Input("sslMode")]
+        public Input<object>? SslMode { get; set; }
+
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'MySql'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Use system trust store for connection. Type: integer. 0: enable, 1: disable.
+        /// </summary>
+        [Input("useSystemTrustStore")]
+        public Input<object>? UseSystemTrustStore { get; set; }
+
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        [Input("username")]
+        public Input<object>? Username { get; set; }
 
         public MySqlLinkedServiceArgs()
         {

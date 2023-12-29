@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get Private Endpoint Connection. This call is made by Backup Admin.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-06-01.
+ * Other available API versions: 2023-06-01, 2023-08-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -75,7 +75,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Get Private Endpoint Connection. This call is made by Backup Admin.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-06-01.
+ * Other available API versions: 2023-06-01, 2023-08-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

@@ -27,11 +27,19 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         /// </summary>
-        public readonly object ConnectionString;
+        public readonly object? ConnectionString;
+        /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        public readonly object? Database;
         /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The version of the MySQL driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string.
+        /// </summary>
+        public readonly object? DriverVersion;
         /// <summary>
         /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
@@ -45,10 +53,30 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.AzureKeyVaultSecretReferenceResponse? Password;
         /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        public readonly object? Port;
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        public readonly object? Server;
+        /// <summary>
+        /// SSL mode for connection. Type: integer. 0: disable, 1: prefer, 2: require, 3: verify-ca, 4: verify-full.
+        /// </summary>
+        public readonly object? SslMode;
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'MySql'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Use system trust store for connection. Type: integer. 0: enable, 1: disable.
+        /// </summary>
+        public readonly object? UseSystemTrustStore;
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        public readonly object? Username;
 
         [OutputConstructor]
         private MySqlLinkedServiceResponse(
@@ -56,9 +84,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object connectionString,
+            object? connectionString,
+
+            object? database,
 
             string? description,
+
+            object? driverVersion,
 
             string? encryptedCredential,
 
@@ -66,16 +98,33 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.AzureKeyVaultSecretReferenceResponse? password,
 
-            string type)
+            object? port,
+
+            object? server,
+
+            object? sslMode,
+
+            string type,
+
+            object? useSystemTrustStore,
+
+            object? username)
         {
             Annotations = annotations;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Database = database;
             Description = description;
+            DriverVersion = driverVersion;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Password = password;
+            Port = port;
+            Server = server;
+            SslMode = sslMode;
             Type = type;
+            UseSystemTrustStore = useSystemTrustStore;
+            Username = username;
         }
     }
 }

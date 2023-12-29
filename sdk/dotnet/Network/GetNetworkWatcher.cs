@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified network watcher by resource group.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2018-01-01, 2022-05-01, 2023-04-01, 2023-05-01, 2023-06-01.
+        /// Other available API versions: 2018-01-01, 2022-05-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
         /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-native:network:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified network watcher by resource group.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2018-01-01, 2022-05-01, 2023-04-01, 2023-05-01, 2023-06-01.
+        /// Other available API versions: 2018-01-01, 2022-05-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
         /// </summary>
         public static Output<GetNetworkWatcherResult> Invoke(GetNetworkWatcherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkWatcherResult>("azure-native:network:getNetworkWatcher", args ?? new GetNetworkWatcherInvokeArgs(), options.WithDefaults());

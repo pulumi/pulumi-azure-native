@@ -196,7 +196,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
     Retrieves the details of a VirtualWAN.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01.
+    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualWan.
@@ -232,7 +232,7 @@ def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = No
     Retrieves the details of a VirtualWAN.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01.
+    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualWan.

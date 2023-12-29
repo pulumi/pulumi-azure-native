@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Differentiated Services Code Point configuration for any given network interface
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
  */
 export class DscpConfiguration extends pulumi.CustomResource {
     /**
@@ -157,7 +157,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:DscpConfiguration" }, { type: "azure-native:network/v20200701:DscpConfiguration" }, { type: "azure-native:network/v20200801:DscpConfiguration" }, { type: "azure-native:network/v20201101:DscpConfiguration" }, { type: "azure-native:network/v20210201:DscpConfiguration" }, { type: "azure-native:network/v20210301:DscpConfiguration" }, { type: "azure-native:network/v20210501:DscpConfiguration" }, { type: "azure-native:network/v20210801:DscpConfiguration" }, { type: "azure-native:network/v20220101:DscpConfiguration" }, { type: "azure-native:network/v20220501:DscpConfiguration" }, { type: "azure-native:network/v20220701:DscpConfiguration" }, { type: "azure-native:network/v20220901:DscpConfiguration" }, { type: "azure-native:network/v20221101:DscpConfiguration" }, { type: "azure-native:network/v20230201:DscpConfiguration" }, { type: "azure-native:network/v20230401:DscpConfiguration" }, { type: "azure-native:network/v20230501:DscpConfiguration" }, { type: "azure-native:network/v20230601:DscpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:DscpConfiguration" }, { type: "azure-native:network/v20200701:DscpConfiguration" }, { type: "azure-native:network/v20200801:DscpConfiguration" }, { type: "azure-native:network/v20201101:DscpConfiguration" }, { type: "azure-native:network/v20210201:DscpConfiguration" }, { type: "azure-native:network/v20210301:DscpConfiguration" }, { type: "azure-native:network/v20210501:DscpConfiguration" }, { type: "azure-native:network/v20210801:DscpConfiguration" }, { type: "azure-native:network/v20220101:DscpConfiguration" }, { type: "azure-native:network/v20220501:DscpConfiguration" }, { type: "azure-native:network/v20220701:DscpConfiguration" }, { type: "azure-native:network/v20220901:DscpConfiguration" }, { type: "azure-native:network/v20221101:DscpConfiguration" }, { type: "azure-native:network/v20230201:DscpConfiguration" }, { type: "azure-native:network/v20230401:DscpConfiguration" }, { type: "azure-native:network/v20230501:DscpConfiguration" }, { type: "azure-native:network/v20230601:DscpConfiguration" }, { type: "azure-native:network/v20230901:DscpConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DscpConfiguration.__pulumiType, name, resourceInputs, opts);
     }

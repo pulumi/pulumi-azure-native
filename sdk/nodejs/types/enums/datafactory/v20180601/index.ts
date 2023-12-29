@@ -573,6 +573,16 @@ export const SalesforceSinkWriteBehavior = {
  */
 export type SalesforceSinkWriteBehavior = (typeof SalesforceSinkWriteBehavior)[keyof typeof SalesforceSinkWriteBehavior];
 
+export const SalesforceV2SinkWriteBehavior = {
+    Insert: "Insert",
+    Upsert: "Upsert",
+} as const;
+
+/**
+ * The write behavior for the operation. Default is Insert.
+ */
+export type SalesforceV2SinkWriteBehavior = (typeof SalesforceV2SinkWriteBehavior)[keyof typeof SalesforceV2SinkWriteBehavior];
+
 export const SapCloudForCustomerSinkWriteBehavior = {
     Insert: "Insert",
     Update: "Update",

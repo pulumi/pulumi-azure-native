@@ -131,7 +131,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         Private dns zone group resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01.
+        Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         Private dns zone group resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01.
+        Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateDnsZoneGroupArgs args: The arguments to use to populate this resource's properties.
@@ -196,7 +196,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210201:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210801:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20220101:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20220501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20220901:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20221101:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230201:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230401:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230601:PrivateDnsZoneGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210201:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210301:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20210801:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20220101:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20220501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20220901:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20221101:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230201:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230401:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230501:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230601:PrivateDnsZoneGroup"), pulumi.Alias(type_="azure-native:network/v20230901:PrivateDnsZoneGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateDnsZoneGroup, __self__).__init__(
             'azure-native:network:PrivateDnsZoneGroup',

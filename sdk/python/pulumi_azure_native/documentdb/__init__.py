@@ -38,6 +38,8 @@ from .get_sql_resource_sql_stored_procedure import *
 from .get_sql_resource_sql_trigger import *
 from .get_sql_resource_sql_user_defined_function import *
 from .get_table_resource_table import *
+from .get_throughput_pool import *
+from .get_throughput_pool_account import *
 from .graph_resource_graph import *
 from .gremlin_resource_gremlin_database import *
 from .gremlin_resource_gremlin_graph import *
@@ -62,6 +64,8 @@ from .sql_resource_sql_stored_procedure import *
 from .sql_resource_sql_trigger import *
 from .sql_resource_sql_user_defined_function import *
 from .table_resource_table import *
+from .throughput_pool import *
+from .throughput_pool_account import *
 from ._inputs import *
 from . import outputs
 
@@ -83,6 +87,8 @@ if typing.TYPE_CHECKING:
     v20230915preview = __v20230915preview
     import pulumi_azure_native.documentdb.v20231115 as __v20231115
     v20231115 = __v20231115
+    import pulumi_azure_native.documentdb.v20231115preview as __v20231115preview
+    v20231115preview = __v20231115preview
 else:
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210401preview')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210701preview')
@@ -92,4 +98,5 @@ else:
     v20230915 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20230915')
     v20230915preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20230915preview')
     v20231115 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20231115')
+    v20231115preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20231115preview')
 

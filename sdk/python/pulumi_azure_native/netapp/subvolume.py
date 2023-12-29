@@ -162,7 +162,7 @@ class Subvolume(pulumi.CustomResource):
         Subvolume Information properties
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview.
+        Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class Subvolume(pulumi.CustomResource):
         Subvolume Information properties
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview.
+        Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param SubvolumeArgs args: The arguments to use to populate this resource's properties.
@@ -239,7 +239,7 @@ class Subvolume(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20211001:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20221101:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20230501:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:Subvolume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20211001:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20221101:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20230501:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20230701:Subvolume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Subvolume, __self__).__init__(
             'azure-native:netapp:Subvolume',

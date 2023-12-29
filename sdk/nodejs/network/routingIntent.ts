@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The routing intent child resource of a Virtual hub.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
  */
 export class RoutingIntent extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class RoutingIntent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501:RoutingIntent" }, { type: "azure-native:network/v20210801:RoutingIntent" }, { type: "azure-native:network/v20220101:RoutingIntent" }, { type: "azure-native:network/v20220501:RoutingIntent" }, { type: "azure-native:network/v20220701:RoutingIntent" }, { type: "azure-native:network/v20220901:RoutingIntent" }, { type: "azure-native:network/v20221101:RoutingIntent" }, { type: "azure-native:network/v20230201:RoutingIntent" }, { type: "azure-native:network/v20230401:RoutingIntent" }, { type: "azure-native:network/v20230501:RoutingIntent" }, { type: "azure-native:network/v20230601:RoutingIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501:RoutingIntent" }, { type: "azure-native:network/v20210801:RoutingIntent" }, { type: "azure-native:network/v20220101:RoutingIntent" }, { type: "azure-native:network/v20220501:RoutingIntent" }, { type: "azure-native:network/v20220701:RoutingIntent" }, { type: "azure-native:network/v20220901:RoutingIntent" }, { type: "azure-native:network/v20221101:RoutingIntent" }, { type: "azure-native:network/v20230201:RoutingIntent" }, { type: "azure-native:network/v20230401:RoutingIntent" }, { type: "azure-native:network/v20230501:RoutingIntent" }, { type: "azure-native:network/v20230601:RoutingIntent" }, { type: "azure-native:network/v20230901:RoutingIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoutingIntent.__pulumiType, name, resourceInputs, opts);
     }

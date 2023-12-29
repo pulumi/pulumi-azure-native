@@ -1671,6 +1671,37 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// The write behavior for the operation. Default is Insert.
+    /// </summary>
+    [EnumType]
+    public readonly struct SalesforceV2SinkWriteBehavior : IEquatable<SalesforceV2SinkWriteBehavior>
+    {
+        private readonly string _value;
+
+        private SalesforceV2SinkWriteBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SalesforceV2SinkWriteBehavior Insert { get; } = new SalesforceV2SinkWriteBehavior("Insert");
+        public static SalesforceV2SinkWriteBehavior Upsert { get; } = new SalesforceV2SinkWriteBehavior("Upsert");
+
+        public static bool operator ==(SalesforceV2SinkWriteBehavior left, SalesforceV2SinkWriteBehavior right) => left.Equals(right);
+        public static bool operator !=(SalesforceV2SinkWriteBehavior left, SalesforceV2SinkWriteBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(SalesforceV2SinkWriteBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SalesforceV2SinkWriteBehavior other && Equals(other);
+        public bool Equals(SalesforceV2SinkWriteBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The write behavior for the operation. Default is 'Insert'.
     /// </summary>
     [EnumType]
