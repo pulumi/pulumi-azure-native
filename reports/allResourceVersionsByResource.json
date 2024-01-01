@@ -18112,7 +18112,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "AlertRule": [
       "2019-01-01-preview",
@@ -18142,7 +18143,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "AutomationRule": [
       "2019-01-01-preview",
@@ -18170,7 +18172,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "Bookmark": [
       "2019-01-01-preview",
@@ -18199,7 +18202,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "BookmarkRelation": [
       "2019-01-01-preview",
@@ -18232,7 +18236,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "ContentTemplate": [
       "2023-04-01-preview",
@@ -18241,7 +18246,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "DataConnector": [
       "2019-01-01-preview",
@@ -18271,7 +18277,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "DataConnectorDefinition": [
       "2023-07-01-preview",
@@ -18375,7 +18382,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "IncidentComment": [
       "2019-01-01-preview",
@@ -18405,7 +18413,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "IncidentRelation": [
       "2019-01-01-preview",
@@ -18435,7 +18444,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "IncidentTask": [
       "2022-12-01-preview",
@@ -18472,7 +18482,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "ProductSetting": [
       "2019-01-01-preview",
@@ -18518,7 +18529,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "SentinelOnboardingState": [
       "2021-03-01-preview",
@@ -18546,7 +18558,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "SourceControl": [
       "2021-03-01-preview",
@@ -18594,7 +18607,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "Watchlist": [
       "2019-01-01-preview",
@@ -18624,7 +18638,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "WatchlistItem": [
       "2019-01-01-preview",
@@ -18654,7 +18669,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "WorkspaceManagerAssignment": [
       "2023-04-01-preview",
@@ -18762,7 +18778,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ]
   },
   "SerialConsole": {

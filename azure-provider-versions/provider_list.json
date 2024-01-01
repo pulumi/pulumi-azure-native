@@ -16630,6 +16630,88 @@
     ]
   },
   {
+    "namespace": "Microsoft.DatabaseFleetManager",
+    "resourceTypes": [
+      {
+        "resourceType": "fleets",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "fleets/authorizedPrincipals",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "fleets/firewallRules",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "fleets/fleetspaces",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "fleets/fleetspaces/databases",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "fleets/tiers",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationTypes",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationTypes/operationResults",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/routedOperationResults",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2023-08-01-preview",
+          "2021-05-01-preview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.DatabaseWatcher",
     "resourceTypes": [
       {
