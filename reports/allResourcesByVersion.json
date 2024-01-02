@@ -18156,6 +18156,25 @@
       "getEntitiesGetTimeline",
       "getEntityInsights",
       "listSourceControlRepositories"
+    ],
+    "2023-11-01": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "Metadata",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "listSourceControlRepositories"
     ]
   },
   "SerialConsole": {
