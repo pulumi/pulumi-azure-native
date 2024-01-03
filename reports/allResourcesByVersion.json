@@ -16355,6 +16355,14 @@
       "listAccountKeys",
       "listFeatureAccount",
       "listFeatureSubscription"
+    ],
+    "2023-05-01-preview": [
+      "Account",
+      "KafkaConfiguration",
+      "PrivateEndpointConnection",
+      "listAccountKeys",
+      "listFeatureAccount",
+      "listFeatureSubscription"
     ]
   },
   "Quantum": {
@@ -18155,6 +18163,25 @@
       "WorkspaceManagerMember",
       "getEntitiesGetTimeline",
       "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2023-11-01": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "Metadata",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
       "listSourceControlRepositories"
     ]
   },
