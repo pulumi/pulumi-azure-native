@@ -306,6 +306,10 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		MaintainSubResourceIfUnset: maintainSubResourceIfUnset,
 	}
 
+	if identifiers, ok := schema.Extensions.GetStringSlice(extensionIdentifiers); ok && typeSpec.Type == "array" {
+		metadataProperty.ArrayIdentifiers = identifiers
+	}
+
 	// Input types only get extra information attached
 	if !isOutput {
 		if m.isEnum(&schemaProperty.TypeSpec) {
@@ -373,23 +377,31 @@ func mergeRequiredContainers(a, b RequiredContainers) RequiredContainers {
 	return result
 }
 
-// forceNew return true if a property with a given name requires a replacement in the resource
-// that is currently being generated, based on forceNewMap.
+// forceNew returns true if a change to a given property requires a replacement in the resource
+// that is currently being generated, based on forceNewMap and the "x-ms-mutability" API spec extension.
 func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, isType bool) bool {
 	// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
 	// updatable by default.
 	// Note: a non-updatable property at a subtype level (a property of a property of a resource) does not
-	// mandate the replacement of the whole resource. Anyway, it's used very seldom (2 places at the time of writing).
+	// mandate the replacement of the whole resource.
 	// Example: `StorageAccount.encryption.services.blob.keyType` is non-updatable, but a user can remove `blob`
 	// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
 	// very disruptive).
-	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok && !isType {
-		for _, v := range mutability {
-			if v == extensionMutabilityUpdate {
-				return false
-			}
+
+	hasMutabilityInfo, forcesRecreate := propChangeForcesRecreate(schema)
+
+	if hasMutabilityInfo && forcesRecreate {
+		if isType {
+			m.skippedForceNewTypes = append(m.skippedForceNewTypes, SkippedForceNewType{
+				Module:        m.module,
+				Provider:      m.prov,
+				ResourceName:  m.resourceName,
+				ReferenceName: schema.ReferenceContext.ReferenceName,
+				Property:      propertyName,
+			})
+		} else {
+			return true
 		}
-		return true
 	}
 
 	if resourceMap, ok := forceNewMap[m.prov]; ok {
@@ -401,6 +413,28 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	}
 
 	return false
+}
+
+// propChangeForcesRecreate returns two booleans.
+// The first one indicates whether the schema has mutability extension.
+// The second one indicates whether the property requires recreation to change.
+func propChangeForcesRecreate(schema *openapi.Schema) (bool, bool) {
+	hasUpdate, hasCreate := false, false
+	if mutability, ok := schema.Extensions.GetStringSlice(extensionMutability); ok {
+		for _, v := range mutability {
+			switch v {
+			case extensionMutabilityCreate:
+				hasCreate = true
+			case extensionMutabilityUpdate:
+				hasUpdate = true
+			}
+		}
+		if hasCreate && !hasUpdate {
+			return true, true // has mutability info and is forces recreation
+		}
+		return true, false // has mutability info but is not updatable
+	}
+	return false, false // does not have mutability info
 }
 
 // itemTypeToProperty converts a type of an element in an array or a dictionary to a corresponding

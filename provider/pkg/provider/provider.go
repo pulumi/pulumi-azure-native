@@ -17,13 +17,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/manicminer/hamilton/environments"
-	"github.com/segmentio/encoding/json"
-
 	structpb "github.com/golang/protobuf/ptypes/struct"
+	"github.com/manicminer/hamilton/environments"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/deepcopy"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
+	"github.com/segmentio/encoding/json"
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/go-autorest/autorest"
@@ -781,20 +780,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 			oldState, newResInputs)
 	}
 
-	// Calculate the difference between old and new inputs.
-	diff := oldInputs.Diff(newResInputs, func(key resource.PropertyKey) bool {
-		return strings.HasPrefix(string(key), "__")
-	})
-
-	if diff == nil {
-		return &rpc.DiffResponse{
-			Changes:             rpc.DiffResponse_DIFF_NONE,
-			Replaces:            []string{},
-			Stables:             []string{},
-			DeleteBeforeReplace: false,
-		}, nil
-	}
-
+	// Get the resource definition for looking up additional metadata.
 	resourceKey := string(urn.Type())
 	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
 	if err != nil {
@@ -804,8 +790,15 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
 
-	// Calculate the detailed diff object containing information about replacements.
-	detailedDiff := calculateDetailedDiff(&res, &k.resourceMap.Types, diff)
+	detailedDiff := diff(k.lookupTypeDefault, res, oldInputs, newResInputs)
+	if detailedDiff == nil {
+		return &rpc.DiffResponse{
+			Changes:             rpc.DiffResponse_DIFF_NONE,
+			Replaces:            []string{},
+			Stables:             []string{},
+			DeleteBeforeReplace: false,
+		}, nil
+	}
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
 	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, res)

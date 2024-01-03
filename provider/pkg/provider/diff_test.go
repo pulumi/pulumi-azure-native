@@ -4,13 +4,18 @@ package provider
 
 import (
 	"encoding/json"
+	"fmt"
+	"strings"
 	"testing"
+	"unicode"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/deepcopy"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"pgregory.net/rapid"
 )
 
 func TestCalculateDiffBodyProperties(t *testing.T) {
@@ -116,8 +121,7 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 			"p3": {V: true},
 		},
 	}
-	emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-	actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+	actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":          {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":          {Kind: rpc.PropertyDiff_ADD},
@@ -180,8 +184,7 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 			},
 		},
 	}
-	emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-	actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+	actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
 		"Prop2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
@@ -214,24 +217,21 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 		},
 	}
 	fooTypeName := "azure-native:foobar/v20200101:FooType"
-	fullTypes := map[string]resources.AzureAPIType{
-		"azure-native:foobar/v20200101:FooType": {
-			Properties: map[string]resources.AzureAPIProperty{
-				"ps1": {},
-				"ps2": {ForceNew: true},
-			},
-		},
+	lookupType := func(t string) (*resources.AzureAPIType, bool, error) {
+		if strings.HasSuffix(t, fooTypeName) {
+			return &resources.AzureAPIType{
+				Properties: map[string]resources.AzureAPIProperty{
+					"ps1": {},
+					"ps2": {ForceNew: true},
+				},
+			}, true, nil
+		}
+		return nil, false, nil
 	}
-	typeData, err := json.Marshal(fullTypes)
-	require.NoError(t, err)
-	var types resources.PartialMap[resources.AzureAPIType]
-	err = json.Unmarshal(typeData, &types)
-	require.NoError(t, err)
 
-	testType, ok, err := types.Get(fooTypeName)
+	_, ok, err := lookupType(fooTypeName)
 	require.NoError(t, err)
 	require.True(t, ok)
-	assert.Equal(t, testType, fullTypes[fooTypeName])
 
 	diff := resource.ObjectDiff{
 		Updates: map[resource.PropertyKey]resource.ValueDiff{
@@ -289,7 +289,7 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 			},
 		},
 	}
-	actual := calculateDetailedDiff(&res, resources.GoMap[resources.AzureAPIType](fullTypes), &diff)
+	actual := calculateDetailedDiff(&res, lookupType, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":        {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":        {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
@@ -474,8 +474,7 @@ func TestResourceGroupNameDiffingIsCaseInsensitive(t *testing.T) {
 					},
 				},
 			}
-			emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-			actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+			actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 			expected := map[string]*rpc.PropertyDiff{}
 			assert.Equal(t, expected, actual)
 		}
@@ -507,8 +506,7 @@ func TestLocationDiffingIsInsensitiveToSpacesAndCasing(t *testing.T) {
 					},
 				},
 			}
-			emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-			actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+			actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 			expected := map[string]*rpc.PropertyDiff{}
 			assert.Equal(t, expected, actual)
 		}
@@ -553,8 +551,7 @@ func TestSkuDiffingIsInsensitiveToAksPermutations(t *testing.T) {
 				},
 			},
 		}
-		emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
-		actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+		actual := calculateDetailedDiff(&res, emptyTypes, &diff)
 		if testCase[4] == "equal" {
 			expected := map[string]*rpc.PropertyDiff{}
 			assert.Equal(t, expected, actual)
@@ -562,6 +559,10 @@ func TestSkuDiffingIsInsensitiveToAksPermutations(t *testing.T) {
 			assert.Equal(t, 1, len(actual))
 		}
 	}
+}
+
+var emptyTypes resources.TypeLookupFunc = func(t string) (*resources.AzureAPIType, bool, error) {
+	return nil, false, nil
 }
 
 func TestChangesAndReplacements_AddedPropertyCausesDiff(t *testing.T) {
@@ -616,4 +617,400 @@ func calculateChangesAndReplacementsForOneAddedProperty(t *testing.T, value stri
 	}
 
 	return calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
+}
+
+func TestDiffKeyedArrays(t *testing.T) {
+	t.Run("basic example", func(t *testing.T) {
+		// The unique identifier for each object is the "p1" property.
+		keys := []string{"p1"}
+
+		// The first object will be unchanged, the second updated, the third removed and replaced
+		// with a different one.
+		old := []resource.PropertyValue{
+			{V: resource.PropertyMap{
+				"p1": {V: "unchanged"},
+				"p2": {V: "v2"},
+				"p3": {V: "v3"},
+			}},
+			{V: resource.PropertyMap{
+				"p1": {V: "updated"},
+				"p2": {V: "v2"},
+				"p3": {V: "v3"},
+			}},
+			{V: resource.PropertyMap{
+				"p1": {V: "will be deleted"},
+				"p2": {V: "v2"},
+				"p3": {V: "v3"},
+			}},
+		}
+		// Change the order compared to `old` to prove that objects are identified by their key properties.
+		new := []resource.PropertyValue{
+			{V: resource.PropertyMap{
+				"p1": {V: "updated"},
+				"p2": {V: "v2222"},
+				// "p3" is deleted
+				"p4": {V: "v4444"}, // added property
+			}},
+			{V: resource.PropertyMap{
+				"p1": {V: "new"},
+				"p2": {V: "v222"},
+			}},
+			{V: resource.PropertyMap{
+				"p1": {V: "unchanged"},
+				"p2": {V: "v2"},
+				"p3": {V: "v3"},
+			}},
+		}
+
+		properties := map[string]resources.AzureAPIProperty{}
+		diff, validKeyedArray := diffKeyedArrays(properties, keys, old, new, "")
+		assert.True(t, validKeyedArray)
+
+		assert.NotNil(t, diff)
+		assert.NotNil(t, diff.Old)
+		assert.NotNil(t, diff.New)
+
+		assert.Equal(t, 1, len(diff.Array.Adds))
+		assert.Equal(t, new[1], diff.Array.Adds[1])
+
+		assert.Equal(t, 1, len(diff.Array.Sames))
+		assert.Equal(t, old[0], diff.Array.Sames[2])
+
+		assert.Equal(t, 1, len(diff.Array.Deletes))
+		assert.Equal(t, old[2], diff.Array.Deletes[2])
+
+		assert.Equal(t, 1, len(diff.Array.Updates))
+		assert.Contains(t, diff.Array.Updates, 0)
+		update := diff.Array.Updates[0]
+		assert.NotNil(t, update.Object)
+		assert.Contains(t, update.Object.Sames, resource.PropertyKey("p1"))
+		assert.Contains(t, update.Object.Updates, resource.PropertyKey("p2"))
+		assert.Contains(t, update.Object.Deletes, resource.PropertyKey("p3"))
+		assert.Contains(t, update.Object.Adds, resource.PropertyKey("p4"))
+	})
+
+	t.Run("recognizes invalid keyed array", func(t *testing.T) {
+		olds := [][]resource.PropertyValue{
+			{
+				// ok
+				{V: resource.PropertyMap{"p1": {V: "oldvalue"}}},
+				// not ok - primitive
+				{V: "oldvalue"},
+			},
+			{
+				// ok
+				{V: resource.PropertyMap{"p1": {V: "oldvalue"}}},
+				// not ok - missing key
+				{V: resource.PropertyMap{"foo": {V: "bar"}}},
+			},
+		}
+
+		for _, old := range olds {
+			diff, ok := diffKeyedArrays(map[string]resources.AzureAPIProperty{}, []string{"p1"}, old, old, "")
+			require.False(t, ok)
+			require.Nil(t, diff)
+		}
+	})
+}
+
+// A series of property-based tests that use rapid to generate random inputs and random mutations
+// of these inputs, then verify that the diffing algorithm produces the expected results.
+func TestDiffKeyedArraysRapid(tt *testing.T) {
+	runRapidTest := func(t *rapid.T,
+		keyProperties []string,
+		objectGenerator *rapid.Generator[resource.PropertyValue],
+		mutator mutator) {
+
+		array := makeArrayGenerator(objectGenerator)
+
+		old := array.Draw(t, "old").ArrayValue()
+		new := deepcopy.Copy(old).([]resource.PropertyValue)
+
+		changes, new := mutator(t, old, keyProperties)
+
+		diff, ok := diffKeyedArrays(map[string]resources.AzureAPIProperty{}, keyProperties, old, new, "")
+		assert.True(t, ok)
+		compareDiffWithRecordedChanges(t, diff, changes, old, new)
+	}
+
+	tt.Run("no change, single key", rapid.MakeCheck(func(t *rapid.T) {
+		keyProperty := []string{"p1"}
+		runRapidTest(t, keyProperty, makeNestedObjectGenerator(keyProperty...), noopMutator)
+	}))
+
+	tt.Run("no change, multiple keys", rapid.MakeCheck(func(t *rapid.T) {
+		keyProperties := []string{"p1", "p2", "p3"}
+		runRapidTest(t, keyProperties, makeNestedObjectGenerator(keyProperties...), noopMutator)
+	}))
+
+	tt.Run("single key, single level", rapid.MakeCheck(func(t *rapid.T) {
+		keyProperty := []string{"p1"}
+		runRapidTest(t, keyProperty, makeObjectGenerator(allStringValues, keyProperty...), keyedArrayMutator)
+	}))
+
+	tt.Run("single key, nested", rapid.MakeCheck(func(t *rapid.T) {
+		keyProperty := []string{"p1"}
+		runRapidTest(t, keyProperty, makeNestedObjectGenerator(keyProperty...), keyedArrayMutator)
+	}))
+
+	tt.Run("multiple keys, nested", rapid.MakeCheck(func(t *rapid.T) {
+		keyProperties := []string{"p1", "p2", "p3"}
+		runRapidTest(t, keyProperties, makeNestedObjectGenerator(keyProperties...), keyedArrayMutator)
+	}))
+}
+
+//// Rapid book-keeping
+
+type changeKind string
+
+const (
+	add    changeKind = "add"
+	update changeKind = "update"
+	same   changeKind = "same"
+	del    changeKind = "delete"
+)
+
+type objectChanges map[resource.PropertyKey]changeKind
+
+// allSames returns true if all changes are "same", i.e., the object as a whole is unchanged.
+func (o objectChanges) allSames() bool {
+	for _, operation := range o {
+		if operation != same {
+			return false
+		}
+	}
+	return true
+}
+
+type arrayElementChanges struct {
+	update      objectChanges
+	add, delete bool
+	index       int
+}
+
+//// Rapid generators
+
+var allStringValues = rapid.Custom[resource.PropertyValue](func(t *rapid.T) resource.PropertyValue {
+	return resource.PropertyValue{V: rapid.String().Draw(t, "any string")}
+})
+
+// Since the key properties of keyed arrays have unique id semantics, they must be unique.
+// While random strings are unlikely to collide, when there's a test failure rapid minimizes the
+// input which produces short repeating strings.
+var seen = map[string]struct{}{}
+var uniqueStrings = rapid.Custom[string](func(t *rapid.T) string {
+	hexValues := rapid.StringOfN(rapid.RuneFrom(nil, unicode.ASCII_Hex_Digit), 8, 8, -1)
+	uniqueStrings := hexValues.Filter(func(v string) bool {
+		_, ok := seen[v]
+		if ok {
+			return false
+		}
+		seen[v] = struct{}{}
+		return true
+	})
+	return uniqueStrings.Draw(t, "S")
+})
+
+var uniqueStringValues = rapid.Custom[resource.PropertyValue](func(t *rapid.T) resource.PropertyValue {
+	return resource.PropertyValue{V: uniqueStrings.Draw(t, "V")}
+})
+
+// makeArrayGenerator generates an array whose values are generated via the given `valueGenerator`.
+// Note: if the result is used as a keyed array, valueGenerator must generate objects.
+func makeArrayGenerator(valueGenerator *rapid.Generator[resource.PropertyValue]) *rapid.Generator[resource.PropertyValue] {
+	return rapid.Custom[resource.PropertyValue](func(t *rapid.T) resource.PropertyValue {
+		result := []resource.PropertyValue{}
+
+		len := rapid.IntRange(0, 8).Draw(t, "len")
+		for i := 0; i < len; i++ {
+			result = append(result, valueGenerator.Draw(t, "array value"))
+		}
+		return resource.NewArrayProperty(result)
+	})
+}
+
+func makeObjectGenerator(valueGenerator *rapid.Generator[resource.PropertyValue], keys ...string) *rapid.Generator[resource.PropertyValue] {
+	return rapid.Custom[resource.PropertyValue](func(t *rapid.T) resource.PropertyValue {
+		result := resource.PropertyMap{}
+
+		numOtherProperties := rapid.IntRange(0, 4).Draw(t, "numProperties")
+		otherProperties := make([]string, numOtherProperties)
+		for i := 0; i < numOtherProperties; i++ {
+			otherProperties[i] = uniqueStrings.Draw(t, "other property")
+		}
+
+		for _, key := range keys {
+			result[resource.PropertyKey(key)] = uniqueStringValues.Draw(t, "val")
+		}
+		for _, prop := range otherProperties {
+			result[resource.PropertyKey(prop)] = valueGenerator.Draw(t, "val")
+		}
+		// add some divergent properties as well, objects don't need to be totally homogenous
+		for i := 0; i < rapid.IntRange(0, 4).Draw(t, "numProperties"); i++ {
+			prop := uniqueStrings.Draw(t, "key")
+			result[resource.PropertyKey(prop)] = valueGenerator.Draw(t, "val")
+		}
+
+		return resource.PropertyValue{V: result}
+	})
+}
+
+func makeNestedObjectGenerator(keys ...string) *rapid.Generator[resource.PropertyValue] {
+	objects := makeObjectGenerator(allStringValues, keys...)
+	return makeObjectGenerator(objects, keys...)
+}
+
+//// Rapid mutators of PropertyValues to create changes between old and new
+
+// mutateObject makes changes to `new` and records them in the return value.
+// For each property of the object, it draws from the four operations
+// [update, add, delete, same] and applies the operation.
+// Key (identifier) properties in `keysToPreserve` are not mutated.
+func mutateObject(t *rapid.T, old, new resource.PropertyMap, keysToPreserve []string) objectChanges {
+	record := objectChanges{}
+	operations := rapid.SampledFrom([]changeKind{add, update, same, del})
+
+	isKey := func(s string) bool {
+		for _, key := range keysToPreserve {
+			if key == s {
+				return true
+			}
+		}
+		return false
+	}
+
+	for k := range old {
+		// keys cannot be changed
+		if isKey(string(k)) {
+			continue
+		}
+
+		operation := operations.Draw(t, "object operation")
+		switch operation {
+		case add:
+			newKey := resource.PropertyKey(uniqueStringValues.Draw(t, "key").StringValue())
+			new[newKey] = resource.PropertyValue{V: "added"}
+			record[newKey] = operation
+		case update:
+			new[k] = resource.PropertyValue{V: "updated"}
+			record[k] = operation
+		case del:
+			delete(new, k)
+			record[k] = operation
+		}
+	}
+
+	return record
+}
+
+// mutator makes random changes to `old` and records them in the return value.
+// Implementations should not mutate `old` but make copies.
+type mutator func(t *rapid.T, old []resource.PropertyValue, keyProperties []string) ([]arrayElementChanges, []resource.PropertyValue)
+
+var noopMutator mutator = func(t *rapid.T, old []resource.PropertyValue, keyProperties []string) ([]arrayElementChanges, []resource.PropertyValue) {
+	return []arrayElementChanges{}, old
+}
+
+// keyedArrayMutator makes random changes to `new` and records them in the return value. Changes can
+// be addition or removal of array elements, or random changes to existing elements.
+var keyedArrayMutator mutator = func(t *rapid.T, old []resource.PropertyValue, keyProperties []string) ([]arrayElementChanges, []resource.PropertyValue) {
+	new := make([]resource.PropertyValue, 0, len(old))
+	changes := []arrayElementChanges{}
+	objects := makeObjectGenerator(allStringValues, keyProperties...)
+
+	// Note: in the loop below, for "add" operations a new object is added and the existing one at
+	// the current index is appended to `new` verbatim. Therefore, "add" also implies "same" and we
+	// don't need to explicitly draw "same".
+	operationsBiasedToUpdate := rapid.SampledFrom([]changeKind{add, update, update, del})
+
+	for i, m := range old {
+		kind := operationsBiasedToUpdate.Draw(t, "array operation")
+		switch kind {
+		case add:
+			new = append(new, objects.Draw(t, "new element"))
+			new = append(new, m)
+			changes = append(changes, arrayElementChanges{add: true, index: len(new) - 2})
+		case update:
+			copy := deepcopy.Copy(m).(resource.PropertyValue)
+			objectChanges := mutateObject(t, m.ObjectValue(), copy.ObjectValue(), keyProperties)
+			new = append(new, copy)
+			if len(objectChanges) > 0 {
+				changes = append(changes, arrayElementChanges{update: objectChanges, index: len(new) - 1})
+			}
+		case del:
+			changes = append(changes, arrayElementChanges{delete: true, index: i})
+		case same:
+			new = append(new, m)
+		}
+	}
+	return changes, new
+}
+
+// compareDiffWithRecordedChanges asserts that a diff matches the previously recorded changes to `old`.
+func compareDiffWithRecordedChanges(
+	t *rapid.T,
+	diff *resource.ValueDiff,
+	changes []arrayElementChanges,
+	old, new []resource.PropertyValue) {
+
+	// It's possible that rapid rolls a no-op change.
+	if diff == nil {
+		assert.Equal(t, old, new, "no diff for different objects")
+		return
+	}
+	// The flip side of the contract is that if there were no changes, the diff must be nil.
+	if len(changes) == 0 {
+		assert.Nil(t, diff)
+		return
+	}
+
+	assert.Nil(t, diff.Object)
+	require.NotNil(t, diff.Array)
+
+	for _, elementChanges := range changes {
+		if elementChanges.add {
+			assert.Equal(t, diff.Array.Adds[elementChanges.index], new[elementChanges.index])
+		} else if elementChanges.delete {
+			assert.Equal(t, diff.Array.Deletes[elementChanges.index], old[elementChanges.index])
+		} else if elementChanges.update != nil {
+			assertObjectChange(t, diff, elementChanges.update, elementChanges.index)
+		}
+	}
+}
+
+func assertObjectChange(t *rapid.T, diff *resource.ValueDiff, objectChanges objectChanges, i int) {
+	for key, operation := range objectChanges {
+		// If none of the properties changed, the object is in diff->sames.
+		if operation == same && objectChanges.allSames() {
+			assert.Contains(t, diff.Array.Sames, i, "same of key %s, entry %d", key, i)
+			continue
+		}
+
+		require.Contains(t, diff.Array.Updates, i, "updates for key %s, entry %d", key, i)
+		diffObj := diff.Array.Updates[i].Object
+
+		failureMsgAndArgs := []any{"%s of key %s, entry %d, updates %+v", operation, key, i, diffObj}
+		require.NotNil(t, diffObj, failureMsgAndArgs...)
+		switch operation {
+		case "update":
+			assert.Contains(t, diffObj.Updates, key, failureMsgAndArgs...)
+		case "delete":
+			assert.Contains(t, diffObj.Deletes, key, failureMsgAndArgs...)
+		case "add":
+			assert.Contains(t, diffObj.Adds, key, failureMsgAndArgs...)
+		case "same":
+			assert.Contains(t, diffObj.Sames, key, failureMsgAndArgs...)
+		}
+	}
+}
+
+// printDebugJson pretty-prints the arguments in JSON. Can be useful for investigating a test failure.
+func printDebugJson(diff *resource.ValueDiff, changes []arrayElementChanges, old, new []resource.PropertyValue) {
+	jsonOld, _ := json.MarshalIndent(old, "", "    ")
+	fmt.Println("OLD", string(jsonOld))
+	fmt.Println("UPDATES", changes)
+	jsonNew, _ := json.MarshalIndent(new, "", "    ")
+	fmt.Println("NEW", string(jsonNew))
+	jsonDiff, _ := json.MarshalIndent(diff, "", "    ")
+	fmt.Println("DIFF", string(jsonDiff))
 }

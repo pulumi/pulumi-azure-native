@@ -51,15 +51,15 @@ type Versioning interface {
 }
 
 type GenerationResult struct {
-	Schema            *pschema.PackageSpec
-	Metadata          *resources.AzureAPIMetadata
-	Examples          map[string][]resources.AzureAPIExample
-	TypeCaseConflicts CaseConflicts
+	Schema               *pschema.PackageSpec
+	Metadata             *resources.AzureAPIMetadata
+	Examples             map[string][]resources.AzureAPIExample
+	SkippedForceNewTypes []SkippedForceNewType
+	TypeCaseConflicts    CaseConflicts
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning Versioning) (*GenerationResult, error) {
-	warnings := []string{}
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -269,6 +269,9 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	}
 	sort.Strings(providers)
 
+	warnings := []string{}
+	var skippedForceNewTypes []SkippedForceNewType
+
 	caseSensitiveTypes := newCaseSensitiveTokens()
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
@@ -324,6 +327,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			// Populate invokes.
 			gen.genInvokes(items.Invokes)
 			warnings = append(warnings, gen.warnings...)
+			skippedForceNewTypes = append(skippedForceNewTypes, gen.skippedForceNewTypes...)
 		}
 	}
 
@@ -380,10 +384,11 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	})
 
 	return &GenerationResult{
-		Schema:            &pkg,
-		Metadata:          &metadata,
-		Examples:          exampleMap,
-		TypeCaseConflicts: caseSensitiveTypes.findCaseConflicts(),
+		Schema:               &pkg,
+		Metadata:             &metadata,
+		Examples:             exampleMap,
+		SkippedForceNewTypes: skippedForceNewTypes,
+		TypeCaseConflicts:    caseSensitiveTypes.findCaseConflicts(),
 	}, nil
 }
 
@@ -547,6 +552,7 @@ const (
 	extensionClientName         = "x-ms-client-name"
 	extensionDiscriminatorValue = "x-ms-discriminator-value"
 	extensionEnum               = "x-ms-enum"
+	extensionIdentifiers        = "x-ms-identifiers" // ids in keyed arrays
 	extensionLongRunning        = "x-ms-long-running-operation"
 	extensionLongRunningDefault = "azure-async-operation"
 	extensionLongRunningOpts    = "x-ms-long-running-operation-options"
@@ -569,7 +575,8 @@ type packageGenerator struct {
 	caseSensitiveTypes caseSensitiveTokens
 	warnings           []string
 	// rootDir is used to resolve relative paths in the examples.
-	rootDir string
+	rootDir              string
+	skippedForceNewTypes []SkippedForceNewType
 }
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -876,6 +883,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	g.metadata.Resources[resourceTok] = r
 
 	g.generateExampleReferences(resourceTok, path, swagger)
+	g.skippedForceNewTypes = append(g.skippedForceNewTypes, gen.skippedForceNewTypes...)
 	return nil
 }
 
@@ -1202,6 +1210,14 @@ func (t *caseSensitiveTokens) findCaseConflicts() CaseConflicts {
 	return conflicts
 }
 
+type SkippedForceNewType struct {
+	Module        string
+	Provider      string
+	ResourceName  string
+	ReferenceName string
+	Property      string
+}
+
 type moduleGenerator struct {
 	pkg                    *pschema.PackageSpec
 	metadata               *resources.AzureAPIMetadata
@@ -1213,6 +1229,7 @@ type moduleGenerator struct {
 	caseSensitiveTypes     caseSensitiveTokens
 	inlineTypes            map[*openapi.ReferenceContext]codegen.StringSet
 	nestedResourceBodyRefs []string
+	skippedForceNewTypes   []SkippedForceNewType
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {

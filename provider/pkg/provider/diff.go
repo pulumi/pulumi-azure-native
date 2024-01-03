@@ -4,9 +4,12 @@ package provider
 
 import (
 	"fmt"
+	"log"
 	"reflect"
+	"sort"
 	"strings"
 
+	"github.com/davegardnerisme/deephash"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -16,9 +19,189 @@ import (
 
 const body = "body"
 
+func ignoreKey(key resource.PropertyKey) bool {
+	return strings.HasPrefix(string(key), "__")
+}
+
+// mapProperties traverses the given APIResource and creates a map from all properties, including
+// in referenced types, to their property spec. The map key is a JSONPath to the property.
+func mapProperties(res resources.AzureAPIResource, lookupType resources.TypeLookupFunc) map[string]resources.AzureAPIProperty {
+	properties := map[string]resources.AzureAPIProperty{}
+	for _, p := range res.PutParameters {
+		if p.Location == body && p.Body != nil {
+			resources.TraverseProperties(p.Body.Properties, lookupType,
+				false, // don't include flattened containers, we're comparing the SDK shape
+				func(name string, prop resources.AzureAPIProperty, path []string) {
+					path = append(path, name)
+					jsonPath := strings.Join(path, ".")
+					properties[jsonPath] = prop
+				})
+		}
+	}
+	return properties
+}
+
+// diff is the provider's main entry point to diffing resources.
+func diff(lookupType resources.TypeLookupFunc,
+	res resources.AzureAPIResource,
+	oldInputs, newInputs resource.PropertyMap) map[string]*rpc.PropertyDiff {
+
+	properties := mapProperties(res, lookupType)
+
+	// This JSONPath will be updated as we traverse the inputs, to look up properties in the above
+	// `properties` map.
+	path := ""
+
+	diff := objectDiff(properties, oldInputs, newInputs, path)
+	if diff == nil {
+		return nil
+	}
+
+	// Calculate the detailed diff object containing information about replacements.
+	return calculateDetailedDiff(&res, lookupType, diff)
+}
+
+func objectDiff(properties map[string]resources.AzureAPIProperty,
+	oldInputs, newInputs resource.PropertyMap,
+	path string) *resource.ObjectDiff {
+
+	adds := make(resource.PropertyMap)
+	deletes := make(resource.PropertyMap)
+	sames := make(resource.PropertyMap)
+	updates := make(map[resource.PropertyKey]resource.ValueDiff)
+
+	addToPath := func(p string, key resource.PropertyKey) string {
+		if p == "" {
+			return string(key)
+		}
+		return p + "." + string(key)
+	}
+
+	// First find any updates or deletes.
+	for k, old := range oldInputs {
+		if ignoreKey(k) {
+			continue
+		}
+
+		if new, has := newInputs[k]; has {
+			// If a new exists, use it; for output properties, however, ignore differences.
+			if new.IsOutput() {
+				sames[k] = old
+			} else if diff := valueDiff(properties, old, new, addToPath(path, k)); diff != nil {
+				if !old.HasValue() {
+					adds[k] = new
+				} else if !new.HasValue() {
+					deletes[k] = old
+				} else {
+					updates[k] = *diff
+				}
+			} else {
+				sames[k] = old
+			}
+		} else if old.HasValue() {
+			// If there was no new property, it has been deleted.
+			deletes[k] = old
+		}
+	}
+
+	// Next find any additions not in the old map.
+	for k, new := range newInputs {
+		if ignoreKey(k) {
+			continue
+		}
+
+		if _, has := oldInputs[k]; !has && new.HasValue() {
+			adds[k] = new
+		}
+	}
+
+	// If no diffs were found, return nil; else return a diff structure.
+	if len(adds) == 0 && len(deletes) == 0 && len(updates) == 0 {
+		return nil
+	}
+
+	return &resource.ObjectDiff{
+		Adds:    adds,
+		Deletes: deletes,
+		Sames:   sames,
+		Updates: updates,
+	}
+}
+
+func valueDiff(properties map[string]resources.AzureAPIProperty,
+	old, new resource.PropertyValue,
+	path string) *resource.ValueDiff {
+	if old.IsArray() && new.IsArray() {
+		oldArr := old.ArrayValue()
+		newArr := new.ArrayValue()
+
+		prop, ok := properties[path]
+		if ok && len(prop.ArrayIdentifiers) > 0 {
+			result, ok := diffKeyedArrays(properties, prop.ArrayIdentifiers, oldArr, newArr, path)
+			if ok {
+				return result
+			}
+			log.Printf("WARNING: arrays at %s have identifiers specified but could not be parsed as keyed arrays", path)
+		}
+
+		// If any elements exist in the new array but not the old, track them as adds.
+		adds := make(map[int]resource.PropertyValue)
+		for i := len(oldArr); i < len(newArr); i++ {
+			adds[i] = newArr[i]
+		}
+		// If any elements exist in the old array but not the new, track them as adds.
+		deletes := make(map[int]resource.PropertyValue)
+		for i := len(newArr); i < len(oldArr); i++ {
+			deletes[i] = oldArr[i]
+		}
+		// Now if elements exist in both, track them as sames or updates.
+		sames := make(map[int]resource.PropertyValue)
+		updates := make(map[int]resource.ValueDiff)
+		for i := 0; i < len(oldArr) && i < len(newArr); i++ {
+			if diff := valueDiff(properties, oldArr[i], newArr[i], path); diff != nil {
+				updates[i] = *diff
+			} else {
+				sames[i] = oldArr[i]
+			}
+		}
+
+		if len(adds) == 0 && len(deletes) == 0 && len(updates) == 0 {
+			return nil
+		}
+		return &resource.ValueDiff{
+			Old: old,
+			New: new,
+			Array: &resource.ArrayDiff{
+				Adds:    adds,
+				Deletes: deletes,
+				Sames:   sames,
+				Updates: updates,
+			},
+		}
+	}
+	if old.IsObject() && new.IsObject() {
+		oldObj := old.ObjectValue()
+		newObj := new.ObjectValue()
+		if diff := objectDiff(properties, oldObj, newObj, path); diff != nil {
+			return &resource.ValueDiff{
+				Old:    old,
+				New:    new,
+				Object: diff,
+			}
+		}
+		return nil
+	}
+
+	// If we got here, either the values are primitives, or they weren't the same type; do a simple diff.
+	if old.DeepEquals(new) {
+		return nil
+	}
+	return &resource.ValueDiff{Old: old, New: new}
+}
+
 // calculateDetailedDiff produced a property diff for a given object diff and a resource definition. It inspects
 // the schema of the resource to find out if the requested diff can be performed in-place or requires a replacement.
-func calculateDetailedDiff(resource *resources.AzureAPIResource, types resources.MapLike[resources.AzureAPIType],
+func calculateDetailedDiff(resource *resources.AzureAPIResource, lookupType resources.TypeLookupFunc,
 	diff *resource.ObjectDiff) map[string]*rpc.PropertyDiff {
 	replaceKeys := codegen.NewStringSet()
 
@@ -39,15 +222,13 @@ func calculateDetailedDiff(resource *resources.AzureAPIResource, types resources
 			for propName, prop := range p.Body.Properties {
 				// Object types.
 				if prop.Ref != "" {
-					typName := strings.TrimPrefix(prop.Ref, "#/types/")
-					if typ, has, err := types.Get(typName); has && err == nil {
+					if typ, has, err := lookupType(prop.Ref); has && err == nil {
 						findForceNew(propName+".", typ.Properties, replaceKeys)
 					}
 				}
 				// Arrays of objects.
 				if prop.Items != nil && prop.Items.Ref != "" {
-					typName := strings.TrimPrefix(prop.Items.Ref, "#/types/")
-					if typ, has, err := types.Get(typName); has && err == nil {
+					if typ, has, err := lookupType(prop.Items.Ref); has && err == nil {
 						findForceNew(propName+"[].", typ.Properties, replaceKeys)
 					}
 				}
@@ -336,4 +517,104 @@ func calculateChangesAndReplacements(
 		v.InputDiff = true
 	}
 	return changes, replaces
+}
+
+// arrayElement is a helper struct to track the index of a property value in an array.
+type arrayElement struct {
+	element resource.PropertyValue
+	index   int
+}
+
+// diffKeyedArrays compares two arrays that are annotated in the API spec with the extension
+// "x-ms-identifiers" and behave more like sets. The combined `keys` form a unique identifier for
+// the array elements, so order doesn't matter.
+func diffKeyedArrays(properties map[string]resources.AzureAPIProperty,
+	keys []string,
+	old, new []resource.PropertyValue,
+	path string) (*resource.ValueDiff, bool) {
+
+	adds := make(map[int]resource.PropertyValue)
+	deletes := make(map[int]resource.PropertyValue)
+	sames := make(map[int]resource.PropertyValue)
+	updates := make(map[int]resource.ValueDiff)
+
+	sortedKeys := sort.StringSlice(keys) // for stable map keys
+
+	oldIdValues := map[string]arrayElement{}
+	for i, oldItem := range old {
+		hash, ok := checkAndHashObject(oldItem, sortedKeys)
+		if !ok {
+			return nil, false
+		}
+		oldIdValues[hash] = arrayElement{element: oldItem, index: i}
+	}
+
+	newSeen := map[string]struct{}{}
+	for i, newItem := range new {
+		hash, ok := checkAndHashObject(newItem, sortedKeys)
+		if !ok {
+			return nil, false
+		}
+		newSeen[hash] = struct{}{}
+
+		oldItem, ok := oldIdValues[hash]
+		if !ok {
+			adds[i] = newItem
+		} else {
+			diff := valueDiff(properties, oldItem.element, newItem, path)
+			if diff == nil {
+				sames[i] = newItem
+			} else if diff.Object != nil || diff.Array != nil {
+				updates[i] = *diff
+			} else { // diffs in primitives only
+
+			}
+		}
+	}
+
+	// Check for olds that are gone
+	for oldHash, oldEntry := range oldIdValues {
+		if _, ok := newSeen[oldHash]; !ok {
+			deletes[oldEntry.index] = oldEntry.element
+		}
+	}
+
+	if len(adds) == 0 && len(deletes) == 0 && len(updates) == 0 {
+		return nil, true
+	}
+	return &resource.ValueDiff{
+		Old: resource.NewPropertyValue(old),
+		New: resource.NewPropertyValue(new),
+		Array: &resource.ArrayDiff{
+			Adds:    adds,
+			Deletes: deletes,
+			Sames:   sames,
+			Updates: updates,
+		},
+	}, true
+}
+
+// hashObject computes a deep hash of an object value using the object's property values indexed by
+// the given keys. The second "ok" return value is false if the value is not actually an object or
+// doesn't have any of the keys. In that case, the keyed array diff cannot be applied.
+func checkAndHashObject(val resource.PropertyValue, sortedKeys []string) (string, bool) {
+	if !val.IsObject() {
+		logging.V(9).Infof("WARNING: diffKeyedArray: item %v is not an object\n", val)
+		return "", false
+	}
+	obj := val.ObjectValue()
+
+	idValues := make([]any, 0, len(sortedKeys))
+	for _, key := range sortedKeys {
+		if val, ok := obj[resource.PropertyKey(key)]; ok {
+			idValues = append(idValues, val)
+		}
+	}
+
+	if len(idValues) == 0 {
+		logging.V(9).Infof("WARNING: diffKeyedArray: item %v has none of the keys\n", obj)
+		return "", false
+	}
+
+	return string(deephash.Hash(idValues)[:]), true
 }
