@@ -41,17 +41,17 @@ const externalSubnet = new network.Subnet("default", {
     addressPrefix: "10.5.1.0/24",
 });
 
-new network.Subnet("second", {
+const second = new network.Subnet("second", {
   resourceGroupName: resourceGroup.name,
   virtualNetworkName: externalVnet.name,
   addressPrefix: "10.5.2.0/24",
-});
+}, {dependsOn: externalSubnet});
 
 new network.Subnet("third", {
   resourceGroupName: resourceGroup.name,
   virtualNetworkName: externalVnet.name,
   addressPrefix: "10.5.3.0/24",
-});
+}, {dependsOn: second});
 
 new network.NetworkInterface("external-nic", {
   resourceGroupName: resourceGroup.name,
