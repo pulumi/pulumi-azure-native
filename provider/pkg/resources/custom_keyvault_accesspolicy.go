@@ -127,12 +127,22 @@ func (c *accessPolicyClient) read(ctx context.Context, id string, properties res
 	return properties.Mappable(), false, nil
 }
 
-func (c *accessPolicyClient) readFromProperties(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
+func azureIdFromProperties(properties resource.PropertyMap) (string, error) {
+	if !properties.HasValue(resourceGroupName) || !properties.HasValue(vaultName) {
+		return "", fmt.Errorf("missing required property %s or %s", resourceGroupName, vaultName)
+	}
 	rg := properties[resourceGroupName].StringValue()
 	vaultName := properties[vaultName].StringValue()
 
-	id := fmt.Sprintf("/subscriptions/{subscription}/resourceGroups/%s/providers/Microsoft.KeyVault/vaults/%s/accessPolicy",
-		rg, vaultName)
+	return fmt.Sprintf("/subscriptions/{subscription}/resourceGroups/%s/providers/Microsoft.KeyVault/vaults/%s/accessPolicy",
+		rg, vaultName), nil
+}
+
+func (c *accessPolicyClient) readFromProperties(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
+	id, err := azureIdFromProperties(properties)
+	if err != nil {
+		return nil, false, err
+	}
 	return c.read(ctx, id, properties)
 }
 
@@ -165,14 +175,17 @@ func (c *accessPolicyClient) write(ctx context.Context, properties resource.Prop
 	return state, err
 }
 
-// modify creates, updates, or deletes depending on the op parameter.
-func (c *accessPolicyClient) modify(ctx context.Context, properties resource.PropertyMap, op armkeyvault.AccessPolicyUpdateKind) error {
-	rg := properties[resourceGroupName].StringValue()
-	vaultName := properties[vaultName].StringValue()
-
+func sdkPolicyParamsFromProperties(properties resource.PropertyMap) (*armkeyvault.VaultAccessPolicyParameters, error) {
+	if !properties.HasValue(policy) {
+		return nil, fmt.Errorf("missing required property %s", policy)
+	}
 	policyObj := properties[policy].ObjectValue()
+	if !policyObj.HasValue("objectId") || !policyObj.HasValue("tenantId") {
+		return nil, fmt.Errorf("missing required property objectId or tenantId")
+	}
 	objectId := policyObj["objectId"].StringValue()
 	tenantId := policyObj["tenantId"].StringValue()
+
 	var applicationId string
 	if policyObj.HasValue("applicationId") {
 		applicationId = policyObj["applicationId"].StringValue()
@@ -184,22 +197,34 @@ func (c *accessPolicyClient) modify(ctx context.Context, properties resource.Pro
 		permissions = propertyPermissionsToSdk(permissionVals)
 	}
 
-	_, err := c.client.UpdateAccessPolicy(ctx, rg, vaultName,
-		op,
-		armkeyvault.VaultAccessPolicyParameters{
-			Properties: &armkeyvault.VaultAccessPolicyProperties{
-				AccessPolicies: []*armkeyvault.AccessPolicyEntry{
-					{
-						ObjectID:      &objectId,
-						Permissions:   &permissions,
-						TenantID:      &tenantId,
-						ApplicationID: &applicationId,
-					},
+	return &armkeyvault.VaultAccessPolicyParameters{
+		Properties: &armkeyvault.VaultAccessPolicyProperties{
+			AccessPolicies: []*armkeyvault.AccessPolicyEntry{
+				{
+					ObjectID:      &objectId,
+					Permissions:   &permissions,
+					TenantID:      &tenantId,
+					ApplicationID: &applicationId,
 				},
 			},
 		},
-		&armkeyvault.VaultsClientUpdateAccessPolicyOptions{})
+	}, nil
+}
 
+// modify creates, updates, or deletes depending on the op parameter.
+func (c *accessPolicyClient) modify(ctx context.Context, properties resource.PropertyMap, op armkeyvault.AccessPolicyUpdateKind) error {
+	rg := properties[resourceGroupName].StringValue()
+	vaultName := properties[vaultName].StringValue()
+
+	params, err := sdkPolicyParamsFromProperties(properties)
+	if err != nil {
+		return err
+	}
+
+	_, err = c.client.UpdateAccessPolicy(ctx, rg, vaultName,
+		op,
+		*params,
+		&armkeyvault.VaultsClientUpdateAccessPolicyOptions{})
 	return err
 }
 
@@ -209,7 +234,7 @@ type vaultPathParams struct {
 }
 
 func parseKeyVaultPathParams(id string) (vaultPathParams, error) {
-	idMatcher := regexp.MustCompile(`(?i)^/subscriptions/.*?/resourceGroups/(.*)/providers/Microsoft.KeyVault/vaults/(.*)/accessPolicy$`)
+	idMatcher := regexp.MustCompile(`(?i)^/subscriptions/.+?/resourceGroups/(.+?)/providers/Microsoft.KeyVault/vaults/(.+?)/accessPolicy$`)
 	matches := idMatcher.FindStringSubmatch(id)
 	if len(matches) != 3 {
 		return vaultPathParams{}, fmt.Errorf("unable to parse key vault access policy id in the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy: %s", id)
