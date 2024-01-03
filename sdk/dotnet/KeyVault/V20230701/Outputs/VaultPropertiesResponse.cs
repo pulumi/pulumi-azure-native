@@ -18,6 +18,7 @@ namespace Pulumi.AzureNative.KeyVault.V20230701.Outputs
     {
         /// <summary>
         /// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccessPolicyEntryResponse> AccessPolicies;
         /// <summary>

@@ -5,6 +5,9 @@ package resources
 import (
 	"context"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
@@ -42,11 +45,17 @@ func BuildCustomResources(env *azure.Environment,
 	bearerAuth autorest.Authorizer,
 	tokenAuth autorest.Authorizer,
 	kvBearerAuth autorest.Authorizer,
-	userAgent string) map[string]*CustomResource {
+	userAgent string,
+	tokenFactory azcore.TokenCredential) (map[string]*CustomResource, error) {
 
 	kvClient := keyvault.New()
 	kvClient.Authorizer = kvBearerAuth
 	kvClient.UserAgent = userAgent
+
+	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenFactory, &arm.ClientOptions{})
+	if err != nil {
+		return nil, err
+	}
 
 	storageAccountsClient := storage.NewAccountsClientWithBaseURI(env.ResourceManagerEndpoint, subscriptionID)
 	storageAccountsClient.Authorizer = tokenAuth
@@ -56,6 +65,7 @@ func BuildCustomResources(env *azure.Environment,
 		// Azure KeyVault resources.
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
 		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
+		keyVaultAccessPolicy(armKVClient),
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
@@ -65,11 +75,11 @@ func BuildCustomResources(env *azure.Environment,
 	for _, r := range resources {
 		result[r.path] = r
 	}
-	return result
+	return result, nil
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, "")
+var featureLookup, _ = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {

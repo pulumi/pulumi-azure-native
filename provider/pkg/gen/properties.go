@@ -222,6 +222,12 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		}
 	}
 
+	// Special case for KeyVault access policies - they are a resource that can be defined inline in Vaults or
+	// stand-alone. The logic above cannot detect that because they are defined as a custom resource. #594
+	if m.resourceName == "Vault" && m.prov == "KeyVault" && name == "accessPolicies" {
+		maintainSubResourceIfUnset = true
+	}
+
 	description, err := getPropertyDescription(schema, context, maintainSubResourceIfUnset)
 	if err != nil {
 		return nil, nil, err

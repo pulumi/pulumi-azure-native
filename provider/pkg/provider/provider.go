@@ -221,9 +221,13 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.client.Authorizer = resourceManagerAuth
 	k.client.UserAgent = k.getUserAgent()
 
-	k.customResources = resources.BuildCustomResources(&env, k.subscriptionID,
+	azCoreTokenCredential := azCoreTokenCredential{p: k}
+	k.customResources, err = resources.BuildCustomResources(&env, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth,
-		k.client.UserAgent)
+		k.client.UserAgent, azCoreTokenCredential)
+	if err != nil {
+		return nil, fmt.Errorf("initializing custom resources: %w", err)
+	}
 
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
