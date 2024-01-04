@@ -52,7 +52,8 @@ type AzureAPIProperty struct {
 	Containers []string `json:"containers,omitempty"`
 	// Whether a change in the value of the property requires a replacement of the whole resource
 	// (i.e., no in-place updates allowed).
-	ForceNew bool `json:"forceNew,omitempty"`
+	ForceNew                            bool `json:"forceNew,omitempty"`
+	ForceNewInferredFromReferencedTypes bool `json:"forceNewInferredFromReferencedTypes,omitempty"`
 	// If the property is a resource name where we should apply auto-naming, this will contain the kind of
 	// auto-naming strategy. Possible values are:
 	// - "copy" for 1-to-1 copy of the resource's logical name.

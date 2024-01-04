@@ -5,6 +5,7 @@ package provider
 import (
 	"fmt"
 	"log"
+	"os"
 	"reflect"
 	"regexp"
 	"sort"
@@ -284,8 +285,9 @@ func calculateDetailedDiff(resource *resources.AzureAPIResource, lookupType reso
 }
 
 func findForceNew(base string, props map[string]resources.AzureAPIProperty, replaceKeys codegen.StringSet) {
+	forceNewFromSubtypes := os.Getenv("PULUMI_FORCE_NEW_FROM_SUBTYPES") == "true"
 	for propName, prop := range props {
-		if prop.ForceNew {
+		if prop.ForceNew || (prop.ForceNewInferredFromReferencedTypes && forceNewFromSubtypes) {
 			name := propName
 			if prop.SdkName != "" {
 				name = prop.SdkName

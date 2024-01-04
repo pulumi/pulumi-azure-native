@@ -2541,6 +2541,13 @@
     "Property": "policyParameters"
   },
   {
+    "Module": "dataprotection/v20231201",
+    "Provider": "DataProtection",
+    "ResourceName": "BackupInstance",
+    "ReferenceName": "PolicyParameters",
+    "Property": "policyParameters"
+  },
+  {
     "Module": "datadog",
     "Provider": "Datadog",
     "ResourceName": "Monitor",
@@ -3179,6 +3186,97 @@
   },
   {
     "Module": "documentdb/v20231115",
+    "Provider": "DocumentDB",
+    "ResourceName": "TableResourceTable",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "dataCenterLocation"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "delegatedSubnetId"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinGraph",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBCollection",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlContainer",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20231115preview",
     "Provider": "DocumentDB",
     "ResourceName": "TableResourceTable",
     "ReferenceName": "ResourceRestoreParameters",
@@ -29919,6 +30017,34 @@
   },
   {
     "Module": "netapp/v20230501preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "Module": "netapp/v20230701",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "Module": "netapp/v20230701",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "Module": "netapp/v20230701",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "Module": "netapp/v20230701",
     "Provider": "NetApp",
     "ResourceName": "VolumeGroup",
     "ReferenceName": "volumeGroupVolumeProperties",
