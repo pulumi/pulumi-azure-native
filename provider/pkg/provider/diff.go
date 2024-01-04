@@ -206,18 +206,34 @@ func valueDiff(properties map[string]resources.AzureAPIProperty,
 	return &resource.ValueDiff{Old: old, New: new}
 }
 
-var urnRegex = regexp.MustCompile(`(?i)(/subscriptions/.+?/resourcegroups/.+?/providers/microsoft.+?/)(.*)`)
+// azureIdRegex is a regular expression that matches Azure resource IDs.
+var azureIdRegex = regexp.MustCompile(`(?i)(/subscriptions/.+?/resourcegroups/.+?/providers/microsoft.+?/)(.*)`)
 
+// stringsEqualCaseInsensitiveAzureIds compares two strings for equality. If they look like Azure
+// resource IDs, the common prefix `/subscriptions/.+?/resourcegroups/.+?/providers/microsoft.+?/`
+// is compared case-insensitively. The rest is compared case-sensitively since we cannot know if
+// names of various resource providers are case-insensitive. If the strings don't look like Azure
+// resource IDs, they are compared using regular `==` string comparison.
 func stringsEqualCaseInsensitiveAzureIds(a, b string) bool {
 	// Compare plain strings first to save the regex matching cost
 	if a == b {
 		return true
 	}
-	return normalizeAzureId(a) == normalizeAzureId(b)
+	matchesA := azureIdRegex.FindStringSubmatch(a)
+	if len(matchesA) > 0 {
+		matchesB := azureIdRegex.FindStringSubmatch(b)
+		if len(matchesB) > 0 {
+			return strings.EqualFold(matchesA[1], matchesB[1]) && matchesA[2] == matchesB[2]
+		}
+	}
+	return false
 }
 
+// normalizeAzureId normalizes an Azure resource ID by lowercasing the common prefix
+// `/subscriptions/.+?/resourcegroups/.+?/providers/microsoft.+?/`. If the string doesn't look like
+// an Azure resource ID, it is returned unchanged.
 func normalizeAzureId(id string) string {
-	match := urnRegex.FindStringSubmatch(id)
+	match := azureIdRegex.FindStringSubmatch(id)
 	if len(match) > 0 {
 		return strings.ToLower(match[1]) + match[2]
 	}

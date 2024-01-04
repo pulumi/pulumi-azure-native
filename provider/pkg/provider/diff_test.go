@@ -655,6 +655,65 @@ func TestNormalizeAzureId(t *testing.T) {
 	}
 }
 
+func TestStringsEqualCaseInsensitiveAzureIds(t *testing.T) {
+	for _, equalCase := range []struct {
+		id1 string
+		id2 string
+	}{
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg/providers/Microsoft.compute/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg/providers/microsoft.COMPUTE/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourceGroups/rg/Providers/microsoft.Compute/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg",
+			id2: "/subscriptions/123/resourcegroups/rg",
+		},
+	} {
+		assert.True(t, stringsEqualCaseInsensitiveAzureIds(equalCase.id1, equalCase.id2))
+	}
+
+	for _, notEqualCase := range []struct {
+		id1 string
+		id2 string
+	}{
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/456/resourcegroups/rg/providers/microsoft.compute/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg2/providers/microsoft.COMPUTE/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg/providers/Microsoft.compute/somethingElse",
+		},
+
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourceGroups/rg/providers/microsoft.ComputeBetter/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg",
+			id2: "/subscriptions/123/resourceGroups/rg",
+		},
+	} {
+		assert.False(t, stringsEqualCaseInsensitiveAzureIds(notEqualCase.id1, notEqualCase.id2))
+	}
+}
+
 func TestDiffKeyedArrays(t *testing.T) {
 	t.Run("basic example", func(t *testing.T) {
 		// The unique identifier for each object is the "p1" property.
