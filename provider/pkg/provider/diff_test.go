@@ -619,16 +619,111 @@ func calculateChangesAndReplacementsForOneAddedProperty(t *testing.T, value stri
 	return calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
 }
 
+func TestNormalizeAzureId(t *testing.T) {
+	testCases := []struct {
+		input  string
+		output string
+	}{
+		{
+			input:  "",
+			output: "",
+		},
+		{
+			input:  "foo/bar",
+			output: "foo/bar",
+		},
+		{
+			input:  "/subscriptions/foo/bar",
+			output: "/subscriptions/foo/bar",
+		},
+		{
+			input:  "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			output: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+		},
+		{
+			input:  "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/something",
+			output: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+		},
+		{
+			input:  "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/something/with/a/path",
+			output: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something/with/a/path",
+		},
+	}
+
+	for _, testCase := range testCases {
+		assert.Equal(t, testCase.output, normalizeAzureId(testCase.input))
+	}
+}
+
+func TestStringsEqualCaseInsensitiveAzureIds(t *testing.T) {
+	for _, equalCase := range []struct {
+		id1 string
+		id2 string
+	}{
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg/providers/Microsoft.compute/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg/providers/microsoft.COMPUTE/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourceGroups/rg/Providers/microsoft.Compute/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg",
+			id2: "/subscriptions/123/resourcegroups/rg",
+		},
+	} {
+		assert.True(t, stringsEqualCaseInsensitiveAzureIds(equalCase.id1, equalCase.id2))
+	}
+
+	for _, notEqualCase := range []struct {
+		id1 string
+		id2 string
+	}{
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/456/resourcegroups/rg/providers/microsoft.compute/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg2/providers/microsoft.COMPUTE/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourcegroups/rg/providers/Microsoft.compute/somethingElse",
+		},
+
+		{
+			id1: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			id2: "/subscriptions/123/resourceGroups/rg/providers/microsoft.ComputeBetter/something",
+		},
+		{
+			id1: "/subscriptions/123/resourcegroups/rg",
+			id2: "/subscriptions/123/resourceGroups/rg",
+		},
+	} {
+		assert.False(t, stringsEqualCaseInsensitiveAzureIds(notEqualCase.id1, notEqualCase.id2))
+	}
+}
+
 func TestDiffKeyedArrays(t *testing.T) {
 	t.Run("basic example", func(t *testing.T) {
 		// The unique identifier for each object is the "p1" property.
 		keys := []string{"p1"}
 
 		// The first object will be unchanged, the second updated, the third removed and replaced
-		// with a different one.
+		// with a different one. The unchanged one has case differences that shouldn't matter.
 		old := []resource.PropertyValue{
 			{V: resource.PropertyMap{
-				"p1": {V: "unchanged"},
+				"p1": {V: "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/something"},
 				"p2": {V: "v2"},
 				"p3": {V: "v3"},
 			}},
@@ -656,7 +751,7 @@ func TestDiffKeyedArrays(t *testing.T) {
 				"p2": {V: "v222"},
 			}},
 			{V: resource.PropertyMap{
-				"p1": {V: "unchanged"},
+				"p1": {V: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something"},
 				"p2": {V: "v2"},
 				"p3": {V: "v3"},
 			}},
@@ -673,8 +768,12 @@ func TestDiffKeyedArrays(t *testing.T) {
 		assert.Equal(t, 1, len(diff.Array.Adds))
 		assert.Equal(t, new[1], diff.Array.Adds[1])
 
-		assert.Equal(t, 1, len(diff.Array.Sames))
-		assert.Equal(t, old[0], diff.Array.Sames[2])
+		require.Equal(t, 1, len(diff.Array.Sames))
+		require.Contains(t, diff.Array.Sames, 2)
+		sameOld := old[0].ObjectValue()
+		sameNew := diff.Array.Sames[2].ObjectValue()
+		assert.Equal(t, normalizeAzureId(sameOld["p1"].StringValue()), normalizeAzureId(sameNew["p1"].StringValue()))
+		assert.Equal(t, sameOld["p2"], sameNew["p2"])
 
 		assert.Equal(t, 1, len(diff.Array.Deletes))
 		assert.Equal(t, old[2], diff.Array.Deletes[2])
