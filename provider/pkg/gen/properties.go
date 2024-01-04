@@ -285,16 +285,16 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	// array in the SDK, but leave the metadata to indicate we need to convert it.
 	isStringSet := typeSpec.Type == "object" && typeSpec.AdditionalProperties == nil && typeSpec.Ref == ""
 
-	var forceNew, forceNewFromReferencedTypes bool
+	forceNewSpec := noForceNew
 	if !isOutput {
-		forceNew, forceNewFromReferencedTypes = m.forceNew(resolvedProperty, name, isType)
+		forceNewSpec = m.forceNew(resolvedProperty, name, isType)
 	}
 
 	schemaProperty := pschema.PropertySpec{
 		Description:          description,
 		Default:              defaultValue,
 		TypeSpec:             *typeSpec,
-		WillReplaceOnChanges: forceNew,
+		WillReplaceOnChanges: forceNewSpec == forceNew,
 	}
 
 	if isStringSet {
@@ -310,8 +310,8 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		Ref:                                 schemaProperty.Ref,
 		Items:                               m.itemTypeToProperty(typeSpec.Items),
 		AdditionalProperties:                m.itemTypeToProperty(typeSpec.AdditionalProperties),
-		ForceNew:                            forceNew,
-		ForceNewInferredFromReferencedTypes: forceNewFromReferencedTypes,
+		ForceNew:                            forceNewSpec == forceNew,
+		ForceNewInferredFromReferencedTypes: forceNewSpec == forceNewSetOnReferencedType,
 		IsStringSet:                         isStringSet,
 		Default:                             defaultValue,
 		MaintainSubResourceIfUnset:          maintainSubResourceIfUnset,
@@ -327,7 +327,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 			metadataProperty = resources.AzureAPIProperty{
 				Type:     "string",
 				Default:  defaultValue,
-				ForceNew: forceNew,
+				ForceNew: forceNewSpec == forceNew,
 			}
 		} else {
 			// Set additional properties when it's an input
@@ -388,12 +388,19 @@ func mergeRequiredContainers(a, b RequiredContainers) RequiredContainers {
 	return result
 }
 
+type forceNewMetadata string
+
+const (
+	forceNew                    forceNewMetadata = "ForceNew"
+	forceNewSetOnReferencedType forceNewMetadata = "ForceNewSetOnReferencedType"
+	noForceNew                  forceNewMetadata = "NoForceNew"
+)
+
 // forceNew returns true if a change to a given property requires a replacement in the resource
 // that is currently being generated, based on forceNewMap and the "x-ms-mutability" API spec extension.
 // The second return value is true if the property forcing replacement is a property in a referenced type
 // (i.e., a property of a property).
-func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string,
-	isType bool) (forceNew bool, forceNewInferredFromReferencedTypes bool) {
+func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, isType bool) forceNewMetadata {
 	// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
 	// updatable by default.
 	// Note: a non-updatable property at a subtype level (a property of a property of a resource) does not
@@ -413,20 +420,20 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string,
 				ReferenceName: schema.ReferenceContext.ReferenceName,
 				Property:      propertyName,
 			})
-			return false, true
+			return forceNewSetOnReferencedType
 		}
-		return true, false
+		return forceNew
 	}
 
 	if resourceMap, ok := forceNewMap[m.prov]; ok {
 		if properties, ok := resourceMap[m.resourceName]; ok {
 			if properties.Has(propertyName) {
-				return true, false
+				return forceNew
 			}
 		}
 	}
 
-	return false, false
+	return noForceNew
 }
 
 // propChangeForcesRecreate returns two booleans.
