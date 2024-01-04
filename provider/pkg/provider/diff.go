@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"reflect"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -192,11 +193,35 @@ func valueDiff(properties map[string]resources.AzureAPIProperty,
 		return nil
 	}
 
+	if old.IsString() && new.IsString() {
+		if stringsEqualCaseInsensitiveAzureIds(old.StringValue(), new.StringValue()) {
+			return nil
+		}
+	}
+
 	// If we got here, either the values are primitives, or they weren't the same type; do a simple diff.
 	if old.DeepEquals(new) {
 		return nil
 	}
 	return &resource.ValueDiff{Old: old, New: new}
+}
+
+var urnRegex = regexp.MustCompile(`(?i)(/subscriptions/.+?/resourcegroups/.+?/providers/microsoft.+?/)(.*)`)
+
+func stringsEqualCaseInsensitiveAzureIds(a, b string) bool {
+	// Compare plain strings first to save the regex matching cost
+	if a == b {
+		return true
+	}
+	return normalizeAzureId(a) == normalizeAzureId(b)
+}
+
+func normalizeAzureId(id string) string {
+	match := urnRegex.FindStringSubmatch(id)
+	if len(match) > 0 {
+		return strings.ToLower(match[1]) + match[2]
+	}
+	return id
 }
 
 // calculateDetailedDiff produced a property diff for a given object diff and a resource definition. It inspects
@@ -607,6 +632,9 @@ func checkAndHashObject(val resource.PropertyValue, sortedKeys []string) (string
 	idValues := make([]any, 0, len(sortedKeys))
 	for _, key := range sortedKeys {
 		if val, ok := obj[resource.PropertyKey(key)]; ok {
+			if val.IsString() {
+				val = resource.NewPropertyValue(normalizeAzureId(val.StringValue()))
+			}
 			idValues = append(idValues, val)
 		}
 	}

@@ -619,6 +619,42 @@ func calculateChangesAndReplacementsForOneAddedProperty(t *testing.T, value stri
 	return calculateChangesAndReplacements(detailedDiff, oldInputs, newInputs, oldState, res)
 }
 
+func TestNormalizeAzureId(t *testing.T) {
+	testCases := []struct {
+		input  string
+		output string
+	}{
+		{
+			input:  "",
+			output: "",
+		},
+		{
+			input:  "foo/bar",
+			output: "foo/bar",
+		},
+		{
+			input:  "/subscriptions/foo/bar",
+			output: "/subscriptions/foo/bar",
+		},
+		{
+			input:  "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+			output: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+		},
+		{
+			input:  "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/something",
+			output: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something",
+		},
+		{
+			input:  "/subscriptions/123/resourceGroups/rg/providers/Microsoft.Compute/something/with/a/path",
+			output: "/subscriptions/123/resourcegroups/rg/providers/microsoft.compute/something/with/a/path",
+		},
+	}
+
+	for _, testCase := range testCases {
+		assert.Equal(t, testCase.output, normalizeAzureId(testCase.input))
+	}
+}
+
 func TestDiffKeyedArrays(t *testing.T) {
 	t.Run("basic example", func(t *testing.T) {
 		// The unique identifier for each object is the "p1" property.
