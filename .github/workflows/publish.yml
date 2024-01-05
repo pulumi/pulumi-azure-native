@@ -160,7 +160,7 @@ jobs:
       - name: Publish PyPi Package
         run: >
           twine upload
-          -u "pulumi"
+          -u "${PYPI_USERNAME}"
           -p "${PYPI_PASSWORD}"
           "${{ github.workspace }}/sdk/python/bin/dist/*"
           --skip-existing
