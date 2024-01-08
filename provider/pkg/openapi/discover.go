@@ -43,8 +43,19 @@ type AzureProviders map[ProviderName]ProviderVersions
 type ProviderVersions = map[SdkVersion]VersionResources
 
 type DiscoveryDiagnostics struct {
-	// Naming disambiguations
 	NamingDisambiguations []resources.NameDisambiguation
+	// POST endpoints defined in the Azure spec that we don't include because they don't belong to a resource.
+	// Map is provider -> operation id -> path.
+	SkippedPOSTEndpoints map[string]map[string]string
+}
+
+func (d *DiscoveryDiagnostics) addSkippedPOSTEndpoint(provider, operation, path string) {
+	cur, ok := d.SkippedPOSTEndpoints[provider]
+	if !ok {
+		cur = map[string]string{}
+		d.SkippedPOSTEndpoints[provider] = cur
+	}
+	cur[operation] = path
 }
 
 // VersionResources contains all resources and invokes in a given API version.
@@ -182,7 +193,9 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter, e.g. "Compute".
 // Use apiVersions with a wildcard to filter versions, e.g. "2022*preview", or leave it blank to use the default of "20*".
 func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders, DiscoveryDiagnostics, error) {
-	diagnostics := DiscoveryDiagnostics{}
+	diagnostics := DiscoveryDiagnostics{
+		SkippedPOSTEndpoints: map[string]map[string]string{},
+	}
 	swaggerSpecLocations, err := swaggerLocations(specsDir, namespace, apiVersions)
 	if err != nil {
 		return nil, diagnostics, err
@@ -206,8 +219,13 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 		}
 		sort.Strings(orderedPaths)
 		for _, path := range orderedPaths {
-			namingDisambiguations := providers.addAPIPath(specsDir, relLocation, path, swagger)
-			diagnostics.NamingDisambiguations = append(diagnostics.NamingDisambiguations, namingDisambiguations...)
+			providerDiagnostics := providers.addAPIPath(specsDir, relLocation, path, swagger)
+			diagnostics.NamingDisambiguations = append(diagnostics.NamingDisambiguations, providerDiagnostics.NamingDisambiguations...)
+			for resource, operations := range providerDiagnostics.SkippedPOSTEndpoints {
+				for op, path := range operations {
+					diagnostics.addSkippedPOSTEndpoint(resource, op, path)
+				}
+			}
 		}
 	}
 	return providers, diagnostics, nil
@@ -341,16 +359,16 @@ var excludeRegexes = []*regexp.Regexp{
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
-func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) []resources.NameDisambiguation {
+func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
 	for _, re := range excludeRegexes {
 		if re.MatchString(fileLocation) {
-			return nil
+			return DiscoveryDiagnostics{}
 		}
 	}
 
 	prov := resources.ResourceProvider(filepath.Join(specsDir, fileLocation), path)
 	if prov == "" {
-		return nil
+		return DiscoveryDiagnostics{}
 	}
 
 	// Find (or create) the version map with this name.
@@ -368,10 +386,10 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		versionMap[apiVersion] = version
 	}
 
-	return addResourcesAndInvokes(version, fileLocation, path, swagger)
+	return addResourcesAndInvokes(version, fileLocation, path, prov, swagger)
 }
 
-func addResourcesAndInvokes(version VersionResources, fileLocation, path string, swagger *Spec) []resources.NameDisambiguation {
+func addResourcesAndInvokes(version VersionResources, fileLocation, path, provider string, swagger *Spec) DiscoveryDiagnostics {
 	apiVersion := ApiToSdkVersion(swagger.Info.Version)
 
 	pathItem := swagger.Paths.Paths[path]
@@ -385,13 +403,14 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 		}
 	}
 
-	var nameDisambiguations []resources.NameDisambiguation
-	recordDisambiguation := func(disambiguation *resources.NameDisambiguation) []resources.NameDisambiguation {
+	diagnostics := DiscoveryDiagnostics{
+		SkippedPOSTEndpoints: map[string]map[string]string{},
+	}
+	recordDisambiguation := func(disambiguation *resources.NameDisambiguation) {
 		if disambiguation != nil {
 			disambiguation.FileLocation = fileLocation
-			nameDisambiguations = append(nameDisambiguations, *disambiguation)
+			diagnostics.NamingDisambiguations = append(diagnostics.NamingDisambiguations, *disambiguation)
 		}
-		return nameDisambiguations
 	}
 
 	// Add a resource entry, if appropriate HTTP endpoints are defined.
@@ -427,7 +446,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			}
 
 			typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
-			nameDisambiguations = recordDisambiguation(disambiguation)
+			recordDisambiguation(disambiguation)
 
 			if typeName != "" && (hasDelete || defaultState != nil) {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
@@ -441,7 +460,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			}
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
 			typeName, disambiguation := resources.ResourceName(pathItem.Head.ID, path)
-			nameDisambiguations = recordDisambiguation(disambiguation)
+			recordDisambiguation(disambiguation)
 
 			if typeName != "" && hasDelete {
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
@@ -458,7 +477,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			case pathItemList.Post != nil && !pathItemList.Post.Deprecated:
 				typeName, disambiguation = resources.ResourceName(pathItemList.Post.ID, path)
 			}
-			nameDisambiguations = recordDisambiguation(disambiguation)
+			recordDisambiguation(disambiguation)
 
 			if typeName != "" {
 				var defaultBody map[string]interface{}
@@ -484,7 +503,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 	if pathItem.Patch != nil && !pathItem.Patch.Deprecated && pathItem.Get != nil && !pathItem.Get.Deprecated {
 		defaultState := defaults.GetDefaultResourceState(path)
 		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
-		nameDisambiguations = recordDisambiguation(disambiguation)
+		recordDisambiguation(disambiguation)
 
 		if typeName != "" && defaultState != nil {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
@@ -515,13 +534,14 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			// - It's about a key, a token, or credentials.
 			prefix = "get"
 		default:
-			return nameDisambiguations
+			diagnostics.addSkippedPOSTEndpoint(provider, pathItem.Post.ID, path)
+			return diagnostics
 		}
 
 		typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
 		if typeName != "" {
 			addInvoke(prefix + typeName)
-			nameDisambiguations = recordDisambiguation(disambiguation)
+			recordDisambiguation(disambiguation)
 		}
 	}
 
@@ -541,7 +561,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 		}
 	}
 
-	return nameDisambiguations
+	return diagnostics
 }
 
 // DiagnosticSettingsCategory_List -> list
