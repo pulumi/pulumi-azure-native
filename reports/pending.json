@@ -351,7 +351,8 @@
   "DataReplication": [],
   "DataShare": [],
   "Databricks": [
-    "2023-05-01"
+    "2023-05-01",
+    "2023-09-15-preview"
   ],
   "Datadog": [
     "2022-08-01",
@@ -798,7 +799,9 @@
   "PowerPlatform": [],
   "ProfessionalService": [],
   "ProviderHub": [],
-  "Purview": [],
+  "Purview": [
+    "2023-05-01-preview"
+  ],
   "Quantum": [],
   "Quota": [],
   "RecommendationsService": [
@@ -882,7 +885,8 @@
     "2023-07-01-preview",
     "2023-08-01-preview",
     "2023-09-01-preview",
-    "2023-10-01-preview"
+    "2023-10-01-preview",
+    "2023-11-01"
   ],
   "SerialConsole": [],
   "ServiceBus": [
