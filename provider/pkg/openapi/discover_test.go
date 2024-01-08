@@ -38,7 +38,7 @@ func TestListDiagnosticCategoriesShouldBeAdded(t *testing.T) {
 		},
 	}
 
-	addResourcesAndInvokes(version, "/file/path", path, &swagger)
+	addResourcesAndInvokes(version, "/file/path", path, "insights", &swagger)
 
 	assert.Empty(t, version.Resources)
 	assert.NotEmpty(t, version.Invokes)
