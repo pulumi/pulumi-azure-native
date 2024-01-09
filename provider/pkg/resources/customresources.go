@@ -4,6 +4,7 @@ package resources
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
@@ -15,6 +16,11 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
+
+type AzureClient interface {
+	LookupResource(resourceType string) (AzureAPIResource, bool, error)
+	AzureDelete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error
+}
 
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
 // crucial operations.
@@ -36,11 +42,12 @@ type CustomResource struct {
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
 	Update func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
-	Delete func(context.Context, resource.PropertyMap) error
+	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
 }
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
 func BuildCustomResources(env *azure.Environment,
+	azureClient AzureClient,
 	subscriptionID string,
 	bearerAuth autorest.Authorizer,
 	tokenAuth autorest.Authorizer,
@@ -69,6 +76,8 @@ func BuildCustomResources(env *azure.Environment,
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
+		// Customization of regular resources
+		newCustomWebAppDelete(azureClient),
 	}
 
 	result := map[string]*CustomResource{}
@@ -79,7 +88,7 @@ func BuildCustomResources(env *azure.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azure.Environment{}, nil, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
@@ -120,4 +129,28 @@ func MetaMixins() map[string]AzureAPIResource {
 		}
 	}
 	return meta
+}
+
+// https://github.com/pulumi/pulumi-azure-native/issues/1529
+func newCustomWebAppDelete(azureClient AzureClient) *CustomResource {
+	const resourceType = "azure-native:web:WebApp"
+	return &CustomResource{
+		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}",
+		tok:  resourceType,
+		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
+			res, ok, err := azureClient.LookupResource(resourceType)
+			if err != nil {
+				return err
+			}
+			if !ok {
+				return fmt.Errorf("resource %q not found", resourceType)
+			}
+
+			return azureClient.AzureDelete(ctx, id, res.APIVersion, res.DeleteAsyncStyle, map[string]any{
+				// Don't delete the app service plan even if this was the last web app in it. It's
+				// a separate Pulumi resource.
+				"deleteEmptyServerFarm": false,
+			})
+		},
+	}
 }
