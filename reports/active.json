@@ -979,7 +979,8 @@
       "2023-04-01-preview",
       "2023-05-01",
       "2023-05-02-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-02-preview"
     ],
     "sessionpools": [
       "2023-08-01-preview",
@@ -11635,6 +11636,56 @@
       "2023-10-01-preview"
     ]
   },
+  "databasefleetmanager": {
+    "": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "fleets": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "fleets/authorizedprincipals": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "fleets/firewallrules": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "fleets/fleetspaces": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "fleets/fleetspaces/databases": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "fleets/tiers": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "locations": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "locations/operationtypes": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "locations/operationtypes/operationresults": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "locations/routedoperationresults": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ],
+    "operations": [
+      "2021-05-01-preview",
+      "2023-08-01-preview"
+    ]
+  },
   "databasewatcher": {
     "": [
       "2023-03-01-preview",
@@ -19464,6 +19515,7 @@
   },
   "kubernetesruntime": {
     "": [
+      "2019-10-01",
       "2023-10-01-preview"
     ],
     "bgppeers": [
@@ -19471,6 +19523,12 @@
     ],
     "loadbalancers": [
       "2023-10-01-preview"
+    ],
+    "locations": [
+      "2023-10-01-preview"
+    ],
+    "locations/operationstatuses": [
+      "2019-10-01"
     ],
     "operations": [
       "2023-10-01-preview"
@@ -28139,7 +28197,8 @@
       "2017-04-01",
       "2020-01-01-preview",
       "2023-01-01-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-10-01-preview"
     ],
     "checknameavailability": [
       "2014-09-01",
@@ -28152,7 +28211,8 @@
       "2017-04-01",
       "2020-01-01-preview",
       "2023-01-01-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-10-01-preview"
     ],
     "namespaces": [
       "2014-09-01",
@@ -28160,7 +28220,8 @@
       "2017-04-01",
       "2020-01-01-preview",
       "2023-01-01-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-10-01-preview"
     ],
     "namespaces/notificationhubs": [
       "2014-09-01",
@@ -28168,7 +28229,8 @@
       "2017-04-01",
       "2020-01-01-preview",
       "2023-01-01-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-10-01-preview"
     ],
     "operations": [
       "2014-09-01",
@@ -28176,7 +28238,8 @@
       "2017-04-01",
       "2020-01-01-preview",
       "2023-01-01-preview",
-      "2023-09-01"
+      "2023-09-01",
+      "2023-10-01-preview"
     ]
   },
   "nutanix": {

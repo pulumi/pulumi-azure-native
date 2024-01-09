@@ -1772,7 +1772,8 @@
     "Accounts_AddRootCollectionAdmin": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin",
     "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Purview/checkNameAvailability",
     "DefaultAccounts_Remove": "/providers/Microsoft.Purview/removeDefaultAccount",
-    "DefaultAccounts_Set": "/providers/Microsoft.Purview/setDefaultAccount"
+    "DefaultAccounts_Set": "/providers/Microsoft.Purview/setDefaultAccount",
+    "IngestionPrivateEndpointConnections_UpdateStatus": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/ingestionPrivateEndpointConnectionStatus"
   },
   "Quantum": {
     "Workspace_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Quantum/locations/{locationName}/checkNameAvailability"
