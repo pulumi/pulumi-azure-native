@@ -1148,6 +1148,27 @@
     "Property": "regionalDataBoundary"
   },
   {
+    "Module": "azuresphere/v20240401",
+    "Provider": "AzureSphere",
+    "ResourceName": "Deployment",
+    "ReferenceName": "ImageProperties",
+    "Property": "image"
+  },
+  {
+    "Module": "azuresphere/v20240401",
+    "Provider": "AzureSphere",
+    "ResourceName": "Deployment",
+    "ReferenceName": "ImageProperties",
+    "Property": "imageId"
+  },
+  {
+    "Module": "azuresphere/v20240401",
+    "Provider": "AzureSphere",
+    "ResourceName": "Deployment",
+    "ReferenceName": "RegionalDataBoundary",
+    "Property": "regionalDataBoundary"
+  },
+  {
     "Module": "azurestackhci",
     "Provider": "AzureStackHCI",
     "ResourceName": "NetworkInterface",

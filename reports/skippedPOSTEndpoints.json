@@ -190,6 +190,7 @@
   },
   "AzureSphere": {
     "Catalogs_CountDevices": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/countDevices",
+    "Catalogs_UploadImage": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/uploadImage",
     "Certificates_RetrieveCertChain": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/certificates/{serialNumber}/retrieveCertChain",
     "Certificates_RetrieveProofOfPossessionNonce": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/certificates/{serialNumber}/retrieveProofOfPossessionNonce",
     "DeviceGroups_ClaimDevices": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName}/claimDevices",
@@ -1772,7 +1773,8 @@
     "Accounts_AddRootCollectionAdmin": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin",
     "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Purview/checkNameAvailability",
     "DefaultAccounts_Remove": "/providers/Microsoft.Purview/removeDefaultAccount",
-    "DefaultAccounts_Set": "/providers/Microsoft.Purview/setDefaultAccount"
+    "DefaultAccounts_Set": "/providers/Microsoft.Purview/setDefaultAccount",
+    "IngestionPrivateEndpointConnections_UpdateStatus": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/ingestionPrivateEndpointConnectionStatus"
   },
   "Quantum": {
     "Workspace_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Quantum/locations/{locationName}/checkNameAvailability"
