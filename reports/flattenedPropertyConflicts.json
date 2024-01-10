@@ -95,6 +95,16 @@
     "properties.etag": {},
     "properties.name": {}
   },
+  "azure-native:security/v20221201preview:DefenderForStorage": {
+    "malwareScanning.isEnabled": {},
+    "sensitiveDataDiscovery.isEnabled": {},
+    "sensitiveDataDiscovery.operationStatus": {}
+  },
+  "azure-native:security:DefenderForStorage": {
+    "malwareScanning.isEnabled": {},
+    "sensitiveDataDiscovery.isEnabled": {},
+    "sensitiveDataDiscovery.operationStatus": {}
+  },
   "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode": {
     "properties.id": {},
     "properties.name": {}
