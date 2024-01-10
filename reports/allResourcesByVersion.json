@@ -17463,6 +17463,9 @@
     "2022-11-20-preview": [
       "APICollection"
     ],
+    "2022-12-01-preview": [
+      "DefenderForStorage"
+    ],
     "2023-01-01-preview": [
       "SecurityOperator"
     ],

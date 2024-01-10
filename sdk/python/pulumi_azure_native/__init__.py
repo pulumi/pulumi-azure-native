@@ -11999,6 +11999,7 @@ _utilities.register(
    "azure-native:security:Connector": "Connector",
    "azure-native:security:CustomAssessmentAutomation": "CustomAssessmentAutomation",
    "azure-native:security:CustomEntityStoreAssignment": "CustomEntityStoreAssignment",
+   "azure-native:security:DefenderForStorage": "DefenderForStorage",
    "azure-native:security:DevOpsConfiguration": "DevOpsConfiguration",
    "azure-native:security:DeviceSecurityGroup": "DeviceSecurityGroup",
    "azure-native:security:GovernanceAssignment": "GovernanceAssignment",
@@ -12125,6 +12126,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20221120preview",
   "classes": {
    "azure-native:security/v20221120preview:APICollection": "APICollection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20221201preview",
+  "fqn": "pulumi_azure_native.security.v20221201preview",
+  "classes": {
+   "azure-native:security/v20221201preview:DefenderForStorage": "DefenderForStorage"
   }
  },
  {
