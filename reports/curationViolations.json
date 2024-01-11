@@ -16,6 +16,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "AzureDataTransfer",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "AzurePlaywrightService",
     "Detail": "expected tracking stable but found preview"
   },

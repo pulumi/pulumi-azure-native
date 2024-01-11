@@ -348,6 +348,15 @@
     "SqlServer": "2019-07-24-preview",
     "SqlServerRegistration": "2019-07-24-preview"
   },
+  "AzureDataTransfer": {
+    "Connection": "2023-10-11-preview",
+    "Flow": "2023-10-11-preview",
+    "Pipeline": "2023-10-11-preview",
+    "listAzureDataTransferApprovedSchemas": "2023-10-11-preview",
+    "listListPendingConnection": "2023-10-11-preview",
+    "listListPendingFlow": "2023-10-11-preview",
+    "listListSchema": "2023-10-11-preview"
+  },
   "AzureLargeInstance": {},
   "AzurePlaywrightService": {
     "Account": "2023-10-01-preview"

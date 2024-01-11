@@ -2893,6 +2893,29 @@
       "2019-07-24-preview"
     ]
   },
+  "AzureDataTransfer": {
+    "Connection": [
+      "2023-10-11-preview"
+    ],
+    "Flow": [
+      "2023-10-11-preview"
+    ],
+    "Pipeline": [
+      "2023-10-11-preview"
+    ],
+    "listAzureDataTransferApprovedSchemas": [
+      "2023-10-11-preview"
+    ],
+    "listListPendingConnection": [
+      "2023-10-11-preview"
+    ],
+    "listListPendingFlow": [
+      "2023-10-11-preview"
+    ],
+    "listListSchema": [
+      "2023-10-11-preview"
+    ]
+  },
   "AzureLargeInstance": {},
   "AzurePlaywrightService": {
     "Account": [
@@ -2901,34 +2924,44 @@
   },
   "AzureSphere": {
     "Catalog": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "Deployment": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "Device": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "DeviceGroup": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "Image": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "Product": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "listCatalogDeployments": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "listCatalogDeviceGroups": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "listCatalogDeviceInsights": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ],
     "listCatalogDevices": [
-      "2022-09-01-preview"
+      "2022-09-01-preview",
+      "2024-04-01"
     ]
   },
   "AzureStack": {
@@ -3783,7 +3816,8 @@
       "2023-04-15-preview",
       "2023-09-01-preview",
       "2023-10-27-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-01-01"
     ],
     "Experiment": [
       "2021-09-15-preview",
@@ -3793,7 +3827,8 @@
       "2023-04-15-preview",
       "2023-09-01-preview",
       "2023-10-27-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-01-01"
     ],
     "PrivateAccess": [
       "2023-10-27-preview"
@@ -3806,10 +3841,12 @@
       "2023-04-15-preview",
       "2023-09-01-preview",
       "2023-10-27-preview",
-      "2023-11-01"
+      "2023-11-01",
+      "2024-01-01"
     ],
     "getExperimentExecutionDetails": [
-      "2023-11-01"
+      "2023-11-01",
+      "2024-01-01"
     ]
   },
   "CognitiveServices": {
@@ -6692,19 +6729,22 @@
     "PrivateEndpointConnection": [
       "2021-04-01-preview",
       "2022-04-01-preview",
-      "2023-02-01"
+      "2023-02-01",
+      "2023-09-15-preview"
     ],
     "Workspace": [
       "2018-04-01",
       "2021-04-01-preview",
       "2022-04-01-preview",
-      "2023-02-01"
+      "2023-02-01",
+      "2023-09-15-preview"
     ],
     "vNetPeering": [
       "2018-04-01",
       "2021-04-01-preview",
       "2022-04-01-preview",
-      "2023-02-01"
+      "2023-02-01",
+      "2023-09-15-preview"
     ]
   },
   "Datadog": {
@@ -16954,26 +16994,32 @@
     "Account": [
       "2020-12-01-preview",
       "2021-07-01",
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "KafkaConfiguration": [
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2020-12-01-preview",
       "2021-07-01",
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "listAccountKeys": [
       "2020-12-01-preview",
       "2021-07-01",
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "listFeatureAccount": [
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ],
     "listFeatureSubscription": [
-      "2021-12-01"
+      "2021-12-01",
+      "2023-05-01-preview"
     ]
   },
   "Quantum": {
@@ -18112,7 +18158,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "AlertRule": [
       "2019-01-01-preview",
@@ -18142,7 +18189,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "AutomationRule": [
       "2019-01-01-preview",
@@ -18170,7 +18218,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "Bookmark": [
       "2019-01-01-preview",
@@ -18199,7 +18248,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "BookmarkRelation": [
       "2019-01-01-preview",
@@ -18232,7 +18282,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "ContentTemplate": [
       "2023-04-01-preview",
@@ -18241,7 +18292,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "DataConnector": [
       "2019-01-01-preview",
@@ -18271,7 +18323,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "DataConnectorDefinition": [
       "2023-07-01-preview",
@@ -18375,7 +18428,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "IncidentComment": [
       "2019-01-01-preview",
@@ -18405,7 +18459,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "IncidentRelation": [
       "2019-01-01-preview",
@@ -18435,7 +18490,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "IncidentTask": [
       "2022-12-01-preview",
@@ -18472,7 +18528,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "ProductSetting": [
       "2019-01-01-preview",
@@ -18518,7 +18575,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "SentinelOnboardingState": [
       "2021-03-01-preview",
@@ -18546,7 +18604,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "SourceControl": [
       "2021-03-01-preview",
@@ -18594,7 +18653,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "Watchlist": [
       "2019-01-01-preview",
@@ -18624,7 +18684,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "WatchlistItem": [
       "2019-01-01-preview",
@@ -18654,7 +18715,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ],
     "WorkspaceManagerAssignment": [
       "2023-04-01-preview",
@@ -18762,7 +18824,8 @@
       "2023-07-01-preview",
       "2023-08-01-preview",
       "2023-09-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-11-01"
     ]
   },
   "SerialConsole": {
