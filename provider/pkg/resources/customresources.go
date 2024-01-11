@@ -4,7 +4,6 @@ package resources
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
@@ -77,7 +76,7 @@ func BuildCustomResources(env *azure.Environment,
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
-		newCustomWebAppDelete(azureClient),
+		customWebAppDelete(azureClient),
 	}
 
 	result := map[string]*CustomResource{}
@@ -129,28 +128,4 @@ func MetaMixins() map[string]AzureAPIResource {
 		}
 	}
 	return meta
-}
-
-// https://github.com/pulumi/pulumi-azure-native/issues/1529
-func newCustomWebAppDelete(azureClient AzureClient) *CustomResource {
-	const resourceType = "azure-native:web:WebApp"
-	return &CustomResource{
-		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}",
-		tok:  resourceType,
-		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
-			res, ok, err := azureClient.LookupResource(resourceType)
-			if err != nil {
-				return err
-			}
-			if !ok {
-				return fmt.Errorf("resource %q not found", resourceType)
-			}
-
-			return azureClient.AzureDelete(ctx, id, res.APIVersion, res.DeleteAsyncStyle, map[string]any{
-				// Don't delete the app service plan even if this was the last web app in it. It's
-				// a separate Pulumi resource.
-				"deleteEmptyServerFarm": false,
-			})
-		},
-	}
 }
