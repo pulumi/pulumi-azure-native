@@ -49,6 +49,8 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	},
 	"/{resourceId}/providers/Microsoft.Security/defenderForStorageSettings/{settingName}": {
 		"isEnabled": false,
+		// https://learn.microsoft.com/en-us/azure/storage/common/azure-defender-storage-configure?tabs=enable-subscription#rest-api-1
+		"overrideSubscriptionLevelSettings": true,
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default": {
 		"defaultAction": "Deny",
