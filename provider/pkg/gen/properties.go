@@ -97,6 +97,14 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				return nil, err
 			}
 
+			for propName := range bag.properties {
+				if _, has := result.properties[propName]; has {
+					m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
+					logging.V(5).Infof("WARNING: property '%s' of %s will be overwritten when flattening '%s'\n",
+						propName, m.resourceToken, name)
+				}
+			}
+
 			// Adjust every property to mark them as flattened.
 			newProperties := map[string]resources.AzureAPIProperty{}
 			for n, value := range bag.properties {

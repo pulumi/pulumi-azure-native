@@ -51,11 +51,12 @@ type Versioning interface {
 }
 
 type GenerationResult struct {
-	Schema            *pschema.PackageSpec
-	Metadata          *resources.AzureAPIMetadata
-	Examples          map[string][]resources.AzureAPIExample
-	ForceNewTypes     []ForceNewType
-	TypeCaseConflicts CaseConflicts
+	Schema                     *pschema.PackageSpec
+	Metadata                   *resources.AzureAPIMetadata
+	Examples                   map[string][]resources.AzureAPIExample
+	ForceNewTypes              []ForceNewType
+	TypeCaseConflicts          CaseConflicts
+	FlattenedPropertyConflicts map[string]map[string]struct{}
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
@@ -269,10 +270,12 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	}
 	sort.Strings(providers)
 
+	// Track some global data
 	warnings := []string{}
 	var forceNewTypes []ForceNewType
-
 	caseSensitiveTypes := newCaseSensitiveTokens()
+	flattenedPropertyConflicts := map[string]map[string]struct{}{}
+
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
@@ -284,15 +287,16 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 
 		for _, version := range versions {
 			gen := packageGenerator{
-				pkg:                &pkg,
-				metadata:           &metadata,
-				provider:           providerName,
-				apiVersion:         version,
-				allApiVersions:     versions,
-				examples:           exampleMap,
-				versioning:         versioning,
-				caseSensitiveTypes: caseSensitiveTypes,
-				rootDir:            rootDir,
+				pkg:                        &pkg,
+				metadata:                   &metadata,
+				provider:                   providerName,
+				apiVersion:                 version,
+				allApiVersions:             versions,
+				examples:                   exampleMap,
+				versioning:                 versioning,
+				caseSensitiveTypes:         caseSensitiveTypes,
+				rootDir:                    rootDir,
+				flattenedPropertyConflicts: flattenedPropertyConflicts,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -384,11 +388,12 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	})
 
 	return &GenerationResult{
-		Schema:            &pkg,
-		Metadata:          &metadata,
-		Examples:          exampleMap,
-		ForceNewTypes:     forceNewTypes,
-		TypeCaseConflicts: caseSensitiveTypes.findCaseConflicts(),
+		Schema:                     &pkg,
+		Metadata:                   &metadata,
+		Examples:                   exampleMap,
+		ForceNewTypes:              forceNewTypes,
+		TypeCaseConflicts:          caseSensitiveTypes.findCaseConflicts(),
+		FlattenedPropertyConflicts: flattenedPropertyConflicts,
 	}, nil
 }
 
@@ -575,8 +580,9 @@ type packageGenerator struct {
 	caseSensitiveTypes caseSensitiveTokens
 	warnings           []string
 	// rootDir is used to resolve relative paths in the examples.
-	rootDir       string
-	forceNewTypes []ForceNewType
+	rootDir                    string
+	forceNewTypes              []ForceNewType
+	flattenedPropertyConflicts map[string]map[string]struct{}
 }
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -723,16 +729,17 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	// Generate the resource.
 	gen := moduleGenerator{
-		pkg:                    g.pkg,
-		metadata:               g.metadata,
-		module:                 module,
-		prov:                   g.provider,
-		resourceName:           resource.typeName,
-		resourceToken:          resourceTok,
-		visitedTypes:           make(map[string]bool),
-		caseSensitiveTypes:     g.caseSensitiveTypes,
-		inlineTypes:            map[*openapi.ReferenceContext]codegen.StringSet{},
-		nestedResourceBodyRefs: nestedResourceBodyRefs,
+		pkg:                        g.pkg,
+		metadata:                   g.metadata,
+		module:                     module,
+		prov:                       g.provider,
+		resourceName:               resource.typeName,
+		resourceToken:              resourceTok,
+		visitedTypes:               make(map[string]bool),
+		caseSensitiveTypes:         g.caseSensitiveTypes,
+		inlineTypes:                map[*openapi.ReferenceContext]codegen.StringSet{},
+		nestedResourceBodyRefs:     nestedResourceBodyRefs,
+		flattenedPropertyConflicts: map[string]struct{}{},
 	}
 
 	updateOp := path.Put
@@ -884,6 +891,9 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	g.generateExampleReferences(resourceTok, path, swagger)
 	g.forceNewTypes = append(g.forceNewTypes, gen.forceNewTypes...)
+	if len(gen.flattenedPropertyConflicts) > 0 {
+		g.flattenedPropertyConflicts[resourceTok] = gen.flattenedPropertyConflicts
+	}
 	return nil
 }
 
@@ -966,15 +976,16 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec.Parameter, operation *spec.Operation, swagger *openapi.Spec) {
 	module := g.moduleName()
 	gen := moduleGenerator{
-		pkg:                g.pkg,
-		metadata:           g.metadata,
-		module:             module,
-		resourceToken:      fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
-		prov:               g.provider,
-		resourceName:       typeName,
-		visitedTypes:       make(map[string]bool),
-		caseSensitiveTypes: g.caseSensitiveTypes,
-		inlineTypes:        map[*openapi.ReferenceContext]codegen.StringSet{},
+		pkg:                        g.pkg,
+		metadata:                   g.metadata,
+		module:                     module,
+		resourceToken:              fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
+		prov:                       g.provider,
+		resourceName:               typeName,
+		visitedTypes:               make(map[string]bool),
+		caseSensitiveTypes:         g.caseSensitiveTypes,
+		inlineTypes:                map[*openapi.ReferenceContext]codegen.StringSet{},
+		flattenedPropertyConflicts: map[string]struct{}{},
 	}
 
 	// Generate the function to get this resource.
@@ -1219,17 +1230,18 @@ type ForceNewType struct {
 }
 
 type moduleGenerator struct {
-	pkg                    *pschema.PackageSpec
-	metadata               *resources.AzureAPIMetadata
-	module                 string
-	prov                   string
-	resourceName           string
-	resourceToken          string
-	visitedTypes           map[string]bool
-	caseSensitiveTypes     caseSensitiveTokens
-	inlineTypes            map[*openapi.ReferenceContext]codegen.StringSet
-	nestedResourceBodyRefs []string
-	forceNewTypes          []ForceNewType
+	pkg                        *pschema.PackageSpec
+	metadata                   *resources.AzureAPIMetadata
+	module                     string
+	prov                       string
+	resourceName               string
+	resourceToken              string
+	visitedTypes               map[string]bool
+	caseSensitiveTypes         caseSensitiveTokens
+	inlineTypes                map[*openapi.ReferenceContext]codegen.StringSet
+	nestedResourceBodyRefs     []string
+	forceNewTypes              []ForceNewType
+	flattenedPropertyConflicts map[string]struct{}
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {
