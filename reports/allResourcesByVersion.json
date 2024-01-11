@@ -2625,6 +2625,17 @@
       "SqlServerRegistration"
     ]
   },
+  "AzureDataTransfer": {
+    "2023-10-11-preview": [
+      "Connection",
+      "Flow",
+      "Pipeline",
+      "listAzureDataTransferApprovedSchemas",
+      "listListPendingConnection",
+      "listListPendingFlow",
+      "listListSchema"
+    ]
+  },
   "AzureLargeInstance": {
     "": []
   },
@@ -2635,6 +2646,18 @@
   },
   "AzureSphere": {
     "2022-09-01-preview": [
+      "Catalog",
+      "Deployment",
+      "Device",
+      "DeviceGroup",
+      "Image",
+      "Product",
+      "listCatalogDeployments",
+      "listCatalogDeviceGroups",
+      "listCatalogDeviceInsights",
+      "listCatalogDevices"
+    ],
+    "2024-04-01": [
       "Catalog",
       "Deployment",
       "Device",
@@ -3567,6 +3590,12 @@
       "Target"
     ],
     "2023-11-01": [
+      "Capability",
+      "Experiment",
+      "Target",
+      "getExperimentExecutionDetails"
+    ],
+    "2024-01-01": [
       "Capability",
       "Experiment",
       "Target",
@@ -6639,6 +6668,11 @@
     ],
     "2023-05-01": [
       "AccessConnector"
+    ],
+    "2023-09-15-preview": [
+      "PrivateEndpointConnection",
+      "Workspace",
+      "vNetPeering"
     ]
   },
   "Datadog": {
@@ -16355,6 +16389,14 @@
       "listAccountKeys",
       "listFeatureAccount",
       "listFeatureSubscription"
+    ],
+    "2023-05-01-preview": [
+      "Account",
+      "KafkaConfiguration",
+      "PrivateEndpointConnection",
+      "listAccountKeys",
+      "listFeatureAccount",
+      "listFeatureSubscription"
     ]
   },
   "Quantum": {
@@ -18155,6 +18197,25 @@
       "WorkspaceManagerMember",
       "getEntitiesGetTimeline",
       "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2023-11-01": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "Metadata",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
       "listSourceControlRepositories"
     ]
   },

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Lists devices for catalog.
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function listCatalogDevices(args: ListCatalogDevicesArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDevicesResult> {
 
@@ -67,6 +69,8 @@ export interface ListCatalogDevicesResult {
 /**
  * Lists devices for catalog.
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function listCatalogDevicesOutput(args: ListCatalogDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDevicesResult> {
     return pulumi.output(args).apply((a: any) => listCatalogDevices(a, opts))

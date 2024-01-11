@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * An device group resource belonging to a product resource.
  * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export class DeviceGroup extends pulumi.CustomResource {
     /**
@@ -126,7 +128,7 @@ export class DeviceGroup extends pulumi.CustomResource {
             resourceInputs["updatePolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20220901preview:DeviceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20220901preview:DeviceGroup" }, { type: "azure-native:azuresphere/v20240401:DeviceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeviceGroup.__pulumiType, name, resourceInputs, opts);
     }

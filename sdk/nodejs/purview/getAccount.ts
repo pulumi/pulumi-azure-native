@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get an account
  * Azure REST API version: 2021-12-01.
  *
- * Other available API versions: 2020-12-01-preview, 2021-07-01.
+ * Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -131,7 +131,7 @@ export interface GetAccountResult {
  * Get an account
  * Azure REST API version: 2021-12-01.
  *
- * Other available API versions: 2020-12-01-preview, 2021-07-01.
+ * Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

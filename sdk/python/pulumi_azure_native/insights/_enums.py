@@ -285,15 +285,21 @@ class KnownPublicNetworkAccessOptions(str, Enum):
 
 
 class KnownSyslogDataSourceFacilityNames(str, Enum):
+    ALERT = "alert"
+    AUDIT = "audit"
     AUTH = "auth"
     AUTHPRIV = "authpriv"
+    CLOCK = "clock"
     CRON = "cron"
     DAEMON = "daemon"
+    FTP = "ftp"
     KERN = "kern"
     LPR = "lpr"
     MAIL = "mail"
     MARK = "mark"
     NEWS = "news"
+    NOPRI = "nopri"
+    NTP = "ntp"
     SYSLOG = "syslog"
     USER = "user"
     UUCP = "uucp"

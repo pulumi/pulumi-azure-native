@@ -200,6 +200,8 @@ class KafkaConfiguration(pulumi.CustomResource):
         The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
         Azure REST API version: 2021-12-01.
 
+        Other available API versions: 2023-05-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the account.
@@ -221,6 +223,8 @@ class KafkaConfiguration(pulumi.CustomResource):
         """
         The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
         Azure REST API version: 2021-12-01.
+
+        Other available API versions: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KafkaConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -277,7 +281,7 @@ class KafkaConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20211201:KafkaConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20211201:KafkaConfiguration"), pulumi.Alias(type_="azure-native:purview/v20230501preview:KafkaConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KafkaConfiguration, __self__).__init__(
             'azure-native:purview:KafkaConfiguration',

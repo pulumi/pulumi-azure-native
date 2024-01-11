@@ -170,6 +170,8 @@ def get_kafka_configuration(account_name: Optional[str] = None,
     Gets the kafka configuration for the account
     Azure REST API version: 2021-12-01.
 
+    Other available API versions: 2023-05-01-preview.
+
 
     :param str account_name: The name of the account.
     :param str kafka_configuration_name: Name of kafka configuration.
@@ -204,6 +206,8 @@ def get_kafka_configuration_output(account_name: Optional[pulumi.Input[str]] = N
     """
     Gets the kafka configuration for the account
     Azure REST API version: 2021-12-01.
+
+    Other available API versions: 2023-05-01-preview.
 
 
     :param str account_name: The name of the account.

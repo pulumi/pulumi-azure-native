@@ -234,6 +234,8 @@ class Workspace(pulumi.CustomResource):
         Information about workspace.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
 
+        Other available API versions: 2023-09-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]] authorizations: The workspace provider authorizations.
@@ -258,6 +260,8 @@ class Workspace(pulumi.CustomResource):
         """
         Information about workspace.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
+
+        Other available API versions: 2023-09-15-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -324,7 +328,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["updated_by"] = None
             __props__.__dict__["workspace_id"] = None
             __props__.__dict__["workspace_url"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20180401:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20230201:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20180401:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20230201:Workspace"), pulumi.Alias(type_="azure-native:databricks/v20230915preview:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:databricks:Workspace',

@@ -28,7 +28,7 @@ class ImageInitArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] image: Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
         :param pulumi.Input[str] image_id: Image ID
-        :param pulumi.Input[str] image_name: Image name. Use .default for image creation.
+        :param pulumi.Input[str] image_name: Image name. Use an image GUID for GA versions of the API.
         :param pulumi.Input[Union[str, 'RegionalDataBoundary']] regional_data_boundary: Regional data boundary for an image
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
@@ -94,7 +94,7 @@ class ImageInitArgs:
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Image name. Use .default for image creation.
+        Image name. Use an image GUID for GA versions of the API.
         """
         return pulumi.get(self, "image_name")
 
@@ -131,12 +131,14 @@ class Image(pulumi.CustomResource):
         An image resource belonging to a catalog resource.
         Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
+        Other available API versions: 2024-04-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_name: Name of catalog
         :param pulumi.Input[str] image: Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
         :param pulumi.Input[str] image_id: Image ID
-        :param pulumi.Input[str] image_name: Image name. Use .default for image creation.
+        :param pulumi.Input[str] image_name: Image name. Use an image GUID for GA versions of the API.
         :param pulumi.Input[Union[str, 'RegionalDataBoundary']] regional_data_boundary: Regional data boundary for an image
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -149,6 +151,8 @@ class Image(pulumi.CustomResource):
         """
         An image resource belonging to a catalog resource.
         Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+
+        Other available API versions: 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param ImageInitArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +202,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uri"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Image")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Image"), pulumi.Alias(type_="azure-native:azuresphere/v20240401:Image")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Image, __self__).__init__(
             'azure-native:azuresphere:Image',

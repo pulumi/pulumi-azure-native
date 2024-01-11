@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * An Azure Sphere catalog
  * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export class Catalog extends pulumi.CustomResource {
     /**
@@ -94,7 +96,7 @@ export class Catalog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20220901preview:Catalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20220901preview:Catalog" }, { type: "azure-native:azuresphere/v20240401:Catalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Catalog.__pulumiType, name, resourceInputs, opts);
     }

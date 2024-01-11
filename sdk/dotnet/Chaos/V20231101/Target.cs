@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Chaos.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230415preview:Target" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20230901preview:Target" },
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20231027preview:Target" },
+                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20240101:Target" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

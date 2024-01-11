@@ -63,7 +63,7 @@ def list_account_keys(account_name: Optional[str] = None,
     List the authorization keys associated with this account.
     Azure REST API version: 2021-12-01.
 
-    Other available API versions: 2020-12-01-preview, 2021-07-01.
+    Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview.
 
 
     :param str account_name: The name of the account.
@@ -88,7 +88,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
     List the authorization keys associated with this account.
     Azure REST API version: 2021-12-01.
 
-    Other available API versions: 2020-12-01-preview, 2021-07-01.
+    Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview.
 
 
     :param str account_name: The name of the account.

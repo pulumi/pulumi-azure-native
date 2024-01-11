@@ -146,9 +146,9 @@ class GetExternalNetworkResult:
 
     @property
     @pulumi.getter(name="networkToNetworkInterconnectId")
-    def network_to_network_interconnect_id(self) -> str:
+    def network_to_network_interconnect_id(self) -> Optional[str]:
         """
-        Gets the networkToNetworkInterconnectId of the resource.
+        ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
         """
         return pulumi.get(self, "network_to_network_interconnect_id")
 

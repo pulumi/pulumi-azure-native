@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List the device groups for the catalog.
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function listCatalogDeviceGroups(args: ListCatalogDeviceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDeviceGroupsResult> {
 
@@ -72,6 +74,8 @@ export interface ListCatalogDeviceGroupsResult {
 /**
  * List the device groups for the catalog.
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function listCatalogDeviceGroupsOutput(args: ListCatalogDeviceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeviceGroupsResult> {
     return pulumi.output(args).apply((a: any) => listCatalogDeviceGroups(a, opts))

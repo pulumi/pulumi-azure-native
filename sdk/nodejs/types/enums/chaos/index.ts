@@ -6,12 +6,14 @@ import * as v20230415preview from "./v20230415preview";
 import * as v20230901preview from "./v20230901preview";
 import * as v20231027preview from "./v20231027preview";
 import * as v20231101 from "./v20231101";
+import * as v20240101 from "./v20240101";
 
 export {
     v20230415preview,
     v20230901preview,
     v20231027preview,
     v20231101,
+    v20240101,
 };
 
 export const FilterType = {

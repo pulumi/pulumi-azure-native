@@ -34,6 +34,7 @@ import * as avs from "./avs";
 import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurearcdata from "./azurearcdata";
 import * as azuredata from "./azuredata";
+import * as azuredatatransfer from "./azuredatatransfer";
 import * as azureplaywrightservice from "./azureplaywrightservice";
 import * as azuresphere from "./azuresphere";
 import * as azurestack from "./azurestack";
@@ -259,6 +260,7 @@ export {
     azureactivedirectory,
     azurearcdata,
     azuredata,
+    azuredatatransfer,
     azureplaywrightservice,
     azuresphere,
     azurestack,

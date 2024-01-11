@@ -1106,6 +1106,20 @@
     "Property": "collationName"
   },
   {
+    "Module": "azuredatatransfer",
+    "Provider": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "selectedResource",
+    "Property": "location"
+  },
+  {
+    "Module": "azuredatatransfer/v20231011preview",
+    "Provider": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "selectedResource",
+    "Property": "location"
+  },
+  {
     "Module": "azuresphere",
     "Provider": "AzureSphere",
     "ResourceName": "Deployment",
@@ -1142,6 +1156,27 @@
   },
   {
     "Module": "azuresphere/v20220901preview",
+    "Provider": "AzureSphere",
+    "ResourceName": "Deployment",
+    "ReferenceName": "RegionalDataBoundary",
+    "Property": "regionalDataBoundary"
+  },
+  {
+    "Module": "azuresphere/v20240401",
+    "Provider": "AzureSphere",
+    "ResourceName": "Deployment",
+    "ReferenceName": "ImageProperties",
+    "Property": "image"
+  },
+  {
+    "Module": "azuresphere/v20240401",
+    "Provider": "AzureSphere",
+    "ResourceName": "Deployment",
+    "ReferenceName": "ImageProperties",
+    "Property": "imageId"
+  },
+  {
+    "Module": "azuresphere/v20240401",
     "Provider": "AzureSphere",
     "ResourceName": "Deployment",
     "ReferenceName": "RegionalDataBoundary",

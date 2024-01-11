@@ -53,6 +53,8 @@ if typing.TYPE_CHECKING:
     azurearcdata = __azurearcdata
     import pulumi_azure_native.azuredata as __azuredata
     azuredata = __azuredata
+    import pulumi_azure_native.azuredatatransfer as __azuredatatransfer
+    azuredatatransfer = __azuredatatransfer
     import pulumi_azure_native.azureplaywrightservice as __azureplaywrightservice
     azureplaywrightservice = __azureplaywrightservice
     import pulumi_azure_native.azuresphere as __azuresphere
@@ -476,6 +478,7 @@ else:
     azureactivedirectory = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory')
     azurearcdata = _utilities.lazy_import('pulumi_azure_native.azurearcdata')
     azuredata = _utilities.lazy_import('pulumi_azure_native.azuredata')
+    azuredatatransfer = _utilities.lazy_import('pulumi_azure_native.azuredatatransfer')
     azureplaywrightservice = _utilities.lazy_import('pulumi_azure_native.azureplaywrightservice')
     azuresphere = _utilities.lazy_import('pulumi_azure_native.azuresphere')
     azurestack = _utilities.lazy_import('pulumi_azure_native.azurestack')
@@ -2487,6 +2490,26 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azuredatatransfer",
+  "fqn": "pulumi_azure_native.azuredatatransfer",
+  "classes": {
+   "azure-native:azuredatatransfer:Connection": "Connection",
+   "azure-native:azuredatatransfer:Flow": "Flow",
+   "azure-native:azuredatatransfer:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azuredatatransfer/v20231011preview",
+  "fqn": "pulumi_azure_native.azuredatatransfer.v20231011preview",
+  "classes": {
+   "azure-native:azuredatatransfer/v20231011preview:Connection": "Connection",
+   "azure-native:azuredatatransfer/v20231011preview:Flow": "Flow",
+   "azure-native:azuredatatransfer/v20231011preview:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azureplaywrightservice",
   "fqn": "pulumi_azure_native.azureplaywrightservice",
   "classes": {
@@ -2525,6 +2548,19 @@ _utilities.register(
    "azure-native:azuresphere/v20220901preview:DeviceGroup": "DeviceGroup",
    "azure-native:azuresphere/v20220901preview:Image": "Image",
    "azure-native:azuresphere/v20220901preview:Product": "Product"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azuresphere/v20240401",
+  "fqn": "pulumi_azure_native.azuresphere.v20240401",
+  "classes": {
+   "azure-native:azuresphere/v20240401:Catalog": "Catalog",
+   "azure-native:azuresphere/v20240401:Deployment": "Deployment",
+   "azure-native:azuresphere/v20240401:Device": "Device",
+   "azure-native:azuresphere/v20240401:DeviceGroup": "DeviceGroup",
+   "azure-native:azuresphere/v20240401:Image": "Image",
+   "azure-native:azuresphere/v20240401:Product": "Product"
   }
  },
  {
@@ -3228,6 +3264,16 @@ _utilities.register(
    "azure-native:chaos/v20231101:Capability": "Capability",
    "azure-native:chaos/v20231101:Experiment": "Experiment",
    "azure-native:chaos/v20231101:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "chaos/v20240101",
+  "fqn": "pulumi_azure_native.chaos.v20240101",
+  "classes": {
+   "azure-native:chaos/v20240101:Capability": "Capability",
+   "azure-native:chaos/v20240101:Experiment": "Experiment",
+   "azure-native:chaos/v20240101:Target": "Target"
   }
  },
  {
@@ -4733,6 +4779,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.databricks.v20230501",
   "classes": {
    "azure-native:databricks/v20230501:AccessConnector": "AccessConnector"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "databricks/v20230915preview",
+  "fqn": "pulumi_azure_native.databricks.v20230915preview",
+  "classes": {
+   "azure-native:databricks/v20230915preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:databricks/v20230915preview:VNetPeering": "VNetPeering",
+   "azure-native:databricks/v20230915preview:Workspace": "Workspace"
   }
  },
  {
@@ -11326,6 +11382,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "purview/v20230501preview",
+  "fqn": "pulumi_azure_native.purview.v20230501preview",
+  "classes": {
+   "azure-native:purview/v20230501preview:Account": "Account",
+   "azure-native:purview/v20230501preview:KafkaConfiguration": "KafkaConfiguration",
+   "azure-native:purview/v20230501preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "quantum",
   "fqn": "pulumi_azure_native.quantum",
   "classes": {
@@ -12690,6 +12756,38 @@ _utilities.register(
    "azure-native:securityinsights/v20231001preview:WorkspaceManagerConfiguration": "WorkspaceManagerConfiguration",
    "azure-native:securityinsights/v20231001preview:WorkspaceManagerGroup": "WorkspaceManagerGroup",
    "azure-native:securityinsights/v20231001preview:WorkspaceManagerMember": "WorkspaceManagerMember"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "securityinsights/v20231101",
+  "fqn": "pulumi_azure_native.securityinsights.v20231101",
+  "classes": {
+   "azure-native:securityinsights/v20231101:AADDataConnector": "AADDataConnector",
+   "azure-native:securityinsights/v20231101:AATPDataConnector": "AATPDataConnector",
+   "azure-native:securityinsights/v20231101:ASCDataConnector": "ASCDataConnector",
+   "azure-native:securityinsights/v20231101:Action": "Action",
+   "azure-native:securityinsights/v20231101:AnomalySecurityMLAnalyticsSettings": "AnomalySecurityMLAnalyticsSettings",
+   "azure-native:securityinsights/v20231101:AutomationRule": "AutomationRule",
+   "azure-native:securityinsights/v20231101:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
+   "azure-native:securityinsights/v20231101:Bookmark": "Bookmark",
+   "azure-native:securityinsights/v20231101:ContentPackage": "ContentPackage",
+   "azure-native:securityinsights/v20231101:ContentTemplate": "ContentTemplate",
+   "azure-native:securityinsights/v20231101:FusionAlertRule": "FusionAlertRule",
+   "azure-native:securityinsights/v20231101:Incident": "Incident",
+   "azure-native:securityinsights/v20231101:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20231101:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20231101:MCASDataConnector": "MCASDataConnector",
+   "azure-native:securityinsights/v20231101:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20231101:Metadata": "Metadata",
+   "azure-native:securityinsights/v20231101:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
+   "azure-native:securityinsights/v20231101:OfficeDataConnector": "OfficeDataConnector",
+   "azure-native:securityinsights/v20231101:ScheduledAlertRule": "ScheduledAlertRule",
+   "azure-native:securityinsights/v20231101:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights/v20231101:TIDataConnector": "TIDataConnector",
+   "azure-native:securityinsights/v20231101:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
+   "azure-native:securityinsights/v20231101:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20231101:WatchlistItem": "WatchlistItem"
   }
  },
  {

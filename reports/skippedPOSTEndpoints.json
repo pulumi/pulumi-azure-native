@@ -183,6 +183,15 @@
     "B2CTenants_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/checkNameAvailability",
     "CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/checkNameAvailability"
   },
+  "AzureDataTransfer": {
+    "AzureDataTransfer_validateSchema": "/providers/Microsoft.AzureDataTransfer/validateSchema",
+    "Connections_Link": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName}/link",
+    "Flows_Disable": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName}/flows/{flowName}/disable",
+    "Flows_Enable": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName}/flows/{flowName}/enable",
+    "Flows_Link": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName}/flows/{flowName}/link",
+    "Pipelines_ApproveConnection": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/pipelines/{pipelineName}/approveConnection",
+    "Pipelines_RejectConnection": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/pipelines/{pipelineName}/rejectConnection"
+  },
   "AzureLargeInstance": {
     "AzureLargeInstance_Restart": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeInstances/{azureLargeInstanceName}/restart",
     "AzureLargeInstance_Shutdown": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureLargeInstance/azureLargeInstances/{azureLargeInstanceName}/shutdown",
@@ -190,6 +199,7 @@
   },
   "AzureSphere": {
     "Catalogs_CountDevices": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/countDevices",
+    "Catalogs_UploadImage": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/uploadImage",
     "Certificates_RetrieveCertChain": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/certificates/{serialNumber}/retrieveCertChain",
     "Certificates_RetrieveProofOfPossessionNonce": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/certificates/{serialNumber}/retrieveProofOfPossessionNonce",
     "DeviceGroups_ClaimDevices": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureSphere/catalogs/{catalogName}/products/{productName}/deviceGroups/{deviceGroupName}/claimDevices",
@@ -1772,7 +1782,8 @@
     "Accounts_AddRootCollectionAdmin": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin",
     "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Purview/checkNameAvailability",
     "DefaultAccounts_Remove": "/providers/Microsoft.Purview/removeDefaultAccount",
-    "DefaultAccounts_Set": "/providers/Microsoft.Purview/setDefaultAccount"
+    "DefaultAccounts_Set": "/providers/Microsoft.Purview/setDefaultAccount",
+    "IngestionPrivateEndpointConnections_UpdateStatus": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/ingestionPrivateEndpointConnectionStatus"
   },
   "Quantum": {
     "Workspace_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Quantum/locations/{locationName}/checkNameAvailability"

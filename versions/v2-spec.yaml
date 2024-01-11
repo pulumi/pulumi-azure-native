@@ -157,6 +157,8 @@ AzureArcData:
     tracking: 2023-01-15-preview
 AzureData:
     tracking: 2019-07-24-preview
+AzureDataTransfer:
+    tracking: 2023-10-11-preview
 AzureLargeInstance: {}
 AzurePlaywrightService:
     tracking: 2023-10-01-preview

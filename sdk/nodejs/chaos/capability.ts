@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Model that represents a Capability resource.
  * Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01.
+ * Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01.
  */
 export class Capability extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class Capability extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Capability" }, { type: "azure-native:chaos/v20220701preview:Capability" }, { type: "azure-native:chaos/v20221001preview:Capability" }, { type: "azure-native:chaos/v20230401preview:Capability" }, { type: "azure-native:chaos/v20230415preview:Capability" }, { type: "azure-native:chaos/v20230901preview:Capability" }, { type: "azure-native:chaos/v20231027preview:Capability" }, { type: "azure-native:chaos/v20231101:Capability" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Capability" }, { type: "azure-native:chaos/v20220701preview:Capability" }, { type: "azure-native:chaos/v20221001preview:Capability" }, { type: "azure-native:chaos/v20230401preview:Capability" }, { type: "azure-native:chaos/v20230415preview:Capability" }, { type: "azure-native:chaos/v20230901preview:Capability" }, { type: "azure-native:chaos/v20231027preview:Capability" }, { type: "azure-native:chaos/v20231101:Capability" }, { type: "azure-native:chaos/v20240101:Capability" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Capability.__pulumiType, name, resourceInputs, opts);
     }

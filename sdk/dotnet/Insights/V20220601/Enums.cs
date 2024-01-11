@@ -332,15 +332,21 @@ namespace Pulumi.AzureNative.Insights.V20220601
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static KnownSyslogDataSourceFacilityNames Alert { get; } = new KnownSyslogDataSourceFacilityNames("alert");
+        public static KnownSyslogDataSourceFacilityNames Audit { get; } = new KnownSyslogDataSourceFacilityNames("audit");
         public static KnownSyslogDataSourceFacilityNames Auth { get; } = new KnownSyslogDataSourceFacilityNames("auth");
         public static KnownSyslogDataSourceFacilityNames Authpriv { get; } = new KnownSyslogDataSourceFacilityNames("authpriv");
+        public static KnownSyslogDataSourceFacilityNames Clock { get; } = new KnownSyslogDataSourceFacilityNames("clock");
         public static KnownSyslogDataSourceFacilityNames Cron { get; } = new KnownSyslogDataSourceFacilityNames("cron");
         public static KnownSyslogDataSourceFacilityNames Daemon { get; } = new KnownSyslogDataSourceFacilityNames("daemon");
+        public static KnownSyslogDataSourceFacilityNames Ftp { get; } = new KnownSyslogDataSourceFacilityNames("ftp");
         public static KnownSyslogDataSourceFacilityNames Kern { get; } = new KnownSyslogDataSourceFacilityNames("kern");
         public static KnownSyslogDataSourceFacilityNames Lpr { get; } = new KnownSyslogDataSourceFacilityNames("lpr");
         public static KnownSyslogDataSourceFacilityNames Mail { get; } = new KnownSyslogDataSourceFacilityNames("mail");
         public static KnownSyslogDataSourceFacilityNames Mark { get; } = new KnownSyslogDataSourceFacilityNames("mark");
         public static KnownSyslogDataSourceFacilityNames News { get; } = new KnownSyslogDataSourceFacilityNames("news");
+        public static KnownSyslogDataSourceFacilityNames Nopri { get; } = new KnownSyslogDataSourceFacilityNames("nopri");
+        public static KnownSyslogDataSourceFacilityNames Ntp { get; } = new KnownSyslogDataSourceFacilityNames("ntp");
         public static KnownSyslogDataSourceFacilityNames Syslog { get; } = new KnownSyslogDataSourceFacilityNames("syslog");
         public static KnownSyslogDataSourceFacilityNames User { get; } = new KnownSyslogDataSourceFacilityNames("user");
         public static KnownSyslogDataSourceFacilityNames Uucp { get; } = new KnownSyslogDataSourceFacilityNames("uucp");

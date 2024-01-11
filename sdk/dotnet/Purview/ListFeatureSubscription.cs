@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Gets details from a list of feature names.
         /// Azure REST API version: 2021-12-01.
+        /// 
+        /// Other available API versions: 2023-05-01-preview.
         /// </summary>
         public static Task<ListFeatureSubscriptionResult> InvokeAsync(ListFeatureSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFeatureSubscriptionResult>("azure-native:purview:listFeatureSubscription", args ?? new ListFeatureSubscriptionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Gets details from a list of feature names.
         /// Azure REST API version: 2021-12-01.
+        /// 
+        /// Other available API versions: 2023-05-01-preview.
         /// </summary>
         public static Output<ListFeatureSubscriptionResult> Invoke(ListFeatureSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeatureSubscriptionResult>("azure-native:purview:listFeatureSubscription", args ?? new ListFeatureSubscriptionInvokeArgs(), options.WithDefaults());

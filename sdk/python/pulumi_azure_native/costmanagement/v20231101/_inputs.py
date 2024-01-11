@@ -1824,7 +1824,7 @@ class TagInheritancePropertiesArgs:
                  prefer_container_tags: pulumi.Input[bool]):
         """
         The properties of the tag inheritance setting.
-        :param pulumi.Input[bool] prefer_container_tags: When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
+        :param pulumi.Input[bool] prefer_container_tags: This property defines the behavior when an inherited tag being applied matches a lower scope tag (Eg. Subscription tag matches the resource tag). If set to true - when tags match, the highest scope tags will be applied. Billing profile is the highest scope,  followed by invoice sections, subscriptions and resource groups (allows overriding of lower scope tag values). If set to false - when tags match, the lowest scope tags will be applied. So, if a resource has the same tag as a subscription tag, the resource tag will be applied (does not allow overriding of lower scope tag values).
         """
         pulumi.set(__self__, "prefer_container_tags", prefer_container_tags)
 
@@ -1832,7 +1832,7 @@ class TagInheritancePropertiesArgs:
     @pulumi.getter(name="preferContainerTags")
     def prefer_container_tags(self) -> pulumi.Input[bool]:
         """
-        When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
+        This property defines the behavior when an inherited tag being applied matches a lower scope tag (Eg. Subscription tag matches the resource tag). If set to true - when tags match, the highest scope tags will be applied. Billing profile is the highest scope,  followed by invoice sections, subscriptions and resource groups (allows overriding of lower scope tag values). If set to false - when tags match, the lowest scope tags will be applied. So, if a resource has the same tag as a subscription tag, the resource tag will be applied (does not allow overriding of lower scope tag values).
         """
         return pulumi.get(self, "prefer_container_tags")
 

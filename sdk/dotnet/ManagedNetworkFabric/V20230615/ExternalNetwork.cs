@@ -64,10 +64,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the networkToNetworkInterconnectId of the resource.
+        /// ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
         /// </summary>
         [Output("networkToNetworkInterconnectId")]
-        public Output<string> NetworkToNetworkInterconnectId { get; private set; } = null!;
+        public Output<string?> NetworkToNetworkInterconnectId { get; private set; } = null!;
 
         /// <summary>
         /// option A properties object
@@ -196,6 +196,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         [Input("l3IsolationDomainName", required: true)]
         public Input<string> L3IsolationDomainName { get; set; } = null!;
+
+        /// <summary>
+        /// ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
+        /// </summary>
+        [Input("networkToNetworkInterconnectId")]
+        public Input<string>? NetworkToNetworkInterconnectId { get; set; }
 
         /// <summary>
         /// option A properties object

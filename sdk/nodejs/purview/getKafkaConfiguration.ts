@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the kafka configuration for the account
  * Azure REST API version: 2021-12-01.
+ *
+ * Other available API versions: 2023-05-01-preview.
  */
 export function getKafkaConfiguration(args: GetKafkaConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetKafkaConfigurationResult> {
 
@@ -85,6 +87,8 @@ export interface GetKafkaConfigurationResult {
 /**
  * Gets the kafka configuration for the account
  * Azure REST API version: 2021-12-01.
+ *
+ * Other available API versions: 2023-05-01-preview.
  */
 export function getKafkaConfigurationOutput(args: GetKafkaConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getKafkaConfiguration(a, opts))

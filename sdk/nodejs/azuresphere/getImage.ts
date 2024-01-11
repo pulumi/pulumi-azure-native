@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Image
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
 
@@ -27,7 +29,7 @@ export interface GetImageArgs {
      */
     catalogName: string;
     /**
-     * Image name. Use .default for image creation.
+     * Image name. Use an image GUID for GA versions of the API.
      */
     imageName: string;
     /**
@@ -96,6 +98,8 @@ export interface GetImageResult {
 /**
  * Get a Image
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))
@@ -107,7 +111,7 @@ export interface GetImageOutputArgs {
      */
     catalogName: pulumi.Input<string>;
     /**
-     * Image name. Use .default for image creation.
+     * Image name. Use an image GUID for GA versions of the API.
      */
     imageName: pulumi.Input<string>;
     /**

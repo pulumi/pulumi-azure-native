@@ -110,6 +110,10 @@ export class RecordSet extends pulumi.CustomResource {
      */
     public readonly tlsaRecords!: pulumi.Output<outputs.network.v20230701preview.TlsaRecordResponse[] | undefined>;
     /**
+     * A reference to an azure traffic manager profile resource from where the dns resource value is taken.
+     */
+    public readonly trafficManagementProfile!: pulumi.Output<outputs.network.v20230701preview.SubResourceResponse | undefined>;
+    /**
      * The TTL (time-to-live) of the records in the record set.
      */
     public readonly ttl!: pulumi.Output<number | undefined>;
@@ -159,6 +163,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["srvRecords"] = args ? args.srvRecords : undefined;
             resourceInputs["targetResource"] = args ? args.targetResource : undefined;
             resourceInputs["tlsaRecords"] = args ? args.tlsaRecords : undefined;
+            resourceInputs["trafficManagementProfile"] = args ? args.trafficManagementProfile : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["txtRecords"] = args ? args.txtRecords : undefined;
             resourceInputs["zoneName"] = args ? args.zoneName : undefined;
@@ -186,6 +191,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["srvRecords"] = undefined /*out*/;
             resourceInputs["targetResource"] = undefined /*out*/;
             resourceInputs["tlsaRecords"] = undefined /*out*/;
+            resourceInputs["trafficManagementProfile"] = undefined /*out*/;
             resourceInputs["ttl"] = undefined /*out*/;
             resourceInputs["txtRecords"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -269,6 +275,10 @@ export interface RecordSetArgs {
      * The list of TLSA records in the record set.
      */
     tlsaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20230701preview.TlsaRecordArgs>[]>;
+    /**
+     * A reference to an azure traffic manager profile resource from where the dns resource value is taken.
+     */
+    trafficManagementProfile?: pulumi.Input<inputs.network.v20230701preview.SubResourceArgs>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */

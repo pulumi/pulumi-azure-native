@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Databricks
     /// <summary>
     /// Information about workspace.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
+    /// 
+    /// Other available API versions: 2023-09-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -183,6 +185,7 @@ namespace Pulumi.AzureNative.Databricks
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20230915preview:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
