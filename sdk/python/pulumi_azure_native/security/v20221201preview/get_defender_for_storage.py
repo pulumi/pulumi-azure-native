@@ -22,39 +22,28 @@ class GetDefenderForStorageResult:
     """
     The Defender for Storage resource.
     """
-    def __init__(__self__, cap_gb_per_month=None, id=None, is_enabled=None, name=None, operation_status=None, override_subscription_level_settings=None, scan_results_event_grid_topic_resource_id=None, type=None):
-        if cap_gb_per_month and not isinstance(cap_gb_per_month, int):
-            raise TypeError("Expected argument 'cap_gb_per_month' to be a int")
-        pulumi.set(__self__, "cap_gb_per_month", cap_gb_per_month)
+    def __init__(__self__, id=None, is_enabled=None, malware_scanning=None, name=None, override_subscription_level_settings=None, sensitive_data_discovery=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if is_enabled and not isinstance(is_enabled, bool):
             raise TypeError("Expected argument 'is_enabled' to be a bool")
         pulumi.set(__self__, "is_enabled", is_enabled)
+        if malware_scanning and not isinstance(malware_scanning, dict):
+            raise TypeError("Expected argument 'malware_scanning' to be a dict")
+        pulumi.set(__self__, "malware_scanning", malware_scanning)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if operation_status and not isinstance(operation_status, dict):
-            raise TypeError("Expected argument 'operation_status' to be a dict")
-        pulumi.set(__self__, "operation_status", operation_status)
         if override_subscription_level_settings and not isinstance(override_subscription_level_settings, bool):
             raise TypeError("Expected argument 'override_subscription_level_settings' to be a bool")
         pulumi.set(__self__, "override_subscription_level_settings", override_subscription_level_settings)
-        if scan_results_event_grid_topic_resource_id and not isinstance(scan_results_event_grid_topic_resource_id, str):
-            raise TypeError("Expected argument 'scan_results_event_grid_topic_resource_id' to be a str")
-        pulumi.set(__self__, "scan_results_event_grid_topic_resource_id", scan_results_event_grid_topic_resource_id)
+        if sensitive_data_discovery and not isinstance(sensitive_data_discovery, dict):
+            raise TypeError("Expected argument 'sensitive_data_discovery' to be a dict")
+        pulumi.set(__self__, "sensitive_data_discovery", sensitive_data_discovery)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="capGBPerMonth")
-    def cap_gb_per_month(self) -> Optional[int]:
-        """
-        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        """
-        return pulumi.get(self, "cap_gb_per_month")
 
     @property
     @pulumi.getter
@@ -68,9 +57,17 @@ class GetDefenderForStorageResult:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[bool]:
         """
-        Indicates whether Sensitive Data Discovery should be enabled.
+        Indicates whether Defender for Storage is enabled on this storage account.
         """
         return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="malwareScanning")
+    def malware_scanning(self) -> Optional['outputs.MalwareScanningPropertiesResponse']:
+        """
+        Properties of Malware Scanning.
+        """
+        return pulumi.get(self, "malware_scanning")
 
     @property
     @pulumi.getter
@@ -81,14 +78,6 @@ class GetDefenderForStorageResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="operationStatus")
-    def operation_status(self) -> 'outputs.OperationStatusResponse':
-        """
-        Upon failure or partial success. Additional data describing Sensitive Data Discovery enable/disable operation.
-        """
-        return pulumi.get(self, "operation_status")
-
-    @property
     @pulumi.getter(name="overrideSubscriptionLevelSettings")
     def override_subscription_level_settings(self) -> Optional[bool]:
         """
@@ -97,12 +86,12 @@ class GetDefenderForStorageResult:
         return pulumi.get(self, "override_subscription_level_settings")
 
     @property
-    @pulumi.getter(name="scanResultsEventGridTopicResourceId")
-    def scan_results_event_grid_topic_resource_id(self) -> Optional[str]:
+    @pulumi.getter(name="sensitiveDataDiscovery")
+    def sensitive_data_discovery(self) -> Optional['outputs.SensitiveDataDiscoveryPropertiesResponse']:
         """
-        Optional. Resource id of an Event Grid Topic to send scan results to.
+        Properties of Sensitive Data Discovery.
         """
-        return pulumi.get(self, "scan_results_event_grid_topic_resource_id")
+        return pulumi.get(self, "sensitive_data_discovery")
 
     @property
     @pulumi.getter
@@ -119,13 +108,12 @@ class AwaitableGetDefenderForStorageResult(GetDefenderForStorageResult):
         if False:
             yield self
         return GetDefenderForStorageResult(
-            cap_gb_per_month=self.cap_gb_per_month,
             id=self.id,
             is_enabled=self.is_enabled,
+            malware_scanning=self.malware_scanning,
             name=self.name,
-            operation_status=self.operation_status,
             override_subscription_level_settings=self.override_subscription_level_settings,
-            scan_results_event_grid_topic_resource_id=self.scan_results_event_grid_topic_resource_id,
+            sensitive_data_discovery=self.sensitive_data_discovery,
             type=self.type)
 
 
@@ -146,13 +134,12 @@ def get_defender_for_storage(resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20221201preview:getDefenderForStorage', __args__, opts=opts, typ=GetDefenderForStorageResult).value
 
     return AwaitableGetDefenderForStorageResult(
-        cap_gb_per_month=pulumi.get(__ret__, 'cap_gb_per_month'),
         id=pulumi.get(__ret__, 'id'),
         is_enabled=pulumi.get(__ret__, 'is_enabled'),
+        malware_scanning=pulumi.get(__ret__, 'malware_scanning'),
         name=pulumi.get(__ret__, 'name'),
-        operation_status=pulumi.get(__ret__, 'operation_status'),
         override_subscription_level_settings=pulumi.get(__ret__, 'override_subscription_level_settings'),
-        scan_results_event_grid_topic_resource_id=pulumi.get(__ret__, 'scan_results_event_grid_topic_resource_id'),
+        sensitive_data_discovery=pulumi.get(__ret__, 'sensitive_data_discovery'),
         type=pulumi.get(__ret__, 'type'))
 
 

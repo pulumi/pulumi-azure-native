@@ -39,29 +39,25 @@ export class DefenderForStorage extends pulumi.CustomResource {
     }
 
     /**
-     * Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-     */
-    public readonly capGBPerMonth!: pulumi.Output<number | undefined>;
-    /**
-     * Indicates whether Sensitive Data Discovery should be enabled.
+     * Indicates whether Defender for Storage is enabled on this storage account.
      */
     public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Properties of Malware Scanning.
+     */
+    public readonly malwareScanning!: pulumi.Output<outputs.security.MalwareScanningPropertiesResponse | undefined>;
     /**
      * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Upon failure or partial success. Additional data describing Sensitive Data Discovery enable/disable operation.
-     */
-    public /*out*/ readonly operationStatus!: pulumi.Output<outputs.security.OperationStatusResponse>;
-    /**
      * Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
      */
     public readonly overrideSubscriptionLevelSettings!: pulumi.Output<boolean | undefined>;
     /**
-     * Optional. Resource id of an Event Grid Topic to send scan results to.
+     * Properties of Sensitive Data Discovery.
      */
-    public readonly scanResultsEventGridTopicResourceId!: pulumi.Output<string | undefined>;
+    public readonly sensitiveDataDiscovery!: pulumi.Output<outputs.security.SensitiveDataDiscoveryPropertiesResponse | undefined>;
     /**
      * Resource type
      */
@@ -81,22 +77,20 @@ export class DefenderForStorage extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["capGBPerMonth"] = args ? args.capGBPerMonth : undefined;
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["malwareScanning"] = args ? args.malwareScanning : undefined;
             resourceInputs["overrideSubscriptionLevelSettings"] = args ? args.overrideSubscriptionLevelSettings : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["scanResultsEventGridTopicResourceId"] = args ? args.scanResultsEventGridTopicResourceId : undefined;
+            resourceInputs["sensitiveDataDiscovery"] = args ? args.sensitiveDataDiscovery : undefined;
             resourceInputs["settingName"] = args ? args.settingName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["operationStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["capGBPerMonth"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["malwareScanning"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["operationStatus"] = undefined /*out*/;
             resourceInputs["overrideSubscriptionLevelSettings"] = undefined /*out*/;
-            resourceInputs["scanResultsEventGridTopicResourceId"] = undefined /*out*/;
+            resourceInputs["sensitiveDataDiscovery"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -111,13 +105,13 @@ export class DefenderForStorage extends pulumi.CustomResource {
  */
 export interface DefenderForStorageArgs {
     /**
-     * Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-     */
-    capGBPerMonth?: pulumi.Input<number>;
-    /**
-     * Indicates whether Sensitive Data Discovery should be enabled.
+     * Indicates whether Defender for Storage is enabled on this storage account.
      */
     isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Properties of Malware Scanning.
+     */
+    malwareScanning?: pulumi.Input<inputs.security.MalwareScanningPropertiesArgs>;
     /**
      * Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
      */
@@ -127,9 +121,9 @@ export interface DefenderForStorageArgs {
      */
     resourceId: pulumi.Input<string>;
     /**
-     * Optional. Resource id of an Event Grid Topic to send scan results to.
+     * Properties of Sensitive Data Discovery.
      */
-    scanResultsEventGridTopicResourceId?: pulumi.Input<string>;
+    sensitiveDataDiscovery?: pulumi.Input<inputs.security.SensitiveDataDiscoveryPropertiesArgs>;
     /**
      * Defender for Storage setting name.
      */

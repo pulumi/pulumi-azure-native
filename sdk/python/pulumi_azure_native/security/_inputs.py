@@ -109,6 +109,7 @@ __all__ = [
     'JitNetworkAccessRequestPortArgs',
     'JitNetworkAccessRequestVirtualMachineArgs',
     'JitNetworkAccessRequestArgs',
+    'MalwareScanningPropertiesArgs',
     'OnPremiseResourceDetailsArgs',
     'OnPremiseSqlResourceDetailsArgs',
     'PathRecommendationArgs',
@@ -124,6 +125,7 @@ __all__ = [
     'SecurityAssessmentPartnerDataArgs',
     'SecurityContactPropertiesAlertNotificationsArgs',
     'SecurityContactPropertiesNotificationsByRoleArgs',
+    'SensitiveDataDiscoveryPropertiesArgs',
     'ServicePrincipalPropertiesArgs',
     'StandardComponentPropertiesArgs',
     'SuppressionAlertsScopeArgs',
@@ -4812,6 +4814,62 @@ class JitNetworkAccessRequestArgs:
 
 
 @pulumi.input_type
+class MalwareScanningPropertiesArgs:
+    def __init__(__self__, *,
+                 cap_gb_per_month: Optional[pulumi.Input[int]] = None,
+                 is_enabled: Optional[pulumi.Input[bool]] = None,
+                 scan_results_event_grid_topic_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of Malware Scanning.
+        :param pulumi.Input[int] cap_gb_per_month: Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
+        :param pulumi.Input[bool] is_enabled: Indicates whether On Upload malware scanning should be enabled.
+        :param pulumi.Input[str] scan_results_event_grid_topic_resource_id: Optional. Resource id of an Event Grid Topic to send scan results to.
+        """
+        if cap_gb_per_month is not None:
+            pulumi.set(__self__, "cap_gb_per_month", cap_gb_per_month)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if scan_results_event_grid_topic_resource_id is not None:
+            pulumi.set(__self__, "scan_results_event_grid_topic_resource_id", scan_results_event_grid_topic_resource_id)
+
+    @property
+    @pulumi.getter(name="capGBPerMonth")
+    def cap_gb_per_month(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
+        """
+        return pulumi.get(self, "cap_gb_per_month")
+
+    @cap_gb_per_month.setter
+    def cap_gb_per_month(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cap_gb_per_month", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether On Upload malware scanning should be enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="scanResultsEventGridTopicResourceId")
+    def scan_results_event_grid_topic_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. Resource id of an Event Grid Topic to send scan results to.
+        """
+        return pulumi.get(self, "scan_results_event_grid_topic_resource_id")
+
+    @scan_results_event_grid_topic_resource_id.setter
+    def scan_results_event_grid_topic_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scan_results_event_grid_topic_resource_id", value)
+
+
+@pulumi.input_type
 class OnPremiseResourceDetailsArgs:
     def __init__(__self__, *,
                  machine_name: pulumi.Input[str],
@@ -5812,6 +5870,30 @@ class SecurityContactPropertiesNotificationsByRoleArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class SensitiveDataDiscoveryPropertiesArgs:
+    def __init__(__self__, *,
+                 is_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Properties of Sensitive Data Discovery.
+        :param pulumi.Input[bool] is_enabled: Indicates whether Sensitive Data Discovery should be enabled.
+        """
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Sensitive Data Discovery should be enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_enabled", value)
 
 
 @pulumi.input_type

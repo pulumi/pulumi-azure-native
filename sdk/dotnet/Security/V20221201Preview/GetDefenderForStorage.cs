@@ -70,33 +70,29 @@ namespace Pulumi.AzureNative.Security.V20221201Preview
     public sealed class GetDefenderForStorageResult
     {
         /// <summary>
-        /// Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        /// </summary>
-        public readonly int? CapGBPerMonth;
-        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Indicates whether Sensitive Data Discovery should be enabled.
+        /// Indicates whether Defender for Storage is enabled on this storage account.
         /// </summary>
         public readonly bool? IsEnabled;
+        /// <summary>
+        /// Properties of Malware Scanning.
+        /// </summary>
+        public readonly Outputs.MalwareScanningPropertiesResponse? MalwareScanning;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Upon failure or partial success. Additional data describing Sensitive Data Discovery enable/disable operation.
-        /// </summary>
-        public readonly Outputs.OperationStatusResponse OperationStatus;
-        /// <summary>
         /// Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
         /// </summary>
         public readonly bool? OverrideSubscriptionLevelSettings;
         /// <summary>
-        /// Optional. Resource id of an Event Grid Topic to send scan results to.
+        /// Properties of Sensitive Data Discovery.
         /// </summary>
-        public readonly string? ScanResultsEventGridTopicResourceId;
+        public readonly Outputs.SensitiveDataDiscoveryPropertiesResponse? SensitiveDataDiscovery;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -104,29 +100,26 @@ namespace Pulumi.AzureNative.Security.V20221201Preview
 
         [OutputConstructor]
         private GetDefenderForStorageResult(
-            int? capGBPerMonth,
-
             string id,
 
             bool? isEnabled,
 
-            string name,
+            Outputs.MalwareScanningPropertiesResponse? malwareScanning,
 
-            Outputs.OperationStatusResponse operationStatus,
+            string name,
 
             bool? overrideSubscriptionLevelSettings,
 
-            string? scanResultsEventGridTopicResourceId,
+            Outputs.SensitiveDataDiscoveryPropertiesResponse? sensitiveDataDiscovery,
 
             string type)
         {
-            CapGBPerMonth = capGBPerMonth;
             Id = id;
             IsEnabled = isEnabled;
+            MalwareScanning = malwareScanning;
             Name = name;
-            OperationStatus = operationStatus;
             OverrideSubscriptionLevelSettings = overrideSubscriptionLevelSettings;
-            ScanResultsEventGridTopicResourceId = scanResultsEventGridTopicResourceId;
+            SensitiveDataDiscovery = sensitiveDataDiscovery;
             Type = type;
         }
     }

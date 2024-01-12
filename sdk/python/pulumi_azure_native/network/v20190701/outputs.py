@@ -67,6 +67,7 @@ __all__ = [
     'P2SVpnServerConfigRadiusServerRootCertificateResponse',
     'P2SVpnServerConfigVpnClientRevokedCertificateResponse',
     'P2SVpnServerConfigVpnClientRootCertificateResponse',
+    'P2SVpnServerConfigurationPropertiesResponse',
     'P2SVpnServerConfigurationResponse',
     'PolicySettingsResponse',
     'PrivateEndpointResponse',
@@ -6588,9 +6589,9 @@ class P2SVpnServerConfigVpnClientRootCertificateResponse(dict):
 
 
 @pulumi.output_type
-class P2SVpnServerConfigurationResponse(dict):
+class P2SVpnServerConfigurationPropertiesResponse(dict):
     """
-    P2SVpnServerConfiguration Resource.
+    Parameters for P2SVpnServerConfiguration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -6617,21 +6618,20 @@ class P2SVpnServerConfigurationResponse(dict):
             suggest = "vpn_protocols"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in P2SVpnServerConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in P2SVpnServerConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        P2SVpnServerConfigurationResponse.__key_warning(key)
+        P2SVpnServerConfigurationPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        P2SVpnServerConfigurationResponse.__key_warning(key)
+        P2SVpnServerConfigurationPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 etag: str,
                  p2_s_vpn_gateways: Sequence['outputs.SubResourceResponse'],
                  provisioning_state: str,
-                 id: Optional[str] = None,
+                 etag: Optional[str] = None,
                  name: Optional[str] = None,
                  p2_s_vpn_server_config_radius_client_root_certificates: Optional[Sequence['outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse']] = None,
                  p2_s_vpn_server_config_radius_server_root_certificates: Optional[Sequence['outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse']] = None,
@@ -6642,11 +6642,10 @@ class P2SVpnServerConfigurationResponse(dict):
                  vpn_client_ipsec_policies: Optional[Sequence['outputs.IpsecPolicyResponse']] = None,
                  vpn_protocols: Optional[Sequence[str]] = None):
         """
-        P2SVpnServerConfiguration Resource.
-        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        Parameters for P2SVpnServerConfiguration.
         :param Sequence['SubResourceResponse'] p2_s_vpn_gateways: List of references to P2SVpnGateways.
         :param str provisioning_state: The provisioning state of the P2S VPN server configuration resource.
-        :param str id: Resource ID.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
         :param str name: The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         :param Sequence['P2SVpnServerConfigRadiusClientRootCertificateResponse'] p2_s_vpn_server_config_radius_client_root_certificates: Radius client root certificate of P2SVpnServerConfiguration.
         :param Sequence['P2SVpnServerConfigRadiusServerRootCertificateResponse'] p2_s_vpn_server_config_radius_server_root_certificates: Radius Server root certificate of P2SVpnServerConfiguration.
@@ -6657,11 +6656,10 @@ class P2SVpnServerConfigurationResponse(dict):
         :param Sequence['IpsecPolicyResponse'] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
         :param Sequence[str] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
         """
-        pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "p2_s_vpn_gateways", p2_s_vpn_gateways)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if p2_s_vpn_server_config_radius_client_root_certificates is not None:
@@ -6682,14 +6680,6 @@ class P2SVpnServerConfigurationResponse(dict):
             pulumi.set(__self__, "vpn_protocols", vpn_protocols)
 
     @property
-    @pulumi.getter
-    def etag(self) -> str:
-        """
-        A unique read-only string that changes whenever the resource is updated.
-        """
-        return pulumi.get(self, "etag")
-
-    @property
     @pulumi.getter(name="p2SVpnGateways")
     def p2_s_vpn_gateways(self) -> Sequence['outputs.SubResourceResponse']:
         """
@@ -6707,11 +6697,11 @@ class P2SVpnServerConfigurationResponse(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def etag(self) -> Optional[str]:
         """
-        Resource ID.
+        A unique read-only string that changes whenever the resource is updated.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -6784,6 +6774,64 @@ class P2SVpnServerConfigurationResponse(dict):
         VPN protocols for the P2SVpnServerConfiguration.
         """
         return pulumi.get(self, "vpn_protocols")
+
+
+@pulumi.output_type
+class P2SVpnServerConfigurationResponse(dict):
+    """
+    P2SVpnServerConfiguration Resource.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 properties: Optional['outputs.P2SVpnServerConfigurationPropertiesResponse'] = None):
+        """
+        P2SVpnServerConfiguration Resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'P2SVpnServerConfigurationPropertiesResponse' properties: Properties of the P2SVpnServer configuration.
+        """
+        pulumi.set(__self__, "etag", etag)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.P2SVpnServerConfigurationPropertiesResponse']:
+        """
+        Properties of the P2SVpnServer configuration.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type

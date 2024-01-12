@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DedicatedCloudNodePropertiesResponse',
     'GuestOSCustomizationResponse',
     'GuestOSNICCustomizationResponse',
     'ResourcePoolResponse',
@@ -21,6 +22,219 @@ __all__ = [
     'VirtualNetworkResponse',
     'VirtualNicResponse',
 ]
+
+@pulumi.output_type
+class DedicatedCloudNodePropertiesResponse(dict):
+    """
+    Properties of dedicated cloud node
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZoneId":
+            suggest = "availability_zone_id"
+        elif key == "availabilityZoneName":
+            suggest = "availability_zone_name"
+        elif key == "cloudRackName":
+            suggest = "cloud_rack_name"
+        elif key == "nodesCount":
+            suggest = "nodes_count"
+        elif key == "placementGroupId":
+            suggest = "placement_group_id"
+        elif key == "placementGroupName":
+            suggest = "placement_group_name"
+        elif key == "privateCloudId":
+            suggest = "private_cloud_id"
+        elif key == "privateCloudName":
+            suggest = "private_cloud_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "purchaseId":
+            suggest = "purchase_id"
+        elif key == "vmwareClusterName":
+            suggest = "vmware_cluster_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DedicatedCloudNodePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DedicatedCloudNodePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DedicatedCloudNodePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone_id: str,
+                 availability_zone_name: str,
+                 cloud_rack_name: str,
+                 created: str,
+                 id: str,
+                 name: str,
+                 nodes_count: int,
+                 placement_group_id: str,
+                 placement_group_name: str,
+                 private_cloud_id: str,
+                 private_cloud_name: str,
+                 provisioning_state: str,
+                 purchase_id: str,
+                 status: str,
+                 vmware_cluster_name: str):
+        """
+        Properties of dedicated cloud node
+        :param str availability_zone_id: Availability Zone id, e.g. "az1"
+        :param str availability_zone_name: Availability Zone name, e.g. "Availability Zone 1"
+        :param str cloud_rack_name: VMWare Cloud Rack Name
+        :param str created: date time the resource was created
+        :param str id: SKU's id
+        :param str name: SKU's name
+        :param int nodes_count: count of nodes to create
+        :param str placement_group_id: Placement Group id, e.g. "n1"
+        :param str placement_group_name: Placement Name, e.g. "Placement Group 1"
+        :param str private_cloud_id: Private Cloud Id
+        :param str private_cloud_name: Resource Pool Name
+        :param str provisioning_state: The provisioning status of the resource
+        :param str purchase_id: purchase id
+        :param str status: Node status, indicates is private cloud set up on this node or not
+        :param str vmware_cluster_name: VMWare Cluster Name
+        """
+        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+        pulumi.set(__self__, "cloud_rack_name", cloud_rack_name)
+        pulumi.set(__self__, "created", created)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "nodes_count", nodes_count)
+        pulumi.set(__self__, "placement_group_id", placement_group_id)
+        pulumi.set(__self__, "placement_group_name", placement_group_name)
+        pulumi.set(__self__, "private_cloud_id", private_cloud_id)
+        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "purchase_id", purchase_id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "vmware_cluster_name", vmware_cluster_name)
+
+    @property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> str:
+        """
+        Availability Zone id, e.g. "az1"
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> str:
+        """
+        Availability Zone name, e.g. "Availability Zone 1"
+        """
+        return pulumi.get(self, "availability_zone_name")
+
+    @property
+    @pulumi.getter(name="cloudRackName")
+    def cloud_rack_name(self) -> str:
+        """
+        VMWare Cloud Rack Name
+        """
+        return pulumi.get(self, "cloud_rack_name")
+
+    @property
+    @pulumi.getter
+    def created(self) -> str:
+        """
+        date time the resource was created
+        """
+        return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        SKU's id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        SKU's name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nodesCount")
+    def nodes_count(self) -> int:
+        """
+        count of nodes to create
+        """
+        return pulumi.get(self, "nodes_count")
+
+    @property
+    @pulumi.getter(name="placementGroupId")
+    def placement_group_id(self) -> str:
+        """
+        Placement Group id, e.g. "n1"
+        """
+        return pulumi.get(self, "placement_group_id")
+
+    @property
+    @pulumi.getter(name="placementGroupName")
+    def placement_group_name(self) -> str:
+        """
+        Placement Name, e.g. "Placement Group 1"
+        """
+        return pulumi.get(self, "placement_group_name")
+
+    @property
+    @pulumi.getter(name="privateCloudId")
+    def private_cloud_id(self) -> str:
+        """
+        Private Cloud Id
+        """
+        return pulumi.get(self, "private_cloud_id")
+
+    @property
+    @pulumi.getter(name="privateCloudName")
+    def private_cloud_name(self) -> str:
+        """
+        Resource Pool Name
+        """
+        return pulumi.get(self, "private_cloud_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning status of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="purchaseId")
+    def purchase_id(self) -> str:
+        """
+        purchase id
+        """
+        return pulumi.get(self, "purchase_id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Node status, indicates is private cloud set up on this node or not
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="vmwareClusterName")
+    def vmware_cluster_name(self) -> str:
+        """
+        VMWare Cluster Name
+        """
+        return pulumi.get(self, "vmware_cluster_name")
+
 
 @pulumi.output_type
 class GuestOSCustomizationResponse(dict):

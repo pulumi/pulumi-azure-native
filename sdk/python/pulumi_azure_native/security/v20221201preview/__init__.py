@@ -7,4 +7,5 @@ import typing
 # Export this package's modules as members:
 from .defender_for_storage import *
 from .get_defender_for_storage import *
+from ._inputs import *
 from . import outputs
