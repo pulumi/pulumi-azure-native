@@ -43,6 +43,7 @@ type BuildSchemaReports struct {
 	SkippedPOSTEndpoints          map[string]map[string]string
 	ForceNewTypes                 []gen.ForceNewType
 	TypeCaseConflicts             gen.CaseConflicts
+	FlattenedPropertyConflicts    map[string]map[string]struct{}
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
@@ -57,6 +58,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
 		"forceNewTypes.json":                 r.ForceNewTypes,
 		"typeCaseConflicts.json":             r.TypeCaseConflicts,
+		"flattenedPropertyConflicts.json":    r.FlattenedPropertyConflicts,
 	})
 }
 
@@ -138,6 +140,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		CurationViolations:            versionMetadata.CurationViolations,
 		ForceNewTypes:                 generationResult.ForceNewTypes,
 		TypeCaseConflicts:             generationResult.TypeCaseConflicts,
+		FlattenedPropertyConflicts:    generationResult.FlattenedPropertyConflicts,
 	}
 
 	return &BuildSchemaResult{

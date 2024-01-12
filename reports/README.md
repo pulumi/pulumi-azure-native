@@ -34,3 +34,7 @@ Calculated by `findPathChanges`. Discussed in <https://github.com/pulumi/pulumi-
 ## `pending.json`
 
 A list of versions of each namespace which might be available to upgrade in the default version.
+
+## `flattenedPropertyConflicts.json`
+
+The Azure spec has an annotation [x-ms-client-flatten](https://github.com/Azure/autorest/blob/main/docs/extensions/readme.md#x-ms-client-flatten) which instructs the schema generator to flatten the property into the parent object. However, there are cases where this leads to overwriting a property, creating incorrect schema and SDKs, when inner and outer property have the same name.

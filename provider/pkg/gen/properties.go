@@ -97,6 +97,14 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				return nil, err
 			}
 
+			// Check that none of the inner properties already exists on the outer type. This
+			// causes a conflict when flattening, and will probably need to be handled in v3.
+			for propName := range bag.properties {
+				if _, has := result.properties[propName]; has {
+					m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
+				}
+			}
+
 			// Adjust every property to mark them as flattened.
 			newProperties := map[string]resources.AzureAPIProperty{}
 			for n, value := range bag.properties {
