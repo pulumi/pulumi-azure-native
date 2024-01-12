@@ -16,24 +16,6 @@ namespace Pulumi.AzureNative.NetApp.V20210401
     public partial class BackupPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Backup Policy Resource ID
-        /// </summary>
-        [Output("backupPolicyId")]
-        public Output<string> BackupPolicyId { get; private set; } = null!;
-
-        /// <summary>
-        /// Daily backups count to keep
-        /// </summary>
-        [Output("dailyBackupsToKeep")]
-        public Output<int?> DailyBackupsToKeep { get; private set; } = null!;
-
-        /// <summary>
-        /// The property to decide policy is enabled or not
-        /// </summary>
-        [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -46,22 +28,16 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Monthly backups count to keep
-        /// </summary>
-        [Output("monthlyBackupsToKeep")]
-        public Output<int?> MonthlyBackupsToKeep { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of backup policy
+        /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Azure lifecycle management
+        /// Backup policy Properties
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.BackupPolicyPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The system meta data relating to this resource.
@@ -80,30 +56,6 @@ namespace Pulumi.AzureNative.NetApp.V20210401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of volumes assigned to this policy
-        /// </summary>
-        [Output("volumeBackups")]
-        public Output<ImmutableArray<Outputs.VolumeBackupsResponse>> VolumeBackups { get; private set; } = null!;
-
-        /// <summary>
-        /// Volumes using current backup policy
-        /// </summary>
-        [Output("volumesAssigned")]
-        public Output<int?> VolumesAssigned { get; private set; } = null!;
-
-        /// <summary>
-        /// Weekly backups count to keep
-        /// </summary>
-        [Output("weeklyBackupsToKeep")]
-        public Output<int?> WeeklyBackupsToKeep { get; private set; } = null!;
-
-        /// <summary>
-        /// Yearly backups count to keep
-        /// </summary>
-        [Output("yearlyBackupsToKeep")]
-        public Output<int?> YearlyBackupsToKeep { get; private set; } = null!;
 
 
         /// <summary>

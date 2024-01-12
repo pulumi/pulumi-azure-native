@@ -22,55 +22,16 @@ class GetNetworkVirtualApplianceConnectionResult:
     """
     NetworkVirtualApplianceConnection resource.
     """
-    def __init__(__self__, asn=None, bgp_peer_address=None, enable_internet_security=None, id=None, name=None, provisioning_state=None, routing_configuration=None, tunnel_identifier=None):
-        if asn and not isinstance(asn, float):
-            raise TypeError("Expected argument 'asn' to be a float")
-        pulumi.set(__self__, "asn", asn)
-        if bgp_peer_address and not isinstance(bgp_peer_address, list):
-            raise TypeError("Expected argument 'bgp_peer_address' to be a list")
-        pulumi.set(__self__, "bgp_peer_address", bgp_peer_address)
-        if enable_internet_security and not isinstance(enable_internet_security, bool):
-            raise TypeError("Expected argument 'enable_internet_security' to be a bool")
-        pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+    def __init__(__self__, id=None, name=None, properties=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if routing_configuration and not isinstance(routing_configuration, dict):
-            raise TypeError("Expected argument 'routing_configuration' to be a dict")
-        pulumi.set(__self__, "routing_configuration", routing_configuration)
-        if tunnel_identifier and not isinstance(tunnel_identifier, float):
-            raise TypeError("Expected argument 'tunnel_identifier' to be a float")
-        pulumi.set(__self__, "tunnel_identifier", tunnel_identifier)
-
-    @property
-    @pulumi.getter
-    def asn(self) -> Optional[float]:
-        """
-        Network Virtual Appliance ASN.
-        """
-        return pulumi.get(self, "asn")
-
-    @property
-    @pulumi.getter(name="bgpPeerAddress")
-    def bgp_peer_address(self) -> Optional[Sequence[str]]:
-        """
-        List of bgpPeerAddresses for the NVA instances
-        """
-        return pulumi.get(self, "bgp_peer_address")
-
-    @property
-    @pulumi.getter(name="enableInternetSecurity")
-    def enable_internet_security(self) -> Optional[bool]:
-        """
-        Enable internet security.
-        """
-        return pulumi.get(self, "enable_internet_security")
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
@@ -89,28 +50,12 @@ class GetNetworkVirtualApplianceConnectionResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.NetworkVirtualApplianceConnectionPropertiesResponse':
         """
-        The provisioning state of the NetworkVirtualApplianceConnection resource.
+        Properties of the express route connection.
         """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="routingConfiguration")
-    def routing_configuration(self) -> Optional['outputs.RoutingConfigurationResponse']:
-        """
-        The Routing Configuration indicating the associated and propagated route tables on this connection.
-        """
-        return pulumi.get(self, "routing_configuration")
-
-    @property
-    @pulumi.getter(name="tunnelIdentifier")
-    def tunnel_identifier(self) -> Optional[float]:
-        """
-        Unique identifier for the connection.
-        """
-        return pulumi.get(self, "tunnel_identifier")
+        return pulumi.get(self, "properties")
 
 
 class AwaitableGetNetworkVirtualApplianceConnectionResult(GetNetworkVirtualApplianceConnectionResult):
@@ -119,14 +64,9 @@ class AwaitableGetNetworkVirtualApplianceConnectionResult(GetNetworkVirtualAppli
         if False:
             yield self
         return GetNetworkVirtualApplianceConnectionResult(
-            asn=self.asn,
-            bgp_peer_address=self.bgp_peer_address,
-            enable_internet_security=self.enable_internet_security,
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            routing_configuration=self.routing_configuration,
-            tunnel_identifier=self.tunnel_identifier)
+            properties=self.properties)
 
 
 def get_network_virtual_appliance_connection(connection_name: Optional[str] = None,
@@ -149,14 +89,9 @@ def get_network_virtual_appliance_connection(connection_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230901:getNetworkVirtualApplianceConnection', __args__, opts=opts, typ=GetNetworkVirtualApplianceConnectionResult).value
 
     return AwaitableGetNetworkVirtualApplianceConnectionResult(
-        asn=pulumi.get(__ret__, 'asn'),
-        bgp_peer_address=pulumi.get(__ret__, 'bgp_peer_address'),
-        enable_internet_security=pulumi.get(__ret__, 'enable_internet_security'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
-        tunnel_identifier=pulumi.get(__ret__, 'tunnel_identifier'))
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_network_virtual_appliance_connection)

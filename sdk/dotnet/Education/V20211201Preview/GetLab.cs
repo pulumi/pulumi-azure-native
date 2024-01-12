@@ -142,6 +142,10 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// Total budget
+        /// </summary>
+        public readonly Outputs.AmountResponse TotalBudget;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -176,6 +180,8 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
 
             Outputs.SystemDataResponse systemData,
 
+            Outputs.AmountResponse totalBudget,
+
             string type,
 
             double? value)
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
             Name = name;
             Status = status;
             SystemData = systemData;
+            TotalBudget = totalBudget;
             Type = type;
             Value = value;
         }

@@ -20,47 +20,39 @@ class ScopeAccessReviewHistoryDefinitionByIdArgs:
                  scope: pulumi.Input[str],
                  decisions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessReviewResult']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 end_date: Optional[pulumi.Input[str]] = None,
                  history_definition_id: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
-                 number_of_occurrences: Optional[pulumi.Input[int]] = None,
+                 range: Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewScopeArgs']]]] = None,
-                 start_date: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrencePatternType']]] = None):
         """
         The set of arguments for constructing a ScopeAccessReviewHistoryDefinitionById resource.
         :param pulumi.Input[str] scope: The scope of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessReviewResult']]]] decisions: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
         :param pulumi.Input[str] display_name: The display name for the history definition.
-        :param pulumi.Input[str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
         :param pulumi.Input[str] history_definition_id: The id of the access review history definition.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]] instances: Set of access review history instances for this history definition.
         :param pulumi.Input[int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
-        :param pulumi.Input[int] number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
+        :param pulumi.Input['AccessReviewRecurrenceRangeArgs'] range: Access Review History Definition recurrence settings.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewScopeArgs']]] scopes: A collection of scopes used when selecting review history data
-        :param pulumi.Input[str] start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        :param pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']] type: The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        :param pulumi.Input[Union[str, 'AccessReviewRecurrencePatternType']] type: The recurrence type : weekly, monthly, etc.
         """
         pulumi.set(__self__, "scope", scope)
         if decisions is not None:
             pulumi.set(__self__, "decisions", decisions)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-        if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
         if history_definition_id is not None:
             pulumi.set(__self__, "history_definition_id", history_definition_id)
         if instances is not None:
             pulumi.set(__self__, "instances", instances)
         if interval is not None:
             pulumi.set(__self__, "interval", interval)
-        if number_of_occurrences is not None:
-            pulumi.set(__self__, "number_of_occurrences", number_of_occurrences)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
-        if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -101,18 +93,6 @@ class ScopeAccessReviewHistoryDefinitionByIdArgs:
         pulumi.set(self, "display_name", value)
 
     @property
-    @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The DateTime when the review is scheduled to end. Required if type is endDate
-        """
-        return pulumi.get(self, "end_date")
-
-    @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "end_date", value)
-
-    @property
     @pulumi.getter(name="historyDefinitionId")
     def history_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -149,16 +129,16 @@ class ScopeAccessReviewHistoryDefinitionByIdArgs:
         pulumi.set(self, "interval", value)
 
     @property
-    @pulumi.getter(name="numberOfOccurrences")
-    def number_of_occurrences(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter
+    def range(self) -> Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']]:
         """
-        The number of times to repeat the access review. Required and must be positive if type is numbered.
+        Access Review History Definition recurrence settings.
         """
-        return pulumi.get(self, "number_of_occurrences")
+        return pulumi.get(self, "range")
 
-    @number_of_occurrences.setter
-    def number_of_occurrences(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "number_of_occurrences", value)
+    @range.setter
+    def range(self, value: Optional[pulumi.Input['AccessReviewRecurrenceRangeArgs']]):
+        pulumi.set(self, "range", value)
 
     @property
     @pulumi.getter
@@ -173,27 +153,15 @@ class ScopeAccessReviewHistoryDefinitionByIdArgs:
         pulumi.set(self, "scopes", value)
 
     @property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        """
-        return pulumi.get(self, "start_date")
-
-    @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "start_date", value)
-
-    @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'AccessReviewRecurrencePatternType']]]:
         """
-        The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        The recurrence type : weekly, monthly, etc.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrencePatternType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -204,15 +172,13 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  decisions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessReviewResult']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 end_date: Optional[pulumi.Input[str]] = None,
                  history_definition_id: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewHistoryInstanceArgs']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
-                 number_of_occurrences: Optional[pulumi.Input[int]] = None,
+                 range: Optional[pulumi.Input[pulumi.InputType['AccessReviewRecurrenceRangeArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewScopeArgs']]]]] = None,
-                 start_date: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrencePatternType']]] = None,
                  __props__=None):
         """
         Access Review History Definition.
@@ -222,15 +188,13 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessReviewResult']]]] decisions: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
         :param pulumi.Input[str] display_name: The display name for the history definition.
-        :param pulumi.Input[str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
         :param pulumi.Input[str] history_definition_id: The id of the access review history definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewHistoryInstanceArgs']]]] instances: Set of access review history instances for this history definition.
         :param pulumi.Input[int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
-        :param pulumi.Input[int] number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
+        :param pulumi.Input[pulumi.InputType['AccessReviewRecurrenceRangeArgs']] range: Access Review History Definition recurrence settings.
         :param pulumi.Input[str] scope: The scope of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewScopeArgs']]]] scopes: A collection of scopes used when selecting review history data
-        :param pulumi.Input[str] start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        :param pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']] type: The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        :param pulumi.Input[Union[str, 'AccessReviewRecurrencePatternType']] type: The recurrence type : weekly, monthly, etc.
         """
         ...
     @overload
@@ -259,15 +223,13 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  decisions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessReviewResult']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 end_date: Optional[pulumi.Input[str]] = None,
                  history_definition_id: Optional[pulumi.Input[str]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewHistoryInstanceArgs']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
-                 number_of_occurrences: Optional[pulumi.Input[int]] = None,
+                 range: Optional[pulumi.Input[pulumi.InputType['AccessReviewRecurrenceRangeArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewScopeArgs']]]]] = None,
-                 start_date: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrencePatternType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,16 +241,14 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
 
             __props__.__dict__["decisions"] = decisions
             __props__.__dict__["display_name"] = display_name
-            __props__.__dict__["end_date"] = end_date
             __props__.__dict__["history_definition_id"] = history_definition_id
             __props__.__dict__["instances"] = instances
             __props__.__dict__["interval"] = interval
-            __props__.__dict__["number_of_occurrences"] = number_of_occurrences
+            __props__.__dict__["range"] = range
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["scopes"] = scopes
-            __props__.__dict__["start_date"] = start_date
             __props__.__dict__["type"] = type
             __props__.__dict__["created_date_time"] = None
             __props__.__dict__["name"] = None
@@ -326,18 +286,16 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         __props__.__dict__["created_date_time"] = None
         __props__.__dict__["decisions"] = None
         __props__.__dict__["display_name"] = None
-        __props__.__dict__["end_date"] = None
         __props__.__dict__["instances"] = None
         __props__.__dict__["interval"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["number_of_occurrences"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
         __props__.__dict__["principal_type"] = None
+        __props__.__dict__["range"] = None
         __props__.__dict__["review_history_period_end_date_time"] = None
         __props__.__dict__["review_history_period_start_date_time"] = None
         __props__.__dict__["scopes"] = None
-        __props__.__dict__["start_date"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_principal_name"] = None
@@ -368,14 +326,6 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         return pulumi.get(self, "display_name")
 
     @property
-    @pulumi.getter(name="endDate")
-    def end_date(self) -> pulumi.Output[Optional[str]]:
-        """
-        The DateTime when the review is scheduled to end. Required if type is endDate
-        """
-        return pulumi.get(self, "end_date")
-
-    @property
     @pulumi.getter
     def instances(self) -> pulumi.Output[Optional[Sequence['outputs.AccessReviewHistoryInstanceResponse']]]:
         """
@@ -398,14 +348,6 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         The access review history definition unique id.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="numberOfOccurrences")
-    def number_of_occurrences(self) -> pulumi.Output[Optional[int]]:
-        """
-        The number of times to repeat the access review. Required and must be positive if type is numbered.
-        """
-        return pulumi.get(self, "number_of_occurrences")
 
     @property
     @pulumi.getter(name="principalId")
@@ -432,6 +374,14 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         return pulumi.get(self, "principal_type")
 
     @property
+    @pulumi.getter
+    def range(self) -> pulumi.Output[Optional['outputs.AccessReviewRecurrenceRangeResponse']]:
+        """
+        Access Review History Definition recurrence settings.
+        """
+        return pulumi.get(self, "range")
+
+    @property
     @pulumi.getter(name="reviewHistoryPeriodEndDateTime")
     def review_history_period_end_date_time(self) -> pulumi.Output[str]:
         """
@@ -454,14 +404,6 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         A collection of scopes used when selecting review history data
         """
         return pulumi.get(self, "scopes")
-
-    @property
-    @pulumi.getter(name="startDate")
-    def start_date(self) -> pulumi.Output[Optional[str]]:
-        """
-        The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        """
-        return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter

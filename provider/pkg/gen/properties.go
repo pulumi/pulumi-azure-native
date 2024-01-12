@@ -84,8 +84,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		sdkName = ToLowerCamel(sdkName)
 
 		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
-		// If the type is marked as a dictionary, ignore the extension and proceed with modeling this property explicitly.
-		// We can't flatten dictionaries in a type-safe manner.
+		// There are two exceptions to this rule, for which we skip the merging:
+		// 1. If the type is marked as a dictionary, ignore the extension and proceed with modeling this property explicitly.
+		//    We can't flatten dictionaries in a type-safe manner.
+		// 2. Sometimes the Azure spec misuses the "x-ms-client-flatten" extension in cases where flattening would cause two
+		//    properties to conflict because the outer and the inner type both have a property with the same name.
 		isDict := resolvedProperty.AdditionalProperties != nil
 		//TODO: Remove when https://github.com/Azure/azure-rest-api-specs/pull/14550 is rolled back
 		workaroundDelegatedNetworkBreakingChange := property.Ref.String() == "#/definitions/OrchestratorResourceProperties" ||
@@ -97,36 +100,39 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				return nil, err
 			}
 
-			// Check that none of the inner properties already exists on the outer type. This
-			// causes a conflict when flattening, and will probably need to be handled in v3.
+			// Check that none of the inner properties already exists on the outer type.
+			hasConflict := false
 			for propName := range bag.properties {
-				if _, has := result.properties[propName]; has {
+				if _, hasConflict = result.properties[propName]; hasConflict {
 					m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
+					break
 				}
 			}
 
-			// Adjust every property to mark them as flattened.
-			newProperties := map[string]resources.AzureAPIProperty{}
-			for n, value := range bag.properties {
-				// The order of containers is important, so we prepend the outermost name.
-				value.Containers = append([]string{name}, value.Containers...)
-				newProperties[n] = value
-			}
-			bag.properties = newProperties
-
-			newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
-			for i, containers := range bag.requiredContainers {
-				newRequiredContainers[i] = append([]string{name}, containers...)
-			}
-			for _, requiredName := range resolvedSchema.Required {
-				if requiredName == name {
-					newRequiredContainers = append(newRequiredContainers, []string{name})
+			if !hasConflict {
+				// Adjust every property to mark them as flattened.
+				newProperties := map[string]resources.AzureAPIProperty{}
+				for n, value := range bag.properties {
+					// The order of containers is important, so we prepend the outermost name.
+					value.Containers = append([]string{name}, value.Containers...)
+					newProperties[n] = value
 				}
-			}
-			bag.requiredContainers = newRequiredContainers
+				bag.properties = newProperties
 
-			result.merge(bag)
-			continue
+				newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
+				for i, containers := range bag.requiredContainers {
+					newRequiredContainers[i] = append([]string{name}, containers...)
+				}
+				for _, requiredName := range resolvedSchema.Required {
+					if requiredName == name {
+						newRequiredContainers = append(newRequiredContainers, []string{name})
+					}
+				}
+				bag.requiredContainers = newRequiredContainers
+
+				result.merge(bag)
+				continue
+			}
 		}
 
 		// Skip read-only properties for input types and write-only properties for output types.

@@ -23,70 +23,16 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of references to P2SVpnGateways.
+        /// Properties of the P2SVpnServer configuration.
         /// </summary>
-        [Output("p2SVpnGateways")]
-        public Output<ImmutableArray<Outputs.SubResourceResponse>> P2SVpnGateways { get; private set; } = null!;
-
-        /// <summary>
-        /// Radius client root certificate of P2SVpnServerConfiguration.
-        /// </summary>
-        [Output("p2SVpnServerConfigRadiusClientRootCertificates")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateResponse>> P2SVpnServerConfigRadiusClientRootCertificates { get; private set; } = null!;
-
-        /// <summary>
-        /// Radius Server root certificate of P2SVpnServerConfiguration.
-        /// </summary>
-        [Output("p2SVpnServerConfigRadiusServerRootCertificates")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateResponse>> P2SVpnServerConfigRadiusServerRootCertificates { get; private set; } = null!;
-
-        /// <summary>
-        /// VPN client revoked certificate of P2SVpnServerConfiguration.
-        /// </summary>
-        [Output("p2SVpnServerConfigVpnClientRevokedCertificates")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponse>> P2SVpnServerConfigVpnClientRevokedCertificates { get; private set; } = null!;
-
-        /// <summary>
-        /// VPN client root certificate of P2SVpnServerConfiguration.
-        /// </summary>
-        [Output("p2SVpnServerConfigVpnClientRootCertificates")]
-        public Output<ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateResponse>> P2SVpnServerConfigVpnClientRootCertificates { get; private set; } = null!;
-
-        /// <summary>
-        /// The provisioning state of the P2S VPN server configuration resource.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
-        /// </summary>
-        [Output("radiusServerAddress")]
-        public Output<string?> RadiusServerAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
-        /// </summary>
-        [Output("radiusServerSecret")]
-        public Output<string?> RadiusServerSecret { get; private set; } = null!;
-
-        /// <summary>
-        /// VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-        /// </summary>
-        [Output("vpnClientIpsecPolicies")]
-        public Output<ImmutableArray<Outputs.IpsecPolicyResponse>> VpnClientIpsecPolicies { get; private set; } = null!;
-
-        /// <summary>
-        /// VPN protocols for the P2SVpnServerConfiguration.
-        /// </summary>
-        [Output("vpnProtocols")]
-        public Output<ImmutableArray<string>> VpnProtocols { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.P2SVpnServerConfigurationPropertiesResponse> Properties { get; private set; } = null!;
 
 
         /// <summary>
@@ -151,58 +97,10 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
+        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("p2SVpnServerConfigRadiusClientRootCertificates")]
-        private InputList<Inputs.P2SVpnServerConfigRadiusClientRootCertificateArgs>? _p2SVpnServerConfigRadiusClientRootCertificates;
-
-        /// <summary>
-        /// Radius client root certificate of P2SVpnServerConfiguration.
-        /// </summary>
-        public InputList<Inputs.P2SVpnServerConfigRadiusClientRootCertificateArgs> P2SVpnServerConfigRadiusClientRootCertificates
-        {
-            get => _p2SVpnServerConfigRadiusClientRootCertificates ?? (_p2SVpnServerConfigRadiusClientRootCertificates = new InputList<Inputs.P2SVpnServerConfigRadiusClientRootCertificateArgs>());
-            set => _p2SVpnServerConfigRadiusClientRootCertificates = value;
-        }
-
-        [Input("p2SVpnServerConfigRadiusServerRootCertificates")]
-        private InputList<Inputs.P2SVpnServerConfigRadiusServerRootCertificateArgs>? _p2SVpnServerConfigRadiusServerRootCertificates;
-
-        /// <summary>
-        /// Radius Server root certificate of P2SVpnServerConfiguration.
-        /// </summary>
-        public InputList<Inputs.P2SVpnServerConfigRadiusServerRootCertificateArgs> P2SVpnServerConfigRadiusServerRootCertificates
-        {
-            get => _p2SVpnServerConfigRadiusServerRootCertificates ?? (_p2SVpnServerConfigRadiusServerRootCertificates = new InputList<Inputs.P2SVpnServerConfigRadiusServerRootCertificateArgs>());
-            set => _p2SVpnServerConfigRadiusServerRootCertificates = value;
-        }
-
-        [Input("p2SVpnServerConfigVpnClientRevokedCertificates")]
-        private InputList<Inputs.P2SVpnServerConfigVpnClientRevokedCertificateArgs>? _p2SVpnServerConfigVpnClientRevokedCertificates;
-
-        /// <summary>
-        /// VPN client revoked certificate of P2SVpnServerConfiguration.
-        /// </summary>
-        public InputList<Inputs.P2SVpnServerConfigVpnClientRevokedCertificateArgs> P2SVpnServerConfigVpnClientRevokedCertificates
-        {
-            get => _p2SVpnServerConfigVpnClientRevokedCertificates ?? (_p2SVpnServerConfigVpnClientRevokedCertificates = new InputList<Inputs.P2SVpnServerConfigVpnClientRevokedCertificateArgs>());
-            set => _p2SVpnServerConfigVpnClientRevokedCertificates = value;
-        }
-
-        [Input("p2SVpnServerConfigVpnClientRootCertificates")]
-        private InputList<Inputs.P2SVpnServerConfigVpnClientRootCertificateArgs>? _p2SVpnServerConfigVpnClientRootCertificates;
-
-        /// <summary>
-        /// VPN client root certificate of P2SVpnServerConfiguration.
-        /// </summary>
-        public InputList<Inputs.P2SVpnServerConfigVpnClientRootCertificateArgs> P2SVpnServerConfigVpnClientRootCertificates
-        {
-            get => _p2SVpnServerConfigVpnClientRootCertificates ?? (_p2SVpnServerConfigVpnClientRootCertificates = new InputList<Inputs.P2SVpnServerConfigVpnClientRootCertificateArgs>());
-            set => _p2SVpnServerConfigVpnClientRootCertificates = value;
-        }
 
         /// <summary>
         /// The name of the P2SVpnServerConfiguration.
@@ -211,16 +109,10 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? P2SVpnServerConfigurationName { get; set; }
 
         /// <summary>
-        /// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+        /// Properties of the P2SVpnServer configuration.
         /// </summary>
-        [Input("radiusServerAddress")]
-        public Input<string>? RadiusServerAddress { get; set; }
-
-        /// <summary>
-        /// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
-        /// </summary>
-        [Input("radiusServerSecret")]
-        public Input<string>? RadiusServerSecret { get; set; }
+        [Input("properties")]
+        public Input<Inputs.P2SVpnServerConfigurationPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualWan.
@@ -233,30 +125,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("virtualWanName", required: true)]
         public Input<string> VirtualWanName { get; set; } = null!;
-
-        [Input("vpnClientIpsecPolicies")]
-        private InputList<Inputs.IpsecPolicyArgs>? _vpnClientIpsecPolicies;
-
-        /// <summary>
-        /// VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-        /// </summary>
-        public InputList<Inputs.IpsecPolicyArgs> VpnClientIpsecPolicies
-        {
-            get => _vpnClientIpsecPolicies ?? (_vpnClientIpsecPolicies = new InputList<Inputs.IpsecPolicyArgs>());
-            set => _vpnClientIpsecPolicies = value;
-        }
-
-        [Input("vpnProtocols")]
-        private InputList<Union<string, Pulumi.AzureNative.Network.VpnGatewayTunnelingProtocol>>? _vpnProtocols;
-
-        /// <summary>
-        /// VPN protocols for the P2SVpnServerConfiguration.
-        /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.Network.VpnGatewayTunnelingProtocol>> VpnProtocols
-        {
-            get => _vpnProtocols ?? (_vpnProtocols = new InputList<Union<string, Pulumi.AzureNative.Network.VpnGatewayTunnelingProtocol>>());
-            set => _vpnProtocols = value;
-        }
 
         public P2sVpnServerConfigurationArgs()
         {

@@ -309,7 +309,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__.__dict__["weekly_backups_to_keep"] = weekly_backups_to_keep
             __props__.__dict__["yearly_backups_to_keep"] = yearly_backups_to_keep
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20211001:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220301:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220901:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20221101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20230501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20230701:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -335,35 +335,12 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-        __props__.__dict__["daily_backups_to_keep"] = None
-        __props__.__dict__["enabled"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["monthly_backups_to_keep"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["volume_backups"] = None
-        __props__.__dict__["volumes_assigned"] = None
-        __props__.__dict__["weekly_backups_to_keep"] = None
-        __props__.__dict__["yearly_backups_to_keep"] = None
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dailyBackupsToKeep")
-    def daily_backups_to_keep(self) -> pulumi.Output[Optional[int]]:
-        """
-        Daily backups count to keep
-        """
-        return pulumi.get(self, "daily_backups_to_keep")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        The property to decide policy is enabled or not
-        """
-        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
@@ -374,28 +351,20 @@ class BackupPolicy(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="monthlyBackupsToKeep")
-    def monthly_backups_to_keep(self) -> pulumi.Output[Optional[int]]:
-        """
-        Monthly backups count to keep
-        """
-        return pulumi.get(self, "monthly_backups_to_keep")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of backup policy
+        Resource name
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.BackupPolicyPropertiesResponse']:
         """
-        Azure lifecycle management
+        Backup policy Properties
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -412,36 +381,4 @@ class BackupPolicy(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="volumeBackups")
-    def volume_backups(self) -> pulumi.Output[Optional[Sequence['outputs.VolumeBackupsResponse']]]:
-        """
-        A list of volumes assigned to this policy
-        """
-        return pulumi.get(self, "volume_backups")
-
-    @property
-    @pulumi.getter(name="volumesAssigned")
-    def volumes_assigned(self) -> pulumi.Output[Optional[int]]:
-        """
-        Volumes using current backup policy
-        """
-        return pulumi.get(self, "volumes_assigned")
-
-    @property
-    @pulumi.getter(name="weeklyBackupsToKeep")
-    def weekly_backups_to_keep(self) -> pulumi.Output[Optional[int]]:
-        """
-        Weekly backups count to keep
-        """
-        return pulumi.get(self, "weekly_backups_to_keep")
-
-    @property
-    @pulumi.getter(name="yearlyBackupsToKeep")
-    def yearly_backups_to_keep(self) -> pulumi.Output[Optional[int]]:
-        """
-        Yearly backups count to keep
-        """
-        return pulumi.get(self, "yearly_backups_to_keep")
 

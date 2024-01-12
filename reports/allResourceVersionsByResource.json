@@ -18002,6 +18002,9 @@
     "CustomEntityStoreAssignment": [
       "2021-07-01-preview"
     ],
+    "DefenderForStorage": [
+      "2022-12-01-preview"
+    ],
     "DevOpsConfiguration": [
       "2023-09-01-preview"
     ],

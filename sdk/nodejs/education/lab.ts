@@ -83,6 +83,10 @@ export class Lab extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.education.SystemDataResponse>;
     /**
+     * Total budget
+     */
+    public /*out*/ readonly totalBudget!: pulumi.Output<outputs.education.AmountResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -138,6 +142,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalBudget"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["budgetPerStudent"] = undefined /*out*/;
@@ -151,6 +156,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalBudget"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }

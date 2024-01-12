@@ -22,19 +22,7 @@ class GetDedicatedCloudNodeResult:
     """
     Dedicated cloud node model
     """
-    def __init__(__self__, availability_zone_id=None, availability_zone_name=None, cloud_rack_name=None, created=None, id=None, location=None, name=None, nodes_count=None, placement_group_id=None, placement_group_name=None, private_cloud_id=None, private_cloud_name=None, provisioning_state=None, purchase_id=None, sku=None, status=None, tags=None, type=None, vmware_cluster_name=None):
-        if availability_zone_id and not isinstance(availability_zone_id, str):
-            raise TypeError("Expected argument 'availability_zone_id' to be a str")
-        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
-        if availability_zone_name and not isinstance(availability_zone_name, str):
-            raise TypeError("Expected argument 'availability_zone_name' to be a str")
-        pulumi.set(__self__, "availability_zone_name", availability_zone_name)
-        if cloud_rack_name and not isinstance(cloud_rack_name, str):
-            raise TypeError("Expected argument 'cloud_rack_name' to be a str")
-        pulumi.set(__self__, "cloud_rack_name", cloud_rack_name)
-        if created and not isinstance(created, str):
-            raise TypeError("Expected argument 'created' to be a str")
-        pulumi.set(__self__, "created", created)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,80 +32,24 @@ class GetDedicatedCloudNodeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if nodes_count and not isinstance(nodes_count, int):
-            raise TypeError("Expected argument 'nodes_count' to be a int")
-        pulumi.set(__self__, "nodes_count", nodes_count)
-        if placement_group_id and not isinstance(placement_group_id, str):
-            raise TypeError("Expected argument 'placement_group_id' to be a str")
-        pulumi.set(__self__, "placement_group_id", placement_group_id)
-        if placement_group_name and not isinstance(placement_group_name, str):
-            raise TypeError("Expected argument 'placement_group_name' to be a str")
-        pulumi.set(__self__, "placement_group_name", placement_group_name)
-        if private_cloud_id and not isinstance(private_cloud_id, str):
-            raise TypeError("Expected argument 'private_cloud_id' to be a str")
-        pulumi.set(__self__, "private_cloud_id", private_cloud_id)
-        if private_cloud_name and not isinstance(private_cloud_name, str):
-            raise TypeError("Expected argument 'private_cloud_name' to be a str")
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if purchase_id and not isinstance(purchase_id, str):
-            raise TypeError("Expected argument 'purchase_id' to be a str")
-        pulumi.set(__self__, "purchase_id", purchase_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if vmware_cluster_name and not isinstance(vmware_cluster_name, str):
-            raise TypeError("Expected argument 'vmware_cluster_name' to be a str")
-        pulumi.set(__self__, "vmware_cluster_name", vmware_cluster_name)
-
-    @property
-    @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> str:
-        """
-        Availability Zone id, e.g. "az1"
-        """
-        return pulumi.get(self, "availability_zone_id")
-
-    @property
-    @pulumi.getter(name="availabilityZoneName")
-    def availability_zone_name(self) -> str:
-        """
-        Availability Zone name, e.g. "Availability Zone 1"
-        """
-        return pulumi.get(self, "availability_zone_name")
-
-    @property
-    @pulumi.getter(name="cloudRackName")
-    def cloud_rack_name(self) -> str:
-        """
-        VMWare Cloud Rack Name
-        """
-        return pulumi.get(self, "cloud_rack_name")
-
-    @property
-    @pulumi.getter
-    def created(self) -> str:
-        """
-        date time the resource was created
-        """
-        return pulumi.get(self, "created")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        SKU's id
+        /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/dedicatedCloudNodes/{dedicatedCloudNodeName}
         """
         return pulumi.get(self, "id")
 
@@ -133,65 +65,17 @@ class GetDedicatedCloudNodeResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        SKU's name
+        {dedicatedCloudNodeName}
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="nodesCount")
-    def nodes_count(self) -> int:
+    @pulumi.getter
+    def properties(self) -> 'outputs.DedicatedCloudNodePropertiesResponse':
         """
-        count of nodes to create
+        Dedicated Cloud Nodes properties
         """
-        return pulumi.get(self, "nodes_count")
-
-    @property
-    @pulumi.getter(name="placementGroupId")
-    def placement_group_id(self) -> str:
-        """
-        Placement Group id, e.g. "n1"
-        """
-        return pulumi.get(self, "placement_group_id")
-
-    @property
-    @pulumi.getter(name="placementGroupName")
-    def placement_group_name(self) -> str:
-        """
-        Placement Name, e.g. "Placement Group 1"
-        """
-        return pulumi.get(self, "placement_group_name")
-
-    @property
-    @pulumi.getter(name="privateCloudId")
-    def private_cloud_id(self) -> str:
-        """
-        Private Cloud Id
-        """
-        return pulumi.get(self, "private_cloud_id")
-
-    @property
-    @pulumi.getter(name="privateCloudName")
-    def private_cloud_name(self) -> str:
-        """
-        Resource Pool Name
-        """
-        return pulumi.get(self, "private_cloud_name")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning status of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="purchaseId")
-    def purchase_id(self) -> str:
-        """
-        purchase id
-        """
-        return pulumi.get(self, "purchase_id")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -200,14 +84,6 @@ class GetDedicatedCloudNodeResult:
         Dedicated Cloud Nodes SKU
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        """
-        Node status, indicates is private cloud set up on this node or not
-        """
-        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -225,14 +101,6 @@ class GetDedicatedCloudNodeResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter(name="vmwareClusterName")
-    def vmware_cluster_name(self) -> str:
-        """
-        VMWare Cluster Name
-        """
-        return pulumi.get(self, "vmware_cluster_name")
-
 
 class AwaitableGetDedicatedCloudNodeResult(GetDedicatedCloudNodeResult):
     # pylint: disable=using-constant-test
@@ -240,25 +108,13 @@ class AwaitableGetDedicatedCloudNodeResult(GetDedicatedCloudNodeResult):
         if False:
             yield self
         return GetDedicatedCloudNodeResult(
-            availability_zone_id=self.availability_zone_id,
-            availability_zone_name=self.availability_zone_name,
-            cloud_rack_name=self.cloud_rack_name,
-            created=self.created,
             id=self.id,
             location=self.location,
             name=self.name,
-            nodes_count=self.nodes_count,
-            placement_group_id=self.placement_group_id,
-            placement_group_name=self.placement_group_name,
-            private_cloud_id=self.private_cloud_id,
-            private_cloud_name=self.private_cloud_name,
-            provisioning_state=self.provisioning_state,
-            purchase_id=self.purchase_id,
+            properties=self.properties,
             sku=self.sku,
-            status=self.status,
             tags=self.tags,
-            type=self.type,
-            vmware_cluster_name=self.vmware_cluster_name)
+            type=self.type)
 
 
 def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[str] = None,
@@ -279,25 +135,13 @@ def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:vmwarecloudsimple:getDedicatedCloudNode', __args__, opts=opts, typ=GetDedicatedCloudNodeResult).value
 
     return AwaitableGetDedicatedCloudNodeResult(
-        availability_zone_id=pulumi.get(__ret__, 'availability_zone_id'),
-        availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
-        cloud_rack_name=pulumi.get(__ret__, 'cloud_rack_name'),
-        created=pulumi.get(__ret__, 'created'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        nodes_count=pulumi.get(__ret__, 'nodes_count'),
-        placement_group_id=pulumi.get(__ret__, 'placement_group_id'),
-        placement_group_name=pulumi.get(__ret__, 'placement_group_name'),
-        private_cloud_id=pulumi.get(__ret__, 'private_cloud_id'),
-        private_cloud_name=pulumi.get(__ret__, 'private_cloud_name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        purchase_id=pulumi.get(__ret__, 'purchase_id'),
+        properties=pulumi.get(__ret__, 'properties'),
         sku=pulumi.get(__ret__, 'sku'),
-        status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'),
-        vmware_cluster_name=pulumi.get(__ret__, 'vmware_cluster_name'))
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dedicated_cloud_node)
