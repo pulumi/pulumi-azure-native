@@ -157,6 +157,10 @@ func (k *azureNativeProvider) lookupTypeDefault(ref string) (*resources.AzureAPI
 	return &t, ok, err
 }
 
+func (k *azureNativeProvider) LookupResource(resourceType string) (resources.AzureAPIResource, bool, error) {
+	return k.resourceMap.Resources.Get(resourceType)
+}
+
 func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
 	host, err := provider.NewHostClient(req.GetAddress())
 	if err != nil {
@@ -222,7 +226,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.client.UserAgent = k.getUserAgent()
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	k.customResources, err = resources.BuildCustomResources(&env, k.subscriptionID,
+	var azureClient resources.AzureClient = k
+	k.customResources, err = resources.BuildCustomResources(&env, azureClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth,
 		k.client.UserAgent, azCoreTokenCredential)
 	if err != nil {
@@ -403,7 +408,7 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	res, ok, err := k.LookupResource(resourceKey)
 	if err != nil {
 		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
 	}
@@ -786,7 +791,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 
 	// Get the resource definition for looking up additional metadata.
 	resourceKey := string(urn.Type())
-	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	res, ok, err := k.LookupResource(resourceKey)
 	if err != nil {
 		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
 	}
@@ -845,7 +850,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	res, ok, err := k.LookupResource(resourceKey)
 	if err != nil {
 		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
 	}
@@ -1033,7 +1038,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	res, ok, err := k.LookupResource(resourceKey)
 	if err != nil {
 		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
 	}
@@ -1229,7 +1234,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	res, ok, err := k.LookupResource(resourceKey)
 	if err != nil {
 		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
 	}
@@ -1357,7 +1362,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	logging.V(9).Infof("%s executing", label)
 	id := req.GetId()
 	resourceKey := string(urn.Type())
-	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	res, ok, err := k.LookupResource(resourceKey)
 	if err != nil {
 		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
 	}
@@ -1386,7 +1391,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
 		}
 		// Our hand-crafted implementation of DELETE operation.
-		err = customRes.Delete(ctx, inputs)
+		err = customRes.Delete(ctx, id, inputs)
 		if err != nil {
 			return nil, azureError(err)
 		}
@@ -1407,7 +1412,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			}
 		}
 	default:
-		err := k.azureDelete(ctx, id, res.APIVersion, res.DeleteAsyncStyle)
+		err := k.AzureDelete(ctx, id, res.APIVersion, res.DeleteAsyncStyle, nil)
 		if err != nil {
 			return nil, azureError(err)
 		}
@@ -1623,10 +1628,14 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 	return outputs, true, nil
 }
 
-func (k *azureNativeProvider) azureDelete(ctx context.Context, id string, apiVersion string, asyncStyle string) error {
+func (k *azureNativeProvider) AzureDelete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
+	for k, v := range queryParams {
+		queryParameters[k] = v
+	}
+
 	preparer := autorest.CreatePreparer(
 		autorest.AsDelete(),
 		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
