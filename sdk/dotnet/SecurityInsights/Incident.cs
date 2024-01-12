@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Represents an incident in Azure Security Insights.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01.
     /// 
-    /// Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
+    /// Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Incident")]
     public partial class Incident : global::Pulumi.CustomResource
@@ -210,6 +210,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:Incident" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:Incident" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:Incident" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:Incident" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

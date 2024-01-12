@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Lists deployments for catalog.
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function listCatalogDeployments(args: ListCatalogDeploymentsArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDeploymentsResult> {
 
@@ -67,6 +69,8 @@ export interface ListCatalogDeploymentsResult {
 /**
  * Lists deployments for catalog.
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function listCatalogDeploymentsOutput(args: ListCatalogDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeploymentsResult> {
     return pulumi.output(args).apply((a: any) => listCatalogDeployments(a, opts))

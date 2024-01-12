@@ -125,7 +125,7 @@ export class DeviceGroup extends pulumi.CustomResource {
             resourceInputs["updatePolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere:DeviceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere:DeviceGroup" }, { type: "azure-native:azuresphere/v20240401:DeviceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeviceGroup.__pulumiType, name, resourceInputs, opts);
     }

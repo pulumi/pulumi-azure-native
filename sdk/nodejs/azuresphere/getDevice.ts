@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
 
@@ -98,6 +100,8 @@ export interface GetDeviceResult {
 /**
  * Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
  * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))

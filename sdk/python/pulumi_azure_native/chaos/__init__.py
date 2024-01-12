@@ -28,9 +28,12 @@ if typing.TYPE_CHECKING:
     v20231027preview = __v20231027preview
     import pulumi_azure_native.chaos.v20231101 as __v20231101
     v20231101 = __v20231101
+    import pulumi_azure_native.chaos.v20240101 as __v20240101
+    v20240101 = __v20240101
 else:
     v20230415preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20230415preview')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20230901preview')
     v20231027preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20231027preview')
     v20231101 = _utilities.lazy_import('pulumi_azure_native.chaos.v20231101')
+    v20240101 = _utilities.lazy_import('pulumi_azure_native.chaos.v20240101')
 

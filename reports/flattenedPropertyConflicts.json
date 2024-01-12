@@ -1,0 +1,106 @@
+{
+  "azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById": {
+    "range.type": {}
+  },
+  "azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById": {
+    "range.type": {},
+    "scope.principalType": {}
+  },
+  "azure-native:authorization/v20211201preview:ScopeAccessReviewHistoryDefinitionById": {
+    "range.type": {}
+  },
+  "azure-native:authorization/v20211201preview:ScopeAccessReviewScheduleDefinitionById": {
+    "range.type": {},
+    "scope.principalType": {}
+  },
+  "azure-native:authorization:AccessReviewHistoryDefinitionById": {
+    "range.type": {}
+  },
+  "azure-native:authorization:AccessReviewScheduleDefinitionById": {
+    "range.type": {},
+    "scope.principalType": {}
+  },
+  "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById": {
+    "range.type": {}
+  },
+  "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById": {
+    "range.type": {},
+    "scope.principalType": {}
+  },
+  "azure-native:devhub/v20221011preview:Workflow": {
+    "githubWorkflowProfile.namespace": {}
+  },
+  "azure-native:devhub/v20230801:Workflow": {
+    "githubWorkflowProfile.namespace": {}
+  },
+  "azure-native:devhub:Workflow": {
+    "githubWorkflowProfile.namespace": {}
+  },
+  "azure-native:education/v20211201preview:Lab": {
+    "totalBudget.currency": {},
+    "totalBudget.value": {}
+  },
+  "azure-native:education:Lab": {
+    "totalBudget.currency": {},
+    "totalBudget.value": {}
+  },
+  "azure-native:insights/v20150501:Workbook": {
+    "properties.kind": {}
+  },
+  "azure-native:netapp/v20210401:BackupPolicy": {
+    "properties.name": {}
+  },
+  "azure-native:netapp/v20210401preview:BackupPolicy": {
+    "properties.name": {}
+  },
+  "azure-native:network/v20190701:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190701:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20230201:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20230401:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20230501:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20230601:NetworkVirtualApplianceConnection": {
+    "properties.name": {}
+  },
+  "azure-native:network/v20230601:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20230901:NetworkVirtualApplianceConnection": {
+    "properties.name": {}
+  },
+  "azure-native:network/v20230901:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode": {
+    "properties.id": {},
+    "properties.name": {}
+  },
+  "azure-native:vmwarecloudsimple:DedicatedCloudNode": {
+    "properties.id": {},
+    "properties.name": {}
+  }
+}

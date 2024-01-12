@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azuresphere:Image" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuresphere/v20240401:Image" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,7 +156,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// Image name. Use .default for image creation.
+        /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
         [Input("imageName")]
         public Input<string>? ImageName { get; set; }

@@ -5,18 +5,19 @@ package resources
 import (
 	"context"
 	"fmt"
+	"net/http"
+
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"net/http"
 )
 
 // keyVaultSecret creates a custom resource for Azure KeyVault Secret.
 func keyVaultSecret(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}",
-		Delete: func(ctx context.Context, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
 			vaultName := properties["vaultName"]
 			if !vaultName.HasValue() || !vaultName.IsString() {
 				return errors.New("vaultName not found in resource state")
@@ -37,7 +38,7 @@ func keyVaultSecret(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *Cu
 func keyVaultKey(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}",
-		Delete: func(ctx context.Context, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
 			vaultName := properties["vaultName"]
 			if !vaultName.HasValue() || !vaultName.IsString() {
 				return errors.New("vaultName not found in resource state")

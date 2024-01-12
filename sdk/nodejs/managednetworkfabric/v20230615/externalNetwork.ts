@@ -70,9 +70,9 @@ export class ExternalNetwork extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the networkToNetworkInterconnectId of the resource.
+     * ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
      */
-    public /*out*/ readonly networkToNetworkInterconnectId!: pulumi.Output<string>;
+    public readonly networkToNetworkInterconnectId!: pulumi.Output<string | undefined>;
     /**
      * option A properties object
      */
@@ -125,6 +125,7 @@ export class ExternalNetwork extends pulumi.CustomResource {
             resourceInputs["importRoutePolicy"] = args ? args.importRoutePolicy : undefined;
             resourceInputs["importRoutePolicyId"] = args ? args.importRoutePolicyId : undefined;
             resourceInputs["l3IsolationDomainName"] = args ? args.l3IsolationDomainName : undefined;
+            resourceInputs["networkToNetworkInterconnectId"] = args ? args.networkToNetworkInterconnectId : undefined;
             resourceInputs["optionAProperties"] = args ? (args.optionAProperties ? pulumi.output(args.optionAProperties).apply(inputs.managednetworkfabric.v20230615.externalNetworkPropertiesOptionAPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["optionBProperties"] = args ? args.optionBProperties : undefined;
             resourceInputs["peeringOption"] = args ? args.peeringOption : undefined;
@@ -132,7 +133,6 @@ export class ExternalNetwork extends pulumi.CustomResource {
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkToNetworkInterconnectId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -192,6 +192,10 @@ export interface ExternalNetworkArgs {
      * Name of the L3 Isolation Domain.
      */
     l3IsolationDomainName: pulumi.Input<string>;
+    /**
+     * ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
+     */
+    networkToNetworkInterconnectId?: pulumi.Input<string>;
     /**
      * option A properties object
      */

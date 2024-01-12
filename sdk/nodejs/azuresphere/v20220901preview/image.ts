@@ -132,7 +132,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere:Image" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere:Image" }, { type: "azure-native:azuresphere/v20240401:Image" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Image.__pulumiType, name, resourceInputs, opts);
     }
@@ -155,7 +155,7 @@ export interface ImageArgs {
      */
     imageId?: pulumi.Input<string>;
     /**
-     * Image name. Use .default for image creation.
+     * Image name. Use an image GUID for GA versions of the API.
      */
     imageName?: pulumi.Input<string>;
     /**

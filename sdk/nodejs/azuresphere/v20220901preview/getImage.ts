@@ -26,7 +26,7 @@ export interface GetImageArgs {
      */
     catalogName: string;
     /**
-     * Image name. Use .default for image creation.
+     * Image name. Use an image GUID for GA versions of the API.
      */
     imageName: string;
     /**
@@ -105,7 +105,7 @@ export interface GetImageOutputArgs {
      */
     catalogName: pulumi.Input<string>;
     /**
-     * Image name. Use .default for image creation.
+     * Image name. Use an image GUID for GA versions of the API.
      */
     imageName: pulumi.Input<string>;
     /**

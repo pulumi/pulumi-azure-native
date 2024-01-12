@@ -113,6 +113,8 @@ def get_product(catalog_name: Optional[str] = None,
     Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str catalog_name: Name of catalog
     :param str product_name: Name of product.
@@ -142,6 +144,8 @@ def get_product_output(catalog_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog

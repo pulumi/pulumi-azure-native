@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Lists device insights for catalog.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Task<ListCatalogDeviceInsightsResult> InvokeAsync(ListCatalogDeviceInsightsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCatalogDeviceInsightsResult>("azure-native:azuresphere:listCatalogDeviceInsights", args ?? new ListCatalogDeviceInsightsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Lists device insights for catalog.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Output<ListCatalogDeviceInsightsResult> Invoke(ListCatalogDeviceInsightsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeviceInsightsResult>("azure-native:azuresphere:listCatalogDeviceInsights", args ?? new ListCatalogDeviceInsightsInvokeArgs(), options.WithDefaults());

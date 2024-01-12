@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Account resource
  * Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
  *
- * Other available API versions: 2020-12-01-preview, 2021-07-01.
+ * Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -187,7 +187,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:purview/v20201201preview:Account" }, { type: "azure-native:purview/v20210701:Account" }, { type: "azure-native:purview/v20211201:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:purview/v20201201preview:Account" }, { type: "azure-native:purview/v20210701:Account" }, { type: "azure-native:purview/v20211201:Account" }, { type: "azure-native:purview/v20230501preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

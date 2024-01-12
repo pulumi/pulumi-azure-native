@@ -40,8 +40,10 @@ type BuildSchemaReports struct {
 	Pending                       openapi.ProviderVersionList
 	CurationViolations            []CurationViolation
 	NamingDisambiguations         []resources.NameDisambiguation
+	SkippedPOSTEndpoints          map[string]map[string]string
 	ForceNewTypes                 []gen.ForceNewType
 	TypeCaseConflicts             gen.CaseConflicts
+	FlattenedPropertyConflicts    map[string]map[string]struct{}
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
@@ -53,8 +55,10 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"pending.json":                       r.Pending,
 		"curationViolations.json":            r.CurationViolations,
 		"namingDisambiguations.json":         r.NamingDisambiguations,
+		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
 		"forceNewTypes.json":                 r.ForceNewTypes,
 		"typeCaseConflicts.json":             r.TypeCaseConflicts,
+		"flattenedPropertyConflicts.json":    r.FlattenedPropertyConflicts,
 	})
 }
 
@@ -127,6 +131,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 
 	buildSchemaResult := BuildSchemaReports{
 		NamingDisambiguations:         diagnostics.NamingDisambiguations,
+		SkippedPOSTEndpoints:          diagnostics.SkippedPOSTEndpoints,
 		PathChangesResult:             pathChanges,
 		AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
 		AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
@@ -135,6 +140,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		CurationViolations:            versionMetadata.CurationViolations,
 		ForceNewTypes:                 generationResult.ForceNewTypes,
 		TypeCaseConflicts:             generationResult.TypeCaseConflicts,
+		FlattenedPropertyConflicts:    generationResult.FlattenedPropertyConflicts,
 	}
 
 	return &BuildSchemaResult{

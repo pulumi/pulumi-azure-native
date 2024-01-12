@@ -76,9 +76,9 @@ export interface GetExternalNetworkResult {
      */
     readonly name: string;
     /**
-     * Gets the networkToNetworkInterconnectId of the resource.
+     * ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
      */
-    readonly networkToNetworkInterconnectId: string;
+    readonly networkToNetworkInterconnectId?: string;
     /**
      * option A properties object
      */

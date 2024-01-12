@@ -197,9 +197,11 @@ def get_image(catalog_name: Optional[str] = None,
     Get a Image
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str catalog_name: Name of catalog
-    :param str image_name: Image name. Use .default for image creation.
+    :param str image_name: Image name. Use an image GUID for GA versions of the API.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -234,9 +236,11 @@ def get_image_output(catalog_name: Optional[pulumi.Input[str]] = None,
     Get a Image
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str catalog_name: Name of catalog
-    :param str image_name: Image name. Use .default for image creation.
+    :param str image_name: Image name. Use an image GUID for GA versions of the API.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

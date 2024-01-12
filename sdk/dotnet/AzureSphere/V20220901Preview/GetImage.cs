@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
         public string CatalogName { get; set; } = null!;
 
         /// <summary>
-        /// Image name. Use .default for image creation.
+        /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
         [Input("imageName", required: true)]
         public string ImageName { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
         public Input<string> CatalogName { get; set; } = null!;
 
         /// <summary>
-        /// Image name. Use .default for image creation.
+        /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;

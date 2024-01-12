@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Lists deployments for catalog.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Task<ListCatalogDeploymentsResult> InvokeAsync(ListCatalogDeploymentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCatalogDeploymentsResult>("azure-native:azuresphere:listCatalogDeployments", args ?? new ListCatalogDeploymentsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Lists deployments for catalog.
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Output<ListCatalogDeploymentsResult> Invoke(ListCatalogDeploymentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeploymentsResult>("azure-native:azuresphere:listCatalogDeployments", args ?? new ListCatalogDeploymentsInvokeArgs(), options.WithDefaults());

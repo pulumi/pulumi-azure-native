@@ -118,9 +118,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the networkToNetworkInterconnectId of the resource.
+        /// ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
         /// </summary>
-        public readonly string NetworkToNetworkInterconnectId;
+        public readonly string? NetworkToNetworkInterconnectId;
         /// <summary>
         /// option A properties object
         /// </summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
 
             string name,
 
-            string networkToNetworkInterconnectId,
+            string? networkToNetworkInterconnectId,
 
             Outputs.ExternalNetworkPropertiesResponseOptionAProperties? optionAProperties,
 

@@ -175,6 +175,8 @@ def get_device(catalog_name: Optional[str] = None,
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str catalog_name: Name of catalog
     :param str device_group_name: Name of device group.
@@ -215,6 +217,8 @@ def get_device_output(catalog_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog

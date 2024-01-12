@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a Image
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-native:azuresphere:getImage", args ?? new GetImageArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Get a Image
         /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:azuresphere:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
@@ -36,7 +40,7 @@ namespace Pulumi.AzureNative.AzureSphere
         public string CatalogName { get; set; } = null!;
 
         /// <summary>
-        /// Image name. Use .default for image creation.
+        /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
         [Input("imageName", required: true)]
         public string ImageName { get; set; } = null!;
@@ -62,7 +66,7 @@ namespace Pulumi.AzureNative.AzureSphere
         public Input<string> CatalogName { get; set; } = null!;
 
         /// <summary>
-        /// Image name. Use .default for image creation.
+        /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;

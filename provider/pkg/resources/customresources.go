@@ -16,6 +16,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
+type ResourceLookupper interface {
+	LookupResource(resourceType string) (AzureAPIResource, bool, error)
+}
+
+type AzureDeleter interface {
+	AzureDelete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error
+}
+
+type AzureClient interface {
+	ResourceLookupper
+	AzureDeleter
+}
+
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
 // crucial operations.
 type CustomResource struct {
@@ -36,11 +49,12 @@ type CustomResource struct {
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
 	Update func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
-	Delete func(context.Context, resource.PropertyMap) error
+	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
 }
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
 func BuildCustomResources(env *azure.Environment,
+	azureClient AzureClient,
 	subscriptionID string,
 	bearerAuth autorest.Authorizer,
 	tokenAuth autorest.Authorizer,
@@ -69,6 +83,8 @@ func BuildCustomResources(env *azure.Environment,
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
+		// Customization of regular resources
+		customWebAppDelete(azureClient /* ResourceLookupper */, azureClient /* AzureDeleter */),
 	}
 
 	result := map[string]*CustomResource{}
@@ -79,7 +95,7 @@ func BuildCustomResources(env *azure.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azure.Environment{}, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azure.Environment{}, nil, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {

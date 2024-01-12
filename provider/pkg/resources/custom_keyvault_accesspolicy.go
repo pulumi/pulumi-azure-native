@@ -77,7 +77,7 @@ func keyVaultAccessPolicy(client *armkeyvault.VaultsClient) *CustomResource {
 		Update: func(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
 			return c.write(ctx, properties, true /* shouldExist */)
 		},
-		Delete: func(ctx context.Context, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
 			return c.modify(ctx, properties, armkeyvault.AccessPolicyUpdateKindRemove)
 		},
 	}

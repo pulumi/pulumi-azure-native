@@ -68,6 +68,8 @@ def list_catalog_deployments(catalog_name: Optional[str] = None,
     Lists deployments for catalog.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str catalog_name: Name of catalog
     :param str filter: Filter the result list using the given expression
@@ -102,6 +104,8 @@ def list_catalog_deployments_output(catalog_name: Optional[pulumi.Input[str]] = 
     """
     Lists deployments for catalog.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog

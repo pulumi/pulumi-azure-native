@@ -22,7 +22,7 @@ class GetRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type).
     """
-    def __init__(__self__, a_records=None, aaaa_records=None, caa_records=None, cname_record=None, ds_records=None, etag=None, fqdn=None, id=None, metadata=None, mx_records=None, name=None, naptr_records=None, ns_records=None, provisioning_state=None, ptr_records=None, soa_record=None, srv_records=None, target_resource=None, tlsa_records=None, ttl=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, caa_records=None, cname_record=None, ds_records=None, etag=None, fqdn=None, id=None, metadata=None, mx_records=None, name=None, naptr_records=None, ns_records=None, provisioning_state=None, ptr_records=None, soa_record=None, srv_records=None, target_resource=None, tlsa_records=None, traffic_management_profile=None, ttl=None, txt_records=None, type=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
@@ -80,6 +80,9 @@ class GetRecordSetResult:
         if tlsa_records and not isinstance(tlsa_records, list):
             raise TypeError("Expected argument 'tlsa_records' to be a list")
         pulumi.set(__self__, "tlsa_records", tlsa_records)
+        if traffic_management_profile and not isinstance(traffic_management_profile, dict):
+            raise TypeError("Expected argument 'traffic_management_profile' to be a dict")
+        pulumi.set(__self__, "traffic_management_profile", traffic_management_profile)
         if ttl and not isinstance(ttl, float):
             raise TypeError("Expected argument 'ttl' to be a float")
         pulumi.set(__self__, "ttl", ttl)
@@ -243,6 +246,14 @@ class GetRecordSetResult:
         return pulumi.get(self, "tlsa_records")
 
     @property
+    @pulumi.getter(name="trafficManagementProfile")
+    def traffic_management_profile(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to an azure traffic manager profile resource from where the dns resource value is taken.
+        """
+        return pulumi.get(self, "traffic_management_profile")
+
+    @property
     @pulumi.getter
     def ttl(self) -> Optional[float]:
         """
@@ -292,6 +303,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             srv_records=self.srv_records,
             target_resource=self.target_resource,
             tlsa_records=self.tlsa_records,
+            traffic_management_profile=self.traffic_management_profile,
             ttl=self.ttl,
             txt_records=self.txt_records,
             type=self.type)
@@ -339,6 +351,7 @@ def get_record_set(record_type: Optional[str] = None,
         srv_records=pulumi.get(__ret__, 'srv_records'),
         target_resource=pulumi.get(__ret__, 'target_resource'),
         tlsa_records=pulumi.get(__ret__, 'tlsa_records'),
+        traffic_management_profile=pulumi.get(__ret__, 'traffic_management_profile'),
         ttl=pulumi.get(__ret__, 'ttl'),
         txt_records=pulumi.get(__ret__, 'txt_records'),
         type=pulumi.get(__ret__, 'type'))

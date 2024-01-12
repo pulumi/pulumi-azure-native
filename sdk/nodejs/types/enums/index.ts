@@ -20,6 +20,7 @@ import * as autonomousdevelopmentplatform from "./autonomousdevelopmentplatform"
 import * as avs from "./avs";
 import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurearcdata from "./azurearcdata";
+import * as azuredatatransfer from "./azuredatatransfer";
 import * as azureplaywrightservice from "./azureplaywrightservice";
 import * as azuresphere from "./azuresphere";
 import * as azurestack from "./azurestack";
@@ -216,6 +217,7 @@ export {
     avs,
     azureactivedirectory,
     azurearcdata,
+    azuredatatransfer,
     azureplaywrightservice,
     azuresphere,
     azurestack,

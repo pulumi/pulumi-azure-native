@@ -121,6 +121,10 @@ export interface GetRecordSetResult {
      */
     readonly tlsaRecords?: outputs.network.v20230701preview.TlsaRecordResponse[];
     /**
+     * A reference to an azure traffic manager profile resource from where the dns resource value is taken.
+     */
+    readonly trafficManagementProfile?: outputs.network.v20230701preview.SubResourceResponse;
+    /**
      * The TTL (time-to-live) of the records in the record set.
      */
     readonly ttl?: number;

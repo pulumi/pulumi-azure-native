@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:Dynamics365DataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:Dynamics365DataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:Dynamics365DataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:Dynamics365DataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

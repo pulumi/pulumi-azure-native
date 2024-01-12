@@ -69,6 +69,8 @@ def list_catalog_device_groups(catalog_name: Optional[str] = None,
     List the device groups for the catalog.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str catalog_name: Name of catalog
     :param str device_group_name: Device Group name.
@@ -106,6 +108,8 @@ def list_catalog_device_groups_output(catalog_name: Optional[pulumi.Input[str]] 
     """
     List the device groups for the catalog.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog

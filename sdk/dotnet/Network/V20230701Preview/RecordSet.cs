@@ -124,6 +124,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         public Output<ImmutableArray<Outputs.TlsaRecordResponse>> TlsaRecords { get; private set; } = null!;
 
         /// <summary>
+        /// A reference to an azure traffic manager profile resource from where the dns resource value is taken.
+        /// </summary>
+        [Output("trafficManagementProfile")]
+        public Output<Outputs.SubResourceResponse?> TrafficManagementProfile { get; private set; } = null!;
+
+        /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         [Output("ttl")]
@@ -363,6 +369,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
             get => _tlsaRecords ?? (_tlsaRecords = new InputList<Inputs.TlsaRecordArgs>());
             set => _tlsaRecords = value;
         }
+
+        /// <summary>
+        /// A reference to an azure traffic manager profile resource from where the dns resource value is taken.
+        /// </summary>
+        [Input("trafficManagementProfile")]
+        public Input<Inputs.SubResourceArgs>? TrafficManagementProfile { get; set; }
 
         /// <summary>
         /// The TTL (time-to-live) of the records in the record set.

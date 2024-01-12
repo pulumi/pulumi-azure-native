@@ -124,6 +124,8 @@ def get_catalog(catalog_name: Optional[str] = None,
     Get a Catalog
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str catalog_name: Name of catalog
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -151,6 +153,8 @@ def get_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Catalog
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog

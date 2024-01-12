@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Execution details of an experiment resource.
  * Azure REST API version: 2023-11-01.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export function getExperimentExecutionDetails(args: GetExperimentExecutionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentExecutionDetailsResult> {
 
@@ -80,6 +82,8 @@ export interface GetExperimentExecutionDetailsResult {
 /**
  * Execution details of an experiment resource.
  * Azure REST API version: 2023-11-01.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export function getExperimentExecutionDetailsOutput(args: GetExperimentExecutionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentExecutionDetailsResult> {
     return pulumi.output(args).apply((a: any) => getExperimentExecutionDetails(a, opts))

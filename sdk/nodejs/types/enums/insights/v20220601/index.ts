@@ -108,15 +108,21 @@ export const KnownPublicNetworkAccessOptions = {
 export type KnownPublicNetworkAccessOptions = (typeof KnownPublicNetworkAccessOptions)[keyof typeof KnownPublicNetworkAccessOptions];
 
 export const KnownSyslogDataSourceFacilityNames = {
+    Alert: "alert",
+    Audit: "audit",
     Auth: "auth",
     Authpriv: "authpriv",
+    Clock: "clock",
     Cron: "cron",
     Daemon: "daemon",
+    Ftp: "ftp",
     Kern: "kern",
     Lpr: "lpr",
     Mail: "mail",
     Mark: "mark",
     News: "news",
+    Nopri: "nopri",
+    Ntp: "ntp",
     Syslog: "syslog",
     User: "user",
     Uucp: "uucp",

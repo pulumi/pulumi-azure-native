@@ -97,6 +97,8 @@ class Catalog(pulumi.CustomResource):
         An Azure Sphere catalog
         Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
+        Other available API versions: 2024-04-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_name: Name of catalog
@@ -113,6 +115,8 @@ class Catalog(pulumi.CustomResource):
         """
         An Azure Sphere catalog
         Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+
+        Other available API versions: 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.
@@ -152,7 +156,7 @@ class Catalog(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Catalog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:azuresphere/v20240401:Catalog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Catalog, __self__).__init__(
             'azure-native:azuresphere:Catalog',

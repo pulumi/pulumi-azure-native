@@ -34,6 +34,7 @@ class RecordSetArgs:
                  srv_records: Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]] = None,
                  target_resource: Optional[pulumi.Input['SubResourceArgs']] = None,
                  tlsa_records: Optional[pulumi.Input[Sequence[pulumi.Input['TlsaRecordArgs']]]] = None,
+                 traffic_management_profile: Optional[pulumi.Input['SubResourceArgs']] = None,
                  ttl: Optional[pulumi.Input[float]] = None,
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]] = None):
         """
@@ -56,6 +57,7 @@ class RecordSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]] srv_records: The list of SRV records in the record set.
         :param pulumi.Input['SubResourceArgs'] target_resource: A reference to an azure resource from where the dns resource value is taken.
         :param pulumi.Input[Sequence[pulumi.Input['TlsaRecordArgs']]] tlsa_records: The list of TLSA records in the record set.
+        :param pulumi.Input['SubResourceArgs'] traffic_management_profile: A reference to an azure traffic manager profile resource from where the dns resource value is taken.
         :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]] txt_records: The list of TXT records in the record set.
         """
@@ -92,6 +94,8 @@ class RecordSetArgs:
             pulumi.set(__self__, "target_resource", target_resource)
         if tlsa_records is not None:
             pulumi.set(__self__, "tlsa_records", tlsa_records)
+        if traffic_management_profile is not None:
+            pulumi.set(__self__, "traffic_management_profile", traffic_management_profile)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
         if txt_records is not None:
@@ -314,6 +318,18 @@ class RecordSetArgs:
         pulumi.set(self, "tlsa_records", value)
 
     @property
+    @pulumi.getter(name="trafficManagementProfile")
+    def traffic_management_profile(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        A reference to an azure traffic manager profile resource from where the dns resource value is taken.
+        """
+        return pulumi.get(self, "traffic_management_profile")
+
+    @traffic_management_profile.setter
+    def traffic_management_profile(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "traffic_management_profile", value)
+
+    @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[float]]:
         """
@@ -360,6 +376,7 @@ class RecordSet(pulumi.CustomResource):
                  srv_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
                  target_resource: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  tlsa_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TlsaRecordArgs']]]]] = None,
+                 traffic_management_profile: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  ttl: Optional[pulumi.Input[float]] = None,
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
@@ -386,6 +403,7 @@ class RecordSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]] srv_records: The list of SRV records in the record set.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] target_resource: A reference to an azure resource from where the dns resource value is taken.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TlsaRecordArgs']]]] tlsa_records: The list of TLSA records in the record set.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] traffic_management_profile: A reference to an azure traffic manager profile resource from where the dns resource value is taken.
         :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]] txt_records: The list of TXT records in the record set.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
@@ -431,6 +449,7 @@ class RecordSet(pulumi.CustomResource):
                  srv_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SrvRecordArgs']]]]] = None,
                  target_resource: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  tlsa_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TlsaRecordArgs']]]]] = None,
+                 traffic_management_profile: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  ttl: Optional[pulumi.Input[float]] = None,
                  txt_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TxtRecordArgs']]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
@@ -464,6 +483,7 @@ class RecordSet(pulumi.CustomResource):
             __props__.__dict__["srv_records"] = srv_records
             __props__.__dict__["target_resource"] = target_resource
             __props__.__dict__["tlsa_records"] = tlsa_records
+            __props__.__dict__["traffic_management_profile"] = traffic_management_profile
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["txt_records"] = txt_records
             if zone_name is None and not opts.urn:
@@ -516,6 +536,7 @@ class RecordSet(pulumi.CustomResource):
         __props__.__dict__["srv_records"] = None
         __props__.__dict__["target_resource"] = None
         __props__.__dict__["tlsa_records"] = None
+        __props__.__dict__["traffic_management_profile"] = None
         __props__.__dict__["ttl"] = None
         __props__.__dict__["txt_records"] = None
         __props__.__dict__["type"] = None
@@ -664,6 +685,14 @@ class RecordSet(pulumi.CustomResource):
         The list of TLSA records in the record set.
         """
         return pulumi.get(self, "tlsa_records")
+
+    @property
+    @pulumi.getter(name="trafficManagementProfile")
+    def traffic_management_profile(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
+        """
+        A reference to an azure traffic manager profile resource from where the dns resource value is taken.
+        """
+        return pulumi.get(self, "traffic_management_profile")
 
     @property
     @pulumi.getter

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.AzureSphere
     /// <summary>
     /// An image resource belonging to a catalog resource.
     /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+    /// 
+    /// Other available API versions: 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Image")]
     public partial class Image : global::Pulumi.CustomResource
@@ -114,6 +116,7 @@ namespace Pulumi.AzureNative.AzureSphere
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azuresphere/v20220901preview:Image" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuresphere/v20240401:Image" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +159,7 @@ namespace Pulumi.AzureNative.AzureSphere
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// Image name. Use .default for image creation.
+        /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
         [Input("imageName")]
         public Input<string>? ImageName { get; set; }

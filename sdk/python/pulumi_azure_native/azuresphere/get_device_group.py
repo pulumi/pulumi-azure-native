@@ -174,6 +174,8 @@ def get_device_group(catalog_name: Optional[str] = None,
     Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
     Azure REST API version: 2022-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str catalog_name: Name of catalog
     :param str device_group_name: Name of device group.
@@ -211,6 +213,8 @@ def get_device_group_output(catalog_name: Optional[pulumi.Input[str]] = None,
     """
     Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
     Azure REST API version: 2022-09-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog
