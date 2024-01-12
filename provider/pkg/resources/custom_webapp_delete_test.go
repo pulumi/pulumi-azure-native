@@ -8,23 +8,25 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-type TestAzureClient struct {
-	queryParamsOfLastDelete map[string]any
-}
+type MockResourceLookupper struct{}
 
-func (t *TestAzureClient) LookupResource(id string) (AzureAPIResource, bool, error) {
+func (t *MockResourceLookupper) LookupResource(id string) (AzureAPIResource, bool, error) {
 	return AzureAPIResource{}, true, nil
 }
 
-func (t *TestAzureClient) AzureDelete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error {
+type MockAzureDeleter struct {
+	queryParamsOfLastDelete map[string]any
+}
+
+func (t *MockAzureDeleter) AzureDelete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error {
 	t.queryParamsOfLastDelete = queryParams
 	return nil
 }
 
 func TestSetsDeleteParam(t *testing.T) {
-	client := TestAzureClient{}
-	custom := customWebAppDelete(&client)
-	custom.Delete(context.TODO(), "id", resource.PropertyMap{})
-	assert.Len(t, client.queryParamsOfLastDelete, 1)
-	assert.Contains(t, client.queryParamsOfLastDelete, "deleteEmptyServerFarm")
+	deleter := MockAzureDeleter{}
+	custom := customWebAppDelete(&MockResourceLookupper{}, &deleter)
+	custom.Delete(context.Background(), "id", resource.PropertyMap{})
+	assert.Len(t, deleter.queryParamsOfLastDelete, 1)
+	assert.Contains(t, deleter.queryParamsOfLastDelete, "deleteEmptyServerFarm")
 }

@@ -16,9 +16,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
-type AzureClient interface {
+type ResourceLookupper interface {
 	LookupResource(resourceType string) (AzureAPIResource, bool, error)
+}
+
+type AzureDeleter interface {
 	AzureDelete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error
+}
+
+type AzureClient interface {
+	ResourceLookupper
+	AzureDeleter
 }
 
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
@@ -76,7 +84,7 @@ func BuildCustomResources(env *azure.Environment,
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
-		customWebAppDelete(azureClient),
+		customWebAppDelete(azureClient /* ResourceLookupper */, azureClient /* AzureDeleter */),
 	}
 
 	result := map[string]*CustomResource{}
