@@ -67,6 +67,8 @@ def list_products_and_configurations(configuration_filter: Optional[pulumi.Input
     List configurations for the given product family, product line and product for the given subscription.
     Azure REST API version: 2022-05-01-preview.
 
+    Other available API versions: 2024-02-01.
+
 
     :param pulumi.InputType['ConfigurationFilter'] configuration_filter: Holds details about product hierarchy information and filterable property.
     :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details.
@@ -92,6 +94,8 @@ def list_products_and_configurations_output(configuration_filter: Optional[pulum
     """
     List configurations for the given product family, product line and product for the given subscription.
     Azure REST API version: 2022-05-01-preview.
+
+    Other available API versions: 2024-02-01.
 
 
     :param pulumi.InputType['ConfigurationFilter'] configuration_filter: Holds details about product hierarchy information and filterable property.

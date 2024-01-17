@@ -148,6 +148,8 @@ def get_address(address_name: Optional[str] = None,
     Get information about the specified address.
     Azure REST API version: 2022-05-01-preview.
 
+    Other available API versions: 2024-02-01.
+
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -177,6 +179,8 @@ def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
     """
     Get information about the specified address.
     Azure REST API version: 2022-05-01-preview.
+
+    Other available API versions: 2024-02-01.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.

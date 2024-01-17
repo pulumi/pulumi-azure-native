@@ -1962,6 +1962,38 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// The type used for authentication. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnowflakeAuthenticationType : IEquatable<SnowflakeAuthenticationType>
+    {
+        private readonly string _value;
+
+        private SnowflakeAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnowflakeAuthenticationType Basic { get; } = new SnowflakeAuthenticationType("Basic");
+        public static SnowflakeAuthenticationType KeyPair { get; } = new SnowflakeAuthenticationType("KeyPair");
+        public static SnowflakeAuthenticationType AADServicePrincipal { get; } = new SnowflakeAuthenticationType("AADServicePrincipal");
+
+        public static bool operator ==(SnowflakeAuthenticationType left, SnowflakeAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(SnowflakeAuthenticationType left, SnowflakeAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(SnowflakeAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnowflakeAuthenticationType other && Equals(other);
+        public bool Equals(SnowflakeAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication method used to access the Spark server.
     /// </summary>
     [EnumType]

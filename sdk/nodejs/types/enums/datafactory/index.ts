@@ -681,6 +681,17 @@ export const SftpAuthenticationType = {
  */
 export type SftpAuthenticationType = (typeof SftpAuthenticationType)[keyof typeof SftpAuthenticationType];
 
+export const SnowflakeAuthenticationType = {
+    Basic: "Basic",
+    KeyPair: "KeyPair",
+    AADServicePrincipal: "AADServicePrincipal",
+} as const;
+
+/**
+ * The type used for authentication. Type: string.
+ */
+export type SnowflakeAuthenticationType = (typeof SnowflakeAuthenticationType)[keyof typeof SnowflakeAuthenticationType];
+
 export const SparkAuthenticationType = {
     Anonymous: "Anonymous",
     Username: "Username",

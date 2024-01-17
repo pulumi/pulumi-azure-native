@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents order item resource.
  * Azure REST API version: 2022-05-01-preview.
+ *
+ * Other available API versions: 2024-02-01.
  */
 export class OrderItem extends pulumi.CustomResource {
     /**
@@ -121,7 +123,7 @@ export class OrderItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:OrderItem" }, { type: "azure-native:edgeorder/v20211201:OrderItem" }, { type: "azure-native:edgeorder/v20220501preview:OrderItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:OrderItem" }, { type: "azure-native:edgeorder/v20211201:OrderItem" }, { type: "azure-native:edgeorder/v20220501preview:OrderItem" }, { type: "azure-native:edgeorder/v20240201:OrderItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrderItem.__pulumiType, name, resourceInputs, opts);
     }

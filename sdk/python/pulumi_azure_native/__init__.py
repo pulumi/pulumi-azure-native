@@ -6452,6 +6452,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "edgeorder/v20240201",
+  "fqn": "pulumi_azure_native.edgeorder.v20240201",
+  "classes": {
+   "azure-native:edgeorder/v20240201:Address": "Address",
+   "azure-native:edgeorder/v20240201:OrderItem": "OrderItem"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "education",
   "fqn": "pulumi_azure_native.education",
   "classes": {

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get an order item.
  * Azure REST API version: 2022-05-01-preview.
+ *
+ * Other available API versions: 2024-02-01.
  */
 export function getOrderItem(args: GetOrderItemArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderItemResult> {
 
@@ -84,6 +86,8 @@ export interface GetOrderItemResult {
 /**
  * Get an order item.
  * Azure REST API version: 2022-05-01-preview.
+ *
+ * Other available API versions: 2024-02-01.
  */
 export function getOrderItemOutput(args: GetOrderItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemResult> {
     return pulumi.output(args).apply((a: any) => getOrderItem(a, opts))

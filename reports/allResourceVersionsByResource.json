@@ -8563,14 +8563,16 @@
   },
   "EdgeOrder": {
     "Address": [
-      "2022-05-01-preview"
+      "2022-05-01-preview",
+      "2024-02-01"
     ],
     "AddressByName": [
       "2020-12-01-preview",
       "2021-12-01"
     ],
     "OrderItem": [
-      "2022-05-01-preview"
+      "2022-05-01-preview",
+      "2024-02-01"
     ],
     "OrderItemByName": [
       "2020-12-01-preview",
@@ -8585,10 +8587,12 @@
       "2021-12-01"
     ],
     "listProductsAndConfigurationProductFamilies": [
-      "2022-05-01-preview"
+      "2022-05-01-preview",
+      "2024-02-01"
     ],
     "listProductsAndConfigurations": [
-      "2022-05-01-preview"
+      "2022-05-01-preview",
+      "2024-02-01"
     ]
   },
   "EdgeOrderPartner": {},

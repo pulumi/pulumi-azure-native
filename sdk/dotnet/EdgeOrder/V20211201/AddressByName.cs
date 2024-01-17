@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder:AddressByName" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:AddressByName" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:AddressByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:AddressByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -147,6 +147,8 @@ class OrderItem(pulumi.CustomResource):
         Represents order item resource.
         Azure REST API version: 2022-05-01-preview.
 
+        Other available API versions: 2024-02-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AddressDetailsArgs']] address_details: Represents shipping and return address for order item.
@@ -166,6 +168,8 @@ class OrderItem(pulumi.CustomResource):
         """
         Represents order item resource.
         Azure REST API version: 2022-05-01-preview.
+
+        Other available API versions: 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param OrderItemArgs args: The arguments to use to populate this resource's properties.
@@ -217,7 +221,7 @@ class OrderItem(pulumi.CustomResource):
             __props__.__dict__["start_time"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:OrderItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:OrderItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrderItem, __self__).__init__(
             'azure-native:edgeorder:OrderItem',

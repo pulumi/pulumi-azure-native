@@ -535,6 +535,10 @@ __all__ = [
     'SnowflakeLinkedServiceArgs',
     'SnowflakeSinkArgs',
     'SnowflakeSourceArgs',
+    'SnowflakeV2DatasetArgs',
+    'SnowflakeV2LinkedServiceArgs',
+    'SnowflakeV2SinkArgs',
+    'SnowflakeV2SourceArgs',
     'SparkConfigurationParametrizationReferenceArgs',
     'SparkLinkedServiceArgs',
     'SparkObjectDatasetArgs',
@@ -21126,8 +21130,8 @@ class CopyActivityLogSettingsArgs:
 class CopyActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 sink: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceServiceCloudV2SinkArgs', 'SalesforceSinkArgs', 'SalesforceV2SinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs', 'WarehouseSinkArgs']],
-                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
+                 sink: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceServiceCloudV2SinkArgs', 'SalesforceSinkArgs', 'SalesforceV2SinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SnowflakeV2SinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs', 'WarehouseSinkArgs']],
+                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SnowflakeV2SourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
                  type: pulumi.Input[str],
                  data_integration_units: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
@@ -21154,8 +21158,8 @@ class CopyActivityArgs:
         """
         Copy activity.
         :param pulumi.Input[str] name: Activity name.
-        :param pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceServiceCloudV2SinkArgs', 'SalesforceSinkArgs', 'SalesforceV2SinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs', 'WarehouseSinkArgs']] sink: Copy activity sink.
-        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Copy activity source.
+        :param pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceServiceCloudV2SinkArgs', 'SalesforceSinkArgs', 'SalesforceV2SinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SnowflakeV2SinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs', 'WarehouseSinkArgs']] sink: Copy activity sink.
+        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SnowflakeV2SourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Copy activity source.
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -21244,26 +21248,26 @@ class CopyActivityArgs:
 
     @property
     @pulumi.getter
-    def sink(self) -> pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceServiceCloudV2SinkArgs', 'SalesforceSinkArgs', 'SalesforceV2SinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs', 'WarehouseSinkArgs']]:
+    def sink(self) -> pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceServiceCloudV2SinkArgs', 'SalesforceSinkArgs', 'SalesforceV2SinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SnowflakeV2SinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs', 'WarehouseSinkArgs']]:
         """
         Copy activity sink.
         """
         return pulumi.get(self, "sink")
 
     @sink.setter
-    def sink(self, value: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceServiceCloudV2SinkArgs', 'SalesforceSinkArgs', 'SalesforceV2SinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs', 'WarehouseSinkArgs']]):
+    def sink(self, value: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceServiceCloudV2SinkArgs', 'SalesforceSinkArgs', 'SalesforceV2SinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SnowflakeV2SinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs', 'WarehouseSinkArgs']]):
         pulumi.set(self, "sink", value)
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
+    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SnowflakeV2SourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
         """
         Copy activity source.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
+    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SnowflakeV2SourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -47461,7 +47465,7 @@ class LookupActivityArgs:
     def __init__(__self__, *,
                  dataset: pulumi.Input['DatasetReferenceArgs'],
                  name: pulumi.Input[str],
-                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
+                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SnowflakeV2SourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
                  type: pulumi.Input[str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -47475,7 +47479,7 @@ class LookupActivityArgs:
         Lookup activity.
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Lookup activity dataset reference.
         :param pulumi.Input[str] name: Activity name.
-        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Dataset-specific source properties, same as copy activity source.
+        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SnowflakeV2SourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Dataset-specific source properties, same as copy activity source.
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Lookup'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -47534,14 +47538,14 @@ class LookupActivityArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
+    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SnowflakeV2SourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
         """
         Dataset-specific source properties, same as copy activity source.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
+    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceServiceCloudV2SourceArgs', 'SalesforceSourceArgs', 'SalesforceV2SourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SnowflakeV2SourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WarehouseSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -75704,6 +75708,727 @@ class SnowflakeSourceArgs:
         """
         Copy source type.
         Expected value is 'SnowflakeSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @max_concurrent_connections.setter
+    def max_concurrent_connections(self, value: Optional[Any]):
+        pulumi.set(self, "max_concurrent_connections", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Snowflake Sql query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+
+@pulumi.input_type
+class SnowflakeV2DatasetArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None,
+                 table: Optional[Any] = None):
+        """
+        The snowflake dataset.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input[str] type: Type of dataset.
+               Expected value is 'SnowflakeV2Table'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[str] description: Dataset description.
+        :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table: The table name of the Snowflake database. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'SnowflakeV2Table')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset.
+        Expected value is 'SnowflakeV2Table'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional[pulumi.Input['DatasetFolderArgs']]:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @folder.setter
+    def folder(self, value: Optional[pulumi.Input['DatasetFolderArgs']]):
+        pulumi.set(self, "folder", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[Any]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    @structure.setter
+    def structure(self, value: Optional[Any]):
+        pulumi.set(self, "structure", value)
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[Any]:
+        """
+        The table name of the Snowflake database. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[Any]):
+        pulumi.set(self, "table", value)
+
+
+@pulumi.input_type
+class SnowflakeV2LinkedServiceArgs:
+    def __init__(__self__, *,
+                 account_identifier: Any,
+                 database: Any,
+                 type: pulumi.Input[str],
+                 warehouse: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'SnowflakeAuthenticationType']]] = None,
+                 client_id: Optional[Any] = None,
+                 client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted_credential: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 private_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 private_key_passphrase: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 scope: Optional[Any] = None,
+                 tenant_id: Optional[Any] = None,
+                 user: Optional[Any] = None):
+        """
+        Snowflake linked service.
+        :param Any account_identifier: The account identifier of your Snowflake account, e.g. xy12345.east-us-2.azure
+        :param Any database: The name of the Snowflake database.
+        :param pulumi.Input[str] type: Type of linked service.
+               Expected value is 'SnowflakeV2'.
+        :param Any warehouse: The name of the Snowflake warehouse.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Union[str, 'SnowflakeAuthenticationType']] authentication_type: The type used for authentication. Type: string.
+        :param Any client_id: The client ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The Azure key vault secret reference of client secret for AADServicePrincipal authentication.
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] description: Linked service description.
+        :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The Azure key vault secret reference of password in connection string.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] private_key: The Azure key vault secret reference of privateKey for KeyPair auth.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] private_key_passphrase: The Azure key vault secret reference of private key password for KeyPair auth with encrypted private key.
+        :param Any scope: The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        :param Any tenant_id: The tenant ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        :param Any user: The name of the Snowflake user.
+        """
+        pulumi.set(__self__, "account_identifier", account_identifier)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "type", 'SnowflakeV2')
+        pulumi.set(__self__, "warehouse", warehouse)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is None:
+            authentication_type = 'Basic'
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if private_key_passphrase is not None:
+            pulumi.set(__self__, "private_key_passphrase", private_key_passphrase)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="accountIdentifier")
+    def account_identifier(self) -> Any:
+        """
+        The account identifier of your Snowflake account, e.g. xy12345.east-us-2.azure
+        """
+        return pulumi.get(self, "account_identifier")
+
+    @account_identifier.setter
+    def account_identifier(self, value: Any):
+        pulumi.set(self, "account_identifier", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Any:
+        """
+        The name of the Snowflake database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Any):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of linked service.
+        Expected value is 'SnowflakeV2'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> Any:
+        """
+        The name of the Snowflake warehouse.
+        """
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: Any):
+        pulumi.set(self, "warehouse", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'SnowflakeAuthenticationType']]]:
+        """
+        The type used for authentication. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'SnowflakeAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[Any]:
+        """
+        The client ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[Any]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The Azure key vault secret reference of client secret for AADServicePrincipal authentication.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @encrypted_credential.setter
+    def encrypted_credential(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The Azure key vault secret reference of password in connection string.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The Azure key vault secret reference of privateKey for KeyPair auth.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="privateKeyPassphrase")
+    def private_key_passphrase(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The Azure key vault secret reference of private key password for KeyPair auth with encrypted private key.
+        """
+        return pulumi.get(self, "private_key_passphrase")
+
+    @private_key_passphrase.setter
+    def private_key_passphrase(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "private_key_passphrase", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[Any]:
+        """
+        The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[Any]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[Any]:
+        """
+        The tenant ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[Any]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[Any]:
+        """
+        The name of the Snowflake user.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[Any]):
+        pulumi.set(self, "user", value)
+
+
+@pulumi.input_type
+class SnowflakeV2SinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
+                 import_settings: Optional[pulumi.Input['SnowflakeImportCopyCommandArgs']] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 pre_copy_script: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity snowflake sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'SnowflakeV2Sink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param pulumi.Input['SnowflakeImportCopyCommandArgs'] import_settings: Snowflake import settings.
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SnowflakeV2Sink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if import_settings is not None:
+            pulumi.set(__self__, "import_settings", import_settings)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if pre_copy_script is not None:
+            pulumi.set(__self__, "pre_copy_script", pre_copy_script)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'SnowflakeV2Sink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
+    @pulumi.getter(name="importSettings")
+    def import_settings(self) -> Optional[pulumi.Input['SnowflakeImportCopyCommandArgs']]:
+        """
+        Snowflake import settings.
+        """
+        return pulumi.get(self, "import_settings")
+
+    @import_settings.setter
+    def import_settings(self, value: Optional[pulumi.Input['SnowflakeImportCopyCommandArgs']]):
+        pulumi.set(self, "import_settings", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @max_concurrent_connections.setter
+    def max_concurrent_connections(self, value: Optional[Any]):
+        pulumi.set(self, "max_concurrent_connections", value)
+
+    @property
+    @pulumi.getter(name="preCopyScript")
+    def pre_copy_script(self) -> Optional[Any]:
+        """
+        SQL pre-copy script. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "pre_copy_script")
+
+    @pre_copy_script.setter
+    def pre_copy_script(self, value: Optional[Any]):
+        pulumi.set(self, "pre_copy_script", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class SnowflakeV2SourceArgs:
+    def __init__(__self__, *,
+                 export_settings: pulumi.Input['SnowflakeExportCopyCommandArgs'],
+                 type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity snowflake source.
+        :param pulumi.Input['SnowflakeExportCopyCommandArgs'] export_settings: Snowflake export settings.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SnowflakeV2Source'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any query: Snowflake Sql query. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "export_settings", export_settings)
+        pulumi.set(__self__, "type", 'SnowflakeV2Source')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter(name="exportSettings")
+    def export_settings(self) -> pulumi.Input['SnowflakeExportCopyCommandArgs']:
+        """
+        Snowflake export settings.
+        """
+        return pulumi.get(self, "export_settings")
+
+    @export_settings.setter
+    def export_settings(self, value: pulumi.Input['SnowflakeExportCopyCommandArgs']):
+        pulumi.set(self, "export_settings", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SnowflakeV2Source'.
         """
         return pulumi.get(self, "type")
 

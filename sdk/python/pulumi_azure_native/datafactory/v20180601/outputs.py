@@ -543,6 +543,10 @@ __all__ = [
     'SnowflakeLinkedServiceResponse',
     'SnowflakeSinkResponse',
     'SnowflakeSourceResponse',
+    'SnowflakeV2DatasetResponse',
+    'SnowflakeV2LinkedServiceResponse',
+    'SnowflakeV2SinkResponse',
+    'SnowflakeV2SourceResponse',
     'SparkConfigurationParametrizationReferenceResponse',
     'SparkLinkedServiceResponse',
     'SparkObjectDatasetResponse',
@@ -20181,8 +20185,8 @@ class CopyActivityResponse(dict):
         """
         Copy activity.
         :param str name: Activity name.
-        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'LakeHouseTableSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceServiceCloudV2SinkResponse', 'SalesforceSinkResponse', 'SalesforceV2SinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse', 'WarehouseSinkResponse'] sink: Copy activity sink.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WarehouseSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
+        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'LakeHouseTableSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceServiceCloudV2SinkResponse', 'SalesforceSinkResponse', 'SalesforceV2SinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SnowflakeV2SinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse', 'WarehouseSinkResponse'] sink: Copy activity sink.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SnowflakeV2SourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WarehouseSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -45162,7 +45166,7 @@ class LookupActivityResponse(dict):
         Lookup activity.
         :param 'DatasetReferenceResponse' dataset: Lookup activity dataset reference.
         :param str name: Activity name.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WarehouseSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceServiceCloudV2SourceResponse', 'SalesforceSourceResponse', 'SalesforceV2SourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SnowflakeV2SourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WarehouseSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
         :param str type: Type of activity.
                Expected value is 'Lookup'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -72880,6 +72884,673 @@ class SnowflakeSourceResponse(dict):
         """
         Copy source type.
         Expected value is 'SnowflakeSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        Snowflake Sql query. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+
+@pulumi.output_type
+class SnowflakeV2DatasetResponse(dict):
+    """
+    The snowflake dataset.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnowflakeV2DatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnowflakeV2DatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnowflakeV2DatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None,
+                 table: Optional[Any] = None):
+        """
+        The snowflake dataset.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str type: Type of dataset.
+               Expected value is 'SnowflakeV2Table'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param str description: Dataset description.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table: The table name of the Snowflake database. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'SnowflakeV2Table')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset.
+        Expected value is 'SnowflakeV2Table'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[Any]:
+        """
+        The table name of the Snowflake database. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "table")
+
+
+@pulumi.output_type
+class SnowflakeV2LinkedServiceResponse(dict):
+    """
+    Snowflake linked service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountIdentifier":
+            suggest = "account_identifier"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "privateKey":
+            suggest = "private_key"
+        elif key == "privateKeyPassphrase":
+            suggest = "private_key_passphrase"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnowflakeV2LinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnowflakeV2LinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnowflakeV2LinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_identifier: Any,
+                 database: Any,
+                 type: str,
+                 warehouse: Any,
+                 annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[str] = None,
+                 client_id: Optional[Any] = None,
+                 client_secret: Optional[Any] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 password: Optional[Any] = None,
+                 private_key: Optional[Any] = None,
+                 private_key_passphrase: Optional[Any] = None,
+                 scope: Optional[Any] = None,
+                 tenant_id: Optional[Any] = None,
+                 user: Optional[Any] = None):
+        """
+        Snowflake linked service.
+        :param Any account_identifier: The account identifier of your Snowflake account, e.g. xy12345.east-us-2.azure
+        :param Any database: The name of the Snowflake database.
+        :param str type: Type of linked service.
+               Expected value is 'SnowflakeV2'.
+        :param Any warehouse: The name of the Snowflake warehouse.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param str authentication_type: The type used for authentication. Type: string.
+        :param Any client_id: The client ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The Azure key vault secret reference of client secret for AADServicePrincipal authentication.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The Azure key vault secret reference of password in connection string.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key: The Azure key vault secret reference of privateKey for KeyPair auth.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key_passphrase: The Azure key vault secret reference of private key password for KeyPair auth with encrypted private key.
+        :param Any scope: The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        :param Any tenant_id: The tenant ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        :param Any user: The name of the Snowflake user.
+        """
+        pulumi.set(__self__, "account_identifier", account_identifier)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "type", 'SnowflakeV2')
+        pulumi.set(__self__, "warehouse", warehouse)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is None:
+            authentication_type = 'Basic'
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if private_key_passphrase is not None:
+            pulumi.set(__self__, "private_key_passphrase", private_key_passphrase)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="accountIdentifier")
+    def account_identifier(self) -> Any:
+        """
+        The account identifier of your Snowflake account, e.g. xy12345.east-us-2.azure
+        """
+        return pulumi.get(self, "account_identifier")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Any:
+        """
+        The name of the Snowflake database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'SnowflakeV2'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> Any:
+        """
+        The name of the Snowflake warehouse.
+        """
+        return pulumi.get(self, "warehouse")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[str]:
+        """
+        The type used for authentication. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[Any]:
+        """
+        The client ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[Any]:
+        """
+        The Azure key vault secret reference of client secret for AADServicePrincipal authentication.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[str]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[Any]:
+        """
+        The Azure key vault secret reference of password in connection string.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[Any]:
+        """
+        The Azure key vault secret reference of privateKey for KeyPair auth.
+        """
+        return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter(name="privateKeyPassphrase")
+    def private_key_passphrase(self) -> Optional[Any]:
+        """
+        The Azure key vault secret reference of private key password for KeyPair auth with encrypted private key.
+        """
+        return pulumi.get(self, "private_key_passphrase")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[Any]:
+        """
+        The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[Any]:
+        """
+        The tenant ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[Any]:
+        """
+        The name of the Snowflake user.
+        """
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class SnowflakeV2SinkResponse(dict):
+    """
+    A copy activity snowflake sink.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "importSettings":
+            suggest = "import_settings"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "preCopyScript":
+            suggest = "pre_copy_script"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnowflakeV2SinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnowflakeV2SinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnowflakeV2SinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 disable_metrics_collection: Optional[Any] = None,
+                 import_settings: Optional['outputs.SnowflakeImportCopyCommandResponse'] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 pre_copy_script: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity snowflake sink.
+        :param str type: Copy sink type.
+               Expected value is 'SnowflakeV2Sink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param 'SnowflakeImportCopyCommandResponse' import_settings: Snowflake import settings.
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'SnowflakeV2Sink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if import_settings is not None:
+            pulumi.set(__self__, "import_settings", import_settings)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if pre_copy_script is not None:
+            pulumi.set(__self__, "pre_copy_script", pre_copy_script)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy sink type.
+        Expected value is 'SnowflakeV2Sink'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="importSettings")
+    def import_settings(self) -> Optional['outputs.SnowflakeImportCopyCommandResponse']:
+        """
+        Snowflake import settings.
+        """
+        return pulumi.get(self, "import_settings")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="preCopyScript")
+    def pre_copy_script(self) -> Optional[Any]:
+        """
+        SQL pre-copy script. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "pre_copy_script")
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+
+@pulumi.output_type
+class SnowflakeV2SourceResponse(dict):
+    """
+    A copy activity snowflake source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exportSettings":
+            suggest = "export_settings"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnowflakeV2SourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnowflakeV2SourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnowflakeV2SourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 export_settings: 'outputs.SnowflakeExportCopyCommandResponse',
+                 type: str,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 query: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None):
+        """
+        A copy activity snowflake source.
+        :param 'SnowflakeExportCopyCommandResponse' export_settings: Snowflake export settings.
+        :param str type: Copy source type.
+               Expected value is 'SnowflakeV2Source'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any query: Snowflake Sql query. Type: string (or Expression with resultType string).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "export_settings", export_settings)
+        pulumi.set(__self__, "type", 'SnowflakeV2Source')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+
+    @property
+    @pulumi.getter(name="exportSettings")
+    def export_settings(self) -> 'outputs.SnowflakeExportCopyCommandResponse':
+        """
+        Snowflake export settings.
+        """
+        return pulumi.get(self, "export_settings")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy source type.
+        Expected value is 'SnowflakeV2Source'.
         """
         return pulumi.get(self, "type")
 

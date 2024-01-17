@@ -66,6 +66,7 @@ __all__ = [
     'ScriptType',
     'ServiceNowAuthenticationType',
     'SftpAuthenticationType',
+    'SnowflakeAuthenticationType',
     'SparkAuthenticationType',
     'SparkConfigurationReferenceType',
     'SparkJobReferenceType',
@@ -637,6 +638,15 @@ class SftpAuthenticationType(str, Enum):
     BASIC = "Basic"
     SSH_PUBLIC_KEY = "SshPublicKey"
     MULTI_FACTOR = "MultiFactor"
+
+
+class SnowflakeAuthenticationType(str, Enum):
+    """
+    The type used for authentication. Type: string.
+    """
+    BASIC = "Basic"
+    KEY_PAIR = "KeyPair"
+    AAD_SERVICE_PRINCIPAL = "AADServicePrincipal"
 
 
 class SparkAuthenticationType(str, Enum):

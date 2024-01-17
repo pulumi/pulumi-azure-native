@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.EdgeOrder
     /// <summary>
     /// Represents order item resource.
     /// Azure REST API version: 2022-05-01-preview.
+    /// 
+    /// Other available API versions: 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:OrderItem")]
     public partial class OrderItem : global::Pulumi.CustomResource
@@ -98,6 +100,7 @@ namespace Pulumi.AzureNative.EdgeOrder
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:OrderItem" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:OrderItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:OrderItem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

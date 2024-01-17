@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Get information about the specified address.
         /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-02-01.
         /// </summary>
         public static Task<GetAddressResult> InvokeAsync(GetAddressArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddressResult>("azure-native:edgeorder:getAddress", args ?? new GetAddressArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Get information about the specified address.
         /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-02-01.
         /// </summary>
         public static Output<GetAddressResult> Invoke(GetAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddressResult>("azure-native:edgeorder:getAddress", args ?? new GetAddressInvokeArgs(), options.WithDefaults());

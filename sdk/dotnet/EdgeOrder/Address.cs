@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.EdgeOrder
     /// <summary>
     /// Address Resource.
     /// Azure REST API version: 2022-05-01-preview.
+    /// 
+    /// Other available API versions: 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:Address")]
     public partial class Address : global::Pulumi.CustomResource
@@ -92,6 +94,7 @@ namespace Pulumi.AzureNative.EdgeOrder
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:Address" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:Address" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:Address" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:Address" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
