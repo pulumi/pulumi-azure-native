@@ -8525,6 +8525,12 @@
       "OrderItem",
       "listProductsAndConfigurationProductFamilies",
       "listProductsAndConfigurations"
+    ],
+    "2024-02-01": [
+      "Address",
+      "OrderItem",
+      "listProductsAndConfigurationProductFamilies",
+      "listProductsAndConfigurations"
     ]
   },
   "EdgeOrderPartner": {
