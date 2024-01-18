@@ -274,7 +274,8 @@
     "2023-09-02-preview",
     "2023-10-01",
     "2023-10-02-preview",
-    "2023-10-15"
+    "2023-10-15",
+    "2023-11-01"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -807,7 +808,9 @@
   "Purview": [
     "2023-05-01-preview"
   ],
-  "Quantum": [],
+  "Quantum": [
+    "2023-11-13-preview"
+  ],
   "Quota": [],
   "RecommendationsService": [
     "2022-03-01-preview"

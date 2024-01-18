@@ -5481,6 +5481,17 @@
       "FleetUpdateStrategy",
       "UpdateRun",
       "listFleetCredentials"
+    ],
+    "2023-11-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -16411,6 +16422,10 @@
     ],
     "2022-01-10-preview": [
       "Workspace"
+    ],
+    "2023-11-13-preview": [
+      "Workspace",
+      "listWorkspaceKeys"
     ]
   },
   "Quota": {
