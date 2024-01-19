@@ -17713,6 +17713,9 @@
       "2023-06-20-preview",
       "2023-10-03-preview"
     ],
+    "locations/notifynetworksecurityperimeterupdatesavailable": [
+      "2023-10-03-preview"
+    ],
     "locations/operationresults": [
       "2019-08-02-preview",
       "2019-12-12",

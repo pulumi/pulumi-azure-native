@@ -21924,6 +21924,12 @@
         ]
       },
       {
+        "resourceType": "locations/notifyNetworkSecurityPerimeterUpdatesAvailable",
+        "apiVersions": [
+          "2023-10-03-preview"
+        ]
+      },
+      {
         "resourceType": "locations/operationResults",
         "apiVersions": [
           "2023-10-03-preview",
