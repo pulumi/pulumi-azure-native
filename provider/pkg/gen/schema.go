@@ -57,6 +57,7 @@ type GenerationResult struct {
 	ForceNewTypes              []ForceNewType
 	TypeCaseConflicts          CaseConflicts
 	FlattenedPropertyConflicts map[string]map[string]struct{}
+	Endpoints                  openapi.Endpoints
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
@@ -275,6 +276,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	var forceNewTypes []ForceNewType
 	caseSensitiveTypes := newCaseSensitiveTokens()
 	flattenedPropertyConflicts := map[string]map[string]struct{}{}
+	endpoints := openapi.Endpoints{}
 
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
@@ -297,6 +299,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				caseSensitiveTypes:         caseSensitiveTypes,
 				rootDir:                    rootDir,
 				flattenedPropertyConflicts: flattenedPropertyConflicts,
+				allEndpoints:               endpoints,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -394,6 +397,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		ForceNewTypes:              forceNewTypes,
 		TypeCaseConflicts:          caseSensitiveTypes.findCaseConflicts(),
 		FlattenedPropertyConflicts: flattenedPropertyConflicts,
+		Endpoints:                  endpoints,
 	}, nil
 }
 
@@ -572,7 +576,7 @@ const (
 type packageGenerator struct {
 	pkg                *pschema.PackageSpec
 	metadata           *resources.AzureAPIMetadata
-	provider           string
+	provider           openapi.ProviderName
 	examples           map[string][]resources.AzureAPIExample
 	apiVersion         string
 	allApiVersions     []openapi.ApiVersion
@@ -583,6 +587,7 @@ type packageGenerator struct {
 	rootDir                    string
 	forceNewTypes              []ForceNewType
 	flattenedPropertyConflicts map[string]map[string]struct{}
+	allEndpoints               openapi.Endpoints
 }
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -740,6 +745,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		inlineTypes:                map[*openapi.ReferenceContext]codegen.StringSet{},
 		nestedResourceBodyRefs:     nestedResourceBodyRefs,
 		flattenedPropertyConflicts: map[string]struct{}{},
+		allEndpoints:               g.allEndpoints,
 	}
 
 	updateOp := path.Put
@@ -1242,6 +1248,7 @@ type moduleGenerator struct {
 	nestedResourceBodyRefs     []string
 	forceNewTypes              []ForceNewType
 	flattenedPropertyConflicts map[string]struct{}
+	allEndpoints               openapi.Endpoints
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {

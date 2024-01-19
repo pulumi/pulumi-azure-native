@@ -47,6 +47,91 @@ type DiscoveryDiagnostics struct {
 	// POST endpoints defined in the Azure spec that we don't include because they don't belong to a resource.
 	// Map is provider -> operation id -> path.
 	SkippedPOSTEndpoints map[string]map[string]string
+	// provider -> resource/type name -> path -> Endpoints
+	Endpoints Endpoints
+}
+
+// provider -> resource/type name -> path -> Endpoint
+type Endpoints map[ProviderName]map[ResourceName]map[string]*Endpoint
+
+// merge combines e2 into e, which is modified in-place.
+func (e Endpoints) merge(e2 Endpoints) {
+	for provider, providerEndpoints := range e2 {
+		if _, ok := e[provider]; !ok {
+			e[provider] = map[string]map[string]*Endpoint{}
+		}
+
+		for typeName, byPath := range providerEndpoints {
+			if _, ok := e[provider][typeName]; !ok {
+				e[provider][typeName] = map[string]*Endpoint{}
+			}
+			for path, things := range byPath {
+				if existing, ok := e[provider][typeName][path]; ok {
+					// the POST endpoints are unique per version, but we don't track versions here, so check for duplicates
+					ops := codegen.NewStringSet(existing.PostOperations...)
+					for _, op := range things.PostOperations {
+						ops.Add(op)
+					}
+					existing.PostOperations = ops.SortedValues()
+
+					verbs := codegen.NewStringSet(existing.HttpVerbs...)
+					for _, verb := range things.HttpVerbs {
+						verbs.Add(verb)
+					}
+					existing.HttpVerbs = verbs.SortedValues()
+				} else {
+					e[provider][typeName][path] = things
+				}
+			}
+		}
+	}
+}
+
+func (e Endpoints) add(pathItem spec.PathItem, provider, typeName, path, filePath string, addedResourceOrInvoke bool) {
+	if _, ok := e[provider]; !ok {
+		e[provider] = map[string]map[string]*Endpoint{}
+	}
+
+	endpoint := &Endpoint{
+		Path:     path,
+		FilePath: filePath,
+		Added:    addedResourceOrInvoke,
+	}
+	if pathItem.Delete != nil && !pathItem.Delete.Deprecated {
+		endpoint.HttpVerbs = append(endpoint.HttpVerbs, "DELETE")
+	}
+	if pathItem.Get != nil && !pathItem.Get.Deprecated {
+		endpoint.HttpVerbs = append(endpoint.HttpVerbs, "GET")
+	}
+	if pathItem.Head != nil && !pathItem.Head.Deprecated {
+		endpoint.HttpVerbs = append(endpoint.HttpVerbs, "HEAD")
+	}
+	if pathItem.Patch != nil && !pathItem.Patch.Deprecated {
+		endpoint.HttpVerbs = append(endpoint.HttpVerbs, "PATCH")
+	}
+	if pathItem.Post != nil && !pathItem.Post.Deprecated {
+		endpoint.HttpVerbs = append(endpoint.HttpVerbs, "POST")
+		lastSlash := strings.LastIndex(path, "/")
+		endpoint.PostOperations = append(endpoint.PostOperations, path[lastSlash+1:])
+		endpoint.Path = path[:lastSlash] // normalize path to not include the POST operation, to match the resource path
+	}
+	if pathItem.Put != nil && !pathItem.Put.Deprecated {
+		endpoint.HttpVerbs = append(endpoint.HttpVerbs, "PUT")
+	}
+
+	if _, ok := e[provider][typeName]; !ok {
+		e[provider][typeName] = map[string]*Endpoint{}
+	}
+	e[provider][typeName][endpoint.Path] = endpoint
+}
+
+type Endpoint struct {
+	Path                          string
+	FilePath                      string
+	HttpVerbs                     []string
+	Get, Put, Delete, Patch, Head string   `json:",omitempty"` // operation id
+	PostOperations                []string `json:",omitempty"` // path suffixes
+	Added                         bool     `json:",omitempty"`
 }
 
 func (d *DiscoveryDiagnostics) addSkippedPOSTEndpoint(provider, operation, path string) {
@@ -56,6 +141,13 @@ func (d *DiscoveryDiagnostics) addSkippedPOSTEndpoint(provider, operation, path 
 		d.SkippedPOSTEndpoints[provider] = cur
 	}
 	cur[operation] = path
+}
+
+func (d *DiscoveryDiagnostics) addPathItem(pathItem spec.PathItem, provider, typeName, path, filePath string, addedResourceOrInvoke bool) {
+	if d.Endpoints == nil {
+		d.Endpoints = map[ProviderName]map[string]map[string]*Endpoint{}
+	}
+	d.Endpoints.add(pathItem, provider, typeName, path, filePath, addedResourceOrInvoke)
 }
 
 // VersionResources contains all resources and invokes in a given API version.
@@ -194,7 +286,8 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 // Use apiVersions with a wildcard to filter versions, e.g. "2022*preview", or leave it blank to use the default of "20*".
 func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders, DiscoveryDiagnostics, error) {
 	diagnostics := DiscoveryDiagnostics{
-		SkippedPOSTEndpoints: map[string]map[string]string{},
+		SkippedPOSTEndpoints: map[ProviderName]map[string]string{},
+		Endpoints:            map[ProviderName]map[string]map[string]*Endpoint{},
 	}
 	swaggerSpecLocations, err := swaggerLocations(specsDir, namespace, apiVersions)
 	if err != nil {
@@ -220,12 +313,15 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 		sort.Strings(orderedPaths)
 		for _, path := range orderedPaths {
 			providerDiagnostics := providers.addAPIPath(specsDir, relLocation, path, swagger)
+
+			// Update reports
 			diagnostics.NamingDisambiguations = append(diagnostics.NamingDisambiguations, providerDiagnostics.NamingDisambiguations...)
 			for resource, operations := range providerDiagnostics.SkippedPOSTEndpoints {
 				for op, path := range operations {
 					diagnostics.addSkippedPOSTEndpoint(resource, op, path)
 				}
 			}
+			diagnostics.Endpoints.merge(providerDiagnostics.Endpoints)
 		}
 	}
 	return providers, diagnostics, nil
@@ -406,6 +502,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 	diagnostics := DiscoveryDiagnostics{
 		SkippedPOSTEndpoints: map[string]map[string]string{},
 	}
+
 	recordDisambiguation := func(disambiguation *resources.NameDisambiguation) {
 		if disambiguation != nil {
 			disambiguation.FileLocation = fileLocation
@@ -432,6 +529,14 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 			Swagger:  swagger,
 		}
 		foundResourceOrInvoke = true
+	}
+
+	var resourceBaseName string
+	for _, spec := range []*spec.Operation{pathItem.Post, pathItem.Put, pathItem.Get} {
+		if spec != nil && !spec.Deprecated {
+			resourceBaseName = strings.Split(spec.ID, "_")[0]
+			break
+		}
 	}
 
 	if pathItem.Put != nil && !pathItem.Put.Deprecated {
@@ -535,13 +640,14 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 			prefix = "get"
 		default:
 			diagnostics.addSkippedPOSTEndpoint(provider, pathItem.Post.ID, path)
-			return diagnostics
 		}
 
-		typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
-		if typeName != "" {
-			addInvoke(prefix + typeName)
-			recordDisambiguation(disambiguation)
+		if prefix != "" {
+			typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
+			if typeName != "" {
+				addInvoke(prefix + typeName)
+				recordDisambiguation(disambiguation)
+			}
 		}
 	}
 
@@ -561,6 +667,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 		}
 	}
 
+	diagnostics.addPathItem(pathItem, provider, resourceBaseName, path, fileLocation, foundResourceOrInvoke)
 	return diagnostics
 }
 
