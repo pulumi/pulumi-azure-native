@@ -38,3 +38,13 @@ A list of versions of each namespace which might be available to upgrade in the 
 ## `flattenedPropertyConflicts.json`
 
 The Azure spec has an annotation [x-ms-client-flatten](https://github.com/Azure/autorest/blob/main/docs/extensions/readme.md#x-ms-client-flatten) which instructs the schema generator to flatten the property into the parent object. However, there are cases where this leads to overwriting a property, creating incorrect schema and SDKs, when inner and outer property have the same name.
+
+## `allEndpoints.json`
+
+This file contains a list of all endpoints defined in the Azure spec, grouped by resource provider and then by URL path. It can be useful for exploration and analytics purposes, since it contains endpoints that are not included in our schema, but in a compact format.
+
+This, most likely very unelegant, `jq` query filters the endpoints to only those with inner POST endpoints, and may serve as a template for other queries:
+
+```jq
+jq '[ keys[] as $rp | .[$rp] | keys[] as $path | .[$path][] ] | map(select(.HttpVerbs != null) | select(.HttpVerbs | contains(["POST"])))' allEndpoints.json
+```

@@ -43,7 +43,8 @@ type BuildSchemaReports struct {
 	SkippedPOSTEndpoints          map[string]map[string]string
 	ForceNewTypes                 []gen.ForceNewType
 	TypeCaseConflicts             gen.CaseConflicts
-	FlattenedPropertyConflicts    map[string]map[string]struct{}
+	FlattenedPropertyConflicts    map[openapi.ProviderName]map[string]struct{}
+	AllEndpoints                  map[openapi.ProviderName]map[openapi.ResourceName]map[string]*openapi.Endpoint
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
@@ -59,6 +60,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"forceNewTypes.json":                 r.ForceNewTypes,
 		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 		"flattenedPropertyConflicts.json":    r.FlattenedPropertyConflicts,
+		"allEndpoints.json":                  r.AllEndpoints,
 	})
 }
 
@@ -141,6 +143,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		ForceNewTypes:                 generationResult.ForceNewTypes,
 		TypeCaseConflicts:             generationResult.TypeCaseConflicts,
 		FlattenedPropertyConflicts:    generationResult.FlattenedPropertyConflicts,
+		AllEndpoints:                  diagnostics.Endpoints,
 	}
 
 	return &BuildSchemaResult{
