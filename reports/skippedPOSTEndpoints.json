@@ -1786,7 +1786,8 @@
     "IngestionPrivateEndpointConnections_UpdateStatus": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/ingestionPrivateEndpointConnectionStatus"
   },
   "Quantum": {
-    "Workspace_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Quantum/locations/{locationName}/checkNameAvailability"
+    "Workspace_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Quantum/locations/{locationName}/checkNameAvailability",
+    "Workspace_RegenerateKeys": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Quantum/workspaces/{workspaceName}/regenerateKey"
   },
   "RecommendationsService": {
     "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.RecommendationsService/checkNameAvailability",
