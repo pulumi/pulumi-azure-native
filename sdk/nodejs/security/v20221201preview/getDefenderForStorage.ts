@@ -35,33 +35,29 @@ export interface GetDefenderForStorageArgs {
  */
 export interface GetDefenderForStorageResult {
     /**
-     * Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-     */
-    readonly capGBPerMonth?: number;
-    /**
      * Resource Id
      */
     readonly id: string;
     /**
-     * Indicates whether Sensitive Data Discovery should be enabled.
+     * Indicates whether Defender for Storage is enabled on this storage account.
      */
     readonly isEnabled?: boolean;
+    /**
+     * Properties of Malware Scanning.
+     */
+    readonly malwareScanning?: outputs.security.v20221201preview.MalwareScanningPropertiesResponse;
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Upon failure or partial success. Additional data describing Sensitive Data Discovery enable/disable operation.
-     */
-    readonly operationStatus: outputs.security.v20221201preview.OperationStatusResponse;
-    /**
      * Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
      */
     readonly overrideSubscriptionLevelSettings?: boolean;
     /**
-     * Optional. Resource id of an Event Grid Topic to send scan results to.
+     * Properties of Sensitive Data Discovery.
      */
-    readonly scanResultsEventGridTopicResourceId?: string;
+    readonly sensitiveDataDiscovery?: outputs.security.v20221201preview.SensitiveDataDiscoveryPropertiesResponse;
     /**
      * Resource type
      */

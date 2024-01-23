@@ -17,16 +17,16 @@ namespace Pulumi.AzureNative.Security
     public partial class DefenderForStorage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        /// </summary>
-        [Output("capGBPerMonth")]
-        public Output<int?> CapGBPerMonth { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates whether Sensitive Data Discovery should be enabled.
+        /// Indicates whether Defender for Storage is enabled on this storage account.
         /// </summary>
         [Output("isEnabled")]
         public Output<bool?> IsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of Malware Scanning.
+        /// </summary>
+        [Output("malwareScanning")]
+        public Output<Outputs.MalwareScanningPropertiesResponse?> MalwareScanning { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -35,22 +35,16 @@ namespace Pulumi.AzureNative.Security
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Upon failure or partial success. Additional data describing Sensitive Data Discovery enable/disable operation.
-        /// </summary>
-        [Output("operationStatus")]
-        public Output<Outputs.OperationStatusResponse> OperationStatus { get; private set; } = null!;
-
-        /// <summary>
         /// Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
         /// </summary>
         [Output("overrideSubscriptionLevelSettings")]
         public Output<bool?> OverrideSubscriptionLevelSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Optional. Resource id of an Event Grid Topic to send scan results to.
+        /// Properties of Sensitive Data Discovery.
         /// </summary>
-        [Output("scanResultsEventGridTopicResourceId")]
-        public Output<string?> ScanResultsEventGridTopicResourceId { get; private set; } = null!;
+        [Output("sensitiveDataDiscovery")]
+        public Output<Outputs.SensitiveDataDiscoveryPropertiesResponse?> SensitiveDataDiscovery { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -108,16 +102,16 @@ namespace Pulumi.AzureNative.Security
     public sealed class DefenderForStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        /// </summary>
-        [Input("capGBPerMonth")]
-        public Input<int>? CapGBPerMonth { get; set; }
-
-        /// <summary>
-        /// Indicates whether Sensitive Data Discovery should be enabled.
+        /// Indicates whether Defender for Storage is enabled on this storage account.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// Properties of Malware Scanning.
+        /// </summary>
+        [Input("malwareScanning")]
+        public Input<Inputs.MalwareScanningPropertiesArgs>? MalwareScanning { get; set; }
 
         /// <summary>
         /// Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
@@ -132,10 +126,10 @@ namespace Pulumi.AzureNative.Security
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// Optional. Resource id of an Event Grid Topic to send scan results to.
+        /// Properties of Sensitive Data Discovery.
         /// </summary>
-        [Input("scanResultsEventGridTopicResourceId")]
-        public Input<string>? ScanResultsEventGridTopicResourceId { get; set; }
+        [Input("sensitiveDataDiscovery")]
+        public Input<Inputs.SensitiveDataDiscoveryPropertiesArgs>? SensitiveDataDiscovery { get; set; }
 
         /// <summary>
         /// Defender for Storage setting name.

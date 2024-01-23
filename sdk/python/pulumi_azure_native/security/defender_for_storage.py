@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['DefenderForStorageArgs', 'DefenderForStorage']
 
@@ -16,29 +17,29 @@ __all__ = ['DefenderForStorageArgs', 'DefenderForStorage']
 class DefenderForStorageArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
-                 cap_gb_per_month: Optional[pulumi.Input[int]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
+                 malware_scanning: Optional[pulumi.Input['MalwareScanningPropertiesArgs']] = None,
                  override_subscription_level_settings: Optional[pulumi.Input[bool]] = None,
-                 scan_results_event_grid_topic_resource_id: Optional[pulumi.Input[str]] = None,
+                 sensitive_data_discovery: Optional[pulumi.Input['SensitiveDataDiscoveryPropertiesArgs']] = None,
                  setting_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DefenderForStorage resource.
         :param pulumi.Input[str] resource_id: The identifier of the resource.
-        :param pulumi.Input[int] cap_gb_per_month: Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        :param pulumi.Input[bool] is_enabled: Indicates whether Sensitive Data Discovery should be enabled.
+        :param pulumi.Input[bool] is_enabled: Indicates whether Defender for Storage is enabled on this storage account.
+        :param pulumi.Input['MalwareScanningPropertiesArgs'] malware_scanning: Properties of Malware Scanning.
         :param pulumi.Input[bool] override_subscription_level_settings: Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
-        :param pulumi.Input[str] scan_results_event_grid_topic_resource_id: Optional. Resource id of an Event Grid Topic to send scan results to.
+        :param pulumi.Input['SensitiveDataDiscoveryPropertiesArgs'] sensitive_data_discovery: Properties of Sensitive Data Discovery.
         :param pulumi.Input[str] setting_name: Defender for Storage setting name.
         """
         pulumi.set(__self__, "resource_id", resource_id)
-        if cap_gb_per_month is not None:
-            pulumi.set(__self__, "cap_gb_per_month", cap_gb_per_month)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
+        if malware_scanning is not None:
+            pulumi.set(__self__, "malware_scanning", malware_scanning)
         if override_subscription_level_settings is not None:
             pulumi.set(__self__, "override_subscription_level_settings", override_subscription_level_settings)
-        if scan_results_event_grid_topic_resource_id is not None:
-            pulumi.set(__self__, "scan_results_event_grid_topic_resource_id", scan_results_event_grid_topic_resource_id)
+        if sensitive_data_discovery is not None:
+            pulumi.set(__self__, "sensitive_data_discovery", sensitive_data_discovery)
         if setting_name is not None:
             pulumi.set(__self__, "setting_name", setting_name)
 
@@ -55,28 +56,28 @@ class DefenderForStorageArgs:
         pulumi.set(self, "resource_id", value)
 
     @property
-    @pulumi.getter(name="capGBPerMonth")
-    def cap_gb_per_month(self) -> Optional[pulumi.Input[int]]:
-        """
-        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        """
-        return pulumi.get(self, "cap_gb_per_month")
-
-    @cap_gb_per_month.setter
-    def cap_gb_per_month(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "cap_gb_per_month", value)
-
-    @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether Sensitive Data Discovery should be enabled.
+        Indicates whether Defender for Storage is enabled on this storage account.
         """
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
     def is_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="malwareScanning")
+    def malware_scanning(self) -> Optional[pulumi.Input['MalwareScanningPropertiesArgs']]:
+        """
+        Properties of Malware Scanning.
+        """
+        return pulumi.get(self, "malware_scanning")
+
+    @malware_scanning.setter
+    def malware_scanning(self, value: Optional[pulumi.Input['MalwareScanningPropertiesArgs']]):
+        pulumi.set(self, "malware_scanning", value)
 
     @property
     @pulumi.getter(name="overrideSubscriptionLevelSettings")
@@ -91,16 +92,16 @@ class DefenderForStorageArgs:
         pulumi.set(self, "override_subscription_level_settings", value)
 
     @property
-    @pulumi.getter(name="scanResultsEventGridTopicResourceId")
-    def scan_results_event_grid_topic_resource_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="sensitiveDataDiscovery")
+    def sensitive_data_discovery(self) -> Optional[pulumi.Input['SensitiveDataDiscoveryPropertiesArgs']]:
         """
-        Optional. Resource id of an Event Grid Topic to send scan results to.
+        Properties of Sensitive Data Discovery.
         """
-        return pulumi.get(self, "scan_results_event_grid_topic_resource_id")
+        return pulumi.get(self, "sensitive_data_discovery")
 
-    @scan_results_event_grid_topic_resource_id.setter
-    def scan_results_event_grid_topic_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scan_results_event_grid_topic_resource_id", value)
+    @sensitive_data_discovery.setter
+    def sensitive_data_discovery(self, value: Optional[pulumi.Input['SensitiveDataDiscoveryPropertiesArgs']]):
+        pulumi.set(self, "sensitive_data_discovery", value)
 
     @property
     @pulumi.getter(name="settingName")
@@ -120,11 +121,11 @@ class DefenderForStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cap_gb_per_month: Optional[pulumi.Input[int]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
+                 malware_scanning: Optional[pulumi.Input[pulumi.InputType['MalwareScanningPropertiesArgs']]] = None,
                  override_subscription_level_settings: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 scan_results_event_grid_topic_resource_id: Optional[pulumi.Input[str]] = None,
+                 sensitive_data_discovery: Optional[pulumi.Input[pulumi.InputType['SensitiveDataDiscoveryPropertiesArgs']]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -133,11 +134,11 @@ class DefenderForStorage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cap_gb_per_month: Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        :param pulumi.Input[bool] is_enabled: Indicates whether Sensitive Data Discovery should be enabled.
+        :param pulumi.Input[bool] is_enabled: Indicates whether Defender for Storage is enabled on this storage account.
+        :param pulumi.Input[pulumi.InputType['MalwareScanningPropertiesArgs']] malware_scanning: Properties of Malware Scanning.
         :param pulumi.Input[bool] override_subscription_level_settings: Indicates whether the settings defined for this storage account should override the settings defined for the subscription.
         :param pulumi.Input[str] resource_id: The identifier of the resource.
-        :param pulumi.Input[str] scan_results_event_grid_topic_resource_id: Optional. Resource id of an Event Grid Topic to send scan results to.
+        :param pulumi.Input[pulumi.InputType['SensitiveDataDiscoveryPropertiesArgs']] sensitive_data_discovery: Properties of Sensitive Data Discovery.
         :param pulumi.Input[str] setting_name: Defender for Storage setting name.
         """
         ...
@@ -165,11 +166,11 @@ class DefenderForStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cap_gb_per_month: Optional[pulumi.Input[int]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
+                 malware_scanning: Optional[pulumi.Input[pulumi.InputType['MalwareScanningPropertiesArgs']]] = None,
                  override_subscription_level_settings: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 scan_results_event_grid_topic_resource_id: Optional[pulumi.Input[str]] = None,
+                 sensitive_data_discovery: Optional[pulumi.Input[pulumi.InputType['SensitiveDataDiscoveryPropertiesArgs']]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -180,16 +181,15 @@ class DefenderForStorage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DefenderForStorageArgs.__new__(DefenderForStorageArgs)
 
-            __props__.__dict__["cap_gb_per_month"] = cap_gb_per_month
             __props__.__dict__["is_enabled"] = is_enabled
+            __props__.__dict__["malware_scanning"] = malware_scanning
             __props__.__dict__["override_subscription_level_settings"] = override_subscription_level_settings
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
-            __props__.__dict__["scan_results_event_grid_topic_resource_id"] = scan_results_event_grid_topic_resource_id
+            __props__.__dict__["sensitive_data_discovery"] = sensitive_data_discovery
             __props__.__dict__["setting_name"] = setting_name
             __props__.__dict__["name"] = None
-            __props__.__dict__["operation_status"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221201preview:DefenderForStorage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -215,30 +215,29 @@ class DefenderForStorage(pulumi.CustomResource):
 
         __props__ = DefenderForStorageArgs.__new__(DefenderForStorageArgs)
 
-        __props__.__dict__["cap_gb_per_month"] = None
         __props__.__dict__["is_enabled"] = None
+        __props__.__dict__["malware_scanning"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["operation_status"] = None
         __props__.__dict__["override_subscription_level_settings"] = None
-        __props__.__dict__["scan_results_event_grid_topic_resource_id"] = None
+        __props__.__dict__["sensitive_data_discovery"] = None
         __props__.__dict__["type"] = None
         return DefenderForStorage(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="capGBPerMonth")
-    def cap_gb_per_month(self) -> pulumi.Output[Optional[int]]:
-        """
-        Defines the max GB to be scanned per Month. Set to -1 if no capping is needed.
-        """
-        return pulumi.get(self, "cap_gb_per_month")
 
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether Sensitive Data Discovery should be enabled.
+        Indicates whether Defender for Storage is enabled on this storage account.
         """
         return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="malwareScanning")
+    def malware_scanning(self) -> pulumi.Output[Optional['outputs.MalwareScanningPropertiesResponse']]:
+        """
+        Properties of Malware Scanning.
+        """
+        return pulumi.get(self, "malware_scanning")
 
     @property
     @pulumi.getter
@@ -249,14 +248,6 @@ class DefenderForStorage(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="operationStatus")
-    def operation_status(self) -> pulumi.Output['outputs.OperationStatusResponse']:
-        """
-        Upon failure or partial success. Additional data describing Sensitive Data Discovery enable/disable operation.
-        """
-        return pulumi.get(self, "operation_status")
-
-    @property
     @pulumi.getter(name="overrideSubscriptionLevelSettings")
     def override_subscription_level_settings(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -265,12 +256,12 @@ class DefenderForStorage(pulumi.CustomResource):
         return pulumi.get(self, "override_subscription_level_settings")
 
     @property
-    @pulumi.getter(name="scanResultsEventGridTopicResourceId")
-    def scan_results_event_grid_topic_resource_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="sensitiveDataDiscovery")
+    def sensitive_data_discovery(self) -> pulumi.Output[Optional['outputs.SensitiveDataDiscoveryPropertiesResponse']]:
         """
-        Optional. Resource id of an Event Grid Topic to send scan results to.
+        Properties of Sensitive Data Discovery.
         """
-        return pulumi.get(self, "scan_results_event_grid_topic_resource_id")
+        return pulumi.get(self, "sensitive_data_discovery")
 
     @property
     @pulumi.getter
