@@ -2008,7 +2008,8 @@
     "listFeatureSubscription": "2021-12-01"
   },
   "Quantum": {
-    "Workspace": "2022-01-10-preview"
+    "Workspace": "2022-01-10-preview",
+    "listWorkspaceKeys": "2023-11-13-preview"
   },
   "Quota": {
     "GroupQuota": "2023-06-01-preview",
