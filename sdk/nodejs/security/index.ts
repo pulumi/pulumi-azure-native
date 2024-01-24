@@ -80,6 +80,11 @@ export type CustomEntityStoreAssignment = import("./customEntityStoreAssignment"
 export const CustomEntityStoreAssignment: typeof import("./customEntityStoreAssignment").CustomEntityStoreAssignment = null as any;
 utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
 
+export { DefenderForStorageArgs } from "./defenderForStorage";
+export type DefenderForStorage = import("./defenderForStorage").DefenderForStorage;
+export const DefenderForStorage: typeof import("./defenderForStorage").DefenderForStorage = null as any;
+utilities.lazyLoad(exports, ["DefenderForStorage"], () => require("./defenderForStorage"));
+
 export { DevOpsConfigurationArgs } from "./devOpsConfiguration";
 export type DevOpsConfiguration = import("./devOpsConfiguration").DevOpsConfiguration;
 export const DevOpsConfiguration: typeof import("./devOpsConfiguration").DevOpsConfiguration = null as any;
@@ -164,6 +169,11 @@ export { GetCustomEntityStoreAssignmentArgs, GetCustomEntityStoreAssignmentResul
 export const getCustomEntityStoreAssignment: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignment = null as any;
 export const getCustomEntityStoreAssignmentOutput: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
+
+export { GetDefenderForStorageArgs, GetDefenderForStorageResult, GetDefenderForStorageOutputArgs } from "./getDefenderForStorage";
+export const getDefenderForStorage: typeof import("./getDefenderForStorage").getDefenderForStorage = null as any;
+export const getDefenderForStorageOutput: typeof import("./getDefenderForStorage").getDefenderForStorageOutput = null as any;
+utilities.lazyLoad(exports, ["getDefenderForStorage","getDefenderForStorageOutput"], () => require("./getDefenderForStorage"));
 
 export { GetDevOpsConfigurationArgs, GetDevOpsConfigurationResult, GetDevOpsConfigurationOutputArgs } from "./getDevOpsConfiguration";
 export const getDevOpsConfiguration: typeof import("./getDevOpsConfiguration").getDevOpsConfiguration = null as any;
@@ -342,6 +352,7 @@ import * as v20210801preview from "./v20210801preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220701preview from "./v20220701preview";
 import * as v20221120preview from "./v20221120preview";
+import * as v20221201preview from "./v20221201preview";
 import * as v20230101preview from "./v20230101preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
@@ -364,6 +375,7 @@ export {
     v20220101preview,
     v20220701preview,
     v20221120preview,
+    v20221201preview,
     v20230101preview,
     v20230201preview,
     v20230301preview,
@@ -408,6 +420,8 @@ const _module = {
                 return new CustomAssessmentAutomation(name, <any>undefined, { urn })
             case "azure-native:security:CustomEntityStoreAssignment":
                 return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
+            case "azure-native:security:DefenderForStorage":
+                return new DefenderForStorage(name, <any>undefined, { urn })
             case "azure-native:security:DevOpsConfiguration":
                 return new DevOpsConfiguration(name, <any>undefined, { urn })
             case "azure-native:security:DeviceSecurityGroup":

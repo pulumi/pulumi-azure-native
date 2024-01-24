@@ -83,15 +83,24 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		// Change the name to lowerCamelCase.
 		sdkName = ToLowerCamel(sdkName)
 
+		flatten, ok := property.Extensions.GetBool(extensionClientFlatten)
+
 		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
 		// If the type is marked as a dictionary, ignore the extension and proceed with modeling this property explicitly.
 		// We can't flatten dictionaries in a type-safe manner.
 		isDict := resolvedProperty.AdditionalProperties != nil
-		//TODO: Remove when https://github.com/Azure/azure-rest-api-specs/pull/14550 is rolled back
+
+		// TODO: Remove when https://github.com/Azure/azure-rest-api-specs/pull/14550 is rolled back
 		workaroundDelegatedNetworkBreakingChange := property.Ref.String() == "#/definitions/OrchestratorResourceProperties" ||
 			property.Ref.String() == "#/definitions/DelegatedSubnetProperties" ||
 			property.Ref.String() == "#/definitions/DelegatedControllerProperties"
-		if flatten, ok := property.Extensions.GetBool(extensionClientFlatten); (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
+
+		// TODO: can be removed when https://github.com/pulumi/pulumi-azure-native/pull/3016 is merged
+		if m.resourceName == "DefenderForStorage" && (name == "malwareScanning" || name == "sensitiveDataDiscovery") {
+			flatten = false
+		}
+
+		if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
 			bag, err := m.genProperties(resolvedProperty, isOutput, isType)
 			if err != nil {
 				return nil, err
