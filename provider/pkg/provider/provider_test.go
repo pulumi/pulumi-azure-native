@@ -134,6 +134,27 @@ func TestWritePropertiesToBody(t *testing.T) {
 		assert.Equal(t, expected, bodyParams)
 	})
 
+	// Regression test for #3036 - do not add empty containers to the body that will not be filled
+	t.Run("two containers missing from remote", func(t *testing.T) {
+		missingProperties := []propertyPath{{
+			propertyName: "remote",
+			path:         []string{"properties", "privateNetworks"},
+		}}
+		bodyParams := map[string]interface{}{
+			"properties": map[string]interface{}{
+				"existing": "value",
+			},
+		}
+		response := map[string]interface{}{}
+		writePropertiesToBody(missingProperties, bodyParams, response)
+		expected := map[string]interface{}{
+			"properties": map[string]interface{}{
+				"existing": "value",
+			},
+		}
+		assert.Equal(t, expected, bodyParams)
+	})
+
 	t.Run("properties container missing in body", func(t *testing.T) {
 		missingProperties := []propertyPath{{
 			propertyName: "remote",
