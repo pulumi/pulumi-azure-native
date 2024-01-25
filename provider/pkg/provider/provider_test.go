@@ -183,10 +183,7 @@ func TestWritePropertiesToBody(t *testing.T) {
 		bodyParams := map[string]interface{}{}
 		response := map[string]interface{}{}
 		writePropertiesToBody(missingProperties, bodyParams, response)
-		expected := map[string]interface{}{
-			// Container is auto-created
-			"properties": map[string]interface{}{},
-		}
+		expected := map[string]interface{}{}
 		assert.Equal(t, expected, bodyParams)
 	})
 

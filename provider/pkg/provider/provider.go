@@ -1489,6 +1489,11 @@ func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[stri
 		for _, containerName := range prop.path {
 			innerBodyContainer, bodyOk := currentBodyContainer[containerName]
 			innerStateContainer, stateOk := currentStateContainer[containerName]
+			// If the container doesn't exist in either body or state, create it and continue iterating.
+			// But if it doesn't exist in either, there is no point in continuing.
+			if !bodyOk && !stateOk {
+				break
+			}
 			if !bodyOk {
 				innerBodyContainer = map[string]interface{}{}
 				currentBodyContainer[containerName] = innerBodyContainer
