@@ -5481,6 +5481,17 @@
       "FleetUpdateStrategy",
       "UpdateRun",
       "listFleetCredentials"
+    ],
+    "2023-11-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -6235,6 +6246,22 @@
       "listOrderDCAccessCode"
     ],
     "2023-07-01": [
+      "Addon",
+      "BandwidthSchedule",
+      "Container",
+      "Device",
+      "MonitoringConfig",
+      "Order",
+      "Role",
+      "Share",
+      "StorageAccount",
+      "StorageAccountCredential",
+      "Trigger",
+      "User",
+      "getDeviceExtendedInformation",
+      "listOrderDCAccessCode"
+    ],
+    "2023-12-01": [
       "Addon",
       "BandwidthSchedule",
       "Container",
@@ -9499,6 +9526,16 @@
       "WorkspacePrivateEndpointConnection"
     ],
     "2023-11-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
+    ],
+    "2023-12-01": [
       "DicomService",
       "FhirService",
       "IotConnector",
@@ -16411,6 +16448,10 @@
     ],
     "2022-01-10-preview": [
       "Workspace"
+    ],
+    "2023-11-13-preview": [
+      "Workspace",
+      "listWorkspaceKeys"
     ]
   },
   "Quota": {
