@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns the Workspace resource associated with the given name.
  * Azure REST API version: 2022-01-10-preview.
+ *
+ * Other available API versions: 2023-11-13-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -87,6 +89,8 @@ export interface GetWorkspaceResult {
 /**
  * Returns the Workspace resource associated with the given name.
  * Azure REST API version: 2022-01-10-preview.
+ *
+ * Other available API versions: 2023-11-13-preview.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

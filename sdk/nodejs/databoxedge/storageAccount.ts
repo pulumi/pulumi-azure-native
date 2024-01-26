@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190801:StorageAccount" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-native:databoxedge/v20200901:StorageAccount" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccount" }, { type: "azure-native:databoxedge/v20201201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201preview:StorageAccount" }, { type: "azure-native:databoxedge/v20210601:StorageAccount" }, { type: "azure-native:databoxedge/v20210601preview:StorageAccount" }, { type: "azure-native:databoxedge/v20220301:StorageAccount" }, { type: "azure-native:databoxedge/v20220401preview:StorageAccount" }, { type: "azure-native:databoxedge/v20221201preview:StorageAccount" }, { type: "azure-native:databoxedge/v20230101preview:StorageAccount" }, { type: "azure-native:databoxedge/v20230701:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190801:StorageAccount" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-native:databoxedge/v20200901:StorageAccount" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccount" }, { type: "azure-native:databoxedge/v20201201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201preview:StorageAccount" }, { type: "azure-native:databoxedge/v20210601:StorageAccount" }, { type: "azure-native:databoxedge/v20210601preview:StorageAccount" }, { type: "azure-native:databoxedge/v20220301:StorageAccount" }, { type: "azure-native:databoxedge/v20220401preview:StorageAccount" }, { type: "azure-native:databoxedge/v20221201preview:StorageAccount" }, { type: "azure-native:databoxedge/v20230101preview:StorageAccount" }, { type: "azure-native:databoxedge/v20230701:StorageAccount" }, { type: "azure-native:databoxedge/v20231201:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccount.__pulumiType, name, resourceInputs, opts);
     }

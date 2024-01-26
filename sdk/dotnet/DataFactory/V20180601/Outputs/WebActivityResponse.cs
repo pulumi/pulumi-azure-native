@@ -45,9 +45,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly bool? DisableCertValidation;
         /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
+        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly object? Headers;
+        public readonly ImmutableDictionary<string, string>? Headers;
         /// <summary>
         /// Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             bool? disableCertValidation,
 
-            object? headers,
+            ImmutableDictionary<string, string>? headers,
 
             object? httpRequestTimeout,
 

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// The storage account credential.
     /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2023-01-01-preview, 2023-07-01.
+    /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:StorageAccountCredential")]
     public partial class StorageAccountCredential : global::Pulumi.CustomResource
@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:StorageAccountCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:StorageAccountCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:StorageAccountCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:StorageAccountCredential" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

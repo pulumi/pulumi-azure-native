@@ -214,7 +214,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         The storage account credential.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +240,7 @@ class StorageAccountCredential(pulumi.CustomResource):
         The storage account credential.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param StorageAccountCredentialArgs args: The arguments to use to populate this resource's properties.
@@ -300,7 +300,7 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:StorageAccountCredential")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:StorageAccountCredential"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:StorageAccountCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageAccountCredential, __self__).__init__(
             'azure-native:databoxedge:StorageAccountCredential',

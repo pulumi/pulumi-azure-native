@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Quantum
     /// <summary>
     /// The resource proxy definition object for quantum workspace.
     /// Azure REST API version: 2022-01-10-preview. Prior API version in Azure Native 1.x: 2019-11-04-preview.
+    /// 
+    /// Other available API versions: 2023-11-13-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:quantum:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -109,6 +111,7 @@ namespace Pulumi.AzureNative.Quantum
                 {
                     new global::Pulumi.Alias { Type = "azure-native:quantum/v20191104preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:quantum/v20220110preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:quantum/v20231113preview:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

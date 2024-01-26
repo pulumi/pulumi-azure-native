@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_workspace import *
+from .list_workspace_keys import *
 from .workspace import *
 from ._inputs import *
 from . import outputs
@@ -15,6 +16,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.quantum.v20220110preview as __v20220110preview
     v20220110preview = __v20220110preview
+    import pulumi_azure_native.quantum.v20231113preview as __v20231113preview
+    v20231113preview = __v20231113preview
 else:
     v20220110preview = _utilities.lazy_import('pulumi_azure_native.quantum.v20220110preview')
+    v20231113preview = _utilities.lazy_import('pulumi_azure_native.quantum.v20231113preview')
 

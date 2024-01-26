@@ -11,10 +11,45 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApiKeyResponse',
     'ProviderResponse',
     'QuantumWorkspaceResponseIdentity',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class ApiKeyResponse(dict):
+    """
+    Azure quantum workspace Api key details.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 created_at: Optional[str] = None):
+        """
+        Azure quantum workspace Api key details.
+        :param str key: The Api key.
+        :param str created_at: The creation time of the api key.
+        """
+        pulumi.set(__self__, "key", key)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The Api key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The creation time of the api key.
+        """
+        return pulumi.get(self, "created_at")
+
 
 @pulumi.output_type
 class ProviderResponse(dict):

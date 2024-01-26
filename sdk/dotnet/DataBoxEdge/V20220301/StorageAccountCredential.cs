@@ -122,6 +122,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:StorageAccountCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:StorageAccountCredential" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:StorageAccountCredential" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:StorageAccountCredential" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

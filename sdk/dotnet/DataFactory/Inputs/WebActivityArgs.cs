@@ -69,11 +69,17 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("disableCertValidation")]
         public Input<bool>? DisableCertValidation { get; set; }
 
-        /// <summary>
-        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
-        /// </summary>
         [Input("headers")]
-        public Input<object>? Headers { get; set; }
+        private InputMap<string>? _headers;
+
+        /// <summary>
+        /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        /// </summary>
+        public InputMap<string> Headers
+        {
+            get => _headers ?? (_headers = new InputMap<string>());
+            set => _headers = value;
+        }
 
         /// <summary>
         /// Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes

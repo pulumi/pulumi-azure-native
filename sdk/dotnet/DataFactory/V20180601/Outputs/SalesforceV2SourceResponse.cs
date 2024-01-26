@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? DisableMetricsCollection;
         /// <summary>
+        /// This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? IncludeDeletedObjects;
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -32,10 +36,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         public readonly object? QueryTimeout;
-        /// <summary>
-        /// The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
-        /// </summary>
-        public readonly object? ReadBehavior;
         /// <summary>
         /// Database query. Type: string (or Expression with resultType string).
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? disableMetricsCollection,
 
+            object? includeDeletedObjects,
+
             object? maxConcurrentConnections,
 
             object? queryTimeout,
-
-            object? readBehavior,
 
             object? sOQLQuery,
 
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         {
             AdditionalColumns = additionalColumns;
             DisableMetricsCollection = disableMetricsCollection;
+            IncludeDeletedObjects = includeDeletedObjects;
             MaxConcurrentConnections = maxConcurrentConnections;
             QueryTimeout = queryTimeout;
-            ReadBehavior = readBehavior;
             SOQLQuery = sOQLQuery;
             SourceRetryCount = sourceRetryCount;
             SourceRetryWait = sourceRetryWait;

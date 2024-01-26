@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a container on the  Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
 
@@ -84,7 +84,7 @@ export interface GetContainerResult {
  * Represents a container on the  Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
     return pulumi.output(args).apply((a: any) => getContainer(a, opts))

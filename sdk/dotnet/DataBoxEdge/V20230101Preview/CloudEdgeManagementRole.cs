@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:CloudEdgeManagementRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:CloudEdgeManagementRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:CloudEdgeManagementRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:CloudEdgeManagementRole" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

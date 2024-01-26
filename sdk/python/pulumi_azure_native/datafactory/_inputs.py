@@ -11354,7 +11354,7 @@ class AzureFunctionActivityArgs:
                  body: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[Any] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
@@ -11370,7 +11370,7 @@ class AzureFunctionActivityArgs:
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
-        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -11487,14 +11487,14 @@ class AzureFunctionActivityArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Any]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
+        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[Any]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -65923,6 +65923,7 @@ class SalesforceServiceCloudV2LinkedServiceArgs:
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  api_version: Optional[Any] = None,
+                 authentication_type: Optional[Any] = None,
                  client_id: Optional[Any] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -65936,6 +65937,7 @@ class SalesforceServiceCloudV2LinkedServiceArgs:
                Expected value is 'SalesforceServiceCloudV2'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any api_version: The Salesforce API version used in ADF. The version must be larger than or equal to 47.0 which is required by Salesforce BULK API 2.0. Type: string (or Expression with resultType string).
+        :param Any authentication_type: The authentication type to be used to connect to the Salesforce. Currently, we only support OAuth2ClientCredentials, it is also the default value
         :param Any client_id: The client Id for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -65949,6 +65951,8 @@ class SalesforceServiceCloudV2LinkedServiceArgs:
             pulumi.set(__self__, "annotations", annotations)
         if api_version is not None:
             pulumi.set(__self__, "api_version", api_version)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -66000,6 +66004,18 @@ class SalesforceServiceCloudV2LinkedServiceArgs:
     @api_version.setter
     def api_version(self, value: Optional[Any]):
         pulumi.set(self, "api_version", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[Any]:
+        """
+        The authentication type to be used to connect to the Salesforce. Currently, we only support OAuth2ClientCredentials, it is also the default value
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[Any]):
+        pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="clientId")
@@ -66429,8 +66445,8 @@ class SalesforceServiceCloudV2SourceArgs:
                  type: pulumi.Input[str],
                  additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
+                 include_deleted_objects: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
-                 read_behavior: Optional[Any] = None,
                  s_oql_query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
@@ -66440,8 +66456,8 @@ class SalesforceServiceCloudV2SourceArgs:
                Expected value is 'SalesforceServiceCloudV2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any include_deleted_objects: This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any read_behavior: The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
         :param Any s_oql_query: Database query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -66451,10 +66467,10 @@ class SalesforceServiceCloudV2SourceArgs:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if include_deleted_objects is not None:
+            pulumi.set(__self__, "include_deleted_objects", include_deleted_objects)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
-        if read_behavior is not None:
-            pulumi.set(__self__, "read_behavior", read_behavior)
         if s_oql_query is not None:
             pulumi.set(__self__, "s_oql_query", s_oql_query)
         if source_retry_count is not None:
@@ -66500,6 +66516,18 @@ class SalesforceServiceCloudV2SourceArgs:
         pulumi.set(self, "disable_metrics_collection", value)
 
     @property
+    @pulumi.getter(name="includeDeletedObjects")
+    def include_deleted_objects(self) -> Optional[Any]:
+        """
+        This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "include_deleted_objects")
+
+    @include_deleted_objects.setter
+    def include_deleted_objects(self, value: Optional[Any]):
+        pulumi.set(self, "include_deleted_objects", value)
+
+    @property
     @pulumi.getter(name="maxConcurrentConnections")
     def max_concurrent_connections(self) -> Optional[Any]:
         """
@@ -66510,18 +66538,6 @@ class SalesforceServiceCloudV2SourceArgs:
     @max_concurrent_connections.setter
     def max_concurrent_connections(self, value: Optional[Any]):
         pulumi.set(self, "max_concurrent_connections", value)
-
-    @property
-    @pulumi.getter(name="readBehavior")
-    def read_behavior(self) -> Optional[Any]:
-        """
-        The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "read_behavior")
-
-    @read_behavior.setter
-    def read_behavior(self, value: Optional[Any]):
-        pulumi.set(self, "read_behavior", value)
 
     @property
     @pulumi.getter(name="sOQLQuery")
@@ -66888,6 +66904,7 @@ class SalesforceV2LinkedServiceArgs:
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  api_version: Optional[Any] = None,
+                 authentication_type: Optional[Any] = None,
                  client_id: Optional[Any] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
@@ -66901,6 +66918,7 @@ class SalesforceV2LinkedServiceArgs:
                Expected value is 'SalesforceV2'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any api_version: The Salesforce API version used in ADF. The version must be larger than or equal to 47.0 which is required by Salesforce BULK API 2.0. Type: string (or Expression with resultType string).
+        :param Any authentication_type: The authentication type to be used to connect to the Salesforce. Currently, we only support OAuth2ClientCredentials, it is also the default value
         :param Any client_id: The client Id for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
@@ -66914,6 +66932,8 @@ class SalesforceV2LinkedServiceArgs:
             pulumi.set(__self__, "annotations", annotations)
         if api_version is not None:
             pulumi.set(__self__, "api_version", api_version)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -66965,6 +66985,18 @@ class SalesforceV2LinkedServiceArgs:
     @api_version.setter
     def api_version(self, value: Optional[Any]):
         pulumi.set(self, "api_version", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[Any]:
+        """
+        The authentication type to be used to connect to the Salesforce. Currently, we only support OAuth2ClientCredentials, it is also the default value
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[Any]):
+        pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="clientId")
@@ -67394,9 +67426,9 @@ class SalesforceV2SourceArgs:
                  type: pulumi.Input[str],
                  additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
+                 include_deleted_objects: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
-                 read_behavior: Optional[Any] = None,
                  s_oql_query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
@@ -67406,9 +67438,9 @@ class SalesforceV2SourceArgs:
                Expected value is 'SalesforceV2Source'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any include_deleted_objects: This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Any read_behavior: The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
         :param Any s_oql_query: Database query. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -67418,12 +67450,12 @@ class SalesforceV2SourceArgs:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if include_deleted_objects is not None:
+            pulumi.set(__self__, "include_deleted_objects", include_deleted_objects)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if query_timeout is not None:
             pulumi.set(__self__, "query_timeout", query_timeout)
-        if read_behavior is not None:
-            pulumi.set(__self__, "read_behavior", read_behavior)
         if s_oql_query is not None:
             pulumi.set(__self__, "s_oql_query", s_oql_query)
         if source_retry_count is not None:
@@ -67469,6 +67501,18 @@ class SalesforceV2SourceArgs:
         pulumi.set(self, "disable_metrics_collection", value)
 
     @property
+    @pulumi.getter(name="includeDeletedObjects")
+    def include_deleted_objects(self) -> Optional[Any]:
+        """
+        This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "include_deleted_objects")
+
+    @include_deleted_objects.setter
+    def include_deleted_objects(self, value: Optional[Any]):
+        pulumi.set(self, "include_deleted_objects", value)
+
+    @property
     @pulumi.getter(name="maxConcurrentConnections")
     def max_concurrent_connections(self) -> Optional[Any]:
         """
@@ -67491,18 +67535,6 @@ class SalesforceV2SourceArgs:
     @query_timeout.setter
     def query_timeout(self, value: Optional[Any]):
         pulumi.set(self, "query_timeout", value)
-
-    @property
-    @pulumi.getter(name="readBehavior")
-    def read_behavior(self) -> Optional[Any]:
-        """
-        The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "read_behavior")
-
-    @read_behavior.setter
-    def read_behavior(self, value: Optional[Any]):
-        pulumi.set(self, "read_behavior", value)
 
     @property
     @pulumi.getter(name="sOQLQuery")
@@ -85628,7 +85660,7 @@ class WebActivityArgs:
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_cert_validation: Optional[pulumi.Input[bool]] = None,
-                 headers: Optional[Any] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  http_request_timeout: Optional[Any] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None,
@@ -85651,7 +85683,7 @@ class WebActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[bool] disable_cert_validation: When set to true, Certificate validation will be disabled.
-        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: List of linked services passed to web endpoint.
@@ -85833,14 +85865,14 @@ class WebActivityArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Any]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
+        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[Any]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -86131,7 +86163,7 @@ class WebHookActivityArgs:
                  body: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[Any] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['SecureInputOutputPolicyArgs']] = None,
                  report_status_on_call_back: Optional[Any] = None,
@@ -86149,7 +86181,7 @@ class WebHookActivityArgs:
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
-        :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['SecureInputOutputPolicyArgs'] policy: Activity policy.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -86283,14 +86315,14 @@ class WebHookActivityArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Any]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: dictionary (or Expression with resultType dictionary).
+        Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[Any]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "headers", value)
 
     @property

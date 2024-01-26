@@ -201,7 +201,7 @@ class Job(pulumi.CustomResource):
         Job Resource.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01.
+        Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,7 +226,7 @@ class Job(pulumi.CustomResource):
         Job Resource.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01.
+        Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
@@ -294,7 +294,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databox/v20180101:Job"), pulumi.Alias(type_="azure-native:databox/v20190901:Job"), pulumi.Alias(type_="azure-native:databox/v20200401:Job"), pulumi.Alias(type_="azure-native:databox/v20201101:Job"), pulumi.Alias(type_="azure-native:databox/v20210301:Job"), pulumi.Alias(type_="azure-native:databox/v20210501:Job"), pulumi.Alias(type_="azure-native:databox/v20210801preview:Job"), pulumi.Alias(type_="azure-native:databox/v20211201:Job"), pulumi.Alias(type_="azure-native:databox/v20220201:Job"), pulumi.Alias(type_="azure-native:databox/v20220901:Job"), pulumi.Alias(type_="azure-native:databox/v20221001:Job"), pulumi.Alias(type_="azure-native:databox/v20221201:Job"), pulumi.Alias(type_="azure-native:databox/v20230301:Job"), pulumi.Alias(type_="azure-native:databox/v20231201:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databox/v20180101:Job"), pulumi.Alias(type_="azure-native:databox/v20190901:Job"), pulumi.Alias(type_="azure-native:databox/v20200401:Job"), pulumi.Alias(type_="azure-native:databox/v20201101:Job"), pulumi.Alias(type_="azure-native:databox/v20210301:Job"), pulumi.Alias(type_="azure-native:databox/v20210501:Job"), pulumi.Alias(type_="azure-native:databox/v20210801preview:Job"), pulumi.Alias(type_="azure-native:databox/v20211201:Job"), pulumi.Alias(type_="azure-native:databox/v20220201:Job"), pulumi.Alias(type_="azure-native:databox/v20220901:Job"), pulumi.Alias(type_="azure-native:databox/v20221001:Job"), pulumi.Alias(type_="azure-native:databox/v20221201:Job"), pulumi.Alias(type_="azure-native:databox/v20230301:Job"), pulumi.Alias(type_="azure-native:databox/v20231201:Job"), pulumi.Alias(type_="azure-native:databox/v20240201preview:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-native:databox:Job',

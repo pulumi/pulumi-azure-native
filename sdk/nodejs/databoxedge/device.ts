@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -216,7 +216,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Device" }, { type: "azure-native:databoxedge/v20190701:Device" }, { type: "azure-native:databoxedge/v20190801:Device" }, { type: "azure-native:databoxedge/v20200501preview:Device" }, { type: "azure-native:databoxedge/v20200901:Device" }, { type: "azure-native:databoxedge/v20200901preview:Device" }, { type: "azure-native:databoxedge/v20201201:Device" }, { type: "azure-native:databoxedge/v20210201:Device" }, { type: "azure-native:databoxedge/v20210201preview:Device" }, { type: "azure-native:databoxedge/v20210601:Device" }, { type: "azure-native:databoxedge/v20210601preview:Device" }, { type: "azure-native:databoxedge/v20220301:Device" }, { type: "azure-native:databoxedge/v20220401preview:Device" }, { type: "azure-native:databoxedge/v20221201preview:Device" }, { type: "azure-native:databoxedge/v20230101preview:Device" }, { type: "azure-native:databoxedge/v20230701:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Device" }, { type: "azure-native:databoxedge/v20190701:Device" }, { type: "azure-native:databoxedge/v20190801:Device" }, { type: "azure-native:databoxedge/v20200501preview:Device" }, { type: "azure-native:databoxedge/v20200901:Device" }, { type: "azure-native:databoxedge/v20200901preview:Device" }, { type: "azure-native:databoxedge/v20201201:Device" }, { type: "azure-native:databoxedge/v20210201:Device" }, { type: "azure-native:databoxedge/v20210201preview:Device" }, { type: "azure-native:databoxedge/v20210601:Device" }, { type: "azure-native:databoxedge/v20210601preview:Device" }, { type: "azure-native:databoxedge/v20220301:Device" }, { type: "azure-native:databoxedge/v20220401preview:Device" }, { type: "azure-native:databoxedge/v20221201preview:Device" }, { type: "azure-native:databoxedge/v20230101preview:Device" }, { type: "azure-native:databoxedge/v20230701:Device" }, { type: "azure-native:databoxedge/v20231201:Device" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Device.__pulumiType, name, resourceInputs, opts);
     }

@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? ApiVersion { get; set; }
 
         /// <summary>
+        /// The authentication type to be used to connect to the Salesforce. Currently, we only support OAuth2ClientCredentials, it is also the default value
+        /// </summary>
+        [Input("authenticationType")]
+        public Input<object>? AuthenticationType { get; set; }
+
+        /// <summary>
         /// The client Id for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("clientId")]

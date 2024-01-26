@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a share on the  Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export class Share extends pulumi.CustomResource {
     /**
@@ -150,7 +150,7 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["userAccessRights"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Share" }, { type: "azure-native:databoxedge/v20190701:Share" }, { type: "azure-native:databoxedge/v20190801:Share" }, { type: "azure-native:databoxedge/v20200501preview:Share" }, { type: "azure-native:databoxedge/v20200901:Share" }, { type: "azure-native:databoxedge/v20200901preview:Share" }, { type: "azure-native:databoxedge/v20201201:Share" }, { type: "azure-native:databoxedge/v20210201:Share" }, { type: "azure-native:databoxedge/v20210201preview:Share" }, { type: "azure-native:databoxedge/v20210601:Share" }, { type: "azure-native:databoxedge/v20210601preview:Share" }, { type: "azure-native:databoxedge/v20220301:Share" }, { type: "azure-native:databoxedge/v20220401preview:Share" }, { type: "azure-native:databoxedge/v20221201preview:Share" }, { type: "azure-native:databoxedge/v20230101preview:Share" }, { type: "azure-native:databoxedge/v20230701:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Share" }, { type: "azure-native:databoxedge/v20190701:Share" }, { type: "azure-native:databoxedge/v20190801:Share" }, { type: "azure-native:databoxedge/v20200501preview:Share" }, { type: "azure-native:databoxedge/v20200901:Share" }, { type: "azure-native:databoxedge/v20200901preview:Share" }, { type: "azure-native:databoxedge/v20201201:Share" }, { type: "azure-native:databoxedge/v20210201:Share" }, { type: "azure-native:databoxedge/v20210201preview:Share" }, { type: "azure-native:databoxedge/v20210601:Share" }, { type: "azure-native:databoxedge/v20210601preview:Share" }, { type: "azure-native:databoxedge/v20220301:Share" }, { type: "azure-native:databoxedge/v20220401preview:Share" }, { type: "azure-native:databoxedge/v20221201preview:Share" }, { type: "azure-native:databoxedge/v20230101preview:Share" }, { type: "azure-native:databoxedge/v20230701:Share" }, { type: "azure-native:databoxedge/v20231201:Share" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Share.__pulumiType, name, resourceInputs, opts);
     }

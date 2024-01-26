@@ -8,6 +8,7 @@ import * as v20220301 from "./v20220301";
 import * as v20220401preview from "./v20220401preview";
 import * as v20230101preview from "./v20230101preview";
 import * as v20230701 from "./v20230701";
+import * as v20231201 from "./v20231201";
 
 export {
     v20210201,
@@ -16,6 +17,7 @@ export {
     v20220401preview,
     v20230101preview,
     v20230701,
+    v20231201,
 };
 
 export const AccountType = {

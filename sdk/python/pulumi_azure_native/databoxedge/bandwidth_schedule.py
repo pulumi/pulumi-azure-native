@@ -144,7 +144,7 @@ class BandwidthSchedule(pulumi.CustomResource):
         The bandwidth schedule details.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +166,7 @@ class BandwidthSchedule(pulumi.CustomResource):
         The bandwidth schedule details.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param BandwidthScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +220,7 @@ class BandwidthSchedule(pulumi.CustomResource):
             __props__.__dict__["stop"] = stop
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:BandwidthSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:BandwidthSchedule"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:BandwidthSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSchedule, __self__).__init__(
             'azure-native:databoxedge:BandwidthSchedule',

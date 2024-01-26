@@ -4303,6 +4303,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20231101",
+  "fqn": "pulumi_azure_native.containerservice.v20231101",
+  "classes": {
+   "azure-native:containerservice/v20231101:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20231101:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20231101:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20231101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20231101:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20231101:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerstorage",
   "fqn": "pulumi_azure_native.containerstorage",
   "classes": {
@@ -4632,6 +4645,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databox/v20240201preview",
+  "fqn": "pulumi_azure_native.databox.v20240201preview",
+  "classes": {
+   "azure-native:databox/v20240201preview:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databoxedge",
   "fqn": "pulumi_azure_native.databoxedge",
   "classes": {
@@ -4742,6 +4763,30 @@ _utilities.register(
    "azure-native:databoxedge/v20230701:StorageAccount": "StorageAccount",
    "azure-native:databoxedge/v20230701:StorageAccountCredential": "StorageAccountCredential",
    "azure-native:databoxedge/v20230701:User": "User"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "databoxedge/v20231201",
+  "fqn": "pulumi_azure_native.databoxedge.v20231201",
+  "classes": {
+   "azure-native:databoxedge/v20231201:ArcAddon": "ArcAddon",
+   "azure-native:databoxedge/v20231201:BandwidthSchedule": "BandwidthSchedule",
+   "azure-native:databoxedge/v20231201:CloudEdgeManagementRole": "CloudEdgeManagementRole",
+   "azure-native:databoxedge/v20231201:Container": "Container",
+   "azure-native:databoxedge/v20231201:Device": "Device",
+   "azure-native:databoxedge/v20231201:FileEventTrigger": "FileEventTrigger",
+   "azure-native:databoxedge/v20231201:IoTAddon": "IoTAddon",
+   "azure-native:databoxedge/v20231201:IoTRole": "IoTRole",
+   "azure-native:databoxedge/v20231201:KubernetesRole": "KubernetesRole",
+   "azure-native:databoxedge/v20231201:MECRole": "MECRole",
+   "azure-native:databoxedge/v20231201:MonitoringConfig": "MonitoringConfig",
+   "azure-native:databoxedge/v20231201:Order": "Order",
+   "azure-native:databoxedge/v20231201:PeriodicTimerEventTrigger": "PeriodicTimerEventTrigger",
+   "azure-native:databoxedge/v20231201:Share": "Share",
+   "azure-native:databoxedge/v20231201:StorageAccount": "StorageAccount",
+   "azure-native:databoxedge/v20231201:StorageAccountCredential": "StorageAccountCredential",
+   "azure-native:databoxedge/v20231201:User": "User"
   }
  },
  {
@@ -5737,6 +5782,24 @@ _utilities.register(
    "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule": "ScalingPlanPersonalSchedule",
    "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPooledSchedule": "ScalingPlanPooledSchedule",
    "azure-native:desktopvirtualization/v20231101preview:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "desktopvirtualization/v20240116preview",
+  "fqn": "pulumi_azure_native.desktopvirtualization.v20240116preview",
+  "classes": {
+   "azure-native:desktopvirtualization/v20240116preview:AppAttachPackage": "AppAttachPackage",
+   "azure-native:desktopvirtualization/v20240116preview:Application": "Application",
+   "azure-native:desktopvirtualization/v20240116preview:ApplicationGroup": "ApplicationGroup",
+   "azure-native:desktopvirtualization/v20240116preview:HostPool": "HostPool",
+   "azure-native:desktopvirtualization/v20240116preview:MSIXPackage": "MSIXPackage",
+   "azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByHostPool": "PrivateEndpointConnectionByHostPool",
+   "azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
+   "azure-native:desktopvirtualization/v20240116preview:ScalingPlan": "ScalingPlan",
+   "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule": "ScalingPlanPersonalSchedule",
+   "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPooledSchedule": "ScalingPlanPooledSchedule",
+   "azure-native:desktopvirtualization/v20240116preview:Workspace": "Workspace"
   }
  },
  {
@@ -7138,6 +7201,21 @@ _utilities.register(
    "azure-native:healthcareapis/v20231101:Service": "Service",
    "azure-native:healthcareapis/v20231101:Workspace": "Workspace",
    "azure-native:healthcareapis/v20231101:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "healthcareapis/v20231201",
+  "fqn": "pulumi_azure_native.healthcareapis.v20231201",
+  "classes": {
+   "azure-native:healthcareapis/v20231201:DicomService": "DicomService",
+   "azure-native:healthcareapis/v20231201:FhirService": "FhirService",
+   "azure-native:healthcareapis/v20231201:IotConnector": "IotConnector",
+   "azure-native:healthcareapis/v20231201:IotConnectorFhirDestination": "IotConnectorFhirDestination",
+   "azure-native:healthcareapis/v20231201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:healthcareapis/v20231201:Service": "Service",
+   "azure-native:healthcareapis/v20231201:Workspace": "Workspace",
+   "azure-native:healthcareapis/v20231201:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
   }
  },
  {
@@ -11413,6 +11491,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.quantum.v20220110preview",
   "classes": {
    "azure-native:quantum/v20220110preview:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "quantum/v20231113preview",
+  "fqn": "pulumi_azure_native.quantum.v20231113preview",
+  "classes": {
+   "azure-native:quantum/v20231113preview:Workspace": "Workspace"
   }
  },
  {

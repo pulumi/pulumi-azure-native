@@ -114,7 +114,7 @@ class User(pulumi.CustomResource):
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class User(pulumi.CustomResource):
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +179,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["share_access_rights"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:User"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:User"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:User"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:User"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:User"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:User"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:User"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-native:databoxedge:User',

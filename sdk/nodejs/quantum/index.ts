@@ -10,6 +10,11 @@ export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null a
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
+export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
+export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
+export const listWorkspaceKeysOutput: typeof import("./listWorkspaceKeys").listWorkspaceKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceKeys","listWorkspaceKeysOutput"], () => require("./listWorkspaceKeys"));
+
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -21,9 +26,11 @@ export * from "../types/enums/quantum";
 
 // Export sub-modules:
 import * as v20220110preview from "./v20220110preview";
+import * as v20231113preview from "./v20231113preview";
 
 export {
     v20220110preview,
+    v20231113preview,
 };
 
 const _module = {

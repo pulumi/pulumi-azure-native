@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The metric setting details for the role
  * Azure REST API version: 2022-03-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {
 
@@ -67,7 +67,7 @@ export interface GetMonitoringConfigResult {
  * The metric setting details for the role
  * Azure REST API version: 2022-03-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringConfigResult> {
     return pulumi.output(args).apply((a: any) => getMonitoringConfig(a, opts))

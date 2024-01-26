@@ -112,7 +112,7 @@ class Container(pulumi.CustomResource):
         Represents a container on the  Data Box Edge/Gateway device.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class Container(pulumi.CustomResource):
         Represents a container on the  Data Box Edge/Gateway device.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param ContainerArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["refresh_details"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:Container")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190801:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:Container"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:Container")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Container, __self__).__init__(
             'azure-native:databoxedge:Container',

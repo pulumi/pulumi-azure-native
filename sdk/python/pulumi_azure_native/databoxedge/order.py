@@ -114,7 +114,7 @@ class Order(pulumi.CustomResource):
         The order details.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class Order(pulumi.CustomResource):
         The order details.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param OrderArgs args: The arguments to use to populate this resource's properties.
@@ -186,7 +186,7 @@ class Order(pulumi.CustomResource):
             __props__.__dict__["serial_number"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:Order")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:Order")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Order, __self__).__init__(
             'azure-native:databoxedge:Order',

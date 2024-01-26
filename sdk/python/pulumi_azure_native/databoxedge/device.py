@@ -150,7 +150,7 @@ class Device(pulumi.CustomResource):
         The Data Box Edge/Gateway device.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,7 +172,7 @@ class Device(pulumi.CustomResource):
         The Data Box Edge/Gateway device.
         Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
+        Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.
@@ -235,7 +235,7 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["time_zone"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:Device")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:Device"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:Device")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Device, __self__).__init__(
             'azure-native:databoxedge:Device',

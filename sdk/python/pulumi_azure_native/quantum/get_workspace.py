@@ -184,6 +184,8 @@ def get_workspace(resource_group_name: Optional[str] = None,
     Returns the Workspace resource associated with the given name.
     Azure REST API version: 2022-01-10-preview.
 
+    Other available API versions: 2023-11-13-preview.
+
 
     :param str resource_group_name: The name of the resource group.
     :param str workspace_name: The name of the quantum workspace resource.
@@ -216,6 +218,8 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     """
     Returns the Workspace resource associated with the given name.
     Azure REST API version: 2022-01-10-preview.
+
+    Other available API versions: 2023-11-13-preview.
 
 
     :param str resource_group_name: The name of the resource group.

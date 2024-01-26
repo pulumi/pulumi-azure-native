@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01.
+    /// Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:User")]
     public partial class User : global::Pulumi.CustomResource
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:User" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:User" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:User" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:User" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

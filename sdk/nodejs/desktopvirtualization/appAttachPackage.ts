@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Schema for App Attach Package properties.
  * Azure REST API version: 2023-10-04-preview.
  *
- * Other available API versions: 2023-11-01-preview.
+ * Other available API versions: 2023-11-01-preview, 2024-01-16-preview.
  */
 export class AppAttachPackage extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class AppAttachPackage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20231004preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:AppAttachPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20231004preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20231101preview:AppAttachPackage" }, { type: "azure-native:desktopvirtualization/v20240116preview:AppAttachPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppAttachPackage.__pulumiType, name, resourceInputs, opts);
     }

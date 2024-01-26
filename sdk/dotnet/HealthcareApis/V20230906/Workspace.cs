@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20230906
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231201:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

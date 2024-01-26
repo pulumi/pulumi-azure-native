@@ -187,7 +187,7 @@ def get_app_attach_package(app_attach_package_name: Optional[str] = None,
     Get an app attach package.
     Azure REST API version: 2023-10-04-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2023-11-01-preview, 2024-01-16-preview.
 
 
     :param str app_attach_package_name: The name of the App Attach package arm object
@@ -223,7 +223,7 @@ def get_app_attach_package_output(app_attach_package_name: Optional[pulumi.Input
     Get an app attach package.
     Azure REST API version: 2023-10-04-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2023-11-01-preview, 2024-01-16-preview.
 
 
     :param str app_attach_package_name: The name of the App Attach package arm object

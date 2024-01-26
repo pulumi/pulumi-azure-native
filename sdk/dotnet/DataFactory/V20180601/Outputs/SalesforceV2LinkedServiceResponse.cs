@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? ApiVersion;
         /// <summary>
+        /// The authentication type to be used to connect to the Salesforce. Currently, we only support OAuth2ClientCredentials, it is also the default value
+        /// </summary>
+        public readonly object? AuthenticationType;
+        /// <summary>
         /// The client Id for OAuth 2.0 Client Credentials Flow authentication of the Salesforce instance. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ClientId;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? apiVersion,
 
+            object? authenticationType,
+
             object? clientId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clientSecret,
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         {
             Annotations = annotations;
             ApiVersion = apiVersion;
+            AuthenticationType = authenticationType;
             ClientId = clientId;
             ClientSecret = clientSecret;
             ConnectVia = connectVia;

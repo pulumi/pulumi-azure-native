@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Quantum
         /// <summary>
         /// Returns the Workspace resource associated with the given name.
         /// Azure REST API version: 2022-01-10-preview.
+        /// 
+        /// Other available API versions: 2023-11-13-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:quantum:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Quantum
         /// <summary>
         /// Returns the Workspace resource associated with the given name.
         /// Azure REST API version: 2022-01-10-preview.
+        /// 
+        /// Other available API versions: 2023-11-13-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:quantum:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

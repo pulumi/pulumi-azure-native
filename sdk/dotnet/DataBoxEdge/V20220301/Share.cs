@@ -134,6 +134,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:Share" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:Share" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:Share" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:Share" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

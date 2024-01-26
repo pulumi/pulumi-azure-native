@@ -28,16 +28,16 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? DisableMetricsCollection { get; set; }
 
         /// <summary>
+        /// This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("includeDeletedObjects")]
+        public Input<object>? IncludeDeletedObjects { get; set; }
+
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("maxConcurrentConnections")]
         public Input<object>? MaxConcurrentConnections { get; set; }
-
-        /// <summary>
-        /// The read behavior for the operation. Default is query. Allowed values: query/queryAll. Type: string (or Expression with resultType string).
-        /// </summary>
-        [Input("readBehavior")]
-        public Input<object>? ReadBehavior { get; set; }
 
         /// <summary>
         /// Database query. Type: string (or Expression with resultType string).

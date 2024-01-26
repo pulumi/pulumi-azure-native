@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The resource proxy definition object for quantum workspace.
  * Azure REST API version: 2022-01-10-preview. Prior API version in Azure Native 1.x: 2019-11-04-preview.
+ *
+ * Other available API versions: 2023-11-13-preview.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -124,7 +126,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["usable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:quantum/v20191104preview:Workspace" }, { type: "azure-native:quantum/v20220110preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:quantum/v20191104preview:Workspace" }, { type: "azure-native:quantum/v20220110preview:Workspace" }, { type: "azure-native:quantum/v20231113preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

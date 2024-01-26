@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
  * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["userType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-native:databoxedge/v20201201:User" }, { type: "azure-native:databoxedge/v20210201:User" }, { type: "azure-native:databoxedge/v20210201preview:User" }, { type: "azure-native:databoxedge/v20210601:User" }, { type: "azure-native:databoxedge/v20210601preview:User" }, { type: "azure-native:databoxedge/v20220301:User" }, { type: "azure-native:databoxedge/v20220401preview:User" }, { type: "azure-native:databoxedge/v20221201preview:User" }, { type: "azure-native:databoxedge/v20230101preview:User" }, { type: "azure-native:databoxedge/v20230701:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-native:databoxedge/v20201201:User" }, { type: "azure-native:databoxedge/v20210201:User" }, { type: "azure-native:databoxedge/v20210201preview:User" }, { type: "azure-native:databoxedge/v20210601:User" }, { type: "azure-native:databoxedge/v20210601preview:User" }, { type: "azure-native:databoxedge/v20220301:User" }, { type: "azure-native:databoxedge/v20220401preview:User" }, { type: "azure-native:databoxedge/v20221201preview:User" }, { type: "azure-native:databoxedge/v20230101preview:User" }, { type: "azure-native:databoxedge/v20230701:User" }, { type: "azure-native:databoxedge/v20231201:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

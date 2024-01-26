@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
  *
- * Other available API versions: 2023-09-06, 2023-11-01.
+ * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20200330:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210111:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20211101:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220515:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220601:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221001preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221201:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230228:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230906:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20231101:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20200330:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210111:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20211101:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220515:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220601:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221001preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221201:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230228:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230906:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20231101:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20231201:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

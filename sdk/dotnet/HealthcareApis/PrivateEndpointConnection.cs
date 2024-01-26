@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
     /// 
-    /// Other available API versions: 2023-09-06, 2023-11-01.
+    /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231201:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

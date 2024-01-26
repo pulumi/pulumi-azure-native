@@ -51,7 +51,7 @@ def list_order_dc_access_code(device_name: Optional[str] = None,
     DC Access code in the case of Self Managed Shipping.
     Azure REST API version: 2022-03-01.
 
-    Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
+    Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
 
     :param str device_name: The device name
@@ -75,7 +75,7 @@ def list_order_dc_access_code_output(device_name: Optional[pulumi.Input[str]] = 
     DC Access code in the case of Self Managed Shipping.
     Azure REST API version: 2022-03-01.
 
-    Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
+    Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
 
     :param str device_name: The device name

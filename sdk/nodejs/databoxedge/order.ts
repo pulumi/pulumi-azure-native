@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The order details.
  * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01.
+ * Other available API versions: 2020-05-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
 export class Order extends pulumi.CustomResource {
     /**
@@ -144,7 +144,7 @@ export class Order extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Order" }, { type: "azure-native:databoxedge/v20190701:Order" }, { type: "azure-native:databoxedge/v20190801:Order" }, { type: "azure-native:databoxedge/v20200501preview:Order" }, { type: "azure-native:databoxedge/v20200901:Order" }, { type: "azure-native:databoxedge/v20200901preview:Order" }, { type: "azure-native:databoxedge/v20201201:Order" }, { type: "azure-native:databoxedge/v20210201:Order" }, { type: "azure-native:databoxedge/v20210201preview:Order" }, { type: "azure-native:databoxedge/v20210601:Order" }, { type: "azure-native:databoxedge/v20210601preview:Order" }, { type: "azure-native:databoxedge/v20220301:Order" }, { type: "azure-native:databoxedge/v20220401preview:Order" }, { type: "azure-native:databoxedge/v20221201preview:Order" }, { type: "azure-native:databoxedge/v20230101preview:Order" }, { type: "azure-native:databoxedge/v20230701:Order" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Order" }, { type: "azure-native:databoxedge/v20190701:Order" }, { type: "azure-native:databoxedge/v20190801:Order" }, { type: "azure-native:databoxedge/v20200501preview:Order" }, { type: "azure-native:databoxedge/v20200901:Order" }, { type: "azure-native:databoxedge/v20200901preview:Order" }, { type: "azure-native:databoxedge/v20201201:Order" }, { type: "azure-native:databoxedge/v20210201:Order" }, { type: "azure-native:databoxedge/v20210201preview:Order" }, { type: "azure-native:databoxedge/v20210601:Order" }, { type: "azure-native:databoxedge/v20210601preview:Order" }, { type: "azure-native:databoxedge/v20220301:Order" }, { type: "azure-native:databoxedge/v20220401preview:Order" }, { type: "azure-native:databoxedge/v20221201preview:Order" }, { type: "azure-native:databoxedge/v20230101preview:Order" }, { type: "azure-native:databoxedge/v20230701:Order" }, { type: "azure-native:databoxedge/v20231201:Order" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Order.__pulumiType, name, resourceInputs, opts);
     }

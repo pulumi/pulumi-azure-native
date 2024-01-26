@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// The bandwidth schedule details.
     /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2023-01-01-preview, 2023-07-01.
+    /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:BandwidthSchedule")]
     public partial class BandwidthSchedule : global::Pulumi.CustomResource
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:BandwidthSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:BandwidthSchedule" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:BandwidthSchedule" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:BandwidthSchedule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

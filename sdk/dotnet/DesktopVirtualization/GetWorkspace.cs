@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a workspace.
         /// Azure REST API version: 2022-09-09.
         /// 
-        /// Other available API versions: 2020-11-10-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview.
+        /// Other available API versions: 2020-11-10-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:desktopvirtualization:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a workspace.
         /// Azure REST API version: 2022-09-09.
         /// 
-        /// Other available API versions: 2020-11-10-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview.
+        /// Other available API versions: 2020-11-10-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:desktopvirtualization:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
