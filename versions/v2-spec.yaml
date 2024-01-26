@@ -1360,6 +1360,8 @@ Purview:
     tracking: "2021-12-01"
 Quantum:
     tracking: 2022-01-10-preview
+    additions:
+        listWorkspaceKeys: 2023-11-13-preview
 Quota:
     tracking: 2023-06-01-preview
 RecommendationsService:

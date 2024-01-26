@@ -2506,6 +2506,20 @@
     "Property": "sharePassword"
   },
   {
+    "Module": "databox/v20240201preview",
+    "Provider": "DataBox",
+    "ResourceName": "Job",
+    "ReferenceName": "DataAccountDetails",
+    "Property": "sharePassword"
+  },
+  {
+    "Module": "databox/v20240201preview",
+    "Provider": "DataBox",
+    "ResourceName": "Job",
+    "ReferenceName": "DataAccountDetails",
+    "Property": "sharePassword"
+  },
+  {
     "Module": "datamigration",
     "Provider": "DataMigration",
     "ResourceName": "DatabaseMigrationsSqlDb",
