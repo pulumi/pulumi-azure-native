@@ -5481,6 +5481,17 @@
       "FleetUpdateStrategy",
       "UpdateRun",
       "listFleetCredentials"
+    ],
+    "2023-11-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -6005,6 +6016,10 @@
     "2023-12-01": [
       "Job",
       "listJobCredentials"
+    ],
+    "2024-02-01-preview": [
+      "Job",
+      "listJobCredentials"
     ]
   },
   "DataBoxEdge": {
@@ -6235,6 +6250,22 @@
       "listOrderDCAccessCode"
     ],
     "2023-07-01": [
+      "Addon",
+      "BandwidthSchedule",
+      "Container",
+      "Device",
+      "MonitoringConfig",
+      "Order",
+      "Role",
+      "Share",
+      "StorageAccount",
+      "StorageAccountCredential",
+      "Trigger",
+      "User",
+      "getDeviceExtendedInformation",
+      "listOrderDCAccessCode"
+    ],
+    "2023-12-01": [
       "Addon",
       "BandwidthSchedule",
       "Container",
@@ -6937,6 +6968,19 @@
       "Workspace"
     ],
     "2023-11-01-preview": [
+      "AppAttachPackage",
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
+    ],
+    "2024-01-16-preview": [
       "AppAttachPackage",
       "Application",
       "ApplicationGroup",
@@ -9499,6 +9543,16 @@
       "WorkspacePrivateEndpointConnection"
     ],
     "2023-11-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
+    ],
+    "2023-12-01": [
       "DicomService",
       "FhirService",
       "IotConnector",
@@ -16411,6 +16465,10 @@
     ],
     "2022-01-10-preview": [
       "Workspace"
+    ],
+    "2023-11-13-preview": [
+      "Workspace",
+      "listWorkspaceKeys"
     ]
   },
   "Quota": {
