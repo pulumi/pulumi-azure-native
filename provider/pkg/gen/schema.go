@@ -31,6 +31,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -528,19 +529,19 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 	}
 
 	// Mixin all the custom resources that define schema and/or metadata.
-	for tok, r := range resources.SchemaMixins() {
+	for tok, r := range customresources.SchemaMixins() {
 		if _, has := pkg.Resources[tok]; has {
 			return errors.Errorf("Resource %q is already defined", tok)
 		}
 		pkg.Resources[tok] = r
 	}
-	for tok, t := range resources.SchemaTypeMixins() {
+	for tok, t := range customresources.SchemaTypeMixins() {
 		if _, has := pkg.Types[tok]; has {
 			return errors.Errorf("Type %q is already defined", tok)
 		}
 		pkg.Types[tok] = t
 	}
-	for tok, r := range resources.MetaMixins() {
+	for tok, r := range customresources.MetaMixins() {
 		if _, has := metadata.Resources[tok]; has {
 			return errors.Errorf("Metadata %q is already defined", tok)
 		}

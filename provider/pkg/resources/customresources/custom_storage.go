@@ -1,12 +1,14 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
-package resources
+package customresources
 
 import (
 	"context"
 	"net/http"
 	"regexp"
 	"strings"
+
+	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"

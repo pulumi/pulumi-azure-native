@@ -15,6 +15,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
@@ -491,7 +492,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 	pathItem := swagger.Paths.Paths[path]
 	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]
 
-	if ok := resources.HasCustomDelete(path); ok {
+	if ok := customresources.HasCustomDelete(path); ok {
 		pathItem.Delete = &spec.Operation{
 			OperationProps: spec.OperationProps{
 				Description: "Custom implementation of this operation is available",

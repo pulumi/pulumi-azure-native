@@ -35,6 +35,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
@@ -78,7 +79,7 @@ type azureNativeProvider struct {
 	fullPkgSpec     *schema.PackageSpec
 	fullResourceMap *resources.AzureAPIMetadata
 	converter       *convert.SdkShapeConverter
-	customResources map[string]*resources.CustomResource
+	customResources map[string]*customresources.CustomResource
 	rgLocationMap   map[string]string
 	lookupType      resources.TypeLookupFunc
 }
@@ -226,8 +227,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.client.UserAgent = k.getUserAgent()
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	var azureClient resources.AzureClient = k
-	k.customResources, err = resources.BuildCustomResources(&env, azureClient, k.subscriptionID,
+	var azureClient customresources.AzureClient = k
+	k.customResources, err = customresources.BuildCustomResources(&env, azureClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth,
 		k.client.UserAgent, azCoreTokenCredential)
 	if err != nil {
