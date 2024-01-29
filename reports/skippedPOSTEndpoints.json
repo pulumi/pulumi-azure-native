@@ -391,8 +391,7 @@
     "Accounts_RegenerateKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/regenerateKey",
     "CheckDomainAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/checkDomainAvailability",
     "CheckSkuAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/checkSkuAvailability",
-    "CognitiveServicesAccounts_RegenerateKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/regenerateKey",
-    "RaiContentFilters_List": "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/raiContentFilters"
+    "CognitiveServicesAccounts_RegenerateKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/regenerateKey"
   },
   "Communication": {
     "CommunicationService_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Communication/checkNameAvailability",
