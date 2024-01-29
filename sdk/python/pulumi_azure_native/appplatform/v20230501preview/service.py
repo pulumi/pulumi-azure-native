@@ -21,6 +21,7 @@ class ServiceArgs:
                  properties: Optional[pulumi.Input['ClusterResourcePropertiesArgs']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 stopped: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
@@ -29,6 +30,7 @@ class ServiceArgs:
         :param pulumi.Input['ClusterResourcePropertiesArgs'] properties: Properties of the Service resource
         :param pulumi.Input[str] service_name: The name of the Service resource.
         :param pulumi.Input['SkuArgs'] sku: Sku of the Service resource
+        :param pulumi.Input[bool] stopped: Indicates whether the service is stopped or started.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -40,6 +42,10 @@ class ServiceArgs:
             pulumi.set(__self__, "service_name", service_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if stopped is None:
+            stopped = False
+        if stopped is not None:
+            pulumi.set(__self__, "stopped", stopped)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -105,6 +111,18 @@ class ServiceArgs:
 
     @property
     @pulumi.getter
+    def stopped(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the service is stopped or started.
+        """
+        return pulumi.get(self, "stopped")
+
+    @stopped.setter
+    def stopped(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stopped", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Tags of the service which is a list of key value pairs that describe the resource.
@@ -126,6 +144,7 @@ class Service(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 stopped: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -138,6 +157,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the Service resource
+        :param pulumi.Input[bool] stopped: Indicates whether the service is stopped or started.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
         """
         ...
@@ -169,6 +189,7 @@ class Service(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
+                 stopped: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -186,6 +207,9 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["sku"] = sku
+            if stopped is None:
+                stopped = False
+            __props__.__dict__["stopped"] = stopped
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None

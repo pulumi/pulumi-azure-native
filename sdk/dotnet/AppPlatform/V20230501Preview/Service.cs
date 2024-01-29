@@ -153,6 +153,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
+        /// <summary>
+        /// Indicates whether the service is stopped or started.
+        /// </summary>
+        [Input("stopped")]
+        public Input<bool>? Stopped { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
 
         public ServiceArgs()
         {
+            Stopped = false;
         }
         public static new ServiceArgs Empty => new ServiceArgs();
     }

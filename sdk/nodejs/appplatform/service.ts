@@ -88,6 +88,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["stopped"] = (args ? args.stopped : undefined) ?? false;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -132,6 +133,10 @@ export interface ServiceArgs {
      * Sku of the Service resource
      */
     sku?: pulumi.Input<inputs.appplatform.SkuArgs>;
+    /**
+     * Indicates whether the service is stopped or started.
+     */
+    stopped?: pulumi.Input<boolean>;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
