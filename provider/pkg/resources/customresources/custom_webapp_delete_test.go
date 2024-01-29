@@ -1,8 +1,10 @@
-package resources
+package customresources
 
 import (
 	"context"
 	"testing"
+
+	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"

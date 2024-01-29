@@ -1,12 +1,14 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
-package resources
+package customresources
 
 import (
 	"context"
 	"errors"
 	"fmt"
 	"regexp"
+
+	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
