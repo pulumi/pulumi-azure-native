@@ -16,6 +16,12 @@ func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.Az
 
 	for name, prop := range props {
 		p := prop // https://go.dev/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
+
+		// These are special properties that are not part of the request body, they translate to POST requests instead.
+		if len(prop.TogglePostEndpoints) > 0 {
+			continue
+		}
+
 		sdkName := name
 		if prop.SdkName != "" {
 			sdkName = prop.SdkName

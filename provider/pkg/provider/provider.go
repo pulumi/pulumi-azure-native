@@ -1308,6 +1308,8 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		if err != nil {
 			return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
 		}
+
+		// TODO,tkappler only do this if there are changes other than to POST toggle properties
 		response, updated, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
 			if updated {
@@ -1320,6 +1322,43 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 				return nil, partialError(id, err, checkpoint, req.GetNews())
 			}
 			return nil, azureError(err)
+		}
+
+		// If there are POST toggle properties, toggle them if changed.
+		// TODO,tkappler extract
+		flippedToggles := []string{}
+		if body, ok := res.BodyParameter(); ok {
+			for propName, prop := range body.Body.Properties {
+				if len(prop.TogglePostEndpoints) < 2 {
+					continue
+				}
+				var old, new bool
+				for oldPropName, oldProp := range oldState {
+					if oldPropName == resource.PropertyKey(propName) {
+						old = oldProp.BoolValue()
+						break
+					}
+				}
+				for newPropName, newProp := range inputs {
+					if newPropName == resource.PropertyKey(propName) {
+						new = newProp.BoolValue()
+						break
+					}
+				}
+				if old != new {
+					endpointSuffix := prop.TogglePostEndpoints[0]
+					if new != prop.Default.(bool) {
+						endpointSuffix = prop.TogglePostEndpoints[1]
+					}
+					flippedToggles = append(flippedToggles, endpointSuffix)
+				}
+			}
+		}
+
+		for _, endpointSuffix := range flippedToggles {
+			postPath := strings.Join([]string{id, endpointSuffix}, "/")
+			_, err := k.azurePost(ctx, postPath, map[string]any{}, queryParams)
+			return nil, azureError(errors.Wrapf(err, "resource updated but POST '%s' failed: %s", endpointSuffix, err))
 		}
 
 		// Map the raw response to the shape of outputs that the SDKs expect.

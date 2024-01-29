@@ -1323,7 +1323,8 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			if m.prov == "AppPlatform" && m.resourceName == "Service" {
 				props.properties["stopped"] = resources.AzureAPIProperty{
 					Type:                "boolean",
-					TogglePostEndpoints: []string{"stop", "start"},
+					Default:             false,
+					TogglePostEndpoints: []string{"start", "stop"},
 				}
 				props.specs["stopped"] = pschema.PropertySpec{
 					Description: "Indicates whether the service is stopped or started.",
