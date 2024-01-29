@@ -72,6 +72,8 @@ type AzureAPIProperty struct {
 	// Optional. Properties that combined form a unique identifier for elements in this array.
 	// Corresponds to the x-ms-identifiers extension in the Azure spec.
 	ArrayIdentifiers []string `json:"arrayIdentifiers,omitempty"`
+	// First is "start" or equivalent (toggle to default value), second is "stop"
+	TogglePostEndpoints []string `json:"togglePostEndpoints,omitempty"`
 }
 
 // AzureAPIType represents the shape of an object property.

@@ -1320,6 +1320,20 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			// Top-level location is never required: it can be derived from a config value or the parent resource group.
 			props.requiredSpecs.Delete("location")
 
+			if m.prov == "AppPlatform" && m.resourceName == "Service" {
+				props.properties["stopped"] = resources.AzureAPIProperty{
+					Type:                "boolean",
+					TogglePostEndpoints: []string{"stop", "start"},
+				}
+				props.specs["stopped"] = pschema.PropertySpec{
+					Description: "Indicates whether the service is stopped or started.",
+					Default:     false,
+					TypeSpec: pschema.TypeSpec{
+						Type: "boolean",
+					},
+				}
+			}
+
 			result.merge(props)
 			apiParameter.Body = &resources.AzureAPIType{
 				Properties:         props.properties,
