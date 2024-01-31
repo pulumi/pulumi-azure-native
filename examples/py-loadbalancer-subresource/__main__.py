@@ -1,3 +1,4 @@
+from pulumi import ResourceOptions
 from pulumi_azure_native import resources, network
 
 # Create a new resource group
@@ -24,6 +25,8 @@ load_balancer = network.LoadBalancer('load_balancer',
                                              "id": public_ip.id,
                                          },
                                      }],
+                                     # Can be removed after https://github.com/pulumi/pulumi-azure-native/issues/3049 is fixed.
+                                     opts=ResourceOptions(ignore_changes=["backendAddressPools"])
                                      )
 
 # Create the BackendAddressPool as a separate resource rather than a property of the load balancer.

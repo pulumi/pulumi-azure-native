@@ -42,7 +42,9 @@ const vnet = new network.VirtualNetwork("vnet", {
         name: "default",
         addressPrefix: "10.1.0.0/24",
     }],
-});
+// Mixing inline and external subnets isn't really supported, so we need to ignore this property
+// to avoid overrides on refresh-up cycles.
+}, { ignoreChanges: ["subnets"] });
 
 const subnet = new network.Subnet("subnet2", {
     resourceGroupName: resourceGroup.name,
@@ -118,7 +120,9 @@ const appService = new web.WebApp("app", {
             value: "this is a slot setting",
         }],
     },
-});
+// Subnet is associated by WebAppSwiftVirtualNetworkConnection below, so it should be ignored here to avoid
+// overrides on refresh-update cycles.
+}, { ignoreChanges: ["virtualNetworkSubnetId"] });
 
 new web.WebAppAuthSettings("auth", {
     resourceGroupName: resourceGroup.name,
