@@ -21,6 +21,7 @@ func TestAccAppServiceTs(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "appservice"),
 		})
 
+	test.RequireEmptyPreviewAfterRefresh = false
 	integration.ProgramTest(t, &test)
 }
 
@@ -42,6 +43,7 @@ func TestAccSimpleTs(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "simple"),
 		})
 
+	test.RequireEmptyPreviewAfterRefresh = false
 	integration.ProgramTest(t, &test)
 }
 

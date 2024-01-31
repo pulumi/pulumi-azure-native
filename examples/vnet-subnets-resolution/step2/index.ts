@@ -18,12 +18,12 @@ const inlineVnet = new network.VirtualNetwork("inline", {
 });
 
 new network.NetworkInterface("inline-nic", {
-resourceGroupName: resourceGroup.name,
-ipConfigurations: [{
-    name: "cfg",
-    subnet: { id: inlineVnet.subnets.apply(subnet => subnet![0].id!) },
-    privateIPAllocationMethod: network.IPAllocationMethod.Dynamic,
-}],
+  resourceGroupName: resourceGroup.name,
+  ipConfigurations: [{
+      name: "cfg",
+      subnet: { id: inlineVnet.subnets.apply(subnet => subnet![0].id!) },
+      privateIPAllocationMethod: network.IPAllocationMethod.Dynamic,
+  }],
 });
 
 const externalVnet = new network.VirtualNetwork("external", {
@@ -37,9 +37,9 @@ const externalVnet = new network.VirtualNetwork("external", {
 }, { ignoreChanges: ["subnets"] });
 
 const externalSubnet = new network.Subnet("default", {
-    resourceGroupName: resourceGroup.name,
-    virtualNetworkName: externalVnet.name,
-    addressPrefix: "10.5.1.0/24",
+  resourceGroupName: resourceGroup.name,
+  virtualNetworkName: externalVnet.name,
+  addressPrefix: "10.5.1.0/24",
 });
 
 const second = new network.Subnet("second", {

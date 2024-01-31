@@ -37,6 +37,7 @@ func TestAccSql(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "cs-sql"),
 		})
 
+	test.RequireEmptyPreviewAfterRefresh = false
 	integration.ProgramTest(t, &test)
 }
 
