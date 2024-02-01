@@ -2919,7 +2919,8 @@
   "AzureLargeInstance": {},
   "AzurePlaywrightService": {
     "Account": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ]
   },
   "AzureSphere": {
@@ -9445,10 +9446,12 @@
       "2021-06-01",
       "2023-04-15-preview",
       "2023-06-01-preview",
-      "2023-08-15-preview"
+      "2023-08-15-preview",
+      "2023-11-01-preview"
     ],
     "ClusterPool": [
-      "2023-06-01-preview"
+      "2023-06-01-preview",
+      "2023-11-01-preview"
     ],
     "Extension": [
       "2015-03-01-preview",
@@ -10295,14 +10298,16 @@
       "2022-05-01-preview",
       "2022-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-01-preview"
     ],
     "listConnectedClusterUserCredential": [
       "2021-10-01",
       "2022-05-01-preview",
       "2022-10-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-01-preview"
     ],
     "listConnectedClusterUserCredentials": [
       "2020-01-01-preview",
@@ -16597,66 +16602,82 @@
       "2020-07-07"
     ],
     "HypervClusterControllerCluster": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "HypervHostController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "HypervSitesController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "ImportSitesController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "MasterSite": [
       "2020-07-07"
     ],
     "MasterSitesController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2020-07-07"
     ],
     "PrivateEndpointConnectionController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "ServerSitesController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "Site": [
       "2020-01-01",
       "2020-07-07"
     ],
     "SitesController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "SqlDiscoverySiteDataSourceController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "SqlSitesController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "VCenter": [
       "2020-01-01",
       "2020-07-07"
     ],
     "VcenterController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "WebAppDiscoverySiteDataSourcesController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "WebAppSitesController": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "listHypervSitesControllerHealthSummary": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "listServerSitesControllerHealthSummary": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ],
     "listSitesControllerHealthSummary": [
-      "2023-06-06"
+      "2023-06-06",
+      "2023-10-01-preview"
     ]
   },
   "OffAzureSpringBoot": {

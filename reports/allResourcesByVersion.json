@@ -2642,6 +2642,9 @@
   "AzurePlaywrightService": {
     "2023-10-01-preview": [
       "Account"
+    ],
+    "2024-02-01": [
+      "Account"
     ]
   },
   "AzureSphere": {
@@ -9379,6 +9382,10 @@
       "PrivateEndpointConnection",
       "getClusterGatewaySettings",
       "listVirtualMachineHosts"
+    ],
+    "2023-11-01-preview": [
+      "Cluster",
+      "ClusterPool"
     ]
   },
   "HanaOnAzure": {
@@ -10214,6 +10221,10 @@
       "listConnectedClusterUserCredential"
     ],
     "2024-01-01": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
+    ],
+    "2024-02-01-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
     ]
@@ -16078,6 +16089,24 @@
       "VCenter"
     ],
     "2023-06-06": [
+      "HypervClusterControllerCluster",
+      "HypervHostController",
+      "HypervSitesController",
+      "ImportSitesController",
+      "MasterSitesController",
+      "PrivateEndpointConnectionController",
+      "ServerSitesController",
+      "SitesController",
+      "SqlDiscoverySiteDataSourceController",
+      "SqlSitesController",
+      "VcenterController",
+      "WebAppDiscoverySiteDataSourcesController",
+      "WebAppSitesController",
+      "listHypervSitesControllerHealthSummary",
+      "listServerSitesControllerHealthSummary",
+      "listSitesControllerHealthSummary"
+    ],
+    "2023-10-01-preview": [
       "HypervClusterControllerCluster",
       "HypervHostController",
       "HypervSitesController",

@@ -3584,6 +3584,20 @@
     "Property": "tier"
   },
   {
+    "Module": "hdinsight/v20231101preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Cluster",
+    "ReferenceName": "ClusterAccessProfile",
+    "Property": "enableInternalIngress"
+  },
+  {
+    "Module": "hdinsight/v20231101preview",
+    "Provider": "HDInsight",
+    "ResourceName": "ClusterPool",
+    "ReferenceName": "ClusterPoolNetworkProfile",
+    "Property": "enablePrivateApiServer"
+  },
+  {
     "Module": "hybridcompute/v20220510preview",
     "Provider": "HybridCompute",
     "ResourceName": "Machine",
