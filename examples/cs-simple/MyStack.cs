@@ -17,7 +17,12 @@ class MyStack : Stack
 {
     public MyStack()
     {
-        var resourceGroup = new ResourceGroup("resourceGroup");
+        var resourceGroup = new ResourceGroup("resourceGroup", null, new CustomResourceOptions
+        {
+            // Tags are changes by TagAtScope below, so they should be ignored here to avoid
+            // overrides on refresh-update cycles.
+            IgnoreChanges = { "tags" },
+        });
 
         var tags = new TagAtScope("tagAtScope", new TagAtScopeArgs
         {

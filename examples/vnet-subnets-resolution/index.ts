@@ -23,7 +23,7 @@ new network.NetworkInterface("inline-nic", {
   resourceGroupName: resourceGroup.name,
   ipConfigurations: [{
       name: "cfg",
-      subnet: inlineVnet.subnets.apply(subnet => subnet![0]),
+      subnet: { id: inlineVnet.subnets.apply(subnet => subnet![0].id!) },
       privateIPAllocationMethod: network.IPAllocationMethod.Dynamic,
   }],
 });
@@ -34,7 +34,8 @@ const externalVnet = new network.VirtualNetwork("external", {
   tags: {
       "step": "1",
   },
-});
+// Can be removed after https://github.com/pulumi/pulumi-azure-native/issues/3049 is fixed.
+}, { ignoreChanges: ["subnets"] });
 
 const externalSubnet = new network.Subnet("default", {
     resourceGroupName: resourceGroup.name,

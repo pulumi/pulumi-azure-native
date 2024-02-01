@@ -120,7 +120,15 @@ new web.WebAppMetadata("meta", {
     properties: {
         CURRENT_STACK: "dotnetcore",
     },
-});
+// These properties are set by resources below, and thus should be ignored here for clean updates.
+}, { ignoreChanges: [
+    "properties.CloneUri",
+    "properties.RepoUrl",
+    "properties.ScmOperationId",
+    "properties.ScmOperationTime",
+    "properties.ScmUri",
+    "properties.subscription",
+]});
 
 new web.WebAppApplicationSettings("settings", {
     resourceGroupName: resourceGroup.name,

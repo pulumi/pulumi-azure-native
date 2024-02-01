@@ -24,6 +24,11 @@ class MyStack : Stack
             AdministratorLogin = "dummylogin",
             AdministratorLoginPassword = "Un53cuRE!",
             Version = "12.0"
+        }, new CustomResourceOptions
+        {
+            // Administrators is set by ServerAzureADAdministrator below, so the property should be ignored here
+            // to avoid resource replacement on refresh-update cycles.
+            IgnoreChanges = { "administrators" },
         });
         
         // Temporarily removing database creating due to Azure service regularly returning an Internal Server Error

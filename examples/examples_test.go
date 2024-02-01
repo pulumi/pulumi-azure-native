@@ -29,7 +29,8 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	}
 	fmt.Printf("Using binPath %s\n", binPath)
 	return integration.ProgramTestOptions{
-		ExpectRefreshChanges: true,
+		ExpectRefreshChanges:            true,
+		RequireEmptyPreviewAfterRefresh: true,
 		Config: map[string]string{
 			"azure-native:location": azureLocation,
 		},

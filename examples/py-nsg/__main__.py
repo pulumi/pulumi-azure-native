@@ -1,3 +1,4 @@
+from pulumi import ResourceOptions
 from pulumi_azure_native import resources, network
 
 # Create a new resource group
@@ -6,8 +7,9 @@ resource_group = resources.ResourceGroup('resource_group')
 # Create a new NetworkSecurityGroup
 nsg = network.NetworkSecurityGroup('network_security_group',
                                    resource_group_name=resource_group.name,
-                                   location=resource_group.location
-                                   )
+                                   location=resource_group.location,
+                                   # Can be removed after https://github.com/pulumi/pulumi-azure-native/issues/3049 is fixed.
+                                   opts=ResourceOptions(ignore_changes=["securityRules"]))
 
 # Create a default SecurityRule
 rule = network.SecurityRule('security_rule',
