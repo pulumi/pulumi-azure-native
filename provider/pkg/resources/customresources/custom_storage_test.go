@@ -1,10 +1,11 @@
 // Copyright 2016-2023, Pulumi Corporation.
 
-package resources
+package customresources
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestParseBlobIdProperties(t *testing.T) {

@@ -1,6 +1,6 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
-package resources
+package customresources
 
 import (
 	"context"
