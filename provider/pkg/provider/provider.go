@@ -972,7 +972,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 // an empty array.
 // During create, no sub-resources can exist yet so there's no danger of overwriting existing values.
 //
-// The `input` param is used to determine the unset suib-resource properties. They are then reset in
+// The `input` param is used to determine the unset sub-resource properties. They are then reset in
 // the `output` parameter which is modified in-place.
 //
 // Implementation note: we should make it possible to write custom resources that call code from
