@@ -116,6 +116,8 @@ type AzureAPIResource struct {
 	DefaultProperties map[string]interface{} `json:"defaultProperties,omitempty"`
 }
 
+type ResourceLookupFunc func(resourceType string) (AzureAPIResource, bool, error)
+
 type TypeLookupFunc func(ref string) (*AzureAPIType, bool, error)
 
 func TraverseProperties(props map[string]AzureAPIProperty, lookupType TypeLookupFunc, includeContainers bool, f func(propName string, prop AzureAPIProperty, path []string)) {

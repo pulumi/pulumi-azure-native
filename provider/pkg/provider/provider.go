@@ -3,14 +3,12 @@
 package provider
 
 import (
-	"bytes"
 	"context"
 	"fmt"
-	"io"
-	"io/ioutil"
 	"log"
 	"math"
 	"net/http"
+	"net/url"
 	"os"
 	"reflect"
 	"regexp"
@@ -25,18 +23,17 @@ import (
 	"github.com/segmentio/encoding/json"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/Azure/go-autorest/autorest"
-	"github.com/Azure/go-autorest/autorest/azure"
+	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -50,15 +47,7 @@ import (
 
 const (
 	// Microsoft's Pulumi Partner ID.
-	PulumiPartnerID = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
-	requestFormat   = `HTTP Request Begin %[1]s %[2]s ===================================================
-%[3]s
-===================================================== HTTP Request End %[1]s %[2]s
-`
-	responseFormat = `HTTP Response Begin %[1]s [%[2]s ===================================================
-%[3]s
-===================================================== HTTP Response End %[1]s %[2]s
-`
+	PulumiPartnerID        = "a90539d8-a7a6-5826-95c4-1fbef22d4b22"
 	apiVersionResources    = "2020-10-01"
 	createBeforeDeleteFlag = "__createBeforeDelete"
 )
@@ -66,12 +55,13 @@ const (
 type azureNativeProvider struct {
 	rpc.UnimplementedResourceProviderServer
 
-	host            *provider.HostClient
-	name            string
-	version         string
-	subscriptionID  string
-	environment     azure.Environment
-	client          autorest.Client
+	azureClient    azure.AzureClient
+	host           *provider.HostClient
+	name           string
+	version        string
+	subscriptionID string
+	environment    azureEnv.Environment
+	// client          autorest.Client
 	resourceMap     *resources.PartialAzureAPIMetadata
 	config          map[string]string
 	schemaBytes     []byte
@@ -86,13 +76,6 @@ type azureNativeProvider struct {
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
-	autorest.Count429AsRetry = false
-	// Creating a REST client, defaulting to Pulumi Partner ID until the Configure method is invoked.
-	client := autorest.NewClientWithUserAgent(buildUserAgent(PulumiPartnerID))
-	// Log requests
-	client.RequestInspector = withInspection()
-	// Log responses
-	client.ResponseInspector = byInspecting()
 
 	resourceMap, err := LoadMetadataPartial(azureAPIResourcesBytes)
 	if err != nil {
@@ -103,10 +86,11 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 
 	// Return the new provider
 	p := &azureNativeProvider{
+		// This client will be regnerated with correct environment and authorizer in Configure.
+		azureClient:   azure.NewAzureClient(azureEnv.PublicCloud, nil, azure.BuildUserAgent(PulumiPartnerID)),
 		host:          host,
 		name:          name,
 		version:       version,
-		client:        client,
 		resourceMap:   resourceMap,
 		config:        map[string]string{},
 		schemaBytes:   schemaBytes,
@@ -162,6 +146,18 @@ func (k *azureNativeProvider) LookupResource(resourceType string) (resources.Azu
 	return k.resourceMap.Resources.Get(resourceType)
 }
 
+func (k *azureNativeProvider) lookupResourceFromURN(urn resource.URN) (*resources.AzureAPIResource, error) {
+	resourceKey := string(urn.Type())
+	res, ok, err := k.LookupResource(resourceKey)
+	if err != nil {
+		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
+	}
+	if !ok {
+		return nil, errors.Errorf("Resource type %s not found", resourceKey)
+	}
+	return &res, nil
+}
+
 func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
 	host, err := provider.NewHostClient(req.GetAddress())
 	if err != nil {
@@ -187,9 +183,9 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 
 	envName := authConfig.Environment
-	env, err := azure.EnvironmentFromName(envName)
+	env, err := azureEnv.EnvironmentFromName(envName)
 	if err != nil {
-		env, err = azure.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", envName))
+		env, err = azureEnv.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", envName))
 		if err != nil {
 			return nil, errors.Wrapf(err, "environment %q was not found", envName)
 		}
@@ -223,14 +219,14 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}
 
 	k.subscriptionID = authConfig.SubscriptionID
-	k.client.Authorizer = resourceManagerAuth
-	k.client.UserAgent = k.getUserAgent()
+
+	userAgent := k.getUserAgent()
+
+	k.azureClient = azure.NewAzureClient(env, resourceManagerAuth, userAgent)
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	var azureClient customresources.AzureClient = k
-	k.customResources, err = customresources.BuildCustomResources(&env, azureClient, k.subscriptionID,
-		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth,
-		k.client.UserAgent, azCoreTokenCredential)
+	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.subscriptionID,
+		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
 	}
@@ -345,12 +341,12 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 
 		var response map[string]interface{}
 		if res.GetParameters != nil {
-			response, err = k.azureGet(ctx, id, res.APIVersion)
+			response, err = k.azureClient.Get(ctx, id, res.APIVersion)
 		} else if res.PostParameters != nil {
 			if body == nil {
 				body = map[string]interface{}{}
 			}
-			response, err = k.azurePost(ctx, id, body, query)
+			response, err = k.azureClient.Post(ctx, id, body, query)
 		} else {
 			return nil, errors.Errorf("neither GET nor POST is defined for %s", label)
 		}
@@ -408,16 +404,12 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 		return nil, err
 	}
 
-	resourceKey := string(urn.Type())
-	res, ok, err := k.LookupResource(resourceKey)
+	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
-		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
-	}
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceKey)
+		return nil, err
 	}
 
-	k.applyDefaults(ctx, req.Urn, req.RandomSeed, res, olds, news)
+	k.applyDefaults(ctx, req.Urn, req.RandomSeed, *res, olds, news)
 	inputMap := news.Mappable()
 
 	// Validate inputs against PUT parameters.
@@ -496,7 +488,7 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 
 	// 3c. Retrieve the resource group's properties from ARM API.
 	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", k.subscriptionID, rgName)
-	response, err := k.azureGet(ctx, id, apiVersionResources)
+	response, err := k.azureClient.Get(ctx, id, apiVersionResources)
 	if err != nil {
 		logging.V(9).Infof("failed to lookup the location of resource group %q: %v", rgName, err)
 		return nil
@@ -791,16 +783,12 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	}
 
 	// Get the resource definition for looking up additional metadata.
-	resourceKey := string(urn.Type())
-	res, ok, err := k.LookupResource(resourceKey)
+	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
-		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
-	}
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceKey)
+		return nil, err
 	}
 
-	detailedDiff := diff(k.lookupTypeDefault, res, oldInputs, newResInputs)
+	detailedDiff := diff(k.lookupTypeDefault, *res, oldInputs, newResInputs)
 	if detailedDiff == nil {
 		return &rpc.DiffResponse{
 			Changes:             rpc.DiffResponse_DIFF_NONE,
@@ -811,7 +799,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	}
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
-	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, res)
+	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, *res)
 
 	// TODO: implement create-before-delete for children of randomly auto-named resources.
 	deleteBeforeReplace := len(replaces) > 0
@@ -850,13 +838,9 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		return nil, err
 	}
 
-	resourceKey := string(urn.Type())
-	res, ok, err := k.LookupResource(resourceKey)
+	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
-		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
-	}
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceKey)
+		return nil, err
 	}
 
 	if req.GetPreview() {
@@ -890,6 +874,9 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		return nil, err
 	}
 
+	ctx, cancel := azureContext(ctx, req.Timeout)
+	defer cancel()
+
 	var outputs map[string]interface{}
 	customRes, isCustom := k.customResources[res.Path]
 	switch {
@@ -903,40 +890,38 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, fmt.Errorf("cannot create already existing resource %q", id)
 		}
 
-		ctx, cancel := azureContext(ctx, req.Timeout)
-		defer cancel()
-
 		// Create the custom resource and retrieve its outputs, which already match the SDK shape.
 		outputs, err = customRes.Create(ctx, inputs)
 		if err != nil {
-			return nil, azureError(err)
+			return nil, azure.AzureError(err)
 		}
 	default:
 		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 		// (though it's technically impossible since the only operation supported is an upsert).
-		err = k.azureCanCreate(ctx, id, &res)
+		err = k.azureClient.CanCreate(ctx, id, res.ReadPath, res.APIVersion, res.ReadMethod, res.Singleton, res.DefaultBody != nil,
+			func(outputs map[string]any) bool {
+				return k.converter.IsDefaultResponse(res.PutParameters, outputs, res.DefaultBody)
+			})
+		err = k.azureCanCreate(ctx, id, res)
 		if err != nil {
 			return nil, err
 		}
 
-		ctx, cancel := azureContext(ctx, req.Timeout)
-		defer cancel()
-
-		k.setUnsetSubresourcePropertiesToDefaults(res, bodyParams, bodyParams, true)
+		k.setUnsetSubresourcePropertiesToDefaults(*res, bodyParams, bodyParams, true)
 
 		// Submit the `PUT` against the ARM endpoint
-		response, created, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+		response, created, err := k.azureClient.Put(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
 			if created {
 				// Resource was created but failed to fully initialize.
 				// Try reading its state by ID and return a partial error if succeeded.
-				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, res, inputs)
+				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, *res, inputs)
 				if getErr != nil {
-					return nil, azureError(errors.Wrapf(err, "resource partially created but read failed %s", getErr))
+					return nil, azure.AzureError(errors.Wrapf(err, "resource partially created but read failed %s", getErr))
 				}
 				return nil, partialError(id, err, checkpoint, req.GetProperties())
 			}
-			return nil, azureError(err)
+			return nil, azure.AzureError(err)
 		}
 
 		// Read the canonical ID from the response.
@@ -1012,7 +997,7 @@ func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resour
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
 func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context, id string, res resources.AzureAPIResource, inputs resource.PropertyMap) (*structpb.Struct, error) {
-	getResp, getErr := k.azureGet(ctx, id, res.APIVersion)
+	getResp, getErr := k.azureClient.Get(ctx, id, res.APIVersion)
 	if getErr != nil {
 		return nil, getErr
 	}
@@ -1044,13 +1029,9 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		return nil, err
 	}
 
-	resourceKey := string(urn.Type())
-	res, ok, err := k.LookupResource(resourceKey)
+	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
-		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
-	}
-	if !ok {
-		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
+		return nil, err
 	}
 
 	url := id + res.ReadPath
@@ -1070,7 +1051,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		}
 		outputs = response
 	case res.ReadMethod == "HEAD":
-		err = k.azureHead(ctx, url, res.APIVersion)
+		err = k.azureClient.Head(ctx, url, res.APIVersion)
 		response = oldState.Mappable()
 		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	case res.ReadMethod == "POST":
@@ -1078,14 +1059,14 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		queryParams := map[string]interface{}{
 			"api-version": res.APIVersion,
 		}
-		response, err = k.azurePost(ctx, url, bodyParams, queryParams)
+		response, err = k.azureClient.Post(ctx, url, bodyParams, queryParams)
 		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	default:
-		response, err = k.azureGet(ctx, url, res.APIVersion)
+		response, err = k.azureClient.Get(ctx, url, res.APIVersion)
 		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	}
 	if err != nil {
-		if reqErr, ok := err.(*azure.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
+		if reqErr, ok := err.(*azureEnv.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
 			// 404 means that the resource was deleted.
 			return &rpc.ReadResponse{Id: ""}, nil
 		}
@@ -1122,12 +1103,12 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 		// 1. If we previously reset inputs to their default value, remove them so we don't get them in
 		// the projected output. This would cause unnecessary changes on refresh.
-		plainOldState := mappableOldState(res, oldState)
+		plainOldState := mappableOldState(*res, oldState)
 		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
 		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
 		// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
-		outputsWithoutIgnores = k.resetUnsetSubResourceProperties(ctx, urn, outputs, inputs, &res)
+		outputsWithoutIgnores = k.resetUnsetSubResourceProperties(ctx, urn, outputs, inputs, res)
 		// 3b. Project new outputs to their corresponding input shape (exclude read-only properties).
 		newInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
 		// 4. Calculate the difference between two projections. This should give us actual significant changes
@@ -1214,13 +1195,9 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		return nil, err
 	}
 
-	resourceKey := string(urn.Type())
-	res, ok, err := k.LookupResource(resourceKey)
+	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
-		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
-	}
-	if !ok {
-		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
+		return nil, err
 	}
 
 	oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
@@ -1257,7 +1234,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		}, nil
 	}
 
-	restoreDefaultInputsForRemovedProperties(inputs, res, oldState)
+	restoreDefaultInputsForRemovedProperties(inputs, *res, oldState)
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
@@ -1282,25 +1259,26 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	case isCustom && customRes.Update != nil:
 		outputs, err = customRes.Update(ctx, inputs)
 		if err != nil {
-			return nil, azureError(err)
+			return nil, azure.AzureError(err)
 		}
 	default:
-		err := k.maintainSubResourcePropertiesIfNotSet(ctx, &res, id, bodyParams)
+		err := k.maintainSubResourcePropertiesIfNotSet(ctx, res, id, bodyParams)
 		if err != nil {
 			return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
 		}
-		response, updated, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+
+		response, updated, err := k.azureClient.Put(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
 			if updated {
 				// Resource was partially updated but the operation failed to complete.
 				// Try reading its state by ID and return a partial error if succeeded.
-				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, res, inputs)
+				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, *res, inputs)
 				if getErr != nil {
-					return nil, azureError(errors.Wrapf(err, "resource updated but read failed %s", getErr))
+					return nil, azure.AzureError(errors.Wrapf(err, "resource updated but read failed %s", getErr))
 				}
 				return nil, partialError(id, err, checkpoint, req.GetNews())
 			}
-			return nil, azureError(err)
+			return nil, azure.AzureError(err)
 		}
 
 		// Map the raw response to the shape of outputs that the SDKs expect.
@@ -1342,13 +1320,10 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	label := fmt.Sprintf("%s.Delete(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
 	id := req.GetId()
-	resourceKey := string(urn.Type())
-	res, ok, err := k.LookupResource(resourceKey)
+
+	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
-		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
-	}
-	if !ok {
-		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
+		return nil, err
 	}
 
 	customRes, isCustom := k.customResources[res.Path]
@@ -1374,7 +1349,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 		// Our hand-crafted implementation of DELETE operation.
 		err = customRes.Delete(ctx, id, inputs)
 		if err != nil {
-			return nil, azureError(err)
+			return nil, azure.AzureError(err)
 		}
 	case res.Singleton:
 		// Singleton resources can't be deleted (or created), set them to the default state.
@@ -1386,16 +1361,16 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				requestBody := k.converter.SdkInputsToRequestBody(param.Body.Properties, res.DefaultBody, id)
 
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
-				_, _, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+				_, _, err := k.azureClient.Put(ctx, id, requestBody, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 				if err != nil {
-					return nil, azureError(err)
+					return nil, azure.AzureError(err)
 				}
 			}
 		}
 	default:
-		err := k.AzureDelete(ctx, id, res.APIVersion, res.DeleteAsyncStyle, nil)
+		err := k.azureClient.Delete(ctx, id, res.APIVersion, res.DeleteAsyncStyle, nil)
 		if err != nil {
-			return nil, azureError(err)
+			return nil, azure.AzureError(err)
 		}
 	}
 	return &pbempty.Empty{}, nil
@@ -1450,7 +1425,7 @@ func (k *azureNativeProvider) maintainSubResourcePropertiesIfNotSet(ctx context.
 	}
 
 	// Read the current resource state.
-	state, err := k.azureGet(ctx, id+res.ReadPath, res.APIVersion)
+	state, err := k.azureClient.Get(ctx, id+res.ReadPath, res.APIVersion)
 	if err != nil {
 		return fmt.Errorf("reading cloud state: %w", err)
 	}
@@ -1535,362 +1510,6 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 	return missingProperties
 }
 
-func (k *azureNativeProvider) azureCreateOrUpdate(
-	ctx context.Context,
-	id string,
-	bodyProps map[string]interface{},
-	queryParameters map[string]interface{},
-	updateMethod string,
-	asyncStyle string) (map[string]interface{}, bool, error) {
-
-	var op autorest.PrepareDecorator
-	switch updateMethod {
-	case "PATCH":
-		op = autorest.AsPatch()
-	default:
-		op = autorest.AsPut()
-	}
-
-	decorators := []autorest.PrepareDecorator{
-		autorest.AsContentType("application/json; charset=utf-8"),
-		op,
-		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
-		autorest.WithPath(id),
-		autorest.WithQueryParameters(queryParameters),
-	}
-	if bodyProps != nil {
-		decorators = append(decorators, autorest.WithJSON(bodyProps))
-	}
-	prepReq, err := autorest.Prepare((&http.Request{}).WithContext(ctx), decorators...)
-	if err != nil {
-		return nil, false, err
-	}
-	var resp *http.Response
-	resp, err = autorest.SendWithSender(
-		k.client,
-		prepReq,
-		azure.DoRetryWithRegistration(k.client),
-	)
-	if err != nil {
-		return nil, false, err
-	}
-
-	// Some APIs are explicitly marked `x-ms-long-running-operation` and we are only supposed to do the
-	// Future+WaitForCompletion+GetResult steps in that case. However, if we get 202, we don't want to
-	// consider this a failure - so try following the awaiting protocol in case the service hasn't marked
-	// its API as long-running by an oversight.
-	created := false
-	if asyncStyle != "" || resp.StatusCode == http.StatusAccepted {
-		// We have now created a resource. It is very important to ensure that from this point on,
-		// any other error below returns the ID using the `pulumirpc.ErrorResourceInitFailed` error
-		// details annotation. Otherwise, the resource is leaked. We ensure that we wrap any await
-		// errors as a partial error to the RPC.
-		created = resp.StatusCode < 400
-
-		// Ignore the style value for now, let go-autorest handle the headers.
-		future, err := azure.NewFutureFromResponse(resp)
-		if err != nil {
-			return nil, created, err
-		}
-		err = future.WaitForCompletionRef(ctx, k.client)
-		if err != nil {
-			return nil, created, err
-		}
-		resp, err = future.GetResult(k.client)
-		if err != nil {
-			return nil, created, err
-		}
-	}
-
-	var outputs map[string]interface{}
-	err = autorest.Respond(
-		resp,
-		k.client.ByInspecting(),
-		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
-		autorest.ByUnmarshallingJSON(&outputs),
-		autorest.ByClosing())
-	if err != nil {
-		return nil, created, err
-	}
-	return outputs, true, nil
-}
-
-func (k *azureNativeProvider) AzureDelete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error {
-	queryParameters := map[string]interface{}{
-		"api-version": apiVersion,
-	}
-	for k, v := range queryParams {
-		queryParameters[k] = v
-	}
-
-	preparer := autorest.CreatePreparer(
-		autorest.AsDelete(),
-		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
-		autorest.WithPath(id),
-		autorest.WithQueryParameters(queryParameters))
-	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
-	if err != nil {
-		return err
-	}
-	resp, err := autorest.SendWithSender(
-		k.client,
-		prepReq,
-		azure.DoRetryWithRegistration(k.client),
-	)
-	if err != nil {
-		return err
-	}
-
-	// Some APIs are explicitly marked `x-ms-long-running-operation` and we should only do the
-	// Future+WaitForCompletion+GetResult steps in that case.
-	if asyncStyle != "" {
-		future, err := azure.NewFutureFromResponse(resp)
-		if err != nil {
-			return err
-		}
-		err = future.WaitForCompletionRef(ctx, k.client)
-		if err != nil {
-			if detailed, ok := err.(autorest.DetailedError); ok {
-				if resp.StatusCode == 202 && detailed.StatusCode == 404 && detailed.Original != nil &&
-					strings.Contains(detailed.Original.Error(), "ResourceNotFound") {
-					// Consider this specific error to be a success of deletion.
-					// Work around https://github.com/pulumi/pulumi-azure-nextgen/issues/120
-					// Upstream fix is tracked in https://github.com/Azure/go-autorest/issues/596
-					return nil
-				}
-			}
-			return err
-		}
-		resp, err = future.GetResult(k.client)
-		if err != nil {
-			return err
-		}
-	}
-
-	err = autorest.Respond(
-		resp,
-		k.client.ByInspecting(),
-		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound),
-		autorest.ByClosing(),
-	)
-	if err != nil {
-		return err
-	}
-	return nil
-}
-
-// azureCanCreate asserts that a resource with a given ID and API version can be created
-// or returns an error otherwise.
-func (k *azureNativeProvider) azureCanCreate(ctx context.Context, id string, res *resources.AzureAPIResource) error {
-	queryParameters := map[string]interface{}{
-		"api-version": res.APIVersion,
-	}
-	op := autorest.AsGet()
-	switch res.ReadMethod {
-	case "HEAD":
-		op = autorest.AsHead()
-	case "POST":
-		op = autorest.AsPost()
-	}
-	preparer := autorest.CreatePreparer(
-		op,
-		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
-		autorest.WithPath(id+res.ReadPath),
-		autorest.WithQueryParameters(queryParameters))
-	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
-	if err != nil {
-		return err
-	}
-	resp, err := autorest.SendWithSender(
-		k.client,
-		prepReq,
-		azure.DoRetryWithRegistration(k.client),
-	)
-	if err != nil {
-		return err
-	}
-
-	switch {
-	case http.StatusOK == resp.StatusCode && res.Singleton:
-		// Singleton resources always exist, so OK is expected.
-		return nil
-	case http.StatusOK == resp.StatusCode && res.DefaultBody != nil:
-		// This resource is automatically created with a parent and set to its default state. It can be deleted though.
-		// Validate that its current shape is in the default state to avoid unintended adoption and destructive
-		// actions.
-		// NOTE: We may reconsider and relax this restriction when we get more examples of such resources.
-		// The difference between "take any singleton resource as-is" and "require default body for deletable resources"
-		// isn't very principled but is based on what subjectively feels best for the current examples.
-		var outputs map[string]interface{}
-		err = autorest.Respond(
-			resp,
-			k.client.ByInspecting(),
-			autorest.ByUnmarshallingJSON(&outputs),
-			autorest.ByClosing())
-		if err != nil {
-			return err
-		}
-		if !k.converter.IsDefaultResponse(res.PutParameters, outputs, res.DefaultBody) {
-			return fmt.Errorf("cannot create already existing subresource '%s'", id)
-		}
-		return nil
-	case http.StatusNoContent == resp.StatusCode:
-		if res.ReadMethod == "HEAD" {
-			return fmt.Errorf("cannot create already existing resource '%s'", id)
-		}
-		// A few "linking" resources, like private endpoint connections, return 204 as "does not exist" status code.
-		// Treat them as such unless it's a HEAD method treated above.
-		return nil
-	case http.StatusOK == resp.StatusCode:
-		// Usually, 200 means that the resource already exists and we shouldn't try to create it.
-		// However, unfortunately, some APIs return 200 with an empty body for non-existing resources.
-		// Our strategy here is to try to parse the response body and see if it's a valid non-empty JSON.
-		// If it is, we assume the resource exists.
-		var outputs map[string]interface{}
-		err = autorest.Respond(
-			resp,
-			k.client.ByInspecting(),
-			autorest.ByUnmarshallingJSON(&outputs),
-			autorest.ByClosing())
-		if err == nil && len(outputs) > 0 {
-			return fmt.Errorf("cannot create already existing resource '%s'", id)
-		}
-		return nil
-	case http.StatusNotFound == resp.StatusCode:
-		return nil
-	default:
-		defer resp.Body.Close()
-		body, _ := ioutil.ReadAll(resp.Body)
-		return fmt.Errorf("cannot check existence of resource '%s': status code %d, %s", id, resp.StatusCode, body)
-	}
-}
-
-func (k *azureNativeProvider) azureHead(ctx context.Context, id string, apiVersion string) error {
-	queryParameters := map[string]interface{}{
-		"api-version": apiVersion,
-	}
-	preparer := autorest.CreatePreparer(
-		autorest.AsHead(),
-		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
-		autorest.WithPath(id),
-		autorest.WithQueryParameters(queryParameters))
-	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
-	if err != nil {
-		return err
-	}
-	resp, err := autorest.SendWithSender(
-		k.client,
-		prepReq,
-		azure.DoRetryWithRegistration(k.client),
-	)
-	if err != nil {
-		return err
-	}
-	err = autorest.Respond(
-		resp,
-		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusNoContent),
-		forceRequestErrorForStatusNotFound,
-		autorest.ByClosing())
-	return err
-}
-
-func (k *azureNativeProvider) azureGet(ctx context.Context, id string,
-	apiVersion string) (map[string]interface{}, error) {
-	queryParameters := map[string]interface{}{
-		"api-version": apiVersion,
-	}
-	preparer := autorest.CreatePreparer(
-		autorest.AsGet(),
-		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
-		autorest.WithPath(id),
-		autorest.WithQueryParameters(queryParameters))
-	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
-	if err != nil {
-		return nil, err
-	}
-	resp, err := autorest.SendWithSender(
-		k.client,
-		prepReq,
-		azure.DoRetryWithRegistration(k.client),
-	)
-	if err != nil {
-		return nil, err
-	}
-	var outputs map[string]interface{}
-	err = autorest.Respond(
-		resp,
-		k.client.ByInspecting(),
-		azure.WithErrorUnlessStatusCode(http.StatusOK),
-		forceRequestErrorForStatusNotFound,
-		autorest.ByUnmarshallingJSON(&outputs),
-		autorest.ByClosing())
-	if err != nil {
-		return nil, err
-	}
-	return outputs, nil
-}
-
-// If a Status Code is 404, always return a request error 'StatusNotFound'. This doesn't work out-of-the-box
-// in case the service returns an invalid response that failed to parse into an 'autorest.ServiceError'.
-// The parsing error (e.g., 'json.UnmarshalTypeError') would mask the 404 response and the provider wouldn't
-// be able to make the right decision for a missing resource.
-func forceRequestErrorForStatusNotFound(r autorest.Responder) autorest.Responder {
-	return autorest.ResponderFunc(func(resp *http.Response) error {
-		err := r.Respond(resp)
-		if err == nil || !autorest.ResponseHasStatusCode(resp, http.StatusNotFound) {
-			return err
-		}
-		if _, ok := err.(*azure.RequestError); ok {
-			return err
-		}
-		return &azure.RequestError{
-			DetailedError: autorest.DetailedError{
-				Original:   err,
-				StatusCode: http.StatusNotFound,
-			},
-		}
-	})
-}
-
-func (k *azureNativeProvider) azurePost(
-	ctx context.Context,
-	id string,
-	bodyProps map[string]interface{},
-	queryParameters map[string]interface{}) (map[string]interface{}, error) {
-
-	preparer := autorest.CreatePreparer(
-		autorest.AsContentType("application/json; charset=utf-8"),
-		autorest.AsPost(),
-		autorest.WithBaseURL(k.environment.ResourceManagerEndpoint),
-		autorest.WithPath(id),
-		autorest.WithJSON(bodyProps),
-		autorest.WithQueryParameters(queryParameters))
-	prepReq, err := preparer.Prepare((&http.Request{}).WithContext(ctx))
-	if err != nil {
-		return nil, err
-	}
-	var resp *http.Response
-	resp, err = autorest.SendWithSender(
-		k.client,
-		prepReq,
-		azure.DoRetryWithRegistration(k.client),
-	)
-	if err != nil {
-		return nil, err
-	}
-	var outputs map[string]interface{}
-	err = autorest.Respond(
-		resp,
-		k.client.ByInspecting(),
-		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
-		autorest.ByUnmarshallingJSON(&outputs),
-		autorest.ByClosing())
-	if err != nil {
-		return nil, err
-	}
-	return outputs, nil
-}
-
 func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, requiredContainers gen.RequiredContainers, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
@@ -1925,7 +1544,7 @@ func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []r
 	// Calculate resource ID based on path parameter values.
 	id := path
 	for key, value := range params["path"] {
-		encodedVal := autorest.Encode("path", value.(string))
+		encodedVal := strings.Replace(url.QueryEscape(value.(string)), "+", "%20", -1)
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
 	}
 
@@ -1970,6 +1589,15 @@ func (k *azureNativeProvider) getConfig(configName, envName string) string {
 	return os.Getenv(envName)
 }
 
+// azureCanCreate asserts that a resource with a given ID and API version can be created
+// or returns an error otherwise.
+func (k *azureNativeProvider) azureCanCreate(ctx context.Context, id string, res *resources.AzureAPIResource) error {
+	return k.azureClient.CanCreate(ctx, id, res.ReadPath, res.APIVersion, res.ReadMethod, res.Singleton, res.DefaultBody != nil,
+		func(outputs map[string]any) bool {
+			return k.converter.IsDefaultResponse(res.PutParameters, outputs, res.DefaultBody)
+		})
+}
+
 // getUserAgent returns a User Agent string for the current provider configuration.
 func (k *azureNativeProvider) getUserAgent() string {
 	partnerID := PulumiPartnerID
@@ -1982,26 +1610,7 @@ func (k *azureNativeProvider) getUserAgent() string {
 			partnerID = ""
 		}
 	}
-	return buildUserAgent(partnerID)
-}
-
-// buildUserAgent composes a User Agent string with the provided partner ID.
-func buildUserAgent(partnerID string) (userAgent string) {
-	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
-		autorest.UserAgent(), version.Version))
-
-	// append the CloudShell version to the user agent if it exists
-	if azureAgent := os.Getenv("AZURE_HTTP_USER_AGENT"); azureAgent != "" {
-		userAgent = fmt.Sprintf("%s %s", userAgent, azureAgent)
-	}
-
-	// Append partner ID, if it's defined.
-	if partnerID != "" {
-		userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
-	}
-
-	logging.V(9).Infof("AzureNative User Agent: %s", userAgent)
-	return
+	return azure.BuildUserAgent(partnerID)
 }
 
 // azureContext returns a new context with a timeout - either the one explicitly specified,
@@ -2014,19 +1623,6 @@ func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context,
 	return context.WithTimeout(ctx, d)
 }
 
-// azureError catches common errors and substitutes them with more user-friendly ones.
-func azureError(err error) error {
-	if errors.Is(err, context.DeadlineExceeded) {
-		return errors.New("operation timed out")
-	}
-	if requestError, ok := err.(azure.RequestError); ok {
-		if requestError.DetailedError.Message != "" {
-			return fmt.Errorf("%w. %s", err, requestError.DetailedError.Message)
-		}
-	}
-	return err
-}
-
 // partialError creates an error for resources that did not complete an operation in progress.
 // The last known state of the object is included in the error so that it can be checkpointed.
 func partialError(id string, err error, state *structpb.Struct, inputs *structpb.Struct) error {
@@ -2037,52 +1633,6 @@ func partialError(id string, err error, state *structpb.Struct, inputs *structpb
 		Inputs:     inputs,
 	}
 	return rpcerror.WithDetails(rpcerror.New(codes.Unknown, err.Error()), &detail)
-}
-
-// withInspection is a copy of autorest's LoggingInspector.WithInspector. It uses our glog wrapper
-// instead of a go logger which gets complicated in the presence of log redirection via the host.
-func withInspection() autorest.PrepareDecorator {
-	return func(p autorest.Preparer) autorest.Preparer {
-		return autorest.PreparerFunc(func(r *http.Request) (*http.Request, error) {
-			var body, b bytes.Buffer
-
-			if r.Body != nil {
-				defer r.Body.Close()
-
-				r.Body = io.NopCloser(io.TeeReader(r.Body, &body))
-				if err := r.Write(&b); err != nil {
-					return nil, fmt.Errorf("failed to write response: %v", err)
-				}
-
-				logging.V(9).Infof(requestFormat, r.Method, r.URL, b.String())
-
-				r.Body = io.NopCloser(&body)
-			} else {
-				logging.V(9).Infof(requestFormat, r.Method, r.URL, "Empty body")
-			}
-			return p.Prepare(r)
-		})
-	}
-}
-
-// byInspecting is acopy of autorest's LoggingInspector.ByInspecting(). It uses our glog wrapper
-// instead of a go logger which gets complicated in the presence of log redirection via the host.
-func byInspecting() autorest.RespondDecorator {
-	return func(r autorest.Responder) autorest.Responder {
-		return autorest.ResponderFunc(func(resp *http.Response) error {
-			var body, b bytes.Buffer
-			defer resp.Body.Close()
-			resp.Body = io.NopCloser(io.TeeReader(resp.Body, &body))
-			if err := resp.Write(&b); err != nil {
-				return fmt.Errorf("failed to write response: %v", err)
-			}
-
-			logging.V(9).Infof(responseFormat, resp.Request.Method, resp.Request.URL, b.String())
-
-			resp.Body = io.NopCloser(&body)
-			return r.Respond(resp)
-		})
-	}
 }
 
 // checkpointObject puts inputs in the `__inputs` field of the state.
@@ -2115,9 +1665,9 @@ func parseCheckpointObject(reqOldInputs *structpb.Struct, obj resource.PropertyM
 
 func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
 	switch k.environment.Name {
-	case azure.USGovernmentCloud.Name:
+	case azureEnv.USGovernmentCloud.Name:
 		return environments.USGovernmentL4
-	case azure.ChinaCloud.Name:
+	case azureEnv.ChinaCloud.Name:
 		return environments.China
 	default:
 		return environments.Global

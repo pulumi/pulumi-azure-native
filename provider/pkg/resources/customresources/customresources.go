@@ -11,24 +11,12 @@ import (
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
-	"github.com/Azure/go-autorest/autorest/azure"
+	azureEnv "github.com/Azure/go-autorest/autorest/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
-
-type ResourceLookupper interface {
-	LookupResource(resourceType string) (AzureAPIResource, bool, error)
-}
-
-type AzureDeleter interface {
-	AzureDelete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error
-}
-
-type AzureClient interface {
-	ResourceLookupper
-	AzureDeleter
-}
 
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
 // crucial operations.
@@ -54,8 +42,9 @@ type CustomResource struct {
 }
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
-func BuildCustomResources(env *azure.Environment,
-	azureClient AzureClient,
+func BuildCustomResources(env *azureEnv.Environment,
+	azureClient azure.AzureClient,
+	lookupResource ResourceLookupFunc,
 	subscriptionID string,
 	bearerAuth autorest.Authorizer,
 	tokenAuth autorest.Authorizer,
@@ -85,7 +74,7 @@ func BuildCustomResources(env *azure.Environment,
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
-		customWebAppDelete(azureClient /* ResourceLookupper */, azureClient /* AzureDeleter */),
+		customWebAppDelete(lookupResource, azureClient),
 	}
 
 	result := map[string]*CustomResource{}
@@ -96,7 +85,7 @@ func BuildCustomResources(env *azure.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azure.Environment{}, nil, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, "", nil, nil, nil, "", nil)
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
