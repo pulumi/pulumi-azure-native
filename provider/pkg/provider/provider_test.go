@@ -233,7 +233,7 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 	t.Run("empty", func(t *testing.T) {
 		res := &resources.AzureAPIResource{}
 		oldInputs := map[string]any{}
-		actual := provider.findUnsetPropertiesToMaintain(res, oldInputs)
+		actual := provider.findUnsetPropertiesToMaintain(res, oldInputs, true)
 		expected := []propertyPath{}
 		assert.Equal(t, expected, actual)
 	})
@@ -242,7 +242,7 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 		oldInputs := map[string]any{
 			"existing": "value",
 		}
-		actual := provider.findUnsetPropertiesToMaintain(resWithSubResource, oldInputs)
+		actual := provider.findUnsetPropertiesToMaintain(resWithSubResource, oldInputs, true)
 		expected := []propertyPath{{
 			propertyName: "subResource",
 			path:         []string{"subResource"},
@@ -255,7 +255,7 @@ func TestFindUnsetSubResourceProperties(t *testing.T) {
 			"existing":    "value",
 			"subResource": "value",
 		}
-		actual := provider.findUnsetPropertiesToMaintain(resWithSubResource, oldInputs)
+		actual := provider.findUnsetPropertiesToMaintain(resWithSubResource, oldInputs, true)
 		expected := []propertyPath{}
 		assert.Equal(t, expected, actual)
 	})
@@ -268,7 +268,7 @@ func TestFindUnsetSubResourcePropertiesFollowingTypeRefs(t *testing.T) {
 		bodyParams := map[string]interface{}{
 			"properties": map[string]interface{}{},
 		}
-		unset := provider.findUnsetPropertiesToMaintain(res, bodyParams)
+		unset := provider.findUnsetPropertiesToMaintain(res, bodyParams, false)
 		require.Equal(t, 1, len(unset))
 		assert.Equal(t, "accessPolicies", unset[0].propertyName)
 		assert.Equal(t, []string{"properties", "accessPolicies"}, unset[0].path)
@@ -280,7 +280,7 @@ func TestFindUnsetSubResourcePropertiesFollowingTypeRefs(t *testing.T) {
 				"accessPolicies": []interface{}{},
 			},
 		}
-		unset := provider.findUnsetPropertiesToMaintain(res, bodyParams)
+		unset := provider.findUnsetPropertiesToMaintain(res, bodyParams, false)
 		assert.Empty(t, unset)
 	})
 }
@@ -421,35 +421,7 @@ func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
 	assert.Contains(t, m, "networkRuleSet")
 }
 
-func TestDeleteFromMap(t *testing.T) {
-	m := map[string]any{
-		"a": "scalar",
-		"b": map[string]any{
-			"b.a": "scalar",
-			"b.b": map[string]any{
-				"b.b.a": map[string]any{},
-			},
-		},
-	}
-
-	deleted := deleteFromMap(m, []string{"a"})
-	assert.True(t, deleted)
-	assert.NotContains(t, m, "a")
-	assert.Contains(t, m, "b")
-
-	deleted = deleteFromMap(m, []string{"b", "b.b", "b.b.a"})
-	assert.True(t, deleted)
-	assert.Contains(t, m, "b")
-	b := m["b"].(map[string]any)
-	assert.Contains(t, b, "b.a")
-	assert.Contains(t, b, "b.b")
-	bb := b["b.b"].(map[string]any)
-	assert.NotContains(t, bb, "b.b.a")
-
-	assert.False(t, deleteFromMap(m, []string{"b", "notfound"}))
-}
-
-func TestRemoveUnsetSubResourceProperties(t *testing.T) {
+func TestResetUnsetSubResourceProperties(t *testing.T) {
 	ctx := context.Background()
 
 	res, provider := setUpResourceWithRefAndProviderWithTypeLookup()
@@ -458,7 +430,7 @@ func TestRemoveUnsetSubResourceProperties(t *testing.T) {
 		empty := &resources.AzureAPIResource{}
 		oldInputs := resource.PropertyMap{}
 		sdkResponse := map[string]any{}
-		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, empty)
+		actual := provider.resetUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, empty)
 		expected := map[string]any{}
 		assert.Equal(t, expected, actual)
 	})
@@ -467,11 +439,17 @@ func TestRemoveUnsetSubResourceProperties(t *testing.T) {
 		oldInputs := resource.PropertyMap{}
 		sdkResponse := map[string]any{
 			"properties": map[string]any{
+				"accessPolicies": []any{
+					"a policy",
+				},
+			},
+		}
+		actual := provider.resetUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
+		expected := map[string]any{
+			"properties": map[string]any{
 				"accessPolicies": []any{},
 			},
 		}
-		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
-		expected := map[string]any{"properties": map[string]any{}}
 		assert.Equal(t, expected, actual)
 	})
 
@@ -486,7 +464,7 @@ func TestRemoveUnsetSubResourceProperties(t *testing.T) {
 				"accessPolicies": []any{},
 			},
 		}
-		actual := provider.removeUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
+		actual := provider.resetUnsetSubResourceProperties(ctx, "urn", sdkResponse, oldInputs, res)
 		expected := sdkResponse
 		assert.Equal(t, expected, actual)
 	})
@@ -503,8 +481,9 @@ func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResourc
 				Body: &resources.AzureAPIType{
 					Properties: map[string]resources.AzureAPIProperty{
 						"properties": {
-							Type: "object",
-							Ref:  "#/types/azure-native:keyvault:VaultProperties",
+							Type:       "object",
+							Ref:        "#/types/azure-native:keyvault:VaultProperties",
+							Containers: []string{"container"},
 						},
 					},
 				},
@@ -553,33 +532,53 @@ func TestSetUnsetSubresourcePropertiesToDefaults(t *testing.T) {
 
 	t.Run("unchanged", func(t *testing.T) {
 		body := map[string]any{
-			"properties": map[string]any{
-				"accessPolicies": []any{},
+			"container": map[string]any{
+				"properties": map[string]any{
+					"accessPolicies": []any{},
+				},
 			},
 		}
-		provider.setUnsetSubresourcePropertiesToDefaults(*res, body)
+		provider.setUnsetSubresourcePropertiesToDefaults(*res, body, body, true)
 		assert.Equal(t, map[string]any{
-			"properties": map[string]any{
-				"accessPolicies": []any{},
+			"container": map[string]any{
+				"properties": map[string]any{
+					"accessPolicies": []any{},
+				},
 			},
 		}, body)
 	})
 
 	t.Run("simple missing", func(t *testing.T) {
 		body := map[string]any{
-			"properties": map[string]any{},
+			"container": map[string]any{
+				"properties": map[string]any{},
+			},
 		}
-		provider.setUnsetSubresourcePropertiesToDefaults(*res, body)
+		provider.setUnsetSubresourcePropertiesToDefaults(*res, body, body, true)
 		assert.Equal(t, map[string]any{
-			"properties": map[string]any{
-				"accessPolicies": []any{},
+			"container": map[string]any{
+				"properties": map[string]any{
+					"accessPolicies": []any{},
+				},
 			},
 		}, body)
 	})
 
 	t.Run("nested missing", func(t *testing.T) {
 		body := map[string]any{}
-		provider.setUnsetSubresourcePropertiesToDefaults(*res, body)
+		provider.setUnsetSubresourcePropertiesToDefaults(*res, body, body, true)
+		assert.Equal(t, map[string]any{
+			"container": map[string]any{
+				"properties": map[string]any{
+					"accessPolicies": []any{},
+				},
+			},
+		}, body)
+	})
+
+	t.Run("nested missing in SDK shape", func(t *testing.T) {
+		body := map[string]any{}
+		provider.setUnsetSubresourcePropertiesToDefaults(*res, body, body, false)
 		assert.Equal(t, map[string]any{
 			"properties": map[string]any{
 				"accessPolicies": []any{},

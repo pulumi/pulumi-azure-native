@@ -922,7 +922,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		ctx, cancel := azureContext(ctx, req.Timeout)
 		defer cancel()
 
-		k.setUnsetSubresourcePropertiesToDefaults(res, bodyParams)
+		k.setUnsetSubresourcePropertiesToDefaults(res, bodyParams, bodyParams, true)
 
 		// Submit the `PUT` against the ARM endpoint
 		response, created, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
@@ -967,10 +967,14 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 // Properties pointing to sub-resources that can be maintained as separate resources might not be
 // present in the inputs because the user wants to manage them as standalone resources. However,
-// auch a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
+// such a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
 // Key Vault's accessPolicies. Therefore, we set these properties to their default value here,
-// an empty array.
+// an empty array. For more details, see section "Sub-resources" in CONTRIBUTING.md.
+//
 // During create, no sub-resources can exist yet so there's no danger of overwriting existing values.
+//
+// The `input` param is used to determine the unset sub-resource properties. They are then reset in
+// the `output` parameter which is modified in-place.
 //
 // Implementation note: we should make it possible to write custom resources that call code from
 // the default implementation as needed. This would allow us to cleanly implement special logic
@@ -981,10 +985,12 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 //	setUnsetSubresourcePropertiesToDefaults(res, bodyParams) // custom
 //	k.azureCreateOrUpdate
 //	...
-func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resources.AzureAPIResource, bodyParams map[string]interface{}) {
-	unset := k.findUnsetPropertiesToMaintain(&res, bodyParams)
+func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resources.AzureAPIResource,
+	input, output map[string]interface{}, outputIsInApiShape bool) {
+	unset := k.findUnsetPropertiesToMaintain(&res, input, outputIsInApiShape)
+
 	for _, p := range unset {
-		cur := bodyParams
+		cur := output
 		for _, pathEl := range p.path[:len(p.path)-1] {
 			curObj, ok := cur[pathEl]
 			if !ok {
@@ -1091,6 +1097,8 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	if err != nil {
 		return nil, err
 	}
+
+	var outputsWithoutIgnores = outputs
 	if inputs == nil {
 		// There may be no old state (i.e., importing a new resource).
 		// Extract inputs from resource's ID and response body.
@@ -1119,7 +1127,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
 		// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
-		outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, &res)
+		outputsWithoutIgnores = k.resetUnsetSubResourceProperties(ctx, urn, outputs, inputs, &res)
 		// 3b. Project new outputs to their corresponding input shape (exclude read-only properties).
 		newInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
 		// 4. Calculate the difference between two projections. This should give us actual significant changes
@@ -1132,7 +1140,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	// Store both outputs and inputs into the state.
-	obj := checkpointObject(inputs, outputs)
+	obj := checkpointObject(inputs, outputsWithoutIgnores)
 
 	// Serialize and return RPC outputs.
 	checkpoint, err := plugin.MarshalProperties(
@@ -1174,15 +1182,11 @@ func mappableOldState(res resources.AzureAPIResource, oldState resource.Property
 	return plainOldState
 }
 
-// removeUnsetSubResourceProperties removes sub-resource properties from new outputs which weren't set in the old inputs.
+// removeUnsetSubResourceProperties resets sub-resource properties in the outputs if they weren't set in the old inputs.
 // If the user didn't specify them inline originally, we don't want to push them into the inputs now.
-func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]interface{}, oldInputs resource.PropertyMap, res *resources.AzureAPIResource) map[string]interface{} {
-	propertiesToRemove := k.findUnsetPropertiesToMaintain(res, oldInputs.Mappable())
-
-	if len(propertiesToRemove) == 0 {
-		return sdkResponse
-	}
-
+// For more details, see section "Sub-resources" in CONTRIBUTING.md.
+func (k *azureNativeProvider) resetUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]any,
+	oldInputs resource.PropertyMap, res *resources.AzureAPIResource) map[string]any {
 	// Take a deep copy so we don't modify the original which is also used later for diffing.
 	copy := deepcopy.Copy(sdkResponse)
 	result, ok := copy.(map[string]interface{})
@@ -1193,33 +1197,9 @@ func (k *azureNativeProvider) removeUnsetSubResourceProperties(ctx context.Conte
 		return sdkResponse
 	}
 
-	for _, prop := range propertiesToRemove {
-		deleteFromMap(result, prop.path)
-	}
+	k.setUnsetSubresourcePropertiesToDefaults(*res, oldInputs.Mappable(), result, false)
+
 	return result
-}
-
-func deleteFromMap(m map[string]interface{}, path []string) bool {
-	container := m
-	for i, key := range path {
-		if i == len(path)-1 {
-			_, found := container[key]
-			if found {
-				delete(container, key)
-			}
-			return found
-		}
-
-		value, ok := container[key]
-		if !ok {
-			return false
-		}
-		container, ok = value.(map[string]interface{})
-		if !ok {
-			return false
-		}
-	}
-	return false
 }
 
 // Update updates an existing resource with new values.
@@ -1459,9 +1439,10 @@ type propertyPath struct {
 	propertyName string
 }
 
+// For details, see section "Sub-resources" in CONTRIBUTING.md.
 func (k *azureNativeProvider) maintainSubResourcePropertiesIfNotSet(ctx context.Context, res *resources.AzureAPIResource, id string, bodyParams map[string]interface{}) error {
 	// Identify the properties we need to read
-	missingProperties := k.findUnsetPropertiesToMaintain(res, bodyParams)
+	missingProperties := k.findUnsetPropertiesToMaintain(res, bodyParams, true /* returnApiShapePaths */)
 
 	if len(missingProperties) == 0 {
 		// Everything's already specified explicitly by the user, no need to do read.
@@ -1521,9 +1502,9 @@ func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[stri
 	return writtenProperties
 }
 
-func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}) []propertyPath {
+func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}, returnApiShapePaths bool) []propertyPath {
 	missingProperties := []propertyPath{}
-	for _, path := range res.PathsToSubResourcePropertiesToMaintain(true /* includeContainers i.e. API-shape */, k.lookupType) {
+	for _, path := range res.PathsToSubResourcePropertiesToMaintain(returnApiShapePaths, k.lookupType) {
 		curBody := bodyParams
 		for i, pathEl := range path {
 			v, ok := curBody[pathEl]
