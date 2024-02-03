@@ -969,7 +969,8 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 // present in the inputs because the user wants to manage them as standalone resources. However,
 // such a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
 // Key Vault's accessPolicies. Therefore, we set these properties to their default value here,
-// an empty array.
+// an empty array. For more details, see section "Sub-resources" in CONTRIBUTING.md.
+//
 // During create, no sub-resources can exist yet so there's no danger of overwriting existing values.
 //
 // The `input` param is used to determine the unset sub-resource properties. They are then reset in
@@ -1183,6 +1184,7 @@ func mappableOldState(res resources.AzureAPIResource, oldState resource.Property
 
 // removeUnsetSubResourceProperties resets sub-resource properties in the outputs if they weren't set in the old inputs.
 // If the user didn't specify them inline originally, we don't want to push them into the inputs now.
+// For more details, see section "Sub-resources" in CONTRIBUTING.md.
 func (k *azureNativeProvider) resetUnsetSubResourceProperties(ctx context.Context, urn resource.URN, sdkResponse map[string]any,
 	oldInputs resource.PropertyMap, res *resources.AzureAPIResource) map[string]any {
 	// Take a deep copy so we don't modify the original which is also used later for diffing.
@@ -1437,6 +1439,7 @@ type propertyPath struct {
 	propertyName string
 }
 
+// For details, see section "Sub-resources" in CONTRIBUTING.md.
 func (k *azureNativeProvider) maintainSubResourcePropertiesIfNotSet(ctx context.Context, res *resources.AzureAPIResource, id string, bodyParams map[string]interface{}) error {
 	// Identify the properties we need to read
 	missingProperties := k.findUnsetPropertiesToMaintain(res, bodyParams, true /* returnApiShapePaths */)
