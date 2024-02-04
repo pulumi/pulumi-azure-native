@@ -5,7 +5,7 @@ test "${1}" = "" && echo "Usage: $0 <TestSet> (see pulumi/examples 'make specifi
 TestSet=${1}
 
 go work init
-go work use -r pulumi-azure-native/sdk/pulumi-azure-native-sdk
+go work use -r sdk/pulumi-azure-native-sdk
 go work use examples/misc/test
 
 cd examples

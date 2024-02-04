@@ -246,7 +246,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
-          path: pulumi-azure-native
       - name: Checkout p/examples
         uses: actions/checkout@v4
         with:
@@ -256,19 +255,19 @@ jobs:
           path: examples
 
       - name: Install Languages & Frameworks
-        uses: ./pulumi-azure-native/.github/actions/install
+        uses: ./.github/actions/install
       - name: Install gotestfmt
         uses: jaxxstorm/action-install-gh-release@v1.9.0
         with:
           tag: v2.4.0
           repo: GoTestTools/gotestfmt
 
-      - run: cd pulumi-azure-native && make ensure
+      - run: make ensure
 
       - name: Prerequisites artifact restore
-        uses: ./pulumi-azure-native/.github/actions/prerequisites-artifact-restore
+        uses: ./.github/actions/prerequisites-artifact-restore
       - name: Mark prerequisites as up-to-date
-        run: cd pulumi-azure-native && make --touch codegen schema provider
+        run: make --touch codegen schema provider
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
 
@@ -286,12 +285,12 @@ jobs:
       #     path: ${{ github.workspace}}/sdk/
       - name: Uncompress SDKs
         run: |
-          mkdir -p ${{github.workspace}}/pulumi-azure-native/sdk/pulumi-azure-native-sdk
-          tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/pulumi-azure-native/sdk/pulumi-azure-native-sdk
-          tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C ${{github.workspace}}/pulumi-azure-native/sdk/nodejs
-          tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C ${{github.workspace}}/pulumi-azure-native/sdk/python
-          tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C ${{github.workspace}}/pulumi-azure-native/sdk/dotnet
-          tar -zxf ${{github.workspace}}/sdk/java.tar.gz   -C ${{github.workspace}}/pulumi-azure-native/sdk/java
+          mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
+          tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
+          tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C ${{github.workspace}}/sdk/nodejs
+          tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C ${{github.workspace}}/sdk/python
+          tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C ${{github.workspace}}/sdk/dotnet
+          tar -zxf ${{github.workspace}}/sdk/java.tar.gz   -C ${{github.workspace}}/sdk/java
 
       - name: Install Node dependencies
         run: yarn global add typescript
@@ -302,10 +301,10 @@ jobs:
           pip3 install pipenv
 
       - name: Install dependencies
-        run: cd pulumi-azure-native && make install_sdks
+        run: make install_sdks
 
       - name: Test p/examples
-        run: pulumi-azure-native/.github/scripts/test-in-workspace.sh AzureNative
+        run: ./.github/scripts/test-in-workspace.sh AzureNative
 
   dist:
     runs-on: ubuntu-latest
