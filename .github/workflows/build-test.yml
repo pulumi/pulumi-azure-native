@@ -334,14 +334,7 @@ jobs:
           pattern: '*.gz'
           merge-multiple: true
           path: ${{ github.workspace}}/sdk/
-          # no 'name:' means download all artifacts
 
-      # - name: Download ${{ matrix.language}} SDK
-      #   if: ${{ matrix.language != 'go' }}
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: ${{ matrix.language}}-sdk.tar.gz
-      #     path: ${{ github.workspace}}/sdk/
       - name: Uncompress SDKs
         run: |
           mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
@@ -350,6 +343,8 @@ jobs:
           tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C ${{github.workspace}}/sdk/python
           tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C ${{github.workspace}}/sdk/dotnet
           tar -zxf ${{github.workspace}}/sdk/java.tar.gz   -C ${{github.workspace}}/sdk/java
+          # free disk space
+          rm ${{github.workspace}}/sdk/*.tar.gz
 
       - name: Install Node dependencies
         run: yarn global add typescript
@@ -361,6 +356,19 @@ jobs:
 
       - name: Install dependencies
         run: make install_sdks
+
+      - name: Free up disk space
+        run: |-
+          du -hs *
+          df -h
+          rm -rf /opt/hostedtoolcache/CodeQL
+          rm -rf /opt/hostedtoolcache/go/1.19.*
+          rm -rf /opt/hostedtoolcache/go/1.20.*
+          df -h
+          sudo apt clean
+          df -h
+          docker rmi "$(docker image ls -aq)"
+          df -h
 
       - name: Test p/examples
         run: ./.github/scripts/test-in-workspace.sh AzureNative
