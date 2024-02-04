@@ -238,7 +238,7 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   test_examples:
-    needs: prerequisites
+    needs: build_sdks
     runs-on: ubuntu-latest
     name: Test pulumi/examples
     steps:
