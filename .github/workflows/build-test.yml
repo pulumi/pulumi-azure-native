@@ -47,7 +47,7 @@ jobs:
     name: Build binaries and schema
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
           submodules: true
@@ -99,7 +99,7 @@ jobs:
       id-token: write # required for OIDC auth
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
           submodules: true
@@ -167,7 +167,7 @@ jobs:
 
       - name: Upload artifacts
         if: ${{ matrix.language != 'go' }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.language  }}-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
@@ -178,7 +178,7 @@ jobs:
         run: tar -zcf sdk/pulumi-azure-native-sdk.tar.gz -C sdk/pulumi-azure-native-sdk .
 
       - name: Upload split Go artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ matrix.language == 'go' }}
         with:
           name: pulumi-azure-native-sdk.tar.gz
@@ -199,7 +199,7 @@ jobs:
     needs: prerequisites
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
           submodules: true
@@ -237,13 +237,83 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
+  test_examples:
+    needs: prerequisites
+    runs-on: ubuntu-latest
+    name: Test pulumi/examples
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          path: pulumi-azure-native
+      - name: Checkout p/examples
+        uses: actions/checkout@v4
+        with:
+          repository: pulumi/examples
+          # TODO,tkappler
+          ref: tkappler/separate-tests-by-provider
+          path: examples
+
+      - name: Install Languages & Frameworks
+        uses: ./pulumi-azure-native/.github/actions/install
+      - name: Install gotestfmt
+        uses: jaxxstorm/action-install-gh-release@v1.9.0
+        with:
+          tag: v2.4.0
+          repo: GoTestTools/gotestfmt
+
+      - run: cd pulumi-azure-native && make ensure
+
+      - name: Prerequisites artifact restore
+        uses: ./pulumi-azure-native/.github/actions/prerequisites-artifact-restore
+      - name: Mark prerequisites as up-to-date
+        run: cd pulumi-azure-native && make --touch codegen schema provider
+      - name: Update path
+        run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
+
+      - name: Download SDK artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ${{ github.workspace}}/sdk/
+          # no 'name:' means download all artifacts
+
+      # - name: Download ${{ matrix.language}} SDK
+      #   if: ${{ matrix.language != 'go' }}
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: ${{ matrix.language}}-sdk.tar.gz
+      #     path: ${{ github.workspace}}/sdk/
+      - name: Uncompress SDKs
+        run: |
+          mkdir -p ${{github.workspace}}/pulumi-azure-native/sdk/pulumi-azure-native-sdk
+          tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/pulumi-azure-native/sdk/pulumi-azure-native-sdk
+          tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C ${{github.workspace}}/pulumi-azure-native/sdk/nodejs
+          tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C ${{github.workspace}}/pulumi-azure-native/sdk/python
+          tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C ${{github.workspace}}/pulumi-azure-native/sdk/dotnet
+          tar -zxf ${{github.workspace}}/sdk/java.tar.gz   -C ${{github.workspace}}/pulumi-azure-native/sdk/java
+
+      - name: Install Node dependencies
+        run: yarn global add typescript
+
+      - name: Install Python deps
+        run: |-
+          pip3 install virtualenv==20.0.23
+          pip3 install pipenv
+
+      - name: Install dependencies
+        run: cd pulumi-azure-native && make install_sdks
+
+      - name: Test p/examples
+        run: pulumi-azure-native/.github/scripts/test-in-workspace.sh AzureNative
+
   dist:
     runs-on: ubuntu-latest
     name: Provider Dist
     needs: prerequisites
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
           ref: ${{ inputs.ref }}
@@ -269,7 +339,7 @@ jobs:
         run: make dist --jobs=2
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
