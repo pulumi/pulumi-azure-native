@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// Get a KPack build.
         /// Azure REST API version: 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
         /// </summary>
         public static Task<GetBuildServiceBuildResult> InvokeAsync(GetBuildServiceBuildArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceBuildResult>("azure-native:appplatform:getBuildServiceBuild", args ?? new GetBuildServiceBuildArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// Get a KPack build.
         /// Azure REST API version: 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
         /// </summary>
         public static Output<GetBuildServiceBuildResult> Invoke(GetBuildServiceBuildInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuildResult>("azure-native:appplatform:getBuildServiceBuild", args ?? new GetBuildServiceBuildInvokeArgs(), options.WithDefaults());

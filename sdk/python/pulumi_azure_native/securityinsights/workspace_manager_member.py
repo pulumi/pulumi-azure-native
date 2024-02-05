@@ -111,7 +111,7 @@ class WorkspaceManagerMember(pulumi.CustomResource):
         The workspace manager member
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class WorkspaceManagerMember(pulumi.CustomResource):
         The workspace manager member
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceManagerMemberArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +179,7 @@ class WorkspaceManagerMember(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:WorkspaceManagerMember")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:WorkspaceManagerMember"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:WorkspaceManagerMember")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceManagerMember, __self__).__init__(
             'azure-native:securityinsights:WorkspaceManagerMember',

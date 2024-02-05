@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.OffAzure
     /// <summary>
     /// WebApp site web model.
     /// Azure REST API version: 2023-06-06.
+    /// 
+    /// Other available API versions: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:WebAppSitesController")]
     public partial class WebAppSitesController : global::Pulumi.CustomResource
@@ -86,6 +88,7 @@ namespace Pulumi.AzureNative.OffAzure
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:WebAppSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:WebAppSitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

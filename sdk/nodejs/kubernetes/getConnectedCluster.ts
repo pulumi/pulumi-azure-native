@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  * Azure REST API version: 2022-05-01-preview.
  *
- * Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01.
+ * Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview.
  */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
 
@@ -126,7 +126,7 @@ export interface GetConnectedClusterResult {
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  * Azure REST API version: 2022-05-01-preview.
  *
- * Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01.
+ * Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview.
  */
 export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
     return pulumi.output(args).apply((a: any) => getConnectedCluster(a, opts))

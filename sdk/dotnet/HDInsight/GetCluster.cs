@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets the specified cluster.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview.
+        /// Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:hdinsight:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets the specified cluster.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview.
+        /// Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:hdinsight:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

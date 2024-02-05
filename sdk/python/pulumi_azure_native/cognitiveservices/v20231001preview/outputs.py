@@ -2306,8 +2306,6 @@ class RaiPolicyContentFilterResponse(dict):
         suggest = None
         if key == "allowedContentLevel":
             suggest = "allowed_content_level"
-        elif key == "policyName":
-            suggest = "policy_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RaiPolicyContentFilterResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2324,14 +2322,14 @@ class RaiPolicyContentFilterResponse(dict):
                  allowed_content_level: Optional[str] = None,
                  blocking: Optional[bool] = None,
                  enabled: Optional[bool] = None,
-                 policy_name: Optional[str] = None,
+                 name: Optional[str] = None,
                  source: Optional[str] = None):
         """
         Azure OpenAI Content Filter.
         :param str allowed_content_level: Level at which content is filtered.
         :param bool blocking: If blocking would occur.
         :param bool enabled: If the ContentFilter is enabled.
-        :param str policy_name: Name of ContentFilter.
+        :param str name: Name of ContentFilter.
         :param str source: Content source to apply the Content Filters.
         """
         if allowed_content_level is not None:
@@ -2340,8 +2338,8 @@ class RaiPolicyContentFilterResponse(dict):
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if source is not None:
             pulumi.set(__self__, "source", source)
 
@@ -2370,12 +2368,12 @@ class RaiPolicyContentFilterResponse(dict):
         return pulumi.get(self, "enabled")
 
     @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[str]:
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         """
         Name of ContentFilter.
         """
-        return pulumi.get(self, "policy_name")
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter

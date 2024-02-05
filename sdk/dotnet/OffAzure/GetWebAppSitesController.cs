@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Method to get a site.
         /// Azure REST API version: 2023-06-06.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetWebAppSitesControllerResult> InvokeAsync(GetWebAppSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSitesControllerResult>("azure-native:offazure:getWebAppSitesController", args ?? new GetWebAppSitesControllerArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Method to get a site.
         /// Azure REST API version: 2023-06-06.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetWebAppSitesControllerResult> Invoke(GetWebAppSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSitesControllerResult>("azure-native:offazure:getWebAppSitesController", args ?? new GetWebAppSitesControllerInvokeArgs(), options.WithDefaults());

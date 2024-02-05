@@ -40,7 +40,7 @@ export class Product extends pulumi.CustomResource {
     /**
      * Description of the product
      */
-    public readonly description!: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -71,9 +71,6 @@ export class Product extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.catalogName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
-            }
-            if ((!args || args.description === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'description'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -111,7 +108,7 @@ export interface ProductArgs {
     /**
      * Description of the product
      */
-    description: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of product.
      */

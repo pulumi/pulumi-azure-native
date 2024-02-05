@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * List test keys for a Service.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
  */
 export function listServiceTestKeys(args: ListServiceTestKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListServiceTestKeysResult> {
 
@@ -59,7 +59,7 @@ export interface ListServiceTestKeysResult {
  * List test keys for a Service.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
  */
 export function listServiceTestKeysOutput(args: ListServiceTestKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceTestKeysResult> {
     return pulumi.output(args).apply((a: any) => listServiceTestKeys(a, opts))

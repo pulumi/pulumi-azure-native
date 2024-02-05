@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Method to get a site.
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getWebAppSitesController(args: GetWebAppSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSitesControllerResult> {
 
@@ -78,6 +80,8 @@ export interface GetWebAppSitesControllerResult {
 /**
  * Method to get a site.
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getWebAppSitesControllerOutput(args: GetWebAppSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSitesControllerResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSitesController(a, opts))

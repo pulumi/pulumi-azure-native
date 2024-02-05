@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
         /// <summary>
         /// Description of the product
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
 
         [OutputConstructor]
         private GetProductResult(
-            string description,
+            string? description,
 
             string id,
 

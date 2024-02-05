@@ -5,10 +5,26 @@
 from enum import Enum
 
 __all__ = [
+    'ClusterType',
     'NetworkFunctionAdministrativeState',
     'NetworkFunctionType',
     'SkuDefinitions',
+    'SkuDeploymentType',
 ]
+
+
+class ClusterType(str, Enum):
+    """
+    Cluster Type
+    """
+    AKS = "Aks"
+    """
+    Azure Kubernetes Service
+    """
+    NEXUS_AKS = "NexusAks"
+    """
+    Azure Operator Nexus Kubernetes Service
+    """
 
 
 class NetworkFunctionAdministrativeState(str, Enum):
@@ -106,4 +122,18 @@ class SkuDefinitions(str, Enum):
     NEXUS_PRODUCTION = "NexusProduction"
     """
     Nexus Production SKU
+    """
+
+
+class SkuDeploymentType(str, Enum):
+    """
+    Cluster type (Lab or Production)
+    """
+    PRODUCTION = "Production"
+    """
+    Production Deployment
+    """
+    LAB = "Lab"
+    """
+    Lab Deployment
     """

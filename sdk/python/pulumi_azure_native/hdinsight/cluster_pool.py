@@ -182,6 +182,8 @@ class ClusterPool(pulumi.CustomResource):
         Cluster pool.
         Azure REST API version: 2023-06-01-preview.
 
+        Other available API versions: 2023-11-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_pool_name: The name of the cluster pool.
@@ -203,6 +205,8 @@ class ClusterPool(pulumi.CustomResource):
         """
         Cluster pool.
         Azure REST API version: 2023-06-01-preview.
+
+        Other available API versions: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ClusterPoolArgs args: The arguments to use to populate this resource's properties.
@@ -258,7 +262,7 @@ class ClusterPool(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20230601preview:ClusterPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight/v20230601preview:ClusterPool"), pulumi.Alias(type_="azure-native:hdinsight/v20231101preview:ClusterPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClusterPool, __self__).__init__(
             'azure-native:hdinsight:ClusterPool',

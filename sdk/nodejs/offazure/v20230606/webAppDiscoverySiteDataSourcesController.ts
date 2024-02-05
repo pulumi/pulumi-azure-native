@@ -95,7 +95,7 @@ export class WebAppDiscoverySiteDataSourcesController extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure:WebAppDiscoverySiteDataSourcesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure:WebAppDiscoverySiteDataSourcesController" }, { type: "azure-native:offazure/v20231001preview:WebAppDiscoverySiteDataSourcesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppDiscoverySiteDataSourcesController.__pulumiType, name, resourceInputs, opts);
     }

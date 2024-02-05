@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a HypervSite
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getHypervSitesController(args: GetHypervSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervSitesControllerResult> {
 
@@ -93,6 +95,8 @@ export interface GetHypervSitesControllerResult {
 /**
  * Get a HypervSite
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getHypervSitesControllerOutput(args: GetHypervSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervSitesControllerResult> {
     return pulumi.output(args).apply((a: any) => getHypervSitesController(a, opts))

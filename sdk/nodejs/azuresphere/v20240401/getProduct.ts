@@ -42,7 +42,7 @@ export interface GetProductResult {
     /**
      * Description of the product
      */
-    readonly description: string;
+    readonly description?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

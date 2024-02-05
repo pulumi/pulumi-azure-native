@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Get a Metadata.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01.
+        /// Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview.
         /// </summary>
         public static Task<GetMetadataResult> InvokeAsync(GetMetadataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Get a Metadata.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01.
+        /// Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview.
         /// </summary>
         public static Output<GetMetadataResult> Invoke(GetMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataInvokeArgs(), options.WithDefaults());

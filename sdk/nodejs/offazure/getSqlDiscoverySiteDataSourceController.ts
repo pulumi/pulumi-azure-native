@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a SqlDiscoverySiteDataSource
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getSqlDiscoverySiteDataSourceController(args: GetSqlDiscoverySiteDataSourceControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDiscoverySiteDataSourceControllerResult> {
 
@@ -73,6 +75,8 @@ export interface GetSqlDiscoverySiteDataSourceControllerResult {
 /**
  * Get a SqlDiscoverySiteDataSource
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getSqlDiscoverySiteDataSourceControllerOutput(args: GetSqlDiscoverySiteDataSourceControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDiscoverySiteDataSourceControllerResult> {
     return pulumi.output(args).apply((a: any) => getSqlDiscoverySiteDataSourceController(a, opts))

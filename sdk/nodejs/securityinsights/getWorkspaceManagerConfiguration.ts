@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a workspace manager configuration
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
  */
 export function getWorkspaceManagerConfiguration(args: GetWorkspaceManagerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceManagerConfigurationResult> {
 
@@ -71,7 +71,7 @@ export interface GetWorkspaceManagerConfigurationResult {
  * Gets a workspace manager configuration
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
  */
 export function getWorkspaceManagerConfigurationOutput(args: GetWorkspaceManagerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceManagerConfiguration(a, opts))

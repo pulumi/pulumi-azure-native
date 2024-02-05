@@ -95,7 +95,7 @@ export class SqlDiscoverySiteDataSourceController extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure:SqlDiscoverySiteDataSourceController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure:SqlDiscoverySiteDataSourceController" }, { type: "azure-native:offazure/v20231001preview:SqlDiscoverySiteDataSourceController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlDiscoverySiteDataSourceController.__pulumiType, name, resourceInputs, opts);
     }

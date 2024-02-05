@@ -1050,6 +1050,104 @@
     "Property": "zoneRedundant"
   },
   {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Certificate",
+    "ReferenceName": "CertificateProperties",
+    "Property": "type"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Certificate",
+    "ReferenceName": "CertificateProperties",
+    "Property": "type"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "CustomizedAccelerator",
+    "ReferenceName": "AcceleratorAuthSetting",
+    "Property": "authType"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "CustomizedAccelerator",
+    "ReferenceName": "AcceleratorAuthSetting",
+    "Property": "authType"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "CustomizedAccelerator",
+    "ReferenceName": "AcceleratorAuthSetting",
+    "Property": "authType"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Gateway",
+    "ReferenceName": "GatewayResponseCacheProperties",
+    "Property": "responseCacheType"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Gateway",
+    "ReferenceName": "GatewayResponseCacheProperties",
+    "Property": "responseCacheType"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Service",
+    "ReferenceName": "NetworkProfile",
+    "Property": "appNetworkResourceGroup"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Service",
+    "ReferenceName": "NetworkProfile",
+    "Property": "appSubnetId"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Service",
+    "ReferenceName": "NetworkProfile",
+    "Property": "outboundType"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Service",
+    "ReferenceName": "NetworkProfile",
+    "Property": "serviceCidr"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Service",
+    "ReferenceName": "NetworkProfile",
+    "Property": "serviceRuntimeNetworkResourceGroup"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Service",
+    "ReferenceName": "NetworkProfile",
+    "Property": "serviceRuntimeSubnetId"
+  },
+  {
+    "Module": "appplatform/v20240101preview",
+    "Provider": "AppPlatform",
+    "ResourceName": "Service",
+    "ReferenceName": "ClusterResourceProperties",
+    "Property": "zoneRedundant"
+  },
+  {
     "Module": "automation",
     "Provider": "Automation",
     "ResourceName": "Package",
@@ -3582,6 +3680,20 @@
     "ResourceName": "Cluster",
     "ReferenceName": "ClusterCreateProperties",
     "Property": "tier"
+  },
+  {
+    "Module": "hdinsight/v20231101preview",
+    "Provider": "HDInsight",
+    "ResourceName": "Cluster",
+    "ReferenceName": "ClusterAccessProfile",
+    "Property": "enableInternalIngress"
+  },
+  {
+    "Module": "hdinsight/v20231101preview",
+    "Provider": "HDInsight",
+    "ResourceName": "ClusterPool",
+    "ReferenceName": "ClusterPoolNetworkProfile",
+    "Property": "enablePrivateApiServer"
   },
   {
     "Module": "hybridcompute/v20220510preview",

@@ -148,6 +148,8 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
         A cluster resource belonging to a site resource.
         Azure REST API version: 2023-06-06.
 
+        Other available API versions: 2023-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name:  Cluster ARM name
@@ -167,6 +169,8 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
         """
         A cluster resource belonging to a site resource.
         Azure REST API version: 2023-06-06.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param HypervClusterControllerClusterArgs args: The arguments to use to populate this resource's properties.
@@ -218,7 +222,7 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20230606:HypervClusterControllerCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20230606:HypervClusterControllerCluster"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:HypervClusterControllerCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HypervClusterControllerCluster, __self__).__init__(
             'azure-native:offazure:HypervClusterControllerCluster',

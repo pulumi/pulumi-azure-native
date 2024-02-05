@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the container registries resource.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
  */
 export function getContainerRegistry(args: GetContainerRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRegistryResult> {
 
@@ -67,7 +67,7 @@ export interface GetContainerRegistryResult {
  * Get the container registries resource.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
  */
 export function getContainerRegistryOutput(args: GetContainerRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRegistryResult> {
     return pulumi.output(args).apply((a: any) => getContainerRegistry(a, opts))

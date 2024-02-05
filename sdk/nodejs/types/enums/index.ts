@@ -67,7 +67,6 @@ import * as dbformariadb from "./dbformariadb";
 import * as dbformysql from "./dbformysql";
 import * as dbforpostgresql from "./dbforpostgresql";
 import * as delegatednetwork from "./delegatednetwork";
-import * as deploymentmanager from "./deploymentmanager";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
@@ -264,7 +263,6 @@ export {
     dbformysql,
     dbforpostgresql,
     delegatednetwork,
-    deploymentmanager,
     desktopvirtualization,
     devcenter,
     devhub,

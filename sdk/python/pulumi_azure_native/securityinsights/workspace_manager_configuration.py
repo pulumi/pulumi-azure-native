@@ -96,7 +96,7 @@ class WorkspaceManagerConfiguration(pulumi.CustomResource):
         The workspace manager configuration
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +115,7 @@ class WorkspaceManagerConfiguration(pulumi.CustomResource):
         The workspace manager configuration
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceManagerConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +159,7 @@ class WorkspaceManagerConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:WorkspaceManagerConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:WorkspaceManagerConfiguration"), pulumi.Alias(type_="azure-native:securityinsights/v20231201preview:WorkspaceManagerConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspaceManagerConfiguration, __self__).__init__(
             'azure-native:securityinsights:WorkspaceManagerConfiguration',

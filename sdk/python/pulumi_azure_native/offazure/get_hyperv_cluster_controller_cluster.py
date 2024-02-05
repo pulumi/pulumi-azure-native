@@ -197,6 +197,8 @@ def get_hyperv_cluster_controller_cluster(cluster_name: Optional[str] = None,
     Method to get a Hyper-V cluster.
     Azure REST API version: 2023-06-06.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str cluster_name:  Cluster ARM name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -233,6 +235,8 @@ def get_hyperv_cluster_controller_cluster_output(cluster_name: Optional[pulumi.I
     """
     Method to get a Hyper-V cluster.
     Azure REST API version: 2023-06-06.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str cluster_name:  Cluster ARM name

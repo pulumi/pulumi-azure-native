@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Service resource
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Service" }, { type: "azure-native:appplatform/v20201101preview:Service" }, { type: "azure-native:appplatform/v20210601preview:Service" }, { type: "azure-native:appplatform/v20210901preview:Service" }, { type: "azure-native:appplatform/v20220101preview:Service" }, { type: "azure-native:appplatform/v20220301preview:Service" }, { type: "azure-native:appplatform/v20220401:Service" }, { type: "azure-native:appplatform/v20220501preview:Service" }, { type: "azure-native:appplatform/v20220901preview:Service" }, { type: "azure-native:appplatform/v20221101preview:Service" }, { type: "azure-native:appplatform/v20221201:Service" }, { type: "azure-native:appplatform/v20230101preview:Service" }, { type: "azure-native:appplatform/v20230301preview:Service" }, { type: "azure-native:appplatform/v20230501preview:Service" }, { type: "azure-native:appplatform/v20230701preview:Service" }, { type: "azure-native:appplatform/v20230901preview:Service" }, { type: "azure-native:appplatform/v20231101preview:Service" }, { type: "azure-native:appplatform/v20231201:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Service" }, { type: "azure-native:appplatform/v20201101preview:Service" }, { type: "azure-native:appplatform/v20210601preview:Service" }, { type: "azure-native:appplatform/v20210901preview:Service" }, { type: "azure-native:appplatform/v20220101preview:Service" }, { type: "azure-native:appplatform/v20220301preview:Service" }, { type: "azure-native:appplatform/v20220401:Service" }, { type: "azure-native:appplatform/v20220501preview:Service" }, { type: "azure-native:appplatform/v20220901preview:Service" }, { type: "azure-native:appplatform/v20221101preview:Service" }, { type: "azure-native:appplatform/v20221201:Service" }, { type: "azure-native:appplatform/v20230101preview:Service" }, { type: "azure-native:appplatform/v20230301preview:Service" }, { type: "azure-native:appplatform/v20230501preview:Service" }, { type: "azure-native:appplatform/v20230701preview:Service" }, { type: "azure-native:appplatform/v20230901preview:Service" }, { type: "azure-native:appplatform/v20231101preview:Service" }, { type: "azure-native:appplatform/v20231201:Service" }, { type: "azure-native:appplatform/v20240101preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

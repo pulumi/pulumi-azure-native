@@ -165,6 +165,8 @@ class VcenterController(pulumi.CustomResource):
         A vcenter resource belonging to a site resource.
         Azure REST API version: 2023-06-06.
 
+        Other available API versions: 2023-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: Gets or sets the FQDN/IPAddress of the vCenter.
@@ -185,6 +187,8 @@ class VcenterController(pulumi.CustomResource):
         """
         A vcenter resource belonging to a site resource.
         Azure REST API version: 2023-06-06.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VcenterControllerArgs args: The arguments to use to populate this resource's properties.
@@ -239,7 +243,7 @@ class VcenterController(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200101:VcenterController"), pulumi.Alias(type_="azure-native:offazure/v20200707:VcenterController"), pulumi.Alias(type_="azure-native:offazure/v20230606:VcenterController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200101:VcenterController"), pulumi.Alias(type_="azure-native:offazure/v20200707:VcenterController"), pulumi.Alias(type_="azure-native:offazure/v20230606:VcenterController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:VcenterController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VcenterController, __self__).__init__(
             'azure-native:offazure:VcenterController',

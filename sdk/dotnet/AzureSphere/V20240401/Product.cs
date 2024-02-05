@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
         /// Description of the product
         /// </summary>
         [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
         /// <summary>
         /// Description of the product
         /// </summary>
-        [Input("description", required: true)]
-        public Input<string> Description { get; set; } = null!;
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// Name of product.

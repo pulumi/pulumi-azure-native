@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.MobilePacketCore
 {
     /// <summary>
+    /// Cluster Type
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterType : IEquatable<ClusterType>
+    {
+        private readonly string _value;
+
+        private ClusterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Azure Kubernetes Service
+        /// </summary>
+        public static ClusterType Aks { get; } = new ClusterType("Aks");
+        /// <summary>
+        /// Azure Operator Nexus Kubernetes Service
+        /// </summary>
+        public static ClusterType NexusAks { get; } = new ClusterType("NexusAks");
+
+        public static bool operator ==(ClusterType left, ClusterType right) => left.Equals(right);
+        public static bool operator !=(ClusterType left, ClusterType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterType other && Equals(other);
+        public bool Equals(ClusterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Administrative state of the network function
     /// </summary>
     [EnumType]
@@ -167,6 +204,43 @@ namespace Pulumi.AzureNative.MobilePacketCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuDefinitions other && Equals(other);
         public bool Equals(SkuDefinitions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Cluster type (Lab or Production)
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuDeploymentType : IEquatable<SkuDeploymentType>
+    {
+        private readonly string _value;
+
+        private SkuDeploymentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Production Deployment
+        /// </summary>
+        public static SkuDeploymentType Production { get; } = new SkuDeploymentType("Production");
+        /// <summary>
+        /// Lab Deployment
+        /// </summary>
+        public static SkuDeploymentType Lab { get; } = new SkuDeploymentType("Lab");
+
+        public static bool operator ==(SkuDeploymentType left, SkuDeploymentType right) => left.Equals(right);
+        public static bool operator !=(SkuDeploymentType left, SkuDeploymentType right) => !left.Equals(right);
+
+        public static explicit operator string(SkuDeploymentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuDeploymentType other && Equals(other);
+        public bool Equals(SkuDeploymentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

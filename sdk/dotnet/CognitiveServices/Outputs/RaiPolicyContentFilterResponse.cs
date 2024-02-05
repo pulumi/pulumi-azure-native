@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// <summary>
         /// Name of ContentFilter.
         /// </summary>
-        public readonly string? PolicyName;
+        public readonly string? Name;
         /// <summary>
         /// Content source to apply the Content Filters.
         /// </summary>
@@ -45,14 +45,14 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             bool? enabled,
 
-            string? policyName,
+            string? name,
 
             string? source)
         {
             AllowedContentLevel = allowedContentLevel;
             Blocking = blocking;
             Enabled = enabled;
-            PolicyName = policyName;
+            Name = name;
             Source = source;
         }
     }

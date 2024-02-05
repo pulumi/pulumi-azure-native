@@ -139,7 +139,7 @@ export class Hunt extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Hunt" }, { type: "azure-native:securityinsights/v20230401preview:Hunt" }, { type: "azure-native:securityinsights/v20230501preview:Hunt" }, { type: "azure-native:securityinsights/v20230701preview:Hunt" }, { type: "azure-native:securityinsights/v20230801preview:Hunt" }, { type: "azure-native:securityinsights/v20230901preview:Hunt" }, { type: "azure-native:securityinsights/v20231001preview:Hunt" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Hunt" }, { type: "azure-native:securityinsights/v20230401preview:Hunt" }, { type: "azure-native:securityinsights/v20230501preview:Hunt" }, { type: "azure-native:securityinsights/v20230701preview:Hunt" }, { type: "azure-native:securityinsights/v20230801preview:Hunt" }, { type: "azure-native:securityinsights/v20230901preview:Hunt" }, { type: "azure-native:securityinsights/v20231001preview:Hunt" }, { type: "azure-native:securityinsights/v20231201preview:Hunt" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Hunt.__pulumiType, name, resourceInputs, opts);
     }

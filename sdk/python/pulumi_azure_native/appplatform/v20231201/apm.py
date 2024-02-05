@@ -151,7 +151,7 @@ class Apm(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20230701preview:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20230901preview:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20231101preview:Apm")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20230701preview:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20230901preview:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20231101preview:Apm"), pulumi.Alias(type_="azure-native:appplatform/v20240101preview:Apm")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Apm, __self__).__init__(
             'azure-native:appplatform/v20231201:Apm',

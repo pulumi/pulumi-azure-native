@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// Get the Monitoring Setting and its properties.
         /// Azure REST API version: 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
         /// </summary>
         public static Task<GetMonitoringSettingResult> InvokeAsync(GetMonitoringSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringSettingResult>("azure-native:appplatform:getMonitoringSetting", args ?? new GetMonitoringSettingArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AppPlatform
         /// Get the Monitoring Setting and its properties.
         /// Azure REST API version: 2023-05-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
         /// </summary>
         public static Output<GetMonitoringSettingResult> Invoke(GetMonitoringSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringSettingResult>("azure-native:appplatform:getMonitoringSetting", args ?? new GetMonitoringSettingInvokeArgs(), options.WithDefaults());

@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20230606 from "./v20230606";
+import * as v20231001preview from "./v20231001preview";
 
 export {
     v20230606,
+    v20231001preview,
 };
 
 export const MasterSitePropertiesPublicNetworkAccess = {

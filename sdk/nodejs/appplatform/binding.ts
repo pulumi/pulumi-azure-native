@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Binding resource payload
  * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
  */
 export class Binding extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class Binding extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Binding" }, { type: "azure-native:appplatform/v20201101preview:Binding" }, { type: "azure-native:appplatform/v20210601preview:Binding" }, { type: "azure-native:appplatform/v20210901preview:Binding" }, { type: "azure-native:appplatform/v20220101preview:Binding" }, { type: "azure-native:appplatform/v20220301preview:Binding" }, { type: "azure-native:appplatform/v20220401:Binding" }, { type: "azure-native:appplatform/v20220501preview:Binding" }, { type: "azure-native:appplatform/v20220901preview:Binding" }, { type: "azure-native:appplatform/v20221101preview:Binding" }, { type: "azure-native:appplatform/v20221201:Binding" }, { type: "azure-native:appplatform/v20230101preview:Binding" }, { type: "azure-native:appplatform/v20230301preview:Binding" }, { type: "azure-native:appplatform/v20230501preview:Binding" }, { type: "azure-native:appplatform/v20230701preview:Binding" }, { type: "azure-native:appplatform/v20230901preview:Binding" }, { type: "azure-native:appplatform/v20231101preview:Binding" }, { type: "azure-native:appplatform/v20231201:Binding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:Binding" }, { type: "azure-native:appplatform/v20201101preview:Binding" }, { type: "azure-native:appplatform/v20210601preview:Binding" }, { type: "azure-native:appplatform/v20210901preview:Binding" }, { type: "azure-native:appplatform/v20220101preview:Binding" }, { type: "azure-native:appplatform/v20220301preview:Binding" }, { type: "azure-native:appplatform/v20220401:Binding" }, { type: "azure-native:appplatform/v20220501preview:Binding" }, { type: "azure-native:appplatform/v20220901preview:Binding" }, { type: "azure-native:appplatform/v20221101preview:Binding" }, { type: "azure-native:appplatform/v20221201:Binding" }, { type: "azure-native:appplatform/v20230101preview:Binding" }, { type: "azure-native:appplatform/v20230301preview:Binding" }, { type: "azure-native:appplatform/v20230501preview:Binding" }, { type: "azure-native:appplatform/v20230701preview:Binding" }, { type: "azure-native:appplatform/v20230901preview:Binding" }, { type: "azure-native:appplatform/v20231101preview:Binding" }, { type: "azure-native:appplatform/v20231201:Binding" }, { type: "azure-native:appplatform/v20240101preview:Binding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Binding.__pulumiType, name, resourceInputs, opts);
     }

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.OffAzure
     /// <summary>
     /// A ServerSiteResource
     /// Azure REST API version: 2023-06-06.
+    /// 
+    /// Other available API versions: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:ServerSitesController")]
     public partial class ServerSitesController : global::Pulumi.CustomResource
@@ -116,6 +118,7 @@ namespace Pulumi.AzureNative.OffAzure
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:ServerSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:ServerSitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

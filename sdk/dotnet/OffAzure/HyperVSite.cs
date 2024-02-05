@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HyperVSite" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HyperVSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

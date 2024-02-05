@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:DevToolPortal" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230901preview:DevToolPortal" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:DevToolPortal" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:DevToolPortal" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

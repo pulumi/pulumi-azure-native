@@ -64,6 +64,8 @@ def list_server_sites_controller_health_summary(resource_group_name: Optional[st
     Method to get site health summary.
     Azure REST API version: 2023-06-06.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name
@@ -86,6 +88,8 @@ def list_server_sites_controller_health_summary_output(resource_group_name: Opti
     """
     Method to get site health summary.
     Azure REST API version: 2023-06-06.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a Vcenter
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getVcenterController(args: GetVcenterControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetVcenterControllerResult> {
 
@@ -104,6 +106,8 @@ export interface GetVcenterControllerResult {
 /**
  * Get a Vcenter
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getVcenterControllerOutput(args: GetVcenterControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVcenterControllerResult> {
     return pulumi.output(args).apply((a: any) => getVcenterController(a, opts))

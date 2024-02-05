@@ -101,7 +101,7 @@ def get_application_live_view(application_live_view_name: Optional[str] = None,
     Get the Application Live  and its properties.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
 
 
     :param str application_live_view_name: The name of Application Live View.
@@ -132,7 +132,7 @@ def get_application_live_view_output(application_live_view_name: Optional[pulumi
     Get the Application Live  and its properties.
     Azure REST API version: 2023-05-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01.
+    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
 
 
     :param str application_live_view_name: The name of Application Live View.

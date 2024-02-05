@@ -11,8 +11,212 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterServiceAksClusterDataResponse',
+    'ClusterServiceNexusAksClusterDataResponse',
+    'OperationalStatusResponse',
+    'QualifiedComponentDeploymentParametersResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class ClusterServiceAksClusterDataResponse(dict):
+    """
+    AKS Cluster specific data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLocationId":
+            suggest = "custom_location_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServiceAksClusterDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServiceAksClusterDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServiceAksClusterDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_location_id: str,
+                 type: str):
+        """
+        AKS Cluster specific data.
+        :param str custom_location_id: Custom Location resource ID
+        :param str type: Cluster Type Definitions
+               Expected value is 'Aks'.
+        """
+        pulumi.set(__self__, "custom_location_id", custom_location_id)
+        pulumi.set(__self__, "type", 'Aks')
+
+    @property
+    @pulumi.getter(name="customLocationId")
+    def custom_location_id(self) -> str:
+        """
+        Custom Location resource ID
+        """
+        return pulumi.get(self, "custom_location_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Cluster Type Definitions
+        Expected value is 'Aks'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ClusterServiceNexusAksClusterDataResponse(dict):
+    """
+    Nexus AKS Cluster specific data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLocationId":
+            suggest = "custom_location_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterServiceNexusAksClusterDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterServiceNexusAksClusterDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterServiceNexusAksClusterDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_location_id: str,
+                 type: str):
+        """
+        Nexus AKS Cluster specific data.
+        :param str custom_location_id: Custom Location resource ID
+        :param str type: Cluster Type Definitions
+               Expected value is 'NexusAks'.
+        """
+        pulumi.set(__self__, "custom_location_id", custom_location_id)
+        pulumi.set(__self__, "type", 'NexusAks')
+
+    @property
+    @pulumi.getter(name="customLocationId")
+    def custom_location_id(self) -> str:
+        """
+        Custom Location resource ID
+        """
+        return pulumi.get(self, "custom_location_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Cluster Type Definitions
+        Expected value is 'NexusAks'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class OperationalStatusResponse(dict):
+    """
+    Operational Status of the resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthCheck":
+            suggest = "health_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OperationalStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OperationalStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OperationalStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_check: str,
+                 workload: str):
+        """
+        Operational Status of the resource
+        :param str health_check: Health check results
+        :param str workload: Status of the deployed workload
+        """
+        pulumi.set(__self__, "health_check", health_check)
+        pulumi.set(__self__, "workload", workload)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> str:
+        """
+        Health check results
+        """
+        return pulumi.get(self, "health_check")
+
+    @property
+    @pulumi.getter
+    def workload(self) -> str:
+        """
+        Status of the deployed workload
+        """
+        return pulumi.get(self, "workload")
+
+
+@pulumi.output_type
+class QualifiedComponentDeploymentParametersResponse(dict):
+    """
+    Containerized Network Function (CNF) Qualified Deployment Parameters
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 parameters: Optional[str] = None,
+                 secrets: Optional[str] = None):
+        """
+        Containerized Network Function (CNF) Qualified Deployment Parameters
+        :param str type: Federation Type
+        :param str parameters: Deployment Parameters
+        :param str secrets: Deployment secrets
+        """
+        pulumi.set(__self__, "type", type)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Federation Type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        Deployment Parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        """
+        Deployment secrets
+        """
+        return pulumi.get(self, "secrets")
+
 
 @pulumi.output_type
 class SystemDataResponse(dict):

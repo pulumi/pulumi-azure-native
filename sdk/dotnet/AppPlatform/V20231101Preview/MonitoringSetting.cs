@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:MonitoringSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230901preview:MonitoringSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:MonitoringSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:MonitoringSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

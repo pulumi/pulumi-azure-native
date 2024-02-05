@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a ImportSite
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getImportSitesController(args: GetImportSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetImportSitesControllerResult> {
 
@@ -79,6 +81,8 @@ export interface GetImportSitesControllerResult {
 /**
  * Get a ImportSite
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getImportSitesControllerOutput(args: GetImportSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportSitesControllerResult> {
     return pulumi.output(args).apply((a: any) => getImportSitesController(a, opts))

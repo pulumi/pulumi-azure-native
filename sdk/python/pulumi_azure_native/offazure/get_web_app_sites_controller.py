@@ -139,6 +139,8 @@ def get_web_app_sites_controller(resource_group_name: Optional[str] = None,
     Method to get a site.
     Azure REST API version: 2023-06-06.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name
@@ -170,6 +172,8 @@ def get_web_app_sites_controller_output(resource_group_name: Optional[pulumi.Inp
     """
     Method to get a site.
     Azure REST API version: 2023-06-06.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

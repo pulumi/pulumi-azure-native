@@ -131,7 +131,7 @@ export class ServerSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure:ServerSitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure:ServerSitesController" }, { type: "azure-native:offazure/v20231001preview:ServerSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerSitesController.__pulumiType, name, resourceInputs, opts);
     }

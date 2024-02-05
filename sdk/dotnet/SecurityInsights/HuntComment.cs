@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Represents a Hunt Comment in Azure Security Insights
     /// Azure REST API version: 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:HuntComment")]
     public partial class HuntComment : global::Pulumi.CustomResource
@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:HuntComment" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:HuntComment" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:HuntComment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

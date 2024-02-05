@@ -208,6 +208,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:Incident" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:Incident" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:Incident" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:Incident" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

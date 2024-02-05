@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:HuntRelation" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:HuntRelation" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:HuntRelation" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:HuntRelation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

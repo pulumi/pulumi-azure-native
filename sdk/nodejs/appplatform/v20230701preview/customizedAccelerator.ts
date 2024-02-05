@@ -95,7 +95,7 @@ export class CustomizedAccelerator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20221101preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20230101preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20230301preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20230501preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20230901preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20231101preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20231201:CustomizedAccelerator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20221101preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20230101preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20230301preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20230501preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20230901preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20231101preview:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20231201:CustomizedAccelerator" }, { type: "azure-native:appplatform/v20240101preview:CustomizedAccelerator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomizedAccelerator.__pulumiType, name, resourceInputs, opts);
     }

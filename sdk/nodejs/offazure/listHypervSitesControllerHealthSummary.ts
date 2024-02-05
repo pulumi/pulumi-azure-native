@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Method to get site health summary.
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function listHypervSitesControllerHealthSummary(args: ListHypervSitesControllerHealthSummaryArgs, opts?: pulumi.InvokeOptions): Promise<ListHypervSitesControllerHealthSummaryResult> {
 
@@ -47,6 +49,8 @@ export interface ListHypervSitesControllerHealthSummaryResult {
 /**
  * Method to get site health summary.
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function listHypervSitesControllerHealthSummaryOutput(args: ListHypervSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHypervSitesControllerHealthSummaryResult> {
     return pulumi.output(args).apply((a: any) => listHypervSitesControllerHealthSummary(a, opts))

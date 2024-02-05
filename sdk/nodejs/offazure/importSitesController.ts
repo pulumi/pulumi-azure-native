@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * A ImportSite
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export class ImportSitesController extends pulumi.CustomResource {
     /**
@@ -112,7 +114,7 @@ export class ImportSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:ImportSitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:ImportSitesController" }, { type: "azure-native:offazure/v20231001preview:ImportSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportSitesController.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a VmwareSite
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getSitesController(args: GetSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetSitesControllerResult> {
 
@@ -97,6 +99,8 @@ export interface GetSitesControllerResult {
 /**
  * Get a VmwareSite
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getSitesControllerOutput(args: GetSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesControllerResult> {
     return pulumi.output(args).apply((a: any) => getSitesController(a, opts))

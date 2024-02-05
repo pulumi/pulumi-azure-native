@@ -36,8 +36,8 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         /// <summary>
         /// Name of ContentFilter.
         /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Content source to apply the Content Filters.

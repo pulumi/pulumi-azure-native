@@ -163,6 +163,7 @@ namespace Pulumi.AzureNative.ContainerService.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230902preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231001:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231002preview:Snapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231102preview:Snapshot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

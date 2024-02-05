@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.OffAzure
     /// <summary>
     /// REST model used to encapsulate Private Link properties for tracked resources.
     /// Azure REST API version: 2023-06-06.
+    /// 
+    /// Other available API versions: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:PrivateEndpointConnectionController")]
     public partial class PrivateEndpointConnectionController : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.OffAzure
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:PrivateEndpointConnectionController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:PrivateEndpointConnectionController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:PrivateEndpointConnectionController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

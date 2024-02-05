@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * REST model used to encapsulate Private Link properties for tracked resources.
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export class PrivateEndpointConnectionController extends pulumi.CustomResource {
     /**
@@ -104,7 +106,7 @@ export class PrivateEndpointConnectionController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20230606:PrivateEndpointConnectionController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20230606:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20231001preview:PrivateEndpointConnectionController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionController.__pulumiType, name, resourceInputs, opts);
     }

@@ -1262,14 +1262,14 @@ class RaiPolicyContentFilterArgs:
                  allowed_content_level: Optional[pulumi.Input[Union[str, 'AllowedContentLevel']]] = None,
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 policy_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union[str, 'RaiPolicyContentSource']]] = None):
         """
         Azure OpenAI Content Filter.
         :param pulumi.Input[Union[str, 'AllowedContentLevel']] allowed_content_level: Level at which content is filtered.
         :param pulumi.Input[bool] blocking: If blocking would occur.
         :param pulumi.Input[bool] enabled: If the ContentFilter is enabled.
-        :param pulumi.Input[str] policy_name: Name of ContentFilter.
+        :param pulumi.Input[str] name: Name of ContentFilter.
         :param pulumi.Input[Union[str, 'RaiPolicyContentSource']] source: Content source to apply the Content Filters.
         """
         if allowed_content_level is not None:
@@ -1278,8 +1278,8 @@ class RaiPolicyContentFilterArgs:
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if source is not None:
             pulumi.set(__self__, "source", source)
 
@@ -1320,16 +1320,16 @@ class RaiPolicyContentFilterArgs:
         pulumi.set(self, "enabled", value)
 
     @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of ContentFilter.
         """
-        return pulumi.get(self, "policy_name")
+        return pulumi.get(self, "name")
 
-    @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_name", value)
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter

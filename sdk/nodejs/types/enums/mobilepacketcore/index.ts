@@ -3,10 +3,28 @@
 
 // Export sub-modules:
 import * as v20230515preview from "./v20230515preview";
+import * as v20231015preview from "./v20231015preview";
 
 export {
     v20230515preview,
+    v20231015preview,
 };
+
+export const ClusterType = {
+    /**
+     * Azure Kubernetes Service
+     */
+    Aks: "Aks",
+    /**
+     * Azure Operator Nexus Kubernetes Service
+     */
+    NexusAks: "NexusAks",
+} as const;
+
+/**
+ * Cluster Type
+ */
+export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
 
 export const NetworkFunctionAdministrativeState = {
     /**
@@ -111,3 +129,19 @@ export const SkuDefinitions = {
  * Provisioned SKU Value.
  */
 export type SkuDefinitions = (typeof SkuDefinitions)[keyof typeof SkuDefinitions];
+
+export const SkuDeploymentType = {
+    /**
+     * Production Deployment
+     */
+    Production: "Production",
+    /**
+     * Lab Deployment
+     */
+    Lab: "Lab",
+} as const;
+
+/**
+ * Cluster type (Lab or Production)
+ */
+export type SkuDeploymentType = (typeof SkuDeploymentType)[keyof typeof SkuDeploymentType];

@@ -221,6 +221,8 @@ def get_vcenter_controller(resource_group_name: Optional[str] = None,
     Get a Vcenter
     Azure REST API version: 2023-06-06.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str site_name: Site name
@@ -259,6 +261,8 @@ def get_vcenter_controller_output(resource_group_name: Optional[pulumi.Input[str
     """
     Get a Vcenter
     Azure REST API version: 2023-06-06.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

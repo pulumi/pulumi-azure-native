@@ -114,6 +114,8 @@ def get_web_app_discovery_site_data_sources_controller(discovery_site_data_sourc
     Method to get a Web app data source in site.
     Azure REST API version: 2023-06-06.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str discovery_site_data_source_name: Data Source ARM name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -146,6 +148,8 @@ def get_web_app_discovery_site_data_sources_controller_output(discovery_site_dat
     """
     Method to get a Web app data source in site.
     Azure REST API version: 2023-06-06.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str discovery_site_data_source_name: Data Source ARM name.

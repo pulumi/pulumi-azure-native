@@ -172,6 +172,8 @@ class MasterSitesController(pulumi.CustomResource):
         A MasterSite
         Azure REST API version: 2023-06-06.
 
+        Other available API versions: 2023-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_multiple_sites: Gets or sets a value indicating whether multiple sites per site type are
@@ -195,6 +197,8 @@ class MasterSitesController(pulumi.CustomResource):
         """
         A MasterSite
         Azure REST API version: 2023-06-06.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MasterSitesControllerArgs args: The arguments to use to populate this resource's properties.
@@ -244,7 +248,7 @@ class MasterSitesController(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200707:MasterSitesController"), pulumi.Alias(type_="azure-native:offazure/v20230606:MasterSitesController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200707:MasterSitesController"), pulumi.Alias(type_="azure-native:offazure/v20230606:MasterSitesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:MasterSitesController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MasterSitesController, __self__).__init__(
             'azure-native:offazure:MasterSitesController',

@@ -150,7 +150,7 @@ def get_incident_relation(incident_id: Optional[str] = None,
     Gets a relation for a given incident.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01.
+    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview.
 
 
     :param str incident_id: Incident ID
@@ -188,7 +188,7 @@ def get_incident_relation_output(incident_id: Optional[pulumi.Input[str]] = None
     Gets a relation for a given incident.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01.
+    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview.
 
 
     :param str incident_id: Incident ID

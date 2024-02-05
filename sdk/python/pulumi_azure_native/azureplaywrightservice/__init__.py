@@ -14,6 +14,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.azureplaywrightservice.v20231001preview as __v20231001preview
     v20231001preview = __v20231001preview
+    import pulumi_azure_native.azureplaywrightservice.v20240201 as __v20240201
+    v20240201 = __v20240201
 else:
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.azureplaywrightservice.v20231001preview')
+    v20240201 = _utilities.lazy_import('pulumi_azure_native.azureplaywrightservice.v20240201')
 

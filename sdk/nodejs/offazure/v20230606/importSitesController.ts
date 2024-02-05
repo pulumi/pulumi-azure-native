@@ -111,7 +111,7 @@ export class ImportSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure:ImportSitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure:ImportSitesController" }, { type: "azure-native:offazure/v20231001preview:ImportSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportSitesController.__pulumiType, name, resourceInputs, opts);
     }

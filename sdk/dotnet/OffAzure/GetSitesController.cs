@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a VmwareSite
         /// Azure REST API version: 2023-06-06.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetSitesControllerResult> InvokeAsync(GetSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesControllerResult>("azure-native:offazure:getSitesController", args ?? new GetSitesControllerArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Get a VmwareSite
         /// Azure REST API version: 2023-06-06.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetSitesControllerResult> Invoke(GetSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesControllerResult>("azure-native:offazure:getSitesController", args ?? new GetSitesControllerInvokeArgs(), options.WithDefaults());

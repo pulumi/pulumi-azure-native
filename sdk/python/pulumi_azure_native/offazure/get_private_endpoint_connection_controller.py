@@ -137,6 +137,8 @@ def get_private_endpoint_connection_controller(pe_connection_name: Optional[str]
     Gets the private link resource.
     Azure REST API version: 2023-06-06.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str pe_connection_name:  Private link resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -168,6 +170,8 @@ def get_private_endpoint_connection_controller_output(pe_connection_name: Option
     """
     Gets the private link resource.
     Azure REST API version: 2023-06-06.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str pe_connection_name:  Private link resource name.

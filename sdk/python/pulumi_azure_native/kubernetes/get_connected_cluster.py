@@ -292,7 +292,7 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
     Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
     Azure REST API version: 2022-05-01-preview.
 
-    Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01.
+    Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview.
 
 
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
@@ -336,7 +336,7 @@ def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
     Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
     Azure REST API version: 2022-05-01-preview.
 
-    Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01.
+    Other available API versions: 2020-01-01-preview, 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview.
 
 
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.

@@ -2159,6 +2159,44 @@
       "listGatewayEnvSecrets",
       "listServiceGloballyEnabledApms",
       "listServiceTestKeys"
+    ],
+    "2024-01-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "Apm",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuild",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "ContainerRegistry",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listApmSecretKeys",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
+      "listServiceGloballyEnabledApms",
+      "listServiceTestKeys"
     ]
   },
   "Attestation": {
@@ -2641,6 +2679,9 @@
   },
   "AzurePlaywrightService": {
     "2023-10-01-preview": [
+      "Account"
+    ],
+    "2024-02-01": [
       "Account"
     ]
   },
@@ -5492,6 +5533,18 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2023-11-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -6769,24 +6822,6 @@
       "ControllerDetails",
       "DelegatedSubnetServiceDetails",
       "OrchestratorInstanceServiceDetails"
-    ]
-  },
-  "DeploymentManager": {
-    "2018-09-01-preview": [
-      "ArtifactSource",
-      "Rollout",
-      "Service",
-      "ServiceTopology",
-      "ServiceUnit",
-      "Step"
-    ],
-    "2019-11-01-preview": [
-      "ArtifactSource",
-      "Rollout",
-      "Service",
-      "ServiceTopology",
-      "ServiceUnit",
-      "Step"
     ]
   },
   "DesktopVirtualization": {
@@ -9379,6 +9414,10 @@
       "PrivateEndpointConnection",
       "getClusterGatewaySettings",
       "listVirtualMachineHosts"
+    ],
+    "2023-11-01-preview": [
+      "Cluster",
+      "ClusterPool"
     ]
   },
   "HanaOnAzure": {
@@ -10214,6 +10253,10 @@
       "listConnectedClusterUserCredential"
     ],
     "2024-01-01": [
+      "ConnectedCluster",
+      "listConnectedClusterUserCredential"
+    ],
+    "2024-02-01-preview": [
       "ConnectedCluster",
       "listConnectedClusterUserCredential"
     ]
@@ -12140,6 +12183,15 @@
   "MobilePacketCore": {
     "2023-05-15-preview": [
       "NetworkFunction"
+    ],
+    "2023-10-15-preview": [
+      "AmfDeployment",
+      "ClusterService",
+      "NrfDeployment",
+      "NssfDeployment",
+      "ObservabilityService",
+      "SmfDeployment",
+      "UpfDeployment"
     ]
   },
   "Monitor": {
@@ -16094,6 +16146,24 @@
       "listHypervSitesControllerHealthSummary",
       "listServerSitesControllerHealthSummary",
       "listSitesControllerHealthSummary"
+    ],
+    "2023-10-01-preview": [
+      "HypervClusterControllerCluster",
+      "HypervHostController",
+      "HypervSitesController",
+      "ImportSitesController",
+      "MasterSitesController",
+      "PrivateEndpointConnectionController",
+      "ServerSitesController",
+      "SitesController",
+      "SqlDiscoverySiteDataSourceController",
+      "SqlSitesController",
+      "VcenterController",
+      "WebAppDiscoverySiteDataSourcesController",
+      "WebAppSitesController",
+      "listHypervSitesControllerHealthSummary",
+      "listServerSitesControllerHealthSummary",
+      "listSitesControllerHealthSummary"
     ]
   },
   "OffAzureSpringBoot": {
@@ -18283,6 +18353,40 @@
       "ThreatIntelligenceIndicator",
       "Watchlist",
       "WatchlistItem",
+      "listSourceControlRepositories"
+    ],
+    "2023-12-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "DataConnectorDefinition",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
       "listSourceControlRepositories"
     ]
   },

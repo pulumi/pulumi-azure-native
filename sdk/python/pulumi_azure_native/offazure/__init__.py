@@ -50,7 +50,10 @@ if typing.TYPE_CHECKING:
     v20200707 = __v20200707
     import pulumi_azure_native.offazure.v20230606 as __v20230606
     v20230606 = __v20230606
+    import pulumi_azure_native.offazure.v20231001preview as __v20231001preview
+    v20231001preview = __v20231001preview
 else:
     v20200707 = _utilities.lazy_import('pulumi_azure_native.offazure.v20200707')
     v20230606 = _utilities.lazy_import('pulumi_azure_native.offazure.v20230606')
+    v20231001preview = _utilities.lazy_import('pulumi_azure_native.offazure.v20231001preview')
 

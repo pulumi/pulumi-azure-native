@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a ServerSiteResource
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getServerSitesController(args: GetServerSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerSitesControllerResult> {
 
@@ -93,6 +95,8 @@ export interface GetServerSitesControllerResult {
 /**
  * Get a ServerSiteResource
  * Azure REST API version: 2023-06-06.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getServerSitesControllerOutput(args: GetServerSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSitesControllerResult> {
     return pulumi.output(args).apply((a: any) => getServerSitesController(a, opts))

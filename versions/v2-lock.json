@@ -840,14 +840,6 @@
     "DelegatedSubnetServiceDetails": "2021-03-15",
     "OrchestratorInstanceServiceDetails": "2021-03-15"
   },
-  "DeploymentManager": {
-    "ArtifactSource": "2019-11-01-preview",
-    "Rollout": "2019-11-01-preview",
-    "Service": "2019-11-01-preview",
-    "ServiceTopology": "2019-11-01-preview",
-    "ServiceUnit": "2019-11-01-preview",
-    "Step": "2019-11-01-preview"
-  },
   "DesktopVirtualization": {
     "AppAttachPackage": "2023-10-04-preview",
     "Application": "2022-09-09",
@@ -1667,7 +1659,14 @@
     "listMobileNetworkSimIds": "2022-04-01-preview"
   },
   "MobilePacketCore": {
-    "NetworkFunction": "2023-05-15-preview"
+    "AmfDeployment": "2023-10-15-preview",
+    "ClusterService": "2023-10-15-preview",
+    "NetworkFunction": "2023-05-15-preview",
+    "NrfDeployment": "2023-10-15-preview",
+    "NssfDeployment": "2023-10-15-preview",
+    "ObservabilityService": "2023-10-15-preview",
+    "SmfDeployment": "2023-10-15-preview",
+    "UpfDeployment": "2023-10-15-preview"
   },
   "Monitor": {
     "AzureMonitorWorkspace": "2023-04-03"

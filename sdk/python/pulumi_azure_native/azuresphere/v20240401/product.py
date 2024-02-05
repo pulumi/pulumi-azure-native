@@ -16,19 +16,20 @@ __all__ = ['ProductArgs', 'Product']
 class ProductArgs:
     def __init__(__self__, *,
                  catalog_name: pulumi.Input[str],
-                 description: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
                  product_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Product resource.
         :param pulumi.Input[str] catalog_name: Name of catalog
-        :param pulumi.Input[str] description: Description of the product
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] description: Description of the product
         :param pulumi.Input[str] product_name: Name of product.
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if product_name is not None:
             pulumi.set(__self__, "product_name", product_name)
 
@@ -45,18 +46,6 @@ class ProductArgs:
         pulumi.set(self, "catalog_name", value)
 
     @property
-    @pulumi.getter
-    def description(self) -> pulumi.Input[str]:
-        """
-        Description of the product
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: pulumi.Input[str]):
-        pulumi.set(self, "description", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -67,6 +56,18 @@ class ProductArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the product
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="productName")
@@ -141,8 +142,6 @@ class Product(pulumi.CustomResource):
             if catalog_name is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_name'")
             __props__.__dict__["catalog_name"] = catalog_name
-            if description is None and not opts.urn:
-                raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["product_name"] = product_name
             if resource_group_name is None and not opts.urn:
@@ -185,7 +184,7 @@ class Product(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of the product
         """

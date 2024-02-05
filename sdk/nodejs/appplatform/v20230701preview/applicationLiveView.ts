@@ -85,7 +85,7 @@ export class ApplicationLiveView extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:ApplicationLiveView" }, { type: "azure-native:appplatform/v20221101preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230101preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230301preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230501preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230901preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20231101preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20231201:ApplicationLiveView" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:ApplicationLiveView" }, { type: "azure-native:appplatform/v20221101preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230101preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230301preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230501preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20230901preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20231101preview:ApplicationLiveView" }, { type: "azure-native:appplatform/v20231201:ApplicationLiveView" }, { type: "azure-native:appplatform/v20240101preview:ApplicationLiveView" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationLiveView.__pulumiType, name, resourceInputs, opts);
     }

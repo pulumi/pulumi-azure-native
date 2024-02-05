@@ -44,7 +44,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the product
         """
