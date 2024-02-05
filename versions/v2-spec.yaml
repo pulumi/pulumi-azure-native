@@ -652,8 +652,6 @@ Datadog:
         MonitoredSubscription: "2023-01-01"
 DelegatedNetwork:
     tracking: "2021-03-15"
-DeploymentManager:
-    tracking: 2019-11-01-preview
 DesktopVirtualization:
     tracking: "2022-09-09"
     additions:
@@ -1090,6 +1088,14 @@ MobileNetwork:
         listMobileNetworkSimIds: 2022-04-01-preview
 MobilePacketCore:
     tracking: 2023-05-15-preview
+    additions:
+        AmfDeployment: 2023-10-15-preview
+        ClusterService: 2023-10-15-preview
+        NrfDeployment: 2023-10-15-preview
+        NssfDeployment: 2023-10-15-preview
+        ObservabilityService: 2023-10-15-preview
+        SmfDeployment: 2023-10-15-preview
+        UpfDeployment: 2023-10-15-preview
 Monitor:
     tracking: "2023-04-03"
 NetApp:
