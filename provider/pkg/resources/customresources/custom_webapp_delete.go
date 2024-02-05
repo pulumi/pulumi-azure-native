@@ -12,7 +12,7 @@ import (
 const webAppResourceType = "azure-native:web:WebApp"
 
 // https://github.com/pulumi/pulumi-azure-native/issues/1529
-func customWebAppDelete(lookupResource resources.ResourceLookupFunc, azureClient azure.AzureClient) *CustomResource {
+func customWebAppDelete(lookupResource resources.ResourceLookupFunc, azureDeleter azure.AzureDeleter) *CustomResource {
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}",
 		tok:  webAppResourceType,
@@ -25,7 +25,7 @@ func customWebAppDelete(lookupResource resources.ResourceLookupFunc, azureClient
 				return fmt.Errorf("resource %q not found", webAppResourceType)
 			}
 
-			return azureClient.Delete(ctx, id, res.APIVersion, res.DeleteAsyncStyle, map[string]any{
+			return azureDeleter.Delete(ctx, id, res.APIVersion, res.DeleteAsyncStyle, map[string]any{
 				// Don't delete the app service plan even if this was the last web app in it. It's
 				// a separate Pulumi resource.
 				"deleteEmptyServerFarm": false,

@@ -25,9 +25,13 @@ const (
 `
 )
 
-type AzureClient interface {
-	CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error
+type AzureDeleter interface {
 	Delete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error
+}
+
+type AzureClient interface {
+	AzureDeleter
+	CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error
 	Get(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error)
 	Head(ctx context.Context, id string, apiVersion string) error
 	Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
