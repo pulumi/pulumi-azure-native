@@ -30,8 +30,9 @@ type AzureClient interface {
 	Delete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error
 	Get(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error)
 	Head(ctx context.Context, id string, apiVersion string) error
+	Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
 	Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (map[string]interface{}, error)
-	Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, updateMethod string, asyncStyle string) (map[string]interface{}, bool, error)
+	Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
 }
 
 type azureClientImpl struct {
@@ -242,22 +243,34 @@ func forceRequestErrorForStatusNotFound(r autorest.Responder) autorest.Responder
 	})
 }
 
+func (a *azureClientImpl) Patch(
+	ctx context.Context,
+	id string,
+	bodyProps map[string]interface{},
+	queryParameters map[string]interface{},
+	asyncStyle string,
+) (map[string]interface{}, bool, error) {
+	return a.update(ctx, id, bodyProps, queryParameters, autorest.AsPatch(), asyncStyle)
+}
+
 func (a *azureClientImpl) Put(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
 	queryParameters map[string]interface{},
-	updateMethod string,
-	asyncStyle string) (map[string]interface{}, bool, error) {
+	asyncStyle string,
+) (map[string]interface{}, bool, error) {
+	return a.update(ctx, id, bodyProps, queryParameters, autorest.AsPut(), asyncStyle)
+}
 
-	var op autorest.PrepareDecorator
-	switch updateMethod {
-	case "PATCH":
-		op = autorest.AsPatch()
-	default:
-		op = autorest.AsPut()
-	}
-
+func (a *azureClientImpl) update(
+	ctx context.Context,
+	id string,
+	bodyProps map[string]interface{},
+	queryParameters map[string]interface{},
+	op autorest.PrepareDecorator,
+	asyncStyle string,
+) (map[string]interface{}, bool, error) {
 	decorators := []autorest.PrepareDecorator{
 		autorest.AsContentType("application/json; charset=utf-8"),
 		op,

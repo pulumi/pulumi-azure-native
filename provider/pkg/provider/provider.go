@@ -909,8 +909,12 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 		k.setUnsetSubresourcePropertiesToDefaults(*res, bodyParams, bodyParams, true)
 
-		// Submit the `PUT` against the ARM endpoint
-		response, created, err := k.azureClient.Put(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+		// Submit the `PUT` or `PATCH` against the ARM endpoint
+		op := k.azureClient.Put
+		if res.UpdateMethod == "PATCH" {
+			op = k.azureClient.Patch
+		}
+		response, created, err := op(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
 		if err != nil {
 			if created {
 				// Resource was created but failed to fully initialize.
@@ -1267,7 +1271,12 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
 		}
 
-		response, updated, err := k.azureClient.Put(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+		// Submit the `PUT` or `PATCH` against the ARM endpoint
+		op := k.azureClient.Put
+		if res.UpdateMethod == "PATCH" {
+			op = k.azureClient.Patch
+		}
+		response, updated, err := op(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
 		if err != nil {
 			if updated {
 				// Resource was partially updated but the operation failed to complete.
@@ -1361,7 +1370,13 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				requestBody := k.converter.SdkInputsToRequestBody(param.Body.Properties, res.DefaultBody, id)
 
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
-				_, _, err := k.azureClient.Put(ctx, id, requestBody, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+
+				// Submit the `PUT` or `PATCH` against the ARM endpoint
+				op := k.azureClient.Put
+				if res.UpdateMethod == "PATCH" {
+					op = k.azureClient.Patch
+				}
+				_, _, err := op(ctx, id, requestBody, queryParams, res.PutAsyncStyle)
 				if err != nil {
 					return nil, azure.AzureError(err)
 				}
