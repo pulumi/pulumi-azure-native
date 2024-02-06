@@ -241,13 +241,13 @@ jobs:
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
         run: |
           set -euo pipefail
-          cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
 
       - name: Run short tests
         if: inputs.short_test
         run: |
           set -euo pipefail
-          cd examples && go test -v -json -cover -timeout 15m -short -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd examples && go test -v -json -cover -timeout 15m -short -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
 
   test_provider:
     runs-on: ubuntu-latest
@@ -297,6 +297,15 @@ jobs:
     needs: build_sdks
     runs-on: ubuntu-latest
     name: Test pulumi/examples
+    strategy:
+      fail-fast: true
+      matrix:
+        language:
+          - nodejs
+          - python
+          - dotnet
+          - go
+          - java
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -309,7 +318,7 @@ jobs:
           repository: pulumi/examples
           # TODO,tkappler
           ref: tkappler/separate-tests-by-provider
-          path: examples
+          path: p-examples
 
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
@@ -328,23 +337,52 @@ jobs:
       - name: Update path
         run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
 
-      - name: Download SDK artifacts
+      - name: Download Go SDK artifact
+        if: ${{ matrix.language == 'go' }}
         uses: actions/download-artifact@v4
         with:
-          pattern: '*.gz'
-          merge-multiple: true
+          name: pulumi-azure-native-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/
 
-      - name: Uncompress SDKs
+      - name: UnTar Go SDK artifact
+        if: ${{ matrix.language == 'go' }}
         run: |
           mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
           tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
-          tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C ${{github.workspace}}/sdk/nodejs
-          tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C ${{github.workspace}}/sdk/python
-          tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C ${{github.workspace}}/sdk/dotnet
-          tar -zxf ${{github.workspace}}/sdk/java.tar.gz   -C ${{github.workspace}}/sdk/java
           # free disk space
           rm ${{github.workspace}}/sdk/*.tar.gz
+
+      - name: Download ${{ matrix.language  }} SDK
+        if: ${{ matrix.language != 'go' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.language  }}-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/
+
+      - name: Uncompress ${{ matrix.language  }} SDK
+        if: ${{ matrix.language != 'go' }}
+        run: |
+          tar -zxf ${{github.workspace}}/sdk/${{ matrix.language  }}.tar.gz -C ${{github.workspace}}/sdk/${{ matrix.language  }}
+          # free disk space
+          rm ${{github.workspace}}/sdk/*.tar.gz
+
+      # - name: Download SDK artifacts
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     pattern: '*.gz'
+      #     merge-multiple: true
+      #     path: ${{ github.workspace}}/sdk/
+
+      # - name: Uncompress SDKs
+      #   run: |
+      #     mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
+      #     tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
+      #     tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C ${{github.workspace}}/sdk/nodejs
+      #     tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C ${{github.workspace}}/sdk/python
+      #     tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C ${{github.workspace}}/sdk/dotnet
+      #     tar -zxf ${{github.workspace}}/sdk/java.tar.gz   -C ${{github.workspace}}/sdk/java
+      #     # free disk space
+      #     rm ${{github.workspace}}/sdk/*.tar.gz
 
       - name: Install Node dependencies
         run: yarn global add typescript
@@ -359,7 +397,6 @@ jobs:
 
       - name: Free up disk space
         run: |-
-          du -hs *
           df -h
           rm -rf /opt/hostedtoolcache/CodeQL
           rm -rf /opt/hostedtoolcache/go/1.19.*
@@ -370,8 +407,17 @@ jobs:
           docker rmi "$(docker image ls -aq)"
           df -h
 
-      - name: Test p/examples
-        run: ./.github/scripts/test-in-workspace.sh AzureNative
+      - name: Run pulumi/examples tests
+        if: ${{ !inputs.short_test }}
+        env:
+          # specifying this id will cause the OIDC test(s) to run against this AD application
+          OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
+        run: |
+          set -euo pipefail
+          cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+  
+      # - name: Test p/examples
+      #   run: ./.github/scripts/test-in-workspace.sh AzureNative
 
   dist:
     runs-on: ubuntu-latest

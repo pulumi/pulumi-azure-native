@@ -6,7 +6,7 @@ TestSet=${1}
 
 go work init
 go work use -r sdk/pulumi-azure-native-sdk
-go work use examples/misc/test
+go work use p-examples/misc/test
 
 cd examples
 make specific_test_set TestSet=$TestSet

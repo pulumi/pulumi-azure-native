@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	pexamples "github.com/pulumi/examples/misc/test/definitions"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
@@ -37,6 +38,19 @@ func TestAccSql(t *testing.T) {
 		})
 
 	integration.ProgramTest(t, &test)
+}
+
+func TestPulumiExamples(t *testing.T) {
+	for _, example := range pexamples.AzureNativeTests[pexamples.CS] {
+		t.Run(example.Dir, func(t *testing.T) {
+			test := getCsharpBaseOptions(t).
+				With(example.Options).
+				With(integration.ProgramTestOptions{
+					Dir: filepath.Join(getCwd(t), "../p-examples", example.Dir),
+				})
+			integration.ProgramTest(t, &test)
+		})
+	}
 }
 
 func getCsharpBaseOptions(t *testing.T) integration.ProgramTestOptions {
