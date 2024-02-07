@@ -3681,6 +3681,7 @@
       {
         "resourceType": "SqlServerInstances",
         "apiVersions": [
+          "2024-02-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
           "2023-09-01-preview",
@@ -3696,6 +3697,7 @@
       {
         "resourceType": "SqlServerInstances/AvailabilityGroups",
         "apiVersions": [
+          "2024-02-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
           "2023-09-01-preview",
@@ -3705,6 +3707,7 @@
       {
         "resourceType": "SqlServerInstances/Databases",
         "apiVersions": [
+          "2024-02-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
           "2023-09-01-preview",
@@ -3723,16 +3726,75 @@
     ]
   },
   {
+    "namespace": "Microsoft.AzureDataTransfer",
+    "resourceTypes": [
+      {
+        "resourceType": "connections",
+        "apiVersions": [
+          "2023-10-11-preview",
+          "2023-06-28",
+          "2022-12-13-preview"
+        ]
+      },
+      {
+        "resourceType": "connections/flows",
+        "apiVersions": [
+          "2023-10-11-preview",
+          "2023-06-28",
+          "2022-12-13-preview"
+        ]
+      },
+      {
+        "resourceType": "listApprovedSchemas",
+        "apiVersions": [
+          "2023-10-11-preview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2023-10-11-preview",
+          "2023-06-28",
+          "2022-12-13-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationStatuses",
+        "apiVersions": [
+          "2023-10-11-preview",
+          "2023-06-28",
+          "2022-12-13-preview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2023-10-11-preview",
+          "2023-06-28",
+          "2022-12-13-preview"
+        ]
+      },
+      {
+        "resourceType": "pipelines",
+        "apiVersions": [
+          "2023-10-11-preview",
+          "2023-06-28",
+          "2022-12-13-preview"
+        ]
+      },
+      {
+        "resourceType": "validateSchema",
+        "apiVersions": [
+          "2023-10-11-preview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.AzureFleet",
     "resourceTypes": [
       {
         "resourceType": "locations",
-        "apiVersions": [
-          "2023-11-01-preview"
-        ]
-      },
-      {
-        "resourceType": "locations/operations",
         "apiVersions": [
           "2023-11-01-preview"
         ]
@@ -4851,6 +4913,12 @@
         "resourceType": "billingAccounts/BillingProfiles/patchOperations",
         "apiVersions": [
           "2018-11-01-preview"
+        ]
+      },
+      {
+        "resourceType": "billingAccounts/addresses",
+        "apiVersions": [
+          "2022-10-01-privatepreview"
         ]
       },
       {
@@ -16925,15 +16993,13 @@
       {
         "resourceType": "locations",
         "apiVersions": [
-          "2023-09-01-preview",
-          "2023-03-01-preview"
+          "2023-09-01-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2023-09-01-preview",
-          "2023-03-01-preview"
+          "2023-09-01-preview"
         ]
       }
     ]
@@ -27404,9 +27470,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
-          "2023-10-15-preview",
-          "2023-10-15",
-          "2023-05-15-preview"
+          "2023-10-15-preview"
         ]
       },
       {
