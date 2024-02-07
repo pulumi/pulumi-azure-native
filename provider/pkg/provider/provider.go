@@ -1192,6 +1192,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Update(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
+
 	inputs, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label: fmt.Sprintf("%s.properties", label), KeepUnknowns: true, SkipNulls: true,
 	})
@@ -1240,58 +1241,19 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 
 	restoreDefaultInputsForRemovedProperties(inputs, *res, oldState)
 
-	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
-		res.Path,
-		res.PutParameters,
-		res.RequiredContainers,
-		inputs.Mappable(),
-		map[string]interface{}{
-			"subscriptionId": k.subscriptionID,
-			"api-version":    res.APIVersion,
-		},
-	)
-	if err != nil {
-		return nil, err
-	}
-
-	ctx, cancel := azureContext(ctx, req.Timeout)
-	defer cancel()
-
 	var outputs map[string]interface{}
 	customRes, isCustom := k.customResources[res.Path]
-	switch {
-	case isCustom && customRes.Update != nil:
+	if isCustom && customRes.Update != nil {
 		outputs, err = customRes.Update(ctx, inputs)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
-	default:
-		err := k.maintainSubResourcePropertiesIfNotSet(ctx, res, id, bodyParams)
-		if err != nil {
-			return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
-		}
-
-		// Submit the `PUT` or `PATCH` against the ARM endpoint
-		op := k.azureClient.Put
-		if res.UpdateMethod == "PATCH" {
-			op = k.azureClient.Patch
-		}
-		response, updated, err := op(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
-		if err != nil {
-			if updated {
-				// Resource was partially updated but the operation failed to complete.
-				// Try reading its state by ID and return a partial error if succeeded.
-				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, *res, inputs)
-				if getErr != nil {
-					return nil, azure.AzureError(errors.Wrapf(err, "resource updated but read failed %s", getErr))
-				}
-				return nil, partialError(id, err, checkpoint, req.GetNews())
-			}
-			return nil, azure.AzureError(err)
-		}
-
+	} else {
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
+		outputs, err = k.defaultUpdate(ctx, res, req, inputs)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	// Store both outputs and inputs into the state.
@@ -1308,6 +1270,43 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	return &rpc.UpdateResponse{
 		Properties: checkpoint,
 	}, nil
+}
+
+func (k *azureNativeProvider) defaultUpdate(ctx context.Context, res *resources.AzureAPIResource, req *rpc.UpdateRequest, inputs resource.PropertyMap) (map[string]any, error) {
+	crudClient := ResourceCrudClient{
+		azureClient: k.azureClient,
+		provider:    k,
+		res:         res,
+		// id:          id,
+		inputs: inputs,
+	}
+
+	id, bodyParams, queryParams, err := crudClient.PrepareAzureRESTInputs(inputs.Mappable())
+	if err != nil {
+		return nil, err
+	}
+
+	// TODO,tkappler fix
+	crudClient.id = id
+
+	ctx, cancel := azureContext(ctx, req.Timeout)
+	defer cancel()
+
+	err = crudClient.MaintainSubResourcePropertiesIfNotSet(ctx, bodyParams)
+	if err != nil {
+		return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
+	}
+
+	response, updated, err := crudClient.Put(ctx, bodyParams, queryParams)
+	if err != nil {
+		if updated {
+			return nil, crudClient.HandleErrorWithCheckpoint(ctx, err, req.GetNews())
+		}
+		return nil, azure.AzureError(err)
+	}
+
+	// Map the raw response to the shape of outputs that the SDKs expect.
+	return crudClient.ResponseBodyToSdkOutputs(response), nil
 }
 
 func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res resources.AzureAPIResource, oldState resource.PropertyMap) error {
@@ -1490,39 +1489,6 @@ func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[stri
 		}
 	}
 	return writtenProperties
-}
-
-func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}, returnApiShapePaths bool) []propertyPath {
-	missingProperties := []propertyPath{}
-	for _, path := range res.PathsToSubResourcePropertiesToMaintain(returnApiShapePaths, k.lookupType) {
-		curBody := bodyParams
-		for i, pathEl := range path {
-			v, ok := curBody[pathEl]
-			if !ok {
-				missingProperties = append(missingProperties, propertyPath{
-					path:         path,
-					propertyName: pathEl,
-				})
-				break
-			}
-
-			// At the end of the path we don't need to go deeper via references and map lookups.
-			if i == len(path)-1 {
-				break
-			}
-
-			curBody, ok = v.(map[string]interface{})
-			if !ok {
-				missingProperties = append(missingProperties, propertyPath{
-					path:         path,
-					propertyName: pathEl,
-				})
-				break
-			}
-		}
-	}
-
-	return missingProperties
 }
 
 func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, requiredContainers gen.RequiredContainers, methodInputs,
