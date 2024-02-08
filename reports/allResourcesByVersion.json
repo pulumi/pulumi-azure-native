@@ -2681,7 +2681,7 @@
     "2023-10-01-preview": [
       "Account"
     ],
-    "2024-02-01": [
+    "2024-02-01-preview": [
       "Account"
     ]
   },
@@ -3333,6 +3333,12 @@
       "listDatabaseKeys"
     ],
     "2023-11-01": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
+    ],
+    "2024-02-01": [
       "Database",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
@@ -6754,6 +6760,11 @@
       "AccessConnector"
     ],
     "2023-09-15-preview": [
+      "PrivateEndpointConnection",
+      "Workspace",
+      "vNetPeering"
+    ],
+    "2024-02-01-preview": [
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
@@ -12072,6 +12083,24 @@
       "SqlCollectorOperation",
       "VmwareCollectorsOperation"
     ],
+    "2023-04-01-preview": [
+      "AksAssessmentOperation",
+      "AssessmentProjectsOperation",
+      "AssessmentsOperation",
+      "AvsAssessmentsOperation",
+      "BusinessCaseOperation",
+      "GroupsOperation",
+      "HypervCollectorsOperation",
+      "ImportCollectorsOperation",
+      "PrivateEndpointConnectionOperation",
+      "ServerCollectorsOperation",
+      "SqlAssessmentV2Operation",
+      "SqlCollectorOperation",
+      "VmwareCollectorsOperation",
+      "WebAppAssessmentV2Operation",
+      "WebAppCollectorOperation",
+      "getBusinessCaseOperationReportDownloadUrl"
+    ],
     "2023-08-01": [
       "MoveCollection",
       "MoveResource"
@@ -16270,6 +16299,13 @@
       "ContactProfile",
       "Spacecraft",
       "listSpacecraftAvailableContacts"
+    ],
+    "2024-03-01-preview": [
+      "EdgeSite",
+      "GroundStation",
+      "L2Connection",
+      "listEdgeSiteL2Connections",
+      "listGroundStationL2Connections"
     ]
   },
   "Peering": {
@@ -17067,6 +17103,16 @@
       "ProtectionContainer",
       "ProtectionIntent",
       "ProtectionPolicy",
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
     ]

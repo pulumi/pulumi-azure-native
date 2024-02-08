@@ -2835,13 +2835,15 @@
       "2023-05-16-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "sqlserverinstances/availabilitygroups": [
       "2023-05-16-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "sqlserverinstances/databases": [
       "2022-06-15-preview",
@@ -2849,11 +2851,55 @@
       "2023-05-16-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "sqlserverlicenses": [
       "2023-12-01-preview",
       "2024-02-01-preview"
+    ]
+  },
+  "azuredatatransfer": {
+    "": [
+      "2022-12-13-preview",
+      "2023-06-28",
+      "2023-10-11-preview"
+    ],
+    "connections": [
+      "2022-12-13-preview",
+      "2023-06-28",
+      "2023-10-11-preview"
+    ],
+    "connections/flows": [
+      "2022-12-13-preview",
+      "2023-06-28",
+      "2023-10-11-preview"
+    ],
+    "listapprovedschemas": [
+      "2023-10-11-preview"
+    ],
+    "locations": [
+      "2022-12-13-preview",
+      "2023-06-28",
+      "2023-10-11-preview"
+    ],
+    "locations/operationstatuses": [
+      "2022-12-13-preview",
+      "2023-06-28",
+      "2023-10-11-preview"
+    ],
+    "operations": [
+      "2022-12-13-preview",
+      "2023-06-28",
+      "2023-10-11-preview"
+    ],
+    "pipelines": [
+      "2022-12-13-preview",
+      "2023-06-28",
+      "2023-10-11-preview"
+    ],
+    "validateschema": [
+      "2023-10-11-preview"
     ]
   },
   "azurefleet": {
@@ -2861,9 +2907,6 @@
       "2023-11-01-preview"
     ],
     "locations": [
-      "2023-11-01-preview"
-    ],
-    "locations/operations": [
       "2023-11-01-preview"
     ],
     "operations": [
@@ -3762,6 +3805,9 @@
       "2020-05-01",
       "2020-11-01-privatepreview",
       "2020-12-15-privatepreview",
+      "2022-10-01-privatepreview"
+    ],
+    "billingaccounts/addresses": [
       "2022-10-01-privatepreview"
     ],
     "billingaccounts/agreements": [
@@ -11884,15 +11930,12 @@
   },
   "databasewatcher": {
     "": [
-      "2023-03-01-preview",
       "2023-09-01-preview"
     ],
     "locations": [
-      "2023-03-01-preview",
       "2023-09-01-preview"
     ],
     "operations": [
-      "2023-03-01-preview",
       "2023-09-01-preview"
     ]
   },
@@ -15846,6 +15889,9 @@
       "2023-11-15-preview"
     ],
     "throughputpools": [
+      "2023-11-15-preview"
+    ],
+    "throughputpools/throughputpoolaccounts": [
       "2023-11-15-preview"
     ]
   },
@@ -22653,8 +22699,6 @@
       "2023-10-15-preview"
     ],
     "locations/operationstatuses": [
-      "2023-05-15-preview",
-      "2023-10-15",
       "2023-10-15-preview"
     ],
     "operations": [

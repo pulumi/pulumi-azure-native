@@ -103,7 +103,7 @@
   "AzureDataTransfer": [],
   "AzureLargeInstance": [],
   "AzurePlaywrightService": [
-    "2024-02-01"
+    "2024-02-01-preview"
   ],
   "AzureSphere": [
     "2024-04-01"
@@ -144,7 +144,8 @@
     "2023-08-01",
     "2023-08-01-preview",
     "2023-10-01-preview",
-    "2023-11-01"
+    "2023-11-01",
+    "2024-02-01"
   ],
   "Capacity": [],
   "Cdn": [
@@ -363,7 +364,8 @@
   "DataShare": [],
   "Databricks": [
     "2023-05-01",
-    "2023-09-15-preview"
+    "2023-09-15-preview",
+    "2024-02-01-preview"
   ],
   "Datadog": [
     "2022-08-01",
@@ -698,6 +700,7 @@
     "2022-08-01",
     "2023-01-01",
     "2023-03-15",
+    "2023-04-01-preview",
     "2023-08-01"
   ],
   "MixedReality": [
@@ -799,7 +802,9 @@
     "2023-09-01"
   ],
   "OperationsManagement": [],
-  "Orbital": [],
+  "Orbital": [
+    "2024-03-01-preview"
+  ],
   "Peering": [],
   "PolicyInsights": [
     "2022-09-01"
