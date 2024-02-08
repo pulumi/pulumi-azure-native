@@ -8,6 +8,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
@@ -16,6 +17,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/accounts"
 	"github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/blobs"
 )
@@ -29,8 +31,8 @@ func newStorageAccountStaticWebsite(env *azure.Environment, accountsClient *stor
 	return &CustomResource{
 		path:   staticWebsitePath,
 		tok:    "azure-native:storage:StorageAccountStaticWebsite",
-		Create: r.createOrUpdate,
-		Update: r.createOrUpdate,
+		Create: r.create,
+		Update: r.update,
 		Read:   r.read,
 		Delete: r.delete,
 		Schema: &schema.ResourceSpec{
@@ -121,6 +123,14 @@ func (r *staticWebsite) newDataClient(ctx context.Context, properties resource.P
 	dataClient := accounts.NewWithEnvironment(*r.env)
 	dataClient.Client.Authorizer = storageAuth
 	return &dataClient, true, nil
+}
+
+func (r *staticWebsite) update(ctx context.Context, req *rpc.UpdateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
+	return r.createOrUpdate(ctx, crudClient.Inputs)
+}
+
+func (r *staticWebsite) create(ctx context.Context, req *rpc.CreateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
+	return r.createOrUpdate(ctx, crudClient.Inputs)
 }
 
 func (r *staticWebsite) createOrUpdate(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
@@ -399,7 +409,9 @@ func (r *blob) newDataClient(ctx context.Context, properties resource.PropertyMa
 	return &dataClient, true, nil
 }
 
-func (r *blob) create(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
+func (r *blob) create(ctx context.Context, req *rpc.CreateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
+	properties := crudClient.Inputs
+
 	dataClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, err
@@ -477,7 +489,9 @@ func (r *blob) create(ctx context.Context, properties resource.PropertyMap) (map
 	return state, err
 }
 
-func (r *blob) update(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
+func (r *blob) update(ctx context.Context, req *rpc.UpdateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
+	properties := crudClient.Inputs
+
 	dataClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, err

@@ -13,9 +13,11 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 // CustomResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
@@ -31,12 +33,12 @@ type CustomResource struct {
 	// Optional, by default the metadata is assumed to be derived from Azure Open API specs.
 	Meta *AzureAPIResource
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
-	Create func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
+	Create func(context.Context, *rpc.CreateRequest, crud.ResourceCrudClient) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
 	// resource outputs. If the requested resource does not exist, the second result is false.
 	Read func(context.Context, string, resource.PropertyMap) (map[string]interface{}, bool, error)
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
-	Update func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
+	Update func(context.Context, *rpc.UpdateRequest, crud.ResourceCrudClient) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
 	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
 }

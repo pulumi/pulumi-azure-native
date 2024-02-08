@@ -8,12 +8,14 @@ import (
 	"fmt"
 	"regexp"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 // Frequently used resource property names.
@@ -73,11 +75,11 @@ func keyVaultAccessPolicy(client *armkeyvault.VaultsClient) *CustomResource {
 			},
 		},
 		Read: c.read,
-		Create: func(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
-			return c.write(ctx, properties, false /* shouldExist */)
+		Create: func(ctx context.Context, req *rpc.CreateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
+			return c.write(ctx, crudClient.Inputs, false /* shouldExist */)
 		},
-		Update: func(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
-			return c.write(ctx, properties, true /* shouldExist */)
+		Update: func(ctx context.Context, req *rpc.UpdateRequest, client crud.ResourceCrudClient) (map[string]interface{}, error) {
+			return c.write(ctx, client.Inputs, true /* shouldExist */)
 		},
 		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
 			return c.modify(ctx, properties, armkeyvault.AccessPolicyUpdateKindRemove)
