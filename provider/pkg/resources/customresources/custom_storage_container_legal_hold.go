@@ -8,16 +8,43 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
-	// . "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
-
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
+const legalHold = "legalHold"
+
 func storageContainerWithLegalHold(azureClient azure.AzureClient) *CustomResource {
 	return &CustomResource{
-		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}",
+		tok: "azure-native:storage:BlobContainer",
+		//path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}",
+
+		SchemaOverlay: &schema.ResourceSpec{
+			ObjectTypeSpec: schema.ObjectTypeSpec{
+				Properties: map[string]schema.PropertySpec{
+					legalHold: {TypeSpec: schema.TypeSpec{Ref: "#/types/azure-native:storage:LegalHold"}},
+				},
+			},
+			InputProperties: map[string]schema.PropertySpec{
+				legalHold: {TypeSpec: schema.TypeSpec{Ref: "#/types/azure-native:storage:LegalHold"}},
+			},
+		},
+
+		MetaOverlay: &resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{
+				{
+					Location: "body",
+					Body: &resources.AzureAPIType{
+						Properties: map[string]resources.AzureAPIProperty{
+							legalHold: {Ref: "#/types/azure-native:storage:LegalHold"},
+						},
+					},
+				},
+			},
+		},
 
 		Create: func(ctx context.Context, req *rpc.CreateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
 			return nil, nil
