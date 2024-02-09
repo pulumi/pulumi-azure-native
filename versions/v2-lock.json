@@ -1004,8 +1004,10 @@
   },
   "Elastic": {
     "Monitor": "2023-06-01",
+    "OpenAI": "2024-01-01-preview",
     "TagRule": "2023-06-01",
     "getBillingInfo": "2023-07-01-preview",
+    "getOpenAIStatus": "2024-01-01-preview",
     "getOrganizationApiKey": "2023-06-01",
     "getOrganizationElasticToAzureSubscriptionMapping": "2023-06-15-preview",
     "listAllTrafficFilter": "2023-06-01",
@@ -1599,9 +1601,12 @@
     "listStreamingLocatorPaths": "2023-01-01"
   },
   "Migrate": {
+    "AksAssessmentOperation": "2023-04-01-preview",
     "Assessment": "2019-10-01",
     "AssessmentProjectsOperation": "2023-03-15",
+    "AssessmentsOperation": "2023-04-01-preview",
     "AvsAssessmentsOperation": "2023-03-15",
+    "BusinessCaseOperation": "2023-04-01-preview",
     "Group": "2019-10-01",
     "GroupsOperation": "2023-03-15",
     "HyperVCollector": "2019-10-01",
@@ -1627,8 +1632,11 @@
     "SqlCollectorOperation": "2023-03-15",
     "VMwareCollector": "2019-10-01",
     "VmwareCollectorsOperation": "2023-03-15",
+    "WebAppAssessmentV2Operation": "2023-04-01-preview",
+    "WebAppCollectorOperation": "2023-04-01-preview",
     "WorkloadDeployment": "2022-05-01-preview",
     "WorkloadInstance": "2022-05-01-preview",
+    "getBusinessCaseOperationReportDownloadUrl": "2023-04-01-preview",
     "getProjectKeys": "2018-02-02",
     "getSolutionConfig": "2018-09-01-preview",
     "getSolutionsControllerConfig": "2023-01-01",
@@ -1934,7 +1942,12 @@
   "Orbital": {
     "Contact": "2022-11-01",
     "ContactProfile": "2022-11-01",
+    "EdgeSite": "2024-03-01-preview",
+    "GroundStation": "2024-03-01-preview",
+    "L2Connection": "2024-03-01-preview",
     "Spacecraft": "2022-11-01",
+    "listEdgeSiteL2Connections": "2024-03-01-preview",
+    "listGroundStationL2Connections": "2024-03-01-preview",
     "listSpacecraftAvailableContacts": "2022-11-01"
   },
   "Peering": {

@@ -2107,6 +2107,34 @@
     "Property": "name"
   },
   {
+    "Module": "cache/v20240201",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "Module": "cache/v20240201",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "Module": "cache/v20240201",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "Module": "cache/v20240201",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
     "Module": "confluent/v20230822",
     "Provider": "Confluent",
     "ResourceName": "Organization",
@@ -3466,6 +3494,13 @@
   },
   {
     "Module": "elastic/v20231101preview",
+    "Provider": "Elastic",
+    "ResourceName": "Monitor",
+    "ReferenceName": "UserInfo",
+    "Property": "userInfo"
+  },
+  {
+    "Module": "elastic/v20240101preview",
     "Provider": "Elastic",
     "ResourceName": "Monitor",
     "ReferenceName": "UserInfo",
