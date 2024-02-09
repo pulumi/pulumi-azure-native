@@ -55,23 +55,23 @@ const (
 type azureNativeProvider struct {
 	rpc.UnimplementedResourceProviderServer
 
-	azureClient    azure.AzureClient
-	host           *provider.HostClient
-	name           string
-	version        string
-	subscriptionID string
-	environment    azureEnv.Environment
-	// client          autorest.Client
-	resourceMap     *resources.PartialAzureAPIMetadata
-	config          map[string]string
-	schemaBytes     []byte
-	metadataBytes   []byte
-	fullPkgSpec     *schema.PackageSpec
-	fullResourceMap *resources.AzureAPIMetadata
-	converter       *convert.SdkShapeConverter
-	customResources map[string]*customresources.CustomResource
-	rgLocationMap   map[string]string
-	lookupType      resources.TypeLookupFunc
+	azureClient      azure.AzureClient
+	host             *provider.HostClient
+	name             string
+	version          string
+	subscriptionID   string
+	environment      azureEnv.Environment
+	resourceMap      *resources.PartialAzureAPIMetadata
+	config           map[string]string
+	schemaBytes      []byte
+	metadataBytes    []byte
+	fullPkgSpec      *schema.PackageSpec
+	fullResourceMap  *resources.AzureAPIMetadata
+	converter        *convert.SdkShapeConverter
+	customResources  map[string]*customresources.CustomResource
+	rgLocationMap    map[string]string
+	lookupType       resources.TypeLookupFunc
+	skipReadOnUpdate bool
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
@@ -230,6 +230,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
 	}
+
+	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
 
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
@@ -933,6 +935,23 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			id = azureId
 		}
 
+		// Read the state of the resource from its Read endpoint. While we already have resource state from
+		// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
+		// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
+		if !k.skipReadOnUpdate {
+			readResponse, err := k.azureRead(ctx, res.ReadMethod, id+res.ReadPath, res.APIVersion)
+			if err != nil {
+				// Since this read operation was introduced in a minor version of the provider, we choose to ignore
+				// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
+				// to promote this situation to an error.
+				k.host.Log(ctx, diag.Warning, urn, `Failed to read resource after Create. Please report this issue.
+	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
+				logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
+			} else if readResponse != nil {
+				response = readResponse
+			}
+		}
+
 		// Map the raw response to the shape of outputs that the SDKs expect.
 		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	}
@@ -1058,15 +1077,8 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		err = k.azureClient.Head(ctx, url, res.APIVersion)
 		response = oldState.Mappable()
 		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
-	case res.ReadMethod == "POST":
-		bodyParams := map[string]interface{}{}
-		queryParams := map[string]interface{}{
-			"api-version": res.APIVersion,
-		}
-		response, err = k.azureClient.Post(ctx, url, bodyParams, queryParams)
-		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	default:
-		response, err = k.azureClient.Get(ctx, url, res.APIVersion)
+		response, err = k.azureRead(ctx, res.ReadMethod, url, res.APIVersion)
 		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	}
 	if err != nil {
@@ -1177,7 +1189,8 @@ func (k *azureNativeProvider) resetUnsetSubResourceProperties(ctx context.Contex
 	result, ok := copy.(map[string]interface{})
 	if !ok {
 		// This should never happen.
-		k.host.Log(ctx, diag.Warning, urn, "Failed to remove unset sub-resource properties. Please report this issue. See verbose logs for more information.")
+		k.host.Log(ctx, diag.Warning, urn, `Failed to remove unset sub-resource properties. Please report this issue.
+Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
 		logging.V(9).Infof("failed to remove unset sub-resource properties: failed to cast copy value, expected map[string]interface{}, found %v", copy)
 		return sdkResponse
 	}
@@ -1288,6 +1301,23 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 				return nil, partialError(id, err, checkpoint, req.GetNews())
 			}
 			return nil, azure.AzureError(err)
+		}
+
+		// Read the state of the resource from its Read endpoint. While we already have resource state from
+		// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
+		// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
+		if !k.skipReadOnUpdate {
+			readResponse, err := k.azureRead(ctx, res.ReadMethod, id+res.ReadPath, res.APIVersion)
+			if err != nil {
+				// Since this read operation was introduced in a minor version of the provider, we choose to ignore
+				// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
+				// to promote this situation to an error.
+				k.host.Log(ctx, diag.Warning, urn, `Failed to read resource after Update. Please report this issue.
+	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
+				logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
+			} else if readResponse != nil {
+				response = readResponse
+			}
 		}
 
 		// Map the raw response to the shape of outputs that the SDKs expect.
@@ -1523,6 +1553,22 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 	}
 
 	return missingProperties
+}
+
+func (k *azureNativeProvider) azureRead(ctx context.Context, readMethod, url, apiVersion string) (map[string]interface{}, error) {
+	switch readMethod {
+	case "HEAD":
+		err := k.azureClient.Head(ctx, url, apiVersion)
+		return nil, err
+	case "POST":
+		bodyParams := map[string]interface{}{}
+		queryParams := map[string]interface{}{
+			"api-version": apiVersion,
+		}
+		return k.azureClient.Post(ctx, url, bodyParams, queryParams)
+	default:
+		return k.azureClient.Get(ctx, url, apiVersion)
+	}
 }
 
 func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, requiredContainers gen.RequiredContainers, methodInputs,

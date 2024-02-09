@@ -120,15 +120,8 @@ new web.WebAppMetadata("meta", {
     properties: {
         CURRENT_STACK: "dotnetcore",
     },
-// These properties are set by resources below, and thus should be ignored here for clean updates.
-}, { ignoreChanges: [
-    "properties.CloneUri",
-    "properties.RepoUrl",
-    "properties.ScmOperationId",
-    "properties.ScmOperationTime",
-    "properties.ScmUri",
-    "properties.subscription",
-]});
+// These properties conflict with other resources in this stack, and thus should be ignored here for clean updates.
+}, { ignoreChanges: [ "properties.*" ]});
 
 new web.WebAppApplicationSettings("settings", {
     resourceGroupName: resourceGroup.name,
@@ -137,7 +130,8 @@ new web.WebAppApplicationSettings("settings", {
         "ApplicationInsights:InstrumentationKey": appInsights.instrumentationKey?.apply(v => v!),
         "test": "Test"
     },
-});
+// These properties conflict with other resources in this stack, and thus should be ignored here for clean updates.
+}, { ignoreChanges: [ "properties.*" ]});
 
 new web.WebAppConnectionStrings("conns", {
     resourceGroupName: resourceGroup.name,
