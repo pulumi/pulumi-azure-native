@@ -33,8 +33,7 @@ const externalVnet = new network.VirtualNetwork("external", {
       // Updating tags causes a resource update that should NOT try to delete subnets.
       "step": "2",
   },
-// Can be removed after https://github.com/pulumi/pulumi-azure-native/issues/3049 is fixed.
-}, { ignoreChanges: ["subnets"] });
+});
 
 const externalSubnet = new network.Subnet("default", {
   resourceGroupName: resourceGroup.name,
