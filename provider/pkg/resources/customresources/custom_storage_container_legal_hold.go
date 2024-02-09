@@ -47,7 +47,36 @@ func storageContainerWithLegalHold(azureClient azure.AzureClient) *CustomResourc
 		},
 
 		Create: func(ctx context.Context, req *rpc.CreateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
-			return nil, nil
+			id, bodyParams, queryParams, err := crudClient.PrepareAzureRESTInputs()
+			if err != nil {
+				return nil, err
+			}
+
+			// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
+			// (though it's technically impossible since the only operation supported is an upsert).
+			err = crudClient.CanCreate(ctx, id)
+			if err != nil {
+				return nil, err
+			}
+
+			crudClient.SetUnsetSubresourcePropertiesToDefaults(bodyParams, bodyParams, true)
+
+			response, created, err := crudClient.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+			if err != nil {
+				if created {
+					return nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, req.GetProperties())
+				}
+				return nil, azure.AzureError(err)
+			}
+
+			// Read the canonical ID from the response.
+			if azureId, ok := response["id"].(string); ok {
+				id = azureId
+			}
+
+			// Map the raw response to the shape of outputs that the SDKs expect.
+			outputs := crudClient.ResponseBodyToSdkOutputs(response)
+			return outputs, nil
 		},
 
 		Read: func(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, bool, error) {
