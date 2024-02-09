@@ -20,6 +20,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/go-openapi/jsonreference"
 	"github.com/go-openapi/spec"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
@@ -44,6 +45,21 @@ type propertyBag struct {
 type RequiredContainers [][]string
 
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType bool) (*propertyBag, error) {
+	// TODO, tkappler: wrong place?
+	if m.resourceToken == "azure-native:storage:BlobContainer" && !isOutput && !isType {
+		fakeSchema := spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Ref: spec.Ref{
+					Ref: jsonreference.MustCreateRef("#/definitions/LegalHold"),
+				},
+			},
+		}
+		_, err := m.genTypeSpec("legalHold", &fakeSchema, resolvedSchema.ReferenceContext, isOutput)
+		if err != nil {
+			logging.V(5).Infof("Failed to add type spec for BlobContainer#LegalHold: %v", err)
+		}
+	}
+
 	result := newPropertyBag()
 
 	// Sort properties to make codegen deterministic.
