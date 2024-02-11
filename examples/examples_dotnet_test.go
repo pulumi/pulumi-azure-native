@@ -41,7 +41,7 @@ func TestAccSql(t *testing.T) {
 }
 
 func TestPulumiExamples(t *testing.T) {
-	for _, example := range pexamples.AzureNativeTests[pexamples.CS] {
+	for _, example := range pexamples.GetTestsForTag("azure-native").GetTestsForTag(pexamples.CS) {
 		t.Run(example.Dir, func(t *testing.T) {
 			test := getCsharpBaseOptions(t).
 				With(example.Options).
