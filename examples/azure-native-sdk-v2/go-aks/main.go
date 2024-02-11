@@ -102,7 +102,7 @@ func main() {
 				ClientId: adApp.ApplicationId,
 				Secret:   adSpPassword.Value,
 			},
-			KubernetesVersion: pulumi.String("1.22.4"),
+			KubernetesVersion: pulumi.String("1.27.7"),
 		})
 		if err != nil {
 			return err
