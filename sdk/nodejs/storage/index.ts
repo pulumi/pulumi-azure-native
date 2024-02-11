@@ -20,6 +20,11 @@ export type BlobContainerImmutabilityPolicy = import("./blobContainerImmutabilit
 export const BlobContainerImmutabilityPolicy: typeof import("./blobContainerImmutabilityPolicy").BlobContainerImmutabilityPolicy = null as any;
 utilities.lazyLoad(exports, ["BlobContainerImmutabilityPolicy"], () => require("./blobContainerImmutabilityPolicy"));
 
+export { BlobContainerLegalHoldArgs } from "./blobContainerLegalHold";
+export type BlobContainerLegalHold = import("./blobContainerLegalHold").BlobContainerLegalHold;
+export const BlobContainerLegalHold: typeof import("./blobContainerLegalHold").BlobContainerLegalHold = null as any;
+utilities.lazyLoad(exports, ["BlobContainerLegalHold"], () => require("./blobContainerLegalHold"));
+
 export { BlobInventoryPolicyArgs } from "./blobInventoryPolicy";
 export type BlobInventoryPolicy = import("./blobInventoryPolicy").BlobInventoryPolicy;
 export const BlobInventoryPolicy: typeof import("./blobInventoryPolicy").BlobInventoryPolicy = null as any;
@@ -218,6 +223,8 @@ const _module = {
                 return new BlobContainer(name, <any>undefined, { urn })
             case "azure-native:storage:BlobContainerImmutabilityPolicy":
                 return new BlobContainerImmutabilityPolicy(name, <any>undefined, { urn })
+            case "azure-native:storage:BlobContainerLegalHold":
+                return new BlobContainerLegalHold(name, <any>undefined, { urn })
             case "azure-native:storage:BlobInventoryPolicy":
                 return new BlobInventoryPolicy(name, <any>undefined, { urn })
             case "azure-native:storage:BlobServiceProperties":

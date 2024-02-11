@@ -9,6 +9,7 @@ from ._enums import *
 from .blob import *
 from .blob_container import *
 from .blob_container_immutability_policy import *
+from .blob_container_legal_hold import *
 from .blob_inventory_policy import *
 from .blob_service_properties import *
 from .encryption_scope import *

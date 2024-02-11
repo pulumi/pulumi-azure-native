@@ -14107,6 +14107,7 @@ _utilities.register(
    "azure-native:storage:Blob": "Blob",
    "azure-native:storage:BlobContainer": "BlobContainer",
    "azure-native:storage:BlobContainerImmutabilityPolicy": "BlobContainerImmutabilityPolicy",
+   "azure-native:storage:BlobContainerLegalHold": "BlobContainerLegalHold",
    "azure-native:storage:BlobInventoryPolicy": "BlobInventoryPolicy",
    "azure-native:storage:BlobServiceProperties": "BlobServiceProperties",
    "azure-native:storage:EncryptionScope": "EncryptionScope",
