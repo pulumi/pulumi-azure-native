@@ -893,7 +893,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}
 
 		// Create the custom resource and retrieve its outputs, which already match the SDK shape.
-		outputs, err = customRes.Create(ctx, inputs)
+		outputs, err = customRes.Create(ctx, id, inputs)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
@@ -1274,7 +1274,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	customRes, isCustom := k.customResources[res.Path]
 	switch {
 	case isCustom && customRes.Update != nil:
-		outputs, err = customRes.Update(ctx, inputs)
+		outputs, err = customRes.Update(ctx, id, inputs, oldState)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}

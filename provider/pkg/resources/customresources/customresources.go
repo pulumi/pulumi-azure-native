@@ -31,12 +31,12 @@ type CustomResource struct {
 	// Optional, by default the metadata is assumed to be derived from Azure Open API specs.
 	Meta *AzureAPIResource
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
-	Create func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
+	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
 	// resource outputs. If the requested resource does not exist, the second result is false.
-	Read func(context.Context, string, resource.PropertyMap) (map[string]interface{}, bool, error)
+	Read func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, bool, error)
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
-	Update func(context.Context, resource.PropertyMap) (map[string]interface{}, error)
+	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
 	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
 }
@@ -75,6 +75,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
 		customWebAppDelete(lookupResource, azureClient),
+		blobContainerLegalHold(azureClient),
 	}
 
 	result := map[string]*CustomResource{}

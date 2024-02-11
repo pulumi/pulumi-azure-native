@@ -30,7 +30,7 @@ func newStorageAccountStaticWebsite(env *azure.Environment, accountsClient *stor
 		path:   staticWebsitePath,
 		tok:    "azure-native:storage:StorageAccountStaticWebsite",
 		Create: r.createOrUpdate,
-		Update: r.createOrUpdate,
+		Update: r.update,
 		Read:   r.read,
 		Delete: r.delete,
 		Schema: &schema.ResourceSpec{
@@ -123,7 +123,11 @@ func (r *staticWebsite) newDataClient(ctx context.Context, properties resource.P
 	return &dataClient, true, nil
 }
 
-func (r *staticWebsite) createOrUpdate(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
+func (r *staticWebsite) update(ctx context.Context, id string, properties, oldState resource.PropertyMap) (map[string]interface{}, error) {
+	return r.createOrUpdate(ctx, id, properties)
+}
+
+func (r *staticWebsite) createOrUpdate(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, error) {
 	dataClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, err
@@ -399,7 +403,7 @@ func (r *blob) newDataClient(ctx context.Context, properties resource.PropertyMa
 	return &dataClient, true, nil
 }
 
-func (r *blob) create(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
+func (r *blob) create(ctx context.Context, id string, properties resource.PropertyMap) (map[string]interface{}, error) {
 	dataClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, err
@@ -477,7 +481,7 @@ func (r *blob) create(ctx context.Context, properties resource.PropertyMap) (map
 	return state, err
 }
 
-func (r *blob) update(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
+func (r *blob) update(ctx context.Context, id string, properties, oldState resource.PropertyMap) (map[string]interface{}, error) {
 	dataClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, err
