@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
+const pulumiExamplesPath = "../p-examples"
+
 func getLocation(t *testing.T) string {
 	azureLocation := os.Getenv("ARM_LOCATION")
 	if azureLocation == "" {

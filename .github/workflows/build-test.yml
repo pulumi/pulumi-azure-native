@@ -366,24 +366,6 @@ jobs:
           # free disk space
           rm ${{github.workspace}}/sdk/*.tar.gz
 
-      # - name: Download SDK artifacts
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     pattern: '*.gz'
-      #     merge-multiple: true
-      #     path: ${{ github.workspace}}/sdk/
-
-      # - name: Uncompress SDKs
-      #   run: |
-      #     mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
-      #     tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
-      #     tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C ${{github.workspace}}/sdk/nodejs
-      #     tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C ${{github.workspace}}/sdk/python
-      #     tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C ${{github.workspace}}/sdk/dotnet
-      #     tar -zxf ${{github.workspace}}/sdk/java.tar.gz   -C ${{github.workspace}}/sdk/java
-      #     # free disk space
-      #     rm ${{github.workspace}}/sdk/*.tar.gz
-
       - name: Install Node dependencies
         run: yarn global add typescript
 
@@ -401,9 +383,7 @@ jobs:
           rm -rf /opt/hostedtoolcache/CodeQL
           rm -rf /opt/hostedtoolcache/go/1.19.*
           rm -rf /opt/hostedtoolcache/go/1.20.*
-          df -h
           sudo apt clean
-          df -h
           docker rmi "$(docker image ls -aq)"
           df -h
 
@@ -416,9 +396,6 @@ jobs:
           set -euo pipefail
           cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
   
-      # - name: Test p/examples
-      #   run: ./.github/scripts/test-in-workspace.sh AzureNative
-
   dist:
     runs-on: ubuntu-latest
     name: Provider Dist

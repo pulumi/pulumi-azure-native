@@ -46,7 +46,7 @@ func TestPulumiExamples(t *testing.T) {
 			test := getCsharpBaseOptions(t).
 				With(example.Options).
 				With(integration.ProgramTestOptions{
-					Dir: filepath.Join(getCwd(t), "../p-examples", example.Dir),
+					Dir: filepath.Join(getCwd(t), pulumiExamplesPath, example.Dir),
 				})
 			integration.ProgramTest(t, &test)
 		})
