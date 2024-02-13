@@ -6,6 +6,7 @@ import (
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 type MockAzureClient struct {
@@ -53,11 +54,11 @@ func TestCreate(t *testing.T) {
 			}),
 		}
 		_, err := custom.Create(context.Background(), containerId+"/legalHold", inputs)
-		assert.NoError(t, err)
+		require.NoError(t, err)
 
-		assert.Len(t, m.postIds, 1)
+		require.Len(t, m.postIds, 1)
 		assert.Equal(t, m.postIds[0], containerId+"/setLegalHold")
-		assert.Len(t, m.postBodies, 1)
+		require.Len(t, m.postBodies, 1)
 		assert.Contains(t, m.postBodies[0], "tags")
 		assert.Contains(t, m.postBodies[0]["tags"], "tag1")
 		assert.NotContains(t, m.postBodies[0], "allowProtectedAppendWritesAll")
@@ -74,11 +75,11 @@ func TestCreate(t *testing.T) {
 			resource.PropertyKey("allowProtectedAppendWritesAll"): resource.NewBoolProperty(true),
 		}
 		_, err := custom.Create(context.Background(), containerId+"/legalHold", inputs)
-		assert.NoError(t, err)
+		require.NoError(t, err)
 
-		assert.Len(t, m.postIds, 1)
+		require.Len(t, m.postIds, 1)
 		assert.Equal(t, m.postIds[0], containerId+"/setLegalHold")
-		assert.Len(t, m.postBodies, 1)
+		require.Len(t, m.postBodies, 1)
 		assert.Contains(t, m.postBodies[0], "tags")
 		assert.Contains(t, m.postBodies[0]["tags"], "tag1")
 		assert.Contains(t, m.postBodies[0], "allowProtectedAppendWritesAll")
@@ -119,11 +120,11 @@ func TestUpdate(t *testing.T) {
 		}
 
 		_, err := custom.Update(context.Background(), containerId+"/legalHold", news, olds)
-		assert.NoError(t, err)
+		require.NoError(t, err)
 
-		assert.Len(t, m.postIds, 1)
+		require.Len(t, m.postIds, 1)
 		assert.Equal(t, m.postIds[0], containerId+"/setLegalHold")
-		assert.Len(t, m.postBodies, 1)
+		require.Len(t, m.postBodies, 1)
 		assert.Contains(t, m.postBodies[0], "tags")
 		assert.NotContains(t, m.postBodies[0]["tags"], "tag1")
 		assert.Contains(t, m.postBodies[0]["tags"], "tag2")
@@ -146,10 +147,10 @@ func TestUpdate(t *testing.T) {
 		}
 
 		_, err := custom.Update(context.Background(), containerId+"/legalHold", news, olds)
-		assert.NoError(t, err)
+		require.NoError(t, err)
 
-		assert.Len(t, m.postIds, 1)
-		assert.Len(t, m.postBodies, 1)
+		require.Len(t, m.postIds, 1)
+		require.Len(t, m.postBodies, 1)
 		assert.Equal(t, m.postIds[0], containerId+"/clearLegalHold")
 		assert.Contains(t, m.postBodies[0], "tags")
 		assert.NotContains(t, m.postBodies[0]["tags"], "tag1")
@@ -175,10 +176,10 @@ func TestUpdate(t *testing.T) {
 		}
 
 		_, err := custom.Update(context.Background(), containerId+"/legalHold", news, olds)
-		assert.NoError(t, err)
+		require.NoError(t, err)
 
-		assert.Len(t, m.postIds, 2)
-		assert.Len(t, m.postBodies, 2)
+		require.Len(t, m.postIds, 2)
+		require.Len(t, m.postBodies, 2)
 
 		assert.Equal(t, m.postIds[0], containerId+"/setLegalHold")
 		assert.Contains(t, m.postBodies[0], "tags")
@@ -213,7 +214,7 @@ func TestUpdate(t *testing.T) {
 		}
 
 		_, err := custom.Update(context.Background(), containerId+"/legalHold", news, olds)
-		assert.NoError(t, err)
+		require.NoError(t, err)
 
 		assert.Len(t, m.postIds, 0)
 	})
@@ -234,10 +235,10 @@ func TestDelete(t *testing.T) {
 		}
 
 		err := custom.Delete(context.Background(), containerId+"/legalHold", olds)
-		assert.NoError(t, err)
+		require.NoError(t, err)
 
-		assert.Len(t, m.postIds, 1)
-		assert.Len(t, m.postBodies, 1)
+		require.Len(t, m.postIds, 1)
+		require.Len(t, m.postBodies, 1)
 		assert.Equal(t, m.postIds[0], containerId+"/clearLegalHold")
 		assert.Contains(t, m.postBodies[0], "tags")
 		assert.Contains(t, m.postBodies[0]["tags"], "tag1")
