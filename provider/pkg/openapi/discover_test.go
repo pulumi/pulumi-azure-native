@@ -88,10 +88,8 @@ func TestDefaultState(t *testing.T) {
 		}
 	}
 
-	t.Run("No default", func(t *testing.T) {
-		path := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/diagnosticSettingsCategories/{categoryName}"
+	parseSwagger := func(t *testing.T, path string) *ResourceSpec {
 		swagger := makeSwagger(path)
-
 		version := NewVersionResources()
 
 		addResourcesAndInvokes(version, "/file/path", path, "insights", &swagger)
@@ -99,22 +97,26 @@ func TestDefaultState(t *testing.T) {
 		require.NotEmpty(t, version.Resources)
 		res, ok := version.Resources["DiagnosticSettingsCategory"]
 		require.True(t, ok)
+		return res
+	}
+
+	t.Run("No default", func(t *testing.T) {
+		path := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/diagnosticSettingsCategories/{categoryName}"
+
+		def := defaults.GetDefaultResourceState(path)
+		require.Nil(t, def)
+
+		res := parseSwagger(t, path)
 		assert.Nil(t, res.DefaultBody)
 	})
 
 	t.Run("With default", func(t *testing.T) {
 		path := "/{resourceId}/providers/Microsoft.Security/advancedThreatProtectionSettings/{settingName}"
+
 		def := defaults.GetDefaultResourceState(path)
 		require.NotNil(t, def)
 
-		swagger := makeSwagger(path)
-		version := NewVersionResources()
-
-		addResourcesAndInvokes(version, "/file/path", path, "insights", &swagger)
-
-		require.NotEmpty(t, version.Resources)
-		res, ok := version.Resources["DiagnosticSettingsCategory"]
-		require.True(t, ok)
+		res := parseSwagger(t, path)
 		assert.Equal(t, def.State, res.DefaultBody)
 	})
 }
