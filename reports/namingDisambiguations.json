@@ -189,6 +189,13 @@
     "DisambiguatedName": "EnterprisePrivateEndpointConnection"
   },
   {
+    "FileLocation": "specification/redisenterprise/resource-manager/Microsoft.Cache/stable/2024-02-01/redisenterprise.json",
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
     "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2021-01-01-preview/managedapplication.json",
     "OperationID": "ApplicationTypes_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
