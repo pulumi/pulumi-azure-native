@@ -558,7 +558,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 				if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 					fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", apiVersion, typeName, path, version.Resources[typeName].Path)
 				}
-				defaultBody := map[string]interface{}{}
+				var defaultBody map[string]any
 				if defaultState != nil {
 					defaultBody = defaultState.State
 				}
