@@ -1,0 +1,72 @@
+name: Test setup
+description: Installs dependencies and downloads previously built provider and SDKs to get everything ready for running e2e tests
+
+inputs:
+  language:
+    description: The programming language for which to set up
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install Languages & Frameworks
+      uses: ./.github/actions/install
+
+    - run: make ensure
+      shell: bash
+
+    - name: Prerequisites artifact restore
+      uses: ./.github/actions/prerequisites-artifact-restore
+
+    - name: Mark prerequisites as up-to-date
+      run: make --touch codegen schema provider
+      shell: bash
+
+    - name: Download Go SDK artifact
+      if: ${{ inputs.language == 'go' }}
+      uses: actions/download-artifact@v4
+      with:
+        name: pulumi-azure-native-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/
+
+    - name: UnTar Go SDK artifact
+      if: ${{ inputs.language == 'go' }}
+      run: |
+        mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
+        tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
+      shell: bash
+
+    - name: Download ${{ inputs.language  }} SDK
+      if: ${{ inputs.language != 'go' }}
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.language  }}-sdk.tar.gz
+        path: ${{ github.workspace}}/sdk/
+
+    - name: Uncompress ${{ inputs.language  }} SDK
+      if: ${{ inputs.language != 'go' }}
+      run: tar -zxf ${{github.workspace}}/sdk/${{ inputs.language  }}.tar.gz -C ${{github.workspace}}/sdk/${{ inputs.language  }}
+      shell: bash
+
+    - name: Update path
+      run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
+      shell: bash
+
+    - name: Install Node dependencies
+      run: yarn global add typescript
+      shell: bash
+
+    - name: Install Python deps
+      run: |-
+        pip3 install virtualenv==20.0.23
+        pip3 install pipenv
+      shell: bash
+
+    - name: Install dependencies
+      run: make install_${{ inputs.language}}_sdk
+      shell: bash
+
+    - name: Install gotestfmt
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
+      with:
+        tag: v2.5.0
+        repo: GoTestTools/gotestfmt

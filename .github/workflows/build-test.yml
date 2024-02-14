@@ -179,60 +179,10 @@ jobs:
           ref: ${{ inputs.ref }}
           submodules: true
 
-      - name: Install Languages & Frameworks
-        uses: ./.github/actions/install
-
-      - run: make ensure
-
-      - name: Prerequisites artifact restore
-        uses: ./.github/actions/prerequisites-artifact-restore
-
-      - name: Mark prerequisites as up-to-date
-        run: make --touch codegen schema provider
-
-      - name: Download Go SDK artifact
-        if: ${{ matrix.language == 'go' }}
-        uses: actions/download-artifact@v4
+      - name: Setup
+        uses: ./.github/actions/test-setup
         with:
-          name: pulumi-azure-native-sdk.tar.gz
-          path: ${{ github.workspace}}/sdk/
-
-      - name: UnTar Go SDK artifact
-        if: ${{ matrix.language == 'go' }}
-        run: |
-          mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
-          tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
-
-      - name: Download ${{ matrix.language  }} SDK
-        if: ${{ matrix.language != 'go' }}
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ matrix.language  }}-sdk.tar.gz
-          path: ${{ github.workspace}}/sdk/
-
-      - name: Uncompress ${{ matrix.language  }} SDK
-        if: ${{ matrix.language != 'go' }}
-        run: tar -zxf ${{github.workspace}}/sdk/${{ matrix.language  }}.tar.gz -C ${{github.workspace}}/sdk/${{ matrix.language  }}
-
-      - name: Update path
-        run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-
-      - name: Install Node dependencies
-        run: yarn global add typescript
-
-      - name: Install Python deps
-        run: |-
-          pip3 install virtualenv==20.0.23
-          pip3 install pipenv
-
-      - name: Install dependencies
-        run: make install_${{ matrix.language}}_sdk
-
-      - name: Install gotestfmt
-        uses: jaxxstorm/action-install-gh-release@v1.9.0
-        with:
-          tag: v2.4.0
-          repo: GoTestTools/gotestfmt
+          language: ${{ matrix.language }}
 
       - name: Run tests
         if: ${{ ! inputs.short_test }}
@@ -248,50 +198,6 @@ jobs:
         run: |
           set -euo pipefail
           cd examples && go test -v -json -cover -timeout 15m -short -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-
-  test_provider:
-    runs-on: ubuntu-latest
-    name: Test Provider
-    needs: prerequisites
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.ref }}
-          submodules: true
-
-      - name: Install Languages & Frameworks
-        uses: ./.github/actions/install
-        with:
-          skip_dotnet_and_java: "true"
-
-      - name: Install gotestfmt
-        uses: jaxxstorm/action-install-gh-release@v1.9.0
-        with:
-          tag: v2.4.0
-          repo: GoTestTools/gotestfmt
-
-      - run: make ensure
-
-      - name: Prerequisites artifact restore
-        uses: ./.github/actions/prerequisites-artifact-restore
-
-      # This is essentially just copying files from bin to the provider folder
-      - name: Prebuild provider prerequisites
-        run: |
-          make prebuild
-          make --touch codegen schema
-          make provider_prebuild
-
-      - name: Test Provider Library
-        run: |
-          set -euo pipefail
-          cd provider && go test -v -json -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   test_examples:
     needs: build_sdks
@@ -316,66 +222,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: pulumi/examples
-          # TODO,tkappler
+          # TODO,tkappler change to master when merged
           ref: tkappler/separate-tests-by-provider
           path: p-examples
 
-      - name: Install Languages & Frameworks
-        uses: ./.github/actions/install
-      - name: Install gotestfmt
-        uses: jaxxstorm/action-install-gh-release@v1.9.0
+      - name: Setup
+        uses: ./.github/actions/test-setup
         with:
-          tag: v2.4.0
-          repo: GoTestTools/gotestfmt
-
-      - run: make ensure
-
-      - name: Prerequisites artifact restore
-        uses: ./.github/actions/prerequisites-artifact-restore
-      - name: Mark prerequisites as up-to-date
-        run: make --touch codegen schema provider
-      - name: Update path
-        run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-
-      - name: Download Go SDK artifact
-        if: ${{ matrix.language == 'go' }}
-        uses: actions/download-artifact@v4
-        with:
-          name: pulumi-azure-native-sdk.tar.gz
-          path: ${{ github.workspace}}/sdk/
-
-      - name: UnTar Go SDK artifact
-        if: ${{ matrix.language == 'go' }}
-        run: |
-          mkdir -p ${{github.workspace}}/sdk/pulumi-azure-native-sdk
-          tar -zxf ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz -C ${{github.workspace}}/sdk/pulumi-azure-native-sdk
-          # free disk space
-          rm ${{github.workspace}}/sdk/*.tar.gz
-
-      - name: Download ${{ matrix.language  }} SDK
-        if: ${{ matrix.language != 'go' }}
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ matrix.language  }}-sdk.tar.gz
-          path: ${{ github.workspace}}/sdk/
-
-      - name: Uncompress ${{ matrix.language  }} SDK
-        if: ${{ matrix.language != 'go' }}
-        run: |
-          tar -zxf ${{github.workspace}}/sdk/${{ matrix.language  }}.tar.gz -C ${{github.workspace}}/sdk/${{ matrix.language  }}
-          # free disk space
-          rm ${{github.workspace}}/sdk/*.tar.gz
-
-      - name: Install Node dependencies
-        run: yarn global add typescript
-
-      - name: Install Python deps
-        run: |-
-          pip3 install virtualenv==20.0.23
-          pip3 install pipenv
-
-      - name: Install dependencies
-        run: make install_sdks
+          language: ${{ matrix.language }}
 
       - name: Free up disk space
         run: |-
@@ -396,7 +250,50 @@ jobs:
           cd examples && \
             go mod edit -replace github.com/pulumi/examples/misc/test=../p-examples/misc/test/ && \
             go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-  
+          
+  test_provider:
+    runs-on: ubuntu-latest
+    name: Test Provider
+    needs: prerequisites
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          submodules: true
+
+      - name: Install Languages & Frameworks
+        uses: ./.github/actions/install
+        with:
+          skip_dotnet_and_java: "true"
+
+      - name: Install gotestfmt
+        uses: jaxxstorm/action-install-gh-release@v1.11.0
+        with:
+          tag: v2.5.0
+          repo: GoTestTools/gotestfmt
+
+      - run: make ensure
+
+      - name: Prerequisites artifact restore
+        uses: ./.github/actions/prerequisites-artifact-restore
+
+      # This is essentially just copying files from bin to the provider folder
+      - name: Prebuild provider prerequisites
+        run: |
+          make --touch codegen schema
+          make provider_prebuild
+
+      - name: Test Provider Library
+        run: |
+          set -euo pipefail
+          cd provider && go test -v -json -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
   dist:
     runs-on: ubuntu-latest
     name: Provider Dist
