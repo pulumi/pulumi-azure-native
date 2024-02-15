@@ -3,7 +3,6 @@ package azure
 import (
 	"bytes"
 	"context"
-	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -37,7 +36,6 @@ type AzureClient interface {
 	Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
 	Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (map[string]interface{}, error)
 	Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
-	IsNotFound(err error) bool
 }
 
 type azureClientImpl struct {
@@ -338,26 +336,6 @@ func (a *azureClientImpl) update(
 		return nil, created, err
 	}
 	return outputs, true, nil
-}
-
-func (a *azureClientImpl) IsNotFound(err error) bool {
-	if requestError, ok := err.(azure.RequestError); ok {
-		return requestError.StatusCode == http.StatusNotFound
-	}
-	return false
-}
-
-// AzureError catches common errors and substitutes them with more user-friendly ones.
-func AzureError(err error) error {
-	if errors.Is(err, context.DeadlineExceeded) {
-		return errors.New("operation timed out")
-	}
-	if requestError, ok := err.(azure.RequestError); ok {
-		if requestError.DetailedError.Message != "" {
-			return fmt.Errorf("%w. %s", err, requestError.DetailedError.Message)
-		}
-	}
-	return err
 }
 
 // CanCreate asserts that a resource with a given ID and API version can be created

@@ -1,11 +1,15 @@
 package azure
 
 import (
+	"context"
+	"errors"
 	"fmt"
+	"net/http"
 	"os"
 	"strings"
 
 	"github.com/Azure/go-autorest/autorest"
+	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
@@ -27,4 +31,25 @@ func BuildUserAgent(partnerID string) (userAgent string) {
 
 	logging.V(9).Infof("AzureNative User Agent: %s", userAgent)
 	return
+}
+
+// IsNotFound returns true if the error is a HTTP 404.
+func IsNotFound(err error) bool {
+	if requestError, ok := err.(azure.RequestError); ok {
+		return requestError.StatusCode == http.StatusNotFound
+	}
+	return false
+}
+
+// AzureError catches common errors and substitutes them with more user-friendly ones.
+func AzureError(err error) error {
+	if errors.Is(err, context.DeadlineExceeded) {
+		return errors.New("operation timed out")
+	}
+	if requestError, ok := err.(azure.RequestError); ok {
+		if requestError.DetailedError.Message != "" {
+			return fmt.Errorf("%w. %s", err, requestError.DetailedError.Message)
+		}
+	}
+	return err
 }

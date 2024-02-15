@@ -111,7 +111,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 			containerId := strings.TrimSuffix(id, "/legalHold")
 			container, err := azureClient.Get(ctx, containerId, "2022-09-01")
 			if err != nil {
-				if azureClient.IsNotFound(err) {
+				if azure.IsNotFound(err) {
 					return nil, false, nil
 				}
 				return nil, false, err
