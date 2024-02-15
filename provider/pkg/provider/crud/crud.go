@@ -26,9 +26,6 @@ type ResourceCrudClient struct {
 	subscriptionID string
 
 	res *resources.AzureAPIResource
-
-	// TODO tkappler shouldn't be in the client?
-	Inputs resource.PropertyMap
 }
 
 func NewResourceCrudClient(
@@ -37,7 +34,6 @@ func NewResourceCrudClient(
 	converter *convert.SdkShapeConverter,
 	subscriptionID string,
 	res *resources.AzureAPIResource,
-	inputs resource.PropertyMap,
 ) *ResourceCrudClient {
 	return &ResourceCrudClient{
 		azureClient:    azureClient,
@@ -45,12 +41,11 @@ func NewResourceCrudClient(
 		converter:      converter,
 		subscriptionID: subscriptionID,
 		res:            res,
-		Inputs:         inputs,
 	}
 }
 
-func (r *ResourceCrudClient) PrepareAzureRESTInputs() (string, map[string]any, map[string]any, error) {
-	return PrepareAzureRESTInputs(r.res.Path, r.res.PutParameters, r.res.RequiredContainers, r.Inputs.Mappable(), map[string]any{
+func (r *ResourceCrudClient) PrepareAzureRESTInputs(inputs resource.PropertyMap) (string, map[string]any, map[string]any, error) {
+	return PrepareAzureRESTInputs(r.res.Path, r.res.PutParameters, r.res.RequiredContainers, inputs.Mappable(), map[string]any{
 		"subscriptionId": r.subscriptionID,
 		"api-version":    r.res.APIVersion,
 	}, r.converter)
@@ -135,10 +130,10 @@ func partialError(id string, err error, state *structpb.Struct, inputs *structpb
 	return rpcerror.WithDetails(rpcerror.New(codes.Unknown, err.Error()), &detail)
 }
 
-func (r *ResourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err error, id string, properties *structpb.Struct) error {
+func (r *ResourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err error, id string, inputs resource.PropertyMap, properties *structpb.Struct) error {
 	// Resource was partially updated but the operation failed to complete.
 	// Try reading its state by ID and return a partial error if succeeded.
-	checkpoint, getErr := r.currentResourceStateCheckpoint(ctx, id)
+	checkpoint, getErr := r.currentResourceStateCheckpoint(ctx, id, inputs)
 	if getErr != nil {
 		return azure.AzureError(errors.Wrapf(err, "resource updated but read failed %s", getErr))
 	}
@@ -147,13 +142,13 @@ func (r *ResourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err 
 
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
-func (r *ResourceCrudClient) currentResourceStateCheckpoint(ctx context.Context, id string) (*structpb.Struct, error) {
+func (r *ResourceCrudClient) currentResourceStateCheckpoint(ctx context.Context, id string, inputs resource.PropertyMap) (*structpb.Struct, error) {
 	getResp, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion)
 	if getErr != nil {
 		return nil, getErr
 	}
 	outputs := r.converter.ResponseBodyToSdkOutputs(r.res.Response, getResp)
-	obj := checkpointObject(r.Inputs, outputs)
+	obj := checkpointObject(inputs, outputs)
 	return plugin.MarshalProperties(
 		obj,
 		plugin.MarshalOptions{

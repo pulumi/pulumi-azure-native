@@ -861,7 +861,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}, nil
 	}
 
-	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res, inputs)
+	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
 	ctx, cancel := azureContext(ctx, req.Timeout)
 	defer cancel()
@@ -871,7 +871,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	customRes, isCustom := k.customResources[res.Path]
 	switch {
 	case isCustom && customRes.Create != nil:
-		id, _, _, err = crudClient.PrepareAzureRESTInputs()
+		id, _, _, err = crudClient.PrepareAzureRESTInputs(inputs)
 		if err != nil {
 			return nil, err
 		}
@@ -886,12 +886,12 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}
 
 		// Create the custom resource and retrieve its outputs, which already match the SDK shape.
-		outputs, err = customRes.Create(ctx, req, *crudClient)
+		outputs, err = customRes.Create(ctx, inputs, req.GetProperties(), *crudClient)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
 	default:
-		outputs, id, err = k.defaultCreate(ctx, req, *crudClient)
+		outputs, id, err = k.defaultCreate(ctx, req, inputs, *crudClient)
 	}
 
 	// Store both outputs and inputs into the state.
@@ -911,8 +911,8 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	}, nil
 }
 
-func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, crudClient crud.ResourceCrudClient) (outputs map[string]any, id string, err error) {
-	id, bodyParams, queryParams, err := crudClient.PrepareAzureRESTInputs()
+func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient) (outputs map[string]any, id string, err error) {
+	id, bodyParams, queryParams, err := crudClient.PrepareAzureRESTInputs(inputs)
 	if err != nil {
 		return nil, id, err
 	}
@@ -929,7 +929,7 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 	response, created, err := crudClient.CreateOrUpdate(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		if created {
-			return nil, id, crudClient.HandleErrorWithCheckpoint(ctx, err, id, req.GetProperties())
+			return nil, id, crudClient.HandleErrorWithCheckpoint(ctx, err, id, inputs, req.GetProperties())
 		}
 		return nil, id, azure.AzureError(err)
 	}
@@ -1084,7 +1084,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	url := id + res.ReadPath
-	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res, nil)
+	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
 	var outputs map[string]interface{}
 	customRes, isCustom := k.customResources[res.Path]
@@ -1280,18 +1280,18 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 
 	restoreDefaultInputsForRemovedProperties(inputs, *res, oldState)
 
-	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res, inputs)
+	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
 	var outputs map[string]interface{}
 	customRes, isCustom := k.customResources[res.Path]
 	if isCustom && customRes.Update != nil {
-		outputs, err = customRes.Update(ctx, req, *crudClient)
+		outputs, err = customRes.Update(ctx, inputs, req.GetNews(), *crudClient)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
 	} else {
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs, err = k.defaultUpdate(ctx, req, *crudClient)
+		outputs, err = k.defaultUpdate(ctx, req, inputs, *crudClient)
 		if err != nil {
 			return nil, err
 		}
@@ -1313,8 +1313,8 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}, nil
 }
 
-func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.UpdateRequest, crudClient crud.ResourceCrudClient) (map[string]any, error) {
-	id, bodyParams, queryParams, err := crudClient.PrepareAzureRESTInputs()
+func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.UpdateRequest, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient) (map[string]any, error) {
+	id, bodyParams, queryParams, err := crudClient.PrepareAzureRESTInputs(inputs)
 	if err != nil {
 		return nil, err
 	}
@@ -1330,7 +1330,7 @@ func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.Update
 	response, updated, err := crudClient.CreateOrUpdate(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		if updated {
-			return nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, req.GetNews())
+			return nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, inputs, req.GetNews())
 		}
 		return nil, azure.AzureError(err)
 	}

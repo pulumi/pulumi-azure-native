@@ -10,6 +10,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
@@ -17,7 +18,6 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/accounts"
 	"github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/blobs"
 )
@@ -125,12 +125,12 @@ func (r *staticWebsite) newDataClient(ctx context.Context, properties resource.P
 	return &dataClient, true, nil
 }
 
-func (r *staticWebsite) update(ctx context.Context, req *rpc.UpdateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
-	return r.createOrUpdate(ctx, crudClient.Inputs)
+func (r *staticWebsite) update(ctx context.Context, inputs resource.PropertyMap, rawInputs *structpb.Struct, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
+	return r.createOrUpdate(ctx, inputs)
 }
 
-func (r *staticWebsite) create(ctx context.Context, req *rpc.CreateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
-	return r.createOrUpdate(ctx, crudClient.Inputs)
+func (r *staticWebsite) create(ctx context.Context, inputs resource.PropertyMap, rawInputs *structpb.Struct, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
+	return r.createOrUpdate(ctx, inputs)
 }
 
 func (r *staticWebsite) createOrUpdate(ctx context.Context, properties resource.PropertyMap) (map[string]interface{}, error) {
@@ -409,9 +409,7 @@ func (r *blob) newDataClient(ctx context.Context, properties resource.PropertyMa
 	return &dataClient, true, nil
 }
 
-func (r *blob) create(ctx context.Context, req *rpc.CreateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
-	properties := crudClient.Inputs
-
+func (r *blob) create(ctx context.Context, properties resource.PropertyMap, rawInputs *structpb.Struct, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
 	dataClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, err
@@ -489,9 +487,7 @@ func (r *blob) create(ctx context.Context, req *rpc.CreateRequest, crudClient cr
 	return state, err
 }
 
-func (r *blob) update(ctx context.Context, req *rpc.UpdateRequest, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
-	properties := crudClient.Inputs
-
+func (r *blob) update(ctx context.Context, properties resource.PropertyMap, rawInputs *structpb.Struct, crudClient crud.ResourceCrudClient) (map[string]interface{}, error) {
 	dataClient, found, err := r.newDataClient(ctx, properties)
 	if err != nil {
 		return nil, err
