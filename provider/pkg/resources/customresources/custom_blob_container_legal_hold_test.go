@@ -2,6 +2,7 @@ package customresources
 
 import (
 	"context"
+	"encoding/json"
 	"testing"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -9,7 +10,43 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// Verbatim from https://learn.microsoft.com/en-us/rest/api/storagerp/blob-containers/get?view=rest-storagerp-2023-01-01&tabs=HTTP
+const legalHoldPropertiesForContainer = `
+{
+	"properties": {
+		"legalHold": {
+			"hasLegalHold": true,
+			"protectedAppendWritesHistory": {
+				"allowProtectedAppendWritesAll": true,
+				"timestamp": "2022-09-01T01:58:44.5044483Z"
+			},
+			"tags": [
+				{
+					"tag": "tag1",
+					"timestamp": "2018-03-26T05:06:09.6964643Z",
+					"objectIdentifier": "ce7cd28a-fc25-4bf1-8fb9-e1b9833ffd4b",
+					"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+				},
+				{
+					"tag": "tag2",
+					"timestamp": "2018-03-26T05:06:09.6964643Z",
+					"objectIdentifier": "ce7cd28a-fc25-4bf1-8fb9-e1b9833ffd4b",
+					"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+				},
+				{
+					"tag": "tag3",
+					"timestamp": "2018-03-26T05:06:09.6964643Z",
+					"objectIdentifier": "ce7cd28a-fc25-4bf1-8fb9-e1b9833ffd4b",
+					"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+				}
+			]
+		}
+	}
+}`
+
 type MockAzureClient struct {
+	getIds []string
+
 	postIds    []string
 	postBodies []map[string]any
 }
@@ -21,7 +58,11 @@ func (m *MockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, r
 	return nil
 }
 func (m *MockAzureClient) Get(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error) {
-	return nil, nil
+	m.getIds = append(m.getIds, id)
+
+	azureResponse := map[string]any{}
+	err := json.Unmarshal([]byte(legalHoldPropertiesForContainer), &azureResponse)
+	return azureResponse, err
 }
 func (m *MockAzureClient) Head(ctx context.Context, id string, apiVersion string) error {
 	return nil
@@ -98,6 +139,25 @@ func TestCreate(t *testing.T) {
 			assert.Contains(t, err.Error(), "'tags'")
 		}
 	})
+}
+
+func TestRead(t *testing.T) {
+	id := "/subscriptions/123-456/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/accountName/blobServices/default/containers/containerName/legalHold"
+	m := MockAzureClient{}
+	custom := blobContainerLegalHold(&m)
+
+	res, found, err := custom.Read(context.Background(), id, nil)
+	require.NoError(t, err)
+	require.True(t, found)
+	require.NotNil(t, res)
+
+	require.Len(t, res, 2)
+	require.Contains(t, res, "tags")
+	tags := res["tags"].([]string)
+	assert.Equal(t, []string{"tag1", "tag2", "tag3"}, tags)
+
+	require.Contains(t, res, "allowProtectedAppendWritesAll")
+	assert.Equal(t, res["allowProtectedAppendWritesAll"], true)
 }
 
 func TestUpdate(t *testing.T) {
