@@ -79,6 +79,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		newBlob(env, &storageAccountsClient),
 		// Customization of regular resources
 		customWebAppDelete(lookupResource, azureClient),
+		storageContainerWithLegalHold(),
 	}
 
 	result := map[string]*CustomResource{}

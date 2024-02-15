@@ -44,6 +44,14 @@ func NewResourceCrudClient(
 	}
 }
 
+func (r *ResourceCrudClient) Post(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, error) {
+	return r.azureClient.Post(ctx, id, bodyParams, queryParams)
+}
+
+func (r *ResourceCrudClient) Get(ctx context.Context, id string) (map[string]any, error) {
+	return r.azureClient.Get(ctx, id, r.res.APIVersion)
+}
+
 func (r *ResourceCrudClient) PrepareAzureRESTInputs(inputs resource.PropertyMap) (string, map[string]any, map[string]any, error) {
 	return PrepareAzureRESTInputs(r.res.Path, r.res.PutParameters, r.res.RequiredContainers, inputs.Mappable(), map[string]any{
 		"subscriptionId": r.subscriptionID,

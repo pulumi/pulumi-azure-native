@@ -339,7 +339,9 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 		}
 	}
 
-	err := genMixins(&pkg, &metadata)
+	// Account for test runs and local development where not all providers are available.
+	isPartialSchema := len(providerMap) == 1
+	err := genMixins(&pkg, &metadata, isPartialSchema)
 	if err != nil {
 		return nil, err
 	}
@@ -468,7 +470,7 @@ func findNestedResources(resource *openapi.ResourceSpec, resourceSpecs map[strin
 	return nestedResourceSpecs
 }
 
-func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) error {
+func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata, isPartialSchema bool) error {
 	// Mixin 'getClientConfig' to read current configuration values.
 	if _, has := pkg.Functions["azure-native:authorization:getClientConfig"]; has {
 		return errors.New("Invoke 'azure-native:authorization:getClientConfig' is already defined")
@@ -551,17 +553,23 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 	for tok, overlay := range customresources.SchemaOverlays() {
 		res, has := pkg.Resources[tok]
 		if !has {
-			return errors.Errorf("Resource %q is not defined", tok)
+			if !isPartialSchema {
+				return errors.Errorf("Resource %q is not defined, cannot add schema overlay", tok)
+			}
+		} else {
+			pkg.Resources[tok] = mergeSchemaOverlay(res, overlay)
 		}
-		pkg.Resources[tok] = mergeSchemaOverlay(res, overlay)
 	}
 
 	for tok, overlay := range customresources.MetaOverlays() {
 		meta, has := metadata.Resources[tok]
 		if !has {
-			return errors.Errorf("Metadata %q is not defined", tok)
+			if !isPartialSchema {
+				return errors.Errorf("Resource %q is not defined, cannot add metadata overlay", tok)
+			}
+		} else {
+			metadata.Resources[tok] = mergeMetaOverlay(meta, overlay)
 		}
-		metadata.Resources[tok] = mergeMetaOverlay(meta, overlay)
 	}
 
 	// Add a note regarding WorkspaceSqlAadAdmin creation.
