@@ -28,10 +28,12 @@ type CustomResource struct {
 	// Auxiliary types defined for this resource. Optional.
 	Types map[string]schema.ComplexTypeSpec
 	// Resource schema. Optional, by default the schema is assumed to be included in Azure Open API specs.
-	Schema *schema.ResourceSpec
+	Schema        *schema.ResourceSpec
+	SchemaOverlay *schema.ResourceSpec
 	// Resource metadata. Defines the parameters and properties that are used for diff calculation and validation.
 	// Optional, by default the metadata is assumed to be derived from Azure Open API specs.
-	Meta *AzureAPIResource
+	Meta        *AzureAPIResource
+	MetaOverlay *AzureAPIResource
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
 	Create func(ctx context.Context, inputs resource.PropertyMap, rawInputs *structpb.Struct, client crud.ResourceCrudClient) (map[string]any, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
@@ -108,6 +110,18 @@ func SchemaMixins() map[string]schema.ResourceSpec {
 	return specs
 }
 
+// SchemaOverlays returns the map of custom resource schema definitions per resource token, to be
+// merged with the definitions from the OpenAPI spec.
+func SchemaOverlays() map[string]schema.ResourceSpec {
+	overlays := map[string]schema.ResourceSpec{}
+	for _, r := range featureLookup {
+		if r.tok != "" && r.SchemaOverlay != nil {
+			overlays[r.tok] = *r.SchemaOverlay
+		}
+	}
+	return overlays
+}
+
 // SchemaTypeMixins returns the map of custom resource schema definitions per resource token.
 func SchemaTypeMixins() map[string]schema.ComplexTypeSpec {
 	types := map[string]schema.ComplexTypeSpec{}
@@ -119,7 +133,7 @@ func SchemaTypeMixins() map[string]schema.ComplexTypeSpec {
 	return types
 }
 
-// SchemaMixins returns the map of custom resource metadata definitions per resource token.
+// MetaMixins returns the map of custom resource metadata definitions per resource token.
 func MetaMixins() map[string]AzureAPIResource {
 	meta := map[string]AzureAPIResource{}
 	for _, r := range featureLookup {
@@ -128,4 +142,16 @@ func MetaMixins() map[string]AzureAPIResource {
 		}
 	}
 	return meta
+}
+
+// MetaOverlays returns the map of custom resource metadata definitions per resource token, to be
+// merged with the generated definition.
+func MetaOverlays() map[string]AzureAPIResource {
+	overlays := map[string]AzureAPIResource{}
+	for _, r := range featureLookup {
+		if r.tok != "" && r.MetaOverlay != nil {
+			overlays[r.tok] = *r.MetaOverlay
+		}
+	}
+	return overlays
 }

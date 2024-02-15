@@ -7,6 +7,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
@@ -144,4 +145,239 @@ func TestFindResourcesBodyRefs(t *testing.T) {
 	actual := findResourcesBodyRefs(nestedResources)
 	expected := []string{"#/definitions/Subnet"}
 	assert.Equal(t, expected, actual)
+}
+
+func TestMergeSchemaOverlays(t *testing.T) {
+	strProp := pschema.PropertySpec{
+		TypeSpec: pschema.TypeSpec{
+			Type: "string",
+		},
+	}
+	intProp := pschema.PropertySpec{
+		TypeSpec: pschema.TypeSpec{
+			Type: "integer",
+		},
+	}
+
+	t.Run("addition", func(t *testing.T) {
+		res := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": strProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput": strProp,
+			},
+		}
+
+		overlay := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"bar": strProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"barInput": strProp,
+			},
+		}
+
+		expected := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": strProp,
+					"bar": strProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput": strProp,
+				"barInput": strProp,
+			},
+		}
+
+		assert.Equal(t, expected, mergeSchemaOverlay(res, overlay))
+	})
+
+	t.Run("overwrite", func(t *testing.T) {
+		res := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": strProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput": strProp,
+			},
+		}
+
+		overlay := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": intProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput": intProp,
+			},
+		}
+
+		expected := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": intProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput": intProp,
+			},
+		}
+
+		assert.Equal(t, expected, mergeSchemaOverlay(res, overlay))
+	})
+
+	t.Run("combined", func(t *testing.T) {
+		res := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": strProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput": strProp,
+			},
+		}
+
+		overlay := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": intProp,
+					"bar": strProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"barInput":     strProp,
+				"anotherInput": strProp,
+			},
+		}
+
+		expected := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": intProp,
+					"bar": strProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput":     strProp,
+				"barInput":     strProp,
+				"anotherInput": strProp,
+			},
+		}
+
+		assert.Equal(t, expected, mergeSchemaOverlay(res, overlay))
+	})
+
+	t.Run("no-op", func(t *testing.T) {
+		res := pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Properties: map[string]pschema.PropertySpec{
+					"foo": strProp,
+				},
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput": strProp,
+			},
+		}
+
+		overlay := pschema.ResourceSpec{
+			InputProperties: map[string]pschema.PropertySpec{
+				"fooInput": strProp,
+			},
+		}
+
+		assert.Equal(t, res, mergeSchemaOverlay(res, overlay))
+	})
+}
+
+func TestMergeMetaOverlays(t *testing.T) {
+	t.Run("addition", func(t *testing.T) {
+		meta := resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{
+				{
+					Location: "path",
+					Name:     "foo",
+				},
+			},
+		}
+
+		overlay := resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{
+				{
+					Location: "path",
+					Name:     "bar",
+				},
+			},
+		}
+
+		merged := mergeMetaOverlay(meta, overlay)
+		assert.Len(t, merged.PutParameters, 2)
+		assert.Contains(t, merged.PutParameters, meta.PutParameters[0])
+		assert.Contains(t, merged.PutParameters, overlay.PutParameters[0])
+	})
+
+	t.Run("addition in body", func(t *testing.T) {
+		meta := resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{
+				{
+					Location: "body",
+					Name:     "properties",
+					Body: &resources.AzureAPIType{
+						Properties: map[string]resources.AzureAPIProperty{
+							"foo": {
+								Type: "string",
+							},
+						},
+					},
+				},
+			},
+		}
+
+		overlay := resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{
+				{
+					Location: "body",
+					Name:     "properties",
+					Body: &resources.AzureAPIType{
+						Properties: map[string]resources.AzureAPIProperty{
+							"bar": {
+								Type: "string",
+							},
+						},
+					},
+				},
+			},
+		}
+
+		merged := mergeMetaOverlay(meta, overlay)
+		assert.Len(t, merged.PutParameters, 1)
+		assert.Len(t, merged.PutParameters[0].Body.Properties, 2)
+		assert.Contains(t, merged.PutParameters[0].Body.Properties, "foo")
+		assert.Contains(t, merged.PutParameters[0].Body.Properties, "bar")
+	})
+
+	t.Run("no-op", func(t *testing.T) {
+		meta := resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{},
+		}
+
+		overlay := resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{},
+		}
+
+		expected := resources.AzureAPIResource{
+			PutParameters: []resources.AzureAPIParameter{},
+		}
+
+		assert.Equal(t, expected, mergeMetaOverlay(meta, overlay))
+	})
 }
