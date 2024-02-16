@@ -46,6 +46,9 @@ namespace Pulumi.AzureNative.ApiCenter
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment server
+        /// </summary>
         [Output("server")]
         public Output<Outputs.DeploymentServerResponse?> Server { get; private set; } = null!;
 
@@ -164,6 +167,9 @@ namespace Pulumi.AzureNative.ApiCenter
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The deployment server
+        /// </summary>
         [Input("server")]
         public Input<Inputs.DeploymentServerArgs>? Server { get; set; }
 

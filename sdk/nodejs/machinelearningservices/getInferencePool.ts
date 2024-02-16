@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2024-01-01-preview.
  */
 export function getInferencePool(args: GetInferencePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetInferencePoolResult> {
 
@@ -79,6 +81,8 @@ export interface GetInferencePoolResult {
 }
 /**
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2024-01-01-preview.
  */
 export function getInferencePoolOutput(args: GetInferencePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferencePoolResult> {
     return pulumi.output(args).apply((a: any) => getInferencePool(a, opts))

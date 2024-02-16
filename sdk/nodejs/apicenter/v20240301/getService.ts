@@ -39,7 +39,7 @@ export interface GetServiceResult {
      */
     readonly id: string;
     /**
-     * Managed service identity (system assigned and/or user assigned identities)
+     * The managed service identities assigned to this resource.
      */
     readonly identity?: outputs.apicenter.v20240301.ManagedServiceIdentityResponse;
     /**

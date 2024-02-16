@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiCenter.Outputs
 {
 
+    /// <summary>
+    /// Contact information
+    /// </summary>
     [OutputType]
     public sealed class ContactResponse
     {

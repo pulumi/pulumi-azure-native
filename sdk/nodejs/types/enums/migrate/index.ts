@@ -10,6 +10,7 @@ import * as v20220501preview from "./v20220501preview";
 import * as v20220801 from "./v20220801";
 import * as v20230101 from "./v20230101";
 import * as v20230315 from "./v20230315";
+import * as v20230401preview from "./v20230401preview";
 import * as v20230801 from "./v20230801";
 
 export {
@@ -21,6 +22,7 @@ export {
     v20220801,
     v20230101,
     v20230315,
+    v20230401preview,
     v20230801,
 };
 
@@ -132,15 +134,34 @@ export type AzureCurrency = (typeof AzureCurrency)[keyof typeof AzureCurrency];
 export const AzureDiskType = {
     Unknown: "Unknown",
     Standard: "Standard",
-    Premium: "Premium",
     StandardSSD: "StandardSSD",
+    Premium: "Premium",
     StandardOrPremium: "StandardOrPremium",
+    Ultra: "Ultra",
+    PremiumV2: "PremiumV2",
+} as const;
+
+export type AzureDiskType = (typeof AzureDiskType)[keyof typeof AzureDiskType];
+
+export const AzureEnvironmentType = {
+    /**
+     * Unknown. Indicates missing data.
+     */
+    Unknown: "Unknown",
+    /**
+     * Development or Test Environment.
+     */
+    DevTest: "DevTest",
+    /**
+     * Production Environment.
+     */
+    Production: "Production",
 } as const;
 
 /**
- * Storage type selected for this disk.
+ * Gets or sets environment type.
  */
-export type AzureDiskType = (typeof AzureDiskType)[keyof typeof AzureDiskType];
+export type AzureEnvironmentType = (typeof AzureEnvironmentType)[keyof typeof AzureEnvironmentType];
 
 export const AzureHybridUseBenefit = {
     Unknown: "Unknown",
@@ -149,7 +170,8 @@ export const AzureHybridUseBenefit = {
 } as const;
 
 /**
- * AHUB discount on windows virtual machines.
+ * Gets or sets the user configurable setting to display the linux azure hybrid use
+ * benefit.
  */
 export type AzureHybridUseBenefit = (typeof AzureHybridUseBenefit)[keyof typeof AzureHybridUseBenefit];
 
@@ -269,7 +291,7 @@ export const AzureOfferCode = {
 } as const;
 
 /**
- * Gets or sets Azure Offer Code for VM.
+ * Azure Offer Code.
  */
 export type AzureOfferCode = (typeof AzureOfferCode)[keyof typeof AzureOfferCode];
 
@@ -279,7 +301,7 @@ export const AzurePricingTier = {
 } as const;
 
 /**
- * Pricing tier for Size evaluation.
+ * Gets or sets Azure Pricing Tier - Free, Basic, etc.
  */
 export type AzurePricingTier = (typeof AzurePricingTier)[keyof typeof AzurePricingTier];
 
@@ -290,7 +312,7 @@ export const AzureReservedInstance = {
 } as const;
 
 /**
- * Gets or sets azure reserved instance for VM.
+ * Reserved instance.
  */
 export type AzureReservedInstance = (typeof AzureReservedInstance)[keyof typeof AzureReservedInstance];
 
@@ -361,9 +383,49 @@ export const AzureStorageRedundancy = {
 } as const;
 
 /**
- * Storage Redundancy type offered by Azure.
+ * Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
  */
 export type AzureStorageRedundancy = (typeof AzureStorageRedundancy)[keyof typeof AzureStorageRedundancy];
+
+export const AzureVmCategory = {
+    /**
+     * Indicates All categories of VM.
+     */
+    All: "All",
+    /**
+     * Compute Optimized.
+     */
+    ComputeOptimized: "ComputeOptimized",
+    /**
+     * General Purpose.
+     */
+    GeneralPurpose: "GeneralPurpose",
+    /**
+     * GPU Optimized.
+     */
+    GpuOptimized: "GpuOptimized",
+    /**
+     * High Performance Compute.
+     */
+    HighPerformanceCompute: "HighPerformanceCompute",
+    /**
+     * Memory Optimized.
+     */
+    MemoryOptimized: "MemoryOptimized",
+    /**
+     * Storage Optimized.
+     */
+    StorageOptimized: "StorageOptimized",
+    /**
+     * Isolated VM.
+     */
+    Isolated: "Isolated",
+} as const;
+
+/**
+ * Gets or sets azure VM category.
+ */
+export type AzureVmCategory = (typeof AzureVmCategory)[keyof typeof AzureVmCategory];
 
 export const AzureVmFamily = {
     Unknown: "Unknown",
@@ -422,6 +484,118 @@ export const AzureVmFamily = {
 
 export type AzureVmFamily = (typeof AzureVmFamily)[keyof typeof AzureVmFamily];
 
+export const BusinessCaseCurrency = {
+    /**
+     * Currency Unknown.
+     */
+    Unknown: "Unknown",
+    /**
+     * Currency USD.
+     */
+    USD: "USD",
+    /**
+     * Currency DKK.
+     */
+    DKK: "DKK",
+    /**
+     * Currency CAD.
+     */
+    CAD: "CAD",
+    /**
+     * Currency IDR.
+     */
+    IDR: "IDR",
+    /**
+     * Currency JPY.
+     */
+    JPY: "JPY",
+    /**
+     * Currency KRW.
+     */
+    KRW: "KRW",
+    /**
+     * Currency NZD.
+     */
+    NZD: "NZD",
+    /**
+     * Currency NOK.
+     */
+    NOK: "NOK",
+    /**
+     * Currency RUB.
+     */
+    RUB: "RUB",
+    /**
+     * Currency SAR.
+     */
+    SAR: "SAR",
+    /**
+     * Currency ZAR.
+     */
+    ZAR: "ZAR",
+    /**
+     * Currency SEK.
+     */
+    SEK: "SEK",
+    /**
+     * Currency TRY.
+     */
+    TRY: "TRY",
+    /**
+     * Currency GBP.
+     */
+    GBP: "GBP",
+    /**
+     * Currency MXN.
+     */
+    MXN: "MXN",
+    /**
+     * Currency MYR.
+     */
+    MYR: "MYR",
+    /**
+     * Currency INR.
+     */
+    INR: "INR",
+    /**
+     * Currency HKD.
+     */
+    HKD: "HKD",
+    /**
+     * Currency BRL.
+     */
+    BRL: "BRL",
+    /**
+     * Currency TWD.
+     */
+    TWD: "TWD",
+    /**
+     * Currency EUR.
+     */
+    EUR: "EUR",
+    /**
+     * Currency CHF.
+     */
+    CHF: "CHF",
+    /**
+     * Currency ARS.
+     */
+    ARS: "ARS",
+    /**
+     * Currency AUD.
+     */
+    AUD: "AUD",
+    /**
+     * Currency CNY.
+     */
+    CNY: "CNY",
+} as const;
+
+/**
+ * Business case Currency.
+ */
+export type BusinessCaseCurrency = (typeof BusinessCaseCurrency)[keyof typeof BusinessCaseCurrency];
+
 export const CleanupState = {
     None: "None",
     Started: "Started",
@@ -458,6 +632,22 @@ export const ConfigurationType = {
  */
 export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
+export const ConsolidationType = {
+    /**
+     * Full Consolidation.
+     */
+    Full: "Full",
+    /**
+     * As On Source or On Premises Consolidation.
+     */
+    AsOnSource: "AsOnSource",
+} as const;
+
+/**
+ * Gets or sets consolidation type.
+ */
+export type ConsolidationType = (typeof ConsolidationType)[keyof typeof ConsolidationType];
+
 export const Currency = {
     Unknown: "Unknown",
     USD: "USD",
@@ -491,6 +681,26 @@ export const Currency = {
  * Currency to report prices in.
  */
 export type Currency = (typeof Currency)[keyof typeof Currency];
+
+export const DiscoverySource = {
+    /**
+     * Unknown Discovery Source.
+     */
+    Unknown: "Unknown",
+    /**
+     * Appliance Discovery Source.
+     */
+    Appliance: "Appliance",
+    /**
+     * Import Discovery Source.
+     */
+    Import: "Import",
+} as const;
+
+/**
+ * Workload discovery source.
+ */
+export type DiscoverySource = (typeof DiscoverySource)[keyof typeof DiscoverySource];
 
 export const EnvironmentType = {
     Production: "Production",
@@ -539,6 +749,62 @@ export const GroupType = {
  */
 export type GroupType = (typeof GroupType)[keyof typeof GroupType];
 
+export const HyperVLicenseType = {
+    /**
+     * Unknown HyperV License.
+     */
+    Unknown: "Unknown",
+    /**
+     * Datacentre HyperV License.
+     */
+    Datacentre: "Datacentre",
+    /**
+     * Standard HyperV License.
+     */
+    Standard: "Standard",
+} as const;
+
+/**
+ * HyperV licence type.
+ */
+export type HyperVLicenseType = (typeof HyperVLicenseType)[keyof typeof HyperVLicenseType];
+
+export const LicenseType = {
+    /**
+     * Unknown License.
+     */
+    Unknown: "Unknown",
+    /**
+     * VSphereStandard License.
+     */
+    VSphereStandard: "VSphereStandard",
+    /**
+     * VSphereEnterprisePlus License.
+     */
+    VSphereEnterprisePlus: "VSphereEnterprisePlus",
+} as const;
+
+/**
+ * VSphere licence type.
+ */
+export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
+
+export const LicensingProgram = {
+    /**
+     * Default value. Indicates Pay As You Go.
+     */
+    Default: "Default",
+    /**
+     * Enterprise Agreement.
+     */
+    EA: "EA",
+} as const;
+
+/**
+ * Gets or sets licensing program.
+ */
+export type LicensingProgram = (typeof LicensingProgram)[keyof typeof LicensingProgram];
+
 export const LoadBalancerType = {
     Private: "Private",
     Public: "Public",
@@ -548,6 +814,34 @@ export const LoadBalancerType = {
  * Gets or sets the load balancer type.
  */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
+
+export const MigrationStrategy = {
+    /**
+     * Unknown Migration Strategy.
+     */
+    Unknown: "Unknown",
+    /**
+     * Optimize for cost.
+     */
+    OptimizeForCost: "OptimizeForCost",
+    /**
+     * IaaS only.
+     */
+    IaaSOnly: "IaaSOnly",
+    /**
+     * Optimize for PaaS.
+     */
+    OptimizeForPaas: "OptimizeForPaas",
+    /**
+     * Avs only.
+     */
+    AVSOnly: "AVSOnly",
+} as const;
+
+/**
+ * Migration Strategy.
+ */
+export type MigrationStrategy = (typeof MigrationStrategy)[keyof typeof MigrationStrategy];
 
 export const MultiSubnetIntent = {
     None: "None",
@@ -591,9 +885,21 @@ export const OsLicense = {
 export type OsLicense = (typeof OsLicense)[keyof typeof OsLicense];
 
 export const Percentile = {
+    /**
+     * Percentile 50.
+     */
     Percentile50: "Percentile50",
+    /**
+     * Percentile 90.
+     */
     Percentile90: "Percentile90",
+    /**
+     * Percentile 95.
+     */
     Percentile95: "Percentile95",
+    /**
+     * Percentile 99.
+     */
     Percentile99: "Percentile99",
 } as const;
 
@@ -602,6 +908,22 @@ export const Percentile = {
  * machines.
  */
 export type Percentile = (typeof Percentile)[keyof typeof Percentile];
+
+export const PricingTier = {
+    /**
+     * Standard Pricing Tier.
+     */
+    Standard: "Standard",
+    /**
+     * Free Pricing Tier.
+     */
+    Free: "Free",
+} as const;
+
+/**
+ * Gets or sets pricing tier.
+ */
+export type PricingTier = (typeof PricingTier)[keyof typeof PricingTier];
 
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
@@ -701,6 +1023,54 @@ export const ResourceIdentityTypes = {
 
 export type ResourceIdentityTypes = (typeof ResourceIdentityTypes)[keyof typeof ResourceIdentityTypes];
 
+export const SavingsOption = {
+    /**
+     * Unknown Savings Option.
+     */
+    Unknown: "Unknown",
+    /**
+     * Reserved Instance 3 Year.
+     */
+    RI3Year: "RI3Year",
+    /**
+     * Azure Savings Plan 3 Year.
+     */
+    SavingsPlan3Year: "SavingsPlan3Year",
+} as const;
+
+/**
+ * Gets the business case savings option type.
+ */
+export type SavingsOption = (typeof SavingsOption)[keyof typeof SavingsOption];
+
+export const SavingsOptions = {
+    /**
+     * Savings Options is not applicable.
+     */
+    None: "None",
+    /**
+     * One Year Savings Plan.
+     */
+    OneYearSavings: "OneYearSavings",
+    /**
+     * Three Years Savings Plan.
+     */
+    ThreeYearsSavings: "ThreeYearsSavings",
+    /**
+     * One Year Reserved Instances.
+     */
+    OneYearReserved: "OneYearReserved",
+    /**
+     * Three Years Reserved Instances.
+     */
+    ThreeYearsReserved: "ThreeYearsReserved",
+} as const;
+
+/**
+ * Gets or sets savings options.
+ */
+export type SavingsOptions = (typeof SavingsOptions)[keyof typeof SavingsOptions];
+
 export const SecretStoreType = {
     None: "None",
     KubeSecret: "KubeSecret",
@@ -720,6 +1090,26 @@ export const SqlServerLicense = {
  * SQL server license.
  */
 export type SqlServerLicense = (typeof SqlServerLicense)[keyof typeof SqlServerLicense];
+
+export const SqlServerLicenseType = {
+    /**
+     * Unknown Sql Server License.
+     */
+    Unknown: "Unknown",
+    /**
+     * Enterprise Sql Server License.
+     */
+    Enterprise: "Enterprise",
+    /**
+     * Standard Sql Server License.
+     */
+    Standard: "Standard",
+} as const;
+
+/**
+ * SQL Server version.
+ */
+export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
 
 export const Status = {
     Inactive: "Inactive",
@@ -774,9 +1164,21 @@ export const TargetStorageProjectionType = {
 export type TargetStorageProjectionType = (typeof TargetStorageProjectionType)[keyof typeof TargetStorageProjectionType];
 
 export const TimeRange = {
+    /**
+     * Daily.
+     */
     Day: "Day",
+    /**
+     * Weekly.
+     */
     Week: "Week",
+    /**
+     * Monthly.
+     */
     Month: "Month",
+    /**
+     * Custom Time Range.
+     */
     Custom: "Custom",
 } as const;
 
@@ -818,6 +1220,22 @@ export const Tool = {
  * Gets or sets the tool being used in the solution.
  */
 export type Tool = (typeof Tool)[keyof typeof Tool];
+
+export const VsphereManagementLicenseType = {
+    /**
+     * Unknown License.
+     */
+    Unknown: "Unknown",
+    /**
+     * VSphereServerStandard License.
+     */
+    VSphereServerStandard: "VSphereServerStandard",
+} as const;
+
+/**
+ * VSphere licence type.
+ */
+export type VsphereManagementLicenseType = (typeof VsphereManagementLicenseType)[keyof typeof VsphereManagementLicenseType];
 
 export const WorkloadDeploymentTarget = {
     AzureKubernetesService: "AzureKubernetesService",

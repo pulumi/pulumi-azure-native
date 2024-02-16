@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the properties of the specified machine learning workspace.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2018-03-01-preview, 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
+ * Other available API versions: 2018-03-01-preview, 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -174,7 +174,7 @@ export interface GetWorkspaceResult {
  * Gets the properties of the specified machine learning workspace.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2018-03-01-preview, 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
+ * Other available API versions: 2018-03-01-preview, 2020-08-01, 2020-09-01-preview, 2022-01-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a HypervCollector
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export function getHypervCollectorsOperation(args: GetHypervCollectorsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervCollectorsOperationResult> {
 
@@ -80,6 +82,8 @@ export interface GetHypervCollectorsOperationResult {
 /**
  * Get a HypervCollector
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export function getHypervCollectorsOperationOutput(args: GetHypervCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervCollectorsOperationResult> {
     return pulumi.output(args).apply((a: any) => getHypervCollectorsOperation(a, opts))

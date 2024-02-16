@@ -38,7 +38,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * Managed service identity (system assigned and/or user assigned identities)
+     * The managed service identities assigned to this resource.
      */
     public readonly identity!: pulumi.Output<outputs.apicenter.v20240301.ManagedServiceIdentityResponse | undefined>;
     /**
@@ -110,7 +110,7 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceArgs {
     /**
-     * Managed service identity (system assigned and/or user assigned identities)
+     * The managed service identities assigned to this resource.
      */
     identity?: pulumi.Input<inputs.apicenter.v20240301.ManagedServiceIdentityArgs>;
     /**

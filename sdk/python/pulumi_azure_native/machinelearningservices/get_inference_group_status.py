@@ -86,6 +86,8 @@ def get_inference_group_status(group_name: Optional[str] = None,
     """
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2024-01-01-preview.
+
 
     :param str group_name: InferenceGroup name.
     :param str pool_name: InferencePool name.
@@ -115,6 +117,8 @@ def get_inference_group_status_output(group_name: Optional[pulumi.Input[str]] = 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceGroupStatusResult]:
     """
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str group_name: InferenceGroup name.

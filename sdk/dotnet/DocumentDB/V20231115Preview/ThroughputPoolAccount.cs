@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20231115Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:documentdb:ThroughputPoolAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:ThroughputPoolAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

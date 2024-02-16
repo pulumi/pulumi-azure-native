@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiCenter.V20240301.Outputs
 {
 
+    /// <summary>
+    /// Server
+    /// </summary>
     [OutputType]
     public sealed class DeploymentServerResponse
     {

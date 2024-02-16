@@ -57,6 +57,9 @@ export class Deployment extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The deployment server
+     */
     public readonly server!: pulumi.Output<outputs.apicenter.v20240301.DeploymentServerResponse | undefined>;
     /**
      * State of API deployment.
@@ -164,6 +167,9 @@ export interface DeploymentArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The deployment server
+     */
     server?: pulumi.Input<inputs.apicenter.v20240301.DeploymentServerArgs>;
     /**
      * The name of Azure API Center service.

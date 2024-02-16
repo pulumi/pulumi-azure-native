@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// 
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Task<GetInferenceGroupResult> InvokeAsync(GetInferenceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceGroupResult>("azure-native:machinelearningservices:getInferenceGroup", args ?? new GetInferenceGroupArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// 
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Output<GetInferenceGroupResult> Invoke(GetInferenceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupResult>("azure-native:machinelearningservices:getInferenceGroup", args ?? new GetInferenceGroupInvokeArgs(), options.WithDefaults());

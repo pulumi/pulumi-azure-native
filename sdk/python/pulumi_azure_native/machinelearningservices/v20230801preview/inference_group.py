@@ -272,7 +272,7 @@ class InferenceGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:InferenceGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:InferenceGroup"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:InferenceGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InferenceGroup, __self__).__init__(
             'azure-native:machinelearningservices/v20230801preview:InferenceGroup',

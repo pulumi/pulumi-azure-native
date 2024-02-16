@@ -181,7 +181,7 @@ class CassandraResourceCassandraView(pulumi.CustomResource):
         An Azure Cosmos DB Cassandra view.
         Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
 
-        Other available API versions: 2023-09-15-preview, 2023-11-15-preview.
+        Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,7 +205,7 @@ class CassandraResourceCassandraView(pulumi.CustomResource):
         An Azure Cosmos DB Cassandra view.
         Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
 
-        Other available API versions: 2023-09-15-preview, 2023-11-15-preview.
+        Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
 
         :param str resource_name: The name of the resource.
         :param CassandraResourceCassandraViewArgs args: The arguments to use to populate this resource's properties.
@@ -259,7 +259,7 @@ class CassandraResourceCassandraView(pulumi.CustomResource):
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20210701preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:CassandraResourceCassandraView")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20210701preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:CassandraResourceCassandraView")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CassandraResourceCassandraView, __self__).__init__(
             'azure-native:documentdb:CassandraResourceCassandraView',

@@ -84,6 +84,8 @@ def get_inference_pool_status(inference_pool_name: Optional[str] = None,
     """
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2024-01-01-preview.
+
 
     :param str inference_pool_name: Name of InferencePool
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -110,6 +112,8 @@ def get_inference_pool_status_output(inference_pool_name: Optional[pulumi.Input[
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferencePoolStatusResult]:
     """
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str inference_pool_name: Name of InferencePool

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
  *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
+ * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview.
  */
 export class CodeContainer extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class CodeContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220501:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20221001:CodeContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20221201preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230401:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230801preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20231001:CodeContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220501:CodeContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20221001:CodeContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20221201preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230401:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20230801preview:CodeContainer" }, { type: "azure-native:machinelearningservices/v20231001:CodeContainer" }, { type: "azure-native:machinelearningservices/v20240101preview:CodeContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeContainer.__pulumiType, name, resourceInputs, opts);
     }

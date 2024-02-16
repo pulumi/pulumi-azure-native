@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
  * Azure REST API version: 2023-11-15-preview.
+ *
+ * Other available API versions: 2024-02-15-preview.
  */
 export function getThroughputPoolAccount(args: GetThroughputPoolAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetThroughputPoolAccountResult> {
 
@@ -76,6 +78,8 @@ export interface GetThroughputPoolAccountResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
  * Azure REST API version: 2023-11-15-preview.
+ *
+ * Other available API versions: 2024-02-15-preview.
  */
 export function getThroughputPoolAccountOutput(args: GetThroughputPoolAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThroughputPoolAccountResult> {
     return pulumi.output(args).apply((a: any) => getThroughputPoolAccount(a, opts))

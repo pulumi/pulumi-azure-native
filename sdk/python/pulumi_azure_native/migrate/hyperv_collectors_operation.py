@@ -132,6 +132,8 @@ class HypervCollectorsOperation(pulumi.CustomResource):
         Hyper-V collector resource.
         Azure REST API version: 2023-03-15.
 
+        Other available API versions: 2023-04-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CollectorAgentPropertiesBaseArgs']] agent_properties: Gets or sets the collector agent properties.
@@ -150,6 +152,8 @@ class HypervCollectorsOperation(pulumi.CustomResource):
         """
         Hyper-V collector resource.
         Azure REST API version: 2023-03-15.
+
+        Other available API versions: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param HypervCollectorsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -196,7 +200,7 @@ class HypervCollectorsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:HypervCollectorsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:HypervCollectorsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HypervCollectorsOperation, __self__).__init__(
             'azure-native:migrate:HypervCollectorsOperation',

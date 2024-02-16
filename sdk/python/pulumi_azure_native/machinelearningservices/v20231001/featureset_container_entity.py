@@ -151,7 +151,7 @@ class FeaturesetContainerEntity(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:FeaturesetContainerEntity")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FeaturesetContainerEntity, __self__).__init__(
             'azure-native:machinelearningservices/v20231001:FeaturesetContainerEntity',

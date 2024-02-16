@@ -114,6 +114,8 @@ class ImportCollectorsOperation(pulumi.CustomResource):
         Import collector resource.
         Azure REST API version: 2023-03-15.
 
+        Other available API versions: 2023-04-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] discovery_site_id: Gets the discovery site id.
@@ -131,6 +133,8 @@ class ImportCollectorsOperation(pulumi.CustomResource):
         """
         Import collector resource.
         Azure REST API version: 2023-03-15.
+
+        Other available API versions: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ImportCollectorsOperationArgs args: The arguments to use to populate this resource's properties.
@@ -175,7 +179,7 @@ class ImportCollectorsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:ImportCollectorsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:ImportCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ImportCollectorsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImportCollectorsOperation, __self__).__init__(
             'azure-native:migrate:ImportCollectorsOperation',

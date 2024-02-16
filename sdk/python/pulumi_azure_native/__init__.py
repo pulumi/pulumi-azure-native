@@ -2556,10 +2556,10 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "azureplaywrightservice/v20240201",
-  "fqn": "pulumi_azure_native.azureplaywrightservice.v20240201",
+  "mod": "azureplaywrightservice/v20240201preview",
+  "fqn": "pulumi_azure_native.azureplaywrightservice.v20240201preview",
   "classes": {
-   "azure-native:azureplaywrightservice/v20240201:Account": "Account"
+   "azure-native:azureplaywrightservice/v20240201preview:Account": "Account"
   }
  },
  {
@@ -3123,6 +3123,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cache/v20240201",
+  "fqn": "pulumi_azure_native.cache.v20240201",
+  "classes": {
+   "azure-native:cache/v20240201:Database": "Database",
+   "azure-native:cache/v20240201:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
+   "azure-native:cache/v20240201:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cdn",
   "fqn": "pulumi_azure_native.cdn",
   "classes": {
@@ -3623,6 +3633,18 @@ _utilities.register(
    "azure-native:compute/v20230701:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
    "azure-native:compute/v20230701:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
    "azure-native:compute/v20230701:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "compute/v20230703",
+  "fqn": "pulumi_azure_native.compute.v20230703",
+  "classes": {
+   "azure-native:compute/v20230703:Gallery": "Gallery",
+   "azure-native:compute/v20230703:GalleryApplication": "GalleryApplication",
+   "azure-native:compute/v20230703:GalleryApplicationVersion": "GalleryApplicationVersion",
+   "azure-native:compute/v20230703:GalleryImage": "GalleryImage",
+   "azure-native:compute/v20230703:GalleryImageVersion": "GalleryImageVersion"
   }
  },
  {
@@ -4886,6 +4908,16 @@ _utilities.register(
    "azure-native:databricks/v20230915preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:databricks/v20230915preview:VNetPeering": "VNetPeering",
    "azure-native:databricks/v20230915preview:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "databricks/v20240201preview",
+  "fqn": "pulumi_azure_native.databricks.v20240201preview",
+  "classes": {
+   "azure-native:databricks/v20240201preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:databricks/v20240201preview:VNetPeering": "VNetPeering",
+   "azure-native:databricks/v20240201preview:Workspace": "Workspace"
   }
  },
  {
@@ -6442,6 +6474,41 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "documentdb/v20240215preview",
+  "fqn": "pulumi_azure_native.documentdb.v20240215preview",
+  "classes": {
+   "azure-native:documentdb/v20240215preview:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20240215preview:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20240215preview:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20240215preview:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20240215preview:CassandraResourceCassandraView": "CassandraResourceCassandraView",
+   "azure-native:documentdb/v20240215preview:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20240215preview:GraphResourceGraph": "GraphResourceGraph",
+   "azure-native:documentdb/v20240215preview:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20240215preview:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20240215preview:MongoCluster": "MongoCluster",
+   "azure-native:documentdb/v20240215preview:MongoClusterFirewallRule": "MongoClusterFirewallRule",
+   "azure-native:documentdb/v20240215preview:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20240215preview:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20240215preview:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb/v20240215preview:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
+   "azure-native:documentdb/v20240215preview:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20240215preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20240215preview:Service": "Service",
+   "azure-native:documentdb/v20240215preview:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20240215preview:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20240215preview:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20240215preview:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20240215preview:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20240215preview:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20240215preview:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20240215preview:TableResourceTable": "TableResourceTable",
+   "azure-native:documentdb/v20240215preview:ThroughputPool": "ThroughputPool",
+   "azure-native:documentdb/v20240215preview:ThroughputPoolAccount": "ThroughputPoolAccount"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "domainregistration",
   "fqn": "pulumi_azure_native.domainregistration",
   "classes": {
@@ -6572,6 +6639,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.elastic",
   "classes": {
    "azure-native:elastic:Monitor": "Monitor",
+   "azure-native:elastic:OpenAI": "OpenAI",
    "azure-native:elastic:TagRule": "TagRule"
   }
  },
@@ -6618,6 +6686,26 @@ _utilities.register(
   "classes": {
    "azure-native:elastic/v20231101preview:Monitor": "Monitor",
    "azure-native:elastic/v20231101preview:TagRule": "TagRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "elastic/v20240101preview",
+  "fqn": "pulumi_azure_native.elastic.v20240101preview",
+  "classes": {
+   "azure-native:elastic/v20240101preview:Monitor": "Monitor",
+   "azure-native:elastic/v20240101preview:OpenAI": "OpenAI",
+   "azure-native:elastic/v20240101preview:TagRule": "TagRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "elastic/v20240301",
+  "fqn": "pulumi_azure_native.elastic.v20240301",
+  "classes": {
+   "azure-native:elastic/v20240301:Monitor": "Monitor",
+   "azure-native:elastic/v20240301:OpenAI": "OpenAI",
+   "azure-native:elastic/v20240301:TagRule": "TagRule"
   }
  },
  {
@@ -7926,6 +8014,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "iotfirmwaredefense/v20240110",
+  "fqn": "pulumi_azure_native.iotfirmwaredefense.v20240110",
+  "classes": {
+   "azure-native:iotfirmwaredefense/v20240110:Firmware": "Firmware",
+   "azure-native:iotfirmwaredefense/v20240110:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "iotoperationsdataprocessor",
   "fqn": "pulumi_azure_native.iotoperationsdataprocessor",
   "classes": {
@@ -8605,6 +8702,7 @@ _utilities.register(
    "azure-native:machinelearningservices:DataContainer": "DataContainer",
    "azure-native:machinelearningservices:DataVersion": "DataVersion",
    "azure-native:machinelearningservices:Datastore": "Datastore",
+   "azure-native:machinelearningservices:EndpointDeployment": "EndpointDeployment",
    "azure-native:machinelearningservices:EnvironmentContainer": "EnvironmentContainer",
    "azure-native:machinelearningservices:EnvironmentSpecificationVersion": "EnvironmentSpecificationVersion",
    "azure-native:machinelearningservices:EnvironmentVersion": "EnvironmentVersion",
@@ -8622,6 +8720,7 @@ _utilities.register(
    "azure-native:machinelearningservices:MachineLearningDataset": "MachineLearningDataset",
    "azure-native:machinelearningservices:MachineLearningDatastore": "MachineLearningDatastore",
    "azure-native:machinelearningservices:ManagedNetworkSettingsRule": "ManagedNetworkSettingsRule",
+   "azure-native:machinelearningservices:MarketplaceSubscription": "MarketplaceSubscription",
    "azure-native:machinelearningservices:ModelContainer": "ModelContainer",
    "azure-native:machinelearningservices:ModelVersion": "ModelVersion",
    "azure-native:machinelearningservices:OnlineDeployment": "OnlineDeployment",
@@ -8968,6 +9067,58 @@ _utilities.register(
    "azure-native:machinelearningservices/v20231001:Schedule": "Schedule",
    "azure-native:machinelearningservices/v20231001:Workspace": "Workspace",
    "azure-native:machinelearningservices/v20231001:WorkspaceConnection": "WorkspaceConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "machinelearningservices/v20240101preview",
+  "fqn": "pulumi_azure_native.machinelearningservices.v20240101preview",
+  "classes": {
+   "azure-native:machinelearningservices/v20240101preview:BatchDeployment": "BatchDeployment",
+   "azure-native:machinelearningservices/v20240101preview:BatchEndpoint": "BatchEndpoint",
+   "azure-native:machinelearningservices/v20240101preview:CapacityReservationGroup": "CapacityReservationGroup",
+   "azure-native:machinelearningservices/v20240101preview:CodeContainer": "CodeContainer",
+   "azure-native:machinelearningservices/v20240101preview:CodeVersion": "CodeVersion",
+   "azure-native:machinelearningservices/v20240101preview:ComponentContainer": "ComponentContainer",
+   "azure-native:machinelearningservices/v20240101preview:ComponentVersion": "ComponentVersion",
+   "azure-native:machinelearningservices/v20240101preview:Compute": "Compute",
+   "azure-native:machinelearningservices/v20240101preview:DataContainer": "DataContainer",
+   "azure-native:machinelearningservices/v20240101preview:DataVersion": "DataVersion",
+   "azure-native:machinelearningservices/v20240101preview:Datastore": "Datastore",
+   "azure-native:machinelearningservices/v20240101preview:EndpointDeployment": "EndpointDeployment",
+   "azure-native:machinelearningservices/v20240101preview:EnvironmentContainer": "EnvironmentContainer",
+   "azure-native:machinelearningservices/v20240101preview:EnvironmentVersion": "EnvironmentVersion",
+   "azure-native:machinelearningservices/v20240101preview:FeaturesetContainerEntity": "FeaturesetContainerEntity",
+   "azure-native:machinelearningservices/v20240101preview:FeaturesetVersion": "FeaturesetVersion",
+   "azure-native:machinelearningservices/v20240101preview:FeaturestoreEntityContainerEntity": "FeaturestoreEntityContainerEntity",
+   "azure-native:machinelearningservices/v20240101preview:FeaturestoreEntityVersion": "FeaturestoreEntityVersion",
+   "azure-native:machinelearningservices/v20240101preview:InferenceEndpoint": "InferenceEndpoint",
+   "azure-native:machinelearningservices/v20240101preview:InferenceGroup": "InferenceGroup",
+   "azure-native:machinelearningservices/v20240101preview:InferencePool": "InferencePool",
+   "azure-native:machinelearningservices/v20240101preview:Job": "Job",
+   "azure-native:machinelearningservices/v20240101preview:LabelingJob": "LabelingJob",
+   "azure-native:machinelearningservices/v20240101preview:ManagedNetworkSettingsRule": "ManagedNetworkSettingsRule",
+   "azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription": "MarketplaceSubscription",
+   "azure-native:machinelearningservices/v20240101preview:ModelContainer": "ModelContainer",
+   "azure-native:machinelearningservices/v20240101preview:ModelVersion": "ModelVersion",
+   "azure-native:machinelearningservices/v20240101preview:OnlineDeployment": "OnlineDeployment",
+   "azure-native:machinelearningservices/v20240101preview:OnlineEndpoint": "OnlineEndpoint",
+   "azure-native:machinelearningservices/v20240101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:machinelearningservices/v20240101preview:Registry": "Registry",
+   "azure-native:machinelearningservices/v20240101preview:RegistryCodeContainer": "RegistryCodeContainer",
+   "azure-native:machinelearningservices/v20240101preview:RegistryCodeVersion": "RegistryCodeVersion",
+   "azure-native:machinelearningservices/v20240101preview:RegistryComponentContainer": "RegistryComponentContainer",
+   "azure-native:machinelearningservices/v20240101preview:RegistryComponentVersion": "RegistryComponentVersion",
+   "azure-native:machinelearningservices/v20240101preview:RegistryDataContainer": "RegistryDataContainer",
+   "azure-native:machinelearningservices/v20240101preview:RegistryDataVersion": "RegistryDataVersion",
+   "azure-native:machinelearningservices/v20240101preview:RegistryEnvironmentContainer": "RegistryEnvironmentContainer",
+   "azure-native:machinelearningservices/v20240101preview:RegistryEnvironmentVersion": "RegistryEnvironmentVersion",
+   "azure-native:machinelearningservices/v20240101preview:RegistryModelContainer": "RegistryModelContainer",
+   "azure-native:machinelearningservices/v20240101preview:RegistryModelVersion": "RegistryModelVersion",
+   "azure-native:machinelearningservices/v20240101preview:Schedule": "Schedule",
+   "azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint": "ServerlessEndpoint",
+   "azure-native:machinelearningservices/v20240101preview:Workspace": "Workspace",
+   "azure-native:machinelearningservices/v20240101preview:WorkspaceConnection": "WorkspaceConnection"
   }
  },
  {
@@ -9422,9 +9573,12 @@ _utilities.register(
   "mod": "migrate",
   "fqn": "pulumi_azure_native.migrate",
   "classes": {
+   "azure-native:migrate:AksAssessmentOperation": "AksAssessmentOperation",
    "azure-native:migrate:Assessment": "Assessment",
    "azure-native:migrate:AssessmentProjectsOperation": "AssessmentProjectsOperation",
+   "azure-native:migrate:AssessmentsOperation": "AssessmentsOperation",
    "azure-native:migrate:AvsAssessmentsOperation": "AvsAssessmentsOperation",
+   "azure-native:migrate:BusinessCaseOperation": "BusinessCaseOperation",
    "azure-native:migrate:Group": "Group",
    "azure-native:migrate:GroupsOperation": "GroupsOperation",
    "azure-native:migrate:HyperVCollector": "HyperVCollector",
@@ -9450,6 +9604,8 @@ _utilities.register(
    "azure-native:migrate:SqlCollectorOperation": "SqlCollectorOperation",
    "azure-native:migrate:VMwareCollector": "VMwareCollector",
    "azure-native:migrate:VmwareCollectorsOperation": "VmwareCollectorsOperation",
+   "azure-native:migrate:WebAppAssessmentV2Operation": "WebAppAssessmentV2Operation",
+   "azure-native:migrate:WebAppCollectorOperation": "WebAppCollectorOperation",
    "azure-native:migrate:WorkloadDeployment": "WorkloadDeployment",
    "azure-native:migrate:WorkloadInstance": "WorkloadInstance"
   }
@@ -9544,6 +9700,28 @@ _utilities.register(
    "azure-native:migrate/v20230315:SqlAssessmentV2Operation": "SqlAssessmentV2Operation",
    "azure-native:migrate/v20230315:SqlCollectorOperation": "SqlCollectorOperation",
    "azure-native:migrate/v20230315:VmwareCollectorsOperation": "VmwareCollectorsOperation"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "migrate/v20230401preview",
+  "fqn": "pulumi_azure_native.migrate.v20230401preview",
+  "classes": {
+   "azure-native:migrate/v20230401preview:AksAssessmentOperation": "AksAssessmentOperation",
+   "azure-native:migrate/v20230401preview:AssessmentProjectsOperation": "AssessmentProjectsOperation",
+   "azure-native:migrate/v20230401preview:AssessmentsOperation": "AssessmentsOperation",
+   "azure-native:migrate/v20230401preview:AvsAssessmentsOperation": "AvsAssessmentsOperation",
+   "azure-native:migrate/v20230401preview:BusinessCaseOperation": "BusinessCaseOperation",
+   "azure-native:migrate/v20230401preview:GroupsOperation": "GroupsOperation",
+   "azure-native:migrate/v20230401preview:HypervCollectorsOperation": "HypervCollectorsOperation",
+   "azure-native:migrate/v20230401preview:ImportCollectorsOperation": "ImportCollectorsOperation",
+   "azure-native:migrate/v20230401preview:PrivateEndpointConnectionOperation": "PrivateEndpointConnectionOperation",
+   "azure-native:migrate/v20230401preview:ServerCollectorsOperation": "ServerCollectorsOperation",
+   "azure-native:migrate/v20230401preview:SqlAssessmentV2Operation": "SqlAssessmentV2Operation",
+   "azure-native:migrate/v20230401preview:SqlCollectorOperation": "SqlCollectorOperation",
+   "azure-native:migrate/v20230401preview:VmwareCollectorsOperation": "VmwareCollectorsOperation",
+   "azure-native:migrate/v20230401preview:WebAppAssessmentV2Operation": "WebAppAssessmentV2Operation",
+   "azure-native:migrate/v20230401preview:WebAppCollectorOperation": "WebAppCollectorOperation"
   }
  },
  {
@@ -11258,6 +11436,9 @@ _utilities.register(
   "classes": {
    "azure-native:orbital:Contact": "Contact",
    "azure-native:orbital:ContactProfile": "ContactProfile",
+   "azure-native:orbital:EdgeSite": "EdgeSite",
+   "azure-native:orbital:GroundStation": "GroundStation",
+   "azure-native:orbital:L2Connection": "L2Connection",
    "azure-native:orbital:Spacecraft": "Spacecraft"
   }
  },
@@ -11279,6 +11460,16 @@ _utilities.register(
    "azure-native:orbital/v20221101:Contact": "Contact",
    "azure-native:orbital/v20221101:ContactProfile": "ContactProfile",
    "azure-native:orbital/v20221101:Spacecraft": "Spacecraft"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "orbital/v20240301preview",
+  "fqn": "pulumi_azure_native.orbital.v20240301preview",
+  "classes": {
+   "azure-native:orbital/v20240301preview:EdgeSite": "EdgeSite",
+   "azure-native:orbital/v20240301preview:GroundStation": "GroundStation",
+   "azure-native:orbital/v20240301preview:L2Connection": "L2Connection"
   }
  },
  {
@@ -11732,6 +11923,16 @@ _utilities.register(
    "azure-native:recoveryservices/v20230801:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20230801:ProtectionIntent": "ProtectionIntent",
    "azure-native:recoveryservices/v20230801:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20230801:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20230801:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20230801:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20230801:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20230801:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20230801:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20230801:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20230801:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20230801:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20230801:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20230801:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20230801:Vault": "Vault"
   }

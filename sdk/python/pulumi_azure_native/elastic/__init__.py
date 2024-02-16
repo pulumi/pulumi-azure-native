@@ -8,6 +8,8 @@ import typing
 from ._enums import *
 from .get_billing_info import *
 from .get_monitor import *
+from .get_open_ai import *
+from .get_open_ai_status import *
 from .get_organization_api_key import *
 from .get_organization_elastic_to_azure_subscription_mapping import *
 from .get_tag_rule import *
@@ -19,6 +21,7 @@ from .list_upgradable_version_details import *
 from .list_vm_host import *
 from .listlist_associated_traffic_filter import *
 from .monitor import *
+from .open_ai import *
 from .tag_rule import *
 from ._inputs import *
 from . import outputs
@@ -39,6 +42,10 @@ if typing.TYPE_CHECKING:
     v20231001preview = __v20231001preview
     import pulumi_azure_native.elastic.v20231101preview as __v20231101preview
     v20231101preview = __v20231101preview
+    import pulumi_azure_native.elastic.v20240101preview as __v20240101preview
+    v20240101preview = __v20240101preview
+    import pulumi_azure_native.elastic.v20240301 as __v20240301
+    v20240301 = __v20240301
 else:
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230201preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230501preview')
@@ -47,4 +54,6 @@ else:
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230701preview')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20231001preview')
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20231101preview')
+    v20240101preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20240101preview')
+    v20240301 = _utilities.lazy_import('pulumi_azure_native.elastic.v20240301')
 

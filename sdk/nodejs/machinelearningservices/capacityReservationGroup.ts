@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2024-01-01-preview.
  */
 export class CapacityReservationGroup extends pulumi.CustomResource {
     /**
@@ -114,7 +116,7 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:CapacityReservationGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:CapacityReservationGroup" }, { type: "azure-native:machinelearningservices/v20240101preview:CapacityReservationGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapacityReservationGroup.__pulumiType, name, resourceInputs, opts);
     }

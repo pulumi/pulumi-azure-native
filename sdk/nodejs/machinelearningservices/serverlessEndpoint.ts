@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2024-01-01-preview.
  */
 export class ServerlessEndpoint extends pulumi.CustomResource {
     /**
@@ -117,7 +119,7 @@ export class ServerlessEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint" }, { type: "azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerlessEndpoint.__pulumiType, name, resourceInputs, opts);
     }

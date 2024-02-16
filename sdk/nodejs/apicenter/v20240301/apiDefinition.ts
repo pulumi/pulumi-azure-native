@@ -48,7 +48,7 @@ export class ApiDefinition extends pulumi.CustomResource {
     /**
      * API specification details.
      */
-    public /*out*/ readonly specification!: pulumi.Output<outputs.apicenter.v20240301.ApiDefinitionPropertiesResponseSpecification>;
+    public /*out*/ readonly specification!: pulumi.Output<outputs.apicenter.v20240301.ApiDefinitionPropertiesSpecificationResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

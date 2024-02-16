@@ -53,6 +53,8 @@ def get_compute_allowed_resize_sizes(compute_name: Optional[str] = None,
     Returns supported virtual machine sizes for resize
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2024-01-01-preview.
+
 
     :param str compute_name: Name of the Azure Machine Learning compute.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -77,6 +79,8 @@ def get_compute_allowed_resize_sizes_output(compute_name: Optional[pulumi.Input[
     """
     Returns supported virtual machine sizes for resize
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str compute_name: Name of the Azure Machine Learning compute.

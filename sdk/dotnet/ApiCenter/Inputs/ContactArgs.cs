@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiCenter.Inputs
 {
 
+    /// <summary>
+    /// Contact information
+    /// </summary>
     public sealed class ContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

@@ -281,7 +281,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     Retrieves information about a gallery image definition.
     Azure REST API version: 2022-03-03.
 
-    Other available API versions: 2022-08-03.
+    Other available API versions: 2022-08-03, 2023-07-03.
 
 
     :param str gallery_image_name: The name of the gallery image definition to be retrieved.
@@ -327,7 +327,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     Retrieves information about a gallery image definition.
     Azure REST API version: 2022-03-03.
 
-    Other available API versions: 2022-08-03.
+    Other available API versions: 2022-08-03, 2023-07-03.
 
 
     :param str gallery_image_name: The name of the gallery image definition to be retrieved.

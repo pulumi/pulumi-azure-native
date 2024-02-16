@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Inputs
 {
 
+    /// <summary>
+    /// Details on the total up-time for the VM.
+    /// </summary>
     public sealed class VmUptimeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

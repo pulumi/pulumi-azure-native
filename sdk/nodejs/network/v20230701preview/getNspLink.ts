@@ -53,7 +53,7 @@ export interface GetNspLinkResult {
      */
     readonly id: string;
     /**
-     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */
     readonly localInboundProfiles?: string[];
     /**
@@ -69,7 +69,7 @@ export interface GetNspLinkResult {
      */
     readonly provisioningState: string;
     /**
-     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
      */
     readonly remoteInboundProfiles?: string[];
     /**

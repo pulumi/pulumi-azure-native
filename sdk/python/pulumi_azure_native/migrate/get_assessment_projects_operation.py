@@ -249,6 +249,8 @@ def get_assessment_projects_operation(project_name: Optional[str] = None,
     Get a AssessmentProject
     Azure REST API version: 2023-03-15.
 
+    Other available API versions: 2023-04-01-preview.
+
 
     :param str project_name: Assessment Project Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -286,6 +288,8 @@ def get_assessment_projects_operation_output(project_name: Optional[pulumi.Input
     """
     Get a AssessmentProject
     Azure REST API version: 2023-03-15.
+
+    Other available API versions: 2023-04-01-preview.
 
 
     :param str project_name: Assessment Project Name

@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2024-01-01-preview.
  */
 export class InferencePool extends pulumi.CustomResource {
     /**
@@ -118,7 +120,7 @@ export class InferencePool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferencePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240101preview:InferencePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InferencePool.__pulumiType, name, resourceInputs, opts);
     }

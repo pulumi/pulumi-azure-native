@@ -58,7 +58,7 @@ export class UpdateRun extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<outputs.containerservice.v20231015.UpdateRunStatusResponse>;
     /**
-     * The strategy defines the order in which the clusters will be updated. 
+     * The strategy defines the order in which the clusters will be updated.
      * If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
      * The strategy of the UpdateRun can be modified until the run is started.
      */
@@ -81,8 +81,8 @@ export class UpdateRun extends pulumi.CustomResource {
      *
      * Setting both "updateStrategyId" and "strategy" is invalid.
      *
-     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
-     * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate. 
+     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+     * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
      * UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
      */
     public readonly updateStrategyId!: pulumi.Output<string | undefined>;
@@ -154,7 +154,7 @@ export interface UpdateRunArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The strategy defines the order in which the clusters will be updated. 
+     * The strategy defines the order in which the clusters will be updated.
      * If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
      * The strategy of the UpdateRun can be modified until the run is started.
      */
@@ -173,8 +173,8 @@ export interface UpdateRunArgs {
      *
      * Setting both "updateStrategyId" and "strategy" is invalid.
      *
-     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
-     * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate. 
+     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+     * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
      * UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
      */
     updateStrategyId?: pulumi.Input<string>;

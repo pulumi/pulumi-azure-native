@@ -27,6 +27,7 @@ class MetadataSchemaArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] schema: The schema defining the type.
         :param pulumi.Input[str] service_name: The name of Azure API Center service.
+        :param pulumi.Input[Sequence[pulumi.Input['MetadataAssignmentArgs']]] assigned_to: The assignees
         :param pulumi.Input[str] metadata_schema_name: The name of the metadata schema.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -76,6 +77,9 @@ class MetadataSchemaArgs:
     @property
     @pulumi.getter(name="assignedTo")
     def assigned_to(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetadataAssignmentArgs']]]]:
+        """
+        The assignees
+        """
         return pulumi.get(self, "assigned_to")
 
     @assigned_to.setter
@@ -111,6 +115,7 @@ class MetadataSchema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataAssignmentArgs']]]] assigned_to: The assignees
         :param pulumi.Input[str] metadata_schema_name: The name of the metadata schema.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] schema: The schema defining the type.
@@ -202,6 +207,9 @@ class MetadataSchema(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assignedTo")
     def assigned_to(self) -> pulumi.Output[Optional[Sequence['outputs.MetadataAssignmentResponse']]]:
+        """
+        The assignees
+        """
         return pulumi.get(self, "assigned_to")
 
     @property

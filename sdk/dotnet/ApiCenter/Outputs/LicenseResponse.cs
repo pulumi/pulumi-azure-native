@@ -17,7 +17,8 @@ namespace Pulumi.AzureNative.ApiCenter.Outputs
     public sealed class LicenseResponse
     {
         /// <summary>
-        /// SPDX license information for the API. The identifier field is mutually exclusive of the URL field.
+        /// SPDX license information for the API. The identifier field is mutually
+        /// exclusive of the URL field.
         /// </summary>
         public readonly string? Identifier;
         /// <summary>
@@ -25,7 +26,8 @@ namespace Pulumi.AzureNative.ApiCenter.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// URL pointing to the license details. The URL field is mutually exclusive of the identifier field.
+        /// URL pointing to the license details. The URL field is mutually exclusive of the
+        /// identifier field.
         /// </summary>
         public readonly string? Url;
 

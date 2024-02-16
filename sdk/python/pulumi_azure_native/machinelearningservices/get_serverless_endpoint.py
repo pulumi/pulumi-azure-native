@@ -157,6 +157,8 @@ def get_serverless_endpoint(name: Optional[str] = None,
     """
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2024-01-01-preview.
+
 
     :param str name: Serverless Endpoint name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -189,6 +191,8 @@ def get_serverless_endpoint_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessEndpointResult]:
     """
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str name: Serverless Endpoint name.

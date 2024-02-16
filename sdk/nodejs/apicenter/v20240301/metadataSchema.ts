@@ -37,6 +37,9 @@ export class MetadataSchema extends pulumi.CustomResource {
         return obj['__pulumiType'] === MetadataSchema.__pulumiType;
     }
 
+    /**
+     * The assignees
+     */
     public readonly assignedTo!: pulumi.Output<outputs.apicenter.v20240301.MetadataAssignmentResponse[] | undefined>;
     /**
      * The name of the resource
@@ -101,6 +104,9 @@ export class MetadataSchema extends pulumi.CustomResource {
  * The set of arguments for constructing a MetadataSchema resource.
  */
 export interface MetadataSchemaArgs {
+    /**
+     * The assignees
+     */
     assignedTo?: pulumi.Input<pulumi.Input<inputs.apicenter.v20240301.MetadataAssignmentArgs>[]>;
     /**
      * The name of the metadata schema.

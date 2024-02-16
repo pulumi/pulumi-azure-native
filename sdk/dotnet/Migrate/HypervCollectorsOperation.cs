@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// Hyper-V collector resource.
     /// Azure REST API version: 2023-03-15.
+    /// 
+    /// Other available API versions: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:HypervCollectorsOperation")]
     public partial class HypervCollectorsOperation : global::Pulumi.CustomResource
@@ -91,6 +93,7 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:HypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:HypervCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

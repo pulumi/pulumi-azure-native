@@ -99,6 +99,9 @@ namespace Pulumi.AzureNative.ApiCenter
         /// The custom metadata defined for API catalog entities.
         /// </summary>
         public readonly object? CustomProperties;
+        /// <summary>
+        /// The environment description.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
@@ -112,6 +115,9 @@ namespace Pulumi.AzureNative.ApiCenter
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Environment onboarding information
+        /// </summary>
         public readonly Outputs.OnboardingResponse? Onboarding;
         /// <summary>
         /// Server information of the environment.

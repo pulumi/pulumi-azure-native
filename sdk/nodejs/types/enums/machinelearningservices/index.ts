@@ -14,6 +14,7 @@ import * as v20230401preview from "./v20230401preview";
 import * as v20230601preview from "./v20230601preview";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231001 from "./v20231001";
+import * as v20240101preview from "./v20240101preview";
 
 export {
     v20200501preview,
@@ -28,6 +29,7 @@ export {
     v20230601preview,
     v20230801preview,
     v20231001,
+    v20240101preview,
 };
 
 export const ApplicationSharingPolicy = {
@@ -421,6 +423,17 @@ export const DatastoreTypeArm = {
  * Specifies datastore type.
  */
 export type DatastoreTypeArm = (typeof DatastoreTypeArm)[keyof typeof DatastoreTypeArm];
+
+export const DeploymentModelVersionUpgradeOption = {
+    OnceNewDefaultVersionAvailable: "OnceNewDefaultVersionAvailable",
+    OnceCurrentVersionExpired: "OnceCurrentVersionExpired",
+    NoAutoUpgrade: "NoAutoUpgrade",
+} as const;
+
+/**
+ * Deployment model version upgrade option.
+ */
+export type DeploymentModelVersionUpgradeOption = (typeof DeploymentModelVersionUpgradeOption)[keyof typeof DeploymentModelVersionUpgradeOption];
 
 export const DistributionType = {
     PyTorch: "PyTorch",

@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:MongoClusterFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:MongoClusterFirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

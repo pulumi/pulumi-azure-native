@@ -101,7 +101,7 @@ class GetNspLinkResult:
     @pulumi.getter(name="localInboundProfiles")
     def local_inbound_profiles(self) -> Optional[Sequence[str]]:
         """
-        Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         """
         return pulumi.get(self, "local_inbound_profiles")
 
@@ -133,7 +133,7 @@ class GetNspLinkResult:
     @pulumi.getter(name="remoteInboundProfiles")
     def remote_inbound_profiles(self) -> Optional[Sequence[str]]:
         """
-        Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         """
         return pulumi.get(self, "remote_inbound_profiles")
 

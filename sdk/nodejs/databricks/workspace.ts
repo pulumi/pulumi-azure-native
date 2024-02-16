@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Information about workspace.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
  *
- * Other available API versions: 2023-09-15-preview.
+ * Other available API versions: 2023-09-15-preview, 2024-02-01-preview.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -201,7 +201,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-native:databricks/v20210401preview:Workspace" }, { type: "azure-native:databricks/v20220401preview:Workspace" }, { type: "azure-native:databricks/v20230201:Workspace" }, { type: "azure-native:databricks/v20230915preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-native:databricks/v20210401preview:Workspace" }, { type: "azure-native:databricks/v20220401preview:Workspace" }, { type: "azure-native:databricks/v20230201:Workspace" }, { type: "azure-native:databricks/v20230915preview:Workspace" }, { type: "azure-native:databricks/v20240201preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

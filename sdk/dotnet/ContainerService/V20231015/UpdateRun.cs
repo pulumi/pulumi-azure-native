@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.ContainerService.V20231015
         public Output<Outputs.UpdateRunStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The strategy defines the order in which the clusters will be updated. 
+        /// The strategy defines the order in which the clusters will be updated.
         /// If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
         /// The strategy of the UpdateRun can be modified until the run is started.
         /// </summary>
@@ -75,8 +75,8 @@ namespace Pulumi.AzureNative.ContainerService.V20231015
         /// 
         /// Setting both "updateStrategyId" and "strategy" is invalid.
         /// 
-        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
-        /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate. 
+        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+        /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
         /// UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         /// </summary>
         [Output("updateStrategyId")]
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.ContainerService.V20231015
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The strategy defines the order in which the clusters will be updated. 
+        /// The strategy defines the order in which the clusters will be updated.
         /// If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
         /// The strategy of the UpdateRun can be modified until the run is started.
         /// </summary>
@@ -176,8 +176,8 @@ namespace Pulumi.AzureNative.ContainerService.V20231015
         /// 
         /// Setting both "updateStrategyId" and "strategy" is invalid.
         /// 
-        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
-        /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate. 
+        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+        /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
         /// UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         /// </summary>
         [Input("updateStrategyId")]

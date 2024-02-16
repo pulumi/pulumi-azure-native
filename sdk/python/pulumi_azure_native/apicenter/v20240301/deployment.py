@@ -40,6 +40,7 @@ class DeploymentArgs:
         :param pulumi.Input[str] deployment_name: The name of the API deployment.
         :param pulumi.Input[str] description: Description of the deployment.
         :param pulumi.Input[str] environment_id: API center-scoped environment resource ID.
+        :param pulumi.Input['DeploymentServerArgs'] server: The deployment server
         :param pulumi.Input[Union[str, 'DeploymentState']] state: State of API deployment.
         :param pulumi.Input[str] title: API deployment title
         """
@@ -175,6 +176,9 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def server(self) -> Optional[pulumi.Input['DeploymentServerArgs']]:
+        """
+        The deployment server
+        """
         return pulumi.get(self, "server")
 
     @server.setter
@@ -236,6 +240,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the deployment.
         :param pulumi.Input[str] environment_id: API center-scoped environment resource ID.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['DeploymentServerArgs']] server: The deployment server
         :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[Union[str, 'DeploymentState']] state: State of API deployment.
         :param pulumi.Input[str] title: API deployment title
@@ -388,6 +393,9 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def server(self) -> pulumi.Output[Optional['outputs.DeploymentServerResponse']]:
+        """
+        The deployment server
+        """
         return pulumi.get(self, "server")
 
     @property

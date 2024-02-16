@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a SqlAssessmentV2
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export function getSqlAssessmentV2Operation(args: GetSqlAssessmentV2OperationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlAssessmentV2OperationResult> {
 
@@ -222,6 +224,8 @@ export interface GetSqlAssessmentV2OperationResult {
 /**
  * Get a SqlAssessmentV2
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export function getSqlAssessmentV2OperationOutput(args: GetSqlAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlAssessmentV2OperationResult> {
     return pulumi.output(args).apply((a: any) => getSqlAssessmentV2Operation(a, opts))

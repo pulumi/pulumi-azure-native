@@ -6,12 +6,19 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .aks_assessment_operation import *
 from .assessment import *
 from .assessment_projects_operation import *
+from .assessments_operation import *
 from .avs_assessments_operation import *
+from .business_case_operation import *
+from .get_aks_assessment_operation import *
 from .get_assessment import *
 from .get_assessment_projects_operation import *
+from .get_assessments_operation import *
 from .get_avs_assessments_operation import *
+from .get_business_case_operation import *
+from .get_business_case_operation_report_download_url import *
 from .get_group import *
 from .get_groups_operation import *
 from .get_hyper_v_collector import *
@@ -40,6 +47,8 @@ from .get_sql_assessment_v2_operation import *
 from .get_sql_collector_operation import *
 from .get_v_mware_collector import *
 from .get_vmware_collectors_operation import *
+from .get_web_app_assessment_v2_operation import *
+from .get_web_app_collector_operation import *
 from .get_workload_deployment import *
 from .get_workload_deployment_secret_configurations import *
 from .get_workload_instance import *
@@ -68,6 +77,8 @@ from .sql_assessment_v2_operation import *
 from .sql_collector_operation import *
 from .v_mware_collector import *
 from .vmware_collectors_operation import *
+from .web_app_assessment_v2_operation import *
+from .web_app_collector_operation import *
 from .workload_deployment import *
 from .workload_instance import *
 from ._inputs import *
@@ -91,6 +102,8 @@ if typing.TYPE_CHECKING:
     v20230101 = __v20230101
     import pulumi_azure_native.migrate.v20230315 as __v20230315
     v20230315 = __v20230315
+    import pulumi_azure_native.migrate.v20230401preview as __v20230401preview
+    v20230401preview = __v20230401preview
     import pulumi_azure_native.migrate.v20230801 as __v20230801
     v20230801 = __v20230801
 else:
@@ -102,5 +115,6 @@ else:
     v20220801 = _utilities.lazy_import('pulumi_azure_native.migrate.v20220801')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230101')
     v20230315 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230315')
+    v20230401preview = _utilities.lazy_import('pulumi_azure_native.migrate.v20230401preview')
     v20230801 = _utilities.lazy_import('pulumi_azure_native.migrate.v20230801')
 

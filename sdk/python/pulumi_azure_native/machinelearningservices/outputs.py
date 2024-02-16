@@ -15,6 +15,7 @@ __all__ = [
     'AKSResponse',
     'AKSSchemaResponseProperties',
     'AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse',
+    'AccountApiKeysResponse',
     'AccountKeyDatastoreCredentialsResponse',
     'AcrDetailsResponse',
     'ActualCapacityInfoResponse',
@@ -62,6 +63,7 @@ __all__ = [
     'CodeConfigurationResponse',
     'CodeContainerResponse',
     'CodeVersionResponse',
+    'CognitiveServicesSkuResponse',
     'ColumnTransformerResponse',
     'CommandJobLimitsResponse',
     'CommandJobResponse',
@@ -83,6 +85,7 @@ __all__ = [
     'ComputeStartStopScheduleResponse',
     'ContainerResourceRequirementsResponse',
     'ContainerResourceSettingsResponse',
+    'ContentSafetyEndpointDeploymentResourcePropertiesResponse',
     'CosmosDbSettingsResponse',
     'CronResponse',
     'CronTriggerResponse',
@@ -118,6 +121,7 @@ __all__ = [
     'DockerResponse',
     'EncryptionKeyVaultPropertiesResponse',
     'EncryptionPropertyResponse',
+    'EndpointDeploymentModelResponse',
     'EndpointResponse',
     'EndpointScheduleActionResponse',
     'EnvironmentContainerResponse',
@@ -196,7 +200,10 @@ __all__ = [
     'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse',
     'ManagedIdentityResponse',
     'ManagedOnlineDeploymentResponse',
+    'ManagedOnlineEndpointDeploymentResourcePropertiesResponse',
     'ManagedServiceIdentityResponse',
+    'MarketplacePlanResponse',
+    'MarketplaceSubscriptionResponse',
     'MaterializationComputeResourceResponse',
     'MaterializationSettingsResponse',
     'MedianStoppingPolicyResponse',
@@ -214,6 +221,7 @@ __all__ = [
     'ObjectiveResponse',
     'OnlineEndpointResponse',
     'OnlineRequestSettingsResponse',
+    'OpenAIEndpointDeploymentResourcePropertiesResponse',
     'OutputPathAssetReferenceResponse',
     'PATAuthTypeWorkspaceConnectionPropertiesResponse',
     'PasswordResponse',
@@ -265,6 +273,7 @@ __all__ = [
     'SetupScriptsResponse',
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
+    'SpeechEndpointDeploymentResourcePropertiesResponse',
     'SslConfigurationResponse',
     'StackEnsembleSettingsResponse',
     'StatusMessageResponse',
@@ -707,6 +716,27 @@ class AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
     @pulumi.getter
     def target(self) -> Optional[str]:
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class AccountApiKeysResponse(dict):
+    def __init__(__self__, *,
+                 key1: Optional[str] = None,
+                 key2: Optional[str] = None):
+        if key1 is not None:
+            pulumi.set(__self__, "key1", key1)
+        if key2 is not None:
+            pulumi.set(__self__, "key2", key2)
+
+    @property
+    @pulumi.getter
+    def key1(self) -> Optional[str]:
+        return pulumi.get(self, "key1")
+
+    @property
+    @pulumi.getter
+    def key2(self) -> Optional[str]:
+        return pulumi.get(self, "key2")
 
 
 @pulumi.output_type
@@ -5957,6 +5987,51 @@ class CodeVersionResponse(dict):
 
 
 @pulumi.output_type
+class CognitiveServicesSkuResponse(dict):
+    def __init__(__self__, *,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 name: Optional[str] = None,
+                 size: Optional[str] = None,
+                 tier: Optional[str] = None):
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class ColumnTransformerResponse(dict):
     """
     Column transformer parameters.
@@ -8040,6 +8115,115 @@ class ContainerResourceSettingsResponse(dict):
         https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
         """
         return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
+class ContentSafetyEndpointDeploymentResourcePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "raiPolicyName":
+            suggest = "rai_policy_name"
+        elif key == "versionUpgradeOption":
+            suggest = "version_upgrade_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentSafetyEndpointDeploymentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentSafetyEndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentSafetyEndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model: 'outputs.EndpointDeploymentModelResponse',
+                 provisioning_state: str,
+                 type: str,
+                 failure_reason: Optional[str] = None,
+                 rai_policy_name: Optional[str] = None,
+                 sku: Optional['outputs.CognitiveServicesSkuResponse'] = None,
+                 version_upgrade_option: Optional[str] = None):
+        """
+        :param 'EndpointDeploymentModelResponse' model: Model used for the endpoint deployment.
+        :param str provisioning_state: Read-only provision state status property.
+        :param str type: Kind of the deployment.
+               Expected value is 'Azure.ContentSafety'.
+        :param str failure_reason: The failure reason if the creation failed.
+        :param str rai_policy_name: The name of RAI policy.
+        :param str version_upgrade_option: Deployment model version upgrade option.
+        """
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", 'Azure.ContentSafety')
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+        if rai_policy_name is not None:
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
+
+    @property
+    @pulumi.getter
+    def model(self) -> 'outputs.EndpointDeploymentModelResponse':
+        """
+        Model used for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Read-only provision state status property.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Kind of the deployment.
+        Expected value is 'Azure.ContentSafety'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[str]:
+        """
+        The failure reason if the creation failed.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> Optional[str]:
+        """
+        The name of RAI policy.
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.CognitiveServicesSkuResponse']:
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[str]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
 
 
 @pulumi.output_type
@@ -10947,6 +11131,61 @@ class EncryptionPropertyResponse(dict):
         The identity that will be used to access the key vault for encryption at rest.
         """
         return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
+class EndpointDeploymentModelResponse(dict):
+    def __init__(__self__, *,
+                 format: Optional[str] = None,
+                 name: Optional[str] = None,
+                 source: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str format: Model format
+        :param str name: Model name.
+        :param str source: Optional. Deployment model source ARM resource ID.
+        :param str version: Model version.
+        """
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        Model format
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Model name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Optional. Deployment model source ARM resource ID.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Model version.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -20588,6 +20827,68 @@ class ManagedOnlineDeploymentResponse(dict):
 
 
 @pulumi.output_type
+class ManagedOnlineEndpointDeploymentResourcePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedOnlineEndpointDeploymentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedOnlineEndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedOnlineEndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 type: str,
+                 failure_reason: Optional[str] = None):
+        """
+        :param str provisioning_state: Read-only provision state status property.
+        :param str type: Kind of the deployment.
+               Expected value is 'managedOnlineEndpoint'.
+        :param str failure_reason: The failure reason if the creation failed.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", 'managedOnlineEndpoint')
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Read-only provision state status property.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Kind of the deployment.
+        Expected value is 'managedOnlineEndpoint'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[str]:
+        """
+        The failure reason if the creation failed.
+        """
+        return pulumi.get(self, "failure_reason")
+
+
+@pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
     Managed service identity (system assigned and/or user assigned identities)
@@ -20662,6 +20963,141 @@ class ManagedServiceIdentityResponse(dict):
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class MarketplacePlanResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offerId":
+            suggest = "offer_id"
+        elif key == "planId":
+            suggest = "plan_id"
+        elif key == "publisherId":
+            suggest = "publisher_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarketplacePlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarketplacePlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarketplacePlanResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 offer_id: str,
+                 plan_id: str,
+                 publisher_id: str):
+        """
+        :param str offer_id: The Offer ID of the Marketplace Plan.
+        :param str plan_id: The Plan ID of the Marketplace Plan.
+        :param str publisher_id: The Publisher ID of the Marketplace Plan.
+        """
+        pulumi.set(__self__, "offer_id", offer_id)
+        pulumi.set(__self__, "plan_id", plan_id)
+        pulumi.set(__self__, "publisher_id", publisher_id)
+
+    @property
+    @pulumi.getter(name="offerId")
+    def offer_id(self) -> str:
+        """
+        The Offer ID of the Marketplace Plan.
+        """
+        return pulumi.get(self, "offer_id")
+
+    @property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> str:
+        """
+        The Plan ID of the Marketplace Plan.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter(name="publisherId")
+    def publisher_id(self) -> str:
+        """
+        The Publisher ID of the Marketplace Plan.
+        """
+        return pulumi.get(self, "publisher_id")
+
+
+@pulumi.output_type
+class MarketplaceSubscriptionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marketplacePlan":
+            suggest = "marketplace_plan"
+        elif key == "marketplaceSubscriptionStatus":
+            suggest = "marketplace_subscription_status"
+        elif key == "modelId":
+            suggest = "model_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarketplaceSubscriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarketplaceSubscriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarketplaceSubscriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 marketplace_plan: 'outputs.MarketplacePlanResponse',
+                 marketplace_subscription_status: str,
+                 model_id: str,
+                 provisioning_state: str):
+        """
+        :param 'MarketplacePlanResponse' marketplace_plan: Marketplace Plan associated with the Marketplace Subscription.
+        :param str marketplace_subscription_status: Current status of the Marketplace Subscription.
+        :param str model_id: [Required] Target Marketplace Model ID to create a Marketplace Subscription for.
+        :param str provisioning_state: Provisioning State of the Marketplace Subscription.
+        """
+        pulumi.set(__self__, "marketplace_plan", marketplace_plan)
+        pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
+        pulumi.set(__self__, "model_id", model_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="marketplacePlan")
+    def marketplace_plan(self) -> 'outputs.MarketplacePlanResponse':
+        """
+        Marketplace Plan associated with the Marketplace Subscription.
+        """
+        return pulumi.get(self, "marketplace_plan")
+
+    @property
+    @pulumi.getter(name="marketplaceSubscriptionStatus")
+    def marketplace_subscription_status(self) -> str:
+        """
+        Current status of the Marketplace Subscription.
+        """
+        return pulumi.get(self, "marketplace_subscription_status")
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> str:
+        """
+        [Required] Target Marketplace Model ID to create a Marketplace Subscription for.
+        """
+        return pulumi.get(self, "model_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning State of the Marketplace Subscription.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
@@ -22006,6 +22442,115 @@ class OnlineRequestSettingsResponse(dict):
         Defaults to 5000ms.
         """
         return pulumi.get(self, "request_timeout")
+
+
+@pulumi.output_type
+class OpenAIEndpointDeploymentResourcePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "raiPolicyName":
+            suggest = "rai_policy_name"
+        elif key == "versionUpgradeOption":
+            suggest = "version_upgrade_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenAIEndpointDeploymentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenAIEndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenAIEndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model: 'outputs.EndpointDeploymentModelResponse',
+                 provisioning_state: str,
+                 type: str,
+                 failure_reason: Optional[str] = None,
+                 rai_policy_name: Optional[str] = None,
+                 sku: Optional['outputs.CognitiveServicesSkuResponse'] = None,
+                 version_upgrade_option: Optional[str] = None):
+        """
+        :param 'EndpointDeploymentModelResponse' model: Model used for the endpoint deployment.
+        :param str provisioning_state: Read-only provision state status property.
+        :param str type: Kind of the deployment.
+               Expected value is 'Azure.OpenAI'.
+        :param str failure_reason: The failure reason if the creation failed.
+        :param str rai_policy_name: The name of RAI policy.
+        :param str version_upgrade_option: Deployment model version upgrade option.
+        """
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", 'Azure.OpenAI')
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+        if rai_policy_name is not None:
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
+
+    @property
+    @pulumi.getter
+    def model(self) -> 'outputs.EndpointDeploymentModelResponse':
+        """
+        Model used for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Read-only provision state status property.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Kind of the deployment.
+        Expected value is 'Azure.OpenAI'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[str]:
+        """
+        The failure reason if the creation failed.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> Optional[str]:
+        """
+        The name of RAI policy.
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.CognitiveServicesSkuResponse']:
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[str]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
 
 
 @pulumi.output_type
@@ -25883,6 +26428,115 @@ class SkuResponse(dict):
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SpeechEndpointDeploymentResourcePropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "raiPolicyName":
+            suggest = "rai_policy_name"
+        elif key == "versionUpgradeOption":
+            suggest = "version_upgrade_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpeechEndpointDeploymentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpeechEndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpeechEndpointDeploymentResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model: 'outputs.EndpointDeploymentModelResponse',
+                 provisioning_state: str,
+                 type: str,
+                 failure_reason: Optional[str] = None,
+                 rai_policy_name: Optional[str] = None,
+                 sku: Optional['outputs.CognitiveServicesSkuResponse'] = None,
+                 version_upgrade_option: Optional[str] = None):
+        """
+        :param 'EndpointDeploymentModelResponse' model: Model used for the endpoint deployment.
+        :param str provisioning_state: Read-only provision state status property.
+        :param str type: Kind of the deployment.
+               Expected value is 'Azure.Speech'.
+        :param str failure_reason: The failure reason if the creation failed.
+        :param str rai_policy_name: The name of RAI policy.
+        :param str version_upgrade_option: Deployment model version upgrade option.
+        """
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", 'Azure.Speech')
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+        if rai_policy_name is not None:
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
+
+    @property
+    @pulumi.getter
+    def model(self) -> 'outputs.EndpointDeploymentModelResponse':
+        """
+        Model used for the endpoint deployment.
+        """
+        return pulumi.get(self, "model")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Read-only provision state status property.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Kind of the deployment.
+        Expected value is 'Azure.Speech'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[str]:
+        """
+        The failure reason if the creation failed.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> Optional[str]:
+        """
+        The name of RAI policy.
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.CognitiveServicesSkuResponse']:
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[str]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
 
 
 @pulumi.output_type

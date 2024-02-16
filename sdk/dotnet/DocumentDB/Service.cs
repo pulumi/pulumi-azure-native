@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     /// Properties for the database account.
     /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-04-01-preview.
     /// 
-    /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview.
+    /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

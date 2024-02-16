@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Hyper-V collector resource.
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export class HypervCollectorsOperation extends pulumi.CustomResource {
     /**
@@ -110,7 +112,7 @@ export class HypervCollectorsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230315:HypervCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230315:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:HypervCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HypervCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

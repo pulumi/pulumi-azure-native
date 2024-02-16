@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20220301 from "./v20220301";
 import * as v20221101 from "./v20221101";
+import * as v20240301preview from "./v20240301preview";
 
 export {
     v20220301,
     v20221101,
+    v20240301preview,
 };
 
 export const AutoTrackingConfiguration = {
@@ -20,6 +22,16 @@ export const AutoTrackingConfiguration = {
  * Auto-tracking configuration.
  */
 export type AutoTrackingConfiguration = (typeof AutoTrackingConfiguration)[keyof typeof AutoTrackingConfiguration];
+
+export const Capability = {
+    EarthObservation: "EarthObservation",
+    Communication: "Communication",
+} as const;
+
+/**
+ * Capability of the Ground Station.
+ */
+export type Capability = (typeof Capability)[keyof typeof Capability];
 
 export const Direction = {
     Uplink: "Uplink",

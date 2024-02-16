@@ -722,7 +722,9 @@ Education:
 Elastic:
     tracking: "2023-06-01"
     additions:
+        OpenAI: "2024-03-01"
         getBillingInfo: 2023-07-01-preview
+        getOpenAIStatus: "2024-03-01"
         getOrganizationElasticToAzureSubscriptionMapping: 2023-06-15-preview
         listConnectedPartnerResource: 2023-07-01-preview
 ElasticSan:
@@ -945,6 +947,7 @@ MachineLearningServices:
     tracking: "2023-04-01"
     additions:
         CapacityReservationGroup: 2023-08-01-preview
+        EndpointDeployment: 2024-01-01-preview
         EnvironmentSpecificationVersion: 2021-03-01-preview
         FeaturesetContainerEntity: 2023-04-01-preview
         FeaturesetVersion: 2023-04-01-preview
@@ -959,12 +962,14 @@ MachineLearningServices:
         MachineLearningDataset: 2020-05-01-preview
         MachineLearningDatastore: 2020-05-01-preview
         ManagedNetworkSettingsRule: 2023-04-01-preview
+        MarketplaceSubscription: 2024-01-01-preview
         ServerlessEndpoint: 2023-08-01-preview
         getComputeAllowedResizeSizes: 2023-08-01-preview
         getFeaturesetVersionFeature: 2023-02-01-preview
         getInferenceGroupStatus: 2023-08-01-preview
         getInferencePoolStatus: 2023-08-01-preview
         getServerlessEndpointStatus: 2023-08-01-preview
+        listEndpointKeys: 2024-01-01-preview
         listFeaturesetVersionFeatures: 2023-02-01-preview
         listFeaturesetVersionMaterializationJobs: 2023-04-01-preview
         listServerlessEndpointKeys: 2023-08-01-preview
@@ -1043,9 +1048,12 @@ Media:
         listStreamingLocatorPaths: "2023-01-01"
 Migrate:
     additions:
+        AksAssessmentOperation: 2023-04-01-preview
         Assessment: "2019-10-01"
         AssessmentProjectsOperation: "2023-03-15"
+        AssessmentsOperation: 2023-04-01-preview
         AvsAssessmentsOperation: "2023-03-15"
+        BusinessCaseOperation: 2023-04-01-preview
         Group: "2019-10-01"
         GroupsOperation: "2023-03-15"
         HyperVCollector: "2019-10-01"
@@ -1071,12 +1079,19 @@ Migrate:
         SqlCollectorOperation: "2023-03-15"
         VMwareCollector: "2019-10-01"
         VmwareCollectorsOperation: "2023-03-15"
+        WebAppAssessmentV2Operation: 2023-04-01-preview
+        WebAppCollectorOperation: 2023-04-01-preview
         WorkloadDeployment: 2022-05-01-preview
         WorkloadInstance: 2022-05-01-preview
+        getBusinessCaseOperationReportDownloadUrl: 2023-04-01-preview
         getProjectKeys: "2018-02-02"
         getSolutionConfig: 2018-09-01-preview
         getSolutionsControllerConfig: "2023-01-01"
         getWorkloadDeploymentSecretConfigurations: 2022-05-01-preview
+    exclusionErrors:
+        - provider: Migrate
+          resourcename: AssessmentsOperation
+          detail: version 2023-04-01-preview is greater than 2023-03-15
 MixedReality:
     tracking: "2021-01-01"
     additions:
@@ -1325,6 +1340,12 @@ OperationsManagement:
     tracking: 2015-11-01-preview
 Orbital:
     tracking: "2022-11-01"
+    additions:
+        EdgeSite: 2024-03-01-preview
+        GroundStation: 2024-03-01-preview
+        L2Connection: 2024-03-01-preview
+        listEdgeSiteL2Connections: 2024-03-01-preview
+        listGroundStationL2Connections: 2024-03-01-preview
 Peering:
     tracking: "2022-10-01"
 PolicyInsights:

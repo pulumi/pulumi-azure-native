@@ -95,6 +95,12 @@
     "properties.etag": {},
     "properties.name": {}
   },
+  "azure-native:orbital/v20240301preview:L2Connection": {
+    "groundStationPartnerRouter.name": {}
+  },
+  "azure-native:orbital:L2Connection": {
+    "groundStationPartnerRouter.name": {}
+  },
   "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode": {
     "properties.id": {},
     "properties.name": {}

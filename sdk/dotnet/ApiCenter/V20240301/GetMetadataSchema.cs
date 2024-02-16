@@ -81,6 +81,9 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
     [OutputType]
     public sealed class GetMetadataSchemaResult
     {
+        /// <summary>
+        /// The assignees
+        /// </summary>
         public readonly ImmutableArray<Outputs.MetadataAssignmentResponse> AssignedTo;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"

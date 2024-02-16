@@ -71,7 +71,7 @@ class GetApiDefinitionResult:
 
     @property
     @pulumi.getter
-    def specification(self) -> 'outputs.ApiDefinitionPropertiesResponseSpecification':
+    def specification(self) -> 'outputs.ApiDefinitionPropertiesSpecificationResponse':
         """
         API specification details.
         """

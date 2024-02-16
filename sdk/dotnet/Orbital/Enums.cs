@@ -40,6 +40,37 @@ namespace Pulumi.AzureNative.Orbital
     }
 
     /// <summary>
+    /// Capability of the Ground Station.
+    /// </summary>
+    [EnumType]
+    public readonly struct Capability : IEquatable<Capability>
+    {
+        private readonly string _value;
+
+        private Capability(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Capability EarthObservation { get; } = new Capability("EarthObservation");
+        public static Capability Communication { get; } = new Capability("Communication");
+
+        public static bool operator ==(Capability left, Capability right) => left.Equals(right);
+        public static bool operator !=(Capability left, Capability right) => !left.Equals(right);
+
+        public static explicit operator string(Capability value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Capability other && Equals(other);
+        public bool Equals(Capability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Direction (Uplink or Downlink).
     /// </summary>
     [EnumType]

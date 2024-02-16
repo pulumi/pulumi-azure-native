@@ -218,6 +218,8 @@ class Firmware(pulumi.CustomResource):
         Firmware definition
         Azure REST API version: 2023-02-08-preview.
 
+        Other available API versions: 2024-01-10.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: User-specified description of the firmware.
@@ -241,6 +243,8 @@ class Firmware(pulumi.CustomResource):
         """
         Firmware definition
         Azure REST API version: 2023-02-08-preview.
+
+        Other available API versions: 2024-01-10.
 
         :param str resource_name: The name of the resource.
         :param FirmwareArgs args: The arguments to use to populate this resource's properties.
@@ -298,7 +302,7 @@ class Firmware(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20230208preview:Firmware")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20230208preview:Firmware"), pulumi.Alias(type_="azure-native:iotfirmwaredefense/v20240110:Firmware")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Firmware, __self__).__init__(
             'azure-native:iotfirmwaredefense:Firmware',

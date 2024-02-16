@@ -149,6 +149,8 @@ def get_sql_collector_operation(collector_name: Optional[str] = None,
     Get a SqlCollector
     Azure REST API version: 2023-03-15.
 
+    Other available API versions: 2023-04-01-preview.
+
 
     :param str collector_name: Sql collector ARM name.
     :param str project_name: Assessment Project Name
@@ -181,6 +183,8 @@ def get_sql_collector_operation_output(collector_name: Optional[pulumi.Input[str
     """
     Get a SqlCollector
     Azure REST API version: 2023-03-15.
+
+    Other available API versions: 2023-04-01-preview.
 
 
     :param str collector_name: Sql collector ARM name.

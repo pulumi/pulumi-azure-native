@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a AssessmentProject
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export function getAssessmentProjectsOperation(args: GetAssessmentProjectsOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentProjectsOperationResult> {
 
@@ -112,6 +114,8 @@ export interface GetAssessmentProjectsOperationResult {
 /**
  * Get a AssessmentProject
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export function getAssessmentProjectsOperationOutput(args: GetAssessmentProjectsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentProjectsOperationResult> {
     return pulumi.output(args).apply((a: any) => getAssessmentProjectsOperation(a, opts))

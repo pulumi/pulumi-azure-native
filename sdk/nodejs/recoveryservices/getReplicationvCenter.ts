@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of a registered vCenter server(Add vCenter server).
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2021-03-01, 2023-06-01.
+ * Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01.
  */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
 
@@ -72,7 +72,7 @@ export interface GetReplicationvCenterResult {
  * Gets the details of a registered vCenter server(Add vCenter server).
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2021-03-01, 2023-06-01.
+ * Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01.
  */
 export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationvCenterResult> {
     return pulumi.output(args).apply((a: any) => getReplicationvCenter(a, opts))

@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiCenter.V20240301.Inputs
 {
 
+    /// <summary>
+    /// Assignment metadata
+    /// </summary>
     public sealed class MetadataAssignmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Deprecated assignment
+        /// </summary>
         [Input("deprecated")]
         public Input<bool>? Deprecated { get; set; }
 
@@ -21,6 +27,9 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301.Inputs
         [Input("entity")]
         public InputUnion<string, Pulumi.AzureNative.ApiCenter.V20240301.MetadataAssignmentEntity>? Entity { get; set; }
 
+        /// <summary>
+        /// Required assignment
+        /// </summary>
         [Input("required")]
         public Input<bool>? Required { get; set; }
 

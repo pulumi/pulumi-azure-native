@@ -19041,8 +19041,9 @@ class OnlineRequestSettingsResponse(dict):
         """
         Online deployment scoring requests configuration.
         :param int max_concurrent_requests_per_instance: The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
-        :param str max_queue_wait: The maximum amount of time a request will stay in the queue in ISO 8601 format.
+        :param str max_queue_wait: (Deprecated for Managed Online Endpoints) The maximum amount of time a request will stay in the queue in ISO 8601 format.
                Defaults to 500ms.
+               (Now increase `request_timeout_ms` to account for any networking/queue delays)
         :param str request_timeout: The scoring timeout in ISO 8601 format.
                Defaults to 5000ms.
         """
@@ -19071,8 +19072,9 @@ class OnlineRequestSettingsResponse(dict):
     @pulumi.getter(name="maxQueueWait")
     def max_queue_wait(self) -> Optional[str]:
         """
-        The maximum amount of time a request will stay in the queue in ISO 8601 format.
+        (Deprecated for Managed Online Endpoints) The maximum amount of time a request will stay in the queue in ISO 8601 format.
         Defaults to 500ms.
+        (Now increase `request_timeout_ms` to account for any networking/queue delays)
         """
         return pulumi.get(self, "max_queue_wait")
 

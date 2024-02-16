@@ -17,7 +17,11 @@ __all__ = [
     'ContactProfileThirdPartyConfigurationArgs',
     'ContactProfilesPropertiesNetworkConfigurationArgs',
     'ContactsPropertiesContactProfileArgs',
+    'EdgeSitesPropertiesGlobalCommunicationsSiteArgs',
     'EndPointArgs',
+    'GroundStationsPropertiesGlobalCommunicationsSiteArgs',
+    'L2ConnectionsPropertiesEdgeSiteArgs',
+    'L2ConnectionsPropertiesGroundStationArgs',
     'SpacecraftLinkArgs',
 ]
 
@@ -361,6 +365,29 @@ class ContactsPropertiesContactProfileArgs:
 
 
 @pulumi.input_type
+class EdgeSitesPropertiesGlobalCommunicationsSiteArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        A reference to global communications site.
+        :param pulumi.Input[str] id: Resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class EndPointArgs:
     def __init__(__self__, *,
                  end_point_name: pulumi.Input[str],
@@ -426,6 +453,75 @@ class EndPointArgs:
     @protocol.setter
     def protocol(self, value: pulumi.Input[Union[str, 'Protocol']]):
         pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class GroundStationsPropertiesGlobalCommunicationsSiteArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        A reference to global communications site.
+        :param pulumi.Input[str] id: Resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class L2ConnectionsPropertiesEdgeSiteArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
+        :param pulumi.Input[str] id: Resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class L2ConnectionsPropertiesGroundStationArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+        :param pulumi.Input[str] id: Resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

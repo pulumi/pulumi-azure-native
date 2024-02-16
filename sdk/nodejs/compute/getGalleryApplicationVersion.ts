@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Retrieves information about a gallery Application Version.
  * Azure REST API version: 2022-03-03.
  *
- * Other available API versions: 2022-08-03.
+ * Other available API versions: 2022-08-03, 2023-07-03.
  */
 export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationVersionResult> {
 
@@ -93,7 +93,7 @@ export interface GetGalleryApplicationVersionResult {
  * Retrieves information about a gallery Application Version.
  * Azure REST API version: 2022-03-03.
  *
- * Other available API versions: 2022-08-03.
+ * Other available API versions: 2022-08-03, 2023-07-03.
  */
 export function getGalleryApplicationVersionOutput(args: GetGalleryApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationVersionResult> {
     return pulumi.output(args).apply((a: any) => getGalleryApplicationVersion(a, opts))

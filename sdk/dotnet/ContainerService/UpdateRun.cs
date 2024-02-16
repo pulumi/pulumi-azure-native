@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.UpdateRunStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The strategy defines the order in which the clusters will be updated. 
+        /// The strategy defines the order in which the clusters will be updated.
         /// If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
         /// The strategy of the UpdateRun can be modified until the run is started.
         /// </summary>
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The strategy defines the order in which the clusters will be updated. 
+        /// The strategy defines the order in which the clusters will be updated.
         /// If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
         /// The strategy of the UpdateRun can be modified until the run is started.
         /// </summary>

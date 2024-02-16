@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiCenter.Inputs
 {
 
+    /// <summary>
+    /// Server
+    /// </summary>
     public sealed class DeploymentServerArgs : global::Pulumi.ResourceArgs
     {
         [Input("runtimeUri")]

@@ -197,6 +197,8 @@ def get_firmware(firmware_id: Optional[str] = None,
     Get firmware.
     Azure REST API version: 2023-02-08-preview.
 
+    Other available API versions: 2024-01-10.
+
 
     :param str firmware_id: The id of the firmware.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -233,6 +235,8 @@ def get_firmware_output(firmware_id: Optional[pulumi.Input[str]] = None,
     """
     Get firmware.
     Azure REST API version: 2023-02-08-preview.
+
+    Other available API versions: 2024-01-10.
 
 
     :param str firmware_id: The id of the firmware.

@@ -197,6 +197,8 @@ def get_groups_operation(group_name: Optional[str] = None,
     Get a Group
     Azure REST API version: 2023-03-15.
 
+    Other available API versions: 2023-04-01-preview.
+
 
     :param str group_name: Group ARM name
     :param str project_name: Assessment Project Name
@@ -233,6 +235,8 @@ def get_groups_operation_output(group_name: Optional[pulumi.Input[str]] = None,
     """
     Get a Group
     Azure REST API version: 2023-03-15.
+
+    Other available API versions: 2023-04-01-preview.
 
 
     :param str group_name: Group ARM name

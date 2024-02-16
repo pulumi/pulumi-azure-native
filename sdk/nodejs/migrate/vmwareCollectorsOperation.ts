@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * VMware collector resource.
  * Azure REST API version: 2023-03-15.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export class VmwareCollectorsOperation extends pulumi.CustomResource {
     /**
@@ -110,7 +112,7 @@ export class VmwareCollectorsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230315:VmwareCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230315:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:VmwareCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VmwareCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

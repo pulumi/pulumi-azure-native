@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.AzurePlaywrightService.V20231001Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice:Account" },
-                    new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20240201:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20240201preview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -183,6 +183,7 @@ namespace Pulumi.AzureNative.Databricks.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230915preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20240201preview:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

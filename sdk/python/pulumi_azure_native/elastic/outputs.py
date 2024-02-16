@@ -28,6 +28,8 @@ __all__ = [
     'MonitorPropertiesResponse',
     'MonitoredResourceResponse',
     'MonitoringTagRulesPropertiesResponse',
+    'OpenAIIntegrationPropertiesResponse',
+    'OpenAIIntegrationStatusResponsePropertiesResponse',
     'PartnerBillingEntityResponse',
     'ResourceSkuResponse',
     'SystemDataResponse',
@@ -1087,6 +1089,106 @@ class MonitoringTagRulesPropertiesResponse(dict):
         Provisioning state of the monitoring tag rules.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class OpenAIIntegrationPropertiesResponse(dict):
+    """
+    Open AI Integration details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastRefreshAt":
+            suggest = "last_refresh_at"
+        elif key == "openAIResourceEndpoint":
+            suggest = "open_ai_resource_endpoint"
+        elif key == "openAIResourceId":
+            suggest = "open_ai_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenAIIntegrationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenAIIntegrationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenAIIntegrationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_refresh_at: str,
+                 open_ai_resource_endpoint: str,
+                 open_ai_resource_id: str,
+                 key: Optional[str] = None):
+        """
+        Open AI Integration details.
+        :param str last_refresh_at: Last Update Timestamp for key updation
+        :param str open_ai_resource_endpoint: The API endpoint for Open AI resource
+        :param str open_ai_resource_id: The resource id of Open AI resource
+        :param str key: Value of API key for Open AI resource
+        """
+        pulumi.set(__self__, "last_refresh_at", last_refresh_at)
+        pulumi.set(__self__, "open_ai_resource_endpoint", open_ai_resource_endpoint)
+        pulumi.set(__self__, "open_ai_resource_id", open_ai_resource_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="lastRefreshAt")
+    def last_refresh_at(self) -> str:
+        """
+        Last Update Timestamp for key updation
+        """
+        return pulumi.get(self, "last_refresh_at")
+
+    @property
+    @pulumi.getter(name="openAIResourceEndpoint")
+    def open_ai_resource_endpoint(self) -> str:
+        """
+        The API endpoint for Open AI resource
+        """
+        return pulumi.get(self, "open_ai_resource_endpoint")
+
+    @property
+    @pulumi.getter(name="openAIResourceId")
+    def open_ai_resource_id(self) -> str:
+        """
+        The resource id of Open AI resource
+        """
+        return pulumi.get(self, "open_ai_resource_id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Value of API key for Open AI resource
+        """
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class OpenAIIntegrationStatusResponsePropertiesResponse(dict):
+    """
+    Status of the OpenAI Integration
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        Status of the OpenAI Integration
+        :param str status: Status of the OpenAI Integration
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of the OpenAI Integration
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

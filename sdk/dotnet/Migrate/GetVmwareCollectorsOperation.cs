@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a VmwareCollector
         /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Task<GetVmwareCollectorsOperationResult> InvokeAsync(GetVmwareCollectorsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVmwareCollectorsOperationResult>("azure-native:migrate:getVmwareCollectorsOperation", args ?? new GetVmwareCollectorsOperationArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a VmwareCollector
         /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Output<GetVmwareCollectorsOperationResult> Invoke(GetVmwareCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVmwareCollectorsOperationResult>("azure-native:migrate:getVmwareCollectorsOperation", args ?? new GetVmwareCollectorsOperationInvokeArgs(), options.WithDefaults());

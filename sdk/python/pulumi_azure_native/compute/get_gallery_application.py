@@ -185,7 +185,7 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
     Retrieves information about a gallery Application Definition.
     Azure REST API version: 2022-03-03.
 
-    Other available API versions: 2022-08-03.
+    Other available API versions: 2022-08-03, 2023-07-03.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.
@@ -223,7 +223,7 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
     Retrieves information about a gallery Application Definition.
     Azure REST API version: 2022-03-03.
 
-    Other available API versions: 2022-08-03.
+    Other available API versions: 2022-08-03, 2023-07-03.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.

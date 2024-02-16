@@ -133,7 +133,7 @@ export class GroupsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:GroupsOperation" }, { type: "azure-native:migrate/v20191001:GroupsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:GroupsOperation" }, { type: "azure-native:migrate/v20191001:GroupsOperation" }, { type: "azure-native:migrate/v20230401preview:GroupsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroupsOperation.__pulumiType, name, resourceInputs, opts);
     }

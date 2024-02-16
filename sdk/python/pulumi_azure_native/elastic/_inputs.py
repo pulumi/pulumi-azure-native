@@ -17,6 +17,7 @@ __all__ = [
     'LogRulesArgs',
     'MonitorPropertiesArgs',
     'MonitoringTagRulesPropertiesArgs',
+    'OpenAIIntegrationPropertiesArgs',
     'ResourceSkuArgs',
     'UserInfoArgs',
 ]
@@ -387,6 +388,30 @@ class MonitoringTagRulesPropertiesArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+
+@pulumi.input_type
+class OpenAIIntegrationPropertiesArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        Open AI Integration details.
+        :param pulumi.Input[str] key: Value of API key for Open AI resource
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of API key for Open AI resource
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
 
 
 @pulumi.input_type

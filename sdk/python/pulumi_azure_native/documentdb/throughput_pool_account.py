@@ -113,6 +113,8 @@ class ThroughputPoolAccount(pulumi.CustomResource):
         An Azure Cosmos DB Throughputpool Account
         Azure REST API version: 2023-11-15-preview.
 
+        Other available API versions: 2024-02-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_location: The location of  global database account in the throughputPool.
@@ -130,6 +132,8 @@ class ThroughputPoolAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB Throughputpool Account
         Azure REST API version: 2023-11-15-preview.
+
+        Other available API versions: 2024-02-15-preview.
 
         :param str resource_name: The name of the resource.
         :param ThroughputPoolAccountArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +178,7 @@ class ThroughputPoolAccount(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20231115preview:ThroughputPoolAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20231115preview:ThroughputPoolAccount"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:ThroughputPoolAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ThroughputPoolAccount, __self__).__init__(
             'azure-native:documentdb:ThroughputPoolAccount',

@@ -69,6 +69,9 @@ class GetApiResult:
     @property
     @pulumi.getter
     def contacts(self) -> Optional[Sequence['outputs.ContactResponse']]:
+        """
+        The set of contacts
+        """
         return pulumi.get(self, "contacts")
 
     @property
@@ -90,6 +93,9 @@ class GetApiResult:
     @property
     @pulumi.getter(name="externalDocumentation")
     def external_documentation(self) -> Optional[Sequence['outputs.ExternalDocumentationResponse']]:
+        """
+        The set of external documentation
+        """
         return pulumi.get(self, "external_documentation")
 
     @property

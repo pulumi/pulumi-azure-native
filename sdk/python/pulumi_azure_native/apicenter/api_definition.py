@@ -287,7 +287,7 @@ class ApiDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def specification(self) -> pulumi.Output['outputs.ApiDefinitionPropertiesResponseSpecification']:
+    def specification(self) -> pulumi.Output['outputs.ApiDefinitionPropertiesSpecificationResponse']:
         """
         API specification details.
         """

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a gallery image definition.
         /// Azure REST API version: 2022-03-03.
         /// 
-        /// Other available API versions: 2022-08-03.
+        /// Other available API versions: 2022-08-03, 2023-07-03.
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:compute:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a gallery image definition.
         /// Azure REST API version: 2022-03-03.
         /// 
-        /// Other available API versions: 2022-08-03.
+        /// Other available API versions: 2022-08-03, 2023-07-03.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:compute:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());

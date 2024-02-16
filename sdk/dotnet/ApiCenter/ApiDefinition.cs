@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.ApiCenter
         /// API specification details.
         /// </summary>
         [Output("specification")]
-        public Output<Outputs.ApiDefinitionPropertiesResponseSpecification> Specification { get; private set; } = null!;
+        public Output<Outputs.ApiDefinitionPropertiesSpecificationResponse> Specification { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

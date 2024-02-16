@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01.
+ * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01.
  */
 export function getEnterprisePrivateEndpointConnection(args: GetEnterprisePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePrivateEndpointConnectionResult> {
 
@@ -75,7 +75,7 @@ export interface GetEnterprisePrivateEndpointConnectionResult {
  * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01.
+ * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01.
  */
 export function getEnterprisePrivateEndpointConnectionOutput(args: GetEnterprisePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEnterprisePrivateEndpointConnection(a, opts))

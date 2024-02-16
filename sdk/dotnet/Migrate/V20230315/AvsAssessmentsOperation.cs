@@ -311,6 +311,7 @@ namespace Pulumi.AzureNative.Migrate.V20230315
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AvsAssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AvsAssessmentsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

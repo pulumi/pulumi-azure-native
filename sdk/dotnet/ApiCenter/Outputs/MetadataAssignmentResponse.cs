@@ -10,14 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiCenter.Outputs
 {
 
+    /// <summary>
+    /// Assignment metadata
+    /// </summary>
     [OutputType]
     public sealed class MetadataAssignmentResponse
     {
+        /// <summary>
+        /// Deprecated assignment
+        /// </summary>
         public readonly bool? Deprecated;
         /// <summary>
         /// The entities this metadata schema component gets applied to.
         /// </summary>
         public readonly string? Entity;
+        /// <summary>
+        /// Required assignment
+        /// </summary>
         public readonly bool? Required;
 
         [OutputConstructor]

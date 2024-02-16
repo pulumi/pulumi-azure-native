@@ -13,6 +13,8 @@ from ._enums import *
 
 __all__ = [
     'ACRPropertiesResponse',
+    'AKSAssessmentDetailsResponse',
+    'AKSAssessmentSettingsResponse',
     'AKSDeploymentPropertiesResponse',
     'AKSDeploymentSpecificationResponse',
     'ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesResponse',
@@ -20,11 +22,15 @@ __all__ = [
     'ApacheTomcatWebApplicationResponse',
     'ApacheTomcatWorkloadInstanceModelCustomPropertiesResponse',
     'AppInsightMonitoringPropertiesResponse',
+    'AppSvcContainerSettingsResponse',
+    'AppSvcNativeSettingsResponse',
     'AssessmentPropertiesResponse',
+    'AssessmentScopeParametersResponse',
     'AutomaticResolutionPropertiesResponse',
     'AutomationArtifactResponse',
     'AvailabilitySetResourceSettingsResponse',
     'AzureFileShareHydrationProfileResponse',
+    'AzureSettingsResponse',
     'BindingResponse',
     'CertResponse',
     'CollectorAgentPropertiesBaseResponse',
@@ -32,17 +38,23 @@ __all__ = [
     'CollectorAgentSpnPropertiesBaseResponse',
     'CollectorBodyAgentSpnPropertiesResponse',
     'CollectorPropertiesResponse',
+    'ComputeSettingsResponse',
     'ContainerImagePropertiesResponse',
+    'CostComponentResponse',
     'DatabaseProjectSummaryResponse',
     'DatabasesSolutionSummaryResponse',
     'DeployedResourcesPropertiesResponse',
     'DirectoryPathResponse',
+    'DiscoveredEntityLightSummaryResponse',
     'DiskEncryptionSetResourceSettingsResponse',
     'EntityUptimeResponse',
+    'FacilitySettingsResponse',
     'GmsaAuthenticationPropertiesResponse',
     'GroupConnectivityInformationResponse',
     'GroupPropertiesResponse',
     'HealthErrorModelResponse',
+    'HypervLicenseResponse',
+    'HypervVirtualizationManagementSettingsResponse',
     'IISAKSWorkloadDeploymentModelCustomPropertiesResponse',
     'IISAKSWorkloadDeploymentResponse',
     'IISApplicationDetailsResponse',
@@ -60,10 +72,12 @@ __all__ = [
     'KeyVaultSecretStorePropertiesResponse',
     'LBBackendAddressPoolResourceSettingsResponse',
     'LBFrontendIPConfigurationResourceSettingsResponse',
+    'LaborSettingsResponse',
     'LoadBalancerBackendAddressPoolReferenceResponse',
     'LoadBalancerNatRuleReferenceResponse',
     'LoadBalancerResourceSettingsResponse',
     'ManagedIdentityPropertiesResponse',
+    'ManagementSettingsResponse',
     'ManualResolutionPropertiesResponse',
     'MigrateAgentModelPropertiesResponse',
     'MigrateAgentModelResponseSystemData',
@@ -83,10 +97,14 @@ __all__ = [
     'MoveResourcePropertiesResponseMoveStatus',
     'NetworkInterfaceResourceSettingsResponse',
     'NetworkSecurityGroupResourceSettingsResponse',
+    'NetworkSettingsResponse',
     'NicIpConfigurationResourceSettingsResponse',
     'NsgReferenceResponse',
     'NsgSecurityRuleResponse',
+    'OnPremiseSettingsResponse',
     'OperatingSystemDetailsResponse',
+    'OtherManagementCostsSettingsResponse',
+    'PerfDataSettingsResponse',
     'PortMappingResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointConnectionProxyPropertiesResponse',
@@ -100,14 +118,17 @@ __all__ = [
     'ProjectSummaryResponse',
     'PublicIPAddressResourceSettingsResponse',
     'PublicIpReferenceResponse',
+    'ReportDetailsResponse',
     'ResourceGroupResourceSettingsResponse',
     'ResourceIdResponse',
     'ResourceIdentityResponse',
     'ResourceRequirementsResponse',
     'SecretStoreDetailsResponse',
     'SecretStorePropertiesResponse',
+    'SecuritySettingsResponse',
     'ServersProjectSummaryResponse',
     'ServersSolutionSummaryResponse',
+    'SettingsResponse',
     'SolutionDetailsResponse',
     'SolutionPropertiesResponse',
     'SolutionSummaryResponse',
@@ -115,20 +136,28 @@ __all__ = [
     'SqlDbSettingsResponse',
     'SqlElasticPoolResourceSettingsResponse',
     'SqlMiSettingsResponse',
+    'SqlServerLicensingSettingsResponse',
     'SqlServerResourceSettingsResponse',
     'SqlVmSettingsResponse',
+    'StorageSettingsResponse',
     'SubnetReferenceResponse',
     'SubnetResourceSettingsResponse',
     'SystemDataResponse',
     'TargetStorageProfileResponse',
+    'ThirdPartyManagementSettingsResponse',
     'UserAssignedIdentityResponse',
     'VMwareMigrateAgentModelCustomPropertiesResponse',
     'VirtualMachineResourceSettingsResponse',
     'VirtualNetworkResourceSettingsResponse',
+    'VirtualizationSoftwareSettingsResponse',
     'VmUptimeResponse',
+    'VsphereLicenseResponse',
+    'VsphereManagementLicenseResponse',
+    'VsphereManagementSettingsResponse',
     'WebApplicationConfigurationResponse',
     'WebApplicationDirectoryResponse',
     'WebApplicationFrameworkResponse',
+    'WindowsServerLicensingSettingsResponse',
     'WorkloadDeploymentModelPropertiesResponse',
     'WorkloadDeploymentModelPropertiesResponseCurrentJob',
     'WorkloadDeploymentModelResponseSystemData',
@@ -217,6 +246,326 @@ class ACRPropertiesResponse(dict):
         Gets or sets the tenant id.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class AKSAssessmentDetailsResponse(dict):
+    """
+    Data model of AKS Assessment Details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confidenceRatingInPercentage":
+            suggest = "confidence_rating_in_percentage"
+        elif key == "createdTimestamp":
+            suggest = "created_timestamp"
+        elif key == "machineCount":
+            suggest = "machine_count"
+        elif key == "pricesTimestamp":
+            suggest = "prices_timestamp"
+        elif key == "totalMonthlyCost":
+            suggest = "total_monthly_cost"
+        elif key == "updatedTimestamp":
+            suggest = "updated_timestamp"
+        elif key == "webAppCount":
+            suggest = "web_app_count"
+        elif key == "webServerCount":
+            suggest = "web_server_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSAssessmentDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSAssessmentDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSAssessmentDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 confidence_rating_in_percentage: float,
+                 created_timestamp: str,
+                 machine_count: int,
+                 prices_timestamp: str,
+                 status: str,
+                 total_monthly_cost: float,
+                 updated_timestamp: str,
+                 web_app_count: int,
+                 web_server_count: int):
+        """
+        Data model of AKS Assessment Details.
+        :param float confidence_rating_in_percentage: Gets Confidence score.
+        :param str created_timestamp: Gets date and time when assessment was created.
+        :param int machine_count: Gets the number of machines.
+        :param str prices_timestamp: Gets last time when rates were queried.
+        :param str status: Gets assessment status.
+        :param float total_monthly_cost: Gets the total monthly cost.
+        :param str updated_timestamp: Gets date and time when assessment was last updated.
+        :param int web_app_count: Gets the number of web apps.
+        :param int web_server_count: Gets the number of web servers.
+        """
+        pulumi.set(__self__, "confidence_rating_in_percentage", confidence_rating_in_percentage)
+        pulumi.set(__self__, "created_timestamp", created_timestamp)
+        pulumi.set(__self__, "machine_count", machine_count)
+        pulumi.set(__self__, "prices_timestamp", prices_timestamp)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "total_monthly_cost", total_monthly_cost)
+        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        pulumi.set(__self__, "web_app_count", web_app_count)
+        pulumi.set(__self__, "web_server_count", web_server_count)
+
+    @property
+    @pulumi.getter(name="confidenceRatingInPercentage")
+    def confidence_rating_in_percentage(self) -> float:
+        """
+        Gets Confidence score.
+        """
+        return pulumi.get(self, "confidence_rating_in_percentage")
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
+        """
+        Gets date and time when assessment was created.
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="machineCount")
+    def machine_count(self) -> int:
+        """
+        Gets the number of machines.
+        """
+        return pulumi.get(self, "machine_count")
+
+    @property
+    @pulumi.getter(name="pricesTimestamp")
+    def prices_timestamp(self) -> str:
+        """
+        Gets last time when rates were queried.
+        """
+        return pulumi.get(self, "prices_timestamp")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Gets assessment status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="totalMonthlyCost")
+    def total_monthly_cost(self) -> float:
+        """
+        Gets the total monthly cost.
+        """
+        return pulumi.get(self, "total_monthly_cost")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
+        """
+        Gets date and time when assessment was last updated.
+        """
+        return pulumi.get(self, "updated_timestamp")
+
+    @property
+    @pulumi.getter(name="webAppCount")
+    def web_app_count(self) -> int:
+        """
+        Gets the number of web apps.
+        """
+        return pulumi.get(self, "web_app_count")
+
+    @property
+    @pulumi.getter(name="webServerCount")
+    def web_server_count(self) -> int:
+        """
+        Gets the number of web servers.
+        """
+        return pulumi.get(self, "web_server_count")
+
+
+@pulumi.output_type
+class AKSAssessmentSettingsResponse(dict):
+    """
+    Data model of AKS Assessment Settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureLocation":
+            suggest = "azure_location"
+        elif key == "environmentType":
+            suggest = "environment_type"
+        elif key == "licensingProgram":
+            suggest = "licensing_program"
+        elif key == "pricingTier":
+            suggest = "pricing_tier"
+        elif key == "savingsOptions":
+            suggest = "savings_options"
+        elif key == "sizingCriteria":
+            suggest = "sizing_criteria"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "performanceData":
+            suggest = "performance_data"
+        elif key == "scalingFactor":
+            suggest = "scaling_factor"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AKSAssessmentSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AKSAssessmentSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AKSAssessmentSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_location: str,
+                 category: str,
+                 consolidation: str,
+                 currency: str,
+                 environment_type: str,
+                 licensing_program: str,
+                 pricing_tier: str,
+                 savings_options: str,
+                 sizing_criteria: str,
+                 discount_percentage: Optional[float] = None,
+                 performance_data: Optional['outputs.PerfDataSettingsResponse'] = None,
+                 scaling_factor: Optional[float] = None):
+        """
+        Data model of AKS Assessment Settings.
+        :param str azure_location: Gets or sets azure location.
+        :param str category: Gets or sets azure VM category.
+        :param str consolidation: Gets or sets consolidation type.
+        :param str currency: Gets or sets currency.
+        :param str environment_type: Gets or sets environment type.
+        :param str licensing_program: Gets or sets licensing program.
+        :param str pricing_tier: Gets or sets pricing tier.
+        :param str savings_options: Gets or sets savings options.
+        :param str sizing_criteria: Gets or sets sizing criteria.
+        :param float discount_percentage: Gets or sets discount percentage.
+        :param 'PerfDataSettingsResponse' performance_data: Gets or sets performance data settings.
+        :param float scaling_factor: Gets or sets scaling factor.
+        """
+        pulumi.set(__self__, "azure_location", azure_location)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "consolidation", consolidation)
+        pulumi.set(__self__, "currency", currency)
+        pulumi.set(__self__, "environment_type", environment_type)
+        pulumi.set(__self__, "licensing_program", licensing_program)
+        pulumi.set(__self__, "pricing_tier", pricing_tier)
+        pulumi.set(__self__, "savings_options", savings_options)
+        pulumi.set(__self__, "sizing_criteria", sizing_criteria)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if performance_data is not None:
+            pulumi.set(__self__, "performance_data", performance_data)
+        if scaling_factor is not None:
+            pulumi.set(__self__, "scaling_factor", scaling_factor)
+
+    @property
+    @pulumi.getter(name="azureLocation")
+    def azure_location(self) -> str:
+        """
+        Gets or sets azure location.
+        """
+        return pulumi.get(self, "azure_location")
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        Gets or sets azure VM category.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def consolidation(self) -> str:
+        """
+        Gets or sets consolidation type.
+        """
+        return pulumi.get(self, "consolidation")
+
+    @property
+    @pulumi.getter
+    def currency(self) -> str:
+        """
+        Gets or sets currency.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="environmentType")
+    def environment_type(self) -> str:
+        """
+        Gets or sets environment type.
+        """
+        return pulumi.get(self, "environment_type")
+
+    @property
+    @pulumi.getter(name="licensingProgram")
+    def licensing_program(self) -> str:
+        """
+        Gets or sets licensing program.
+        """
+        return pulumi.get(self, "licensing_program")
+
+    @property
+    @pulumi.getter(name="pricingTier")
+    def pricing_tier(self) -> str:
+        """
+        Gets or sets pricing tier.
+        """
+        return pulumi.get(self, "pricing_tier")
+
+    @property
+    @pulumi.getter(name="savingsOptions")
+    def savings_options(self) -> str:
+        """
+        Gets or sets savings options.
+        """
+        return pulumi.get(self, "savings_options")
+
+    @property
+    @pulumi.getter(name="sizingCriteria")
+    def sizing_criteria(self) -> str:
+        """
+        Gets or sets sizing criteria.
+        """
+        return pulumi.get(self, "sizing_criteria")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[float]:
+        """
+        Gets or sets discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="performanceData")
+    def performance_data(self) -> Optional['outputs.PerfDataSettingsResponse']:
+        """
+        Gets or sets performance data settings.
+        """
+        return pulumi.get(self, "performance_data")
+
+    @property
+    @pulumi.getter(name="scalingFactor")
+    def scaling_factor(self) -> Optional[float]:
+        """
+        Gets or sets scaling factor.
+        """
+        return pulumi.get(self, "scaling_factor")
 
 
 @pulumi.output_type
@@ -1033,6 +1382,84 @@ class AppInsightMonitoringPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class AppSvcContainerSettingsResponse(dict):
+    """
+    App service container settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isolationRequired":
+            suggest = "isolation_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppSvcContainerSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppSvcContainerSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppSvcContainerSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 isolation_required: bool):
+        """
+        App service container settings.
+        :param bool isolation_required: Gets or sets the isolation required.
+        """
+        pulumi.set(__self__, "isolation_required", isolation_required)
+
+    @property
+    @pulumi.getter(name="isolationRequired")
+    def isolation_required(self) -> bool:
+        """
+        Gets or sets the isolation required.
+        """
+        return pulumi.get(self, "isolation_required")
+
+
+@pulumi.output_type
+class AppSvcNativeSettingsResponse(dict):
+    """
+    App service native settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isolationRequired":
+            suggest = "isolation_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppSvcNativeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppSvcNativeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppSvcNativeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 isolation_required: bool):
+        """
+        App service native settings.
+        :param bool isolation_required: Gets or sets the isolation required.
+        """
+        pulumi.set(__self__, "isolation_required", isolation_required)
+
+    @property
+    @pulumi.getter(name="isolationRequired")
+    def isolation_required(self) -> bool:
+        """
+        Gets or sets the isolation required.
+        """
+        return pulumi.get(self, "isolation_required")
+
+
+@pulumi.output_type
 class AssessmentPropertiesResponse(dict):
     """
     Properties of an assessment.
@@ -1441,6 +1868,46 @@ class AssessmentPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class AssessmentScopeParametersResponse(dict):
+    """
+    Data model of Assessment Scope Parameters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverGroupId":
+            suggest = "server_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssessmentScopeParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssessmentScopeParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssessmentScopeParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_group_id: Optional[str] = None):
+        """
+        Data model of Assessment Scope Parameters.
+        :param str server_group_id: Gets or sets the server group id.
+        """
+        if server_group_id is not None:
+            pulumi.set(__self__, "server_group_id", server_group_id)
+
+    @property
+    @pulumi.getter(name="serverGroupId")
+    def server_group_id(self) -> Optional[str]:
+        """
+        Gets or sets the server group id.
+        """
+        return pulumi.get(self, "server_group_id")
+
+
+@pulumi.output_type
 class AutomaticResolutionPropertiesResponse(dict):
     """
     Defines the properties for automatic resolution.
@@ -1752,6 +2219,286 @@ class AzureFileShareHydrationProfileResponse(dict):
         Gets or sets the subscription id of the azure file share.
         """
         return pulumi.get(self, "azure_file_share_subscription_id")
+
+
+@pulumi.output_type
+class AzureSettingsResponse(dict):
+    """
+    Azure settings for a business case.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetLocation":
+            suggest = "target_location"
+        elif key == "avsLaborCostPercentage":
+            suggest = "avs_labor_cost_percentage"
+        elif key == "businessCaseType":
+            suggest = "business_case_type"
+        elif key == "comfortFactor":
+            suggest = "comfort_factor"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "iaasLaborCostPercentage":
+            suggest = "iaas_labor_cost_percentage"
+        elif key == "infrastructureGrowthRate":
+            suggest = "infrastructure_growth_rate"
+        elif key == "networkCostPercentage":
+            suggest = "network_cost_percentage"
+        elif key == "paasLaborCostPercentage":
+            suggest = "paas_labor_cost_percentage"
+        elif key == "perYearMigrationCompletionPercentage":
+            suggest = "per_year_migration_completion_percentage"
+        elif key == "performanceDataEndTime":
+            suggest = "performance_data_end_time"
+        elif key == "performanceDataStartTime":
+            suggest = "performance_data_start_time"
+        elif key == "performanceUtilizationPercentile":
+            suggest = "performance_utilization_percentile"
+        elif key == "savingsOption":
+            suggest = "savings_option"
+        elif key == "workloadDiscoverySource":
+            suggest = "workload_discovery_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 currency: Optional[str] = None,
+                 target_location: str,
+                 avs_labor_cost_percentage: Optional[float] = None,
+                 business_case_type: Optional[str] = None,
+                 comfort_factor: Optional[float] = None,
+                 discount_percentage: Optional[float] = None,
+                 iaas_labor_cost_percentage: Optional[float] = None,
+                 infrastructure_growth_rate: Optional[float] = None,
+                 network_cost_percentage: Optional[float] = None,
+                 paas_labor_cost_percentage: Optional[float] = None,
+                 per_year_migration_completion_percentage: Optional[Mapping[str, float]] = None,
+                 performance_data_end_time: Optional[str] = None,
+                 performance_data_start_time: Optional[str] = None,
+                 performance_utilization_percentile: Optional[float] = None,
+                 savings_option: Optional[str] = None,
+                 wacc: Optional[float] = None,
+                 workload_discovery_source: Optional[str] = None):
+        """
+        Azure settings for a business case.
+        :param str currency: Business case Currency.
+        :param str target_location: Gets or sets azure location.
+        :param float avs_labor_cost_percentage: Gets Avs labour cost percentage.
+        :param str business_case_type: Migration Strategy.
+        :param float comfort_factor: Gets comfort factor.
+        :param float discount_percentage: Gets azure Discount percentage.
+        :param float iaas_labor_cost_percentage: Gets IaaS labour cost percentage.
+        :param float infrastructure_growth_rate: Gets infrastructure growth rate.
+        :param float network_cost_percentage: Gets network cost percentage.
+        :param float paas_labor_cost_percentage: Gets PaaS labour cost percentage.
+        :param Mapping[str, float] per_year_migration_completion_percentage: Gets migration completion percentage per year.
+        :param str performance_data_end_time: Gets end time to use for performance.
+        :param str performance_data_start_time: Gets start time to use for performance.
+        :param float performance_utilization_percentile: Gets utilization percentile for performance.
+        :param str savings_option: Gets the business case savings option type.
+        :param float wacc: Gets wACC percentage.
+        :param str workload_discovery_source: Workload discovery source.
+        """
+        if currency is None:
+            currency = 'USD'
+        pulumi.set(__self__, "currency", currency)
+        pulumi.set(__self__, "target_location", target_location)
+        if avs_labor_cost_percentage is None:
+            avs_labor_cost_percentage = 75
+        if avs_labor_cost_percentage is not None:
+            pulumi.set(__self__, "avs_labor_cost_percentage", avs_labor_cost_percentage)
+        if business_case_type is None:
+            business_case_type = 'OptimizeForCost'
+        if business_case_type is not None:
+            pulumi.set(__self__, "business_case_type", business_case_type)
+        if comfort_factor is None:
+            comfort_factor = 1
+        if comfort_factor is not None:
+            pulumi.set(__self__, "comfort_factor", comfort_factor)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if iaas_labor_cost_percentage is None:
+            iaas_labor_cost_percentage = 75
+        if iaas_labor_cost_percentage is not None:
+            pulumi.set(__self__, "iaas_labor_cost_percentage", iaas_labor_cost_percentage)
+        if infrastructure_growth_rate is None:
+            infrastructure_growth_rate = 5
+        if infrastructure_growth_rate is not None:
+            pulumi.set(__self__, "infrastructure_growth_rate", infrastructure_growth_rate)
+        if network_cost_percentage is None:
+            network_cost_percentage = 5
+        if network_cost_percentage is not None:
+            pulumi.set(__self__, "network_cost_percentage", network_cost_percentage)
+        if paas_labor_cost_percentage is None:
+            paas_labor_cost_percentage = 60
+        if paas_labor_cost_percentage is not None:
+            pulumi.set(__self__, "paas_labor_cost_percentage", paas_labor_cost_percentage)
+        if per_year_migration_completion_percentage is not None:
+            pulumi.set(__self__, "per_year_migration_completion_percentage", per_year_migration_completion_percentage)
+        if performance_data_end_time is not None:
+            pulumi.set(__self__, "performance_data_end_time", performance_data_end_time)
+        if performance_data_start_time is not None:
+            pulumi.set(__self__, "performance_data_start_time", performance_data_start_time)
+        if performance_utilization_percentile is None:
+            performance_utilization_percentile = 95
+        if performance_utilization_percentile is not None:
+            pulumi.set(__self__, "performance_utilization_percentile", performance_utilization_percentile)
+        if savings_option is None:
+            savings_option = 'RI3Year'
+        if savings_option is not None:
+            pulumi.set(__self__, "savings_option", savings_option)
+        if wacc is not None:
+            pulumi.set(__self__, "wacc", wacc)
+        if workload_discovery_source is None:
+            workload_discovery_source = 'Appliance'
+        if workload_discovery_source is not None:
+            pulumi.set(__self__, "workload_discovery_source", workload_discovery_source)
+
+    @property
+    @pulumi.getter
+    def currency(self) -> str:
+        """
+        Business case Currency.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="targetLocation")
+    def target_location(self) -> str:
+        """
+        Gets or sets azure location.
+        """
+        return pulumi.get(self, "target_location")
+
+    @property
+    @pulumi.getter(name="avsLaborCostPercentage")
+    def avs_labor_cost_percentage(self) -> Optional[float]:
+        """
+        Gets Avs labour cost percentage.
+        """
+        return pulumi.get(self, "avs_labor_cost_percentage")
+
+    @property
+    @pulumi.getter(name="businessCaseType")
+    def business_case_type(self) -> Optional[str]:
+        """
+        Migration Strategy.
+        """
+        return pulumi.get(self, "business_case_type")
+
+    @property
+    @pulumi.getter(name="comfortFactor")
+    def comfort_factor(self) -> Optional[float]:
+        """
+        Gets comfort factor.
+        """
+        return pulumi.get(self, "comfort_factor")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[float]:
+        """
+        Gets azure Discount percentage.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="iaasLaborCostPercentage")
+    def iaas_labor_cost_percentage(self) -> Optional[float]:
+        """
+        Gets IaaS labour cost percentage.
+        """
+        return pulumi.get(self, "iaas_labor_cost_percentage")
+
+    @property
+    @pulumi.getter(name="infrastructureGrowthRate")
+    def infrastructure_growth_rate(self) -> Optional[float]:
+        """
+        Gets infrastructure growth rate.
+        """
+        return pulumi.get(self, "infrastructure_growth_rate")
+
+    @property
+    @pulumi.getter(name="networkCostPercentage")
+    def network_cost_percentage(self) -> Optional[float]:
+        """
+        Gets network cost percentage.
+        """
+        return pulumi.get(self, "network_cost_percentage")
+
+    @property
+    @pulumi.getter(name="paasLaborCostPercentage")
+    def paas_labor_cost_percentage(self) -> Optional[float]:
+        """
+        Gets PaaS labour cost percentage.
+        """
+        return pulumi.get(self, "paas_labor_cost_percentage")
+
+    @property
+    @pulumi.getter(name="perYearMigrationCompletionPercentage")
+    def per_year_migration_completion_percentage(self) -> Optional[Mapping[str, float]]:
+        """
+        Gets migration completion percentage per year.
+        """
+        return pulumi.get(self, "per_year_migration_completion_percentage")
+
+    @property
+    @pulumi.getter(name="performanceDataEndTime")
+    def performance_data_end_time(self) -> Optional[str]:
+        """
+        Gets end time to use for performance.
+        """
+        return pulumi.get(self, "performance_data_end_time")
+
+    @property
+    @pulumi.getter(name="performanceDataStartTime")
+    def performance_data_start_time(self) -> Optional[str]:
+        """
+        Gets start time to use for performance.
+        """
+        return pulumi.get(self, "performance_data_start_time")
+
+    @property
+    @pulumi.getter(name="performanceUtilizationPercentile")
+    def performance_utilization_percentile(self) -> Optional[float]:
+        """
+        Gets utilization percentile for performance.
+        """
+        return pulumi.get(self, "performance_utilization_percentile")
+
+    @property
+    @pulumi.getter(name="savingsOption")
+    def savings_option(self) -> Optional[str]:
+        """
+        Gets the business case savings option type.
+        """
+        return pulumi.get(self, "savings_option")
+
+    @property
+    @pulumi.getter
+    def wacc(self) -> Optional[float]:
+        """
+        Gets wACC percentage.
+        """
+        return pulumi.get(self, "wacc")
+
+    @property
+    @pulumi.getter(name="workloadDiscoverySource")
+    def workload_discovery_source(self) -> Optional[str]:
+        """
+        Workload discovery source.
+        """
+        return pulumi.get(self, "workload_discovery_source")
 
 
 @pulumi.output_type
@@ -2335,6 +3082,95 @@ class CollectorPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ComputeSettingsResponse(dict):
+    """
+    Compute settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hyperthreadCoreToMemoryRatio":
+            suggest = "hyperthread_core_to_memory_ratio"
+        elif key == "sqlServerLicensing":
+            suggest = "sql_server_licensing"
+        elif key == "virtualizationSoftwareSettings":
+            suggest = "virtualization_software_settings"
+        elif key == "windowsServerLicensing":
+            suggest = "windows_server_licensing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hyperthread_core_to_memory_ratio: float,
+                 price: float,
+                 sql_server_licensing: Sequence['outputs.SqlServerLicensingSettingsResponse'],
+                 virtualization_software_settings: 'outputs.VirtualizationSoftwareSettingsResponse',
+                 windows_server_licensing: 'outputs.WindowsServerLicensingSettingsResponse'):
+        """
+        Compute settings.
+        :param float hyperthread_core_to_memory_ratio: Hyperthread core to memory ratio.
+        :param float price: Compute Price.
+        :param Sequence['SqlServerLicensingSettingsResponse'] sql_server_licensing: SQL Server licensing settings.
+        :param 'VirtualizationSoftwareSettingsResponse' virtualization_software_settings: Virtualization software settings.
+        :param 'WindowsServerLicensingSettingsResponse' windows_server_licensing: Windows Server licensing settings.
+        """
+        pulumi.set(__self__, "hyperthread_core_to_memory_ratio", hyperthread_core_to_memory_ratio)
+        pulumi.set(__self__, "price", price)
+        pulumi.set(__self__, "sql_server_licensing", sql_server_licensing)
+        pulumi.set(__self__, "virtualization_software_settings", virtualization_software_settings)
+        pulumi.set(__self__, "windows_server_licensing", windows_server_licensing)
+
+    @property
+    @pulumi.getter(name="hyperthreadCoreToMemoryRatio")
+    def hyperthread_core_to_memory_ratio(self) -> float:
+        """
+        Hyperthread core to memory ratio.
+        """
+        return pulumi.get(self, "hyperthread_core_to_memory_ratio")
+
+    @property
+    @pulumi.getter
+    def price(self) -> float:
+        """
+        Compute Price.
+        """
+        return pulumi.get(self, "price")
+
+    @property
+    @pulumi.getter(name="sqlServerLicensing")
+    def sql_server_licensing(self) -> Sequence['outputs.SqlServerLicensingSettingsResponse']:
+        """
+        SQL Server licensing settings.
+        """
+        return pulumi.get(self, "sql_server_licensing")
+
+    @property
+    @pulumi.getter(name="virtualizationSoftwareSettings")
+    def virtualization_software_settings(self) -> 'outputs.VirtualizationSoftwareSettingsResponse':
+        """
+        Virtualization software settings.
+        """
+        return pulumi.get(self, "virtualization_software_settings")
+
+    @property
+    @pulumi.getter(name="windowsServerLicensing")
+    def windows_server_licensing(self) -> 'outputs.WindowsServerLicensingSettingsResponse':
+        """
+        Windows Server licensing settings.
+        """
+        return pulumi.get(self, "windows_server_licensing")
+
+
+@pulumi.output_type
 class ContainerImagePropertiesResponse(dict):
     """
     Class for container image properties.
@@ -2451,6 +3287,52 @@ class ContainerImagePropertiesResponse(dict):
         Gets or sets the RunStatus.
         """
         return pulumi.get(self, "run_status")
+
+
+@pulumi.output_type
+class CostComponentResponse(dict):
+    """
+    Class to represent the component of the cost.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 value: Optional[float] = None):
+        """
+        Class to represent the component of the cost.
+        :param str name: Gets the name of the component.
+        :param str description: The textual description of the component.
+        :param float value: The value of the component.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets the name of the component.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The textual description of the component.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[float]:
+        """
+        The value of the component.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2801,6 +3683,71 @@ class DirectoryPathResponse(dict):
 
 
 @pulumi.output_type
+class DiscoveredEntityLightSummaryResponse(dict):
+    """
+    Discovered entity light summary.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfMachines":
+            suggest = "number_of_machines"
+        elif key == "numberOfServers":
+            suggest = "number_of_servers"
+        elif key == "numberOfWebApps":
+            suggest = "number_of_web_apps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscoveredEntityLightSummaryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscoveredEntityLightSummaryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscoveredEntityLightSummaryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_machines: int,
+                 number_of_servers: int,
+                 number_of_web_apps: int):
+        """
+        Discovered entity light summary.
+        :param int number_of_machines: Gets or sets the number of machines.
+        :param int number_of_servers: Gets or sets the number of servers.
+        :param int number_of_web_apps: Gets or sets the number of web apps.
+        """
+        pulumi.set(__self__, "number_of_machines", number_of_machines)
+        pulumi.set(__self__, "number_of_servers", number_of_servers)
+        pulumi.set(__self__, "number_of_web_apps", number_of_web_apps)
+
+    @property
+    @pulumi.getter(name="numberOfMachines")
+    def number_of_machines(self) -> int:
+        """
+        Gets or sets the number of machines.
+        """
+        return pulumi.get(self, "number_of_machines")
+
+    @property
+    @pulumi.getter(name="numberOfServers")
+    def number_of_servers(self) -> int:
+        """
+        Gets or sets the number of servers.
+        """
+        return pulumi.get(self, "number_of_servers")
+
+    @property
+    @pulumi.getter(name="numberOfWebApps")
+    def number_of_web_apps(self) -> int:
+        """
+        Gets or sets the number of web apps.
+        """
+        return pulumi.get(self, "number_of_web_apps")
+
+
+@pulumi.output_type
 class DiskEncryptionSetResourceSettingsResponse(dict):
     """
     Defines the disk encryption set resource settings.
@@ -2920,6 +3867,45 @@ class EntityUptimeResponse(dict):
         Gets the hours per day.
         """
         return pulumi.get(self, "hours_per_day")
+
+
+@pulumi.output_type
+class FacilitySettingsResponse(dict):
+    """
+    Facility settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "facilitiesCost":
+            suggest = "facilities_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FacilitySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FacilitySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FacilitySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 facilities_cost: float):
+        """
+        Facility settings.
+        :param float facilities_cost: The facilities cost.
+        """
+        pulumi.set(__self__, "facilities_cost", facilities_cost)
+
+    @property
+    @pulumi.getter(name="facilitiesCost")
+    def facilities_cost(self) -> float:
+        """
+        The facilities cost.
+        """
+        return pulumi.get(self, "facilities_cost")
 
 
 @pulumi.output_type
@@ -3527,6 +4513,123 @@ class HealthErrorModelResponse(dict):
         Gets or sets a list of child health errors associated with this error.
         """
         return pulumi.get(self, "child_errors")
+
+
+@pulumi.output_type
+class HypervLicenseResponse(dict):
+    """
+    Representation of a licence.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseCost":
+            suggest = "license_cost"
+        elif key == "licenseType":
+            suggest = "license_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HypervLicenseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HypervLicenseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HypervLicenseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_cost: float,
+                 license_type: str):
+        """
+        Representation of a licence.
+        :param float license_cost: Cost of a licence.
+        :param str license_type: HyperV licence type.
+        """
+        pulumi.set(__self__, "license_cost", license_cost)
+        pulumi.set(__self__, "license_type", license_type)
+
+    @property
+    @pulumi.getter(name="licenseCost")
+    def license_cost(self) -> float:
+        """
+        Cost of a licence.
+        """
+        return pulumi.get(self, "license_cost")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> str:
+        """
+        HyperV licence type.
+        """
+        return pulumi.get(self, "license_type")
+
+
+@pulumi.output_type
+class HypervVirtualizationManagementSettingsResponse(dict):
+    """
+    HyperV Virtualization Management Settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseAndSupportList":
+            suggest = "license_and_support_list"
+        elif key == "numberOfPhysicalCoresPerLicense":
+            suggest = "number_of_physical_cores_per_license"
+        elif key == "softwareAssuranceCost":
+            suggest = "software_assurance_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HypervVirtualizationManagementSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HypervVirtualizationManagementSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HypervVirtualizationManagementSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_and_support_list: Sequence['outputs.HypervLicenseResponse'],
+                 number_of_physical_cores_per_license: int,
+                 software_assurance_cost: float):
+        """
+        HyperV Virtualization Management Settings.
+        :param Sequence['HypervLicenseResponse'] license_and_support_list: Licence and support list.
+        :param int number_of_physical_cores_per_license: Number of physical cores per licence.
+        :param float software_assurance_cost: Software Assurance Cost.
+        """
+        pulumi.set(__self__, "license_and_support_list", license_and_support_list)
+        pulumi.set(__self__, "number_of_physical_cores_per_license", number_of_physical_cores_per_license)
+        pulumi.set(__self__, "software_assurance_cost", software_assurance_cost)
+
+    @property
+    @pulumi.getter(name="licenseAndSupportList")
+    def license_and_support_list(self) -> Sequence['outputs.HypervLicenseResponse']:
+        """
+        Licence and support list.
+        """
+        return pulumi.get(self, "license_and_support_list")
+
+    @property
+    @pulumi.getter(name="numberOfPhysicalCoresPerLicense")
+    def number_of_physical_cores_per_license(self) -> int:
+        """
+        Number of physical cores per licence.
+        """
+        return pulumi.get(self, "number_of_physical_cores_per_license")
+
+    @property
+    @pulumi.getter(name="softwareAssuranceCost")
+    def software_assurance_cost(self) -> float:
+        """
+        Software Assurance Cost.
+        """
+        return pulumi.get(self, "software_assurance_cost")
 
 
 @pulumi.output_type
@@ -5306,6 +6409,71 @@ class LBFrontendIPConfigurationResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class LaborSettingsResponse(dict):
+    """
+    Labour settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hourlyAdminCost":
+            suggest = "hourly_admin_cost"
+        elif key == "physicalServersPerAdmin":
+            suggest = "physical_servers_per_admin"
+        elif key == "virtualMachinesPerAdmin":
+            suggest = "virtual_machines_per_admin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaborSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaborSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaborSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hourly_admin_cost: float,
+                 physical_servers_per_admin: int,
+                 virtual_machines_per_admin: int):
+        """
+        Labour settings.
+        :param float hourly_admin_cost: Hourly administrator cost.
+        :param int physical_servers_per_admin: Physical servers per administrator.
+        :param int virtual_machines_per_admin: Virtual machines per administrator.
+        """
+        pulumi.set(__self__, "hourly_admin_cost", hourly_admin_cost)
+        pulumi.set(__self__, "physical_servers_per_admin", physical_servers_per_admin)
+        pulumi.set(__self__, "virtual_machines_per_admin", virtual_machines_per_admin)
+
+    @property
+    @pulumi.getter(name="hourlyAdminCost")
+    def hourly_admin_cost(self) -> float:
+        """
+        Hourly administrator cost.
+        """
+        return pulumi.get(self, "hourly_admin_cost")
+
+    @property
+    @pulumi.getter(name="physicalServersPerAdmin")
+    def physical_servers_per_admin(self) -> int:
+        """
+        Physical servers per administrator.
+        """
+        return pulumi.get(self, "physical_servers_per_admin")
+
+    @property
+    @pulumi.getter(name="virtualMachinesPerAdmin")
+    def virtual_machines_per_admin(self) -> int:
+        """
+        Virtual machines per administrator.
+        """
+        return pulumi.get(self, "virtual_machines_per_admin")
+
+
+@pulumi.output_type
 class LoadBalancerBackendAddressPoolReferenceResponse(dict):
     """
     Defines reference to load balancer backend address pools.
@@ -5619,6 +6787,84 @@ class ManagedIdentityPropertiesResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ManagementSettingsResponse(dict):
+    """
+    Management settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hypervVirtualizationManagementSettings":
+            suggest = "hyperv_virtualization_management_settings"
+        elif key == "otherManagementCostsSettings":
+            suggest = "other_management_costs_settings"
+        elif key == "thirdPartyManagementSettings":
+            suggest = "third_party_management_settings"
+        elif key == "vsphereManagementSettings":
+            suggest = "vsphere_management_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hyperv_virtualization_management_settings: 'outputs.HypervVirtualizationManagementSettingsResponse',
+                 other_management_costs_settings: 'outputs.OtherManagementCostsSettingsResponse',
+                 third_party_management_settings: 'outputs.ThirdPartyManagementSettingsResponse',
+                 vsphere_management_settings: 'outputs.VsphereManagementSettingsResponse'):
+        """
+        Management settings.
+        :param 'HypervVirtualizationManagementSettingsResponse' hyperv_virtualization_management_settings: HyperV Virtualization Management Settings.
+        :param 'OtherManagementCostsSettingsResponse' other_management_costs_settings: Other Management Costs Settings.
+        :param 'ThirdPartyManagementSettingsResponse' third_party_management_settings: Third Party Management Settings.
+        :param 'VsphereManagementSettingsResponse' vsphere_management_settings: vSphere Management Settings.
+        """
+        pulumi.set(__self__, "hyperv_virtualization_management_settings", hyperv_virtualization_management_settings)
+        pulumi.set(__self__, "other_management_costs_settings", other_management_costs_settings)
+        pulumi.set(__self__, "third_party_management_settings", third_party_management_settings)
+        pulumi.set(__self__, "vsphere_management_settings", vsphere_management_settings)
+
+    @property
+    @pulumi.getter(name="hypervVirtualizationManagementSettings")
+    def hyperv_virtualization_management_settings(self) -> 'outputs.HypervVirtualizationManagementSettingsResponse':
+        """
+        HyperV Virtualization Management Settings.
+        """
+        return pulumi.get(self, "hyperv_virtualization_management_settings")
+
+    @property
+    @pulumi.getter(name="otherManagementCostsSettings")
+    def other_management_costs_settings(self) -> 'outputs.OtherManagementCostsSettingsResponse':
+        """
+        Other Management Costs Settings.
+        """
+        return pulumi.get(self, "other_management_costs_settings")
+
+    @property
+    @pulumi.getter(name="thirdPartyManagementSettings")
+    def third_party_management_settings(self) -> 'outputs.ThirdPartyManagementSettingsResponse':
+        """
+        Third Party Management Settings.
+        """
+        return pulumi.get(self, "third_party_management_settings")
+
+    @property
+    @pulumi.getter(name="vsphereManagementSettings")
+    def vsphere_management_settings(self) -> 'outputs.VsphereManagementSettingsResponse':
+        """
+        vSphere Management Settings.
+        """
+        return pulumi.get(self, "vsphere_management_settings")
 
 
 @pulumi.output_type
@@ -7195,6 +8441,58 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class NetworkSettingsResponse(dict):
+    """
+    Network settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hardwareSoftwareCostPercentage":
+            suggest = "hardware_software_cost_percentage"
+        elif key == "maintenanceCostPercentage":
+            suggest = "maintenance_cost_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hardware_software_cost_percentage: float,
+                 maintenance_cost_percentage: float):
+        """
+        Network settings.
+        :param float hardware_software_cost_percentage: Network hardware and software cost percentage.
+        :param float maintenance_cost_percentage: Network maintenance cost percentage.
+        """
+        pulumi.set(__self__, "hardware_software_cost_percentage", hardware_software_cost_percentage)
+        pulumi.set(__self__, "maintenance_cost_percentage", maintenance_cost_percentage)
+
+    @property
+    @pulumi.getter(name="hardwareSoftwareCostPercentage")
+    def hardware_software_cost_percentage(self) -> float:
+        """
+        Network hardware and software cost percentage.
+        """
+        return pulumi.get(self, "hardware_software_cost_percentage")
+
+    @property
+    @pulumi.getter(name="maintenanceCostPercentage")
+    def maintenance_cost_percentage(self) -> float:
+        """
+        Network maintenance cost percentage.
+        """
+        return pulumi.get(self, "maintenance_cost_percentage")
+
+
+@pulumi.output_type
 class NicIpConfigurationResourceSettingsResponse(dict):
     """
     Defines NIC IP configuration properties.
@@ -7542,6 +8840,124 @@ class NsgSecurityRuleResponse(dict):
 
 
 @pulumi.output_type
+class OnPremiseSettingsResponse(dict):
+    """
+    On-premise settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeSettings":
+            suggest = "compute_settings"
+        elif key == "facilitySettings":
+            suggest = "facility_settings"
+        elif key == "laborSettings":
+            suggest = "labor_settings"
+        elif key == "networkSettings":
+            suggest = "network_settings"
+        elif key == "securitySettings":
+            suggest = "security_settings"
+        elif key == "storageSettings":
+            suggest = "storage_settings"
+        elif key == "managementSettings":
+            suggest = "management_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OnPremiseSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OnPremiseSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OnPremiseSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_settings: 'outputs.ComputeSettingsResponse',
+                 facility_settings: 'outputs.FacilitySettingsResponse',
+                 labor_settings: 'outputs.LaborSettingsResponse',
+                 network_settings: 'outputs.NetworkSettingsResponse',
+                 security_settings: 'outputs.SecuritySettingsResponse',
+                 storage_settings: 'outputs.StorageSettingsResponse',
+                 management_settings: Optional['outputs.ManagementSettingsResponse'] = None):
+        """
+        On-premise settings.
+        :param 'ComputeSettingsResponse' compute_settings: Compute settings.
+        :param 'FacilitySettingsResponse' facility_settings: Facility settings.
+        :param 'LaborSettingsResponse' labor_settings: Labour settings.
+        :param 'NetworkSettingsResponse' network_settings: Network settings.
+        :param 'SecuritySettingsResponse' security_settings: Security settings.
+        :param 'StorageSettingsResponse' storage_settings: Storage settings.
+        :param 'ManagementSettingsResponse' management_settings: Management settings.
+        """
+        pulumi.set(__self__, "compute_settings", compute_settings)
+        pulumi.set(__self__, "facility_settings", facility_settings)
+        pulumi.set(__self__, "labor_settings", labor_settings)
+        pulumi.set(__self__, "network_settings", network_settings)
+        pulumi.set(__self__, "security_settings", security_settings)
+        pulumi.set(__self__, "storage_settings", storage_settings)
+        if management_settings is not None:
+            pulumi.set(__self__, "management_settings", management_settings)
+
+    @property
+    @pulumi.getter(name="computeSettings")
+    def compute_settings(self) -> 'outputs.ComputeSettingsResponse':
+        """
+        Compute settings.
+        """
+        return pulumi.get(self, "compute_settings")
+
+    @property
+    @pulumi.getter(name="facilitySettings")
+    def facility_settings(self) -> 'outputs.FacilitySettingsResponse':
+        """
+        Facility settings.
+        """
+        return pulumi.get(self, "facility_settings")
+
+    @property
+    @pulumi.getter(name="laborSettings")
+    def labor_settings(self) -> 'outputs.LaborSettingsResponse':
+        """
+        Labour settings.
+        """
+        return pulumi.get(self, "labor_settings")
+
+    @property
+    @pulumi.getter(name="networkSettings")
+    def network_settings(self) -> 'outputs.NetworkSettingsResponse':
+        """
+        Network settings.
+        """
+        return pulumi.get(self, "network_settings")
+
+    @property
+    @pulumi.getter(name="securitySettings")
+    def security_settings(self) -> 'outputs.SecuritySettingsResponse':
+        """
+        Security settings.
+        """
+        return pulumi.get(self, "security_settings")
+
+    @property
+    @pulumi.getter(name="storageSettings")
+    def storage_settings(self) -> 'outputs.StorageSettingsResponse':
+        """
+        Storage settings.
+        """
+        return pulumi.get(self, "storage_settings")
+
+    @property
+    @pulumi.getter(name="managementSettings")
+    def management_settings(self) -> Optional['outputs.ManagementSettingsResponse']:
+        """
+        Management settings.
+        """
+        return pulumi.get(self, "management_settings")
+
+
+@pulumi.output_type
 class OperatingSystemDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -7597,6 +9013,149 @@ class OperatingSystemDetailsResponse(dict):
     @pulumi.getter(name="osVersion")
     def os_version(self) -> Optional[str]:
         return pulumi.get(self, "os_version")
+
+
+@pulumi.output_type
+class OtherManagementCostsSettingsResponse(dict):
+    """
+    Other Management Costs Settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataProtectionCostPerServerPerYear":
+            suggest = "data_protection_cost_per_server_per_year"
+        elif key == "monitoringCostPerServerPerYear":
+            suggest = "monitoring_cost_per_server_per_year"
+        elif key == "patchingCostPerServerPerYear":
+            suggest = "patching_cost_per_server_per_year"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OtherManagementCostsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OtherManagementCostsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OtherManagementCostsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_protection_cost_per_server_per_year: float,
+                 monitoring_cost_per_server_per_year: float,
+                 patching_cost_per_server_per_year: float):
+        """
+        Other Management Costs Settings.
+        :param float data_protection_cost_per_server_per_year: Data Protection Cost Per Server Per Year.
+        :param float monitoring_cost_per_server_per_year: Monitoring Cost Per Server Per Year.
+        :param float patching_cost_per_server_per_year: Patching Cost Per Server Per Year.
+        """
+        pulumi.set(__self__, "data_protection_cost_per_server_per_year", data_protection_cost_per_server_per_year)
+        pulumi.set(__self__, "monitoring_cost_per_server_per_year", monitoring_cost_per_server_per_year)
+        pulumi.set(__self__, "patching_cost_per_server_per_year", patching_cost_per_server_per_year)
+
+    @property
+    @pulumi.getter(name="dataProtectionCostPerServerPerYear")
+    def data_protection_cost_per_server_per_year(self) -> float:
+        """
+        Data Protection Cost Per Server Per Year.
+        """
+        return pulumi.get(self, "data_protection_cost_per_server_per_year")
+
+    @property
+    @pulumi.getter(name="monitoringCostPerServerPerYear")
+    def monitoring_cost_per_server_per_year(self) -> float:
+        """
+        Monitoring Cost Per Server Per Year.
+        """
+        return pulumi.get(self, "monitoring_cost_per_server_per_year")
+
+    @property
+    @pulumi.getter(name="patchingCostPerServerPerYear")
+    def patching_cost_per_server_per_year(self) -> float:
+        """
+        Patching Cost Per Server Per Year.
+        """
+        return pulumi.get(self, "patching_cost_per_server_per_year")
+
+
+@pulumi.output_type
+class PerfDataSettingsResponse(dict):
+    """
+    Data model of Performance Data Settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeRange":
+            suggest = "time_range"
+        elif key == "perfDataEndTime":
+            suggest = "perf_data_end_time"
+        elif key == "perfDataStartTime":
+            suggest = "perf_data_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PerfDataSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PerfDataSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PerfDataSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 percentile: str,
+                 time_range: str,
+                 perf_data_end_time: Optional[str] = None,
+                 perf_data_start_time: Optional[str] = None):
+        """
+        Data model of Performance Data Settings.
+        :param str percentile: Gets percentile utilization for performance data.
+        :param str time_range: Gets perf data time range.
+        :param str perf_data_end_time: Gets or sets perf data end time.
+        :param str perf_data_start_time: Gets or sets perf data start time.
+        """
+        pulumi.set(__self__, "percentile", percentile)
+        pulumi.set(__self__, "time_range", time_range)
+        if perf_data_end_time is not None:
+            pulumi.set(__self__, "perf_data_end_time", perf_data_end_time)
+        if perf_data_start_time is not None:
+            pulumi.set(__self__, "perf_data_start_time", perf_data_start_time)
+
+    @property
+    @pulumi.getter
+    def percentile(self) -> str:
+        """
+        Gets percentile utilization for performance data.
+        """
+        return pulumi.get(self, "percentile")
+
+    @property
+    @pulumi.getter(name="timeRange")
+    def time_range(self) -> str:
+        """
+        Gets perf data time range.
+        """
+        return pulumi.get(self, "time_range")
+
+    @property
+    @pulumi.getter(name="perfDataEndTime")
+    def perf_data_end_time(self) -> Optional[str]:
+        """
+        Gets or sets perf data end time.
+        """
+        return pulumi.get(self, "perf_data_end_time")
+
+    @property
+    @pulumi.getter(name="perfDataStartTime")
+    def perf_data_start_time(self) -> Optional[str]:
+        """
+        Gets or sets perf data start time.
+        """
+        return pulumi.get(self, "perf_data_start_time")
 
 
 @pulumi.output_type
@@ -8705,6 +10264,58 @@ class PublicIpReferenceResponse(dict):
 
 
 @pulumi.output_type
+class ReportDetailsResponse(dict):
+    """
+    Business case report details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportStatus":
+            suggest = "report_status"
+        elif key == "reportType":
+            suggest = "report_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 report_status: str,
+                 report_type: str):
+        """
+        Business case report details.
+        :param str report_status: Report status.
+        :param str report_type: Report type.
+        """
+        pulumi.set(__self__, "report_status", report_status)
+        pulumi.set(__self__, "report_type", report_type)
+
+    @property
+    @pulumi.getter(name="reportStatus")
+    def report_status(self) -> str:
+        """
+        Report status.
+        """
+        return pulumi.get(self, "report_status")
+
+    @property
+    @pulumi.getter(name="reportType")
+    def report_type(self) -> str:
+        """
+        Report type.
+        """
+        return pulumi.get(self, "report_type")
+
+
+@pulumi.output_type
 class ResourceGroupResourceSettingsResponse(dict):
     """
     Defines the resource group resource settings.
@@ -8960,6 +10571,58 @@ class SecretStorePropertiesResponse(dict):
     @pulumi.getter(name="secretStoreId")
     def secret_store_id(self) -> Optional[str]:
         return pulumi.get(self, "secret_store_id")
+
+
+@pulumi.output_type
+class SecuritySettingsResponse(dict):
+    """
+    Security settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverSecurityCostPerServerPerYear":
+            suggest = "server_security_cost_per_server_per_year"
+        elif key == "sqlServerSecurityCostPerServerPerYear":
+            suggest = "sql_server_security_cost_per_server_per_year"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecuritySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecuritySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecuritySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_security_cost_per_server_per_year: float,
+                 sql_server_security_cost_per_server_per_year: float):
+        """
+        Security settings.
+        :param float server_security_cost_per_server_per_year: Physical servers per administrator.
+        :param float sql_server_security_cost_per_server_per_year: Virtual machines per administrator.
+        """
+        pulumi.set(__self__, "server_security_cost_per_server_per_year", server_security_cost_per_server_per_year)
+        pulumi.set(__self__, "sql_server_security_cost_per_server_per_year", sql_server_security_cost_per_server_per_year)
+
+    @property
+    @pulumi.getter(name="serverSecurityCostPerServerPerYear")
+    def server_security_cost_per_server_per_year(self) -> float:
+        """
+        Physical servers per administrator.
+        """
+        return pulumi.get(self, "server_security_cost_per_server_per_year")
+
+    @property
+    @pulumi.getter(name="sqlServerSecurityCostPerServerPerYear")
+    def sql_server_security_cost_per_server_per_year(self) -> float:
+        """
+        Virtual machines per administrator.
+        """
+        return pulumi.get(self, "sql_server_security_cost_per_server_per_year")
 
 
 @pulumi.output_type
@@ -9224,6 +10887,59 @@ class ServersSolutionSummaryResponse(dict):
         Gets or sets the count of servers test migrated.
         """
         return pulumi.get(self, "test_migrated_count")
+
+
+@pulumi.output_type
+class SettingsResponse(dict):
+    """
+    Business case settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSettings":
+            suggest = "azure_settings"
+        elif key == "onPremiseSettings":
+            suggest = "on_premise_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_settings: 'outputs.AzureSettingsResponse',
+                 on_premise_settings: Optional['outputs.OnPremiseSettingsResponse'] = None):
+        """
+        Business case settings.
+        :param 'AzureSettingsResponse' azure_settings: Azure settings for a business case.
+        :param 'OnPremiseSettingsResponse' on_premise_settings: On-premise settings.
+        """
+        pulumi.set(__self__, "azure_settings", azure_settings)
+        if on_premise_settings is not None:
+            pulumi.set(__self__, "on_premise_settings", on_premise_settings)
+
+    @property
+    @pulumi.getter(name="azureSettings")
+    def azure_settings(self) -> 'outputs.AzureSettingsResponse':
+        """
+        Azure settings for a business case.
+        """
+        return pulumi.get(self, "azure_settings")
+
+    @property
+    @pulumi.getter(name="onPremiseSettings")
+    def on_premise_settings(self) -> Optional['outputs.OnPremiseSettingsResponse']:
+        """
+        On-premise settings.
+        """
+        return pulumi.get(self, "on_premise_settings")
 
 
 @pulumi.output_type
@@ -9770,6 +11486,69 @@ class SqlMiSettingsResponse(dict):
 
 
 @pulumi.output_type
+class SqlServerLicensingSettingsResponse(dict):
+    """
+    SQL Server licensing settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseCost":
+            suggest = "license_cost"
+        elif key == "softwareAssuranceCost":
+            suggest = "software_assurance_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerLicensingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerLicensingSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerLicensingSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_cost: float,
+                 software_assurance_cost: float,
+                 version: str):
+        """
+        SQL Server licensing settings.
+        :param float license_cost: Licence cost.
+        :param float software_assurance_cost: Software assurance (SA) cost.
+        :param str version: SQL Server version.
+        """
+        pulumi.set(__self__, "license_cost", license_cost)
+        pulumi.set(__self__, "software_assurance_cost", software_assurance_cost)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="licenseCost")
+    def license_cost(self) -> float:
+        """
+        Licence cost.
+        """
+        return pulumi.get(self, "license_cost")
+
+    @property
+    @pulumi.getter(name="softwareAssuranceCost")
+    def software_assurance_cost(self) -> float:
+        """
+        Software assurance (SA) cost.
+        """
+        return pulumi.get(self, "software_assurance_cost")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        SQL Server version.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class SqlServerResourceSettingsResponse(dict):
     """
     Defines the SQL Server resource settings.
@@ -9877,6 +11656,58 @@ class SqlVmSettingsResponse(dict):
         consistent with other targets).
         """
         return pulumi.get(self, "instance_series")
+
+
+@pulumi.output_type
+class StorageSettingsResponse(dict):
+    """
+    Storage settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "costPerGbPerMonth":
+            suggest = "cost_per_gb_per_month"
+        elif key == "maintainanceCostPercentageToAcquisitionCost":
+            suggest = "maintainance_cost_percentage_to_acquisition_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cost_per_gb_per_month: float,
+                 maintainance_cost_percentage_to_acquisition_cost: float):
+        """
+        Storage settings.
+        :param float cost_per_gb_per_month: Cost per gigabyte per month.
+        :param float maintainance_cost_percentage_to_acquisition_cost: Maintenance cost percentage.
+        """
+        pulumi.set(__self__, "cost_per_gb_per_month", cost_per_gb_per_month)
+        pulumi.set(__self__, "maintainance_cost_percentage_to_acquisition_cost", maintainance_cost_percentage_to_acquisition_cost)
+
+    @property
+    @pulumi.getter(name="costPerGbPerMonth")
+    def cost_per_gb_per_month(self) -> float:
+        """
+        Cost per gigabyte per month.
+        """
+        return pulumi.get(self, "cost_per_gb_per_month")
+
+    @property
+    @pulumi.getter(name="maintainanceCostPercentageToAcquisitionCost")
+    def maintainance_cost_percentage_to_acquisition_cost(self) -> float:
+        """
+        Maintenance cost percentage.
+        """
+        return pulumi.get(self, "maintainance_cost_percentage_to_acquisition_cost")
 
 
 @pulumi.output_type
@@ -10240,6 +12071,58 @@ class TargetStorageProfileResponse(dict):
         PersistentVolume.
         """
         return pulumi.get(self, "target_size")
+
+
+@pulumi.output_type
+class ThirdPartyManagementSettingsResponse(dict):
+    """
+    Third Party Management settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseCost":
+            suggest = "license_cost"
+        elif key == "supportCost":
+            suggest = "support_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThirdPartyManagementSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThirdPartyManagementSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThirdPartyManagementSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_cost: float,
+                 support_cost: float):
+        """
+        Third Party Management settings.
+        :param float license_cost: License Cost.
+        :param float support_cost: Support Cost.
+        """
+        pulumi.set(__self__, "license_cost", license_cost)
+        pulumi.set(__self__, "support_cost", support_cost)
+
+    @property
+    @pulumi.getter(name="licenseCost")
+    def license_cost(self) -> float:
+        """
+        License Cost.
+        """
+        return pulumi.get(self, "license_cost")
+
+    @property
+    @pulumi.getter(name="supportCost")
+    def support_cost(self) -> float:
+        """
+        Support Cost.
+        """
+        return pulumi.get(self, "support_cost")
 
 
 @pulumi.output_type
@@ -10626,7 +12509,75 @@ class VirtualNetworkResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
+class VirtualizationSoftwareSettingsResponse(dict):
+    """
+    Virtualization software settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseAndSupportList":
+            suggest = "license_and_support_list"
+        elif key == "numberOfPhysicalCoresPerLicense":
+            suggest = "number_of_physical_cores_per_license"
+        elif key == "softwareAssuranceCost":
+            suggest = "software_assurance_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualizationSoftwareSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualizationSoftwareSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualizationSoftwareSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_and_support_list: Sequence['outputs.VsphereLicenseResponse'],
+                 number_of_physical_cores_per_license: int,
+                 software_assurance_cost: float):
+        """
+        Virtualization software settings.
+        :param Sequence['VsphereLicenseResponse'] license_and_support_list: Licence and support list.
+        :param int number_of_physical_cores_per_license: Number of physical cores per licence.
+        :param float software_assurance_cost: Software Assurance cost.
+        """
+        pulumi.set(__self__, "license_and_support_list", license_and_support_list)
+        pulumi.set(__self__, "number_of_physical_cores_per_license", number_of_physical_cores_per_license)
+        pulumi.set(__self__, "software_assurance_cost", software_assurance_cost)
+
+    @property
+    @pulumi.getter(name="licenseAndSupportList")
+    def license_and_support_list(self) -> Sequence['outputs.VsphereLicenseResponse']:
+        """
+        Licence and support list.
+        """
+        return pulumi.get(self, "license_and_support_list")
+
+    @property
+    @pulumi.getter(name="numberOfPhysicalCoresPerLicense")
+    def number_of_physical_cores_per_license(self) -> int:
+        """
+        Number of physical cores per licence.
+        """
+        return pulumi.get(self, "number_of_physical_cores_per_license")
+
+    @property
+    @pulumi.getter(name="softwareAssuranceCost")
+    def software_assurance_cost(self) -> float:
+        """
+        Software Assurance cost.
+        """
+        return pulumi.get(self, "software_assurance_cost")
+
+
+@pulumi.output_type
 class VmUptimeResponse(dict):
+    """
+    Details on the total up-time for the VM.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10650,6 +12601,7 @@ class VmUptimeResponse(dict):
                  days_per_month: Optional[float] = None,
                  hours_per_day: Optional[float] = None):
         """
+        Details on the total up-time for the VM.
         :param float days_per_month: Number of days in a month for VM uptime.
         :param float hours_per_day: Number of hours per day for VM uptime.
         """
@@ -10673,6 +12625,201 @@ class VmUptimeResponse(dict):
         Number of hours per day for VM uptime.
         """
         return pulumi.get(self, "hours_per_day")
+
+
+@pulumi.output_type
+class VsphereLicenseResponse(dict):
+    """
+    Representation of a vsphere licence.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicSupportCost":
+            suggest = "basic_support_cost"
+        elif key == "licenseCost":
+            suggest = "license_cost"
+        elif key == "licenseType":
+            suggest = "license_type"
+        elif key == "productionSupportCost":
+            suggest = "production_support_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VsphereLicenseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VsphereLicenseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VsphereLicenseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 basic_support_cost: float,
+                 license_cost: float,
+                 license_type: str,
+                 production_support_cost: float):
+        """
+        Representation of a vsphere licence.
+        :param float basic_support_cost: Basic support cost.
+        :param float license_cost: Cost of a licence.
+        :param str license_type: VSphere licence type.
+        :param float production_support_cost: Production support cost.
+        """
+        pulumi.set(__self__, "basic_support_cost", basic_support_cost)
+        pulumi.set(__self__, "license_cost", license_cost)
+        pulumi.set(__self__, "license_type", license_type)
+        pulumi.set(__self__, "production_support_cost", production_support_cost)
+
+    @property
+    @pulumi.getter(name="basicSupportCost")
+    def basic_support_cost(self) -> float:
+        """
+        Basic support cost.
+        """
+        return pulumi.get(self, "basic_support_cost")
+
+    @property
+    @pulumi.getter(name="licenseCost")
+    def license_cost(self) -> float:
+        """
+        Cost of a licence.
+        """
+        return pulumi.get(self, "license_cost")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> str:
+        """
+        VSphere licence type.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="productionSupportCost")
+    def production_support_cost(self) -> float:
+        """
+        Production support cost.
+        """
+        return pulumi.get(self, "production_support_cost")
+
+
+@pulumi.output_type
+class VsphereManagementLicenseResponse(dict):
+    """
+    Representation of a vsphere management licence.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicSupportCost":
+            suggest = "basic_support_cost"
+        elif key == "licenseCost":
+            suggest = "license_cost"
+        elif key == "licenseType":
+            suggest = "license_type"
+        elif key == "productionSupportCost":
+            suggest = "production_support_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VsphereManagementLicenseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VsphereManagementLicenseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VsphereManagementLicenseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 basic_support_cost: float,
+                 license_cost: float,
+                 license_type: str,
+                 production_support_cost: float):
+        """
+        Representation of a vsphere management licence.
+        :param float basic_support_cost: Basic support cost.
+        :param float license_cost: Cost of a licence.
+        :param str license_type: VSphere licence type.
+        :param float production_support_cost: Production support cost.
+        """
+        pulumi.set(__self__, "basic_support_cost", basic_support_cost)
+        pulumi.set(__self__, "license_cost", license_cost)
+        pulumi.set(__self__, "license_type", license_type)
+        pulumi.set(__self__, "production_support_cost", production_support_cost)
+
+    @property
+    @pulumi.getter(name="basicSupportCost")
+    def basic_support_cost(self) -> float:
+        """
+        Basic support cost.
+        """
+        return pulumi.get(self, "basic_support_cost")
+
+    @property
+    @pulumi.getter(name="licenseCost")
+    def license_cost(self) -> float:
+        """
+        Cost of a licence.
+        """
+        return pulumi.get(self, "license_cost")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> str:
+        """
+        VSphere licence type.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="productionSupportCost")
+    def production_support_cost(self) -> float:
+        """
+        Production support cost.
+        """
+        return pulumi.get(self, "production_support_cost")
+
+
+@pulumi.output_type
+class VsphereManagementSettingsResponse(dict):
+    """
+    Vsphere management settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseAndSupportList":
+            suggest = "license_and_support_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VsphereManagementSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VsphereManagementSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VsphereManagementSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_and_support_list: Sequence['outputs.VsphereManagementLicenseResponse']):
+        """
+        Vsphere management settings.
+        :param Sequence['VsphereManagementLicenseResponse'] license_and_support_list: Licence and support list.
+        """
+        pulumi.set(__self__, "license_and_support_list", license_and_support_list)
+
+    @property
+    @pulumi.getter(name="licenseAndSupportList")
+    def license_and_support_list(self) -> Sequence['outputs.VsphereManagementLicenseResponse']:
+        """
+        Licence and support list.
+        """
+        return pulumi.get(self, "license_and_support_list")
 
 
 @pulumi.output_type
@@ -10979,6 +13126,71 @@ class WebApplicationFrameworkResponse(dict):
         Gets or sets Version of the framework.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class WindowsServerLicensingSettingsResponse(dict):
+    """
+    Windows Server licensing settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseCost":
+            suggest = "license_cost"
+        elif key == "licensesPerCore":
+            suggest = "licenses_per_core"
+        elif key == "softwareAssuranceCost":
+            suggest = "software_assurance_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsServerLicensingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsServerLicensingSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsServerLicensingSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_cost: float,
+                 licenses_per_core: int,
+                 software_assurance_cost: float):
+        """
+        Windows Server licensing settings.
+        :param float license_cost: Licence Cost.
+        :param int licenses_per_core: Licenses per core.
+        :param float software_assurance_cost: Software assurance (SA) cost.
+        """
+        pulumi.set(__self__, "license_cost", license_cost)
+        pulumi.set(__self__, "licenses_per_core", licenses_per_core)
+        pulumi.set(__self__, "software_assurance_cost", software_assurance_cost)
+
+    @property
+    @pulumi.getter(name="licenseCost")
+    def license_cost(self) -> float:
+        """
+        Licence Cost.
+        """
+        return pulumi.get(self, "license_cost")
+
+    @property
+    @pulumi.getter(name="licensesPerCore")
+    def licenses_per_core(self) -> int:
+        """
+        Licenses per core.
+        """
+        return pulumi.get(self, "licenses_per_core")
+
+    @property
+    @pulumi.getter(name="softwareAssuranceCost")
+    def software_assurance_cost(self) -> float:
+        """
+        Software assurance (SA) cost.
+        """
+        return pulumi.get(self, "software_assurance_cost")
 
 
 @pulumi.output_type

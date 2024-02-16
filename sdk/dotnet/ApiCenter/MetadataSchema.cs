@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.ApiCenter
     [AzureNativeResourceType("azure-native:apicenter:MetadataSchema")]
     public partial class MetadataSchema : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The assignees
+        /// </summary>
         [Output("assignedTo")]
         public Output<ImmutableArray<Outputs.MetadataAssignmentResponse>> AssignedTo { get; private set; } = null!;
 
@@ -94,6 +97,10 @@ namespace Pulumi.AzureNative.ApiCenter
     {
         [Input("assignedTo")]
         private InputList<Inputs.MetadataAssignmentArgs>? _assignedTo;
+
+        /// <summary>
+        /// The assignees
+        /// </summary>
         public InputList<Inputs.MetadataAssignmentArgs> AssignedTo
         {
             get => _assignedTo ?? (_assignedTo = new InputList<Inputs.MetadataAssignmentArgs>());

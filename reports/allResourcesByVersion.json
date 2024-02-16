@@ -2681,7 +2681,7 @@
     "2023-10-01-preview": [
       "Account"
     ],
-    "2024-02-01": [
+    "2024-02-01-preview": [
       "Account"
     ]
   },
@@ -3333,6 +3333,12 @@
       "listDatabaseKeys"
     ],
     "2023-11-01": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
+    ],
+    "2024-02-01": [
       "Database",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
@@ -4296,6 +4302,13 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2023-07-03": [
+      "Gallery",
+      "GalleryApplication",
+      "GalleryApplicationVersion",
+      "GalleryImage",
+      "GalleryImageVersion"
     ],
     "2023-09-01": [
       "AvailabilitySet",
@@ -6757,6 +6770,11 @@
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
+    ],
+    "2024-02-01-preview": [
+      "PrivateEndpointConnection",
+      "Workspace",
+      "vNetPeering"
     ]
   },
   "Datadog": {
@@ -8472,6 +8490,40 @@
       "listDatabaseAccountKeys",
       "listMongoClusterConnectionStrings",
       "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2024-02-15-preview": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "CassandraResourceCassandraView",
+      "DatabaseAccount",
+      "GraphResourceGraph",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoCluster",
+      "MongoClusterFirewallRule",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "ThroughputPool",
+      "ThroughputPoolAccount",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listMongoClusterConnectionStrings",
+      "listNotebookWorkspaceConnectionInfo"
     ]
   },
   "DomainRegistration": {
@@ -8758,6 +8810,38 @@
       "Monitor",
       "TagRule",
       "getBillingInfo",
+      "getOrganizationApiKey",
+      "getOrganizationElasticToAzureSubscriptionMapping",
+      "listAllTrafficFilter",
+      "listConnectedPartnerResource",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
+    ],
+    "2024-01-01-preview": [
+      "Monitor",
+      "OpenAI",
+      "TagRule",
+      "getBillingInfo",
+      "getOpenAIStatus",
+      "getOrganizationApiKey",
+      "getOrganizationElasticToAzureSubscriptionMapping",
+      "listAllTrafficFilter",
+      "listConnectedPartnerResource",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
+    ],
+    "2024-03-01": [
+      "Monitor",
+      "OpenAI",
+      "TagRule",
+      "getBillingInfo",
+      "getOpenAIStatus",
       "getOrganizationApiKey",
       "getOrganizationElasticToAzureSubscriptionMapping",
       "listAllTrafficFilter",
@@ -10087,6 +10171,10 @@
   },
   "IoTFirmwareDefense": {
     "2023-02-08-preview": [
+      "Firmware",
+      "Workspace"
+    ],
+    "2024-01-10": [
       "Firmware",
       "Workspace"
     ]
@@ -11480,6 +11568,71 @@
       "listWorkspaceNotebookAccessToken",
       "listWorkspaceNotebookKeys",
       "listWorkspaceStorageAccountKeys"
+    ],
+    "2024-01-01-preview": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CapacityReservationGroup",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EndpointDeployment",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "FeaturesetContainerEntity",
+      "FeaturesetVersion",
+      "FeaturestoreEntityContainerEntity",
+      "FeaturestoreEntityVersion",
+      "InferenceEndpoint",
+      "InferenceGroup",
+      "InferencePool",
+      "Job",
+      "LabelingJob",
+      "ManagedNetworkSettingsRule",
+      "MarketplaceSubscription",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "Registry",
+      "RegistryCodeContainer",
+      "RegistryCodeVersion",
+      "RegistryComponentContainer",
+      "RegistryComponentVersion",
+      "RegistryDataContainer",
+      "RegistryDataVersion",
+      "RegistryEnvironmentContainer",
+      "RegistryEnvironmentVersion",
+      "RegistryModelContainer",
+      "RegistryModelVersion",
+      "Schedule",
+      "ServerlessEndpoint",
+      "Workspace",
+      "WorkspaceConnection",
+      "getComputeAllowedResizeSizes",
+      "getInferenceGroupStatus",
+      "getInferencePoolStatus",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "getServerlessEndpointStatus",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listEndpointKeys",
+      "listOnlineEndpointKeys",
+      "listServerlessEndpointKeys",
+      "listWorkspaceConnectionSecrets",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
     ]
   },
   "Maintenance": {
@@ -12071,6 +12224,24 @@
       "SqlAssessmentV2Operation",
       "SqlCollectorOperation",
       "VmwareCollectorsOperation"
+    ],
+    "2023-04-01-preview": [
+      "AksAssessmentOperation",
+      "AssessmentProjectsOperation",
+      "AssessmentsOperation",
+      "AvsAssessmentsOperation",
+      "BusinessCaseOperation",
+      "GroupsOperation",
+      "HypervCollectorsOperation",
+      "ImportCollectorsOperation",
+      "PrivateEndpointConnectionOperation",
+      "ServerCollectorsOperation",
+      "SqlAssessmentV2Operation",
+      "SqlCollectorOperation",
+      "VmwareCollectorsOperation",
+      "WebAppAssessmentV2Operation",
+      "WebAppCollectorOperation",
+      "getBusinessCaseOperationReportDownloadUrl"
     ],
     "2023-08-01": [
       "MoveCollection",
@@ -16270,6 +16441,13 @@
       "ContactProfile",
       "Spacecraft",
       "listSpacecraftAvailableContacts"
+    ],
+    "2024-03-01-preview": [
+      "EdgeSite",
+      "GroundStation",
+      "L2Connection",
+      "listEdgeSiteL2Connections",
+      "listGroundStationL2Connections"
     ]
   },
   "Peering": {
@@ -17067,6 +17245,16 @@
       "ProtectionContainer",
       "ProtectionIntent",
       "ProtectionPolicy",
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
     ]

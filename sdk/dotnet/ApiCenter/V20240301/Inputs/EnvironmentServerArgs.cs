@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301.Inputs
     {
         [Input("managementPortalUri")]
         private InputList<string>? _managementPortalUri;
+
+        /// <summary>
+        /// The location of the management portal
+        /// </summary>
         public InputList<string> ManagementPortalUri
         {
             get => _managementPortalUri ?? (_managementPortalUri = new InputList<string>());

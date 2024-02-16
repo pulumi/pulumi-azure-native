@@ -45,6 +45,9 @@ class GetMetadataSchemaResult:
     @property
     @pulumi.getter(name="assignedTo")
     def assigned_to(self) -> Optional[Sequence['outputs.MetadataAssignmentResponse']]:
+        """
+        The assignees
+        """
         return pulumi.get(self, "assigned_to")
 
     @property

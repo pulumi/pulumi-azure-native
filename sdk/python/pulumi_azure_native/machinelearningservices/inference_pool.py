@@ -181,6 +181,8 @@ class InferencePool(pulumi.CustomResource):
         """
         Azure REST API version: 2023-08-01-preview.
 
+        Other available API versions: 2024-01-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities)
@@ -201,6 +203,8 @@ class InferencePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure REST API version: 2023-08-01-preview.
+
+        Other available API versions: 2024-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param InferencePoolInitArgs args: The arguments to use to populate this resource's properties.
@@ -253,7 +257,7 @@ class InferencePool(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:InferencePool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:InferencePool"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:InferencePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InferencePool, __self__).__init__(
             'azure-native:machinelearningservices:InferencePool',

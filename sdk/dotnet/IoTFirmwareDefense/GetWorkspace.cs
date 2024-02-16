@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// Get firmware analysis workspace.
         /// Azure REST API version: 2023-02-08-preview.
+        /// 
+        /// Other available API versions: 2024-01-10.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:iotfirmwaredefense:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// Get firmware analysis workspace.
         /// Azure REST API version: 2023-02-08-preview.
+        /// 
+        /// Other available API versions: 2024-01-10.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:iotfirmwaredefense:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

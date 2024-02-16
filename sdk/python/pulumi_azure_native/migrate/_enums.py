@@ -13,6 +13,7 @@ __all__ = [
     'AzureAvsNodeType',
     'AzureCurrency',
     'AzureDiskType',
+    'AzureEnvironmentType',
     'AzureHybridUseBenefit',
     'AzureLocation',
     'AzureOfferCode',
@@ -24,21 +25,30 @@ __all__ = [
     'AzureSqlPurchaseModel',
     'AzureSqlServiceTier',
     'AzureStorageRedundancy',
+    'AzureVmCategory',
     'AzureVmFamily',
+    'BusinessCaseCurrency',
     'CleanupState',
     'ComputeTier',
     'ConfigurationType',
+    'ConsolidationType',
     'Currency',
+    'DiscoverySource',
     'EnvironmentType',
     'FttAndRaidLevel',
     'Goal',
     'GroupType',
+    'HyperVLicenseType',
+    'LicenseType',
+    'LicensingProgram',
     'LoadBalancerType',
+    'MigrationStrategy',
     'MultiSubnetIntent',
     'OperatingSystemType',
     'OptimizationLogic',
     'OsLicense',
     'Percentile',
+    'PricingTier',
     'PrivateEndpointServiceConnectionStatus',
     'ProjectStatus',
     'ProvisioningState',
@@ -46,8 +56,11 @@ __all__ = [
     'ReservedInstance',
     'ResourceIdentityType',
     'ResourceIdentityTypes',
+    'SavingsOption',
+    'SavingsOptions',
     'SecretStoreType',
     'SqlServerLicense',
+    'SqlServerLicenseType',
     'Status',
     'TargetAvailabilityZone',
     'TargetHydrationStorageProviderType',
@@ -55,6 +68,7 @@ __all__ = [
     'TargetStorageProjectionType',
     'TimeRange',
     'Tool',
+    'VsphereManagementLicenseType',
     'WorkloadDeploymentTarget',
     'WorkloadDeploymentType',
     'WorkloadType',
@@ -154,19 +168,37 @@ class AzureCurrency(str, Enum):
 
 
 class AzureDiskType(str, Enum):
-    """
-    Storage type selected for this disk.
-    """
     UNKNOWN = "Unknown"
     STANDARD = "Standard"
-    PREMIUM = "Premium"
     STANDARD_SSD = "StandardSSD"
+    PREMIUM = "Premium"
     STANDARD_OR_PREMIUM = "StandardOrPremium"
+    ULTRA = "Ultra"
+    PREMIUM_V2 = "PremiumV2"
+
+
+class AzureEnvironmentType(str, Enum):
+    """
+    Gets or sets environment type.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown. Indicates missing data.
+    """
+    DEV_TEST = "DevTest"
+    """
+    Development or Test Environment.
+    """
+    PRODUCTION = "Production"
+    """
+    Production Environment.
+    """
 
 
 class AzureHybridUseBenefit(str, Enum):
     """
-    AHUB discount on windows virtual machines.
+    Gets or sets the user configurable setting to display the linux azure hybrid use
+    benefit.
     """
     UNKNOWN = "Unknown"
     YES = "Yes"
@@ -242,7 +274,7 @@ class AzureLocation(str, Enum):
 
 class AzureOfferCode(str, Enum):
     """
-    Gets or sets Azure Offer Code for VM.
+    Azure Offer Code.
     """
     UNKNOWN = "Unknown"
     MSAZR0003_P = "MSAZR0003P"
@@ -291,7 +323,7 @@ class AzureOfferCode(str, Enum):
 
 class AzurePricingTier(str, Enum):
     """
-    Pricing tier for Size evaluation.
+    Gets or sets Azure Pricing Tier - Free, Basic, etc.
     """
     STANDARD = "Standard"
     BASIC = "Basic"
@@ -299,7 +331,7 @@ class AzurePricingTier(str, Enum):
 
 class AzureReservedInstance(str, Enum):
     """
-    Gets or sets azure reserved instance for VM.
+    Reserved instance.
     """
     NONE = "None"
     RI1_YEAR = "RI1Year"
@@ -356,13 +388,51 @@ class AzureSqlServiceTier(str, Enum):
 
 class AzureStorageRedundancy(str, Enum):
     """
-    Storage Redundancy type offered by Azure.
+    Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
     """
     UNKNOWN = "Unknown"
     LOCALLY_REDUNDANT = "LocallyRedundant"
     ZONE_REDUNDANT = "ZoneRedundant"
     GEO_REDUNDANT = "GeoRedundant"
     READ_ACCESS_GEO_REDUNDANT = "ReadAccessGeoRedundant"
+
+
+class AzureVmCategory(str, Enum):
+    """
+    Gets or sets azure VM category.
+    """
+    ALL = "All"
+    """
+    Indicates All categories of VM.
+    """
+    COMPUTE_OPTIMIZED = "ComputeOptimized"
+    """
+    Compute Optimized.
+    """
+    GENERAL_PURPOSE = "GeneralPurpose"
+    """
+    General Purpose.
+    """
+    GPU_OPTIMIZED = "GpuOptimized"
+    """
+    GPU Optimized.
+    """
+    HIGH_PERFORMANCE_COMPUTE = "HighPerformanceCompute"
+    """
+    High Performance Compute.
+    """
+    MEMORY_OPTIMIZED = "MemoryOptimized"
+    """
+    Memory Optimized.
+    """
+    STORAGE_OPTIMIZED = "StorageOptimized"
+    """
+    Storage Optimized.
+    """
+    ISOLATED = "Isolated"
+    """
+    Isolated VM.
+    """
 
 
 class AzureVmFamily(str, Enum):
@@ -420,6 +490,116 @@ class AzureVmFamily(str, Enum):
     EBDSV5_SERIES = "Ebdsv5_series"
 
 
+class BusinessCaseCurrency(str, Enum):
+    """
+    Business case Currency.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Currency Unknown.
+    """
+    USD = "USD"
+    """
+    Currency USD.
+    """
+    DKK = "DKK"
+    """
+    Currency DKK.
+    """
+    CAD = "CAD"
+    """
+    Currency CAD.
+    """
+    IDR = "IDR"
+    """
+    Currency IDR.
+    """
+    JPY = "JPY"
+    """
+    Currency JPY.
+    """
+    KRW = "KRW"
+    """
+    Currency KRW.
+    """
+    NZD = "NZD"
+    """
+    Currency NZD.
+    """
+    NOK = "NOK"
+    """
+    Currency NOK.
+    """
+    RUB = "RUB"
+    """
+    Currency RUB.
+    """
+    SAR = "SAR"
+    """
+    Currency SAR.
+    """
+    ZAR = "ZAR"
+    """
+    Currency ZAR.
+    """
+    SEK = "SEK"
+    """
+    Currency SEK.
+    """
+    TRY_ = "TRY"
+    """
+    Currency TRY.
+    """
+    GBP = "GBP"
+    """
+    Currency GBP.
+    """
+    MXN = "MXN"
+    """
+    Currency MXN.
+    """
+    MYR = "MYR"
+    """
+    Currency MYR.
+    """
+    INR = "INR"
+    """
+    Currency INR.
+    """
+    HKD = "HKD"
+    """
+    Currency HKD.
+    """
+    BRL = "BRL"
+    """
+    Currency BRL.
+    """
+    TWD = "TWD"
+    """
+    Currency TWD.
+    """
+    EUR = "EUR"
+    """
+    Currency EUR.
+    """
+    CHF = "CHF"
+    """
+    Currency CHF.
+    """
+    ARS = "ARS"
+    """
+    Currency ARS.
+    """
+    AUD = "AUD"
+    """
+    Currency AUD.
+    """
+    CNY = "CNY"
+    """
+    Currency CNY.
+    """
+
+
 class CleanupState(str, Enum):
     """
     Gets or sets the cleanup state of the solution.
@@ -448,6 +628,20 @@ class ConfigurationType(str, Enum):
     IIS_CONNECTION_STRING = "IISConnectionString"
     IIS_AUTHENTICATION = "IISAuthentication"
     APACHE_TOMCAT_CONTEXT_RESOURCE = "ApacheTomcatContextResource"
+
+
+class ConsolidationType(str, Enum):
+    """
+    Gets or sets consolidation type.
+    """
+    FULL = "Full"
+    """
+    Full Consolidation.
+    """
+    AS_ON_SOURCE = "AsOnSource"
+    """
+    As On Source or On Premises Consolidation.
+    """
 
 
 class Currency(str, Enum):
@@ -480,6 +674,24 @@ class Currency(str, Enum):
     ARS = "ARS"
     AUD = "AUD"
     CNY = "CNY"
+
+
+class DiscoverySource(str, Enum):
+    """
+    Workload discovery source.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown Discovery Source.
+    """
+    APPLIANCE = "Appliance"
+    """
+    Appliance Discovery Source.
+    """
+    IMPORT_ = "Import"
+    """
+    Import Discovery Source.
+    """
 
 
 class EnvironmentType(str, Enum):
@@ -521,12 +733,88 @@ class GroupType(str, Enum):
     IMPORT_ = "Import"
 
 
+class HyperVLicenseType(str, Enum):
+    """
+    HyperV licence type.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown HyperV License.
+    """
+    DATACENTRE = "Datacentre"
+    """
+    Datacentre HyperV License.
+    """
+    STANDARD = "Standard"
+    """
+    Standard HyperV License.
+    """
+
+
+class LicenseType(str, Enum):
+    """
+    VSphere licence type.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown License.
+    """
+    V_SPHERE_STANDARD = "VSphereStandard"
+    """
+    VSphereStandard License.
+    """
+    V_SPHERE_ENTERPRISE_PLUS = "VSphereEnterprisePlus"
+    """
+    VSphereEnterprisePlus License.
+    """
+
+
+class LicensingProgram(str, Enum):
+    """
+    Gets or sets licensing program.
+    """
+    DEFAULT = "Default"
+    """
+    Default value. Indicates Pay As You Go.
+    """
+    EA = "EA"
+    """
+    Enterprise Agreement.
+    """
+
+
 class LoadBalancerType(str, Enum):
     """
     Gets or sets the load balancer type.
     """
     PRIVATE = "Private"
     PUBLIC = "Public"
+
+
+class MigrationStrategy(str, Enum):
+    """
+    Migration Strategy.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown Migration Strategy.
+    """
+    OPTIMIZE_FOR_COST = "OptimizeForCost"
+    """
+    Optimize for cost.
+    """
+    IAA_S_ONLY = "IaaSOnly"
+    """
+    IaaS only.
+    """
+    OPTIMIZE_FOR_PAAS = "OptimizeForPaas"
+    """
+    Optimize for PaaS.
+    """
+    AVS_ONLY = "AVSOnly"
+    """
+    Avs only.
+    """
 
 
 class MultiSubnetIntent(str, Enum):
@@ -568,9 +856,35 @@ class Percentile(str, Enum):
     machines.
     """
     PERCENTILE50 = "Percentile50"
+    """
+    Percentile 50.
+    """
     PERCENTILE90 = "Percentile90"
+    """
+    Percentile 90.
+    """
     PERCENTILE95 = "Percentile95"
+    """
+    Percentile 95.
+    """
     PERCENTILE99 = "Percentile99"
+    """
+    Percentile 99.
+    """
+
+
+class PricingTier(str, Enum):
+    """
+    Gets or sets pricing tier.
+    """
+    STANDARD = "Standard"
+    """
+    Standard Pricing Tier.
+    """
+    FREE = "Free"
+    """
+    Free Pricing Tier.
+    """
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -657,6 +971,50 @@ class ResourceIdentityTypes(str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+class SavingsOption(str, Enum):
+    """
+    Gets the business case savings option type.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown Savings Option.
+    """
+    RI3_YEAR = "RI3Year"
+    """
+    Reserved Instance 3 Year.
+    """
+    SAVINGS_PLAN3_YEAR = "SavingsPlan3Year"
+    """
+    Azure Savings Plan 3 Year.
+    """
+
+
+class SavingsOptions(str, Enum):
+    """
+    Gets or sets savings options.
+    """
+    NONE = "None"
+    """
+    Savings Options is not applicable.
+    """
+    ONE_YEAR_SAVINGS = "OneYearSavings"
+    """
+    One Year Savings Plan.
+    """
+    THREE_YEARS_SAVINGS = "ThreeYearsSavings"
+    """
+    Three Years Savings Plan.
+    """
+    ONE_YEAR_RESERVED = "OneYearReserved"
+    """
+    One Year Reserved Instances.
+    """
+    THREE_YEARS_RESERVED = "ThreeYearsReserved"
+    """
+    Three Years Reserved Instances.
+    """
+
+
 class SecretStoreType(str, Enum):
     NONE = "None"
     KUBE_SECRET = "KubeSecret"
@@ -671,6 +1029,24 @@ class SqlServerLicense(str, Enum):
     UNKNOWN = "Unknown"
     YES = "Yes"
     NO = "No"
+
+
+class SqlServerLicenseType(str, Enum):
+    """
+    SQL Server version.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown Sql Server License.
+    """
+    ENTERPRISE = "Enterprise"
+    """
+    Enterprise Sql Server License.
+    """
+    STANDARD = "Standard"
+    """
+    Standard Sql Server License.
+    """
 
 
 class Status(str, Enum):
@@ -721,9 +1097,21 @@ class TimeRange(str, Enum):
     assessment.
     """
     DAY = "Day"
+    """
+    Daily.
+    """
     WEEK = "Week"
+    """
+    Weekly.
+    """
     MONTH = "Month"
+    """
+    Monthly.
+    """
     CUSTOM = "Custom"
+    """
+    Custom Time Range.
+    """
 
 
 class Tool(str, Enum):
@@ -755,6 +1143,20 @@ class Tool(str, Enum):
     MODERNIZATION = "Modernization"
     SERVER_MIGRATION_DATA_REPLICATION = "ServerMigration_DataReplication"
     UNKNOWN = "Unknown"
+
+
+class VsphereManagementLicenseType(str, Enum):
+    """
+    VSphere licence type.
+    """
+    UNKNOWN = "Unknown"
+    """
+    Unknown License.
+    """
+    V_SPHERE_SERVER_STANDARD = "VSphereServerStandard"
+    """
+    VSphereServerStandard License.
+    """
 
 
 class WorkloadDeploymentTarget(str, Enum):

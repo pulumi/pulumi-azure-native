@@ -551,6 +551,8 @@ def get_sql_assessment_v2_operation(assessment_name: Optional[str] = None,
     Get a SqlAssessmentV2
     Azure REST API version: 2023-03-15.
 
+    Other available API versions: 2023-04-01-preview.
+
 
     :param str assessment_name: SQL Assessment arm name.
     :param str group_name: Group ARM name
@@ -619,6 +621,8 @@ def get_sql_assessment_v2_operation_output(assessment_name: Optional[pulumi.Inpu
     """
     Get a SqlAssessmentV2
     Azure REST API version: 2023-03-15.
+
+    Other available API versions: 2023-04-01-preview.
 
 
     :param str assessment_name: SQL Assessment arm name.

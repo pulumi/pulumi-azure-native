@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
     /// <summary>
     /// Firmware definition
     /// Azure REST API version: 2023-02-08-preview.
+    /// 
+    /// Other available API versions: 2024-01-10.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotfirmwaredefense:Firmware")]
     public partial class Firmware : global::Pulumi.CustomResource
@@ -114,6 +116,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense/v20230208preview:Firmware" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotfirmwaredefense/v20240110:Firmware" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

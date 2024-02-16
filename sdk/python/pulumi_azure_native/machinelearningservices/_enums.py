@@ -27,6 +27,7 @@ __all__ = [
     'DatasetType',
     'DatastoreType',
     'DatastoreTypeArm',
+    'DeploymentModelVersionUpgradeOption',
     'DistributionType',
     'DockerSpecificationType',
     'EarlyTerminationPolicyType',
@@ -463,6 +464,15 @@ class DatastoreTypeArm(str, Enum):
     MYSQLDB = "mysqldb"
     SQLDB = "sqldb"
     PSQLDB = "psqldb"
+
+
+class DeploymentModelVersionUpgradeOption(str, Enum):
+    """
+    Deployment model version upgrade option.
+    """
+    ONCE_NEW_DEFAULT_VERSION_AVAILABLE = "OnceNewDefaultVersionAvailable"
+    ONCE_CURRENT_VERSION_EXPIRED = "OnceCurrentVersionExpired"
+    NO_AUTO_UPGRADE = "NoAutoUpgrade"
 
 
 class DistributionType(str, Enum):

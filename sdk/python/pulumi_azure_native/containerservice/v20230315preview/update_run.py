@@ -27,7 +27,7 @@ class UpdateRunArgs:
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input['ManagedClusterUpdateArgs'] managed_cluster_update: The update to be applied to all clusters in the UpdateRun. The managedClusterUpdate can be modified until the run is started.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['UpdateRunStrategyArgs'] strategy: The strategy defines the order in which the clusters will be updated. 
+        :param pulumi.Input['UpdateRunStrategyArgs'] strategy: The strategy defines the order in which the clusters will be updated.
                If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
                The strategy of the UpdateRun can be modified until the run is started.
         :param pulumi.Input[str] update_run_name: The name of the UpdateRun resource.
@@ -80,7 +80,7 @@ class UpdateRunArgs:
     @pulumi.getter
     def strategy(self) -> Optional[pulumi.Input['UpdateRunStrategyArgs']]:
         """
-        The strategy defines the order in which the clusters will be updated. 
+        The strategy defines the order in which the clusters will be updated.
         If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
         The strategy of the UpdateRun can be modified until the run is started.
         """
@@ -122,7 +122,7 @@ class UpdateRun(pulumi.CustomResource):
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterUpdateArgs']] managed_cluster_update: The update to be applied to all clusters in the UpdateRun. The managedClusterUpdate can be modified until the run is started.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[pulumi.InputType['UpdateRunStrategyArgs']] strategy: The strategy defines the order in which the clusters will be updated. 
+        :param pulumi.Input[pulumi.InputType['UpdateRunStrategyArgs']] strategy: The strategy defines the order in which the clusters will be updated.
                If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
                The strategy of the UpdateRun can be modified until the run is started.
         :param pulumi.Input[str] update_run_name: The name of the UpdateRun resource.
@@ -260,7 +260,7 @@ class UpdateRun(pulumi.CustomResource):
     @pulumi.getter
     def strategy(self) -> pulumi.Output[Optional['outputs.UpdateRunStrategyResponse']]:
         """
-        The strategy defines the order in which the clusters will be updated. 
+        The strategy defines the order in which the clusters will be updated.
         If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
         The strategy of the UpdateRun can be modified until the run is started.
         """

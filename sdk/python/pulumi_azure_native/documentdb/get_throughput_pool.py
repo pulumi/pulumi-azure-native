@@ -136,6 +136,8 @@ def get_throughput_pool(resource_group_name: Optional[str] = None,
     Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
     Azure REST API version: 2023-11-15-preview.
 
+    Other available API versions: 2024-02-15-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str throughput_pool_name: Cosmos DB Throughput Pool name.
@@ -164,6 +166,8 @@ def get_throughput_pool_output(resource_group_name: Optional[pulumi.Input[str]] 
     """
     Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
     Azure REST API version: 2023-11-15-preview.
+
+    Other available API versions: 2024-02-15-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

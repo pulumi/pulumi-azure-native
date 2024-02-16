@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// API specification details.
         /// </summary>
-        public readonly Outputs.ApiDefinitionPropertiesResponseSpecification Specification;
+        public readonly Outputs.ApiDefinitionPropertiesSpecificationResponse Specification;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.ApiCenter
 
             string name,
 
-            Outputs.ApiDefinitionPropertiesResponseSpecification specification,
+            Outputs.ApiDefinitionPropertiesSpecificationResponse specification,
 
             Outputs.SystemDataResponse systemData,
 

@@ -20,11 +20,29 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// A Representational State Transfer Api
+        /// </summary>
         public static ApiKind Rest { get; } = new ApiKind("rest");
+        /// <summary>
+        /// A Graph query language Api
+        /// </summary>
         public static ApiKind Graphql { get; } = new ApiKind("graphql");
+        /// <summary>
+        /// A gRPC Api
+        /// </summary>
         public static ApiKind Grpc { get; } = new ApiKind("grpc");
+        /// <summary>
+        /// A SOAP Api
+        /// </summary>
         public static ApiKind Soap { get; } = new ApiKind("soap");
+        /// <summary>
+        /// Web Hook
+        /// </summary>
         public static ApiKind Webhook { get; } = new ApiKind("webhook");
+        /// <summary>
+        /// Web Socket
+        /// </summary>
         public static ApiKind Websocket { get; } = new ApiKind("websocket");
 
         public static bool operator ==(ApiKind left, ApiKind right) => left.Equals(right);
@@ -55,7 +73,13 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Active State
+        /// </summary>
         public static DeploymentState Active { get; } = new DeploymentState("active");
+        /// <summary>
+        /// Inactive State
+        /// </summary>
         public static DeploymentState Inactive { get; } = new DeploymentState("inactive");
 
         public static bool operator ==(DeploymentState left, DeploymentState right) => left.Equals(right);
@@ -86,9 +110,21 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Development environment
+        /// </summary>
         public static EnvironmentKind Development { get; } = new EnvironmentKind("development");
+        /// <summary>
+        /// Testing environment
+        /// </summary>
         public static EnvironmentKind Testing { get; } = new EnvironmentKind("testing");
+        /// <summary>
+        /// Staging environment
+        /// </summary>
         public static EnvironmentKind Staging { get; } = new EnvironmentKind("staging");
+        /// <summary>
+        /// Production environment
+        /// </summary>
         public static EnvironmentKind Production { get; } = new EnvironmentKind("production");
 
         public static bool operator ==(EnvironmentKind left, EnvironmentKind right) => left.Equals(right);
@@ -119,12 +155,33 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Api Management Server
+        /// </summary>
         public static EnvironmentServerType Azure_API_Management { get; } = new EnvironmentServerType("Azure API Management");
+        /// <summary>
+        /// Compute server
+        /// </summary>
         public static EnvironmentServerType Azure_compute_service { get; } = new EnvironmentServerType("Azure compute service");
+        /// <summary>
+        /// Apigee server
+        /// </summary>
         public static EnvironmentServerType Apigee_API_Management { get; } = new EnvironmentServerType("Apigee API Management");
+        /// <summary>
+        /// AWS Api Gateway server
+        /// </summary>
         public static EnvironmentServerType AWS_API_Gateway { get; } = new EnvironmentServerType("AWS API Gateway");
+        /// <summary>
+        /// Kong API Gateway server
+        /// </summary>
         public static EnvironmentServerType Kong_API_Gateway { get; } = new EnvironmentServerType("Kong API Gateway");
+        /// <summary>
+        /// Kubernetes server
+        /// </summary>
         public static EnvironmentServerType Kubernetes { get; } = new EnvironmentServerType("Kubernetes");
+        /// <summary>
+        /// Mulesoft Api Management server
+        /// </summary>
         public static EnvironmentServerType MuleSoft_API_Management { get; } = new EnvironmentServerType("MuleSoft API Management");
 
         public static bool operator ==(EnvironmentServerType left, EnvironmentServerType right) => left.Equals(right);
@@ -155,12 +212,33 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// design stage
+        /// </summary>
         public static LifecycleStage Design { get; } = new LifecycleStage("design");
+        /// <summary>
+        /// development stage
+        /// </summary>
         public static LifecycleStage Development { get; } = new LifecycleStage("development");
+        /// <summary>
+        /// testing stage
+        /// </summary>
         public static LifecycleStage Testing { get; } = new LifecycleStage("testing");
+        /// <summary>
+        /// In preview
+        /// </summary>
         public static LifecycleStage Preview { get; } = new LifecycleStage("preview");
+        /// <summary>
+        /// In production
+        /// </summary>
         public static LifecycleStage Production { get; } = new LifecycleStage("production");
+        /// <summary>
+        /// deprecated stage
+        /// </summary>
         public static LifecycleStage Deprecated { get; } = new LifecycleStage("deprecated");
+        /// <summary>
+        /// Retired stage
+        /// </summary>
         public static LifecycleStage Retired { get; } = new LifecycleStage("retired");
 
         public static bool operator ==(LifecycleStage left, LifecycleStage right) => left.Equals(right);
@@ -224,9 +302,18 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Assigned to API
+        /// </summary>
         public static MetadataAssignmentEntity Api { get; } = new MetadataAssignmentEntity("api");
-        public static MetadataAssignmentEntity Deployment { get; } = new MetadataAssignmentEntity("deployment");
+        /// <summary>
+        /// Assigned to Environment
+        /// </summary>
         public static MetadataAssignmentEntity Environment { get; } = new MetadataAssignmentEntity("environment");
+        /// <summary>
+        /// Assigned to Deployment
+        /// </summary>
+        public static MetadataAssignmentEntity Deployment { get; } = new MetadataAssignmentEntity("deployment");
 
         public static bool operator ==(MetadataAssignmentEntity left, MetadataAssignmentEntity right) => left.Equals(right);
         public static bool operator !=(MetadataAssignmentEntity left, MetadataAssignmentEntity right) => !left.Equals(right);

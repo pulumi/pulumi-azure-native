@@ -35,7 +35,9 @@ class EnvironmentArgs:
         :param pulumi.Input[str] title: Environment title.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param Any custom_properties: The custom metadata defined for API catalog entities.
+        :param pulumi.Input[str] description: The environment description.
         :param pulumi.Input[str] environment_name: The name of the environment.
+        :param pulumi.Input['OnboardingArgs'] onboarding: Environment onboarding information
         :param pulumi.Input['EnvironmentServerArgs'] server: Server information of the environment.
         """
         pulumi.set(__self__, "kind", kind)
@@ -129,6 +131,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The environment description.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -150,6 +155,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def onboarding(self) -> Optional[pulumi.Input['OnboardingArgs']]:
+        """
+        Environment onboarding information
+        """
         return pulumi.get(self, "onboarding")
 
     @onboarding.setter
@@ -192,8 +200,10 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any custom_properties: The custom metadata defined for API catalog entities.
+        :param pulumi.Input[str] description: The environment description.
         :param pulumi.Input[str] environment_name: The name of the environment.
         :param pulumi.Input[Union[str, 'EnvironmentKind']] kind: Environment kind.
+        :param pulumi.Input[pulumi.InputType['OnboardingArgs']] onboarding: Environment onboarding information
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['EnvironmentServerArgs']] server: Server information of the environment.
         :param pulumi.Input[str] service_name: The name of Azure API Center service.
@@ -313,6 +323,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The environment description.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -334,6 +347,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def onboarding(self) -> pulumi.Output[Optional['outputs.OnboardingResponse']]:
+        """
+        Environment onboarding information
+        """
         return pulumi.get(self, "onboarding")
 
     @property

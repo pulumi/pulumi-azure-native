@@ -21,11 +21,11 @@ export * from "../types/enums/azureplaywrightservice";
 
 // Export sub-modules:
 import * as v20231001preview from "./v20231001preview";
-import * as v20240201 from "./v20240201";
+import * as v20240201preview from "./v20240201preview";
 
 export {
     v20231001preview,
-    v20240201,
+    v20240201preview,
 };
 
 const _module = {

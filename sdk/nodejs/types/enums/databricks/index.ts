@@ -6,12 +6,14 @@ import * as v20220401preview from "./v20220401preview";
 import * as v20230201 from "./v20230201";
 import * as v20230501 from "./v20230501";
 import * as v20230915preview from "./v20230915preview";
+import * as v20240201preview from "./v20240201preview";
 
 export {
     v20220401preview,
     v20230201,
     v20230501,
     v20230915preview,
+    v20240201preview,
 };
 
 export const EncryptionKeySource = {

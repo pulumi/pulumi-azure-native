@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiCenter.Inputs
 {
 
+    /// <summary>
+    /// Onboarding information
+    /// </summary>
     public sealed class OnboardingArgs : global::Pulumi.ResourceArgs
     {
         [Input("developerPortalUri")]
         private InputList<string>? _developerPortalUri;
+
+        /// <summary>
+        /// The location of the development portal
+        /// </summary>
         public InputList<string> DeveloperPortalUri
         {
             get => _developerPortalUri ?? (_developerPortalUri = new InputList<string>());

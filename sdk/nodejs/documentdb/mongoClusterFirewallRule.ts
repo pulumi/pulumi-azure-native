@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a mongo cluster firewall rule.
  * Azure REST API version: 2023-03-15-preview.
  *
- * Other available API versions: 2023-09-15-preview, 2023-11-15-preview.
+ * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
  */
 export class MongoClusterFirewallRule extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class MongoClusterFirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20230315preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20230915preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20231115preview:MongoClusterFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20230301preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20230315preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20230915preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20231115preview:MongoClusterFirewallRule" }, { type: "azure-native:documentdb/v20240215preview:MongoClusterFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoClusterFirewallRule.__pulumiType, name, resourceInputs, opts);
     }

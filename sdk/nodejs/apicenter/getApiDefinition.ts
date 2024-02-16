@@ -70,7 +70,7 @@ export interface GetApiDefinitionResult {
     /**
      * API specification details.
      */
-    readonly specification: outputs.apicenter.ApiDefinitionPropertiesResponseSpecification;
+    readonly specification: outputs.apicenter.ApiDefinitionPropertiesSpecificationResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

@@ -10,6 +10,7 @@ import * as v20230915 from "./v20230915";
 import * as v20230915preview from "./v20230915preview";
 import * as v20231115 from "./v20231115";
 import * as v20231115preview from "./v20231115preview";
+import * as v20240215preview from "./v20240215preview";
 
 export {
     v20210401preview,
@@ -20,6 +21,7 @@ export {
     v20230915preview,
     v20231115,
     v20231115preview,
+    v20240215preview,
 };
 
 export const AnalyticalStorageSchemaType = {

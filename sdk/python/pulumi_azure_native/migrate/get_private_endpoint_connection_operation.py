@@ -137,6 +137,8 @@ def get_private_endpoint_connection_operation(private_endpoint_connection_name: 
     Get a PrivateEndpointConnection
     Azure REST API version: 2023-03-15.
 
+    Other available API versions: 2023-04-01-preview.
+
 
     :param str private_endpoint_connection_name: Private endpoint connection ARM name
     :param str project_name: Assessment Project Name
@@ -168,6 +170,8 @@ def get_private_endpoint_connection_operation_output(private_endpoint_connection
     """
     Get a PrivateEndpointConnection
     Azure REST API version: 2023-03-15.
+
+    Other available API versions: 2023-04-01-preview.
 
 
     :param str private_endpoint_connection_name: Private endpoint connection ARM name

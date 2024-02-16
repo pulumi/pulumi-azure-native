@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Azure Resource Manager resource envelope.
     /// Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
     /// 
-    /// Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+    /// Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:LabelingJob")]
     public partial class LabelingJob : global::Pulumi.CustomResource
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:LabelingJob" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:LabelingJob" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:LabelingJob" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:LabelingJob" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

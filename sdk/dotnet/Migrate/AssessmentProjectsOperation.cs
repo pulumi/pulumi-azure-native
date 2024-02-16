@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// An Assessment project site resource.
     /// Azure REST API version: 2023-03-15.
+    /// 
+    /// Other available API versions: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:AssessmentProjectsOperation")]
     public partial class AssessmentProjectsOperation : global::Pulumi.CustomResource
@@ -144,6 +146,7 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentProjectsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

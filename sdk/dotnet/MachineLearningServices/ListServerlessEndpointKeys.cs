@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Keys for endpoint authentication.
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Task<ListServerlessEndpointKeysResult> InvokeAsync(ListServerlessEndpointKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListServerlessEndpointKeysResult>("azure-native:machinelearningservices:listServerlessEndpointKeys", args ?? new ListServerlessEndpointKeysArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Keys for endpoint authentication.
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Output<ListServerlessEndpointKeysResult> Invoke(ListServerlessEndpointKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServerlessEndpointKeysResult>("azure-native:machinelearningservices:listServerlessEndpointKeys", args ?? new ListServerlessEndpointKeysInvokeArgs(), options.WithDefaults());

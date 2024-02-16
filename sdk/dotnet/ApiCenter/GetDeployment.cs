@@ -131,6 +131,9 @@ namespace Pulumi.AzureNative.ApiCenter
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The deployment server
+        /// </summary>
         public readonly Outputs.DeploymentServerResponse? Server;
         /// <summary>
         /// State of API deployment.

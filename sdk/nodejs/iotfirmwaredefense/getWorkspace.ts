@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get firmware analysis workspace.
  * Azure REST API version: 2023-02-08-preview.
+ *
+ * Other available API versions: 2024-01-10.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -67,6 +69,8 @@ export interface GetWorkspaceResult {
 /**
  * Get firmware analysis workspace.
  * Azure REST API version: 2023-02-08-preview.
+ *
+ * Other available API versions: 2024-01-10.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

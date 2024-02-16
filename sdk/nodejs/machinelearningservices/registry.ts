@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01.
+ * Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview.
  */
 export class Registry extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:Registry" }, { type: "azure-native:machinelearningservices/v20221201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230401:Registry" }, { type: "azure-native:machinelearningservices/v20230401preview:Registry" }, { type: "azure-native:machinelearningservices/v20230601preview:Registry" }, { type: "azure-native:machinelearningservices/v20230801preview:Registry" }, { type: "azure-native:machinelearningservices/v20231001:Registry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:Registry" }, { type: "azure-native:machinelearningservices/v20221201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230201preview:Registry" }, { type: "azure-native:machinelearningservices/v20230401:Registry" }, { type: "azure-native:machinelearningservices/v20230401preview:Registry" }, { type: "azure-native:machinelearningservices/v20230601preview:Registry" }, { type: "azure-native:machinelearningservices/v20230801preview:Registry" }, { type: "azure-native:machinelearningservices/v20231001:Registry" }, { type: "azure-native:machinelearningservices/v20240101preview:Registry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }

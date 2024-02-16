@@ -108,6 +108,9 @@ class GetDeploymentResult:
     @property
     @pulumi.getter
     def server(self) -> Optional['outputs.DeploymentServerResponse']:
+        """
+        The deployment server
+        """
         return pulumi.get(self, "server")
 
     @property

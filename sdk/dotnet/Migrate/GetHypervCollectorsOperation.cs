@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a HypervCollector
         /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Task<GetHypervCollectorsOperationResult> InvokeAsync(GetHypervCollectorsOperationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHypervCollectorsOperationResult>("azure-native:migrate:getHypervCollectorsOperation", args ?? new GetHypervCollectorsOperationArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Get a HypervCollector
         /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Other available API versions: 2023-04-01-preview.
         /// </summary>
         public static Output<GetHypervCollectorsOperationResult> Invoke(GetHypervCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervCollectorsOperationResult>("azure-native:migrate:getHypervCollectorsOperation", args ?? new GetHypervCollectorsOperationInvokeArgs(), options.WithDefaults());

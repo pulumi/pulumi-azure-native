@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DocumentDB
     /// A notebook workspace resource
     /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15.
     /// 
-    /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview.
+    /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:NotebookWorkspace")]
     public partial class NotebookWorkspace : global::Pulumi.CustomResource
@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:NotebookWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115:NotebookWorkspace" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:NotebookWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:NotebookWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

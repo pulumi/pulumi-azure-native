@@ -38,8 +38,10 @@ class ApiArgs:
         :param pulumi.Input[str] title: API title.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] api_name: The name of the API.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactArgs']]] contacts: The set of contacts
         :param Any custom_properties: The custom metadata defined for API catalog entities.
         :param pulumi.Input[str] description: Description of the API.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalDocumentationArgs']]] external_documentation: The set of external documentation
         :param pulumi.Input['LicenseArgs'] license: The license information for the API.
         :param pulumi.Input[str] summary: Short description of the API.
         :param pulumi.Input['TermsOfServiceArgs'] terms_of_service: Terms of service for the API.
@@ -141,6 +143,9 @@ class ApiArgs:
     @property
     @pulumi.getter
     def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactArgs']]]]:
+        """
+        The set of contacts
+        """
         return pulumi.get(self, "contacts")
 
     @contacts.setter
@@ -174,6 +179,9 @@ class ApiArgs:
     @property
     @pulumi.getter(name="externalDocumentation")
     def external_documentation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalDocumentationArgs']]]]:
+        """
+        The set of external documentation
+        """
         return pulumi.get(self, "external_documentation")
 
     @external_documentation.setter
@@ -243,8 +251,10 @@ class Api(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_name: The name of the API.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactArgs']]]] contacts: The set of contacts
         :param Any custom_properties: The custom metadata defined for API catalog entities.
         :param pulumi.Input[str] description: Description of the API.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExternalDocumentationArgs']]]] external_documentation: The set of external documentation
         :param pulumi.Input[Union[str, 'ApiKind']] kind: Kind of API. For example, REST or GraphQL.
         :param pulumi.Input[pulumi.InputType['LicenseArgs']] license: The license information for the API.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -370,6 +380,9 @@ class Api(pulumi.CustomResource):
     @property
     @pulumi.getter
     def contacts(self) -> pulumi.Output[Optional[Sequence['outputs.ContactResponse']]]:
+        """
+        The set of contacts
+        """
         return pulumi.get(self, "contacts")
 
     @property
@@ -391,6 +404,9 @@ class Api(pulumi.CustomResource):
     @property
     @pulumi.getter(name="externalDocumentation")
     def external_documentation(self) -> pulumi.Output[Optional[Sequence['outputs.ExternalDocumentationResponse']]]:
+        """
+        The set of external documentation
+        """
         return pulumi.get(self, "external_documentation")
 
     @property

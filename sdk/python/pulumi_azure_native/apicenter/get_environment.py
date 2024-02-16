@@ -65,6 +65,9 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The environment description.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -94,6 +97,9 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter
     def onboarding(self) -> Optional['outputs.OnboardingResponse']:
+        """
+        Environment onboarding information
+        """
         return pulumi.get(self, "onboarding")
 
     @property

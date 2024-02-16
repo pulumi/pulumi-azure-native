@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>

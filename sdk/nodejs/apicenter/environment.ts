@@ -42,6 +42,9 @@ export class Environment extends pulumi.CustomResource {
      * The custom metadata defined for API catalog entities.
      */
     public readonly customProperties!: pulumi.Output<any | undefined>;
+    /**
+     * The environment description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Environment kind.
@@ -51,6 +54,9 @@ export class Environment extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Environment onboarding information
+     */
     public readonly onboarding!: pulumi.Output<outputs.apicenter.OnboardingResponse | undefined>;
     /**
      * Server information of the environment.
@@ -134,6 +140,9 @@ export interface EnvironmentArgs {
      * The custom metadata defined for API catalog entities.
      */
     customProperties?: any;
+    /**
+     * The environment description.
+     */
     description?: pulumi.Input<string>;
     /**
      * The name of the environment.
@@ -143,6 +152,9 @@ export interface EnvironmentArgs {
      * Environment kind.
      */
     kind: pulumi.Input<string | enums.apicenter.EnvironmentKind>;
+    /**
+     * Environment onboarding information
+     */
     onboarding?: pulumi.Input<inputs.apicenter.OnboardingArgs>;
     /**
      * The name of the resource group. The name is case insensitive.

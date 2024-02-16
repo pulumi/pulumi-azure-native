@@ -12,7 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ApiDefinitionPropertiesResponseSpecification',
+    'ApiDefinitionPropertiesSpecificationResponse',
     'ContactResponse',
     'DeploymentServerResponse',
     'EnvironmentServerResponse',
@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApiDefinitionPropertiesResponseSpecification(dict):
+class ApiDefinitionPropertiesSpecificationResponse(dict):
     """
     API specification details.
     """
@@ -63,11 +63,15 @@ class ApiDefinitionPropertiesResponseSpecification(dict):
 
 @pulumi.output_type
 class ContactResponse(dict):
+    """
+    Contact information
+    """
     def __init__(__self__, *,
                  email: Optional[str] = None,
                  name: Optional[str] = None,
                  url: Optional[str] = None):
         """
+        Contact information
         :param str email: Email address of the contact.
         :param str name: Name of the contact.
         :param str url: URL for the contact.
@@ -106,6 +110,9 @@ class ContactResponse(dict):
 
 @pulumi.output_type
 class DeploymentServerResponse(dict):
+    """
+    Server
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -126,6 +133,7 @@ class DeploymentServerResponse(dict):
     def __init__(__self__, *,
                  runtime_uri: Optional[Sequence[str]] = None):
         """
+        Server
         :param Sequence[str] runtime_uri: Base runtime URLs for this deployment.
         """
         if runtime_uri is not None:
@@ -167,6 +175,7 @@ class EnvironmentServerResponse(dict):
                  type: Optional[str] = None):
         """
         Server information of the environment.
+        :param Sequence[str] management_portal_uri: The location of the management portal
         :param str type: Type of the server that represents the environment.
         """
         if management_portal_uri is not None:
@@ -177,6 +186,9 @@ class EnvironmentServerResponse(dict):
     @property
     @pulumi.getter(name="managementPortalUri")
     def management_portal_uri(self) -> Optional[Sequence[str]]:
+        """
+        The location of the management portal
+        """
         return pulumi.get(self, "management_portal_uri")
 
     @property
@@ -245,9 +257,11 @@ class LicenseResponse(dict):
                  url: Optional[str] = None):
         """
         The license information for the API.
-        :param str identifier: SPDX license information for the API. The identifier field is mutually exclusive of the URL field.
+        :param str identifier: SPDX license information for the API. The identifier field is mutually
+               exclusive of the URL field.
         :param str name: Name of the license.
-        :param str url: URL pointing to the license details. The URL field is mutually exclusive of the identifier field.
+        :param str url: URL pointing to the license details. The URL field is mutually exclusive of the
+               identifier field.
         """
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
@@ -260,7 +274,8 @@ class LicenseResponse(dict):
     @pulumi.getter
     def identifier(self) -> Optional[str]:
         """
-        SPDX license information for the API. The identifier field is mutually exclusive of the URL field.
+        SPDX license information for the API. The identifier field is mutually
+        exclusive of the URL field.
         """
         return pulumi.get(self, "identifier")
 
@@ -276,7 +291,8 @@ class LicenseResponse(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
-        URL pointing to the license details. The URL field is mutually exclusive of the identifier field.
+        URL pointing to the license details. The URL field is mutually exclusive of the
+        identifier field.
         """
         return pulumi.get(self, "url")
 
@@ -360,12 +376,18 @@ class ManagedServiceIdentityResponse(dict):
 
 @pulumi.output_type
 class MetadataAssignmentResponse(dict):
+    """
+    Assignment metadata
+    """
     def __init__(__self__, *,
                  deprecated: Optional[bool] = None,
                  entity: Optional[str] = None,
                  required: Optional[bool] = None):
         """
+        Assignment metadata
+        :param bool deprecated: Deprecated assignment
         :param str entity: The entities this metadata schema component gets applied to.
+        :param bool required: Required assignment
         """
         if deprecated is not None:
             pulumi.set(__self__, "deprecated", deprecated)
@@ -377,6 +399,9 @@ class MetadataAssignmentResponse(dict):
     @property
     @pulumi.getter
     def deprecated(self) -> Optional[bool]:
+        """
+        Deprecated assignment
+        """
         return pulumi.get(self, "deprecated")
 
     @property
@@ -390,11 +415,17 @@ class MetadataAssignmentResponse(dict):
     @property
     @pulumi.getter
     def required(self) -> Optional[bool]:
+        """
+        Required assignment
+        """
         return pulumi.get(self, "required")
 
 
 @pulumi.output_type
 class OnboardingResponse(dict):
+    """
+    Onboarding information
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -416,6 +447,8 @@ class OnboardingResponse(dict):
                  developer_portal_uri: Optional[Sequence[str]] = None,
                  instructions: Optional[str] = None):
         """
+        Onboarding information
+        :param Sequence[str] developer_portal_uri: The location of the development portal
         :param str instructions: Onboarding guide.
         """
         if developer_portal_uri is not None:
@@ -426,6 +459,9 @@ class OnboardingResponse(dict):
     @property
     @pulumi.getter(name="developerPortalUri")
     def developer_portal_uri(self) -> Optional[Sequence[str]]:
+        """
+        The location of the development portal
+        """
         return pulumi.get(self, "developer_portal_uri")
 
     @property

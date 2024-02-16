@@ -74,6 +74,9 @@ export interface GetDeploymentResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The deployment server
+     */
     readonly server?: outputs.apicenter.DeploymentServerResponse;
     /**
      * State of API deployment.

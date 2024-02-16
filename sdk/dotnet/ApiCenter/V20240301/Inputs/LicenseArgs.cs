@@ -16,7 +16,8 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301.Inputs
     public sealed class LicenseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SPDX license information for the API. The identifier field is mutually exclusive of the URL field.
+        /// SPDX license information for the API. The identifier field is mutually
+        /// exclusive of the URL field.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -28,7 +29,8 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// URL pointing to the license details. The URL field is mutually exclusive of the identifier field.
+        /// URL pointing to the license details. The URL field is mutually exclusive of the
+        /// identifier field.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

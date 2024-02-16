@@ -16,6 +16,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.iotfirmwaredefense.v20230208preview as __v20230208preview
     v20230208preview = __v20230208preview
+    import pulumi_azure_native.iotfirmwaredefense.v20240110 as __v20240110
+    v20240110 = __v20240110
 else:
     v20230208preview = _utilities.lazy_import('pulumi_azure_native.iotfirmwaredefense.v20230208preview')
+    v20240110 = _utilities.lazy_import('pulumi_azure_native.iotfirmwaredefense.v20240110')
 

@@ -233,7 +233,7 @@ class GalleryApplication(pulumi.CustomResource):
         Specifies information about the gallery Application Definition that you want to create or update.
         Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
 
-        Other available API versions: 2022-08-03.
+        Other available API versions: 2022-08-03, 2023-07-03.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,7 +260,7 @@ class GalleryApplication(pulumi.CustomResource):
         Specifies information about the gallery Application Definition that you want to create or update.
         Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
 
-        Other available API versions: 2022-08-03.
+        Other available API versions: 2022-08-03, 2023-07-03.
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -318,7 +318,7 @@ class GalleryApplication(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryApplication")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryApplication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryApplication, __self__).__init__(
             'azure-native:compute:GalleryApplication',

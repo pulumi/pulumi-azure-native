@@ -64,7 +64,7 @@ def list_connected_partner_resource(monitor_name: Optional[str] = None,
      List of all active elastic deployments.
     Azure REST API version: 2023-07-01-preview.
 
-    Other available API versions: 2023-10-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01.
 
 
     :param str monitor_name: Monitor resource name
@@ -89,7 +89,7 @@ def list_connected_partner_resource_output(monitor_name: Optional[pulumi.Input[s
      List of all active elastic deployments.
     Azure REST API version: 2023-07-01-preview.
 
-    Other available API versions: 2023-10-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01.
 
 
     :param str monitor_name: Monitor resource name

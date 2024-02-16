@@ -124,6 +124,8 @@ def get_workspace(resource_group_name: Optional[str] = None,
     Get firmware analysis workspace.
     Azure REST API version: 2023-02-08-preview.
 
+    Other available API versions: 2024-01-10.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the firmware analysis workspace.
@@ -151,6 +153,8 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     """
     Get firmware analysis workspace.
     Azure REST API version: 2023-02-08-preview.
+
+    Other available API versions: 2024-01-10.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20230208preview from "./v20230208preview";
+import * as v20240110 from "./v20240110";
 
 export {
     v20230208preview,
+    v20240110,
 };
 
 export const Status = {

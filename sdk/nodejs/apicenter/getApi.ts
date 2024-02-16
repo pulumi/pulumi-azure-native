@@ -45,6 +45,9 @@ export interface GetApiArgs {
  * API entity.
  */
 export interface GetApiResult {
+    /**
+     * The set of contacts
+     */
     readonly contacts?: outputs.apicenter.ContactResponse[];
     /**
      * The custom metadata defined for API catalog entities.
@@ -54,6 +57,9 @@ export interface GetApiResult {
      * Description of the API.
      */
     readonly description?: string;
+    /**
+     * The set of external documentation
+     */
     readonly externalDocumentation?: outputs.apicenter.ExternalDocumentationResponse[];
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"

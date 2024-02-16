@@ -87,7 +87,7 @@ export class FeaturesetContainerEntity extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20231001:FeaturesetContainerEntity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230201preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20231001:FeaturesetContainerEntity" }, { type: "azure-native:machinelearningservices/v20240101preview:FeaturesetContainerEntity" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FeaturesetContainerEntity.__pulumiType, name, resourceInputs, opts);
     }

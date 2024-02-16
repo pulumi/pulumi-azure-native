@@ -156,7 +156,7 @@ class PrivateEndpointConnectionOperation(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:PrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:PrivateEndpointConnectionOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:PrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:PrivateEndpointConnectionOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:PrivateEndpointConnectionOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionOperation, __self__).__init__(
             'azure-native:migrate/v20230315:PrivateEndpointConnectionOperation',

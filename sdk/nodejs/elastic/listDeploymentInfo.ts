@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
  * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01.
  */
 export function listDeploymentInfo(args: ListDeploymentInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListDeploymentInfoResult> {
 
@@ -66,7 +66,7 @@ export interface ListDeploymentInfoResult {
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
  * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01.
  */
 export function listDeploymentInfoOutput(args: ListDeploymentInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeploymentInfoResult> {
     return pulumi.output(args).apply((a: any) => listDeploymentInfo(a, opts))

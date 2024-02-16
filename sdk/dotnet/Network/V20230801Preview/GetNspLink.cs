@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Network.V20230801Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        /// Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         /// </summary>
         public readonly ImmutableArray<string> LocalInboundProfiles;
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Network.V20230801Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        /// Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         /// </summary>
         public readonly ImmutableArray<string> RemoteInboundProfiles;
         /// <summary>

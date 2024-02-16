@@ -22,6 +22,9 @@ namespace Pulumi.AzureNative.ApiCenter
         [Output("customProperties")]
         public Output<object?> CustomProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The environment description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -37,6 +40,9 @@ namespace Pulumi.AzureNative.ApiCenter
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Environment onboarding information
+        /// </summary>
         [Output("onboarding")]
         public Output<Outputs.OnboardingResponse?> Onboarding { get; private set; } = null!;
 
@@ -119,6 +125,9 @@ namespace Pulumi.AzureNative.ApiCenter
         [Input("customProperties")]
         public Input<object>? CustomProperties { get; set; }
 
+        /// <summary>
+        /// The environment description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -134,6 +143,9 @@ namespace Pulumi.AzureNative.ApiCenter
         [Input("kind", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ApiCenter.EnvironmentKind> Kind { get; set; } = null!;
 
+        /// <summary>
+        /// Environment onboarding information
+        /// </summary>
         [Input("onboarding")]
         public Input<Inputs.OnboardingArgs>? Onboarding { get; set; }
 

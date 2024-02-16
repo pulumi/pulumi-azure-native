@@ -21,7 +21,12 @@ __all__ = [
     'ContactProfilesPropertiesResponseNetworkConfiguration',
     'ContactsPropertiesResponseAntennaConfiguration',
     'ContactsPropertiesResponseContactProfile',
+    'EdgeSitesPropertiesResponseGlobalCommunicationsSite',
     'EndPointResponse',
+    'GroundStationsPropertiesResponseGlobalCommunicationsSite',
+    'L2ConnectionsPropertiesResponseEdgeSite',
+    'L2ConnectionsPropertiesResponseGroundStation',
+    'ResourceIdListResultResponseValue',
     'SpacecraftLinkResponse',
     'SystemDataResponse',
 ]
@@ -631,6 +636,28 @@ class ContactsPropertiesResponseContactProfile(dict):
 
 
 @pulumi.output_type
+class EdgeSitesPropertiesResponseGlobalCommunicationsSite(dict):
+    """
+    A reference to global communications site.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A reference to global communications site.
+        :param str id: Resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class EndPointResponse(dict):
     """
     Customer end point to store and retrieve data during a contact with the spacecraft.
@@ -702,6 +729,91 @@ class EndPointResponse(dict):
         Protocol either UDP or TCP.
         """
         return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class GroundStationsPropertiesResponseGlobalCommunicationsSite(dict):
+    """
+    A reference to global communications site.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A reference to global communications site.
+        :param str id: Resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class L2ConnectionsPropertiesResponseEdgeSite(dict):
+    """
+    A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
+        :param str id: Resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class L2ConnectionsPropertiesResponseGroundStation(dict):
+    """
+    A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+        :param str id: Resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ResourceIdListResultResponseValue(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        :param str id: The Azure Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The Azure Resource ID.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

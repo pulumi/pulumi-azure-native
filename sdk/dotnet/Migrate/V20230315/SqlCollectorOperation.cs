@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Migrate.V20230315
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate:SqlCollectorOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:SqlCollectorOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

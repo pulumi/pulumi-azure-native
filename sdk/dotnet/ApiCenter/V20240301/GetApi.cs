@@ -93,6 +93,9 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
     [OutputType]
     public sealed class GetApiResult
     {
+        /// <summary>
+        /// The set of contacts
+        /// </summary>
         public readonly ImmutableArray<Outputs.ContactResponse> Contacts;
         /// <summary>
         /// The custom metadata defined for API catalog entities.
@@ -102,6 +105,9 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
         /// Description of the API.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The set of external documentation
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExternalDocumentationResponse> ExternalDocumentation;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"

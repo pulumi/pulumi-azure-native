@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
     public partial class Service : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Managed service identity (system assigned and/or user assigned identities)
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }

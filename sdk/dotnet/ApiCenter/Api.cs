@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.ApiCenter
     [AzureNativeResourceType("azure-native:apicenter:Api")]
     public partial class Api : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The set of contacts
+        /// </summary>
         [Output("contacts")]
         public Output<ImmutableArray<Outputs.ContactResponse>> Contacts { get; private set; } = null!;
 
@@ -31,6 +34,9 @@ namespace Pulumi.AzureNative.ApiCenter
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The set of external documentation
+        /// </summary>
         [Output("externalDocumentation")]
         public Output<ImmutableArray<Outputs.ExternalDocumentationResponse>> ExternalDocumentation { get; private set; } = null!;
 
@@ -145,6 +151,10 @@ namespace Pulumi.AzureNative.ApiCenter
 
         [Input("contacts")]
         private InputList<Inputs.ContactArgs>? _contacts;
+
+        /// <summary>
+        /// The set of contacts
+        /// </summary>
         public InputList<Inputs.ContactArgs> Contacts
         {
             get => _contacts ?? (_contacts = new InputList<Inputs.ContactArgs>());
@@ -165,6 +175,10 @@ namespace Pulumi.AzureNative.ApiCenter
 
         [Input("externalDocumentation")]
         private InputList<Inputs.ExternalDocumentationArgs>? _externalDocumentation;
+
+        /// <summary>
+        /// The set of external documentation
+        /// </summary>
         public InputList<Inputs.ExternalDocumentationArgs> ExternalDocumentation
         {
             get => _externalDocumentation ?? (_externalDocumentation = new InputList<Inputs.ExternalDocumentationArgs>());

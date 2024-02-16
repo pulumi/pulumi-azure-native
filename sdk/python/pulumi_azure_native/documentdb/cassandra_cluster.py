@@ -133,7 +133,7 @@ class CassandraCluster(pulumi.CustomResource):
         Representation of a managed Cassandra cluster.
         Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview.
 
-        Other available API versions: 2021-07-01-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview.
+        Other available API versions: 2021-07-01-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +154,7 @@ class CassandraCluster(pulumi.CustomResource):
         Representation of a managed Cassandra cluster.
         Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview.
 
-        Other available API versions: 2021-07-01-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview.
+        Other available API versions: 2021-07-01-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview.
 
         :param str resource_name: The name of the resource.
         :param CassandraClusterArgs args: The arguments to use to populate this resource's properties.
@@ -196,7 +196,7 @@ class CassandraCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20210301preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20211015:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220515:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220815:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20221115:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230315:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230415:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230915:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20231115:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:CassandraCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20210301preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20211015:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220515:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220815:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20221115:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230315:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230415:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230915:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20230915preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20231115:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20231115preview:CassandraCluster"), pulumi.Alias(type_="azure-native:documentdb/v20240215preview:CassandraCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CassandraCluster, __self__).__init__(
             'azure-native:documentdb:CassandraCluster',

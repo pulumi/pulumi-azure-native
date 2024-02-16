@@ -47,7 +47,7 @@ export class NspLink extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */
     public readonly localInboundProfiles!: pulumi.Output<string[] | undefined>;
     /**
@@ -63,7 +63,7 @@ export class NspLink extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
      */
     public readonly remoteInboundProfiles!: pulumi.Output<string[] | undefined>;
     /**
@@ -159,7 +159,7 @@ export interface NspLinkArgs {
      */
     linkName?: pulumi.Input<string>;
     /**
-     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */
     localInboundProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -167,7 +167,7 @@ export interface NspLinkArgs {
      */
     networkSecurityPerimeterName: pulumi.Input<string>;
     /**
-     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
      */
     remoteInboundProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**

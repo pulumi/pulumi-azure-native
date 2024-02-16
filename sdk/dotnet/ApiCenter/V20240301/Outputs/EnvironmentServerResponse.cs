@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301.Outputs
     [OutputType]
     public sealed class EnvironmentServerResponse
     {
+        /// <summary>
+        /// The location of the management portal
+        /// </summary>
         public readonly ImmutableArray<string> ManagementPortalUri;
         /// <summary>
         /// Type of the server that represents the environment.

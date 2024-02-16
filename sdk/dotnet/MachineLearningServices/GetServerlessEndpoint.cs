@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// 
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Task<GetServerlessEndpointResult> InvokeAsync(GetServerlessEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessEndpointResult>("azure-native:machinelearningservices:getServerlessEndpoint", args ?? new GetServerlessEndpointArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// 
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-01-01-preview.
         /// </summary>
         public static Output<GetServerlessEndpointResult> Invoke(GetServerlessEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessEndpointResult>("azure-native:machinelearningservices:getServerlessEndpoint", args ?? new GetServerlessEndpointInvokeArgs(), options.WithDefaults());

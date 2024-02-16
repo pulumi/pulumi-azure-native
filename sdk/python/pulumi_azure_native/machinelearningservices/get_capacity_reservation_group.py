@@ -156,6 +156,8 @@ def get_capacity_reservation_group(group_id: Optional[str] = None,
     """
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2024-01-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -184,6 +186,8 @@ def get_capacity_reservation_group_output(group_id: Optional[pulumi.Input[str]] 
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:
     """
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2024-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

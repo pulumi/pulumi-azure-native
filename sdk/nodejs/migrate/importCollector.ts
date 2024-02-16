@@ -73,7 +73,7 @@ export class ImportCollector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:ImportCollector" }, { type: "azure-native:migrate/v20230315:ImportCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:ImportCollector" }, { type: "azure-native:migrate/v20230315:ImportCollector" }, { type: "azure-native:migrate/v20230401preview:ImportCollector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportCollector.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiCenter.Outputs
 {
 
+    /// <summary>
+    /// Onboarding information
+    /// </summary>
     [OutputType]
     public sealed class OnboardingResponse
     {
+        /// <summary>
+        /// The location of the development portal
+        /// </summary>
         public readonly ImmutableArray<string> DeveloperPortalUri;
         /// <summary>
         /// Onboarding guide.

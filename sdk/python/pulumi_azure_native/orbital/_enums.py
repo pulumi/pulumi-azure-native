@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AutoTrackingConfiguration',
+    'Capability',
     'Direction',
     'Polarization',
     'Protocol',
@@ -19,6 +20,14 @@ class AutoTrackingConfiguration(str, Enum):
     DISABLED = "disabled"
     X_BAND = "xBand"
     S_BAND = "sBand"
+
+
+class Capability(str, Enum):
+    """
+    Capability of the Ground Station.
+    """
+    EARTH_OBSERVATION = "EarthObservation"
+    COMMUNICATION = "Communication"
 
 
 class Direction(str, Enum):
