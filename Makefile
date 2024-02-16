@@ -276,9 +276,11 @@ dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(P
 	cd provider && go mod download
 	@touch $@
 
-.make/provider_prebuild: bin/schema-full.json bin/metadata-compact.json
+.make/provider_prebuild: bin/schema-full.json bin/metadata-compact.json versions/v2-lock.json
 	cp bin/schema-full.json provider/cmd/$(PROVIDER)
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
+	@# For API version lookups at run time
+	cp versions/v2-lock.json provider/pkg/versionLookup/
 	@touch $@
 
 define FAKE_MODULE

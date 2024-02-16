@@ -19,6 +19,7 @@ provider/cmd/**/schema-full.json
 provider/cmd/**/metadata-compact.json
 provider/cmd/**/*.gz
 provider/**/testdata/rapid
+provider/pkg/versionLookup/v*-lock.json
 **/version.txt
 **/nuget
 **/dist

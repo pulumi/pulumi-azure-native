@@ -7,9 +7,11 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versionLookup"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 const lhPath = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/legalHold"
@@ -40,6 +42,13 @@ var legalHoldProperties = map[string]schema.PropertySpec{
 }
 
 func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
+	apiVersion, ok := versionLookup.GetDefaultApiVersionForResource("Storage", "BlobContainer")
+	if !ok {
+		// default as of 2024-02-16
+		apiVersion = "2022-09-01"
+		logging.V(3).Infof("Warning: could not find default API version for storage:blobContainer. Using %s", apiVersion)
+	}
+
 	return &CustomResource{
 		tok:  "azure-native:storage:BlobContainerLegalHold",
 		path: lhPath,
@@ -105,7 +114,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 				}
 			}
 
-			return post(ctx, createPath, body, azureClient)
+			return post(ctx, createPath, body, apiVersion, azureClient)
 		},
 		Read: func(ctx context.Context, id string, properties resource.PropertyMap) (map[string]any, bool, error) {
 			containerId := strings.TrimSuffix(id, "/legalHold")
@@ -197,7 +206,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 					tagsProp:                          addedTags.SortedValues(),
 					allowProtectedAppendWritesAllProp: allowProtected,
 				}
-				_, err = post(ctx, setPath, body, azureClient)
+				_, err = post(ctx, setPath, body, apiVersion, azureClient)
 				if err != nil {
 					return nil, err
 				}
@@ -206,7 +215,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 				body := map[string]any{
 					tagsProp: removedTags.SortedValues(),
 				}
-				_, err = post(ctx, clearPath, body, azureClient)
+				_, err = post(ctx, clearPath, body, apiVersion, azureClient)
 				if err != nil {
 					return nil, err
 				}
@@ -226,15 +235,15 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 				tagsProp: tags.SortedValues(),
 			}
 
-			_, err = post(ctx, path, body, azureClient)
+			_, err = post(ctx, path, body, apiVersion, azureClient)
 			return err
 		},
 	}
 }
 
-func post(ctx context.Context, path string, body map[string]any, azureClient azure.AzureClient) (map[string]any, error) {
+func post(ctx context.Context, path string, body map[string]any, apiVersion string, azureClient azure.AzureClient) (map[string]any, error) {
 	queryParams := map[string]any{
-		"api-version": "2022-09-01",
+		"api-version": apiVersion,
 	}
 	return azureClient.Post(ctx, path, body, queryParams)
 }
