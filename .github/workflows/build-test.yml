@@ -221,6 +221,7 @@ jobs:
       # This is essentially just copying files from bin to the provider folder
       - name: Prebuild provider prerequisites
         run: |
+          make prebuild
           make --touch codegen schema
           make provider_prebuild
 
@@ -255,12 +256,12 @@ jobs:
       - name: Prerequisites artifact restore
         uses: ./.github/actions/prerequisites-artifact-restore
 
-      - name: Mark prerequisites as up-to-date
-        # Don't include provider as that's the bit we're going to rebuild
-        run: make --touch codegen schema
-
-      - name: Ensure provider build prerequisites
-        run: make provider_prebuild
+      - name: Prerequisites
+        run: |
+          make prebuild
+          # Don't include provider as that's the bit we're going to rebuild
+          make --touch codegen schema
+          make provider_prebuild
 
       - name: Build dist packages
         run: make dist --jobs=2

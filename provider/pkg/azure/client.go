@@ -3,7 +3,6 @@ package azure
 import (
 	"bytes"
 	"context"
-	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -337,19 +336,6 @@ func (a *azureClientImpl) update(
 		return nil, created, err
 	}
 	return outputs, true, nil
-}
-
-// AzureError catches common errors and substitutes them with more user-friendly ones.
-func AzureError(err error) error {
-	if errors.Is(err, context.DeadlineExceeded) {
-		return errors.New("operation timed out")
-	}
-	if requestError, ok := err.(azure.RequestError); ok {
-		if requestError.DetailedError.Message != "" {
-			return fmt.Errorf("%w. %s", err, requestError.DetailedError.Message)
-		}
-	}
-	return err
 }
 
 // CanCreate asserts that a resource with a given ID and API version can be created
