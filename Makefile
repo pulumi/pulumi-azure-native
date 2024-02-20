@@ -58,8 +58,10 @@ install_provider: .make/install_provider
 .PHONY: provider_prebuild
 provider_prebuild: .make/provider_prebuild
 
-.PHONY: prebuild
-prebuild: .make/prebuild
+prebuild: provider/pkg/versionLookup/v2-lock.json
+# For API version lookups at run time
+provider/pkg/versionLookup/v2-lock.json:
+	cp -v versions/v2-lock.json provider/pkg/versionLookup/
 
 # We don't include v2 here yet as this is executed on the nightly updates
 .PHONY: schema generate_schema generate_docs
@@ -227,7 +229,7 @@ dist/docs-schema.json: bin/schema-full.json
 	mkdir -p dist
 	yarn schema implode --cwd bin/schema --outFile dist/docs-schema.json
 
-bin/$(CODEGEN): bin/pulumictl .make/prebuild .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
+bin/$(CODEGEN): bin/pulumictl prebuild .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(CODEGEN)
 
 # Writes schema-full.json and metadata-compact.json to bin/
@@ -239,7 +241,7 @@ bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v1-lock.json versions/v2-config.yaml versions/v2-removed-resources.json
 	bin/$(CODEGEN) docs $(VERSION_GENERIC)
 
-bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
+bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	cd provider && \
 		CGO_ENABLED=0 go build -o $(WORKING_DIR)/bin/$(LOCAL_PROVIDER_FILENAME) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
 
@@ -248,7 +250,7 @@ bin/linux-arm64/$(PROVIDER): TARGET := linux-arm64
 bin/darwin-amd64/$(PROVIDER): TARGET := darwin-amd64
 bin/darwin-arm64/$(PROVIDER): TARGET := darwin-arm64
 bin/windows-amd64/$(PROVIDER).exe: TARGET := windows-amd64
-bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/pulumictl .make/provider_mod_download .make/prebuild provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
+bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/pulumictl .make/provider_mod_download prebuild provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	@# check the TARGET is set
 	test $(TARGET)
 	cd provider && \
@@ -279,11 +281,7 @@ dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(P
 	cd provider && go mod download
 	@touch $@
 
-.make/prebuild:
-	@# For API version lookups at run time
-	cp versions/v2-lock.json provider/pkg/versionLookup/
-
-.make/provider_prebuild: .make/prebuild bin/schema-full.json bin/metadata-compact.json versions/v2-lock.json
+.make/provider_prebuild: prebuild bin/schema-full.json bin/metadata-compact.json versions/v2-lock.json
 	cp bin/schema-full.json provider/cmd/$(PROVIDER)
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	@touch $@

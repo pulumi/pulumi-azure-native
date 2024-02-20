@@ -113,7 +113,9 @@ jobs:
         uses: ./.github/actions/prerequisites-artifact-restore
 
       - name: Mark prerequisites as up-to-date
-        run: make --touch codegen schema provider
+        run: |
+          make prebuild
+          make --touch codegen schema provider
 
       - name: Generate SDK
         run: make generate_${{ matrix.language }}
