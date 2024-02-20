@@ -12,7 +12,6 @@ import (
 )
 
 func TestAccKeyVaultTs(t *testing.T) {
-	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "keyvault"),
@@ -22,8 +21,6 @@ func TestAccKeyVaultTs(t *testing.T) {
 }
 
 func TestAccKeyVaultTs_OICD(t *testing.T) {
-	skipIfShort(t)
-
 	oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
 	if oidcClientId == "" {
 		t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")

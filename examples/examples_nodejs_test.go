@@ -45,7 +45,7 @@ func TestAccSimpleTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestDestroyTs(t *testing.T) {
+func TestStaticWebsiteDestroyTs(t *testing.T) {
 	// Tests eventually-consistent deletion handling.
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
@@ -57,7 +57,6 @@ func TestDestroyTs(t *testing.T) {
 }
 
 func TestImportTs(t *testing.T) {
-	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "import"),
@@ -120,6 +119,7 @@ func TestSecretsTs(t *testing.T) {
 }
 
 func TestTimeSeriesTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "timeseries"),
@@ -129,6 +129,7 @@ func TestTimeSeriesTs(t *testing.T) {
 }
 
 func TestPublicIpUpdateTs(t *testing.T) {
+	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:         filepath.Join(getCwd(t), "public-ip-update"),
@@ -198,7 +199,6 @@ func TestStorageAccountNetworkRule(t *testing.T) {
 }
 
 func TestAccKeyVaultAccessPoliciesTs(t *testing.T) {
-	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			ExpectRefreshChanges: false,

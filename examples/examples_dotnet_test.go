@@ -31,7 +31,6 @@ func TestAccSimpleDotnet(t *testing.T) {
 }
 
 func TestAccSql(t *testing.T) {
-	skipIfShort(t)
 	test := getCsharpBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "cs-sql"),
