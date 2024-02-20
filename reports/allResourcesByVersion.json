@@ -5558,6 +5558,17 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2024-01-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -17256,6 +17267,9 @@
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
       "ResourceGuardProxy",
+      "Vault"
+    ],
+    "2024-01-01": [
       "Vault"
     ]
   },
