@@ -5558,6 +5558,29 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2024-01-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2024-01-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -6737,6 +6760,13 @@
       "listShareSubscriptionSynchronizations",
       "listShareSynchronizationDetails",
       "listShareSynchronizations"
+    ]
+  },
+  "DatabaseWatcher": {
+    "2023-09-01-preview": [
+      "SharedPrivateLinkResource",
+      "Target",
+      "Watcher"
     ]
   },
   "Databricks": {
@@ -12349,6 +12379,21 @@
       "SimPolicy",
       "Site",
       "Slice"
+    ],
+    "2024-02-01": [
+      "AttachedDataNetwork",
+      "DataNetwork",
+      "DiagnosticsPackage",
+      "MobileNetwork",
+      "PacketCapture",
+      "PacketCoreControlPlane",
+      "PacketCoreDataPlane",
+      "Service",
+      "Sim",
+      "SimGroup",
+      "SimPolicy",
+      "Site",
+      "Slice"
     ]
   },
   "MobilePacketCore": {
@@ -17257,6 +17302,9 @@
       "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
+    ],
+    "2024-01-01": [
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
@@ -20104,6 +20152,12 @@
       "AvailabilityGroupListener",
       "SqlVirtualMachine",
       "SqlVirtualMachineGroup"
+    ]
+  },
+  "StandbyPool": {
+    "2023-12-01-preview": [
+      "StandbyContainerGroupPool",
+      "StandbyVirtualMachinePool"
     ]
   },
   "StorSimple": {

@@ -80,6 +80,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "DatabaseWatcher",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "Datadog",
     "Detail": "expected no additions but found some"
   },
@@ -270,6 +274,10 @@
   {
     "Provider": "ServiceFabric",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "StandbyPool",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "Provider": "TestBase",

@@ -640,6 +640,8 @@ DataReplication:
     tracking: 2021-02-16-preview
 DataShare:
     tracking: "2021-08-01"
+DatabaseWatcher:
+    tracking: 2023-09-01-preview
 Databricks:
     tracking: "2023-05-01"
     additions:
@@ -1542,6 +1544,8 @@ Sql:
         StartStopManagedInstanceSchedule: 2022-11-01-preview
 SqlVirtualMachine:
     tracking: "2022-02-01"
+StandbyPool:
+    tracking: 2023-12-01-preview
 StorSimple:
     tracking: "2017-06-01"
 Storage:

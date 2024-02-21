@@ -820,6 +820,11 @@
     "listShareSynchronizationDetails": "2021-08-01",
     "listShareSynchronizations": "2021-08-01"
   },
+  "DatabaseWatcher": {
+    "SharedPrivateLinkResource": "2023-09-01-preview",
+    "Target": "2023-09-01-preview",
+    "Watcher": "2023-09-01-preview"
+  },
   "Databricks": {
     "AccessConnector": "2023-05-01",
     "PrivateEndpointConnection": "2023-02-01",
@@ -2377,6 +2382,10 @@
     "AvailabilityGroupListener": "2022-02-01",
     "SqlVirtualMachine": "2022-02-01",
     "SqlVirtualMachineGroup": "2022-02-01"
+  },
+  "StandbyPool": {
+    "StandbyContainerGroupPool": "2023-12-01-preview",
+    "StandbyVirtualMachinePool": "2023-12-01-preview"
   },
   "StorSimple": {
     "AccessControlRecord": "2017-06-01",
