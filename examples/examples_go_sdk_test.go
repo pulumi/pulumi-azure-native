@@ -56,8 +56,20 @@ func TestAccUserAssignedIdentitySdk(t *testing.T) {
 }
 
 func TestAccAksGoSdk(t *testing.T) {
-	t.Skip("Disabled due to https://github.com/pulumi/pulumi-azure-native/issues/304")
-	test := getGoBaseOptionsSdk(t, testDir(t, "go-aks"))
+	skipIfShort(t)
+	test := getGoBaseOptionsSdk(t, testDir(t, "go-aks")).
+		With(integration.ProgramTestOptions{
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      testDir(t, "go-aks", "step2"),
+					Additive: true,
+				},
+				{
+					Dir:      testDir(t, "go-aks", "step3"),
+					Additive: true,
+				},
+			},
+		})
 
 	integration.ProgramTest(t, &test)
 }

@@ -14,6 +14,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Only difference to steps 1 and 2 is that we add `OrchestratorVersion: pulumi.String(k8sVersion)`
+// to the agent pool profile.
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		// Create an Azure Resource Group
@@ -70,12 +72,13 @@ func main() {
 			DnsPrefix:         randomClusterName.Result,
 			AgentPoolProfiles: containerservice.ManagedClusterAgentPoolProfileArray{
 				&containerservice.ManagedClusterAgentPoolProfileArgs{
-					Name:         pulumi.String("agentpool"),
-					Mode:         pulumi.String("System"),
-					OsDiskSizeGB: pulumi.Int(30),
-					Count:        pulumi.Int(3),
-					VmSize:       pulumi.String("Standard_DS2_v2"),
-					OsType:       pulumi.String("Linux"),
+					Name:                pulumi.String("agentpool"),
+					Mode:                pulumi.String("System"),
+					OsDiskSizeGB:        pulumi.Int(30),
+					Count:               pulumi.Int(3),
+					VmSize:              pulumi.String("Standard_DS2_v2"),
+					OsType:              pulumi.String("Linux"),
+					OrchestratorVersion: pulumi.String(k8sVersion),
 				},
 			},
 			LinuxProfile: &containerservice.ContainerServiceLinuxProfileArgs{
