@@ -52,7 +52,7 @@ jobs:
     with:
       ref: ${{ github.ref }}
       version: ${{ inputs.version || needs.version.outputs.version }}
-      short_test: ${{ inputs.short_test || false }}
+      short_test: ${{ (github.event_name == 'pull_request' || inputs.short_test) || false }}
       retention_days: 30
     secrets: inherit
 

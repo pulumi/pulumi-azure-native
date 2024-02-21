@@ -145,7 +145,7 @@ jobs:
           repo: GoTestTools/gotestfmt
 
       - name: Run tests
-        if: "!inputs.short_test"
+        if: ${{ ! inputs.short_test }}
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
