@@ -302,6 +302,11 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 		if err != nil {
 			return nil, diagnostics, errors.Wrapf(err, "failed to get relative path for %q", location)
 		}
+
+		if exclude(relLocation) {
+			continue
+		}
+
 		swagger, err := NewSpec(location)
 		if err != nil {
 			return nil, diagnostics, errors.Wrapf(err, "failed to parse %q", location)
@@ -452,17 +457,22 @@ var excludeRegexes = []*regexp.Regexp{
 	// servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2023-11-01-preview
 	// This causes a conflict in the version-specific folder, not the default version folder, so we have to completely exclude it.
 	regexp.MustCompile(".*servicefabric/resource-manager/Microsoft.ServiceFabric/preview/2023-11-01-preview.*"),
+	// This preview version is invalid OpenAPI JSON, reading it fails with encoding/json.UnmarshalTypeError in field "definitions".
+	regexp.MustCompile(".*network/resource-manager/Microsoft.Network/preview/2023-03-01-preview.*"),
+}
+
+func exclude(filePath string) bool {
+	for _, re := range excludeRegexes {
+		if re.MatchString(filePath) {
+			return true
+		}
+	}
+	return false
 }
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
 func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	for _, re := range excludeRegexes {
-		if re.MatchString(fileLocation) {
-			return DiscoveryDiagnostics{}
-		}
-	}
-
 	prov := resources.ResourceProvider(filepath.Join(specsDir, fileLocation), path)
 	if prov == "" {
 		return DiscoveryDiagnostics{}
