@@ -188,6 +188,8 @@
     "DaprComponent": "2022-10-01",
     "DaprComponentResiliencyPolicy": "2023-08-01-preview",
     "DaprSubscription": "2023-08-01-preview",
+    "DotNetComponent": "2023-11-02-preview",
+    "JavaComponent": "2023-11-02-preview",
     "Job": "2023-04-01-preview",
     "ManagedCertificate": "2023-04-01-preview",
     "ManagedEnvironment": "2022-10-01",
@@ -819,6 +821,11 @@
     "listShareSubscriptionSynchronizations": "2021-08-01",
     "listShareSynchronizationDetails": "2021-08-01",
     "listShareSynchronizations": "2021-08-01"
+  },
+  "DatabaseWatcher": {
+    "SharedPrivateLinkResource": "2023-09-01-preview",
+    "Target": "2023-09-01-preview",
+    "Watcher": "2023-09-01-preview"
   },
   "Databricks": {
     "AccessConnector": "2023-05-01",
@@ -2377,6 +2384,10 @@
     "AvailabilityGroupListener": "2022-02-01",
     "SqlVirtualMachine": "2022-02-01",
     "SqlVirtualMachineGroup": "2022-02-01"
+  },
+  "StandbyPool": {
+    "StandbyContainerGroupPool": "2023-12-01-preview",
+    "StandbyVirtualMachinePool": "2023-12-01-preview"
   },
   "StorSimple": {
     "AccessControlRecord": "2017-06-01",
