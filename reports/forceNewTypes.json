@@ -532,6 +532,83 @@
     "Property": "platformReservedDnsIP"
   },
   {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "Certificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "password"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ConnectedEnvironmentsCertificate",
+    "ReferenceName": "Certificate",
+    "Property": "value"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "CustomDomainConfiguration",
+    "Property": "dnsSuffix"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "dockerBridgeCidr"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "infrastructureSubnetId"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "internal"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedCidr"
+  },
+  {
+    "Module": "app/v20231102preview",
+    "Provider": "App",
+    "ResourceName": "ManagedEnvironment",
+    "ReferenceName": "VnetConfiguration",
+    "Property": "platformReservedDnsIP"
+  },
+  {
     "Module": "appplatform",
     "Provider": "AppPlatform",
     "ResourceName": "Certificate",
@@ -2640,6 +2717,20 @@
   },
   {
     "Module": "databox/v20240201preview",
+    "Provider": "DataBox",
+    "ResourceName": "Job",
+    "ReferenceName": "DataAccountDetails",
+    "Property": "sharePassword"
+  },
+  {
+    "Module": "databox/v20240301preview",
+    "Provider": "DataBox",
+    "ResourceName": "Job",
+    "ReferenceName": "DataAccountDetails",
+    "Property": "sharePassword"
+  },
+  {
+    "Module": "databox/v20240301preview",
     "Provider": "DataBox",
     "ResourceName": "Job",
     "ReferenceName": "DataAccountDetails",
