@@ -7,8 +7,8 @@ from enum import Enum
 __all__ = [
     'KustoOfferingType',
     'ManagedServiceIdentityType',
-    'String',
     'TargetAuthenticationType',
+    'TargetCollectionStatus',
 ]
 
 
@@ -40,20 +40,6 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
-class String(str, Enum):
-    """
-    The target collection status.
-    """
-    ENABLED = "Enabled"
-    """
-    Denotes a target that is enabled.
-    """
-    DISABLED = "Disabled"
-    """
-    Denotes a target that is disabled.
-    """
-
-
 class TargetAuthenticationType(str, Enum):
     """
     The type of authentication to use when connecting to a target.
@@ -65,4 +51,18 @@ class TargetAuthenticationType(str, Enum):
     SQL = "Sql"
     """
     The SQL password authentication.
+    """
+
+
+class TargetCollectionStatus(str, Enum):
+    """
+    The target collection status.
+    """
+    ENABLED = "Enabled"
+    """
+    Denotes a target that is enabled.
+    """
+    DISABLED = "Disabled"
+    """
+    Denotes a target that is disabled.
     """

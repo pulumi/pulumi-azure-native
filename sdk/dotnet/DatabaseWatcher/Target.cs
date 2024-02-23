@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// The target collection status.
         /// </summary>
         [Input("targetCollectionStatus")]
-        public InputUnion<string, Pulumi.AzureNative.DatabaseWatcher.String>? TargetCollectionStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DatabaseWatcher.TargetCollectionStatus>? TargetCollectionStatus { get; set; }
 
         /// <summary>
         /// The target resource name.

@@ -34,22 +34,6 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
-export const String = {
-    /**
-     * Denotes a target that is enabled.
-     */
-    Enabled: "Enabled",
-    /**
-     * Denotes a target that is disabled.
-     */
-    Disabled: "Disabled",
-} as const;
-
-/**
- * The target collection status.
- */
-export type String = (typeof String)[keyof typeof String];
-
 export const TargetAuthenticationType = {
     /**
      * The Azure Active Directory authentication.
@@ -65,3 +49,19 @@ export const TargetAuthenticationType = {
  * The type of authentication to use when connecting to a target.
  */
 export type TargetAuthenticationType = (typeof TargetAuthenticationType)[keyof typeof TargetAuthenticationType];
+
+export const TargetCollectionStatus = {
+    /**
+     * Denotes a target that is enabled.
+     */
+    Enabled: "Enabled",
+    /**
+     * Denotes a target that is disabled.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The target collection status.
+ */
+export type TargetCollectionStatus = (typeof TargetCollectionStatus)[keyof typeof TargetCollectionStatus];

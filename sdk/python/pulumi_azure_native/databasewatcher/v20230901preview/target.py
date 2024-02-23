@@ -22,7 +22,7 @@ class TargetArgs:
                  target_authentication_type: pulumi.Input[Union[str, 'TargetAuthenticationType']],
                  target_type: pulumi.Input[str],
                  watcher_name: pulumi.Input[str],
-                 target_collection_status: Optional[pulumi.Input[Union[str, 'String']]] = None,
+                 target_collection_status: Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
         """
@@ -32,7 +32,7 @@ class TargetArgs:
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
         :param pulumi.Input[str] target_type: Discriminator property for TargetProperties.
         :param pulumi.Input[str] watcher_name: The database watcher name.
-        :param pulumi.Input[Union[str, 'String']] target_collection_status: The target collection status.
+        :param pulumi.Input[Union[str, 'TargetCollectionStatus']] target_collection_status: The target collection status.
         :param pulumi.Input[str] target_name: The target resource name.
         :param pulumi.Input['VaultSecretArgs'] target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         """
@@ -110,14 +110,14 @@ class TargetArgs:
 
     @property
     @pulumi.getter(name="targetCollectionStatus")
-    def target_collection_status(self) -> Optional[pulumi.Input[Union[str, 'String']]]:
+    def target_collection_status(self) -> Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]]:
         """
         The target collection status.
         """
         return pulumi.get(self, "target_collection_status")
 
     @target_collection_status.setter
-    def target_collection_status(self, value: Optional[pulumi.Input[Union[str, 'String']]]):
+    def target_collection_status(self, value: Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]]):
         pulumi.set(self, "target_collection_status", value)
 
     @property
@@ -153,7 +153,7 @@ class Target(pulumi.CustomResource):
                  connection_server_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_authentication_type: Optional[pulumi.Input[Union[str, 'TargetAuthenticationType']]] = None,
-                 target_collection_status: Optional[pulumi.Input[Union[str, 'String']]] = None,
+                 target_collection_status: Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  target_vault: Optional[pulumi.Input[pulumi.InputType['VaultSecretArgs']]] = None,
@@ -167,7 +167,7 @@ class Target(pulumi.CustomResource):
         :param pulumi.Input[str] connection_server_name: The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
-        :param pulumi.Input[Union[str, 'String']] target_collection_status: The target collection status.
+        :param pulumi.Input[Union[str, 'TargetCollectionStatus']] target_collection_status: The target collection status.
         :param pulumi.Input[str] target_name: The target resource name.
         :param pulumi.Input[str] target_type: Discriminator property for TargetProperties.
         :param pulumi.Input[pulumi.InputType['VaultSecretArgs']] target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
@@ -200,7 +200,7 @@ class Target(pulumi.CustomResource):
                  connection_server_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_authentication_type: Optional[pulumi.Input[Union[str, 'TargetAuthenticationType']]] = None,
-                 target_collection_status: Optional[pulumi.Input[Union[str, 'String']]] = None,
+                 target_collection_status: Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  target_vault: Optional[pulumi.Input[pulumi.InputType['VaultSecretArgs']]] = None,

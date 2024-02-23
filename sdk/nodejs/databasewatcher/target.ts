@@ -150,7 +150,7 @@ export interface TargetArgs {
     /**
      * The target collection status.
      */
-    targetCollectionStatus?: pulumi.Input<string | enums.databasewatcher.String>;
+    targetCollectionStatus?: pulumi.Input<string | enums.databasewatcher.TargetCollectionStatus>;
     /**
      * The target resource name.
      */
