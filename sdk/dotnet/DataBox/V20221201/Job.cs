@@ -187,6 +187,7 @@ namespace Pulumi.AzureNative.DataBox.V20221201
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20230301:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20231201:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20240201preview:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:databox/v20240301preview:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

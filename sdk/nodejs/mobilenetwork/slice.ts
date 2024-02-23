@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Network slice resource. Must be created in the same location as its parent mobile network.
  * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
  *
- * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+ * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
  */
 export class Slice extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class Slice extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:Slice" }, { type: "azure-native:mobilenetwork/v20220401preview:Slice" }, { type: "azure-native:mobilenetwork/v20221101:Slice" }, { type: "azure-native:mobilenetwork/v20230601:Slice" }, { type: "azure-native:mobilenetwork/v20230901:Slice" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:Slice" }, { type: "azure-native:mobilenetwork/v20220401preview:Slice" }, { type: "azure-native:mobilenetwork/v20221101:Slice" }, { type: "azure-native:mobilenetwork/v20230601:Slice" }, { type: "azure-native:mobilenetwork/v20230901:Slice" }, { type: "azure-native:mobilenetwork/v20240201:Slice" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Slice.__pulumiType, name, resourceInputs, opts);
     }

@@ -96,7 +96,7 @@ class SyncSet(pulumi.CustomResource):
         SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
         Azure REST API version: 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +115,7 @@ class SyncSet(pulumi.CustomResource):
         SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
         Azure REST API version: 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
 
         :param str resource_name: The name of the resource.
         :param SyncSetArgs args: The arguments to use to populate this resource's properties.
@@ -156,7 +156,7 @@ class SyncSet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:SyncSet"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:SyncSet"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:SyncSet"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:SyncSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:SyncSet"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:SyncSet"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:SyncSet"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:SyncSet"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:SyncSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SyncSet, __self__).__init__(
             'azure-native:redhatopenshift:SyncSet',

@@ -7,6 +7,7 @@ import * as v20230228 from "./v20230228";
 import * as v20230906 from "./v20230906";
 import * as v20231101 from "./v20231101";
 import * as v20231201 from "./v20231201";
+import * as v20240301 from "./v20240301";
 
 export {
     v20221001preview,
@@ -14,6 +15,7 @@ export {
     v20230906,
     v20231101,
     v20231201,
+    v20240301,
 };
 
 export const AnalyticsConnectorDataDestinationType = {

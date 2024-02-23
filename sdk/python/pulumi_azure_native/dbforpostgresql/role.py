@@ -95,6 +95,8 @@ class Role(pulumi.CustomResource):
         Represents a cluster role.
         Azure REST API version: 2022-11-08.
 
+        Other available API versions: 2023-03-02-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -111,6 +113,8 @@ class Role(pulumi.CustomResource):
         """
         Represents a cluster role.
         Azure REST API version: 2022-11-08.
+
+        Other available API versions: 2023-03-02-preview.
 
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +158,7 @@ class Role(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:Role")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:Role"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:Role")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Role, __self__).__init__(
             'azure-native:dbforpostgresql:Role',

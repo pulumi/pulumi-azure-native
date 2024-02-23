@@ -161,6 +161,8 @@ def get_app_resiliency(app_name: Optional[str] = None,
     Get container app resiliency policy.
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2023-11-02-preview.
+
 
     :param str app_name: Name of the Container App.
     :param str name: Name of the resiliency policy.
@@ -194,6 +196,8 @@ def get_app_resiliency_output(app_name: Optional[pulumi.Input[str]] = None,
     """
     Get container app resiliency policy.
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2023-11-02-preview.
 
 
     :param str app_name: Name of the Container App.

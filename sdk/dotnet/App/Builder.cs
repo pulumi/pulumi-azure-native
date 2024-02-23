@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.App
     /// <summary>
     /// Information about the SourceToCloud builder resource.
     /// Azure REST API version: 2023-08-01-preview.
+    /// 
+    /// Other available API versions: 2023-11-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:Builder")]
     public partial class Builder : global::Pulumi.CustomResource
@@ -96,6 +98,7 @@ namespace Pulumi.AzureNative.App
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:Builder" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:Builder" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

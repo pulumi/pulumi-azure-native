@@ -421,6 +421,8 @@ class Cluster(pulumi.CustomResource):
         Represents a cluster.
         Azure REST API version: 2022-11-08.
 
+        Other available API versions: 2023-03-02-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login. Required for creation.
@@ -456,6 +458,8 @@ class Cluster(pulumi.CustomResource):
         """
         Represents a cluster.
         Azure REST API version: 2022-11-08.
+
+        Other available API versions: 2023-03-02-preview.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -539,7 +543,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201005privatepreview:Cluster"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201005privatepreview:Cluster"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:Cluster"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:dbforpostgresql:Cluster',

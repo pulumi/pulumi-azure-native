@@ -147,7 +147,7 @@ class Slice(pulumi.CustomResource):
         Network slice resource. Must be created in the same location as its parent mobile network.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
 
-        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,7 +169,7 @@ class Slice(pulumi.CustomResource):
         Network slice resource. Must be created in the same location as its parent mobile network.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
 
-        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param SliceArgs args: The arguments to use to populate this resource's properties.
@@ -219,7 +219,7 @@ class Slice(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:Slice")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:Slice"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:Slice")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Slice, __self__).__init__(
             'azure-native:mobilenetwork:Slice',

@@ -1586,6 +1586,37 @@
       "listContainerAppSecrets",
       "listDaprComponentSecrets",
       "listJobSecrets"
+    ],
+    "2023-11-02-preview": [
+      "AppResiliency",
+      "Build",
+      "Builder",
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "DaprComponentResiliencyPolicy",
+      "DaprSubscription",
+      "DotNetComponent",
+      "JavaComponent",
+      "Job",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getCustomDomainVerificationId",
+      "getManagedEnvironmentAuthToken",
+      "listBuildAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -5558,6 +5589,29 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2024-01-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2024-01-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -5991,6 +6045,12 @@
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
     ],
+    "2023-03-02-preview": [
+      "Cluster",
+      "FirewallRule",
+      "PrivateEndpointConnection",
+      "Role"
+    ],
     "2023-06-01-preview": [
       "Administrator",
       "Configuration",
@@ -6084,6 +6144,10 @@
       "listJobCredentials"
     ],
     "2024-02-01-preview": [
+      "Job",
+      "listJobCredentials"
+    ],
+    "2024-03-01-preview": [
       "Job",
       "listJobCredentials"
     ]
@@ -6737,6 +6801,13 @@
       "listShareSubscriptionSynchronizations",
       "listShareSynchronizationDetails",
       "listShareSynchronizations"
+    ]
+  },
+  "DatabaseWatcher": {
+    "2023-09-01-preview": [
+      "SharedPrivateLinkResource",
+      "Target",
+      "Watcher"
     ]
   },
   "Databricks": {
@@ -9684,6 +9755,16 @@
       "Service",
       "Workspace",
       "WorkspacePrivateEndpointConnection"
+    ],
+    "2024-03-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
     ]
   },
   "Help": {
@@ -11902,6 +11983,13 @@
       "PrivateEndpointConnection",
       "listAccountKeys",
       "listAccountSas"
+    ],
+    "2024-01-01-preview": [
+      "Account",
+      "Creator",
+      "PrivateEndpointConnection",
+      "listAccountKeys",
+      "listAccountSas"
     ]
   },
   "Marketplace": {
@@ -12336,6 +12424,21 @@
       "Slice"
     ],
     "2023-09-01": [
+      "AttachedDataNetwork",
+      "DataNetwork",
+      "DiagnosticsPackage",
+      "MobileNetwork",
+      "PacketCapture",
+      "PacketCoreControlPlane",
+      "PacketCoreDataPlane",
+      "Service",
+      "Sim",
+      "SimGroup",
+      "SimPolicy",
+      "Site",
+      "Slice"
+    ],
+    "2024-02-01": [
       "AttachedDataNetwork",
       "DataNetwork",
       "DiagnosticsPackage",
@@ -17257,6 +17360,9 @@
       "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
+    ],
+    "2024-01-01": [
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
@@ -17302,6 +17408,15 @@
       "listOpenShiftClusterCredentials"
     ],
     "2023-09-04": [
+      "MachinePool",
+      "OpenShiftCluster",
+      "Secret",
+      "SyncIdentityProvider",
+      "SyncSet",
+      "listOpenShiftClusterAdminCredentials",
+      "listOpenShiftClusterCredentials"
+    ],
+    "2023-11-22": [
       "MachinePool",
       "OpenShiftCluster",
       "Secret",
@@ -20104,6 +20219,12 @@
       "AvailabilityGroupListener",
       "SqlVirtualMachine",
       "SqlVirtualMachineGroup"
+    ]
+  },
+  "StandbyPool": {
+    "2023-12-01-preview": [
+      "StandbyContainerGroupPool",
+      "StandbyVirtualMachinePool"
     ]
   },
   "StorSimple": {

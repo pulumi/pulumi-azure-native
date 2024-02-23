@@ -256,7 +256,7 @@ class ManagedEnvironment(pulumi.CustomResource):
         An environment for hosting container apps
         Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
 
-        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
+        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,7 +286,7 @@ class ManagedEnvironment(pulumi.CustomResource):
         An environment for hosting container apps
         Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
 
-        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
+        Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -348,7 +348,7 @@ class ManagedEnvironment(pulumi.CustomResource):
             __props__.__dict__["static_ip"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20220301:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20220601preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20221001:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20221101preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230401preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230501:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230502preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230801preview:ManagedEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20220301:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20220601preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20221001:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20221101preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230401preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230501:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230502preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230801preview:ManagedEnvironment"), pulumi.Alias(type_="azure-native:app/v20231102preview:ManagedEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedEnvironment, __self__).__init__(
             'azure-native:app:ManagedEnvironment',

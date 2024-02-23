@@ -160,7 +160,7 @@ def get_service(resource_group_name: Optional[str] = None,
     Get the metadata of a service instance.
     Azure REST API version: 2023-02-28.
 
-    Other available API versions: 2020-03-15, 2023-09-06, 2023-11-01, 2023-12-01.
+    Other available API versions: 2020-03-15, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -193,7 +193,7 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     Get the metadata of a service instance.
     Azure REST API version: 2023-02-28.
 
-    Other available API versions: 2020-03-15, 2023-09-06, 2023-11-01, 2023-12-01.
+    Other available API versions: 2020-03-15, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

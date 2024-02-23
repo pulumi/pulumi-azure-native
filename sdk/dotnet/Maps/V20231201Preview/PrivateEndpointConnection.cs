@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.Maps.V20231201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:maps:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps/v20240101preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Gets the token used to connect to the endpoint where source code can be uploaded for a build.
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-02-preview.
         /// </summary>
         public static Task<ListBuildAuthTokenResult> InvokeAsync(ListBuildAuthTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBuildAuthTokenResult>("azure-native:app:listBuildAuthToken", args ?? new ListBuildAuthTokenArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Gets the token used to connect to the endpoint where source code can be uploaded for a build.
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-02-preview.
         /// </summary>
         public static Output<ListBuildAuthTokenResult> Invoke(ListBuildAuthTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBuildAuthTokenResult>("azure-native:app:listBuildAuthToken", args ?? new ListBuildAuthTokenInvokeArgs(), options.WithDefaults());

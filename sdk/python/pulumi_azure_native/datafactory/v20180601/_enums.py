@@ -24,12 +24,14 @@ __all__ = [
     'Db2AuthenticationType',
     'DependencyCondition',
     'DynamicsSinkWriteBehavior',
+    'ExpressionV2Type',
     'FactoryIdentityType',
     'FrequencyType',
     'FtpAuthenticationType',
     'GlobalParameterType',
     'GoogleAdWordsAuthenticationType',
     'GoogleBigQueryAuthenticationType',
+    'GoogleBigQueryV2AuthenticationType',
     'HBaseAuthenticationType',
     'HDInsightActivityDebugInfoOption',
     'HiveAuthenticationType',
@@ -65,6 +67,7 @@ __all__ = [
     'ScriptActivityParameterType',
     'ScriptType',
     'ServiceNowAuthenticationType',
+    'ServiceNowV2AuthenticationType',
     'SftpAuthenticationType',
     'SnowflakeAuthenticationType',
     'SparkAuthenticationType',
@@ -257,6 +260,16 @@ class DynamicsSinkWriteBehavior(str, Enum):
     UPSERT = "Upsert"
 
 
+class ExpressionV2Type(str, Enum):
+    """
+    Type of expressions supported by the system. Type: string.
+    """
+    CONSTANT = "Constant"
+    FIELD = "Field"
+    UNARY = "Unary"
+    BINARY = "Binary"
+
+
 class FactoryIdentityType(str, Enum):
     """
     The identity type.
@@ -306,6 +319,14 @@ class GoogleAdWordsAuthenticationType(str, Enum):
 class GoogleBigQueryAuthenticationType(str, Enum):
     """
     The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
+    """
+    SERVICE_AUTHENTICATION = "ServiceAuthentication"
+    USER_AUTHENTICATION = "UserAuthentication"
+
+
+class GoogleBigQueryV2AuthenticationType(str, Enum):
+    """
+    The OAuth 2.0 authentication mechanism used for authentication.
     """
     SERVICE_AUTHENTICATION = "ServiceAuthentication"
     USER_AUTHENTICATION = "UserAuthentication"
@@ -624,6 +645,14 @@ class ScriptType(str, Enum):
 
 
 class ServiceNowAuthenticationType(str, Enum):
+    """
+    The authentication type to use.
+    """
+    BASIC = "Basic"
+    O_AUTH2 = "OAuth2"
+
+
+class ServiceNowV2AuthenticationType(str, Enum):
     """
     The authentication type to use.
     """

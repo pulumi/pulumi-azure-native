@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20230601
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:PacketCapture" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:PacketCapture" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:PacketCapture" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

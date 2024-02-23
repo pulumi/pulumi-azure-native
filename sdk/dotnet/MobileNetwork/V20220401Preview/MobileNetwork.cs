@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:MobileNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:MobileNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:MobileNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:MobileNetwork" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

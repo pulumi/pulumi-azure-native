@@ -94,7 +94,7 @@ export class DaprComponentResiliencyPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:DaprComponentResiliencyPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:DaprComponentResiliencyPolicy" }, { type: "azure-native:app/v20231102preview:DaprComponentResiliencyPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DaprComponentResiliencyPolicy.__pulumiType, name, resourceInputs, opts);
     }

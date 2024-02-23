@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a cluster role.
         /// Azure REST API version: 2022-11-08.
+        /// 
+        /// Other available API versions: 2023-03-02-preview.
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-native:dbforpostgresql:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a cluster role.
         /// Azure REST API version: 2022-11-08.
+        /// 
+        /// Other available API versions: 2023-03-02-preview.
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("azure-native:dbforpostgresql:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());

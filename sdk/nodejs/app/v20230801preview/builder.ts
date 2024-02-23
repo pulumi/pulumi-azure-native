@@ -114,7 +114,7 @@ export class Builder extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:Builder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:Builder" }, { type: "azure-native:app/v20231102preview:Builder" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Builder.__pulumiType, name, resourceInputs, opts);
     }

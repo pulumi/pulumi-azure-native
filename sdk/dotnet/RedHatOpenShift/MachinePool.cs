@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     /// MachinePool represents a MachinePool
     /// Azure REST API version: 2022-09-04.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+    /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:MachinePool")]
     public partial class MachinePool : global::Pulumi.CustomResource
@@ -68,6 +68,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230401:MachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230701preview:MachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230904:MachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20231122:MachinePool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

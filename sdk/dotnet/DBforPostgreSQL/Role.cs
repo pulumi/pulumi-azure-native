@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// <summary>
     /// Represents a cluster role.
     /// Azure REST API version: 2022-11-08.
+    /// 
+    /// Other available API versions: 2023-03-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Role")]
     public partial class Role : global::Pulumi.CustomResource
@@ -66,6 +68,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:Role" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:Role" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

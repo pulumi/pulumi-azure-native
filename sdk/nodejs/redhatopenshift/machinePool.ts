@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * MachinePool represents a MachinePool
  * Azure REST API version: 2022-09-04.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+ * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
 export class MachinePool extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class MachinePool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:MachinePool" }, { type: "azure-native:redhatopenshift/v20230401:MachinePool" }, { type: "azure-native:redhatopenshift/v20230701preview:MachinePool" }, { type: "azure-native:redhatopenshift/v20230904:MachinePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:MachinePool" }, { type: "azure-native:redhatopenshift/v20230401:MachinePool" }, { type: "azure-native:redhatopenshift/v20230701preview:MachinePool" }, { type: "azure-native:redhatopenshift/v20230904:MachinePool" }, { type: "azure-native:redhatopenshift/v20231122:MachinePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachinePool.__pulumiType, name, resourceInputs, opts);
     }

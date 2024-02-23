@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.App
         /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
         /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
         /// </summary>
         public static Task<GetConnectedEnvironmentsCertificateResult> InvokeAsync(GetConnectedEnvironmentsCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentsCertificateResult>("azure-native:app:getConnectedEnvironmentsCertificate", args ?? new GetConnectedEnvironmentsCertificateArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.App
         /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
         /// Azure REST API version: 2022-10-01.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
         /// </summary>
         public static Output<GetConnectedEnvironmentsCertificateResult> Invoke(GetConnectedEnvironmentsCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsCertificateResult>("azure-native:app:getConnectedEnvironmentsCertificate", args ?? new GetConnectedEnvironmentsCertificateInvokeArgs(), options.WithDefaults());

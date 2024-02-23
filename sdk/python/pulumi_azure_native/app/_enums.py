@@ -12,10 +12,12 @@ __all__ = [
     'BindingType',
     'ClientCredentialMethod',
     'CookieExpirationConvention',
+    'DotNetComponentType',
     'ExtendedLocationTypes',
     'ForwardProxyConvention',
     'IngressClientCertificateMode',
     'IngressTransportMethod',
+    'JavaComponentType',
     'LogLevel',
     'ManagedCertificateDomainControlValidation',
     'ManagedEnvironmentOutBoundType',
@@ -85,6 +87,14 @@ class CookieExpirationConvention(str, Enum):
     IDENTITY_PROVIDER_DERIVED = "IdentityProviderDerived"
 
 
+class DotNetComponentType(str, Enum):
+    """
+    Type of the .NET Component.
+    """
+    ASPIRE_DASHBOARD = "AspireDashboard"
+    ASPIRE_RESOURCE_SERVER_API = "AspireResourceServerApi"
+
+
 class ExtendedLocationTypes(str, Enum):
     """
     The type of the extended location.
@@ -118,6 +128,15 @@ class IngressTransportMethod(str, Enum):
     HTTP = "http"
     HTTP2 = "http2"
     TCP = "tcp"
+
+
+class JavaComponentType(str, Enum):
+    """
+    Type of the Java Component.
+    """
+    SPRING_BOOT_ADMIN = "SpringBootAdmin"
+    SPRING_CLOUD_EUREKA = "SpringCloudEureka"
+    SPRING_CLOUD_CONFIG = "SpringCloudConfig"
 
 
 class LogLevel(str, Enum):

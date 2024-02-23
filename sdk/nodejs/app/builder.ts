@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Information about the SourceToCloud builder resource.
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-11-02-preview.
  */
 export class Builder extends pulumi.CustomResource {
     /**
@@ -115,7 +117,7 @@ export class Builder extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:Builder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:Builder" }, { type: "azure-native:app/v20231102preview:Builder" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Builder.__pulumiType, name, resourceInputs, opts);
     }

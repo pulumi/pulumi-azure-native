@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a cluster.
  * Azure REST API version: 2022-11-08.
+ *
+ * Other available API versions: 2023-03-02-preview.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -239,7 +241,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:Cluster" }, { type: "azure-native:dbforpostgresql/v20221108:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:Cluster" }, { type: "azure-native:dbforpostgresql/v20221108:Cluster" }, { type: "azure-native:dbforpostgresql/v20230302preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get a BuilderResource
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-02-preview.
         /// </summary>
         public static Task<GetBuilderResult> InvokeAsync(GetBuilderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuilderResult>("azure-native:app:getBuilder", args ?? new GetBuilderArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Get a BuilderResource
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-02-preview.
         /// </summary>
         public static Output<GetBuilderResult> Invoke(GetBuilderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuilderResult>("azure-native:app:getBuilder", args ?? new GetBuilderInvokeArgs(), options.WithDefaults());

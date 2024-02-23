@@ -79,7 +79,7 @@ class DiagnosticsPackage(pulumi.CustomResource):
         Diagnostics package resource.
         Azure REST API version: 2023-06-01.
 
-        Other available API versions: 2023-09-01.
+        Other available API versions: 2023-09-01, 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,7 +97,7 @@ class DiagnosticsPackage(pulumi.CustomResource):
         Diagnostics package resource.
         Azure REST API version: 2023-06-01.
 
-        Other available API versions: 2023-09-01.
+        Other available API versions: 2023-09-01, 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param DiagnosticsPackageArgs args: The arguments to use to populate this resource's properties.
@@ -139,7 +139,7 @@ class DiagnosticsPackage(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:DiagnosticsPackage"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:DiagnosticsPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:DiagnosticsPackage"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:DiagnosticsPackage"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:DiagnosticsPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiagnosticsPackage, __self__).__init__(
             'azure-native:mobilenetwork:DiagnosticsPackage',

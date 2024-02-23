@@ -75,6 +75,11 @@ export type DaprSubscription = import("./daprSubscription").DaprSubscription;
 export const DaprSubscription: typeof import("./daprSubscription").DaprSubscription = null as any;
 utilities.lazyLoad(exports, ["DaprSubscription"], () => require("./daprSubscription"));
 
+export { DotNetComponentArgs } from "./dotNetComponent";
+export type DotNetComponent = import("./dotNetComponent").DotNetComponent;
+export const DotNetComponent: typeof import("./dotNetComponent").DotNetComponent = null as any;
+utilities.lazyLoad(exports, ["DotNetComponent"], () => require("./dotNetComponent"));
+
 export { GetAppResiliencyArgs, GetAppResiliencyResult, GetAppResiliencyOutputArgs } from "./getAppResiliency";
 export const getAppResiliency: typeof import("./getAppResiliency").getAppResiliency = null as any;
 export const getAppResiliencyOutput: typeof import("./getAppResiliency").getAppResiliencyOutput = null as any;
@@ -150,6 +155,16 @@ export const getDaprSubscription: typeof import("./getDaprSubscription").getDapr
 export const getDaprSubscriptionOutput: typeof import("./getDaprSubscription").getDaprSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getDaprSubscription","getDaprSubscriptionOutput"], () => require("./getDaprSubscription"));
 
+export { GetDotNetComponentArgs, GetDotNetComponentResult, GetDotNetComponentOutputArgs } from "./getDotNetComponent";
+export const getDotNetComponent: typeof import("./getDotNetComponent").getDotNetComponent = null as any;
+export const getDotNetComponentOutput: typeof import("./getDotNetComponent").getDotNetComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getDotNetComponent","getDotNetComponentOutput"], () => require("./getDotNetComponent"));
+
+export { GetJavaComponentArgs, GetJavaComponentResult, GetJavaComponentOutputArgs } from "./getJavaComponent";
+export const getJavaComponent: typeof import("./getJavaComponent").getJavaComponent = null as any;
+export const getJavaComponentOutput: typeof import("./getJavaComponent").getJavaComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getJavaComponent","getJavaComponentOutput"], () => require("./getJavaComponent"));
+
 export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
 export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
@@ -174,6 +189,11 @@ export { GetManagedEnvironmentsStorageArgs, GetManagedEnvironmentsStorageResult,
 export const getManagedEnvironmentsStorage: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorage = null as any;
 export const getManagedEnvironmentsStorageOutput: typeof import("./getManagedEnvironmentsStorage").getManagedEnvironmentsStorageOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedEnvironmentsStorage","getManagedEnvironmentsStorageOutput"], () => require("./getManagedEnvironmentsStorage"));
+
+export { JavaComponentArgs } from "./javaComponent";
+export type JavaComponent = import("./javaComponent").JavaComponent;
+export const JavaComponent: typeof import("./javaComponent").JavaComponent = null as any;
+utilities.lazyLoad(exports, ["JavaComponent"], () => require("./javaComponent"));
 
 export { JobArgs } from "./job";
 export type Job = import("./job").Job;
@@ -236,6 +256,7 @@ import * as v20230401preview from "./v20230401preview";
 import * as v20230501 from "./v20230501";
 import * as v20230502preview from "./v20230502preview";
 import * as v20230801preview from "./v20230801preview";
+import * as v20231102preview from "./v20231102preview";
 
 export {
     v20220101preview,
@@ -244,6 +265,7 @@ export {
     v20230501,
     v20230502preview,
     v20230801preview,
+    v20231102preview,
 };
 
 const _module = {
@@ -278,6 +300,10 @@ const _module = {
                 return new DaprComponentResiliencyPolicy(name, <any>undefined, { urn })
             case "azure-native:app:DaprSubscription":
                 return new DaprSubscription(name, <any>undefined, { urn })
+            case "azure-native:app:DotNetComponent":
+                return new DotNetComponent(name, <any>undefined, { urn })
+            case "azure-native:app:JavaComponent":
+                return new JavaComponent(name, <any>undefined, { urn })
             case "azure-native:app:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure-native:app:ManagedCertificate":

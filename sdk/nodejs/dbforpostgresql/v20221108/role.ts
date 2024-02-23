@@ -89,7 +89,7 @@ export class Role extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:Role" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:Role" }, { type: "azure-native:dbforpostgresql/v20230302preview:Role" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Role.__pulumiType, name, resourceInputs, opts);
     }

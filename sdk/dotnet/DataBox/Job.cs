@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBox
     /// Job Resource.
     /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01.
     /// 
-    /// Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview.
+    /// Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databox:Job")]
     public partial class Job : global::Pulumi.CustomResource
@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.DataBox
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20230301:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20231201:Job" },
                     new global::Pulumi.Alias { Type = "azure-native:databox/v20240201preview:Job" },
+                    new global::Pulumi.Alias { Type = "azure-native:databox/v20240301preview:Job" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

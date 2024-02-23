@@ -130,6 +130,8 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
         Dapr Component Resiliency Policy.
         Azure REST API version: 2023-08-01-preview.
 
+        Other available API versions: 2023-11-02-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] component_name: Name of the Dapr Component.
@@ -148,6 +150,8 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
         """
         Dapr Component Resiliency Policy.
         Azure REST API version: 2023-08-01-preview.
+
+        Other available API versions: 2023-11-02-preview.
 
         :param str resource_name: The name of the resource.
         :param DaprComponentResiliencyPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -193,7 +197,7 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:DaprComponentResiliencyPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20230801preview:DaprComponentResiliencyPolicy"), pulumi.Alias(type_="azure-native:app/v20231102preview:DaprComponentResiliencyPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DaprComponentResiliencyPolicy, __self__).__init__(
             'azure-native:app:DaprComponentResiliencyPolicy',

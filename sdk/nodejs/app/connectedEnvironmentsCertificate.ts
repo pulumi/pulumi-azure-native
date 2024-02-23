@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
  */
 export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221001:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230501:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230502preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230801preview:ConnectedEnvironmentsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221001:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230501:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230502preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230801preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20231102preview:ConnectedEnvironmentsCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironmentsCertificate.__pulumiType, name, resourceInputs, opts);
     }

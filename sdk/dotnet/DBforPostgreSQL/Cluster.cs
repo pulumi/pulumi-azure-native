@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// <summary>
     /// Represents a cluster.
     /// Azure REST API version: 2022-11-08.
+    /// 
+    /// Other available API versions: 2023-03-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -223,6 +225,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201005privatepreview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221108:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

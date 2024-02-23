@@ -214,6 +214,18 @@ export const DynamicsSinkWriteBehavior = {
  */
 export type DynamicsSinkWriteBehavior = (typeof DynamicsSinkWriteBehavior)[keyof typeof DynamicsSinkWriteBehavior];
 
+export const ExpressionV2Type = {
+    Constant: "Constant",
+    Field: "Field",
+    Unary: "Unary",
+    Binary: "Binary",
+} as const;
+
+/**
+ * Type of expressions supported by the system. Type: string.
+ */
+export type ExpressionV2Type = (typeof ExpressionV2Type)[keyof typeof ExpressionV2Type];
+
 export const FactoryIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -279,6 +291,16 @@ export const GoogleBigQueryAuthenticationType = {
  * The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
  */
 export type GoogleBigQueryAuthenticationType = (typeof GoogleBigQueryAuthenticationType)[keyof typeof GoogleBigQueryAuthenticationType];
+
+export const GoogleBigQueryV2AuthenticationType = {
+    ServiceAuthentication: "ServiceAuthentication",
+    UserAuthentication: "UserAuthentication",
+} as const;
+
+/**
+ * The OAuth 2.0 authentication mechanism used for authentication.
+ */
+export type GoogleBigQueryV2AuthenticationType = (typeof GoogleBigQueryV2AuthenticationType)[keyof typeof GoogleBigQueryV2AuthenticationType];
 
 export const HBaseAuthenticationType = {
     Anonymous: "Anonymous",
@@ -669,6 +691,16 @@ export const ServiceNowAuthenticationType = {
  * The authentication type to use.
  */
 export type ServiceNowAuthenticationType = (typeof ServiceNowAuthenticationType)[keyof typeof ServiceNowAuthenticationType];
+
+export const ServiceNowV2AuthenticationType = {
+    Basic: "Basic",
+    OAuth2: "OAuth2",
+} as const;
+
+/**
+ * The authentication type to use.
+ */
+export type ServiceNowV2AuthenticationType = (typeof ServiceNowV2AuthenticationType)[keyof typeof ServiceNowV2AuthenticationType];
 
 export const SftpAuthenticationType = {
     Basic: "Basic",

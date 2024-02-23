@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Configuration to setup App Resiliency
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-11-02-preview.
  */
 export class AppResiliency extends pulumi.CustomResource {
     /**
@@ -115,7 +117,7 @@ export class AppResiliency extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:AppResiliency" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:AppResiliency" }, { type: "azure-native:app/v20231102preview:AppResiliency" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppResiliency.__pulumiType, name, resourceInputs, opts);
     }

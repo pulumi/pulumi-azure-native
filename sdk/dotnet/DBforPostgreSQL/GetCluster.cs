@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
         /// Azure REST API version: 2022-11-08.
+        /// 
+        /// Other available API versions: 2023-03-02-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:dbforpostgresql:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
         /// Azure REST API version: 2022-11-08.
+        /// 
+        /// Other available API versions: 2023-03-02-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:dbforpostgresql:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

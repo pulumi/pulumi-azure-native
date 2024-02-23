@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220904:SyncIdentityProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230401:SyncIdentityProvider" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230904:SyncIdentityProvider" },
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20231122:SyncIdentityProvider" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

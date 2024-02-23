@@ -160,6 +160,8 @@ def get_builder(builder_name: Optional[str] = None,
     Get a BuilderResource
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2023-11-02-preview.
+
 
     :param str builder_name: The name of the builder.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -190,6 +192,8 @@ def get_builder_output(builder_name: Optional[pulumi.Input[str]] = None,
     """
     Get a BuilderResource
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2023-11-02-preview.
 
 
     :param str builder_name: The name of the builder.

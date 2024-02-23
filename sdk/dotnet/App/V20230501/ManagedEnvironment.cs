@@ -183,6 +183,7 @@ namespace Pulumi.AzureNative.App.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ManagedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ManagedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ManagedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:ManagedEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

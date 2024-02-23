@@ -35,6 +35,8 @@ if typing.TYPE_CHECKING:
     v20230801preview = __v20230801preview
     import pulumi_azure_native.maps.v20231201preview as __v20231201preview
     v20231201preview = __v20231201preview
+    import pulumi_azure_native.maps.v20240101preview as __v20240101preview
+    v20240101preview = __v20240101preview
 else:
     v20180501 = _utilities.lazy_import('pulumi_azure_native.maps.v20180501')
     v20200201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20200201preview')
@@ -43,4 +45,5 @@ else:
     v20230601 = _utilities.lazy_import('pulumi_azure_native.maps.v20230601')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.maps.v20230801preview')
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.maps.v20231201preview')
+    v20240101preview = _utilities.lazy_import('pulumi_azure_native.maps.v20240101preview')
 

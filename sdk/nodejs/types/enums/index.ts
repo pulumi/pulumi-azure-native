@@ -51,6 +51,7 @@ import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
 import * as dashboard from "./dashboard";
+import * as databasewatcher from "./databasewatcher";
 import * as databox from "./databox";
 import * as databoxedge from "./databoxedge";
 import * as databricks from "./databricks";
@@ -174,6 +175,7 @@ import * as signalrservice from "./signalrservice";
 import * as solutions from "./solutions";
 import * as sql from "./sql";
 import * as sqlvirtualmachine from "./sqlvirtualmachine";
+import * as standbypool from "./standbypool";
 import * as storage from "./storage";
 import * as storageactions from "./storageactions";
 import * as storagecache from "./storagecache";
@@ -247,6 +249,7 @@ export {
     customerinsights,
     customproviders,
     dashboard,
+    databasewatcher,
     databox,
     databoxedge,
     databricks,
@@ -370,6 +373,7 @@ export {
     solutions,
     sql,
     sqlvirtualmachine,
+    standbypool,
     storage,
     storageactions,
     storagecache,

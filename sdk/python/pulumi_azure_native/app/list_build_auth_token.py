@@ -64,6 +64,8 @@ def list_build_auth_token(build_name: Optional[str] = None,
     Gets the token used to connect to the endpoint where source code can be uploaded for a build.
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2023-11-02-preview.
+
 
     :param str build_name: The name of a build.
     :param str builder_name: The name of the builder.
@@ -89,6 +91,8 @@ def list_build_auth_token_output(build_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the token used to connect to the endpoint where source code can be uploaded for a build.
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2023-11-02-preview.
 
 
     :param str build_name: The name of a build.

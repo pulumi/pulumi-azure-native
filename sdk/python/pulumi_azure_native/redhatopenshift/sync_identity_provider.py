@@ -92,7 +92,7 @@ class SyncIdentityProvider(pulumi.CustomResource):
         SyncIdentityProvider represents a SyncIdentityProvider
         Azure REST API version: 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class SyncIdentityProvider(pulumi.CustomResource):
         SyncIdentityProvider represents a SyncIdentityProvider
         Azure REST API version: 2022-09-04.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
 
         :param str resource_name: The name of the resource.
         :param SyncIdentityProviderArgs args: The arguments to use to populate this resource's properties.
@@ -151,7 +151,7 @@ class SyncIdentityProvider(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:SyncIdentityProvider"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:SyncIdentityProvider"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:SyncIdentityProvider"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:SyncIdentityProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:SyncIdentityProvider"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:SyncIdentityProvider"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:SyncIdentityProvider"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:SyncIdentityProvider"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:SyncIdentityProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SyncIdentityProvider, __self__).__init__(
             'azure-native:redhatopenshift:SyncIdentityProvider',

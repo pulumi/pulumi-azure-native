@@ -401,6 +401,9 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 var typeNameOverrides = map[string]string{
 	// SKU for Redis Enterprise is different from SKU for Redis. Keep them as separate types.
 	"Cache.RedisEnterprise.Sku": "EnterpriseSku",
+	// This one is not a disambiguation but a fix for a type name "String" that is not descriptive and leads to
+	// generating invalid Java.
+	"DatabaseWatcher.Target.String": "TargetCollectionStatus",
 	// Devices RP comes from "deviceprovisioningservices" and "iothub" which are similar but slightly different.
 	// In particular, the IP Filter Rule has more properties in the DPS version.
 	"Devices.IotDpsResource.IpFilterRule": "TargetIpFilterRule",

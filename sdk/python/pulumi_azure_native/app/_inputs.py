@@ -56,6 +56,8 @@ __all__ = [
     'DaprSubscriptionRoutesArgs',
     'DaprArgs',
     'DefaultAuthorizationPolicyArgs',
+    'DotNetComponentConfigurationPropertyArgs',
+    'DotNetComponentServiceBindArgs',
     'EnvironmentSkuPropertiesArgs',
     'EnvironmentVariableArgs',
     'EnvironmentVarArgs',
@@ -77,6 +79,8 @@ __all__ = [
     'IngressArgs',
     'InitContainerArgs',
     'IpSecurityRestrictionRuleArgs',
+    'JavaComponentConfigurationPropertyArgs',
+    'JavaComponentServiceBindArgs',
     'JobConfigurationEventTriggerConfigArgs',
     'JobConfigurationManualTriggerConfigArgs',
     'JobConfigurationScheduleTriggerConfigArgs',
@@ -2735,6 +2739,86 @@ class DefaultAuthorizationPolicyArgs:
 
 
 @pulumi.input_type
+class DotNetComponentConfigurationPropertyArgs:
+    def __init__(__self__, *,
+                 property_name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration properties for a .NET Component
+        :param pulumi.Input[str] property_name: The name of the property
+        :param pulumi.Input[str] value: The value of the property
+        """
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the property
+        """
+        return pulumi.get(self, "property_name")
+
+    @property_name.setter
+    def property_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the property
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DotNetComponentServiceBindArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service_id: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration to bind a .NET Component to another .NET Component
+        :param pulumi.Input[str] name: Name of the service bind
+        :param pulumi.Input[str] service_id: Resource id of the target service
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_id is not None:
+            pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the service bind
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource id of the target service
+        """
+        return pulumi.get(self, "service_id")
+
+    @service_id.setter
+    def service_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_id", value)
+
+
+@pulumi.input_type
 class EnvironmentSkuPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[str, 'SkuName']]):
@@ -4249,6 +4333,86 @@ class IpSecurityRestrictionRuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class JavaComponentConfigurationPropertyArgs:
+    def __init__(__self__, *,
+                 property_name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration properties for a Java Component
+        :param pulumi.Input[str] property_name: The name of the property
+        :param pulumi.Input[str] value: The value of the property
+        """
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the property
+        """
+        return pulumi.get(self, "property_name")
+
+    @property_name.setter
+    def property_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the property
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class JavaComponentServiceBindArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service_id: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration to bind a Java Component to another Java Component
+        :param pulumi.Input[str] name: Name of the service bind
+        :param pulumi.Input[str] service_id: Resource id of the target service
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_id is not None:
+            pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the service bind
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource id of the target service
+        """
+        return pulumi.get(self, "service_id")
+
+    @service_id.setter
+    def service_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_id", value)
 
 
 @pulumi.input_type

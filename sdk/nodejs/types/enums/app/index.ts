@@ -8,6 +8,7 @@ import * as v20230401preview from "./v20230401preview";
 import * as v20230501 from "./v20230501";
 import * as v20230502preview from "./v20230502preview";
 import * as v20230801preview from "./v20230801preview";
+import * as v20231102preview from "./v20231102preview";
 
 export {
     v20220101preview,
@@ -16,6 +17,7 @@ export {
     v20230501,
     v20230502preview,
     v20230801preview,
+    v20231102preview,
 };
 
 export const AccessMode = {
@@ -88,6 +90,16 @@ export const CookieExpirationConvention = {
  */
 export type CookieExpirationConvention = (typeof CookieExpirationConvention)[keyof typeof CookieExpirationConvention];
 
+export const DotNetComponentType = {
+    AspireDashboard: "AspireDashboard",
+    AspireResourceServerApi: "AspireResourceServerApi",
+} as const;
+
+/**
+ * Type of the .NET Component.
+ */
+export type DotNetComponentType = (typeof DotNetComponentType)[keyof typeof DotNetComponentType];
+
 export const ExtendedLocationTypes = {
     CustomLocation: "CustomLocation",
 } as const;
@@ -130,6 +142,17 @@ export const IngressTransportMethod = {
  * Ingress transport protocol
  */
 export type IngressTransportMethod = (typeof IngressTransportMethod)[keyof typeof IngressTransportMethod];
+
+export const JavaComponentType = {
+    SpringBootAdmin: "SpringBootAdmin",
+    SpringCloudEureka: "SpringCloudEureka",
+    SpringCloudConfig: "SpringCloudConfig",
+} as const;
+
+/**
+ * Type of the Java Component.
+ */
+export type JavaComponentType = (typeof JavaComponentType)[keyof typeof JavaComponentType];
 
 export const LogLevel = {
     Info: "info",

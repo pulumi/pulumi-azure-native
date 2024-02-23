@@ -20,6 +20,7 @@ from .container_apps_source_control import *
 from .dapr_component import *
 from .dapr_component_resiliency_policy import *
 from .dapr_subscription import *
+from .dot_net_component import *
 from .get_app_resiliency import *
 from .get_build import *
 from .get_builder import *
@@ -35,11 +36,14 @@ from .get_container_apps_source_control import *
 from .get_dapr_component import *
 from .get_dapr_component_resiliency_policy import *
 from .get_dapr_subscription import *
+from .get_dot_net_component import *
+from .get_java_component import *
 from .get_job import *
 from .get_managed_certificate import *
 from .get_managed_environment import *
 from .get_managed_environment_auth_token import *
 from .get_managed_environments_storage import *
+from .java_component import *
 from .job import *
 from .list_build_auth_token import *
 from .list_connected_environments_dapr_component_secrets import *
@@ -67,6 +71,8 @@ if typing.TYPE_CHECKING:
     v20230502preview = __v20230502preview
     import pulumi_azure_native.app.v20230801preview as __v20230801preview
     v20230801preview = __v20230801preview
+    import pulumi_azure_native.app.v20231102preview as __v20231102preview
+    v20231102preview = __v20231102preview
 else:
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.app.v20220101preview')
     v20221001 = _utilities.lazy_import('pulumi_azure_native.app.v20221001')
@@ -74,4 +80,5 @@ else:
     v20230501 = _utilities.lazy_import('pulumi_azure_native.app.v20230501')
     v20230502preview = _utilities.lazy_import('pulumi_azure_native.app.v20230502preview')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.app.v20230801preview')
+    v20231102preview = _utilities.lazy_import('pulumi_azure_native.app.v20231102preview')
 

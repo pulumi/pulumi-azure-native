@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * SyncIdentityProvider represents a SyncIdentityProvider
  * Azure REST API version: 2022-09-04.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+ * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
 export class SyncIdentityProvider extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class SyncIdentityProvider extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:SyncIdentityProvider" }, { type: "azure-native:redhatopenshift/v20230401:SyncIdentityProvider" }, { type: "azure-native:redhatopenshift/v20230701preview:SyncIdentityProvider" }, { type: "azure-native:redhatopenshift/v20230904:SyncIdentityProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:SyncIdentityProvider" }, { type: "azure-native:redhatopenshift/v20230401:SyncIdentityProvider" }, { type: "azure-native:redhatopenshift/v20230701preview:SyncIdentityProvider" }, { type: "azure-native:redhatopenshift/v20230904:SyncIdentityProvider" }, { type: "azure-native:redhatopenshift/v20231122:SyncIdentityProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncIdentityProvider.__pulumiType, name, resourceInputs, opts);
     }

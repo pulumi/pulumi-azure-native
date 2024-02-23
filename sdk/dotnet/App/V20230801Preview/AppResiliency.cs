@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.App.V20230801Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:app:AppResiliency" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:AppResiliency" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

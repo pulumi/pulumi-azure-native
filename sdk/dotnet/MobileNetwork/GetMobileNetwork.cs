@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// Gets information about the specified mobile network.
         /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
         /// </summary>
         public static Task<GetMobileNetworkResult> InvokeAsync(GetMobileNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMobileNetworkResult>("azure-native:mobilenetwork:getMobileNetwork", args ?? new GetMobileNetworkArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// Gets information about the specified mobile network.
         /// Azure REST API version: 2023-06-01.
         /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
         /// </summary>
         public static Output<GetMobileNetworkResult> Invoke(GetMobileNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMobileNetworkResult>("azure-native:mobilenetwork:getMobileNetwork", args ?? new GetMobileNetworkInvokeArgs(), options.WithDefaults());

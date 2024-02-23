@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Dapr PubSub Event Subscription.
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-02-preview.
         /// </summary>
         public static Task<GetDaprSubscriptionResult> InvokeAsync(GetDaprSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaprSubscriptionResult>("azure-native:app:getDaprSubscription", args ?? new GetDaprSubscriptionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Dapr PubSub Event Subscription.
         /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-02-preview.
         /// </summary>
         public static Output<GetDaprSubscriptionResult> Invoke(GetDaprSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprSubscriptionResult>("azure-native:app:getDaprSubscription", args ?? new GetDaprSubscriptionInvokeArgs(), options.WithDefaults());

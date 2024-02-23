@@ -225,6 +225,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Type of the .NET Component.
+    /// </summary>
+    [EnumType]
+    public readonly struct DotNetComponentType : IEquatable<DotNetComponentType>
+    {
+        private readonly string _value;
+
+        private DotNetComponentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DotNetComponentType AspireDashboard { get; } = new DotNetComponentType("AspireDashboard");
+        public static DotNetComponentType AspireResourceServerApi { get; } = new DotNetComponentType("AspireResourceServerApi");
+
+        public static bool operator ==(DotNetComponentType left, DotNetComponentType right) => left.Equals(right);
+        public static bool operator !=(DotNetComponentType left, DotNetComponentType right) => !left.Equals(right);
+
+        public static explicit operator string(DotNetComponentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DotNetComponentType other && Equals(other);
+        public bool Equals(DotNetComponentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the extended location.
     /// </summary>
     [EnumType]
@@ -344,6 +375,38 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IngressTransportMethod other && Equals(other);
         public bool Equals(IngressTransportMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the Java Component.
+    /// </summary>
+    [EnumType]
+    public readonly struct JavaComponentType : IEquatable<JavaComponentType>
+    {
+        private readonly string _value;
+
+        private JavaComponentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JavaComponentType SpringBootAdmin { get; } = new JavaComponentType("SpringBootAdmin");
+        public static JavaComponentType SpringCloudEureka { get; } = new JavaComponentType("SpringCloudEureka");
+        public static JavaComponentType SpringCloudConfig { get; } = new JavaComponentType("SpringCloudConfig");
+
+        public static bool operator ==(JavaComponentType left, JavaComponentType right) => left.Equals(right);
+        public static bool operator !=(JavaComponentType left, JavaComponentType right) => !left.Equals(right);
+
+        public static explicit operator string(JavaComponentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JavaComponentType other && Equals(other);
+        public bool Equals(JavaComponentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

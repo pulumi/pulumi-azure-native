@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the token used to connect to the endpoint where source code can be uploaded for a build.
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-11-02-preview.
  */
 export function listBuildAuthToken(args: ListBuildAuthTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildAuthTokenResult> {
 
@@ -49,6 +51,8 @@ export interface ListBuildAuthTokenResult {
 /**
  * Gets the token used to connect to the endpoint where source code can be uploaded for a build.
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-11-02-preview.
  */
 export function listBuildAuthTokenOutput(args: ListBuildAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildAuthTokenResult> {
     return pulumi.output(args).apply((a: any) => listBuildAuthToken(a, opts))

@@ -412,6 +412,8 @@ def get_cluster(cluster_name: Optional[str] = None,
     Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
     Azure REST API version: 2022-11-08.
 
+    Other available API versions: 2023-03-02-preview.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -463,6 +465,8 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     Gets information about a cluster such as compute and storage configuration and cluster lifecycle metadata such as cluster creation date and time.
     Azure REST API version: 2022-11-08.
+
+    Other available API versions: 2023-03-02-preview.
 
 
     :param str cluster_name: The name of the cluster.

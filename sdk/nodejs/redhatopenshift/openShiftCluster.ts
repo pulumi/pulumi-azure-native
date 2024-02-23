@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
  * Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04.
+ * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
 export class OpenShiftCluster extends pulumi.CustomResource {
     /**
@@ -144,7 +144,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             resourceInputs["workerProfiles"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20200430:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20220401:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20220904:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230401:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230701preview:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230904:OpenShiftCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20200430:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20220401:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20220904:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230401:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230701preview:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20230904:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20231122:OpenShiftCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenShiftCluster.__pulumiType, name, resourceInputs, opts);
     }

@@ -173,6 +173,8 @@ def get_build(build_name: Optional[str] = None,
     Get a BuildResource
     Azure REST API version: 2023-08-01-preview.
 
+    Other available API versions: 2023-11-02-preview.
+
 
     :param str build_name: The name of a build.
     :param str builder_name: The name of the builder.
@@ -207,6 +209,8 @@ def get_build_output(build_name: Optional[pulumi.Input[str]] = None,
     """
     Get a BuildResource
     Azure REST API version: 2023-08-01-preview.
+
+    Other available API versions: 2023-11-02-preview.
 
 
     :param str build_name: The name of a build.

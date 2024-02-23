@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221108
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230302preview:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

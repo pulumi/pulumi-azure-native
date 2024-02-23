@@ -613,6 +613,39 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
+    /// Type of expressions supported by the system. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExpressionV2Type : IEquatable<ExpressionV2Type>
+    {
+        private readonly string _value;
+
+        private ExpressionV2Type(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressionV2Type Constant { get; } = new ExpressionV2Type("Constant");
+        public static ExpressionV2Type Field { get; } = new ExpressionV2Type("Field");
+        public static ExpressionV2Type Unary { get; } = new ExpressionV2Type("Unary");
+        public static ExpressionV2Type Binary { get; } = new ExpressionV2Type("Binary");
+
+        public static bool operator ==(ExpressionV2Type left, ExpressionV2Type right) => left.Equals(right);
+        public static bool operator !=(ExpressionV2Type left, ExpressionV2Type right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressionV2Type value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressionV2Type other && Equals(other);
+        public bool Equals(ExpressionV2Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The identity type.
     /// </summary>
     [EnumType]
@@ -797,6 +830,37 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GoogleBigQueryAuthenticationType other && Equals(other);
         public bool Equals(GoogleBigQueryAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The OAuth 2.0 authentication mechanism used for authentication.
+    /// </summary>
+    [EnumType]
+    public readonly struct GoogleBigQueryV2AuthenticationType : IEquatable<GoogleBigQueryV2AuthenticationType>
+    {
+        private readonly string _value;
+
+        private GoogleBigQueryV2AuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GoogleBigQueryV2AuthenticationType ServiceAuthentication { get; } = new GoogleBigQueryV2AuthenticationType("ServiceAuthentication");
+        public static GoogleBigQueryV2AuthenticationType UserAuthentication { get; } = new GoogleBigQueryV2AuthenticationType("UserAuthentication");
+
+        public static bool operator ==(GoogleBigQueryV2AuthenticationType left, GoogleBigQueryV2AuthenticationType right) => left.Equals(right);
+        public static bool operator !=(GoogleBigQueryV2AuthenticationType left, GoogleBigQueryV2AuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(GoogleBigQueryV2AuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GoogleBigQueryV2AuthenticationType other && Equals(other);
+        public bool Equals(GoogleBigQueryV2AuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1922,6 +1986,37 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceNowAuthenticationType other && Equals(other);
         public bool Equals(ServiceNowAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication type to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceNowV2AuthenticationType : IEquatable<ServiceNowV2AuthenticationType>
+    {
+        private readonly string _value;
+
+        private ServiceNowV2AuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceNowV2AuthenticationType Basic { get; } = new ServiceNowV2AuthenticationType("Basic");
+        public static ServiceNowV2AuthenticationType OAuth2 { get; } = new ServiceNowV2AuthenticationType("OAuth2");
+
+        public static bool operator ==(ServiceNowV2AuthenticationType left, ServiceNowV2AuthenticationType right) => left.Equals(right);
+        public static bool operator !=(ServiceNowV2AuthenticationType left, ServiceNowV2AuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceNowV2AuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceNowV2AuthenticationType other && Equals(other);
+        public bool Equals(ServiceNowV2AuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

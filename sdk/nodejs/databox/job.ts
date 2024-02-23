@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Job Resource.
  * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01.
  *
- * Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview.
+ * Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -198,7 +198,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databox/v20180101:Job" }, { type: "azure-native:databox/v20190901:Job" }, { type: "azure-native:databox/v20200401:Job" }, { type: "azure-native:databox/v20201101:Job" }, { type: "azure-native:databox/v20210301:Job" }, { type: "azure-native:databox/v20210501:Job" }, { type: "azure-native:databox/v20210801preview:Job" }, { type: "azure-native:databox/v20211201:Job" }, { type: "azure-native:databox/v20220201:Job" }, { type: "azure-native:databox/v20220901:Job" }, { type: "azure-native:databox/v20221001:Job" }, { type: "azure-native:databox/v20221201:Job" }, { type: "azure-native:databox/v20230301:Job" }, { type: "azure-native:databox/v20231201:Job" }, { type: "azure-native:databox/v20240201preview:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databox/v20180101:Job" }, { type: "azure-native:databox/v20190901:Job" }, { type: "azure-native:databox/v20200401:Job" }, { type: "azure-native:databox/v20201101:Job" }, { type: "azure-native:databox/v20210301:Job" }, { type: "azure-native:databox/v20210501:Job" }, { type: "azure-native:databox/v20210801preview:Job" }, { type: "azure-native:databox/v20211201:Job" }, { type: "azure-native:databox/v20220201:Job" }, { type: "azure-native:databox/v20220901:Job" }, { type: "azure-native:databox/v20221001:Job" }, { type: "azure-native:databox/v20221201:Job" }, { type: "azure-native:databox/v20230301:Job" }, { type: "azure-native:databox/v20231201:Job" }, { type: "azure-native:databox/v20240201preview:Job" }, { type: "azure-native:databox/v20240301preview:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);
     }

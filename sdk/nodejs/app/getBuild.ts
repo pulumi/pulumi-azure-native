@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a BuildResource
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-11-02-preview.
  */
 export function getBuild(args: GetBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildResult> {
 
@@ -88,6 +90,8 @@ export interface GetBuildResult {
 /**
  * Get a BuildResource
  * Azure REST API version: 2023-08-01-preview.
+ *
+ * Other available API versions: 2023-11-02-preview.
  */
 export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildResult> {
     return pulumi.output(args).apply((a: any) => getBuild(a, opts))

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the properties of the specified Iot Connector FHIR destination.
  * Azure REST API version: 2023-02-28.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01.
+ * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01.
  */
 export function getIotConnectorFhirDestination(args: GetIotConnectorFhirDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorFhirDestinationResult> {
 
@@ -88,7 +88,7 @@ export interface GetIotConnectorFhirDestinationResult {
  * Gets the properties of the specified Iot Connector FHIR destination.
  * Azure REST API version: 2023-02-28.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01.
+ * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01.
  */
 export function getIotConnectorFhirDestinationOutput(args: GetIotConnectorFhirDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorFhirDestinationResult> {
     return pulumi.output(args).apply((a: any) => getIotConnectorFhirDestination(a, opts))

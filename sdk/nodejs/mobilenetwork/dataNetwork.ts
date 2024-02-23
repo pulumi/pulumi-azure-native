@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Data network resource. Must be created in the same location as its parent mobile network.
  * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
  *
- * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01.
+ * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
  */
 export class DataNetwork extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class DataNetwork extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20220401preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20221101:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230601:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230901:DataNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20220401preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20221101:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230601:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230901:DataNetwork" }, { type: "azure-native:mobilenetwork/v20240201:DataNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataNetwork.__pulumiType, name, resourceInputs, opts);
     }

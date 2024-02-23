@@ -61,6 +61,8 @@ __all__ = [
     'DaprSubscriptionRouteRuleResponse',
     'DaprSubscriptionRoutesResponse',
     'DefaultAuthorizationPolicyResponse',
+    'DotNetComponentConfigurationPropertyResponse',
+    'DotNetComponentServiceBindResponse',
     'EnvironmentSkuPropertiesResponse',
     'EnvironmentVarResponse',
     'EnvironmentVariableResponse',
@@ -82,6 +84,8 @@ __all__ = [
     'IngressResponse',
     'InitContainerResponse',
     'IpSecurityRestrictionRuleResponse',
+    'JavaComponentConfigurationPropertyResponse',
+    'JavaComponentServiceBindResponse',
     'JobConfigurationResponse',
     'JobConfigurationResponseEventTriggerConfig',
     'JobConfigurationResponseManualTriggerConfig',
@@ -3286,6 +3290,110 @@ class DefaultAuthorizationPolicyResponse(dict):
 
 
 @pulumi.output_type
+class DotNetComponentConfigurationPropertyResponse(dict):
+    """
+    Configuration properties for a .NET Component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyName":
+            suggest = "property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DotNetComponentConfigurationPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DotNetComponentConfigurationPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DotNetComponentConfigurationPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 property_name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Configuration properties for a .NET Component
+        :param str property_name: The name of the property
+        :param str value: The value of the property
+        """
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[str]:
+        """
+        The name of the property
+        """
+        return pulumi.get(self, "property_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the property
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DotNetComponentServiceBindResponse(dict):
+    """
+    Configuration to bind a .NET Component to another .NET Component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceId":
+            suggest = "service_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DotNetComponentServiceBindResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DotNetComponentServiceBindResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DotNetComponentServiceBindResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 service_id: Optional[str] = None):
+        """
+        Configuration to bind a .NET Component to another .NET Component
+        :param str name: Name of the service bind
+        :param str service_id: Resource id of the target service
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_id is not None:
+            pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the service bind
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> Optional[str]:
+        """
+        Resource id of the target service
+        """
+        return pulumi.get(self, "service_id")
+
+
+@pulumi.output_type
 class EnvironmentSkuPropertiesResponse(dict):
     """
     Managed Environment resource SKU properties.
@@ -4843,6 +4951,110 @@ class IpSecurityRestrictionRuleResponse(dict):
         Describe the IP restriction rule that is being sent to the container-app. This is an optional field.
         """
         return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class JavaComponentConfigurationPropertyResponse(dict):
+    """
+    Configuration properties for a Java Component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyName":
+            suggest = "property_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JavaComponentConfigurationPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JavaComponentConfigurationPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JavaComponentConfigurationPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 property_name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Configuration properties for a Java Component
+        :param str property_name: The name of the property
+        :param str value: The value of the property
+        """
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[str]:
+        """
+        The name of the property
+        """
+        return pulumi.get(self, "property_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the property
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JavaComponentServiceBindResponse(dict):
+    """
+    Configuration to bind a Java Component to another Java Component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceId":
+            suggest = "service_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JavaComponentServiceBindResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JavaComponentServiceBindResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JavaComponentServiceBindResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 service_id: Optional[str] = None):
+        """
+        Configuration to bind a Java Component to another Java Component
+        :param str name: Name of the service bind
+        :param str service_id: Resource id of the target service
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_id is not None:
+            pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the service bind
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> Optional[str]:
+        """
+        Resource id of the target service
+        """
+        return pulumi.get(self, "service_id")
 
 
 @pulumi.output_type
