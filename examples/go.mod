@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-azure-native/examples
 go 1.21
 
 require (
-	github.com/pulumi/examples/misc/test v0.0.0-20240220100249-f154bdea514b
+	github.com/pulumi/examples/misc/test v0.0.0-20240224092907-9f1d92c3e166
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.28.0
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v2 v2.28.0
 	github.com/pulumi/pulumi/pkg/v3 v3.104.2
