@@ -9,7 +9,7 @@ runs:
         shell: bash
 
         # Use > to combine lines into single command
-        run: > 
+        run: >
           tar -zcf bin/artifacts.tar.gz -C bin
           pulumi-resource-azure-native
           pulumi-gen-azure-native
@@ -17,7 +17,7 @@ runs:
           metadata-compact.json
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts.tar.gz
           path: bin/artifacts.tar.gz
