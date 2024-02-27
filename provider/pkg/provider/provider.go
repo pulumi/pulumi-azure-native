@@ -883,7 +883,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, azure.AzureError(err)
 		}
 	default:
-		outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, *crudClient)
+		outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient)
 		if err != nil {
 			return nil, err
 		}
@@ -1286,7 +1286,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		}
 	} else {
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, *crudClient)
+		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient)
 		if err != nil {
 			return nil, err
 		}

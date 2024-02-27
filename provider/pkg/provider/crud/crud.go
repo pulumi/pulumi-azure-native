@@ -19,9 +19,62 @@ import (
 	"google.golang.org/grpc/codes"
 )
 
-// ResourceCrudClient is a client for performing CRUD operations on an Azure resource of type resources.AzureAPIResource.
+// AzureRESTConverter is an interface for preparing Azure inputs from Pulumi data and for converting from Azure outputs to Pulumi SDK shape.
+// It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
+type AzureRESTConverter interface {
+	PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any)
+	PrepareAzureRESTBody(id string, inputs resource.PropertyMap) map[string]any
+
+	ResponseBodyToSdkOutputs(response map[string]any) map[string]any
+}
+
+// ResourceCrudOperations is an interface for performing CRUD operations on Azure resources of a certain kind.
+// See AzureRESTConverter for creating proper inputs and converting outputs.
+// It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
+type ResourceCrudOperations interface {
+	CanCreate(ctx context.Context, id string) error
+	CreateOrUpdate(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error)
+	Read(ctx context.Context, id string) (map[string]any, error)
+	HandleErrorWithCheckpoint(ctx context.Context, err error, id string, inputs resource.PropertyMap, properties *structpb.Struct) error
+}
+
+// SubresourceMaintainer is an interface for handling sub-resource properties.
+// It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
+type SubresourceMaintainer interface {
+	MaintainSubResourcePropertiesIfNotSet(ctx context.Context, id string, bodyParams map[string]any) error
+	// Properties pointing to sub-resources that can be maintained as separate resources might not be
+	// present in the inputs because the user wants to manage them as standalone resources. However,
+	// such a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
+	// Key Vault's accessPolicies. Therefore, we set these properties to their default value here,
+	// an empty array. For more details, see section "Sub-resources" in CONTRIBUTING.md.
+	//
+	// During create, no sub-resources can exist yet so there's no danger of overwriting existing values.
+	//
+	// The `input` param is used to determine the unset sub-resource properties. They are then reset in
+	// the `output` parameter which is modified in-place.
+	//
+	// Implementation note: we should make it possible to write custom resources that call code from
+	// the default implementation as needed. This would allow us to cleanly implement special logic
+	// like for Key Vault into custom resources without duplicating much code. In the Key Vault case,
+	// the custom Read() would look like
+	//
+	//	provider.azureCanCreate(ctx, id, &res)
+	//	setUnsetSubresourcePropertiesToDefaults(res, bodyParams) // custom
+	//	k.azureCreateOrUpdate
+	//	...
+	SetUnsetSubresourcePropertiesToDefaults(input, output map[string]any, outputIsInApiShape bool)
+}
+
+// ResourceCrudClient is a client for performing CRUD operations on Azure resources.
 // It encapsulates both common logic and instances of helpers such as azure.AzureClient and convert.SdkShapeConverter.
-type ResourceCrudClient struct {
+// It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
+type ResourceCrudClient interface {
+	ResourceCrudOperations
+	AzureRESTConverter
+	SubresourceMaintainer
+}
+
+type resourceCrudClient struct {
 	azureClient    azure.AzureClient
 	lookupType     resources.TypeLookupFunc
 	converter      *convert.SdkShapeConverter
@@ -36,8 +89,8 @@ func NewResourceCrudClient(
 	converter *convert.SdkShapeConverter,
 	subscriptionID string,
 	res *resources.AzureAPIResource,
-) *ResourceCrudClient {
-	return &ResourceCrudClient{
+) ResourceCrudClient {
+	return &resourceCrudClient{
 		azureClient:    azureClient,
 		lookupType:     lookupType,
 		converter:      converter,
@@ -46,14 +99,14 @@ func NewResourceCrudClient(
 	}
 }
 
-func (r *ResourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any) {
+func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any) {
 	return PrepareAzureRESTIdAndQuery(r.res.Path, r.res.PutParameters, inputs.Mappable(), map[string]any{
 		"subscriptionId": r.subscriptionID,
 		"api-version":    r.res.APIVersion,
 	})
 }
 
-func (r *ResourceCrudClient) PrepareAzureRESTBody(id string, inputs resource.PropertyMap) map[string]any {
+func (r *resourceCrudClient) PrepareAzureRESTBody(id string, inputs resource.PropertyMap) map[string]any {
 	return PrepareAzureRESTBody(id, r.res.PutParameters, r.res.RequiredContainers, inputs.Mappable(), r.converter)
 }
 
@@ -139,7 +192,7 @@ func partialError(id string, err error, state *structpb.Struct, inputs *structpb
 	return rpcerror.WithDetails(rpcerror.New(codes.Unknown, err.Error()), &detail)
 }
 
-func (r *ResourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err error, id string, inputs resource.PropertyMap, properties *structpb.Struct) error {
+func (r *resourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err error, id string, inputs resource.PropertyMap, properties *structpb.Struct) error {
 	// Resource was partially updated but the operation failed to complete.
 	// Try reading its state by ID and return a partial error if succeeded.
 	checkpoint, getErr := r.currentResourceStateCheckpoint(ctx, id, inputs)
@@ -151,7 +204,7 @@ func (r *ResourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err 
 
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
-func (r *ResourceCrudClient) currentResourceStateCheckpoint(ctx context.Context, id string, inputs resource.PropertyMap) (*structpb.Struct, error) {
+func (r *resourceCrudClient) currentResourceStateCheckpoint(ctx context.Context, id string, inputs resource.PropertyMap) (*structpb.Struct, error) {
 	getResp, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion)
 	if getErr != nil {
 		return nil, getErr
@@ -176,7 +229,7 @@ func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{
 	return object
 }
 
-func (r *ResourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.Context, id string, bodyParams map[string]interface{}) error {
+func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.Context, id string, bodyParams map[string]interface{}) error {
 	// Identify the properties we need to read
 	missingProperties := findUnsetPropertiesToMaintain(r.res, bodyParams, true /* returnApiShapePaths */, r.lookupType)
 
@@ -199,27 +252,8 @@ func (r *ResourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.C
 	return nil
 }
 
-// Properties pointing to sub-resources that can be maintained as separate resources might not be
-// present in the inputs because the user wants to manage them as standalone resources. However,
-// such a property might be required by Azure even if it's not annotated as such in the spec, e.g.,
-// Key Vault's accessPolicies. Therefore, we set these properties to their default value here,
-// an empty array. For more details, see section "Sub-resources" in CONTRIBUTING.md.
-//
-// During create, no sub-resources can exist yet so there's no danger of overwriting existing values.
-//
-// The `input` param is used to determine the unset sub-resource properties. They are then reset in
-// the `output` parameter which is modified in-place.
-//
-// Implementation note: we should make it possible to write custom resources that call code from
-// the default implementation as needed. This would allow us to cleanly implement special logic
-// like for Key Vault into custom resources without duplicating much code. In the Key Vault case,
-// the custom Read() would look like
-//
-//	provider.azureCanCreate(ctx, id, &res)
-//	setUnsetSubresourcePropertiesToDefaults(res, bodyParams) // custom
-//	k.azureCreateOrUpdate
-//	...
-func (r *ResourceCrudClient) SetUnsetSubresourcePropertiesToDefaults(input, output map[string]interface{}, outputIsInApiShape bool) {
+// SetUnsetSubresourcePropertiesToDefaults is the standard implementation of SubresourceMaintainer.SetUnsetSubresourcePropertiesToDefaults.
+func (r *resourceCrudClient) SetUnsetSubresourcePropertiesToDefaults(input, output map[string]interface{}, outputIsInApiShape bool) {
 	unset := findUnsetPropertiesToMaintain(r.res, input, outputIsInApiShape, r.lookupType)
 
 	for _, p := range unset {
@@ -275,19 +309,17 @@ func findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams m
 	return missingProperties
 }
 
-func (r *ResourceCrudClient) ResponseBodyToSdkOutputs(
-	response map[string]any,
-) map[string]any {
+func (r *resourceCrudClient) ResponseBodyToSdkOutputs(response map[string]any) map[string]any {
 	return r.converter.ResponseBodyToSdkOutputs(r.res.Response, response)
 }
 
-func (r *ResourceCrudClient) CanCreate(ctx context.Context, id string) error {
+func (r *resourceCrudClient) CanCreate(ctx context.Context, id string) error {
 	return r.azureClient.CanCreate(ctx, id, r.res.ReadMethod, r.res.APIVersion, r.res.ReadMethod, r.res.Singleton, r.res.DefaultBody != nil, func(outputs map[string]any) bool {
 		return r.converter.IsDefaultResponse(r.res.PutParameters, outputs, r.res.DefaultBody)
 	})
 }
 
-func (r *ResourceCrudClient) CreateOrUpdate(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error) {
+func (r *resourceCrudClient) CreateOrUpdate(ctx context.Context, id string, bodyParams, queryParams map[string]any) (map[string]any, bool, error) {
 	// Submit the `PUT` or `PATCH` against the ARM endpoint
 	op := r.azureClient.Put
 	if r.res.UpdateMethod == "PATCH" {
@@ -296,7 +328,7 @@ func (r *ResourceCrudClient) CreateOrUpdate(ctx context.Context, id string, body
 	return op(ctx, id, bodyParams, queryParams, r.res.PutAsyncStyle)
 }
 
-func (r *ResourceCrudClient) Read(ctx context.Context, id string) (map[string]any, error) {
+func (r *resourceCrudClient) Read(ctx context.Context, id string) (map[string]any, error) {
 	url := id + r.res.ReadPath
 
 	switch r.res.ReadMethod {
