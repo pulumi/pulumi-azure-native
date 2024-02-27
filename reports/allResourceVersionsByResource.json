@@ -4615,25 +4615,38 @@
       "2021-03-01-preview",
       "2021-09-01-preview",
       "2021-12-01",
-      "2023-08-22"
+      "2023-08-22",
+      "2024-02-13"
     ],
     "listAccessClusters": [
-      "2023-08-22"
+      "2023-08-22",
+      "2024-02-13"
     ],
     "listAccessEnvironments": [
-      "2023-08-22"
+      "2023-08-22",
+      "2024-02-13"
     ],
     "listAccessInvitations": [
-      "2023-08-22"
+      "2023-08-22",
+      "2024-02-13"
+    ],
+    "listAccessRoleBindingName": [
+      "2024-02-13"
     ],
     "listAccessRoleBindings": [
-      "2023-08-22"
+      "2023-08-22",
+      "2024-02-13"
     ],
     "listAccessServiceAccounts": [
-      "2023-08-22"
+      "2023-08-22",
+      "2024-02-13"
     ],
     "listAccessUsers": [
-      "2023-08-22"
+      "2023-08-22",
+      "2024-02-13"
+    ],
+    "listOrganizationRegions": [
+      "2024-02-13"
     ]
   },
   "ConnectedVMwarevSphere": {
@@ -5954,7 +5967,8 @@
       "2022-09-30-preview",
       "2023-06-01-preview",
       "2023-06-30",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2023-12-01-preview"
     ],
     "ServerAdministrator": [
       "2017-12-01",
@@ -5979,7 +5993,8 @@
       "2022-01-01",
       "2022-09-30-preview",
       "2023-06-01-preview",
-      "2023-06-30"
+      "2023-06-30",
+      "2023-12-01-preview"
     ]
   },
   "DBforPostgreSQL": {
@@ -19511,7 +19526,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "ManagedClusterApplication": [
       "2021-01-01-preview",
@@ -19529,7 +19545,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "ManagedClusterApplicationType": [
       "2021-01-01-preview",
@@ -19547,7 +19564,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "ManagedClusterApplicationTypeVersion": [
       "2021-01-01-preview",
@@ -19565,7 +19583,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "ManagedClusterService": [
       "2021-01-01-preview",
@@ -19583,7 +19602,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "NodeType": [
       "2020-01-01-preview",
@@ -19602,7 +19622,8 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "Service": [
       "2017-07-01-preview",
@@ -19624,13 +19645,15 @@
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "getmanagedMaintenanceWindowStatus": [
       "2023-07-01-preview",
       "2023-09-01-preview",
       "2023-11-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-02-01-preview"
     ],
     "listClusterUpgradableVersions": [
       "2021-06-01"

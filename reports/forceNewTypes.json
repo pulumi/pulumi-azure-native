@@ -2219,6 +2219,13 @@
     "Property": "token"
   },
   {
+    "Module": "confluent/v20240213",
+    "Provider": "Confluent",
+    "ResourceName": "Organization",
+    "ReferenceName": "LinkOrganization",
+    "Property": "token"
+  },
+  {
     "Module": "containerservice",
     "Provider": "ContainerService",
     "ResourceName": "Fleet",
@@ -2535,6 +2542,34 @@
   },
   {
     "Module": "dbformysql/v20231001preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageUrl"
+  },
+  {
+    "Module": "dbformysql/v20231201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "dataDirPath"
+  },
+  {
+    "Module": "dbformysql/v20231201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "sasToken"
+  },
+  {
+    "Module": "dbformysql/v20231201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageType"
+  },
+  {
+    "Module": "dbformysql/v20231201preview",
     "Provider": "DBforMySQL",
     "ResourceName": "Server",
     "ReferenceName": "ImportSourceProperties",

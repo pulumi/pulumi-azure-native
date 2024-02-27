@@ -565,9 +565,11 @@
     "listAccessClusters": "2023-08-22",
     "listAccessEnvironments": "2023-08-22",
     "listAccessInvitations": "2023-08-22",
+    "listAccessRoleBindingName": "2024-02-13",
     "listAccessRoleBindings": "2023-08-22",
     "listAccessServiceAccounts": "2023-08-22",
-    "listAccessUsers": "2023-08-22"
+    "listAccessUsers": "2023-08-22",
+    "listOrganizationRegions": "2024-02-13"
   },
   "ConnectedVMwarevSphere": {
     "Cluster": "2022-07-15-preview",
