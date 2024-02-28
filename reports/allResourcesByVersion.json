@@ -4418,6 +4418,17 @@
       "listAccessRoleBindings",
       "listAccessServiceAccounts",
       "listAccessUsers"
+    ],
+    "2024-02-13": [
+      "Organization",
+      "listAccessClusters",
+      "listAccessEnvironments",
+      "listAccessInvitations",
+      "listAccessRoleBindingName",
+      "listAccessRoleBindings",
+      "listAccessServiceAccounts",
+      "listAccessUsers",
+      "listOrganizationRegions"
     ]
   },
   "ConnectedVMwarevSphere": {
@@ -5923,6 +5934,10 @@
     ],
     "2023-10-01-preview": [
       "Server"
+    ],
+    "2023-12-01-preview": [
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
     ]
   },
   "DBforPostgreSQL": {
@@ -17362,6 +17377,12 @@
       "Vault"
     ],
     "2024-01-01": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy",
       "Vault"
     ]
   },
@@ -17820,6 +17841,13 @@
       "listQueryKeyBySearchService"
     ],
     "2023-11-01": [
+      "PrivateEndpointConnection",
+      "Service",
+      "SharedPrivateLinkResource",
+      "listAdminKey",
+      "listQueryKeyBySearchService"
+    ],
+    "2024-03-01-preview": [
       "PrivateEndpointConnection",
       "Service",
       "SharedPrivateLinkResource",
@@ -19051,6 +19079,16 @@
       "getmanagedMaintenanceWindowStatus"
     ],
     "2023-12-01-preview": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
+    ],
+    "2024-02-01-preview": [
       "ManagedCluster",
       "ManagedClusterApplication",
       "ManagedClusterApplicationType",
@@ -22808,7 +22846,10 @@
       "SAPCentralInstance",
       "SAPDatabaseInstance",
       "SAPVirtualInstance",
+      "SapDiscoverySite",
+      "SapInstance",
       "SapLandscapeMonitor",
+      "ServerInstance",
       "getSAPAvailabilityZoneDetails",
       "getSAPDiskConfigurations",
       "getSAPSizingRecommendations",
