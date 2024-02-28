@@ -8,7 +8,6 @@ import (
 	"log"
 	"math"
 	"net/http"
-	"net/url"
 	"os"
 	"reflect"
 	"regexp"
@@ -30,8 +29,8 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -327,19 +326,16 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		}
 
 		// Construct ARM REST API path from args.
-		id, body, query, err := k.prepareAzureRESTInputs(
+		id, query := crud.PrepareAzureRESTIdAndQuery(
 			res.Path,
 			parameters,
-			nil,
 			args.Mappable(),
 			map[string]interface{}{
 				"subscriptionId": k.subscriptionID,
 				"api-version":    res.APIVersion,
 			},
 		)
-		if err != nil {
-			return nil, err
-		}
+		body := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), k.converter)
 
 		var response map[string]interface{}
 		if res.GetParameters != nil {
@@ -861,20 +857,9 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}, nil
 	}
 
-	// Construct ARM REST API body and query from inputs
-	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
-		res.Path,
-		res.PutParameters,
-		res.RequiredContainers,
-		inputs.Mappable(),
-		map[string]interface{}{
-			"subscriptionId": k.subscriptionID,
-			"api-version":    res.APIVersion,
-		},
-	)
-	if err != nil {
-		return nil, err
-	}
+	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
+
+	id, queryParams := crudClient.PrepareAzureRESTIdAndQuery(inputs)
 
 	ctx, cancel := azureContext(ctx, req.Timeout)
 	defer cancel()
@@ -898,62 +883,10 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, azure.AzureError(err)
 		}
 	default:
-		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
-		// (though it's technically impossible since the only operation supported is an upsert).
-		err = k.azureClient.CanCreate(ctx, id, res.ReadPath, res.APIVersion, res.ReadMethod, res.Singleton, res.DefaultBody != nil,
-			func(outputs map[string]any) bool {
-				return k.converter.IsDefaultResponse(res.PutParameters, outputs, res.DefaultBody)
-			})
-		err = k.azureCanCreate(ctx, id, res)
+		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient)
 		if err != nil {
 			return nil, err
 		}
-
-		k.setUnsetSubresourcePropertiesToDefaults(*res, bodyParams, bodyParams, true)
-
-		// Submit the `PUT` or `PATCH` against the ARM endpoint
-		op := k.azureClient.Put
-		if res.UpdateMethod == "PATCH" {
-			op = k.azureClient.Patch
-		}
-		response, created, err := op(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
-		if err != nil {
-			if created {
-				// Resource was created but failed to fully initialize.
-				// Try reading its state by ID and return a partial error if succeeded.
-				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, *res, inputs)
-				if getErr != nil {
-					return nil, azure.AzureError(errors.Wrapf(err, "resource partially created but read failed %s", getErr))
-				}
-				return nil, partialError(id, err, checkpoint, req.GetProperties())
-			}
-			return nil, azure.AzureError(err)
-		}
-
-		// Read the canonical ID from the response.
-		if azureId, ok := response["id"].(string); ok {
-			id = azureId
-		}
-
-		// Read the state of the resource from its Read endpoint. While we already have resource state from
-		// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
-		// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
-		if !k.skipReadOnUpdate {
-			readResponse, err := k.azureRead(ctx, res.ReadMethod, id+res.ReadPath, res.APIVersion)
-			if err != nil {
-				// Since this read operation was introduced in a minor version of the provider, we choose to ignore
-				// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
-				// to promote this situation to an error.
-				k.host.Log(ctx, diag.Warning, urn, `Failed to read resource after Create. Please report this issue.
-	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
-				logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
-			} else if readResponse != nil {
-				response = readResponse
-			}
-		}
-
-		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
 	}
 
 	// Store both outputs and inputs into the state.
@@ -971,6 +904,54 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		Id:         id,
 		Properties: checkpoint,
 	}, nil
+}
+
+func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,
+	queryParams map[string]any, crudClient crud.ResourceCrudClient) (string, map[string]any, error) {
+	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
+
+	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
+	// (though it's technically impossible since the only operation supported is an upsert).
+	err := crudClient.CanCreate(ctx, id)
+	if err != nil {
+		return id, nil, err
+	}
+
+	crudClient.SetUnsetSubresourcePropertiesToDefaults(bodyParams, bodyParams, true)
+
+	response, created, err := crudClient.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+	if err != nil {
+		if created {
+			return id, nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, inputs, req.GetProperties())
+		}
+		return id, nil, azure.AzureError(err)
+	}
+
+	// Read the canonical ID from the response.
+	if azureId, ok := response["id"].(string); ok {
+		id = azureId
+	}
+
+	// Read the state of the resource from its Read endpoint. While we already have resource state from
+	// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
+	// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
+	if !k.skipReadOnUpdate {
+		readResponse, err := crudClient.Read(ctx, id)
+		if err != nil {
+			// Since this read operation was introduced in a minor version of the provider, we choose to ignore
+			// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
+			// to promote this situation to an error.
+			k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), `Failed to read resource after Create. Please report this issue.
+	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
+			logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
+		} else if readResponse != nil {
+			response = readResponse
+		}
+	}
+
+	// Map the raw response to the shape of outputs that the SDKs expect.
+	outputs := crudClient.ResponseBodyToSdkOutputs(response)
+	return id, outputs, nil
 }
 
 // Properties pointing to sub-resources that can be maintained as separate resources might not be
@@ -1017,6 +998,44 @@ func (k *azureNativeProvider) setUnsetSubresourcePropertiesToDefaults(res resour
 	}
 }
 
+type propertyPath struct {
+	path         []string
+	propertyName string
+}
+
+func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}, returnApiShapePaths bool) []propertyPath {
+	missingProperties := []propertyPath{}
+	for _, path := range res.PathsToSubResourcePropertiesToMaintain(returnApiShapePaths, k.lookupType) {
+		curBody := bodyParams
+		for i, pathEl := range path {
+			v, ok := curBody[pathEl]
+			if !ok {
+				missingProperties = append(missingProperties, propertyPath{
+					path:         path,
+					propertyName: pathEl,
+				})
+				break
+			}
+
+			// At the end of the path we don't need to go deeper via references and map lookups.
+			if i == len(path)-1 {
+				break
+			}
+
+			curBody, ok = v.(map[string]interface{})
+			if !ok {
+				missingProperties = append(missingProperties, propertyPath{
+					path:         path,
+					propertyName: pathEl,
+				})
+				break
+			}
+		}
+	}
+
+	return missingProperties
+}
+
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
 func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context, id string, res resources.AzureAPIResource, inputs resource.PropertyMap) (*structpb.Struct, error) {
@@ -1058,6 +1077,7 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	url := id + res.ReadPath
+	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
 	var outputs map[string]interface{}
 	customRes, isCustom := k.customResources[res.Path]
@@ -1076,10 +1096,10 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	case res.ReadMethod == "HEAD":
 		err = k.azureClient.Head(ctx, url, res.APIVersion)
 		response = oldState.Mappable()
-		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
+		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	default:
-		response, err = k.azureRead(ctx, res.ReadMethod, url, res.APIVersion)
-		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
+		response, err = crudClient.Read(ctx, id)
+		outputs = crudClient.ResponseBodyToSdkOutputs(response)
 	}
 	if err != nil {
 		if reqErr, ok := err.(*azureEnv.RequestError); ok && reqErr.StatusCode == http.StatusNotFound {
@@ -1253,75 +1273,23 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 
 	restoreDefaultInputsForRemovedProperties(inputs, *res, oldState)
 
-	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
-		res.Path,
-		res.PutParameters,
-		res.RequiredContainers,
-		inputs.Mappable(),
-		map[string]interface{}{
-			"subscriptionId": k.subscriptionID,
-			"api-version":    res.APIVersion,
-		},
-	)
-	if err != nil {
-		return nil, err
-	}
+	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
-	ctx, cancel := azureContext(ctx, req.Timeout)
-	defer cancel()
+	id, queryParams := crudClient.PrepareAzureRESTIdAndQuery(inputs)
 
 	var outputs map[string]interface{}
 	customRes, isCustom := k.customResources[res.Path]
-	switch {
-	case isCustom && customRes.Update != nil:
+	if isCustom && customRes.Update != nil {
 		outputs, err = customRes.Update(ctx, id, inputs, oldState)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
-	default:
-		err := k.maintainSubResourcePropertiesIfNotSet(ctx, res, id, bodyParams)
-		if err != nil {
-			return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
-		}
-
-		// Submit the `PUT` or `PATCH` against the ARM endpoint
-		op := k.azureClient.Put
-		if res.UpdateMethod == "PATCH" {
-			op = k.azureClient.Patch
-		}
-		response, updated, err := op(ctx, id, bodyParams, queryParams, res.PutAsyncStyle)
-		if err != nil {
-			if updated {
-				// Resource was partially updated but the operation failed to complete.
-				// Try reading its state by ID and return a partial error if succeeded.
-				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, *res, inputs)
-				if getErr != nil {
-					return nil, azure.AzureError(errors.Wrapf(err, "resource updated but read failed %s", getErr))
-				}
-				return nil, partialError(id, err, checkpoint, req.GetNews())
-			}
-			return nil, azure.AzureError(err)
-		}
-
-		// Read the state of the resource from its Read endpoint. While we already have resource state from
-		// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
-		// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
-		if !k.skipReadOnUpdate {
-			readResponse, err := k.azureRead(ctx, res.ReadMethod, id+res.ReadPath, res.APIVersion)
-			if err != nil {
-				// Since this read operation was introduced in a minor version of the provider, we choose to ignore
-				// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
-				// to promote this situation to an error.
-				k.host.Log(ctx, diag.Warning, urn, `Failed to read resource after Update. Please report this issue.
-	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
-				logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
-			} else if readResponse != nil {
-				response = readResponse
-			}
-		}
-
+	} else {
 		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
+		outputs, err = k.defaultUpdate(ctx, req, inputs, id, queryParams, crudClient)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	// Store both outputs and inputs into the state.
@@ -1338,6 +1306,48 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	return &rpc.UpdateResponse{
 		Properties: checkpoint,
 	}, nil
+}
+
+func (k *azureNativeProvider) defaultUpdate(ctx context.Context, req *rpc.UpdateRequest, inputs resource.PropertyMap,
+	id string, queryParams map[string]any, crudClient crud.ResourceCrudClient) (map[string]any, error) {
+
+	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
+
+	ctx, cancel := azureContext(ctx, req.Timeout)
+	defer cancel()
+
+	err := crudClient.MaintainSubResourcePropertiesIfNotSet(ctx, id, bodyParams)
+	if err != nil {
+		return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
+	}
+
+	response, updated, err := crudClient.CreateOrUpdate(ctx, id, bodyParams, queryParams)
+	if err != nil {
+		if updated {
+			return nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, inputs, req.GetNews())
+		}
+		return nil, azure.AzureError(err)
+	}
+
+	// Read the state of the resource from its Read endpoint. While we already have resource state from
+	// the PUT reponse, it may not match precisely the shape of Read reponses that we also use for Refresh
+	// operations. That discrepancy may cause noisy diffs that are hard for users to reconcile.
+	if !k.skipReadOnUpdate {
+		readResponse, err := crudClient.Read(ctx, id)
+		if err != nil {
+			// Since this read operation was introduced in a minor version of the provider, we choose to ignore
+			// any errors here to avoid user-facing regressions. If no warnings are reported, we should be able
+			// to promote this situation to an error.
+			k.host.Log(ctx, diag.Warning, resource.URN(req.GetUrn()), `Failed to read resource after Update. Please report this issue.
+	Verbose logs contain more information, see https://www.pulumi.com/docs/support/troubleshooting/#verbose-logging.`)
+			logging.V(9).Infof("failed read resource %q after creation: %s", id, err.Error())
+		} else if readResponse != nil {
+			response = readResponse
+		}
+	}
+
+	// Map the raw response to the shape of outputs that the SDKs expect.
+	return crudClient.ResponseBodyToSdkOutputs(response), nil
 }
 
 func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res resources.AzureAPIResource, oldState resource.PropertyMap) error {
@@ -1454,190 +1464,6 @@ func (k *azureNativeProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.
 	return &pbempty.Empty{}, nil
 }
 
-type propertyPath struct {
-	path         []string
-	propertyName string
-}
-
-// For details, see section "Sub-resources" in CONTRIBUTING.md.
-func (k *azureNativeProvider) maintainSubResourcePropertiesIfNotSet(ctx context.Context, res *resources.AzureAPIResource, id string, bodyParams map[string]interface{}) error {
-	// Identify the properties we need to read
-	missingProperties := k.findUnsetPropertiesToMaintain(res, bodyParams, true /* returnApiShapePaths */)
-
-	if len(missingProperties) == 0 {
-		// Everything's already specified explicitly by the user, no need to do read.
-		return nil
-	}
-
-	// Read the current resource state.
-	state, err := k.azureClient.Get(ctx, id+res.ReadPath, res.APIVersion)
-	if err != nil {
-		return fmt.Errorf("reading cloud state: %w", err)
-	}
-
-	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state)
-	for writtenProperty, writtenValue := range writtenProperties {
-		logging.V(9).Infof("Maintaining remote value for property: %s.%s = %v", id, writtenProperty, writtenValue)
-	}
-
-	return nil
-}
-
-func writePropertiesToBody(missingProperties []propertyPath, bodyParams map[string]interface{}, remoteState map[string]interface{}) map[string]interface{} {
-	writtenProperties := map[string]interface{}{}
-	for _, prop := range missingProperties {
-		currentBodyContainer := bodyParams
-		currentStateContainer := remoteState
-		for _, containerName := range prop.path {
-			innerBodyContainer, bodyOk := currentBodyContainer[containerName]
-			innerStateContainer, stateOk := currentStateContainer[containerName]
-			// If the container doesn't exist in either body or state, create it and continue iterating.
-			// But if it doesn't exist in either, there is no point in continuing.
-			if !bodyOk && !stateOk {
-				break
-			}
-			if !bodyOk {
-				innerBodyContainer = map[string]interface{}{}
-				currentBodyContainer[containerName] = innerBodyContainer
-			}
-			if !stateOk {
-				innerStateContainer = map[string]interface{}{}
-				currentStateContainer[containerName] = innerStateContainer
-			}
-			innerBodyObj, innerBodyIsObject := innerBodyContainer.(map[string]interface{})
-			innerStateObj, innerStateIsObject := innerStateContainer.(map[string]interface{})
-			if !innerBodyIsObject || !innerStateIsObject { // we've reached a leaf node (primitive type)
-				break
-			}
-			currentBodyContainer = innerBodyObj
-			currentStateContainer = innerStateObj
-		}
-
-		stateValue, ok := currentStateContainer[prop.propertyName]
-		if ok {
-			currentBodyContainer[prop.propertyName] = stateValue
-			writtenProperties[fmt.Sprintf("%s.%s", strings.Join(prop.path, "."), prop.propertyName)] = stateValue
-		}
-	}
-	return writtenProperties
-}
-
-func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}, returnApiShapePaths bool) []propertyPath {
-	missingProperties := []propertyPath{}
-	for _, path := range res.PathsToSubResourcePropertiesToMaintain(returnApiShapePaths, k.lookupType) {
-		curBody := bodyParams
-		for i, pathEl := range path {
-			v, ok := curBody[pathEl]
-			if !ok {
-				missingProperties = append(missingProperties, propertyPath{
-					path:         path,
-					propertyName: pathEl,
-				})
-				break
-			}
-
-			// At the end of the path we don't need to go deeper via references and map lookups.
-			if i == len(path)-1 {
-				break
-			}
-
-			curBody, ok = v.(map[string]interface{})
-			if !ok {
-				missingProperties = append(missingProperties, propertyPath{
-					path:         path,
-					propertyName: pathEl,
-				})
-				break
-			}
-		}
-	}
-
-	return missingProperties
-}
-
-func (k *azureNativeProvider) azureRead(ctx context.Context, readMethod, url, apiVersion string) (map[string]interface{}, error) {
-	switch readMethod {
-	case "HEAD":
-		err := k.azureClient.Head(ctx, url, apiVersion)
-		return nil, err
-	case "POST":
-		bodyParams := map[string]interface{}{}
-		queryParams := map[string]interface{}{
-			"api-version": apiVersion,
-		}
-		return k.azureClient.Post(ctx, url, bodyParams, queryParams)
-	default:
-		return k.azureClient.Get(ctx, url, apiVersion)
-	}
-}
-
-func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, requiredContainers gen.RequiredContainers, methodInputs,
-	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
-	// Schema-driven mapping of inputs into Autorest id/body/query
-	params := map[string]map[string]interface{}{
-		"query": {
-			"api-version": clientInputs["api-version"],
-		},
-		"path": {},
-	}
-
-	// Build maps of path and query parameters.
-	for _, param := range parameters {
-		if param.Location == "body" {
-			continue
-		}
-		var val interface{}
-		var has bool
-		sdkName := param.Name
-		if param.Value.SdkName != "" {
-			sdkName = param.Value.SdkName
-		}
-		// Look in both `method` and `client` inputs with `method` first
-		val, has = methodInputs[sdkName]
-		if !has {
-			val, has = clientInputs[sdkName]
-		}
-		if has {
-			params[param.Location][param.Name] = val
-		}
-	}
-
-	// Calculate resource ID based on path parameter values.
-	id := path
-	for key, value := range params["path"] {
-		encodedVal := strings.Replace(url.QueryEscape(value.(string)), "+", "%20", -1)
-		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
-	}
-
-	// Build the body JSON.
-	var body map[string]interface{}
-	for _, param := range parameters {
-		if param.Location != "body" {
-			continue
-		}
-		body = k.converter.SdkInputsToRequestBody(param.Body.Properties, methodInputs, id)
-		break
-	}
-
-	// Ensure all required containers are created.
-	for _, containers := range requiredContainers {
-		currentContainer := body
-		for _, containerName := range containers {
-			innerContainer, ok := currentContainer[containerName]
-			if !ok {
-				innerContainer = map[string]interface{}{}
-				currentContainer[containerName] = innerContainer
-			}
-			currentContainer, ok = innerContainer.(map[string]interface{})
-			if !ok {
-				break
-			}
-		}
-	}
-
-	return id, body, params["query"], nil
-}
-
 func (k *azureNativeProvider) setLoggingContext(ctx context.Context) {
 	log.SetOutput(NewTerraformLogRedirector(ctx, k.host))
 }
@@ -1648,15 +1474,6 @@ func (k *azureNativeProvider) getConfig(configName, envName string) string {
 	}
 
 	return os.Getenv(envName)
-}
-
-// azureCanCreate asserts that a resource with a given ID and API version can be created
-// or returns an error otherwise.
-func (k *azureNativeProvider) azureCanCreate(ctx context.Context, id string, res *resources.AzureAPIResource) error {
-	return k.azureClient.CanCreate(ctx, id, res.ReadPath, res.APIVersion, res.ReadMethod, res.Singleton, res.DefaultBody != nil,
-		func(outputs map[string]any) bool {
-			return k.converter.IsDefaultResponse(res.PutParameters, outputs, res.DefaultBody)
-		})
 }
 
 // getUserAgent returns a User Agent string for the current provider configuration.
