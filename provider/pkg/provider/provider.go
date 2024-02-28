@@ -883,7 +883,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 			return nil, azure.AzureError(err)
 		}
 	default:
-		outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient)
+		id, outputs, err = k.defaultCreate(ctx, req, inputs, id, queryParams, crudClient)
 		if err != nil {
 			return nil, err
 		}
@@ -907,14 +907,14 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 }
 
 func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.CreateRequest, inputs resource.PropertyMap, id string,
-	queryParams map[string]any, crudClient crud.ResourceCrudClient) (map[string]any, error) {
+	queryParams map[string]any, crudClient crud.ResourceCrudClient) (string, map[string]any, error) {
 	bodyParams := crudClient.PrepareAzureRESTBody(id, inputs)
 
 	// First check if the resource already exists - we want to try our best to avoid updating instead of creating here
 	// (though it's technically impossible since the only operation supported is an upsert).
 	err := crudClient.CanCreate(ctx, id)
 	if err != nil {
-		return nil, err
+		return id, nil, err
 	}
 
 	crudClient.SetUnsetSubresourcePropertiesToDefaults(bodyParams, bodyParams, true)
@@ -922,9 +922,9 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 	response, created, err := crudClient.CreateOrUpdate(ctx, id, bodyParams, queryParams)
 	if err != nil {
 		if created {
-			return nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, inputs, req.GetProperties())
+			return id, nil, crudClient.HandleErrorWithCheckpoint(ctx, err, id, inputs, req.GetProperties())
 		}
-		return nil, azure.AzureError(err)
+		return id, nil, azure.AzureError(err)
 	}
 
 	// Read the canonical ID from the response.
@@ -951,7 +951,7 @@ func (k *azureNativeProvider) defaultCreate(ctx context.Context, req *rpc.Create
 
 	// Map the raw response to the shape of outputs that the SDKs expect.
 	outputs := crudClient.ResponseBodyToSdkOutputs(response)
-	return outputs, nil
+	return id, outputs, nil
 }
 
 // Properties pointing to sub-resources that can be maintained as separate resources might not be
