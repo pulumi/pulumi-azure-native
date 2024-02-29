@@ -7,7 +7,7 @@ from enum import Enum
 __all__ = [
     'DataPointsObservabilityMode',
     'EventsObservabilityMode',
-    'Mode',
+    'UserAuthenticationMode',
 ]
 
 
@@ -16,10 +16,25 @@ class DataPointsObservabilityMode(str, Enum):
     An indication of how the data point should be mapped to OpenTelemetry.
     """
     NONE = "none"
+    """
+    No mapping to OpenTelemetry.
+    """
     COUNTER = "counter"
+    """
+    Map as counter to OpenTelemetry.
+    """
     GAUGE = "gauge"
+    """
+    Map as gauge to OpenTelemetry.
+    """
     HISTOGRAM = "histogram"
+    """
+    Map as histogram to OpenTelemetry.
+    """
     LOG = "log"
+    """
+    Map as log to OpenTelemetry.
+    """
 
 
 class EventsObservabilityMode(str, Enum):
@@ -27,13 +42,28 @@ class EventsObservabilityMode(str, Enum):
     An indication of how the event should be mapped to OpenTelemetry.
     """
     NONE = "none"
+    """
+    No mapping to OpenTelemetry.
+    """
     LOG = "log"
+    """
+    Map as log to OpenTelemetry.
+    """
 
 
-class Mode(str, Enum):
+class UserAuthenticationMode(str, Enum):
     """
     Defines the mode to authenticate the user of the client at the server.
     """
     ANONYMOUS = "Anonymous"
+    """
+    The user authentication mode is anonymous.
+    """
     CERTIFICATE = "Certificate"
+    """
+    The user authentication mode is an x509 certificate.
+    """
     USERNAME_PASSWORD = "UsernamePassword"
+    """
+    The user authentication mode is a username and password.
+    """

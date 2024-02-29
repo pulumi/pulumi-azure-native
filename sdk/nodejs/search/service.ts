@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes an Azure Cognitive Search service and its current state.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
  *
- * Other available API versions: 2021-04-01-preview, 2023-11-01.
+ * Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -174,7 +174,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:search/v20150819:Service" }, { type: "azure-native:search/v20191001preview:Service" }, { type: "azure-native:search/v20200313:Service" }, { type: "azure-native:search/v20200801:Service" }, { type: "azure-native:search/v20200801preview:Service" }, { type: "azure-native:search/v20210401preview:Service" }, { type: "azure-native:search/v20220901:Service" }, { type: "azure-native:search/v20231101:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:search/v20150819:Service" }, { type: "azure-native:search/v20191001preview:Service" }, { type: "azure-native:search/v20200313:Service" }, { type: "azure-native:search/v20200801:Service" }, { type: "azure-native:search/v20200801preview:Service" }, { type: "azure-native:search/v20210401preview:Service" }, { type: "azure-native:search/v20220901:Service" }, { type: "azure-native:search/v20231101:Service" }, { type: "azure-native:search/v20240301preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

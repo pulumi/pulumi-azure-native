@@ -130,7 +130,7 @@ class Organization(pulumi.CustomResource):
         Organization resource.
         Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-03-01.
 
-        Other available API versions: 2020-03-01-preview, 2023-08-22.
+        Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +151,7 @@ class Organization(pulumi.CustomResource):
         Organization resource.
         Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-03-01.
 
-        Other available API versions: 2020-03-01-preview, 2023-08-22.
+        Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13.
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class Organization(pulumi.CustomResource):
             __props__.__dict__["sso_url"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210901preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20211201:Organization"), pulumi.Alias(type_="azure-native:confluent/v20230822:Organization")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confluent/v20200301:Organization"), pulumi.Alias(type_="azure-native:confluent/v20200301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210301preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20210901preview:Organization"), pulumi.Alias(type_="azure-native:confluent/v20211201:Organization"), pulumi.Alias(type_="azure-native:confluent/v20230822:Organization"), pulumi.Alias(type_="azure-native:confluent/v20240213:Organization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Organization, __self__).__init__(
             'azure-native:confluent:Organization',

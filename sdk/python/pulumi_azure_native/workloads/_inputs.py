@@ -33,6 +33,7 @@ __all__ = [
     'DiskSkuArgs',
     'DiskVolumeConfigurationArgs',
     'ExistingRecoveryServicesVaultArgs',
+    'ExtendedLocationArgs',
     'ExternalInstallationSoftwareConfigurationArgs',
     'HanaBackupDataArgs',
     'HanaDbProviderInstancePropertiesArgs',
@@ -1369,6 +1370,44 @@ class ExistingRecoveryServicesVaultArgs:
     @vault_type.setter
     def vault_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "vault_type", value)
+
+
+@pulumi.input_type
+class ExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        The extended location definition.
+        :param pulumi.Input[str] name: The extended location name.
+        :param pulumi.Input[str] type: The extended location type.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The extended location name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

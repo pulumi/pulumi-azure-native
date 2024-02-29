@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List cluster success response
         /// Azure REST API version: 2023-08-22.
+        /// 
+        /// Other available API versions: 2024-02-13.
         /// </summary>
         public static Task<ListAccessClustersResult> InvokeAsync(ListAccessClustersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessClustersResult>("azure-native:confluent:listAccessClusters", args ?? new ListAccessClustersArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List cluster success response
         /// Azure REST API version: 2023-08-22.
+        /// 
+        /// Other available API versions: 2024-02-13.
         /// </summary>
         public static Output<ListAccessClustersResult> Invoke(ListAccessClustersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessClustersResult>("azure-native:confluent:listAccessClusters", args ?? new ListAccessClustersInvokeArgs(), options.WithDefaults());

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List invitations success response
  * Azure REST API version: 2023-08-22.
+ *
+ * Other available API versions: 2024-02-13.
  */
 export function listAccessInvitations(args: ListAccessInvitationsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessInvitationsResult> {
 
@@ -56,6 +58,8 @@ export interface ListAccessInvitationsResult {
 /**
  * List invitations success response
  * Azure REST API version: 2023-08-22.
+ *
+ * Other available API versions: 2024-02-13.
  */
 export function listAccessInvitationsOutput(args: ListAccessInvitationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessInvitationsResult> {
     return pulumi.output(args).apply((a: any) => listAccessInvitations(a, opts))

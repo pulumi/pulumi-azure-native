@@ -565,9 +565,11 @@
     "listAccessClusters": "2023-08-22",
     "listAccessEnvironments": "2023-08-22",
     "listAccessInvitations": "2023-08-22",
+    "listAccessRoleBindingName": "2024-02-13",
     "listAccessRoleBindings": "2023-08-22",
     "listAccessServiceAccounts": "2023-08-22",
-    "listAccessUsers": "2023-08-22"
+    "listAccessUsers": "2023-08-22",
+    "listOrganizationRegions": "2024-02-13"
   },
   "ConnectedVMwarevSphere": {
     "Cluster": "2022-07-15-preview",
@@ -2709,7 +2711,10 @@
     "SAPCentralInstance": "2023-04-01",
     "SAPDatabaseInstance": "2023-04-01",
     "SAPVirtualInstance": "2023-04-01",
+    "SapDiscoverySite": "2023-10-01-preview",
+    "SapInstance": "2023-10-01-preview",
     "SapLandscapeMonitor": "2023-04-01",
+    "ServerInstance": "2023-10-01-preview",
     "getSAPAvailabilityZoneDetails": "2023-04-01",
     "getSAPDiskConfigurations": "2023-04-01",
     "getSAPSizingRecommendations": "2023-04-01",

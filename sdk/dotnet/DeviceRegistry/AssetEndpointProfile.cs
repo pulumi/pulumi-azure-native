@@ -17,10 +17,16 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public partial class AssetEndpointProfile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// </summary>
+        [Output("additionalConfiguration")]
+        public Output<string?> AdditionalConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The extended location.
         /// </summary>
         [Output("extendedLocation")]
-        public Output<Outputs.AssetEndpointProfileResponseExtendedLocation> ExtendedLocation { get; private set; } = null!;
+        public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -35,10 +41,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Asset Endpoint Profile resource properties.
+        /// Provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AssetEndpointProfilePropertiesResponse> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -53,10 +59,34 @@ namespace Pulumi.AzureNative.DeviceRegistry
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
+        /// </summary>
+        [Output("targetAddress")]
+        public Output<string> TargetAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+        /// </summary>
+        [Output("transportAuthentication")]
+        public Output<Outputs.TransportAuthenticationResponse?> TransportAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines the client authentication mechanism to the server.
+        /// </summary>
+        [Output("userAuthentication")]
+        public Output<Outputs.UserAuthenticationResponse?> UserAuthentication { get; private set; } = null!;
+
+        /// <summary>
+        /// Globally unique, immutable, non-reusable id.
+        /// </summary>
+        [Output("uuid")]
+        public Output<string> Uuid { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,6 +138,12 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public sealed class AssetEndpointProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// </summary>
+        [Input("additionalConfiguration")]
+        public Input<string>? AdditionalConfiguration { get; set; }
+
+        /// <summary>
         /// Asset Endpoint Profile name parameter.
         /// </summary>
         [Input("assetEndpointProfileName")]
@@ -117,19 +153,13 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// The extended location.
         /// </summary>
         [Input("extendedLocation", required: true)]
-        public Input<Inputs.AssetEndpointProfileExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
+        public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Asset Endpoint Profile resource properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AssetEndpointProfilePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -148,6 +178,24 @@ namespace Pulumi.AzureNative.DeviceRegistry
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
+        /// </summary>
+        [Input("targetAddress", required: true)]
+        public Input<string> TargetAddress { get; set; } = null!;
+
+        /// <summary>
+        /// Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+        /// </summary>
+        [Input("transportAuthentication")]
+        public Input<Inputs.TransportAuthenticationArgs>? TransportAuthentication { get; set; }
+
+        /// <summary>
+        /// Defines the client authentication mechanism to the server.
+        /// </summary>
+        [Input("userAuthentication")]
+        public Input<Inputs.UserAuthenticationArgs>? UserAuthentication { get; set; }
 
         public AssetEndpointProfileArgs()
         {

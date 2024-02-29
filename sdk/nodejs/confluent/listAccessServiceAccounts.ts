@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List service accounts success response
  * Azure REST API version: 2023-08-22.
+ *
+ * Other available API versions: 2024-02-13.
  */
 export function listAccessServiceAccounts(args: ListAccessServiceAccountsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessServiceAccountsResult> {
 
@@ -56,6 +58,8 @@ export interface ListAccessServiceAccountsResult {
 /**
  * List service accounts success response
  * Azure REST API version: 2023-08-22.
+ *
+ * Other available API versions: 2024-02-13.
  */
 export function listAccessServiceAccountsOutput(args: ListAccessServiceAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessServiceAccountsResult> {
     return pulumi.output(args).apply((a: any) => listAccessServiceAccounts(a, opts))

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
     public static class GetAssetEndpointProfile
     {
         /// <summary>
-        /// Retrieve a single Asset Endpoint Profile.
+        /// Get a AssetEndpointProfile
         /// </summary>
         public static Task<GetAssetEndpointProfileResult> InvokeAsync(GetAssetEndpointProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetEndpointProfileResult>("azure-native:deviceregistry/v20231101preview:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve a single Asset Endpoint Profile.
+        /// Get a AssetEndpointProfile
         /// </summary>
         public static Output<GetAssetEndpointProfileResult> Invoke(GetAssetEndpointProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetEndpointProfileResult>("azure-native:deviceregistry/v20231101preview:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileInvokeArgs(), options.WithDefaults());
@@ -70,9 +70,13 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
     public sealed class GetAssetEndpointProfileResult
     {
         /// <summary>
+        /// Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        /// </summary>
+        public readonly string? AdditionalConfiguration;
+        /// <summary>
         /// The extended location.
         /// </summary>
-        public readonly Outputs.AssetEndpointProfileResponseExtendedLocation ExtendedLocation;
+        public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -86,9 +90,9 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Asset Endpoint Profile resource properties.
+        /// Provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.AssetEndpointProfilePropertiesResponse Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -98,13 +102,31 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
+        /// </summary>
+        public readonly string TargetAddress;
+        /// <summary>
+        /// Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+        /// </summary>
+        public readonly Outputs.TransportAuthenticationResponse? TransportAuthentication;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Defines the client authentication mechanism to the server.
+        /// </summary>
+        public readonly Outputs.UserAuthenticationResponse? UserAuthentication;
+        /// <summary>
+        /// Globally unique, immutable, non-reusable id.
+        /// </summary>
+        public readonly string Uuid;
 
         [OutputConstructor]
         private GetAssetEndpointProfileResult(
-            Outputs.AssetEndpointProfileResponseExtendedLocation extendedLocation,
+            string? additionalConfiguration,
+
+            Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
 
@@ -112,22 +134,35 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
 
             string name,
 
-            Outputs.AssetEndpointProfilePropertiesResponse properties,
+            string provisioningState,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string targetAddress,
+
+            Outputs.TransportAuthenticationResponse? transportAuthentication,
+
+            string type,
+
+            Outputs.UserAuthenticationResponse? userAuthentication,
+
+            string uuid)
         {
+            AdditionalConfiguration = additionalConfiguration;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;
+            TargetAddress = targetAddress;
+            TransportAuthentication = transportAuthentication;
             Type = type;
+            UserAuthentication = userAuthentication;
+            Uuid = uuid;
         }
     }
 }

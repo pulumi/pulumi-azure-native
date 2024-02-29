@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List cluster success response
         /// Azure REST API version: 2023-08-22.
+        /// 
+        /// Other available API versions: 2024-02-13.
         /// </summary>
         public static Task<ListAccessRoleBindingsResult> InvokeAsync(ListAccessRoleBindingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessRoleBindingsResult>("azure-native:confluent:listAccessRoleBindings", args ?? new ListAccessRoleBindingsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List cluster success response
         /// Azure REST API version: 2023-08-22.
+        /// 
+        /// Other available API versions: 2024-02-13.
         /// </summary>
         public static Output<ListAccessRoleBindingsResult> Invoke(ListAccessRoleBindingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessRoleBindingsResult>("azure-native:confluent:listAccessRoleBindings", args ?? new ListAccessRoleBindingsInvokeArgs(), options.WithDefaults());

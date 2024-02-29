@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve a single asset.
+ * Get a Asset
  * Azure REST API version: 2023-11-01-preview.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
@@ -36,9 +36,61 @@ export interface GetAssetArgs {
  */
 export interface GetAssetResult {
     /**
+     * A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+     */
+    readonly assetEndpointProfileUri: string;
+    /**
+     * Resource path to asset type (model) definition.
+     */
+    readonly assetType?: string;
+    /**
+     * A set of key-value pairs that contain custom attributes set by the customer.
+     */
+    readonly attributes?: any;
+    /**
+     * Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+     */
+    readonly dataPoints?: outputs.deviceregistry.DataPointResponse[];
+    /**
+     * Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+     */
+    readonly defaultDataPointsConfiguration?: string;
+    /**
+     * Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+     */
+    readonly defaultEventsConfiguration?: string;
+    /**
+     * Human-readable description of the asset.
+     */
+    readonly description?: string;
+    /**
+     * Human-readable display name.
+     */
+    readonly displayName?: string;
+    /**
+     * Reference to the documentation.
+     */
+    readonly documentationUri?: string;
+    /**
+     * Enabled/Disabled status of the asset.
+     */
+    readonly enabled?: boolean;
+    /**
+     * Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+     */
+    readonly events?: outputs.deviceregistry.EventResponse[];
+    /**
      * The extended location.
      */
-    readonly extendedLocation: outputs.deviceregistry.AssetResponseExtendedLocation;
+    readonly extendedLocation: outputs.deviceregistry.ExtendedLocationResponse;
+    /**
+     * Asset id provided by the customer.
+     */
+    readonly externalAssetId?: string;
+    /**
+     * Revision number of the hardware.
+     */
+    readonly hardwareRevision?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -48,13 +100,41 @@ export interface GetAssetResult {
      */
     readonly location: string;
     /**
+     * Asset manufacturer name.
+     */
+    readonly manufacturer?: string;
+    /**
+     * Asset manufacturer URI.
+     */
+    readonly manufacturerUri?: string;
+    /**
+     * Asset model name.
+     */
+    readonly model?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Asset resource properties.
+     * Asset product code.
      */
-    readonly properties: outputs.deviceregistry.AssetResponseProperties;
+    readonly productCode?: string;
+    /**
+     * Provisioning state of the resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * Asset serial number.
+     */
+    readonly serialNumber?: string;
+    /**
+     * Revision number of the software.
+     */
+    readonly softwareRevision?: string;
+    /**
+     * Read only object to reflect changes that have occurred on the Edge. Similar to Kubernetes status property for custom resources.
+     */
+    readonly status: outputs.deviceregistry.AssetStatusResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -67,9 +147,17 @@ export interface GetAssetResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Globally unique, immutable, non-reusable id.
+     */
+    readonly uuid: string;
+    /**
+     * An integer that is incremented each time the resource is modified.
+     */
+    readonly version: number;
 }
 /**
- * Retrieve a single asset.
+ * Get a Asset
  * Azure REST API version: 2023-11-01-preview.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {

@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public static class GetAsset
     {
         /// <summary>
-        /// Retrieve a single asset.
+        /// Get a Asset
         /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:deviceregistry:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve a single asset.
+        /// Get a Asset
         /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
@@ -72,9 +72,61 @@ namespace Pulumi.AzureNative.DeviceRegistry
     public sealed class GetAssetResult
     {
         /// <summary>
+        /// A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format &lt;ModuleCR.metadata.namespace&gt;/&lt;ModuleCR.metadata.name&gt;.
+        /// </summary>
+        public readonly string AssetEndpointProfileUri;
+        /// <summary>
+        /// Resource path to asset type (model) definition.
+        /// </summary>
+        public readonly string? AssetType;
+        /// <summary>
+        /// A set of key-value pairs that contain custom attributes set by the customer.
+        /// </summary>
+        public readonly object? Attributes;
+        /// <summary>
+        /// Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DataPointResponse> DataPoints;
+        /// <summary>
+        /// Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        /// </summary>
+        public readonly string? DefaultDataPointsConfiguration;
+        /// <summary>
+        /// Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
+        /// </summary>
+        public readonly string? DefaultEventsConfiguration;
+        /// <summary>
+        /// Human-readable description of the asset.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Human-readable display name.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Reference to the documentation.
+        /// </summary>
+        public readonly string? DocumentationUri;
+        /// <summary>
+        /// Enabled/Disabled status of the asset.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
+        /// Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventResponse> Events;
+        /// <summary>
         /// The extended location.
         /// </summary>
-        public readonly Outputs.AssetResponseExtendedLocation ExtendedLocation;
+        public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
+        /// <summary>
+        /// Asset id provided by the customer.
+        /// </summary>
+        public readonly string? ExternalAssetId;
+        /// <summary>
+        /// Revision number of the hardware.
+        /// </summary>
+        public readonly string? HardwareRevision;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -84,13 +136,41 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Asset manufacturer name.
+        /// </summary>
+        public readonly string? Manufacturer;
+        /// <summary>
+        /// Asset manufacturer URI.
+        /// </summary>
+        public readonly string? ManufacturerUri;
+        /// <summary>
+        /// Asset model name.
+        /// </summary>
+        public readonly string? Model;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Asset resource properties.
+        /// Asset product code.
         /// </summary>
-        public readonly Outputs.AssetResponseProperties Properties;
+        public readonly string? ProductCode;
+        /// <summary>
+        /// Provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Asset serial number.
+        /// </summary>
+        public readonly string? SerialNumber;
+        /// <summary>
+        /// Revision number of the software.
+        /// </summary>
+        public readonly string? SoftwareRevision;
+        /// <summary>
+        /// Read only object to reflect changes that have occurred on the Edge. Similar to Kubernetes status property for custom resources.
+        /// </summary>
+        public readonly Outputs.AssetStatusResponse Status;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -103,33 +183,107 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Globally unique, immutable, non-reusable id.
+        /// </summary>
+        public readonly string Uuid;
+        /// <summary>
+        /// An integer that is incremented each time the resource is modified.
+        /// </summary>
+        public readonly int Version;
 
         [OutputConstructor]
         private GetAssetResult(
-            Outputs.AssetResponseExtendedLocation extendedLocation,
+            string assetEndpointProfileUri,
+
+            string? assetType,
+
+            object? attributes,
+
+            ImmutableArray<Outputs.DataPointResponse> dataPoints,
+
+            string? defaultDataPointsConfiguration,
+
+            string? defaultEventsConfiguration,
+
+            string? description,
+
+            string? displayName,
+
+            string? documentationUri,
+
+            bool? enabled,
+
+            ImmutableArray<Outputs.EventResponse> events,
+
+            Outputs.ExtendedLocationResponse extendedLocation,
+
+            string? externalAssetId,
+
+            string? hardwareRevision,
 
             string id,
 
             string location,
 
+            string? manufacturer,
+
+            string? manufacturerUri,
+
+            string? model,
+
             string name,
 
-            Outputs.AssetResponseProperties properties,
+            string? productCode,
+
+            string provisioningState,
+
+            string? serialNumber,
+
+            string? softwareRevision,
+
+            Outputs.AssetStatusResponse status,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string uuid,
+
+            int version)
         {
+            AssetEndpointProfileUri = assetEndpointProfileUri;
+            AssetType = assetType;
+            Attributes = attributes;
+            DataPoints = dataPoints;
+            DefaultDataPointsConfiguration = defaultDataPointsConfiguration;
+            DefaultEventsConfiguration = defaultEventsConfiguration;
+            Description = description;
+            DisplayName = displayName;
+            DocumentationUri = documentationUri;
+            Enabled = enabled;
+            Events = events;
             ExtendedLocation = extendedLocation;
+            ExternalAssetId = externalAssetId;
+            HardwareRevision = hardwareRevision;
             Id = id;
             Location = location;
+            Manufacturer = manufacturer;
+            ManufacturerUri = manufacturerUri;
+            Model = model;
             Name = name;
-            Properties = properties;
+            ProductCode = productCode;
+            ProvisioningState = provisioningState;
+            SerialNumber = serialNumber;
+            SoftwareRevision = softwareRevision;
+            Status = status;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            Uuid = uuid;
+            Version = version;
         }
     }
 }

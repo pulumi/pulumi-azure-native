@@ -18,6 +18,7 @@ __all__ = [
     'CentralServerConfigurationResponse',
     'CentralServerFullResourceNamesResponse',
     'CentralServerVmDetailsResponse',
+    'ConfigurationDataResponse',
     'ConnectorErrorDefinitionResponse',
     'CreateAndMountFileShareConfigurationResponse',
     'DB2ProviderInstancePropertiesResponse',
@@ -43,7 +44,9 @@ __all__ = [
     'ErrorDefinitionResponse',
     'ErrorResponse',
     'ErrorResponseInnerError',
+    'ExcelPerformanceDataResponse',
     'ExistingRecoveryServicesVaultResponse',
+    'ExtendedLocationResponse',
     'ExternalInstallationSoftwareConfigurationResponse',
     'GatewayServerPropertiesResponse',
     'HanaBackupDataResponse',
@@ -67,6 +70,7 @@ __all__ = [
     'MonthlyRetentionScheduleResponse',
     'MountFileShareConfigurationResponse',
     'MsSqlServerProviderInstancePropertiesResponse',
+    'NativePerformanceDataResponse',
     'NetworkConfigurationResponse',
     'NetworkInterfaceResourceNamesResponse',
     'NewRecoveryServicesVaultResponse',
@@ -79,6 +83,7 @@ __all__ = [
     'SAPAvailabilityZonePairResponse',
     'SAPDiskConfigurationResponse',
     'SAPInstallWithoutOSConfigSoftwareConfigurationResponse',
+    'SAPMigrateErrorResponse',
     'SAPSupportedSkuResponse',
     'SAPVirtualInstanceErrorResponse',
     'SSLConfigurationResponse',
@@ -490,6 +495,167 @@ class CentralServerVmDetailsResponse(dict):
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> str:
         return pulumi.get(self, "virtual_machine_id")
+
+
+@pulumi.output_type
+class ConfigurationDataResponse(dict):
+    """
+    The SAP instance specific configuration data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuInMhz":
+            suggest = "cpu_in_mhz"
+        elif key == "cpuType":
+            suggest = "cpu_type"
+        elif key == "databaseType":
+            suggest = "database_type"
+        elif key == "hardwareManufacturer":
+            suggest = "hardware_manufacturer"
+        elif key == "targetHanaRamSizeGB":
+            suggest = "target_hana_ram_size_gb"
+        elif key == "totalDiskIops":
+            suggest = "total_disk_iops"
+        elif key == "totalDiskSizeGB":
+            suggest = "total_disk_size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu: int,
+                 cpu_in_mhz: int,
+                 cpu_type: str,
+                 database_type: str,
+                 hardware_manufacturer: str,
+                 model: str,
+                 ram: int,
+                 saps: int,
+                 target_hana_ram_size_gb: int,
+                 total_disk_iops: int,
+                 total_disk_size_gb: int):
+        """
+        The SAP instance specific configuration data.
+        :param int cpu: Provide the CPU value of the server. For example, 16, 32 etc.
+        :param int cpu_in_mhz: Provide the CPU clock speed of the server in MHz. This should be a non-zero value. For example, 2100.
+        :param str cpu_type: Provide the CPU architecture type of the server. For example, Xeon Platinum 8171M, Xeon E5-2673 v3.
+        :param str database_type: The database of this is a server instance. Applicable only if SAP instance type for this server instance is 'DB'.
+        :param str hardware_manufacturer: Provide the HW manufacturer company of the server.  For example, Microsoft Corporation.
+        :param str model: Specify if the Hardware is a physical server or virtual machine.
+        :param int ram: Provide the RAM of the server. This should be a non-zero value. For example, 256.
+        :param int saps: Provide the SAPS for each server of the SAP system. This should be a non-zero value. For example, 1000.
+        :param int target_hana_ram_size_gb: Provide the target HANA database size you need. Applicable only if SAP instance type for this server instance is 'DB' and you are migrating an AnyDb database to SAP S/4HANA.
+        :param int total_disk_iops: Provide the total disk IOPS capacity. Add the disk volume for each individual disk and provide the sum total in this field.
+        :param int total_disk_size_gb: Provide the total disk volume capacity in GB. Add the disk volume for each individual disks and provide the total sum in this field.
+        """
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "cpu_in_mhz", cpu_in_mhz)
+        pulumi.set(__self__, "cpu_type", cpu_type)
+        pulumi.set(__self__, "database_type", database_type)
+        pulumi.set(__self__, "hardware_manufacturer", hardware_manufacturer)
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "ram", ram)
+        pulumi.set(__self__, "saps", saps)
+        pulumi.set(__self__, "target_hana_ram_size_gb", target_hana_ram_size_gb)
+        pulumi.set(__self__, "total_disk_iops", total_disk_iops)
+        pulumi.set(__self__, "total_disk_size_gb", total_disk_size_gb)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> int:
+        """
+        Provide the CPU value of the server. For example, 16, 32 etc.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="cpuInMhz")
+    def cpu_in_mhz(self) -> int:
+        """
+        Provide the CPU clock speed of the server in MHz. This should be a non-zero value. For example, 2100.
+        """
+        return pulumi.get(self, "cpu_in_mhz")
+
+    @property
+    @pulumi.getter(name="cpuType")
+    def cpu_type(self) -> str:
+        """
+        Provide the CPU architecture type of the server. For example, Xeon Platinum 8171M, Xeon E5-2673 v3.
+        """
+        return pulumi.get(self, "cpu_type")
+
+    @property
+    @pulumi.getter(name="databaseType")
+    def database_type(self) -> str:
+        """
+        The database of this is a server instance. Applicable only if SAP instance type for this server instance is 'DB'.
+        """
+        return pulumi.get(self, "database_type")
+
+    @property
+    @pulumi.getter(name="hardwareManufacturer")
+    def hardware_manufacturer(self) -> str:
+        """
+        Provide the HW manufacturer company of the server.  For example, Microsoft Corporation.
+        """
+        return pulumi.get(self, "hardware_manufacturer")
+
+    @property
+    @pulumi.getter
+    def model(self) -> str:
+        """
+        Specify if the Hardware is a physical server or virtual machine.
+        """
+        return pulumi.get(self, "model")
+
+    @property
+    @pulumi.getter
+    def ram(self) -> int:
+        """
+        Provide the RAM of the server. This should be a non-zero value. For example, 256.
+        """
+        return pulumi.get(self, "ram")
+
+    @property
+    @pulumi.getter
+    def saps(self) -> int:
+        """
+        Provide the SAPS for each server of the SAP system. This should be a non-zero value. For example, 1000.
+        """
+        return pulumi.get(self, "saps")
+
+    @property
+    @pulumi.getter(name="targetHanaRamSizeGB")
+    def target_hana_ram_size_gb(self) -> int:
+        """
+        Provide the target HANA database size you need. Applicable only if SAP instance type for this server instance is 'DB' and you are migrating an AnyDb database to SAP S/4HANA.
+        """
+        return pulumi.get(self, "target_hana_ram_size_gb")
+
+    @property
+    @pulumi.getter(name="totalDiskIops")
+    def total_disk_iops(self) -> int:
+        """
+        Provide the total disk IOPS capacity. Add the disk volume for each individual disk and provide the sum total in this field.
+        """
+        return pulumi.get(self, "total_disk_iops")
+
+    @property
+    @pulumi.getter(name="totalDiskSizeGB")
+    def total_disk_size_gb(self) -> int:
+        """
+        Provide the total disk volume capacity in GB. Add the disk volume for each individual disks and provide the total sum in this field.
+        """
+        return pulumi.get(self, "total_disk_size_gb")
 
 
 @pulumi.output_type
@@ -2091,16 +2257,19 @@ class ErrorDefinitionResponse(dict):
     def __init__(__self__, *,
                  code: str,
                  details: Sequence['outputs.ErrorDefinitionResponse'],
-                 message: str):
+                 message: str,
+                 recommendation: str):
         """
         Error definition.
         :param str code: Service specific error code which serves as the substatus for the HTTP error code.
         :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
         :param str message: Description of the error.
+        :param str recommendation: Description of the recommendation.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "details", details)
         pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "recommendation", recommendation)
 
     @property
     @pulumi.getter
@@ -2125,6 +2294,14 @@ class ErrorDefinitionResponse(dict):
         Description of the error.
         """
         return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def recommendation(self) -> str:
+        """
+        Description of the recommendation.
+        """
+        return pulumi.get(self, "recommendation")
 
 
 @pulumi.output_type
@@ -2251,6 +2428,73 @@ class ErrorResponseInnerError(dict):
 
 
 @pulumi.output_type
+class ExcelPerformanceDataResponse(dict):
+    """
+    The SAP instance specific performance data for Excel import.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "maxCpuLoad":
+            suggest = "max_cpu_load"
+        elif key == "totalSourceDbSizeGB":
+            suggest = "total_source_db_size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExcelPerformanceDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExcelPerformanceDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExcelPerformanceDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str,
+                 max_cpu_load: int,
+                 total_source_db_size_gb: int):
+        """
+        The SAP instance specific performance data for Excel import.
+        :param str data_source: The data source for this resource.
+               Expected value is 'Excel'.
+        :param int max_cpu_load: Provide the max CPU percentage load on the server. Omit the percentage symbol while filling this value.
+        :param int total_source_db_size_gb: Provide the source Database size in GB. Applicable only if SAP instance type for this server instance is 'DB'.
+        """
+        pulumi.set(__self__, "data_source", 'Excel')
+        pulumi.set(__self__, "max_cpu_load", max_cpu_load)
+        pulumi.set(__self__, "total_source_db_size_gb", total_source_db_size_gb)
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        """
+        The data source for this resource.
+        Expected value is 'Excel'.
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter(name="maxCpuLoad")
+    def max_cpu_load(self) -> int:
+        """
+        Provide the max CPU percentage load on the server. Omit the percentage symbol while filling this value.
+        """
+        return pulumi.get(self, "max_cpu_load")
+
+    @property
+    @pulumi.getter(name="totalSourceDbSizeGB")
+    def total_source_db_size_gb(self) -> int:
+        """
+        Provide the source Database size in GB. Applicable only if SAP instance type for this server instance is 'DB'.
+        """
+        return pulumi.get(self, "total_source_db_size_gb")
+
+
+@pulumi.output_type
 class ExistingRecoveryServicesVaultResponse(dict):
     """
     Existing recovery services vault.
@@ -2300,6 +2544,39 @@ class ExistingRecoveryServicesVaultResponse(dict):
         Expected value is 'Existing'.
         """
         return pulumi.get(self, "vault_type")
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    The extended location definition.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        The extended location definition.
+        :param str name: The extended location name.
+        :param str type: The extended location type.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The extended location name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -4024,6 +4301,47 @@ class MsSqlServerProviderInstancePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class NativePerformanceDataResponse(dict):
+    """
+    The SAP instance specific performance data for native discovery.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NativePerformanceDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NativePerformanceDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NativePerformanceDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source: str):
+        """
+        The SAP instance specific performance data for native discovery.
+        :param str data_source: The data source for this resource.
+               Expected value is 'Native'.
+        """
+        pulumi.set(__self__, "data_source", 'Native')
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> str:
+        """
+        The data source for this resource.
+        Expected value is 'Native'.
+        """
+        return pulumi.get(self, "data_source")
+
+
+@pulumi.output_type
 class NetworkConfigurationResponse(dict):
     """
     Defines the network configuration type for SAP system infrastructure that is being deployed 
@@ -4809,6 +5127,61 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationResponse(dict):
         Gets or sets the HA software configuration.
         """
         return pulumi.get(self, "high_availability_software_configuration")
+
+
+@pulumi.output_type
+class SAPMigrateErrorResponse(dict):
+    """
+    An error response from the SAP migrate resources.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 details: Sequence['outputs.ErrorDefinitionResponse'],
+                 message: str,
+                 recommendation: str):
+        """
+        An error response from the SAP migrate resources.
+        :param str code: Service specific error code which serves as the substatus for the HTTP error code.
+        :param Sequence['ErrorDefinitionResponse'] details: Internal error details.
+        :param str message: Description of the error.
+        :param str recommendation: Description of the recommendation.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "recommendation", recommendation)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Service specific error code which serves as the substatus for the HTTP error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDefinitionResponse']:
+        """
+        Internal error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Description of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def recommendation(self) -> str:
+        """
+        Description of the recommendation.
+        """
+        return pulumi.get(self, "recommendation")
 
 
 @pulumi.output_type

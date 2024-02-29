@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Retrieve a single Asset Endpoint Profile.
+ * Get a AssetEndpointProfile
  */
 export function getAssetEndpointProfile(args: GetAssetEndpointProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEndpointProfileResult> {
 
@@ -35,9 +35,13 @@ export interface GetAssetEndpointProfileArgs {
  */
 export interface GetAssetEndpointProfileResult {
     /**
+     * Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+     */
+    readonly additionalConfiguration?: string;
+    /**
      * The extended location.
      */
-    readonly extendedLocation: outputs.deviceregistry.v20231101preview.AssetEndpointProfileResponseExtendedLocation;
+    readonly extendedLocation: outputs.deviceregistry.v20231101preview.ExtendedLocationResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -51,9 +55,9 @@ export interface GetAssetEndpointProfileResult {
      */
     readonly name: string;
     /**
-     * Asset Endpoint Profile resource properties.
+     * Provisioning state of the resource.
      */
-    readonly properties: outputs.deviceregistry.v20231101preview.AssetEndpointProfilePropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -63,12 +67,28 @@ export interface GetAssetEndpointProfileResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
+     */
+    readonly targetAddress: string;
+    /**
+     * Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+     */
+    readonly transportAuthentication?: outputs.deviceregistry.v20231101preview.TransportAuthenticationResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Defines the client authentication mechanism to the server.
+     */
+    readonly userAuthentication?: outputs.deviceregistry.v20231101preview.UserAuthenticationResponse;
+    /**
+     * Globally unique, immutable, non-reusable id.
+     */
+    readonly uuid: string;
 }
 /**
- * Retrieve a single Asset Endpoint Profile.
+ * Get a AssetEndpointProfile
  */
 export function getAssetEndpointProfileOutput(args: GetAssetEndpointProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEndpointProfileResult> {
     return pulumi.output(args).apply((a: any) => getAssetEndpointProfile(a, opts))

@@ -7,6 +7,37 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20240101
 {
+    /// <summary>
+    /// Whether storage account lock is to be acquired for this container or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct AcquireStorageAccountLock : IEquatable<AcquireStorageAccountLock>
+    {
+        private readonly string _value;
+
+        private AcquireStorageAccountLock(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AcquireStorageAccountLock Acquire { get; } = new AcquireStorageAccountLock("Acquire");
+        public static AcquireStorageAccountLock NotAcquire { get; } = new AcquireStorageAccountLock("NotAcquire");
+
+        public static bool operator ==(AcquireStorageAccountLock left, AcquireStorageAccountLock right) => left.Equals(right);
+        public static bool operator !=(AcquireStorageAccountLock left, AcquireStorageAccountLock right) => !left.Equals(right);
+
+        public static explicit operator string(AcquireStorageAccountLock value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AcquireStorageAccountLock other && Equals(other);
+        public bool Equals(AcquireStorageAccountLock other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct AlertsState : IEquatable<AlertsState>
     {
@@ -28,6 +59,121 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AlertsState other && Equals(other);
         public bool Equals(AlertsState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of backup items associated with this container.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupItemType : IEquatable<BackupItemType>
+    {
+        private readonly string _value;
+
+        private BackupItemType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupItemType Invalid { get; } = new BackupItemType("Invalid");
+        public static BackupItemType VM { get; } = new BackupItemType("VM");
+        public static BackupItemType FileFolder { get; } = new BackupItemType("FileFolder");
+        public static BackupItemType AzureSqlDb { get; } = new BackupItemType("AzureSqlDb");
+        public static BackupItemType SQLDB { get; } = new BackupItemType("SQLDB");
+        public static BackupItemType Exchange { get; } = new BackupItemType("Exchange");
+        public static BackupItemType Sharepoint { get; } = new BackupItemType("Sharepoint");
+        public static BackupItemType VMwareVM { get; } = new BackupItemType("VMwareVM");
+        public static BackupItemType SystemState { get; } = new BackupItemType("SystemState");
+        public static BackupItemType Client { get; } = new BackupItemType("Client");
+        public static BackupItemType GenericDataSource { get; } = new BackupItemType("GenericDataSource");
+        public static BackupItemType SQLDataBase { get; } = new BackupItemType("SQLDataBase");
+        public static BackupItemType AzureFileShare { get; } = new BackupItemType("AzureFileShare");
+        public static BackupItemType SAPHanaDatabase { get; } = new BackupItemType("SAPHanaDatabase");
+        public static BackupItemType SAPAseDatabase { get; } = new BackupItemType("SAPAseDatabase");
+        public static BackupItemType SAPHanaDBInstance { get; } = new BackupItemType("SAPHanaDBInstance");
+
+        public static bool operator ==(BackupItemType left, BackupItemType right) => left.Equals(right);
+        public static bool operator !=(BackupItemType left, BackupItemType right) => !left.Equals(right);
+
+        public static explicit operator string(BackupItemType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupItemType other && Equals(other);
+        public bool Equals(BackupItemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of backup management for the backed up item.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupManagementType : IEquatable<BackupManagementType>
+    {
+        private readonly string _value;
+
+        private BackupManagementType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupManagementType Invalid { get; } = new BackupManagementType("Invalid");
+        public static BackupManagementType AzureIaasVM { get; } = new BackupManagementType("AzureIaasVM");
+        public static BackupManagementType MAB { get; } = new BackupManagementType("MAB");
+        public static BackupManagementType DPM { get; } = new BackupManagementType("DPM");
+        public static BackupManagementType AzureBackupServer { get; } = new BackupManagementType("AzureBackupServer");
+        public static BackupManagementType AzureSql { get; } = new BackupManagementType("AzureSql");
+        public static BackupManagementType AzureStorage { get; } = new BackupManagementType("AzureStorage");
+        public static BackupManagementType AzureWorkload { get; } = new BackupManagementType("AzureWorkload");
+        public static BackupManagementType DefaultBackup { get; } = new BackupManagementType("DefaultBackup");
+
+        public static bool operator ==(BackupManagementType left, BackupManagementType right) => left.Equals(right);
+        public static bool operator !=(BackupManagementType left, BackupManagementType right) => !left.Equals(right);
+
+        public static explicit operator string(BackupManagementType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupManagementType other && Equals(other);
+        public bool Equals(BackupManagementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+    /// </summary>
+    [EnumType]
+    public readonly struct CreateMode : IEquatable<CreateMode>
+    {
+        private readonly string _value;
+
+        private CreateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CreateMode Invalid { get; } = new CreateMode("Invalid");
+        public static CreateMode Default { get; } = new CreateMode("Default");
+        public static CreateMode Recover { get; } = new CreateMode("Recover");
+
+        public static bool operator ==(CreateMode left, CreateMode right) => left.Equals(right);
+        public static bool operator !=(CreateMode left, CreateMode right) => !left.Equals(right);
+
+        public static explicit operator string(CreateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreateMode other && Equals(other);
+        public bool Equals(CreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -96,6 +242,39 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240101
     }
 
     [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct EnhancedSecurityState : IEquatable<EnhancedSecurityState>
     {
         private readonly string _value;
@@ -118,6 +297,62 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EnhancedSecurityState other && Equals(other);
         public bool Equals(EnhancedSecurityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IAASVMPolicyType : IEquatable<IAASVMPolicyType>
+    {
+        private readonly string _value;
+
+        private IAASVMPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IAASVMPolicyType Invalid { get; } = new IAASVMPolicyType("Invalid");
+        public static IAASVMPolicyType V1 { get; } = new IAASVMPolicyType("V1");
+        public static IAASVMPolicyType V2 { get; } = new IAASVMPolicyType("V2");
+
+        public static bool operator ==(IAASVMPolicyType left, IAASVMPolicyType right) => left.Equals(right);
+        public static bool operator !=(IAASVMPolicyType left, IAASVMPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(IAASVMPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IAASVMPolicyType other && Equals(other);
+        public bool Equals(IAASVMPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IaasVMSnapshotConsistencyType : IEquatable<IaasVMSnapshotConsistencyType>
+    {
+        private readonly string _value;
+
+        private IaasVMSnapshotConsistencyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IaasVMSnapshotConsistencyType OnlyCrashConsistent { get; } = new IaasVMSnapshotConsistencyType("OnlyCrashConsistent");
+
+        public static bool operator ==(IaasVMSnapshotConsistencyType left, IaasVMSnapshotConsistencyType right) => left.Equals(right);
+        public static bool operator !=(IaasVMSnapshotConsistencyType left, IaasVMSnapshotConsistencyType right) => !left.Equals(right);
+
+        public static explicit operator string(IaasVMSnapshotConsistencyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IaasVMSnapshotConsistencyType other && Equals(other);
+        public bool Equals(IaasVMSnapshotConsistencyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -186,6 +421,438 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240101
     }
 
     /// <summary>
+    /// Last backup operation status. Possible values: Healthy, Unhealthy.
+    /// </summary>
+    [EnumType]
+    public readonly struct LastBackupStatus : IEquatable<LastBackupStatus>
+    {
+        private readonly string _value;
+
+        private LastBackupStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LastBackupStatus Invalid { get; } = new LastBackupStatus("Invalid");
+        public static LastBackupStatus Healthy { get; } = new LastBackupStatus("Healthy");
+        public static LastBackupStatus Unhealthy { get; } = new LastBackupStatus("Unhealthy");
+        public static LastBackupStatus IRPending { get; } = new LastBackupStatus("IRPending");
+
+        public static bool operator ==(LastBackupStatus left, LastBackupStatus right) => left.Equals(right);
+        public static bool operator !=(LastBackupStatus left, LastBackupStatus right) => !left.Equals(right);
+
+        public static explicit operator string(LastBackupStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LastBackupStatus other && Equals(other);
+        public bool Equals(LastBackupStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MonthOfYear : IEquatable<MonthOfYear>
+    {
+        private readonly string _value;
+
+        private MonthOfYear(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MonthOfYear Invalid { get; } = new MonthOfYear("Invalid");
+        public static MonthOfYear January { get; } = new MonthOfYear("January");
+        public static MonthOfYear February { get; } = new MonthOfYear("February");
+        public static MonthOfYear March { get; } = new MonthOfYear("March");
+        public static MonthOfYear April { get; } = new MonthOfYear("April");
+        public static MonthOfYear May { get; } = new MonthOfYear("May");
+        public static MonthOfYear June { get; } = new MonthOfYear("June");
+        public static MonthOfYear July { get; } = new MonthOfYear("July");
+        public static MonthOfYear August { get; } = new MonthOfYear("August");
+        public static MonthOfYear September { get; } = new MonthOfYear("September");
+        public static MonthOfYear October { get; } = new MonthOfYear("October");
+        public static MonthOfYear November { get; } = new MonthOfYear("November");
+        public static MonthOfYear December { get; } = new MonthOfYear("December");
+
+        public static bool operator ==(MonthOfYear left, MonthOfYear right) => left.Equals(right);
+        public static bool operator !=(MonthOfYear left, MonthOfYear right) => !left.Equals(right);
+
+        public static explicit operator string(MonthOfYear value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonthOfYear other && Equals(other);
+        public bool Equals(MonthOfYear other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Re-Do Operation
+    /// </summary>
+    [EnumType]
+    public readonly struct OperationType : IEquatable<OperationType>
+    {
+        private readonly string _value;
+
+        private OperationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OperationType Invalid { get; } = new OperationType("Invalid");
+        public static OperationType Register { get; } = new OperationType("Register");
+        public static OperationType Reregister { get; } = new OperationType("Reregister");
+
+        public static bool operator ==(OperationType left, OperationType right) => left.Equals(right);
+        public static bool operator !=(OperationType left, OperationType right) => !left.Equals(right);
+
+        public static explicit operator string(OperationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperationType other && Equals(other);
+        public bool Equals(OperationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of backup policy type
+    /// </summary>
+    [EnumType]
+    public readonly struct PolicyType : IEquatable<PolicyType>
+    {
+        private readonly string _value;
+
+        private PolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyType Invalid { get; } = new PolicyType("Invalid");
+        public static PolicyType Full { get; } = new PolicyType("Full");
+        public static PolicyType Differential { get; } = new PolicyType("Differential");
+        public static PolicyType Log { get; } = new PolicyType("Log");
+        public static PolicyType CopyOnlyFull { get; } = new PolicyType("CopyOnlyFull");
+        public static PolicyType Incremental { get; } = new PolicyType("Incremental");
+        public static PolicyType SnapshotFull { get; } = new PolicyType("SnapshotFull");
+        public static PolicyType SnapshotCopyOnlyFull { get; } = new PolicyType("SnapshotCopyOnlyFull");
+
+        public static bool operator ==(PolicyType left, PolicyType right) => left.Equals(right);
+        public static bool operator !=(PolicyType left, PolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyType other && Equals(other);
+        public bool Equals(PolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the status
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointConnectionStatus : IEquatable<PrivateEndpointConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointConnectionStatus Pending { get; } = new PrivateEndpointConnectionStatus("Pending");
+        public static PrivateEndpointConnectionStatus Approved { get; } = new PrivateEndpointConnectionStatus("Approved");
+        public static PrivateEndpointConnectionStatus Rejected { get; } = new PrivateEndpointConnectionStatus("Rejected");
+        public static PrivateEndpointConnectionStatus Disconnected { get; } = new PrivateEndpointConnectionStatus("Disconnected");
+
+        public static bool operator ==(PrivateEndpointConnectionStatus left, PrivateEndpointConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointConnectionStatus left, PrivateEndpointConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+    /// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+    /// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+    /// Backup is VMAppContainer
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtectableContainerType : IEquatable<ProtectableContainerType>
+    {
+        private readonly string _value;
+
+        private ProtectableContainerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProtectableContainerType Invalid { get; } = new ProtectableContainerType("Invalid");
+        public static ProtectableContainerType Unknown { get; } = new ProtectableContainerType("Unknown");
+        public static ProtectableContainerType IaasVMContainer { get; } = new ProtectableContainerType("IaasVMContainer");
+        public static ProtectableContainerType IaasVMServiceContainer { get; } = new ProtectableContainerType("IaasVMServiceContainer");
+        public static ProtectableContainerType DPMContainer { get; } = new ProtectableContainerType("DPMContainer");
+        public static ProtectableContainerType AzureBackupServerContainer { get; } = new ProtectableContainerType("AzureBackupServerContainer");
+        public static ProtectableContainerType MABContainer { get; } = new ProtectableContainerType("MABContainer");
+        public static ProtectableContainerType Cluster { get; } = new ProtectableContainerType("Cluster");
+        public static ProtectableContainerType AzureSqlContainer { get; } = new ProtectableContainerType("AzureSqlContainer");
+        public static ProtectableContainerType Windows { get; } = new ProtectableContainerType("Windows");
+        public static ProtectableContainerType VCenter { get; } = new ProtectableContainerType("VCenter");
+        public static ProtectableContainerType VMAppContainer { get; } = new ProtectableContainerType("VMAppContainer");
+        public static ProtectableContainerType SQLAGWorkLoadContainer { get; } = new ProtectableContainerType("SQLAGWorkLoadContainer");
+        public static ProtectableContainerType StorageContainer { get; } = new ProtectableContainerType("StorageContainer");
+        public static ProtectableContainerType GenericContainer { get; } = new ProtectableContainerType("GenericContainer");
+        public static ProtectableContainerType Microsoft_ClassicCompute_virtualMachines { get; } = new ProtectableContainerType("Microsoft.ClassicCompute/virtualMachines");
+        public static ProtectableContainerType Microsoft_Compute_virtualMachines { get; } = new ProtectableContainerType("Microsoft.Compute/virtualMachines");
+        public static ProtectableContainerType AzureWorkloadContainer { get; } = new ProtectableContainerType("AzureWorkloadContainer");
+
+        public static bool operator ==(ProtectableContainerType left, ProtectableContainerType right) => left.Equals(right);
+        public static bool operator !=(ProtectableContainerType left, ProtectableContainerType right) => !left.Equals(right);
+
+        public static explicit operator string(ProtectableContainerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtectableContainerType other && Equals(other);
+        public bool Equals(ProtectableContainerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Health status of the backup item, evaluated based on last heartbeat received
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtectedItemHealthStatus : IEquatable<ProtectedItemHealthStatus>
+    {
+        private readonly string _value;
+
+        private ProtectedItemHealthStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProtectedItemHealthStatus Invalid { get; } = new ProtectedItemHealthStatus("Invalid");
+        public static ProtectedItemHealthStatus Healthy { get; } = new ProtectedItemHealthStatus("Healthy");
+        public static ProtectedItemHealthStatus Unhealthy { get; } = new ProtectedItemHealthStatus("Unhealthy");
+        public static ProtectedItemHealthStatus NotReachable { get; } = new ProtectedItemHealthStatus("NotReachable");
+        public static ProtectedItemHealthStatus IRPending { get; } = new ProtectedItemHealthStatus("IRPending");
+
+        public static bool operator ==(ProtectedItemHealthStatus left, ProtectedItemHealthStatus right) => left.Equals(right);
+        public static bool operator !=(ProtectedItemHealthStatus left, ProtectedItemHealthStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ProtectedItemHealthStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtectedItemHealthStatus other && Equals(other);
+        public bool Equals(ProtectedItemHealthStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Protection state of the backup engine
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtectedItemState : IEquatable<ProtectedItemState>
+    {
+        private readonly string _value;
+
+        private ProtectedItemState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProtectedItemState Invalid { get; } = new ProtectedItemState("Invalid");
+        public static ProtectedItemState IRPending { get; } = new ProtectedItemState("IRPending");
+        public static ProtectedItemState Protected { get; } = new ProtectedItemState("Protected");
+        public static ProtectedItemState ProtectionError { get; } = new ProtectedItemState("ProtectionError");
+        public static ProtectedItemState ProtectionStopped { get; } = new ProtectedItemState("ProtectionStopped");
+        public static ProtectedItemState ProtectionPaused { get; } = new ProtectedItemState("ProtectionPaused");
+        public static ProtectedItemState BackupsSuspended { get; } = new ProtectedItemState("BackupsSuspended");
+
+        public static bool operator ==(ProtectedItemState left, ProtectedItemState right) => left.Equals(right);
+        public static bool operator !=(ProtectedItemState left, ProtectedItemState right) => !left.Equals(right);
+
+        public static explicit operator string(ProtectedItemState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtectedItemState other && Equals(other);
+        public bool Equals(ProtectedItemState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// backup protectionIntent type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtectionIntentItemType : IEquatable<ProtectionIntentItemType>
+    {
+        private readonly string _value;
+
+        private ProtectionIntentItemType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProtectionIntentItemType Invalid { get; } = new ProtectionIntentItemType("Invalid");
+        public static ProtectionIntentItemType AzureResourceItem { get; } = new ProtectionIntentItemType("AzureResourceItem");
+        public static ProtectionIntentItemType RecoveryServiceVaultItem { get; } = new ProtectionIntentItemType("RecoveryServiceVaultItem");
+        public static ProtectionIntentItemType AzureWorkloadContainerAutoProtectionIntent { get; } = new ProtectionIntentItemType("AzureWorkloadContainerAutoProtectionIntent");
+        public static ProtectionIntentItemType AzureWorkloadAutoProtectionIntent { get; } = new ProtectionIntentItemType("AzureWorkloadAutoProtectionIntent");
+        public static ProtectionIntentItemType AzureWorkloadSQLAutoProtectionIntent { get; } = new ProtectionIntentItemType("AzureWorkloadSQLAutoProtectionIntent");
+
+        public static bool operator ==(ProtectionIntentItemType left, ProtectionIntentItemType right) => left.Equals(right);
+        public static bool operator !=(ProtectionIntentItemType left, ProtectionIntentItemType right) => !left.Equals(right);
+
+        public static explicit operator string(ProtectionIntentItemType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtectionIntentItemType other && Equals(other);
+        public bool Equals(ProtectionIntentItemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Backup state of this backup item.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtectionState : IEquatable<ProtectionState>
+    {
+        private readonly string _value;
+
+        private ProtectionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProtectionState Invalid { get; } = new ProtectionState("Invalid");
+        public static ProtectionState IRPending { get; } = new ProtectionState("IRPending");
+        public static ProtectionState Protected { get; } = new ProtectionState("Protected");
+        public static ProtectionState ProtectionError { get; } = new ProtectionState("ProtectionError");
+        public static ProtectionState ProtectionStopped { get; } = new ProtectionState("ProtectionStopped");
+        public static ProtectionState ProtectionPaused { get; } = new ProtectionState("ProtectionPaused");
+        public static ProtectionState BackupsSuspended { get; } = new ProtectionState("BackupsSuspended");
+
+        public static bool operator ==(ProtectionState left, ProtectionState right) => left.Equals(right);
+        public static bool operator !=(ProtectionState left, ProtectionState right) => !left.Equals(right);
+
+        public static explicit operator string(ProtectionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtectionState other && Equals(other);
+        public bool Equals(ProtectionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Backup state of this backup item.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtectionStatus : IEquatable<ProtectionStatus>
+    {
+        private readonly string _value;
+
+        private ProtectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProtectionStatus Invalid { get; } = new ProtectionStatus("Invalid");
+        public static ProtectionStatus NotProtected { get; } = new ProtectionStatus("NotProtected");
+        public static ProtectionStatus Protecting { get; } = new ProtectionStatus("Protecting");
+        public static ProtectionStatus Protected { get; } = new ProtectionStatus("Protected");
+        public static ProtectionStatus ProtectionFailed { get; } = new ProtectionStatus("ProtectionFailed");
+
+        public static bool operator ==(ProtectionStatus left, ProtectionStatus right) => left.Equals(right);
+        public static bool operator !=(ProtectionStatus left, ProtectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ProtectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtectionStatus other && Equals(other);
+        public bool Equals(ProtectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets provisioning state of the private endpoint connection
+    /// </summary>
+    [EnumType]
+    public readonly struct ProvisioningState : IEquatable<ProvisioningState>
+    {
+        private readonly string _value;
+
+        private ProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProvisioningState Succeeded { get; } = new ProvisioningState("Succeeded");
+        public static ProvisioningState Deleting { get; } = new ProvisioningState("Deleting");
+        public static ProvisioningState Failed { get; } = new ProvisioningState("Failed");
+        public static ProvisioningState Pending { get; } = new ProvisioningState("Pending");
+
+        public static bool operator ==(ProvisioningState left, ProvisioningState right) => left.Equals(right);
+        public static bool operator !=(ProvisioningState left, ProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(ProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProvisioningState other && Equals(other);
+        public bool Equals(ProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// property to enable or disable resource provider inbound network traffic from public clients
     /// </summary>
     [EnumType]
@@ -209,6 +876,41 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Resource Health Status
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceHealthStatus : IEquatable<ResourceHealthStatus>
+    {
+        private readonly string _value;
+
+        private ResourceHealthStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceHealthStatus Healthy { get; } = new ResourceHealthStatus("Healthy");
+        public static ResourceHealthStatus TransientDegraded { get; } = new ResourceHealthStatus("TransientDegraded");
+        public static ResourceHealthStatus PersistentDegraded { get; } = new ResourceHealthStatus("PersistentDegraded");
+        public static ResourceHealthStatus TransientUnhealthy { get; } = new ResourceHealthStatus("TransientUnhealthy");
+        public static ResourceHealthStatus PersistentUnhealthy { get; } = new ResourceHealthStatus("PersistentUnhealthy");
+        public static ResourceHealthStatus Invalid { get; } = new ResourceHealthStatus("Invalid");
+
+        public static bool operator ==(ResourceHealthStatus left, ResourceHealthStatus right) => left.Equals(right);
+        public static bool operator !=(ResourceHealthStatus left, ResourceHealthStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceHealthStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceHealthStatus other && Equals(other);
+        public bool Equals(ResourceHealthStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -242,6 +944,106 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Retention duration type: days/weeks/months/years
+    /// Used only if TieringMode is set to TierAfter
+    /// </summary>
+    [EnumType]
+    public readonly struct RetentionDurationType : IEquatable<RetentionDurationType>
+    {
+        private readonly string _value;
+
+        private RetentionDurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RetentionDurationType Invalid { get; } = new RetentionDurationType("Invalid");
+        public static RetentionDurationType Days { get; } = new RetentionDurationType("Days");
+        public static RetentionDurationType Weeks { get; } = new RetentionDurationType("Weeks");
+        public static RetentionDurationType Months { get; } = new RetentionDurationType("Months");
+        public static RetentionDurationType Years { get; } = new RetentionDurationType("Years");
+
+        public static bool operator ==(RetentionDurationType left, RetentionDurationType right) => left.Equals(right);
+        public static bool operator !=(RetentionDurationType left, RetentionDurationType right) => !left.Equals(right);
+
+        public static explicit operator string(RetentionDurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RetentionDurationType other && Equals(other);
+        public bool Equals(RetentionDurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Retention schedule format for yearly retention policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct RetentionScheduleFormat : IEquatable<RetentionScheduleFormat>
+    {
+        private readonly string _value;
+
+        private RetentionScheduleFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RetentionScheduleFormat Invalid { get; } = new RetentionScheduleFormat("Invalid");
+        public static RetentionScheduleFormat Daily { get; } = new RetentionScheduleFormat("Daily");
+        public static RetentionScheduleFormat Weekly { get; } = new RetentionScheduleFormat("Weekly");
+
+        public static bool operator ==(RetentionScheduleFormat left, RetentionScheduleFormat right) => left.Equals(right);
+        public static bool operator !=(RetentionScheduleFormat left, RetentionScheduleFormat right) => !left.Equals(right);
+
+        public static explicit operator string(RetentionScheduleFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RetentionScheduleFormat other && Equals(other);
+        public bool Equals(RetentionScheduleFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Frequency of the schedule operation of this policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScheduleRunType : IEquatable<ScheduleRunType>
+    {
+        private readonly string _value;
+
+        private ScheduleRunType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScheduleRunType Invalid { get; } = new ScheduleRunType("Invalid");
+        public static ScheduleRunType Daily { get; } = new ScheduleRunType("Daily");
+        public static ScheduleRunType Weekly { get; } = new ScheduleRunType("Weekly");
+        public static ScheduleRunType Hourly { get; } = new ScheduleRunType("Hourly");
+
+        public static bool operator ==(ScheduleRunType left, ScheduleRunType right) => left.Equals(right);
+        public static bool operator !=(ScheduleRunType left, ScheduleRunType right) => !left.Equals(right);
+
+        public static explicit operator string(ScheduleRunType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScheduleRunType other && Equals(other);
+        public bool Equals(ScheduleRunType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -336,6 +1138,188 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StandardTierStorageRedundancy other && Equals(other);
         public bool Equals(StandardTierStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tiering Mode to control automatic tiering of recovery points. Supported values are:
+    /// 1. TierRecommended: Tier all recovery points recommended to be tiered
+    /// 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+    /// 3. DoNotTier: Do not tier any recovery points
+    /// </summary>
+    [EnumType]
+    public readonly struct TieringMode : IEquatable<TieringMode>
+    {
+        private readonly string _value;
+
+        private TieringMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TieringMode Invalid { get; } = new TieringMode("Invalid");
+        public static TieringMode TierRecommended { get; } = new TieringMode("TierRecommended");
+        public static TieringMode TierAfter { get; } = new TieringMode("TierAfter");
+        public static TieringMode DoNotTier { get; } = new TieringMode("DoNotTier");
+
+        public static bool operator ==(TieringMode left, TieringMode right) => left.Equals(right);
+        public static bool operator !=(TieringMode left, TieringMode right) => !left.Equals(right);
+
+        public static explicit operator string(TieringMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TieringMode other && Equals(other);
+        public bool Equals(TieringMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// GroupId for the PrivateEndpointConnection - AzureBackup, AzureBackup_secondary or AzureSiteRecovery
+    /// </summary>
+    [EnumType]
+    public readonly struct VaultSubResourceType : IEquatable<VaultSubResourceType>
+    {
+        private readonly string _value;
+
+        private VaultSubResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VaultSubResourceType AzureBackup { get; } = new VaultSubResourceType("AzureBackup");
+        public static VaultSubResourceType AzureBackup_secondary { get; } = new VaultSubResourceType("AzureBackup_secondary");
+        public static VaultSubResourceType AzureSiteRecovery { get; } = new VaultSubResourceType("AzureSiteRecovery");
+
+        public static bool operator ==(VaultSubResourceType left, VaultSubResourceType right) => left.Equals(right);
+        public static bool operator !=(VaultSubResourceType left, VaultSubResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(VaultSubResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VaultSubResourceType other && Equals(other);
+        public bool Equals(VaultSubResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WeekOfMonth : IEquatable<WeekOfMonth>
+    {
+        private readonly string _value;
+
+        private WeekOfMonth(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WeekOfMonth First { get; } = new WeekOfMonth("First");
+        public static WeekOfMonth Second { get; } = new WeekOfMonth("Second");
+        public static WeekOfMonth Third { get; } = new WeekOfMonth("Third");
+        public static WeekOfMonth Fourth { get; } = new WeekOfMonth("Fourth");
+        public static WeekOfMonth Last { get; } = new WeekOfMonth("Last");
+        public static WeekOfMonth Invalid { get; } = new WeekOfMonth("Invalid");
+
+        public static bool operator ==(WeekOfMonth left, WeekOfMonth right) => left.Equals(right);
+        public static bool operator !=(WeekOfMonth left, WeekOfMonth right) => !left.Equals(right);
+
+        public static explicit operator string(WeekOfMonth value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WeekOfMonth other && Equals(other);
+        public bool Equals(WeekOfMonth other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Workload item type of the item for which intent is to be set
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkloadItemType : IEquatable<WorkloadItemType>
+    {
+        private readonly string _value;
+
+        private WorkloadItemType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkloadItemType Invalid { get; } = new WorkloadItemType("Invalid");
+        public static WorkloadItemType SQLInstance { get; } = new WorkloadItemType("SQLInstance");
+        public static WorkloadItemType SQLDataBase { get; } = new WorkloadItemType("SQLDataBase");
+        public static WorkloadItemType SAPHanaSystem { get; } = new WorkloadItemType("SAPHanaSystem");
+        public static WorkloadItemType SAPHanaDatabase { get; } = new WorkloadItemType("SAPHanaDatabase");
+        public static WorkloadItemType SAPAseSystem { get; } = new WorkloadItemType("SAPAseSystem");
+        public static WorkloadItemType SAPAseDatabase { get; } = new WorkloadItemType("SAPAseDatabase");
+        public static WorkloadItemType SAPHanaDBInstance { get; } = new WorkloadItemType("SAPHanaDBInstance");
+
+        public static bool operator ==(WorkloadItemType left, WorkloadItemType right) => left.Equals(right);
+        public static bool operator !=(WorkloadItemType left, WorkloadItemType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkloadItemType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkloadItemType other && Equals(other);
+        public bool Equals(WorkloadItemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of workload for the backup management
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkloadType : IEquatable<WorkloadType>
+    {
+        private readonly string _value;
+
+        private WorkloadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkloadType Invalid { get; } = new WorkloadType("Invalid");
+        public static WorkloadType VM { get; } = new WorkloadType("VM");
+        public static WorkloadType FileFolder { get; } = new WorkloadType("FileFolder");
+        public static WorkloadType AzureSqlDb { get; } = new WorkloadType("AzureSqlDb");
+        public static WorkloadType SQLDB { get; } = new WorkloadType("SQLDB");
+        public static WorkloadType Exchange { get; } = new WorkloadType("Exchange");
+        public static WorkloadType Sharepoint { get; } = new WorkloadType("Sharepoint");
+        public static WorkloadType VMwareVM { get; } = new WorkloadType("VMwareVM");
+        public static WorkloadType SystemState { get; } = new WorkloadType("SystemState");
+        public static WorkloadType Client { get; } = new WorkloadType("Client");
+        public static WorkloadType GenericDataSource { get; } = new WorkloadType("GenericDataSource");
+        public static WorkloadType SQLDataBase { get; } = new WorkloadType("SQLDataBase");
+        public static WorkloadType AzureFileShare { get; } = new WorkloadType("AzureFileShare");
+        public static WorkloadType SAPHanaDatabase { get; } = new WorkloadType("SAPHanaDatabase");
+        public static WorkloadType SAPAseDatabase { get; } = new WorkloadType("SAPAseDatabase");
+        public static WorkloadType SAPHanaDBInstance { get; } = new WorkloadType("SAPHanaDBInstance");
+
+        public static bool operator ==(WorkloadType left, WorkloadType right) => left.Equals(right);
+        public static bool operator !=(WorkloadType left, WorkloadType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkloadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkloadType other && Equals(other);
+        public bool Equals(WorkloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

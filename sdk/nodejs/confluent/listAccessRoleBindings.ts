@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List cluster success response
  * Azure REST API version: 2023-08-22.
+ *
+ * Other available API versions: 2024-02-13.
  */
 export function listAccessRoleBindings(args: ListAccessRoleBindingsArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessRoleBindingsResult> {
 
@@ -56,6 +58,8 @@ export interface ListAccessRoleBindingsResult {
 /**
  * List cluster success response
  * Azure REST API version: 2023-08-22.
+ *
+ * Other available API versions: 2024-02-13.
  */
 export function listAccessRoleBindingsOutput(args: ListAccessRoleBindingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessRoleBindingsResult> {
     return pulumi.output(args).apply((a: any) => listAccessRoleBindings(a, opts))

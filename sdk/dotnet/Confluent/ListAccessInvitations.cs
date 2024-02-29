@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List invitations success response
         /// Azure REST API version: 2023-08-22.
+        /// 
+        /// Other available API versions: 2024-02-13.
         /// </summary>
         public static Task<ListAccessInvitationsResult> InvokeAsync(ListAccessInvitationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessInvitationsResult>("azure-native:confluent:listAccessInvitations", args ?? new ListAccessInvitationsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// List invitations success response
         /// Azure REST API version: 2023-08-22.
+        /// 
+        /// Other available API versions: 2024-02-13.
         /// </summary>
         public static Output<ListAccessInvitationsResult> Invoke(ListAccessInvitationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessInvitationsResult>("azure-native:confluent:listAccessInvitations", args ?? new ListAccessInvitationsInvokeArgs(), options.WithDefaults());

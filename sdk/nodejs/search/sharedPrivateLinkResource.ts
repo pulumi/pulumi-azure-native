@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
  *
- * Other available API versions: 2023-11-01.
+ * Other available API versions: 2023-11-01, 2024-03-01-preview.
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -82,7 +82,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801preview:SharedPrivateLinkResource" }, { type: "azure-native:search/v20210401preview:SharedPrivateLinkResource" }, { type: "azure-native:search/v20220901:SharedPrivateLinkResource" }, { type: "azure-native:search/v20231101:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:search/v20200801:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801preview:SharedPrivateLinkResource" }, { type: "azure-native:search/v20210401preview:SharedPrivateLinkResource" }, { type: "azure-native:search/v20220901:SharedPrivateLinkResource" }, { type: "azure-native:search/v20231101:SharedPrivateLinkResource" }, { type: "azure-native:search/v20240301preview:SharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }

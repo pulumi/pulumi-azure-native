@@ -23,7 +23,10 @@ __all__ = [
     'InvitationRecordResponse',
     'MetadataEntityResponse',
     'OfferDetailResponse',
+    'RegionRecordResponse',
+    'RegionSpecEntityResponse',
     'RoleBindingRecordResponse',
+    'SCMetadataEntityResponse',
     'ServiceAccountRecordResponse',
     'SystemDataResponse',
     'UserDetailResponse',
@@ -900,6 +903,120 @@ class OfferDetailResponse(dict):
 
 
 @pulumi.output_type
+class RegionRecordResponse(dict):
+    """
+    Details of region record
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 kind: Optional[str] = None,
+                 metadata: Optional['outputs.SCMetadataEntityResponse'] = None,
+                 spec: Optional['outputs.RegionSpecEntityResponse'] = None):
+        """
+        Details of region record
+        :param str id: Id of the cluster
+        :param str kind: Kind of the cluster
+        :param 'SCMetadataEntityResponse' metadata: Metadata of the record
+        :param 'RegionSpecEntityResponse' spec: Specification of the region
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the cluster
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of the cluster
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.SCMetadataEntityResponse']:
+        """
+        Metadata of the record
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional['outputs.RegionSpecEntityResponse']:
+        """
+        Specification of the region
+        """
+        return pulumi.get(self, "spec")
+
+
+@pulumi.output_type
+class RegionSpecEntityResponse(dict):
+    """
+    Region spec details
+    """
+    def __init__(__self__, *,
+                 cloud: Optional[str] = None,
+                 name: Optional[str] = None,
+                 packages: Optional[Sequence[str]] = None,
+                 region_name: Optional[str] = None):
+        """
+        Region spec details
+        :param str cloud: Cloud provider name
+        :param str name: Display Name of the region
+        :param str region_name: Region name
+        """
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if packages is not None:
+            pulumi.set(__self__, "packages", packages)
+        if region_name is not None:
+            pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter
+    def cloud(self) -> Optional[str]:
+        """
+        Cloud provider name
+        """
+        return pulumi.get(self, "cloud")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Display Name of the region
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def packages(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "packages")
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> Optional[str]:
+        """
+        Region name
+        """
+        return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
 class RoleBindingRecordResponse(dict):
     """
     Record of the environment
@@ -980,6 +1097,77 @@ class RoleBindingRecordResponse(dict):
         The name of the role to bind to the principal
         """
         return pulumi.get(self, "role_name")
+
+
+@pulumi.output_type
+class SCMetadataEntityResponse(dict):
+    """
+    Metadata of the data record
+    """
+    def __init__(__self__, *,
+                 created_timestamp: Optional[str] = None,
+                 deleted_timestamp: Optional[str] = None,
+                 resource_name: Optional[str] = None,
+                 self: Optional[str] = None,
+                 updated_timestamp: Optional[str] = None):
+        """
+        Metadata of the data record
+        :param str created_timestamp: Created Date Time
+        :param str deleted_timestamp: Deleted Date time
+        :param str resource_name: Resource name of the record
+        :param str self: Self lookup url
+        :param str updated_timestamp: Updated Date time
+        """
+        if created_timestamp is not None:
+            pulumi.set(__self__, "created_timestamp", created_timestamp)
+        if deleted_timestamp is not None:
+            pulumi.set(__self__, "deleted_timestamp", deleted_timestamp)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if self is not None:
+            pulumi.set(__self__, "self", self)
+        if updated_timestamp is not None:
+            pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> Optional[str]:
+        """
+        Created Date Time
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter(name="deletedTimestamp")
+    def deleted_timestamp(self) -> Optional[str]:
+        """
+        Deleted Date time
+        """
+        return pulumi.get(self, "deleted_timestamp")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        Resource name of the record
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter
+    def self(self) -> Optional[str]:
+        """
+        Self lookup url
+        """
+        return pulumi.get(self, "self")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> Optional[str]:
+        """
+        Updated Date time
+        """
+        return pulumi.get(self, "updated_timestamp")
 
 
 @pulumi.output_type

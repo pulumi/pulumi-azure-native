@@ -75,10 +75,25 @@ export const getSAPVirtualInstance: typeof import("./getSAPVirtualInstance").get
 export const getSAPVirtualInstanceOutput: typeof import("./getSAPVirtualInstance").getSAPVirtualInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSAPVirtualInstance","getSAPVirtualInstanceOutput"], () => require("./getSAPVirtualInstance"));
 
+export { GetSapDiscoverySiteArgs, GetSapDiscoverySiteResult, GetSapDiscoverySiteOutputArgs } from "./getSapDiscoverySite";
+export const getSapDiscoverySite: typeof import("./getSapDiscoverySite").getSapDiscoverySite = null as any;
+export const getSapDiscoverySiteOutput: typeof import("./getSapDiscoverySite").getSapDiscoverySiteOutput = null as any;
+utilities.lazyLoad(exports, ["getSapDiscoverySite","getSapDiscoverySiteOutput"], () => require("./getSapDiscoverySite"));
+
+export { GetSapInstanceArgs, GetSapInstanceResult, GetSapInstanceOutputArgs } from "./getSapInstance";
+export const getSapInstance: typeof import("./getSapInstance").getSapInstance = null as any;
+export const getSapInstanceOutput: typeof import("./getSapInstance").getSapInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSapInstance","getSapInstanceOutput"], () => require("./getSapInstance"));
+
 export { GetSapLandscapeMonitorArgs, GetSapLandscapeMonitorResult, GetSapLandscapeMonitorOutputArgs } from "./getSapLandscapeMonitor";
 export const getSapLandscapeMonitor: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitor = null as any;
 export const getSapLandscapeMonitorOutput: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitorOutput = null as any;
 utilities.lazyLoad(exports, ["getSapLandscapeMonitor","getSapLandscapeMonitorOutput"], () => require("./getSapLandscapeMonitor"));
+
+export { GetServerInstanceArgs, GetServerInstanceResult, GetServerInstanceOutputArgs } from "./getServerInstance";
+export const getServerInstance: typeof import("./getServerInstance").getServerInstance = null as any;
+export const getServerInstanceOutput: typeof import("./getServerInstance").getServerInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getServerInstance","getServerInstanceOutput"], () => require("./getServerInstance"));
 
 export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
@@ -89,6 +104,16 @@ export { ProviderInstanceArgs } from "./providerInstance";
 export type ProviderInstance = import("./providerInstance").ProviderInstance;
 export const ProviderInstance: typeof import("./providerInstance").ProviderInstance = null as any;
 utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
+
+export { SapDiscoverySiteArgs } from "./sapDiscoverySite";
+export type SapDiscoverySite = import("./sapDiscoverySite").SapDiscoverySite;
+export const SapDiscoverySite: typeof import("./sapDiscoverySite").SapDiscoverySite = null as any;
+utilities.lazyLoad(exports, ["SapDiscoverySite"], () => require("./sapDiscoverySite"));
+
+export { SapInstanceArgs } from "./sapInstance";
+export type SapInstance = import("./sapInstance").SapInstance;
+export const SapInstance: typeof import("./sapInstance").SapInstance = null as any;
+utilities.lazyLoad(exports, ["SapInstance"], () => require("./sapInstance"));
 
 export { SapLandscapeMonitorArgs } from "./sapLandscapeMonitor";
 export type SapLandscapeMonitor = import("./sapLandscapeMonitor").SapLandscapeMonitor;
@@ -114,6 +139,11 @@ export { SAPVirtualInstanceArgs } from "./sapvirtualInstance";
 export type SAPVirtualInstance = import("./sapvirtualInstance").SAPVirtualInstance;
 export const SAPVirtualInstance: typeof import("./sapvirtualInstance").SAPVirtualInstance = null as any;
 utilities.lazyLoad(exports, ["SAPVirtualInstance"], () => require("./sapvirtualInstance"));
+
+export { ServerInstanceArgs } from "./serverInstance";
+export type ServerInstance = import("./serverInstance").ServerInstance;
+export const ServerInstance: typeof import("./serverInstance").ServerInstance = null as any;
+utilities.lazyLoad(exports, ["ServerInstance"], () => require("./serverInstance"));
 
 
 // Export enums:
@@ -152,8 +182,14 @@ const _module = {
                 return new SAPDatabaseInstance(name, <any>undefined, { urn })
             case "azure-native:workloads:SAPVirtualInstance":
                 return new SAPVirtualInstance(name, <any>undefined, { urn })
+            case "azure-native:workloads:SapDiscoverySite":
+                return new SapDiscoverySite(name, <any>undefined, { urn })
+            case "azure-native:workloads:SapInstance":
+                return new SapInstance(name, <any>undefined, { urn })
             case "azure-native:workloads:SapLandscapeMonitor":
                 return new SapLandscapeMonitor(name, <any>undefined, { urn })
+            case "azure-native:workloads:ServerInstance":
+                return new ServerInstance(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -63,6 +63,7 @@ namespace Pulumi.AzureNative.Search.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200801preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20210401preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20231101:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:search/v20240301preview:SharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

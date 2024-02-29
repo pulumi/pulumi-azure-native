@@ -3788,6 +3788,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "confluent/v20240213",
+  "fqn": "pulumi_azure_native.confluent.v20240213",
+  "classes": {
+   "azure-native:confluent/v20240213:Organization": "Organization"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "connectedvmwarevsphere",
   "fqn": "pulumi_azure_native.connectedvmwarevsphere",
   "classes": {
@@ -5588,6 +5596,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dbformysql.v20231001preview",
   "classes": {
    "azure-native:dbformysql/v20231001preview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbformysql/v20231201preview",
+  "fqn": "pulumi_azure_native.dbformysql.v20231201preview",
+  "classes": {
+   "azure-native:dbformysql/v20231201preview:Server": "Server"
   }
  },
  {
@@ -12088,6 +12104,12 @@ _utilities.register(
   "mod": "recoveryservices/v20240101",
   "fqn": "pulumi_azure_native.recoveryservices.v20240101",
   "classes": {
+   "azure-native:recoveryservices/v20240101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20240101:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20240101:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20240101:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20240101:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20240101:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20240101:Vault": "Vault"
   }
  },
@@ -12523,6 +12545,16 @@ _utilities.register(
    "azure-native:search/v20231101:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:search/v20231101:Service": "Service",
    "azure-native:search/v20231101:SharedPrivateLinkResource": "SharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "search/v20240301preview",
+  "fqn": "pulumi_azure_native.search.v20240301preview",
+  "classes": {
+   "azure-native:search/v20240301preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:search/v20240301preview:Service": "Service",
+   "azure-native:search/v20240301preview:SharedPrivateLinkResource": "SharedPrivateLinkResource"
   }
  },
  {
@@ -13614,6 +13646,19 @@ _utilities.register(
    "azure-native:servicefabric/v20231201preview:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
    "azure-native:servicefabric/v20231201preview:ManagedClusterService": "ManagedClusterService",
    "azure-native:servicefabric/v20231201preview:NodeType": "NodeType"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicefabric/v20240201preview",
+  "fqn": "pulumi_azure_native.servicefabric.v20240201preview",
+  "classes": {
+   "azure-native:servicefabric/v20240201preview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20240201preview:ManagedClusterApplication": "ManagedClusterApplication",
+   "azure-native:servicefabric/v20240201preview:ManagedClusterApplicationType": "ManagedClusterApplicationType",
+   "azure-native:servicefabric/v20240201preview:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
+   "azure-native:servicefabric/v20240201preview:ManagedClusterService": "ManagedClusterService",
+   "azure-native:servicefabric/v20240201preview:NodeType": "NodeType"
   }
  },
  {
@@ -15590,7 +15635,10 @@ _utilities.register(
    "azure-native:workloads:SAPCentralInstance": "SAPCentralInstance",
    "azure-native:workloads:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads:SAPVirtualInstance": "SAPVirtualInstance",
-   "azure-native:workloads:SapLandscapeMonitor": "SapLandscapeMonitor"
+   "azure-native:workloads:SapDiscoverySite": "SapDiscoverySite",
+   "azure-native:workloads:SapInstance": "SapInstance",
+   "azure-native:workloads:SapLandscapeMonitor": "SapLandscapeMonitor",
+   "azure-native:workloads:ServerInstance": "ServerInstance"
   }
  },
  {
@@ -15630,7 +15678,10 @@ _utilities.register(
    "azure-native:workloads/v20231001preview:SAPCentralInstance": "SAPCentralInstance",
    "azure-native:workloads/v20231001preview:SAPDatabaseInstance": "SAPDatabaseInstance",
    "azure-native:workloads/v20231001preview:SAPVirtualInstance": "SAPVirtualInstance",
-   "azure-native:workloads/v20231001preview:SapLandscapeMonitor": "SapLandscapeMonitor"
+   "azure-native:workloads/v20231001preview:SapDiscoverySite": "SapDiscoverySite",
+   "azure-native:workloads/v20231001preview:SapInstance": "SapInstance",
+   "azure-native:workloads/v20231001preview:SapLandscapeMonitor": "SapLandscapeMonitor",
+   "azure-native:workloads/v20231001preview:ServerInstance": "ServerInstance"
   }
  }
 ]

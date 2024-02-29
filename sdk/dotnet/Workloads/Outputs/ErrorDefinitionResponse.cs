@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// Description of the error.
         /// </summary>
         public readonly string Message;
+        /// <summary>
+        /// Description of the recommendation.
+        /// </summary>
+        public readonly string Recommendation;
 
         [OutputConstructor]
         private ErrorDefinitionResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 
             ImmutableArray<Outputs.ErrorDefinitionResponse> details,
 
-            string message)
+            string message,
+
+            string recommendation)
         {
             Code = code;
             Details = details;
             Message = message;
+            Recommendation = recommendation;
         }
     }
 }

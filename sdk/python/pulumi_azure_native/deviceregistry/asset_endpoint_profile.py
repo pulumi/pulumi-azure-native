@@ -17,42 +17,53 @@ __all__ = ['AssetEndpointProfileArgs', 'AssetEndpointProfile']
 @pulumi.input_type
 class AssetEndpointProfileArgs:
     def __init__(__self__, *,
-                 extended_location: pulumi.Input['AssetEndpointProfileExtendedLocationArgs'],
+                 extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[str],
+                 target_address: pulumi.Input[str],
+                 additional_configuration: Optional[pulumi.Input[str]] = None,
                  asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['AssetEndpointProfilePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transport_authentication: Optional[pulumi.Input['TransportAuthenticationArgs']] = None,
+                 user_authentication: Optional[pulumi.Input['UserAuthenticationArgs']] = None):
         """
         The set of arguments for constructing a AssetEndpointProfile resource.
-        :param pulumi.Input['AssetEndpointProfileExtendedLocationArgs'] extended_location: The extended location.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] target_address: The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
+        :param pulumi.Input[str] additional_configuration: Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         :param pulumi.Input[str] asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['AssetEndpointProfilePropertiesArgs'] properties: Asset Endpoint Profile resource properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['TransportAuthenticationArgs'] transport_authentication: Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+        :param pulumi.Input['UserAuthenticationArgs'] user_authentication: Defines the client authentication mechanism to the server.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "target_address", target_address)
+        if additional_configuration is not None:
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
         if asset_endpoint_profile_name is not None:
             pulumi.set(__self__, "asset_endpoint_profile_name", asset_endpoint_profile_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transport_authentication is not None:
+            pulumi.set(__self__, "transport_authentication", transport_authentication)
+        if user_authentication is not None:
+            pulumi.set(__self__, "user_authentication", user_authentication)
 
     @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Input['AssetEndpointProfileExtendedLocationArgs']:
+    def extended_location(self) -> pulumi.Input['ExtendedLocationArgs']:
         """
         The extended location.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: pulumi.Input['AssetEndpointProfileExtendedLocationArgs']):
+    def extended_location(self, value: pulumi.Input['ExtendedLocationArgs']):
         pulumi.set(self, "extended_location", value)
 
     @property
@@ -66,6 +77,30 @@ class AssetEndpointProfileArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="targetAddress")
+    def target_address(self) -> pulumi.Input[str]:
+        """
+        The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
+        """
+        return pulumi.get(self, "target_address")
+
+    @target_address.setter
+    def target_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_address", value)
+
+    @property
+    @pulumi.getter(name="additionalConfiguration")
+    def additional_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        """
+        return pulumi.get(self, "additional_configuration")
+
+    @additional_configuration.setter
+    def additional_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_configuration", value)
 
     @property
     @pulumi.getter(name="assetEndpointProfileName")
@@ -93,18 +128,6 @@ class AssetEndpointProfileArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AssetEndpointProfilePropertiesArgs']]:
-        """
-        Asset Endpoint Profile resource properties.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AssetEndpointProfilePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -115,18 +138,45 @@ class AssetEndpointProfileArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="transportAuthentication")
+    def transport_authentication(self) -> Optional[pulumi.Input['TransportAuthenticationArgs']]:
+        """
+        Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+        """
+        return pulumi.get(self, "transport_authentication")
+
+    @transport_authentication.setter
+    def transport_authentication(self, value: Optional[pulumi.Input['TransportAuthenticationArgs']]):
+        pulumi.set(self, "transport_authentication", value)
+
+    @property
+    @pulumi.getter(name="userAuthentication")
+    def user_authentication(self) -> Optional[pulumi.Input['UserAuthenticationArgs']]:
+        """
+        Defines the client authentication mechanism to the server.
+        """
+        return pulumi.get(self, "user_authentication")
+
+    @user_authentication.setter
+    def user_authentication(self, value: Optional[pulumi.Input['UserAuthenticationArgs']]):
+        pulumi.set(self, "user_authentication", value)
+
 
 class AssetEndpointProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_configuration: Optional[pulumi.Input[str]] = None,
                  asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['AssetEndpointProfileExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AssetEndpointProfilePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_address: Optional[pulumi.Input[str]] = None,
+                 transport_authentication: Optional[pulumi.Input[pulumi.InputType['TransportAuthenticationArgs']]] = None,
+                 user_authentication: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationArgs']]] = None,
                  __props__=None):
         """
         Asset Endpoint Profile definition.
@@ -134,12 +184,15 @@ class AssetEndpointProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] additional_configuration: Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         :param pulumi.Input[str] asset_endpoint_profile_name: Asset Endpoint Profile name parameter.
-        :param pulumi.Input[pulumi.InputType['AssetEndpointProfileExtendedLocationArgs']] extended_location: The extended location.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['AssetEndpointProfilePropertiesArgs']] properties: Asset Endpoint Profile resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] target_address: The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
+        :param pulumi.Input[pulumi.InputType['TransportAuthenticationArgs']] transport_authentication: Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+        :param pulumi.Input[pulumi.InputType['UserAuthenticationArgs']] user_authentication: Defines the client authentication mechanism to the server.
         """
         ...
     @overload
@@ -166,12 +219,15 @@ class AssetEndpointProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_configuration: Optional[pulumi.Input[str]] = None,
                  asset_endpoint_profile_name: Optional[pulumi.Input[str]] = None,
-                 extended_location: Optional[pulumi.Input[pulumi.InputType['AssetEndpointProfileExtendedLocationArgs']]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['AssetEndpointProfilePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_address: Optional[pulumi.Input[str]] = None,
+                 transport_authentication: Optional[pulumi.Input[pulumi.InputType['TransportAuthenticationArgs']]] = None,
+                 user_authentication: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -181,19 +237,26 @@ class AssetEndpointProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssetEndpointProfileArgs.__new__(AssetEndpointProfileArgs)
 
+            __props__.__dict__["additional_configuration"] = additional_configuration
             __props__.__dict__["asset_endpoint_profile_name"] = asset_endpoint_profile_name
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if target_address is None and not opts.urn:
+                raise TypeError("Missing required property 'target_address'")
+            __props__.__dict__["target_address"] = target_address
+            __props__.__dict__["transport_authentication"] = transport_authentication
+            __props__.__dict__["user_authentication"] = user_authentication
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["uuid"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20231101preview:AssetEndpointProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssetEndpointProfile, __self__).__init__(
@@ -218,18 +281,31 @@ class AssetEndpointProfile(pulumi.CustomResource):
 
         __props__ = AssetEndpointProfileArgs.__new__(AssetEndpointProfileArgs)
 
+        __props__.__dict__["additional_configuration"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_address"] = None
+        __props__.__dict__["transport_authentication"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["user_authentication"] = None
+        __props__.__dict__["uuid"] = None
         return AssetEndpointProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="additionalConfiguration")
+    def additional_configuration(self) -> pulumi.Output[Optional[str]]:
+        """
+        Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
+        """
+        return pulumi.get(self, "additional_configuration")
+
+    @property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Output['outputs.AssetEndpointProfileResponseExtendedLocation']:
+    def extended_location(self) -> pulumi.Output['outputs.ExtendedLocationResponse']:
         """
         The extended location.
         """
@@ -252,12 +328,12 @@ class AssetEndpointProfile(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.AssetEndpointProfilePropertiesResponse']:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Asset Endpoint Profile resource properties.
+        Provisioning state of the resource.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="systemData")
@@ -276,10 +352,42 @@ class AssetEndpointProfile(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="targetAddress")
+    def target_address(self) -> pulumi.Output[str]:
+        """
+        The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
+        """
+        return pulumi.get(self, "target_address")
+
+    @property
+    @pulumi.getter(name="transportAuthentication")
+    def transport_authentication(self) -> pulumi.Output[Optional['outputs.TransportAuthenticationResponse']]:
+        """
+        Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
+        """
+        return pulumi.get(self, "transport_authentication")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAuthentication")
+    def user_authentication(self) -> pulumi.Output[Optional['outputs.UserAuthenticationResponse']]:
+        """
+        Defines the client authentication mechanism to the server.
+        """
+        return pulumi.get(self, "user_authentication")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> pulumi.Output[str]:
+        """
+        Globally unique, immutable, non-reusable id.
+        """
+        return pulumi.get(self, "uuid")
 

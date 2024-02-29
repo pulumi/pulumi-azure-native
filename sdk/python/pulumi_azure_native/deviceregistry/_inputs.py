@@ -11,368 +11,18 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AssetEndpointProfileExtendedLocationArgs',
-    'AssetEndpointProfilePropertiesOwnCertificatesArgs',
-    'AssetEndpointProfilePropertiesTransportAuthenticationArgs',
-    'AssetEndpointProfilePropertiesUserAuthenticationArgs',
-    'AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs',
-    'AssetEndpointProfilePropertiesX509CredentialsArgs',
-    'AssetEndpointProfilePropertiesArgs',
-    'AssetExtendedLocationArgs',
-    'AssetPropertiesDataPointsArgs',
-    'AssetPropertiesEventsArgs',
-    'AssetPropertiesArgs',
+    'DataPointArgs',
+    'EventArgs',
+    'ExtendedLocationArgs',
+    'OwnCertificateArgs',
+    'TransportAuthenticationArgs',
+    'UserAuthenticationArgs',
+    'UsernamePasswordCredentialsArgs',
+    'X509CredentialsArgs',
 ]
 
 @pulumi.input_type
-class AssetEndpointProfileExtendedLocationArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        The extended location.
-        :param pulumi.Input[str] name: The extended location name.
-        :param pulumi.Input[str] type: The extended location type.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The extended location name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The extended location type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class AssetEndpointProfilePropertiesOwnCertificatesArgs:
-    def __init__(__self__, *,
-                 cert_password_reference: Optional[pulumi.Input[str]] = None,
-                 cert_secret_reference: Optional[pulumi.Input[str]] = None,
-                 cert_thumbprint: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] cert_password_reference: Secret Reference Name (Pfx or Pem password)
-        :param pulumi.Input[str] cert_secret_reference: Secret Reference name (cert and private key).
-        :param pulumi.Input[str] cert_thumbprint: Certificate thumbprint.
-        """
-        if cert_password_reference is not None:
-            pulumi.set(__self__, "cert_password_reference", cert_password_reference)
-        if cert_secret_reference is not None:
-            pulumi.set(__self__, "cert_secret_reference", cert_secret_reference)
-        if cert_thumbprint is not None:
-            pulumi.set(__self__, "cert_thumbprint", cert_thumbprint)
-
-    @property
-    @pulumi.getter(name="certPasswordReference")
-    def cert_password_reference(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret Reference Name (Pfx or Pem password)
-        """
-        return pulumi.get(self, "cert_password_reference")
-
-    @cert_password_reference.setter
-    def cert_password_reference(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cert_password_reference", value)
-
-    @property
-    @pulumi.getter(name="certSecretReference")
-    def cert_secret_reference(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret Reference name (cert and private key).
-        """
-        return pulumi.get(self, "cert_secret_reference")
-
-    @cert_secret_reference.setter
-    def cert_secret_reference(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cert_secret_reference", value)
-
-    @property
-    @pulumi.getter(name="certThumbprint")
-    def cert_thumbprint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Certificate thumbprint.
-        """
-        return pulumi.get(self, "cert_thumbprint")
-
-    @cert_thumbprint.setter
-    def cert_thumbprint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cert_thumbprint", value)
-
-
-@pulumi.input_type
-class AssetEndpointProfilePropertiesTransportAuthenticationArgs:
-    def __init__(__self__, *,
-                 own_certificates: pulumi.Input[Sequence[pulumi.Input['AssetEndpointProfilePropertiesOwnCertificatesArgs']]]):
-        """
-        Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetEndpointProfilePropertiesOwnCertificatesArgs']]] own_certificates: Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        """
-        pulumi.set(__self__, "own_certificates", own_certificates)
-
-    @property
-    @pulumi.getter(name="ownCertificates")
-    def own_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['AssetEndpointProfilePropertiesOwnCertificatesArgs']]]:
-        """
-        Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        """
-        return pulumi.get(self, "own_certificates")
-
-    @own_certificates.setter
-    def own_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['AssetEndpointProfilePropertiesOwnCertificatesArgs']]]):
-        pulumi.set(self, "own_certificates", value)
-
-
-@pulumi.input_type
-class AssetEndpointProfilePropertiesUserAuthenticationArgs:
-    def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Union[str, 'Mode']]] = None,
-                 username_password_credentials: Optional[pulumi.Input['AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs']] = None,
-                 x509_credentials: Optional[pulumi.Input['AssetEndpointProfilePropertiesX509CredentialsArgs']] = None):
-        """
-        Defines the client authentication mechanism to the server.
-        :param pulumi.Input[Union[str, 'Mode']] mode: Defines the mode to authenticate the user of the client at the server.
-        :param pulumi.Input['AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs'] username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
-        :param pulumi.Input['AssetEndpointProfilePropertiesX509CredentialsArgs'] x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-        if mode is None:
-            mode = 'Certificate'
-        pulumi.set(__self__, "mode", mode)
-        if username_password_credentials is not None:
-            pulumi.set(__self__, "username_password_credentials", username_password_credentials)
-        if x509_credentials is not None:
-            pulumi.set(__self__, "x509_credentials", x509_credentials)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> pulumi.Input[Union[str, 'Mode']]:
-        """
-        Defines the mode to authenticate the user of the client at the server.
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: pulumi.Input[Union[str, 'Mode']]):
-        pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter(name="usernamePasswordCredentials")
-    def username_password_credentials(self) -> Optional[pulumi.Input['AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs']]:
-        """
-        Defines the username and password references when UsernamePassword user authentication mode is selected.
-        """
-        return pulumi.get(self, "username_password_credentials")
-
-    @username_password_credentials.setter
-    def username_password_credentials(self, value: Optional[pulumi.Input['AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs']]):
-        pulumi.set(self, "username_password_credentials", value)
-
-    @property
-    @pulumi.getter(name="x509Credentials")
-    def x509_credentials(self) -> Optional[pulumi.Input['AssetEndpointProfilePropertiesX509CredentialsArgs']]:
-        """
-        Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-        return pulumi.get(self, "x509_credentials")
-
-    @x509_credentials.setter
-    def x509_credentials(self, value: Optional[pulumi.Input['AssetEndpointProfilePropertiesX509CredentialsArgs']]):
-        pulumi.set(self, "x509_credentials", value)
-
-
-@pulumi.input_type
-class AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs:
-    def __init__(__self__, *,
-                 password_reference: pulumi.Input[str],
-                 username_reference: pulumi.Input[str]):
-        """
-        Defines the username and password references when UsernamePassword user authentication mode is selected.
-        :param pulumi.Input[str] password_reference: A reference to secret containing the password.
-        :param pulumi.Input[str] username_reference: A reference to secret containing the username.
-        """
-        pulumi.set(__self__, "password_reference", password_reference)
-        pulumi.set(__self__, "username_reference", username_reference)
-
-    @property
-    @pulumi.getter(name="passwordReference")
-    def password_reference(self) -> pulumi.Input[str]:
-        """
-        A reference to secret containing the password.
-        """
-        return pulumi.get(self, "password_reference")
-
-    @password_reference.setter
-    def password_reference(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password_reference", value)
-
-    @property
-    @pulumi.getter(name="usernameReference")
-    def username_reference(self) -> pulumi.Input[str]:
-        """
-        A reference to secret containing the username.
-        """
-        return pulumi.get(self, "username_reference")
-
-    @username_reference.setter
-    def username_reference(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username_reference", value)
-
-
-@pulumi.input_type
-class AssetEndpointProfilePropertiesX509CredentialsArgs:
-    def __init__(__self__, *,
-                 certificate_reference: pulumi.Input[str]):
-        """
-        Defines the certificate reference when Certificate user authentication mode is selected.
-        :param pulumi.Input[str] certificate_reference: A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
-        """
-        pulumi.set(__self__, "certificate_reference", certificate_reference)
-
-    @property
-    @pulumi.getter(name="certificateReference")
-    def certificate_reference(self) -> pulumi.Input[str]:
-        """
-        A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
-        """
-        return pulumi.get(self, "certificate_reference")
-
-    @certificate_reference.setter
-    def certificate_reference(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_reference", value)
-
-
-@pulumi.input_type
-class AssetEndpointProfilePropertiesArgs:
-    def __init__(__self__, *,
-                 target_address: pulumi.Input[str],
-                 additional_configuration: Optional[pulumi.Input[str]] = None,
-                 transport_authentication: Optional[pulumi.Input['AssetEndpointProfilePropertiesTransportAuthenticationArgs']] = None,
-                 user_authentication: Optional[pulumi.Input['AssetEndpointProfilePropertiesUserAuthenticationArgs']] = None):
-        """
-        Defines the Asset Endpoint Profile properties.
-        :param pulumi.Input[str] target_address: The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
-        :param pulumi.Input[str] additional_configuration: Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
-        :param pulumi.Input['AssetEndpointProfilePropertiesTransportAuthenticationArgs'] transport_authentication: Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        :param pulumi.Input['AssetEndpointProfilePropertiesUserAuthenticationArgs'] user_authentication: Defines the client authentication mechanism to the server.
-        """
-        pulumi.set(__self__, "target_address", target_address)
-        if additional_configuration is not None:
-            pulumi.set(__self__, "additional_configuration", additional_configuration)
-        if transport_authentication is not None:
-            pulumi.set(__self__, "transport_authentication", transport_authentication)
-        if user_authentication is not None:
-            pulumi.set(__self__, "user_authentication", user_authentication)
-
-    @property
-    @pulumi.getter(name="targetAddress")
-    def target_address(self) -> pulumi.Input[str]:
-        """
-        The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
-        """
-        return pulumi.get(self, "target_address")
-
-    @target_address.setter
-    def target_address(self, value: pulumi.Input[str]):
-        pulumi.set(self, "target_address", value)
-
-    @property
-    @pulumi.getter(name="additionalConfiguration")
-    def additional_configuration(self) -> Optional[pulumi.Input[str]]:
-        """
-        Contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
-        """
-        return pulumi.get(self, "additional_configuration")
-
-    @additional_configuration.setter
-    def additional_configuration(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "additional_configuration", value)
-
-    @property
-    @pulumi.getter(name="transportAuthentication")
-    def transport_authentication(self) -> Optional[pulumi.Input['AssetEndpointProfilePropertiesTransportAuthenticationArgs']]:
-        """
-        Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        """
-        return pulumi.get(self, "transport_authentication")
-
-    @transport_authentication.setter
-    def transport_authentication(self, value: Optional[pulumi.Input['AssetEndpointProfilePropertiesTransportAuthenticationArgs']]):
-        pulumi.set(self, "transport_authentication", value)
-
-    @property
-    @pulumi.getter(name="userAuthentication")
-    def user_authentication(self) -> Optional[pulumi.Input['AssetEndpointProfilePropertiesUserAuthenticationArgs']]:
-        """
-        Defines the client authentication mechanism to the server.
-        """
-        return pulumi.get(self, "user_authentication")
-
-    @user_authentication.setter
-    def user_authentication(self, value: Optional[pulumi.Input['AssetEndpointProfilePropertiesUserAuthenticationArgs']]):
-        pulumi.set(self, "user_authentication", value)
-
-
-@pulumi.input_type
-class AssetExtendedLocationArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
-        """
-        The extended location.
-        :param pulumi.Input[str] name: The extended location name.
-        :param pulumi.Input[str] type: The extended location type.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The extended location name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The extended location type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class AssetPropertiesDataPointsArgs:
+class DataPointArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[str],
                  capability_id: Optional[pulumi.Input[str]] = None,
@@ -380,6 +30,7 @@ class AssetPropertiesDataPointsArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  observability_mode: Optional[pulumi.Input[Union[str, 'DataPointsObservabilityMode']]] = None):
         """
+        Defines the data point properties.
         :param pulumi.Input[str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         :param pulumi.Input[str] capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
         :param pulumi.Input[str] data_point_configuration: Protocol-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -460,7 +111,7 @@ class AssetPropertiesDataPointsArgs:
 
 
 @pulumi.input_type
-class AssetPropertiesEventsArgs:
+class EventArgs:
     def __init__(__self__, *,
                  event_notifier: pulumi.Input[str],
                  capability_id: Optional[pulumi.Input[str]] = None,
@@ -468,6 +119,7 @@ class AssetPropertiesEventsArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  observability_mode: Optional[pulumi.Input[Union[str, 'EventsObservabilityMode']]] = None):
         """
+        Defines the event properties.
         :param pulumi.Input[str] event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         :param pulumi.Input[str] capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
         :param pulumi.Input[str] event_configuration: Protocol-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
@@ -548,313 +200,237 @@ class AssetPropertiesEventsArgs:
 
 
 @pulumi.input_type
-class AssetPropertiesArgs:
+class ExtendedLocationArgs:
     def __init__(__self__, *,
-                 asset_endpoint_profile_uri: pulumi.Input[str],
-                 asset_type: Optional[pulumi.Input[str]] = None,
-                 attributes: Optional[Any] = None,
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertiesDataPointsArgs']]]] = None,
-                 default_data_points_configuration: Optional[pulumi.Input[str]] = None,
-                 default_events_configuration: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 documentation_uri: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertiesEventsArgs']]]] = None,
-                 external_asset_id: Optional[pulumi.Input[str]] = None,
-                 hardware_revision: Optional[pulumi.Input[str]] = None,
-                 manufacturer: Optional[pulumi.Input[str]] = None,
-                 manufacturer_uri: Optional[pulumi.Input[str]] = None,
-                 model: Optional[pulumi.Input[str]] = None,
-                 product_code: Optional[pulumi.Input[str]] = None,
-                 serial_number: Optional[pulumi.Input[str]] = None,
-                 software_revision: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
         """
-        Asset resource properties.
-        :param pulumi.Input[str] asset_endpoint_profile_uri: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
-        :param pulumi.Input[str] asset_type: Resource path to asset type (model) definition.
-        :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetPropertiesDataPointsArgs']]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
-        :param pulumi.Input[str] default_data_points_configuration: Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
-        :param pulumi.Input[str] default_events_configuration: Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
-        :param pulumi.Input[str] description: Human-readable description of the asset.
-        :param pulumi.Input[str] display_name: Human-readable display name.
-        :param pulumi.Input[str] documentation_uri: Reference to the documentation.
-        :param pulumi.Input[bool] enabled: Enabled/Disabled status of the asset.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetPropertiesEventsArgs']]] events: Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
-        :param pulumi.Input[str] external_asset_id: Asset id provided by the customer.
-        :param pulumi.Input[str] hardware_revision: Revision number of the hardware.
-        :param pulumi.Input[str] manufacturer: Asset manufacturer name.
-        :param pulumi.Input[str] manufacturer_uri: Asset manufacturer URI.
-        :param pulumi.Input[str] model: Asset model name.
-        :param pulumi.Input[str] product_code: Asset product code.
-        :param pulumi.Input[str] serial_number: Asset serial number.
-        :param pulumi.Input[str] software_revision: Revision number of the software.
+        The extended location.
+        :param pulumi.Input[str] name: The extended location name.
+        :param pulumi.Input[str] type: The extended location type.
         """
-        pulumi.set(__self__, "asset_endpoint_profile_uri", asset_endpoint_profile_uri)
-        if asset_type is not None:
-            pulumi.set(__self__, "asset_type", asset_type)
-        if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
-        if data_points is not None:
-            pulumi.set(__self__, "data_points", data_points)
-        if default_data_points_configuration is not None:
-            pulumi.set(__self__, "default_data_points_configuration", default_data_points_configuration)
-        if default_events_configuration is not None:
-            pulumi.set(__self__, "default_events_configuration", default_events_configuration)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if documentation_uri is not None:
-            pulumi.set(__self__, "documentation_uri", documentation_uri)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if events is not None:
-            pulumi.set(__self__, "events", events)
-        if external_asset_id is not None:
-            pulumi.set(__self__, "external_asset_id", external_asset_id)
-        if hardware_revision is not None:
-            pulumi.set(__self__, "hardware_revision", hardware_revision)
-        if manufacturer is not None:
-            pulumi.set(__self__, "manufacturer", manufacturer)
-        if manufacturer_uri is not None:
-            pulumi.set(__self__, "manufacturer_uri", manufacturer_uri)
-        if model is not None:
-            pulumi.set(__self__, "model", model)
-        if product_code is not None:
-            pulumi.set(__self__, "product_code", product_code)
-        if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
-        if software_revision is not None:
-            pulumi.set(__self__, "software_revision", software_revision)
-
-    @property
-    @pulumi.getter(name="assetEndpointProfileUri")
-    def asset_endpoint_profile_uri(self) -> pulumi.Input[str]:
-        """
-        A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
-        """
-        return pulumi.get(self, "asset_endpoint_profile_uri")
-
-    @asset_endpoint_profile_uri.setter
-    def asset_endpoint_profile_uri(self, value: pulumi.Input[str]):
-        pulumi.set(self, "asset_endpoint_profile_uri", value)
-
-    @property
-    @pulumi.getter(name="assetType")
-    def asset_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource path to asset type (model) definition.
-        """
-        return pulumi.get(self, "asset_type")
-
-    @asset_type.setter
-    def asset_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "asset_type", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[Any]:
+    def name(self) -> pulumi.Input[str]:
         """
-        A set of key-value pairs that contain custom attributes set by the customer.
+        The extended location name.
         """
-        return pulumi.get(self, "attributes")
+        return pulumi.get(self, "name")
 
-    @attributes.setter
-    def attributes(self, value: Optional[Any]):
-        pulumi.set(self, "attributes", value)
-
-    @property
-    @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertiesDataPointsArgs']]]]:
-        """
-        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration. See below for more details for the definition of the dataPoints element.
-        """
-        return pulumi.get(self, "data_points")
-
-    @data_points.setter
-    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertiesDataPointsArgs']]]]):
-        pulumi.set(self, "data_points", value)
-
-    @property
-    @pulumi.getter(name="defaultDataPointsConfiguration")
-    def default_data_points_configuration(self) -> Optional[pulumi.Input[str]]:
-        """
-        Protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
-        """
-        return pulumi.get(self, "default_data_points_configuration")
-
-    @default_data_points_configuration.setter
-    def default_data_points_configuration(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_data_points_configuration", value)
-
-    @property
-    @pulumi.getter(name="defaultEventsConfiguration")
-    def default_events_configuration(self) -> Optional[pulumi.Input[str]]:
-        """
-        Protocol-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here. This assumes that each asset instance has one protocol.
-        """
-        return pulumi.get(self, "default_events_configuration")
-
-    @default_events_configuration.setter
-    def default_events_configuration(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_events_configuration", value)
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> pulumi.Input[str]:
         """
-        Human-readable description of the asset.
+        The extended location type.
         """
-        return pulumi.get(self, "description")
+        return pulumi.get(self, "type")
 
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class OwnCertificateArgs:
+    def __init__(__self__, *,
+                 cert_password_reference: Optional[pulumi.Input[str]] = None,
+                 cert_secret_reference: Optional[pulumi.Input[str]] = None,
+                 cert_thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        Certificate or private key that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
+        :param pulumi.Input[str] cert_password_reference: Secret Reference Name (Pfx or Pem password).
+        :param pulumi.Input[str] cert_secret_reference: Secret Reference name (cert and private key).
+        :param pulumi.Input[str] cert_thumbprint: Certificate thumbprint.
+        """
+        if cert_password_reference is not None:
+            pulumi.set(__self__, "cert_password_reference", cert_password_reference)
+        if cert_secret_reference is not None:
+            pulumi.set(__self__, "cert_secret_reference", cert_secret_reference)
+        if cert_thumbprint is not None:
+            pulumi.set(__self__, "cert_thumbprint", cert_thumbprint)
 
     @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="certPasswordReference")
+    def cert_password_reference(self) -> Optional[pulumi.Input[str]]:
         """
-        Human-readable display name.
+        Secret Reference Name (Pfx or Pem password).
         """
-        return pulumi.get(self, "display_name")
+        return pulumi.get(self, "cert_password_reference")
 
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
+    @cert_password_reference.setter
+    def cert_password_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_password_reference", value)
 
     @property
-    @pulumi.getter(name="documentationUri")
-    def documentation_uri(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="certSecretReference")
+    def cert_secret_reference(self) -> Optional[pulumi.Input[str]]:
         """
-        Reference to the documentation.
+        Secret Reference name (cert and private key).
         """
-        return pulumi.get(self, "documentation_uri")
+        return pulumi.get(self, "cert_secret_reference")
 
-    @documentation_uri.setter
-    def documentation_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "documentation_uri", value)
+    @cert_secret_reference.setter
+    def cert_secret_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_secret_reference", value)
+
+    @property
+    @pulumi.getter(name="certThumbprint")
+    def cert_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate thumbprint.
+        """
+        return pulumi.get(self, "cert_thumbprint")
+
+    @cert_thumbprint.setter
+    def cert_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_thumbprint", value)
+
+
+@pulumi.input_type
+class TransportAuthenticationArgs:
+    def __init__(__self__, *,
+                 own_certificates: pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]]):
+        """
+        Definition of the authentication mechanism for the southbound connector.
+        :param pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]] own_certificates: Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
+        """
+        pulumi.set(__self__, "own_certificates", own_certificates)
+
+    @property
+    @pulumi.getter(name="ownCertificates")
+    def own_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]]:
+        """
+        Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
+        """
+        return pulumi.get(self, "own_certificates")
+
+    @own_certificates.setter
+    def own_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]]):
+        pulumi.set(self, "own_certificates", value)
+
+
+@pulumi.input_type
+class UserAuthenticationArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[Union[str, 'UserAuthenticationMode']]] = None,
+                 username_password_credentials: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']] = None,
+                 x509_credentials: Optional[pulumi.Input['X509CredentialsArgs']] = None):
+        """
+        Definition of the client authentication mechanism to the server.
+        :param pulumi.Input[Union[str, 'UserAuthenticationMode']] mode: Defines the mode to authenticate the user of the client at the server.
+        :param pulumi.Input['UsernamePasswordCredentialsArgs'] username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
+        :param pulumi.Input['X509CredentialsArgs'] x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
+        """
+        if mode is None:
+            mode = 'Certificate'
+        pulumi.set(__self__, "mode", mode)
+        if username_password_credentials is not None:
+            pulumi.set(__self__, "username_password_credentials", username_password_credentials)
+        if x509_credentials is not None:
+            pulumi.set(__self__, "x509_credentials", x509_credentials)
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
+    def mode(self) -> pulumi.Input[Union[str, 'UserAuthenticationMode']]:
         """
-        Enabled/Disabled status of the asset.
+        Defines the mode to authenticate the user of the client at the server.
         """
-        return pulumi.get(self, "enabled")
+        return pulumi.get(self, "mode")
 
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertiesEventsArgs']]]]:
-        """
-        Array of events that are part of the asset. Each event can reference an asset type capability and have per-event configuration. See below for more details about the definition of the events element.
-        """
-        return pulumi.get(self, "events")
-
-    @events.setter
-    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertiesEventsArgs']]]]):
-        pulumi.set(self, "events", value)
+    @mode.setter
+    def mode(self, value: pulumi.Input[Union[str, 'UserAuthenticationMode']]):
+        pulumi.set(self, "mode", value)
 
     @property
-    @pulumi.getter(name="externalAssetId")
-    def external_asset_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="usernamePasswordCredentials")
+    def username_password_credentials(self) -> Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]:
         """
-        Asset id provided by the customer.
+        Defines the username and password references when UsernamePassword user authentication mode is selected.
         """
-        return pulumi.get(self, "external_asset_id")
+        return pulumi.get(self, "username_password_credentials")
 
-    @external_asset_id.setter
-    def external_asset_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "external_asset_id", value)
-
-    @property
-    @pulumi.getter(name="hardwareRevision")
-    def hardware_revision(self) -> Optional[pulumi.Input[str]]:
-        """
-        Revision number of the hardware.
-        """
-        return pulumi.get(self, "hardware_revision")
-
-    @hardware_revision.setter
-    def hardware_revision(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "hardware_revision", value)
+    @username_password_credentials.setter
+    def username_password_credentials(self, value: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]):
+        pulumi.set(self, "username_password_credentials", value)
 
     @property
-    @pulumi.getter
-    def manufacturer(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="x509Credentials")
+    def x509_credentials(self) -> Optional[pulumi.Input['X509CredentialsArgs']]:
         """
-        Asset manufacturer name.
+        Defines the certificate reference when Certificate user authentication mode is selected.
         """
-        return pulumi.get(self, "manufacturer")
+        return pulumi.get(self, "x509_credentials")
 
-    @manufacturer.setter
-    def manufacturer(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "manufacturer", value)
+    @x509_credentials.setter
+    def x509_credentials(self, value: Optional[pulumi.Input['X509CredentialsArgs']]):
+        pulumi.set(self, "x509_credentials", value)
 
-    @property
-    @pulumi.getter(name="manufacturerUri")
-    def manufacturer_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Asset manufacturer URI.
-        """
-        return pulumi.get(self, "manufacturer_uri")
 
-    @manufacturer_uri.setter
-    def manufacturer_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "manufacturer_uri", value)
-
-    @property
-    @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[str]]:
+@pulumi.input_type
+class UsernamePasswordCredentialsArgs:
+    def __init__(__self__, *,
+                 password_reference: pulumi.Input[str],
+                 username_reference: pulumi.Input[str]):
         """
-        Asset model name.
+        The credentials for authentication mode UsernamePassword.
+        :param pulumi.Input[str] password_reference: A reference to secret containing the password.
+        :param pulumi.Input[str] username_reference: A reference to secret containing the username.
         """
-        return pulumi.get(self, "model")
-
-    @model.setter
-    def model(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "model", value)
+        pulumi.set(__self__, "password_reference", password_reference)
+        pulumi.set(__self__, "username_reference", username_reference)
 
     @property
-    @pulumi.getter(name="productCode")
-    def product_code(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="passwordReference")
+    def password_reference(self) -> pulumi.Input[str]:
         """
-        Asset product code.
+        A reference to secret containing the password.
         """
-        return pulumi.get(self, "product_code")
+        return pulumi.get(self, "password_reference")
 
-    @product_code.setter
-    def product_code(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "product_code", value)
-
-    @property
-    @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> Optional[pulumi.Input[str]]:
-        """
-        Asset serial number.
-        """
-        return pulumi.get(self, "serial_number")
-
-    @serial_number.setter
-    def serial_number(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "serial_number", value)
+    @password_reference.setter
+    def password_reference(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password_reference", value)
 
     @property
-    @pulumi.getter(name="softwareRevision")
-    def software_revision(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="usernameReference")
+    def username_reference(self) -> pulumi.Input[str]:
         """
-        Revision number of the software.
+        A reference to secret containing the username.
         """
-        return pulumi.get(self, "software_revision")
+        return pulumi.get(self, "username_reference")
 
-    @software_revision.setter
-    def software_revision(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "software_revision", value)
+    @username_reference.setter
+    def username_reference(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username_reference", value)
+
+
+@pulumi.input_type
+class X509CredentialsArgs:
+    def __init__(__self__, *,
+                 certificate_reference: pulumi.Input[str]):
+        """
+        The x509 certificate for authentication mode Certificate.
+        :param pulumi.Input[str] certificate_reference: A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        """
+        pulumi.set(__self__, "certificate_reference", certificate_reference)
+
+    @property
+    @pulumi.getter(name="certificateReference")
+    def certificate_reference(self) -> pulumi.Input[str]:
+        """
+        A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        """
+        return pulumi.get(self, "certificate_reference")
+
+    @certificate_reference.setter
+    def certificate_reference(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_reference", value)
 
 

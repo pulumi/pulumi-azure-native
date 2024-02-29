@@ -148,7 +148,7 @@ class ManagedClusterService(pulumi.CustomResource):
         The service resource.
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +170,7 @@ class ManagedClusterService(pulumi.CustomResource):
         The service resource.
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterServiceArgs args: The arguments to use to populate this resource's properties.
@@ -219,7 +219,7 @@ class ManagedClusterService(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230701preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230901preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20231101preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20231201preview:ManagedClusterService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabric/v20210101preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20210501:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20210701preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20210901privatepreview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20211101preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20220101:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20220201preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20220601preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20220801preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20221001preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230201preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230301preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230701preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20230901preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20231101preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20231201preview:ManagedClusterService"), pulumi.Alias(type_="azure-native:servicefabric/v20240201preview:ManagedClusterService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedClusterService, __self__).__init__(
             'azure-native:servicefabric:ManagedClusterService',

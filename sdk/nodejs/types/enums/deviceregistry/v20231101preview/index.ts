@@ -3,10 +3,25 @@
 
 
 export const DataPointsObservabilityMode = {
+    /**
+     * No mapping to OpenTelemetry.
+     */
     None: "none",
+    /**
+     * Map as counter to OpenTelemetry.
+     */
     Counter: "counter",
+    /**
+     * Map as gauge to OpenTelemetry.
+     */
     Gauge: "gauge",
+    /**
+     * Map as histogram to OpenTelemetry.
+     */
     Histogram: "histogram",
+    /**
+     * Map as log to OpenTelemetry.
+     */
     Log: "log",
 } as const;
 
@@ -16,7 +31,13 @@ export const DataPointsObservabilityMode = {
 export type DataPointsObservabilityMode = (typeof DataPointsObservabilityMode)[keyof typeof DataPointsObservabilityMode];
 
 export const EventsObservabilityMode = {
+    /**
+     * No mapping to OpenTelemetry.
+     */
     None: "none",
+    /**
+     * Map as log to OpenTelemetry.
+     */
     Log: "log",
 } as const;
 
@@ -25,13 +46,22 @@ export const EventsObservabilityMode = {
  */
 export type EventsObservabilityMode = (typeof EventsObservabilityMode)[keyof typeof EventsObservabilityMode];
 
-export const Mode = {
+export const UserAuthenticationMode = {
+    /**
+     * The user authentication mode is anonymous.
+     */
     Anonymous: "Anonymous",
+    /**
+     * The user authentication mode is an x509 certificate.
+     */
     Certificate: "Certificate",
+    /**
+     * The user authentication mode is a username and password.
+     */
     UsernamePassword: "UsernamePassword",
 } as const;
 
 /**
  * Defines the mode to authenticate the user of the client at the server.
  */
-export type Mode = (typeof Mode)[keyof typeof Mode];
+export type UserAuthenticationMode = (typeof UserAuthenticationMode)[keyof typeof UserAuthenticationMode];

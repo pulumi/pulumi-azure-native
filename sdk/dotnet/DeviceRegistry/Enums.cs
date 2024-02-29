@@ -20,10 +20,25 @@ namespace Pulumi.AzureNative.DeviceRegistry
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// No mapping to OpenTelemetry.
+        /// </summary>
         public static DataPointsObservabilityMode None { get; } = new DataPointsObservabilityMode("none");
+        /// <summary>
+        /// Map as counter to OpenTelemetry.
+        /// </summary>
         public static DataPointsObservabilityMode Counter { get; } = new DataPointsObservabilityMode("counter");
+        /// <summary>
+        /// Map as gauge to OpenTelemetry.
+        /// </summary>
         public static DataPointsObservabilityMode Gauge { get; } = new DataPointsObservabilityMode("gauge");
+        /// <summary>
+        /// Map as histogram to OpenTelemetry.
+        /// </summary>
         public static DataPointsObservabilityMode Histogram { get; } = new DataPointsObservabilityMode("histogram");
+        /// <summary>
+        /// Map as log to OpenTelemetry.
+        /// </summary>
         public static DataPointsObservabilityMode Log { get; } = new DataPointsObservabilityMode("log");
 
         public static bool operator ==(DataPointsObservabilityMode left, DataPointsObservabilityMode right) => left.Equals(right);
@@ -54,7 +69,13 @@ namespace Pulumi.AzureNative.DeviceRegistry
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// No mapping to OpenTelemetry.
+        /// </summary>
         public static EventsObservabilityMode None { get; } = new EventsObservabilityMode("none");
+        /// <summary>
+        /// Map as log to OpenTelemetry.
+        /// </summary>
         public static EventsObservabilityMode Log { get; } = new EventsObservabilityMode("log");
 
         public static bool operator ==(EventsObservabilityMode left, EventsObservabilityMode right) => left.Equals(right);
@@ -76,27 +97,36 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Defines the mode to authenticate the user of the client at the server.
     /// </summary>
     [EnumType]
-    public readonly struct Mode : IEquatable<Mode>
+    public readonly struct UserAuthenticationMode : IEquatable<UserAuthenticationMode>
     {
         private readonly string _value;
 
-        private Mode(string value)
+        private UserAuthenticationMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Mode Anonymous { get; } = new Mode("Anonymous");
-        public static Mode Certificate { get; } = new Mode("Certificate");
-        public static Mode UsernamePassword { get; } = new Mode("UsernamePassword");
+        /// <summary>
+        /// The user authentication mode is anonymous.
+        /// </summary>
+        public static UserAuthenticationMode Anonymous { get; } = new UserAuthenticationMode("Anonymous");
+        /// <summary>
+        /// The user authentication mode is an x509 certificate.
+        /// </summary>
+        public static UserAuthenticationMode Certificate { get; } = new UserAuthenticationMode("Certificate");
+        /// <summary>
+        /// The user authentication mode is a username and password.
+        /// </summary>
+        public static UserAuthenticationMode UsernamePassword { get; } = new UserAuthenticationMode("UsernamePassword");
 
-        public static bool operator ==(Mode left, Mode right) => left.Equals(right);
-        public static bool operator !=(Mode left, Mode right) => !left.Equals(right);
+        public static bool operator ==(UserAuthenticationMode left, UserAuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(UserAuthenticationMode left, UserAuthenticationMode right) => !left.Equals(right);
 
-        public static explicit operator string(Mode value) => value._value;
+        public static explicit operator string(UserAuthenticationMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Mode other && Equals(other);
-        public bool Equals(Mode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is UserAuthenticationMode other && Equals(other);
+        public bool Equals(UserAuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

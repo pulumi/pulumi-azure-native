@@ -127,7 +127,7 @@ def get_protection_intent(fabric_name: Optional[str] = None,
     call the GetItemOperationResult API.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01.
+    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
 
 
     :param str fabric_name: Fabric name associated with the backed up item.
@@ -164,7 +164,7 @@ def get_protection_intent_output(fabric_name: Optional[pulumi.Input[str]] = None
     call the GetItemOperationResult API.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01.
+    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
 
 
     :param str fabric_name: Fabric name associated with the backed up item.

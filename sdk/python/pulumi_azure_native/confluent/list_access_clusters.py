@@ -77,6 +77,8 @@ def list_access_clusters(organization_name: Optional[str] = None,
     List cluster success response
     Azure REST API version: 2023-08-22.
 
+    Other available API versions: 2024-02-13.
+
 
     :param str organization_name: Organization resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -103,6 +105,8 @@ def list_access_clusters_output(organization_name: Optional[pulumi.Input[str]] =
     """
     List cluster success response
     Azure REST API version: 2023-08-22.
+
+    Other available API versions: 2024-02-13.
 
 
     :param str organization_name: Organization resource name

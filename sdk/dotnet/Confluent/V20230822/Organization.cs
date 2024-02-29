@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Confluent.V20230822
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20210301preview:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20210901preview:Organization" },
                     new global::Pulumi.Alias { Type = "azure-native:confluent/v20211201:Organization" },
+                    new global::Pulumi.Alias { Type = "azure-native:confluent/v20240213:Organization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

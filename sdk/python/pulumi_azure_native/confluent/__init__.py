@@ -9,9 +9,11 @@ from .get_organization import *
 from .list_access_clusters import *
 from .list_access_environments import *
 from .list_access_invitations import *
+from .list_access_role_binding_name import *
 from .list_access_role_bindings import *
 from .list_access_service_accounts import *
 from .list_access_users import *
+from .list_organization_regions import *
 from .organization import *
 from ._inputs import *
 from . import outputs
@@ -24,8 +26,11 @@ if typing.TYPE_CHECKING:
     v20211201 = __v20211201
     import pulumi_azure_native.confluent.v20230822 as __v20230822
     v20230822 = __v20230822
+    import pulumi_azure_native.confluent.v20240213 as __v20240213
+    v20240213 = __v20240213
 else:
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.confluent.v20200301preview')
     v20211201 = _utilities.lazy_import('pulumi_azure_native.confluent.v20211201')
     v20230822 = _utilities.lazy_import('pulumi_azure_native.confluent.v20230822')
+    v20240213 = _utilities.lazy_import('pulumi_azure_native.confluent.v20240213')
 
