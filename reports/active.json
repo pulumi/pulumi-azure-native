@@ -42778,20 +42778,6 @@
       "2021-02-01"
     ]
   },
-  "windowsiot": {
-    "": [
-      "2018-02-16-preview",
-      "2019-06-01"
-    ],
-    "deviceservices": [
-      "2018-02-16-preview",
-      "2019-06-01"
-    ],
-    "operations": [
-      "2018-02-16-preview",
-      "2019-06-01"
-    ]
-  },
   "windowspushnotificationservices": {
     "": [
       "2022-09-12-preview"

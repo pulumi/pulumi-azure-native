@@ -1295,6 +1295,13 @@
     "Property": "location"
   },
   {
+    "Module": "azuredatatransfer/v20240125",
+    "Provider": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "selectedResource",
+    "Property": "location"
+  },
+  {
     "Module": "azuresphere",
     "Provider": "AzureSphere",
     "ResourceName": "Deployment",

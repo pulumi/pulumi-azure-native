@@ -50906,25 +50906,6 @@
     ]
   },
   {
-    "namespace": "Microsoft.WindowsIoT",
-    "resourceTypes": [
-      {
-        "resourceType": "DeviceServices",
-        "apiVersions": [
-          "2019-06-01",
-          "2018-02-16-preview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2019-06-01",
-          "2018-02-16-preview"
-        ]
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.WindowsPushNotificationServices",
     "resourceTypes": [
       {
