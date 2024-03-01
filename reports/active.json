@@ -1939,7 +1939,8 @@
       "2023-01-01",
       "2023-02-01",
       "2023-03-01-preview",
-      "2023-04-01"
+      "2023-04-01",
+      "2023-07-01-preview"
     ],
     "accessreviewhistorydefinitions": [
       "2021-11-16-preview"
@@ -2176,7 +2177,8 @@
       "2018-01-01-preview",
       "2018-07-01",
       "2022-04-01",
-      "2022-05-01-preview"
+      "2022-05-01-preview",
+      "2023-07-01-preview"
     ],
     "roleeligibilityscheduleinstances": [
       "2020-10-01",
@@ -21676,37 +21678,48 @@
     "": [
       "2022-01-15-privatepreview",
       "2023-02-01-preview",
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "accesscontrollists": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "internetgatewayrules": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "internetgateways": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "ipcommunities": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "ipextendedcommunities": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "ipprefixes": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "l2isolationdomains": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "l3isolationdomains": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "l3isolationdomains/externalnetworks": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "l3isolationdomains/internalnetworks": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "locations": [
       "2022-01-15-privatepreview",
@@ -21717,34 +21730,44 @@
       "2023-06-15"
     ],
     "neighborgroups": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networkdevices": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networkdevices/networkinterfaces": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networkfabriccontrollers": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networkfabrics": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networkfabrics/networktonetworkinterconnects": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networkpacketbrokers": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networkracks": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networktaprules": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "networktaps": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ],
     "operations": [
       "2022-01-15-privatepreview",
@@ -21752,7 +21775,8 @@
       "2023-06-15"
     ],
     "routepolicies": [
-      "2023-06-15"
+      "2023-06-15",
+      "2024-02-15-preview"
     ]
   },
   "managedservices": {
@@ -21963,7 +21987,8 @@
       "2021-12-01-preview",
       "2023-06-01",
       "2023-08-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-01-01-preview"
     ],
     "accounts": [
       "2017-01-01-preview",
@@ -21974,7 +21999,8 @@
       "2021-12-01-preview",
       "2023-06-01",
       "2023-08-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-01-01-preview"
     ],
     "accounts/creators": [
       "2020-02-01-preview",
@@ -21982,7 +22008,8 @@
       "2021-12-01-preview",
       "2023-06-01",
       "2023-08-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-01-01-preview"
     ],
     "accounts/eventgridfilters": [
       "2018-05-01",
@@ -21991,7 +22018,8 @@
       "2021-12-01-preview",
       "2023-06-01",
       "2023-08-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-01-01-preview"
     ],
     "operations": [
       "2017-01-01-preview",
@@ -22002,7 +22030,8 @@
       "2021-12-01-preview",
       "2023-06-01",
       "2023-08-01-preview",
-      "2023-12-01-preview"
+      "2023-12-01-preview",
+      "2024-01-01-preview"
     ]
   },
   "marketplace": {

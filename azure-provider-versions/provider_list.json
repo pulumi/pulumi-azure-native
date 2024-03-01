@@ -3112,6 +3112,7 @@
       {
         "resourceType": "roleDefinitions",
         "apiVersions": [
+          "2023-07-01-preview",
           "2022-05-01-preview",
           "2022-04-01",
           "2018-07-01",
@@ -26106,48 +26107,49 @@
       {
         "resourceType": "InternetGateways",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "IpCommunities",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "IpExtendedCommunities",
         "apiVersions": [
-          "2023-06-15"
-        ]
-      },
-      {
-        "resourceType": "IpPrefixes",
-        "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "L2IsolationDomains",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "L3IsolationDomains",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "L3IsolationDomains/externalNetworks",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "L3IsolationDomains/internalNetworks",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
@@ -26168,36 +26170,42 @@
       {
         "resourceType": "NetworkDevices",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "NetworkDevices/NetworkInterfaces",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "NetworkFabricControllers",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "NetworkFabrics",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "NetworkFabrics/NetworkToNetworkInterconnects",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "NetworkRacks",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
@@ -26212,42 +26220,56 @@
       {
         "resourceType": "RoutePolicies",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "accesscontrollists",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "internetgatewayrules",
         "apiVersions": [
+          "2024-02-15-preview",
+          "2023-06-15"
+        ]
+      },
+      {
+        "resourceType": "ipprefixes",
+        "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "neighborgroups",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "networkpacketbrokers",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "networktaprules",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       },
       {
         "resourceType": "networktaps",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15"
         ]
       }
@@ -26489,6 +26511,7 @@
       {
         "resourceType": "accounts",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-08-01-preview",
           "2023-06-01",
@@ -26503,6 +26526,7 @@
       {
         "resourceType": "accounts/creators",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-08-01-preview",
           "2023-06-01",
@@ -26514,6 +26538,7 @@
       {
         "resourceType": "accounts/eventGridFilters",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-08-01-preview",
           "2023-06-01",
@@ -26526,6 +26551,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-08-01-preview",
           "2023-06-01",
