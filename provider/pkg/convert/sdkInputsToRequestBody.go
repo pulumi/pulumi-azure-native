@@ -41,8 +41,7 @@ func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop
 		// In that case, we allow users to specify a relative ID ($self/backendPool/abc) instead of
 		// specifying the full Azure resource ID explicitly.
 		// The block below takes care of resolving those relative IDs to absolute IDs.
-		typeNameParts := strings.Split(typeName, ":")
-		if len(typeNameParts) == 3 && typeNameParts[2] == "SubResource" {
+		if _, _, resourceName, err := resources.ParseToken(typeName); err == nil && resourceName == "SubResource" {
 			if relId, ok := values["id"].(string); ok && strings.HasPrefix(relId, "$self/") {
 				values["id"] = strings.Replace(relId, "$self", id, 1)
 			}

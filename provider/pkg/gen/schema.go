@@ -556,6 +556,9 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 		}
 		metadata.Resources[tok] = r
 	}
+	for _, t := range customresources.SchemaTransformations() {
+		t(pkg.Types, metadata.Types)
+	}
 
 	// Add a note regarding WorkspaceSqlAadAdmin creation.
 	workspaceSqlAadAdmin := pkg.Resources["azure-native:synapse:WorkspaceSqlAadAdmin"]

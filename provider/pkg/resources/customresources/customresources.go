@@ -39,7 +39,12 @@ type CustomResource struct {
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
 	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
+	// Transformation is a function that allows modifying the schema and metadata of the types.
+	Transformation SchemaTransformation
 }
+
+// SchemaTransformation is a function signature that allows modifying the schema and metadata of the types.
+type SchemaTransformation func(types map[string]schema.ComplexTypeSpec, metaTypes map[string]AzureAPIType)
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
 func BuildCustomResources(env *azureEnv.Environment,
@@ -76,6 +81,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		// Customization of regular resources
 		customWebAppDelete(lookupResource, azureClient),
 		blobContainerLegalHold(azureClient),
+		portalDashboard(),
 	}
 
 	result := map[string]*CustomResource{}
@@ -118,7 +124,7 @@ func SchemaTypeMixins() map[string]schema.ComplexTypeSpec {
 	return types
 }
 
-// SchemaMixins returns the map of custom resource metadata definitions per resource token.
+// MetaMixins returns the map of custom resource metadata definitions per resource token.
 func MetaMixins() map[string]AzureAPIResource {
 	meta := map[string]AzureAPIResource{}
 	for _, r := range featureLookup {
@@ -127,4 +133,15 @@ func MetaMixins() map[string]AzureAPIResource {
 		}
 	}
 	return meta
+}
+
+// SchemaTransformations returns the aggregate list of custom resource schema transformations.
+func SchemaTransformations() []SchemaTransformation {
+	transforms := []SchemaTransformation{}
+	for _, r := range featureLookup {
+		if r.Transformation != nil {
+			transforms = append(transforms, r.Transformation)
+		}
+	}
+	return transforms
 }

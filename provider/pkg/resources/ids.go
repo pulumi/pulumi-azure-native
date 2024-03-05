@@ -1,3 +1,5 @@
+// Copyright 2024, Pulumi Corporation.
+
 package resources
 
 import (
@@ -50,4 +52,25 @@ func ParseResourceID(id, path string) (map[string]string, error) {
 		}
 	}
 	return result, nil
+}
+
+// ParseToken extracts the module, version, and resource/type name from a resource token.
+func ParseToken(tok string) (string, string, string, error) {
+	parts := strings.Split(tok, ":")
+	if len(parts) != 3 {
+		return "", "", "", errors.Errorf("malformed token '%s'", tok)
+	}
+	subparts := strings.Split(parts[1], "/")
+	if len(subparts) == 2 {
+		return subparts[0], subparts[1], parts[2], nil
+	}
+	return parts[1], "", parts[2], nil
+}
+
+// BuildToken constructs a resource token from the given module, API version, and resource name.
+func BuildToken(mod string, apiVersion string, name string) string {
+	if apiVersion == "" {
+		return fmt.Sprintf("azure-native:%s:%s", mod, name)
+	}
+	return fmt.Sprintf("azure-native:%s/%s:%s", mod, apiVersion, name)
 }

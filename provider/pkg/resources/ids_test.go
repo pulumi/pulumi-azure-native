@@ -1,6 +1,9 @@
+// Copyright 2024, Pulumi Corporation.
+
 package resources
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -66,4 +69,93 @@ func TestParseResourceID(t *testing.T) {
 		}
 		assert.Equal(t, expected, actual)
 	})
+}
+
+func TestParseToken(t *testing.T) {
+	type testCase struct {
+		mod          string
+		apiVersion   string
+		resourceName string
+		err          string
+	}
+	tests := []struct {
+		name     string
+		token    string
+		expected testCase
+	}{
+		{
+			name:  "ValidTokenDefaultVersion",
+			token: "azure-native:messaging:ServiceBus",
+			expected: testCase{
+				mod:          "messaging",
+				apiVersion:   "",
+				resourceName: "ServiceBus",
+			},
+		},
+		{
+			name:  "ValidTokenExplicitVersion",
+			token: "azure-native:messaging/v20240101preview:ServiceBus",
+			expected: testCase{
+				mod:          "messaging",
+				apiVersion:   "v20240101preview",
+				resourceName: "ServiceBus",
+			},
+		},
+		{
+			name:  "MalformedTokenTooFewParts",
+			token: "messaging/v20240101preview:ServiceBus",
+			expected: testCase{
+				err: "malformed token 'messaging/v20240101preview:ServiceBus'",
+			},
+		},
+		{
+			name:  "MalformedTokenTooManyParts",
+			token: "azure-native:messaging:ServiceBus:eventhub:EventHub",
+			expected: testCase{
+				err: "malformed token 'azure-native:messaging:ServiceBus:eventhub:EventHub'",
+			},
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			mod, apiVersion, resourceName, err := ParseToken(test.token)
+			assert.Equal(t, test.expected.mod, mod)
+			assert.Equal(t, test.expected.apiVersion, apiVersion)
+			assert.Equal(t, test.expected.resourceName, resourceName)
+			if err != nil {
+				assert.Equal(t, test.expected.err, err.Error())
+			} else {
+				assert.Equal(t, test.expected.err, "")
+			}
+		})
+	}
+}
+func TestBuildToken(t *testing.T) {
+	tests := []struct {
+		mod        string
+		apiVersion string
+		name       string
+		expected   string
+	}{
+		{
+			mod:        "messaging",
+			apiVersion: "",
+			name:       "ServiceBus",
+			expected:   "azure-native:messaging:ServiceBus",
+		},
+		{
+			mod:        "messaging",
+			apiVersion: "v20240101preview",
+			name:       "ServiceBus",
+			expected:   "azure-native:messaging/v20240101preview:ServiceBus",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(fmt.Sprintf("mod=%s, apiVersion=%s, name=%s", test.mod, test.apiVersion, test.name), func(t *testing.T) {
+			actual := BuildToken(test.mod, test.apiVersion, test.name)
+			assert.Equal(t, test.expected, actual)
+		})
+	}
 }
