@@ -61,7 +61,8 @@ type CustomResource struct {
 	// resource ID and query parameters from crud.ResourceCrudClient.PrepareAzureRESTIdAndQuery.
 	GetIdAndQuery func(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient) (string, map[string]any, error)
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
-	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
+	Create    func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
+	CanCreate func(ctx context.Context, id string) error
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
 	// resource outputs. If the requested resource does not exist, the second result is false. In that case, the
 	// error must be nil.
@@ -203,6 +204,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		customWebAppSlot,
 		postgresConf,
 		protectedItem,
+		pimRoleManagementPolicyDirect(azureClient),
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
@@ -239,6 +241,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 
 // featureLookup is a map of custom resource to lookup their capabilities.
 var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
+
+func IsCustomResource(path string) bool {
+	_, ok := featureLookup[path]
+	return ok
+}
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
