@@ -1,0 +1,3 @@
+name: dashboard
+runtime: nodejs
+description: Azure Portal Dashboard
