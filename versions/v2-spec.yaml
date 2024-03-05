@@ -1515,7 +1515,9 @@ SecurityInsights:
         WorkspaceManagerMember: 2023-06-01-preview
         getEntitiesGetTimeline: 2023-06-01-preview
         getEntityInsights: 2023-06-01-preview
+        listGeodataByIp: 2024-01-01-preview
         listSourceControlRepositories: 2023-06-01-preview
+        listWhoisByDomain: 2024-01-01-preview
 SerialConsole:
     tracking: "2018-05-01"
 ServiceBus:
