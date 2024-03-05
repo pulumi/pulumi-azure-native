@@ -848,7 +848,10 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	case isCustom && customRes.Create != nil:
 		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
 		var exists bool
-		if customRes.Read != nil {
+		if customRes.CanCreate != nil {
+			err = customRes.CanCreate(ctx, id)
+			exists = err != nil
+		} else if customRes.Read != nil {
 			_, exists, err = customRes.Read(ctx, id, inputs)
 		} else {
 			err = crudClient.CanCreate(ctx, id)
