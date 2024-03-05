@@ -31,7 +31,8 @@ type CustomResource struct {
 	// Optional, by default the metadata is assumed to be derived from Azure Open API specs.
 	Meta *AzureAPIResource
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
-	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
+	Create    func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
+	CanCreate func(ctx context.Context, id string) error
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
 	// resource outputs. If the requested resource does not exist, the second result is false.
 	Read func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, bool, error)
@@ -76,6 +77,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		// Customization of regular resources
 		customWebAppDelete(lookupResource, azureClient),
 		blobContainerLegalHold(azureClient),
+		pimRoleManagementPolicyDirect(azureClient),
 	}
 
 	result := map[string]*CustomResource{}
@@ -87,6 +89,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 
 // featureLookup is a map of custom resource to lookup their capabilities.
 var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, "", nil, nil, nil, "", nil)
+
+func IsCustomResource(path string) bool {
+	_, ok := featureLookup[path]
+	return ok
+}
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
