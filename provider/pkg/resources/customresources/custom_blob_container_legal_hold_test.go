@@ -264,7 +264,7 @@ func TestDelete(t *testing.T) {
 			}),
 		}
 
-		err := custom.Delete(context.Background(), containerId+"/legalHold", olds)
+		err := custom.Delete(context.Background(), containerId+"/legalHold", olds, nil)
 		require.NoError(t, err)
 
 		require.Len(t, m.PostIds, 1)

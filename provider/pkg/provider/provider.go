@@ -955,7 +955,10 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	case isCustom && customRes.Create != nil:
 		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.
 		var exists bool
-		if customRes.Read != nil {
+		if customRes.CanCreate != nil {
+			err = customRes.CanCreate(ctx, id)
+			exists = err != nil
+		} else if customRes.Read != nil {
 			_, exists, err = customRes.Read(ctx, id, inputs)
 		} else {
 			err = crudClient.CanCreate(ctx, id)
@@ -982,6 +985,9 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)
+	if orig, ok := obj[customresources.OriginalStateKey]; ok {
+		obj[customresources.OriginalStateKey] = resource.MakeSecret(orig)
+	}
 
 	// Serialize and return RPC outputs
 	checkpoint, err := plugin.MarshalProperties(
@@ -1514,7 +1520,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
 		}
 		// Our hand-crafted implementation of DELETE operation.
-		err = customRes.Delete(ctx, id, inputs)
+		err = customRes.Delete(ctx, id, inputs, state)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
