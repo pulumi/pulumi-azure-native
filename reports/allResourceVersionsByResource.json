@@ -2736,6 +2736,10 @@
       "2022-04-01",
       "2022-05-01-preview"
     ],
+    "RoleManagementPolicy": [
+      "2020-10-01",
+      "2020-10-01-preview"
+    ],
     "RoleManagementPolicyAssignment": [
       "2020-10-01",
       "2020-10-01-preview"

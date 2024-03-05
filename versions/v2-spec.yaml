@@ -126,6 +126,7 @@ Authorization:
         ResourceManagementPrivateLink: "2020-05-01"
         RoleAssignment: "2022-04-01"
         RoleDefinition: 2022-05-01-preview
+        RoleManagementPolicy: "2020-10-01"
         RoleManagementPolicyAssignment: "2020-10-01"
         ScopeAccessReviewHistoryDefinitionById: 2021-12-01-preview
         ScopeAccessReviewScheduleDefinitionById: 2021-12-01-preview
