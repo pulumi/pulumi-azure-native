@@ -627,11 +627,15 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
 		recordDisambiguation(disambiguation)
 
-		if typeName != "" && defaultState != nil {
+		if typeName != "" && (customresources.IsCustomResource(path) || defaultState != nil) {
 			if _, ok := version.Resources[typeName]; ok && version.Resources[typeName].Path != path {
 				fmt.Printf("warning: duplicate resource %s/%s at paths:\n  - %s\n  - %s\n", sdkVersion, typeName, path, version.Resources[typeName].Path)
 			}
-			addResource(typeName, defaultState.State, nil /* pathItemList */)
+			var defaultBody map[string]any
+			if defaultState != nil {
+				defaultBody = defaultState.State
+			}
+			addResource(typeName, defaultBody, nil /* pathItemList */)
 		}
 	}
 
