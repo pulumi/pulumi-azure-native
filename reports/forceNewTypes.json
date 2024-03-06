@@ -1295,6 +1295,13 @@
     "Property": "location"
   },
   {
+    "Module": "azuredatatransfer/v20240125",
+    "Provider": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "selectedResource",
+    "Property": "location"
+  },
+  {
     "Module": "azuresphere",
     "Provider": "AzureSphere",
     "ResourceName": "Deployment",
@@ -1464,6 +1471,27 @@
   },
   {
     "Module": "azurestackhci/v20230901preview",
+    "Provider": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "VirtualMachineInstanceProperties",
+    "Property": "id"
+  },
+  {
+    "Module": "azurestackhci/v20240101",
+    "Provider": "AzureStackHCI",
+    "ResourceName": "NetworkInterface",
+    "ReferenceName": "IPConfiguration",
+    "Property": "name"
+  },
+  {
+    "Module": "azurestackhci/v20240101",
+    "Provider": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "VirtualMachineInstanceProperties",
+    "Property": "adminPassword"
+  },
+  {
+    "Module": "azurestackhci/v20240101",
     "Provider": "AzureStackHCI",
     "ResourceName": "VirtualMachineInstance",
     "ReferenceName": "VirtualMachineInstanceProperties",
@@ -39544,6 +39572,13 @@
   },
   {
     "Module": "storage/v20230101",
+    "Provider": "Storage",
+    "ResourceName": "StorageAccount",
+    "ReferenceName": "EncryptionService",
+    "Property": "keyType"
+  },
+  {
+    "Module": "storage/v20230401",
     "Provider": "Storage",
     "ResourceName": "StorageAccount",
     "ReferenceName": "EncryptionService",
