@@ -985,6 +985,9 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)
+	if orig, ok := obj[customresources.OriginalStateKey]; ok {
+		obj[customresources.OriginalStateKey] = resource.MakeSecret(orig)
+	}
 
 	// Serialize and return RPC outputs
 	checkpoint, err := plugin.MarshalProperties(
@@ -1517,7 +1520,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
 		}
 		// Our hand-crafted implementation of DELETE operation.
-		err = customRes.Delete(ctx, id, inputs)
+		err = customRes.Delete(ctx, id, inputs, state)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}

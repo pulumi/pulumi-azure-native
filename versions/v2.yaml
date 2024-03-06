@@ -1372,6 +1372,11 @@ Authorization:
         SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2022-05-01-preview/authorization-RoleDefinitionsCalls.json
         ResourceUri: /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}
         RpNamespace: Microsoft.Authorization
+    RoleManagementPolicy:
+        ApiVersion: 2024-09-01-preview
+        SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/preview/2024-09-01-preview/RoleManagementPolicy.json
+        ResourceUri: /{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}
+        RpNamespace: Microsoft.Authorization
     RoleManagementPolicyAssignment:
         ApiVersion: "2020-10-01"
         SpecFilePath: specification/authorization/resource-manager/Microsoft.Authorization/stable/2020-10-01/RoleManagementPolicyAssignment.json
