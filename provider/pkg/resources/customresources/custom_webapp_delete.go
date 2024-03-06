@@ -16,7 +16,7 @@ func customWebAppDelete(lookupResource resources.ResourceLookupFunc, azureDelete
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}",
 		tok:  webAppResourceType,
-		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, properties, state resource.PropertyMap) error {
 			res, ok, err := lookupResource(webAppResourceType)
 			if err != nil {
 				return err
