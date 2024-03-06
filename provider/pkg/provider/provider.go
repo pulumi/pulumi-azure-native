@@ -985,6 +985,9 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)
+	if orig, ok := obj[customresources.OriginalStateKey]; ok {
+		obj[customresources.OriginalStateKey] = resource.MakeSecret(orig)
+	}
 
 	// Serialize and return RPC outputs
 	checkpoint, err := plugin.MarshalProperties(

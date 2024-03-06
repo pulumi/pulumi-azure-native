@@ -129,7 +129,7 @@ func (r *staticWebsite) read(ctx context.Context, id string, properties resource
 	return outputs, true, nil
 }
 
-func (r *staticWebsite) delete(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
+func (r *staticWebsite) delete(ctx context.Context, id string, inputs, _ resource.PropertyMap) error {
 	dataClient, found, err := r.newDataClient(ctx, inputs)
 	if err != nil {
 		return err
@@ -331,7 +331,7 @@ func (r *blob) update(ctx context.Context, id string, properties, oldState resou
 	return state, err
 }
 
-func (r *blob) delete(ctx context.Context, id string, inputs, state resource.PropertyMap) error {
+func (r *blob) delete(ctx context.Context, id string, inputs, _ resource.PropertyMap) error {
 	blobsClient, found, err := r.newDataClient(ctx, inputs)
 	if err != nil {
 		return err

@@ -69,9 +69,8 @@ type CustomResource struct {
 	Read CustomReadFunc
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
-	// Delete an existing resource. Previous inputs can be used to construct the resource ID or as input to an SDK
-	// client. The resource state can be used to look up additional information, such as stored original values.
-	Delete func(ctx context.Context, id string, inputs, state resource.PropertyMap) error
+	// Delete an existing resource. Constructs the resource ID based on input values.
+	Delete func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error
 	// IsSingleton is true if the resource is a singleton resource that cannot be created or deleted, only initialized
 	// and reset to a default state. Normally, we infer this from whether the `Delete` property is set. In some cases
 	// we need to set it explicitly if the resource is a singleton but does have a `Delete` property implementing a
@@ -194,6 +193,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	pimRoleManagementPolicy, err := pimRoleManagementPolicy(lookupResource, crudClientFactory)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -204,7 +208,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		customWebAppSlot,
 		postgresConf,
 		protectedItem,
-		pimRoleManagementPolicyDirect(azureClient),
+		pimRoleManagementPolicy,
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
