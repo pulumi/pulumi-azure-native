@@ -213,7 +213,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.azureClient = azure.NewAzureClient(env, resourceManagerAuth, userAgent)
 
 	azCoreTokenCredential := azCoreTokenCredential{p: k}
-	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.subscriptionID,
+	var crudClientFactory crud.ResourceCrudClientFactory = func(res *resources.AzureAPIResource) crud.ResourceCrudClient {
+		return crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
+	}
+	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, crudClientFactory, k.LookupResource, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, azCoreTokenCredential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
@@ -878,6 +881,9 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 	// Store both outputs and inputs into the state.
 	obj := checkpointObject(inputs, outputs)
+	if orig, ok := obj[customresources.OriginalStateKey]; ok {
+		obj[customresources.OriginalStateKey] = resource.MakeSecret(orig)
+	}
 
 	// Serialize and return RPC outputs
 	checkpoint, err := plugin.MarshalProperties(
@@ -1372,7 +1378,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
 		}
 		// Our hand-crafted implementation of DELETE operation.
-		err = customRes.Delete(ctx, id, inputs)
+		err = customRes.Delete(ctx, id, inputs, state)
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}

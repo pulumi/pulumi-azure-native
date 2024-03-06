@@ -13,6 +13,7 @@ import (
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -39,12 +40,13 @@ type CustomResource struct {
 	// Update an existing resource with a map of input values. Returns a map of resource outputs that match the schema shape.
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
-	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
+	Delete func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error
 }
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
 func BuildCustomResources(env *azureEnv.Environment,
 	azureClient azure.AzureClient,
+	crudClientFactory crud.ResourceCrudClientFactory,
 	lookupResource ResourceLookupFunc,
 	subscriptionID string,
 	bearerAuth autorest.Authorizer,
@@ -66,6 +68,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 	storageAccountsClient.Authorizer = tokenAuth
 	storageAccountsClient.UserAgent = userAgent
 
+	pimRoleManagementPolicy, err := pimRoleManagementPolicy(lookupResource, crudClientFactory)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		// Azure KeyVault resources.
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
@@ -77,7 +84,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		// Customization of regular resources
 		customWebAppDelete(lookupResource, azureClient),
 		blobContainerLegalHold(azureClient),
-		pimRoleManagementPolicyDirect(azureClient),
+		pimRoleManagementPolicy,
 	}
 
 	result := map[string]*CustomResource{}
@@ -88,7 +95,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
 
 func IsCustomResource(path string) bool {
 	_, ok := featureLookup[path]
