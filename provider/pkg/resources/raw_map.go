@@ -42,7 +42,7 @@ func (m PartialMap[T]) MarshalJSON() ([]byte, error) {
 func (m *PartialMap[T]) Get(key string) (T, bool, error) {
 	rawMessage, ok := m.partialMap[key]
 	if !ok {
-		return *new(T), true, nil
+		return *new(T), false, nil
 	}
 	var value T
 	if _, err := json.Parse([]byte(rawMessage), &value, json.ZeroCopy); err != nil {
