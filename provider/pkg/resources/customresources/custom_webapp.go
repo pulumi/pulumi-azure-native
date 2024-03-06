@@ -86,7 +86,7 @@ func makeWebAppResource(resourceType, path string, crudClientFactory crud.Resour
 		},
 
 		// https://github.com/pulumi/pulumi-azure-native/issues/1529
-		Delete: func(ctx context.Context, id string, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, previousInputs resource.PropertyMap, state resource.PropertyMap) error {
 			res, ok, err := lookupResource(webAppResourceType)
 			if err != nil {
 				return err

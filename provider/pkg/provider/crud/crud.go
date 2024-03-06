@@ -32,6 +32,8 @@ type AzureRESTConverter interface {
 
 	// ResponseBodyToSdkOutputs converts an Azure REST API response to Pulumi SDK outputs.
 	ResponseBodyToSdkOutputs(response map[string]any) map[string]any
+	ResponseToSdkInputs(pathValues map[string]string, responseBody map[string]any) map[string]any
+	SdkInputsToRequestBody(values map[string]any, id string) (map[string]any, error)
 }
 
 // ResourceCrudOperations is an interface for performing CRUD operations on Azure resources of a certain kind.
@@ -347,6 +349,17 @@ func findUnsetPropertiesToMaintain(res *resources.AzureAPIResource, bodyParams m
 
 func (r *resourceCrudClient) ResponseBodyToSdkOutputs(response map[string]any) map[string]any {
 	return r.converter.ResponseBodyToSdkOutputs(r.res.Response, response)
+}
+
+func (r *resourceCrudClient) ResponseToSdkInputs(pathValues map[string]string, responseBody map[string]any) map[string]any {
+	return r.converter.ResponseToSdkInputs(r.res.PutParameters, pathValues, responseBody)
+}
+
+func (r *resourceCrudClient) SdkInputsToRequestBody(properties map[string]any, id string) (map[string]any, error) {
+	if bodyParam, ok := r.res.BodyParameter(); ok {
+		return r.converter.SdkInputsToRequestBody(bodyParam.Body.Properties, properties, id)
+	}
+	return nil, nil
 }
 
 func (r *resourceCrudClient) CanCreate(ctx context.Context, id string) error {
