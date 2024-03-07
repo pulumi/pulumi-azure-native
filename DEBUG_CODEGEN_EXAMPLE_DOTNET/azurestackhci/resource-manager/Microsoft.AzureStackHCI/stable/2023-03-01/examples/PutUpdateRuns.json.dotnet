@@ -27,7 +27,7 @@ return await Deployment.RunAsync(() =>
                 Name = "PreUpdate Cloud",
                 StartTimeUtc = "2022-04-06T01:36:33.3876751+00:00",
                 Status = "Success",
-                Steps = new[] {},
+                Steps = new() { },
             },
         },
         UpdateName = "Microsoft4.2203.2.32",

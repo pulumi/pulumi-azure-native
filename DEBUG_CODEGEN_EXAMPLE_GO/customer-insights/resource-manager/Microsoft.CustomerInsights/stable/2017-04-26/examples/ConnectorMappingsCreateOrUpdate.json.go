@@ -15,7 +15,7 @@ func main() {
 			EntityTypeName: pulumi.String("TestInteractionType2967"),
 			HubName:        pulumi.String("sdkTestHub"),
 			MappingName:    pulumi.String("testMapping12491"),
-			MappingProperties: customerinsights.ConnectorMappingPropertiesResponse{
+			MappingProperties: &customerinsights.ConnectorMappingPropertiesArgs{
 				Availability: &customerinsights.ConnectorMappingAvailabilityArgs{
 					Frequency: customerinsights.FrequencyTypesHour,
 					Interval:  pulumi.Int(5),

@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := iotoperationsorchestrator.NewTarget(ctx, "target", &iotoperationsorchestrator.TargetArgs{
-			Components: []iotoperationsorchestrator.ComponentPropertiesArgs{
-				{
+			Components: iotoperationsorchestrator.ComponentPropertiesArray{
+				&iotoperationsorchestrator.ComponentPropertiesArgs{
 					Dependencies: pulumi.StringArray{
 						pulumi.String("x"),
 					},
@@ -31,10 +31,10 @@ func main() {
 			ResourceGroupName: pulumi.String("rgopenapi"),
 			Scope:             pulumi.String("lm"),
 			Tags:              nil,
-			Topologies: []iotoperationsorchestrator.TopologiesPropertiesArgs{
-				{
+			Topologies: iotoperationsorchestrator.TopologiesPropertiesArray{
+				&iotoperationsorchestrator.TopologiesPropertiesArgs{
 					Bindings: iotoperationsorchestrator.BindingPropertiesArray{
-						{
+						&iotoperationsorchestrator.BindingPropertiesArgs{
 							Config:   nil,
 							Provider: pulumi.String("qpwesjlyyggcbehwigbobqum"),
 							Role:     pulumi.String("role"),

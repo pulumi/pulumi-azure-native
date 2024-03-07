@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 replication_policy = azure_native.recoveryservices.ReplicationPolicy("replicationPolicy",
     policy_name="protectionprofile1",
-    properties=azure_native.recoveryservices.PolicyPropertiesResponseArgs(
+    properties=azure_native.recoveryservices.CreatePolicyInputPropertiesArgs(
         provider_specific_input=azure_native.recoveryservices.HyperVReplicaAzurePolicyInputArgs(
             instance_type="HyperVReplicaAzure",
         ),

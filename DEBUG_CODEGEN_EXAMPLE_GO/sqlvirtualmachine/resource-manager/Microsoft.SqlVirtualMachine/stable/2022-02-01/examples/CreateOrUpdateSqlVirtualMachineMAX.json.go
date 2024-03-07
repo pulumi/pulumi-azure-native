@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := sqlvirtualmachine.NewSqlVirtualMachine(ctx, "sqlVirtualMachine", &sqlvirtualmachine.SqlVirtualMachineArgs{
-			AssessmentSettings: sqlvirtualmachine.AssessmentSettingsResponse{
+			AssessmentSettings: &sqlvirtualmachine.AssessmentSettingsArgs{
 				Enable:         pulumi.Bool(true),
 				RunImmediately: pulumi.Bool(true),
 				Schedule: &sqlvirtualmachine.ScheduleArgs{
@@ -44,7 +44,7 @@ func main() {
 			},
 			Location:          pulumi.String("northeurope"),
 			ResourceGroupName: pulumi.String("testrg"),
-			ServerConfigurationsManagementSettings: sqlvirtualmachine.ServerConfigurationsManagementSettingsResponse{
+			ServerConfigurationsManagementSettings: &sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs{
 				AdditionalFeaturesServerConfigurations: &sqlvirtualmachine.AdditionalFeaturesServerConfigurationsArgs{
 					IsRServicesEnabled: pulumi.Bool(false),
 				},

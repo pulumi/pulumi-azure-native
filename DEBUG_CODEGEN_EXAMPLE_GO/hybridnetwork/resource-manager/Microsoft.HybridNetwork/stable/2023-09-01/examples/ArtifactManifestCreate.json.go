@@ -11,7 +11,7 @@ func main() {
 			ArtifactManifestName: pulumi.String("TestManifest"),
 			ArtifactStoreName:    pulumi.String("TestArtifactStore"),
 			Location:             pulumi.String("eastus"),
-			Properties: hybridnetwork.ArtifactManifestPropertiesFormatResponse{
+			Properties: &hybridnetwork.ArtifactManifestPropertiesFormatArgs{
 				Artifacts: hybridnetwork.ManifestArtifactFormatArray{
 					&hybridnetwork.ManifestArtifactFormatArgs{
 						ArtifactName:    pulumi.String("fed-rbac"),

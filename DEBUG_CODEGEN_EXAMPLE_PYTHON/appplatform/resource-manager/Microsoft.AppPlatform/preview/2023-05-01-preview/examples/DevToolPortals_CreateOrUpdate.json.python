@@ -3,15 +3,15 @@ import pulumi_azure_native as azure_native
 
 dev_tool_portal = azure_native.appplatform.DevToolPortal("devToolPortal",
     dev_tool_portal_name="default",
-    properties=azure_native.appplatform.DevToolPortalPropertiesResponseArgs(
-        features={
-            "applicationAccelerator": azure_native.appplatform.DevToolPortalFeatureDetailArgs(
+    properties=azure_native.appplatform.DevToolPortalPropertiesArgs(
+        features=azure_native.appplatform.DevToolPortalFeatureSettingsArgs(
+            application_accelerator=azure_native.appplatform.DevToolPortalFeatureDetailArgs(
                 state="Enabled",
             ),
-            "applicationLiveView": azure_native.appplatform.DevToolPortalFeatureDetailArgs(
+            application_live_view=azure_native.appplatform.DevToolPortalFeatureDetailArgs(
                 state="Enabled",
             ),
-        },
+        ),
         public=True,
         sso_properties=azure_native.appplatform.DevToolPortalSsoPropertiesArgs(
             client_id="00000000-0000-0000-0000-000000000000",

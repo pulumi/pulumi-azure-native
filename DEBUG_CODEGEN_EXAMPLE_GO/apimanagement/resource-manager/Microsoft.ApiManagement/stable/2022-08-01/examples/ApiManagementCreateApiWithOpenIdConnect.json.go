@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := apimanagement.NewApi(ctx, "api", &apimanagement.ApiArgs{
 			ApiId: pulumi.String("tempgroup"),
-			AuthenticationSettings: apimanagement.AuthenticationSettingsContractResponse{
+			AuthenticationSettings: &apimanagement.AuthenticationSettingsContractArgs{
 				Openid: &apimanagement.OpenIdAuthenticationSettingsContractArgs{
 					BearerTokenSendingMethods: pulumi.StringArray{
 						pulumi.String("authorizationHeader"),

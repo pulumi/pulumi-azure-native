@@ -10,7 +10,7 @@ func main() {
 		_, err := cognitiveservices.NewCommitmentPlan(ctx, "commitmentPlan", &cognitiveservices.CommitmentPlanArgs{
 			AccountName:        pulumi.String("accountName"),
 			CommitmentPlanName: pulumi.String("commitmentPlanName"),
-			Properties: cognitiveservices.CommitmentPlanPropertiesResponse{
+			Properties: &cognitiveservices.CommitmentPlanPropertiesArgs{
 				AutoRenew: pulumi.Bool(true),
 				Current: &cognitiveservices.CommitmentPeriodArgs{
 					Tier: pulumi.String("T1"),

@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
-			CreationData: compute.CreationDataResponse{
+			CreationData: &compute.CreationDataArgs{
 				CreateOption: pulumi.String("FromImage"),
 				GalleryImageReference: &compute.ImageDiskReferenceArgs{
 					CommunityGalleryImageId: pulumi.String("/CommunityGalleries/{communityGalleryPublicGalleryName}/Images/{imageName}/Versions/1.0.0"),

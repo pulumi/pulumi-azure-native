@@ -10,18 +10,18 @@ func main() {
 		_, err := media.NewStreamingLocator(ctx, "streamingLocator", &media.StreamingLocatorArgs{
 			AccountName: pulumi.String("contosomedia"),
 			AssetName:   pulumi.String("ClimbingMountRainier"),
-			ContentKeys: []media.StreamingLocatorContentKeyArgs{
-				{
+			ContentKeys: media.StreamingLocatorContentKeyArray{
+				&media.StreamingLocatorContentKeyArgs{
 					Id:                              pulumi.String("60000000-0000-0000-0000-000000000001"),
 					LabelReferenceInStreamingPolicy: pulumi.String("aesDefaultKey"),
 					Value:                           pulumi.String("1UqLohAfWsEGkULYxHjYZg=="),
 				},
-				{
+				&media.StreamingLocatorContentKeyArgs{
 					Id:                              pulumi.String("60000000-0000-0000-0000-000000000004"),
 					LabelReferenceInStreamingPolicy: pulumi.String("cencDefaultKey"),
 					Value:                           pulumi.String("4UqLohAfWsEGkULYxHjYZg=="),
 				},
-				{
+				&media.StreamingLocatorContentKeyArgs{
 					Id:                              pulumi.String("60000000-0000-0000-0000-000000000007"),
 					LabelReferenceInStreamingPolicy: pulumi.String("cbcsDefaultKey"),
 					Value:                           pulumi.String("7UqLohAfWsEGkULYxHjYZg=="),

@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := containerservice.NewOpenShiftManagedCluster(ctx, "openShiftManagedCluster", &containerservice.OpenShiftManagedClusterArgs{
-			AgentPoolProfiles: []containerservice.OpenShiftManagedClusterAgentPoolProfileArgs{
-				{
+			AgentPoolProfiles: containerservice.OpenShiftManagedClusterAgentPoolProfileArray{
+				&containerservice.OpenShiftManagedClusterAgentPoolProfileArgs{
 					Count:      pulumi.Int(3),
 					Name:       pulumi.String("infra"),
 					OsType:     pulumi.String("Linux"),
@@ -17,7 +17,7 @@ func main() {
 					SubnetCidr: pulumi.String("10.0.0.0/24"),
 					VmSize:     pulumi.String("Standard_D4s_v3"),
 				},
-				{
+				&containerservice.OpenShiftManagedClusterAgentPoolProfileArgs{
 					Count:      pulumi.Int(4),
 					Name:       pulumi.String("compute"),
 					OsType:     pulumi.String("Linux"),
@@ -26,7 +26,7 @@ func main() {
 					VmSize:     pulumi.String("Standard_D4s_v3"),
 				},
 			},
-			AuthProfile: containerservice.OpenShiftManagedClusterAuthProfileResponse{
+			AuthProfile: &containerservice.OpenShiftManagedClusterAuthProfileArgs{
 				IdentityProviders: []containerservice.OpenShiftManagedClusterIdentityProviderArgs{
 					{
 						Name: pulumi.String("Azure AD"),
@@ -41,7 +41,7 @@ func main() {
 				},
 			},
 			Location: pulumi.String("location1"),
-			MasterPoolProfile: containerservice.OpenShiftManagedClusterMasterPoolProfileResponse{
+			MasterPoolProfile: &containerservice.OpenShiftManagedClusterMasterPoolProfileArgs{
 				ApiProperties: &containerservice.OpenShiftAPIPropertiesArgs{
 					PrivateApiServer: pulumi.Bool(false),
 				},
@@ -59,8 +59,8 @@ func main() {
 			OpenShiftVersion:  pulumi.String("v3.11"),
 			ResourceGroupName: pulumi.String("rg1"),
 			ResourceName:      pulumi.String("clustername1"),
-			RouterProfiles: []containerservice.OpenShiftRouterProfileArgs{
-				{
+			RouterProfiles: containerservice.OpenShiftRouterProfileArray{
+				&containerservice.OpenShiftRouterProfileArgs{
 					Name: pulumi.String("default"),
 				},
 			},

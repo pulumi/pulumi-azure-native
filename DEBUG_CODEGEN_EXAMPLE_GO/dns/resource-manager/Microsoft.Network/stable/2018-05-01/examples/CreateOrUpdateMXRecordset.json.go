@@ -11,8 +11,8 @@ func main() {
 			Metadata: pulumi.StringMap{
 				"key1": pulumi.String("value1"),
 			},
-			MxRecords: []network.MxRecordArgs{
-				{
+			MxRecords: network.MxRecordArray{
+				&network.MxRecordArgs{
 					Exchange:   pulumi.String("mail.contoso.com"),
 					Preference: pulumi.Int(0),
 				},

@@ -16,7 +16,7 @@ return await Deployment.RunAsync(() =>
                 new AzureNative.DevTestLab.Inputs.ArtifactInstallPropertiesArgs
                 {
                     ArtifactId = "/artifactsources/{artifactSourceName}/artifacts/linux-install-nodejs",
-                    Parameters = new[] {},
+                    Parameters = new() { },
                 },
             },
             DisallowPublicIpAddress = true,

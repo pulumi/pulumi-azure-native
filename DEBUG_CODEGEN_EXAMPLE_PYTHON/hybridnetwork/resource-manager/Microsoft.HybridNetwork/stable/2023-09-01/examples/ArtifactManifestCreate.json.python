@@ -5,7 +5,7 @@ artifact_manifest = azure_native.hybridnetwork.ArtifactManifest("artifactManifes
     artifact_manifest_name="TestManifest",
     artifact_store_name="TestArtifactStore",
     location="eastus",
-    properties=azure_native.hybridnetwork.ArtifactManifestPropertiesFormatResponseArgs(
+    properties=azure_native.hybridnetwork.ArtifactManifestPropertiesFormatArgs(
         artifacts=[
             azure_native.hybridnetwork.ManifestArtifactFormatArgs(
                 artifact_name="fed-rbac",

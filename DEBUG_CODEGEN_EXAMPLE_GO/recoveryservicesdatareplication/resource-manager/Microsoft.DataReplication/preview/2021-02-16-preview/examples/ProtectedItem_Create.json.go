@@ -7,7 +7,7 @@ import (
 func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := datareplication.NewProtectedItem(ctx, "protectedItem", &datareplication.ProtectedItemArgs{
-Properties: interface{}{
+Properties: &datareplication.ProtectedItemModelPropertiesArgs{
 CustomProperties: interface{}{
 InstanceType: pulumi.String("ProtectedItemModelCustomProperties"),
 },

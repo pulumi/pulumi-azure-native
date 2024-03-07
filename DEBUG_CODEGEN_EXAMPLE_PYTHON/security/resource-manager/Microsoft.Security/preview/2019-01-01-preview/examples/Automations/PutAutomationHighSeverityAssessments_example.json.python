@@ -16,15 +16,15 @@ automation = azure_native.security.Automation("automation",
         description="A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
         scope_path="/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
     )],
-    sources=[{
-        "eventSource": "Assessments",
-        "ruleSets": [{
-            "rules": [azure_native.security.AutomationTriggeringRuleArgs(
+    sources=[azure_native.security.AutomationSourceArgs(
+        event_source="Assessments",
+        rule_sets=[azure_native.security.AutomationRuleSetArgs(
+            rules=[azure_native.security.AutomationTriggeringRuleArgs(
                 expected_value="High",
                 operator="Equals",
                 property_j_path="properties.metadata.severity",
                 property_type="String",
             )],
-        }],
-    }],
+        )],
+    )],
     tags={})

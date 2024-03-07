@@ -10,7 +10,7 @@ func main() {
 		_, err := cognitiveservices.NewEncryptionScope(ctx, "encryptionScope", &cognitiveservices.EncryptionScopeArgs{
 			AccountName:         pulumi.String("accountName"),
 			EncryptionScopeName: pulumi.String("encryptionScopeName"),
-			Properties: cognitiveservices.EncryptionScopePropertiesResponse{
+			Properties: &cognitiveservices.EncryptionScopePropertiesArgs{
 				KeySource: pulumi.String("Microsoft.KeyVault"),
 				KeyVaultProperties: &cognitiveservices.KeyVaultPropertiesArgs{
 					IdentityClientId: pulumi.String("00000000-0000-0000-0000-000000000000"),

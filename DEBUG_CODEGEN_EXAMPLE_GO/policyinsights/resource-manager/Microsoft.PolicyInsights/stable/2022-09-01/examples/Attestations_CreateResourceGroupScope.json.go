@@ -12,8 +12,8 @@ func main() {
 			AttestationName: pulumi.String("790996e6-9871-4b1f-9cd9-ec42cd6ced1e"),
 			Comments:        pulumi.String("This subscription has passed a security audit."),
 			ComplianceState: pulumi.String("Compliant"),
-			Evidence: []policyinsights.AttestationEvidenceArgs{
-				{
+			Evidence: policyinsights.AttestationEvidenceArray{
+				&policyinsights.AttestationEvidenceArgs{
 					Description: pulumi.String("The results of the security audit."),
 					SourceUri:   pulumi.String("https://gist.github.com/contoso/9573e238762c60166c090ae16b814011"),
 				},

@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := compute.NewDisk(ctx, "disk", &compute.DiskArgs{
-			CreationData: compute.CreationDataResponse{
+			CreationData: &compute.CreationDataArgs{
 				CreateOption: pulumi.String("FromImage"),
 				ImageReference: &compute.ImageDiskReferenceArgs{
 					Id: pulumi.String("/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}"),

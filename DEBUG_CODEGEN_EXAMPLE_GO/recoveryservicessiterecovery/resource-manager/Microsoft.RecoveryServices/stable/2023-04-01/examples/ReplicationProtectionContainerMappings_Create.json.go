@@ -9,7 +9,7 @@ pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := recoveryservices.NewReplicationProtectionContainerMapping(ctx, "replicationProtectionContainerMapping", &recoveryservices.ReplicationProtectionContainerMappingArgs{
 FabricName: pulumi.String("cloud1"),
 MappingName: pulumi.String("cloud1protectionprofile1"),
-Properties: recoveryservices.ProtectionContainerMappingPropertiesResponse{
+Properties: &recoveryservices.CreateProtectionContainerMappingInputPropertiesArgs{
 PolicyId: pulumi.String("/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1"),
 ProviderSpecificInput: interface{}{
 InstanceType: pulumi.String("ReplicationProviderSpecificContainerMappingInput"),

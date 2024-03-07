@@ -24,8 +24,8 @@ func main() {
 				"SomeProperty": pulumi.String("5"),
 			},
 			ResourceGroupName: pulumi.String("resRg"),
-			VmExtensions: []servicefabric.VMSSExtensionArgs{
-				{
+			VmExtensions: servicefabric.VMSSExtensionArray{
+				&servicefabric.VMSSExtensionArgs{
 					AutoUpgradeMinorVersion: pulumi.Bool(true),
 					Name:                    pulumi.String("Microsoft.Azure.Geneva.GenevaMonitoring"),
 					Publisher:               pulumi.String("Microsoft.Azure.Geneva"),
@@ -45,13 +45,13 @@ func main() {
 					pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2"),
 				},
 			},
-			VmSecrets: []servicefabric.VaultSecretGroupArgs{
-				{
-					SourceVault: {
+			VmSecrets: servicefabric.VaultSecretGroupArray{
+				&servicefabric.VaultSecretGroupArgs{
+					SourceVault: &servicefabric.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault"),
 					},
 					VaultCertificates: servicefabric.VaultCertificateArray{
-						{
+						&servicefabric.VaultCertificateArgs{
 							CertificateStore: pulumi.String("My"),
 							CertificateUrl:   pulumi.String("https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c"),
 						},

@@ -12,10 +12,10 @@ func main() {
 			DestinationAccount:        pulumi.String("dst112"),
 			ObjectReplicationPolicyId: pulumi.String("2a20bb73-5717-4635-985a-5d4cf777438f"),
 			ResourceGroupName:         pulumi.String("res7687"),
-			Rules: []storage.ObjectReplicationPolicyRuleArgs{
-				{
+			Rules: storage.ObjectReplicationPolicyRuleArray{
+				&storage.ObjectReplicationPolicyRuleArgs{
 					DestinationContainer: pulumi.String("dcont139"),
-					Filters: {
+					Filters: &storage.ObjectReplicationPolicyFilterArgs{
 						MinCreationTime: pulumi.String("2020-02-19T16:05:00Z"),
 						PrefixMatch: pulumi.StringArray{
 							pulumi.String("blobA"),

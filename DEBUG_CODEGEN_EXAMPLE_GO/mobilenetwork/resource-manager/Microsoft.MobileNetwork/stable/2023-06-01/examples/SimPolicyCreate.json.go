@@ -16,18 +16,18 @@ func main() {
 			RegistrationTimer: pulumi.Int(3240),
 			ResourceGroupName: pulumi.String("rg1"),
 			SimPolicyName:     pulumi.String("testPolicy"),
-			SliceConfigurations: []mobilenetwork.SliceConfigurationArgs{
-				{
+			SliceConfigurations: mobilenetwork.SliceConfigurationArray{
+				&mobilenetwork.SliceConfigurationArgs{
 					DataNetworkConfigurations: mobilenetwork.DataNetworkConfigurationArray{
-						{
+						&mobilenetwork.DataNetworkConfigurationArgs{
 							AdditionalAllowedSessionTypes:       pulumi.StringArray{},
 							AllocationAndRetentionPriorityLevel: pulumi.Int(9),
 							AllowedServices: mobilenetwork.ServiceResourceIdArray{
-								{
+								&mobilenetwork.ServiceResourceIdArgs{
 									Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/testService"),
 								},
 							},
-							DataNetwork: {
+							DataNetwork: &mobilenetwork.DataNetworkResourceIdArgs{
 								Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork"),
 							},
 							DefaultSessionType:             pulumi.String("IPv4"),
@@ -35,16 +35,16 @@ func main() {
 							MaximumNumberOfBufferedPackets: pulumi.Int(200),
 							PreemptionCapability:           pulumi.String("NotPreempt"),
 							PreemptionVulnerability:        pulumi.String("Preemptable"),
-							SessionAmbr: {
+							SessionAmbr: &mobilenetwork.AmbrArgs{
 								Downlink: pulumi.String("1 Gbps"),
 								Uplink:   pulumi.String("500 Mbps"),
 							},
 						},
 					},
-					DefaultDataNetwork: {
+					DefaultDataNetwork: &mobilenetwork.DataNetworkResourceIdArgs{
 						Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork"),
 					},
-					Slice: {
+					Slice: &mobilenetwork.SliceResourceIdArgs{
 						Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice"),
 					},
 				},

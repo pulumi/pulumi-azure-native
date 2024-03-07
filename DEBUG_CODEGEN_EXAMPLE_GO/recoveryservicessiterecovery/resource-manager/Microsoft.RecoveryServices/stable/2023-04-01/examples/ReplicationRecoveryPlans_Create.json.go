@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := recoveryservices.NewReplicationRecoveryPlan(ctx, "replicationRecoveryPlan", &recoveryservices.ReplicationRecoveryPlanArgs{
-			Properties: recoveryservices.RecoveryPlanPropertiesResponse{
+			Properties: &recoveryservices.CreateRecoveryPlanInputPropertiesArgs{
 				FailoverDeploymentModel: pulumi.String("ResourceManager"),
 				Groups: []recoveryservices.RecoveryPlanGroupArgs{
 					{

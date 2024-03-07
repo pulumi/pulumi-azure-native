@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := portal.NewUserSettingsWithLocation(ctx, "userSettingsWithLocation", &portal.UserSettingsWithLocationArgs{
 			Location: pulumi.String("eastus"),
-			Properties: portal.UserPropertiesResponse{
+			Properties: &portal.UserPropertiesArgs{
 				PreferredLocation:  pulumi.String("eastus"),
 				PreferredOsType:    pulumi.String("Linux"),
 				PreferredShellType: pulumi.String("bash"),

@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := securityinsights.NewTIDataConnector(ctx, "tiDataConnector", &securityinsights.TIDataConnectorArgs{
 			DataConnectorId: pulumi.String("73e01a99-5cd7-4139-a149-9f2736ff2ab5"),
-			DataTypes: securityinsights.TIDataConnectorDataTypesResponse{
+			DataTypes: &securityinsights.TIDataConnectorDataTypesArgs{
 				Indicators: &securityinsights.TIDataConnectorDataTypesIndicatorsArgs{
 					State: pulumi.String("Enabled"),
 				},

@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 labeling_job = azure_native.machinelearningservices.LabelingJob("labelingJob",
     id="testLabelingJob",
-    labeling_job_properties=azure_native.machinelearningservices.LabelingJobResponseArgs(
+    labeling_job_properties=azure_native.machinelearningservices.LabelingJobArgs(
         description="string",
         job_instructions=azure_native.machinelearningservices.LabelingJobInstructionsArgs(
             uri="link/to/instructions",
@@ -26,10 +26,10 @@ labeling_job = azure_native.machinelearningservices.LabelingJob("labelingJob",
             ),
             "myCategory2": azure_native.machinelearningservices.LabelCategoryArgs(
                 classes={
-                    "myLabelClass1": {
-                        "displayName": "myLabelClass1",
-                        "subclasses": {},
-                    },
+                    "myLabelClass1": azure_native.machinelearningservices.LabelClassArgs(
+                        display_name="myLabelClass1",
+                        subclasses={},
+                    ),
                     "myLabelClass2": azure_native.machinelearningservices.LabelClassArgs(
                         display_name="myLabelClass2",
                         subclasses={},

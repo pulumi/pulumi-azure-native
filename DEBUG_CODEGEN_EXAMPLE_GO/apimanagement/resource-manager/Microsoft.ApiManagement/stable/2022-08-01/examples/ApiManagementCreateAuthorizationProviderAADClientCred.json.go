@@ -11,7 +11,7 @@ func main() {
 			AuthorizationProviderId: pulumi.String("aadwithclientcred"),
 			DisplayName:             pulumi.String("aadwithclientcred"),
 			IdentityProvider:        pulumi.String("aad"),
-			Oauth2: apimanagement.AuthorizationProviderOAuth2SettingsResponse{
+			Oauth2: &apimanagement.AuthorizationProviderOAuth2SettingsArgs{
 				GrantTypes: &apimanagement.AuthorizationProviderOAuth2GrantTypesArgs{
 					AuthorizationCode: pulumi.StringMap{
 						"resourceUri": pulumi.String("https://graph.microsoft.com"),

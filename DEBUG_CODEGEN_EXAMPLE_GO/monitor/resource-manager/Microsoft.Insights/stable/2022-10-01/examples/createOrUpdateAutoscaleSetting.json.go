@@ -11,9 +11,9 @@ func main() {
 			AutoscaleSettingName: pulumi.String("MySetting"),
 			Enabled:              pulumi.Bool(true),
 			Location:             pulumi.String("West US"),
-			Notifications: []insights.AutoscaleNotificationArgs{
-				{
-					Email: {
+			Notifications: insights.AutoscaleNotificationArray{
+				&insights.AutoscaleNotificationArgs{
+					Email: &insights.EmailNotificationArgs{
 						CustomEmails: pulumi.StringArray{
 							pulumi.String("gu@ms.com"),
 							pulumi.String("ge@ns.net"),
@@ -23,7 +23,7 @@ func main() {
 					},
 					Operation: insights.OperationTypeScale,
 					Webhooks: insights.WebhookNotificationArray{
-						{
+						&insights.WebhookNotificationArgs{
 							Properties: nil,
 							ServiceUri: pulumi.String("http://myservice.com"),
 						},
@@ -33,22 +33,22 @@ func main() {
 			PredictiveAutoscalePolicy: &insights.PredictiveAutoscalePolicyArgs{
 				ScaleMode: insights.PredictiveAutoscalePolicyScaleModeEnabled,
 			},
-			Profiles: []insights.AutoscaleProfileArgs{
-				{
-					Capacity: {
+			Profiles: insights.AutoscaleProfileArray{
+				&insights.AutoscaleProfileArgs{
+					Capacity: &insights.ScaleCapacityArgs{
 						Default: pulumi.String("1"),
 						Maximum: pulumi.String("10"),
 						Minimum: pulumi.String("1"),
 					},
-					FixedDate: {
+					FixedDate: &insights.TimeWindowArgs{
 						End:      pulumi.String("2015-03-05T14:30:00Z"),
 						Start:    pulumi.String("2015-03-05T14:00:00Z"),
 						TimeZone: pulumi.String("UTC"),
 					},
 					Name: pulumi.String("adios"),
 					Rules: insights.ScaleRuleArray{
-						{
-							MetricTrigger: {
+						&insights.ScaleRuleArgs{
+							MetricTrigger: &insights.MetricTriggerArgs{
 								DividePerInstance: pulumi.Bool(false),
 								MetricName:        pulumi.String("Percentage CPU"),
 								MetricResourceUri: pulumi.String("/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc"),
@@ -59,15 +59,15 @@ func main() {
 								TimeGrain:         pulumi.String("PT1M"),
 								TimeWindow:        pulumi.String("PT5M"),
 							},
-							ScaleAction: {
+							ScaleAction: &insights.ScaleActionArgs{
 								Cooldown:  pulumi.String("PT5M"),
 								Direction: insights.ScaleDirectionIncrease,
 								Type:      insights.ScaleTypeChangeCount,
 								Value:     pulumi.String("1"),
 							},
 						},
-						{
-							MetricTrigger: {
+						&insights.ScaleRuleArgs{
+							MetricTrigger: &insights.MetricTriggerArgs{
 								DividePerInstance: pulumi.Bool(false),
 								MetricName:        pulumi.String("Percentage CPU"),
 								MetricResourceUri: pulumi.String("/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc"),
@@ -78,7 +78,7 @@ func main() {
 								TimeGrain:         pulumi.String("PT2M"),
 								TimeWindow:        pulumi.String("PT5M"),
 							},
-							ScaleAction: {
+							ScaleAction: &insights.ScaleActionArgs{
 								Cooldown:  pulumi.String("PT6M"),
 								Direction: insights.ScaleDirectionDecrease,
 								Type:      insights.ScaleTypeChangeCount,
@@ -87,16 +87,16 @@ func main() {
 						},
 					},
 				},
-				{
-					Capacity: {
+				&insights.AutoscaleProfileArgs{
+					Capacity: &insights.ScaleCapacityArgs{
 						Default: pulumi.String("1"),
 						Maximum: pulumi.String("10"),
 						Minimum: pulumi.String("1"),
 					},
 					Name: pulumi.String("saludos"),
-					Recurrence: {
+					Recurrence: &insights.RecurrenceArgs{
 						Frequency: insights.RecurrenceFrequencyWeek,
-						Schedule: {
+						Schedule: &insights.RecurrentScheduleArgs{
 							Days: pulumi.StringArray{
 								pulumi.String("1"),
 							},
@@ -110,8 +110,8 @@ func main() {
 						},
 					},
 					Rules: insights.ScaleRuleArray{
-						{
-							MetricTrigger: {
+						&insights.ScaleRuleArgs{
+							MetricTrigger: &insights.MetricTriggerArgs{
 								DividePerInstance: pulumi.Bool(false),
 								MetricName:        pulumi.String("Percentage CPU"),
 								MetricResourceUri: pulumi.String("/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc"),
@@ -122,15 +122,15 @@ func main() {
 								TimeGrain:         pulumi.String("PT1M"),
 								TimeWindow:        pulumi.String("PT5M"),
 							},
-							ScaleAction: {
+							ScaleAction: &insights.ScaleActionArgs{
 								Cooldown:  pulumi.String("PT5M"),
 								Direction: insights.ScaleDirectionIncrease,
 								Type:      insights.ScaleTypeChangeCount,
 								Value:     pulumi.String("1"),
 							},
 						},
-						{
-							MetricTrigger: {
+						&insights.ScaleRuleArgs{
+							MetricTrigger: &insights.MetricTriggerArgs{
 								DividePerInstance: pulumi.Bool(false),
 								MetricName:        pulumi.String("Percentage CPU"),
 								MetricResourceUri: pulumi.String("/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc"),
@@ -141,7 +141,7 @@ func main() {
 								TimeGrain:         pulumi.String("PT2M"),
 								TimeWindow:        pulumi.String("PT5M"),
 							},
-							ScaleAction: {
+							ScaleAction: &insights.ScaleActionArgs{
 								Cooldown:  pulumi.String("PT6M"),
 								Direction: insights.ScaleDirectionDecrease,
 								Type:      insights.ScaleTypeChangeCount,

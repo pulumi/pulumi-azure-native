@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 cluster = azure_native.hdinsight.Cluster("cluster",
     cluster_name="cluster1",
-    properties=azure_native.hdinsight.ClusterGetPropertiesResponseArgs(
+    properties=azure_native.hdinsight.ClusterCreatePropertiesArgs(
         cluster_definition=azure_native.hdinsight.ClusterDefinitionArgs(
             configurations={
                 "gateway": {
@@ -15,66 +15,66 @@ cluster = azure_native.hdinsight.Cluster("cluster",
             kind="hadoop",
         ),
         cluster_version="3.6",
-        compute_profile={
-            "roles": [
-                {
-                    "hardwareProfile": azure_native.hdinsight.HardwareProfileArgs(
+        compute_profile=azure_native.hdinsight.ComputeProfileArgs(
+            roles=[
+                azure_native.hdinsight.RoleArgs(
+                    hardware_profile=azure_native.hdinsight.HardwareProfileArgs(
                         vm_size="standard_d3",
                     ),
-                    "name": "headnode",
-                    "osProfile": {
-                        "linuxOperatingSystemProfile": {
-                            "password": "**********",
-                            "sshProfile": {
-                                "publicKeys": [azure_native.hdinsight.SshPublicKeyArgs(
+                    name="headnode",
+                    os_profile=azure_native.hdinsight.OsProfileArgs(
+                        linux_operating_system_profile=azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
+                            password="**********",
+                            ssh_profile=azure_native.hdinsight.SshProfileArgs(
+                                public_keys=[azure_native.hdinsight.SshPublicKeyArgs(
                                     certificate_data="**********",
                                 )],
-                            },
-                            "username": "sshuser",
-                        },
-                    },
-                    "targetInstanceCount": 2,
-                    "virtualNetworkProfile": azure_native.hdinsight.VirtualNetworkProfileArgs(
+                            ),
+                            username="sshuser",
+                        ),
+                    ),
+                    target_instance_count=2,
+                    virtual_network_profile=azure_native.hdinsight.VirtualNetworkProfileArgs(
                         id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
                         subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
                     ),
-                },
-                {
-                    "hardwareProfile": azure_native.hdinsight.HardwareProfileArgs(
+                ),
+                azure_native.hdinsight.RoleArgs(
+                    hardware_profile=azure_native.hdinsight.HardwareProfileArgs(
                         vm_size="standard_d3",
                     ),
-                    "name": "workernode",
-                    "osProfile": {
-                        "linuxOperatingSystemProfile": {
-                            "password": "**********",
-                            "sshProfile": {
-                                "publicKeys": [azure_native.hdinsight.SshPublicKeyArgs(
+                    name="workernode",
+                    os_profile=azure_native.hdinsight.OsProfileArgs(
+                        linux_operating_system_profile=azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
+                            password="**********",
+                            ssh_profile=azure_native.hdinsight.SshProfileArgs(
+                                public_keys=[azure_native.hdinsight.SshPublicKeyArgs(
                                     certificate_data="**********",
                                 )],
-                            },
-                            "username": "sshuser",
-                        },
-                    },
-                    "targetInstanceCount": 2,
-                    "virtualNetworkProfile": azure_native.hdinsight.VirtualNetworkProfileArgs(
+                            ),
+                            username="sshuser",
+                        ),
+                    ),
+                    target_instance_count=2,
+                    virtual_network_profile=azure_native.hdinsight.VirtualNetworkProfileArgs(
                         id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
                         subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
                     ),
-                },
+                ),
             ],
-        },
+        ),
         network_properties=azure_native.hdinsight.NetworkPropertiesArgs(
             private_link="Enabled",
             resource_provider_connection="Outbound",
         ),
         os_type="Linux",
-        storage_profile={
-            "storageaccounts": [azure_native.hdinsight.StorageAccountArgs(
+        storage_profile=azure_native.hdinsight.StorageProfileArgs(
+            storageaccounts=[azure_native.hdinsight.StorageAccountArgs(
                 container="containername",
                 is_default=True,
                 key="storage account key",
                 name="mystorage",
             )],
-        },
+        ),
     ),
     resource_group_name="rg1")

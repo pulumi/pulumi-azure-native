@@ -3,21 +3,21 @@ import pulumi_azure_native as azure_native
 
 container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
     container_group_name="demo1",
-    containers=[{
-        "command": [],
-        "environmentVariables": [],
-        "image": "nginx",
-        "name": "demo1",
-        "ports": [azure_native.containerinstance.ContainerPortArgs(
+    containers=[azure_native.containerinstance.ContainerArgs(
+        command=[],
+        environment_variables=[],
+        image="nginx",
+        name="demo1",
+        ports=[azure_native.containerinstance.ContainerPortArgs(
             port=80,
         )],
-        "resources": {
-            "requests": azure_native.containerinstance.ResourceRequestsArgs(
+        resources=azure_native.containerinstance.ResourceRequirementsArgs(
+            requests=azure_native.containerinstance.ResourceRequestsArgs(
                 cpu=1,
                 memory_in_gb=1.5,
             ),
-        },
-    }],
+        ),
+    )],
     extensions=[
         azure_native.containerinstance.DeploymentExtensionSpecArgs(
             extension_type="kube-proxy",
@@ -38,7 +38,7 @@ container_group = azure_native.containerinstance.ContainerGroup("containerGroup"
         ),
     ],
     image_registry_credentials=[],
-    ip_address=azure_native.containerinstance.IpAddressResponseArgs(
+    ip_address=azure_native.containerinstance.IpAddressArgs(
         ports=[azure_native.containerinstance.PortArgs(
             port=80,
             protocol="TCP",

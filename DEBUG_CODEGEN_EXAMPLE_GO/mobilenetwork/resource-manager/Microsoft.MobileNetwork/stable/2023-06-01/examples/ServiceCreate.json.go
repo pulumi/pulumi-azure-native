@@ -10,14 +10,14 @@ func main() {
 		_, err := mobilenetwork.NewService(ctx, "service", &mobilenetwork.ServiceArgs{
 			Location:          pulumi.String("eastus"),
 			MobileNetworkName: pulumi.String("testMobileNetwork"),
-			PccRules: []mobilenetwork.PccRuleConfigurationArgs{
-				{
+			PccRules: mobilenetwork.PccRuleConfigurationArray{
+				&mobilenetwork.PccRuleConfigurationArgs{
 					RuleName:       pulumi.String("default-rule"),
 					RulePrecedence: pulumi.Int(255),
-					RuleQosPolicy: {
+					RuleQosPolicy: &mobilenetwork.PccRuleQosPolicyArgs{
 						AllocationAndRetentionPriorityLevel: pulumi.Int(9),
 						FiveQi:                              pulumi.Int(9),
-						MaximumBitRate: {
+						MaximumBitRate: &mobilenetwork.AmbrArgs{
 							Downlink: pulumi.String("1 Gbps"),
 							Uplink:   pulumi.String("500 Mbps"),
 						},
@@ -25,7 +25,7 @@ func main() {
 						PreemptionVulnerability: pulumi.String("Preemptable"),
 					},
 					ServiceDataFlowTemplates: mobilenetwork.ServiceDataFlowTemplateArray{
-						{
+						&mobilenetwork.ServiceDataFlowTemplateArgs{
 							Direction: pulumi.String("Uplink"),
 							Ports:     pulumi.StringArray{},
 							Protocol: pulumi.StringArray{
@@ -43,7 +43,7 @@ func main() {
 			ResourceGroupName: pulumi.String("rg1"),
 			ServiceName:       pulumi.String("TestService"),
 			ServicePrecedence: pulumi.Int(255),
-			ServiceQosPolicy: mobilenetwork.QosPolicyResponse{
+			ServiceQosPolicy: &mobilenetwork.QosPolicyArgs{
 				AllocationAndRetentionPriorityLevel: pulumi.Int(9),
 				FiveQi:                              pulumi.Int(9),
 				MaximumBitRate: &mobilenetwork.AmbrArgs{

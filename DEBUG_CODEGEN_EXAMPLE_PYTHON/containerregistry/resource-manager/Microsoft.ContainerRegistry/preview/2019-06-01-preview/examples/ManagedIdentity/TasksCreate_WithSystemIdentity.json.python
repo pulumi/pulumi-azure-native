@@ -41,24 +41,24 @@ task = azure_native.containerregistry.Task("task",
         "testkey": "value",
     },
     task_name="mytTask",
-    trigger=azure_native.containerregistry.TriggerPropertiesResponseArgs(
+    trigger=azure_native.containerregistry.TriggerPropertiesArgs(
         base_image_trigger=azure_native.containerregistry.BaseImageTriggerArgs(
             base_image_trigger_type="Runtime",
             name="myBaseImageTrigger",
         ),
-        source_triggers=[{
-            "name": "mySourceTrigger",
-            "sourceRepository": {
-                "branch": "master",
-                "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
-                "sourceControlAuthProperties": azure_native.containerregistry.AuthInfoArgs(
+        source_triggers=[azure_native.containerregistry.SourceTriggerArgs(
+            name="mySourceTrigger",
+            source_repository=azure_native.containerregistry.SourcePropertiesArgs(
+                branch="master",
+                repository_url="https://github.com/Azure/azure-rest-api-specs",
+                source_control_auth_properties=azure_native.containerregistry.AuthInfoArgs(
                     token="xxxxx",
                     token_type="PAT",
                 ),
-                "sourceControlType": "Github",
-            },
-            "sourceTriggerEvents": ["commit"],
-        }],
+                source_control_type="Github",
+            ),
+            source_trigger_events=["commit"],
+        )],
         timer_triggers=[azure_native.containerregistry.TimerTriggerArgs(
             name="myTimerTrigger",
             schedule="30 9 * * 1-5",

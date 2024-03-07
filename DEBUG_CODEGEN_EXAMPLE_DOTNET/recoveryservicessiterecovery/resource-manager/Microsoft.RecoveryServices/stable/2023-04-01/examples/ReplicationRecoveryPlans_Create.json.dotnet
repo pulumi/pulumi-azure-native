@@ -14,7 +14,7 @@ return await Deployment.RunAsync(() =>
             {
                 new AzureNative.RecoveryServices.Inputs.RecoveryPlanGroupArgs
                 {
-                    EndGroupActions = new[] {},
+                    EndGroupActions = new() { },
                     GroupType = "Boot",
                     ReplicationProtectedItems = new[]
                     {
@@ -24,7 +24,7 @@ return await Deployment.RunAsync(() =>
                             VirtualMachineId = "f8491e4f-817a-40dd-a90c-af773978c75b",
                         },
                     },
-                    StartGroupActions = new[] {},
+                    StartGroupActions = new() { },
                 },
             },
             PrimaryFabricId = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1",

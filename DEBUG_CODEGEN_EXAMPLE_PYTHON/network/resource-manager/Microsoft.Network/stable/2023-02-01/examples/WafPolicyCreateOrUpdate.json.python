@@ -3,103 +3,103 @@ import pulumi_azure_native as azure_native
 
 web_application_firewall_policy = azure_native.network.WebApplicationFirewallPolicy("webApplicationFirewallPolicy",
     custom_rules=[
-        {
-            "action": "Block",
-            "matchConditions": [{
-                "matchValues": [
+        azure_native.network.WebApplicationFirewallCustomRuleArgs(
+            action="Block",
+            match_conditions=[azure_native.network.MatchConditionArgs(
+                match_values=[
                     "192.168.1.0/24",
                     "10.0.0.0/24",
                 ],
-                "matchVariables": [azure_native.network.MatchVariableArgs(
+                match_variables=[azure_native.network.MatchVariableArgs(
                     variable_name="RemoteAddr",
                 )],
-                "operator": "IPMatch",
-            }],
-            "name": "Rule1",
-            "priority": 1,
-            "ruleType": "MatchRule",
-        },
-        {
-            "action": "Block",
-            "matchConditions": [
-                {
-                    "matchValues": ["192.168.1.0/24"],
-                    "matchVariables": [azure_native.network.MatchVariableArgs(
+                operator="IPMatch",
+            )],
+            name="Rule1",
+            priority=1,
+            rule_type="MatchRule",
+        ),
+        azure_native.network.WebApplicationFirewallCustomRuleArgs(
+            action="Block",
+            match_conditions=[
+                azure_native.network.MatchConditionArgs(
+                    match_values=["192.168.1.0/24"],
+                    match_variables=[azure_native.network.MatchVariableArgs(
                         variable_name="RemoteAddr",
                     )],
-                    "operator": "IPMatch",
-                },
-                {
-                    "matchValues": ["Windows"],
-                    "matchVariables": [azure_native.network.MatchVariableArgs(
+                    operator="IPMatch",
+                ),
+                azure_native.network.MatchConditionArgs(
+                    match_values=["Windows"],
+                    match_variables=[azure_native.network.MatchVariableArgs(
                         selector="UserAgent",
                         variable_name="RequestHeaders",
                     )],
-                    "operator": "Contains",
-                },
+                    operator="Contains",
+                ),
             ],
-            "name": "Rule2",
-            "priority": 2,
-            "ruleType": "MatchRule",
-        },
-        {
-            "action": "Block",
-            "groupByUserSession": [{
-                "groupByVariables": [azure_native.network.GroupByVariableArgs(
+            name="Rule2",
+            priority=2,
+            rule_type="MatchRule",
+        ),
+        azure_native.network.WebApplicationFirewallCustomRuleArgs(
+            action="Block",
+            group_by_user_session=[azure_native.network.GroupByUserSessionArgs(
+                group_by_variables=[azure_native.network.GroupByVariableArgs(
                     variable_name="ClientAddr",
                 )],
-            }],
-            "matchConditions": [{
-                "matchValues": [
+            )],
+            match_conditions=[azure_native.network.MatchConditionArgs(
+                match_values=[
                     "192.168.1.0/24",
                     "10.0.0.0/24",
                 ],
-                "matchVariables": [azure_native.network.MatchVariableArgs(
+                match_variables=[azure_native.network.MatchVariableArgs(
                     variable_name="RemoteAddr",
                 )],
-                "negationConditon": True,
-                "operator": "IPMatch",
-            }],
-            "name": "RateLimitRule3",
-            "priority": 3,
-            "rateLimitDuration": "OneMin",
-            "rateLimitThreshold": 10,
-            "ruleType": "RateLimitRule",
-        },
+                negation_conditon=True,
+                operator="IPMatch",
+            )],
+            name="RateLimitRule3",
+            priority=3,
+            rate_limit_duration="OneMin",
+            rate_limit_threshold=10,
+            rule_type="RateLimitRule",
+        ),
     ],
     location="WestUs",
-    managed_rules=azure_native.network.ManagedRulesDefinitionResponseArgs(
+    managed_rules=azure_native.network.ManagedRulesDefinitionArgs(
         exclusions=[
-            {
-                "exclusionManagedRuleSets": [{
-                    "ruleGroups": [
-                        {
-                            "ruleGroupName": "REQUEST-930-APPLICATION-ATTACK-LFI",
-                            "rules": [azure_native.network.ExclusionManagedRuleArgs(
+            azure_native.network.OwaspCrsExclusionEntryArgs(
+                exclusion_managed_rule_sets=[azure_native.network.ExclusionManagedRuleSetArgs(
+                    rule_groups=[
+                        azure_native.network.ExclusionManagedRuleGroupArgs(
+                            rule_group_name="REQUEST-930-APPLICATION-ATTACK-LFI",
+                            rules=[azure_native.network.ExclusionManagedRuleArgs(
                                 rule_id="930120",
                             )],
-                        },
+                        ),
                         azure_native.network.ExclusionManagedRuleGroupArgs(
                             rule_group_name="REQUEST-932-APPLICATION-ATTACK-RCE",
                         ),
                     ],
-                    "ruleSetType": "OWASP",
-                    "ruleSetVersion": "3.2",
-                }],
-                "matchVariable": "RequestArgNames",
-                "selector": "hello",
-                "selectorMatchOperator": "StartsWith",
-            },
-            {
-                "exclusionManagedRuleSets": [{
-                    "ruleGroups": [],
-                    "ruleSetType": "OWASP",
-                    "ruleSetVersion": "3.1",
-                }],
-                "matchVariable": "RequestArgNames",
-                "selector": "hello",
-                "selectorMatchOperator": "EndsWith",
-            },
+                    rule_set_type="OWASP",
+                    rule_set_version="3.2",
+                )],
+                match_variable="RequestArgNames",
+                selector="hello",
+                selector_match_operator="StartsWith",
+            ),
+            azure_native.network.OwaspCrsExclusionEntryArgs(
+                exclusion_managed_rule_sets=[azure_native.network.ExclusionManagedRuleSetArgs(
+                    rule_groups=[],
+                    rule_set_type="OWASP",
+                    rule_set_version="3.1",
+                )],
+                match_variable="RequestArgNames",
+                selector="hello",
+                selector_match_operator="EndsWith",
+            ),
             azure_native.network.OwaspCrsExclusionEntryArgs(
                 match_variable="RequestArgNames",
                 selector="test",
@@ -111,10 +111,10 @@ web_application_firewall_policy = azure_native.network.WebApplicationFirewallPol
                 selector_match_operator="StartsWith",
             ),
         ],
-        managed_rule_sets=[{
-            "ruleGroupOverrides": [{
-                "ruleGroupName": "REQUEST-931-APPLICATION-ATTACK-RFI",
-                "rules": [
+        managed_rule_sets=[azure_native.network.ManagedRuleSetArgs(
+            rule_group_overrides=[azure_native.network.ManagedRuleGroupOverrideArgs(
+                rule_group_name="REQUEST-931-APPLICATION-ATTACK-RFI",
+                rules=[
                     azure_native.network.ManagedRuleOverrideArgs(
                         action="Log",
                         rule_id="931120",
@@ -126,15 +126,15 @@ web_application_firewall_policy = azure_native.network.WebApplicationFirewallPol
                         state="Disabled",
                     ),
                 ],
-            }],
-            "ruleSetType": "OWASP",
-            "ruleSetVersion": "3.2",
-        }],
+            )],
+            rule_set_type="OWASP",
+            rule_set_version="3.2",
+        )],
     ),
     policy_name="Policy1",
-    policy_settings=azure_native.network.PolicySettingsResponseArgs(
-        log_scrubbing={
-            "scrubbingRules": [
+    policy_settings=azure_native.network.PolicySettingsArgs(
+        log_scrubbing=azure_native.network.PolicySettingsLogScrubbingArgs(
+            scrubbing_rules=[
                 azure_native.network.WebApplicationFirewallScrubbingRulesArgs(
                     match_variable="RequestArgNames",
                     selector="test",
@@ -147,7 +147,7 @@ web_application_firewall_policy = azure_native.network.WebApplicationFirewallPol
                     state="Enabled",
                 ),
             ],
-            "state": "Enabled",
-        },
+            state="Enabled",
+        ),
     ),
     resource_group_name="rg1")

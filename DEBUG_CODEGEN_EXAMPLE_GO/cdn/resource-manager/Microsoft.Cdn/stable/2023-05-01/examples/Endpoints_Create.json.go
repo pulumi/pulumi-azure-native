@@ -15,7 +15,7 @@ func main() {
 			DefaultOriginGroup: &cdn.ResourceReferenceArgs{
 				Id: pulumi.String("/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1"),
 			},
-			DeliveryPolicy: cdn.EndpointPropertiesUpdateParametersResponseDeliveryPolicy{
+			DeliveryPolicy: &cdn.EndpointPropertiesUpdateParametersDeliveryPolicyArgs{
 				Description: pulumi.String("Test description for a policy."),
 				Rules: []cdn.DeliveryRuleArgs{
 					{
@@ -72,9 +72,9 @@ func main() {
 			IsHttpAllowed:        pulumi.Bool(true),
 			IsHttpsAllowed:       pulumi.Bool(true),
 			Location:             pulumi.String("WestUs"),
-			OriginGroups: []cdn.DeepCreatedOriginGroupArgs{
-				{
-					HealthProbeSettings: {
+			OriginGroups: cdn.DeepCreatedOriginGroupArray{
+				&cdn.DeepCreatedOriginGroupArgs{
+					HealthProbeSettings: &cdn.HealthProbeParametersArgs{
 						ProbeIntervalInSeconds: pulumi.Int(120),
 						ProbePath:              pulumi.String("/health.aspx"),
 						ProbeProtocol:          cdn.ProbeProtocolHttp,
@@ -82,14 +82,14 @@ func main() {
 					},
 					Name: pulumi.String("originGroup1"),
 					Origins: cdn.ResourceReferenceArray{
-						{
+						&cdn.ResourceReferenceArgs{
 							Id: pulumi.String("/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1"),
 						},
-						{
+						&cdn.ResourceReferenceArgs{
 							Id: pulumi.String("/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin2"),
 						},
 					},
-					ResponseBasedOriginErrorDetectionSettings: {
+					ResponseBasedOriginErrorDetectionSettings: &cdn.ResponseBasedOriginErrorDetectionParametersArgs{
 						ResponseBasedDetectedErrorTypes:          cdn.ResponseBasedDetectedErrorTypesTcpErrorsOnly,
 						ResponseBasedFailoverThresholdPercentage: pulumi.Int(10),
 					},
@@ -97,8 +97,8 @@ func main() {
 			},
 			OriginHostHeader: pulumi.String("www.bing.com"),
 			OriginPath:       pulumi.String("/photos"),
-			Origins: []cdn.DeepCreatedOriginArgs{
-				{
+			Origins: cdn.DeepCreatedOriginArray{
+				&cdn.DeepCreatedOriginArgs{
 					Enabled:          pulumi.Bool(true),
 					HostName:         pulumi.String("www.someDomain1.net"),
 					HttpPort:         pulumi.Int(80),
@@ -108,7 +108,7 @@ func main() {
 					Priority:         pulumi.Int(1),
 					Weight:           pulumi.Int(50),
 				},
-				{
+				&cdn.DeepCreatedOriginArgs{
 					Enabled:          pulumi.Bool(true),
 					HostName:         pulumi.String("www.someDomain2.net"),
 					HttpPort:         pulumi.Int(80),

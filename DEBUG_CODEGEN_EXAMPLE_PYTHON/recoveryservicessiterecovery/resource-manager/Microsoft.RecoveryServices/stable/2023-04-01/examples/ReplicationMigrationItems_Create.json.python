@@ -4,9 +4,9 @@ import pulumi_azure_native as azure_native
 replication_migration_item = azure_native.recoveryservices.ReplicationMigrationItem("replicationMigrationItem",
     fabric_name="vmwarefabric1",
     migration_item_name="virtualmachine1",
-    properties=azure_native.recoveryservices.MigrationItemPropertiesResponseArgs(
+    properties=azure_native.recoveryservices.EnableMigrationInputPropertiesArgs(
         policy_id="/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationPolicies/vmwarepolicy1",
-        provider_specific_details=azure_native.recoveryservices.VMwareCbtMigrationDetailsResponseArgs(
+        provider_specific_details=azure_native.recoveryservices.VMwareCbtEnableMigrationInputArgs(
             data_mover_run_as_account_id="/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/dataMoverRunAsAccount1",
             disks_to_include=[azure_native.recoveryservices.VMwareCbtDiskInputArgs(
                 disk_id="disk1",

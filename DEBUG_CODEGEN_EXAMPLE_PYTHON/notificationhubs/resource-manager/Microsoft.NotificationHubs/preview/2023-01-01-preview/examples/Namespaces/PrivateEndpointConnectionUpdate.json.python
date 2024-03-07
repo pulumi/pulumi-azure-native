@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 private_endpoint_connection = azure_native.notificationhubs.PrivateEndpointConnection("privateEndpointConnection",
     namespace_name="nh-sdk-ns",
     private_endpoint_connection_name="nh-sdk-ns.1fa229cd-bf3f-47f0-8c49-afb36723997e",
-    properties=azure_native.notificationhubs.PrivateEndpointConnectionPropertiesResponseArgs(
+    properties=azure_native.notificationhubs.PrivateEndpointConnectionPropertiesArgs(
         private_link_service_connection_state=azure_native.notificationhubs.RemotePrivateLinkServiceConnectionStateArgs(
             status="Approved",
         ),

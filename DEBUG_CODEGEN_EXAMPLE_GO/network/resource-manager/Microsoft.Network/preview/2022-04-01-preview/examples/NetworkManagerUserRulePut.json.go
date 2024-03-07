@@ -13,8 +13,8 @@ func main() {
 			DestinationPortRanges: pulumi.StringArray{
 				pulumi.String("22"),
 			},
-			Destinations: []network.AddressPrefixItemArgs{
-				{
+			Destinations: network.AddressPrefixItemArray{
+				&network.AddressPrefixItemArgs{
 					AddressPrefix:     pulumi.String("*"),
 					AddressPrefixType: pulumi.String("IPPrefix"),
 				},
@@ -29,8 +29,8 @@ func main() {
 			SourcePortRanges: pulumi.StringArray{
 				pulumi.String("0-65535"),
 			},
-			Sources: []network.AddressPrefixItemArgs{
-				{
+			Sources: network.AddressPrefixItemArray{
+				&network.AddressPrefixItemArgs{
 					AddressPrefix:     pulumi.String("*"),
 					AddressPrefixType: pulumi.String("IPPrefix"),
 				},

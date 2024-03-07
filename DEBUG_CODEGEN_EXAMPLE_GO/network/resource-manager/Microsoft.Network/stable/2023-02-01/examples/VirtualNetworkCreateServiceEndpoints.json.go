@@ -15,12 +15,12 @@ func main() {
 			},
 			Location:          pulumi.String("eastus"),
 			ResourceGroupName: pulumi.String("vnetTest"),
-			Subnets: []network.SubnetTypeArgs{
-				{
+			Subnets: network.SubnetTypeArray{
+				&network.SubnetTypeArgs{
 					AddressPrefix: pulumi.String("10.0.0.0/16"),
 					Name:          pulumi.String("test-1"),
 					ServiceEndpoints: network.ServiceEndpointPropertiesFormatArray{
-						{
+						&network.ServiceEndpointPropertiesFormatArgs{
 							Service: pulumi.String("Microsoft.Storage"),
 						},
 					},

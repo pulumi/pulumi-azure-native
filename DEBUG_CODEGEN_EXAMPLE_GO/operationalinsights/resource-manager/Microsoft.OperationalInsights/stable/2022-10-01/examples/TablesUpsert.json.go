@@ -10,7 +10,7 @@ func main() {
 		_, err := operationalinsights.NewTable(ctx, "table", &operationalinsights.TableArgs{
 			ResourceGroupName: pulumi.String("oiautorest6685"),
 			RetentionInDays:   pulumi.Int(45),
-			Schema: operationalinsights.SchemaResponse{
+			Schema: &operationalinsights.SchemaArgs{
 				Columns: operationalinsights.ColumnArray{
 					&operationalinsights.ColumnArgs{
 						Name: pulumi.String("MyNewColumn"),

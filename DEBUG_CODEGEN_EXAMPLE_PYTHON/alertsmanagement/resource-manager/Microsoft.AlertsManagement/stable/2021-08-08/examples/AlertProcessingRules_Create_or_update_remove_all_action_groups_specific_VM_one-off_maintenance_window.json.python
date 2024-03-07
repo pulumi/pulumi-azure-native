@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 alert_processing_rule_by_name = azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName",
     alert_processing_rule_name="RemoveActionGroupsMaintenanceWindow",
     location="Global",
-    properties=azure_native.alertsmanagement.AlertProcessingRulePropertiesResponseArgs(
+    properties=azure_native.alertsmanagement.AlertProcessingRulePropertiesArgs(
         actions=[azure_native.alertsmanagement.RemoveAllActionGroupsArgs(
             action_type="RemoveAllActionGroups",
         )],

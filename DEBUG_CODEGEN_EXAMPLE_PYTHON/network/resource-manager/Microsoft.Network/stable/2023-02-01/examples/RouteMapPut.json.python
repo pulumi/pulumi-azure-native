@@ -6,22 +6,22 @@ route_map = azure_native.network.RouteMap("routeMap",
     associated_outbound_connections=[],
     resource_group_name="rg1",
     route_map_name="routeMap1",
-    rules=[{
-        "actions": [{
-            "parameters": [azure_native.network.ParameterArgs(
+    rules=[azure_native.network.RouteMapRuleArgs(
+        actions=[azure_native.network.ActionArgs(
+            parameters=[azure_native.network.ParameterArgs(
                 as_path=["22334"],
                 community=[],
                 route_prefix=[],
             )],
-            "type": "Add",
-        }],
-        "matchCriteria": [azure_native.network.CriterionArgs(
+            type="Add",
+        )],
+        match_criteria=[azure_native.network.CriterionArgs(
             as_path=[],
             community=[],
             match_condition="Contains",
             route_prefix=["10.0.0.0/8"],
         )],
-        "name": "rule1",
-        "nextStepIfMatched": "Continue",
-    }],
+        name="rule1",
+        next_step_if_matched="Continue",
+    )],
     virtual_hub_name="virtualHub1")

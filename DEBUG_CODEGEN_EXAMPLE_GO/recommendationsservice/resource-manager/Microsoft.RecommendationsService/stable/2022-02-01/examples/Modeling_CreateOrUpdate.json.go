@@ -11,7 +11,7 @@ func main() {
 			AccountName:  pulumi.String("sampleAccount"),
 			Location:     pulumi.String("West US"),
 			ModelingName: pulumi.String("c1"),
-			Properties: recommendationsservice.ModelingResourceResponseProperties{
+			Properties: &recommendationsservice.ModelingResourcePropertiesArgs{
 				Features:  pulumi.String("Standard"),
 				Frequency: pulumi.String("High"),
 				InputData: &recommendationsservice.ModelingInputDataArgs{

@@ -7,27 +7,27 @@ sql_resource_sql_container = azure_native.documentdb.SqlResourceSqlContainer("sq
     database_name="databaseName",
     location="West US",
     options=azure_native.documentdb.CreateUpdateOptionsArgs(),
-    resource=azure_native.documentdb.SqlContainerGetPropertiesResponseResourceArgs(
-        client_encryption_policy={
-            "includedPaths": [azure_native.documentdb.ClientEncryptionIncludedPathArgs(
+    resource=azure_native.documentdb.SqlContainerResourceArgs(
+        client_encryption_policy=azure_native.documentdb.ClientEncryptionPolicyArgs(
+            included_paths=[azure_native.documentdb.ClientEncryptionIncludedPathArgs(
                 client_encryption_key_id="keyId",
                 encryption_algorithm="AEAD_AES_256_CBC_HMAC_SHA256",
                 encryption_type="Deterministic",
                 path="/path",
             )],
-            "policyFormatVersion": 2,
-        },
+            policy_format_version=2,
+        ),
         conflict_resolution_policy=azure_native.documentdb.ConflictResolutionPolicyArgs(
             conflict_resolution_path="/path",
             mode="LastWriterWins",
         ),
         default_ttl=100,
         id="containerName",
-        indexing_policy={
-            "automatic": True,
-            "excludedPaths": [],
-            "includedPaths": [{
-                "indexes": [
+        indexing_policy=azure_native.documentdb.IndexingPolicyArgs(
+            automatic=True,
+            excluded_paths=[],
+            included_paths=[azure_native.documentdb.IncludedPathArgs(
+                indexes=[
                     azure_native.documentdb.IndexesArgs(
                         data_type="String",
                         kind="Range",
@@ -39,19 +39,19 @@ sql_resource_sql_container = azure_native.documentdb.SqlResourceSqlContainer("sq
                         precision=-1,
                     ),
                 ],
-                "path": "/*",
-            }],
-            "indexingMode": "consistent",
-        },
+                path="/*",
+            )],
+            indexing_mode="consistent",
+        ),
         partition_key=azure_native.documentdb.ContainerPartitionKeyArgs(
             kind="Hash",
             paths=["/AccountNumber"],
         ),
-        unique_key_policy={
-            "uniqueKeys": [azure_native.documentdb.UniqueKeyArgs(
+        unique_key_policy=azure_native.documentdb.UniqueKeyPolicyArgs(
+            unique_keys=[azure_native.documentdb.UniqueKeyArgs(
                 paths=["/testPath"],
             )],
-        },
+        ),
     ),
     resource_group_name="rg1",
     tags={})

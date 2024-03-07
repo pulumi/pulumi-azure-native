@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := desktopvirtualization.NewHostPool(ctx, "hostPool", &desktopvirtualization.HostPoolArgs{
-			AgentUpdate: desktopvirtualization.AgentUpdatePropertiesResponse{
+			AgentUpdate: &desktopvirtualization.AgentUpdatePropertiesArgs{
 				MaintenanceWindowTimeZone: pulumi.String("Alaskan Standard Time"),
 				MaintenanceWindows: desktopvirtualization.MaintenanceWindowPropertiesArray{
 					&desktopvirtualization.MaintenanceWindowPropertiesArgs{

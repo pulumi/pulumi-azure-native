@@ -10,7 +10,7 @@ func main() {
 		_, err := storage.NewFileServiceProperties(ctx, "fileServiceProperties", &storage.FileServicePropertiesArgs{
 			AccountName:      pulumi.String("sto8607"),
 			FileServicesName: pulumi.String("default"),
-			ProtocolSettings: storage.ProtocolSettingsResponse{
+			ProtocolSettings: &storage.ProtocolSettingsArgs{
 				Smb: &storage.SmbSettingArgs{
 					AuthenticationMethods:    pulumi.String("NTLMv2;Kerberos"),
 					ChannelEncryption:        pulumi.String("AES-128-CCM;AES-128-GCM;AES-256-GCM"),

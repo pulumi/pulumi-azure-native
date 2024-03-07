@@ -10,7 +10,7 @@ func main() {
 		_, err := datareplication.NewDra(ctx, "dra", &datareplication.DraArgs{
 			FabricAgentName: pulumi.String("M"),
 			FabricName:      pulumi.String("wPR"),
-			Properties: datareplication.DraModelPropertiesResponse{
+			Properties: &datareplication.DraModelPropertiesArgs{
 				AuthenticationIdentity: &datareplication.IdentityModelArgs{
 					AadAuthority:  pulumi.String("bubwwbowfhdmujrt"),
 					ApplicationId: pulumi.String("cwktzrwajuvfyyymfstpey"),

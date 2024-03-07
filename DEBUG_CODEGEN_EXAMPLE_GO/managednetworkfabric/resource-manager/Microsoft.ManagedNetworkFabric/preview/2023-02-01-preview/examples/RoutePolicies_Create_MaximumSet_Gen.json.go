@@ -12,39 +12,39 @@ func main() {
 			Location:          pulumi.String("EastUS"),
 			ResourceGroupName: pulumi.String("rgRoutePolicies"),
 			RoutePolicyName:   pulumi.String("routePolicyName"),
-			Statements: []managednetworkfabric.RoutePolicyStatementPropertiesArgs{
-				{
-					Action: {
+			Statements: managednetworkfabric.RoutePolicyStatementPropertiesArray{
+				&managednetworkfabric.RoutePolicyStatementPropertiesArgs{
+					Action: &managednetworkfabric.StatementActionPropertiesArgs{
 						ActionType: pulumi.String("Permit"),
-						IpCommunityProperties: {
-							Add: {
+						IpCommunityProperties: &managednetworkfabric.ActionIpCommunityPropertiesArgs{
+							Add: &managednetworkfabric.IpCommunityIdListArgs{
 								IpCommunityIds: pulumi.StringArray{
 									pulumi.String("/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"),
 								},
 							},
-							Delete: {
+							Delete: &managednetworkfabric.IpCommunityIdListArgs{
 								IpCommunityIds: pulumi.StringArray{
 									pulumi.String("/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"),
 								},
 							},
-							Set: {
+							Set: &managednetworkfabric.IpCommunityIdListArgs{
 								IpCommunityIds: pulumi.StringArray{
 									pulumi.String("/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"),
 								},
 							},
 						},
-						IpExtendedCommunityProperties: {
-							Add: {
+						IpExtendedCommunityProperties: &managednetworkfabric.ActionIpExtendedCommunityPropertiesArgs{
+							Add: &managednetworkfabric.IpExtendedCommunityIdListArgs{
 								IpExtendedCommunityIds: pulumi.StringArray{
 									pulumi.String("/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"),
 								},
 							},
-							Delete: {
+							Delete: &managednetworkfabric.IpExtendedCommunityIdListArgs{
 								IpExtendedCommunityIds: pulumi.StringArray{
 									pulumi.String("/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"),
 								},
 							},
-							Set: {
+							Set: &managednetworkfabric.IpExtendedCommunityIdListArgs{
 								IpExtendedCommunityIds: pulumi.StringArray{
 									pulumi.String("/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"),
 								},
@@ -53,7 +53,7 @@ func main() {
 						LocalPreference: pulumi.Float64(20),
 					},
 					Annotation: pulumi.String("annotationValue"),
-					Condition: {
+					Condition: &managednetworkfabric.StatementConditionPropertiesArgs{
 						IpCommunityIds: pulumi.StringArray{
 							pulumi.String("/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"),
 						},

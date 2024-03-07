@@ -10,7 +10,7 @@ func main() {
 		_, err := elasticsan.NewVolumeGroup(ctx, "volumeGroup", &elasticsan.VolumeGroupArgs{
 			ElasticSanName: pulumi.String("ti7q-k952-1qB3J_5"),
 			Encryption:     pulumi.String("EncryptionAtRestWithPlatformKey"),
-			NetworkAcls: elasticsan.NetworkRuleSetResponse{
+			NetworkAcls: &elasticsan.NetworkRuleSetArgs{
 				VirtualNetworkRules: elasticsan.VirtualNetworkRuleArray{
 					&elasticsan.VirtualNetworkRuleArgs{
 						Action:                   elasticsan.ActionAllow,

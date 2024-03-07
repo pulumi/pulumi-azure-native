@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := cdn.NewRoute(ctx, "route", &cdn.RouteArgs{
-			CacheConfiguration: cdn.AfdRouteCacheConfigurationResponse{
+			CacheConfiguration: &cdn.AfdRouteCacheConfigurationArgs{
 				CompressionSettings: &cdn.CompressionSettingsArgs{
 					ContentTypesToCompress: pulumi.StringArray{
 						pulumi.String("text/html"),
@@ -19,8 +19,8 @@ func main() {
 				QueryParameters:            pulumi.String("querystring=test"),
 				QueryStringCachingBehavior: pulumi.String("IgnoreSpecifiedQueryStrings"),
 			},
-			CustomDomains: []cdn.ActivatedResourceReferenceArgs{
-				{
+			CustomDomains: cdn.ActivatedResourceReferenceArray{
+				&cdn.ActivatedResourceReferenceArgs{
 					Id: pulumi.String("/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1"),
 				},
 			},
@@ -38,8 +38,8 @@ func main() {
 			ProfileName:       pulumi.String("profile1"),
 			ResourceGroupName: pulumi.String("RG"),
 			RouteName:         pulumi.String("route1"),
-			RuleSets: []cdn.ResourceReferenceArgs{
-				{
+			RuleSets: cdn.ResourceReferenceArray{
+				&cdn.ResourceReferenceArgs{
 					Id: pulumi.String("/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1"),
 				},
 			},

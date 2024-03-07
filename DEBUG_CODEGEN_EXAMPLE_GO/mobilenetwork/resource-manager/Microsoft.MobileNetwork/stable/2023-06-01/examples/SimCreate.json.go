@@ -19,15 +19,15 @@ func main() {
 			SimPolicy: &mobilenetwork.SimPolicyResourceIdArgs{
 				Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy"),
 			},
-			StaticIpConfiguration: []mobilenetwork.SimStaticIpPropertiesArgs{
-				{
-					AttachedDataNetwork: {
+			StaticIpConfiguration: mobilenetwork.SimStaticIpPropertiesArray{
+				&mobilenetwork.SimStaticIpPropertiesArgs{
+					AttachedDataNetwork: &mobilenetwork.AttachedDataNetworkResourceIdArgs{
 						Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork"),
 					},
-					Slice: {
+					Slice: &mobilenetwork.SliceResourceIdArgs{
 						Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice"),
 					},
-					StaticIp: {
+					StaticIp: &mobilenetwork.SimStaticIpPropertiesStaticIpArgs{
 						Ipv4Address: pulumi.String("2.4.0.1"),
 					},
 				},

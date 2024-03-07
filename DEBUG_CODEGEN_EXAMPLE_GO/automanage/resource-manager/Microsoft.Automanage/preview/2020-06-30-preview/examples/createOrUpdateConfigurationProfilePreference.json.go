@@ -10,7 +10,7 @@ func main() {
 		_, err := automanage.NewConfigurationProfilePreference(ctx, "configurationProfilePreference", &automanage.ConfigurationProfilePreferenceArgs{
 			ConfigurationProfilePreferenceName: pulumi.String("defaultProfilePreference"),
 			Location:                           pulumi.String("East US"),
-			Properties: automanage.ConfigurationProfilePreferencePropertiesResponse{
+			Properties: &automanage.ConfigurationProfilePreferencePropertiesArgs{
 				AntiMalware: &automanage.ConfigurationProfilePreferenceAntiMalwareArgs{
 					EnableRealTimeProtection: pulumi.String("True"),
 				},

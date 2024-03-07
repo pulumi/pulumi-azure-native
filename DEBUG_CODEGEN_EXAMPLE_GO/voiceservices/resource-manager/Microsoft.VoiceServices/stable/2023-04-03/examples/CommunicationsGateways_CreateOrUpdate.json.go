@@ -20,10 +20,10 @@ func main() {
 				pulumi.String("OperatorConnect"),
 			},
 			ResourceGroupName: pulumi.String("testrg"),
-			ServiceLocations: []voiceservices.ServiceRegionPropertiesArgs{
-				{
+			ServiceLocations: voiceservices.ServiceRegionPropertiesArray{
+				&voiceservices.ServiceRegionPropertiesArgs{
 					Name: pulumi.String("useast"),
-					PrimaryRegionProperties: {
+					PrimaryRegionProperties: &voiceservices.PrimaryRegionPropertiesArgs{
 						AllowedMediaSourceAddressPrefixes: pulumi.StringArray{
 							pulumi.String("10.1.2.0/24"),
 						},
@@ -35,9 +35,9 @@ func main() {
 						},
 					},
 				},
-				{
+				&voiceservices.ServiceRegionPropertiesArgs{
 					Name: pulumi.String("useast2"),
-					PrimaryRegionProperties: {
+					PrimaryRegionProperties: &voiceservices.PrimaryRegionPropertiesArgs{
 						AllowedMediaSourceAddressPrefixes: pulumi.StringArray{
 							pulumi.String("10.2.2.0/24"),
 						},

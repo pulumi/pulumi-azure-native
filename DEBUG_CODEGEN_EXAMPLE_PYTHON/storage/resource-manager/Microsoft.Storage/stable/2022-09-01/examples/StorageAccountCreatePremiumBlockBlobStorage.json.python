@@ -4,19 +4,19 @@ import pulumi_azure_native as azure_native
 storage_account = azure_native.storage.StorageAccount("storageAccount",
     account_name="sto4445",
     allow_shared_key_access=True,
-    encryption=azure_native.storage.EncryptionResponseArgs(
+    encryption=azure_native.storage.EncryptionArgs(
         key_source="Microsoft.Storage",
         require_infrastructure_encryption=False,
-        services={
-            "blob": azure_native.storage.EncryptionServiceArgs(
+        services=azure_native.storage.EncryptionServicesArgs(
+            blob=azure_native.storage.EncryptionServiceArgs(
                 enabled=True,
                 key_type="Account",
             ),
-            "file": azure_native.storage.EncryptionServiceArgs(
+            file=azure_native.storage.EncryptionServiceArgs(
                 enabled=True,
                 key_type="Account",
             ),
-        },
+        ),
     ),
     kind="BlockBlobStorage",
     location="eastus",

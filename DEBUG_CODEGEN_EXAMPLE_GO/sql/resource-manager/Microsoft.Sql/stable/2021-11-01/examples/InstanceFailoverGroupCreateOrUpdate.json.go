@@ -10,14 +10,14 @@ func main() {
 		_, err := sql.NewInstanceFailoverGroup(ctx, "instanceFailoverGroup", &sql.InstanceFailoverGroupArgs{
 			FailoverGroupName: pulumi.String("failover-group-test-3"),
 			LocationName:      pulumi.String("Japan East"),
-			ManagedInstancePairs: []sql.ManagedInstancePairInfoArgs{
-				{
+			ManagedInstancePairs: sql.ManagedInstancePairInfoArray{
+				&sql.ManagedInstancePairInfoArgs{
 					PartnerManagedInstanceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-secondary-mngdInstance"),
 					PrimaryManagedInstanceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-primary-mngdInstance"),
 				},
 			},
-			PartnerRegions: []sql.PartnerRegionInfoArgs{
-				{
+			PartnerRegions: sql.PartnerRegionInfoArray{
+				&sql.PartnerRegionInfoArgs{
 					Location: pulumi.String("Japan West"),
 				},
 			},

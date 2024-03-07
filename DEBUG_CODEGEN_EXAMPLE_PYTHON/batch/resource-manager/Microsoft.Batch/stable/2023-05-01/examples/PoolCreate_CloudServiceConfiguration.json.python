@@ -17,7 +17,7 @@ pool = azure_native.batch.Pool("pool",
         store_name="MY",
         visibility=[azure_native.batch.CertificateVisibility.REMOTE_USER],
     )],
-    deployment_configuration=azure_native.batch.DeploymentConfigurationResponseArgs(
+    deployment_configuration=azure_native.batch.DeploymentConfigurationArgs(
         cloud_service_configuration=azure_native.batch.CloudServiceConfigurationArgs(
             os_family="4",
             os_version="WA-GUEST-OS-4.45_201708-01",
@@ -35,7 +35,7 @@ pool = azure_native.batch.Pool("pool",
             value="value-2",
         ),
     ],
-    network_configuration=azure_native.batch.NetworkConfigurationResponseArgs(
+    network_configuration=azure_native.batch.NetworkConfigurationArgs(
         public_ip_address_configuration=azure_native.batch.PublicIPAddressConfigurationArgs(
             ip_address_ids=[
                 "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135",
@@ -47,7 +47,7 @@ pool = azure_native.batch.Pool("pool",
     ),
     pool_name="testpool",
     resource_group_name="default-azurebatch-japaneast",
-    scale_settings=azure_native.batch.ScaleSettingsResponseArgs(
+    scale_settings=azure_native.batch.ScaleSettingsArgs(
         fixed_scale=azure_native.batch.FixedScaleSettingsArgs(
             node_deallocation_option=azure_native.batch.ComputeNodeDeallocationOption.TASK_COMPLETION,
             resize_timeout="PT8M",
@@ -55,7 +55,7 @@ pool = azure_native.batch.Pool("pool",
             target_low_priority_nodes=28,
         ),
     ),
-    start_task=azure_native.batch.StartTaskResponseArgs(
+    start_task=azure_native.batch.StartTaskArgs(
         command_line="cmd /c SET",
         environment_settings=[azure_native.batch.EnvironmentSettingArgs(
             name="MYSET",
@@ -67,26 +67,26 @@ pool = azure_native.batch.Pool("pool",
             file_path="c:\\temp\\gohere",
             http_url="https://testaccount.blob.core.windows.net/example-blob-file",
         )],
-        user_identity={
-            "autoUser": azure_native.batch.AutoUserSpecificationArgs(
+        user_identity=azure_native.batch.UserIdentityArgs(
+            auto_user=azure_native.batch.AutoUserSpecificationArgs(
                 elevation_level=azure_native.batch.ElevationLevel.ADMIN,
                 scope=azure_native.batch.AutoUserScope.POOL,
             ),
-        },
+        ),
         wait_for_success=True,
     ),
     task_scheduling_policy=azure_native.batch.TaskSchedulingPolicyArgs(
         node_fill_type=azure_native.batch.ComputeNodeFillType.PACK,
     ),
     task_slots_per_node=13,
-    user_accounts=[{
-        "elevationLevel": azure_native.batch.ElevationLevel.ADMIN,
-        "linuxUserConfiguration": azure_native.batch.LinuxUserConfigurationArgs(
+    user_accounts=[azure_native.batch.UserAccountArgs(
+        elevation_level=azure_native.batch.ElevationLevel.ADMIN,
+        linux_user_configuration=azure_native.batch.LinuxUserConfigurationArgs(
             gid=4567,
             ssh_private_key="sshprivatekeyvalue",
             uid=1234,
         ),
-        "name": "username1",
-        "password": "<ExamplePassword>",
-    }],
+        name="username1",
+        password="<ExamplePassword>",
+    )],
     vm_size="STANDARD_D4")

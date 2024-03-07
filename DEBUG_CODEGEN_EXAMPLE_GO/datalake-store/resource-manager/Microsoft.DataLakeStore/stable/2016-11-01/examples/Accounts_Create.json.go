@@ -10,7 +10,7 @@ func main() {
 		_, err := datalakestore.NewAccount(ctx, "account", &datalakestore.AccountArgs{
 			AccountName:  pulumi.String("contosoadla"),
 			DefaultGroup: pulumi.String("test_default_group"),
-			EncryptionConfig: datalakestore.EncryptionConfigResponse{
+			EncryptionConfig: &datalakestore.EncryptionConfigArgs{
 				KeyVaultMetaInfo: &datalakestore.KeyVaultMetaInfoArgs{
 					EncryptionKeyName:    pulumi.String("test_encryption_key_name"),
 					EncryptionKeyVersion: pulumi.String("encryption_key_version"),
@@ -20,8 +20,8 @@ func main() {
 			},
 			EncryptionState:       datalakestore.EncryptionStateEnabled,
 			FirewallAllowAzureIps: datalakestore.FirewallAllowAzureIpsStateEnabled,
-			FirewallRules: []datalakestore.CreateFirewallRuleWithAccountParametersArgs{
-				{
+			FirewallRules: datalakestore.CreateFirewallRuleWithAccountParametersArray{
+				&datalakestore.CreateFirewallRuleWithAccountParametersArgs{
 					EndIpAddress:   pulumi.String("2.2.2.2"),
 					Name:           pulumi.String("test_rule"),
 					StartIpAddress: pulumi.String("1.1.1.1"),
@@ -38,8 +38,8 @@ func main() {
 				"test_key": pulumi.String("test_value"),
 			},
 			TrustedIdProviderState: datalakestore.TrustedIdProviderStateEnabled,
-			TrustedIdProviders: []datalakestore.CreateTrustedIdProviderWithAccountParametersArgs{
-				{
+			TrustedIdProviders: datalakestore.CreateTrustedIdProviderWithAccountParametersArray{
+				&datalakestore.CreateTrustedIdProviderWithAccountParametersArgs{
 					IdProvider: pulumi.String("https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1"),
 					Name:       pulumi.String("test_trusted_id_provider_name"),
 				},

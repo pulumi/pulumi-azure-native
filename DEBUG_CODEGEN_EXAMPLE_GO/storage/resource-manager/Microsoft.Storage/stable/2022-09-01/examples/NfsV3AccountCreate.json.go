@@ -14,7 +14,7 @@ func main() {
 			IsHnsEnabled:           pulumi.Bool(true),
 			Kind:                   pulumi.String("BlockBlobStorage"),
 			Location:               pulumi.String("eastus"),
-			NetworkRuleSet: storage.NetworkRuleSetResponse{
+			NetworkRuleSet: &storage.NetworkRuleSetArgs{
 				Bypass:        pulumi.String("AzureServices"),
 				DefaultAction: storage.DefaultActionAllow,
 				IpRules:       storage.IPRuleArray{},

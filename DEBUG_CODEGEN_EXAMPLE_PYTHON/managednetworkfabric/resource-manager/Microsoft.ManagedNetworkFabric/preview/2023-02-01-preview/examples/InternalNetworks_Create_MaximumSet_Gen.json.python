@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 internal_network = azure_native.managednetworkfabric.InternalNetwork("internalNetwork",
-    bgp_configuration=azure_native.managednetworkfabric.BgpConfigurationResponseArgs(
+    bgp_configuration=azure_native.managednetworkfabric.BgpConfigurationArgs(
         allow_as=1,
         allow_as_override="Enable",
         default_route_originate="True",
@@ -28,7 +28,7 @@ internal_network = azure_native.managednetworkfabric.InternalNetwork("internalNe
     l3_isolation_domain_name="example-l3domain",
     mtu=1500,
     resource_group_name="resourceGroupName",
-    static_route_configuration=azure_native.managednetworkfabric.StaticRouteConfigurationResponseArgs(
+    static_route_configuration=azure_native.managednetworkfabric.StaticRouteConfigurationArgs(
         ipv4_routes=[azure_native.managednetworkfabric.StaticRoutePropertiesArgs(
             next_hop=["10.0.0.1"],
             prefix="10.1.0.0/24",

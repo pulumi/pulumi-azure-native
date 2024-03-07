@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := vmwarecloudsimple.NewVirtualMachine(ctx, "virtualMachine", &vmwarecloudsimple.VirtualMachineArgs{
 			AmountOfRam: pulumi.Int(4096),
-			Disks: []vmwarecloudsimple.VirtualDiskArgs{
-				{
+			Disks: vmwarecloudsimple.VirtualDiskArray{
+				&vmwarecloudsimple.VirtualDiskArgs{
 					ControllerId:     pulumi.String("1000"),
 					IndependenceMode: vmwarecloudsimple.DiskIndependenceModePersistent,
 					TotalSize:        pulumi.Int(10485760),
@@ -18,9 +18,9 @@ func main() {
 				},
 			},
 			Location: pulumi.String("westus2"),
-			Nics: []vmwarecloudsimple.VirtualNicArgs{
-				{
-					Network: {
+			Nics: vmwarecloudsimple.VirtualNicArray{
+				&vmwarecloudsimple.VirtualNicArgs{
+					Network: &vmwarecloudsimple.VirtualNetworkArgs{
 						Id: pulumi.String("/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualNetworks/dvportgroup-19"),
 					},
 					NicType:      vmwarecloudsimple.NICTypeE1000,

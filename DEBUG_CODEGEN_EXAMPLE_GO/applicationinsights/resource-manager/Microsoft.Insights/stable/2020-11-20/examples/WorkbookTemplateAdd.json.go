@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := insights.NewWorkbookTemplate(ctx, "workbookTemplate", &insights.WorkbookTemplateArgs{
 			Author: pulumi.String("Contoso"),
-			Galleries: []insights.WorkbookTemplateGalleryArgs{
-				{
+			Galleries: insights.WorkbookTemplateGalleryArray{
+				&insights.WorkbookTemplateGalleryArgs{
 					Category:     pulumi.String("Failures"),
 					Name:         pulumi.String("Simple Template"),
 					Order:        pulumi.Int(100),

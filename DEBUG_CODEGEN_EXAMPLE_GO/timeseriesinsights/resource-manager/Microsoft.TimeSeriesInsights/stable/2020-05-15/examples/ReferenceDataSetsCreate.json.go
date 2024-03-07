@@ -9,12 +9,12 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := timeseriesinsights.NewReferenceDataSet(ctx, "referenceDataSet", &timeseriesinsights.ReferenceDataSetArgs{
 			EnvironmentName: pulumi.String("env1"),
-			KeyProperties: []timeseriesinsights.ReferenceDataSetKeyPropertyArgs{
-				{
+			KeyProperties: timeseriesinsights.ReferenceDataSetKeyPropertyArray{
+				&timeseriesinsights.ReferenceDataSetKeyPropertyArgs{
 					Name: pulumi.String("DeviceId1"),
 					Type: pulumi.String("String"),
 				},
-				{
+				&timeseriesinsights.ReferenceDataSetKeyPropertyArgs{
 					Name: pulumi.String("DeviceFloor"),
 					Type: pulumi.String("Double"),
 				},

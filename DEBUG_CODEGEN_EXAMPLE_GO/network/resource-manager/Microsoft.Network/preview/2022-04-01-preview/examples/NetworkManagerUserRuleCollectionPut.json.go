@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewUserRuleCollection(ctx, "userRuleCollection", &network.UserRuleCollectionArgs{
-			AppliesToGroups: []network.NetworkManagerSecurityGroupItemArgs{
-				{
+			AppliesToGroups: network.NetworkManagerSecurityGroupItemArray{
+				&network.NetworkManagerSecurityGroupItemArgs{
 					NetworkGroupId: pulumi.String("/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup"),
 				},
 			},

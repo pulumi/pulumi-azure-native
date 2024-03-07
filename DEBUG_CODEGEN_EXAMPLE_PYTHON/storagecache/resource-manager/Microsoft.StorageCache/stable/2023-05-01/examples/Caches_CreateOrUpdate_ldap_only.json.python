@@ -4,39 +4,39 @@ import pulumi_azure_native as azure_native
 cache = azure_native.storagecache.Cache("cache",
     cache_name="sc1",
     cache_size_gb=3072,
-    directory_services_settings=azure_native.storagecache.CacheDirectorySettingsResponseArgs(
-        username_download={
-            "credentials": azure_native.storagecache.CacheUsernameDownloadSettingsCredentialsArgs(
+    directory_services_settings=azure_native.storagecache.CacheDirectorySettingsArgs(
+        username_download=azure_native.storagecache.CacheUsernameDownloadSettingsArgs(
+            credentials=azure_native.storagecache.CacheUsernameDownloadSettingsCredentialsArgs(
                 bind_dn="cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
                 bind_password="<bindPassword>",
             ),
-            "extendedGroups": True,
-            "ldapBaseDN": "dc=contosoad,dc=contoso,dc=local",
-            "ldapServer": "192.0.2.12",
-            "usernameSource": "LDAP",
-        },
+            extended_groups=True,
+            ldap_base_dn="dc=contosoad,dc=contoso,dc=local",
+            ldap_server="192.0.2.12",
+            username_source="LDAP",
+        ),
     ),
-    encryption_settings=azure_native.storagecache.CacheEncryptionSettingsResponseArgs(
-        key_encryption_key={
-            "keyUrl": "https://keyvault-cmk.vault.azure.net/keys/key2048/test",
-            "sourceVault": azure_native.storagecache.KeyVaultKeyReferenceSourceVaultArgs(
+    encryption_settings=azure_native.storagecache.CacheEncryptionSettingsArgs(
+        key_encryption_key=azure_native.storagecache.KeyVaultKeyReferenceArgs(
+            key_url="https://keyvault-cmk.vault.azure.net/keys/key2048/test",
+            source_vault=azure_native.storagecache.KeyVaultKeyReferenceSourceVaultArgs(
                 id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
             ),
-        },
+        ),
     ),
     location="westus",
     resource_group_name="scgroup",
-    security_settings=azure_native.storagecache.CacheSecuritySettingsResponseArgs(
-        access_policies=[{
-            "accessRules": [azure_native.storagecache.NfsAccessRuleArgs(
+    security_settings=azure_native.storagecache.CacheSecuritySettingsArgs(
+        access_policies=[azure_native.storagecache.NfsAccessPolicyArgs(
+            access_rules=[azure_native.storagecache.NfsAccessRuleArgs(
                 access="rw",
                 root_squash=False,
                 scope="default",
                 submount_access=True,
                 suid=False,
             )],
-            "name": "default",
-        }],
+            name="default",
+        )],
     ),
     sku=azure_native.storagecache.CacheSkuArgs(
         name="Standard_2G",

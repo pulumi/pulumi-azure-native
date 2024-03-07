@@ -10,17 +10,17 @@ func main() {
 		_, err := storage.NewTable(ctx, "table", &storage.TableArgs{
 			AccountName:       pulumi.String("sto328"),
 			ResourceGroupName: pulumi.String("res3376"),
-			SignedIdentifiers: []storage.TableSignedIdentifierArgs{
-				{
-					AccessPolicy: {
+			SignedIdentifiers: storage.TableSignedIdentifierArray{
+				&storage.TableSignedIdentifierArgs{
+					AccessPolicy: &storage.TableAccessPolicyArgs{
 						ExpiryTime: pulumi.String("2022-03-20T08:49:37.0000000Z"),
 						Permission: pulumi.String("raud"),
 						StartTime:  pulumi.String("2022-03-17T08:49:37.0000000Z"),
 					},
 					Id: pulumi.String("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI"),
 				},
-				{
-					AccessPolicy: {
+				&storage.TableSignedIdentifierArgs{
+					AccessPolicy: &storage.TableAccessPolicyArgs{
 						ExpiryTime: pulumi.String("2022-03-20T08:49:37.0000000Z"),
 						Permission: pulumi.String("rad"),
 						StartTime:  pulumi.String("2022-03-17T08:49:37.0000000Z"),

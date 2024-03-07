@@ -15,12 +15,12 @@ func main() {
 				pulumi.String("/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub"),
 			},
 			Location: pulumi.String("East Us"),
-			RecommendationsConfiguration: []security.RecommendationConfigurationPropertiesArgs{
-				{
+			RecommendationsConfiguration: security.RecommendationConfigurationPropertiesArray{
+				&security.RecommendationConfigurationPropertiesArgs{
 					RecommendationType: pulumi.String("IoT_OpenPorts"),
 					Status:             pulumi.String("Disabled"),
 				},
-				{
+				&security.RecommendationConfigurationPropertiesArgs{
 					RecommendationType: pulumi.String("IoT_SharedCredentials"),
 					Status:             pulumi.String("Disabled"),
 				},

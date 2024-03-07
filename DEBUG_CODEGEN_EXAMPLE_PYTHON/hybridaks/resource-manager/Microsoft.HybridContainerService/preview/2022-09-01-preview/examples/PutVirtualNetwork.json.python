@@ -7,14 +7,14 @@ virtual_network_retrieve = azure_native.hybridcontainerservice.VirtualNetworkRet
         type="CustomLocation",
     ),
     location="westus",
-    properties=azure_native.hybridcontainerservice.VirtualNetworksPropertiesResponseArgs(
-        infra_vnet_profile={
-            "hci": azure_native.hybridcontainerservice.VirtualNetworksPropertiesHciArgs(
+    properties=azure_native.hybridcontainerservice.VirtualNetworksPropertiesArgs(
+        infra_vnet_profile=azure_native.hybridcontainerservice.VirtualNetworksPropertiesInfraVnetProfileArgs(
+            hci=azure_native.hybridcontainerservice.VirtualNetworksPropertiesHciArgs(
                 moc_group="target-group",
                 moc_location="MocLocation",
                 moc_vnet_name="test-vnet",
             ),
-        },
+        ),
         vip_pool=[azure_native.hybridcontainerservice.VirtualNetworksPropertiesVipPoolArgs(
             end_ip="192.168.0.50",
             start_ip="192.168.0.10",

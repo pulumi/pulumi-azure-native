@@ -13,7 +13,7 @@ func main() {
 			DisplayName: pulumi.String("createUser2"),
 			Method:      pulumi.String("POST"),
 			OperationId: pulumi.String("newoperations"),
-			Request: apimanagement.RequestContractResponse{
+			Request: &apimanagement.RequestContractArgs{
 				Description:     pulumi.String("Created user object"),
 				Headers:         apimanagement.ParameterContractArray{},
 				QueryParameters: apimanagement.ParameterContractArray{},
@@ -26,15 +26,15 @@ func main() {
 				},
 			},
 			ResourceGroupName: pulumi.String("rg1"),
-			Responses: []apimanagement.ResponseContractArgs{
-				{
+			Responses: apimanagement.ResponseContractArray{
+				&apimanagement.ResponseContractArgs{
 					Description: pulumi.String("successful operation"),
 					Headers:     apimanagement.ParameterContractArray{},
 					Representations: apimanagement.RepresentationContractArray{
-						{
+						&apimanagement.RepresentationContractArgs{
 							ContentType: pulumi.String("application/xml"),
 						},
-						{
+						&apimanagement.RepresentationContractArgs{
 							ContentType: pulumi.String("application/json"),
 						},
 					},

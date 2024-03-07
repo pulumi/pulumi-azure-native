@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := machinelearningservices.NewModelVersion(ctx, "modelVersion", &machinelearningservices.ModelVersionArgs{
-			ModelVersionProperties: machinelearningservices.ModelVersionResponse{
+			ModelVersionProperties: &machinelearningservices.ModelVersionTypeArgs{
 				Description: pulumi.String("string"),
 				Flavors: machinelearningservices.FlavorDataMap{
 					"string": &machinelearningservices.FlavorDataArgs{

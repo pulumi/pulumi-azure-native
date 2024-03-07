@@ -12,7 +12,7 @@ app_resiliency = azure_native.app.AppResiliency("appResiliency",
         http1_max_pending_requests=1024,
         http2_max_requests=1024,
     ),
-    http_retry_policy=azure_native.app.HttpRetryPolicyResponseArgs(
+    http_retry_policy=azure_native.app.HttpRetryPolicyArgs(
         errors=[
             "5xx",
             "connect-failure",

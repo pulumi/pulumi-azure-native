@@ -11,7 +11,7 @@ func main() {
 			ConnectionName: pulumi.String("testConnection"),
 			FlowName:       pulumi.String("testFlow"),
 			Location:       pulumi.String("East US"),
-			Properties: azuredatatransfer.FlowPropertiesResponse{
+			Properties: &azuredatatransfer.FlowPropertiesArgs{
 				Connection: &azuredatatransfer.SelectedResourceArgs{
 					Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.AzureDataTransfer/connections/testConnection"),
 				},

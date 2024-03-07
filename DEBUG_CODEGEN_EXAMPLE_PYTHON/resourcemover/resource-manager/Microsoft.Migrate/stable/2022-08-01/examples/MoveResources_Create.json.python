@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 move_resource = azure_native.migrate.MoveResource("moveResource",
     move_collection_name="movecollection1",
     move_resource_name="moveresourcename1",
-    properties=azure_native.migrate.MoveResourcePropertiesResponseArgs(
+    properties=azure_native.migrate.MoveResourcePropertiesArgs(
         depends_on_overrides=[azure_native.migrate.MoveResourceDependencyOverrideArgs(
             id="/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/eastusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
             target_id="/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/westusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",

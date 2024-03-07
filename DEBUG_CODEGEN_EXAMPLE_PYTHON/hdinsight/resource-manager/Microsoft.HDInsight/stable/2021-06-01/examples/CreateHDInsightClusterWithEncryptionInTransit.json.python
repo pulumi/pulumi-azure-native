@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 cluster = azure_native.hdinsight.Cluster("cluster",
     cluster_name="cluster1",
-    properties=azure_native.hdinsight.ClusterGetPropertiesResponseArgs(
+    properties=azure_native.hdinsight.ClusterCreatePropertiesArgs(
         cluster_definition=azure_native.hdinsight.ClusterDefinitionArgs(
             configurations={
                 "gateway": {
@@ -15,61 +15,61 @@ cluster = azure_native.hdinsight.Cluster("cluster",
             kind="Hadoop",
         ),
         cluster_version="3.6",
-        compute_profile={
-            "roles": [
-                {
-                    "hardwareProfile": azure_native.hdinsight.HardwareProfileArgs(
+        compute_profile=azure_native.hdinsight.ComputeProfileArgs(
+            roles=[
+                azure_native.hdinsight.RoleArgs(
+                    hardware_profile=azure_native.hdinsight.HardwareProfileArgs(
                         vm_size="Large",
                     ),
-                    "name": "headnode",
-                    "osProfile": {
-                        "linuxOperatingSystemProfile": azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
+                    name="headnode",
+                    os_profile=azure_native.hdinsight.OsProfileArgs(
+                        linux_operating_system_profile=azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
                             password="**********",
                             username="sshuser",
                         ),
-                    },
-                    "targetInstanceCount": 2,
-                },
-                {
-                    "hardwareProfile": azure_native.hdinsight.HardwareProfileArgs(
+                    ),
+                    target_instance_count=2,
+                ),
+                azure_native.hdinsight.RoleArgs(
+                    hardware_profile=azure_native.hdinsight.HardwareProfileArgs(
                         vm_size="Large",
                     ),
-                    "name": "workernode",
-                    "osProfile": {
-                        "linuxOperatingSystemProfile": azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
+                    name="workernode",
+                    os_profile=azure_native.hdinsight.OsProfileArgs(
+                        linux_operating_system_profile=azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
                             password="**********",
                             username="sshuser",
                         ),
-                    },
-                    "targetInstanceCount": 3,
-                },
-                {
-                    "hardwareProfile": azure_native.hdinsight.HardwareProfileArgs(
+                    ),
+                    target_instance_count=3,
+                ),
+                azure_native.hdinsight.RoleArgs(
+                    hardware_profile=azure_native.hdinsight.HardwareProfileArgs(
                         vm_size="Small",
                     ),
-                    "name": "zookeepernode",
-                    "osProfile": {
-                        "linuxOperatingSystemProfile": azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
+                    name="zookeepernode",
+                    os_profile=azure_native.hdinsight.OsProfileArgs(
+                        linux_operating_system_profile=azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
                             password="**********",
                             username="sshuser",
                         ),
-                    },
-                    "targetInstanceCount": 3,
-                },
+                    ),
+                    target_instance_count=3,
+                ),
             ],
-        },
+        ),
         encryption_in_transit_properties=azure_native.hdinsight.EncryptionInTransitPropertiesArgs(
             is_encryption_in_transit_enabled=True,
         ),
         os_type="Linux",
-        storage_profile={
-            "storageaccounts": [azure_native.hdinsight.StorageAccountArgs(
+        storage_profile=azure_native.hdinsight.StorageProfileArgs(
+            storageaccounts=[azure_native.hdinsight.StorageAccountArgs(
                 container="default8525",
                 is_default=True,
                 key="storagekey",
                 name="mystorage.blob.core.windows.net",
             )],
-        },
+        ),
         tier="Standard",
     ),
     resource_group_name="rg1")

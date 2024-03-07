@@ -15,7 +15,7 @@ func main() {
 			Description: pulumi.String("This is a source control"),
 			DisplayName: pulumi.String("My Source Control"),
 			RepoType:    pulumi.String("Github"),
-			Repository: securityinsights.RepositoryResponse{
+			Repository: &securityinsights.RepositoryArgs{
 				Branch:     pulumi.String("master"),
 				DisplayUrl: pulumi.String("https://github.com/user/repo"),
 				PathMapping: securityinsights.ContentPathMapArray{

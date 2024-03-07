@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := databricks.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &databricks.PrivateEndpointConnectionArgs{
 			PrivateEndpointConnectionName: pulumi.String("myWorkspace.23456789-1111-1111-1111-111111111111"),
-			Properties: databricks.PrivateEndpointConnectionPropertiesResponse{
+			Properties: &databricks.PrivateEndpointConnectionPropertiesArgs{
 				PrivateLinkServiceConnectionState: &databricks.PrivateLinkServiceConnectionStateArgs{
 					Description: pulumi.String("Approved by databricksadmin@contoso.com"),
 					Status:      pulumi.String("Approved"),

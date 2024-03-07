@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 connector_dryrun = azure_native.servicelinker.ConnectorDryrun("connectorDryrun",
     dryrun_name="dryrunName",
     location="westus",
-    parameters=azure_native.servicelinker.CreateOrUpdateDryrunParametersResponseArgs(
+    parameters=azure_native.servicelinker.CreateOrUpdateDryrunParametersArgs(
         action_name="createOrUpdate",
         auth_info=azure_native.servicelinker.SecretAuthInfoArgs(
             auth_type="secret",

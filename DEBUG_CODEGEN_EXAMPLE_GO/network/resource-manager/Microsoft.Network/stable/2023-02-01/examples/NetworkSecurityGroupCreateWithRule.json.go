@@ -11,8 +11,8 @@ func main() {
 			Location:                 pulumi.String("eastus"),
 			NetworkSecurityGroupName: pulumi.String("testnsg"),
 			ResourceGroupName:        pulumi.String("rg1"),
-			SecurityRules: []network.SecurityRuleTypeArgs{
-				{
+			SecurityRules: network.SecurityRuleTypeArray{
+				&network.SecurityRuleTypeArgs{
 					Access:                   pulumi.String("Allow"),
 					DestinationAddressPrefix: pulumi.String("*"),
 					DestinationPortRange:     pulumi.String("80"),

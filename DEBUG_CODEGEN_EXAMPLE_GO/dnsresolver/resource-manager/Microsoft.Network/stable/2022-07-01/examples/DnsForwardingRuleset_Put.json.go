@@ -9,11 +9,11 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewDnsForwardingRuleset(ctx, "dnsForwardingRuleset", &network.DnsForwardingRulesetArgs{
 			DnsForwardingRulesetName: pulumi.String("samplednsForwardingRuleset"),
-			DnsResolverOutboundEndpoints: []network.SubResourceArgs{
-				{
+			DnsResolverOutboundEndpoints: network.SubResourceArray{
+				&network.SubResourceArgs{
 					Id: pulumi.String("/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint0"),
 				},
-				{
+				&network.SubResourceArgs{
 					Id: pulumi.String("/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint1"),
 				},
 			},

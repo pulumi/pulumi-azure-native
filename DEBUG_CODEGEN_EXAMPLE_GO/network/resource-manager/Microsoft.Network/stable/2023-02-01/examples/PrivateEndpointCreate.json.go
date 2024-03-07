@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewPrivateEndpoint(ctx, "privateEndpoint", &network.PrivateEndpointArgs{
 			CustomNetworkInterfaceName: pulumi.String("testPeNic"),
-			IpConfigurations: []network.PrivateEndpointIPConfigurationArgs{
-				{
+			IpConfigurations: network.PrivateEndpointIPConfigurationArray{
+				&network.PrivateEndpointIPConfigurationArgs{
 					GroupId:          pulumi.String("file"),
 					MemberName:       pulumi.String("file"),
 					Name:             pulumi.String("pestaticconfig"),
@@ -19,8 +19,8 @@ func main() {
 			},
 			Location:            pulumi.String("eastus2euap"),
 			PrivateEndpointName: pulumi.String("testPe"),
-			PrivateLinkServiceConnections: []network.PrivateLinkServiceConnectionArgs{
-				{
+			PrivateLinkServiceConnections: network.PrivateLinkServiceConnectionArray{
+				&network.PrivateLinkServiceConnectionArgs{
 					GroupIds: pulumi.StringArray{
 						pulumi.String("groupIdFromResource"),
 					},

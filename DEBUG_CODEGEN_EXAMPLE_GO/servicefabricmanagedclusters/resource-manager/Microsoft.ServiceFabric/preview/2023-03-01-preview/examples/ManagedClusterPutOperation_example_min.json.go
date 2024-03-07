@@ -14,11 +14,11 @@ func main() {
 			ClusterUpgradeCadence: pulumi.String("Wave1"),
 			ClusterUpgradeMode:    pulumi.String("Automatic"),
 			DnsName:               pulumi.String("myCluster"),
-			FabricSettings: []servicefabric.SettingsSectionDescriptionArgs{
-				{
+			FabricSettings: servicefabric.SettingsSectionDescriptionArray{
+				&servicefabric.SettingsSectionDescriptionArgs{
 					Name: pulumi.String("ManagedIdentityTokenService"),
 					Parameters: servicefabric.SettingsParameterDescriptionArray{
-						{
+						&servicefabric.SettingsParameterDescriptionArgs{
 							Name:  pulumi.String("IsEnabled"),
 							Value: pulumi.String("true"),
 						},

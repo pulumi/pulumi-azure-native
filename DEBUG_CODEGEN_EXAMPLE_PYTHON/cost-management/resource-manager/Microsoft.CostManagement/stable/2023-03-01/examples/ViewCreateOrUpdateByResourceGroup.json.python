@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 view_by_scope = azure_native.costmanagement.ViewByScope("viewByScope",
     accumulated="true",
     chart="Table",
-    data_set=azure_native.costmanagement.ReportConfigDatasetResponseArgs(
+    data_set=azure_native.costmanagement.ReportConfigDatasetArgs(
         aggregation={
             "totalCost": azure_native.costmanagement.ReportConfigAggregationArgs(
                 function="Sum",

@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := migrate.NewModernizeProject(ctx, "modernizeProject", &migrate.ModernizeProjectArgs{
-			Identity: migrate.ResourceIdentityResponse{
+			Identity: &migrate.ResourceIdentityArgs{
 				PrincipalId: pulumi.String("ins"),
 				TenantId:    pulumi.String("fjnu"),
 				Type:        pulumi.String("None"),
@@ -21,7 +21,7 @@ func main() {
 			},
 			Location:             pulumi.String("nbqyuxrgrlhx"),
 			ModernizeProjectName: pulumi.String("b"),
-			Properties: migrate.ModernizeProjectModelPropertiesResponse{
+			Properties: &migrate.ModernizeProjectModelPropertiesArgs{
 				MigrationConfiguration: &migrate.MigrationConfigurationArgs{
 					KeyVaultResourceId:          pulumi.String("vekhittkyogvwnqmggknv"),
 					MigrationSolutionResourceId: pulumi.String("bglfkwtzvqmhwpddwpvtdzaleaioxo"),

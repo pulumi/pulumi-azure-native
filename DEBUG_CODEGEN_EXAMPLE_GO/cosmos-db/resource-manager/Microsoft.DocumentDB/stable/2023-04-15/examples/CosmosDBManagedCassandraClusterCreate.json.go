@@ -10,7 +10,7 @@ func main() {
 		_, err := documentdb.NewCassandraCluster(ctx, "cassandraCluster", &documentdb.CassandraClusterArgs{
 			ClusterName: pulumi.String("cassandra-prod"),
 			Location:    pulumi.String("West US"),
-			Properties: documentdb.ClusterResourceResponseProperties{
+			Properties: &documentdb.ClusterResourcePropertiesArgs{
 				AuthenticationMethod: pulumi.String("Cassandra"),
 				CassandraVersion:     pulumi.String("3.11"),
 				ClientCertificates: documentdb.CertificateArray{

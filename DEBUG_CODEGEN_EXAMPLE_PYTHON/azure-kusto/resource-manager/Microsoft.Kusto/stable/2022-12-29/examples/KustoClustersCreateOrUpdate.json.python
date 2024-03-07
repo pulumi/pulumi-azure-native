@@ -11,7 +11,7 @@ cluster = azure_native.kusto.Cluster("cluster",
     identity=azure_native.kusto.IdentityArgs(
         type="SystemAssigned",
     ),
-    language_extensions=azure_native.kusto.LanguageExtensionsListResponseArgs(
+    language_extensions=azure_native.kusto.LanguageExtensionsListArgs(
         value=[
             azure_native.kusto.LanguageExtensionArgs(
                 language_extension_image_name="Python3_10_8",

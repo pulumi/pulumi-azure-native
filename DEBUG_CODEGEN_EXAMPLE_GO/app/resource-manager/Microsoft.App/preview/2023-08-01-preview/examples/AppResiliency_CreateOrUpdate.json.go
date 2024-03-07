@@ -18,7 +18,7 @@ func main() {
 				Http1MaxPendingRequests: pulumi.Int(1024),
 				Http2MaxRequests:        pulumi.Int(1024),
 			},
-			HttpRetryPolicy: app.HttpRetryPolicyResponse{
+			HttpRetryPolicy: &app.HttpRetryPolicyArgs{
 				Errors: pulumi.StringArray{
 					pulumi.String("5xx"),
 					pulumi.String("connect-failure"),

@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := workloads.NewSapLandscapeMonitor(ctx, "sapLandscapeMonitor", &workloads.SapLandscapeMonitorArgs{
-			Grouping: workloads.SapLandscapeMonitorPropertiesResponseGrouping{
+			Grouping: &workloads.SapLandscapeMonitorPropertiesGroupingArgs{
 				Landscape: workloads.SapLandscapeMonitorSidMappingArray{
 					&workloads.SapLandscapeMonitorSidMappingArgs{
 						Name: pulumi.String("Prod"),
@@ -30,8 +30,8 @@ func main() {
 			},
 			MonitorName:       pulumi.String("mySapMonitor"),
 			ResourceGroupName: pulumi.String("myResourceGroup"),
-			TopMetricsThresholds: []workloads.SapLandscapeMonitorMetricThresholdsArgs{
-				{
+			TopMetricsThresholds: workloads.SapLandscapeMonitorMetricThresholdsArray{
+				&workloads.SapLandscapeMonitorMetricThresholdsArgs{
 					Green:  pulumi.Float64(90),
 					Name:   pulumi.String("Instance Availability"),
 					Red:    pulumi.Float64(50),

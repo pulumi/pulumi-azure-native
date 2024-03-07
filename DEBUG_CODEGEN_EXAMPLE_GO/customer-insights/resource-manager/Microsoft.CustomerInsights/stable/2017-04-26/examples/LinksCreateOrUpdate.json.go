@@ -16,15 +16,15 @@ func main() {
 			},
 			HubName:  pulumi.String("sdkTestHub"),
 			LinkName: pulumi.String("linkTest4806"),
-			Mappings: []customerinsights.TypePropertiesMappingArgs{
-				{
+			Mappings: customerinsights.TypePropertiesMappingArray{
+				&customerinsights.TypePropertiesMappingArgs{
 					LinkType:           customerinsights.LinkTypesUpdateAlways,
 					SourcePropertyName: pulumi.String("testInteraction1949"),
 					TargetPropertyName: pulumi.String("testProfile1446"),
 				},
 			},
-			ParticipantPropertyReferences: []customerinsights.ParticipantPropertyReferenceArgs{
-				{
+			ParticipantPropertyReferences: customerinsights.ParticipantPropertyReferenceArray{
+				&customerinsights.ParticipantPropertyReferenceArgs{
 					SourcePropertyName: pulumi.String("testInteraction1949"),
 					TargetPropertyName: pulumi.String("ProfileId"),
 				},

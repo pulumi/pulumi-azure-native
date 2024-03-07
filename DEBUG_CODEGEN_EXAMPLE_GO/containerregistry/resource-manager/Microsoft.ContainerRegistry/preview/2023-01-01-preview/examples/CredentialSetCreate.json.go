@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := containerregistry.NewCredentialSet(ctx, "credentialSet", &containerregistry.CredentialSetArgs{
-			AuthCredentials: []containerregistry.AuthCredentialArgs{
-				{
+			AuthCredentials: containerregistry.AuthCredentialArray{
+				&containerregistry.AuthCredentialArgs{
 					Name:                     pulumi.String("Credential1"),
 					PasswordSecretIdentifier: pulumi.String("https://myvault.vault.azure.net/secrets/password"),
 					UsernameSecretIdentifier: pulumi.String("https://myvault.vault.azure.net/secrets/username"),

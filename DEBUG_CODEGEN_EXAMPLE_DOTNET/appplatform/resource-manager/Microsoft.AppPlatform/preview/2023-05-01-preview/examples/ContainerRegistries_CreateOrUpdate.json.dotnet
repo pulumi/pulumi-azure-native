@@ -10,12 +10,12 @@ return await Deployment.RunAsync(() =>
         ContainerRegistryName = "my-container-registry",
         Properties = new AzureNative.AppPlatform.Inputs.ContainerRegistryPropertiesArgs
         {
-            Credentials = 
+            Credentials = new AzureNative.AppPlatform.Inputs.ContainerRegistryBasicCredentialsArgs
             {
-                { "password", "myPassword" },
-                { "server", "myServer" },
-                { "type", "BasicAuth" },
-                { "username", "myUsername" },
+                Password = "myPassword",
+                Server = "myServer",
+                Type = "BasicAuth",
+                Username = "myUsername",
             },
         },
         ResourceGroupName = "myResourceGroup",

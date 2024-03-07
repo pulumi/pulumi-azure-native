@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 modernize_project = azure_native.migrate.ModernizeProject("modernizeProject",
-    identity=azure_native.migrate.ResourceIdentityResponseArgs(
+    identity=azure_native.migrate.ResourceIdentityArgs(
         principal_id="ins",
         tenant_id="fjnu",
         type="None",
@@ -15,7 +15,7 @@ modernize_project = azure_native.migrate.ModernizeProject("modernizeProject",
     ),
     location="nbqyuxrgrlhx",
     modernize_project_name="b",
-    properties=azure_native.migrate.ModernizeProjectModelPropertiesResponseArgs(
+    properties=azure_native.migrate.ModernizeProjectModelPropertiesArgs(
         migration_configuration=azure_native.migrate.MigrationConfigurationArgs(
             key_vault_resource_id="vekhittkyogvwnqmggknv",
             migration_solution_resource_id="bglfkwtzvqmhwpddwpvtdzaleaioxo",

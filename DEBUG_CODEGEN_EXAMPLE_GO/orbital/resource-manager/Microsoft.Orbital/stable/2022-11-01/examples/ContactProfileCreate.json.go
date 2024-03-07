@@ -11,13 +11,13 @@ func main() {
 			AutoTrackingConfiguration: orbital.AutoTrackingConfigurationDisabled,
 			ContactProfileName:        pulumi.String("CONTOSO-CP"),
 			EventHubUri:               pulumi.String("/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub"),
-			Links: []orbital.ContactProfileLinkArgs{
-				{
+			Links: orbital.ContactProfileLinkArray{
+				&orbital.ContactProfileLinkArgs{
 					Channels: orbital.ContactProfileLinkChannelArray{
-						{
+						&orbital.ContactProfileLinkChannelArgs{
 							BandwidthMHz:       pulumi.Float64(2),
 							CenterFrequencyMHz: pulumi.Float64(2250),
-							EndPoint: {
+							EndPoint: &orbital.EndPointArgs{
 								EndPointName: pulumi.String("ContosoTest_Uplink"),
 								IpAddress:    pulumi.String("10.1.0.4"),
 								Port:         pulumi.String("50000"),
@@ -32,12 +32,12 @@ func main() {
 					Name:                pulumi.String("contoso-uplink"),
 					Polarization:        pulumi.String("LHCP"),
 				},
-				{
+				&orbital.ContactProfileLinkArgs{
 					Channels: orbital.ContactProfileLinkChannelArray{
-						{
+						&orbital.ContactProfileLinkChannelArgs{
 							BandwidthMHz:       pulumi.Float64(15),
 							CenterFrequencyMHz: pulumi.Float64(8160),
-							EndPoint: {
+							EndPoint: &orbital.EndPointArgs{
 								EndPointName: pulumi.String("ContosoTest_Downlink"),
 								IpAddress:    pulumi.String("10.1.0.5"),
 								Port:         pulumi.String("50001"),
@@ -60,12 +60,12 @@ func main() {
 				SubnetId: pulumi.String("/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet"),
 			},
 			ResourceGroupName: pulumi.String("contoso-Rgp"),
-			ThirdPartyConfigurations: []orbital.ContactProfileThirdPartyConfigurationArgs{
-				{
+			ThirdPartyConfigurations: orbital.ContactProfileThirdPartyConfigurationArray{
+				&orbital.ContactProfileThirdPartyConfigurationArgs{
 					MissionConfiguration: pulumi.String("Ksat_MissionConfiguration"),
 					ProviderName:         pulumi.String("KSAT"),
 				},
-				{
+				&orbital.ContactProfileThirdPartyConfigurationArgs{
 					MissionConfiguration: pulumi.String("Viasat_Configuration"),
 					ProviderName:         pulumi.String("VIASAT"),
 				},

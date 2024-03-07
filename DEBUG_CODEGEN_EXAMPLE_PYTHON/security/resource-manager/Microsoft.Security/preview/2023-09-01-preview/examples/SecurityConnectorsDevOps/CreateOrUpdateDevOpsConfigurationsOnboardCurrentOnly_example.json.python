@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 dev_ops_configuration = azure_native.security.DevOpsConfiguration("devOpsConfiguration",
-    properties=azure_native.security.DevOpsConfigurationPropertiesResponseArgs(
+    properties=azure_native.security.DevOpsConfigurationPropertiesArgs(
         authorization=azure_native.security.AuthorizationArgs(
             code="00000000000000000000",
         ),

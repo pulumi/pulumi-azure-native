@@ -11,7 +11,7 @@ func main() {
 			AuthorizationProviderId: pulumi.String("google"),
 			DisplayName:             pulumi.String("google"),
 			IdentityProvider:        pulumi.String("google"),
-			Oauth2: apimanagement.AuthorizationProviderOAuth2SettingsResponse{
+			Oauth2: &apimanagement.AuthorizationProviderOAuth2SettingsArgs{
 				GrantTypes: &apimanagement.AuthorizationProviderOAuth2GrantTypesArgs{
 					AuthorizationCode: pulumi.StringMap{
 						"clientId":     pulumi.String("508791967882-5qv6o2i99a75un7329vlegtk78kr766h.apps.googleusercontent.com"),

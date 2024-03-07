@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := eventgrid.NewPartnerConfiguration(ctx, "partnerConfiguration", &eventgrid.PartnerConfigurationArgs{
-			PartnerAuthorization: eventgrid.PartnerAuthorizationResponse{
+			PartnerAuthorization: &eventgrid.PartnerAuthorizationArgs{
 				AuthorizedPartnersList: eventgrid.PartnerArray{
 					&eventgrid.PartnerArgs{
 						AuthorizationExpirationTimeInUtc: pulumi.String("2022-01-28T01:20:55.142Z"),

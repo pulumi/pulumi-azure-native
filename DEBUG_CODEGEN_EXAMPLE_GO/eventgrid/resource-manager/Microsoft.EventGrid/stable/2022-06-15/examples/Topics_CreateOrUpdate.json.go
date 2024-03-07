@@ -8,12 +8,12 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := eventgrid.NewTopic(ctx, "topic", &eventgrid.TopicArgs{
-			InboundIpRules: []eventgrid.InboundIpRuleArgs{
-				{
+			InboundIpRules: eventgrid.InboundIpRuleArray{
+				&eventgrid.InboundIpRuleArgs{
 					Action: pulumi.String("Allow"),
 					IpMask: pulumi.String("12.18.30.15"),
 				},
-				{
+				&eventgrid.InboundIpRuleArgs{
 					Action: pulumi.String("Allow"),
 					IpMask: pulumi.String("12.18.176.1"),
 				},

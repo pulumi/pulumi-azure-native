@@ -40,10 +40,10 @@ return await Deployment.RunAsync(() =>
                 {
                     Classes = 
                     {
-                        { "myLabelClass1", 
+                        { "myLabelClass1", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
                         {
-                            { "displayName", "myLabelClass1" },
-                            { "subclasses", null },
+                            DisplayName = "myLabelClass1",
+                            Subclasses = null,
                         } },
                         { "myLabelClass2", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
                         {

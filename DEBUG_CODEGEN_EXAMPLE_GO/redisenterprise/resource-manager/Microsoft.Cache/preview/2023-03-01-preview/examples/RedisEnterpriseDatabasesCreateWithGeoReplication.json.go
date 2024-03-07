@@ -13,7 +13,7 @@ func main() {
 			ClusteringPolicy: pulumi.String("EnterpriseCluster"),
 			DatabaseName:     pulumi.String("default"),
 			EvictionPolicy:   pulumi.String("NoEviction"),
-			GeoReplication: cache.DatabasePropertiesResponseGeoReplication{
+			GeoReplication: &cache.DatabasePropertiesGeoReplicationArgs{
 				GroupNickname: pulumi.String("groupName"),
 				LinkedDatabases: cache.LinkedDatabaseArray{
 					&cache.LinkedDatabaseArgs{

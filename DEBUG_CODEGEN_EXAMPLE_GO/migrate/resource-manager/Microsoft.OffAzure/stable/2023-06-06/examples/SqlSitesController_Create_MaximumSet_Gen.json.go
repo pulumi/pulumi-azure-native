@@ -10,14 +10,14 @@ func main() {
 		_, err := offazure.NewSqlSitesController(ctx, "sqlSitesController", &offazure.SqlSitesControllerArgs{
 			DiscoveryScenario: pulumi.String("Migrate"),
 			ResourceGroupName: pulumi.String("rgmigrate"),
-			SiteAppliancePropertiesCollection: []offazure.SiteAppliancePropertiesArgs{
-				{
-					AgentDetails: {
+			SiteAppliancePropertiesCollection: offazure.SiteAppliancePropertiesArray{
+				&offazure.SiteAppliancePropertiesArgs{
+					AgentDetails: &offazure.SiteAgentPropertiesArgs{
 						KeyVaultId:  pulumi.String("awxurtbjmofxuciewsqfgpkccpzw"),
 						KeyVaultUri: pulumi.String("qizphgqwage"),
 					},
 					ApplianceName: pulumi.String("zpbkpigahvexsxevwafzgsu"),
-					ServicePrincipalIdentityDetails: {
+					ServicePrincipalIdentityDetails: &offazure.SiteSpnPropertiesArgs{
 						AadAuthority:  pulumi.String("yanzipdww"),
 						ApplicationId: pulumi.String("tspgrujepxyxuprkqvfuqbbjrweeqa"),
 						Audience:      pulumi.String("oepwfaozztzvegmzvswafvotj"),

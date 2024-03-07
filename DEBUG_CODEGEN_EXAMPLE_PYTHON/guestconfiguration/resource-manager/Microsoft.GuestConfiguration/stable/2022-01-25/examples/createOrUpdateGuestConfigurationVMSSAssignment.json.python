@@ -4,19 +4,19 @@ import pulumi_azure_native as azure_native
 guest_configuration_assignments_vmss = azure_native.guestconfiguration.GuestConfigurationAssignmentsVMSS("guestConfigurationAssignmentsVMSS",
     location="westcentralus",
     name="NotInstalledApplicationForWindows",
-    properties=azure_native.guestconfiguration.GuestConfigurationAssignmentPropertiesResponseArgs(
+    properties=azure_native.guestconfiguration.GuestConfigurationAssignmentPropertiesArgs(
         context="Azure policy",
-        guest_configuration={
-            "assignmentType": "ApplyAndAutoCorrect",
-            "configurationParameter": [azure_native.guestconfiguration.ConfigurationParameterArgs(
+        guest_configuration=azure_native.guestconfiguration.GuestConfigurationNavigationArgs(
+            assignment_type="ApplyAndAutoCorrect",
+            configuration_parameter=[azure_native.guestconfiguration.ConfigurationParameterArgs(
                 name="[InstalledApplication]NotInstalledApplicationResource1;Name",
                 value="NotePad,sql",
             )],
-            "contentHash": "123contenthash",
-            "contentUri": "https://thisisfake/pacakge",
-            "name": "NotInstalledApplicationForWindows",
-            "version": "1.0.0.3",
-        },
+            content_hash="123contenthash",
+            content_uri="https://thisisfake/pacakge",
+            name="NotInstalledApplicationForWindows",
+            version="1.0.0.3",
+        ),
     ),
     resource_group_name="myResourceGroupName",
     vmss_name="myVMSSName")

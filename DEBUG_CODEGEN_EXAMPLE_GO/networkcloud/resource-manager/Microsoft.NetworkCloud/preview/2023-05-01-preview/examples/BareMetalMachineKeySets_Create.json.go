@@ -28,18 +28,18 @@ func main() {
 				"key1": pulumi.String("myvalue1"),
 				"key2": pulumi.String("myvalue2"),
 			},
-			UserList: []networkcloud.KeySetUserArgs{
-				{
+			UserList: networkcloud.KeySetUserArray{
+				&networkcloud.KeySetUserArgs{
 					AzureUserName: pulumi.String("userABC"),
 					Description:   pulumi.String("Needs access for troubleshooting as a part of the support team"),
-					SshPublicKey: {
+					SshPublicKey: &networkcloud.SshPublicKeyArgs{
 						KeyData: pulumi.String("ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"),
 					},
 				},
-				{
+				&networkcloud.KeySetUserArgs{
 					AzureUserName: pulumi.String("userXYZ"),
 					Description:   pulumi.String("Needs access for troubleshooting as a part of the support team"),
-					SshPublicKey: {
+					SshPublicKey: &networkcloud.SshPublicKeyArgs{
 						KeyData: pulumi.String("ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"),
 					},
 				},

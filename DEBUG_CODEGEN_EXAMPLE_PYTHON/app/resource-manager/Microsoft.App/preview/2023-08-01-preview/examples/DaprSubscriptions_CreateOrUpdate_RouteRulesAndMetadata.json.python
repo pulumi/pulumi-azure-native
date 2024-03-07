@@ -10,7 +10,7 @@ dapr_subscription = azure_native.app.DaprSubscription("daprSubscription",
     name="mysubscription",
     pubsub_name="mypubsubcomponent",
     resource_group_name="examplerg",
-    routes=azure_native.app.DaprSubscriptionRoutesResponseArgs(
+    routes=azure_native.app.DaprSubscriptionRoutesArgs(
         default="/products",
         rules=[
             azure_native.app.DaprSubscriptionRouteRuleArgs(

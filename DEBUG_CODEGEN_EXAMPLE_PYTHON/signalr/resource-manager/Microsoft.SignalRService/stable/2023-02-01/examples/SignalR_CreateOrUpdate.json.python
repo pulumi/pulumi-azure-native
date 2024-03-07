@@ -36,7 +36,7 @@ signal_r = azure_native.signalrservice.SignalR("signalR",
         type="SystemAssigned",
     ),
     kind="SignalR",
-    live_trace_configuration=azure_native.signalrservice.LiveTraceConfigurationResponseArgs(
+    live_trace_configuration=azure_native.signalrservice.LiveTraceConfigurationArgs(
         categories=[azure_native.signalrservice.LiveTraceCategoryArgs(
             enabled="true",
             name="ConnectivityLogs",
@@ -44,7 +44,7 @@ signal_r = azure_native.signalrservice.SignalR("signalR",
         enabled="false",
     ),
     location="eastus",
-    network_acls=azure_native.signalrservice.SignalRNetworkACLsResponseArgs(
+    network_acls=azure_native.signalrservice.SignalRNetworkACLsArgs(
         default_action="Deny",
         private_endpoints=[azure_native.signalrservice.PrivateEndpointACLArgs(
             allow=["ServerConnection"],
@@ -71,17 +71,17 @@ signal_r = azure_native.signalrservice.SignalR("signalR",
     tls=azure_native.signalrservice.SignalRTlsSettingsArgs(
         client_cert_enabled=False,
     ),
-    upstream=azure_native.signalrservice.ServerlessUpstreamSettingsResponseArgs(
-        templates=[{
-            "auth": {
-                "managedIdentity": azure_native.signalrservice.ManagedIdentitySettingsArgs(
+    upstream=azure_native.signalrservice.ServerlessUpstreamSettingsArgs(
+        templates=[azure_native.signalrservice.UpstreamTemplateArgs(
+            auth=azure_native.signalrservice.UpstreamAuthSettingsArgs(
+                managed_identity=azure_native.signalrservice.ManagedIdentitySettingsArgs(
                     resource="api://example",
                 ),
-                "type": "ManagedIdentity",
-            },
-            "categoryPattern": "*",
-            "eventPattern": "connect,disconnect",
-            "hubPattern": "*",
-            "urlTemplate": "https://example.com/chat/api/connect",
-        }],
+                type="ManagedIdentity",
+            ),
+            category_pattern="*",
+            event_pattern="connect,disconnect",
+            hub_pattern="*",
+            url_template="https://example.com/chat/api/connect",
+        )],
     ))

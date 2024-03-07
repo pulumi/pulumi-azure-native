@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := hybridnetwork.NewSite(ctx, "site", &hybridnetwork.SiteArgs{
 			Location: pulumi.String("westUs2"),
-			Properties: hybridnetwork.SitePropertiesFormatResponse{
+			Properties: &hybridnetwork.SitePropertiesFormatArgs{
 				Nfvis: pulumi.Array{
 					hybridnetwork.AzureCoreNFVIDetails{
 						Location: "westUs2",

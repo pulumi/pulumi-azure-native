@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := migrate.NewSqlCollectorOperation(ctx, "sqlCollectorOperation", &migrate.SqlCollectorOperationArgs{
-			AgentProperties: migrate.CollectorAgentPropertiesBaseResponse{
+			AgentProperties: &migrate.CollectorAgentPropertiesBaseArgs{
 				Id: pulumi.String("630da710-4d44-41f7-a189-72fe3db5502b-agent"),
 				SpnDetails: &migrate.CollectorAgentSpnPropertiesBaseArgs{
 					ApplicationId: pulumi.String("db9c4c3d-477c-4d5a-817b-318276713565"),

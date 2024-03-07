@@ -15,8 +15,8 @@ func main() {
 				RelativeName: pulumi.String("azuresdkfornetautoresttrafficmanager6192"),
 				Ttl:          pulumi.Float64(35),
 			},
-			Endpoints: []network.EndpointTypeArgs{
-				{
+			Endpoints: network.EndpointTypeArray{
+				&network.EndpointTypeArgs{
 					EndpointLocation: pulumi.String("North Europe"),
 					EndpointStatus:   pulumi.String("Enabled"),
 					Name:             pulumi.String("My external endpoint"),

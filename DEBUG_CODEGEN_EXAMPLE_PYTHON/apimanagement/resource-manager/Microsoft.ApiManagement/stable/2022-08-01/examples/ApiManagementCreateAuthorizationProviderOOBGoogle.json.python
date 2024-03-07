@@ -5,7 +5,7 @@ authorization_provider = azure_native.apimanagement.AuthorizationProvider("autho
     authorization_provider_id="google",
     display_name="google",
     identity_provider="google",
-    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsResponseArgs(
+    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsArgs(
         grant_types=azure_native.apimanagement.AuthorizationProviderOAuth2GrantTypesArgs(
             authorization_code={
                 "clientId": "508791967882-5qv6o2i99a75un7329vlegtk78kr766h.apps.googleusercontent.com",

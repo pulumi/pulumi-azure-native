@@ -10,10 +10,10 @@ func main() {
 		_, err := network.NewInboundEndpoint(ctx, "inboundEndpoint", &network.InboundEndpointArgs{
 			DnsResolverName:     pulumi.String("sampleDnsResolver"),
 			InboundEndpointName: pulumi.String("sampleInboundEndpoint"),
-			IpConfigurations: []network.InboundEndpointIPConfigurationArgs{
-				{
+			IpConfigurations: network.InboundEndpointIPConfigurationArray{
+				&network.InboundEndpointIPConfigurationArgs{
 					PrivateIpAllocationMethod: pulumi.String("Dynamic"),
-					Subnet: {
+					Subnet: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet"),
 					},
 				},

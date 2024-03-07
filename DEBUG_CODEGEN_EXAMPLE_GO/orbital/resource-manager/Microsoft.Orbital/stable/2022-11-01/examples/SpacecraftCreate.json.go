@@ -8,15 +8,15 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := orbital.NewSpacecraft(ctx, "spacecraft", &orbital.SpacecraftArgs{
-			Links: []orbital.SpacecraftLinkArgs{
-				{
+			Links: orbital.SpacecraftLinkArray{
+				&orbital.SpacecraftLinkArgs{
 					BandwidthMHz:       pulumi.Float64(2),
 					CenterFrequencyMHz: pulumi.Float64(2250),
 					Direction:          pulumi.String("Uplink"),
 					Name:               pulumi.String("uplink_lhcp1"),
 					Polarization:       pulumi.String("LHCP"),
 				},
-				{
+				&orbital.SpacecraftLinkArgs{
 					BandwidthMHz:       pulumi.Float64(15),
 					CenterFrequencyMHz: pulumi.Float64(8160),
 					Direction:          pulumi.String("Downlink"),

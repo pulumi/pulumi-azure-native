@@ -54,7 +54,7 @@ return await Deployment.RunAsync(() =>
                                 Username = "sshuser",
                             },
                         },
-                        ScriptActions = new[] {},
+                        ScriptActions = new() { },
                         TargetInstanceCount = 2,
                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
                         {
@@ -88,7 +88,7 @@ return await Deployment.RunAsync(() =>
                                 Username = "sshuser",
                             },
                         },
-                        ScriptActions = new[] {},
+                        ScriptActions = new() { },
                         TargetInstanceCount = 4,
                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
                         {
@@ -122,7 +122,7 @@ return await Deployment.RunAsync(() =>
                                 Username = "sshuser",
                             },
                         },
-                        ScriptActions = new[] {},
+                        ScriptActions = new() { },
                         TargetInstanceCount = 3,
                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
                         {

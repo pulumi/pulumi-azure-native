@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 private_endpoint_connection_proxy = azure_native.deviceupdate.PrivateEndpointConnectionProxy("privateEndpointConnectionProxy",
     account_name="contoso",
     private_endpoint_connection_proxy_id="peexample01",
-    remote_private_endpoint=azure_native.deviceupdate.RemotePrivateEndpointResponseArgs(
+    remote_private_endpoint=azure_native.deviceupdate.RemotePrivateEndpointArgs(
         id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
         immutable_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
         immutable_subscription_id="00000000-0000-0000-0000-000000000000",
@@ -14,9 +14,9 @@ private_endpoint_connection_proxy = azure_native.deviceupdate.PrivateEndpointCon
             name="{privateEndpointConnectionProxyId}",
             request_message="Please approve my connection, thanks.",
         )],
-        private_link_service_proxies=[{
-            "groupConnectivityInformation": [],
-            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{privateEndpointConnectionProxyId}/privateLinkServiceProxies/{privateEndpointConnectionProxyId}",
-        }],
+        private_link_service_proxies=[azure_native.deviceupdate.PrivateLinkServiceProxyArgs(
+            group_connectivity_information=[],
+            id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{privateEndpointConnectionProxyId}/privateLinkServiceProxies/{privateEndpointConnectionProxyId}",
+        )],
     ),
     resource_group_name="test-rg")

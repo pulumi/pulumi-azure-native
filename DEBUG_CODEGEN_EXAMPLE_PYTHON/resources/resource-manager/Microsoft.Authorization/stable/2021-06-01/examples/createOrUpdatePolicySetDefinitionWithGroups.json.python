@@ -20,9 +20,9 @@ policy_set_definition = azure_native.authorization.PolicySetDefinition("policySe
         ),
     ],
     policy_definitions=[
-        {
-            "groupNames": ["CostSaving"],
-            "parameters": {
+        azure_native.authorization.PolicyDefinitionReferenceArgs(
+            group_names=["CostSaving"],
+            parameters={
                 "listOfAllowedSKUs": azure_native.authorization.ParameterValuesValueArgs(
                     value=[
                         "Standard_GRS",
@@ -30,12 +30,12 @@ policy_set_definition = azure_native.authorization.PolicySetDefinition("policySe
                     ],
                 ),
             },
-            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
-            "policyDefinitionReferenceId": "Limit_Skus",
-        },
-        {
-            "groupNames": ["Organizational"],
-            "parameters": {
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+            policy_definition_reference_id="Limit_Skus",
+        ),
+        azure_native.authorization.PolicyDefinitionReferenceArgs(
+            group_names=["Organizational"],
+            parameters={
                 "prefix": azure_native.authorization.ParameterValuesValueArgs(
                     value="DeptA",
                 ),
@@ -43,8 +43,8 @@ policy_set_definition = azure_native.authorization.PolicySetDefinition("policySe
                     value="-LC",
                 ),
             },
-            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
-            "policyDefinitionReferenceId": "Resource_Naming",
-        },
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            policy_definition_reference_id="Resource_Naming",
+        ),
     ],
     policy_set_definition_name="CostManagement")

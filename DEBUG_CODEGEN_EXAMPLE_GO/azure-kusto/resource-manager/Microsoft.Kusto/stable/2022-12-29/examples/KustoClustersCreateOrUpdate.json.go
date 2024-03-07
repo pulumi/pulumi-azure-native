@@ -19,7 +19,7 @@ func main() {
 			Identity: &kusto.IdentityArgs{
 				Type: pulumi.String("SystemAssigned"),
 			},
-			LanguageExtensions: kusto.LanguageExtensionsListResponse{
+			LanguageExtensions: &kusto.LanguageExtensionsListArgs{
 				Value: kusto.LanguageExtensionArray{
 					&kusto.LanguageExtensionArgs{
 						LanguageExtensionImageName: pulumi.String("Python3_10_8"),

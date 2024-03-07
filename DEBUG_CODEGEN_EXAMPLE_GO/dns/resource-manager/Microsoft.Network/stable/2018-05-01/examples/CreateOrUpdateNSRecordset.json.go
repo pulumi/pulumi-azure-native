@@ -11,8 +11,8 @@ func main() {
 			Metadata: pulumi.StringMap{
 				"key1": pulumi.String("value1"),
 			},
-			NsRecords: []network.NsRecordArgs{
-				{
+			NsRecords: network.NsRecordArray{
+				&network.NsRecordArgs{
 					Nsdname: pulumi.String("ns1.contoso.com"),
 				},
 			},

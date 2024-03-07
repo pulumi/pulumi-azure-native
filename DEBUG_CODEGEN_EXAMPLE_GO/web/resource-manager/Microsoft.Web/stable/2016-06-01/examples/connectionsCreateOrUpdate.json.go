@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := web.NewConnection(ctx, "connection", &web.ConnectionArgs{
 			ConnectionName: pulumi.String("testManagedApi"),
-			Properties: web.ApiConnectionDefinitionResponseProperties{
+			Properties: &web.ApiConnectionDefinitionPropertiesArgs{
 				Api: &web.ApiReferenceArgs{
 					Id: pulumi.String("/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi"),
 				},

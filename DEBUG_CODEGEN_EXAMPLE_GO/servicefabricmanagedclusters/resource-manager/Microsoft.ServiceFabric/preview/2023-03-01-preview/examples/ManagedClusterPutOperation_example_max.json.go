@@ -19,8 +19,8 @@ func main() {
 			ApplicationTypeVersionsCleanupPolicy: &servicefabric.ApplicationTypeVersionsCleanupPolicyArgs{
 				MaxUnusedVersionsToKeep: pulumi.Int(3),
 			},
-			AuxiliarySubnets: []servicefabric.SubnetArgs{
-				{
+			AuxiliarySubnets: servicefabric.SubnetArray{
+				&servicefabric.SubnetArgs{
 					EnableIpv6:                        pulumi.Bool(true),
 					Name:                              pulumi.String("testSubnet1"),
 					NetworkSecurityGroupId:            pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/networkSecurityGroups/sn1"),
@@ -35,11 +35,11 @@ func main() {
 			DnsName:              pulumi.String("myCluster"),
 			EnableAutoOSUpgrade:  pulumi.Bool(true),
 			EnableIpv6:           pulumi.Bool(true),
-			FabricSettings: []servicefabric.SettingsSectionDescriptionArgs{
-				{
+			FabricSettings: servicefabric.SettingsSectionDescriptionArray{
+				&servicefabric.SettingsSectionDescriptionArgs{
 					Name: pulumi.String("ManagedIdentityTokenService"),
 					Parameters: servicefabric.SettingsParameterDescriptionArray{
-						{
+						&servicefabric.SettingsParameterDescriptionArgs{
 							Name:  pulumi.String("IsEnabled"),
 							Value: pulumi.String("true"),
 						},
@@ -47,28 +47,28 @@ func main() {
 				},
 			},
 			HttpGatewayConnectionPort: pulumi.Int(19080),
-			IpTags: []servicefabric.IPTagArgs{
-				{
+			IpTags: servicefabric.IPTagArray{
+				&servicefabric.IPTagArgs{
 					IpTagType: pulumi.String("FirstPartyUsage"),
 					Tag:       pulumi.String("SQL"),
 				},
 			},
-			LoadBalancingRules: []servicefabric.LoadBalancingRuleArgs{
-				{
+			LoadBalancingRules: servicefabric.LoadBalancingRuleArray{
+				&servicefabric.LoadBalancingRuleArgs{
 					BackendPort:   pulumi.Int(80),
 					FrontendPort:  pulumi.Int(80),
 					ProbePort:     pulumi.Int(80),
 					ProbeProtocol: pulumi.String("http"),
 					Protocol:      pulumi.String("http"),
 				},
-				{
+				&servicefabric.LoadBalancingRuleArgs{
 					BackendPort:   pulumi.Int(443),
 					FrontendPort:  pulumi.Int(443),
 					ProbePort:     pulumi.Int(443),
 					ProbeProtocol: pulumi.String("http"),
 					Protocol:      pulumi.String("http"),
 				},
-				{
+				&servicefabric.LoadBalancingRuleArgs{
 					BackendPort:      pulumi.Int(10000),
 					FrontendPort:     pulumi.Int(10000),
 					LoadDistribution: pulumi.String("Default"),
@@ -78,8 +78,8 @@ func main() {
 				},
 			},
 			Location: pulumi.String("eastus"),
-			NetworkSecurityRules: []servicefabric.NetworkSecurityRuleArgs{
-				{
+			NetworkSecurityRules: servicefabric.NetworkSecurityRuleArray{
+				&servicefabric.NetworkSecurityRuleArgs{
 					Access:      pulumi.String("allow"),
 					Description: pulumi.String("Test description"),
 					DestinationAddressPrefixes: pulumi.StringArray{
@@ -99,7 +99,7 @@ func main() {
 						pulumi.String("*"),
 					},
 				},
-				{
+				&servicefabric.NetworkSecurityRuleArgs{
 					Access:                   pulumi.String("allow"),
 					DestinationAddressPrefix: pulumi.String("*"),
 					DestinationPortRange:     pulumi.String("33500-33699"),
@@ -113,8 +113,8 @@ func main() {
 			},
 			PublicIPPrefixId:  pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.Network/publicIPPrefixes/myPublicIPPrefix"),
 			ResourceGroupName: pulumi.String("resRg"),
-			ServiceEndpoints: []servicefabric.ServiceEndpointArgs{
-				{
+			ServiceEndpoints: servicefabric.ServiceEndpointArray{
+				&servicefabric.ServiceEndpointArgs{
 					Locations: pulumi.StringArray{
 						pulumi.String("eastus2"),
 						pulumi.String("usnorth"),

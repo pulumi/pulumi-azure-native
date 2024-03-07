@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := machinelearningservices.NewEnvironmentSpecificationVersion(ctx, "environmentSpecificationVersion", &machinelearningservices.EnvironmentSpecificationVersionArgs{
 			Name: pulumi.String("testEnvironment"),
-			Properties: machinelearningservices.EnvironmentSpecificationVersionResponse{
+			Properties: &machinelearningservices.EnvironmentSpecificationVersionTypeArgs{
 				CondaFile:   pulumi.String("channels:\n- defaults\ndependencies:\n- python=3.7.7\nname: my-env"),
 				Description: pulumi.String("string"),
 				Docker: machinelearningservices.DockerBuild{

@@ -30,14 +30,14 @@ return await Deployment.RunAsync(() =>
                 ResourceType = "Microsoft.DBforPostgreSQL/servers",
                 ResourceUri = "",
             },
-            DatasourceAuthCredentials = 
+            DatasourceAuthCredentials = new AzureNative.DataProtection.Inputs.SecretStoreBasedAuthCredentialsArgs
             {
-                { "objectType", "SecretStoreBasedAuthCredentials" },
-                { "secretStoreResource", new AzureNative.DataProtection.Inputs.SecretStoreResourceArgs
+                ObjectType = "SecretStoreBasedAuthCredentials",
+                SecretStoreResource = new AzureNative.DataProtection.Inputs.SecretStoreResourceArgs
                 {
                     SecretStoreType = "AzureKeyVault",
                     Uri = "https://samplevault.vault.azure.net/secrets/credentials",
-                } },
+                },
             },
             FriendlyName = "harshitbi2",
             ObjectType = "BackupInstance",
@@ -48,11 +48,11 @@ return await Deployment.RunAsync(() =>
                 {
                     DataStoreParametersList = new[]
                     {
-                        
+                        new AzureNative.DataProtection.Inputs.AzureOperationalStoreParametersArgs
                         {
-                            { "dataStoreType", "OperationalStore" },
-                            { "objectType", "AzureOperationalStoreParameters" },
-                            { "resourceGroupId", "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest" },
+                            DataStoreType = "OperationalStore",
+                            ObjectType = "AzureOperationalStoreParameters",
+                            ResourceGroupId = "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
                         },
                     },
                 },

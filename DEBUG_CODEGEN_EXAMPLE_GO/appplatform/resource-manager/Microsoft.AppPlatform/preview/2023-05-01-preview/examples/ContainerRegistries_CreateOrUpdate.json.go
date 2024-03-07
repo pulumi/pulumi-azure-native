@@ -8,7 +8,7 @@ func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := appplatform.NewContainerRegistry(ctx, "containerRegistry", &appplatform.ContainerRegistryArgs{
 ContainerRegistryName: pulumi.String("my-container-registry"),
-Properties: appplatform.ContainerRegistryPropertiesResponse{
+Properties: &appplatform.ContainerRegistryPropertiesArgs{
 Credentials: interface{}{
 Password: pulumi.String("myPassword"),
 Server: pulumi.String("myServer"),

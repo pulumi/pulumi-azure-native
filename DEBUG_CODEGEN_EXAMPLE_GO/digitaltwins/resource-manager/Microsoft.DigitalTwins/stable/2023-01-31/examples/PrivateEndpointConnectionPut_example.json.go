@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := digitaltwins.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &digitaltwins.PrivateEndpointConnectionArgs{
 			PrivateEndpointConnectionName: pulumi.String("myPrivateConnection"),
-			Properties: digitaltwins.ConnectionPropertiesResponse{
+			Properties: &digitaltwins.ConnectionPropertiesArgs{
 				PrivateLinkServiceConnectionState: &digitaltwins.ConnectionPropertiesPrivateLinkServiceConnectionStateArgs{
 					Description: pulumi.String("Approved by johndoe@company.com."),
 					Status:      pulumi.String("Approved"),

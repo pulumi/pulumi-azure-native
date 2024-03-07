@@ -11,7 +11,7 @@ func main() {
 			AuthorizationProviderId: pulumi.String("aadwithauthcode"),
 			DisplayName:             pulumi.String("aadwithauthcode"),
 			IdentityProvider:        pulumi.String("aad"),
-			Oauth2: apimanagement.AuthorizationProviderOAuth2SettingsResponse{
+			Oauth2: &apimanagement.AuthorizationProviderOAuth2SettingsArgs{
 				GrantTypes: &apimanagement.AuthorizationProviderOAuth2GrantTypesArgs{
 					AuthorizationCode: pulumi.StringMap{
 						"clientId":     pulumi.String("59790825-fdd3-4b10-bc7a-4c3aaf25801d"),

@@ -8,25 +8,25 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewLoadBalancer(ctx, "loadBalancer", &network.LoadBalancerArgs{
-			BackendAddressPools: []network.BackendAddressPoolArgs{
-				{
+			BackendAddressPools: network.BackendAddressPoolArray{
+				&network.BackendAddressPoolArgs{
 					Name: pulumi.String("be-lb"),
 				},
 			},
-			FrontendIPConfigurations: []network.FrontendIPConfigurationArgs{
-				{
+			FrontendIPConfigurations: network.FrontendIPConfigurationArray{
+				&network.FrontendIPConfigurationArgs{
 					Name: pulumi.String("fe-lb"),
-					PublicIPAddress: {
+					PublicIPAddress: &network.PublicIPAddressTypeArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pip"),
 					},
 				},
 			},
 			InboundNatPools: network.InboundNatPoolArray{},
-			InboundNatRules: []network.InboundNatRuleTypeArgs{
-				{
+			InboundNatRules: network.InboundNatRuleTypeArray{
+				&network.InboundNatRuleTypeArgs{
 					BackendPort:      pulumi.Int(3389),
 					EnableFloatingIP: pulumi.Bool(true),
-					FrontendIPConfiguration: {
+					FrontendIPConfiguration: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"),
 					},
 					FrontendPort:         pulumi.Int(3389),
@@ -36,35 +36,35 @@ func main() {
 				},
 			},
 			LoadBalancerName: pulumi.String("lb"),
-			LoadBalancingRules: []network.LoadBalancingRuleArgs{
-				{
-					BackendAddressPool: {
+			LoadBalancingRules: network.LoadBalancingRuleArray{
+				&network.LoadBalancingRuleArgs{
+					BackendAddressPool: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb"),
 					},
 					BackendPort:         pulumi.Int(80),
 					DisableOutboundSnat: pulumi.Bool(true),
 					EnableFloatingIP:    pulumi.Bool(true),
-					FrontendIPConfiguration: {
+					FrontendIPConfiguration: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"),
 					},
 					FrontendPort:         pulumi.Int(80),
 					IdleTimeoutInMinutes: pulumi.Int(15),
 					LoadDistribution:     pulumi.String("Default"),
 					Name:                 pulumi.String("rulelb"),
-					Probe: {
+					Probe: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb"),
 					},
 					Protocol: pulumi.String("Tcp"),
 				},
 			},
 			Location: pulumi.String("eastus"),
-			OutboundRules: []network.OutboundRuleArgs{
-				{
-					BackendAddressPool: {
+			OutboundRules: network.OutboundRuleArray{
+				&network.OutboundRuleArgs{
+					BackendAddressPool: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb"),
 					},
 					FrontendIPConfigurations: network.SubResourceArray{
-						{
+						&network.SubResourceArgs{
 							Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"),
 						},
 					},
@@ -72,8 +72,8 @@ func main() {
 					Protocol: pulumi.String("All"),
 				},
 			},
-			Probes: []network.ProbeArgs{
-				{
+			Probes: network.ProbeArray{
+				&network.ProbeArgs{
 					IntervalInSeconds: pulumi.Int(15),
 					Name:              pulumi.String("probe-lb"),
 					NumberOfProbes:    pulumi.Int(2),

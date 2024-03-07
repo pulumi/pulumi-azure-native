@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 management_group = azure_native.management.ManagementGroup("managementGroup",
-    details=azure_native.management.ManagementGroupDetailsResponseArgs(
+    details=azure_native.management.CreateManagementGroupDetailsArgs(
         parent=azure_native.management.CreateParentGroupInfoArgs(
             id="/providers/Microsoft.Management/managementGroups/RootGroup",
         ),

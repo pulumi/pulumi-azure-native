@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := app.NewManagedEnvironment(ctx, "managedEnvironment", &app.ManagedEnvironmentArgs{
-			AppLogsConfiguration: app.AppLogsConfigurationResponse{
+			AppLogsConfiguration: &app.AppLogsConfigurationArgs{
 				LogAnalyticsConfiguration: &app.LogAnalyticsConfigurationArgs{
 					CustomerId: pulumi.String("string"),
 					SharedKey:  pulumi.String("string"),
@@ -27,24 +27,24 @@ func main() {
 			Sku: &app.EnvironmentSkuPropertiesArgs{
 				Name: pulumi.String("Premium"),
 			},
-			VnetConfiguration: app.VnetConfigurationResponse{
+			VnetConfiguration: &app.VnetConfigurationArgs{
 				OutboundSettings: &app.ManagedEnvironmentOutboundSettingsArgs{
 					OutBoundType:              pulumi.String("UserDefinedRouting"),
 					VirtualNetworkApplianceIp: pulumi.String("192.168.1.20"),
 				},
 			},
-			WorkloadProfiles: []app.WorkloadProfileArgs{
-				{
+			WorkloadProfiles: app.WorkloadProfileArray{
+				&app.WorkloadProfileArgs{
 					MaximumCount:        pulumi.Int(12),
 					MinimumCount:        pulumi.Int(3),
 					WorkloadProfileType: pulumi.String("GeneralPurpose"),
 				},
-				{
+				&app.WorkloadProfileArgs{
 					MaximumCount:        pulumi.Int(6),
 					MinimumCount:        pulumi.Int(3),
 					WorkloadProfileType: pulumi.String("MemoryOptimized"),
 				},
-				{
+				&app.WorkloadProfileArgs{
 					MaximumCount:        pulumi.Int(6),
 					MinimumCount:        pulumi.Int(3),
 					WorkloadProfileType: pulumi.String("ComputeOptimized"),

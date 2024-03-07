@@ -8,11 +8,11 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := apimanagement.NewApiManagementService(ctx, "apiManagementService", &apimanagement.ApiManagementServiceArgs{
-			AdditionalLocations: []apimanagement.AdditionalLocationArgs{
-				{
+			AdditionalLocations: apimanagement.AdditionalLocationArray{
+				&apimanagement.AdditionalLocationArgs{
 					DisableGateway: pulumi.Bool(true),
 					Location:       pulumi.String("East US"),
-					Sku: {
+					Sku: &apimanagement.ApiManagementServiceSkuPropertiesArgs{
 						Capacity: pulumi.Int(1),
 						Name:     pulumi.String("Premium"),
 					},
@@ -21,21 +21,21 @@ func main() {
 			ApiVersionConstraint: &apimanagement.ApiVersionConstraintArgs{
 				MinApiVersion: pulumi.String("2019-01-01"),
 			},
-			HostnameConfigurations: []apimanagement.HostnameConfigurationArgs{
-				{
+			HostnameConfigurations: apimanagement.HostnameConfigurationArray{
+				&apimanagement.HostnameConfigurationArgs{
 					CertificatePassword: pulumi.String("Password"),
 					DefaultSslBinding:   pulumi.Bool(true),
 					EncodedCertificate:  pulumi.String("****** Base 64 Encoded Certificate ************"),
 					HostName:            pulumi.String("gateway1.msitesting.net"),
 					Type:                pulumi.String("Proxy"),
 				},
-				{
+				&apimanagement.HostnameConfigurationArgs{
 					CertificatePassword: pulumi.String("Password"),
 					EncodedCertificate:  pulumi.String("****** Base 64 Encoded Certificate ************"),
 					HostName:            pulumi.String("mgmt.msitesting.net"),
 					Type:                pulumi.String("Management"),
 				},
-				{
+				&apimanagement.HostnameConfigurationArgs{
 					CertificatePassword: pulumi.String("Password"),
 					EncodedCertificate:  pulumi.String("****** Base 64 Encoded Certificate ************"),
 					HostName:            pulumi.String("portal1.msitesting.net"),

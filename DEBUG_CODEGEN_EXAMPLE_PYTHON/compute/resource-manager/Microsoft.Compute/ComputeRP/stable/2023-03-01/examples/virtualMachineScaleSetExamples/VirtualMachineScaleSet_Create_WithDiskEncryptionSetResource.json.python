@@ -13,51 +13,51 @@ virtual_machine_scale_set = azure_native.compute.VirtualMachineScaleSet("virtual
     upgrade_policy=azure_native.compute.UpgradePolicyArgs(
         mode=azure_native.compute.UpgradeMode.MANUAL,
     ),
-    virtual_machine_profile=azure_native.compute.VirtualMachineScaleSetVMProfileResponseArgs(
-        network_profile={
-            "networkInterfaceConfigurations": [{
-                "enableIPForwarding": True,
-                "ipConfigurations": [{
-                    "name": "{vmss-name}",
-                    "subnet": azure_native.compute.ApiEntityReferenceArgs(
+    virtual_machine_profile=azure_native.compute.VirtualMachineScaleSetVMProfileArgs(
+        network_profile=azure_native.compute.VirtualMachineScaleSetNetworkProfileArgs(
+            network_interface_configurations=[azure_native.compute.VirtualMachineScaleSetNetworkConfigurationArgs(
+                enable_ip_forwarding=True,
+                ip_configurations=[azure_native.compute.VirtualMachineScaleSetIPConfigurationArgs(
+                    name="{vmss-name}",
+                    subnet=azure_native.compute.ApiEntityReferenceArgs(
                         id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/{existing-virtual-network-name}/subnets/{existing-subnet-name}",
                     ),
-                }],
-                "name": "{vmss-name}",
-                "primary": True,
-            }],
-        },
+                )],
+                name="{vmss-name}",
+                primary=True,
+            )],
+        ),
         os_profile=azure_native.compute.VirtualMachineScaleSetOSProfileArgs(
             admin_password="{your-password}",
             admin_username="{your-username}",
             computer_name_prefix="{vmss-name}",
         ),
-        storage_profile={
-            "dataDisks": [{
-                "caching": azure_native.compute.CachingTypes.READ_WRITE,
-                "createOption": "Empty",
-                "diskSizeGB": 1023,
-                "lun": 0,
-                "managedDisk": {
-                    "diskEncryptionSet": azure_native.compute.DiskEncryptionSetParametersArgs(
+        storage_profile=azure_native.compute.VirtualMachineScaleSetStorageProfileArgs(
+            data_disks=[azure_native.compute.VirtualMachineScaleSetDataDiskArgs(
+                caching=azure_native.compute.CachingTypes.READ_WRITE,
+                create_option="Empty",
+                disk_size_gb=1023,
+                lun=0,
+                managed_disk=azure_native.compute.VirtualMachineScaleSetManagedDiskParametersArgs(
+                    disk_encryption_set=azure_native.compute.DiskEncryptionSetParametersArgs(
                         id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
                     ),
-                    "storageAccountType": "Standard_LRS",
-                },
-            }],
-            "imageReference": azure_native.compute.ImageReferenceArgs(
+                    storage_account_type="Standard_LRS",
+                ),
+            )],
+            image_reference=azure_native.compute.ImageReferenceArgs(
                 id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
             ),
-            "osDisk": {
-                "caching": azure_native.compute.CachingTypes.READ_WRITE,
-                "createOption": "FromImage",
-                "managedDisk": {
-                    "diskEncryptionSet": azure_native.compute.DiskEncryptionSetParametersArgs(
+            os_disk=azure_native.compute.VirtualMachineScaleSetOSDiskArgs(
+                caching=azure_native.compute.CachingTypes.READ_WRITE,
+                create_option="FromImage",
+                managed_disk=azure_native.compute.VirtualMachineScaleSetManagedDiskParametersArgs(
+                    disk_encryption_set=azure_native.compute.DiskEncryptionSetParametersArgs(
                         id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
                     ),
-                    "storageAccountType": "Standard_LRS",
-                },
-            },
-        },
+                    storage_account_type="Standard_LRS",
+                ),
+            ),
+        ),
     ),
     vm_scale_set_name="{vmss-name}")

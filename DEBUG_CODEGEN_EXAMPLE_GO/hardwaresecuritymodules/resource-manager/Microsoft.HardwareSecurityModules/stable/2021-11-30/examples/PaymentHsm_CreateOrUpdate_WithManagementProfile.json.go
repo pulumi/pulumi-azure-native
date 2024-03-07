@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := hardwaresecuritymodules.NewDedicatedHsm(ctx, "dedicatedHsm", &hardwaresecuritymodules.DedicatedHsmArgs{
 			Location: pulumi.String("westus"),
-			ManagementNetworkProfile: hardwaresecuritymodules.NetworkProfileResponse{
+			ManagementNetworkProfile: &hardwaresecuritymodules.NetworkProfileArgs{
 				NetworkInterfaces: hardwaresecuritymodules.NetworkInterfaceArray{
 					&hardwaresecuritymodules.NetworkInterfaceArgs{
 						PrivateIpAddress: pulumi.String("1.0.0.2"),
@@ -20,7 +20,7 @@ func main() {
 				},
 			},
 			Name: pulumi.String("hsm1"),
-			NetworkProfile: hardwaresecuritymodules.NetworkProfileResponse{
+			NetworkProfile: &hardwaresecuritymodules.NetworkProfileArgs{
 				NetworkInterfaces: hardwaresecuritymodules.NetworkInterfaceArray{
 					&hardwaresecuritymodules.NetworkInterfaceArgs{
 						PrivateIpAddress: pulumi.String("1.0.0.1"),

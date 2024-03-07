@@ -9,12 +9,12 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewConnectionMonitor(ctx, "connectionMonitor", &network.ConnectionMonitorArgs{
 			ConnectionMonitorName: pulumi.String("cm1"),
-			Endpoints: []network.ConnectionMonitorEndpointArgs{
-				{
+			Endpoints: network.ConnectionMonitorEndpointArray{
+				&network.ConnectionMonitorEndpointArgs{
 					Name:       pulumi.String("source"),
 					ResourceId: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/ct1"),
 				},
-				{
+				&network.ConnectionMonitorEndpointArgs{
 					Address: pulumi.String("bing.com"),
 					Name:    pulumi.String("destination"),
 				},
@@ -22,18 +22,18 @@ func main() {
 			Location:           pulumi.String("eastus"),
 			NetworkWatcherName: pulumi.String("nw1"),
 			ResourceGroupName:  pulumi.String("rg1"),
-			TestConfigurations: []network.ConnectionMonitorTestConfigurationArgs{
-				{
+			TestConfigurations: network.ConnectionMonitorTestConfigurationArray{
+				&network.ConnectionMonitorTestConfigurationArgs{
 					Name:     pulumi.String("tcp"),
 					Protocol: pulumi.String("Tcp"),
-					TcpConfiguration: {
+					TcpConfiguration: &network.ConnectionMonitorTcpConfigurationArgs{
 						Port: pulumi.Int(80),
 					},
 					TestFrequencySec: pulumi.Int(60),
 				},
 			},
-			TestGroups: []network.ConnectionMonitorTestGroupArgs{
-				{
+			TestGroups: network.ConnectionMonitorTestGroupArray{
+				&network.ConnectionMonitorTestGroupArgs{
 					Destinations: pulumi.StringArray{
 						pulumi.String("destination"),
 					},

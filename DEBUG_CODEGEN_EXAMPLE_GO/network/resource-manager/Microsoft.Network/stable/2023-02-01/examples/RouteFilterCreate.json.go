@@ -11,8 +11,8 @@ func main() {
 			Location:          pulumi.String("West US"),
 			ResourceGroupName: pulumi.String("rg1"),
 			RouteFilterName:   pulumi.String("filterName"),
-			Rules: []network.RouteFilterRuleTypeArgs{
-				{
+			Rules: network.RouteFilterRuleTypeArray{
+				&network.RouteFilterRuleTypeArgs{
 					Access: pulumi.String("Allow"),
 					Communities: pulumi.StringArray{
 						pulumi.String("12076:5030"),

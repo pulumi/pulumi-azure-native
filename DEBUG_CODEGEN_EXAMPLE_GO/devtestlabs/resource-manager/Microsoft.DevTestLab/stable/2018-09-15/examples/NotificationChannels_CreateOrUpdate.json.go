@@ -10,8 +10,8 @@ func main() {
 		_, err := devtestlab.NewNotificationChannel(ctx, "notificationChannel", &devtestlab.NotificationChannelArgs{
 			Description:    pulumi.String("Integration configured for auto-shutdown"),
 			EmailRecipient: pulumi.String("{email}"),
-			Events: []devtestlab.EventArgs{
-				{
+			Events: devtestlab.EventArray{
+				&devtestlab.EventArgs{
 					EventName: pulumi.String("AutoShutdown"),
 				},
 			},

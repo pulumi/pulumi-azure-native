@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := managednetworkfabric.NewNetworkFabricController(ctx, "networkFabricController", &managednetworkfabric.NetworkFabricControllerArgs{
 			Annotation: pulumi.String("lab 1"),
-			InfrastructureExpressRouteConnections: []managednetworkfabric.ExpressRouteConnectionInformationArgs{
-				{
+			InfrastructureExpressRouteConnections: managednetworkfabric.ExpressRouteConnectionInformationArray{
+				&managednetworkfabric.ExpressRouteConnectionInformationArgs{
 					ExpressRouteAuthorizationKey: pulumi.String("xxxxxxx"),
 					ExpressRouteCircuitId:        pulumi.String("/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName"),
 				},
@@ -23,8 +23,8 @@ func main() {
 			},
 			NetworkFabricControllerName: pulumi.String("NetworkControllerName"),
 			ResourceGroupName:           pulumi.String("resourceGroupName"),
-			WorkloadExpressRouteConnections: []managednetworkfabric.ExpressRouteConnectionInformationArgs{
-				{
+			WorkloadExpressRouteConnections: managednetworkfabric.ExpressRouteConnectionInformationArray{
+				&managednetworkfabric.ExpressRouteConnectionInformationArgs{
 					ExpressRouteAuthorizationKey: pulumi.String("xxxxx"),
 					ExpressRouteCircuitId:        pulumi.String("/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName"),
 				},

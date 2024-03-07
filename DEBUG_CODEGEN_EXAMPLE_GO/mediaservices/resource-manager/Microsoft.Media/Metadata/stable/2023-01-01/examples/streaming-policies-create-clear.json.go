@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := media.NewStreamingPolicy(ctx, "streamingPolicy", &media.StreamingPolicyArgs{
 			AccountName: pulumi.String("contosomedia"),
-			NoEncryption: media.NoEncryptionResponse{
+			NoEncryption: &media.NoEncryptionArgs{
 				EnabledProtocols: &media.EnabledProtocolsArgs{
 					Dash:            pulumi.Bool(true),
 					Download:        pulumi.Bool(true),

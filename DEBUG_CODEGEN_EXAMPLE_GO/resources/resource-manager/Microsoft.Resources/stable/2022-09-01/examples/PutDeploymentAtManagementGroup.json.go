@@ -11,7 +11,7 @@ func main() {
 			DeploymentName: pulumi.String("my-deployment"),
 			GroupId:        pulumi.String("my-management-group-id"),
 			Location:       pulumi.String("eastus"),
-			Properties: resources.DeploymentPropertiesExtendedResponse{
+			Properties: &resources.DeploymentPropertiesArgs{
 				Mode:       resources.DeploymentModeIncremental,
 				Parameters: nil,
 				TemplateLink: &resources.TemplateLinkArgs{

@@ -8,12 +8,12 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewEndpoint(ctx, "endpoint", &network.EndpointArgs{
-			CustomHeaders: []network.EndpointPropertiesCustomHeadersArgs{
-				{
+			CustomHeaders: network.EndpointPropertiesCustomHeadersArray{
+				&network.EndpointPropertiesCustomHeadersArgs{
 					Name:  pulumi.String("header-1"),
 					Value: pulumi.String("value-1"),
 				},
-				{
+				&network.EndpointPropertiesCustomHeadersArgs{
 					Name:  pulumi.String("header-2"),
 					Value: pulumi.String("value-2"),
 				},

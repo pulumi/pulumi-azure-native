@@ -11,7 +11,7 @@ func main() {
 			Location:           pulumi.String("eastus"),
 			ManagedNetworkName: pulumi.String("myManagedNetwork"),
 			ResourceGroupName:  pulumi.String("myResourceGroup"),
-			Scope: managednetwork.ScopeResponse{
+			Scope: &managednetwork.ScopeArgs{
 				ManagementGroups: managednetwork.ResourceIdArray{
 					&managednetwork.ResourceIdArgs{
 						Id: pulumi.String("/providers/Microsoft.Management/managementGroups/20000000-0001-0000-0000-000000000000"),

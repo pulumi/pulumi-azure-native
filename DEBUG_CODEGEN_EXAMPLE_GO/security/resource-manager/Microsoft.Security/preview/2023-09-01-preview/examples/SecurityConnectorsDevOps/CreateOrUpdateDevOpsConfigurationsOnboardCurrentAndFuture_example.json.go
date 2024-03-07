@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := security.NewDevOpsConfiguration(ctx, "devOpsConfiguration", &security.DevOpsConfigurationArgs{
-			Properties: security.DevOpsConfigurationPropertiesResponse{
+			Properties: &security.DevOpsConfigurationPropertiesArgs{
 				Authorization: &security.AuthorizationArgs{
 					Code: pulumi.String("00000000000000000000"),
 				},

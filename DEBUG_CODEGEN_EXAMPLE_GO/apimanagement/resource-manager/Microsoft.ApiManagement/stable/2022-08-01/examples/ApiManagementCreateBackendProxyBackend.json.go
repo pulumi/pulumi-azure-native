@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := apimanagement.NewBackend(ctx, "backend", &apimanagement.BackendArgs{
 			BackendId: pulumi.String("proxybackend"),
-			Credentials: apimanagement.BackendCredentialsContractResponse{
+			Credentials: &apimanagement.BackendCredentialsContractArgs{
 				Authorization: &apimanagement.BackendAuthorizationHeaderCredentialsArgs{
 					Parameter: pulumi.String("opensesma"),
 					Scheme:    pulumi.String("Basic"),

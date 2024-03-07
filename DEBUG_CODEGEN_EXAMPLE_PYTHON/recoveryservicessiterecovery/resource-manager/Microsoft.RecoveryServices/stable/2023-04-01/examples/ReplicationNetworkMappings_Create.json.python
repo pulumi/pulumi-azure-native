@@ -5,7 +5,7 @@ replication_network_mapping = azure_native.recoveryservices.ReplicationNetworkMa
     fabric_name="b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
     network_mapping_name="corpe2amap",
     network_name="e2267b5c-2650-49bd-ab3f-d66aae694c06",
-    properties=azure_native.recoveryservices.NetworkMappingPropertiesResponseArgs(
+    properties=azure_native.recoveryservices.CreateNetworkMappingInputPropertiesArgs(
         fabric_specific_details=azure_native.recoveryservices.VmmToAzureCreateNetworkMappingInputArgs(
             instance_type="VmmToAzure",
         ),

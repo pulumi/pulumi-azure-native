@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := machinelearningservices.NewFeaturestoreEntityVersion(ctx, "featurestoreEntityVersion", &machinelearningservices.FeaturestoreEntityVersionArgs{
-			FeaturestoreEntityVersionProperties: machinelearningservices.FeaturestoreEntityVersionResponse{
+			FeaturestoreEntityVersionProperties: &machinelearningservices.FeaturestoreEntityVersionTypeArgs{
 				Description: pulumi.String("string"),
 				IndexColumns: machinelearningservices.IndexColumnArray{
 					&machinelearningservices.IndexColumnArgs{

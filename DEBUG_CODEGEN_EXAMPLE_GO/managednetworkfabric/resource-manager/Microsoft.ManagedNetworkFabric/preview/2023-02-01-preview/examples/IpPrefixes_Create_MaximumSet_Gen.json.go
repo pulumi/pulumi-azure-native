@@ -10,8 +10,8 @@ func main() {
 		_, err := managednetworkfabric.NewIpPrefix(ctx, "ipPrefix", &managednetworkfabric.IpPrefixArgs{
 			Annotation:   pulumi.String("annotationValue"),
 			IpPrefixName: pulumi.String("example-ipPrefix"),
-			IpPrefixRules: []managednetworkfabric.IpPrefixPropertiesIpPrefixRulesArgs{
-				{
+			IpPrefixRules: managednetworkfabric.IpPrefixPropertiesIpPrefixRulesArray{
+				&managednetworkfabric.IpPrefixPropertiesIpPrefixRulesArgs{
 					Action:           pulumi.String("Permit"),
 					Condition:        pulumi.String("EqualTo"),
 					NetworkPrefix:    pulumi.String("1.1.1.0/24"),

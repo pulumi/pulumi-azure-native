@@ -4,31 +4,31 @@ import pulumi_azure_native as azure_native
 dashboard = azure_native.portal.Dashboard("dashboard",
     dashboard_name="testDashboard",
     lenses=[
-        {
-            "order": 1,
-            "parts": [
-                {
-                    "position": azure_native.portal.DashboardPartsPositionArgs(
+        azure_native.portal.DashboardLensArgs(
+            order=1,
+            parts=[
+                azure_native.portal.DashboardPartsArgs(
+                    position=azure_native.portal.DashboardPartsPositionArgs(
                         col_span=3,
                         row_span=4,
                         x=1,
                         y=2,
                     ),
-                },
-                {
-                    "position": azure_native.portal.DashboardPartsPositionArgs(
+                ),
+                azure_native.portal.DashboardPartsArgs(
+                    position=azure_native.portal.DashboardPartsPositionArgs(
                         col_span=6,
                         row_span=6,
                         x=5,
                         y=5,
                     ),
-                },
+                ),
             ],
-        },
-        {
-            "order": 2,
-            "parts": [],
-        },
+        ),
+        azure_native.portal.DashboardLensArgs(
+            order=2,
+            parts=[],
+        ),
     ],
     location="eastus",
     metadata={

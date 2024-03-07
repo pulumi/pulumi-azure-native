@@ -26,7 +26,7 @@ return await Deployment.RunAsync(() =>
             {
                 new AzureNative.Insights.Inputs.ConditionArgs
                 {
-                    Dimensions = new[] {},
+                    Dimensions = new() { },
                     FailingPeriods = new AzureNative.Insights.Inputs.ConditionFailingPeriodsArgs
                     {
                         MinFailingPeriodsToAlert = 1,

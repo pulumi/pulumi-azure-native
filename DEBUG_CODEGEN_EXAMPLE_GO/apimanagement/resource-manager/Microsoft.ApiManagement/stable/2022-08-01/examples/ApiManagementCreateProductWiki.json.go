@@ -8,11 +8,11 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := apimanagement.NewProductWiki(ctx, "productWiki", &apimanagement.ProductWikiArgs{
-			Documents: []apimanagement.WikiDocumentationContractArgs{
-				{
+			Documents: apimanagement.WikiDocumentationContractArray{
+				&apimanagement.WikiDocumentationContractArgs{
 					DocumentationId: pulumi.String("docId1"),
 				},
-				{
+				&apimanagement.WikiDocumentationContractArgs{
 					DocumentationId: pulumi.String("docId2"),
 				},
 			},

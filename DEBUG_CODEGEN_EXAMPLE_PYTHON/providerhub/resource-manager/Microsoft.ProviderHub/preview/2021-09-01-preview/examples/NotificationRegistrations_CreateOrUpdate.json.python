@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 notification_registration = azure_native.providerhub.NotificationRegistration("notificationRegistration",
     notification_registration_name="fooNotificationRegistration",
-    properties=azure_native.providerhub.NotificationRegistrationResponsePropertiesArgs(
+    properties=azure_native.providerhub.NotificationRegistrationPropertiesArgs(
         included_events=[
             "*/write",
             "Microsoft.Contoso/employees/delete",

@@ -10,7 +10,7 @@ func main() {
 		_, err := botservice.NewBotConnection(ctx, "botConnection", &botservice.BotConnectionArgs{
 			ConnectionName: pulumi.String("sampleConnection"),
 			Location:       pulumi.String("West US"),
-			Properties: botservice.ConnectionSettingPropertiesResponse{
+			Properties: &botservice.ConnectionSettingPropertiesArgs{
 				ClientId:     pulumi.String("sampleclientid"),
 				ClientSecret: pulumi.String("samplesecret"),
 				Parameters: botservice.ConnectionSettingParameterArray{

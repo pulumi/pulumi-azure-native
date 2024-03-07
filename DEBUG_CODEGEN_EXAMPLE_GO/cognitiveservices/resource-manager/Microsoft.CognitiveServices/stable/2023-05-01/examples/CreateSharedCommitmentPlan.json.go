@@ -11,7 +11,7 @@ func main() {
 			CommitmentPlanName: pulumi.String("commitmentPlanName"),
 			Kind:               pulumi.String("SpeechServices"),
 			Location:           pulumi.String("West US"),
-			Properties: cognitiveservices.CommitmentPlanPropertiesResponse{
+			Properties: &cognitiveservices.CommitmentPlanPropertiesArgs{
 				AutoRenew: pulumi.Bool(true),
 				Current: &cognitiveservices.CommitmentPeriodArgs{
 					Tier: pulumi.String("T1"),

@@ -12,7 +12,7 @@ func main() {
 			ClusterResourceName:   pulumi.String("connectedClusters"),
 			ClusterRp:             pulumi.String("Microsoft.Kubernetes"),
 			FluxConfigurationName: pulumi.String("srs-fluxconfig"),
-			GitRepository: kubernetesconfiguration.GitRepositoryDefinitionResponse{
+			GitRepository: &kubernetesconfiguration.GitRepositoryDefinitionArgs{
 				HttpsCACert: pulumi.String("ZXhhbXBsZWNlcnRpZmljYXRl"),
 				RepositoryRef: &kubernetesconfiguration.RepositoryRefDefinitionArgs{
 					Branch: pulumi.String("master"),

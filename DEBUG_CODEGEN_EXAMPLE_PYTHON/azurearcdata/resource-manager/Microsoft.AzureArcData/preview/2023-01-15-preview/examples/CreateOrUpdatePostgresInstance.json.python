@@ -8,7 +8,7 @@ postgres_instance = azure_native.azurearcdata.PostgresInstance("postgresInstance
     ),
     location="eastus",
     postgres_instance_name="testpostgresInstance",
-    properties=azure_native.azurearcdata.PostgresInstancePropertiesResponseArgs(
+    properties=azure_native.azurearcdata.PostgresInstancePropertiesArgs(
         admin="admin",
         basic_login_information=azure_native.azurearcdata.BasicLoginInformationArgs(
             password="********",

@@ -13,26 +13,26 @@ return await Deployment.RunAsync(() =>
         NamespaceName = "contoso-ua-test-eh-system-1",
         Policies = new[]
         {
-            
+            new AzureNative.EventHub.Inputs.ThrottlingPolicyArgs
             {
-                { "metricId", "IncomingMessages" },
-                { "name", "ThrottlingPolicy1" },
-                { "rateLimitThreshold", 7912 },
-                { "type", "ThrottlingPolicy" },
+                MetricId = "IncomingMessages",
+                Name = "ThrottlingPolicy1",
+                RateLimitThreshold = 7912,
+                Type = "ThrottlingPolicy",
             },
-            
+            new AzureNative.EventHub.Inputs.ThrottlingPolicyArgs
             {
-                { "metricId", "IncomingBytes" },
-                { "name", "ThrottlingPolicy2" },
-                { "rateLimitThreshold", 3951729 },
-                { "type", "ThrottlingPolicy" },
+                MetricId = "IncomingBytes",
+                Name = "ThrottlingPolicy2",
+                RateLimitThreshold = 3951729,
+                Type = "ThrottlingPolicy",
             },
-            
+            new AzureNative.EventHub.Inputs.ThrottlingPolicyArgs
             {
-                { "metricId", "OutgoingBytes" },
-                { "name", "ThrottlingPolicy3" },
-                { "rateLimitThreshold", 245175 },
-                { "type", "ThrottlingPolicy" },
+                MetricId = "OutgoingBytes",
+                Name = "ThrottlingPolicy3",
+                RateLimitThreshold = 245175,
+                Type = "ThrottlingPolicy",
             },
         },
         ResourceGroupName = "contosotest",

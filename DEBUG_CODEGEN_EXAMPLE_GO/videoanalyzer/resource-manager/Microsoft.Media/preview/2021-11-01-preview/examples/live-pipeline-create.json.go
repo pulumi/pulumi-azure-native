@@ -12,8 +12,8 @@ func main() {
 			BitrateKbps:      pulumi.Int(500),
 			Description:      pulumi.String("Live Pipeline 1 Description"),
 			LivePipelineName: pulumi.String("livePipeline1"),
-			Parameters: []videoanalyzer.ParameterDefinitionArgs{
-				{
+			Parameters: videoanalyzer.ParameterDefinitionArray{
+				&videoanalyzer.ParameterDefinitionArgs{
 					Name:  pulumi.String("rtspUrlParameter"),
 					Value: pulumi.String("rtsp://contoso.com/stream"),
 				},

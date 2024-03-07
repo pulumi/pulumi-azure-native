@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 provider_registration = azure_native.providerhub.ProviderRegistration("providerRegistration",
-    properties=azure_native.providerhub.ProviderRegistrationResponsePropertiesArgs(
+    properties=azure_native.providerhub.ProviderRegistrationPropertiesArgs(
         capabilities=[
             azure_native.providerhub.ResourceProviderCapabilitiesArgs(
                 effect="Allow",
@@ -13,16 +13,16 @@ provider_registration = azure_native.providerhub.ProviderRegistration("providerR
                 quota_id="CSP_MG_2017-12-01",
             ),
         ],
-        management={
-            "incidentContactEmail": "helpme@contoso.com",
-            "incidentRoutingService": "Contoso Resource Provider",
-            "incidentRoutingTeam": "Contoso Triage",
-            "serviceTreeInfos": [azure_native.providerhub.ServiceTreeInfoArgs(
+        management=azure_native.providerhub.ResourceProviderManifestPropertiesManagementArgs(
+            incident_contact_email="helpme@contoso.com",
+            incident_routing_service="Contoso Resource Provider",
+            incident_routing_team="Contoso Triage",
+            service_tree_infos=[azure_native.providerhub.ServiceTreeInfoArgs(
                 component_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
                 readiness="InDevelopment",
                 service_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
             )],
-        },
+        ),
         provider_type="Internal",
         provider_version="2.0",
     ),

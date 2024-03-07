@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := subscription.NewAlias(ctx, "alias", &subscription.AliasArgs{
 			AliasName: pulumi.String("aliasForNewSub"),
-			Properties: subscription.SubscriptionAliasResponsePropertiesResponse{
+			Properties: &subscription.PutAliasRequestPropertiesArgs{
 				AdditionalProperties: &subscription.PutAliasRequestAdditionalPropertiesArgs{
 					SubscriptionOwnerId:  pulumi.String("f09b39eb-c496-482c-9ab9-afd799572f4c"),
 					SubscriptionTenantId: pulumi.String("66f6e4d6-07dc-4aea-94ea-e12d3026a3c8"),

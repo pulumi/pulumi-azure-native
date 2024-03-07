@@ -6,13 +6,13 @@ media_graph = azure_native.media.MediaGraph("mediaGraph",
     description="updated description",
     media_graph_name="SampleMediaGraph",
     resource_group_name="contoso",
-    sinks=[azure_native.media.MediaGraphAssetSinkResponseArgs(
+    sinks=[azure_native.media.MediaGraphAssetSinkArgs(
         asset_name="SampleAsset",
         inputs=["rtspSource"],
         name="AssetSink",
         odata_type="#Microsoft.Media.MediaGraphAssetSink",
     )],
-    sources=[azure_native.media.MediaGraphRtspSourceResponseArgs(
+    sources=[azure_native.media.MediaGraphRtspSourceArgs(
         endpoint=azure_native.media.MediaGraphClearEndpointArgs(
             credentials=azure_native.media.MediaGraphUsernamePasswordCredentialsArgs(
                 odata_type="#Microsoft.Media.MediaGraphUsernamePasswordCredentials",

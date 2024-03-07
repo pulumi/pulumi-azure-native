@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 site_network_service = azure_native.hybridnetwork.SiteNetworkService("siteNetworkService",
     location="westUs2",
-    properties=azure_native.hybridnetwork.SiteNetworkServicePropertiesFormatResponseArgs(
+    properties=azure_native.hybridnetwork.SiteNetworkServicePropertiesFormatArgs(
         desired_state_configuration_group_value_references={
             "MyVM_Configuration": azure_native.hybridnetwork.ReferencedResourceArgs(
                 id="/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",

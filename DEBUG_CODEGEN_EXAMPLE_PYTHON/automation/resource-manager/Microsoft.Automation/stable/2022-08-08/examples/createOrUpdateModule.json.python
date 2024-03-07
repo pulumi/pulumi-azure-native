@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 module = azure_native.automation.Module("module",
     automation_account_name="myAutomationAccount33",
-    content_link=azure_native.automation.ContentLinkResponseArgs(
+    content_link=azure_native.automation.ContentLinkArgs(
         content_hash=azure_native.automation.ContentHashArgs(
             algorithm="sha265",
             value="07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",

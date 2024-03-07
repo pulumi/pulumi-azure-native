@@ -9,15 +9,15 @@ p2s_vpn_gateway = azure_native.network.P2sVpnGateway("p2sVpnGateway",
     gateway_name="p2sVpnGateway1",
     is_routing_preference_internet=False,
     location="West US",
-    p2_s_connection_configurations=[{
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/p2sVpnGateways/p2sVpnGateway1/p2sConnectionConfigurations/P2SConnectionConfig1",
-        "name": "P2SConnectionConfig1",
-        "routingConfiguration": {
-            "associatedRouteTable": azure_native.network.SubResourceArgs(
+    p2_s_connection_configurations=[azure_native.network.P2SConnectionConfigurationArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/p2sVpnGateways/p2sVpnGateway1/p2sConnectionConfigurations/P2SConnectionConfig1",
+        name="P2SConnectionConfig1",
+        routing_configuration=azure_native.network.RoutingConfigurationArgs(
+            associated_route_table=azure_native.network.SubResourceArgs(
                 id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
             ),
-            "propagatedRouteTables": {
-                "ids": [
+            propagated_route_tables=azure_native.network.PropagatedRouteTableArgs(
+                ids=[
                     azure_native.network.SubResourceArgs(
                         id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
                     ),
@@ -28,19 +28,19 @@ p2s_vpn_gateway = azure_native.network.P2sVpnGateway("p2sVpnGateway",
                         id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable3",
                     ),
                 ],
-                "labels": [
+                labels=[
                     "label1",
                     "label2",
                 ],
-            },
-            "vnetRoutes": {
-                "staticRoutes": [],
-            },
-        },
-        "vpnClientAddressPool": azure_native.network.AddressSpaceArgs(
+            ),
+            vnet_routes=azure_native.network.VnetRouteArgs(
+                static_routes=[],
+            ),
+        ),
+        vpn_client_address_pool=azure_native.network.AddressSpaceArgs(
             address_prefixes=["101.3.0.0/16"],
         ),
-    }],
+    )],
     resource_group_name="rg1",
     tags={
         "key1": "value1",

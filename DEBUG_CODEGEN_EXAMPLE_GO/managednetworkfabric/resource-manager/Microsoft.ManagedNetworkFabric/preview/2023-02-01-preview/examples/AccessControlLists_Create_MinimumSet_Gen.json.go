@@ -10,8 +10,8 @@ func main() {
 		_, err := managednetworkfabric.NewAccessControlList(ctx, "accessControlList", &managednetworkfabric.AccessControlListArgs{
 			AccessControlListName: pulumi.String("aclOne"),
 			AddressFamily:         pulumi.String("ipv4"),
-			Conditions: []managednetworkfabric.AccessControlListConditionPropertiesArgs{
-				{
+			Conditions: managednetworkfabric.AccessControlListConditionPropertiesArray{
+				&managednetworkfabric.AccessControlListConditionPropertiesArgs{
 					Action:             pulumi.String("allow"),
 					DestinationAddress: pulumi.String("1.1.1.1"),
 					DestinationPort:    pulumi.String("21"),

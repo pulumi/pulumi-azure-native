@@ -10,7 +10,7 @@ func main() {
 		_, err := app.NewContainerAppsSourceControl(ctx, "containerAppsSourceControl", &app.ContainerAppsSourceControlArgs{
 			Branch:           pulumi.String("master"),
 			ContainerAppName: pulumi.String("testcanadacentral"),
-			GithubActionConfiguration: app.GithubActionConfigurationResponse{
+			GithubActionConfiguration: &app.GithubActionConfigurationArgs{
 				AzureCredentials: &app.AzureCredentialsArgs{
 					ClientId:     pulumi.String("<clientid>"),
 					ClientSecret: pulumi.String("<clientsecret>"),

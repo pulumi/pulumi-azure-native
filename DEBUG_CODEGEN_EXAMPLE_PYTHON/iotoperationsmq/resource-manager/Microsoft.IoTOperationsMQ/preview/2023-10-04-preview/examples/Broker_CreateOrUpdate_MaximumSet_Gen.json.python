@@ -21,15 +21,15 @@ broker = azure_native.iotoperationsmq.Broker("broker",
         operator="lbegegneekwnyodtzraarivtwhmzep",
         value="sfafsjdcezdmkwibxeluukxgl",
     ),
-    cardinality=azure_native.iotoperationsmq.CardinalityResponseArgs(
-        backend_chain={
-            "partitions": 34721,
-            "redundancyFactor": 468,
-            "temporaryDiskTransferEnabled": True,
-            "temporaryDiskTransferHighWatermarkPercent": 79,
-            "temporaryDiskTransferLowWatermarkPercent": 94,
-            "temporaryMaxBackendMemUsagePercent": 54,
-            "temporaryResourceLimits": azure_native.iotoperationsmq.TemporaryResourceLimitsConfigArgs(
+    cardinality=azure_native.iotoperationsmq.CardinalityArgs(
+        backend_chain=azure_native.iotoperationsmq.BackendChainArgs(
+            partitions=34721,
+            redundancy_factor=468,
+            temporary_disk_transfer_enabled=True,
+            temporary_disk_transfer_high_watermark_percent=79,
+            temporary_disk_transfer_low_watermark_percent=94,
+            temporary_max_backend_mem_usage_percent=54,
+            temporary_resource_limits=azure_native.iotoperationsmq.TemporaryResourceLimitsConfigArgs(
                 max_inflight_messages=33208,
                 max_inflight_patches=3410,
                 max_inflight_patches_per_client=58933,
@@ -38,11 +38,11 @@ broker = azure_native.iotoperationsmq.Broker("broker",
                 max_queued_qos0_messages=6545343433569253376,
                 max_session_expiry_secs=2526293894,
             ),
-            "workers": 15754,
-        },
-        frontend={
-            "replicas": 38165,
-            "temporaryResourceLimits": azure_native.iotoperationsmq.TemporaryResourceLimitsConfigArgs(
+            workers=15754,
+        ),
+        frontend=azure_native.iotoperationsmq.FrontendArgs(
+            replicas=38165,
+            temporary_resource_limits=azure_native.iotoperationsmq.TemporaryResourceLimitsConfigArgs(
                 max_inflight_messages=33208,
                 max_inflight_patches=3410,
                 max_inflight_patches_per_client=58933,
@@ -51,8 +51,8 @@ broker = azure_native.iotoperationsmq.Broker("broker",
                 max_queued_qos0_messages=6545343433569253376,
                 max_session_expiry_secs=2526293894,
             ),
-            "workers": 38,
-        },
+            workers=38,
+        ),
     ),
     diagnostics=azure_native.iotoperationsmq.BrokerDiagnosticsArgs(
         diagnostic_service_endpoint="cdvelitwasofaaqhdb",
@@ -70,64 +70,64 @@ broker = azure_native.iotoperationsmq.Broker("broker",
         self_trace_frequency_seconds=6527612490765174784,
         span_channel_capacity=5533451650716961792,
     ),
-    disk_backed_message_buffer_settings=azure_native.iotoperationsmq.DiskBackedMessageBufferSettingsResponseArgs(
-        ephemeral_volume_claim_spec={
-            "accessModes": ["cly"],
-            "dataSource": azure_native.iotoperationsmq.VolumeClaimDataSourceArgs(
+    disk_backed_message_buffer_settings=azure_native.iotoperationsmq.DiskBackedMessageBufferSettingsArgs(
+        ephemeral_volume_claim_spec=azure_native.iotoperationsmq.VolumeClaimSpecArgs(
+            access_modes=["cly"],
+            data_source=azure_native.iotoperationsmq.VolumeClaimDataSourceArgs(
                 api_group="v",
                 kind="pvzbnjebkoslzzucpaem",
                 name="bgzdfwfpdrubbbnfwzyr",
             ),
-            "dataSourceRef": azure_native.iotoperationsmq.VolumeClaimDataSourceRefArgs(
+            data_source_ref=azure_native.iotoperationsmq.VolumeClaimDataSourceRefArgs(
                 api_group="e",
                 kind="hjbktqbtg",
                 name="losjjcujomepwhztzptrobavolc",
             ),
-            "resources": azure_native.iotoperationsmq.VolumeClaimResourceRequirementsArgs(
+            resources=azure_native.iotoperationsmq.VolumeClaimResourceRequirementsArgs(
                 limits={},
                 requests={},
             ),
-            "selector": {
-                "matchExpressions": [azure_native.iotoperationsmq.VolumeClaimSpecSelectorMatchExpressionsArgs(
+            selector=azure_native.iotoperationsmq.VolumeClaimSpecSelectorArgs(
+                match_expressions=[azure_native.iotoperationsmq.VolumeClaimSpecSelectorMatchExpressionsArgs(
                     key="d",
                     operator="fcfvoarytcdbtccjervsmdis",
                     values=["y"],
                 )],
-                "matchLabels": {},
-            },
-            "storageClassName": "etajfhrtgatxi",
-            "volumeMode": "mipdeutsgidkzpxelbrqggjheplvmx",
-            "volumeName": "dacuvlvuullautxjxwdctvzlmd",
-        },
+                match_labels={},
+            ),
+            storage_class_name="etajfhrtgatxi",
+            volume_mode="mipdeutsgidkzpxelbrqggjheplvmx",
+            volume_name="dacuvlvuullautxjxwdctvzlmd",
+        ),
         max_size="gnwxgqjypylz",
-        persistent_volume_claim_spec={
-            "accessModes": ["cly"],
-            "dataSource": azure_native.iotoperationsmq.VolumeClaimDataSourceArgs(
+        persistent_volume_claim_spec=azure_native.iotoperationsmq.VolumeClaimSpecArgs(
+            access_modes=["cly"],
+            data_source=azure_native.iotoperationsmq.VolumeClaimDataSourceArgs(
                 api_group="v",
                 kind="pvzbnjebkoslzzucpaem",
                 name="bgzdfwfpdrubbbnfwzyr",
             ),
-            "dataSourceRef": azure_native.iotoperationsmq.VolumeClaimDataSourceRefArgs(
+            data_source_ref=azure_native.iotoperationsmq.VolumeClaimDataSourceRefArgs(
                 api_group="e",
                 kind="hjbktqbtg",
                 name="losjjcujomepwhztzptrobavolc",
             ),
-            "resources": azure_native.iotoperationsmq.VolumeClaimResourceRequirementsArgs(
+            resources=azure_native.iotoperationsmq.VolumeClaimResourceRequirementsArgs(
                 limits={},
                 requests={},
             ),
-            "selector": {
-                "matchExpressions": [azure_native.iotoperationsmq.VolumeClaimSpecSelectorMatchExpressionsArgs(
+            selector=azure_native.iotoperationsmq.VolumeClaimSpecSelectorArgs(
+                match_expressions=[azure_native.iotoperationsmq.VolumeClaimSpecSelectorMatchExpressionsArgs(
                     key="d",
                     operator="fcfvoarytcdbtccjervsmdis",
                     values=["y"],
                 )],
-                "matchLabels": {},
-            },
-            "storageClassName": "etajfhrtgatxi",
-            "volumeMode": "mipdeutsgidkzpxelbrqggjheplvmx",
-            "volumeName": "dacuvlvuullautxjxwdctvzlmd",
-        },
+                match_labels={},
+            ),
+            storage_class_name="etajfhrtgatxi",
+            volume_mode="mipdeutsgidkzpxelbrqggjheplvmx",
+            volume_name="dacuvlvuullautxjxwdctvzlmd",
+        ),
     ),
     encrypt_internal_traffic=True,
     extended_location=azure_native.iotoperationsmq.ExtendedLocationPropertyArgs(
@@ -146,7 +146,7 @@ broker = azure_native.iotoperationsmq.Broker("broker",
         operator="lbegegneekwnyodtzraarivtwhmzep",
         value="sfafsjdcezdmkwibxeluukxgl",
     ),
-    internal_certs=azure_native.iotoperationsmq.CertManagerCertOptionsResponseArgs(
+    internal_certs=azure_native.iotoperationsmq.CertManagerCertOptionsArgs(
         duration="xjjmzq",
         private_key=azure_native.iotoperationsmq.CertManagerPrivateKeyArgs(
             algorithm="wwewfsddymjefuhxzqybwvay",

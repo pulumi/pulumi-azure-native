@@ -24,7 +24,7 @@ func main() {
 				ImageGcLowThreshold:   pulumi.Int(70),
 				TopologyManagerPolicy: pulumi.String("best-effort"),
 			},
-			LinuxOSConfig: containerservice.LinuxOSConfigResponse{
+			LinuxOSConfig: &containerservice.LinuxOSConfigArgs{
 				SwapFileSizeMB: pulumi.Int(1500),
 				Sysctls: &containerservice.SysctlConfigArgs{
 					KernelThreadsMax:        pulumi.Int(99999),

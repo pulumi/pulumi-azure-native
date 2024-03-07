@@ -14,7 +14,7 @@ func main() {
 				Enabled:         pulumi.Bool(true),
 				RetentionInDays: pulumi.Int(7),
 			},
-			Cors: storage.CorsRulesResponse{
+			Cors: &storage.CorsRulesArgs{
 				CorsRules: storage.CorsRuleArray{
 					&storage.CorsRuleArgs{
 						AllowedHeaders: pulumi.StringArray{

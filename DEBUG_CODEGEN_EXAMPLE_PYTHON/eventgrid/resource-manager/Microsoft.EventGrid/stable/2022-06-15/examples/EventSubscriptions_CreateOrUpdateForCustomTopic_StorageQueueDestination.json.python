@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
-    dead_letter_destination=azure_native.eventgrid.StorageBlobDeadLetterDestinationResponseArgs(
+    dead_letter_destination=azure_native.eventgrid.StorageBlobDeadLetterDestinationArgs(
         blob_container_name="contosocontainer",
         endpoint_type="StorageBlob",
         resource_id="/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",

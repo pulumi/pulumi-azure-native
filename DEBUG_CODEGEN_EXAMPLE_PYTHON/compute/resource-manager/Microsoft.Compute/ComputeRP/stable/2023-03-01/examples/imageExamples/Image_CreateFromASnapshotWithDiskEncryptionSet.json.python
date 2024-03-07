@@ -5,15 +5,15 @@ image = azure_native.compute.Image("image",
     image_name="myImage",
     location="West US",
     resource_group_name="myResourceGroup",
-    storage_profile=azure_native.compute.ImageStorageProfileResponseArgs(
-        os_disk={
-            "diskEncryptionSet": azure_native.compute.DiskEncryptionSetParametersArgs(
+    storage_profile=azure_native.compute.ImageStorageProfileArgs(
+        os_disk=azure_native.compute.ImageOSDiskArgs(
+            disk_encryption_set=azure_native.compute.DiskEncryptionSetParametersArgs(
                 id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
             ),
-            "managedDisk": azure_native.compute.SubResourceArgs(
+            managed_disk=azure_native.compute.SubResourceArgs(
                 id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
             ),
-            "osState": azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
-            "osType": azure_native.compute.OperatingSystemTypes.LINUX,
-        },
+            os_state=azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+            os_type=azure_native.compute.OperatingSystemTypes.LINUX,
+        ),
     ))

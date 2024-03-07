@@ -20,14 +20,14 @@ func main() {
 			IsEnabled:         pulumi.Bool(true),
 			Location:          pulumi.String("Central US"),
 			ResourceGroupName: pulumi.String("exampleResourceGroup"),
-			Scopes: []security.AutomationScopeArgs{
-				{
+			Scopes: security.AutomationScopeArray{
+				&security.AutomationScopeArgs{
 					Description: pulumi.String("A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5"),
 					ScopePath:   pulumi.String("/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup"),
 				},
 			},
-			Sources: []security.AutomationSourceArgs{
-				{
+			Sources: security.AutomationSourceArray{
+				&security.AutomationSourceArgs{
 					EventSource: pulumi.String("Assessments"),
 				},
 			},

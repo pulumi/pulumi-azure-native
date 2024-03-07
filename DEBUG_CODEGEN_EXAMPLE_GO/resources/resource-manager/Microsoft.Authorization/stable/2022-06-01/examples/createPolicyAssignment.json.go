@@ -13,8 +13,8 @@ func main() {
 			Metadata: pulumi.Any{
 				AssignedBy: "Special Someone",
 			},
-			NonComplianceMessages: []authorization.NonComplianceMessageArgs{
-				{
+			NonComplianceMessages: authorization.NonComplianceMessageArray{
+				&authorization.NonComplianceMessageArgs{
 					Message: pulumi.String("Resource names must start with 'DeptA' and end with '-LC'."),
 				},
 			},

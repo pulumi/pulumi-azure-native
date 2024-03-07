@@ -10,17 +10,17 @@ func main() {
 		_, err := networkfunction.NewCollectorPolicy(ctx, "collectorPolicy", &networkfunction.CollectorPolicyArgs{
 			AzureTrafficCollectorName: pulumi.String("atc"),
 			CollectorPolicyName:       pulumi.String("cp1"),
-			EmissionPolicies: []networkfunction.EmissionPoliciesPropertiesFormatArgs{
-				{
+			EmissionPolicies: networkfunction.EmissionPoliciesPropertiesFormatArray{
+				&networkfunction.EmissionPoliciesPropertiesFormatArgs{
 					EmissionDestinations: networkfunction.EmissionPolicyDestinationArray{
-						{
+						&networkfunction.EmissionPolicyDestinationArgs{
 							DestinationType: pulumi.String("AzureMonitor"),
 						},
 					},
 					EmissionType: pulumi.String("IPFIX"),
 				},
 			},
-			IngestionPolicy: networkfunction.IngestionPolicyPropertiesFormatResponse{
+			IngestionPolicy: &networkfunction.IngestionPolicyPropertiesFormatArgs{
 				IngestionSources: networkfunction.IngestionSourcesPropertiesFormatArray{
 					&networkfunction.IngestionSourcesPropertiesFormatArgs{
 						ResourceId: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName"),

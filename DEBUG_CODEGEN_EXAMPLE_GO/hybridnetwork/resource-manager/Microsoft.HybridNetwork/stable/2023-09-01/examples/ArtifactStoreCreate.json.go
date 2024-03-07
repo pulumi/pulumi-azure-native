@@ -10,7 +10,7 @@ func main() {
 		_, err := hybridnetwork.NewArtifactStore(ctx, "artifactStore", &hybridnetwork.ArtifactStoreArgs{
 			ArtifactStoreName: pulumi.String("TestArtifactStore"),
 			Location:          pulumi.String("eastus"),
-			Properties: hybridnetwork.ArtifactStorePropertiesFormatResponse{
+			Properties: &hybridnetwork.ArtifactStorePropertiesFormatArgs{
 				ManagedResourceGroupConfiguration: &hybridnetwork.ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs{
 					Location: pulumi.String("eastus"),
 					Name:     pulumi.String("testRg"),

@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := maintenance.NewConfigurationAssignmentsForResourceGroup(ctx, "configurationAssignmentsForResourceGroup", &maintenance.ConfigurationAssignmentsForResourceGroupArgs{
 			ConfigurationAssignmentName: pulumi.String("workervmConfiguration"),
-			Filter: maintenance.ConfigurationAssignmentFilterPropertiesResponse{
+			Filter: &maintenance.ConfigurationAssignmentFilterPropertiesArgs{
 				Locations: pulumi.StringArray{
 					pulumi.String("Japan East"),
 					pulumi.String("UK South"),

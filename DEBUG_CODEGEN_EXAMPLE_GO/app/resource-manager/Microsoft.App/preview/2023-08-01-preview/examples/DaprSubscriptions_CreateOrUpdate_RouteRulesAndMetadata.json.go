@@ -16,7 +16,7 @@ func main() {
 			Name:              pulumi.String("mysubscription"),
 			PubsubName:        pulumi.String("mypubsubcomponent"),
 			ResourceGroupName: pulumi.String("examplerg"),
-			Routes: app.DaprSubscriptionRoutesResponse{
+			Routes: &app.DaprSubscriptionRoutesArgs{
 				Default: pulumi.String("/products"),
 				Rules: app.DaprSubscriptionRouteRuleArray{
 					&app.DaprSubscriptionRouteRuleArgs{

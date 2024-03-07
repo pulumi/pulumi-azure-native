@@ -4,36 +4,36 @@ import pulumi_azure_native as azure_native
 management_policy = azure_native.storage.ManagementPolicy("managementPolicy",
     account_name="sto9699",
     management_policy_name="default",
-    policy=azure_native.storage.ManagementPolicySchemaResponseArgs(
-        rules=[{
-            "definition": {
-                "actions": {
-                    "baseBlob": {
-                        "delete": azure_native.storage.DateAfterModificationArgs(
+    policy=azure_native.storage.ManagementPolicySchemaArgs(
+        rules=[azure_native.storage.ManagementPolicyRuleArgs(
+            definition=azure_native.storage.ManagementPolicyDefinitionArgs(
+                actions=azure_native.storage.ManagementPolicyActionArgs(
+                    base_blob=azure_native.storage.ManagementPolicyBaseBlobArgs(
+                        delete=azure_native.storage.DateAfterModificationArgs(
                             days_after_last_access_time_greater_than=1000,
                         ),
-                        "enableAutoTierToHotFromCool": True,
-                        "tierToArchive": azure_native.storage.DateAfterModificationArgs(
+                        enable_auto_tier_to_hot_from_cool=True,
+                        tier_to_archive=azure_native.storage.DateAfterModificationArgs(
                             days_after_last_access_time_greater_than=90,
                         ),
-                        "tierToCool": azure_native.storage.DateAfterModificationArgs(
+                        tier_to_cool=azure_native.storage.DateAfterModificationArgs(
                             days_after_last_access_time_greater_than=30,
                         ),
-                    },
-                    "snapshot": {
-                        "delete": azure_native.storage.DateAfterCreationArgs(
+                    ),
+                    snapshot=azure_native.storage.ManagementPolicySnapShotArgs(
+                        delete=azure_native.storage.DateAfterCreationArgs(
                             days_after_creation_greater_than=30,
                         ),
-                    },
-                },
-                "filters": azure_native.storage.ManagementPolicyFilterArgs(
+                    ),
+                ),
+                filters=azure_native.storage.ManagementPolicyFilterArgs(
                     blob_types=["blockBlob"],
                     prefix_match=["olcmtestcontainer"],
                 ),
-            },
-            "enabled": True,
-            "name": "olcmtest",
-            "type": "Lifecycle",
-        }],
+            ),
+            enabled=True,
+            name="olcmtest",
+            type="Lifecycle",
+        )],
     ),
     resource_group_name="res7687")

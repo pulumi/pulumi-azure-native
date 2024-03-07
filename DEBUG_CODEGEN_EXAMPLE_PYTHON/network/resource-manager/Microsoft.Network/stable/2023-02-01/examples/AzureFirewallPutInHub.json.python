@@ -6,11 +6,11 @@ azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
     firewall_policy=azure_native.network.SubResourceArgs(
         id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
     ),
-    hub_ip_addresses=azure_native.network.HubIPAddressesResponseArgs(
-        public_ips={
-            "addresses": [],
-            "count": 1,
-        },
+    hub_ip_addresses=azure_native.network.HubIPAddressesArgs(
+        public_ips=azure_native.network.HubPublicIPAddressesArgs(
+            addresses=[],
+            count=1,
+        ),
     ),
     location="West US",
     resource_group_name="rg1",

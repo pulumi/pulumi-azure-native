@@ -15,7 +15,7 @@ func main() {
 			Installation: &mobilenetwork.InstallationArgs{
 				DesiredState: pulumi.String("Installed"),
 			},
-			LocalDiagnosticsAccess: mobilenetwork.LocalDiagnosticsAccessConfigurationResponse{
+			LocalDiagnosticsAccess: &mobilenetwork.LocalDiagnosticsAccessConfigurationArgs{
 				AuthenticationType: pulumi.String("AAD"),
 				HttpsServerCertificate: &mobilenetwork.HttpsServerCertificateArgs{
 					CertificateUrl: pulumi.String("https://contosovault.vault.azure.net/certificates/ingress"),
@@ -23,7 +23,7 @@ func main() {
 			},
 			Location:                   pulumi.String("eastus"),
 			PacketCoreControlPlaneName: pulumi.String("TestPacketCoreCP"),
-			Platform: mobilenetwork.PlatformConfigurationResponse{
+			Platform: &mobilenetwork.PlatformConfigurationArgs{
 				AzureStackEdgeDevice: &mobilenetwork.AzureStackEdgeDeviceResourceIdArgs{
 					Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice"),
 				},
@@ -36,8 +36,8 @@ func main() {
 				Type: pulumi.String("AKS-HCI"),
 			},
 			ResourceGroupName: pulumi.String("rg1"),
-			Sites: []mobilenetwork.SiteResourceIdArgs{
-				{
+			Sites: mobilenetwork.SiteResourceIdArray{
+				&mobilenetwork.SiteResourceIdArgs{
 					Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite"),
 				},
 			},

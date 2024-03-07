@@ -162,7 +162,7 @@ return await Deployment.RunAsync(() =>
                     {
                         new AzureNative.Network.Inputs.ExclusionManagedRuleSetArgs
                         {
-                            RuleGroups = new[] {},
+                            RuleGroups = new() { },
                             RuleSetType = "OWASP",
                             RuleSetVersion = "3.1",
                         },

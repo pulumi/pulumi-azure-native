@@ -8,7 +8,7 @@ func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := datareplication.NewPolicy(ctx, "policy", &datareplication.PolicyArgs{
 PolicyName: pulumi.String("fafqwc"),
-Properties: interface{}{
+Properties: &datareplication.PolicyModelPropertiesArgs{
 CustomProperties: interface{}{
 InstanceType: pulumi.String("PolicyModelCustomProperties"),
 },

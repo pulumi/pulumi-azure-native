@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := machinelearningservices.NewRegistryModelVersion(ctx, "registryModelVersion", &machinelearningservices.RegistryModelVersionArgs{
 			ModelName: pulumi.String("string"),
-			ModelVersionProperties: machinelearningservices.ModelVersionResponse{
+			ModelVersionProperties: &machinelearningservices.ModelVersionTypeArgs{
 				Description: pulumi.String("string"),
 				Flavors: machinelearningservices.FlavorDataMap{
 					"string": &machinelearningservices.FlavorDataArgs{

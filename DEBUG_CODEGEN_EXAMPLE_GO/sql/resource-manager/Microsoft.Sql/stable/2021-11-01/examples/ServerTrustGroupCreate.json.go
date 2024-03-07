@@ -8,11 +8,11 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := sql.NewServerTrustGroup(ctx, "serverTrustGroup", &sql.ServerTrustGroupArgs{
-			GroupMembers: []sql.ServerInfoArgs{
-				{
+			GroupMembers: sql.ServerInfoArray{
+				&sql.ServerInfoArgs{
 					ServerId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1"),
 				},
-				{
+				&sql.ServerInfoArgs{
 					ServerId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2"),
 				},
 			},

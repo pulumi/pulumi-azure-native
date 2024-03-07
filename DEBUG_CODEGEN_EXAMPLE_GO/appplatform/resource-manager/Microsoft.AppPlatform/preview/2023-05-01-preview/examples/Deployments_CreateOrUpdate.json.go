@@ -10,8 +10,8 @@ func main() {
 		_, err := appplatform.NewDeployment(ctx, "deployment", &appplatform.DeploymentArgs{
 			AppName:        pulumi.String("myapp"),
 			DeploymentName: pulumi.String("mydeployment"),
-			Properties: appplatform.DeploymentResourcePropertiesResponse{
-				DeploymentSettings: appplatform.DeploymentSettingsResponse{
+			Properties: &appplatform.DeploymentResourcePropertiesArgs{
+				DeploymentSettings: &appplatform.DeploymentSettingsArgs{
 					AddonConfigs: pulumi.Map{
 						"ApplicationConfigurationService": pulumi.Any{
 							Patterns: []string{

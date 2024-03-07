@@ -72,15 +72,15 @@ node_type = azure_native.servicefabric.NodeType("nodeType",
             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
         ],
     ),
-    vm_secrets=[{
-        "sourceVault": azure_native.servicefabric.SubResourceArgs(
+    vm_secrets=[azure_native.servicefabric.VaultSecretGroupArgs(
+        source_vault=azure_native.servicefabric.SubResourceArgs(
             id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
         ),
-        "vaultCertificates": [azure_native.servicefabric.VaultCertificateArgs(
+        vault_certificates=[azure_native.servicefabric.VaultCertificateArgs(
             certificate_store="My",
             certificate_url="https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
         )],
-    }],
+    )],
     vm_setup_actions=[
         "EnableContainers",
         "EnableHyperV",

@@ -11,21 +11,21 @@ func main() {
 			AccountName:    pulumi.String("sto2527"),
 			HasSshPassword: pulumi.Bool(true),
 			HomeDirectory:  pulumi.String("homedirectory"),
-			PermissionScopes: []storage.PermissionScopeArgs{
-				{
+			PermissionScopes: storage.PermissionScopeArray{
+				&storage.PermissionScopeArgs{
 					Permissions:  pulumi.String("rwd"),
 					ResourceName: pulumi.String("share1"),
 					Service:      pulumi.String("file"),
 				},
-				{
+				&storage.PermissionScopeArgs{
 					Permissions:  pulumi.String("rw"),
 					ResourceName: pulumi.String("share2"),
 					Service:      pulumi.String("file"),
 				},
 			},
 			ResourceGroupName: pulumi.String("res6977"),
-			SshAuthorizedKeys: []storage.SshPublicKeyArgs{
-				{
+			SshAuthorizedKeys: storage.SshPublicKeyArray{
+				&storage.SshPublicKeyArgs{
 					Description: pulumi.String("key name"),
 					Key:         pulumi.String("ssh-rsa keykeykeykeykey="),
 				},

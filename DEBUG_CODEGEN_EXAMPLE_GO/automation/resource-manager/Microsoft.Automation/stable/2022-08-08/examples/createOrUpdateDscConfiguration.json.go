@@ -14,7 +14,7 @@ func main() {
 			Location:              pulumi.String("East US 2"),
 			Name:                  pulumi.String("SetupServer"),
 			ResourceGroupName:     pulumi.String("rg"),
-			Source: automation.ContentSourceResponse{
+			Source: &automation.ContentSourceArgs{
 				Hash: &automation.ContentHashArgs{
 					Algorithm: pulumi.String("sha256"),
 					Value:     pulumi.String("A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F"),

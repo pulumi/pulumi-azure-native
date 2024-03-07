@@ -9,23 +9,23 @@ data_lake_connector_topic_map = azure_native.iotoperationsmq.DataLakeConnectorTo
         type="CustomLocation",
     ),
     location="wjmgeh",
-    mapping=azure_native.iotoperationsmq.DataLakeConnectorMapResponseArgs(
+    mapping=azure_native.iotoperationsmq.DataLakeConnectorMapArgs(
         allowed_latency_secs=25407,
         client_id="gyjduryceozwqyjdrxhrtwuw",
         max_messages_per_batch=1581641880,
         message_payload_type="pwhpwzqlzlhdrozpqziipvjqrnipo",
         mqtt_source_topic="mtac",
         qos=2,
-        table={
-            "schema": [azure_native.iotoperationsmq.DeltaTableSchemaArgs(
+        table=azure_native.iotoperationsmq.DeltaTableArgs(
+            schema=[azure_native.iotoperationsmq.DeltaTableSchemaArgs(
                 format="boolean",
                 mapping="lfnyjp",
                 name="hejqncdsueoerueffbaqix",
                 optional=True,
             )],
-            "tableName": "qyvzigmefvxwyjqksofyrstn",
-            "tablePath": "cyrkvxsjhbhwjegmhzyixchkdnxe",
-        },
+            table_name="qyvzigmefvxwyjqksofyrstn",
+            table_path="cyrkvxsjhbhwjegmhzyixchkdnxe",
+        ),
     ),
     mq_name="rc-8Z--2m-MU",
     resource_group_name="rgiotoperationsmq",

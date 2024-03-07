@@ -15,7 +15,7 @@ func main() {
 			LogProgress:           pulumi.Bool(true),
 			LogVerbose:            pulumi.Bool(false),
 			Name:                  pulumi.String("Get-AzureVMTutorial"),
-			PublishContentLink: automation.ContentLinkResponse{
+			PublishContentLink: &automation.ContentLinkArgs{
 				ContentHash: &automation.ContentHashArgs{
 					Algorithm: pulumi.String("SHA256"),
 					Value:     pulumi.String("115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80"),

@@ -71,10 +71,10 @@ return await Deployment.RunAsync(() =>
             {
                 Endpoints = new AzureNative.Devices.Inputs.RoutingEndpointsArgs
                 {
-                    EventHubs = new[] {},
-                    ServiceBusQueues = new[] {},
-                    ServiceBusTopics = new[] {},
-                    StorageContainers = new[] {},
+                    EventHubs = new() { },
+                    ServiceBusQueues = new() { },
+                    ServiceBusTopics = new() { },
+                    StorageContainers = new() { },
                 },
                 FallbackRoute = new AzureNative.Devices.Inputs.FallbackRoutePropertiesArgs
                 {
@@ -87,7 +87,7 @@ return await Deployment.RunAsync(() =>
                     Name = "$fallback",
                     Source = "DeviceMessages",
                 },
-                Routes = new[] {},
+                Routes = new() { },
             },
             StorageEndpoints = 
             {

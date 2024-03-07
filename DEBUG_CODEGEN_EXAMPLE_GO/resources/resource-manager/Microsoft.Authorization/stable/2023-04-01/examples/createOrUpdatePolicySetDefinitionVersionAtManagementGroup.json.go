@@ -15,10 +15,10 @@ func main() {
 				Category: "Cost Management",
 			},
 			PolicyDefinitionVersion: pulumi.String("1.2.1"),
-			PolicyDefinitions: []authorization.PolicyDefinitionReferenceArgs{
-				{
-					Parameters: {
-						"listOfAllowedSKUs": {
+			PolicyDefinitions: authorization.PolicyDefinitionReferenceArray{
+				&authorization.PolicyDefinitionReferenceArgs{
+					Parameters: authorization.ParameterValuesValueMap{
+						"listOfAllowedSKUs": &authorization.ParameterValuesValueArgs{
 							Value: pulumi.Any{
 								"Standard_GRS",
 								"Standard_LRS",
@@ -28,12 +28,12 @@ func main() {
 					PolicyDefinitionId:          pulumi.String("/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"),
 					PolicyDefinitionReferenceId: pulumi.String("Limit_Skus"),
 				},
-				{
-					Parameters: {
-						"prefix": {
+				&authorization.PolicyDefinitionReferenceArgs{
+					Parameters: authorization.ParameterValuesValueMap{
+						"prefix": &authorization.ParameterValuesValueArgs{
 							Value: pulumi.Any("DeptA"),
 						},
-						"suffix": {
+						"suffix": &authorization.ParameterValuesValueArgs{
 							Value: pulumi.Any("-LC"),
 						},
 					},

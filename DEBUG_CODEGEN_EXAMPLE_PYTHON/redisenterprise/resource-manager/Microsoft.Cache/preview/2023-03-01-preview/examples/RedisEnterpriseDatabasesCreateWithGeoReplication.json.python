@@ -7,7 +7,7 @@ database = azure_native.cache.Database("database",
     clustering_policy="EnterpriseCluster",
     database_name="default",
     eviction_policy="NoEviction",
-    geo_replication=azure_native.cache.DatabasePropertiesResponseGeoReplicationArgs(
+    geo_replication=azure_native.cache.DatabasePropertiesGeoReplicationArgs(
         group_nickname="groupName",
         linked_databases=[
             azure_native.cache.LinkedDatabaseArgs(

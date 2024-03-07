@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := storage.NewTableServiceProperties(ctx, "tableServiceProperties", &storage.TableServicePropertiesArgs{
 			AccountName: pulumi.String("sto8607"),
-			Cors: storage.CorsRulesResponse{
+			Cors: &storage.CorsRulesArgs{
 				CorsRules: storage.CorsRuleArray{
 					&storage.CorsRuleArgs{
 						AllowedHeaders: pulumi.StringArray{

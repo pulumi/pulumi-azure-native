@@ -4,27 +4,27 @@ import pulumi_azure_native as azure_native
 dapr_component_resiliency_policy = azure_native.app.DaprComponentResiliencyPolicy("daprComponentResiliencyPolicy",
     component_name="mydaprcomponent",
     environment_name="myenvironment",
-    inbound_policy=azure_native.app.DaprComponentResiliencyPolicyConfigurationResponseArgs(
-        http_retry_policy={
-            "maxRetries": 15,
-            "retryBackOff": azure_native.app.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs(
+    inbound_policy=azure_native.app.DaprComponentResiliencyPolicyConfigurationArgs(
+        http_retry_policy=azure_native.app.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs(
+            max_retries=15,
+            retry_back_off=azure_native.app.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs(
                 initial_delay_in_milliseconds=2000,
                 max_interval_in_milliseconds=5500,
             ),
-        },
+        ),
         timeout_policy=azure_native.app.DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs(
             response_timeout_in_seconds=30,
         ),
     ),
     name="myresiliencypolicy",
-    outbound_policy=azure_native.app.DaprComponentResiliencyPolicyConfigurationResponseArgs(
-        http_retry_policy={
-            "maxRetries": 5,
-            "retryBackOff": azure_native.app.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs(
+    outbound_policy=azure_native.app.DaprComponentResiliencyPolicyConfigurationArgs(
+        http_retry_policy=azure_native.app.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs(
+            max_retries=5,
+            retry_back_off=azure_native.app.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs(
                 initial_delay_in_milliseconds=100,
                 max_interval_in_milliseconds=30000,
             ),
-        },
+        ),
         timeout_policy=azure_native.app.DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs(
             response_timeout_in_seconds=12,
         ),

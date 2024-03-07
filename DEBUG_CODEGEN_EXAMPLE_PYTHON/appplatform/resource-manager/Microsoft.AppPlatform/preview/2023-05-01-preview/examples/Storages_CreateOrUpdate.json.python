@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 storage = azure_native.appplatform.Storage("storage",
-    properties=azure_native.appplatform.StorageAccountResponseArgs(
+    properties=azure_native.appplatform.StorageAccountArgs(
         account_key="account-key-of-storage-account",
         account_name="storage-account-name",
         storage_type="StorageAccount",

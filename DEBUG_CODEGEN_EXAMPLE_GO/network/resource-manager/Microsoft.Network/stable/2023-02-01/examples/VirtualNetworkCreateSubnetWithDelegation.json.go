@@ -15,11 +15,11 @@ func main() {
 			},
 			Location:          pulumi.String("westcentralus"),
 			ResourceGroupName: pulumi.String("rg1"),
-			Subnets: []network.SubnetTypeArgs{
-				{
+			Subnets: network.SubnetTypeArray{
+				&network.SubnetTypeArgs{
 					AddressPrefix: pulumi.String("10.0.0.0/24"),
 					Delegations: network.DelegationArray{
-						{
+						&network.DelegationArgs{
 							Name:        pulumi.String("myDelegation"),
 							ServiceName: pulumi.String("Microsoft.Sql/managedInstances"),
 						},

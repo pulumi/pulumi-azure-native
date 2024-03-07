@@ -18,8 +18,8 @@ func main() {
 				ResourceGroupId:      pulumi.String("/subscriptions/subscriptionId/resourceGroups/clusterResourceGroup"),
 			},
 			ConsoleProfile: nil,
-			IngressProfiles: []redhatopenshift.IngressProfileArgs{
-				{
+			IngressProfiles: redhatopenshift.IngressProfileArray{
+				&redhatopenshift.IngressProfileArgs{
 					Name:       pulumi.String("default"),
 					Visibility: pulumi.String("Public"),
 				},
@@ -43,8 +43,8 @@ func main() {
 			Tags: pulumi.StringMap{
 				"key": pulumi.String("value"),
 			},
-			WorkerProfiles: []redhatopenshift.WorkerProfileArgs{
-				{
+			WorkerProfiles: redhatopenshift.WorkerProfileArray{
+				&redhatopenshift.WorkerProfileArgs{
 					Count:      pulumi.Int(3),
 					DiskSizeGB: pulumi.Int(128),
 					Name:       pulumi.String("worker"),

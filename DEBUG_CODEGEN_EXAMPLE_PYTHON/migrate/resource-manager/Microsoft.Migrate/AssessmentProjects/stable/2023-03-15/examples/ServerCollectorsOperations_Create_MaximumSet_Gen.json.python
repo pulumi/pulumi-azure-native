@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 server_collectors_operation = azure_native.migrate.ServerCollectorsOperation("serverCollectorsOperation",
-    agent_properties=azure_native.migrate.CollectorAgentPropertiesBaseResponseArgs(
+    agent_properties=azure_native.migrate.CollectorAgentPropertiesBaseArgs(
         id="498e4965-bbb1-47c2-8613-345baff9c509",
         spn_details=azure_native.migrate.CollectorAgentSpnPropertiesBaseArgs(
             application_id="65153d2f-9afb-44e8-b3ca-1369150b7354",

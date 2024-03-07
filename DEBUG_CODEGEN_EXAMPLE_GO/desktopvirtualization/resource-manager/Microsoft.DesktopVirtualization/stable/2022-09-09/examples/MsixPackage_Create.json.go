@@ -15,8 +15,8 @@ func main() {
 			IsRegularRegistration: pulumi.Bool(false),
 			LastUpdated:           pulumi.String("2008-09-22T14:01:54.9571247Z"),
 			MsixPackageFullName:   pulumi.String("msixpackagefullname"),
-			PackageApplications: []desktopvirtualization.MsixPackageApplicationsArgs{
-				{
+			PackageApplications: desktopvirtualization.MsixPackageApplicationsArray{
+				&desktopvirtualization.MsixPackageApplicationsArgs{
 					AppId:          pulumi.String("ApplicationId"),
 					AppUserModelID: pulumi.String("AppUserModelId"),
 					Description:    pulumi.String("application-desc"),
@@ -26,8 +26,8 @@ func main() {
 					RawPng:         pulumi.String("VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo"),
 				},
 			},
-			PackageDependencies: []desktopvirtualization.MsixPackageDependenciesArgs{
-				{
+			PackageDependencies: desktopvirtualization.MsixPackageDependenciesArray{
+				&desktopvirtualization.MsixPackageDependenciesArgs{
 					DependencyName: pulumi.String("MsixTest_Dependency_Name"),
 					MinVersion:     pulumi.String("version"),
 					Publisher:      pulumi.String("PublishedName"),

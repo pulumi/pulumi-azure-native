@@ -2,30 +2,30 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 peering = azure_native.peering.Peering("peering",
-    exchange=azure_native.peering.PeeringPropertiesExchangeResponseArgs(
+    exchange=azure_native.peering.PeeringPropertiesExchangeArgs(
         connections=[
-            {
-                "bgpSession": azure_native.peering.BgpSessionArgs(
+            azure_native.peering.ExchangeConnectionArgs(
+                bgp_session=azure_native.peering.BgpSessionArgs(
                     max_prefixes_advertised_v4=1000,
                     max_prefixes_advertised_v6=100,
                     md5_authentication_key="test-md5-auth-key",
                     peer_session_i_pv4_address="192.168.2.1",
                     peer_session_i_pv6_address="fd00::1",
                 ),
-                "connectionIdentifier": "CE495334-0E94-4E51-8164-8116D6CD284D",
-                "peeringDBFacilityId": 99999,
-            },
-            {
-                "bgpSession": azure_native.peering.BgpSessionArgs(
+                connection_identifier="CE495334-0E94-4E51-8164-8116D6CD284D",
+                peering_db_facility_id=99999,
+            ),
+            azure_native.peering.ExchangeConnectionArgs(
+                bgp_session=azure_native.peering.BgpSessionArgs(
                     max_prefixes_advertised_v4=1000,
                     max_prefixes_advertised_v6=100,
                     md5_authentication_key="test-md5-auth-key",
                     peer_session_i_pv4_address="192.168.2.2",
                     peer_session_i_pv6_address="fd00::2",
                 ),
-                "connectionIdentifier": "CDD8E673-CB07-47E6-84DE-3739F778762B",
-                "peeringDBFacilityId": 99999,
-            },
+                connection_identifier="CDD8E673-CB07-47E6-84DE-3739F778762B",
+                peering_db_facility_id=99999,
+            ),
         ],
         peer_asn=azure_native.peering.SubResourceArgs(
             id="/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",

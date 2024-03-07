@@ -11,7 +11,7 @@ func main() {
 			ETag:                          pulumi.String("\"00009300-0000-0300-0000-602b967b0000\""),
 			PrivateEndpointConnectionName: pulumi.String("custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43"),
 			ProjectName:                   pulumi.String("abgoyalWEselfhostb72bproject"),
-			Properties: migrate.PrivateEndpointConnectionPropertiesResponse{
+			Properties: &migrate.PrivateEndpointConnectionPropertiesArgs{
 				PrivateLinkServiceConnectionState: &migrate.PrivateLinkServiceConnectionStateArgs{
 					ActionsRequired: pulumi.String(""),
 					Status:          pulumi.String("Approved"),

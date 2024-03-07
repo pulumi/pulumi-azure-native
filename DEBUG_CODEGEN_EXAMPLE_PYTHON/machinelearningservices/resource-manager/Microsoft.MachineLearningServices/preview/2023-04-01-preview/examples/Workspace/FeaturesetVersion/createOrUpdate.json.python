@@ -2,20 +2,20 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 featureset_version = azure_native.machinelearningservices.FeaturesetVersion("featuresetVersion",
-    featureset_version_properties=azure_native.machinelearningservices.FeaturesetVersionResponseArgs(
+    featureset_version_properties=azure_native.machinelearningservices.FeaturesetVersionArgs(
         description="string",
         entities=["string"],
         is_anonymous=False,
         is_archived=False,
-        materialization_settings={
-            "notification": azure_native.machinelearningservices.NotificationSettingArgs(
+        materialization_settings=azure_native.machinelearningservices.MaterializationSettingsArgs(
+            notification=azure_native.machinelearningservices.NotificationSettingArgs(
                 email_on=["JobFailed"],
                 emails=["string"],
             ),
-            "resource": azure_native.machinelearningservices.MaterializationComputeResourceArgs(
+            resource=azure_native.machinelearningservices.MaterializationComputeResourceArgs(
                 instance_type="string",
             ),
-            "schedule": azure_native.machinelearningservices.RecurrenceTriggerResponseArgs(
+            schedule=azure_native.machinelearningservices.RecurrenceTriggerArgs(
                 end_time="string",
                 frequency="Day",
                 interval=1,
@@ -29,11 +29,11 @@ featureset_version = azure_native.machinelearningservices.FeaturesetVersion("fea
                 time_zone="string",
                 trigger_type="Recurrence",
             ),
-            "sparkConfiguration": {
+            spark_configuration={
                 "string": "string",
             },
-            "storeType": "Online",
-        },
+            store_type="Online",
+        ),
         properties={
             "string": "string",
         },

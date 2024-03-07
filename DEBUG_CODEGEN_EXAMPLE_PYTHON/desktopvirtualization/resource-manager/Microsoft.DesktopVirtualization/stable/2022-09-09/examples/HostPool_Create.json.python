@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 host_pool = azure_native.desktopvirtualization.HostPool("hostPool",
-    agent_update=azure_native.desktopvirtualization.AgentUpdatePropertiesResponseArgs(
+    agent_update=azure_native.desktopvirtualization.AgentUpdatePropertiesArgs(
         maintenance_window_time_zone="Alaskan Standard Time",
         maintenance_windows=[
             azure_native.desktopvirtualization.MaintenanceWindowPropertiesArgs(

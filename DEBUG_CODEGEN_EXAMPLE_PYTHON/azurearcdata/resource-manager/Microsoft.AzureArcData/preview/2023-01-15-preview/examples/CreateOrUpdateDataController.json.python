@@ -8,7 +8,7 @@ data_controller = azure_native.azurearcdata.DataController("dataController",
         type="CustomLocation",
     ),
     location="northeurope",
-    properties=azure_native.azurearcdata.DataControllerPropertiesResponseArgs(
+    properties=azure_native.azurearcdata.DataControllerPropertiesArgs(
         basic_login_information=azure_native.azurearcdata.BasicLoginInformationArgs(
             password="********",
             username="username",

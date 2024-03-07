@@ -13,16 +13,16 @@ func main() {
 			ClusteringPolicy: pulumi.String("EnterpriseCluster"),
 			DatabaseName:     pulumi.String("default"),
 			EvictionPolicy:   pulumi.String("AllKeysLRU"),
-			Modules: []cache.ModuleArgs{
-				{
+			Modules: cache.ModuleArray{
+				&cache.ModuleArgs{
 					Args: pulumi.String("ERROR_RATE 0.00 INITIAL_SIZE 400"),
 					Name: pulumi.String("RedisBloom"),
 				},
-				{
+				&cache.ModuleArgs{
 					Args: pulumi.String("RETENTION_POLICY 20"),
 					Name: pulumi.String("RedisTimeSeries"),
 				},
-				{
+				&cache.ModuleArgs{
 					Name: pulumi.String("RediSearch"),
 				},
 			},

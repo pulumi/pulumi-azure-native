@@ -14,7 +14,7 @@ func main() {
 				Type: pulumi.String("CustomLocation"),
 			},
 			Location: pulumi.String("northeurope"),
-			Properties: azurearcdata.DataControllerPropertiesResponse{
+			Properties: &azurearcdata.DataControllerPropertiesArgs{
 				BasicLoginInformation: &azurearcdata.BasicLoginInformationArgs{
 					Password: pulumi.String("********"),
 					Username: pulumi.String("username"),

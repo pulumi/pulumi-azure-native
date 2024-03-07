@@ -8,7 +8,7 @@ aks_assessment_operation = azure_native.migrate.AksAssessmentOperation("aksAsses
     scope=azure_native.migrate.AssessmentScopeParametersArgs(
         server_group_id="/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp",
     ),
-    settings=azure_native.migrate.AKSAssessmentSettingsResponseArgs(
+    settings=azure_native.migrate.AKSAssessmentSettingsArgs(
         azure_location="Unknown",
         category="All",
         consolidation="Full",

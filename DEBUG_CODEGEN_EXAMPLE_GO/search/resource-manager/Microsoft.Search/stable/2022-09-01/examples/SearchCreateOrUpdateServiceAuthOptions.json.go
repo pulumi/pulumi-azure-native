@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := search.NewService(ctx, "service", &search.ServiceArgs{
-			AuthOptions: search.DataPlaneAuthOptionsResponse{
+			AuthOptions: &search.DataPlaneAuthOptionsArgs{
 				AadOrApiKey: &search.DataPlaneAadOrApiKeyAuthOptionArgs{
 					AadAuthFailureMode: search.AadAuthFailureModeHttp401WithBearerChallenge,
 				},

@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := eventgrid.NewNamespaceTopicEventSubscription(ctx, "namespaceTopicEventSubscription", &eventgrid.NamespaceTopicEventSubscriptionArgs{
-			DeliveryConfiguration: eventgrid.DeliveryConfigurationResponse{
+			DeliveryConfiguration: &eventgrid.DeliveryConfigurationArgs{
 				DeliveryMode: pulumi.String("Queue"),
 				Queue: &eventgrid.QueueInfoArgs{
 					EventTimeToLive:              pulumi.String("P1D"),

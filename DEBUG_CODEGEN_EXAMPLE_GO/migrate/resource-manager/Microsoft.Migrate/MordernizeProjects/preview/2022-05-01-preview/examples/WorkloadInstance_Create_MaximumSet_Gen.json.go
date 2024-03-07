@@ -8,7 +8,7 @@ func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := migrate.NewWorkloadInstance(ctx, "workloadInstance", &migrate.WorkloadInstanceArgs{
 ModernizeProjectName: pulumi.String("mx8"),
-Properties: migrate.WorkloadInstanceModelPropertiesResponse{
+Properties: &migrate.WorkloadInstanceModelPropertiesArgs{
 CustomProperties: interface{}{
 InstanceType: pulumi.String("IISWorkload"),
 WebAppArmId: pulumi.String("xseseqsrzdiga"),

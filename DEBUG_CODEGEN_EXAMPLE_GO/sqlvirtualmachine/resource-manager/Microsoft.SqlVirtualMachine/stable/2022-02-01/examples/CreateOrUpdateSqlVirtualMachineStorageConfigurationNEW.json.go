@@ -11,7 +11,7 @@ func main() {
 			Location:              pulumi.String("northeurope"),
 			ResourceGroupName:     pulumi.String("testrg"),
 			SqlVirtualMachineName: pulumi.String("testvm"),
-			StorageConfigurationSettings: sqlvirtualmachine.StorageConfigurationSettingsResponse{
+			StorageConfigurationSettings: &sqlvirtualmachine.StorageConfigurationSettingsArgs{
 				DiskConfigurationType: pulumi.String("NEW"),
 				SqlDataSettings: &sqlvirtualmachine.SQLStorageSettingsArgs{
 					DefaultFilePath: pulumi.String("F:\\folderpath\\"),

@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := solutions.NewApplicationDefinition(ctx, "applicationDefinition", &solutions.ApplicationDefinitionArgs{
 			ApplicationDefinitionName: pulumi.String("myManagedApplicationDef"),
-			Authorizations: []solutions.ApplicationAuthorizationArgs{
-				{
+			Authorizations: solutions.ApplicationAuthorizationArray{
+				&solutions.ApplicationAuthorizationArgs{
 					PrincipalId:      pulumi.String("validprincipalguid"),
 					RoleDefinitionId: pulumi.String("validroleguid"),
 				},

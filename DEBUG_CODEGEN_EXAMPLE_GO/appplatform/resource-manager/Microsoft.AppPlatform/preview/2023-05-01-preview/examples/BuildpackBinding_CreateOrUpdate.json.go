@@ -11,7 +11,7 @@ func main() {
 			BuildServiceName:     pulumi.String("default"),
 			BuilderName:          pulumi.String("default"),
 			BuildpackBindingName: pulumi.String("myBuildpackBinding"),
-			Properties: appplatform.BuildpackBindingPropertiesResponse{
+			Properties: &appplatform.BuildpackBindingPropertiesArgs{
 				BindingType: pulumi.String("ApplicationInsights"),
 				LaunchProperties: &appplatform.BuildpackBindingLaunchPropertiesArgs{
 					Properties: pulumi.StringMap{

@@ -2,44 +2,44 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
-    application_rule_collections=[{
-        "action": azure_native.network.AzureFirewallRCActionArgs(
+    application_rule_collections=[azure_native.network.AzureFirewallApplicationRuleCollectionArgs(
+        action=azure_native.network.AzureFirewallRCActionArgs(
             type="Deny",
         ),
-        "name": "apprulecoll",
-        "priority": 110,
-        "rules": [{
-            "description": "Deny inbound rule",
-            "name": "rule1",
-            "protocols": [azure_native.network.AzureFirewallApplicationRuleProtocolArgs(
+        name="apprulecoll",
+        priority=110,
+        rules=[azure_native.network.AzureFirewallApplicationRuleArgs(
+            description="Deny inbound rule",
+            name="rule1",
+            protocols=[azure_native.network.AzureFirewallApplicationRuleProtocolArgs(
                 port=443,
                 protocol_type="Https",
             )],
-            "sourceAddresses": [
+            source_addresses=[
                 "216.58.216.164",
                 "10.0.0.0/24",
             ],
-            "targetFqdns": ["www.test.com"],
-        }],
-    }],
+            target_fqdns=["www.test.com"],
+        )],
+    )],
     azure_firewall_name="azurefirewall",
-    ip_configurations=[{
-        "name": "azureFirewallIpConfiguration",
-        "publicIPAddress": azure_native.network.SubResourceArgs(
+    ip_configurations=[azure_native.network.AzureFirewallIPConfigurationArgs(
+        name="azureFirewallIpConfiguration",
+        public_ip_address=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
         ),
-        "subnet": azure_native.network.SubResourceArgs(
+        subnet=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet",
         ),
-    }],
+    )],
     location="West US 2",
-    nat_rule_collections=[{
-        "action": azure_native.network.AzureFirewallNatRCActionArgs(
+    nat_rule_collections=[azure_native.network.AzureFirewallNatRuleCollectionArgs(
+        action=azure_native.network.AzureFirewallNatRCActionArgs(
             type="Dnat",
         ),
-        "name": "natrulecoll",
-        "priority": 112,
-        "rules": [
+        name="natrulecoll",
+        priority=112,
+        rules=[
             azure_native.network.AzureFirewallNatRuleArgs(
                 description="D-NAT all outbound web traffic for inspection",
                 destination_addresses=["1.2.3.4"],
@@ -61,14 +61,14 @@ azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
                 translated_port="880",
             ),
         ],
-    }],
-    network_rule_collections=[{
-        "action": azure_native.network.AzureFirewallRCActionArgs(
+    )],
+    network_rule_collections=[azure_native.network.AzureFirewallNetworkRuleCollectionArgs(
+        action=azure_native.network.AzureFirewallRCActionArgs(
             type="Deny",
         ),
-        "name": "netrulecoll",
-        "priority": 112,
-        "rules": [
+        name="netrulecoll",
+        priority=112,
+        rules=[
             azure_native.network.AzureFirewallNetworkRuleArgs(
                 description="Block traffic based on source IPs and ports",
                 destination_addresses=["*"],
@@ -95,7 +95,7 @@ azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
                 source_addresses=["10.2.4.12-10.2.4.255"],
             ),
         ],
-    }],
+    )],
     resource_group_name="rg1",
     sku=azure_native.network.AzureFirewallSkuArgs(
         name="AZFW_VNet",

@@ -12,25 +12,25 @@ func main() {
 				CcePolicy: pulumi.String("eyJhbGxvd19hbGwiOiB0cnVlLCAiY29udGFpbmVycyI6IHsibGVuZ3RoIjogMCwgImVsZW1lbnRzIjogbnVsbH19"),
 			},
 			ContainerGroupName: pulumi.String("demo1"),
-			Containers: []containerinstance.ContainerArgs{
-				{
+			Containers: containerinstance.ContainerArray{
+				&containerinstance.ContainerArgs{
 					Command:              pulumi.StringArray{},
 					EnvironmentVariables: containerinstance.EnvironmentVariableArray{},
 					Image:                pulumi.String("confiimage"),
 					Name:                 pulumi.String("accdemo"),
 					Ports: containerinstance.ContainerPortArray{
-						{
+						&containerinstance.ContainerPortArgs{
 							Port: pulumi.Int(8000),
 						},
 					},
-					Resources: {
-						Requests: {
+					Resources: &containerinstance.ResourceRequirementsArgs{
+						Requests: &containerinstance.ResourceRequestsArgs{
 							Cpu:        pulumi.Float64(1),
 							MemoryInGB: pulumi.Float64(1.5),
 						},
 					},
-					SecurityContext: {
-						Capabilities: {
+					SecurityContext: &containerinstance.SecurityContextDefinitionArgs{
+						Capabilities: &containerinstance.SecurityContextCapabilitiesDefinitionArgs{
 							Add: pulumi.StringArray{
 								pulumi.String("CAP_NET_ADMIN"),
 							},
@@ -40,7 +40,7 @@ func main() {
 				},
 			},
 			ImageRegistryCredentials: containerinstance.ImageRegistryCredentialArray{},
-			IpAddress: containerinstance.IpAddressResponse{
+			IpAddress: &containerinstance.IpAddressArgs{
 				Ports: containerinstance.PortArray{
 					&containerinstance.PortArgs{
 						Port:     pulumi.Int(8000),

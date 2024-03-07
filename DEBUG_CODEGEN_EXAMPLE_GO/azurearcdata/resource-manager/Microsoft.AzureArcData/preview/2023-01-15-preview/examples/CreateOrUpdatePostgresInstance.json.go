@@ -14,7 +14,7 @@ func main() {
 			},
 			Location:             pulumi.String("eastus"),
 			PostgresInstanceName: pulumi.String("testpostgresInstance"),
-			Properties: azurearcdata.PostgresInstancePropertiesResponse{
+			Properties: &azurearcdata.PostgresInstancePropertiesArgs{
 				Admin: pulumi.String("admin"),
 				BasicLoginInformation: &azurearcdata.BasicLoginInformationArgs{
 					Password: pulumi.String("********"),

@@ -16,7 +16,7 @@ func main() {
 				VmSize: pulumi.String("Default"),
 			},
 			Location: pulumi.String("West US2"),
-			NetworkProfile: azurestackhci.VirtualMachinePropertiesResponseNetworkProfile{
+			NetworkProfile: &azurestackhci.VirtualMachinePropertiesNetworkProfileArgs{
 				NetworkInterfaces: azurestackhci.VirtualMachinePropertiesNetworkInterfacesArray{
 					&azurestackhci.VirtualMachinePropertiesNetworkInterfacesArgs{
 						Id: pulumi.String("test-nic"),
@@ -29,13 +29,13 @@ func main() {
 				ComputerName:  pulumi.String("luamaster"),
 			},
 			ResourceGroupName: pulumi.String("test-rg"),
-			SecurityProfile: azurestackhci.VirtualMachinePropertiesResponseSecurityProfile{
+			SecurityProfile: &azurestackhci.VirtualMachinePropertiesSecurityProfileArgs{
 				EnableTPM: pulumi.Bool(true),
 				UefiSettings: &azurestackhci.VirtualMachinePropertiesUefiSettingsArgs{
 					SecureBootEnabled: pulumi.Bool(true),
 				},
 			},
-			StorageProfile: azurestackhci.VirtualMachinePropertiesResponseStorageProfile{
+			StorageProfile: &azurestackhci.VirtualMachinePropertiesStorageProfileArgs{
 				ImageReference: &azurestackhci.VirtualMachinePropertiesImageReferenceArgs{
 					Id: pulumi.String("/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryImages/test-gallery-image"),
 				},

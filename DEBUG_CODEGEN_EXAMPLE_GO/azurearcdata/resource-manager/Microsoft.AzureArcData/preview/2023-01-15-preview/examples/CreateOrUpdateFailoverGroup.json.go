@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := azurearcdata.NewFailoverGroup(ctx, "failoverGroup", &azurearcdata.FailoverGroupArgs{
 			FailoverGroupName: pulumi.String("testFailoverGroupName"),
-			Properties: azurearcdata.FailoverGroupPropertiesResponse{
+			Properties: &azurearcdata.FailoverGroupPropertiesArgs{
 				PartnerManagedInstanceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/partnerMI"),
 				Spec: &azurearcdata.FailoverGroupSpecArgs{
 					PartnerSyncMode: pulumi.String("async"),

@@ -15,23 +15,23 @@ func main() {
 			GatewayName:                 pulumi.String("p2sVpnGateway1"),
 			IsRoutingPreferenceInternet: pulumi.Bool(false),
 			Location:                    pulumi.String("West US"),
-			P2SConnectionConfigurations: []network.P2SConnectionConfigurationArgs{
-				{
+			P2SConnectionConfigurations: network.P2SConnectionConfigurationArray{
+				&network.P2SConnectionConfigurationArgs{
 					Id:   pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/p2sVpnGateways/p2sVpnGateway1/p2sConnectionConfigurations/P2SConnectionConfig1"),
 					Name: pulumi.String("P2SConnectionConfig1"),
-					RoutingConfiguration: {
-						AssociatedRouteTable: {
+					RoutingConfiguration: &network.RoutingConfigurationArgs{
+						AssociatedRouteTable: &network.SubResourceArgs{
 							Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1"),
 						},
-						PropagatedRouteTables: {
+						PropagatedRouteTables: &network.PropagatedRouteTableArgs{
 							Ids: network.SubResourceArray{
-								{
+								&network.SubResourceArgs{
 									Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1"),
 								},
-								{
+								&network.SubResourceArgs{
 									Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable2"),
 								},
-								{
+								&network.SubResourceArgs{
 									Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable3"),
 								},
 							},
@@ -40,11 +40,11 @@ func main() {
 								pulumi.String("label2"),
 							},
 						},
-						VnetRoutes: {
+						VnetRoutes: &network.VnetRouteArgs{
 							StaticRoutes: network.StaticRouteArray{},
 						},
 					},
-					VpnClientAddressPool: {
+					VpnClientAddressPool: &network.AddressSpaceArgs{
 						AddressPrefixes: pulumi.StringArray{
 							pulumi.String("101.3.0.0/16"),
 						},

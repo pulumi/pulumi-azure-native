@@ -16,32 +16,32 @@ firewall_policy = azure_native.network.FirewallPolicy("firewallPolicy",
         pac_file_port=8087,
     ),
     firewall_policy_name="firewallPolicy",
-    insights=azure_native.network.FirewallPolicyInsightsResponseArgs(
+    insights=azure_native.network.FirewallPolicyInsightsArgs(
         is_enabled=True,
-        log_analytics_resources={
-            "defaultWorkspaceId": azure_native.network.SubResourceArgs(
+        log_analytics_resources=azure_native.network.FirewallPolicyLogAnalyticsResourcesArgs(
+            default_workspace_id=azure_native.network.SubResourceArgs(
                 id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/defaultWorkspace",
             ),
-            "workspaces": [
-                {
-                    "region": "westus",
-                    "workspaceId": azure_native.network.SubResourceArgs(
+            workspaces=[
+                azure_native.network.FirewallPolicyLogAnalyticsWorkspaceArgs(
+                    region="westus",
+                    workspace_id=azure_native.network.SubResourceArgs(
                         id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace1",
                     ),
-                },
-                {
-                    "region": "eastus",
-                    "workspaceId": azure_native.network.SubResourceArgs(
+                ),
+                azure_native.network.FirewallPolicyLogAnalyticsWorkspaceArgs(
+                    region="eastus",
+                    workspace_id=azure_native.network.SubResourceArgs(
                         id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace2",
                     ),
-                },
+                ),
             ],
-        },
+        ),
         retention_days=100,
     ),
-    intrusion_detection=azure_native.network.FirewallPolicyIntrusionDetectionResponseArgs(
-        configuration={
-            "bypassTrafficSettings": [azure_native.network.FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs(
+    intrusion_detection=azure_native.network.FirewallPolicyIntrusionDetectionArgs(
+        configuration=azure_native.network.FirewallPolicyIntrusionDetectionConfigurationArgs(
+            bypass_traffic_settings=[azure_native.network.FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs(
                 description="Rule 1",
                 destination_addresses=["5.6.7.8"],
                 destination_ports=["*"],
@@ -49,11 +49,11 @@ firewall_policy = azure_native.network.FirewallPolicy("firewallPolicy",
                 protocol="TCP",
                 source_addresses=["1.2.3.4"],
             )],
-            "signatureOverrides": [azure_native.network.FirewallPolicyIntrusionDetectionSignatureSpecificationArgs(
+            signature_overrides=[azure_native.network.FirewallPolicyIntrusionDetectionSignatureSpecificationArgs(
                 id="2525004",
                 mode="Deny",
             )],
-        },
+        ),
         mode="Alert",
     ),
     location="West US",
@@ -75,7 +75,7 @@ firewall_policy = azure_native.network.FirewallPolicy("firewallPolicy",
         fqdns=["*.microsoft.com"],
         ip_addresses=["20.3.4.5"],
     ),
-    transport_security=azure_native.network.FirewallPolicyTransportSecurityResponseArgs(
+    transport_security=azure_native.network.FirewallPolicyTransportSecurityArgs(
         certificate_authority=azure_native.network.FirewallPolicyCertificateAuthorityArgs(
             key_vault_secret_id="https://kv/secret",
             name="clientcert",

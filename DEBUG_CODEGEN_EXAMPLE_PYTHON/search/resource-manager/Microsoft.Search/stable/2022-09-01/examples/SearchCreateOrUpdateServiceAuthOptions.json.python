@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 service = azure_native.search.Service("service",
-    auth_options=azure_native.search.DataPlaneAuthOptionsResponseArgs(
+    auth_options=azure_native.search.DataPlaneAuthOptionsArgs(
         aad_or_api_key=azure_native.search.DataPlaneAadOrApiKeyAuthOptionArgs(
             aad_auth_failure_mode=azure_native.search.AadAuthFailureMode.HTTP401_WITH_BEARER_CHALLENGE,
         ),

@@ -17,8 +17,8 @@ func main() {
 			ResourceGroupName:  pulumi.String("testrg"),
 			StartTimeUtc:       pulumi.String("2022-04-06T01:36:33.3876751+00:00"),
 			Status:             pulumi.String("Success"),
-			Steps: []azurestackhci.StepArgs{
-				{
+			Steps: azurestackhci.StepArray{
+				&azurestackhci.StepArgs{
 					Description:        pulumi.String("Prepare for SSU update"),
 					EndTimeUtc:         pulumi.String("2022-04-06T01:37:16.8728314+00:00"),
 					ErrorMessage:       pulumi.String(""),

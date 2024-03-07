@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := providerhub.NewNotificationRegistration(ctx, "notificationRegistration", &providerhub.NotificationRegistrationArgs{
 			NotificationRegistrationName: pulumi.String("fooNotificationRegistration"),
-			Properties: providerhub.NotificationRegistrationResponseProperties{
+			Properties: &providerhub.NotificationRegistrationPropertiesArgs{
 				IncludedEvents: pulumi.StringArray{
 					pulumi.String("*/write"),
 					pulumi.String("Microsoft.Contoso/employees/delete"),

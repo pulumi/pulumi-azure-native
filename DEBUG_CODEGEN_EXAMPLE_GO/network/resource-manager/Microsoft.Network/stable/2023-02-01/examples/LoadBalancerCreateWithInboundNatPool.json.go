@@ -9,23 +9,23 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewLoadBalancer(ctx, "loadBalancer", &network.LoadBalancerArgs{
 			BackendAddressPools: network.BackendAddressPoolArray{},
-			FrontendIPConfigurations: []network.FrontendIPConfigurationArgs{
-				{
+			FrontendIPConfigurations: network.FrontendIPConfigurationArray{
+				&network.FrontendIPConfigurationArgs{
 					Id:                        pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test"),
 					Name:                      pulumi.String("test"),
 					PrivateIPAllocationMethod: pulumi.String("Dynamic"),
-					Subnet: {
+					Subnet: &network.SubnetTypeArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/lbvnet/subnets/lbsubnet"),
 					},
 					Zones: pulumi.StringArray{},
 				},
 			},
-			InboundNatPools: []network.InboundNatPoolArgs{
-				{
+			InboundNatPools: network.InboundNatPoolArray{
+				&network.InboundNatPoolArgs{
 					BackendPort:      pulumi.Int(8888),
 					EnableFloatingIP: pulumi.Bool(true),
 					EnableTcpReset:   pulumi.Bool(true),
-					FrontendIPConfiguration: {
+					FrontendIPConfiguration: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test"),
 					},
 					FrontendPortRangeEnd:   pulumi.Int(8085),

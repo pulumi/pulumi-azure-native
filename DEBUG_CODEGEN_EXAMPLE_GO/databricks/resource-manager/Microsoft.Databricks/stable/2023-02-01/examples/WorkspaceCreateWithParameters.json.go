@@ -10,7 +10,7 @@ func main() {
 		_, err := databricks.NewWorkspace(ctx, "workspace", &databricks.WorkspaceArgs{
 			Location:               pulumi.String("westus"),
 			ManagedResourceGroupId: pulumi.String("/subscriptions/subid/resourceGroups/myManagedRG"),
-			Parameters: databricks.WorkspaceCustomParametersResponse{
+			Parameters: &databricks.WorkspaceCustomParametersArgs{
 				CustomPrivateSubnetName: &databricks.WorkspaceCustomStringParameterArgs{
 					Value: pulumi.String("myPrivateSubnet"),
 				},

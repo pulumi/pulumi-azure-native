@@ -10,10 +10,10 @@ func main() {
 		_, err := managednetworkfabric.NewNetworkTapRule(ctx, "networkTapRule", &managednetworkfabric.NetworkTapRuleArgs{
 			Annotation:        pulumi.String("annotation"),
 			ConfigurationType: pulumi.String("File"),
-			DynamicMatchConfigurations: []managednetworkfabric.CommonDynamicMatchConfigurationArgs{
-				{
+			DynamicMatchConfigurations: managednetworkfabric.CommonDynamicMatchConfigurationArray{
+				&managednetworkfabric.CommonDynamicMatchConfigurationArgs{
 					IpGroups: managednetworkfabric.IpGroupPropertiesArray{
-						{
+						&managednetworkfabric.IpGroupPropertiesArgs{
 							IpAddressType: pulumi.String("IPv4"),
 							IpPrefixes: pulumi.StringArray{
 								pulumi.String("10.10.10.10/30"),
@@ -22,13 +22,13 @@ func main() {
 						},
 					},
 					PortGroups: managednetworkfabric.PortGroupPropertiesArray{
-						{
+						&managednetworkfabric.PortGroupPropertiesArgs{
 							Name: pulumi.String("example-portGroup1"),
 							Ports: pulumi.StringArray{
 								pulumi.String("100-200"),
 							},
 						},
-						{
+						&managednetworkfabric.PortGroupPropertiesArgs{
 							Name: pulumi.String("example-portGroup2"),
 							Ports: pulumi.StringArray{
 								pulumi.String("900"),
@@ -37,7 +37,7 @@ func main() {
 						},
 					},
 					VlanGroups: managednetworkfabric.VlanGroupPropertiesArray{
-						{
+						&managednetworkfabric.VlanGroupPropertiesArgs{
 							Name: pulumi.String("exmaple-vlanGroup"),
 							Vlans: pulumi.StringArray{
 								pulumi.String("10"),
@@ -48,10 +48,10 @@ func main() {
 				},
 			},
 			Location: pulumi.String("eastus"),
-			MatchConfigurations: []managednetworkfabric.NetworkTapRuleMatchConfigurationArgs{
-				{
+			MatchConfigurations: managednetworkfabric.NetworkTapRuleMatchConfigurationArray{
+				&managednetworkfabric.NetworkTapRuleMatchConfigurationArgs{
 					Actions: managednetworkfabric.NetworkTapRuleActionArray{
-						{
+						&managednetworkfabric.NetworkTapRuleActionArgs{
 							DestinationId:          pulumi.String("/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"),
 							IsTimestampEnabled:     pulumi.String("True"),
 							MatchConfigurationName: pulumi.String("match1"),
@@ -61,9 +61,9 @@ func main() {
 					},
 					IpAddressType: pulumi.String("IPv4"),
 					MatchConditions: managednetworkfabric.NetworkTapRuleMatchConditionArray{
-						{
+						&managednetworkfabric.NetworkTapRuleMatchConditionArgs{
 							EncapsulationType: pulumi.String("None"),
-							IpCondition: {
+							IpCondition: &managednetworkfabric.IpMatchConditionArgs{
 								IpGroupNames: pulumi.StringArray{
 									pulumi.String("example-ipGroup"),
 								},
@@ -73,7 +73,7 @@ func main() {
 								PrefixType: pulumi.String("Prefix"),
 								Type:       pulumi.String("SourceIP"),
 							},
-							PortCondition: {
+							PortCondition: &managednetworkfabric.PortConditionArgs{
 								Layer4Protocol: pulumi.String("TCP"),
 								PortGroupNames: pulumi.StringArray{
 									pulumi.String("example-portGroup1"),
@@ -86,7 +86,7 @@ func main() {
 							ProtocolTypes: pulumi.StringArray{
 								pulumi.String("TCP"),
 							},
-							VlanMatchCondition: {
+							VlanMatchCondition: &managednetworkfabric.VlanMatchConditionArgs{
 								InnerVlans: pulumi.StringArray{
 									pulumi.String("11-20"),
 								},

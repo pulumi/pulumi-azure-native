@@ -23,7 +23,7 @@ func main() {
 			ExtensionType:     pulumi.String("azuremonitor-containers"),
 			ReleaseTrain:      pulumi.String("Preview"),
 			ResourceGroupName: pulumi.String("rg1"),
-			Scope: kubernetesconfiguration.ScopeResponse{
+			Scope: &kubernetesconfiguration.ScopeArgs{
 				Cluster: &kubernetesconfiguration.ScopeClusterArgs{
 					ReleaseNamespace: pulumi.String("kube-system"),
 				},

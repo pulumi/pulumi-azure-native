@@ -9,7 +9,7 @@ pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := recoveryservices.NewReplicationMigrationItem(ctx, "replicationMigrationItem", &recoveryservices.ReplicationMigrationItemArgs{
 FabricName: pulumi.String("vmwarefabric1"),
 MigrationItemName: pulumi.String("virtualmachine1"),
-Properties: recoveryservices.MigrationItemPropertiesResponse{
+Properties: &recoveryservices.EnableMigrationInputPropertiesArgs{
 PolicyId: pulumi.String("/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationPolicies/vmwarepolicy1"),
 ProviderSpecificDetails: interface{}{
 DataMoverRunAsAccountId: pulumi.String("/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/dataMoverRunAsAccount1"),

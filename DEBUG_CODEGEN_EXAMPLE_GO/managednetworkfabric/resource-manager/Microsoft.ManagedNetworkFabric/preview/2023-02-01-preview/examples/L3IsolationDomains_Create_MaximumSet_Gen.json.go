@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := managednetworkfabric.NewL3IsolationDomain(ctx, "l3IsolationDomain", &managednetworkfabric.L3IsolationDomainArgs{
-			AggregateRouteConfiguration: managednetworkfabric.AggregateRouteConfigurationResponse{
+			AggregateRouteConfiguration: &managednetworkfabric.AggregateRouteConfigurationArgs{
 				Ipv4Routes: managednetworkfabric.AggregateRouteArray{
 					&managednetworkfabric.AggregateRouteArgs{
 						Prefix: pulumi.String("10.0.0.0/24"),

@@ -4,11 +4,11 @@ import pulumi_azure_native as azure_native
 file_service_properties = azure_native.storage.FileServiceProperties("fileServiceProperties",
     account_name="sto8607",
     file_services_name="default",
-    protocol_settings=azure_native.storage.ProtocolSettingsResponseArgs(
-        smb={
-            "multichannel": azure_native.storage.MultichannelArgs(
+    protocol_settings=azure_native.storage.ProtocolSettingsArgs(
+        smb=azure_native.storage.SmbSettingArgs(
+            multichannel=azure_native.storage.MultichannelArgs(
                 enabled=True,
             ),
-        },
+        ),
     ),
     resource_group_name="res4410")

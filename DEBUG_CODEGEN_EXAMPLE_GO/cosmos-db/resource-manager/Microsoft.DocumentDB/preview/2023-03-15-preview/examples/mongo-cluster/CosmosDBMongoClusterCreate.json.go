@@ -12,8 +12,8 @@ func main() {
 			AdministratorLoginPassword: pulumi.String("password"),
 			Location:                   pulumi.String("westus2"),
 			MongoClusterName:           pulumi.String("myMongoCluster"),
-			NodeGroupSpecs: []documentdb.NodeGroupSpecArgs{
-				{
+			NodeGroupSpecs: documentdb.NodeGroupSpecArray{
+				&documentdb.NodeGroupSpecArgs{
 					DiskSizeGB: pulumi.Float64(128),
 					EnableHa:   pulumi.Bool(true),
 					Kind:       pulumi.String("Shard"),

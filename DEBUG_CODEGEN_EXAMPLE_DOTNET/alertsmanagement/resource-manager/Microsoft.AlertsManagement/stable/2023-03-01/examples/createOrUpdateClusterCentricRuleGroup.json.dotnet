@@ -17,7 +17,7 @@ return await Deployment.RunAsync(() =>
         {
             new AzureNative.AlertsManagement.Inputs.PrometheusRuleArgs
             {
-                Actions = new[] {},
+                Actions = new() { },
                 Alert = "Billing_Processing_Very_Slow",
                 Annotations = 
                 {

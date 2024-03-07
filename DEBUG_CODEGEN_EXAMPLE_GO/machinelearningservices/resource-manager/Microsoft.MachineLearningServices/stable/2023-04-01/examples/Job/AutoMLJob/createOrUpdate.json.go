@@ -22,8 +22,8 @@ IdentityType: "AMLToken",
 },
 IsArchived: false,
 JobType: "AutoML",
-Outputs: interface{}{
-String: machinelearningservices.UriFileJobOutput{
+Outputs: map[string]interface{}{
+"string": machinelearningservices.UriFileJobOutput{
 Description: "string",
 JobOutputType: "uri_file",
 Mode: "ReadWriteMount",

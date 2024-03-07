@@ -15,7 +15,7 @@ func main() {
 			},
 			IsSecuritySite: pulumi.Bool(false),
 			Location:       pulumi.String("West US"),
-			O365Policy: network.O365PolicyPropertiesResponse{
+			O365Policy: &network.O365PolicyPropertiesArgs{
 				BreakOutCategories: &network.O365BreakOutCategoryPoliciesArgs{
 					Allow:    pulumi.Bool(true),
 					Default:  pulumi.Bool(false),
@@ -29,15 +29,15 @@ func main() {
 			VirtualWan: &network.SubResourceArgs{
 				Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1"),
 			},
-			VpnSiteLinks: []network.VpnSiteLinkArgs{
-				{
-					BgpProperties: {
+			VpnSiteLinks: network.VpnSiteLinkArray{
+				&network.VpnSiteLinkArgs{
+					BgpProperties: &network.VpnLinkBgpSettingsArgs{
 						Asn:               pulumi.Float64(1234),
 						BgpPeeringAddress: pulumi.String("192.168.0.0"),
 					},
 					Fqdn:      pulumi.String("link1.vpnsite1.contoso.com"),
 					IpAddress: pulumi.String("50.50.50.56"),
-					LinkProperties: {
+					LinkProperties: &network.VpnLinkProviderPropertiesArgs{
 						LinkProviderName: pulumi.String("vendor1"),
 						LinkSpeedInMbps:  pulumi.Int(0),
 					},

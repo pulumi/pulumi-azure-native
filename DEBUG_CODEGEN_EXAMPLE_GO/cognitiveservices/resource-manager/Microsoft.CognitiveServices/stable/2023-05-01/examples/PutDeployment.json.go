@@ -10,7 +10,7 @@ func main() {
 		_, err := cognitiveservices.NewDeployment(ctx, "deployment", &cognitiveservices.DeploymentArgs{
 			AccountName:    pulumi.String("accountName"),
 			DeploymentName: pulumi.String("deploymentName"),
-			Properties: cognitiveservices.DeploymentPropertiesResponse{
+			Properties: &cognitiveservices.DeploymentPropertiesArgs{
 				Model: &cognitiveservices.DeploymentModelArgs{
 					Format:  pulumi.String("OpenAI"),
 					Name:    pulumi.String("ada"),

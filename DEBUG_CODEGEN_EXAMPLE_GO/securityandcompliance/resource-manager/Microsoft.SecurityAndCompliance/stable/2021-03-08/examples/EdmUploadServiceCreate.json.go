@@ -13,7 +13,7 @@ func main() {
 			},
 			Kind:     securityandcompliance.Kind_Fhir_R4,
 			Location: pulumi.String("westus2"),
-			Properties: securityandcompliance.ServicesPropertiesResponse{
+			Properties: &securityandcompliance.ServicesPropertiesArgs{
 				AccessPolicies: securityandcompliance.ServiceAccessPolicyEntryArray{
 					&securityandcompliance.ServiceAccessPolicyEntryArgs{
 						ObjectId: pulumi.String("c487e7d1-3210-41a3-8ccc-e9372b78da47"),

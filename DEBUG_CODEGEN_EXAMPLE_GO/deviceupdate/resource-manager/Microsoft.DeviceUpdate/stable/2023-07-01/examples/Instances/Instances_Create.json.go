@@ -16,8 +16,8 @@ func main() {
 			},
 			EnableDiagnostics: pulumi.Bool(false),
 			InstanceName:      pulumi.String("blue"),
-			IotHubs: []deviceupdate.IotHubSettingsArgs{
-				{
+			IotHubs: deviceupdate.IotHubSettingsArray{
+				&deviceupdate.IotHubSettingsArgs{
 					ResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub"),
 				},
 			},

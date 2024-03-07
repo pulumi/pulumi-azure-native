@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := containerinstance.NewContainerGroup(ctx, "containerGroup", &containerinstance.ContainerGroupArgs{
 			ContainerGroupName: pulumi.String("demo1"),
-			Containers: []containerinstance.ContainerArgs{
-				{
+			Containers: containerinstance.ContainerArray{
+				&containerinstance.ContainerArgs{
 					Command: pulumi.StringArray{
 						pulumi.String("/bin/sh"),
 						pulumi.String("-c"),
@@ -18,8 +18,8 @@ func main() {
 					},
 					Image: pulumi.String("alpine:latest"),
 					Name:  pulumi.String("test-container-001"),
-					Resources: {
-						Requests: {
+					Resources: &containerinstance.ResourceRequirementsArgs{
+						Requests: &containerinstance.ResourceRequestsArgs{
 							Cpu:        pulumi.Float64(1),
 							MemoryInGB: pulumi.Float64(1),
 						},

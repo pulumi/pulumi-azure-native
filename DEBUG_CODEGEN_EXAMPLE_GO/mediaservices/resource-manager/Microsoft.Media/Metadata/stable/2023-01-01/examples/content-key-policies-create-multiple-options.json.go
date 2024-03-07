@@ -11,30 +11,30 @@ func main() {
 			AccountName:          pulumi.String("contosomedia"),
 			ContentKeyPolicyName: pulumi.String("PolicyCreatedWithMultipleOptions"),
 			Description:          pulumi.String("ArmPolicyDescription"),
-			Options: []media.ContentKeyPolicyOptionArgs{
-				{
-					Configuration: {
+			Options: media.ContentKeyPolicyOptionArray{
+				&media.ContentKeyPolicyOptionArgs{
+					Configuration: media.ContentKeyPolicyClearKeyConfiguration{
 						OdataType: "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
 					},
 					Name: pulumi.String("ClearKeyOption"),
-					Restriction: {
+					Restriction: media.ContentKeyPolicyTokenRestriction{
 						Audience:  "urn:audience",
 						Issuer:    "urn:issuer",
 						OdataType: "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
-						PrimaryVerificationKey: {
+						PrimaryVerificationKey: media.ContentKeyPolicySymmetricTokenKey{
 							KeyValue:  "AAAAAAAAAAAAAAAAAAAAAA==",
 							OdataType: "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
 						},
 						RestrictionTokenType: "Swt",
 					},
 				},
-				{
-					Configuration: {
+				&media.ContentKeyPolicyOptionArgs{
+					Configuration: media.ContentKeyPolicyWidevineConfiguration{
 						OdataType:        "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
 						WidevineTemplate: "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
 					},
 					Name: pulumi.String("widevineoption"),
-					Restriction: {
+					Restriction: media.ContentKeyPolicyOpenRestriction{
 						OdataType: "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
 					},
 				},

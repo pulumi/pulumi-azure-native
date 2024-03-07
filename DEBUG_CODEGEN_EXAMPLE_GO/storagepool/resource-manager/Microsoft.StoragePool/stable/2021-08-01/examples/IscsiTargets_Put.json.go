@@ -11,8 +11,8 @@ func main() {
 			AclMode:         pulumi.String("Dynamic"),
 			DiskPoolName:    pulumi.String("myDiskPool"),
 			IscsiTargetName: pulumi.String("myIscsiTarget"),
-			Luns: []storagepool.IscsiLunArgs{
-				{
+			Luns: storagepool.IscsiLunArray{
+				&storagepool.IscsiLunArgs{
 					ManagedDiskAzureResourceId: pulumi.String("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1"),
 					Name:                       pulumi.String("lun0"),
 				},

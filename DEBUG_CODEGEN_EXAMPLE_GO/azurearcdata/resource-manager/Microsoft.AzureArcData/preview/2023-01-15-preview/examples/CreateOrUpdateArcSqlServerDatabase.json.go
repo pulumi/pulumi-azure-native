@@ -10,7 +10,7 @@ func main() {
 		_, err := azurearcdata.NewSqlServerDatabase(ctx, "sqlServerDatabase", &azurearcdata.SqlServerDatabaseArgs{
 			DatabaseName: pulumi.String("testdb"),
 			Location:     pulumi.String("southeastasia"),
-			Properties: azurearcdata.SqlServerDatabaseResourcePropertiesResponse{
+			Properties: &azurearcdata.SqlServerDatabaseResourcePropertiesArgs{
 				BackupInformation: &azurearcdata.SqlServerDatabaseResourcePropertiesBackupInformationArgs{
 					LastFullBackup: pulumi.String("2022-05-05T16:26:33.883Z"),
 					LastLogBackup:  pulumi.String("2022-05-10T16:26:33.883Z"),

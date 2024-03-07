@@ -15,7 +15,7 @@ func main() {
 			Tags: pulumi.StringMap{
 				"tagName1": pulumi.String("tagValue1"),
 			},
-			Vm: devtestlab.CustomImagePropertiesFromVmResponse{
+			Vm: &devtestlab.CustomImagePropertiesFromVmArgs{
 				LinuxOsInfo: &devtestlab.LinuxOsInfoArgs{
 					LinuxOsState: pulumi.String("NonDeprovisioned"),
 				},

@@ -38,7 +38,7 @@ func main() {
 			},
 			Location:          pulumi.String("northeurope"),
 			ResourceGroupName: pulumi.String("testrg"),
-			ServerConfigurationsManagementSettings: sqlvirtualmachine.ServerConfigurationsManagementSettingsResponse{
+			ServerConfigurationsManagementSettings: &sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs{
 				AdditionalFeaturesServerConfigurations: &sqlvirtualmachine.AdditionalFeaturesServerConfigurationsArgs{
 					IsRServicesEnabled: pulumi.Bool(false),
 				},

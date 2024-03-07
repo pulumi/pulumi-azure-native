@@ -26,29 +26,29 @@ func main() {
 			EnableBgpRouteTranslationForNat: pulumi.Bool(false),
 			EnableDnsForwarding:             pulumi.Bool(true),
 			GatewayType:                     pulumi.String("Vpn"),
-			IpConfigurations: []network.VirtualNetworkGatewayIPConfigurationArgs{
-				{
+			IpConfigurations: network.VirtualNetworkGatewayIPConfigurationArray{
+				&network.VirtualNetworkGatewayIPConfigurationArgs{
 					Name:                      pulumi.String("gwipconfig1"),
 					PrivateIPAllocationMethod: pulumi.String("Dynamic"),
-					PublicIPAddress: {
+					PublicIPAddress: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip"),
 					},
-					Subnet: {
+					Subnet: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet"),
 					},
 				},
 			},
 			Location: pulumi.String("centralus"),
-			NatRules: []network.VirtualNetworkGatewayNatRuleTypeArgs{
-				{
+			NatRules: network.VirtualNetworkGatewayNatRuleTypeArray{
+				&network.VirtualNetworkGatewayNatRuleTypeArgs{
 					ExternalMappings: network.VpnNatRuleMappingArray{
-						{
+						&network.VpnNatRuleMappingArgs{
 							AddressSpace: pulumi.String("50.0.0.0/24"),
 						},
 					},
 					Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule1"),
 					InternalMappings: network.VpnNatRuleMappingArray{
-						{
+						&network.VpnNatRuleMappingArgs{
 							AddressSpace: pulumi.String("10.10.0.0/24"),
 						},
 					},
@@ -57,15 +57,15 @@ func main() {
 					Name:              pulumi.String("natRule1"),
 					Type:              pulumi.String("Static"),
 				},
-				{
+				&network.VirtualNetworkGatewayNatRuleTypeArgs{
 					ExternalMappings: network.VpnNatRuleMappingArray{
-						{
+						&network.VpnNatRuleMappingArgs{
 							AddressSpace: pulumi.String("30.0.0.0/24"),
 						},
 					},
 					Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule2"),
 					InternalMappings: network.VpnNatRuleMappingArray{
-						{
+						&network.VpnNatRuleMappingArgs{
 							AddressSpace: pulumi.String("20.10.0.0/24"),
 						},
 					},
@@ -81,7 +81,7 @@ func main() {
 				Tier: pulumi.String("VpnGw1"),
 			},
 			VirtualNetworkGatewayName: pulumi.String("vpngw"),
-			VpnClientConfiguration: network.VpnClientConfigurationResponse{
+			VpnClientConfiguration: &network.VpnClientConfigurationArgs{
 				RadiusServers: network.RadiusServerArray{
 					&network.RadiusServerArgs{
 						RadiusServerAddress: pulumi.String("10.2.0.0"),

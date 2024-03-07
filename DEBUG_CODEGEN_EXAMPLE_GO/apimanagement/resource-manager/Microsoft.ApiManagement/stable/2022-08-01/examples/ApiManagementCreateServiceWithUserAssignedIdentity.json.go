@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := apimanagement.NewApiManagementService(ctx, "apiManagementService", &apimanagement.ApiManagementServiceArgs{
-			Identity: apimanagement.ApiManagementServiceIdentityResponse{
+			Identity: &apimanagement.ApiManagementServiceIdentityArgs{
 				Type: pulumi.String("UserAssigned"),
 				UserAssignedIdentities: apimanagement.UserIdentityPropertiesMap{
 					"/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/apimService1": nil,

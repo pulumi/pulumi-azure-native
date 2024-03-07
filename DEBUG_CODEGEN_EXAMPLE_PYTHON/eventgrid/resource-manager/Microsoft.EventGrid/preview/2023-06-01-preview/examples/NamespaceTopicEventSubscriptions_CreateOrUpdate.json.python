@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 namespace_topic_event_subscription = azure_native.eventgrid.NamespaceTopicEventSubscription("namespaceTopicEventSubscription",
-    delivery_configuration=azure_native.eventgrid.DeliveryConfigurationResponseArgs(
+    delivery_configuration=azure_native.eventgrid.DeliveryConfigurationArgs(
         delivery_mode="Queue",
         queue=azure_native.eventgrid.QueueInfoArgs(
             event_time_to_live="P1D",

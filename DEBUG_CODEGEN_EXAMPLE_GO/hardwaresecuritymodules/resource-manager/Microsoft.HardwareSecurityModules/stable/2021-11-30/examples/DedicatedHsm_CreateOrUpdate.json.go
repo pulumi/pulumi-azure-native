@@ -10,7 +10,7 @@ func main() {
 		_, err := hardwaresecuritymodules.NewDedicatedHsm(ctx, "dedicatedHsm", &hardwaresecuritymodules.DedicatedHsmArgs{
 			Location: pulumi.String("westus"),
 			Name:     pulumi.String("hsm1"),
-			NetworkProfile: hardwaresecuritymodules.NetworkProfileResponse{
+			NetworkProfile: &hardwaresecuritymodules.NetworkProfileArgs{
 				NetworkInterfaces: hardwaresecuritymodules.NetworkInterfaceArray{
 					&hardwaresecuritymodules.NetworkInterfaceArgs{
 						PrivateIpAddress: pulumi.String("1.0.0.1"),

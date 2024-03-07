@@ -52,7 +52,7 @@ return await Deployment.RunAsync(() =>
                     },
                     VnetRoutes = new AzureNative.Network.Inputs.VnetRouteArgs
                     {
-                        StaticRoutes = new[] {},
+                        StaticRoutes = new() { },
                     },
                 },
                 VpnClientAddressPool = new AzureNative.Network.Inputs.AddressSpaceArgs

@@ -15,8 +15,8 @@ func main() {
 			},
 			Location:          pulumi.String("eastus"),
 			ResourceGroupName: pulumi.String("rg1"),
-			Subnets: []network.SubnetTypeArgs{
-				{
+			Subnets: network.SubnetTypeArray{
+				&network.SubnetTypeArgs{
 					AddressPrefixes: pulumi.StringArray{
 						pulumi.String("10.0.0.0/28"),
 						pulumi.String("10.0.1.0/28"),

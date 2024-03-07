@@ -8,7 +8,7 @@ func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := machinelearning.NewWebService(ctx, "webService", &machinelearning.WebServiceArgs{
 Location: pulumi.String("West US"),
-Properties: interface{}{
+Properties: &machinelearning.WebServicePropertiesForGraphArgs{
 Assets: interface{}{
 Asset1: &machinelearning.AssetItemArgs{
 LocationInfo: &machinelearning.BlobLocationArgs{
@@ -56,7 +56,7 @@ pulumi.Any("education-num"),
 },
 },
 ExposeSampleData: pulumi.Bool(true),
-Input: interface{}{
+Input: &machinelearning.ServiceInputOutputSpecificationArgs{
 Description: pulumi.String(""),
 Properties: machinelearning.TableSpecificationMap{
 "input1": &machinelearning.TableSpecificationArgs{
@@ -77,7 +77,7 @@ Type: pulumi.String("object"),
 MachineLearningWorkspace: &machinelearning.MachineLearningWorkspaceArgs{
 Id: pulumi.String("workspaceId"),
 },
-Output: interface{}{
+Output: &machinelearning.ServiceInputOutputSpecificationArgs{
 Description: pulumi.String(""),
 Properties: machinelearning.TableSpecificationMap{
 "output1": &machinelearning.TableSpecificationArgs{
@@ -100,7 +100,7 @@ Type: pulumi.String("object"),
 Title: pulumi.String(""),
 Type: pulumi.String("object"),
 },
-Package: interface{}{
+Package: &machinelearning.GraphPackageArgs{
 Edges: machinelearning.GraphEdgeArray{
 &machinelearning.GraphEdgeArgs{
 SourceNodeId: pulumi.String("node2"),

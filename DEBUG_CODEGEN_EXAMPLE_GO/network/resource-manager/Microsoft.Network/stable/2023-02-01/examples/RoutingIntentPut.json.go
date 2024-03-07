@@ -10,15 +10,15 @@ func main() {
 		_, err := network.NewRoutingIntent(ctx, "routingIntent", &network.RoutingIntentArgs{
 			ResourceGroupName: pulumi.String("rg1"),
 			RoutingIntentName: pulumi.String("Intent1"),
-			RoutingPolicies: []network.RoutingPolicyArgs{
-				{
+			RoutingPolicies: network.RoutingPolicyArray{
+				&network.RoutingPolicyArgs{
 					Destinations: pulumi.StringArray{
 						pulumi.String("Internet"),
 					},
 					Name:    pulumi.String("InternetTraffic"),
 					NextHop: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1"),
 				},
-				{
+				&network.RoutingPolicyArgs{
 					Destinations: pulumi.StringArray{
 						pulumi.String("PrivateTraffic"),
 					},

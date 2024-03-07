@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 cassandra_cluster = azure_native.documentdb.CassandraCluster("cassandraCluster",
     cluster_name="cassandra-prod",
     location="West US",
-    properties=azure_native.documentdb.ClusterResourceResponsePropertiesArgs(
+    properties=azure_native.documentdb.ClusterResourcePropertiesArgs(
         authentication_method="Cassandra",
         cassandra_version="3.11",
         client_certificates=[azure_native.documentdb.CertificateArgs(

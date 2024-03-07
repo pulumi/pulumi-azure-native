@@ -9,14 +9,14 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := storagecache.NewStorageTarget(ctx, "storageTarget", &storagecache.StorageTargetArgs{
 			CacheName: pulumi.String("sc1"),
-			Junctions: []storagecache.NamespaceJunctionArgs{
-				{
+			Junctions: storagecache.NamespaceJunctionArray{
+				&storagecache.NamespaceJunctionArgs{
 					NamespacePath:   pulumi.String("/path/on/cache"),
 					NfsAccessPolicy: pulumi.String("default"),
 					NfsExport:       pulumi.String("exp1"),
 					TargetPath:      pulumi.String("/path/on/exp1"),
 				},
-				{
+				&storagecache.NamespaceJunctionArgs{
 					NamespacePath:   pulumi.String("/path2/on/cache"),
 					NfsAccessPolicy: pulumi.String("rootSquash"),
 					NfsExport:       pulumi.String("exp2"),

@@ -8,14 +8,14 @@ func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := machinelearningservices.NewLabelingJob(ctx, "labelingJob", &machinelearningservices.LabelingJobArgs{
 Id: pulumi.String("testLabelingJob"),
-LabelingJobProperties: interface{}{
+LabelingJobProperties: &machinelearningservices.LabelingJobTypeArgs{
 Description: pulumi.String("string"),
 JobInstructions: &machinelearningservices.LabelingJobInstructionsArgs{
 Uri: pulumi.String("link/to/instructions"),
 },
 JobType: pulumi.String("Labeling"),
 LabelCategories: machinelearningservices.LabelCategoryMap{
-"myCategory1": interface{}{
+"myCategory1": &machinelearningservices.LabelCategoryArgs{
 Classes: interface{}{
 MyLabelClass1: &machinelearningservices.LabelClassArgs{
 DisplayName: pulumi.String("myLabelClass1"),
@@ -31,11 +31,11 @@ MultiSelect: pulumi.String("Disabled"),
 },
 "myCategory2": &machinelearningservices.LabelCategoryArgs{
 Classes: interface{}{
-MyLabelClass1: interface{}{
+MyLabelClass1: &machinelearningservices.LabelClassArgs{
 DisplayName: pulumi.String("myLabelClass1"),
 Subclasses: nil,
 },
-MyLabelClass2: &machinelearningservices.LabelClassArgs{
+MyLabelClass2: interface{}{
 DisplayName: pulumi.String("myLabelClass2"),
 Subclasses: nil,
 },

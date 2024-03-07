@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := customerinsights.NewKpi(ctx, "kpi", &customerinsights.KpiArgs{
-			Aliases: []customerinsights.KpiAliasArgs{
-				{
+			Aliases: customerinsights.KpiAliasArray{
+				&customerinsights.KpiAliasArgs{
 					AliasName:  pulumi.String("alias"),
 					Expression: pulumi.String("Id+4"),
 				},

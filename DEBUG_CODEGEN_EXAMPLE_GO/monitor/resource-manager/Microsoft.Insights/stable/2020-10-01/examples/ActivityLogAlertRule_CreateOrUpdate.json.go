@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := insights.NewActivityLogAlert(ctx, "activityLogAlert", &insights.ActivityLogAlertArgs{
-			Actions: insights.ActionListResponse{
+			Actions: &insights.ActionListArgs{
 				ActionGroups: insights.ActionGroupTypeArray{
 					&insights.ActionGroupTypeArgs{
 						ActionGroupId: pulumi.String("/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/actionGroups/SampleActionGroup"),
@@ -19,7 +19,7 @@ func main() {
 				},
 			},
 			ActivityLogAlertName: pulumi.String("SampleActivityLogAlertRule"),
-			Condition: insights.AlertRuleAllOfConditionResponse{
+			Condition: &insights.AlertRuleAllOfConditionArgs{
 				AllOf: insights.AlertRuleAnyOfOrLeafConditionArray{
 					&insights.AlertRuleAnyOfOrLeafConditionArgs{
 						Equals: pulumi.String("Administrative"),

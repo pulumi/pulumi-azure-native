@@ -12,8 +12,8 @@ func main() {
 				"key1": pulumi.String("value1"),
 			},
 			PrivateZoneName: pulumi.String("0.0.127.in-addr.arpa"),
-			PtrRecords: []network.PtrRecordArgs{
-				{
+			PtrRecords: network.PtrRecordArray{
+				&network.PtrRecordArgs{
 					Ptrdname: pulumi.String("localhost"),
 				},
 			},

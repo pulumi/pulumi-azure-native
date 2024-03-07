@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 customizable_connector_definition = azure_native.securityinsights.CustomizableConnectorDefinition("customizableConnectorDefinition",
-    connector_ui_config=azure_native.securityinsights.CustomizableConnectorUiConfigResponseArgs(
+    connector_ui_config=azure_native.securityinsights.CustomizableConnectorUiConfigArgs(
         availability=azure_native.securityinsights.ConnectorDefinitionsAvailabilityArgs(
             is_preview=False,
             status=1,
@@ -25,10 +25,10 @@ customizable_connector_definition = azure_native.securityinsights.CustomizableCo
             legend="GitHub audit log events",
             metric_name="Total events received",
         )],
-        instruction_steps=[{
-            "description": """Enable GitHub audit Logs. 
+        instruction_steps=[azure_native.securityinsights.InstructionStepArgs(
+            description="""Enable GitHub audit Logs. 
  Follow [this](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create or find your personal key""",
-            "instructions": [azure_native.securityinsights.InstructionStepDetailsArgs(
+            instructions=[azure_native.securityinsights.InstructionStepDetailsArgs(
                 parameters={
                     "clientIdLabel": "Client ID",
                     "clientSecretLabel": "Client Secret",
@@ -37,26 +37,26 @@ customizable_connector_definition = azure_native.securityinsights.CustomizableCo
                 },
                 type="OAuthForm",
             )],
-            "title": "Connect GitHub Enterprise Audit Log to Azure Sentinel",
-        }],
-        permissions={
-            "customs": [azure_native.securityinsights.CustomPermissionDetailsArgs(
+            title="Connect GitHub Enterprise Audit Log to Azure Sentinel",
+        )],
+        permissions=azure_native.securityinsights.ConnectorDefinitionsPermissionsArgs(
+            customs=[azure_native.securityinsights.CustomPermissionDetailsArgs(
                 description="You need access to GitHub personal token, the key should have 'admin:org' scope",
                 name="GitHub API personal token Key",
             )],
-            "resourceProvider": [{
-                "permissionsDisplayText": "read and write permissions are required.",
-                "provider": "Microsoft.OperationalInsights/workspaces",
-                "providerDisplayName": "Workspace",
-                "requiredPermissions": azure_native.securityinsights.ResourceProviderRequiredPermissionsArgs(
+            resource_provider=[azure_native.securityinsights.ConnectorDefinitionsResourceProviderArgs(
+                permissions_display_text="read and write permissions are required.",
+                provider="Microsoft.OperationalInsights/workspaces",
+                provider_display_name="Workspace",
+                required_permissions=azure_native.securityinsights.ResourceProviderRequiredPermissionsArgs(
                     action=False,
                     delete=False,
                     read=False,
                     write=True,
                 ),
-                "scope": "Workspace",
-            }],
-        },
+                scope="Workspace",
+            )],
+        ),
         publisher="GitHub",
         sample_queries=[azure_native.securityinsights.SampleQueryArgs(
             description="All logs",

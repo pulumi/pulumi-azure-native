@@ -11,17 +11,17 @@ return await Deployment.RunAsync(() =>
         EnableAcceleratedNetworking = true,
         IpConfigurations = new[]
         {
-            
+            new AzureNative.Network.Inputs.NetworkInterfaceIPConfigurationArgs
             {
-                { "name", "ipconfig1" },
-                { "publicIPAddress", new AzureNative.Network.Inputs.PublicIPAddressArgs
+                Name = "ipconfig1",
+                PublicIPAddress = new AzureNative.Network.Inputs.PublicIPAddressArgs
                 {
                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
-                } },
-                { "subnet", new AzureNative.Network.Inputs.SubnetArgs
+                },
+                Subnet = new AzureNative.Network.Inputs.SubnetArgs
                 {
                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
-                } },
+                },
             },
         },
         Location = "eastus",

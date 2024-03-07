@@ -14,11 +14,11 @@ func main() {
 			Frequency: pulumi.Int(600),
 			Kind:      insights.WebTestKindPing,
 			Location:  pulumi.String("South Central US"),
-			Locations: []insights.WebTestGeolocationArgs{
-				{
+			Locations: insights.WebTestGeolocationArray{
+				&insights.WebTestGeolocationArgs{
 					Location: pulumi.String("us-fl-mia-edge"),
 				},
-				{
+				&insights.WebTestGeolocationArgs{
 					Location: pulumi.String("apac-hk-hkn-azr"),
 				},
 			},

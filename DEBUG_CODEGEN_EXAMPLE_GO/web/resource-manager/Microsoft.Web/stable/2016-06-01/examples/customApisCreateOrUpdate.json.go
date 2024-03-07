@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := web.NewCustomApi(ctx, "customApi", &web.CustomApiArgs{
 			ApiName: pulumi.String("testCustomApi"),
-			Properties: web.CustomApiPropertiesDefinitionResponse{
+			Properties: &web.CustomApiPropertiesDefinitionArgs{
 				ApiDefinitions: &web.ApiResourceDefinitionsArgs{
 					OriginalSwaggerUrl: pulumi.String("https://tempuri.org/swagger.json"),
 				},

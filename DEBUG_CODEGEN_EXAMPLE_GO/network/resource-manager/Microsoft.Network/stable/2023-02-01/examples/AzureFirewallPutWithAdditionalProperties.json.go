@@ -12,19 +12,19 @@ func main() {
 				"key1": pulumi.String("value1"),
 				"key2": pulumi.String("value2"),
 			},
-			ApplicationRuleCollections: []network.AzureFirewallApplicationRuleCollectionArgs{
-				{
-					Action: {
+			ApplicationRuleCollections: network.AzureFirewallApplicationRuleCollectionArray{
+				&network.AzureFirewallApplicationRuleCollectionArgs{
+					Action: &network.AzureFirewallRCActionArgs{
 						Type: pulumi.String("Deny"),
 					},
 					Name:     pulumi.String("apprulecoll"),
 					Priority: pulumi.Int(110),
 					Rules: network.AzureFirewallApplicationRuleArray{
-						{
+						&network.AzureFirewallApplicationRuleArgs{
 							Description: pulumi.String("Deny inbound rule"),
 							Name:        pulumi.String("rule1"),
 							Protocols: network.AzureFirewallApplicationRuleProtocolArray{
-								{
+								&network.AzureFirewallApplicationRuleProtocolArgs{
 									Port:         pulumi.Int(443),
 									ProtocolType: pulumi.String("Https"),
 								},
@@ -41,27 +41,27 @@ func main() {
 				},
 			},
 			AzureFirewallName: pulumi.String("azurefirewall"),
-			IpConfigurations: []network.AzureFirewallIPConfigurationArgs{
-				{
+			IpConfigurations: network.AzureFirewallIPConfigurationArray{
+				&network.AzureFirewallIPConfigurationArgs{
 					Name: pulumi.String("azureFirewallIpConfiguration"),
-					PublicIPAddress: {
+					PublicIPAddress: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName"),
 					},
-					Subnet: {
+					Subnet: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/AzureFirewallSubnet"),
 					},
 				},
 			},
 			Location: pulumi.String("West US"),
-			NatRuleCollections: []network.AzureFirewallNatRuleCollectionArgs{
-				{
-					Action: {
+			NatRuleCollections: network.AzureFirewallNatRuleCollectionArray{
+				&network.AzureFirewallNatRuleCollectionArgs{
+					Action: &network.AzureFirewallNatRCActionArgs{
 						Type: pulumi.String("Dnat"),
 					},
 					Name:     pulumi.String("natrulecoll"),
 					Priority: pulumi.Int(112),
 					Rules: network.AzureFirewallNatRuleArray{
-						{
+						&network.AzureFirewallNatRuleArgs{
 							Description: pulumi.String("D-NAT all outbound web traffic for inspection"),
 							DestinationAddresses: pulumi.StringArray{
 								pulumi.String("1.2.3.4"),
@@ -79,7 +79,7 @@ func main() {
 							TranslatedAddress: pulumi.String("1.2.3.5"),
 							TranslatedPort:    pulumi.String("8443"),
 						},
-						{
+						&network.AzureFirewallNatRuleArgs{
 							Description: pulumi.String("D-NAT all inbound web traffic for inspection"),
 							DestinationAddresses: pulumi.StringArray{
 								pulumi.String("1.2.3.4"),
@@ -100,15 +100,15 @@ func main() {
 					},
 				},
 			},
-			NetworkRuleCollections: []network.AzureFirewallNetworkRuleCollectionArgs{
-				{
-					Action: {
+			NetworkRuleCollections: network.AzureFirewallNetworkRuleCollectionArray{
+				&network.AzureFirewallNetworkRuleCollectionArgs{
+					Action: &network.AzureFirewallRCActionArgs{
 						Type: pulumi.String("Deny"),
 					},
 					Name:     pulumi.String("netrulecoll"),
 					Priority: pulumi.Int(112),
 					Rules: network.AzureFirewallNetworkRuleArray{
-						{
+						&network.AzureFirewallNetworkRuleArgs{
 							Description: pulumi.String("Block traffic based on source IPs and ports"),
 							DestinationAddresses: pulumi.StringArray{
 								pulumi.String("*"),
@@ -126,7 +126,7 @@ func main() {
 								pulumi.String("10.1.4.12-10.1.4.255"),
 							},
 						},
-						{
+						&network.AzureFirewallNetworkRuleArgs{
 							Description: pulumi.String("Block traffic based on source IPs and ports to amazon"),
 							DestinationFqdns: pulumi.StringArray{
 								pulumi.String("www.amazon.com"),

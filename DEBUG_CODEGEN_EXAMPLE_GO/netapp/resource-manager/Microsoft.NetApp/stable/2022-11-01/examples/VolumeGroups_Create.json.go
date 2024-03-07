@@ -18,8 +18,8 @@ func main() {
 			Location:          pulumi.String("westus"),
 			ResourceGroupName: pulumi.String("myRG"),
 			VolumeGroupName:   pulumi.String("group1"),
-			Volumes: []netapp.VolumeGroupVolumePropertiesArgs{
-				{
+			Volumes: netapp.VolumeGroupVolumePropertiesArray{
+				&netapp.VolumeGroupVolumePropertiesArgs{
 					CapacityPoolResourceId:  pulumi.String("/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1"),
 					CreationToken:           pulumi.String("test-data-mnt00001"),
 					Name:                    pulumi.String("test-data-mnt00001"),
@@ -30,7 +30,7 @@ func main() {
 					UsageThreshold:          pulumi.Float64(107374182400),
 					VolumeSpecName:          pulumi.String("data"),
 				},
-				{
+				&netapp.VolumeGroupVolumePropertiesArgs{
 					CapacityPoolResourceId:  pulumi.String("/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1"),
 					CreationToken:           pulumi.String("test-log-mnt00001"),
 					Name:                    pulumi.String("test-log-mnt00001"),
@@ -41,7 +41,7 @@ func main() {
 					UsageThreshold:          pulumi.Float64(107374182400),
 					VolumeSpecName:          pulumi.String("log"),
 				},
-				{
+				&netapp.VolumeGroupVolumePropertiesArgs{
 					CapacityPoolResourceId:  pulumi.String("/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1"),
 					CreationToken:           pulumi.String("test-shared"),
 					Name:                    pulumi.String("test-shared"),
