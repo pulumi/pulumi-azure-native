@@ -2703,6 +2703,15 @@
       "listListPendingConnection",
       "listListPendingFlow",
       "listListSchema"
+    ],
+    "2024-01-25": [
+      "Connection",
+      "Flow",
+      "Pipeline",
+      "listAzureDataTransferApprovedSchemas",
+      "listListPendingConnection",
+      "listListPendingFlow",
+      "listListSchema"
     ]
   },
   "AzureLargeInstance": {
@@ -2941,6 +2950,25 @@
       "Update",
       "UpdateRun",
       "UpdateSummary"
+    ],
+    "2024-01-01": [
+      "ArcSetting",
+      "Cluster",
+      "DeploymentSetting",
+      "EdgeDevice",
+      "Extension",
+      "GalleryImage",
+      "GuestAgent",
+      "LogicalNetwork",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "SecuritySetting",
+      "StorageContainer",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary",
+      "VirtualHardDisk",
+      "VirtualMachineInstance"
     ]
   },
   "BareMetalInfrastructure": {
@@ -3077,6 +3105,13 @@
       "listBatchAccountKeys"
     ],
     "2023-11-01": [
+      "Application",
+      "ApplicationPackage",
+      "BatchAccount",
+      "Pool",
+      "listBatchAccountKeys"
+    ],
+    "2024-02-01": [
       "Application",
       "ApplicationPackage",
       "BatchAccount",
@@ -6853,11 +6888,6 @@
       "AccessConnector"
     ],
     "2023-09-15-preview": [
-      "PrivateEndpointConnection",
-      "Workspace",
-      "vNetPeering"
-    ],
-    "2024-02-01-preview": [
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
@@ -16560,6 +16590,13 @@
       "Spacecraft",
       "listSpacecraftAvailableContacts"
     ],
+    "2024-03-01": [
+      "EdgeSite",
+      "GroundStation",
+      "L2Connection",
+      "listEdgeSiteL2Connections",
+      "listGroundStationL2Connections"
+    ],
     "2024-03-01-preview": [
       "EdgeSite",
       "GroundStation",
@@ -18719,6 +18756,42 @@
       "getEntitiesGetTimeline",
       "getEntityInsights",
       "listSourceControlRepositories"
+    ],
+    "2024-01-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "DataConnectorDefinition",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listGeodataByIp",
+      "listSourceControlRepositories",
+      "listWhoisByDomain"
     ]
   },
   "SerialConsole": {
@@ -20220,6 +20293,72 @@
       "VirtualNetworkRule",
       "WorkloadClassifier",
       "WorkloadGroup"
+    ],
+    "2023-08-01-preview": [
+      "BackupShortTermRetentionPolicy",
+      "DataMaskingPolicy",
+      "Database",
+      "DatabaseAdvisor",
+      "DatabaseBlobAuditingPolicy",
+      "DatabaseSecurityAlertPolicy",
+      "DatabaseSqlVulnerabilityAssessmentRuleBaseline",
+      "DatabaseVulnerabilityAssessment",
+      "DatabaseVulnerabilityAssessmentRuleBaseline",
+      "DistributedAvailabilityGroup",
+      "ElasticPool",
+      "EncryptionProtector",
+      "ExtendedDatabaseBlobAuditingPolicy",
+      "ExtendedServerBlobAuditingPolicy",
+      "FailoverGroup",
+      "FirewallRule",
+      "GeoBackupPolicy",
+      "IPv6FirewallRule",
+      "InstanceFailoverGroup",
+      "InstancePool",
+      "Job",
+      "JobAgent",
+      "JobCredential",
+      "JobPrivateEndpoint",
+      "JobStep",
+      "JobTargetGroup",
+      "LongTermRetentionPolicy",
+      "ManagedDatabase",
+      "ManagedDatabaseSensitivityLabel",
+      "ManagedDatabaseVulnerabilityAssessment",
+      "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+      "ManagedInstance",
+      "ManagedInstanceAdministrator",
+      "ManagedInstanceAzureADOnlyAuthentication",
+      "ManagedInstanceKey",
+      "ManagedInstanceLongTermRetentionPolicy",
+      "ManagedInstancePrivateEndpointConnection",
+      "ManagedInstanceVulnerabilityAssessment",
+      "ManagedServerDnsAlias",
+      "OutboundFirewallRule",
+      "PrivateEndpointConnection",
+      "ReplicationLink",
+      "SensitivityLabel",
+      "Server",
+      "ServerAdvisor",
+      "ServerAzureADAdministrator",
+      "ServerAzureADOnlyAuthentication",
+      "ServerBlobAuditingPolicy",
+      "ServerDnsAlias",
+      "ServerKey",
+      "ServerSecurityAlertPolicy",
+      "ServerTrustCertificate",
+      "ServerTrustGroup",
+      "ServerVulnerabilityAssessment",
+      "SqlVulnerabilityAssessmentRuleBaseline",
+      "SqlVulnerabilityAssessmentsSetting",
+      "StartStopManagedInstanceSchedule",
+      "SyncAgent",
+      "SyncGroup",
+      "SyncMember",
+      "TransparentDataEncryption",
+      "VirtualNetworkRule",
+      "WorkloadClassifier",
+      "WorkloadGroup"
     ]
   },
   "SqlVirtualMachine": {
@@ -20592,6 +20731,28 @@
       "listStorageAccountServiceSAS"
     ],
     "2023-01-01": [
+      "BlobContainer",
+      "BlobContainerImmutabilityPolicy",
+      "BlobInventoryPolicy",
+      "BlobServiceProperties",
+      "EncryptionScope",
+      "FileServiceProperties",
+      "FileShare",
+      "LocalUser",
+      "ManagementPolicy",
+      "ObjectReplicationPolicy",
+      "PrivateEndpointConnection",
+      "Queue",
+      "QueueServiceProperties",
+      "StorageAccount",
+      "Table",
+      "TableServiceProperties",
+      "listLocalUserKeys",
+      "listStorageAccountKeys",
+      "listStorageAccountSAS",
+      "listStorageAccountServiceSAS"
+    ],
+    "2023-04-01": [
       "BlobContainer",
       "BlobContainerImmutabilityPolicy",
       "BlobInventoryPolicy",
