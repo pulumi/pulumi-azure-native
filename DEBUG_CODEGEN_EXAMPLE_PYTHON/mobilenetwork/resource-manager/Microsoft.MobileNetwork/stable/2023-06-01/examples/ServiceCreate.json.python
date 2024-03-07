@@ -1,0 +1,41 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+service = azure_native.mobilenetwork.Service("service",
+    location="eastus",
+    mobile_network_name="testMobileNetwork",
+    pcc_rules=[azure_native.mobilenetwork.PccRuleConfigurationArgs(
+        rule_name="default-rule",
+        rule_precedence=255,
+        rule_qos_policy=azure_native.mobilenetwork.PccRuleQosPolicyArgs(
+            allocation_and_retention_priority_level=9,
+            five_qi=9,
+            maximum_bit_rate=azure_native.mobilenetwork.AmbrArgs(
+                downlink="1 Gbps",
+                uplink="500 Mbps",
+            ),
+            preemption_capability="NotPreempt",
+            preemption_vulnerability="Preemptable",
+        ),
+        service_data_flow_templates=[azure_native.mobilenetwork.ServiceDataFlowTemplateArgs(
+            direction="Uplink",
+            ports=[],
+            protocol=["ip"],
+            remote_ip_list=["10.3.4.0/24"],
+            template_name="IP-to-server",
+        )],
+        traffic_control="Enabled",
+    )],
+    resource_group_name="rg1",
+    service_name="TestService",
+    service_precedence=255,
+    service_qos_policy=azure_native.mobilenetwork.QosPolicyArgs(
+        allocation_and_retention_priority_level=9,
+        five_qi=9,
+        maximum_bit_rate=azure_native.mobilenetwork.AmbrArgs(
+            downlink="1 Gbps",
+            uplink="500 Mbps",
+        ),
+        preemption_capability="NotPreempt",
+        preemption_vulnerability="Preemptable",
+    ))

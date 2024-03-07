@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+nat_gateway = azure_native.network.NatGateway("natGateway",
+    location="westus",
+    nat_gateway_name="test-natgateway",
+    public_ip_addresses=[azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+    )],
+    public_ip_prefixes=[azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+    )],
+    resource_group_name="rg1",
+    sku=azure_native.network.NatGatewaySkuArgs(
+        name="Standard",
+    ))

@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+management_association = azure_native.operationsmanagement.ManagementAssociation("managementAssociation",
+    location="East US",
+    management_association_name="managementAssociation1",
+    properties=azure_native.operationsmanagement.ManagementAssociationPropertiesArgs(
+        application_id="/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.Appliance/Appliances/appliance1",
+    ),
+    provider_name="providerName",
+    resource_group_name="rg1",
+    resource_name_="resourceName",
+    resource_type="resourceType")

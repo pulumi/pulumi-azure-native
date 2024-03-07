@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+enterprise_policy = azure_native.powerplatform.EnterprisePolicy("enterprisePolicy",
+    enterprise_policy_name="enterprisePolicy",
+    identity=azure_native.powerplatform.EnterprisePolicyIdentityArgs(
+        type=azure_native.powerplatform.ResourceIdentityType.SYSTEM_ASSIGNED,
+    ),
+    kind="Lockbox",
+    location="East US",
+    resource_group_name="resourceGroup",
+    tags={
+        "Organization": "Administration",
+    })

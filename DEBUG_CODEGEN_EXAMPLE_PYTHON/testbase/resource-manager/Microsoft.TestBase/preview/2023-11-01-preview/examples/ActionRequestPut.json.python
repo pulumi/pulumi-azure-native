@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+action_request = azure_native.testbase.ActionRequest("actionRequest",
+    action_request_name="167184141414254",
+    resource_group_name="contoso-rg",
+    test_base_account_name="contoso-testBaseAccount")

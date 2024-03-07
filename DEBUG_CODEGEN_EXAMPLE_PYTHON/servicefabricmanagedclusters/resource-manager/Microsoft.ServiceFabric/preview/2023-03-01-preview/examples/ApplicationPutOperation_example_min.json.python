@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_cluster_application = azure_native.servicefabric.ManagedClusterApplication("managedClusterApplication",
+    application_name="myApp",
+    cluster_name="myCluster",
+    location="eastus",
+    resource_group_name="resRg",
+    version="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0")

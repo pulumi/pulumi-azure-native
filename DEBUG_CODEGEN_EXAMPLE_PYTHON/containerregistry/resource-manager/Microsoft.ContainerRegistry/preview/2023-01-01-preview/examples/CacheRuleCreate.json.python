@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cache_rule = azure_native.containerregistry.CacheRule("cacheRule",
+    cache_rule_name="myCacheRule",
+    credential_set_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet",
+    registry_name="myRegistry",
+    resource_group_name="myResourceGroup",
+    source_repository="docker.io/library/hello-world",
+    target_repository="cached-docker-hub/hello-world")

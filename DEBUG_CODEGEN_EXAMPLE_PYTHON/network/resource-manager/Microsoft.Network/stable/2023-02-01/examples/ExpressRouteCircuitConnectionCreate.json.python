@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+express_route_circuit_connection = azure_native.network.ExpressRouteCircuitConnection("expressRouteCircuitConnection",
+    address_prefix="10.0.0.0/29",
+    authorization_key="946a1918-b7a2-4917-b43c-8c4cdaee006a",
+    circuit_name="ExpressRouteARMCircuitA",
+    connection_name="circuitConnectionUSAUS",
+    express_route_circuit_peering=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/dedharcktlocal/peerings/AzurePrivatePeering",
+    ),
+    ipv6_circuit_connection_config=azure_native.network.Ipv6CircuitConnectionConfigArgs(
+        address_prefix="aa:bb::/125",
+    ),
+    peer_express_route_circuit_peering=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid2/resourceGroups/dedharcktpeer/providers/Microsoft.Network/expressRouteCircuits/dedharcktremote/peerings/AzurePrivatePeering",
+    ),
+    peering_name="AzurePrivatePeering",
+    resource_group_name="rg1")

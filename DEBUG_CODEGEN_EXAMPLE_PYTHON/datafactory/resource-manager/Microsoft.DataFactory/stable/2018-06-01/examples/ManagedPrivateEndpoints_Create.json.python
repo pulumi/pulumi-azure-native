@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_private_endpoint = azure_native.datafactory.ManagedPrivateEndpoint("managedPrivateEndpoint",
+    factory_name="exampleFactoryName",
+    managed_private_endpoint_name="exampleManagedPrivateEndpointName",
+    managed_virtual_network_name="exampleManagedVirtualNetworkName",
+    properties=azure_native.datafactory.ManagedPrivateEndpointArgs(
+        fqdns=[],
+        group_id="blob",
+        private_link_resource_id="/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleBlobStorage",
+    ),
+    resource_group_name="exampleResourceGroup")

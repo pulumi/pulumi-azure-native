@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+configuration = azure_native.dbformariadb.Configuration("configuration",
+    configuration_name="event_scheduler",
+    resource_group_name="TestGroup",
+    server_name="testserver",
+    source="user-override",
+    value="off")

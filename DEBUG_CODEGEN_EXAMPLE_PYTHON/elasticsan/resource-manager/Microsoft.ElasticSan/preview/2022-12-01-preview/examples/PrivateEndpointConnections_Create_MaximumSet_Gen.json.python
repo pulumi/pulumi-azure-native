@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.elasticsan.PrivateEndpointConnection("privateEndpointConnection",
+    elastic_san_name="elasticsanname",
+    group_ids=["sytxzqlcoapcaywthgwvwcw"],
+    private_endpoint_connection_name="privateendpointconnectionname",
+    private_link_service_connection_state=azure_native.elasticsan.PrivateLinkServiceConnectionStateArgs(
+        actions_required="None",
+        description="Auto-Approved",
+        status="Pending",
+    ),
+    resource_group_name="resourcegroupname")

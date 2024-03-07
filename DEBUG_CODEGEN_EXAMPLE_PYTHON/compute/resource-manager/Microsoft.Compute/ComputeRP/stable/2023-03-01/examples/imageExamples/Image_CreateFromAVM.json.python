@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+image = azure_native.compute.Image("image",
+    image_name="myImage",
+    location="West US",
+    resource_group_name="myResourceGroup",
+    source_virtual_machine=azure_native.compute.SubResourceArgs(
+        id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+    ))

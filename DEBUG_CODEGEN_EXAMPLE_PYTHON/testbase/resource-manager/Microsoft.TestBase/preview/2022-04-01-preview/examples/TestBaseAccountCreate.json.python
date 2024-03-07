@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+test_base_account = azure_native.testbase.TestBaseAccount("testBaseAccount",
+    location="westus",
+    resource_group_name="contoso-rg1",
+    sku=azure_native.testbase.TestBaseAccountSKUArgs(
+        name="S0",
+        tier="Standard",
+    ),
+    test_base_account_name="contoso-testBaseAccount1")

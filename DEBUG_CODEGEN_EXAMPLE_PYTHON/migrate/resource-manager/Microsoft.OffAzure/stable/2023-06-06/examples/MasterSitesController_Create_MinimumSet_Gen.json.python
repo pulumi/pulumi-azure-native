@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+master_sites_controller = azure_native.offazure.MasterSitesController("masterSitesController",
+    location="plyak",
+    resource_group_name="rgmigrate",
+    site_name="-3A8SuY-jRr63J")

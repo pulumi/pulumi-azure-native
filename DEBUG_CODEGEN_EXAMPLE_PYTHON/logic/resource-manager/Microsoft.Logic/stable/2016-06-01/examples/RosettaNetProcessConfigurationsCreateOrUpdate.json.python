@@ -1,0 +1,54 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+rosetta_net_process_configuration = azure_native.logic.RosettaNetProcessConfiguration("rosettaNetProcessConfiguration",
+    activity_settings=azure_native.logic.RosettaNetPipActivitySettingsArgs(
+        acknowledgment_of_receipt_settings=azure_native.logic.RosettaNetPipAcknowledgmentOfReceiptSettingsArgs(
+            is_non_repudiation_required=False,
+            time_to_acknowledge_in_seconds=600,
+        ),
+        activity_behavior=azure_native.logic.RosettaNetPipActivityBehaviorArgs(
+            action_type=azure_native.logic.RosettaNetActionType.DOUBLE_ACTION,
+            is_authorization_required=False,
+            is_secured_transport_required=False,
+            non_repudiation_of_origin_and_content=False,
+            persistent_confidentiality_scope=azure_native.logic.RosettaNetPipConfidentialityScope.NONE,
+            response_type=azure_native.logic.RosettaNetResponseType.ASYNC_,
+            retry_count=2,
+            time_to_perform_in_seconds=7200,
+        ),
+        activity_type=azure_native.logic.RosettaNetPipActivityType.REQUEST_RESPONSE,
+    ),
+    description="Test description",
+    initiator_role_settings=azure_native.logic.RosettaNetPipRoleSettingsArgs(
+        action="Purchase Order Request",
+        business_document=azure_native.logic.RosettaNetPipBusinessDocumentArgs(
+            description="A request to accept a purchase order for fulfillment..",
+            name="Purchase Order Request",
+            version="V02.02.00",
+        ),
+        description="This partner role creates a demand for a product or service.",
+        role="Buyer",
+        role_type=azure_native.logic.RosettaNetPipRoleType.FUNCTIONAL,
+        service="Buyer Service",
+        service_classification="Business Service",
+    ),
+    integration_account_name="testia123",
+    process_code="3A4",
+    process_name="Request Purchase Order",
+    process_version="V02.02.00",
+    resource_group_name="testrg123",
+    responder_role_settings=azure_native.logic.RosettaNetPipRoleSettingsArgs(
+        action="Purchase Order Confirmation Action",
+        business_document=azure_native.logic.RosettaNetPipBusinessDocumentArgs(
+            description="Formally confirms the status of line item(s) in a Purchase Order. A Purchase Order line item may have one of the following states: accepted, rejected, or pending.",
+            name="Purchase Order Confirmation",
+            version="V02.02.00",
+        ),
+        description="An organization that sells products to partners in the supply chain.",
+        role="Seller",
+        role_type=azure_native.logic.RosettaNetPipRoleType.ORGANIZATIONAL,
+        service="Seller Service",
+        service_classification="Business Service",
+    ),
+    rosetta_net_process_configuration_name="3A4")

@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+authorization_server = azure_native.apimanagement.AuthorizationServer("authorizationServer",
+    authorization_endpoint="https://www.contoso.com/oauth2/auth",
+    authorization_methods=[azure_native.apimanagement.AuthorizationMethod.GET],
+    authsid="newauthServer",
+    bearer_token_sending_methods=["authorizationHeader"],
+    client_id="1",
+    client_registration_endpoint="https://www.contoso.com/apps",
+    client_secret="2",
+    default_scope="read write",
+    description="test server",
+    display_name="test2",
+    grant_types=[
+        "authorizationCode",
+        "implicit",
+    ],
+    resource_group_name="rg1",
+    resource_owner_password="pwd",
+    resource_owner_username="un",
+    service_name="apimService1",
+    support_state=True,
+    token_endpoint="https://www.contoso.com/oauth2/token",
+    use_in_api_documentation=True,
+    use_in_test_console=False)

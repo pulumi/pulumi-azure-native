@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+firewall_policy_rule_group = azure_native.network.FirewallPolicyRuleGroup("firewallPolicyRuleGroup",
+    firewall_policy_name="firewallPolicy",
+    priority=110,
+    resource_group_name="rg1",
+    rule_group_name="ruleGroup1",
+    rules=[azure_native.network.FirewallPolicyFilterRuleArgs(
+        action=azure_native.network.FirewallPolicyFilterRuleActionArgs(
+            type="Deny",
+        ),
+        name="Example-Filter-Rule",
+        rule_conditions=[azure_native.network.NetworkRuleConditionArgs(
+            destination_ip_groups=["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2"],
+            destination_ports=["*"],
+            ip_protocols=["TCP"],
+            name="network-condition1",
+            rule_condition_type="NetworkRuleCondition",
+            source_ip_groups=["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1"],
+        )],
+        rule_type="FirewallPolicyFilterRule",
+    )])

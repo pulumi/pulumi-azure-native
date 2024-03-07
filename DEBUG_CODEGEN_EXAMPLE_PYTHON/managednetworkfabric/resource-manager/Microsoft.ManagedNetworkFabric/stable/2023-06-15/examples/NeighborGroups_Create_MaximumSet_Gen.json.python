@@ -1,0 +1,25 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+neighbor_group = azure_native.managednetworkfabric.NeighborGroup("neighborGroup",
+    annotation="annotation",
+    destination=azure_native.managednetworkfabric.NeighborGroupDestinationArgs(
+        ipv4_addresses=[
+            "10.10.10.10",
+            "20.10.10.10",
+            "30.10.10.10",
+            "40.10.10.10",
+            "50.10.10.10",
+            "60.10.10.10",
+            "70.10.10.10",
+            "80.10.10.10",
+            "90.10.10.10",
+        ],
+        ipv6_addresses=["2F::/100"],
+    ),
+    location="eastus",
+    neighbor_group_name="example-neighborGroup",
+    resource_group_name="example-rg",
+    tags={
+        "key8107": "1234",
+    })

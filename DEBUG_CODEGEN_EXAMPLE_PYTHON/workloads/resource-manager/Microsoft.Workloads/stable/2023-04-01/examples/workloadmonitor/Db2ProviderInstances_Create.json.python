@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+provider_instance = azure_native.workloads.ProviderInstance("providerInstance",
+    monitor_name="mySapMonitor",
+    provider_instance_name="myProviderInstance",
+    provider_settings=azure_native.workloads.DB2ProviderInstancePropertiesArgs(
+        db_name="dbName",
+        db_password="password",
+        db_password_uri="",
+        db_port="dbPort",
+        db_username="username",
+        hostname="hostname",
+        provider_type="Db2",
+        sap_sid="SID",
+        ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+        ssl_preference="ServerCertificate",
+    ),
+    resource_group_name="myResourceGroup")

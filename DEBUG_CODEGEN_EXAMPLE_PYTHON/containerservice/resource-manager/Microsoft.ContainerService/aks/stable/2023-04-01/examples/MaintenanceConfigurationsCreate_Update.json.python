@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+maintenance_configuration = azure_native.containerservice.MaintenanceConfiguration("maintenanceConfiguration",
+    config_name="default",
+    not_allowed_time=[azure_native.containerservice.TimeSpanArgs(
+        end="2020-11-30T12:00:00Z",
+        start="2020-11-26T03:00:00Z",
+    )],
+    resource_group_name="rg1",
+    resource_name_="clustername1",
+    time_in_week=[azure_native.containerservice.TimeInWeekArgs(
+        day="Monday",
+        hour_slots=[
+            1,
+            2,
+        ],
+    )])

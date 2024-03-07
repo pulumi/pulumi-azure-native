@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+custom_domain = azure_native.appplatform.CustomDomain("customDomain",
+    app_name="myapp",
+    domain_name="mydomain.com",
+    properties=azure_native.appplatform.CustomDomainPropertiesArgs(
+        cert_name="mycert",
+        thumbprint="934367bf1c97033f877db0f15cb1b586957d3133",
+    ),
+    resource_group_name="myResourceGroup",
+    service_name="myservice")

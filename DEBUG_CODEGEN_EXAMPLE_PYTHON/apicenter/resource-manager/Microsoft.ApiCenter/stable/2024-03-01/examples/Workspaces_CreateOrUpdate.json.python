@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace = azure_native.apicenter.Workspace("workspace",
+    resource_group_name="contoso-resources",
+    service_name="contoso",
+    title="default",
+    workspace_name="default")

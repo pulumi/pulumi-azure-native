@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+vault = azure_native.recoveryservices.Vault("vault",
+    identity=azure_native.recoveryservices.IdentityDataArgs(
+        type="SystemAssigned",
+    ),
+    location="West US",
+    properties=azure_native.recoveryservices.VaultPropertiesArgs(
+        monitoring_settings=azure_native.recoveryservices.MonitoringSettingsArgs(
+            azure_monitor_alert_settings=azure_native.recoveryservices.AzureMonitorAlertSettingsArgs(
+                alerts_for_all_job_failures="Enabled",
+            ),
+            classic_alert_settings=azure_native.recoveryservices.ClassicAlertSettingsArgs(
+                alerts_for_critical_operations="Disabled",
+            ),
+        ),
+        public_network_access="Enabled",
+    ),
+    resource_group_name="Default-RecoveryServices-ResourceGroup",
+    sku=azure_native.recoveryservices.SkuArgs(
+        name="Standard",
+    ),
+    vault_name="swaggerExample")

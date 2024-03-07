@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+extended_database_blob_auditing_policy = azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy",
+    blob_auditing_policy_name="default",
+    database_name="testdb",
+    resource_group_name="blobauditingtest-4799",
+    server_name="blobauditingtest-6440",
+    state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+    storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    storage_endpoint="https://mystorage.blob.core.windows.net")

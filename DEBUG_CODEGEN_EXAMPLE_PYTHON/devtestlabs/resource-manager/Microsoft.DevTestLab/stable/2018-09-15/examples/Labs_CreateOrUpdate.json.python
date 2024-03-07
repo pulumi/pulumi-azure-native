@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+lab = azure_native.devtestlab.Lab("lab",
+    lab_storage_type="{Standard|Premium}",
+    location="{location}",
+    name="{labName}",
+    resource_group_name="resourceGroupName",
+    tags={
+        "tagName1": "tagValue1",
+    })

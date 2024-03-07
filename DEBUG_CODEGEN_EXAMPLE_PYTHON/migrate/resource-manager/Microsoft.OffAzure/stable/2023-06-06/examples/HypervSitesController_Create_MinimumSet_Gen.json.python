@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hyperv_sites_controller = azure_native.offazure.HypervSitesController("hypervSitesController",
+    location="sctymxdndonxgejdhi",
+    resource_group_name="rgmigrate",
+    site_name="Y-C-7---V49GV-058XE-6P5")

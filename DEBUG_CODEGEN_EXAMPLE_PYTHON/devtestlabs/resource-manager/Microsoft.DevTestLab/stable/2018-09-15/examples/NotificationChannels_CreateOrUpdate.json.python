@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+notification_channel = azure_native.devtestlab.NotificationChannel("notificationChannel",
+    description="Integration configured for auto-shutdown",
+    email_recipient="{email}",
+    events=[azure_native.devtestlab.EventArgs(
+        event_name="AutoShutdown",
+    )],
+    lab_name="{labName}",
+    name="{notificationChannelName}",
+    notification_locale="en",
+    resource_group_name="resourceGroupName",
+    web_hook_url="{webhookUrl}")

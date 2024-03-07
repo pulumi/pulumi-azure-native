@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+policy_assignment = azure_native.authorization.PolicyAssignment("policyAssignment",
+    description="Force resource names to begin with given DeptA and end with -LC",
+    display_name="Enforce resource naming rules",
+    enforcement_mode="DoNotEnforce",
+    metadata={
+        "assignedBy": "Special Someone",
+    },
+    parameters={
+        "prefix": azure_native.authorization.ParameterValuesValueArgs(
+            value="DeptA",
+        ),
+        "suffix": azure_native.authorization.ParameterValuesValueArgs(
+            value="-LC",
+        ),
+    },
+    policy_assignment_name="EnforceNaming",
+    policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")

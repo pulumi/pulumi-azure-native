@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+channel = azure_native.botservice.Channel("channel",
+    channel_name="DirectLineSpeechChannel",
+    location="global",
+    properties=azure_native.botservice.DirectLineSpeechChannelArgs(
+        channel_name="DirectLineSpeechChannel",
+        properties=azure_native.botservice.DirectLineSpeechChannelPropertiesArgs(
+            cognitive_service_region="XcognitiveServiceRegionX",
+            cognitive_service_subscription_key="XcognitiveServiceSubscriptionKeyX",
+            is_enabled=True,
+        ),
+    ),
+    resource_group_name="OneResourceGroupName",
+    resource_name_="samplebotname")

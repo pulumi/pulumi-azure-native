@@ -1,0 +1,41 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_pub_sub = azure_native.webpubsub.WebPubSub("webPubSub",
+    disable_aad_auth=False,
+    disable_local_auth=False,
+    identity=azure_native.webpubsub.ManagedIdentityArgs(
+        type="SystemAssigned",
+    ),
+    live_trace_configuration=azure_native.webpubsub.LiveTraceConfigurationArgs(
+        categories=[azure_native.webpubsub.LiveTraceCategoryArgs(
+            enabled="true",
+            name="ConnectivityLogs",
+        )],
+        enabled="false",
+    ),
+    location="eastus",
+    network_acls=azure_native.webpubsub.WebPubSubNetworkACLsArgs(
+        default_action="Deny",
+        private_endpoints=[azure_native.webpubsub.PrivateEndpointACLArgs(
+            allow=["ServerConnection"],
+            name="mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+        )],
+        public_network=azure_native.webpubsub.NetworkACLArgs(
+            allow=["ClientConnection"],
+        ),
+    ),
+    public_network_access="Enabled",
+    resource_group_name="myResourceGroup",
+    resource_name_="myWebPubSubService",
+    sku=azure_native.webpubsub.ResourceSkuArgs(
+        capacity=1,
+        name="Premium_P1",
+        tier="Premium",
+    ),
+    tags={
+        "key1": "value1",
+    },
+    tls=azure_native.webpubsub.WebPubSubTlsSettingsArgs(
+        client_cert_enabled=False,
+    ))

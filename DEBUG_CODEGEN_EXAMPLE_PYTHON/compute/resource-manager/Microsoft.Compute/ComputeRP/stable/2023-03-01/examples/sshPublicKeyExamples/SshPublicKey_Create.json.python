@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+ssh_public_key = azure_native.compute.SshPublicKey("sshPublicKey",
+    location="westus",
+    public_key="{ssh-rsa public key}",
+    resource_group_name="myResourceGroup",
+    ssh_public_key_name="mySshPublicKeyName")

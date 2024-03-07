@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_service_design_group = azure_native.hybridnetwork.NetworkServiceDesignGroup("networkServiceDesignGroup",
+    location="eastus",
+    network_service_design_group_name="TestNetworkServiceDesignGroupName",
+    publisher_name="TestPublisher",
+    resource_group_name="rg")

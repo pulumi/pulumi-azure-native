@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+storage_target = azure_native.storagecache.StorageTarget("storageTarget",
+    blob_nfs=azure_native.storagecache.BlobNfsTargetArgs(
+        target="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/blofnfs/blobServices/default/containers/blobnfs",
+        usage_model="READ_WRITE",
+        verification_timer=28800,
+        write_back_timer=3600,
+    ),
+    cache_name="sc1",
+    junctions=[azure_native.storagecache.NamespaceJunctionArgs(
+        namespace_path="/blobnfs",
+    )],
+    resource_group_name="scgroup",
+    storage_target_name="st1",
+    target_type="blobNfs")

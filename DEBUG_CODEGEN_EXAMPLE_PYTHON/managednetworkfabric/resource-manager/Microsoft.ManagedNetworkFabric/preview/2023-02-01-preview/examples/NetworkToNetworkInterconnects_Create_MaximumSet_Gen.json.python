@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_to_network_interconnect = azure_native.managednetworkfabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect",
+    is_management_type="True",
+    layer2_configuration=azure_native.managednetworkfabric.Layer2ConfigurationArgs(
+        mtu=1500,
+        port_count=10,
+    ),
+    layer3_configuration=azure_native.managednetworkfabric.Layer3ConfigurationArgs(
+        export_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+        import_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+        peer_asn=50272,
+        primary_ipv4_prefix="172.31.0.0/31",
+        primary_ipv6_prefix="3FFE:FFFF:0:CD30::a0/126",
+        secondary_ipv4_prefix="172.31.0.20/31",
+        secondary_ipv6_prefix="3FFE:FFFF:0:CD30::a4/126",
+        vlan_id=2064,
+    ),
+    network_fabric_name="FabricName",
+    network_to_network_interconnect_name="DefaultNNI",
+    nni_type="CE",
+    resource_group_name="resourceGroupName",
+    use_option_b="False")

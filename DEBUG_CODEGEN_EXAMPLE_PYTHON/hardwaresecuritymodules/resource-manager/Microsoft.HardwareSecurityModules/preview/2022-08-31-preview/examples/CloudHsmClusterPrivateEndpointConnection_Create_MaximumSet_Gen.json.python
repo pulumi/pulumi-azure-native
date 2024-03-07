@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cloud_hsm_cluster_private_endpoint_connection = azure_native.hardwaresecuritymodules.CloudHsmClusterPrivateEndpointConnection("cloudHsmClusterPrivateEndpointConnection",
+    cloud_hsm_cluster_name="chsm1",
+    pe_connection_name="sample-pec",
+    private_link_service_connection_state=azure_native.hardwaresecuritymodules.PrivateLinkServiceConnectionStateArgs(
+        description="My name is Joe and I'm approving this.",
+        status="Approved",
+    ),
+    resource_group_name="rgcloudhsm")

@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+signal_r_shared_private_link_resource = azure_native.signalrservice.SignalRSharedPrivateLinkResource("signalRSharedPrivateLinkResource",
+    group_id="sites",
+    private_link_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp",
+    request_message="Please approve",
+    resource_group_name="myResourceGroup",
+    resource_name_="mySignalRService",
+    shared_private_link_resource_name="upstream")

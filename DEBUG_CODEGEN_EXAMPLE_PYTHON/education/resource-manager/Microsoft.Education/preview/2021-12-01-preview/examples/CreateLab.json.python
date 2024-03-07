@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+lab = azure_native.education.Lab("lab",
+    billing_account_name="{billingAccountName}",
+    billing_profile_name="{billingProfileName}",
+    budget_per_student=azure_native.education.AmountArgs(
+        currency="USD",
+        value=100,
+    ),
+    description="example lab description",
+    display_name="example lab",
+    expiration_date="2021-12-09T22:11:29.422Z",
+    invoice_section_name="{invoiceSectionName}")

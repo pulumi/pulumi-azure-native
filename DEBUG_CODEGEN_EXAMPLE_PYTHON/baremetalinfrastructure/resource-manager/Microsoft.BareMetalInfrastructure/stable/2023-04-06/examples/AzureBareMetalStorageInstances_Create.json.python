@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+azure_bare_metal_storage_instance = azure_native.baremetalinfrastructure.AzureBareMetalStorageInstance("azureBareMetalStorageInstance",
+    azure_bare_metal_storage_instance_name="myAzureBareMetalStorageInstance",
+    azure_bare_metal_storage_instance_unique_identifier="23415635-4d7e-41dc-9598-8194f22c24e9",
+    location="westus2",
+    resource_group_name="myResourceGroup",
+    storage_properties=azure_native.baremetalinfrastructure.StoragePropertiesArgs(
+        generation="Gen4",
+        hardware_type="NetApp",
+        offering_type="EPIC",
+        provisioning_state="Succeeded",
+        storage_billing_properties=azure_native.baremetalinfrastructure.StorageBillingPropertiesArgs(
+            azure_bare_metal_storage_instance_size="",
+            billing_mode="PAYG",
+        ),
+        storage_type="FC",
+        workload_type="ODB",
+    ),
+    tags={
+        "key": "value",
+    })

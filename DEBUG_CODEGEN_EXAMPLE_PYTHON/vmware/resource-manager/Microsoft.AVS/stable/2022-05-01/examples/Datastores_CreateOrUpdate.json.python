@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+datastore = azure_native.avs.Datastore("datastore",
+    cluster_name="cluster1",
+    datastore_name="datastore1",
+    net_app_volume=azure_native.avs.NetAppVolumeArgs(
+        id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.NetApp/netAppAccounts/NetAppAccount1/capacityPools/CapacityPool1/volumes/NFSVol1",
+    ),
+    private_cloud_name="cloud1",
+    resource_group_name="group1")

@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job_target_group = azure_native.sql.JobTargetGroup("jobTargetGroup",
+    job_agent_name="agent1",
+    members=[],
+    resource_group_name="group1",
+    server_name="server1",
+    target_group_name="targetGroup1")

@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connections_for_edm = azure_native.m365securityandcompliance.PrivateEndpointConnectionsForEDM("privateEndpointConnectionsForEDM",
+    private_endpoint_connection_name="myConnection",
+    private_link_service_connection_state=azure_native.m365securityandcompliance.PrivateLinkServiceConnectionStateArgs(
+        description="Auto-Approved",
+        status="Approved",
+    ),
+    resource_group_name="rgname",
+    resource_name_="service1")

@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+group_quota = azure_native.quota.GroupQuota("groupQuota",
+    group_quota_name="groupquota1",
+    mg_id="E7EC67B3-7657-4966-BFFC-41EFD36BAA09",
+    properties=azure_native.quota.GroupQuotasEntityBaseArgs(
+        additional_attributes=azure_native.quota.AdditionalAttributesArgs(
+            environment="Production",
+            group_id=azure_native.quota.GroupingIdArgs(
+                grouping_id_type="ServiceTreeId",
+                value="yourServiceTreeIdHere",
+            ),
+        ),
+        display_name="GroupQuota1",
+    ))

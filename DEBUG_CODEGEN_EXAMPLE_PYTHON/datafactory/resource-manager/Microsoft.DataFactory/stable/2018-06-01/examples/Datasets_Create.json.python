@@ -1,0 +1,33 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+dataset = azure_native.datafactory.Dataset("dataset",
+    dataset_name="exampleDataset",
+    factory_name="exampleFactoryName",
+    properties=azure_native.datafactory.AzureBlobDatasetArgs(
+        file_name={
+            "type": "Expression",
+            "value": "@dataset().MyFileName",
+        },
+        folder_path={
+            "type": "Expression",
+            "value": "@dataset().MyFolderPath",
+        },
+        format=azure_native.datafactory.TextFormatArgs(
+            type="TextFormat",
+        ),
+        linked_service_name=azure_native.datafactory.LinkedServiceReferenceArgs(
+            reference_name="exampleLinkedService",
+            type="LinkedServiceReference",
+        ),
+        parameters={
+            "MyFileName": azure_native.datafactory.ParameterSpecificationArgs(
+                type="String",
+            ),
+            "MyFolderPath": azure_native.datafactory.ParameterSpecificationArgs(
+                type="String",
+            ),
+        },
+        type="AzureBlob",
+    ),
+    resource_group_name="exampleResourceGroup")

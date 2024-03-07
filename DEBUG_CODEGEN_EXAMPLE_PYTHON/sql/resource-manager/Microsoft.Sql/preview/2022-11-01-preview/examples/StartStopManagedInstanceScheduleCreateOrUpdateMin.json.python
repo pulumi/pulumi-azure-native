@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+start_stop_managed_instance_schedule = azure_native.sql.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule",
+    managed_instance_name="schedulemi",
+    resource_group_name="schedulerg",
+    schedule_list=[
+        azure_native.sql.ScheduleItemArgs(
+            start_day="Thursday",
+            start_time="18:00",
+            stop_day="Thursday",
+            stop_time="17:00",
+        ),
+        azure_native.sql.ScheduleItemArgs(
+            start_day="Thursday",
+            start_time="15:00",
+            stop_day="Thursday",
+            stop_time="14:00",
+        ),
+    ],
+    start_stop_schedule_name="default")

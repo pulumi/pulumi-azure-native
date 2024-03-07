@@ -1,0 +1,29 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_virtual_machine = azure_native.sqlvirtualmachine.SqlVirtualMachine("sqlVirtualMachine",
+    location="northeurope",
+    resource_group_name="testrg",
+    sql_virtual_machine_name="testvm",
+    storage_configuration_settings=azure_native.sqlvirtualmachine.StorageConfigurationSettingsArgs(
+        disk_configuration_type="NEW",
+        sql_data_settings=azure_native.sqlvirtualmachine.SQLStorageSettingsArgs(
+            default_file_path="F:\\folderpath\\",
+            luns=[0],
+        ),
+        sql_log_settings=azure_native.sqlvirtualmachine.SQLStorageSettingsArgs(
+            default_file_path="G:\\folderpath\\",
+            luns=[1],
+        ),
+        sql_system_db_on_data_disk=True,
+        sql_temp_db_settings=azure_native.sqlvirtualmachine.SQLTempDbSettingsArgs(
+            data_file_count=8,
+            data_file_size=256,
+            data_growth=512,
+            default_file_path="D:\\TEMP",
+            log_file_size=256,
+            log_growth=512,
+        ),
+        storage_workload_type="OLTP",
+    ),
+    virtual_machine_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm")

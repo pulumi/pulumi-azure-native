@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+api_definition = azure_native.apicenter.ApiDefinition("apiDefinition",
+    api_name="openapi",
+    definition_name="openapi",
+    description="Default spec",
+    resource_group_name="contoso-resources",
+    service_name="contoso",
+    title="OpenAPI",
+    version_name="2023-01-01",
+    workspace_name="default")

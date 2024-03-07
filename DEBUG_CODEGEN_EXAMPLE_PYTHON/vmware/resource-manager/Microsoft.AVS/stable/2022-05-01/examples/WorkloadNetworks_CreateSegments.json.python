@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workload_network_segment = azure_native.avs.WorkloadNetworkSegment("workloadNetworkSegment",
+    connected_gateway="/infra/tier-1s/gateway",
+    display_name="segment1",
+    private_cloud_name="cloud1",
+    resource_group_name="group1",
+    revision=1,
+    segment_id="segment1",
+    subnet=azure_native.avs.WorkloadNetworkSegmentSubnetArgs(
+        dhcp_ranges=["40.20.0.0-40.20.0.1"],
+        gateway_address="40.20.20.20/16",
+    ))

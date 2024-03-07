@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+analytics_connector = azure_native.healthcareapis.AnalyticsConnector("analyticsConnector",
+    analytics_connector_name="exampleconnector",
+    data_destination_configuration=azure_native.healthcareapis.AnalyticsConnectorDataLakeDataDestinationArgs(
+        data_lake_name="exampledatalake",
+        type="datalake",
+    ),
+    data_mapping_configuration=azure_native.healthcareapis.AnalyticsConnectorFhirToParquetMappingArgs(
+        extension_schema_reference="acrexample.azurecr.io/blah@sha256aaa/Extension",
+        filter_configuration_reference="acrexample.azurecr.io/blah@sha256xxx",
+        type="fhirToParquet",
+    ),
+    data_source_configuration=azure_native.healthcareapis.AnalyticsConnectorFhirServiceDataSourceArgs(
+        kind="R4",
+        type="fhirservice",
+        url="https://workspace-examplefhir.fhir.azurehealthcareapis.com",
+    ),
+    location="westus",
+    resource_group_name="testRG",
+    workspace_name="workspace1")

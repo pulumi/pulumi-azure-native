@@ -1,0 +1,45 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+profile = azure_native.network.Profile("profile",
+    dns_config=azure_native.network.DnsConfigArgs(
+        relative_name="parentprofile",
+        ttl=35,
+    ),
+    endpoints=[
+        azure_native.network.EndpointArgs(
+            endpoint_status="Enabled",
+            min_child_endpoints=2,
+            min_child_endpoints_i_pv4=1,
+            min_child_endpoints_i_pv6=2,
+            name="MyFirstNestedEndpoint",
+            priority=1,
+            target="firstnestedprofile.tmpreview.watmtest.azure-test.net",
+            type="Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+            weight=1,
+        ),
+        azure_native.network.EndpointArgs(
+            endpoint_status="Enabled",
+            min_child_endpoints=2,
+            min_child_endpoints_i_pv4=2,
+            min_child_endpoints_i_pv6=1,
+            name="MySecondNestedEndpoint",
+            priority=2,
+            target="secondnestedprofile.tmpreview.watmtest.azure-test.net",
+            type="Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+            weight=1,
+        ),
+    ],
+    location="global",
+    monitor_config=azure_native.network.MonitorConfigArgs(
+        interval_in_seconds=10,
+        path="/testpath.aspx",
+        port=80,
+        protocol="HTTP",
+        timeout_in_seconds=5,
+        tolerated_number_of_failures=2,
+    ),
+    profile_name="parentprofile",
+    profile_status="Enabled",
+    resource_group_name="myresourcegroup",
+    traffic_routing_method="Priority")

@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+backup_policy = azure_native.netapp.BackupPolicy("backupPolicy",
+    account_name="account1",
+    backup_policy_name="backupPolicyName",
+    daily_backups_to_keep=10,
+    enabled=True,
+    location="westus",
+    monthly_backups_to_keep=10,
+    resource_group_name="myRG",
+    weekly_backups_to_keep=10)

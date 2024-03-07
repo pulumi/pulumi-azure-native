@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+traffic_controller_interface = azure_native.servicenetworking.TrafficControllerInterface("trafficControllerInterface",
+    location="NorthCentralUS",
+    resource_group_name="rg1",
+    tags={
+        "key1": "value1",
+    },
+    traffic_controller_name="tc1")

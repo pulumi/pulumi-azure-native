@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+certificate = azure_native.web.Certificate("certificate",
+    host_names=["ServerCert"],
+    location="East US",
+    name="testc6282",
+    password="<password>",
+    resource_group_name="testrg123")

@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+trigger = azure_native.virtualmachineimages.Trigger("trigger",
+    image_template_name="myImageTemplate",
+    kind="SourceImage",
+    resource_group_name="myResourceGroup",
+    trigger_name="source")

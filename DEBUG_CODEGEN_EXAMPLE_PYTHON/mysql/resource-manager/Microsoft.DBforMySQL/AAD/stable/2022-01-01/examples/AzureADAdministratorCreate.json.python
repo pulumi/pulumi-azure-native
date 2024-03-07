@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+azure_ad_administrator = azure_native.dbformysql.AzureADAdministrator("azureADAdministrator",
+    administrator_name="ActiveDirectory",
+    administrator_type="ActiveDirectory",
+    identity_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/test-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-umi",
+    login="bob@contoso.com",
+    resource_group_name="testrg",
+    server_name="mysqltestsvc4",
+    sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    tenant_id="c12b7025-bfe2-46c1-b463-993b5e4cd467")

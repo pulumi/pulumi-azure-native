@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+v_net_peering = azure_native.databricks.VNetPeering("vNetPeering",
+    allow_forwarded_traffic=False,
+    allow_gateway_transit=False,
+    allow_virtual_network_access=True,
+    peering_name="vNetPeeringTest",
+    remote_virtual_network=azure_native.databricks.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs(
+        id="/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+    ),
+    resource_group_name="rg",
+    use_remote_gateways=False,
+    workspace_name="myWorkspace")

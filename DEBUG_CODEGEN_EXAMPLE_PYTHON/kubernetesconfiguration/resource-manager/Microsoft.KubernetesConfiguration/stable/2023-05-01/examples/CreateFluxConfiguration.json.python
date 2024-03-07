@@ -1,0 +1,67 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+flux_configuration = azure_native.kubernetesconfiguration.FluxConfiguration("fluxConfiguration",
+    cluster_name="clusterName1",
+    cluster_resource_name="connectedClusters",
+    cluster_rp="Microsoft.Kubernetes",
+    flux_configuration_name="srs-fluxconfig",
+    git_repository=azure_native.kubernetesconfiguration.GitRepositoryDefinitionArgs(
+        https_ca_cert="ZXhhbXBsZWNlcnRpZmljYXRl",
+        repository_ref=azure_native.kubernetesconfiguration.RepositoryRefDefinitionArgs(
+            branch="master",
+        ),
+        sync_interval_in_seconds=600,
+        timeout_in_seconds=600,
+        url="https://github.com/Azure/arc-k8s-demo",
+    ),
+    kustomizations={
+        "srs-kustomization1": azure_native.kubernetesconfiguration.KustomizationDefinitionArgs(
+            depends_on=[],
+            path="./test/path",
+            post_build=azure_native.kubernetesconfiguration.PostBuildDefinitionArgs(
+                substitute={
+                    "cluster_env": "prod",
+                    "replica_count": "2",
+                },
+                substitute_from=[azure_native.kubernetesconfiguration.SubstituteFromDefinitionArgs(
+                    kind="ConfigMap",
+                    name="cluster-test",
+                    optional=True,
+                )],
+            ),
+            sync_interval_in_seconds=600,
+            timeout_in_seconds=600,
+            wait=True,
+        ),
+        "srs-kustomization2": azure_native.kubernetesconfiguration.KustomizationDefinitionArgs(
+            depends_on=["srs-kustomization1"],
+            path="./other/test/path",
+            post_build=azure_native.kubernetesconfiguration.PostBuildDefinitionArgs(
+                substitute_from=[
+                    azure_native.kubernetesconfiguration.SubstituteFromDefinitionArgs(
+                        kind="ConfigMap",
+                        name="cluster-values",
+                        optional=True,
+                    ),
+                    azure_native.kubernetesconfiguration.SubstituteFromDefinitionArgs(
+                        kind="Secret",
+                        name="secret-name",
+                        optional=False,
+                    ),
+                ],
+            ),
+            prune=False,
+            retry_interval_in_seconds=600,
+            sync_interval_in_seconds=600,
+            timeout_in_seconds=600,
+            wait=False,
+        ),
+    },
+    namespace="srs-namespace",
+    reconciliation_wait_duration="PT30M",
+    resource_group_name="rg1",
+    scope="cluster",
+    source_kind="GitRepository",
+    suspend=False,
+    wait_for_reconciliation=True)

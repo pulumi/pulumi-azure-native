@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+source_control_configuration = azure_native.kubernetesconfiguration.SourceControlConfiguration("sourceControlConfiguration",
+    cluster_name="clusterName1",
+    cluster_resource_name="connectedClusters",
+    cluster_rp="Microsoft.Kubernetes",
+    configuration_protected_settings={
+        "protectedSetting1Key": "protectedSetting1Value",
+    },
+    enable_helm_operator=True,
+    helm_operator_properties=azure_native.kubernetesconfiguration.HelmOperatorPropertiesArgs(
+        chart_values="--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system",
+        chart_version="0.3.0",
+    ),
+    operator_instance_name="SRSGitHubFluxOp-01",
+    operator_namespace="SRS_Namespace",
+    operator_params="--git-email=xyzgituser@users.srs.github.com",
+    operator_scope="namespace",
+    operator_type="Flux",
+    repository_url="git@github.com:k8sdeveloper425/flux-get-started",
+    resource_group_name="rg1",
+    source_control_configuration_name="SRS_GitHubConfig",
+    ssh_known_hosts_contents="c3NoLmRldi5henVyZS5jb20gc3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFDN0hyMW9UV3FOcU9sekdKT2ZHSjROYWtWeUl6ZjFyWFlkNGQ3d282akJsa0x2Q0E0b2RCbEwwbURVeVowL1FVZlRUcWV1K3RtMjJnT3N2K1ZyVlRNazZ2d1JVNzVnWS95OXV0NU1iM2JSNUJWNThkS1h5cTlBOVVlQjVDYWtlaG41WmdtNngxbUtvVnlmK0ZGbjI2aVlxWEpSZ3pJWlpjWjVWNmhyRTBRZzM5a1ptNGF6NDhvMEFVYmY2U3A0U0xkdm51TWEyc1ZOd0hCYm9TN0VKa201N1hRUFZVMy9RcHlOTEhiV0Rkend0cmxTK2V6MzBTM0FkWWhMS0VPeEFHOHdlT255cnRMSkFVZW45bVRrb2w4b0lJMWVkZjdtV1diV1ZmMG5CbWx5MjErblpjbUNUSVNRQnRkY3lQYUVubzdmRlFNREQyNi9zMGxmS29iNEt3OEg=")

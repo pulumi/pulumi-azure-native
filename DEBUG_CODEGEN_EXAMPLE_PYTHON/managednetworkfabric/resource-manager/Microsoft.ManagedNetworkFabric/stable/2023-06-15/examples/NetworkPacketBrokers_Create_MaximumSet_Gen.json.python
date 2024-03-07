@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_packet_broker = azure_native.managednetworkfabric.NetworkPacketBroker("networkPacketBroker",
+    location="eastuseuap",
+    network_fabric_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-networkFabric",
+    network_packet_broker_name="example-networkPacketBroker",
+    resource_group_name="example-rg",
+    tags={
+        "key2806": "key",
+    })

@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+streaming_policy = azure_native.media.StreamingPolicy("streamingPolicy",
+    account_name="contosomedia",
+    no_encryption=azure_native.media.NoEncryptionArgs(
+        enabled_protocols=azure_native.media.EnabledProtocolsArgs(
+            dash=True,
+            download=True,
+            hls=True,
+            smooth_streaming=True,
+        ),
+    ),
+    resource_group_name="contosorg",
+    streaming_policy_name="clearStreamingPolicy")

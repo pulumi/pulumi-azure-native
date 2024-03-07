@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+namespace_ip_filter_rule = azure_native.eventhub.NamespaceIpFilterRule("namespaceIpFilterRule",
+    action="Accept",
+    filter_name="sdk-IPFilterRules-7337",
+    ip_filter_rule_name="sdk-IPFilterRules-7337",
+    ip_mask="13.78.143.246/32",
+    namespace_name="sdk-Namespace-5232",
+    resource_group_name="ResourceGroup")

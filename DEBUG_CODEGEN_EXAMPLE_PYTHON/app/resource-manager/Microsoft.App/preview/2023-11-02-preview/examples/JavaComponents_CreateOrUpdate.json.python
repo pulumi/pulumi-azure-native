@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+java_component = azure_native.app.JavaComponent("javaComponent",
+    component_type="SpringBootAdmin",
+    configurations=[
+        azure_native.app.JavaComponentConfigurationPropertyArgs(
+            property_name="spring.boot.admin.ui.enable-toasts",
+            value="true",
+        ),
+        azure_native.app.JavaComponentConfigurationPropertyArgs(
+            property_name="spring.boot.admin.monitor.status-interval",
+            value="10000ms",
+        ),
+    ],
+    environment_name="myenvironment",
+    name="myjavacomponent",
+    resource_group_name="examplerg")

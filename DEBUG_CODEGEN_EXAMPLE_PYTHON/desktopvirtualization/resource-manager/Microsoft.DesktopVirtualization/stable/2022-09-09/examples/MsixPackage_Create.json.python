@@ -1,0 +1,30 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+msix_package = azure_native.desktopvirtualization.MSIXPackage("msixPackage",
+    display_name="displayname",
+    host_pool_name="hostpool1",
+    image_path="imagepath",
+    is_active=False,
+    is_regular_registration=False,
+    last_updated="2008-09-22T14:01:54.9571247Z",
+    msix_package_full_name="msixpackagefullname",
+    package_applications=[azure_native.desktopvirtualization.MsixPackageApplicationsArgs(
+        app_id="ApplicationId",
+        app_user_model_id="AppUserModelId",
+        description="application-desc",
+        friendly_name="friendlyname",
+        icon_image_name="Apptile",
+        raw_icon="VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+        raw_png="VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+    )],
+    package_dependencies=[azure_native.desktopvirtualization.MsixPackageDependenciesArgs(
+        dependency_name="MsixTest_Dependency_Name",
+        min_version="version",
+        publisher="PublishedName",
+    )],
+    package_family_name="MsixPackage_FamilyName",
+    package_name="MsixPackage_name",
+    package_relative_path="packagerelativepath",
+    resource_group_name="resourceGroup1",
+    version="version")

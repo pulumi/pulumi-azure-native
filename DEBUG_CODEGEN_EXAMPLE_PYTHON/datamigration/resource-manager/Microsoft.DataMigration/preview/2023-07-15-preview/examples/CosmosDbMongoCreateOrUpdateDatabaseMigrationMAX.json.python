@@ -1,0 +1,38 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database_migrations_mongo_to_cosmos_dbv_core_mongo = azure_native.datamigration.DatabaseMigrationsMongoToCosmosDbvCoreMongo("databaseMigrationsMongoToCosmosDbvCoreMongo",
+    collection_list=[
+        azure_native.datamigration.MongoMigrationCollectionArgs(
+            source_collection="sourceCol1",
+            source_database="sourceDb1",
+            target_collection="targetCol1",
+            target_database="targetDb1",
+        ),
+        azure_native.datamigration.MongoMigrationCollectionArgs(
+            source_collection="sourceCol2",
+            source_database="sourceDb2",
+            target_collection="sourceCol2",
+            target_database="sourceDb2",
+        ),
+    ],
+    kind="MongoToCosmosDbMongo",
+    migration_name="migrationRequest",
+    migration_service="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/MigrationServices/testMigrationService",
+    resource_group_name="testrg",
+    scope="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DocumentDB/mongoClusters/targetCosmosDbClusterName",
+    source_mongo_connection=azure_native.datamigration.MongoConnectionInformationArgs(
+        host="abc.mongodb.com",
+        password="placeholder",
+        port=88,
+        use_ssl=True,
+        user_name="abc",
+    ),
+    target_mongo_connection=azure_native.datamigration.MongoConnectionInformationArgs(
+        host="xyz.mongocluster.cosmos.azure.com",
+        password="placeholder",
+        port=10255,
+        use_ssl=True,
+        user_name="def",
+    ),
+    target_resource_name="targetCosmosDbClusterName")

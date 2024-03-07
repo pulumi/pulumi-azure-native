@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+certificate = azure_native.apimanagement.Certificate("certificate",
+    certificate_id="tempcert",
+    data="****************Base 64 Encoded Certificate *******************************",
+    password="****Certificate Password******",
+    resource_group_name="rg1",
+    service_name="apimService1")

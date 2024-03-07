@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+blob_service_properties = azure_native.storage.BlobServiceProperties("blobServiceProperties",
+    account_name="sto8607",
+    blob_services_name="default",
+    delete_retention_policy=azure_native.storage.DeleteRetentionPolicyArgs(
+        allow_permanent_delete=True,
+        days=300,
+        enabled=True,
+    ),
+    is_versioning_enabled=True,
+    resource_group_name="res4410")

@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+power_bi_resource = azure_native.powerbi.PowerBIResource("powerBIResource",
+    azure_resource_name="azureResourceName",
+    location="global",
+    resource_group_name="resourceGroup",
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    },
+    tenant_id="ac2bc297-8a3e-46f3-972d-87c2b4ae6e2f")

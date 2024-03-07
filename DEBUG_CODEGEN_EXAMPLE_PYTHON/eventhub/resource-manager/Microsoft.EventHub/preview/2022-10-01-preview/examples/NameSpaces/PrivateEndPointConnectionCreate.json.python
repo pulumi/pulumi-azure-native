@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.eventhub.PrivateEndpointConnection("privateEndpointConnection",
+    namespace_name="sdk-Namespace-2924",
+    private_endpoint=azure_native.eventhub.PrivateEndpointArgs(
+        id="/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-EventHub-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
+    ),
+    private_endpoint_connection_name="privateEndpointConnectionName",
+    private_link_service_connection_state=azure_native.eventhub.ConnectionStateArgs(
+        description="testing",
+        status="Rejected",
+    ),
+    provisioning_state="Succeeded",
+    resource_group_name="ArunMonocle")

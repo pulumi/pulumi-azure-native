@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connection_monitor_test = azure_native.peering.ConnectionMonitorTest("connectionMonitorTest",
+    connection_monitor_test_name="connectionMonitorTestName",
+    destination="Example Destination",
+    destination_port=443,
+    peering_service_name="peeringServiceName",
+    resource_group_name="rgName",
+    source_agent="Example Source Agent",
+    test_frequency_in_sec=30)

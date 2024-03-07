@@ -1,0 +1,32 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server = azure_native.dbformysql.Server("server",
+    administrator_login="cloudsa",
+    administrator_login_password="your_password",
+    availability_zone="1",
+    backup=azure_native.dbformysql.BackupArgs(
+        backup_retention_days=7,
+        geo_redundant_backup="Disabled",
+    ),
+    create_mode="Default",
+    high_availability=azure_native.dbformysql.HighAvailabilityArgs(
+        mode="ZoneRedundant",
+        standby_availability_zone="3",
+    ),
+    location="southeastasia",
+    resource_group_name="testrg",
+    server_name="mysqltestserver",
+    sku=azure_native.dbformysql.SkuArgs(
+        name="Standard_D2ds_v4",
+        tier="GeneralPurpose",
+    ),
+    storage=azure_native.dbformysql.StorageArgs(
+        auto_grow="Disabled",
+        iops=600,
+        storage_size_gb=100,
+    ),
+    tags={
+        "num": "1",
+    },
+    version="5.7")

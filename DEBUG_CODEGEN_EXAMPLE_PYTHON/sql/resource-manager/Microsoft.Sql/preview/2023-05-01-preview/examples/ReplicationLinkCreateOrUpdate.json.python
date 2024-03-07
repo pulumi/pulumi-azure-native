@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+replication_link = azure_native.sql.ReplicationLink("replicationLink",
+    database_name="gamma-db",
+    link_id="00000000-1111-2222-3333-666666666666",
+    link_type="STANDBY",
+    resource_group_name="Default",
+    server_name="sourcesvr")

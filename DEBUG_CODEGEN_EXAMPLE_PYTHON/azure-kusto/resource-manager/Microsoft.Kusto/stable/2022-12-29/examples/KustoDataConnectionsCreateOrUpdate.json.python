@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+iot_hub_data_connection = azure_native.kusto.IotHubDataConnection("iotHubDataConnection",
+    cluster_name="kustoCluster",
+    data_connection_name="dataConnectionTest",
+    database_name="KustoDatabase8",
+    resource_group_name="kustorptest")

@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+rule = azure_native.servicebus.Rule("rule",
+    correlation_filter=azure_native.servicebus.CorrelationFilterArgs(
+        properties={
+            "topicHint": "Crop",
+        },
+    ),
+    filter_type="CorrelationFilter",
+    namespace_name="sdk-Namespace-1319",
+    resource_group_name="resourceGroupName",
+    rule_name="sdk-Rules-6571",
+    subscription_name="sdk-Subscriptions-8691",
+    topic_name="sdk-Topics-2081")

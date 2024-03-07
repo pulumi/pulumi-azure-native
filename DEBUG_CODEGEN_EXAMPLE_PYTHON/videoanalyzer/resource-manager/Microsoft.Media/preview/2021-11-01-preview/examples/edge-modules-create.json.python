@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+edge_module = azure_native.videoanalyzer.EdgeModule("edgeModule",
+    account_name="testaccount2",
+    edge_module_name="edgeModule1",
+    resource_group_name="testrg")

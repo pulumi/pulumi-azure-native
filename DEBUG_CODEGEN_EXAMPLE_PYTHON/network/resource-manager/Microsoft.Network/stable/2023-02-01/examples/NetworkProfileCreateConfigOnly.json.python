@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_profile = azure_native.network.NetworkProfile("networkProfile",
+    container_network_interface_configurations=[azure_native.network.ContainerNetworkInterfaceConfigurationArgs(
+        ip_configurations=[azure_native.network.IPConfigurationProfileArgs(
+            name="ipconfig1",
+            subnet=azure_native.network.SubnetArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1",
+            ),
+        )],
+        name="eth1",
+    )],
+    location="westus",
+    network_profile_name="networkProfile1",
+    resource_group_name="rg1")

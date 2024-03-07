@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+l3_network = azure_native.networkcloud.L3Network("l3Network",
+    extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+        name="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+        type="CustomLocation",
+    ),
+    interface_name="eth0",
+    ip_allocation_type="DualStack",
+    ipv4_connected_prefix="198.51.100.0/24",
+    ipv6_connected_prefix="2001:db8::/64",
+    l3_isolation_domain_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+    l3_network_name="l3NetworkName",
+    location="location",
+    resource_group_name="resourceGroupName",
+    tags={
+        "key1": "myvalue1",
+        "key2": "myvalue2",
+    },
+    vlan=12)

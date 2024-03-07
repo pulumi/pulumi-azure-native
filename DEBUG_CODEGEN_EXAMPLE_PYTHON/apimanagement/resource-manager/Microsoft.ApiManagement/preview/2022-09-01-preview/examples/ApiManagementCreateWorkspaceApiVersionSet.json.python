@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace_api_version_set = azure_native.apimanagement.WorkspaceApiVersionSet("workspaceApiVersionSet",
+    description="Version configuration",
+    display_name="api set 1",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    version_set_id="api1",
+    versioning_scheme="Segment",
+    workspace_id="wks1")

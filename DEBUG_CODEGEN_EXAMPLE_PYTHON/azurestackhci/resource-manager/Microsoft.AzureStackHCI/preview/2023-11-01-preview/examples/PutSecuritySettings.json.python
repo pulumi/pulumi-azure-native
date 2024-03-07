@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+security_setting = azure_native.azurestackhci.SecuritySetting("securitySetting",
+    cluster_name="myCluster",
+    resource_group_name="test-rg",
+    secured_core_compliance_assignment="Audit",
+    security_settings_name="default")

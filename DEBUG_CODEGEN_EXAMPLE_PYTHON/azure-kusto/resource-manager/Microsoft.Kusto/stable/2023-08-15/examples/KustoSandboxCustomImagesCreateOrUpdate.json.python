@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sandbox_custom_image = azure_native.kusto.SandboxCustomImage("sandboxCustomImage",
+    cluster_name="kustoCluster",
+    language="Python",
+    language_version="3.10.8",
+    requirements_file_content="Requests",
+    resource_group_name="kustorptest",
+    sandbox_custom_image_name="customImage8")

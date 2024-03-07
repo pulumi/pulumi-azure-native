@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+signal_r_replica = azure_native.signalrservice.SignalRReplica("signalRReplica",
+    location="eastus",
+    replica_name="mySignalRService-eastus",
+    resource_group_name="myResourceGroup",
+    resource_name_="mySignalRService",
+    sku=azure_native.signalrservice.ResourceSkuArgs(
+        capacity=1,
+        name="Premium_P1",
+        tier="Premium",
+    ),
+    tags={
+        "key1": "value1",
+    })

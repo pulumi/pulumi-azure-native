@@ -1,0 +1,41 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+assessments_operation = azure_native.migrate.AssessmentsOperation("assessmentsOperation",
+    assessment_name="asm1",
+    azure_disk_types=[
+        "Premium",
+        "StandardSSD",
+    ],
+    azure_hybrid_use_benefit="Unknown",
+    azure_location="njxbwdtsxzhichsnk",
+    azure_offer_code="Unknown",
+    azure_pricing_tier="Standard",
+    azure_storage_redundancy="Unknown",
+    azure_vm_families=[
+        "D_series",
+        "Lsv2_series",
+        "M_series",
+        "Mdsv2_series",
+        "Msv2_series",
+        "Mv2_series",
+    ],
+    currency="Unknown",
+    discount_percentage=6,
+    ea_subscription_id="kwsu",
+    group_name="kuchatur-test",
+    linux_azure_hybrid_use_benefit="Unknown",
+    percentile="Percentile50",
+    perf_data_end_time="2023-09-26T09:36:48.491Z",
+    perf_data_start_time="2023-09-26T09:36:48.491Z",
+    project_name="app18700project",
+    provisioning_state="Succeeded",
+    reserved_instance="None",
+    resource_group_name="ayagrawrg",
+    scaling_factor=24,
+    sizing_criterion="PerformanceBased",
+    time_range="Day",
+    vm_uptime=azure_native.migrate.VmUptimeArgs(
+        days_per_month=13,
+        hours_per_day=26,
+    ))

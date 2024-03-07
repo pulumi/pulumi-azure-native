@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+machine_learning_datastore = azure_native.machinelearningservices.MachineLearningDatastore("machineLearningDatastore",
+    account_key="wddrfewfewsgewgrrwegwreg",
+    account_name="acjainmleastus9484093746",
+    container_name="azureml-blobstore-5da947c5-53aa-41a5-bb2b-074074e73b7",
+    data_store_type="blob",
+    datastore_name="blobDatastore",
+    resource_group_name="acjain-mleastUS2",
+    workspace_name="acjain-mleastUS2")

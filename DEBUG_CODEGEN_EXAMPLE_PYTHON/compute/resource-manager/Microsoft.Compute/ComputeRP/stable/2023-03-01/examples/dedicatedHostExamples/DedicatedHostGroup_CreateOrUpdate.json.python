@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+    host_group_name="myDedicatedHostGroup",
+    location="westus",
+    platform_fault_domain_count=3,
+    resource_group_name="myResourceGroup",
+    support_automatic_placement=True,
+    tags={
+        "department": "finance",
+    },
+    zones=["1"])

@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+firmware = azure_native.iotfirmwaredefense.Firmware("firmware",
+    firmware_id="umrkdttp",
+    resource_group_name="rgworkspaces-firmwares",
+    workspace_name="A7")

@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+deployment_at_management_group_scope = azure_native.resources.DeploymentAtManagementGroupScope("deploymentAtManagementGroupScope",
+    deployment_name="my-deployment",
+    group_id="my-management-group-id",
+    location="eastus",
+    properties=azure_native.resources.DeploymentPropertiesArgs(
+        mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+        parameters={},
+        template_link=azure_native.resources.TemplateLinkArgs(
+            uri="https://example.com/exampleTemplate.json",
+        ),
+    ))

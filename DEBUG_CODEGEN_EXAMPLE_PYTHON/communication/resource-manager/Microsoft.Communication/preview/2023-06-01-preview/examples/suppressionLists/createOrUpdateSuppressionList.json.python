@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+suppression_list = azure_native.communication.SuppressionList("suppressionList",
+    domain_name="contoso.com",
+    email_service_name="contosoEmailService",
+    list_name="contosoNewsAlerts",
+    resource_group_name="contosoResourceGroup",
+    suppression_list_name="aaaa1111-bbbb-2222-3333-aaaa11112222")

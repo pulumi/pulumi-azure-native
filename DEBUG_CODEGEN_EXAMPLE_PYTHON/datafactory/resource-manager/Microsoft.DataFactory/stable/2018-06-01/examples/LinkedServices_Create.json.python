@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+linked_service = azure_native.datafactory.LinkedService("linkedService",
+    factory_name="exampleFactoryName",
+    linked_service_name="exampleLinkedService",
+    properties=azure_native.datafactory.AzureStorageLinkedServiceArgs(
+        connection_string={
+            "type": "SecureString",
+            "value": "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+        },
+        type="AzureStorage",
+    ),
+    resource_group_name="exampleResourceGroup")

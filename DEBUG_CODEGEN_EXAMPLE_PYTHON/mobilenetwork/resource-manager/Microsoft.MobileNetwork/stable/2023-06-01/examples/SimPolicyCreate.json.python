@@ -1,0 +1,43 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sim_policy = azure_native.mobilenetwork.SimPolicy("simPolicy",
+    default_slice=azure_native.mobilenetwork.SliceResourceIdArgs(
+        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+    ),
+    location="eastus",
+    mobile_network_name="testMobileNetwork",
+    registration_timer=3240,
+    resource_group_name="rg1",
+    sim_policy_name="testPolicy",
+    slice_configurations=[azure_native.mobilenetwork.SliceConfigurationArgs(
+        data_network_configurations=[azure_native.mobilenetwork.DataNetworkConfigurationArgs(
+            additional_allowed_session_types=[],
+            allocation_and_retention_priority_level=9,
+            allowed_services=[azure_native.mobilenetwork.ServiceResourceIdArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/testService",
+            )],
+            data_network=azure_native.mobilenetwork.DataNetworkResourceIdArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+            ),
+            default_session_type="IPv4",
+            five_qi=9,
+            maximum_number_of_buffered_packets=200,
+            preemption_capability="NotPreempt",
+            preemption_vulnerability="Preemptable",
+            session_ambr=azure_native.mobilenetwork.AmbrArgs(
+                downlink="1 Gbps",
+                uplink="500 Mbps",
+            ),
+        )],
+        default_data_network=azure_native.mobilenetwork.DataNetworkResourceIdArgs(
+            id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+        ),
+        slice=azure_native.mobilenetwork.SliceResourceIdArgs(
+            id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+        ),
+    )],
+    ue_ambr=azure_native.mobilenetwork.AmbrArgs(
+        downlink="1 Gbps",
+        uplink="500 Mbps",
+    ))

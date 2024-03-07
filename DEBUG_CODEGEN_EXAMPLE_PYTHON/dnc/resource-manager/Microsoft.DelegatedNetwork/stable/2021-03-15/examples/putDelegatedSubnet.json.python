@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+delegated_subnet_service_details = azure_native.delegatednetwork.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails",
+    controller_details=azure_native.delegatednetwork.ControllerDetailsArgs(
+        id="/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
+    ),
+    location="West US",
+    resource_group_name="TestRG",
+    resource_name_="delegated1",
+    subnet_details=azure_native.delegatednetwork.SubnetDetailsArgs(
+        id="/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+    ))

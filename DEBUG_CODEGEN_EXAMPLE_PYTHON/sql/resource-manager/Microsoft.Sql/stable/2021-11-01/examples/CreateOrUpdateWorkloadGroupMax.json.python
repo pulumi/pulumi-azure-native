@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workload_group = azure_native.sql.WorkloadGroup("workloadGroup",
+    database_name="testdb",
+    importance="normal",
+    max_resource_percent=100,
+    max_resource_percent_per_request=3,
+    min_resource_percent=0,
+    min_resource_percent_per_request=3,
+    query_execution_timeout=0,
+    resource_group_name="Default-SQL-SouthEastAsia",
+    server_name="testsvr",
+    workload_group_name="smallrc")

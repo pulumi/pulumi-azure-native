@@ -1,0 +1,41 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server = azure_native.dbforpostgresql.Server("server",
+    administrator_login="cloudsa",
+    administrator_login_password="password",
+    auth_config=azure_native.dbforpostgresql.AuthConfigArgs(
+        active_directory_auth="Enabled",
+        password_auth="Enabled",
+        tenant_id="tttttt-tttt-tttt-tttt-tttttttttttt",
+    ),
+    availability_zone="1",
+    backup=azure_native.dbforpostgresql.BackupArgs(
+        backup_retention_days=7,
+        geo_redundant_backup="Disabled",
+    ),
+    create_mode="Create",
+    data_encryption=azure_native.dbforpostgresql.DataEncryptionArgs(
+        type="SystemManaged",
+    ),
+    high_availability=azure_native.dbforpostgresql.HighAvailabilityArgs(
+        mode="ZoneRedundant",
+    ),
+    location="westus",
+    network=azure_native.dbforpostgresql.NetworkArgs(
+        delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+        private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+    ),
+    resource_group_name="testrg",
+    server_name="pgtestsvc4",
+    sku=azure_native.dbforpostgresql.SkuArgs(
+        name="Standard_D4s_v3",
+        tier="GeneralPurpose",
+    ),
+    storage=azure_native.dbforpostgresql.StorageArgs(
+        storage_size_gb=512,
+    ),
+    tags={
+        "ElasticServer": "1",
+    },
+    version="12")

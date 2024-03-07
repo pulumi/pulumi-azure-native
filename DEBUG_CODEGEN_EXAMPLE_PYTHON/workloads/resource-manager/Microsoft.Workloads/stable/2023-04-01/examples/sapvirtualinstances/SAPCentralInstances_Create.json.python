@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sap_central_instance = azure_native.workloads.SAPCentralInstance("sapCentralInstance",
+    central_instance_name="centralServer",
+    location="westcentralus",
+    resource_group_name="test-rg",
+    sap_virtual_instance_name="X00",
+    tags={})

@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+access_control_list = azure_native.managednetworkfabric.AccessControlList("accessControlList",
+    access_control_list_name="aclOne",
+    address_family="ipv4",
+    conditions=[azure_native.managednetworkfabric.AccessControlListConditionPropertiesArgs(
+        action="allow",
+        destination_address="1.1.1.1",
+        destination_port="21",
+        protocol=6,
+        sequence_number=3,
+        source_address="2.2.2.2",
+        source_port="65000",
+    )],
+    location="EastUs",
+    resource_group_name="resourceGroupName")

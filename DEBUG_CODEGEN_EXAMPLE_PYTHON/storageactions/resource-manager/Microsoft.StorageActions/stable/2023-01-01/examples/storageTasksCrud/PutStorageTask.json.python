@@ -1,0 +1,29 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+storage_task = azure_native.storageactions.StorageTask("storageTask",
+    action=azure_native.storageactions.StorageTaskActionArgs(
+        else_=azure_native.storageactions.ElseConditionArgs(
+            operations=[azure_native.storageactions.StorageTaskOperationArgs(
+                name="DeleteBlob",
+                on_failure=azure_native.storageactions.OnFailure.BREAK_,
+                on_success=azure_native.storageactions.OnSuccess.CONTINUE_,
+            )],
+        ),
+        if_=azure_native.storageactions.IfConditionArgs(
+            condition="[[equals(AccessTier, 'Cool')]]",
+            operations=[azure_native.storageactions.StorageTaskOperationArgs(
+                name="SetBlobTier",
+                on_failure=azure_native.storageactions.OnFailure.BREAK_,
+                on_success=azure_native.storageactions.OnSuccess.CONTINUE_,
+                parameters={
+                    "tier": "Hot",
+                },
+            )],
+        ),
+    ),
+    description="My Storage task",
+    enabled=True,
+    location="westus",
+    resource_group_name="res4228",
+    storage_task_name="mytask1")

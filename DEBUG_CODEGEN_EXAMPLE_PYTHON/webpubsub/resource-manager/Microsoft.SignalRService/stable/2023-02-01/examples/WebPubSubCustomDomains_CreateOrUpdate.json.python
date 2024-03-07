@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_pub_sub_custom_domain = azure_native.webpubsub.WebPubSubCustomDomain("webPubSubCustomDomain",
+    custom_certificate=azure_native.webpubsub.ResourceReferenceArgs(
+        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert",
+    ),
+    domain_name="example.com",
+    name="myDomain",
+    resource_group_name="myResourceGroup",
+    resource_name_="myWebPubSubService")

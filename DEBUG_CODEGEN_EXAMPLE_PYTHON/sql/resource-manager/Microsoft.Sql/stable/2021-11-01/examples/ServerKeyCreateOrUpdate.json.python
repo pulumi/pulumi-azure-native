@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server_key = azure_native.sql.ServerKey("serverKey",
+    key_name="someVault_someKey_01234567890123456789012345678901",
+    resource_group_name="sqlcrudtest-7398",
+    server_key_type="AzureKeyVault",
+    server_name="sqlcrudtest-4645",
+    uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")

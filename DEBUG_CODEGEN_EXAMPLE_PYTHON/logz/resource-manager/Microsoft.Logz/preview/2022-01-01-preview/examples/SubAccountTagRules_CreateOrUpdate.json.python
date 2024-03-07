@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sub_account_tag_rule = azure_native.logz.SubAccountTagRule("subAccountTagRule",
+    monitor_name="myMonitor",
+    resource_group_name="myResourceGroup",
+    rule_set_name="default",
+    sub_account_name="SubAccount1")

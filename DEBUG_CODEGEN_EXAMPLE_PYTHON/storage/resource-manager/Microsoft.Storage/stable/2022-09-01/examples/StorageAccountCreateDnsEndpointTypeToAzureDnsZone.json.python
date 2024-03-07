@@ -1,0 +1,52 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+storage_account = azure_native.storage.StorageAccount("storageAccount",
+    account_name="sto4445",
+    allow_blob_public_access=False,
+    allow_shared_key_access=True,
+    default_to_o_auth_authentication=False,
+    dns_endpoint_type="AzureDnsZone",
+    encryption=azure_native.storage.EncryptionArgs(
+        key_source="Microsoft.Storage",
+        require_infrastructure_encryption=False,
+        services=azure_native.storage.EncryptionServicesArgs(
+            blob=azure_native.storage.EncryptionServiceArgs(
+                enabled=True,
+                key_type="Account",
+            ),
+            file=azure_native.storage.EncryptionServiceArgs(
+                enabled=True,
+                key_type="Account",
+            ),
+        ),
+    ),
+    extended_location=azure_native.storage.ExtendedLocationArgs(
+        name="losangeles001",
+        type="EdgeZone",
+    ),
+    is_hns_enabled=True,
+    is_sftp_enabled=True,
+    key_policy=azure_native.storage.KeyPolicyArgs(
+        key_expiration_period_in_days=20,
+    ),
+    kind="Storage",
+    location="eastus",
+    minimum_tls_version="TLS1_2",
+    resource_group_name="res9101",
+    routing_preference=azure_native.storage.RoutingPreferenceArgs(
+        publish_internet_endpoints=True,
+        publish_microsoft_endpoints=True,
+        routing_choice="MicrosoftRouting",
+    ),
+    sas_policy=azure_native.storage.SasPolicyArgs(
+        expiration_action="Log",
+        sas_expiration_period="1.15:59:59",
+    ),
+    sku=azure_native.storage.SkuArgs(
+        name="Standard_GRS",
+    ),
+    tags={
+        "key1": "value1",
+        "key2": "value2",
+    })

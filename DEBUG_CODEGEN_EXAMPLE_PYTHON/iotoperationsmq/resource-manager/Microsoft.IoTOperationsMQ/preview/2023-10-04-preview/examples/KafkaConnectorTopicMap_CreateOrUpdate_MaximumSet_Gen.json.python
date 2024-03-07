@@ -1,0 +1,45 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+kafka_connector_topic_map = azure_native.iotoperationsmq.KafkaConnectorTopicMap("kafkaConnectorTopicMap",
+    batching=azure_native.iotoperationsmq.KafkaTopicMapBatchingArgs(
+        enabled=True,
+        latency_ms=9110,
+        max_bytes=732052221,
+        max_messages=373078076,
+    ),
+    compression="none",
+    copy_mqtt_properties="efpqgkycuawnzyubdyt",
+    extended_location=azure_native.iotoperationsmq.ExtendedLocationPropertyArgs(
+        name="an",
+        type="CustomLocation",
+    ),
+    kafka_connector_name="216VN",
+    kafka_connector_ref="icivjwerdspx",
+    location="pavphpzfsgdudpyvufyebqh",
+    mq_name="-1-eD-7-J",
+    partition_key_property="c",
+    partition_strategy="default",
+    resource_group_name="rgiotoperationsmq",
+    routes=[azure_native.iotoperationsmq.KafkaRoutesArgs(
+        kafka_to_mqtt=azure_native.iotoperationsmq.KafkaToMqttRoutesArgs(
+            consumer_group_id="usork",
+            kafka_topic="ggwhwbsr",
+            mqtt_topic="jwvmmhfqqkkmqrpslbdfmpbdetfu",
+            name="lrnvudysggscnqvmnlkrk",
+            qos=1,
+        ),
+        mqtt_to_kafka=azure_native.iotoperationsmq.MqttToKafkaRoutesArgs(
+            kafka_acks="zero",
+            kafka_topic="tellycttwulueqcpqf",
+            mqtt_topic="raipkrcwvdnnflywhgjwnquarf",
+            name="qpshqcaxvxnyjzimvchngupzezdei",
+            qos=1,
+            shared_subscription=azure_native.iotoperationsmq.KafkaSharedSubscriptionPropertiesArgs(
+                group_minimum_share_number=216,
+                group_name="nwdyccsditzhchuksmi",
+            ),
+        ),
+    )],
+    tags={},
+    topic_map_name="q582ViEY-b7wF1OO2A")

@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+view = azure_native.customerinsights.View("view",
+    definition="{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
+    display_name={
+        "en": "some name",
+    },
+    hub_name="sdkTestHub",
+    resource_group_name="TestHubRG",
+    user_id="testUser",
+    view_name="testView")

@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+provider_instance = azure_native.hanaonazure.ProviderInstance("providerInstance",
+    metadata="{\"key\":\"value\"}",
+    properties="{\"hostname\":\"10.0.0.6\",\"dbName\":\"SYSTEMDB\",\"sqlPort\":30013,\"dbUsername\":\"SYSTEM\",\"dbPassword\":\"PASSWORD\"}",
+    provider_instance_name="myProviderInstance",
+    resource_group_name="myResourceGroup",
+    sap_monitor_name="mySapMonitor",
+    type="hana")

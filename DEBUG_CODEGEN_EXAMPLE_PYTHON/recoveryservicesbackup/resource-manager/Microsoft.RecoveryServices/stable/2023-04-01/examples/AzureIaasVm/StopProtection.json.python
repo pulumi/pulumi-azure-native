@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+protected_item = azure_native.recoveryservices.ProtectedItem("protectedItem",
+    container_name="IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+    fabric_name="Azure",
+    properties=azure_native.recoveryservices.AzureIaaSComputeVMProtectedItemArgs(
+        protected_item_type="Microsoft.Compute/virtualMachines",
+        protection_state="ProtectionStopped",
+        source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
+    ),
+    protected_item_name="VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+    resource_group_name="SwaggerTestRg",
+    vault_name="NetSDKTestRsVault")

@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connectivity_configuration = azure_native.network.ConnectivityConfiguration("connectivityConfiguration",
+    applies_to_groups=[azure_native.network.ConnectivityGroupItemArgs(
+        group_connectivity="None",
+        is_global="False",
+        network_group_id="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1",
+        use_hub_gateway="True",
+    )],
+    configuration_name="myTestConnectivityConfig",
+    connectivity_topology="HubAndSpoke",
+    delete_existing_peering="True",
+    description="Sample Configuration",
+    hubs=[azure_native.network.HubArgs(
+        resource_id="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig",
+        resource_type="Microsoft.Network/virtualNetworks",
+    )],
+    is_global="True",
+    network_manager_name="testNetworkManager",
+    resource_group_name="myResourceGroup")

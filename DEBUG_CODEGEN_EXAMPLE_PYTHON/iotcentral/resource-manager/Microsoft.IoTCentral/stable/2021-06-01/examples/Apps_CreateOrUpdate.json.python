@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+app = azure_native.iotcentral.App("app",
+    display_name="My IoT Central App",
+    identity=azure_native.iotcentral.SystemAssignedServiceIdentityArgs(
+        type="SystemAssigned",
+    ),
+    location="westus",
+    resource_group_name="resRg",
+    resource_name_="myIoTCentralApp",
+    sku=azure_native.iotcentral.AppSkuInfoArgs(
+        name="ST2",
+    ),
+    subdomain="my-iot-central-app",
+    template="iotc-pnp-preview@1.0.0")

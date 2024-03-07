@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+key_group = azure_native.cdn.KeyGroup("keyGroup",
+    key_group_name="kg1",
+    key_references=[
+        azure_native.cdn.ResourceReferenceArgs(
+            id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1",
+        ),
+        azure_native.cdn.ResourceReferenceArgs(
+            id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret2",
+        ),
+        azure_native.cdn.ResourceReferenceArgs(
+            id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret3",
+        ),
+    ],
+    profile_name="profile1",
+    resource_group_name="RG")

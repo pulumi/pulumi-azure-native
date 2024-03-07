@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+open_ai = azure_native.elastic.OpenAI("openAI",
+    integration_name="default",
+    monitor_name="myMonitor",
+    resource_group_name="myResourceGroup")

@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+service = azure_native.datamigration.Service("service",
+    group_name="DmsSdkRg",
+    location="southcentralus",
+    service_name="DmsSdkService",
+    sku=azure_native.datamigration.ServiceSkuArgs(
+        name="Basic_1vCore",
+    ),
+    virtual_subnet_id="/subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkTestNetwork/providers/Microsoft.Network/virtualNetworks/DmsSdkTestNetwork/subnets/default")

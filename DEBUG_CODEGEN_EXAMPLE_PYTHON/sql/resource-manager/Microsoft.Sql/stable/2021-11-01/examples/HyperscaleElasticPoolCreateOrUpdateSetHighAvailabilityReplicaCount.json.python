@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+    elastic_pool_name="sqlcrudtest-8102",
+    high_availability_replica_count=2,
+    location="Japan East",
+    resource_group_name="sqlcrudtest-2369",
+    server_name="sqlcrudtest-8069",
+    sku=azure_native.sql.SkuArgs(
+        name="HS_Gen5_4",
+    ))

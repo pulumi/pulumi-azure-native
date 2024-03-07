@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+namespace_topic_event_subscription = azure_native.eventgrid.NamespaceTopicEventSubscription("namespaceTopicEventSubscription",
+    delivery_configuration=azure_native.eventgrid.DeliveryConfigurationArgs(
+        delivery_mode="Queue",
+        queue=azure_native.eventgrid.QueueInfoArgs(
+            event_time_to_live="P1D",
+            max_delivery_count=4,
+            receive_lock_duration_in_seconds=60,
+        ),
+    ),
+    event_delivery_schema="CloudEventSchemaV1_0",
+    event_subscription_name="examplenamespacetopicEventSub2",
+    namespace_name="examplenamespace2",
+    resource_group_name="examplerg",
+    topic_name="examplenamespacetopic2")

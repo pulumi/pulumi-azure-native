@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+container = azure_native.databoxedge.Container("container",
+    container_name="blobcontainer1",
+    data_format="BlockBlob",
+    device_name="testedgedevice",
+    resource_group_name="GroupForEdgeAutomation",
+    storage_account_name="storageaccount1")

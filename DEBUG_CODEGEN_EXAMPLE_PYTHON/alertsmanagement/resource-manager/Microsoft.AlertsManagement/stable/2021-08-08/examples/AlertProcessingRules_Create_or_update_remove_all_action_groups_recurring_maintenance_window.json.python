@@ -1,0 +1,36 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+alert_processing_rule_by_name = azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName",
+    alert_processing_rule_name="RemoveActionGroupsRecurringMaintenance",
+    location="Global",
+    properties=azure_native.alertsmanagement.AlertProcessingRulePropertiesArgs(
+        actions=[azure_native.alertsmanagement.RemoveAllActionGroupsArgs(
+            action_type="RemoveAllActionGroups",
+        )],
+        conditions=[azure_native.alertsmanagement.ConditionArgs(
+            field="TargetResourceType",
+            operator="Equals",
+            values=["microsoft.compute/virtualmachines"],
+        )],
+        description="Remove all ActionGroups from all Vitual machine Alerts during the recurring maintenance",
+        enabled=True,
+        schedule=azure_native.alertsmanagement.ScheduleArgs(
+            recurrences=[azure_native.alertsmanagement.WeeklyRecurrenceArgs(
+                days_of_week=[
+                    "Saturday",
+                    "Sunday",
+                ],
+                end_time="04:00:00",
+                recurrence_type="Weekly",
+                start_time="22:00:00",
+            )],
+            time_zone="India Standard Time",
+        ),
+        scopes=[
+            "/subscriptions/subId1/resourceGroups/RGId1",
+            "/subscriptions/subId1/resourceGroups/RGId2",
+        ],
+    ),
+    resource_group_name="alertscorrelationrg",
+    tags={})

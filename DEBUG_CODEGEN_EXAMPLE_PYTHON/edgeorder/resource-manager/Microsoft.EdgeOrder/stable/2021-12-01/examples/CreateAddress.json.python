@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+address_by_name = azure_native.edgeorder.AddressByName("addressByName",
+    address_name="TestAddressName2",
+    contact_details=azure_native.edgeorder.ContactDetailsArgs(
+        contact_name="XXXX XXXX",
+        email_list=["xxxx@xxxx.xxx"],
+        phone="0000000000",
+        phone_extension="",
+    ),
+    location="eastus",
+    resource_group_name="YourResourceGroupName",
+    shipping_address=azure_native.edgeorder.ShippingAddressArgs(
+        address_type="None",
+        city="San Francisco",
+        company_name="Microsoft",
+        country="US",
+        postal_code="94107",
+        state_or_province="CA",
+        street_address1="16 TOWNSEND ST",
+        street_address2="UNIT 1",
+    ))

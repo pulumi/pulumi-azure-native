@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+    elastic_pool_name="sqlcrudtest-8102",
+    location="Japan East",
+    maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_1",
+    resource_group_name="sqlcrudtest-2369",
+    server_name="sqlcrudtest-8069")

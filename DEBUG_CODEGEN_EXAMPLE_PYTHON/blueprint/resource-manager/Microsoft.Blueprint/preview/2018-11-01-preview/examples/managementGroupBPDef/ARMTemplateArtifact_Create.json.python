@@ -1,0 +1,52 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+template_artifact = azure_native.blueprint.TemplateArtifact("templateArtifact",
+    artifact_name="storageTemplate",
+    blueprint_name="simpleBlueprint",
+    kind="template",
+    parameters={
+        "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+            value="[parameters('storageAccountType')]",
+        ),
+    },
+    resource_group="storageRG",
+    resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    template={
+        "contentVersion": "1.0.0.0",
+        "outputs": {
+            "storageAccountName": {
+                "type": "string",
+                "value": "[variables('storageAccountName')]",
+            },
+        },
+        "parameters": {
+            "storageAccountType": {
+                "allowedValues": [
+                    "Standard_LRS",
+                    "Standard_GRS",
+                    "Standard_ZRS",
+                    "Premium_LRS",
+                ],
+                "defaultValue": "Standard_LRS",
+                "metadata": {
+                    "description": "Storage Account type",
+                },
+                "type": "string",
+            },
+        },
+        "resources": [{
+            "apiVersion": "2016-01-01",
+            "kind": "Storage",
+            "location": "[resourceGroup().location]",
+            "name": "[variables('storageAccountName')]",
+            "properties": {},
+            "sku": {
+                "name": "[parameters('storageAccountType')]",
+            },
+            "type": "Microsoft.Storage/storageAccounts",
+        }],
+        "variables": {
+            "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]",
+        },
+    })

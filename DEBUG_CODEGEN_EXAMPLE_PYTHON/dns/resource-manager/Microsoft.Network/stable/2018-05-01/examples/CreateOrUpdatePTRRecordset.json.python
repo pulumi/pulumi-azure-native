@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+record_set = azure_native.network.RecordSet("recordSet",
+    metadata={
+        "key1": "value1",
+    },
+    ptr_records=[azure_native.network.PtrRecordArgs(
+        ptrdname="localhost",
+    )],
+    record_type="PTR",
+    relative_record_set_name="1",
+    resource_group_name="rg1",
+    ttl=3600,
+    zone_name="0.0.127.in-addr.arpa")

@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.cognitiveservices.Account("account",
+    account_name="testCreate1",
+    identity=azure_native.cognitiveservices.IdentityArgs(
+        type=azure_native.cognitiveservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+    ),
+    kind="CognitiveServices",
+    location="West US",
+    properties=azure_native.cognitiveservices.AccountPropertiesArgs(),
+    resource_group_name="myResourceGroup",
+    sku=azure_native.cognitiveservices.SkuArgs(
+        name="S0",
+    ))

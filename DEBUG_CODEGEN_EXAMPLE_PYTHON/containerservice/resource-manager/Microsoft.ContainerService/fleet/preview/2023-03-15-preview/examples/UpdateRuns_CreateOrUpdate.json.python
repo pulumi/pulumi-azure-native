@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+update_run = azure_native.containerservice.UpdateRun("updateRun",
+    fleet_name="fleet1",
+    managed_cluster_update=azure_native.containerservice.ManagedClusterUpdateArgs(
+        upgrade=azure_native.containerservice.ManagedClusterUpgradeSpecArgs(
+            kubernetes_version="1.26.1",
+            type="Full",
+        ),
+    ),
+    resource_group_name="rg1",
+    strategy=azure_native.containerservice.UpdateRunStrategyArgs(
+        stages=[azure_native.containerservice.UpdateStageArgs(
+            after_stage_wait_in_seconds=3600,
+            groups=[azure_native.containerservice.UpdateGroupArgs(
+                name="group-a",
+            )],
+            name="stage1",
+        )],
+    ),
+    update_run_name="run1")

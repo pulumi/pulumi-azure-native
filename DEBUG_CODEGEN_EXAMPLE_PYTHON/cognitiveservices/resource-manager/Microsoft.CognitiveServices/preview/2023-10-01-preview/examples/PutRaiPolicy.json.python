@@ -1,0 +1,29 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+rai_policy = azure_native.cognitiveservices.RaiPolicy("raiPolicy",
+    account_name="accountName",
+    properties=azure_native.cognitiveservices.RaiPolicyPropertiesArgs(
+        base_policy_name="112",
+        content_filters=[
+            azure_native.cognitiveservices.RaiPolicyContentFilterArgs(
+                allowed_content_level="Low",
+                blocking=True,
+                name="hate",
+            ),
+            azure_native.cognitiveservices.RaiPolicyContentFilterArgs(
+                allowed_content_level="Low",
+                name="sexual",
+            ),
+            azure_native.cognitiveservices.RaiPolicyContentFilterArgs(
+                enabled=False,
+                name="violence",
+            ),
+            azure_native.cognitiveservices.RaiPolicyContentFilterArgs(
+                enabled=False,
+                name="DefaultHateSpeechBlockList",
+            ),
+        ],
+    ),
+    rai_policy_name="raiPolicyName",
+    resource_group_name="resourceGroupName")

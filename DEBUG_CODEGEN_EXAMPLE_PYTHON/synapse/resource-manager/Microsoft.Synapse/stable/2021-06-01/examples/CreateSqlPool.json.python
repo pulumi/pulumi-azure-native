@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_pool = azure_native.synapse.SqlPool("sqlPool",
+    collation="",
+    create_mode="",
+    location="Southeast Asia",
+    max_size_bytes=0,
+    recoverable_database_id="",
+    resource_group_name="ExampleResourceGroup",
+    sku=azure_native.synapse.SkuArgs(
+        name="",
+        tier="",
+    ),
+    source_database_id="",
+    sql_pool_name="ExampleSqlPool",
+    storage_account_type="LRS",
+    tags={},
+    workspace_name="ExampleWorkspace")

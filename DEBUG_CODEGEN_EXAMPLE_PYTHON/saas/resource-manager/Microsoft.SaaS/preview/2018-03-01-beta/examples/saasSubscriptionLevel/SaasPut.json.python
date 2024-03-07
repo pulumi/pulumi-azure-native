@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+saas_subscription_level = azure_native.saas.SaasSubscriptionLevel("saasSubscriptionLevel",
+    location="global",
+    name="MyContosoSubscription",
+    properties=azure_native.saas.SaasCreationPropertiesArgs(
+        offer_id="contosoOffer",
+        payment_channel_metadata={
+            "AzureSubscriptionId": "155af98a-3205-47e7-883b-a2ab9db9f88d",
+        },
+        payment_channel_type="SubscriptionDelegated",
+        publisher_id="microsoft-contoso",
+        saas_resource_name="MyContosoSubscription",
+        sku_id="free",
+        term_id="hjdtn7tfnxcy",
+    ),
+    resource_group_name="my-saas-rg",
+    resource_name_="MyContosoSubscription")

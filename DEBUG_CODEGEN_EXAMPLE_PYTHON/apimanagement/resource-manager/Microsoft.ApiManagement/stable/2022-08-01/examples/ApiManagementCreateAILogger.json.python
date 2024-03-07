@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+logger = azure_native.apimanagement.Logger("logger",
+    credentials={
+        "instrumentationKey": "11................a1",
+    },
+    description="adding a new logger",
+    logger_id="loggerId",
+    logger_type="applicationInsights",
+    resource_group_name="rg1",
+    service_name="apimService1")

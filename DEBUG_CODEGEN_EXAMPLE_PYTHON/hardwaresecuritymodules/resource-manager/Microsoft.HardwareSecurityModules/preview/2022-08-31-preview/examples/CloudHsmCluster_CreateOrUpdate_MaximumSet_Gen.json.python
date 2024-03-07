@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cloud_hsm_cluster = azure_native.hardwaresecuritymodules.CloudHsmCluster("cloudHsmCluster",
+    cloud_hsm_cluster_name="chsm1",
+    location="eastus2",
+    resource_group_name="rgcloudhsm",
+    security_domain=azure_native.hardwaresecuritymodules.CloudHsmClusterSecurityDomainPropertiesArgs(
+        fips_state=2,
+    ),
+    sku=azure_native.hardwaresecuritymodules.CloudHsmClusterSkuArgs(
+        family="B",
+        name=azure_native.hardwaresecuritymodules.CloudHsmClusterSkuName.STANDARD_B1,
+    ),
+    tags={
+        "Dept": "hsm",
+        "Environment": "dogfood",
+    })

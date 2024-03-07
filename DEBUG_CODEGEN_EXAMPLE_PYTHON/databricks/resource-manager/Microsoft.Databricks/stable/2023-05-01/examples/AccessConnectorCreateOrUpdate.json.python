@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+access_connector = azure_native.databricks.AccessConnector("accessConnector",
+    connector_name="myAccessConnector",
+    location="westus",
+    resource_group_name="rg")

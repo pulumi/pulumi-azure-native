@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace_api_policy = azure_native.apimanagement.WorkspaceApiPolicy("workspaceApiPolicy",
+    api_id="5600b57e7e8880006a040001",
+    format="xml",
+    policy_id="policy",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    value="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+    workspace_id="wks1")

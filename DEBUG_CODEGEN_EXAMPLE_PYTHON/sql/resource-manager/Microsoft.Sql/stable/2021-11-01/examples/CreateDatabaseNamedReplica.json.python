@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database = azure_native.sql.Database("database",
+    create_mode="Secondary",
+    database_name="testdb",
+    location="southeastasia",
+    resource_group_name="Default-SQL-SouthEastAsia",
+    secondary_type="Named",
+    server_name="testsvr",
+    sku=azure_native.sql.SkuArgs(
+        capacity=2,
+        name="HS_Gen4",
+        tier="Hyperscale",
+    ),
+    source_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/primarydb")

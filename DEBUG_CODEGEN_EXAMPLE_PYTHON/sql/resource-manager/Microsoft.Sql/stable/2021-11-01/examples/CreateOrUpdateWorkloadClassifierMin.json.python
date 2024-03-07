@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workload_classifier = azure_native.sql.WorkloadClassifier("workloadClassifier",
+    database_name="testdb",
+    member_name="dbo",
+    resource_group_name="Default-SQL-SouthEastAsia",
+    server_name="testsvr",
+    workload_classifier_name="wlm_workloadclassifier",
+    workload_group_name="wlm_workloadgroup")

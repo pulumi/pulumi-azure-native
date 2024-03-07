@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+group = azure_native.migrate.Group("group",
+    e_tag="\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+    group_name="Group2",
+    project_name="abgoyalWEselfhostb72bproject",
+    properties=azure_native.migrate.GroupPropertiesArgs(),
+    resource_group_name="abgoyal-westEurope")

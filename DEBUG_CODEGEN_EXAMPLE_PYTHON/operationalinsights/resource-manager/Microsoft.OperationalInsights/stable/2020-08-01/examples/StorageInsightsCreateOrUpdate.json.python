@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+storage_insight_config = azure_native.operationalinsights.StorageInsightConfig("storageInsightConfig",
+    containers=["wad-iis-logfiles"],
+    resource_group_name="OIAutoRest5123",
+    storage_account=azure_native.operationalinsights.StorageAccountArgs(
+        id="/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
+        key="1234",
+    ),
+    storage_insight_name="AzTestSI1110",
+    tables=[
+        "WADWindowsEventLogsTable",
+        "LinuxSyslogVer2v0",
+    ],
+    workspace_name="aztest5048")

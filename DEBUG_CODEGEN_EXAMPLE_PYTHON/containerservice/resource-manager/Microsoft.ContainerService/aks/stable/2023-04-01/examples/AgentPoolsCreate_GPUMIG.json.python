@@ -1,0 +1,36 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+agent_pool = azure_native.containerservice.AgentPool("agentPool",
+    agent_pool_name="agentpool1",
+    count=3,
+    gpu_instance_profile="MIG2g",
+    kubelet_config=azure_native.containerservice.KubeletConfigArgs(
+        allowed_unsafe_sysctls=[
+            "kernel.msg*",
+            "net.core.somaxconn",
+        ],
+        cpu_cfs_quota=True,
+        cpu_cfs_quota_period="200ms",
+        cpu_manager_policy="static",
+        fail_swap_on=False,
+        image_gc_high_threshold=90,
+        image_gc_low_threshold=70,
+        topology_manager_policy="best-effort",
+    ),
+    linux_os_config=azure_native.containerservice.LinuxOSConfigArgs(
+        swap_file_size_mb=1500,
+        sysctls=azure_native.containerservice.SysctlConfigArgs(
+            kernel_threads_max=99999,
+            net_core_wmem_default=12345,
+            net_ipv4_ip_local_port_range="20000 60000",
+            net_ipv4_tcp_tw_reuse=True,
+        ),
+        transparent_huge_page_defrag="madvise",
+        transparent_huge_page_enabled="always",
+    ),
+    orchestrator_version="",
+    os_type="Linux",
+    resource_group_name="rg1",
+    resource_name_="clustername1",
+    vm_size="Standard_ND96asr_v4")

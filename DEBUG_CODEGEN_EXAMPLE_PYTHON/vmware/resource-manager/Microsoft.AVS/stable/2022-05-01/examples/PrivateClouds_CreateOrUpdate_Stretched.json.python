@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_cloud = azure_native.avs.PrivateCloud("privateCloud",
+    availability=azure_native.avs.AvailabilityPropertiesArgs(
+        secondary_zone=2,
+        strategy="DualZone",
+        zone=1,
+    ),
+    location="eastus2",
+    management_cluster=azure_native.avs.ManagementClusterArgs(
+        cluster_size=4,
+    ),
+    network_block="192.168.48.0/22",
+    private_cloud_name="cloud1",
+    resource_group_name="group1",
+    sku=azure_native.avs.SkuArgs(
+        name="AV36",
+    ),
+    tags={})

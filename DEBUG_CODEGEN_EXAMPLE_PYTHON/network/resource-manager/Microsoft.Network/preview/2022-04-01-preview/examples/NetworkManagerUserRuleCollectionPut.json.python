@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+user_rule_collection = azure_native.network.UserRuleCollection("userRuleCollection",
+    applies_to_groups=[azure_native.network.NetworkManagerSecurityGroupItemArgs(
+        network_group_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+    )],
+    configuration_name="myTestSecurityConfig",
+    description="A sample policy",
+    network_manager_name="testNetworkManager",
+    resource_group_name="rg1",
+    rule_collection_name="testRuleCollection")

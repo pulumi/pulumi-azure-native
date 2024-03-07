@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+namespace = azure_native.relay.Namespace("namespace",
+    location="South Central US",
+    namespace_name="example-RelayNamespace-5849",
+    resource_group_name="resourcegroup",
+    sku=azure_native.relay.SkuArgs(
+        name="Standard",
+        tier="Standard",
+    ),
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    })

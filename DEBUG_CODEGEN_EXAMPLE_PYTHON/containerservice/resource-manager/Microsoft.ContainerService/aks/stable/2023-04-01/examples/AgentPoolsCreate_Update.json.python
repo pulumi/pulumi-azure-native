@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+agent_pool = azure_native.containerservice.AgentPool("agentPool",
+    agent_pool_name="agentpool1",
+    count=3,
+    mode="User",
+    node_labels={
+        "key1": "val1",
+    },
+    node_taints=["Key1=Value1:NoSchedule"],
+    orchestrator_version="",
+    os_type="Linux",
+    resource_group_name="rg1",
+    resource_name_="clustername1",
+    scale_set_eviction_policy="Delete",
+    scale_set_priority="Spot",
+    tags={
+        "name1": "val1",
+    },
+    vm_size="Standard_DS1_v2")

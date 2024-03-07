@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database_advisor = azure_native.sql.DatabaseAdvisor("databaseAdvisor",
+    advisor_name="CreateIndex",
+    auto_execute_status=azure_native.sql.AutoExecuteStatus.DISABLED,
+    database_name="IndexAdvisor_test_3",
+    resource_group_name="workloadinsight-demos",
+    server_name="misosisvr")

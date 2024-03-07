@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+group_user = azure_native.apimanagement.GroupUser("groupUser",
+    group_id="tempgroup",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    user_id="59307d350af58404d8a26300")

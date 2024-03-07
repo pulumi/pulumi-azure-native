@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+target = azure_native.databasewatcher.Target("target",
+    connection_server_name="sqlServero1ihe2",
+    resource_group_name="apiTest-ddat4p",
+    target_authentication_type="Aad",
+    target_name="monitoringh22eed",
+    target_type="SqlDb",
+    watcher_name="databasemo3ej9ih")

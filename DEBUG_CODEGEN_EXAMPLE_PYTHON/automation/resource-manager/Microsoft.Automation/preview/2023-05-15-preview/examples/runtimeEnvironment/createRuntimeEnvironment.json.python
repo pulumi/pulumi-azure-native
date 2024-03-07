@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+runtime_environment = azure_native.automation.RuntimeEnvironment("runtimeEnvironment",
+    automation_account_name="myAutomationAccount9",
+    default_packages={
+        "Az": "8.3.0",
+    },
+    language="PowerShell",
+    location="East US 2",
+    resource_group_name="rg",
+    runtime_environment_name="myRuntimeEnvironmentName",
+    version="7.1")

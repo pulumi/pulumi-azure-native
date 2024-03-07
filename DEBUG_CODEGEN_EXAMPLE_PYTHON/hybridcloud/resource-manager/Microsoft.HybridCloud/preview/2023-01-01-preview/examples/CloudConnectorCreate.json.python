@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cloud_connector = azure_native.hybridcloud.CloudConnector("cloudConnector",
+    account_id="123456789012",
+    cloud_connector_name="123456789012",
+    cloud_type="AWS",
+    location="West US",
+    resource_group_name="demo-rg")

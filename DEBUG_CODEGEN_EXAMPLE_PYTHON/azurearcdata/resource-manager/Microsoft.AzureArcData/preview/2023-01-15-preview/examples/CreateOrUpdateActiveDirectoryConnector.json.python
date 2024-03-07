@@ -1,0 +1,36 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+active_directory_connector = azure_native.azurearcdata.ActiveDirectoryConnector("activeDirectoryConnector",
+    active_directory_connector_name="testADConnector",
+    data_controller_name="testdataController",
+    properties=azure_native.azurearcdata.ActiveDirectoryConnectorPropertiesArgs(
+        spec=azure_native.azurearcdata.ActiveDirectoryConnectorSpecArgs(
+            active_directory=azure_native.azurearcdata.ActiveDirectoryConnectorDomainDetailsArgs(
+                domain_controllers=azure_native.azurearcdata.ActiveDirectoryDomainControllersArgs(
+                    primary_domain_controller=azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                        hostname="dc1.contoso.local",
+                    ),
+                    secondary_domain_controllers=[
+                        azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                            hostname="dc2.contoso.local",
+                        ),
+                        azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                            hostname="dc3.contoso.local",
+                        ),
+                    ],
+                ),
+                realm="CONTOSO.LOCAL",
+                service_account_provisioning="manual",
+            ),
+            dns=azure_native.azurearcdata.ActiveDirectoryConnectorDNSDetailsArgs(
+                nameserver_ip_addresses=[
+                    "11.11.111.111",
+                    "22.22.222.222",
+                ],
+                prefer_k8s_dns_for_ptr_lookups=False,
+                replicas=1,
+            ),
+        ),
+    ),
+    resource_group_name="testrg")

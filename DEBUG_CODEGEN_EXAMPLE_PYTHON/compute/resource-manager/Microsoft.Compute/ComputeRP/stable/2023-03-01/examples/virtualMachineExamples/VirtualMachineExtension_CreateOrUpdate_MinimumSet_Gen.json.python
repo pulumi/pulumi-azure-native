@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_machine_extension = azure_native.compute.VirtualMachineExtension("virtualMachineExtension",
+    location="westus",
+    resource_group_name="rgcompute",
+    vm_extension_name="myVMExtension",
+    vm_name="myVM")

@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+distributed_availability_group = azure_native.sql.DistributedAvailabilityGroup("distributedAvailabilityGroup",
+    distributed_availability_group_name="dag",
+    managed_instance_name="testcl",
+    primary_availability_group_name="BoxLocalAg1",
+    resource_group_name="testrg",
+    secondary_availability_group_name="testcl",
+    source_endpoint="TCP://SERVER:7022",
+    target_database="testdb")

@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+iscsi_target = azure_native.storagepool.IscsiTarget("iscsiTarget",
+    acl_mode="Dynamic",
+    disk_pool_name="myDiskPool",
+    iscsi_target_name="myIscsiTarget",
+    luns=[azure_native.storagepool.IscsiLunArgs(
+        managed_disk_azure_resource_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+        name="lun0",
+    )],
+    resource_group_name="myResourceGroup",
+    target_iqn="iqn.2005-03.org.iscsi:server1")

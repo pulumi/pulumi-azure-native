@@ -1,0 +1,27 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+streaming_locator = azure_native.media.StreamingLocator("streamingLocator",
+    account_name="contosomedia",
+    asset_name="ClimbingMountRainier",
+    content_keys=[
+        azure_native.media.StreamingLocatorContentKeyArgs(
+            id="60000000-0000-0000-0000-000000000001",
+            label_reference_in_streaming_policy="aesDefaultKey",
+            value="1UqLohAfWsEGkULYxHjYZg==",
+        ),
+        azure_native.media.StreamingLocatorContentKeyArgs(
+            id="60000000-0000-0000-0000-000000000004",
+            label_reference_in_streaming_policy="cencDefaultKey",
+            value="4UqLohAfWsEGkULYxHjYZg==",
+        ),
+        azure_native.media.StreamingLocatorContentKeyArgs(
+            id="60000000-0000-0000-0000-000000000007",
+            label_reference_in_streaming_policy="cbcsDefaultKey",
+            value="7UqLohAfWsEGkULYxHjYZg==",
+        ),
+    ],
+    resource_group_name="contosorg",
+    streaming_locator_id="90000000-0000-0000-0000-00000000000A",
+    streaming_locator_name="UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys",
+    streaming_policy_name="secureStreamingPolicy")

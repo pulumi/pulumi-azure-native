@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.purview.Account("account",
+    account_name="account1",
+    location="West US 2",
+    managed_resource_group_name="custom-rgname",
+    managed_resources_public_network_access="Enabled",
+    resource_group_name="SampleResourceGroup")

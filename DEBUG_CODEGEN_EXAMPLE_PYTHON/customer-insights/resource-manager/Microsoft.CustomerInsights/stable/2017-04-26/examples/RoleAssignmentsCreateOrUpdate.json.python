@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+role_assignment = azure_native.customerinsights.RoleAssignment("roleAssignment",
+    assignment_name="assignmentName8976",
+    hub_name="sdkTestHub",
+    principals=[
+        azure_native.customerinsights.AssignmentPrincipalArgs(
+            principal_id="4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+            principal_type="User",
+        ),
+        azure_native.customerinsights.AssignmentPrincipalArgs(
+            principal_id="93061d15a5054f2b9948ae25724cf9d5",
+            principal_type="User",
+        ),
+    ],
+    resource_group_name="TestHubRG",
+    role=azure_native.customerinsights.RoleTypes.ADMIN)

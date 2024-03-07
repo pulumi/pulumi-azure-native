@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database_blob_auditing_policy = azure_native.sql.DatabaseBlobAuditingPolicy("databaseBlobAuditingPolicy",
+    audit_actions_and_groups=[
+        "DATABASE_LOGOUT_GROUP",
+        "DATABASE_ROLE_MEMBER_CHANGE_GROUP",
+        "UPDATE on database::TestDatabaseName by public",
+    ],
+    blob_auditing_policy_name="default",
+    database_name="testdb",
+    is_azure_monitor_target_enabled=True,
+    is_storage_secondary_key_in_use=False,
+    queue_delay_ms=4000,
+    resource_group_name="blobauditingtest-4799",
+    retention_days=6,
+    server_name="blobauditingtest-6440",
+    state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+    storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    storage_account_subscription_id="00000000-1234-0000-5678-000000000000",
+    storage_endpoint="https://mystorage.blob.core.windows.net")

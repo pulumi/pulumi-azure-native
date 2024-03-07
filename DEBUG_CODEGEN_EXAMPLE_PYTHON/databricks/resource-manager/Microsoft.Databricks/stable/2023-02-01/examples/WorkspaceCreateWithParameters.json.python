@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace = azure_native.databricks.Workspace("workspace",
+    location="westus",
+    managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+    parameters=azure_native.databricks.WorkspaceCustomParametersArgs(
+        custom_private_subnet_name=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+            value="myPrivateSubnet",
+        ),
+        custom_public_subnet_name=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+            value="myPublicSubnet",
+        ),
+        custom_virtual_network_id=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+            value="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork",
+        ),
+    ),
+    resource_group_name="rg",
+    workspace_name="myWorkspace")

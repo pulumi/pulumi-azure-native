@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+dra = azure_native.datareplication.Dra("dra",
+    fabric_agent_name="M",
+    fabric_name="wPR",
+    properties=azure_native.datareplication.DraModelPropertiesArgs(
+        authentication_identity=azure_native.datareplication.IdentityModelArgs(
+            aad_authority="bubwwbowfhdmujrt",
+            application_id="cwktzrwajuvfyyymfstpey",
+            audience="dkjobanyqgzenivyxhvavottpc",
+            object_id="khsiaqfbpuhp",
+            tenant_id="joclkkdovixwapephhxaqtefubhhmq",
+        ),
+        custom_properties=azure_native.datareplication.VMwareDraModelCustomPropertiesArgs(),
+        machine_id="envzcoijbqhtrpncbjbhk",
+        machine_name="y",
+        resource_access_identity=azure_native.datareplication.IdentityModelArgs(
+            aad_authority="bubwwbowfhdmujrt",
+            application_id="cwktzrwajuvfyyymfstpey",
+            audience="dkjobanyqgzenivyxhvavottpc",
+            object_id="khsiaqfbpuhp",
+            tenant_id="joclkkdovixwapephhxaqtefubhhmq",
+        ),
+    ),
+    resource_group_name="rgrecoveryservicesdatareplication")

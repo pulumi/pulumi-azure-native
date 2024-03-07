@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+user = azure_native.devtestlab.User("user",
+    identity=azure_native.devtestlab.UserIdentityArgs(
+        app_id="{appId}",
+        object_id="{objectId}",
+        principal_id="{principalId}",
+        principal_name="{principalName}",
+        tenant_id="{tenantId}",
+    ),
+    lab_name="{devtestlabName}",
+    location="{location}",
+    name="{userName}",
+    resource_group_name="resourceGroupName",
+    secret_store=azure_native.devtestlab.UserSecretStoreArgs(
+        key_vault_id="{keyVaultId}",
+        key_vault_uri="{keyVaultUri}",
+    ),
+    tags={
+        "tagName1": "tagValue1",
+    })

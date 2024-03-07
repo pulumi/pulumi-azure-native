@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server_security_alert_policy = azure_native.sql.ServerSecurityAlertPolicy("serverSecurityAlertPolicy",
+    disabled_alerts=[
+        "Access_Anomaly",
+        "Usage_Anomaly",
+    ],
+    email_account_admins=True,
+    email_addresses=["testSecurityAlert@microsoft.com"],
+    resource_group_name="securityalert-4799",
+    retention_days=5,
+    security_alert_policy_name="Default",
+    server_name="securityalert-6440",
+    state=azure_native.sql.SecurityAlertsPolicyState.ENABLED,
+    storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    storage_endpoint="https://mystorage.blob.core.windows.net")

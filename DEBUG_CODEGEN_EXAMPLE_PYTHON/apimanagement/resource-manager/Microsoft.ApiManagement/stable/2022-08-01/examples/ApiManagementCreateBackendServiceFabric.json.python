@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+backend = azure_native.apimanagement.Backend("backend",
+    backend_id="sfbackend",
+    description="Service Fabric Test App 1",
+    properties=azure_native.apimanagement.BackendPropertiesArgs(
+        service_fabric_cluster=azure_native.apimanagement.BackendServiceFabricClusterPropertiesArgs(
+            client_certificate_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+            management_endpoints=["https://somecluster.com"],
+            max_partition_resolution_retries=5,
+            server_x509_names=[azure_native.apimanagement.X509CertificateNameArgs(
+                issuer_certificate_thumbprint="IssuerCertificateThumbprint1",
+                name="ServerCommonName1",
+            )],
+        ),
+    ),
+    protocol="http",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    url="fabric:/mytestapp/mytestservice")

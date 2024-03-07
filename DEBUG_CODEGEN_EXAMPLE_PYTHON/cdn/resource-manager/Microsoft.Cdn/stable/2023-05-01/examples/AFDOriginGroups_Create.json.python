@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+afd_origin_group = azure_native.cdn.AFDOriginGroup("afdOriginGroup",
+    health_probe_settings=azure_native.cdn.HealthProbeParametersArgs(
+        probe_interval_in_seconds=10,
+        probe_path="/path2",
+        probe_protocol=azure_native.cdn.ProbeProtocol.NOT_SET,
+        probe_request_type=azure_native.cdn.HealthProbeRequestType.NOT_SET,
+    ),
+    load_balancing_settings=azure_native.cdn.LoadBalancingSettingsParametersArgs(
+        additional_latency_in_milliseconds=1000,
+        sample_size=3,
+        successful_samples_required=3,
+    ),
+    origin_group_name="origingroup1",
+    profile_name="profile1",
+    resource_group_name="RG",
+    traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=5)

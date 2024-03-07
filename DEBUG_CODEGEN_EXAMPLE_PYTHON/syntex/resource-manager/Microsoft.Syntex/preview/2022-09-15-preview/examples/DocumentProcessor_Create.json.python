@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+document_processor = azure_native.syntex.DocumentProcessor("documentProcessor",
+    location="westus",
+    processor_name="myprocessor",
+    properties=azure_native.syntex.DocumentProcessorPropertiesArgs(
+        spo_tenant_id="e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+        spo_tenant_url="https://test123.sharepoint.com",
+    ),
+    resource_group_name="mygroup",
+    tags={
+        "additionalProp1": "string1",
+        "additionalProp2": "string2",
+        "additionalProp3": "string3",
+    })

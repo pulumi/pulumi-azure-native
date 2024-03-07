@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+provider_instance = azure_native.workloads.ProviderInstance("providerInstance",
+    monitor_name="mySapMonitor",
+    provider_instance_name="myProviderInstance",
+    provider_settings=azure_native.workloads.PrometheusHaClusterProviderInstancePropertiesArgs(
+        cluster_name="clusterName",
+        hostname="hostname",
+        prometheus_url="http://192.168.0.0:9090/metrics",
+        provider_type="PrometheusHaCluster",
+        sid="sid",
+        ssl_preference="RootCertificate",
+    ),
+    resource_group_name="myResourceGroup")

@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+ciam_tenant = azure_native.azureactivedirectory.CIAMTenant("ciamTenant",
+    create_tenant_properties=azure_native.azureactivedirectory.CreateCIAMTenantPropertiesArgs(
+        country_code="US",
+        display_name="Contoso",
+    ),
+    location="United States",
+    resource_group_name="contosoResourceGroup",
+    resource_name_="contoso",
+    sku=azure_native.azureactivedirectory.CIAMResourceSKUArgs(
+        name="Standard",
+    ))

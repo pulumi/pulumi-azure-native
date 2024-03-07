@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+nsp_association = azure_native.network.NspAssociation("nspAssociation",
+    access_mode="Enforced",
+    association_name="association1",
+    network_security_perimeter_name="nsp1",
+    private_link_resource=azure_native.network.SubResourceArgs(
+        id="/subscriptions/{paasSubscriptionId}/resourceGroups/{paasResourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}",
+    ),
+    profile=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/{profileName}",
+    ),
+    resource_group_name="rg1")

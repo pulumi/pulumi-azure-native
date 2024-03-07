@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database = azure_native.sql.Database("database",
+    create_mode="PointInTimeRestore",
+    database_name="testdw",
+    location="southeastasia",
+    resource_group_name="Default-SQL-SouthEastAsia",
+    restore_point_in_time="2022-01-22T05:35:31.503Z",
+    server_name="testsvr",
+    source_resource_id="/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/databases/srcdw")

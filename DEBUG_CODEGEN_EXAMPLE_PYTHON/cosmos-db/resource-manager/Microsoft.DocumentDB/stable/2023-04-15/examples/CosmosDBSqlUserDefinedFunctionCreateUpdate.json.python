@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_resource_sql_user_defined_function = azure_native.documentdb.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction",
+    account_name="ddb1",
+    container_name="containerName",
+    database_name="databaseName",
+    options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+    resource=azure_native.documentdb.SqlUserDefinedFunctionResourceArgs(
+        body="body",
+        id="userDefinedFunctionName",
+    ),
+    resource_group_name="rg1",
+    user_defined_function_name="userDefinedFunctionName")

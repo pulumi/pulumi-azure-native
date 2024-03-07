@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+management_lock_at_resource_level = azure_native.authorization.ManagementLockAtResourceLevel("managementLockAtResourceLevel",
+    level="ReadOnly",
+    lock_name="testlock",
+    parent_resource_path="parentResourcePath",
+    resource_group_name="resourcegroupname",
+    resource_name_="teststorageaccount",
+    resource_provider_namespace="Microsoft.Storage",
+    resource_type="storageAccounts")

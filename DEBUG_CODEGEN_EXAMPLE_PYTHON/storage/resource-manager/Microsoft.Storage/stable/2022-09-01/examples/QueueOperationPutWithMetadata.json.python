@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+queue = azure_native.storage.Queue("queue",
+    account_name="sto328",
+    metadata={
+        "sample1": "meta1",
+        "sample2": "meta2",
+    },
+    queue_name="queue6185",
+    resource_group_name="res3376")

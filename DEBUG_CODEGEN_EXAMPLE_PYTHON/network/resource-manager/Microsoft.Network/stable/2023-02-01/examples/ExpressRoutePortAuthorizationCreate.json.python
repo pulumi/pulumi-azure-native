@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+express_route_port_authorization = azure_native.network.ExpressRoutePortAuthorization("expressRoutePortAuthorization",
+    authorization_name="authorizatinName",
+    express_route_port_name="expressRoutePortName",
+    resource_group_name="rg1")

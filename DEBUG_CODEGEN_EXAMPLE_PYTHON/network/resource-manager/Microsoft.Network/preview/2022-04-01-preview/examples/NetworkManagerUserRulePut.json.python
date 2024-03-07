@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+user_rule = azure_native.network.UserRule("userRule",
+    configuration_name="myTestSecurityConfig",
+    description="Sample User Rule",
+    destination_port_ranges=["22"],
+    destinations=[azure_native.network.AddressPrefixItemArgs(
+        address_prefix="*",
+        address_prefix_type="IPPrefix",
+    )],
+    direction="Inbound",
+    kind="Custom",
+    network_manager_name="testNetworkManager",
+    protocol="Tcp",
+    resource_group_name="rg1",
+    rule_collection_name="testRuleCollection",
+    rule_name="SampleUserRule",
+    source_port_ranges=["0-65535"],
+    sources=[azure_native.network.AddressPrefixItemArgs(
+        address_prefix="*",
+        address_prefix_type="IPPrefix",
+    )])

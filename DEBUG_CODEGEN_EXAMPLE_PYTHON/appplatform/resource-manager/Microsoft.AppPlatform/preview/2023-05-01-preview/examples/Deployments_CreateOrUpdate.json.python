@@ -1,0 +1,61 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+deployment = azure_native.appplatform.Deployment("deployment",
+    app_name="myapp",
+    deployment_name="mydeployment",
+    properties=azure_native.appplatform.DeploymentResourcePropertiesArgs(
+        deployment_settings=azure_native.appplatform.DeploymentSettingsArgs(
+            addon_configs={
+                "ApplicationConfigurationService": {
+                    "patterns": ["mypattern"],
+                },
+            },
+            apms=[azure_native.appplatform.ApmReferenceArgs(
+                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",
+            )],
+            environment_variables={
+                "env": "test",
+            },
+            liveness_probe=azure_native.appplatform.ProbeArgs(
+                disable_probe=False,
+                failure_threshold=3,
+                initial_delay_seconds=30,
+                period_seconds=10,
+                probe_action=azure_native.appplatform.HTTPGetActionArgs(
+                    path="/health",
+                    scheme="HTTP",
+                    type="HTTPGetAction",
+                ),
+            ),
+            readiness_probe=azure_native.appplatform.ProbeArgs(
+                disable_probe=False,
+                failure_threshold=3,
+                initial_delay_seconds=30,
+                period_seconds=10,
+                probe_action=azure_native.appplatform.HTTPGetActionArgs(
+                    path="/health",
+                    scheme="HTTP",
+                    type="HTTPGetAction",
+                ),
+            ),
+            resource_requests=azure_native.appplatform.ResourceRequestsArgs(
+                cpu="1000m",
+                memory="3Gi",
+            ),
+            termination_grace_period_seconds=30,
+        ),
+        source=azure_native.appplatform.SourceUploadedUserSourceInfoArgs(
+            artifact_selector="sub-module-1",
+            relative_path="resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+            type="Source",
+            version="1.0",
+        ),
+    ),
+    resource_group_name="myResourceGroup",
+    service_name="myservice",
+    sku=azure_native.appplatform.SkuArgs(
+        capacity=1,
+        name="S0",
+        tier="Standard",
+    ))

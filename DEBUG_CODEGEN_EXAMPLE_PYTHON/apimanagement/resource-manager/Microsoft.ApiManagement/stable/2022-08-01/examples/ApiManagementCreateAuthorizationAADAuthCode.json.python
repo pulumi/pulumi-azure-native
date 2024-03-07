@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+authorization = azure_native.apimanagement.Authorization("authorization",
+    authorization_id="authz2",
+    authorization_provider_id="aadwithauthcode",
+    authorization_type="OAuth2",
+    o_auth2_grant_type="AuthorizationCode",
+    resource_group_name="rg1",
+    service_name="apimService1")

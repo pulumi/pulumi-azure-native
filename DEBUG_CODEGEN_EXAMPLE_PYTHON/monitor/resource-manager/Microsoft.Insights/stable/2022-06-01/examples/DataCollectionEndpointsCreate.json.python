@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+data_collection_endpoint = azure_native.insights.DataCollectionEndpoint("dataCollectionEndpoint",
+    data_collection_endpoint_name="myCollectionEndpoint",
+    location="eastus",
+    network_acls=azure_native.insights.DataCollectionEndpointNetworkAclsArgs(
+        public_network_access="Enabled",
+    ),
+    resource_group_name="myResourceGroup")

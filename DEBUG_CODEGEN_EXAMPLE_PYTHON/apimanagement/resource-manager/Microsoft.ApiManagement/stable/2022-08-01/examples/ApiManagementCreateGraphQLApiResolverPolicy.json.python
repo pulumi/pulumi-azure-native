@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+graph_ql_api_resolver_policy = azure_native.apimanagement.GraphQLApiResolverPolicy("graphQLApiResolverPolicy",
+    api_id="5600b57e7e8880006a040001",
+    format="xml",
+    policy_id="policy",
+    resolver_id="5600b57e7e8880006a080001",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    value="<http-data-source><http-request><set-method>GET</set-method><set-backend-service base-url=\"https://some.service.com\" /><set-url>/api/users</set-url></http-request></http-data-source>")

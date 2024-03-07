@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+gallery_image = azure_native.compute.GalleryImage("galleryImage",
+    gallery_image_name="myGalleryImageName",
+    gallery_name="myGalleryName",
+    hyper_v_generation="V1",
+    identifier=azure_native.compute.GalleryImageIdentifierArgs(
+        offer="myOfferName",
+        publisher="myPublisherName",
+        sku="mySkuName",
+    ),
+    location="West US",
+    os_state=azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+    os_type=azure_native.compute.OperatingSystemTypes.WINDOWS,
+    resource_group_name="myResourceGroup")

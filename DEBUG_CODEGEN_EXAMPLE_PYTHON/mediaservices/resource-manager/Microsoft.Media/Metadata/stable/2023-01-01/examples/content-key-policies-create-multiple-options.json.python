@@ -1,0 +1,36 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+    account_name="contosomedia",
+    content_key_policy_name="PolicyCreatedWithMultipleOptions",
+    description="ArmPolicyDescription",
+    options=[
+        azure_native.media.ContentKeyPolicyOptionArgs(
+            configuration=azure_native.media.ContentKeyPolicyClearKeyConfigurationArgs(
+                odata_type="#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+            ),
+            name="ClearKeyOption",
+            restriction=azure_native.media.ContentKeyPolicyTokenRestrictionArgs(
+                audience="urn:audience",
+                issuer="urn:issuer",
+                odata_type="#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                primary_verification_key=azure_native.media.ContentKeyPolicySymmetricTokenKeyArgs(
+                    key_value="AAAAAAAAAAAAAAAAAAAAAA==",
+                    odata_type="#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                ),
+                restriction_token_type="Swt",
+            ),
+        ),
+        azure_native.media.ContentKeyPolicyOptionArgs(
+            configuration=azure_native.media.ContentKeyPolicyWidevineConfigurationArgs(
+                odata_type="#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+                widevine_template="{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
+            ),
+            name="widevineoption",
+            restriction=azure_native.media.ContentKeyPolicyOpenRestrictionArgs(
+                odata_type="#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+            ),
+        ),
+    ],
+    resource_group_name="contosorg")

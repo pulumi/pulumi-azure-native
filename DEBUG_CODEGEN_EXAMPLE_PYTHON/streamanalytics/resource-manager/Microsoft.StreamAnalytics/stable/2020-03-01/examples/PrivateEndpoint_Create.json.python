@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint = azure_native.streamanalytics.PrivateEndpoint("privateEndpoint",
+    cluster_name="testcluster",
+    manual_private_link_service_connections=[azure_native.streamanalytics.PrivateLinkServiceConnectionArgs(
+        group_ids=["groupIdFromResource"],
+        private_link_service_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+    )],
+    private_endpoint_name="testpe",
+    resource_group_name="sjrg")

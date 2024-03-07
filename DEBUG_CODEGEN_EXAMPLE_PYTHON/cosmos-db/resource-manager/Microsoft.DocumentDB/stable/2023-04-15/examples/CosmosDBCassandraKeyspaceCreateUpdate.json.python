@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cassandra_resource_cassandra_keyspace = azure_native.documentdb.CassandraResourceCassandraKeyspace("cassandraResourceCassandraKeyspace",
+    account_name="ddb1",
+    keyspace_name="keyspaceName",
+    location="West US",
+    options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+    resource=azure_native.documentdb.CassandraKeyspaceResourceArgs(
+        id="keyspaceName",
+    ),
+    resource_group_name="rg1",
+    tags={})

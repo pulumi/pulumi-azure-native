@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cassandra_resource_cassandra_table = azure_native.documentdb.CassandraResourceCassandraTable("cassandraResourceCassandraTable",
+    account_name="ddb1",
+    keyspace_name="keyspaceName",
+    location="West US",
+    options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+    resource=azure_native.documentdb.CassandraTableResourceArgs(
+        default_ttl=100,
+        id="tableName",
+        schema=azure_native.documentdb.CassandraSchemaArgs(
+            cluster_keys=[azure_native.documentdb.ClusterKeyArgs(
+                name="columnA",
+                order_by="Asc",
+            )],
+            columns=[azure_native.documentdb.ColumnArgs(
+                name="columnA",
+                type="Ascii",
+            )],
+            partition_keys=[azure_native.documentdb.CassandraPartitionKeyArgs(
+                name="columnA",
+            )],
+        ),
+    ),
+    resource_group_name="rg1",
+    table_name="tableName",
+    tags={})

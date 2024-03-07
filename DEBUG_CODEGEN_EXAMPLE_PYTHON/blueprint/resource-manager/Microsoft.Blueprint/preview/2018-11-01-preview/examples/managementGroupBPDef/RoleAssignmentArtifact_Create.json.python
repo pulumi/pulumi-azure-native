@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+template_artifact = azure_native.blueprint.TemplateArtifact("templateArtifact",
+    artifact_name="ownerAssignment",
+    blueprint_name="simpleBlueprint",
+    resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")

@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+    dead_letter_destination=azure_native.eventgrid.StorageBlobDeadLetterDestinationArgs(
+        blob_container_name="contosocontainer",
+        endpoint_type="StorageBlob",
+        resource_id="/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+    ),
+    destination=azure_native.eventgrid.StorageQueueEventSubscriptionDestinationArgs(
+        endpoint_type="StorageQueue",
+        queue_name="queue1",
+        resource_id="/subscriptions/d33c5f7a-02ea-40f4-bf52-07f17e84d6a8/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+    ),
+    event_subscription_name="examplesubscription1",
+    filter=azure_native.eventgrid.EventSubscriptionFilterArgs(
+        is_subject_case_sensitive=False,
+        subject_begins_with="ExamplePrefix",
+        subject_ends_with="ExampleSuffix",
+    ),
+    scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")

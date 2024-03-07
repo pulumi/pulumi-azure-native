@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_endpoint = azure_native.dbforpostgresql.VirtualEndpoint("virtualEndpoint",
+    endpoint_type="ReadWrite",
+    members=["testPrimary1"],
+    resource_group_name="testrg",
+    server_name="pgtestsvc4",
+    virtual_endpoint_name="pgVirtualEndpoint1")

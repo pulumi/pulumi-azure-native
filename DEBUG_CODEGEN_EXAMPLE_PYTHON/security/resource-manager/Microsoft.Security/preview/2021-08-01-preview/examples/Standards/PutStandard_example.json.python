@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+standard = azure_native.security.Standard("standard",
+    category="SecurityCenter",
+    components=[
+        azure_native.security.StandardComponentPropertiesArgs(
+            key="1195afff-c881-495e-9bc5-1486211ae03f",
+        ),
+        azure_native.security.StandardComponentPropertiesArgs(
+            key="dbd0cb49-b563-45e7-9724-889e799fa648",
+        ),
+    ],
+    description="description of Azure Test Security Standard 1",
+    display_name="Azure Test Security Standard 1",
+    resource_group_name="myResourceGroup",
+    standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    supported_clouds=[azure_native.security.StandardSupportedClouds.GCP])

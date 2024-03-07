@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_app_auth_settings = azure_native.web.WebAppAuthSettings("webAppAuthSettings",
+    allowed_external_redirect_urls=[
+        "sitef6141.customdomain.net",
+        "sitef6141.customdomain.info",
+    ],
+    client_id="42d795a9-8abb-4d06-8534-39528af40f8e.apps.googleusercontent.com",
+    default_provider=azure_native.web.BuiltInAuthenticationProvider.GOOGLE,
+    enabled=True,
+    name="sitef6141",
+    resource_group_name="testrg123",
+    runtime_version="~1",
+    token_refresh_extension_hours=120,
+    token_store_enabled=True,
+    unauthenticated_client_action=azure_native.web.UnauthenticatedClientAction.REDIRECT_TO_LOGIN_PAGE)

@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+kafka_configuration = azure_native.purview.KafkaConfiguration("kafkaConfiguration",
+    account_name="account1",
+    consumer_group="consumerGroup",
+    credentials=azure_native.purview.CredentialsArgs(
+        identity_id="/subscriptions/47e8596d-ee73-4eb2-b6b4-cc13c2b87ssd/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testId",
+        type="UserAssigned",
+    ),
+    event_hub_partition_id="partitionId",
+    event_hub_resource_id="/subscriptions/225be6fe-ec1c-4d51-a368-f69348d2e6c5/resourceGroups/testRG/providers/Microsoft.EventHub/namespaces/eventHubNameSpaceName",
+    event_hub_type="Notification",
+    event_streaming_state="Enabled",
+    event_streaming_type="Azure",
+    kafka_configuration_name="kafkaConfigName",
+    resource_group_name="rgpurview")

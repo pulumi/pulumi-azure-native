@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+availability_set = azure_native.compute.AvailabilitySet("availabilitySet",
+    availability_set_name="myAvailabilitySet",
+    location="westus",
+    platform_fault_domain_count=2,
+    platform_update_domain_count=20,
+    resource_group_name="myResourceGroup")

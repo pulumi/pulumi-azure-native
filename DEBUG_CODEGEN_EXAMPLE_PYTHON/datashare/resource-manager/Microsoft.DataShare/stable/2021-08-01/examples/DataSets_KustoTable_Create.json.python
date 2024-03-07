@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+synapse_workspace_sql_pool_table_data_set = azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSet("synapseWorkspaceSqlPoolTableDataSet",
+    account_name="Account1",
+    data_set_name="Dataset1",
+    resource_group_name="SampleResourceGroup",
+    share_name="Share1")

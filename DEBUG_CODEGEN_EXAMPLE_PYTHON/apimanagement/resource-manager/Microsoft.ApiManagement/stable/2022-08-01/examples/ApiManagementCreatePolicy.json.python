@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+policy = azure_native.apimanagement.Policy("policy",
+    format="xml",
+    policy_id="policy",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    value="""<policies>
+  <inbound />
+  <backend>
+    <forward-request />
+  </backend>
+  <outbound />
+</policies>""")

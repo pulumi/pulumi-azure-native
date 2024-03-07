@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_watcher = azure_native.network.NetworkWatcher("networkWatcher",
+    location="eastus",
+    network_watcher_name="nw1",
+    resource_group_name="rg1")

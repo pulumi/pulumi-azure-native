@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+record_set = azure_native.network.RecordSet("recordSet",
+    metadata={
+        "key1": "value1",
+    },
+    record_type="SOA",
+    relative_record_set_name="@",
+    resource_group_name="rg1",
+    soa_record=azure_native.network.SoaRecordArgs(
+        email="hostmaster.contoso.com",
+        expire_time=2419200,
+        host="ns1.contoso.com",
+        minimum_ttl=300,
+        refresh_time=3600,
+        retry_time=300,
+        serial_number=1,
+    ),
+    ttl=3600,
+    zone_name="zone1")

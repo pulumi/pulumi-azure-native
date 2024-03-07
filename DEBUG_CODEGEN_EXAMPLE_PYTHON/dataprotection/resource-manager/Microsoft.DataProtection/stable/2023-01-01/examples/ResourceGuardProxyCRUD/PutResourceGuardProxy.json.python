@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+dpp_resource_guard_proxy = azure_native.dataprotection.DppResourceGuardProxy("dppResourceGuardProxy",
+    properties=azure_native.dataprotection.ResourceGuardProxyBaseArgs(
+        resource_guard_resource_id="/subscriptions/f9e67185-f313-4e79-aa71-6458d429369d/resourceGroups/ResourceGuardSecurityAdminRG/providers/Microsoft.DataProtection/resourceGuards/ResourceGuardTestResource",
+    ),
+    resource_group_name="SampleResourceGroup",
+    resource_guard_proxy_name="swaggerExample",
+    vault_name="sampleVault")

@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+service_fabric = azure_native.devtestlab.ServiceFabric("serviceFabric",
+    environment_id="{environmentId}",
+    external_service_fabric_id="{serviceFabricId}",
+    lab_name="{labName}",
+    location="{location}",
+    name="{serviceFabricName}",
+    resource_group_name="resourceGroupName",
+    tags={
+        "tagName1": "tagValue1",
+    },
+    user_name="{userName}")

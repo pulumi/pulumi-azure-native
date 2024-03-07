@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+replica = azure_native.appconfiguration.Replica("replica",
+    config_store_name="contoso",
+    location="eastus",
+    replica_name="myReplicaEus",
+    resource_group_name="myResourceGroup")

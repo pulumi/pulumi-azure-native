@@ -1,0 +1,38 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+container_app = azure_native.web.ContainerApp("containerApp",
+    configuration=azure_native.web.ConfigurationArgs(
+        ingress=azure_native.web.IngressArgs(
+            external=True,
+            target_port=3000,
+        ),
+    ),
+    kind="containerApp",
+    kube_environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/kubeEnvironments/demokube",
+    location="East US",
+    name="testcontainerApp0",
+    resource_group_name="rg",
+    template=azure_native.web.TemplateArgs(
+        containers=[azure_native.web.ContainerArgs(
+            image="repo/testcontainerApp0:v1",
+            name="testcontainerApp0",
+        )],
+        dapr=azure_native.web.DaprArgs(
+            app_port=3000,
+            enabled=True,
+        ),
+        scale=azure_native.web.ScaleArgs(
+            max_replicas=5,
+            min_replicas=1,
+            rules=[azure_native.web.ScaleRuleArgs(
+                custom=azure_native.web.CustomScaleRuleArgs(
+                    metadata={
+                        "concurrentRequests": "50",
+                    },
+                    type="http",
+                ),
+                name="httpscalingrule",
+            )],
+        ),
+    ))

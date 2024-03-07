@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+volume = azure_native.servicefabricmesh.Volume("volume",
+    azure_file_parameters=azure_native.servicefabricmesh.VolumeProviderParametersAzureFileArgs(
+        account_key="provide-account-key-here",
+        account_name="sbzdemoaccount",
+        share_name="sharel",
+    ),
+    description="Service Fabric Mesh sample volume.",
+    location="EastUS",
+    provider="SFAzureFile",
+    resource_group_name="sbz_demo",
+    tags={},
+    volume_resource_name="sampleVolume")

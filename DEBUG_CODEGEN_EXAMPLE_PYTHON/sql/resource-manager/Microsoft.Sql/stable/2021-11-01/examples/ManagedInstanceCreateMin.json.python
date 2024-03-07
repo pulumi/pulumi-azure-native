@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_instance = azure_native.sql.ManagedInstance("managedInstance",
+    administrator_login="dummylogin",
+    administrator_login_password="PLACEHOLDER",
+    license_type="LicenseIncluded",
+    location="Japan East",
+    managed_instance_name="testinstance",
+    resource_group_name="testrg",
+    sku=azure_native.sql.SkuArgs(
+        name="GP_Gen4",
+        tier="GeneralPurpose",
+    ),
+    storage_size_in_gb=1024,
+    subnet_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    v_cores=8)

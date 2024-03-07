@@ -1,0 +1,60 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+open_shift_managed_cluster = azure_native.containerservice.OpenShiftManagedCluster("openShiftManagedCluster",
+    agent_pool_profiles=[
+        azure_native.containerservice.OpenShiftManagedClusterAgentPoolProfileArgs(
+            count=3,
+            name="infra",
+            os_type="Linux",
+            role="infra",
+            subnet_cidr="10.0.0.0/24",
+            vm_size="Standard_D4s_v3",
+        ),
+        azure_native.containerservice.OpenShiftManagedClusterAgentPoolProfileArgs(
+            count=4,
+            name="compute",
+            os_type="Linux",
+            role="compute",
+            subnet_cidr="10.0.0.0/24",
+            vm_size="Standard_D4s_v3",
+        ),
+    ],
+    auth_profile=azure_native.containerservice.OpenShiftManagedClusterAuthProfileArgs(
+        identity_providers=[azure_native.containerservice.OpenShiftManagedClusterIdentityProviderArgs(
+            name="Azure AD",
+            provider=azure_native.containerservice.OpenShiftManagedClusterAADIdentityProviderArgs(
+                client_id="clientId",
+                customer_admin_group_id="customerAdminGroupId",
+                kind="AADIdentityProvider",
+                secret="secret",
+                tenant_id="tenantId",
+            ),
+        )],
+    ),
+    location="location1",
+    master_pool_profile=azure_native.containerservice.OpenShiftManagedClusterMasterPoolProfileArgs(
+        api_properties=azure_native.containerservice.OpenShiftAPIPropertiesArgs(
+            private_api_server=False,
+        ),
+        count=3,
+        subnet_cidr="10.0.0.0/24",
+        vm_size="Standard_D4s_v3",
+    ),
+    monitor_profile=azure_native.containerservice.OpenShiftManagedClusterMonitorProfileArgs(
+        enabled=True,
+        workspace_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+    ),
+    network_profile=azure_native.containerservice.NetworkProfileArgs(
+        vnet_cidr="10.0.0.0/8",
+    ),
+    open_shift_version="v3.11",
+    resource_group_name="rg1",
+    resource_name_="clustername1",
+    router_profiles=[azure_native.containerservice.OpenShiftRouterProfileArgs(
+        name="default",
+    )],
+    tags={
+        "archv2": "",
+        "tier": "production",
+    })

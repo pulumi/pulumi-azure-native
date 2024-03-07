@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+patch_schedule = azure_native.cache.PatchSchedule("patchSchedule",
+    default="default",
+    name="cache1",
+    resource_group_name="rg1",
+    schedule_entries=[
+        azure_native.cache.ScheduleEntryArgs(
+            day_of_week=azure_native.cache.DayOfWeek.MONDAY,
+            maintenance_window="PT5H",
+            start_hour_utc=12,
+        ),
+        azure_native.cache.ScheduleEntryArgs(
+            day_of_week=azure_native.cache.DayOfWeek.TUESDAY,
+            start_hour_utc=12,
+        ),
+    ])

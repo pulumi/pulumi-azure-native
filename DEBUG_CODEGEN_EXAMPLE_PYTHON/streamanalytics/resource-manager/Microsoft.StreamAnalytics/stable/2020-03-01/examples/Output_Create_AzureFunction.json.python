@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+output = azure_native.streamanalytics.Output("output",
+    datasource=azure_native.streamanalytics.AzureFunctionOutputDataSourceArgs(
+        function_app_name="functionappforasaautomation",
+        function_name="HttpTrigger2",
+        max_batch_count=100,
+        max_batch_size=256,
+        type="Microsoft.AzureFunction",
+    ),
+    job_name="sjName",
+    output_name="azureFunction1",
+    resource_group_name="sjrg")

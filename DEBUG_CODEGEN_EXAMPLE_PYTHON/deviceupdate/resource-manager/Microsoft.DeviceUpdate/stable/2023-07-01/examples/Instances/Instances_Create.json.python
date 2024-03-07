@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+instance = azure_native.deviceupdate.Instance("instance",
+    account_name="contoso",
+    diagnostic_storage_properties=azure_native.deviceupdate.DiagnosticStoragePropertiesArgs(
+        authentication_type="KeyBased",
+        connection_string="string",
+        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
+    ),
+    enable_diagnostics=False,
+    instance_name="blue",
+    iot_hubs=[azure_native.deviceupdate.IotHubSettingsArgs(
+        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
+    )],
+    location="westus2",
+    resource_group_name="test-rg")

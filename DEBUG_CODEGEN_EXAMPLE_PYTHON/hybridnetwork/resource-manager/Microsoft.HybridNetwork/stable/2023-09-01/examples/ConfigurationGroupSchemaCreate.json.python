@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+configuration_group_schema = azure_native.hybridnetwork.ConfigurationGroupSchema("configurationGroupSchema",
+    configuration_group_schema_name="testConfigurationGroupSchema",
+    location="westUs2",
+    properties=azure_native.hybridnetwork.ConfigurationGroupSchemaPropertiesFormatArgs(
+        description="Schema with no secrets",
+        schema_definition="{\"type\":\"object\",\"properties\":{\"interconnect-groups\":{\"type\":\"object\",\"properties\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"international-interconnects\":{\"type\":\"array\",\"item\":{\"type\":\"string\"}},\"domestic-interconnects\":{\"type\":\"array\",\"item\":{\"type\":\"string\"}}}}},\"interconnect-group-assignments\":{\"type\":\"object\",\"properties\":{\"type\":\"object\",\"properties\":{\"ssc\":{\"type\":\"string\"},\"interconnects-interconnects\":{\"type\":\"string\"}}}}},\"required\":[\"interconnect-groups\",\"interconnect-group-assignments\"]}",
+    ),
+    publisher_name="testPublisher",
+    resource_group_name="rg1")

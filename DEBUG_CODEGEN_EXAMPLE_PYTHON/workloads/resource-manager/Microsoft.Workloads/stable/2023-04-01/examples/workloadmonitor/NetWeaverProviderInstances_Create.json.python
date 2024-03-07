@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+provider_instance = azure_native.workloads.ProviderInstance("providerInstance",
+    monitor_name="mySapMonitor",
+    provider_instance_name="myProviderInstance",
+    provider_settings=azure_native.workloads.SapNetWeaverProviderInstancePropertiesArgs(
+        provider_type="SapNetWeaver",
+        sap_client_id="111",
+        sap_host_file_entries=["127.0.0.1 name fqdn"],
+        sap_hostname="name",
+        sap_instance_nr="00",
+        sap_password="****",
+        sap_password_uri="",
+        sap_port_number="1234",
+        sap_sid="SID",
+        sap_username="username",
+        ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+        ssl_preference="ServerCertificate",
+    ),
+    resource_group_name="myResourceGroup")

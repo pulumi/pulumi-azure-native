@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+gateway_certificate_authority = azure_native.apimanagement.GatewayCertificateAuthority("gatewayCertificateAuthority",
+    certificate_id="cert1",
+    gateway_id="gw1",
+    is_trusted=False,
+    resource_group_name="rg1",
+    service_name="apimService1")

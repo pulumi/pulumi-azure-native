@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+subscription_diagnostic_setting = azure_native.insights.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting",
+    event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+    event_hub_name="myeventhub",
+    logs=[azure_native.insights.SubscriptionLogSettingsArgs(
+        category="Security",
+        enabled=True,
+    )],
+    marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+    name="ds4",
+    storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+    workspace_id="")

@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+object_replication_policy = azure_native.storage.ObjectReplicationPolicy("objectReplicationPolicy",
+    account_name="dst112",
+    destination_account="dst112",
+    object_replication_policy_id="default",
+    resource_group_name="res7687",
+    rules=[azure_native.storage.ObjectReplicationPolicyRuleArgs(
+        destination_container="dcont139",
+        filters=azure_native.storage.ObjectReplicationPolicyFilterArgs(
+            prefix_match=[
+                "blobA",
+                "blobB",
+            ],
+        ),
+        source_container="scont139",
+    )],
+    source_account="src1122")

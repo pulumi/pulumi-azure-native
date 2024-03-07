@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+standby_container_group_pool = azure_native.standbypool.StandbyContainerGroupPool("standbyContainerGroupPool",
+    location="West US",
+    resource_group_name="rgstandbypool",
+    standby_container_group_pool_name="pool")

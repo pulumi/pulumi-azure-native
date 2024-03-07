@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+instance_pool = azure_native.sql.InstancePool("instancePool",
+    instance_pool_name="testIP",
+    license_type="LicenseIncluded",
+    location="japaneast",
+    resource_group_name="group1",
+    sku=azure_native.sql.SkuArgs(
+        family="Gen5",
+        name="GP_Gen5",
+        tier="GeneralPurpose",
+    ),
+    subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+    tags={
+        "a": "b",
+    },
+    v_cores=8)

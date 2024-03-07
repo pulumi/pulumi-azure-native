@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+remote_rendering_account = azure_native.mixedreality.RemoteRenderingAccount("remoteRenderingAccount",
+    account_name="MyAccount",
+    identity=azure_native.mixedreality.IdentityArgs(
+        type=azure_native.mixedreality.ResourceIdentityType.SYSTEM_ASSIGNED,
+    ),
+    location="eastus2euap",
+    resource_group_name="MyResourceGroup")

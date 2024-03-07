@@ -1,0 +1,72 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job = azure_native.machinelearningservices.Job("job",
+    id="string",
+    job_base_properties=azure_native.machinelearningservices.AutoMLJobArgs(
+        compute_id="string",
+        description="string",
+        display_name="string",
+        environment_id="string",
+        environment_variables={
+            "string": "string",
+        },
+        experiment_name="string",
+        identity=azure_native.machinelearningservices.AmlTokenArgs(
+            identity_type="AMLToken",
+        ),
+        is_archived=False,
+        job_type="AutoML",
+        outputs={
+            "string": azure_native.machinelearningservices.UriFileJobOutputArgs(
+                description="string",
+                job_output_type="uri_file",
+                mode="ReadWriteMount",
+                uri="string",
+            ),
+        },
+        properties={
+            "string": "string",
+        },
+        resources=azure_native.machinelearningservices.JobResourceConfigurationArgs(
+            instance_count=1,
+            instance_type="string",
+            properties={
+                "string": {
+                    "9bec0ab0-c62f-4fa9-a97c-7b24bbcc90ad": None,
+                },
+            },
+        ),
+        services={
+            "string": azure_native.machinelearningservices.JobServiceArgs(
+                endpoint="string",
+                job_service_type="string",
+                port=1,
+                properties={
+                    "string": "string",
+                },
+            ),
+        },
+        tags={
+            "string": "string",
+        },
+        task_details=azure_native.machinelearningservices.ImageClassificationArgs(
+            limit_settings=azure_native.machinelearningservices.ImageLimitSettingsArgs(
+                max_trials=2,
+            ),
+            model_settings=azure_native.machinelearningservices.ImageModelSettingsClassificationArgs(
+                validation_crop_size=2,
+            ),
+            search_space=[azure_native.machinelearningservices.ImageModelDistributionSettingsClassificationArgs(
+                validation_crop_size="choice(2, 360)",
+            )],
+            target_column_name="string",
+            task_type="ImageClassification",
+            training_data=azure_native.machinelearningservices.MLTableJobInputArgs(
+                job_input_type="mltable",
+                uri="string",
+            ),
+        ),
+    ),
+    resource_group_name="test-rg",
+    workspace_name="my-aml-workspace")

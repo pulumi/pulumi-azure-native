@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_group = azure_native.network.NetworkGroup("networkGroup",
+    description="A sample group",
+    network_group_name="testNetworkGroup",
+    network_manager_name="testNetworkManager",
+    resource_group_name="rg1")

@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hyper_v_collector = azure_native.migrate.HyperVCollector("hyperVCollector",
+    e_tag="\"00000981-0000-0300-0000-5d74cd5f0000\"",
+    hyper_v_collector_name="migrateprojectce73collector",
+    project_name="migrateprojectce73project",
+    properties=azure_native.migrate.CollectorPropertiesArgs(
+        agent_properties=azure_native.migrate.CollectorAgentPropertiesArgs(
+            spn_details=azure_native.migrate.CollectorBodyAgentSpnPropertiesArgs(
+                application_id="827f1053-44dc-439f-b832-05416dcce12b",
+                audience="https://72f988bf-86f1-41af-91ab-2d7cd011db47/migrateprojectce73agentauthaadapp",
+                authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                object_id="be75098e-c0fc-4ac4-98c7-282ebbcf8370",
+                tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            ),
+        ),
+        discovery_site_id="/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/resourceGroups/ContosoITHyperV/providers/Microsoft.OffAzure/HyperVSites/migrateprojectce73site",
+    ),
+    resource_group_name="contosoithyperv")

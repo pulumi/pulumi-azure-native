@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+frontends_interface = azure_native.servicenetworking.FrontendsInterface("frontendsInterface",
+    frontend_name="fe1",
+    location="NorthCentralUS",
+    resource_group_name="rg1",
+    traffic_controller_name="tc1")

@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_app_application_settings = azure_native.web.WebAppApplicationSettings("webAppApplicationSettings",
+    name="sitef6141",
+    properties={
+        "Setting1": "Value1",
+        "Setting2": "Value2",
+    },
+    resource_group_name="testrg123")

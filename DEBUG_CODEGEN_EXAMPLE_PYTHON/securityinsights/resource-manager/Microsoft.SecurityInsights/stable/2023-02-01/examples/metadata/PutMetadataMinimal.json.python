@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+metadata = azure_native.securityinsights.Metadata("metadata",
+    content_id="c00ee137-7475-47c8-9cce-ec6f0f1bedd0",
+    kind="AnalyticsRule",
+    metadata_name="metadataName",
+    parent_id="/subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/ruleName",
+    resource_group_name="myRg",
+    workspace_name="myWorkspace")

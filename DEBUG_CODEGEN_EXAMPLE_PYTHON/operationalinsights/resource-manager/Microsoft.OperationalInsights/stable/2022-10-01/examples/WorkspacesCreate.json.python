@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace = azure_native.operationalinsights.Workspace("workspace",
+    location="australiasoutheast",
+    resource_group_name="oiautorest6685",
+    retention_in_days=30,
+    sku=azure_native.operationalinsights.WorkspaceSkuArgs(
+        name="PerGB2018",
+    ),
+    tags={
+        "tag1": "val1",
+    },
+    workspace_name="oiautorest6685")

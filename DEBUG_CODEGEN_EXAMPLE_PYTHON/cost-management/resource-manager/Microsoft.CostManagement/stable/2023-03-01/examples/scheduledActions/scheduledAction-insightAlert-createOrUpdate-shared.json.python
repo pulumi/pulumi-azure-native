@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+scheduled_action_by_scope = azure_native.costmanagement.ScheduledActionByScope("scheduledActionByScope",
+    display_name="Daily anomaly by resource",
+    kind="InsightAlert",
+    name="dailyAnomalyByResource",
+    notification=azure_native.costmanagement.NotificationPropertiesArgs(
+        subject="Cost anomaly detected in the resource",
+        to=[
+            "user@gmail.com",
+            "team@gmail.com",
+        ],
+    ),
+    schedule=azure_native.costmanagement.SchedulePropertiesArgs(
+        end_date="2021-06-19T22:21:51.1287144Z",
+        frequency="Daily",
+        start_date="2020-06-19T22:21:51.1287144Z",
+    ),
+    scope="subscriptions/00000000-0000-0000-0000-000000000000",
+    status="Enabled",
+    view_id="/providers/Microsoft.CostManagement/views/swaggerExample")

@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+inbound_nat_rule = azure_native.network.InboundNatRule("inboundNatRule",
+    backend_port=3389,
+    enable_floating_ip=False,
+    enable_tcp_reset=False,
+    frontend_ip_configuration=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/frontendIPConfigurations/ip1",
+    ),
+    frontend_port=3390,
+    idle_timeout_in_minutes=4,
+    inbound_nat_rule_name="natRule1.1",
+    load_balancer_name="lb1",
+    protocol="Tcp",
+    resource_group_name="testrg")

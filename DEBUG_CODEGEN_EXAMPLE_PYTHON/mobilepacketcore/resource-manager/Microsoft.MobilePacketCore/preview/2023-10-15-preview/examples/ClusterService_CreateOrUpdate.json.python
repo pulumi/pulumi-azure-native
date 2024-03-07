@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cluster_service = azure_native.mobilepacketcore.ClusterService("clusterService",
+    cluster_service_name="clusterService1",
+    cluster_type_specific_data=azure_native.mobilepacketcore.ClusterServiceNexusAksClusterDataArgs(
+        custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cluster124Location",
+        type="NexusAks",
+    ),
+    component_parameters=[azure_native.mobilepacketcore.QualifiedComponentDeploymentParametersArgs(
+        parameters="{\"global\": {\"registry\": {\"docker\": []}}}",
+        secrets="{\"global\": {\"secret\": {\"secretValue\": []}}}",
+        type="fed-crds",
+    )],
+    deployment_type="Production",
+    location="eastus",
+    release_version="4.3.0-alpha",
+    resource_group_name="rg1")

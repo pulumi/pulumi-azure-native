@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+artifact_source = azure_native.devtestlab.ArtifactSource("artifactSource",
+    arm_template_folder_path="{armTemplateFolderPath}",
+    branch_ref="{branchRef}",
+    display_name="{displayName}",
+    folder_path="{folderPath}",
+    lab_name="{labName}",
+    name="{artifactSourceName}",
+    resource_group_name="resourceGroupName",
+    security_token="{securityToken}",
+    source_type="{VsoGit|GitHub|StorageAccount}",
+    status="{Enabled|Disabled}",
+    tags={
+        "tagName1": "tagValue1",
+    },
+    uri="{artifactSourceUri}")

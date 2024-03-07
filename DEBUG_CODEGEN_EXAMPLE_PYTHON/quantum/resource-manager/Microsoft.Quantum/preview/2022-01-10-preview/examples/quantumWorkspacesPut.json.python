@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace = azure_native.quantum.Workspace("workspace",
+    location="West US",
+    providers=[
+        azure_native.quantum.ProviderArgs(
+            provider_id="Honeywell",
+            provider_sku="Basic",
+        ),
+        azure_native.quantum.ProviderArgs(
+            provider_id="IonQ",
+            provider_sku="Basic",
+        ),
+        azure_native.quantum.ProviderArgs(
+            provider_id="OneQBit",
+            provider_sku="Basic",
+        ),
+    ],
+    resource_group_name="quantumResourcegroup",
+    storage_account="/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+    workspace_name="quantumworkspace1")

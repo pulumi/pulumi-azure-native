@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+extension = azure_native.visualstudio.Extension("extension",
+    account_resource_name="ExampleAccount",
+    extension_resource_name="ms.example",
+    location="Central US",
+    plan=azure_native.visualstudio.ExtensionResourcePlanArgs(
+        name="ExamplePlan",
+        product="ExampleExtensionName",
+        promotion_code="",
+        publisher="ExampleExtensionPublisher",
+        version="1.0",
+    ),
+    properties={},
+    resource_group_name="VS-Example-Group",
+    tags={})

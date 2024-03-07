@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hyperv_cluster_controller_cluster = azure_native.offazure.HypervClusterControllerCluster("hypervClusterControllerCluster",
+    cluster_name="-18--O4iS57-729MV9PCErt",
+    resource_group_name="rgmigrate",
+    site_name="--xY37--V518")

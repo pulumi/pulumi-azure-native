@@ -1,0 +1,37 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cassandra_cluster = azure_native.documentdb.CassandraCluster("cassandraCluster",
+    cluster_name="cassandra-prod",
+    location="West US",
+    properties=azure_native.documentdb.ClusterResourcePropertiesArgs(
+        authentication_method="Cassandra",
+        cassandra_version="3.11",
+        client_certificates=[azure_native.documentdb.CertificateArgs(
+            pem="""-----BEGIN CERTIFICATE-----
+...Base64 encoded certificate...
+-----END CERTIFICATE-----""",
+        )],
+        cluster_name_override="ClusterNameIllegalForAzureResource",
+        delegated_management_subnet_id="/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
+        external_gossip_certificates=[azure_native.documentdb.CertificateArgs(
+            pem="""-----BEGIN CERTIFICATE-----
+...Base64 encoded certificate...
+-----END CERTIFICATE-----""",
+        )],
+        external_seed_nodes=[
+            azure_native.documentdb.SeedNodeArgs(
+                ip_address="10.52.221.2",
+            ),
+            azure_native.documentdb.SeedNodeArgs(
+                ip_address="10.52.221.3",
+            ),
+            azure_native.documentdb.SeedNodeArgs(
+                ip_address="10.52.221.4",
+            ),
+        ],
+        hours_between_backups=24,
+        initial_cassandra_admin_password="mypassword",
+    ),
+    resource_group_name="cassandra-prod-rg",
+    tags={})

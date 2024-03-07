@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+consumer_group = azure_native.eventhub.ConsumerGroup("consumerGroup",
+    consumer_group_name="sdk-ConsumerGroup-5563",
+    event_hub_name="sdk-EventHub-6681",
+    namespace_name="sdk-Namespace-2661",
+    resource_group_name="ArunMonocle",
+    user_metadata="New consumergroup")

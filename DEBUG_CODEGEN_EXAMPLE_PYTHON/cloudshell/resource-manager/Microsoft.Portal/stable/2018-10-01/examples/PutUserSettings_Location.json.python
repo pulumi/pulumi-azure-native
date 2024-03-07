@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+user_settings_with_location = azure_native.portal.UserSettingsWithLocation("userSettingsWithLocation",
+    location="eastus",
+    properties=azure_native.portal.UserPropertiesArgs(
+        preferred_location="eastus",
+        preferred_os_type="Linux",
+        preferred_shell_type="bash",
+        storage_profile=azure_native.portal.StorageProfileArgs(
+            disk_size_in_gb=5,
+            file_share_name="string",
+            storage_account_resource_id="string",
+        ),
+        terminal_settings=azure_native.portal.TerminalSettingsArgs(
+            font_size="Medium",
+            font_style="Monospace",
+        ),
+    ),
+    user_settings_name="cloudconsole")

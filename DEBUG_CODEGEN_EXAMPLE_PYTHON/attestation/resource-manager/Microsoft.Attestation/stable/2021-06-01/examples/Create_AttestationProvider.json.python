@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+attestation_provider = azure_native.attestation.AttestationProvider("attestationProvider",
+    location="East US",
+    properties=azure_native.attestation.AttestationServiceCreationSpecificParamsArgs(
+        public_network_access="Enabled",
+        tpm_attestation_authentication="Enabled",
+    ),
+    provider_name="myattestationprovider",
+    resource_group_name="MyResourceGroup",
+    tags={
+        "Property1": "Value1",
+        "Property2": "Value2",
+        "Property3": "Value3",
+    })

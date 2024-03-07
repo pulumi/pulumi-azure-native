@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+live_pipeline = azure_native.videoanalyzer.LivePipeline("livePipeline",
+    account_name="testaccount2",
+    bitrate_kbps=500,
+    description="Live Pipeline 1 Description",
+    live_pipeline_name="livePipeline1",
+    parameters=[azure_native.videoanalyzer.ParameterDefinitionArgs(
+        name="rtspUrlParameter",
+        value="rtsp://contoso.com/stream",
+    )],
+    resource_group_name="testrg",
+    topology_name="pipelinetopology1")

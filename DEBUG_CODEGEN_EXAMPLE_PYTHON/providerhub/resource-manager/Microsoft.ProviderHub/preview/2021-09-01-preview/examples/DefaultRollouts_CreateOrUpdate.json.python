@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+default_rollout = azure_native.providerhub.DefaultRollout("defaultRollout",
+    properties=azure_native.providerhub.DefaultRolloutPropertiesArgs(
+        specification=azure_native.providerhub.DefaultRolloutPropertiesSpecificationArgs(
+            canary=azure_native.providerhub.DefaultRolloutSpecificationCanaryArgs(
+                skip_regions=["eastus2euap"],
+            ),
+            expedited_rollout=azure_native.providerhub.DefaultRolloutSpecificationExpeditedRolloutArgs(
+                enabled=True,
+            ),
+            rest_of_the_world_group_two=azure_native.providerhub.DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs(
+                wait_duration="PT4H",
+            ),
+        ),
+    ),
+    provider_namespace="Microsoft.Contoso",
+    rollout_name="2020week10")

@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+volume_quota_rule = azure_native.netapp.VolumeQuotaRule("volumeQuotaRule",
+    account_name="account-9957",
+    location="westus",
+    pool_name="pool-5210",
+    quota_size_in_ki_bs=100005,
+    quota_target="1821",
+    quota_type="IndividualUserQuota",
+    resource_group_name="myRG",
+    volume_name="volume-6387",
+    volume_quota_rule_name="rule-0004")

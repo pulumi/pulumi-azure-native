@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_certificate = azure_native.app.ManagedCertificate("managedCertificate",
+    environment_name="testcontainerenv",
+    location="East US",
+    managed_certificate_name="certificate-firendly-name",
+    properties=azure_native.app.ManagedCertificatePropertiesArgs(
+        domain_control_validation="CNAME",
+        subject_name="my-subject-name.company.country.net",
+    ),
+    resource_group_name="examplerg")

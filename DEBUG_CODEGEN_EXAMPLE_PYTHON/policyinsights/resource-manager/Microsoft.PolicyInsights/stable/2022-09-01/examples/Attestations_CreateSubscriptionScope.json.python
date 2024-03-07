@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+attestation_at_subscription = azure_native.policyinsights.AttestationAtSubscription("attestationAtSubscription",
+    attestation_name="790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
+    compliance_state="Compliant",
+    policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5")

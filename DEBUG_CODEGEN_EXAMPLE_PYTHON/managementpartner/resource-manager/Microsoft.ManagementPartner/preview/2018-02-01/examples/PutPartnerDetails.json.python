@@ -1,0 +1,4 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+partner = azure_native.managementpartner.Partner("partner", partner_id="123456")

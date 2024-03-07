@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+api = azure_native.apimanagement.Api("api",
+    api_id="tempgroup",
+    api_type="graphql",
+    description="apidescription5200",
+    display_name="apiname1463",
+    path="graphql-api",
+    protocols=[
+        "http",
+        "https",
+    ],
+    resource_group_name="rg1",
+    service_name="apimService1",
+    service_url="https://api.spacex.land/graphql")

@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+azure_monitor_workspace = azure_native.monitor.AzureMonitorWorkspace("azureMonitorWorkspace",
+    azure_monitor_workspace_name="myAzureMonitorWorkspace",
+    location="eastus",
+    resource_group_name="myResourceGroup")

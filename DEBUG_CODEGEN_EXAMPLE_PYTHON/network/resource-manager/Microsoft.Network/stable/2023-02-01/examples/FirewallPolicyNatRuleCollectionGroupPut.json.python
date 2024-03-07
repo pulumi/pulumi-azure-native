@@ -1,0 +1,30 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+firewall_policy_rule_collection_group = azure_native.network.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup",
+    firewall_policy_name="firewallPolicy",
+    priority=100,
+    resource_group_name="rg1",
+    rule_collection_group_name="ruleCollectionGroup1",
+    rule_collections=[azure_native.network.FirewallPolicyNatRuleCollectionArgs(
+        action=azure_native.network.FirewallPolicyNatRuleCollectionActionArgs(
+            type="DNAT",
+        ),
+        name="Example-Nat-Rule-Collection",
+        priority=100,
+        rule_collection_type="FirewallPolicyNatRuleCollection",
+        rules=[azure_native.network.NatRuleArgs(
+            destination_addresses=["152.23.32.23"],
+            destination_ports=["8080"],
+            ip_protocols=[
+                "TCP",
+                "UDP",
+            ],
+            name="nat-rule1",
+            rule_type="NatRule",
+            source_addresses=["2.2.2.2"],
+            source_ip_groups=[],
+            translated_fqdn="internalhttp.server.net",
+            translated_port="8080",
+        )],
+    )])

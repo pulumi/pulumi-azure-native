@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+configuration_service = azure_native.appplatform.ConfigurationService("configurationService",
+    configuration_service_name="default",
+    properties=azure_native.appplatform.ConfigurationServicePropertiesArgs(
+        settings=azure_native.appplatform.ConfigurationServiceSettingsArgs(
+            git_property=azure_native.appplatform.ConfigurationServiceGitPropertyArgs(
+                repositories=[azure_native.appplatform.ConfigurationServiceGitRepositoryArgs(
+                    label="master",
+                    name="fake",
+                    patterns=["app/dev"],
+                    uri="https://github.com/fake-user/fake-repository",
+                )],
+            ),
+        ),
+    ),
+    resource_group_name="myResourceGroup",
+    service_name="myservice")

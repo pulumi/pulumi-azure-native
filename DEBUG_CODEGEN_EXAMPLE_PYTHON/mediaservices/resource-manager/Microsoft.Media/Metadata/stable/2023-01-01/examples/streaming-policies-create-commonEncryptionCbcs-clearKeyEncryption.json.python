@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+streaming_policy = azure_native.media.StreamingPolicy("streamingPolicy",
+    account_name="contosomedia",
+    common_encryption_cbcs=azure_native.media.CommonEncryptionCbcsArgs(
+        clear_key_encryption_configuration=azure_native.media.ClearKeyEncryptionConfigurationArgs(
+            custom_keys_acquisition_url_template="https://contoso.com/{AlternativeMediaId}/clearkey/",
+        ),
+        content_keys=azure_native.media.StreamingPolicyContentKeysArgs(
+            default_key=azure_native.media.DefaultKeyArgs(
+                label="cbcsDefaultKey",
+            ),
+        ),
+        enabled_protocols=azure_native.media.EnabledProtocolsArgs(
+            dash=False,
+            download=False,
+            hls=True,
+            smooth_streaming=False,
+        ),
+    ),
+    default_content_key_policy_name="PolicyWithMultipleOptions",
+    resource_group_name="contosorg",
+    streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly")

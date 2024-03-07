@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+automation = azure_native.security.Automation("automation",
+    actions=[azure_native.security.AutomationActionLogicAppArgs(
+        action_type="LogicApp",
+        logic_app_resource_id="/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+        uri="https://exampleTriggerUri1.com",
+    )],
+    automation_name="exampleAutomation",
+    description="An example of a security automation that triggers one LogicApp resource (myTest1) on any security assessment",
+    is_enabled=True,
+    location="Central US",
+    resource_group_name="exampleResourceGroup",
+    scopes=[azure_native.security.AutomationScopeArgs(
+        description="A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+        scope_path="/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+    )],
+    sources=[azure_native.security.AutomationSourceArgs(
+        event_source="Assessments",
+    )],
+    tags={})

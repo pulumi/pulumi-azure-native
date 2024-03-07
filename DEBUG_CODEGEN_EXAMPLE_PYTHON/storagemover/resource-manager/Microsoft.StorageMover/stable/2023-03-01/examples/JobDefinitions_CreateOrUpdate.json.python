@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job_definition = azure_native.storagemover.JobDefinition("jobDefinition",
+    agent_name="migration-agent",
+    copy_mode="Additive",
+    description="Example Job Definition Description",
+    job_definition_name="examples-jobDefinitionName",
+    project_name="examples-projectName",
+    resource_group_name="examples-rg",
+    source_name="examples-sourceEndpointName",
+    source_subpath="/",
+    storage_mover_name="examples-storageMoverName",
+    target_name="examples-targetEndpointName",
+    target_subpath="/")

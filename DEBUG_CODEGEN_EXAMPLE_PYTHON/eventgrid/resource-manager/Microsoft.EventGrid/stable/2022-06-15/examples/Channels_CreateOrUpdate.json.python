@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+channel = azure_native.eventgrid.Channel("channel",
+    channel_name="exampleChannelName1",
+    channel_type="PartnerTopic",
+    expiration_time_if_not_activated_utc="2021-10-21T22:50:25.410433Z",
+    message_for_activation="Example message to approver",
+    partner_namespace_name="examplePartnerNamespaceName1",
+    partner_topic_info=azure_native.eventgrid.PartnerTopicInfoArgs(
+        azure_subscription_id="5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+        name="examplePartnerTopic1",
+        resource_group_name="examplerg2",
+        source="ContosoCorp.Accounts.User1",
+    ),
+    resource_group_name="examplerg")

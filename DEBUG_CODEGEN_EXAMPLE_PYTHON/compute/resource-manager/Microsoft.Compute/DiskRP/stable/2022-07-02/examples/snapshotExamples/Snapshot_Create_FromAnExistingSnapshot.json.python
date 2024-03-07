@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+snapshot = azure_native.compute.Snapshot("snapshot",
+    creation_data=azure_native.compute.CreationDataArgs(
+        create_option="Copy",
+        source_resource_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+    ),
+    location="West US",
+    resource_group_name="myResourceGroup",
+    snapshot_name="mySnapshot2")

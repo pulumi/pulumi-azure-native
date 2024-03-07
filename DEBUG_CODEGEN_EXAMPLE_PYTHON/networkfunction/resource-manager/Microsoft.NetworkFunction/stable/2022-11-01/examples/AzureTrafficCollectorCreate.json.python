@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+azure_traffic_collector = azure_native.networkfunction.AzureTrafficCollector("azureTrafficCollector",
+    azure_traffic_collector_name="atc",
+    location="West US",
+    resource_group_name="rg1",
+    tags={
+        "key1": "value1",
+    })

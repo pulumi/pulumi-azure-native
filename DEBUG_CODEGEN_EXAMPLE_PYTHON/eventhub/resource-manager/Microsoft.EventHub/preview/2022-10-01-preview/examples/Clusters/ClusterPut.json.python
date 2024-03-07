@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cluster = azure_native.eventhub.Cluster("cluster",
+    cluster_name="testCluster",
+    location="South Central US",
+    resource_group_name="myResourceGroup",
+    sku=azure_native.eventhub.ClusterSkuArgs(
+        capacity=1,
+        name="Dedicated",
+    ),
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    })

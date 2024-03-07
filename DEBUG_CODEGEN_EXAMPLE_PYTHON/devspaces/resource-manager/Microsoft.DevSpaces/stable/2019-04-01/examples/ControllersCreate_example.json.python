@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+controller = azure_native.devspaces.Controller("controller",
+    location="eastus",
+    name="myControllerResource",
+    resource_group_name="myResourceGroup",
+    sku=azure_native.devspaces.SkuArgs(
+        name="S1",
+        tier="Standard",
+    ),
+    tags={},
+    target_container_host_credentials_base64="QmFzZTY0IEVuY29kZWQgVmFsdWUK",
+    target_container_host_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster")

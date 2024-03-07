@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+afd_custom_domain = azure_native.cdn.AFDCustomDomain("afdCustomDomain",
+    azure_dns_zone=azure_native.cdn.ResourceReferenceArgs(
+        id="",
+    ),
+    custom_domain_name="domain1",
+    host_name="www.someDomain.net",
+    profile_name="profile1",
+    resource_group_name="RG",
+    tls_settings=azure_native.cdn.AFDDomainHttpsParametersArgs(
+        certificate_type="ManagedCertificate",
+        minimum_tls_version=azure_native.cdn.AfdMinimumTlsVersion.TLS12,
+    ))

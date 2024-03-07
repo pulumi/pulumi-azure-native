@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+node_type = azure_native.servicefabric.NodeType("nodeType",
+    capacities={},
+    cluster_name="myCluster",
+    data_disk_size_gb=200,
+    data_disk_type="StandardSSD_LRS",
+    host_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testhostgroupRG/providers/Microsoft.Compute/hostGroups/testHostGroup",
+    is_primary=False,
+    node_type_name="BE",
+    placement_properties={},
+    resource_group_name="resRg",
+    vm_image_offer="WindowsServer",
+    vm_image_publisher="MicrosoftWindowsServer",
+    vm_image_sku="2019-Datacenter",
+    vm_image_version="latest",
+    vm_instance_count=10,
+    vm_size="Standard_D8s_v3",
+    zones=["1"])

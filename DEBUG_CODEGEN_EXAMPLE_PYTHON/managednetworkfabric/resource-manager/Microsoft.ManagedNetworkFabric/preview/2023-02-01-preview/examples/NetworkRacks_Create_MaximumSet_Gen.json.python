@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_rack = azure_native.managednetworkfabric.NetworkRack("networkRack",
+    annotation="null",
+    location="eastus",
+    network_fabric_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/networkFabricName",
+    network_rack_name="networkRackName",
+    network_rack_sku="RackSKU",
+    resource_group_name="resourceGroupName",
+    tags={
+        "keyID": "keyValue",
+    })

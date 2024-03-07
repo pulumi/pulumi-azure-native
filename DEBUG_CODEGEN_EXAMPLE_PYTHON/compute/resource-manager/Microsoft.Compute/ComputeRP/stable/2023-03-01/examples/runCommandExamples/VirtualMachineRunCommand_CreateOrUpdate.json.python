@@ -1,0 +1,31 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_machine_run_command_by_virtual_machine = azure_native.compute.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine",
+    async_execution=False,
+    error_blob_uri="https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt?sp=racw&st=2022-10-07T19:40:21Z&se=2022-10-08T03:40:21Z&spr=https&sv=2021-06-08&sr=b&sig=Yh7B%2Fy83olbYBdfsfbUREvd7ol8Dq5EVP3lAO4Kj4xDcN8%3D",
+    location="West US",
+    output_blob_managed_identity=azure_native.compute.RunCommandManagedIdentityArgs(
+        client_id="22d35efb-0c99-4041-8c5b-6d24db33a69a",
+    ),
+    output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+    parameters=[
+        azure_native.compute.RunCommandInputParameterArgs(
+            name="param1",
+            value="value1",
+        ),
+        azure_native.compute.RunCommandInputParameterArgs(
+            name="param2",
+            value="value2",
+        ),
+    ],
+    resource_group_name="myResourceGroup",
+    run_as_password="<runAsPassword>",
+    run_as_user="user1",
+    run_command_name="myRunCommand",
+    source=azure_native.compute.VirtualMachineRunCommandScriptSourceArgs(
+        script_uri="https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1?sp=r&st=2022-10-07T19:52:54Z&se=2022-10-08T03:52:54Z&spr=https&sv=2021-06-08&sr=b&sig=zfYFYCgea1PqVERZuwJiewrte5gjTnKGtVJngcw5oc828%3D",
+    ),
+    timeout_in_seconds=3600,
+    treat_failure_as_deployment_failure=False,
+    vm_name="myVM")

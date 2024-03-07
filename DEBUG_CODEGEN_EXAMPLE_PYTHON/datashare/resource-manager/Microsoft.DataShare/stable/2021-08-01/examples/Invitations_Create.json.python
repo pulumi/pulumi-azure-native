@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+invitation = azure_native.datashare.Invitation("invitation",
+    account_name="Account1",
+    expiration_date="2020-08-26T22:33:24.5785265Z",
+    invitation_name="Invitation1",
+    resource_group_name="SampleResourceGroup",
+    share_name="Share1",
+    target_email="receiver@microsoft.com")

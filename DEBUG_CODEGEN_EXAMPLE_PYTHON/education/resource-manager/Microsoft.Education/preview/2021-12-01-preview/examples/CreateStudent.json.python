@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+student = azure_native.education.Student("student",
+    billing_account_name="{billingAccountName}",
+    billing_profile_name="{billingProfileName}",
+    budget=azure_native.education.AmountArgs(
+        currency="USD",
+        value=100,
+    ),
+    email="test@contoso.com",
+    expiration_date="2021-11-09T22:13:21.795Z",
+    first_name="test",
+    invoice_section_name="{invoiceSectionName}",
+    last_name="user",
+    role="Student",
+    student_alias="{studentAlias}")

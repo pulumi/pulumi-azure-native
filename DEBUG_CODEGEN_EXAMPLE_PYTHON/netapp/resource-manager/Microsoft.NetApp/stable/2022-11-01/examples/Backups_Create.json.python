@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+backup = azure_native.netapp.Backup("backup",
+    account_name="account1",
+    backup_name="backup1",
+    label="myLabel",
+    location="eastus",
+    pool_name="pool1",
+    resource_group_name="myRG",
+    volume_name="volume1")

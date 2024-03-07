@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+security_rule = azure_native.network.SecurityRule("securityRule",
+    access="Deny",
+    destination_address_prefix="11.0.0.0/8",
+    destination_port_range="8080",
+    direction="Outbound",
+    network_security_group_name="testnsg",
+    priority=100,
+    protocol="*",
+    resource_group_name="rg1",
+    security_rule_name="rule1",
+    source_address_prefix="10.0.0.0/8",
+    source_port_range="*")

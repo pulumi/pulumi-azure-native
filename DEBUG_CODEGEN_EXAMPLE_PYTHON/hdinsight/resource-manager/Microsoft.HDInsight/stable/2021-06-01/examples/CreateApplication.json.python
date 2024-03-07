@@ -1,0 +1,32 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+application = azure_native.hdinsight.Application("application",
+    application_name="hue",
+    cluster_name="cluster1",
+    properties=azure_native.hdinsight.ApplicationPropertiesArgs(
+        application_type="CustomApplication",
+        compute_profile=azure_native.hdinsight.ComputeProfileArgs(
+            roles=[azure_native.hdinsight.RoleArgs(
+                hardware_profile=azure_native.hdinsight.HardwareProfileArgs(
+                    vm_size="Standard_D12_v2",
+                ),
+                name="edgenode",
+                target_instance_count=1,
+            )],
+        ),
+        errors=[],
+        https_endpoints=[azure_native.hdinsight.ApplicationGetHttpsEndpointArgs(
+            access_modes=["WebPage"],
+            destination_port=20000,
+            sub_domain_suffix="dss",
+        )],
+        install_script_actions=[azure_native.hdinsight.RuntimeScriptActionArgs(
+            name="app-install-app1",
+            parameters="-version latest -port 20000",
+            roles=["edgenode"],
+            uri="https://.../install.sh",
+        )],
+        uninstall_script_actions=[],
+    ),
+    resource_group_name="rg1")

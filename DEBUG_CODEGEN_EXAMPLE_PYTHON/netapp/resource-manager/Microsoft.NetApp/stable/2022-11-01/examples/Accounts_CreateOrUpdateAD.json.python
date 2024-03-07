@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.netapp.Account("account",
+    account_name="account1",
+    active_directories=[azure_native.netapp.ActiveDirectoryArgs(
+        aes_encryption=True,
+        dns="10.10.10.3",
+        domain="10.10.10.3",
+        ldap_over_tls=False,
+        ldap_signing=False,
+        organizational_unit="OU=Engineering",
+        password="ad_password",
+        site="SiteName",
+        smb_server_name="SMBServer",
+        username="ad_user_name",
+    )],
+    location="eastus",
+    resource_group_name="myRG")

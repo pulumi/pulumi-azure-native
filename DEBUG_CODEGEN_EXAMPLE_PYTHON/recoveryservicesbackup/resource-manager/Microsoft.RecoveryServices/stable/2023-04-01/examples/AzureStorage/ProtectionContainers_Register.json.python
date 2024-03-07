@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+protection_container = azure_native.recoveryservices.ProtectionContainer("protectionContainer",
+    container_name="StorageContainer;Storage;SwaggerTestRg;swaggertestsa",
+    fabric_name="Azure",
+    properties=azure_native.recoveryservices.AzureStorageContainerArgs(
+        acquire_storage_account_lock="Acquire",
+        backup_management_type="AzureStorage",
+        container_type="StorageContainer",
+        friendly_name="swaggertestsa",
+        source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/SwaggerTestRg/providers/Microsoft.Storage/storageAccounts/swaggertestsa",
+    ),
+    resource_group_name="SwaggerTestRg",
+    vault_name="swaggertestvault")

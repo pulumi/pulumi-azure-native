@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+nsp_profile = azure_native.network.NspProfile("nspProfile",
+    network_security_perimeter_name="nsp1",
+    profile_name="profile1",
+    resource_group_name="rg1")

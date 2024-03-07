@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+mq = azure_native.iotoperationsmq.Mq("mq",
+    extended_location=azure_native.iotoperationsmq.ExtendedLocationPropertyArgs(
+        name="an",
+        type="CustomLocation",
+    ),
+    location="qayqiarqxjennoyvglovxrdiccscq",
+    mq_name="-MK0Vqe3K7Ji",
+    resource_group_name="rgiotoperationsmq",
+    tags={})

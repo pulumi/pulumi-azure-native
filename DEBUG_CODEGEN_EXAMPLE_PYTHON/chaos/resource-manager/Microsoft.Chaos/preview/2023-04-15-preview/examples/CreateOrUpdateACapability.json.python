@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+capability = azure_native.chaos.Capability("capability",
+    capability_name="Shutdown-1.0",
+    parent_provider_namespace="Microsoft.Compute",
+    parent_resource_name="exampleVM",
+    parent_resource_type="virtualMachines",
+    resource_group_name="exampleRG",
+    target_name="Microsoft-VirtualMachine")

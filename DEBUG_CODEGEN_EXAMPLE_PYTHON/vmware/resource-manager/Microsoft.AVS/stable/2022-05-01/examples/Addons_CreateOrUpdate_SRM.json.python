@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+addon = azure_native.avs.Addon("addon",
+    addon_name="srm",
+    private_cloud_name="cloud1",
+    properties=azure_native.avs.AddonSrmPropertiesArgs(
+        addon_type="SRM",
+        license_key="41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+    ),
+    resource_group_name="group1")

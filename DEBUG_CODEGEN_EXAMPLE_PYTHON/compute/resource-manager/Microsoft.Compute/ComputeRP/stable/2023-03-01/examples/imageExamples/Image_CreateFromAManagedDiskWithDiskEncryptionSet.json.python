@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+image = azure_native.compute.Image("image",
+    image_name="myImage",
+    location="West US",
+    resource_group_name="myResourceGroup",
+    storage_profile=azure_native.compute.ImageStorageProfileArgs(
+        os_disk=azure_native.compute.ImageOSDiskArgs(
+            disk_encryption_set=azure_native.compute.DiskEncryptionSetParametersArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+            ),
+            os_state=azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+            os_type=azure_native.compute.OperatingSystemTypes.LINUX,
+            snapshot=azure_native.compute.SubResourceArgs(
+                id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+            ),
+        ),
+    ))

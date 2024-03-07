@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+device = azure_native.databoxedge.Device("device",
+    data_residency=azure_native.databoxedge.DataResidencyArgs(
+        type="ZoneReplication",
+    ),
+    device_name="testedgedevice",
+    location="WUS",
+    resource_group_name="GroupForEdgeAutomation",
+    sku=azure_native.databoxedge.SkuArgs(
+        name="Edge",
+        tier="Standard",
+    ),
+    tags={})

@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.deviceupdate.PrivateEndpointConnection("privateEndpointConnection",
+    account_name="contoso",
+    private_endpoint_connection_name="peexample01",
+    private_link_service_connection_state=azure_native.deviceupdate.PrivateLinkServiceConnectionStateArgs(
+        description="Auto-Approved",
+        status="Approved",
+    ),
+    resource_group_name="test-rg")

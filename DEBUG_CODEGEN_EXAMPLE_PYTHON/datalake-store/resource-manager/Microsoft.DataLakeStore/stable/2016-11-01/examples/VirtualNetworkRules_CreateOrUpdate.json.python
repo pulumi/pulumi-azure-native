@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_network_rule = azure_native.datalakestore.VirtualNetworkRule("virtualNetworkRule",
+    account_name="contosoadla",
+    resource_group_name="contosorg",
+    subnet_id="test_subnetId",
+    virtual_network_rule_name="test_virtual_network_rules_name")

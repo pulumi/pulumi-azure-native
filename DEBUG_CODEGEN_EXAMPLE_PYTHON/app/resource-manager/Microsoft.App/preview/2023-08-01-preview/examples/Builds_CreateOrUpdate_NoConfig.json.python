@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+build = azure_native.app.Build("build",
+    build_name="testBuild",
+    builder_name="testBuilder",
+    resource_group_name="rg")

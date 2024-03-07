@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+guest_diagnostics_settings_association = azure_native.insights.GuestDiagnosticsSettingsAssociation("guestDiagnosticsSettingsAssociation",
+    association_name="healthSystemMachineConfigAssociation",
+    guest_diagnostic_settings_name="/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-Association-ResourceGroup/providers/providers/microsoft.insights/guestDiagnosticSettings/vmSettingForSecurity",
+    location="Global",
+    resource_uri="subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai",
+    tags={})

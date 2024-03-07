@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+routing_intent = azure_native.network.RoutingIntent("routingIntent",
+    resource_group_name="rg1",
+    routing_intent_name="Intent1",
+    routing_policies=[
+        azure_native.network.RoutingPolicyArgs(
+            destinations=["Internet"],
+            name="InternetTraffic",
+            next_hop="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+        ),
+        azure_native.network.RoutingPolicyArgs(
+            destinations=["PrivateTraffic"],
+            name="PrivateTrafficPolicy",
+            next_hop="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+        ),
+    ],
+    virtual_hub_name="virtualHub1")

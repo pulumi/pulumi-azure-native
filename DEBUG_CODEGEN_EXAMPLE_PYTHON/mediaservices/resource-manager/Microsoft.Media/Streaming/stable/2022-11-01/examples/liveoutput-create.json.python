@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+live_output = azure_native.media.LiveOutput("liveOutput",
+    account_name="slitestmedia10",
+    archive_window_length="PT5M",
+    asset_name="6f3264f5-a189-48b4-a29a-a40f22575212",
+    description="test live output 1",
+    hls=azure_native.media.HlsArgs(
+        fragments_per_ts_segment=5,
+    ),
+    live_event_name="myLiveEvent1",
+    live_output_name="myLiveOutput1",
+    manifest_name="testmanifest",
+    resource_group_name="mediaresources",
+    rewind_window_length="PT4M")

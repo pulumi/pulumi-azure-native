@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+share = azure_native.datashare.Share("share",
+    account_name="Account1",
+    description="share description",
+    resource_group_name="SampleResourceGroup",
+    share_kind="CopyBased",
+    share_name="Share1",
+    terms="Confidential")

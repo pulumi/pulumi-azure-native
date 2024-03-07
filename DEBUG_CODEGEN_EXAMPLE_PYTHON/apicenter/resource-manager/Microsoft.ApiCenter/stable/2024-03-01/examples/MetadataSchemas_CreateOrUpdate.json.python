@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+metadata_schema = azure_native.apicenter.MetadataSchema("metadataSchema",
+    assigned_to=[azure_native.apicenter.MetadataAssignmentArgs(
+        deprecated=True,
+        entity="api",
+    )],
+    metadata_schema_name="author",
+    resource_group_name="contoso-resources",
+    schema="{\"type\":\"string\", \"title\":\"Author\", pattern: \"^[a-zA-Z]+$\"}",
+    service_name="contoso")

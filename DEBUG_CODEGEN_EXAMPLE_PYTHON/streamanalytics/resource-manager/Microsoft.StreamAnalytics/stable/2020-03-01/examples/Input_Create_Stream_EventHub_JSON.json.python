@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+input = azure_native.streamanalytics.Input("input",
+    input_name="input7425",
+    job_name="sj197",
+    properties=azure_native.streamanalytics.StreamInputPropertiesArgs(
+        datasource=azure_native.streamanalytics.EventHubStreamInputDataSourceArgs(
+            consumer_group_name="sdkconsumergroup",
+            event_hub_name="sdkeventhub",
+            service_bus_namespace="sdktest",
+            shared_access_policy_key="someSharedAccessPolicyKey==",
+            shared_access_policy_name="RootManageSharedAccessKey",
+            type="Microsoft.ServiceBus/EventHub",
+        ),
+        serialization=azure_native.streamanalytics.JsonSerializationArgs(
+            encoding="UTF8",
+            type="Json",
+        ),
+        type="Stream",
+    ),
+    resource_group_name="sjrg3139")

@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+migrate_project = azure_native.migrate.MigrateProject("migrateProject",
+    e_tag="\"b701c73a-0000-0000-0000-59c12ff00000\"",
+    location="Southeast Asia",
+    migrate_project_name="project01",
+    properties=azure_native.migrate.MigrateProjectPropertiesArgs(),
+    resource_group_name="myResourceGroup",
+    tags=azure_native.migrate.MigrateProjectTagsArgs())

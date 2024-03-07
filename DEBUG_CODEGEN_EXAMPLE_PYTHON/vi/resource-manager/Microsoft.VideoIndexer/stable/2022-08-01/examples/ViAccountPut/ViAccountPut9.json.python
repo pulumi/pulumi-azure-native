@@ -1,0 +1,6 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.videoindexer.Account("account",
+    account_name="contosto-videoanalyzer",
+    resource_group_name="contosto-videoanalyzer-rg")

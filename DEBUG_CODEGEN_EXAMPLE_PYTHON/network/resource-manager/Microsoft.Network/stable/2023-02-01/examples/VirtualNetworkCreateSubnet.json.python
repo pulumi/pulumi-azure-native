@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+    address_space=azure_native.network.AddressSpaceArgs(
+        address_prefixes=["10.0.0.0/16"],
+    ),
+    location="eastus",
+    resource_group_name="rg1",
+    subnets=[azure_native.network.SubnetArgs(
+        address_prefix="10.0.0.0/24",
+        name="test-1",
+    )],
+    virtual_network_name="test-vnet")

@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+featurestore_entity_version = azure_native.machinelearningservices.FeaturestoreEntityVersion("featurestoreEntityVersion",
+    featurestore_entity_version_properties=azure_native.machinelearningservices.FeaturestoreEntityVersionArgs(
+        description="string",
+        index_columns=[azure_native.machinelearningservices.IndexColumnArgs(
+            column_name="string",
+            data_type="Datetime",
+        )],
+        is_anonymous=False,
+        is_archived=False,
+        properties={
+            "string": "string",
+        },
+        tags={
+            "string": "string",
+        },
+    ),
+    name="string",
+    resource_group_name="test-rg",
+    version="string",
+    workspace_name="my-aml-workspace")

@@ -1,0 +1,71 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+customizable_connector_definition = azure_native.securityinsights.CustomizableConnectorDefinition("customizableConnectorDefinition",
+    connector_ui_config=azure_native.securityinsights.CustomizableConnectorUiConfigArgs(
+        availability=azure_native.securityinsights.ConnectorDefinitionsAvailabilityArgs(
+            is_preview=False,
+            status=1,
+        ),
+        connectivity_criteria=[azure_native.securityinsights.ConnectivityCriterionArgs(
+            type="IsConnectedQuery",
+            value=["""GitHubAuditLogPolling_CL 
+ | summarize LastLogReceived = max(TimeGenerated)
+ | project IsConnected = LastLogReceived > ago(30d)"""],
+        )],
+        data_types=[azure_native.securityinsights.ConnectorDataTypeArgs(
+            last_data_received_query="""GitHubAuditLogPolling_CL 
+            | summarize Time = max(TimeGenerated)
+            | where isnotempty(Time)""",
+            name="GitHubAuditLogPolling_CL",
+        )],
+        description_markdown="The GitHub audit log connector provides the capability to ingest GitHub logs into Azure Sentinel. By connecting GitHub audit logs into Azure Sentinel, you can view this data in workbooks, use it to create custom alerts, and improve your investigation process.",
+        graph_queries=[azure_native.securityinsights.GraphQueryArgs(
+            base_query="GitHubAuditLogPolling_CL",
+            legend="GitHub audit log events",
+            metric_name="Total events received",
+        )],
+        instruction_steps=[azure_native.securityinsights.InstructionStepArgs(
+            description="""Enable GitHub audit Logs. 
+ Follow [this](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create or find your personal key""",
+            instructions=[azure_native.securityinsights.InstructionStepDetailsArgs(
+                parameters={
+                    "clientIdLabel": "Client ID",
+                    "clientSecretLabel": "Client Secret",
+                    "connectButtonLabel": "Connect",
+                    "disconnectButtonLabel": "Disconnect",
+                },
+                type="OAuthForm",
+            )],
+            title="Connect GitHub Enterprise Audit Log to Azure Sentinel",
+        )],
+        permissions=azure_native.securityinsights.ConnectorDefinitionsPermissionsArgs(
+            customs=[azure_native.securityinsights.CustomPermissionDetailsArgs(
+                description="You need access to GitHub personal token, the key should have 'admin:org' scope",
+                name="GitHub API personal token Key",
+            )],
+            resource_provider=[azure_native.securityinsights.ConnectorDefinitionsResourceProviderArgs(
+                permissions_display_text="read and write permissions are required.",
+                provider="Microsoft.OperationalInsights/workspaces",
+                provider_display_name="Workspace",
+                required_permissions=azure_native.securityinsights.ResourceProviderRequiredPermissionsArgs(
+                    action=False,
+                    delete=False,
+                    read=False,
+                    write=True,
+                ),
+                scope="Workspace",
+            )],
+        ),
+        publisher="GitHub",
+        sample_queries=[azure_native.securityinsights.SampleQueryArgs(
+            description="All logs",
+            query="""GitHubAuditLogPolling_CL 
+ | take 10""",
+        )],
+        title="GitHub Enterprise Audit Log",
+    ),
+    data_connector_definition_name="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    kind="Customizable",
+    resource_group_name="myRg",
+    workspace_name="myWorkspace")

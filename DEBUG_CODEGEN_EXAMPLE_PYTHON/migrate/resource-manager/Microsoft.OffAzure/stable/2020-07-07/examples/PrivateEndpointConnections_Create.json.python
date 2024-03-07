@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.offazure.PrivateEndpointConnection("privateEndpointConnection",
+    pe_connection_name="privateendpt1938mastersit9007pe.4f2f2970-0bfa-45d4-9ee1-d9f79502fc6f",
+    resource_group_name="ayagrawrg",
+    site_name="privateendpt1938mastersite")

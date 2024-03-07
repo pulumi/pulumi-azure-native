@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+table = azure_native.storage.Table("table",
+    account_name="sto328",
+    resource_group_name="res3376",
+    table_name="table6185")

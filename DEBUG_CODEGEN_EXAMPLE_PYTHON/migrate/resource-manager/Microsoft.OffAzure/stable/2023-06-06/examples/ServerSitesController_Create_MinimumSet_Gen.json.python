@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server_sites_controller = azure_native.offazure.ServerSitesController("serverSitesController",
+    location="iipybgplhzhpcfv",
+    resource_group_name="rgmigrate",
+    site_name="74-35-")

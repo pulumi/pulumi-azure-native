@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+trunked_network = azure_native.networkcloud.TrunkedNetwork("trunkedNetwork",
+    extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+        name="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+        type="CustomLocation",
+    ),
+    interface_name="eth0",
+    isolation_domain_ids=[
+        "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+        "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+    ],
+    location="location",
+    resource_group_name="resourceGroupName",
+    tags={
+        "key1": "myvalue1",
+        "key2": "myvalue2",
+    },
+    trunked_network_name="trunkedNetworkName",
+    vlans=[
+        12,
+        14,
+    ])

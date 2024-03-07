@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+shared_private_link_resource = azure_native.databasewatcher.SharedPrivateLinkResource("sharedPrivateLinkResource",
+    dns_zone="ec3ae9d410ba",
+    group_id="vault",
+    private_link_resource_id="/subscriptions/6f53185c-ea09-4fc3-9075-318dec805303/resourceGroups/apiTest-ddat4p/providers/Microsoft.KeyVault/vaults/kvmo3ej9ih",
+    request_message="request message",
+    resource_group_name="apiTest-ddat4p",
+    shared_private_link_resource_name="monitoringh22eed",
+    watcher_name="databasemo3ej9ih")

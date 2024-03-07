@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+organization = azure_native.confluent.Organization("organization",
+    location="West US",
+    offer_detail=azure_native.confluent.OfferDetailArgs(
+        id="string",
+        plan_id="string",
+        plan_name="string",
+        publisher_id="string",
+        term_unit="string",
+    ),
+    organization_name="myOrganization",
+    resource_group_name="myResourceGroup",
+    tags={
+        "Environment": "Dev",
+    },
+    user_detail=azure_native.confluent.UserDetailArgs(
+        email_address="contoso@microsoft.com",
+        first_name="string",
+        last_name="string",
+    ))

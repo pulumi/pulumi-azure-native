@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+rule_set = azure_native.cdn.RuleSet("ruleSet",
+    profile_name="profile1",
+    resource_group_name="RG",
+    rule_set_name="ruleSet1")

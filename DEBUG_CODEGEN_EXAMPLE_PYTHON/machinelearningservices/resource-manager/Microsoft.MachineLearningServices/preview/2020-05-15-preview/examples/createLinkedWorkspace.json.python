@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+linked_workspace = azure_native.machinelearningservices.LinkedWorkspace("linkedWorkspace",
+    link_name="link-1",
+    name="link-1",
+    properties=azure_native.machinelearningservices.LinkedWorkspacePropsArgs(
+        linked_workspace_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/linkedWorkspace-1",
+        user_assigned_identity_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1",
+    ),
+    resource_group_name="resourceGroup-1",
+    workspace_name="workspace-1")

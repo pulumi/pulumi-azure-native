@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+dps_certificate = azure_native.devices.DpsCertificate("dpsCertificate",
+    certificate_name="cert",
+    properties=azure_native.devices.CertificatePropertiesArgs(
+        certificate="MA==",
+    ),
+    provisioning_service_name="myFirstProvisioningService",
+    resource_group_name="myResourceGroup")

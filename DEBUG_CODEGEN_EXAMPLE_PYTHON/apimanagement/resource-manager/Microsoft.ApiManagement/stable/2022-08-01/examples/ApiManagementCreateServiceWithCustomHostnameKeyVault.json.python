@@ -1,0 +1,49 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+api_management_service = azure_native.apimanagement.ApiManagementService("apiManagementService",
+    api_version_constraint=azure_native.apimanagement.ApiVersionConstraintArgs(
+        min_api_version="2019-01-01",
+    ),
+    hostname_configurations=[
+        azure_native.apimanagement.HostnameConfigurationArgs(
+            default_ssl_binding=True,
+            host_name="gateway1.msitesting.net",
+            identity_client_id="329419bc-adec-4dce-9568-25a6d486e468",
+            key_vault_id="https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+            type="Proxy",
+        ),
+        azure_native.apimanagement.HostnameConfigurationArgs(
+            host_name="mgmt.msitesting.net",
+            identity_client_id="329419bc-adec-4dce-9568-25a6d486e468",
+            key_vault_id="https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+            type="Management",
+        ),
+        azure_native.apimanagement.HostnameConfigurationArgs(
+            host_name="portal1.msitesting.net",
+            identity_client_id="329419bc-adec-4dce-9568-25a6d486e468",
+            key_vault_id="https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+            type="Portal",
+        ),
+    ],
+    identity=azure_native.apimanagement.ApiManagementServiceIdentityArgs(
+        type="UserAssigned",
+        user_assigned_identities={
+            "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": azure_native.apimanagement.UserIdentityPropertiesArgs(),
+        },
+    ),
+    location="North Europe",
+    publisher_email="apim@autorestsdk.com",
+    publisher_name="autorestsdk",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    sku=azure_native.apimanagement.ApiManagementServiceSkuPropertiesArgs(
+        capacity=1,
+        name="Premium",
+    ),
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+        "tag3": "value3",
+    },
+    virtual_network_type="None")

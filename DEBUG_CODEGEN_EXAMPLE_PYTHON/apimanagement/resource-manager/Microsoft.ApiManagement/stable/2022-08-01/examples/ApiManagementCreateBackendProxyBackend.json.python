@@ -1,0 +1,38 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+backend = azure_native.apimanagement.Backend("backend",
+    backend_id="proxybackend",
+    credentials=azure_native.apimanagement.BackendCredentialsContractArgs(
+        authorization=azure_native.apimanagement.BackendAuthorizationHeaderCredentialsArgs(
+            parameter="opensesma",
+            scheme="Basic",
+        ),
+        header={
+            "x-my-1": [
+                "val1",
+                "val2",
+            ],
+        },
+        query={
+            "sv": [
+                "xx",
+                "bb",
+                "cc",
+            ],
+        },
+    ),
+    description="description5308",
+    protocol="http",
+    proxy=azure_native.apimanagement.BackendProxyContractArgs(
+        password="<password>",
+        url="http://192.168.1.1:8080",
+        username="Contoso\\admin",
+    ),
+    resource_group_name="rg1",
+    service_name="apimService1",
+    tls=azure_native.apimanagement.BackendTlsPropertiesArgs(
+        validate_certificate_chain=True,
+        validate_certificate_name=True,
+    ),
+    url="https://backendname2644/")

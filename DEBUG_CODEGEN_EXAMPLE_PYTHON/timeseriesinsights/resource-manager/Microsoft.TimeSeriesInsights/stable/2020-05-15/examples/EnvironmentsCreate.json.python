@@ -1,0 +1,6 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+gen2_environment = azure_native.timeseriesinsights.Gen2Environment("gen2Environment",
+    environment_name="env1",
+    resource_group_name="rg1")

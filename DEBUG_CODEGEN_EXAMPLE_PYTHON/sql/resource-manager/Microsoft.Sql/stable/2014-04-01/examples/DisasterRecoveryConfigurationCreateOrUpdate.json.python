@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+disaster_recovery_configuration = azure_native.sql.DisasterRecoveryConfiguration("disasterRecoveryConfiguration",
+    disaster_recovery_configuration_name="Default",
+    resource_group_name="sqlcrudtest-4799",
+    server_name="sqlcrudtest-5961")

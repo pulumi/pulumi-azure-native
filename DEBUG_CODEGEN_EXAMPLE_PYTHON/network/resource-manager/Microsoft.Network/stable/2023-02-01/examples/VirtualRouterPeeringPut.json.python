@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_router_peering = azure_native.network.VirtualRouterPeering("virtualRouterPeering",
+    peer_asn=20000,
+    peer_ip="192.168.1.5",
+    peering_name="peering1",
+    resource_group_name="rg1",
+    virtual_router_name="virtualRouter")

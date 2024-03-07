@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_network_settings_rule = azure_native.machinelearningservices.ManagedNetworkSettingsRule("managedNetworkSettingsRule",
+    properties=azure_native.machinelearningservices.FqdnOutboundRuleArgs(
+        category="UserDefined",
+        destination="some_string",
+        status="Active",
+        type="FQDN",
+    ),
+    resource_group_name="test-rg",
+    rule_name="some_string",
+    workspace_name="aml-workspace-name")

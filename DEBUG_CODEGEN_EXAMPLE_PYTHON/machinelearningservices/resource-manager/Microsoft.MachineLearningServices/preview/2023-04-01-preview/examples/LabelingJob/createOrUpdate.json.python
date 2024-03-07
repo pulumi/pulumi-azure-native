@@ -1,0 +1,62 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+labeling_job = azure_native.machinelearningservices.LabelingJob("labelingJob",
+    id="testLabelingJob",
+    labeling_job_properties=azure_native.machinelearningservices.LabelingJobArgs(
+        description="string",
+        job_instructions=azure_native.machinelearningservices.LabelingJobInstructionsArgs(
+            uri="link/to/instructions",
+        ),
+        job_type="Labeling",
+        label_categories={
+            "myCategory1": azure_native.machinelearningservices.LabelCategoryArgs(
+                classes={
+                    "myLabelClass1": azure_native.machinelearningservices.LabelClassArgs(
+                        display_name="myLabelClass1",
+                        subclasses={},
+                    ),
+                    "myLabelClass2": azure_native.machinelearningservices.LabelClassArgs(
+                        display_name="myLabelClass2",
+                        subclasses={},
+                    ),
+                },
+                display_name="myCategory1Title",
+                multi_select="Disabled",
+            ),
+            "myCategory2": azure_native.machinelearningservices.LabelCategoryArgs(
+                classes={
+                    "myLabelClass1": azure_native.machinelearningservices.LabelClassArgs(
+                        display_name="myLabelClass1",
+                        subclasses={},
+                    ),
+                    "myLabelClass2": azure_native.machinelearningservices.LabelClassArgs(
+                        display_name="myLabelClass2",
+                        subclasses={},
+                    ),
+                },
+                display_name="myCategory2Title",
+                multi_select="Disabled",
+            ),
+        },
+        labeling_job_media_properties=azure_native.machinelearningservices.LabelingJobImagePropertiesArgs(
+            media_type="Image",
+        ),
+        ml_assist_configuration=azure_native.machinelearningservices.MLAssistConfigurationEnabledArgs(
+            inferencing_compute_binding="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+            ml_assist="Enabled",
+            training_compute_binding="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingompute",
+        ),
+        properties={
+            "additionalProp1": "string",
+            "additionalProp2": "string",
+            "additionalProp3": "string",
+        },
+        tags={
+            "additionalProp1": "string",
+            "additionalProp2": "string",
+            "additionalProp3": "string",
+        },
+    ),
+    resource_group_name="workspace-1234",
+    workspace_name="testworkspace")

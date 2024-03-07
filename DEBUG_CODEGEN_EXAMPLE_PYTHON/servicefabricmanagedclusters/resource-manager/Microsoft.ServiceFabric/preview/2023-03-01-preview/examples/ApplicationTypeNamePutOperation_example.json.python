@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_cluster_application_type = azure_native.servicefabric.ManagedClusterApplicationType("managedClusterApplicationType",
+    application_type_name="myAppType",
+    cluster_name="myCluster",
+    location="eastus",
+    resource_group_name="resRg")

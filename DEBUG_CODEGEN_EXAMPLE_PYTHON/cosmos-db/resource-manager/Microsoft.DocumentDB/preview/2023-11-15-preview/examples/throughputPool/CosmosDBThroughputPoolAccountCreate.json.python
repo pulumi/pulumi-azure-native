@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+throughput_pool_account = azure_native.documentdb.ThroughputPoolAccount("throughputPoolAccount",
+    account_location="West US",
+    account_resource_identifier="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/providers/Microsoft.DocumentDB/resourceGroup/rg1/databaseAccounts/db1/",
+    resource_group_name="rg1",
+    throughput_pool_account_name="db1",
+    throughput_pool_name="tp1")

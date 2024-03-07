@@ -1,0 +1,30 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+operationalization_cluster = azure_native.machinelearningcompute.OperationalizationCluster("operationalizationCluster",
+    cluster_name="myCluster",
+    cluster_type="ACS",
+    container_service=azure_native.machinelearningcompute.AcsClusterPropertiesArgs(
+        orchestrator_properties=azure_native.machinelearningcompute.KubernetesClusterPropertiesArgs(
+            service_principal=azure_native.machinelearningcompute.ServicePrincipalPropertiesArgs(
+                client_id="abcdefghijklmnopqrt",
+                secret="<secret>",
+            ),
+        ),
+        orchestrator_type="Kubernetes",
+    ),
+    description="My Operationalization Cluster",
+    global_service_configuration=azure_native.machinelearningcompute.GlobalServiceConfigurationArgs(
+        ssl=azure_native.machinelearningcompute.SslConfigurationArgs(
+            cert="afjdklq2131casfakld=",
+            cname="foo.bar.com",
+            key="flksdafkldsajf=",
+            status="Enabled",
+        ),
+    ),
+    location="West US",
+    resource_group_name="myResourceGroup",
+    tags={
+        "key1": "alpha",
+        "key2": "beta",
+    })

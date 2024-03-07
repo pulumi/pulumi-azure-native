@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+fleet = azure_native.containerservice.Fleet("fleet",
+    fleet_name="fleet1",
+    hub_profile=azure_native.containerservice.FleetHubProfileArgs(
+        dns_prefix="dnsprefix1",
+    ),
+    location="East US",
+    resource_group_name="rg1",
+    tags={
+        "archv2": "",
+        "tier": "production",
+    })

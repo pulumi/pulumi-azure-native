@@ -1,0 +1,6 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+guest_usage = azure_native.azureactivedirectory.GuestUsage("guestUsage",
+    resource_group_name="contosoResourceGroup",
+    resource_name_="contoso.onmicrosoft.com")

@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+marketplace_gallery_image = azure_native.azurestackhci.MarketplaceGalleryImage("marketplaceGalleryImage",
+    cloud_init_data_source="Azure",
+    container_name="Default_Container",
+    extended_location=azure_native.azurestackhci.ExtendedLocationArgs(
+        name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+        type="CustomLocation",
+    ),
+    hyper_v_generation="V1",
+    identifier=azure_native.azurestackhci.GalleryImageIdentifierArgs(
+        offer="myOfferName",
+        publisher="myPublisherName",
+        sku="mySkuName",
+    ),
+    location="West US2",
+    marketplace_gallery_image_name="test-marketplace-gallery-image",
+    os_type=azure_native.azurestackhci.OperatingSystemTypes.WINDOWS,
+    resource_group_name="test-rg",
+    version=azure_native.azurestackhci.GalleryImageVersionArgs(
+        name="1.0.0",
+    ))

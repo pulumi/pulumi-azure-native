@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace = azure_native.databricks.Workspace("workspace",
+    location="westus",
+    managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+    parameters=azure_native.databricks.WorkspaceCustomParametersArgs(
+        prepare_encryption=azure_native.databricks.WorkspaceCustomBooleanParameterArgs(
+            value=True,
+        ),
+    ),
+    resource_group_name="rg",
+    workspace_name="myWorkspace")

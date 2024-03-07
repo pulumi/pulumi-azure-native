@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server_collector = azure_native.migrate.ServerCollector("serverCollector",
+    e_tag="\"00000606-0000-0d00-0000-605999bf0000\"",
+    project_name="app11141project",
+    properties=azure_native.migrate.CollectorPropertiesArgs(
+        agent_properties=azure_native.migrate.CollectorAgentPropertiesArgs(
+            spn_details=azure_native.migrate.CollectorBodyAgentSpnPropertiesArgs(
+                application_id="ad9f701a-cc08-4421-b51f-b5762d58e9ba",
+                audience="https://72f988bf-86f1-41af-91ab-2d7cd011db47/app23df4authandaccessaadapp",
+                authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                object_id="b4975e42-9248-4a36-b99f-37eca377ea00",
+                tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            ),
+        ),
+        discovery_site_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/ServerSites/app21141site",
+    ),
+    resource_group_name="pajindtest",
+    server_collector_name="app23df4collector")

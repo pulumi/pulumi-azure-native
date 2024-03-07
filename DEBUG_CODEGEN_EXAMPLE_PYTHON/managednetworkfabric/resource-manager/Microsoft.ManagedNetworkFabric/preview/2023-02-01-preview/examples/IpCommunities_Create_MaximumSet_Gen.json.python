@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+ip_community = azure_native.managednetworkfabric.IpCommunity("ipCommunity",
+    action="Permit",
+    annotation="annotationValue",
+    community_members=["1234:5678"],
+    ip_community_name="example-ipCommunity",
+    location="EastUS",
+    resource_group_name="rgIpCommunityLists",
+    tags={
+        "key2814": "",
+    },
+    well_known_communities=[
+        "Internet",
+        "LocalAS",
+        "NoExport",
+        "GShut",
+    ])

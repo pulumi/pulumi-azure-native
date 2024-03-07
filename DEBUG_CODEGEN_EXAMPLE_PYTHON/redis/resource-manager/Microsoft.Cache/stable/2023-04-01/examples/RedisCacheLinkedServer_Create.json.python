@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+linked_server = azure_native.cache.LinkedServer("linkedServer",
+    linked_redis_cache_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
+    linked_redis_cache_location="West US",
+    linked_server_name="cache2",
+    name="cache1",
+    resource_group_name="rg1",
+    server_role=azure_native.cache.ReplicationRole.SECONDARY)

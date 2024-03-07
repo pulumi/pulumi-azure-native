@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+configuration_profiles_version = azure_native.automanage.ConfigurationProfilesVersion("configurationProfilesVersion",
+    configuration_profile_name="customConfigurationProfile",
+    location="East US",
+    properties=azure_native.automanage.ConfigurationProfilePropertiesArgs(
+        configuration={
+            "Antimalware/Enable": False,
+            "AzureSecurityCenter/Enable": True,
+            "Backup/Enable": False,
+            "BootDiagnostics/Enable": True,
+            "ChangeTrackingAndInventory/Enable": True,
+            "GuestConfiguration/Enable": True,
+            "LogAnalytics/Enable": True,
+            "UpdateManagement/Enable": True,
+            "VMInsights/Enable": True,
+        },
+    ),
+    resource_group_name="myResourceGroupName",
+    tags={
+        "Organization": "Administration",
+    },
+    version_name="version1")

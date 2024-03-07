@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+configuration_group_value = azure_native.hybridnetwork.ConfigurationGroupValue("configurationGroupValue",
+    configuration_group_value_name="testConfigurationGroupValue",
+    location="eastus",
+    properties=azure_native.hybridnetwork.ConfigurationValueWithoutSecretsArgs(
+        configuration_group_schema_resource_reference=azure_native.hybridnetwork.SecretDeploymentResourceReferenceArgs(
+            id="/subscriptions/subid/resourcegroups/testRG/providers/microsoft.hybridnetwork/publishers/testPublisher/configurationGroupSchemas/testConfigurationGroupSchemaName",
+            id_type="Secret",
+        ),
+        configuration_type="Open",
+        configuration_value="{\"interconnect-groups\":{\"stripe-one\":{\"name\":\"Stripe one\",\"international-interconnects\":[\"france\",\"germany\"],\"domestic-interconnects\":[\"birmingham\",\"edinburgh\"]},\"stripe-two\":{\"name\":\"Stripe two\",\"international-interconnects\":[\"germany\",\"italy\"],\"domestic-interconnects\":[\"edinburgh\",\"london\"]}},\"interconnect-group-assignments\":{\"ssc-one\":{\"ssc\":\"SSC 1\",\"interconnects\":\"stripe-one\"},\"ssc-two\":{\"ssc\":\"SSC 2\",\"interconnects\":\"stripe-two\"}}}",
+    ),
+    resource_group_name="rg1")

@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+runbook = azure_native.automation.Runbook("runbook",
+    automation_account_name="ContoseAutomationAccount",
+    description="Description of the Runbook",
+    draft=azure_native.automation.RunbookDraftArgs(),
+    location="East US 2",
+    log_progress=False,
+    log_verbose=False,
+    name="Get-AzureVMTutorial",
+    resource_group_name="rg",
+    runbook_name="Get-AzureVMTutorial",
+    runbook_type="PowerShellWorkflow",
+    tags={
+        "tag01": "value01",
+        "tag02": "value02",
+    })

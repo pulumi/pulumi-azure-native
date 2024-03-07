@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+governance_rule = azure_native.security.GovernanceRule("governanceRule",
+    description="A rule on critical GCP recommendations",
+    display_name="GCP Admin's rule",
+    governance_email_notification=azure_native.security.GovernanceRuleEmailNotificationArgs(
+        disable_manager_email_notification=True,
+        disable_owner_email_notification=False,
+    ),
+    is_disabled=False,
+    is_grace_period=True,
+    owner_source=azure_native.security.GovernanceRuleOwnerSourceArgs(
+        type="Manually",
+        value="user@contoso.com",
+    ),
+    remediation_timeframe="7.00:00:00",
+    rule_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    rule_priority=200,
+    rule_type="Integrated",
+    scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+    source_resource_type="Assessments")

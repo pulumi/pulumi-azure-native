@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+marketplace_subscription = azure_native.machinelearningservices.MarketplaceSubscription("marketplaceSubscription",
+    marketplace_subscription_properties=azure_native.machinelearningservices.MarketplaceSubscriptionArgs(
+        model_id="string",
+    ),
+    name="string",
+    resource_group_name="test-rg",
+    workspace_name="my-aml-workspace")

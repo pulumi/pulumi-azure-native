@@ -1,0 +1,33 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+alert_processing_rule_by_name = azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName",
+    alert_processing_rule_name="RemoveActionGroupsOutsideBusinessHours",
+    location="Global",
+    properties=azure_native.alertsmanagement.AlertProcessingRulePropertiesArgs(
+        actions=[azure_native.alertsmanagement.RemoveAllActionGroupsArgs(
+            action_type="RemoveAllActionGroups",
+        )],
+        description="Remove all ActionGroups outside business hours",
+        enabled=True,
+        schedule=azure_native.alertsmanagement.ScheduleArgs(
+            recurrences=[
+                azure_native.alertsmanagement.DailyRecurrenceArgs(
+                    end_time="09:00:00",
+                    recurrence_type="Daily",
+                    start_time="17:00:00",
+                ),
+                azure_native.alertsmanagement.WeeklyRecurrenceArgs(
+                    days_of_week=[
+                        "Saturday",
+                        "Sunday",
+                    ],
+                    recurrence_type="Weekly",
+                ),
+            ],
+            time_zone="Eastern Standard Time",
+        ),
+        scopes=["/subscriptions/subId1"],
+    ),
+    resource_group_name="alertscorrelationrg",
+    tags={})

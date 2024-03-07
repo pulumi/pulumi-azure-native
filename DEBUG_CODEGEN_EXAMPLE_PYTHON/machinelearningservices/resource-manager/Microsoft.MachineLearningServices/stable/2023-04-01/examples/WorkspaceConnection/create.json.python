@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace_connection = azure_native.machinelearningservices.WorkspaceConnection("workspaceConnection",
+    connection_name="connection-1",
+    properties=azure_native.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs(
+        auth_type="None",
+        category="ContainerRegistry",
+        target="www.facebook.com",
+    ),
+    resource_group_name="resourceGroup-1",
+    workspace_name="workspace-1")

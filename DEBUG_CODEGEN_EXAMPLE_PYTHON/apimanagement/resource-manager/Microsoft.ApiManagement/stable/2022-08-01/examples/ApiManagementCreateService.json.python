@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+api_management_service = azure_native.apimanagement.ApiManagementService("apiManagementService",
+    location="South Central US",
+    publisher_email="foo@contoso.com",
+    publisher_name="foo",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    sku=azure_native.apimanagement.ApiManagementServiceSkuPropertiesArgs(
+        capacity=1,
+        name="Developer",
+    ),
+    tags={
+        "Name": "Contoso",
+        "Test": "User",
+    })

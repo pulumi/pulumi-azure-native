@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+signal_r_custom_domain = azure_native.signalrservice.SignalRCustomDomain("signalRCustomDomain",
+    custom_certificate=azure_native.signalrservice.ResourceReferenceArgs(
+        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customCertificates/myCert",
+    ),
+    domain_name="example.com",
+    name="myDomain",
+    resource_group_name="myResourceGroup",
+    resource_name_="mySignalRService")

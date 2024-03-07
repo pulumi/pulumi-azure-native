@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+key = azure_native.synapse.Key("key",
+    is_active_cmk=True,
+    key_name="somekey",
+    key_vault_url="https://vault.azure.net/keys/somesecret",
+    resource_group_name="ExampleResourceGroup",
+    workspace_name="ExampleWorkspace")

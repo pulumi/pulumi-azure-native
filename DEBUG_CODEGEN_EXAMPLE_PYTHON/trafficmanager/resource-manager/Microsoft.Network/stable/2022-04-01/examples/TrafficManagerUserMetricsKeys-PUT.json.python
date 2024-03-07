@@ -1,0 +1,4 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+traffic_manager_user_metrics_key = azure_native.network.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey")

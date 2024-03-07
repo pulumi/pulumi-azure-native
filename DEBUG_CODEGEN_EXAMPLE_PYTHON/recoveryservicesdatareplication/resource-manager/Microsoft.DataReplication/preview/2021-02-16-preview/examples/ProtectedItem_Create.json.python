@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+protected_item = azure_native.datareplication.ProtectedItem("protectedItem",
+    properties=azure_native.datareplication.ProtectedItemModelPropertiesArgs(
+        custom_properties={
+            "instanceType": "ProtectedItemModelCustomProperties",
+        },
+        policy_name="tjoeiynplt",
+        replication_extension_name="jwxdo",
+    ),
+    protected_item_name="d",
+    resource_group_name="rgrecoveryservicesdatareplication",
+    vault_name="4")

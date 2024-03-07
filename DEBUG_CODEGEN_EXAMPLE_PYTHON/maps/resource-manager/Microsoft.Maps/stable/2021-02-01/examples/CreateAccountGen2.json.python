@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.maps.Account("account",
+    account_name="myMapsAccount",
+    kind="Gen2",
+    location="global",
+    properties=azure_native.maps.MapsAccountPropertiesArgs(
+        disable_local_auth=True,
+    ),
+    resource_group_name="myResourceGroup",
+    sku=azure_native.maps.SkuArgs(
+        name="G2",
+    ),
+    tags={
+        "test": "true",
+    })

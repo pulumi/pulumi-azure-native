@@ -1,0 +1,27 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+scheduled_action = azure_native.costmanagement.ScheduledAction("scheduledAction",
+    display_name="Monthly Cost By Resource",
+    kind="Email",
+    name="monthlyCostByResource",
+    notification=azure_native.costmanagement.NotificationPropertiesArgs(
+        subject="Cost by resource this month",
+        to=[
+            "user@gmail.com",
+            "team@gmail.com",
+        ],
+    ),
+    schedule=azure_native.costmanagement.SchedulePropertiesArgs(
+        days_of_week=["Monday"],
+        end_date="2021-06-19T22:21:51.1287144Z",
+        frequency="Monthly",
+        hour_of_day=10,
+        start_date="2020-06-19T22:21:51.1287144Z",
+        weeks_of_month=[
+            "First",
+            "Third",
+        ],
+    ),
+    status="Enabled",
+    view_id="/providers/Microsoft.CostManagement/views/swaggerExample")

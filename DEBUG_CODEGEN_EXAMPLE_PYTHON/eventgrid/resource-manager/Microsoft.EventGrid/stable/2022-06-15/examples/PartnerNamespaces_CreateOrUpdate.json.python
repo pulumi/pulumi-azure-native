@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+partner_namespace = azure_native.eventgrid.PartnerNamespace("partnerNamespace",
+    location="westus",
+    partner_namespace_name="examplePartnerNamespaceName1",
+    partner_registration_fully_qualified_id="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/ContosoCorpAccount1",
+    resource_group_name="examplerg",
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    })

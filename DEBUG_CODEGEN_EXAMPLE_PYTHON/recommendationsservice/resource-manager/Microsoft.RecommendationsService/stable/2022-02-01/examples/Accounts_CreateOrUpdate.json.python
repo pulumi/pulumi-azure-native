@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.recommendationsservice.Account("account",
+    account_name="sampleAccount",
+    location="West US",
+    properties=azure_native.recommendationsservice.AccountResourcePropertiesArgs(
+        configuration="Capacity",
+        endpoint_authentications=[azure_native.recommendationsservice.EndpointAuthenticationArgs(
+            aad_tenant_id="tenant",
+            principal_id="oid",
+            principal_type="User",
+        )],
+    ),
+    resource_group_name="rg",
+    tags={
+        "Environment": "Prod",
+    })

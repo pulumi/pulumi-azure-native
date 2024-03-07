@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+integration_service_environment_managed_api = azure_native.logic.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi",
+    api_name="servicebus",
+    integration_service_environment_name="testIntegrationServiceEnvironment",
+    location="brazilsouth",
+    resource_group="testResourceGroup")

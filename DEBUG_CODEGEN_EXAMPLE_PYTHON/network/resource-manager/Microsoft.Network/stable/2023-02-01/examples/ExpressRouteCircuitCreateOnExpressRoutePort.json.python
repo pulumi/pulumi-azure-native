@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+express_route_circuit = azure_native.network.ExpressRouteCircuit("expressRouteCircuit",
+    authorization_key="b0be57f5-1fba-463b-adec-ffe767354cdd",
+    bandwidth_in_gbps=10,
+    circuit_name="expressRouteCircuit1",
+    express_route_port=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName",
+    ),
+    location="westus",
+    resource_group_name="rg1",
+    sku=azure_native.network.ExpressRouteCircuitSkuArgs(
+        family="MeteredData",
+        name="Premium_MeteredData",
+        tier="Premium",
+    ))

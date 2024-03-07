@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+bandwidth_schedule = azure_native.databoxedge.BandwidthSchedule("bandwidthSchedule",
+    days=[
+        "Sunday",
+        "Monday",
+    ],
+    device_name="testedgedevice",
+    name="bandwidth-1",
+    rate_in_mbps=100,
+    resource_group_name="GroupForEdgeAutomation",
+    start="0:0:0",
+    stop="13:59:0")

@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+file = azure_native.datamigration.File("file",
+    file_name="x114d023d8",
+    group_name="DmsSdkRg",
+    project_name="DmsSdkProject",
+    properties=azure_native.datamigration.ProjectFilePropertiesArgs(
+        file_path="DmsSdkFilePath/DmsSdkFile.sql",
+    ),
+    service_name="DmsSdkService")

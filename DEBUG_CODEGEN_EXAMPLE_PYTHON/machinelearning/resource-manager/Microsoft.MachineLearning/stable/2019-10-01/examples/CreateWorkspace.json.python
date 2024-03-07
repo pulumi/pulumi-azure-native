@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace = azure_native.machinelearning.Workspace("workspace",
+    location="West Europe",
+    owner_email="abc@microsoft.com",
+    resource_group_name="myResourceGroup",
+    sku=azure_native.machinelearning.SkuArgs(
+        name="Enterprise",
+        tier="Enterprise",
+    ),
+    tags={
+        "tagKey1": "TagValue1",
+    },
+    user_storage_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
+    workspace_name="testworkspace")

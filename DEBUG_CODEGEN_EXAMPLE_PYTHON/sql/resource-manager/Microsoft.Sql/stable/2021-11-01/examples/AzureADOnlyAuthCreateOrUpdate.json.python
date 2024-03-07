@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server_azure_ad_only_authentication = azure_native.sql.ServerAzureADOnlyAuthentication("serverAzureADOnlyAuthentication",
+    authentication_name="Default",
+    azure_ad_only_authentication=False,
+    resource_group_name="sqlcrudtest-4799",
+    server_name="sqlcrudtest-6440")

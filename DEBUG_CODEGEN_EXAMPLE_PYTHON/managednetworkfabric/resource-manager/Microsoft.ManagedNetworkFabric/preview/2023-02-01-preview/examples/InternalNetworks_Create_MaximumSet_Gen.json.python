@@ -1,0 +1,41 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+internal_network = azure_native.managednetworkfabric.InternalNetwork("internalNetwork",
+    bgp_configuration=azure_native.managednetworkfabric.BgpConfigurationArgs(
+        allow_as=1,
+        allow_as_override="Enable",
+        default_route_originate="True",
+        ipv4_listen_range_prefixes=["10.1.0.0/25"],
+        ipv4_neighbor_address=[azure_native.managednetworkfabric.NeighborAddressArgs(
+            address="10.1.0.0",
+        )],
+        ipv6_listen_range_prefixes=["2fff::/66"],
+        ipv6_neighbor_address=[azure_native.managednetworkfabric.NeighborAddressArgs(
+            address="2fff::",
+        )],
+        peer_asn=6,
+    ),
+    connected_i_pv4_subnets=[azure_native.managednetworkfabric.ConnectedSubnetArgs(
+        prefix="10.0.0.0/24",
+    )],
+    connected_i_pv6_subnets=[azure_native.managednetworkfabric.ConnectedSubnetArgs(
+        prefix="3FFE:FFFF:0:CD30::a0/29",
+    )],
+    export_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+    import_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+    internal_network_name="example-internalnetwork",
+    l3_isolation_domain_name="example-l3domain",
+    mtu=1500,
+    resource_group_name="resourceGroupName",
+    static_route_configuration=azure_native.managednetworkfabric.StaticRouteConfigurationArgs(
+        ipv4_routes=[azure_native.managednetworkfabric.StaticRoutePropertiesArgs(
+            next_hop=["10.0.0.1"],
+            prefix="10.1.0.0/24",
+        )],
+        ipv6_routes=[azure_native.managednetworkfabric.StaticRoutePropertiesArgs(
+            next_hop=["2ffe::1"],
+            prefix="2fff::/64",
+        )],
+    ),
+    vlan_id=501)

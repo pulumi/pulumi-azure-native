@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+product_api = azure_native.apimanagement.ProductApi("productApi",
+    api_id="echo-api",
+    product_id="testproduct",
+    resource_group_name="rg1",
+    service_name="apimService1")

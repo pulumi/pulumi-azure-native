@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+mongo_cluster_firewall_rule = azure_native.documentdb.MongoClusterFirewallRule("mongoClusterFirewallRule",
+    end_ip_address="255.255.255.255",
+    firewall_rule_name="rule1",
+    mongo_cluster_name="myMongoCluster",
+    resource_group_name="TestGroup",
+    start_ip_address="0.0.0.0")

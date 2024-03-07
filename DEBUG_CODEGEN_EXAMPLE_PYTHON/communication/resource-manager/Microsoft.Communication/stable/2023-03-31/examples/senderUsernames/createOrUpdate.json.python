@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sender_username = azure_native.communication.SenderUsername("senderUsername",
+    display_name="Contoso News Alerts",
+    domain_name="contoso.com",
+    email_service_name="contosoEmailService",
+    resource_group_name="contosoResourceGroup",
+    sender_username="contosoNewsAlerts",
+    username="contosoNewsAlerts")

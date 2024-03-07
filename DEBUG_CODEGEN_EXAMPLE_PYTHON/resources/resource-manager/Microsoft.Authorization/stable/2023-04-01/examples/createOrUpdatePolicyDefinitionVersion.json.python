@@ -1,0 +1,40 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+policy_definition_version = azure_native.authorization.PolicyDefinitionVersion("policyDefinitionVersion",
+    description="Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+    display_name="Enforce resource naming convention",
+    metadata={
+        "category": "Naming",
+    },
+    mode="All",
+    parameters={
+        "prefix": azure_native.authorization.ParameterDefinitionsValueArgs(
+            metadata=azure_native.authorization.ParameterDefinitionsValueMetadataArgs(
+                description="Resource name prefix",
+                display_name="Prefix",
+            ),
+            type="String",
+        ),
+        "suffix": azure_native.authorization.ParameterDefinitionsValueArgs(
+            metadata=azure_native.authorization.ParameterDefinitionsValueMetadataArgs(
+                description="Resource name suffix",
+                display_name="Suffix",
+            ),
+            type="String",
+        ),
+    },
+    policy_definition_name="ResourceNaming",
+    policy_definition_version="1.2.1",
+    policy_rule={
+        "if": {
+            "not": {
+                "field": "name",
+                "like": "[concat(parameters('prefix'), '*', parameters('suffix'))]",
+            },
+        },
+        "then": {
+            "effect": "deny",
+        },
+    },
+    version="1.2.1")

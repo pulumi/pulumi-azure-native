@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+output = azure_native.streamanalytics.Output("output",
+    datasource=azure_native.streamanalytics.AzureSynapseOutputDataSourceArgs(
+        database="zhayaSQLpool",
+        password="password123",
+        server="asatestserver",
+        table="test2",
+        type="Microsoft.Sql/Server/DataWarehouse",
+        user="tolladmin",
+    ),
+    job_name="sjName",
+    output_name="dwOutput",
+    resource_group_name="sjrg")

@@ -1,0 +1,169 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_service = azure_native.machinelearning.WebService("webService",
+    location="West US",
+    properties=azure_native.machinelearning.WebServicePropertiesForGraphArgs(
+        assets={
+            "asset1": azure_native.machinelearning.AssetItemArgs(
+                location_info=azure_native.machinelearning.BlobLocationArgs(
+                    credentials="",
+                    uri="aml://module/moduleId-1",
+                ),
+                name="Execute R Script",
+                type="Module",
+            ),
+            "asset2": azure_native.machinelearning.AssetItemArgs(
+                location_info=azure_native.machinelearning.BlobLocationArgs(
+                    credentials="",
+                    uri="aml://module/moduleId-2",
+                ),
+                name="Import Data",
+                type="Module",
+            ),
+        },
+        commitment_plan=azure_native.machinelearning.CommitmentPlanArgs(
+            id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.MachineLearning/commitmentPlans/commitmentPlanName",
+        ),
+        description="Web Service Description",
+        diagnostics=azure_native.machinelearning.DiagnosticsConfigurationArgs(
+            level="None",
+        ),
+        example_request=azure_native.machinelearning.ExampleRequestArgs(
+            inputs={
+                "input1": [
+                    ["age"],
+                    ["workclass"],
+                    ["fnlwgt"],
+                    ["education"],
+                    ["education-num"],
+                ],
+            },
+        ),
+        expose_sample_data=True,
+        input=azure_native.machinelearning.ServiceInputOutputSpecificationArgs(
+            description="",
+            properties={
+                "input1": azure_native.machinelearning.TableSpecificationArgs(
+                    description="",
+                    properties={
+                        "column_name": azure_native.machinelearning.ColumnSpecificationArgs(
+                            type="String",
+                            x_ms_isnullable=False,
+                        ),
+                    },
+                    title="",
+                    type="object",
+                ),
+            },
+            title="",
+            type="object",
+        ),
+        machine_learning_workspace=azure_native.machinelearning.MachineLearningWorkspaceArgs(
+            id="workspaceId",
+        ),
+        output=azure_native.machinelearning.ServiceInputOutputSpecificationArgs(
+            description="",
+            properties={
+                "output1": azure_native.machinelearning.TableSpecificationArgs(
+                    description="",
+                    properties={
+                        "age": azure_native.machinelearning.ColumnSpecificationArgs(
+                            format="Int32",
+                            type="Integer",
+                            x_ms_isnullable=True,
+                        ),
+                        "workclass": azure_native.machinelearning.ColumnSpecificationArgs(
+                            type="String",
+                            x_ms_isnullable=False,
+                        ),
+                    },
+                    title="",
+                    type="object",
+                ),
+            },
+            title="",
+            type="object",
+        ),
+        package=azure_native.machinelearning.GraphPackageArgs(
+            edges=[
+                azure_native.machinelearning.GraphEdgeArgs(
+                    source_node_id="node2",
+                    source_port_id="Results dataset",
+                    target_node_id="node1",
+                    target_port_id="Dataset2",
+                ),
+                azure_native.machinelearning.GraphEdgeArgs(
+                    source_node_id="node3",
+                    target_node_id="node1",
+                    target_port_id="Dataset1",
+                ),
+                azure_native.machinelearning.GraphEdgeArgs(
+                    source_node_id="node1",
+                    source_port_id="Result Dataset",
+                    target_node_id="node4",
+                ),
+            ],
+            graph_parameters={},
+            nodes={
+                "node1": azure_native.machinelearning.GraphNodeArgs(
+                    asset_id="asset1",
+                    parameters={
+                        "R Script": azure_native.machinelearning.WebServiceParameterArgs(
+                            certificate_thumbprint="",
+                            value="The R Script",
+                        ),
+                        "R Version": azure_native.machinelearning.WebServiceParameterArgs(
+                            certificate_thumbprint="",
+                            value="CRAN R 3.1.0",
+                        ),
+                    },
+                ),
+                "node2": azure_native.machinelearning.GraphNodeArgs(
+                    asset_id="asset2",
+                    parameters={
+                        "Account Key": azure_native.machinelearning.WebServiceParameterArgs(
+                            certificate_thumbprint="TheThumbprint",
+                            value="Encrypted Key",
+                        ),
+                        "Account Name": azure_native.machinelearning.WebServiceParameterArgs(
+                            certificate_thumbprint="",
+                            value="accountName",
+                        ),
+                        "Please Specify Authentication Type": azure_native.machinelearning.WebServiceParameterArgs(
+                            certificate_thumbprint="",
+                            value="Account",
+                        ),
+                        "Please Specify Data Source": azure_native.machinelearning.WebServiceParameterArgs(
+                            certificate_thumbprint="",
+                            value="AzureBlobStorage",
+                        ),
+                    },
+                ),
+                "node3": azure_native.machinelearning.GraphNodeArgs(
+                    input_id="input1",
+                ),
+                "node4": azure_native.machinelearning.GraphNodeArgs(
+                    output_id="output1",
+                ),
+            },
+        ),
+        package_type="Graph",
+        parameters={},
+        payloads_in_blob_storage=False,
+        read_only=False,
+        realtime_configuration=azure_native.machinelearning.RealtimeConfigurationArgs(
+            max_concurrent_calls=4,
+        ),
+        storage_account=azure_native.machinelearning.StorageAccountArgs(
+            key="Storage_Key",
+            name="Storage_Name",
+        ),
+        title="Web Service Title",
+    ),
+    resource_group_name="OneResourceGroupName",
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    },
+    web_service_name="TargetWebServiceName")

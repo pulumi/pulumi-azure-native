@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_machine = azure_native.devtestlab.VirtualMachine("virtualMachine",
+    allow_claim=True,
+    disallow_public_ip_address=True,
+    gallery_image_reference=azure_native.devtestlab.GalleryImageReferenceArgs(
+        offer="UbuntuServer",
+        os_type="Linux",
+        publisher="Canonical",
+        sku="16.04-LTS",
+        version="Latest",
+    ),
+    lab_name="{labName}",
+    lab_subnet_name="{virtualNetworkName}Subnet",
+    lab_virtual_network_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
+    location="{location}",
+    name="{vmName}",
+    password="{userPassword}",
+    resource_group_name="resourceGroupName",
+    size="Standard_A2_v2",
+    storage_type="Standard",
+    tags={
+        "tagName1": "tagValue1",
+    },
+    user_name="{userName}")

@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+experiment = azure_native.network.Experiment("experiment",
+    description="this is my first experiment!",
+    enabled_state="Enabled",
+    endpoint_a=azure_native.network.ExperimentEndpointArgs(
+        endpoint="endpointA.net",
+        name="endpoint A",
+    ),
+    endpoint_b=azure_native.network.ExperimentEndpointArgs(
+        endpoint="endpointB.net",
+        name="endpoint B",
+    ),
+    experiment_name="MyExperiment",
+    profile_name="MyProfile",
+    resource_group_name="MyResourceGroup")

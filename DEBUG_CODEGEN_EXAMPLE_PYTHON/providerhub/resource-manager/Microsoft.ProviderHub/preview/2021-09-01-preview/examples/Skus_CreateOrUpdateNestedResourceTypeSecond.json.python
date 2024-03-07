@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+skus_nested_resource_type_second = azure_native.providerhub.SkusNestedResourceTypeSecond("skusNestedResourceTypeSecond",
+    nested_resource_type_first="nestedResourceTypeFirst",
+    nested_resource_type_second="nestedResourceTypeSecond",
+    properties=azure_native.providerhub.SkuResourcePropertiesArgs(
+        sku_settings=[
+            azure_native.providerhub.SkuSettingArgs(
+                kind="Standard",
+                name="freeSku",
+                tier="Tier1",
+            ),
+            azure_native.providerhub.SkuSettingArgs(
+                costs=[azure_native.providerhub.SkuCostArgs(
+                    meter_id="xxx",
+                )],
+                kind="Premium",
+                name="premiumSku",
+                tier="Tier2",
+            ),
+        ],
+    ),
+    provider_namespace="Microsoft.Contoso",
+    resource_type="testResourceType",
+    sku="testSku")

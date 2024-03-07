@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+reference_data_set = azure_native.timeseriesinsights.ReferenceDataSet("referenceDataSet",
+    environment_name="env1",
+    key_properties=[
+        azure_native.timeseriesinsights.ReferenceDataSetKeyPropertyArgs(
+            name="DeviceId1",
+            type="String",
+        ),
+        azure_native.timeseriesinsights.ReferenceDataSetKeyPropertyArgs(
+            name="DeviceFloor",
+            type="Double",
+        ),
+    ],
+    location="West US",
+    reference_data_set_name="rds1",
+    resource_group_name="rg1")

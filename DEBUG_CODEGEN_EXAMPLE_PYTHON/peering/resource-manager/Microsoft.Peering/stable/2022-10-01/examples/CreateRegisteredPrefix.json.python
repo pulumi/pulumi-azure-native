@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+registered_prefix = azure_native.peering.RegisteredPrefix("registeredPrefix",
+    peering_name="peeringName",
+    prefix="10.22.20.0/24",
+    registered_prefix_name="registeredPrefixName",
+    resource_group_name="rgName")

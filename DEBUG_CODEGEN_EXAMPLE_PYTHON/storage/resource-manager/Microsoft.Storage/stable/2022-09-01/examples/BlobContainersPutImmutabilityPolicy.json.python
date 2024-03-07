@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+blob_container_immutability_policy = azure_native.storage.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy",
+    account_name="sto7069",
+    allow_protected_append_writes=True,
+    container_name="container6397",
+    immutability_period_since_creation_in_days=3,
+    immutability_policy_name="default",
+    resource_group_name="res1782")

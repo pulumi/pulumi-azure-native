@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+disk = azure_native.compute.Disk("disk",
+    creation_data=azure_native.compute.CreationDataArgs(
+        create_option="Empty",
+    ),
+    disk_name="myDisk",
+    disk_size_gb=200,
+    encryption=azure_native.compute.EncryptionArgs(
+        disk_encryption_set_id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ),
+    location="West US",
+    resource_group_name="myResourceGroup")

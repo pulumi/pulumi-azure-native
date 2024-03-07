@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+table = azure_native.operationalinsights.Table("table",
+    resource_group_name="oiautorest6685",
+    retention_in_days=45,
+    schema=azure_native.operationalinsights.SchemaArgs(
+        columns=[azure_native.operationalinsights.ColumnArgs(
+            name="MyNewColumn",
+            type="guid",
+        )],
+        name="AzureNetworkFlow",
+    ),
+    table_name="AzureNetworkFlow",
+    total_retention_in_days=70,
+    workspace_name="oiautorest6685")

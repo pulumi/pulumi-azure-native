@@ -1,0 +1,32 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+assignment = azure_native.blueprint.Assignment("assignment",
+    assignment_name="assignSimpleBlueprint",
+    blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    identity=azure_native.blueprint.ManagedServiceIdentityArgs(
+        type="SystemAssigned",
+    ),
+    location="eastus",
+    parameters={
+        "costCenter": azure_native.blueprint.ParameterValueArgs(
+            value="Contoso/Online/Shopping/Production",
+        ),
+        "owners": azure_native.blueprint.ParameterValueArgs(
+            value=[
+                "johnDoe@contoso.com",
+                "johnsteam@contoso.com",
+            ],
+        ),
+        "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+            value="Standard_LRS",
+        ),
+    },
+    resource_groups={
+        "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+            location="eastus",
+            name="defaultRG",
+        ),
+    },
+    resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")

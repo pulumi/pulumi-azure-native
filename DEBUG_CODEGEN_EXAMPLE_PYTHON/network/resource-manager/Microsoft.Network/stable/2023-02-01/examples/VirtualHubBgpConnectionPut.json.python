@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_hub_bgp_connection = azure_native.network.VirtualHubBgpConnection("virtualHubBgpConnection",
+    connection_name="conn1",
+    hub_virtual_network_connection=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubVirtualNetworkConnections/hubVnetConn1",
+    ),
+    peer_asn=20000,
+    peer_ip="192.168.1.5",
+    resource_group_name="rg1",
+    virtual_hub_name="hub1")

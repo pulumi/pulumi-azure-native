@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.machinelearningexperimentation.Account("account",
+    account_name="accountcrud5678",
+    key_vault_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.KeyVault/vaults/testkv",
+    location="East US",
+    resource_group_name="accountcrud-1234",
+    storage_account=azure_native.machinelearningexperimentation.StorageAccountPropertiesArgs(
+        access_key="key",
+        storage_account_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+    ),
+    tags={
+        "tagKey1": "TagValue1",
+    },
+    vso_account_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/microsoft.visualstudio/account/vsotest")

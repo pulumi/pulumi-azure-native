@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+security_connector = azure_native.security.SecurityConnector("securityConnector",
+    environment_data=azure_native.security.AwsEnvironmentDataArgs(
+        environment_type="AwsAccount",
+    ),
+    environment_name="AWS",
+    hierarchy_identifier="exampleHierarchyId",
+    location="Central US",
+    offerings=[azure_native.security.CspmMonitorAwsOfferingArgs(
+        native_cloud_connection=azure_native.security.CspmMonitorAwsOfferingNativeCloudConnectionArgs(
+            cloud_role_arn="arn:aws:iam::00000000:role/ASCMonitor",
+        ),
+        offering_type="CspmMonitorAws",
+    )],
+    resource_group_name="exampleResourceGroup",
+    security_connector_name="exampleSecurityConnectorName",
+    tags={})

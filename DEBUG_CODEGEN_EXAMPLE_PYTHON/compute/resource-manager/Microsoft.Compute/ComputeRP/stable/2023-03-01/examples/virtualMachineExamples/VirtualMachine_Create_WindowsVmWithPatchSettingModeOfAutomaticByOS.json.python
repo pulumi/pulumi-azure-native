@@ -1,0 +1,44 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
+    hardware_profile=azure_native.compute.HardwareProfileArgs(
+        vm_size="Standard_D1_v2",
+    ),
+    location="westus",
+    network_profile=azure_native.compute.NetworkProfileArgs(
+        network_interfaces=[azure_native.compute.NetworkInterfaceReferenceArgs(
+            id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/nsgExistingNic",
+            primary=True,
+        )],
+    ),
+    os_profile=azure_native.compute.OSProfileArgs(
+        admin_password="{your-password}",
+        admin_username="{your-username}",
+        computer_name="myVM",
+        windows_configuration=azure_native.compute.WindowsConfigurationArgs(
+            enable_automatic_updates=True,
+            patch_settings=azure_native.compute.PatchSettingsArgs(
+                patch_mode="AutomaticByOS",
+            ),
+            provision_vm_agent=True,
+        ),
+    ),
+    resource_group_name="myResourceGroup",
+    storage_profile=azure_native.compute.StorageProfileArgs(
+        image_reference=azure_native.compute.ImageReferenceArgs(
+            offer="WindowsServer",
+            publisher="MicrosoftWindowsServer",
+            sku="2016-Datacenter",
+            version="latest",
+        ),
+        os_disk=azure_native.compute.OSDiskArgs(
+            caching=azure_native.compute.CachingTypes.READ_WRITE,
+            create_option="FromImage",
+            managed_disk=azure_native.compute.ManagedDiskParametersArgs(
+                storage_account_type="Premium_LRS",
+            ),
+            name="myVMosdisk",
+        ),
+    ),
+    vm_name="myVM")

@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+policy_assignment = azure_native.authorization.PolicyAssignment("policyAssignment",
+    display_name="Enforce security policies",
+    non_compliance_messages=[
+        azure_native.authorization.NonComplianceMessageArgs(
+            message="Resources must comply with all internal security policies. See <internal site URL> for more info.",
+        ),
+        azure_native.authorization.NonComplianceMessageArgs(
+            message="Resource names must start with 'DeptA' and end with '-LC'.",
+            policy_definition_reference_id="10420126870854049575",
+        ),
+        azure_native.authorization.NonComplianceMessageArgs(
+            message="Storage accounts must have firewall rules configured.",
+            policy_definition_reference_id="8572513655450389710",
+        ),
+    ],
+    policy_assignment_name="securityInitAssignment",
+    policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/securityInitiative",
+    scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")

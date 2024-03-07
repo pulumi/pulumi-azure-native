@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+springbootsite = azure_native.offazurespringboot.Springbootsite("springbootsite",
+    extended_location=azure_native.offazurespringboot.SpringbootsitesModelExtendedLocationArgs(
+        name="rywvpbfsqovhlfirtwisugsdsfsgf",
+        type="lvsb",
+    ),
+    location="tgobtvxktootwhhvjtsmpddvlqlrq",
+    properties=azure_native.offazurespringboot.SpringbootsitesPropertiesArgs(
+        master_site_id="xsoimrgshsactearljwuljmi",
+        migrate_project_id="wwuattybgco",
+    ),
+    resource_group_name="rgspringbootsites",
+    springbootsites_name="xrmzlavpewxtfeitghdrj",
+    tags={
+        "key3558": "xeuhtglamqzj",
+    })

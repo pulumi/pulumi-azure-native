@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_network = azure_native.azurestackhci.VirtualNetwork("virtualNetwork",
+    extended_location=azure_native.azurestackhci.ExtendedLocationArgs(
+        name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+        type="CustomLocation",
+    ),
+    location="West US2",
+    network_type="Transparent",
+    resource_group_name="test-rg",
+    virtual_network_name="test-vnet")

@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+query_pack = azure_native.operationalinsights.QueryPack("queryPack",
+    location="South Central US",
+    query_pack_name="my-querypack",
+    resource_group_name="my-resource-group")

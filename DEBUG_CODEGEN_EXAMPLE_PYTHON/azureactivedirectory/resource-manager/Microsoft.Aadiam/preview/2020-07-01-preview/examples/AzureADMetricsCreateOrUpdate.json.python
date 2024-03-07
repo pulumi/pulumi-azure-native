@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+azure_ad_metric = azure_native.aadiam.AzureADMetric("azureADMetric",
+    azure_ad_metrics_name="ddb1",
+    location="West US",
+    resource_group_name="rg1",
+    tags={})

@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+authorization_provider = azure_native.apimanagement.AuthorizationProvider("authorizationProvider",
+    authorization_provider_id="google",
+    display_name="google",
+    identity_provider="google",
+    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsArgs(
+        grant_types=azure_native.apimanagement.AuthorizationProviderOAuth2GrantTypesArgs(
+            authorization_code={
+                "clientId": "508791967882-5qv6o2i99a75un7329vlegtk78kr766h.apps.googleusercontent.com",
+                "clientSecret": "qDN0VyVFjU1OsOyT5Kz8ce",
+                "scopes": "openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+            },
+        ),
+        redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+    ),
+    resource_group_name="rg1",
+    service_name="apimService1")

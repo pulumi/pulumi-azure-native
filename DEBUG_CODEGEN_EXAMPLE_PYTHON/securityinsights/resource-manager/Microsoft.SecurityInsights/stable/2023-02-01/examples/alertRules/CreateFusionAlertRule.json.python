@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+scheduled_alert_rule = azure_native.securityinsights.ScheduledAlertRule("scheduledAlertRule",
+    resource_group_name="myRg",
+    rule_id="myFirstFusionRule",
+    workspace_name="myWorkspace")

@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+static_site_linked_backend = azure_native.web.StaticSiteLinkedBackend("staticSiteLinkedBackend",
+    backend_resource_id="/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/backendRg/providers/Microsoft.Web/sites/testBackend",
+    linked_backend_name="testBackend",
+    name="testStaticSite0",
+    region="West US 2",
+    resource_group_name="rg")

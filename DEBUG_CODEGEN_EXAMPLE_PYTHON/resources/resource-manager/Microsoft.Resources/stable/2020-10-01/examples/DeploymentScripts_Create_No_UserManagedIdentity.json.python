@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+azure_power_shell_script = azure_native.resources.AzurePowerShellScript("azurePowerShellScript",
+    arguments="-Location 'westus' -Name \"*rg2\"",
+    az_power_shell_version="1.7.0",
+    cleanup_preference="Always",
+    kind="AzurePowerShell",
+    location="westus",
+    resource_group_name="script-rg",
+    retention_interval="PT7D",
+    script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+    script_name="MyDeploymentScript",
+    supporting_script_uris=[
+        "https://uri1.to.supporting.script",
+        "https://uri2.to.supporting.script",
+    ],
+    timeout="PT1H")

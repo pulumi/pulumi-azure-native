@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+modeling = azure_native.recommendationsservice.Modeling("modeling",
+    account_name="sampleAccount",
+    location="West US",
+    modeling_name="c1",
+    properties=azure_native.recommendationsservice.ModelingResourcePropertiesArgs(
+        features="Standard",
+        frequency="High",
+        input_data=azure_native.recommendationsservice.ModelingInputDataArgs(
+            connection_string="https://storageAccount.blob.core.windows.net/container/root",
+        ),
+        size="Medium",
+    ),
+    resource_group_name="rg",
+    tags={
+        "Environment": "Prod",
+    })

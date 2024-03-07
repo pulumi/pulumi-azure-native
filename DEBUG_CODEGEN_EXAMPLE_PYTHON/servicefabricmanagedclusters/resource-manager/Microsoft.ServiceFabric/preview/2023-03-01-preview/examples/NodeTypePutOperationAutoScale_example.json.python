@@ -1,0 +1,49 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+node_type = azure_native.servicefabric.NodeType("nodeType",
+    capacities={
+        "ClientConnections": "65536",
+    },
+    cluster_name="myCluster",
+    data_disk_size_gb=200,
+    data_disk_type="Premium_LRS",
+    is_primary=False,
+    is_stateless=True,
+    multiple_placement_groups=True,
+    node_type_name="BE",
+    placement_properties={
+        "HasSSD": "true",
+        "NodeColor": "green",
+        "SomeProperty": "5",
+    },
+    resource_group_name="resRg",
+    vm_extensions=[azure_native.servicefabric.VMSSExtensionArgs(
+        auto_upgrade_minor_version=True,
+        name="Microsoft.Azure.Geneva.GenevaMonitoring",
+        publisher="Microsoft.Azure.Geneva",
+        settings={},
+        type="GenevaMonitoring",
+        type_handler_version="2.0",
+    )],
+    vm_image_offer="WindowsServer",
+    vm_image_publisher="MicrosoftWindowsServer",
+    vm_image_sku="2016-Datacenter-Server-Core",
+    vm_image_version="latest",
+    vm_instance_count=-1,
+    vm_managed_identity=azure_native.servicefabric.VmManagedIdentityArgs(
+        user_assigned_identities=[
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+        ],
+    ),
+    vm_secrets=[azure_native.servicefabric.VaultSecretGroupArgs(
+        source_vault=azure_native.servicefabric.SubResourceArgs(
+            id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+        ),
+        vault_certificates=[azure_native.servicefabric.VaultCertificateArgs(
+            certificate_store="My",
+            certificate_url="https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+        )],
+    )],
+    vm_size="Standard_DS3")

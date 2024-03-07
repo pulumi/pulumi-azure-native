@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+share_subscription = azure_native.datashare.ShareSubscription("shareSubscription",
+    account_name="Account1",
+    expiration_date="2020-08-26T22:33:24.5785265Z",
+    invitation_id="12345678-1234-1234-12345678abd",
+    resource_group_name="SampleResourceGroup",
+    share_subscription_name="ShareSubscription1",
+    source_share_location="eastus2")

@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job_step = azure_native.sql.JobStep("jobStep",
+    action=azure_native.sql.JobStepActionArgs(
+        value="select 1",
+    ),
+    credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
+    job_agent_name="agent1",
+    job_name="job1",
+    resource_group_name="group1",
+    server_name="server1",
+    step_name="step1",
+    target_group="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup0")

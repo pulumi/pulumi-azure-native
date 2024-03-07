@@ -1,0 +1,47 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_environment = azure_native.app.ManagedEnvironment("managedEnvironment",
+    app_logs_configuration=azure_native.app.AppLogsConfigurationArgs(
+        log_analytics_configuration=azure_native.app.LogAnalyticsConfigurationArgs(
+            customer_id="string",
+            shared_key="string",
+        ),
+    ),
+    custom_domain_configuration=azure_native.app.CustomDomainConfigurationArgs(
+        certificate_password="private key password",
+        certificate_value="Y2VydA==",
+        dns_suffix="www.my-name.com",
+    ),
+    dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+    environment_name="testcontainerenv",
+    kind="serverless",
+    location="East US",
+    resource_group_name="examplerg",
+    sku=azure_native.app.EnvironmentSkuPropertiesArgs(
+        name="Premium",
+    ),
+    vnet_configuration=azure_native.app.VnetConfigurationArgs(
+        outbound_settings=azure_native.app.ManagedEnvironmentOutboundSettingsArgs(
+            out_bound_type="UserDefinedRouting",
+            virtual_network_appliance_ip="192.168.1.20",
+        ),
+    ),
+    workload_profiles=[
+        azure_native.app.WorkloadProfileArgs(
+            maximum_count=12,
+            minimum_count=3,
+            workload_profile_type="GeneralPurpose",
+        ),
+        azure_native.app.WorkloadProfileArgs(
+            maximum_count=6,
+            minimum_count=3,
+            workload_profile_type="MemoryOptimized",
+        ),
+        azure_native.app.WorkloadProfileArgs(
+            maximum_count=6,
+            minimum_count=3,
+            workload_profile_type="ComputeOptimized",
+        ),
+    ],
+    zone_redundant=True)

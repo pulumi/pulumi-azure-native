@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+site = azure_native.offazure.Site("site",
+    location="eastus",
+    properties=azure_native.offazure.SitePropertiesArgs(
+        service_principal_identity_details=azure_native.offazure.SiteSpnPropertiesArgs(
+            aad_authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+            application_id="e9f013df-2a2a-4871-b766-e79867f30348",
+            audience="https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
+            object_id="2cd492bc-7ef3-4ee0-b301-59a88108b47b",
+            tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+        ),
+    ),
+    resource_group_name="pajindTest",
+    site_name="appliance1e39site")

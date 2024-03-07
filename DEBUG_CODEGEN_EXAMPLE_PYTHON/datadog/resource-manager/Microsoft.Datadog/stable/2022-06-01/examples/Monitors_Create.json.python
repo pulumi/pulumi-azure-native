@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+monitor = azure_native.datadog.Monitor("monitor",
+    location="West US",
+    monitor_name="myMonitor",
+    properties=azure_native.datadog.MonitorPropertiesArgs(
+        datadog_organization_properties=azure_native.datadog.DatadogOrganizationPropertiesArgs(
+            enterprise_app_id="00000000-0000-0000-0000-000000000000",
+            id="myOrg123",
+            linking_auth_code="someAuthCode",
+            linking_client_id="00000000-0000-0000-0000-000000000000",
+            name="myOrg",
+        ),
+        monitoring_status="Enabled",
+        user_info=azure_native.datadog.UserInfoArgs(
+            email_address="alice@microsoft.com",
+            name="Alice",
+            phone_number="123-456-7890",
+        ),
+    ),
+    resource_group_name="myResourceGroup",
+    sku=azure_native.datadog.ResourceSkuArgs(
+        name="free_Monthly",
+    ),
+    tags={
+        "Environment": "Dev",
+    })

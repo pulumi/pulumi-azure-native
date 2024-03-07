@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+pipeline_job = azure_native.videoanalyzer.PipelineJob("pipelineJob",
+    account_name="testaccount2",
+    description="Pipeline Job 1 Dsecription",
+    parameters=[
+        azure_native.videoanalyzer.ParameterDefinitionArgs(
+            name="timesequences",
+            value="[[\"2020-10-05T03:30:00Z\", \"2020-10-05T04:30:00Z\"]]",
+        ),
+        azure_native.videoanalyzer.ParameterDefinitionArgs(
+            name="videoSourceName",
+            value="camera001",
+        ),
+    ],
+    pipeline_job_name="pipelineJob1",
+    resource_group_name="testrg",
+    topology_name="pipelinetopology1")

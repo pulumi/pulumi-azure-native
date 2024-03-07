@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.cache.PrivateEndpointConnection("privateEndpointConnection",
+    cache_name="cachetest01",
+    private_endpoint_connection_name="pectest01",
+    private_link_service_connection_state=azure_native.cache.PrivateLinkServiceConnectionStateArgs(
+        description="Auto-Approved",
+        status="Approved",
+    ),
+    resource_group_name="rgtest01")

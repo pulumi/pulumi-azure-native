@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+device_group = azure_native.azuresphere.DeviceGroup("deviceGroup",
+    catalog_name="MyCatalog1",
+    description="Description for MyDeviceGroup1",
+    device_group_name="MyDeviceGroup1",
+    os_feed_type="Retail",
+    product_name="MyProduct1",
+    resource_group_name="MyResourceGroup1",
+    update_policy="UpdateAll")

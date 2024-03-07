@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cloud_connection = azure_native.hybridcloud.CloudConnection("cloudConnection",
+    cloud_connection_name="cloudconnection1",
+    cloud_connector=azure_native.hybridcloud.ResourceReferenceArgs(
+        id="/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.HybridCloud/cloudConnectors/123456789012",
+    ),
+    location="West US",
+    remote_resource_id="arn:aws:ec2:us-east-1:123456789012:VPNGateway/vgw-043da592550819c8a",
+    resource_group_name="demo-rg",
+    shared_key="password123",
+    virtual_hub=azure_native.hybridcloud.ResourceReferenceArgs(
+        id="/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.Network/VirtualHubs/testHub",
+    ))

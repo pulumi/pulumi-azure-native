@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+alerts_suppression_rule = azure_native.security.AlertsSuppressionRule("alertsSuppressionRule",
+    alert_type="IpAnomaly",
+    alerts_suppression_rule_name="dismissIpAnomalyAlerts",
+    comment="Test VM",
+    expiration_date_utc="2019-12-01T19:50:47.083633Z",
+    reason="FalsePositive",
+    state="Enabled",
+    suppression_alerts_scope=azure_native.security.SuppressionAlertsScopeArgs(
+        all_of=[
+            azure_native.security.ScopeElementArgs(
+                field="entities.ip.address",
+            ),
+            azure_native.security.ScopeElementArgs(
+                field="entities.process.commandline",
+            ),
+        ],
+    ))

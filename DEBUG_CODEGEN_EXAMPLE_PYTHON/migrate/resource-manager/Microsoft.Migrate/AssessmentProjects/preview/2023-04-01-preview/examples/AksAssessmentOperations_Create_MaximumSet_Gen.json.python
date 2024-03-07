@@ -1,0 +1,29 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+aks_assessment_operation = azure_native.migrate.AksAssessmentOperation("aksAssessmentOperation",
+    assessment_name="testaksassessment",
+    project_name="testproject",
+    resource_group_name="rgaksswagger",
+    scope=azure_native.migrate.AssessmentScopeParametersArgs(
+        server_group_id="/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp",
+    ),
+    settings=azure_native.migrate.AKSAssessmentSettingsArgs(
+        azure_location="Unknown",
+        category="All",
+        consolidation="Full",
+        currency="Unknown",
+        discount_percentage=15,
+        environment_type="Unknown",
+        licensing_program="Default",
+        performance_data=azure_native.migrate.PerfDataSettingsArgs(
+            percentile="Percentile50",
+            perf_data_end_time="2023-11-07T06:51:24.320Z",
+            perf_data_start_time="2023-11-07T06:51:24.320Z",
+            time_range="Day",
+        ),
+        pricing_tier="Standard",
+        savings_options="None",
+        scaling_factor=3,
+        sizing_criteria="PerformanceBased",
+    ))

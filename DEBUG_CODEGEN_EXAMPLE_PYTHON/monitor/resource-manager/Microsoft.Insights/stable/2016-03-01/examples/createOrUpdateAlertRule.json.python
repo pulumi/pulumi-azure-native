@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+alert_rule = azure_native.insights.AlertRule("alertRule",
+    actions=[],
+    condition=azure_native.insights.ThresholdRuleConditionArgs(
+        data_source=azure_native.insights.RuleMetricDataSourceArgs(
+            metric_name="Requests",
+            odata_type="Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            resource_uri="/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
+        ),
+        odata_type="Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+        operator=azure_native.insights.ConditionOperator.GREATER_THAN,
+        threshold=3,
+        time_aggregation=azure_native.insights.TimeAggregationOperator.TOTAL,
+        window_size="PT5M",
+    ),
+    description="Pura Vida",
+    is_enabled=True,
+    location="West US",
+    name="chiricutin",
+    resource_group_name="Rac46PostSwapRG",
+    rule_name="chiricutin",
+    tags={})

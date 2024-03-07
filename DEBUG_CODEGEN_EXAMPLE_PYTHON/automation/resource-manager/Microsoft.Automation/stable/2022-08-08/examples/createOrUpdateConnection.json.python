@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connection = azure_native.automation.Connection("connection",
+    automation_account_name="myAutomationAccount28",
+    connection_name="mysConnection",
+    connection_type=azure_native.automation.ConnectionTypeAssociationPropertyArgs(
+        name="Azure",
+    ),
+    description="my description goes here",
+    field_definition_values={
+        "AutomationCertificateName": "mysCertificateName",
+        "SubscriptionID": "subid",
+    },
+    name="mysConnection",
+    resource_group_name="rg")

@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_app_discovery_site_data_sources_controller = azure_native.offazure.WebAppDiscoverySiteDataSourcesController("webAppDiscoverySiteDataSourcesController",
+    discovery_site_data_source_name="Q-38555Y-2-8-6-bdZk2y",
+    resource_group_name="rgmigrate",
+    site_name="257-4BP-1j",
+    web_app_site_name="S--3265vli3j4X--Vy-J")

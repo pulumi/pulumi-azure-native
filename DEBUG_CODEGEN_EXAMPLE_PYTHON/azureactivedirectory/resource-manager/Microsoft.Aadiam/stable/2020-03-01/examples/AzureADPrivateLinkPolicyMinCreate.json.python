@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_link_for_azure_ad = azure_native.aadiam.PrivateLinkForAzureAd("privateLinkForAzureAd",
+    all_tenants=False,
+    name="myOrgPrivateLinkPolicy",
+    owner_tenant_id="950f8bca-bf4d-4a41-ad10-034e792a243d",
+    policy_name="ddb1",
+    resource_group="myOrgVnetRG",
+    resource_group_name="rg1",
+    resource_name_="myOrgVnetPrivateLink",
+    subscription_id="57849194-ea1f-470b-abda-d195b25634c1",
+    tenants=[
+        "3616657d-1c80-41ae-9d83-2a2776f2c9be",
+        "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
+    ])

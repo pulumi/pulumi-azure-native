@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sync_group = azure_native.storagesync.SyncGroup("syncGroup",
+    resource_group_name="SampleResourceGroup_1",
+    storage_sync_service_name="SampleStorageSyncService_1",
+    sync_group_name="SampleSyncGroup_1")

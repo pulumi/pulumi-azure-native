@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_app = azure_native.web.WebApp("webApp",
+    cloning_info=azure_native.web.CloningInfoArgs(
+        app_settings_overrides={
+            "Setting1": "NewValue1",
+            "Setting3": "NewValue5",
+        },
+        clone_custom_host_names=True,
+        clone_source_control=True,
+        configure_load_balancing=False,
+        hosting_environment="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
+        overwrite=False,
+        source_web_app_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478",
+        source_web_app_location="West Europe",
+    ),
+    kind="app",
+    location="East US",
+    name="sitef6141",
+    resource_group_name="testrg123")

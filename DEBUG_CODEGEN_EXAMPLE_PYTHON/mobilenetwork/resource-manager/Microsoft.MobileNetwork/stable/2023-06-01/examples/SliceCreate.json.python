@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+slice = azure_native.mobilenetwork.Slice("slice",
+    description="myFavouriteSlice",
+    location="eastus",
+    mobile_network_name="testMobileNetwork",
+    resource_group_name="rg1",
+    slice_name="testSlice",
+    snssai=azure_native.mobilenetwork.SnssaiArgs(
+        sd="1abcde",
+        sst=1,
+    ))

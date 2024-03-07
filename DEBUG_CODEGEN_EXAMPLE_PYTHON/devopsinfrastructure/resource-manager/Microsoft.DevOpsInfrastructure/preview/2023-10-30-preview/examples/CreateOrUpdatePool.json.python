@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+pool = azure_native.devopsinfrastructure.Pool("pool",
+    agent_profile=azure_native.devopsinfrastructure.StatelessAgentProfileArgs(
+        kind="Stateless",
+    ),
+    dev_center_project_resource_id="/subscriptions/222e81d0-cf38-4dab-baa5-289bf16baaa4/resourceGroups/rg-1es-devcenter/providers/Microsoft.DevCenter/projects/1ES",
+    fabric_profile=azure_native.devopsinfrastructure.VmssFabricProfileArgs(
+        images=[azure_native.devopsinfrastructure.PoolImageArgs(
+            resource_id="/MicrosoftWindowsServer/WindowsServer/2019-Datacenter/latest",
+        )],
+        kind="Vmss",
+        sku=azure_native.devopsinfrastructure.DevOpsAzureSkuArgs(
+            name="Standard_D4ads_v5",
+        ),
+    ),
+    location="eastus",
+    maximum_concurrency=10,
+    organization_profile=azure_native.devopsinfrastructure.AzureDevOpsOrganizationProfileArgs(
+        kind="AzureDevOps",
+        organizations=[azure_native.devopsinfrastructure.OrganizationArgs(
+            url="https://mseng.visualstudio.com",
+        )],
+    ),
+    pool_name="pool",
+    provisioning_state="Succeeded",
+    resource_group_name="rg")

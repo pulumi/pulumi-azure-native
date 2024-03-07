@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+profile = azure_native.network.Profile("profile",
+    dns_config=azure_native.network.DnsConfigArgs(
+        relative_name="azsmnet6386",
+        ttl=35,
+    ),
+    location="global",
+    max_return=2,
+    monitor_config=azure_native.network.MonitorConfigArgs(
+        path="/testpath.aspx",
+        port=80,
+        protocol="HTTP",
+    ),
+    profile_name="azsmnet6386",
+    profile_status="Enabled",
+    resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+    traffic_routing_method="MultiValue",
+    traffic_view_enrollment_status="Disabled")

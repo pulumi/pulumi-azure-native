@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+protection_intent = azure_native.recoveryservices.ProtectionIntent("protectionIntent",
+    fabric_name="Azure",
+    intent_object_name="vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+    properties=azure_native.recoveryservices.AzureResourceProtectionIntentArgs(
+        policy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupPolicies/myPolicy",
+        protection_intent_item_type="AzureResourceItem",
+        source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/chamsrgtest/providers/Microsoft.Compute/virtualMachines/chamscandel",
+    ),
+    resource_group_name="myRG",
+    vault_name="myVault")

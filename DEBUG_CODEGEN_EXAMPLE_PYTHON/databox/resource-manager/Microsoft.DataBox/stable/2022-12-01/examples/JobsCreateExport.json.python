@@ -1,0 +1,46 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job = azure_native.databox.Job("job",
+    details=azure_native.databox.DataBoxJobDetailsArgs(
+        contact_details=azure_native.databox.ContactDetailsArgs(
+            contact_name="XXXX XXXX",
+            email_list=["xxxx@xxxx.xxx"],
+            phone="0000000000",
+            phone_extension="",
+        ),
+        data_export_details=[azure_native.databox.DataExportDetailsArgs(
+            account_details=azure_native.databox.StorageAccountDetailsArgs(
+                data_account_type="StorageAccount",
+                storage_account_id="/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.Storage/storageAccounts/YourStorageAccountName",
+            ),
+            transfer_configuration=azure_native.databox.TransferConfigurationArgs(
+                transfer_all_details=azure_native.databox.TransferConfigurationTransferAllDetailsArgs(
+                    include=azure_native.databox.TransferAllDetailsArgs(
+                        data_account_type="StorageAccount",
+                        transfer_all_blobs=True,
+                        transfer_all_files=True,
+                    ),
+                ),
+                transfer_configuration_type="TransferAll",
+            ),
+        )],
+        job_details_type="DataBox",
+        shipping_address=azure_native.databox.ShippingAddressArgs(
+            address_type="Commercial",
+            city="XXXX XXXX",
+            company_name="XXXX XXXX",
+            country="XX",
+            postal_code="00000",
+            state_or_province="XX",
+            street_address1="XXXX XXXX",
+            street_address2="XXXX XXXX",
+        ),
+    ),
+    job_name="TestJobName1",
+    location="westus",
+    resource_group_name="YourResourceGroupName",
+    sku=azure_native.databox.SkuArgs(
+        name="DataBox",
+    ),
+    transfer_type="ExportFromAzure")

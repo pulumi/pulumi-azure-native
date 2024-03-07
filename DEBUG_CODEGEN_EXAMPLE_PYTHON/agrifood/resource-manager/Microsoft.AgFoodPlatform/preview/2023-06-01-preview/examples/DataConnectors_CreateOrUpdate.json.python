@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+data_connector = azure_native.agfoodplatform.DataConnector("dataConnector",
+    data_connector_name="WeatherIBM",
+    data_manager_for_agriculture_resource_name="examples-dataManagerForAgricultureResourceName",
+    properties=azure_native.agfoodplatform.DataConnectorPropertiesArgs(
+        credentials=azure_native.agfoodplatform.ApiKeyAuthCredentialsArgs(
+            api_key=azure_native.agfoodplatform.KeyVaultPropertiesArgs(
+                key_name="abcApiKey",
+                key_vault_uri="https://testKeyVault.vault.azure.net/",
+                key_version="239c0475c7d44f20b0fc27d3fe90a41d",
+            ),
+            kind="ApiKeyAuthCredentials",
+        ),
+    ),
+    resource_group_name="examples-rg")

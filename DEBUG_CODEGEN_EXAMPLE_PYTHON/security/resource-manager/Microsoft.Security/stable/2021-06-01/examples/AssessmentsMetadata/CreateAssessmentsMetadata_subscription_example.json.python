@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+assessment_metadata_in_subscription = azure_native.security.AssessmentMetadataInSubscription("assessmentMetadataInSubscription",
+    assessment_metadata_name="ca039e75-a276-4175-aebc-bcd41e4b14b7",
+    assessment_type="CustomerManaged",
+    categories=["Compute"],
+    description="Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
+    display_name="Install endpoint protection solution on virtual machine scale sets",
+    implementation_effort="Low",
+    remediation_description="To install an endpoint protection solution: 1.  <a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\">Follow the instructions in How do I turn on antimalware in my virtual machine scale set</a>",
+    severity="Medium",
+    threats=[
+        "dataExfiltration",
+        "dataSpillage",
+        "maliciousInsider",
+    ],
+    user_impact="Low")

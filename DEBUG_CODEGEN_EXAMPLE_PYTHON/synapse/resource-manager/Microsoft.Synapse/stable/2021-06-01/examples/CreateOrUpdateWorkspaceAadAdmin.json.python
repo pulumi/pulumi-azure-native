@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace_sql_aad_admin = azure_native.synapse.WorkspaceSqlAadAdmin("workspaceSqlAadAdmin",
+    administrator_type="ActiveDirectory",
+    login="bob@contoso.com",
+    resource_group_name="resourceGroup1",
+    sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    workspace_name="workspace1")

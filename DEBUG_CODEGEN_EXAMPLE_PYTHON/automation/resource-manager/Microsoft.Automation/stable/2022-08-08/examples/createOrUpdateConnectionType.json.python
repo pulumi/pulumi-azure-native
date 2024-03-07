@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connection_type = azure_native.automation.ConnectionType("connectionType",
+    automation_account_name="myAutomationAccount22",
+    connection_type_name="myCT",
+    field_definitions={
+        "myBoolField": azure_native.automation.FieldDefinitionArgs(
+            is_encrypted=False,
+            is_optional=False,
+            type="bool",
+        ),
+        "myStringField": azure_native.automation.FieldDefinitionArgs(
+            is_encrypted=False,
+            is_optional=False,
+            type="string",
+        ),
+        "myStringFieldEncrypted": azure_native.automation.FieldDefinitionArgs(
+            is_encrypted=True,
+            is_optional=False,
+            type="string",
+        ),
+    },
+    is_global=False,
+    name="myCT",
+    resource_group_name="rg")

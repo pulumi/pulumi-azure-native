@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+application_gateway_private_endpoint_connection = azure_native.network.ApplicationGatewayPrivateEndpointConnection("applicationGatewayPrivateEndpointConnection",
+    application_gateway_name="appgw",
+    connection_name="connection1",
+    name="connection1",
+    private_link_service_connection_state=azure_native.network.PrivateLinkServiceConnectionStateArgs(
+        description="approved it for some reason.",
+        status="Approved",
+    ),
+    resource_group_name="rg1")

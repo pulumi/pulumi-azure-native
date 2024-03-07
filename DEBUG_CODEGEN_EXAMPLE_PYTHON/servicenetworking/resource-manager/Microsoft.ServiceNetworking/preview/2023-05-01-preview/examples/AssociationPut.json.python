@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+associations_interface = azure_native.servicenetworking.AssociationsInterface("associationsInterface",
+    association_name="as1",
+    association_type="subnets",
+    location="NorthCentralUS",
+    resource_group_name="rg1",
+    subnet=azure_native.servicenetworking.AssociationSubnetArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet-tc/subnets/tc-subnet",
+    ),
+    traffic_controller_name="tc1")

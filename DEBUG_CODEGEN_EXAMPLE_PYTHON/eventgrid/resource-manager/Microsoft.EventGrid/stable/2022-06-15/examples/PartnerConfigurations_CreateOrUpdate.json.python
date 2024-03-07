@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+partner_configuration = azure_native.eventgrid.PartnerConfiguration("partnerConfiguration",
+    partner_authorization=azure_native.eventgrid.PartnerAuthorizationArgs(
+        authorized_partners_list=[
+            azure_native.eventgrid.PartnerArgs(
+                authorization_expiration_time_in_utc="2022-01-28T01:20:55.142Z",
+                partner_name="Contoso.Finance",
+                partner_registration_immutable_id="941892bc-f5d0-4d1c-8fb5-477570fc2b71",
+            ),
+            azure_native.eventgrid.PartnerArgs(
+                authorization_expiration_time_in_utc="2022-02-20T01:00:00.142Z",
+                partner_name="fabrikam.HR",
+                partner_registration_immutable_id="5362bdb6-ce3e-4d0d-9a5b-3eb92c8aab38",
+            ),
+        ],
+        default_maximum_expiration_time_in_days=10,
+    ),
+    resource_group_name="examplerg")

@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_link_services_for_scc_powershell = azure_native.m365securityandcompliance.PrivateLinkServicesForSCCPowershell("privateLinkServicesForSCCPowershell",
+    kind=azure_native.m365securityandcompliance.Kind.FHIR_R4,
+    location="westus2",
+    properties=azure_native.m365securityandcompliance.ServicesPropertiesArgs(
+        access_policies=[azure_native.m365securityandcompliance.ServiceAccessPolicyEntryArgs(
+            object_id="c487e7d1-3210-41a3-8ccc-e9372b78da47",
+        )],
+    ),
+    resource_group_name="rg1",
+    resource_name_="service2",
+    tags={})

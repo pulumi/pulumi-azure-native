@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+target = azure_native.chaos.Target("target",
+    parent_provider_namespace="Microsoft.Compute",
+    parent_resource_name="exampleVM",
+    parent_resource_type="virtualMachines",
+    properties={
+        "identities": [{
+            "subject": "CN=example.subject",
+            "type": "CertificateSubjectIssuer",
+        }],
+    },
+    resource_group_name="exampleRG",
+    target_name="Microsoft-Agent")

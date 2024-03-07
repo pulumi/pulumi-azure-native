@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_discovery_site_data_source_controller = azure_native.offazure.SqlDiscoverySiteDataSourceController("sqlDiscoverySiteDataSourceController",
+    discovery_site_data_source_name="Sw-cch",
+    resource_group_name="rgmigrate",
+    site_name="-2n-j-5O",
+    sql_site_name="32F0K64")

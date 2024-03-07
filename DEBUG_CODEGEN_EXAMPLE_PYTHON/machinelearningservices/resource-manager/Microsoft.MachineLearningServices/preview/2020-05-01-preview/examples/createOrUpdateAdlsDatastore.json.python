@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+machine_learning_datastore = azure_native.machinelearningservices.MachineLearningDatastore("machineLearningDatastore",
+    client_id="233d7008-b157-4354-88d1-ba191f06a900",
+    client_secret="vdvgdvdvdv",
+    data_store_type="adls",
+    datastore_name="adlsDatastore",
+    resource_group_name="acjain-mleastUS2",
+    store_name="stanley",
+    tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+    workspace_name="acjain-mleastUS2")

@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+tag = azure_native.apimanagement.Tag("tag",
+    display_name="tag1",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    tag_id="tagId1")

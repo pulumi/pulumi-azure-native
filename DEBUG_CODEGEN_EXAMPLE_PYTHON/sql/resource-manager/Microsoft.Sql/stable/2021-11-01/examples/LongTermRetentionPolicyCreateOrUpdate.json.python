@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+long_term_retention_policy = azure_native.sql.LongTermRetentionPolicy("longTermRetentionPolicy",
+    database_name="testDatabase",
+    monthly_retention="P1Y",
+    policy_name="default",
+    resource_group_name="resourceGroup",
+    server_name="testserver",
+    week_of_year=5,
+    weekly_retention="P1M",
+    yearly_retention="P5Y")

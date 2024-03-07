@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+output = azure_native.streamanalytics.Output("output",
+    datasource=azure_native.streamanalytics.EventHubOutputDataSourceArgs(
+        event_hub_name="sdkeventhub",
+        partition_key="partitionKey",
+        service_bus_namespace="sdktest",
+        shared_access_policy_key="sharedAccessPolicyKey=",
+        shared_access_policy_name="RootManageSharedAccessKey",
+        type="Microsoft.ServiceBus/EventHub",
+    ),
+    job_name="sj3310",
+    output_name="output5195",
+    resource_group_name="sjrg6912",
+    serialization=azure_native.streamanalytics.JsonSerializationArgs(
+        encoding="UTF8",
+        format="Array",
+        type="Json",
+    ))

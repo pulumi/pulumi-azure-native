@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+automation_account = azure_native.automation.AutomationAccount("automationAccount",
+    automation_account_name="myAutomationAccount9",
+    location="East US 2",
+    name="myAutomationAccount9",
+    resource_group_name="rg",
+    sku=azure_native.automation.SkuArgs(
+        name="Free",
+    ))

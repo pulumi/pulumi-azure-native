@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+task = azure_native.datamigration.Task("task",
+    group_name="DmsSdkRg",
+    project_name="DmsSdkProject",
+    properties=azure_native.datamigration.ConnectToTargetSqlDbTaskPropertiesArgs(
+        input=azure_native.datamigration.ConnectToTargetSqlDbTaskInputArgs(
+            target_connection_info=azure_native.datamigration.SqlConnectionInfoArgs(
+                authentication="SqlAuthentication",
+                data_source="ssma-test-server.database.windows.net",
+                encrypt_connection=True,
+                password="testpassword",
+                trust_server_certificate=True,
+                type="SqlConnectionInfo",
+                user_name="testuser",
+            ),
+        ),
+        task_type="ConnectToTarget.SqlDb",
+    ),
+    service_name="DmsSdkService",
+    task_name="DmsSdkTask")

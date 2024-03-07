@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+domain_ownership_identifier = azure_native.domainregistration.DomainOwnershipIdentifier("domainOwnershipIdentifier",
+    domain_name="example.com",
+    name="SampleOwnershipId",
+    ownership_id="SampleOwnershipId",
+    resource_group_name="testrg123")

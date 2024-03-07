@@ -1,0 +1,31 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+schedule = azure_native.machinelearningservices.Schedule("schedule",
+    name="string",
+    resource_group_name="test-rg",
+    schedule_properties=azure_native.machinelearningservices.ScheduleArgs(
+        action=azure_native.machinelearningservices.EndpointScheduleActionArgs(
+            action_type="InvokeBatchEndpoint",
+            endpoint_invocation_definition={
+                "9965593e-526f-4b89-bb36-761138cf2794": None,
+            },
+        ),
+        description="string",
+        display_name="string",
+        is_enabled=False,
+        properties={
+            "string": "string",
+        },
+        tags={
+            "string": "string",
+        },
+        trigger=azure_native.machinelearningservices.CronTriggerArgs(
+            end_time="string",
+            expression="string",
+            start_time="string",
+            time_zone="string",
+            trigger_type="Cron",
+        ),
+    ),
+    workspace_name="my-aml-workspace")

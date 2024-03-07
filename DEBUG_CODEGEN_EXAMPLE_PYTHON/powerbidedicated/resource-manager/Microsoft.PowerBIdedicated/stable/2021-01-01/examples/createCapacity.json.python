@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+capacity_details = azure_native.powerbidedicated.CapacityDetails("capacityDetails",
+    administration=azure_native.powerbidedicated.DedicatedCapacityAdministratorsArgs(
+        members=[
+            "azsdktest@microsoft.com",
+            "azsdktest2@microsoft.com",
+        ],
+    ),
+    dedicated_capacity_name="azsdktest",
+    location="West US",
+    resource_group_name="TestRG",
+    sku=azure_native.powerbidedicated.CapacitySkuArgs(
+        name="A1",
+        tier="PBIE_Azure",
+    ),
+    tags={
+        "testKey": "testValue",
+    })

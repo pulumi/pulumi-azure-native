@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.dashboard.PrivateEndpointConnection("privateEndpointConnection",
+    private_endpoint_connection_name="myConnection",
+    resource_group_name="myResourceGroup",
+    workspace_name="myWorkspace")

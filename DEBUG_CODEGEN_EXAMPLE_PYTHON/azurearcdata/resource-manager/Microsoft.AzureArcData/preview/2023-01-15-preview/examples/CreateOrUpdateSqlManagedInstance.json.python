@@ -1,0 +1,80 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_managed_instance = azure_native.azurearcdata.SqlManagedInstance("sqlManagedInstance",
+    extended_location=azure_native.azurearcdata.ExtendedLocationArgs(
+        name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+        type="CustomLocation",
+    ),
+    location="northeurope",
+    properties=azure_native.azurearcdata.SqlManagedInstancePropertiesArgs(
+        active_directory_information=azure_native.azurearcdata.ActiveDirectoryInformationArgs(
+            keytab_information=azure_native.azurearcdata.KeytabInformationArgs(
+                keytab="********",
+            ),
+        ),
+        admin="Admin user",
+        basic_login_information=azure_native.azurearcdata.BasicLoginInformationArgs(
+            password="********",
+            username="username",
+        ),
+        cluster_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s",
+        end_time="Instance end time",
+        extension_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s/providers/Microsoft.KubernetesConfiguration/extensions/extension",
+        k8s_raw=azure_native.azurearcdata.SqlManagedInstanceK8sRawArgs(
+            spec=azure_native.azurearcdata.SqlManagedInstanceK8sSpecArgs(
+                replicas=1,
+                scheduling=azure_native.azurearcdata.K8sSchedulingArgs(
+                    default=azure_native.azurearcdata.K8sSchedulingOptionsArgs(
+                        resources=azure_native.azurearcdata.K8sResourceRequirementsArgs(
+                            limits={
+                                "additionalProperty": "additionalValue",
+                                "cpu": "1",
+                                "memory": "8Gi",
+                            },
+                            requests={
+                                "additionalProperty": "additionalValue",
+                                "cpu": "1",
+                                "memory": "8Gi",
+                            },
+                        ),
+                    ),
+                ),
+                security=azure_native.azurearcdata.K8sSecurityArgs(
+                    active_directory=azure_native.azurearcdata.K8sActiveDirectoryArgs(
+                        account_name="Account name",
+                        connector=azure_native.azurearcdata.K8sActiveDirectoryConnectorArgs(
+                            name="Name of connector",
+                            namespace="Namespace of connector",
+                        ),
+                        encryption_types=["Encryption type item1, Encryption type item2,..."],
+                        keytab_secret="Key tab secret of account",
+                    ),
+                    admin_login_secret="test-sql-login-secret",
+                    service_certificate_secret="Service Certificate Secret",
+                    transparent_data_encryption=azure_native.azurearcdata.K8stransparentDataEncryptionArgs(
+                        mode="SystemManaged",
+                    ),
+                ),
+                settings=azure_native.azurearcdata.K8sSettingsArgs(
+                    network=azure_native.azurearcdata.K8sNetworkSettingsArgs(
+                        forceencryption=0,
+                        tlsciphers="ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384",
+                        tlsprotocols="1.2",
+                    ),
+                ),
+            ),
+        ),
+        license_type="LicenseIncluded",
+        start_time="Instance start time",
+    ),
+    resource_group_name="testrg",
+    sku=azure_native.azurearcdata.SqlManagedInstanceSkuArgs(
+        dev=True,
+        name=azure_native.azurearcdata.SqlManagedInstanceSkuName.V_CORE,
+        tier=azure_native.azurearcdata.SqlManagedInstanceSkuTier.GENERAL_PURPOSE,
+    ),
+    sql_managed_instance_name="testsqlManagedInstance",
+    tags={
+        "mytag": "myval",
+    })

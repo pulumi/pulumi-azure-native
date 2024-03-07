@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+professional_service_subscription_level = azure_native.professionalservice.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
+    location="global",
+    name="MyContosoPS",
+    properties=azure_native.professionalservice.ProfessionalServiceCreationPropertiesArgs(
+        offer_id="testprofservice",
+        publisher_id="microsoft-contoso",
+        quote_id="quoteabc",
+        sku_id="ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+    ),
+    resource_group_name="my-ps-rg",
+    resource_name_="MyContosoPS")

@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+function = azure_native.streamanalytics.Function("function",
+    function_name="function8197",
+    job_name="sj8653",
+    properties=azure_native.streamanalytics.ScalarFunctionPropertiesArgs(
+        binding=azure_native.streamanalytics.JavaScriptFunctionBindingArgs(
+            script="function (x, y) { return x + y; }",
+            type="Microsoft.StreamAnalytics/JavascriptUdf",
+        ),
+        inputs=[azure_native.streamanalytics.FunctionInputArgs(
+            data_type="Any",
+        )],
+        output=azure_native.streamanalytics.FunctionOutputArgs(
+            data_type="Any",
+        ),
+        type="Scalar",
+    ),
+    resource_group_name="sjrg1637")

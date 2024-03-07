@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+flow = azure_native.azuredatatransfer.Flow("flow",
+    connection_name="testConnection",
+    flow_name="testFlow",
+    location="East US",
+    properties=azure_native.azuredatatransfer.FlowPropertiesArgs(
+        connection=azure_native.azuredatatransfer.SelectedResourceArgs(
+            id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.AzureDataTransfer/connections/testConnection",
+        ),
+        flow_type="Blob",
+        storage_account_name="testsa",
+        storage_container_name="testcontainer",
+    ),
+    resource_group_name="testRG")

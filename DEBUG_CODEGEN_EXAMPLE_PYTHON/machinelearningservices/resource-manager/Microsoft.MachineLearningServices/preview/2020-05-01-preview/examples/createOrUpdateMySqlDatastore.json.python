@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+machine_learning_datastore = azure_native.machinelearningservices.MachineLearningDatastore("machineLearningDatastore",
+    data_store_type="mysqldb",
+    database_name="dataset",
+    datastore_name="mySqlDatastore",
+    password="<password>",
+    resource_group_name="acjain-mleastUS2",
+    server_name="dataset-mysql-srv",
+    user_id="demo_user@dataset-mysql-srv",
+    workspace_name="acjain-mleastUS2")

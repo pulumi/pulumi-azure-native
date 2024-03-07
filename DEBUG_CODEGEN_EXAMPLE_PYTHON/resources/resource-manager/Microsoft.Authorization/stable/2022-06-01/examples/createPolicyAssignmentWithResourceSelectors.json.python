@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+policy_assignment = azure_native.authorization.PolicyAssignment("policyAssignment",
+    description="Limit the resource location and resource SKU",
+    display_name="Limit the resource location and resource SKU",
+    metadata={
+        "assignedBy": "Special Someone",
+    },
+    policy_assignment_name="CostManagement",
+    policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+    resource_selectors=[azure_native.authorization.ResourceSelectorArgs(
+        name="SDPRegions",
+        selectors=[azure_native.authorization.SelectorArgs(
+            in_=[
+                "eastus2euap",
+                "centraluseuap",
+            ],
+            kind="resourceLocation",
+        )],
+    )],
+    scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")

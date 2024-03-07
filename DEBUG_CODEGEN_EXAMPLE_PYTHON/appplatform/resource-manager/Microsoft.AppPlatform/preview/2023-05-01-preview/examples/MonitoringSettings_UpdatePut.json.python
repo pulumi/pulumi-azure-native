@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+monitoring_setting = azure_native.appplatform.MonitoringSetting("monitoringSetting",
+    properties=azure_native.appplatform.MonitoringSettingPropertiesArgs(
+        app_insights_instrumentation_key="00000000-0000-0000-0000-000000000000",
+        app_insights_sampling_rate=10,
+        trace_enabled=True,
+    ),
+    resource_group_name="myResourceGroup",
+    service_name="myservice")

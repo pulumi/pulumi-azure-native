@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+content_package = azure_native.securityinsights.ContentPackage("contentPackage",
+    content_id="str.azure-sentinel-solution-str",
+    content_kind="Solution",
+    display_name="str",
+    package_id="str.azure-sentinel-solution-str",
+    resource_group_name="myRg",
+    version="2.0.0",
+    workspace_name="myWorkspace")

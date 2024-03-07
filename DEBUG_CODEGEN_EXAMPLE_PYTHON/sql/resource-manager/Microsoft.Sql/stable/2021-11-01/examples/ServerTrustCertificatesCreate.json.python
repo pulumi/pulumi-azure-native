@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server_trust_certificate = azure_native.sql.ServerTrustCertificate("serverTrustCertificate",
+    certificate_name="customerCertificateName",
+    managed_instance_name="testcl",
+    public_blob="308203AE30820296A0030201020210",
+    resource_group_name="testrg")

@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hierarchy_setting = azure_native.management.HierarchySetting("hierarchySetting",
+    default_management_group="/providers/Microsoft.Management/managementGroups/DefaultGroup",
+    group_id="root",
+    require_authorization_for_group_creation=True)

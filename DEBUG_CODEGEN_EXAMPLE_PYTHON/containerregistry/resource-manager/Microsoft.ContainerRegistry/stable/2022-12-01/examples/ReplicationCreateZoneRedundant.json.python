@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+replication = azure_native.containerregistry.Replication("replication",
+    location="eastus",
+    region_endpoint_enabled=True,
+    registry_name="myRegistry",
+    replication_name="myReplication",
+    resource_group_name="myResourceGroup",
+    tags={
+        "key": "value",
+    },
+    zone_redundancy="Enabled")

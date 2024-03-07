@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+application = azure_native.solutions.Application("application",
+    application_definition_id="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
+    application_name="myManagedApplication",
+    kind="ServiceCatalog",
+    managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+    resource_group_name="rg")

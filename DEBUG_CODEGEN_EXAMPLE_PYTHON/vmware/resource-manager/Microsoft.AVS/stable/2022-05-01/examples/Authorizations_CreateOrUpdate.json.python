@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+authorization = azure_native.avs.Authorization("authorization",
+    authorization_name="authorization1",
+    private_cloud_name="cloud1",
+    resource_group_name="group1")

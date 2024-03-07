@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint = azure_native.network.PrivateEndpoint("privateEndpoint",
+    application_security_groups=[azure_native.network.ApplicationSecurityGroupArgs(
+        id="/subscriptions/subId/resourceGroups/rg1/provders/Microsoft.Network/applicationSecurityGroup/asg1",
+    )],
+    location="eastus2euap",
+    private_endpoint_name="testPe",
+    private_link_service_connections=[azure_native.network.PrivateLinkServiceConnectionArgs(
+        group_ids=["groupIdFromResource"],
+        private_link_service_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+        request_message="Please approve my connection.",
+    )],
+    resource_group_name="rg1",
+    subnet=azure_native.network.SubnetArgs(
+        id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ))

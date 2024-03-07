@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_security_group = azure_native.network.NetworkSecurityGroup("networkSecurityGroup",
+    location="eastus",
+    network_security_group_name="testnsg",
+    resource_group_name="rg1",
+    security_rules=[azure_native.network.SecurityRuleArgs(
+        access="Allow",
+        destination_address_prefix="*",
+        destination_port_range="80",
+        direction="Inbound",
+        name="rule1",
+        priority=130,
+        protocol="*",
+        source_address_prefix="*",
+        source_port_range="*",
+    )])

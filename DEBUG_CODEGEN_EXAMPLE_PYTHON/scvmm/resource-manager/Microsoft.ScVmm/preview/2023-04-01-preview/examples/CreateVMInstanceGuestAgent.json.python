@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+vm_instance_guest_agent = azure_native.scvmm.VMInstanceGuestAgent("vmInstanceGuestAgent",
+    credentials=azure_native.scvmm.GuestCredentialArgs(
+        password="<password>",
+        username="tempuser",
+    ),
+    http_proxy_config=azure_native.scvmm.HttpProxyConfigurationArgs(
+        https_proxy="http://192.1.2.3:8080",
+    ),
+    provisioning_action="install",
+    resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM")

@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+watchlist = azure_native.securityinsights.Watchlist("watchlist",
+    description="Watchlist from CSV content",
+    display_name="High Value Assets Watchlist",
+    items_search_key="header1",
+    provider="Microsoft",
+    resource_group_name="myRg",
+    source="Local file",
+    watchlist_alias="highValueAsset",
+    workspace_name="myWorkspace")

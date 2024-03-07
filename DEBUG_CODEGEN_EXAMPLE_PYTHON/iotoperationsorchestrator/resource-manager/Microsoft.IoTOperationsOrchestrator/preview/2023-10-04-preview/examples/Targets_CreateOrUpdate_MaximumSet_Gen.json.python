@@ -1,0 +1,31 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+target = azure_native.iotoperationsorchestrator.Target("target",
+    components=[azure_native.iotoperationsorchestrator.ComponentPropertiesArgs(
+        dependencies=["x"],
+        name="yhnelpxsobdyurwvhkq",
+        properties={},
+        type="wiabwsfqhhxru",
+    )],
+    extended_location=azure_native.iotoperationsorchestrator.ExtendedLocationArgs(
+        name="bjjhfqsplgzdlbdlddleetyg",
+        type="sosibrbmmrfbbyp",
+    ),
+    location="pjjkifnrwvzcyohz",
+    name="7---s--1-hl-fl-3f0-wfy34e08-4",
+    reconciliation_policy=azure_native.iotoperationsorchestrator.ReconciliationPolicyArgs(
+        interval="wyrrzydmfgzymvzbppscxyfobku",
+        type="periodic",
+    ),
+    resource_group_name="rgopenapi",
+    scope="lm",
+    tags={},
+    topologies=[azure_native.iotoperationsorchestrator.TopologiesPropertiesArgs(
+        bindings=[azure_native.iotoperationsorchestrator.BindingPropertiesArgs(
+            config={},
+            provider="qpwesjlyyggcbehwigbobqum",
+            role="role",
+        )],
+    )],
+    version="prbigsnjltnzqliu")

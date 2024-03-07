@@ -1,0 +1,44 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+order_item_by_name = azure_native.edgeorder.OrderItemByName("orderItemByName",
+    address_details=azure_native.edgeorder.AddressDetailsArgs(
+        forward_address=azure_native.edgeorder.AddressPropertiesArgs(
+            contact_details=azure_native.edgeorder.ContactDetailsArgs(
+                contact_name="XXXX XXXX",
+                email_list=["xxxx@xxxx.xxx"],
+                phone="0000000000",
+                phone_extension="",
+            ),
+            shipping_address=azure_native.edgeorder.ShippingAddressArgs(
+                address_type="None",
+                city="San Francisco",
+                company_name="Microsoft",
+                country="US",
+                postal_code="94107",
+                state_or_province="CA",
+                street_address1="16 TOWNSEND ST",
+                street_address2="UNIT 1",
+            ),
+        ),
+    ),
+    location="eastus",
+    order_id="/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/locations/eastus/orders/TestOrderName2",
+    order_item_details=azure_native.edgeorder.OrderItemDetailsArgs(
+        order_item_type="Purchase",
+        preferences=azure_native.edgeorder.PreferencesArgs(
+            transport_preferences=azure_native.edgeorder.TransportPreferencesArgs(
+                preferred_shipment_type="MicrosoftManaged",
+            ),
+        ),
+        product_details=azure_native.edgeorder.ProductDetailsArgs(
+            hierarchy_information=azure_native.edgeorder.HierarchyInformationArgs(
+                configuration_name="edgep_base",
+                product_family_name="azurestackedge",
+                product_line_name="azurestackedge",
+                product_name="azurestackedgegpu",
+            ),
+        ),
+    ),
+    order_item_name="TestOrderItemName2",
+    resource_group_name="YourResourceGroupName")

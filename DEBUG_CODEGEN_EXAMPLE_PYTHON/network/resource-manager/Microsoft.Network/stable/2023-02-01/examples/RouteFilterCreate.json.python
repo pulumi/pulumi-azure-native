@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+route_filter = azure_native.network.RouteFilter("routeFilter",
+    location="West US",
+    resource_group_name="rg1",
+    route_filter_name="filterName",
+    rules=[azure_native.network.RouteFilterRuleArgs(
+        access="Allow",
+        communities=[
+            "12076:5030",
+            "12076:5040",
+        ],
+        name="ruleName",
+        route_filter_rule_type="Community",
+    )],
+    tags={
+        "key1": "value1",
+    })

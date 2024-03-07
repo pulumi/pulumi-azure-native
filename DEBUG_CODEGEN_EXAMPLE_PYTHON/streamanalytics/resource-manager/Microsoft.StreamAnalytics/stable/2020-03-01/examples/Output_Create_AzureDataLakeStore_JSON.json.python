@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+output = azure_native.streamanalytics.Output("output",
+    datasource=azure_native.streamanalytics.AzureDataLakeStoreOutputDataSourceArgs(
+        account_name="someaccount",
+        date_format="yyyy/MM/dd",
+        file_path_prefix="{date}/{time}",
+        refresh_token="someRefreshToken==",
+        tenant_id="cea4e98b-c798-49e7-8c40-4a2b3beb47dd",
+        time_format="HH",
+        token_user_display_name="Bob Smith",
+        token_user_principal_name="bobsmith@contoso.com",
+        type="Microsoft.DataLake/Accounts",
+    ),
+    job_name="sj3310",
+    output_name="output5195",
+    resource_group_name="sjrg6912",
+    serialization=azure_native.streamanalytics.JsonSerializationArgs(
+        encoding="UTF8",
+        format="Array",
+        type="Json",
+    ))

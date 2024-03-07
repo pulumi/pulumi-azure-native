@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+relationship = azure_native.customerinsights.Relationship("relationship",
+    cardinality=azure_native.customerinsights.CardinalityTypes.ONE_TO_ONE,
+    description={
+        "en-us": "Relationship Description",
+    },
+    display_name={
+        "en-us": "Relationship DisplayName",
+    },
+    fields=[],
+    hub_name="sdkTestHub",
+    profile_type="testProfile2326994",
+    related_profile_type="testProfile2326994",
+    relationship_name="SomeRelationship",
+    resource_group_name="TestHubRG")

@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+buildpack_binding = azure_native.appplatform.BuildpackBinding("buildpackBinding",
+    build_service_name="default",
+    builder_name="default",
+    buildpack_binding_name="myBuildpackBinding",
+    properties=azure_native.appplatform.BuildpackBindingPropertiesArgs(
+        binding_type="ApplicationInsights",
+        launch_properties=azure_native.appplatform.BuildpackBindingLaunchPropertiesArgs(
+            properties={
+                "abc": "def",
+                "any-string": "any-string",
+                "sampling-rate": "12.0",
+            },
+            secrets={
+                "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+            },
+        ),
+    ),
+    resource_group_name="myResourceGroup",
+    service_name="myservice")

@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+file_service_properties = azure_native.storage.FileServiceProperties("fileServiceProperties",
+    account_name="sto8607",
+    file_services_name="default",
+    protocol_settings=azure_native.storage.ProtocolSettingsArgs(
+        smb=azure_native.storage.SmbSettingArgs(
+            authentication_methods="NTLMv2;Kerberos",
+            channel_encryption="AES-128-CCM;AES-128-GCM;AES-256-GCM",
+            kerberos_ticket_encryption="RC4-HMAC;AES-256",
+            versions="SMB2.1;SMB3.0;SMB3.1.1",
+        ),
+    ),
+    resource_group_name="res4410")

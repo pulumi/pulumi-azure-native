@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+placement_policy = azure_native.avs.PlacementPolicy("placementPolicy",
+    cluster_name="cluster1",
+    placement_policy_name="policy1",
+    private_cloud_name="cloud1",
+    properties=azure_native.avs.VmHostPlacementPolicyPropertiesArgs(
+        affinity_strength="Must",
+        affinity_type="AntiAffinity",
+        azure_hybrid_benefit_type="SqlHost",
+        host_members=[
+            "fakehost22.nyc1.kubernetes.center",
+            "fakehost23.nyc1.kubernetes.center",
+            "fakehost24.nyc1.kubernetes.center",
+        ],
+        type="VmHost",
+        vm_members=[
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+        ],
+    ),
+    resource_group_name="group1")

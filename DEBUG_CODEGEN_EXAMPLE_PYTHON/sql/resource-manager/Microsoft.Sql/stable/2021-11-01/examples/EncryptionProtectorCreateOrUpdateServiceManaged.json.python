@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+encryption_protector = azure_native.sql.EncryptionProtector("encryptionProtector",
+    encryption_protector_name="current",
+    resource_group_name="sqlcrudtest-7398",
+    server_key_name="ServiceManaged",
+    server_key_type="ServiceManaged",
+    server_name="sqlcrudtest-4645")

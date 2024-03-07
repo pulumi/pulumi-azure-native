@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+mongo_cluster = azure_native.documentdb.MongoCluster("mongoCluster",
+    create_mode="PointInTimeRestore",
+    location="westus2",
+    mongo_cluster_name="myMongoCluster",
+    resource_group_name="TestResourceGroup",
+    restore_parameters=azure_native.documentdb.MongoClusterRestoreParametersArgs(
+        point_in_time_utc="2023-01-13T20:07:35Z",
+        source_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+    ))

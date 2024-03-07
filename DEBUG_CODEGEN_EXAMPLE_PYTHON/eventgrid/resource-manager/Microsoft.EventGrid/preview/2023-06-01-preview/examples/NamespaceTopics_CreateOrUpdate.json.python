@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+namespace_topic = azure_native.eventgrid.NamespaceTopic("namespaceTopic",
+    event_retention_in_days=1,
+    input_schema="CloudEventSchemaV1_0",
+    namespace_name="examplenamespace2",
+    publisher_type="Custom",
+    resource_group_name="examplerg",
+    topic_name="examplenamespacetopic2")

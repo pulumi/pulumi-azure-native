@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+backup_schedule = azure_native.storsimple.BackupSchedule("backupSchedule",
+    backup_policy_name="BkUpPolicy01ForSDKTest",
+    backup_schedule_name="schedule2",
+    backup_type=azure_native.storsimple.BackupType.CLOUD_SNAPSHOT,
+    device_name="Device05ForSDKTest",
+    kind=azure_native.storsimple.Kind.SERIES8000,
+    manager_name="ManagerForSDKTest1",
+    resource_group_name="ResourceGroupForSDKTest",
+    retention_count=1,
+    schedule_recurrence=azure_native.storsimple.ScheduleRecurrenceArgs(
+        recurrence_type=azure_native.storsimple.RecurrenceType.WEEKLY,
+        recurrence_value=1,
+        weekly_days_list=[
+            azure_native.storsimple.DayOfWeek.FRIDAY,
+            azure_native.storsimple.DayOfWeek.THURSDAY,
+            azure_native.storsimple.DayOfWeek.MONDAY,
+        ],
+    ),
+    schedule_status=azure_native.storsimple.ScheduleStatus.ENABLED,
+    start_time="2017-06-24T01:00:00Z")

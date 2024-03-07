@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+local_network_gateway = azure_native.network.LocalNetworkGateway("localNetworkGateway",
+    fqdn="site1.contoso.com",
+    gateway_ip_address="11.12.13.14",
+    local_network_address_space=azure_native.network.AddressSpaceArgs(
+        address_prefixes=["10.1.0.0/16"],
+    ),
+    local_network_gateway_name="localgw",
+    location="Central US",
+    resource_group_name="rg1")

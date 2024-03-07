@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+archife = azure_native.containerregistry.Archife("archife",
+    archive_name="myArchiveName",
+    package_source=azure_native.containerregistry.ArchivePackageSourcePropertiesArgs(
+        type="remote",
+        url="string",
+    ),
+    package_type="rpm",
+    published_version="string",
+    registry_name="myRegistry",
+    repository_endpoint_prefix="string",
+    resource_group_name="myResourceGroup")

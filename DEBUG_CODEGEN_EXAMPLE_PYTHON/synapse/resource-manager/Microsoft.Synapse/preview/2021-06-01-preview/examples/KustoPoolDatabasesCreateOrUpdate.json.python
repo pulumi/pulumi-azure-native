@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+read_write_database = azure_native.synapse.ReadWriteDatabase("readWriteDatabase",
+    database_name="KustoDatabase8",
+    kind="ReadWrite",
+    kusto_pool_name="kustoclusterrptest4",
+    location="westus",
+    resource_group_name="kustorptest",
+    soft_delete_period="P1D",
+    workspace_name="synapseWorkspaceName")

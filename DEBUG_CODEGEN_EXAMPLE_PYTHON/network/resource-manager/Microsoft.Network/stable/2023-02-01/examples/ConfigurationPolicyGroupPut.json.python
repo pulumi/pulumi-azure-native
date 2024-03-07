@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+configuration_policy_group = azure_native.network.ConfigurationPolicyGroup("configurationPolicyGroup",
+    configuration_policy_group_name="policyGroup1",
+    is_default=True,
+    policy_members=[
+        azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+            attribute_type="RadiusAzureGroupId",
+            attribute_value="6ad1bd08",
+            name="policy1",
+        ),
+        azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+            attribute_type="CertificateGroupId",
+            attribute_value="red.com",
+            name="policy2",
+        ),
+    ],
+    priority=0,
+    resource_group_name="rg1",
+    vpn_server_configuration_name="vpnServerConfiguration1")

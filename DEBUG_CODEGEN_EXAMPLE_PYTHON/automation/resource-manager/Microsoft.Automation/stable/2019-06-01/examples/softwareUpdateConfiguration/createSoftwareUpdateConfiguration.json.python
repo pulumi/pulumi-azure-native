@@ -1,0 +1,89 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+software_update_configuration_by_name = azure_native.automation.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName",
+    automation_account_name="myaccount",
+    resource_group_name="mygroup",
+    schedule_info=azure_native.automation.SUCSchedulePropertiesArgs(
+        advanced_schedule=azure_native.automation.AdvancedScheduleArgs(
+            week_days=[
+                "Monday",
+                "Thursday",
+            ],
+        ),
+        expiry_time="2018-11-09T11:22:57+00:00",
+        frequency="Hour",
+        interval=1,
+        start_time="2017-10-19T12:22:57+00:00",
+        time_zone="America/Los_Angeles",
+    ),
+    software_update_configuration_name="testpatch",
+    tasks=azure_native.automation.SoftwareUpdateConfigurationTasksArgs(
+        post_task=azure_native.automation.TaskPropertiesArgs(
+            source="GetCache",
+        ),
+        pre_task=azure_native.automation.TaskPropertiesArgs(
+            parameters={
+                "COMPUTERNAME": "Computer1",
+            },
+            source="HelloWorld",
+        ),
+    ),
+    update_configuration=azure_native.automation.UpdateConfigurationArgs(
+        azure_virtual_machines=[
+            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+        ],
+        duration="PT2H0M",
+        non_azure_computer_names=[
+            "box1.contoso.com",
+            "box2.contoso.com",
+        ],
+        operating_system=azure_native.automation.OperatingSystemType.WINDOWS,
+        targets=azure_native.automation.TargetPropertiesArgs(
+            azure_queries=[azure_native.automation.AzureQueryPropertiesArgs(
+                locations=[
+                    "Japan East",
+                    "UK South",
+                ],
+                scope=[
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+                ],
+                tag_settings=azure_native.automation.TagSettingsPropertiesArgs(
+                    filter_operator=azure_native.automation.TagOperators.ALL,
+                    tags={
+                        "tag1": [
+                            "tag1Value1",
+                            "tag1Value2",
+                            "tag1Value3",
+                        ],
+                        "tag2": [
+                            "tag2Value1",
+                            "tag2Value2",
+                            "tag2Value3",
+                        ],
+                    },
+                ),
+            )],
+            non_azure_queries=[
+                azure_native.automation.NonAzureQueryPropertiesArgs(
+                    function_alias="SavedSearch1",
+                    workspace_id="WorkspaceId1",
+                ),
+                azure_native.automation.NonAzureQueryPropertiesArgs(
+                    function_alias="SavedSearch2",
+                    workspace_id="WorkspaceId2",
+                ),
+            ],
+        ),
+        windows=azure_native.automation.WindowsPropertiesArgs(
+            excluded_kb_numbers=[
+                "168934",
+                "168973",
+            ],
+            included_update_classifications="Critical",
+            reboot_setting="IfRequired",
+        ),
+    ))

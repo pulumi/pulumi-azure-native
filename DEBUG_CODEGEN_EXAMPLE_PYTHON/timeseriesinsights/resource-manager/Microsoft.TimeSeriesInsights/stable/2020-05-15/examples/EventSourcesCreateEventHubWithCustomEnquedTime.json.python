@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+io_t_hub_event_source = azure_native.timeseriesinsights.IoTHubEventSource("ioTHubEventSource",
+    environment_name="env1",
+    event_source_name="es1",
+    resource_group_name="rg1")

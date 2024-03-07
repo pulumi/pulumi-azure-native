@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+capacity_reservation = azure_native.compute.CapacityReservation("capacityReservation",
+    capacity_reservation_group_name="myCapacityReservationGroup",
+    capacity_reservation_name="myCapacityReservation",
+    location="westus",
+    resource_group_name="myResourceGroup",
+    sku=azure_native.compute.SkuArgs(
+        capacity=4,
+        name="Standard_DS1_v2",
+    ),
+    tags={
+        "department": "HR",
+    },
+    zones=["1"])

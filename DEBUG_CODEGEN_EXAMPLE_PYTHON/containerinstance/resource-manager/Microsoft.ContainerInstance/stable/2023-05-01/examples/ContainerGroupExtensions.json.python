@@ -1,0 +1,53 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
+    container_group_name="demo1",
+    containers=[azure_native.containerinstance.ContainerArgs(
+        command=[],
+        environment_variables=[],
+        image="nginx",
+        name="demo1",
+        ports=[azure_native.containerinstance.ContainerPortArgs(
+            port=80,
+        )],
+        resources=azure_native.containerinstance.ResourceRequirementsArgs(
+            requests=azure_native.containerinstance.ResourceRequestsArgs(
+                cpu=1,
+                memory_in_gb=1.5,
+            ),
+        ),
+    )],
+    extensions=[
+        azure_native.containerinstance.DeploymentExtensionSpecArgs(
+            extension_type="kube-proxy",
+            name="kube-proxy",
+            protected_settings={
+                "kubeConfig": "<kubeconfig encoded string>",
+            },
+            settings={
+                "clusterCidr": "10.240.0.0/16",
+                "kubeVersion": "v1.9.10",
+            },
+            version="1.0",
+        ),
+        azure_native.containerinstance.DeploymentExtensionSpecArgs(
+            extension_type="realtime-metrics",
+            name="vk-realtime-metrics",
+            version="1.0",
+        ),
+    ],
+    image_registry_credentials=[],
+    ip_address=azure_native.containerinstance.IpAddressArgs(
+        ports=[azure_native.containerinstance.PortArgs(
+            port=80,
+            protocol="TCP",
+        )],
+        type="Private",
+    ),
+    location="eastus2",
+    os_type="Linux",
+    resource_group_name="demo",
+    subnet_ids=[azure_native.containerinstance.ContainerGroupSubnetIdArgs(
+        id="/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-rg-vnet/subnets/test-subnet",
+    )])

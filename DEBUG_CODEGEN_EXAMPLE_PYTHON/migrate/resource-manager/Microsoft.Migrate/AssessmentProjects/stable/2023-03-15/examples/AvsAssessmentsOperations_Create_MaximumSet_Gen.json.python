@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+avs_assessments_operation = azure_native.migrate.AvsAssessmentsOperation("avsAssessmentsOperation",
+    assessment_name="asm2",
+    azure_location="EastUs",
+    azure_offer_code="MSAZR0003P",
+    currency="USD",
+    dedupe_compression=1.5,
+    discount_percentage=0,
+    failures_to_tolerate_and_raid_level="Ftt1Raid1",
+    group_name="kuchatur-test",
+    is_stretch_cluster_enabled=True,
+    mem_overcommit=1,
+    node_type="AV36",
+    percentile="Percentile95",
+    perf_data_end_time="2023-09-26T13:35:56.5671462Z",
+    perf_data_start_time="2023-09-25T13:35:56.5671462Z",
+    project_name="app18700project",
+    provisioning_state="Succeeded",
+    reserved_instance="RI3Year",
+    resource_group_name="ayagrawrg",
+    scaling_factor=1,
+    sizing_criterion="AsOnPremises",
+    time_range="Day",
+    vcpu_oversubscription=4)

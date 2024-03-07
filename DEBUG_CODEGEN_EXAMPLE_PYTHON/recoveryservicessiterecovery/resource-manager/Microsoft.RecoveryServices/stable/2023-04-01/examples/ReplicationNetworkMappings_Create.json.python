@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+replication_network_mapping = azure_native.recoveryservices.ReplicationNetworkMapping("replicationNetworkMapping",
+    fabric_name="b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
+    network_mapping_name="corpe2amap",
+    network_name="e2267b5c-2650-49bd-ab3f-d66aae694c06",
+    properties=azure_native.recoveryservices.CreateNetworkMappingInputPropertiesArgs(
+        fabric_specific_details=azure_native.recoveryservices.VmmToAzureCreateNetworkMappingInputArgs(
+            instance_type="VmmToAzure",
+        ),
+        recovery_fabric_name="Microsoft Azure",
+        recovery_network_id="/subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/siterecoveryProd1/providers/Microsoft.Network/virtualNetworks/vnetavrai",
+    ),
+    resource_group_name="srcBvte2a14C27",
+    resource_name_="srce2avaultbvtaC27")

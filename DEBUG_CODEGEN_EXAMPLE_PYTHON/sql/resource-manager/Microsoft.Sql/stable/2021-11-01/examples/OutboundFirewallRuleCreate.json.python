@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+outbound_firewall_rule = azure_native.sql.OutboundFirewallRule("outboundFirewallRule",
+    outbound_rule_fqdn="server.database.windows.net",
+    resource_group_name="sqlcrudtest-7398",
+    server_name="sqlcrudtest-4645")

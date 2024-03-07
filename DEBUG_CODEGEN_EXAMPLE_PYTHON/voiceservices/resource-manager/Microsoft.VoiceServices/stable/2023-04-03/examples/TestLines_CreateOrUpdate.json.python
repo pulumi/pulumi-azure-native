@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+test_line = azure_native.voiceservices.TestLine("testLine",
+    communications_gateway_name="myname",
+    location="useast",
+    phone_number="+1-555-1234",
+    purpose="Automated",
+    resource_group_name="testrg",
+    test_line_name="myline")

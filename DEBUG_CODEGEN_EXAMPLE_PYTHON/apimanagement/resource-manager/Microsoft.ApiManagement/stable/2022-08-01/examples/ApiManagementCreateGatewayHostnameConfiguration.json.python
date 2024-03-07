@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+gateway_hostname_configuration = azure_native.apimanagement.GatewayHostnameConfiguration("gatewayHostnameConfiguration",
+    certificate_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+    gateway_id="gw1",
+    hc_id="default",
+    hostname="*",
+    http2_enabled=True,
+    negotiate_client_certificate=False,
+    resource_group_name="rg1",
+    service_name="apimService1",
+    tls10_enabled=False,
+    tls11_enabled=False)

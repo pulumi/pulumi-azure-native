@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+instance_details = azure_native.dynamics365fraudprotection.InstanceDetails("instanceDetails",
+    administration=azure_native.dynamics365fraudprotection.DFPInstanceAdministratorsArgs(
+        members=[
+            "azsdktest@microsoft.com",
+            "azsdktest2@microsoft.com",
+        ],
+    ),
+    instance_name="azsdktest",
+    location="West US",
+    resource_group_name="TestRG",
+    tags={
+        "testKey": "testValue",
+    })

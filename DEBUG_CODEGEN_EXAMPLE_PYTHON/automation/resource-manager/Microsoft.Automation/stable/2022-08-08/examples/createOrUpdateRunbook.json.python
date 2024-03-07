@@ -1,0 +1,25 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+runbook = azure_native.automation.Runbook("runbook",
+    automation_account_name="ContoseAutomationAccount",
+    description="Description of the Runbook",
+    location="East US 2",
+    log_activity_trace=1,
+    log_progress=True,
+    log_verbose=False,
+    name="Get-AzureVMTutorial",
+    publish_content_link=azure_native.automation.ContentLinkArgs(
+        content_hash=azure_native.automation.ContentHashArgs(
+            algorithm="SHA256",
+            value="115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
+        ),
+        uri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ),
+    resource_group_name="rg",
+    runbook_name="Get-AzureVMTutorial",
+    runbook_type="PowerShellWorkflow",
+    tags={
+        "tag01": "value01",
+        "tag02": "value02",
+    })

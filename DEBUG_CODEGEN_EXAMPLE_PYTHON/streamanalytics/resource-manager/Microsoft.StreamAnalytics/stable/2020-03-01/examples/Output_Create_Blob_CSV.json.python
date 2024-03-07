@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+output = azure_native.streamanalytics.Output("output",
+    datasource=azure_native.streamanalytics.BlobOutputDataSourceArgs(
+        container="state",
+        date_format="yyyy/MM/dd",
+        path_pattern="{date}/{time}",
+        storage_accounts=[azure_native.streamanalytics.StorageAccountArgs(
+            account_key="accountKey==",
+            account_name="someAccountName",
+        )],
+        time_format="HH",
+        type="Microsoft.Storage/Blob",
+    ),
+    job_name="sj900",
+    output_name="output1623",
+    resource_group_name="sjrg5023",
+    serialization=azure_native.streamanalytics.CsvSerializationArgs(
+        encoding="UTF8",
+        field_delimiter=",",
+        type="Csv",
+    ))

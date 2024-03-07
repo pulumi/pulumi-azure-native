@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+key_value = azure_native.appconfiguration.KeyValue("keyValue",
+    config_store_name="contoso",
+    key_value_name="myKey$myLabel",
+    resource_group_name="myResourceGroup",
+    tags={
+        "tag1": "tagValue1",
+        "tag2": "tagValue2",
+    },
+    value="myValue")

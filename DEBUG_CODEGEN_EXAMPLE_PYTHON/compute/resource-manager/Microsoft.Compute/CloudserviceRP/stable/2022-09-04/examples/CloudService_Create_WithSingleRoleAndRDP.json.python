@@ -1,0 +1,50 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cloud_service = azure_native.compute.CloudService("cloudService",
+    cloud_service_name="{cs-name}",
+    location="westus",
+    properties=azure_native.compute.CloudServicePropertiesArgs(
+        configuration="{ServiceConfiguration}",
+        extension_profile=azure_native.compute.CloudServiceExtensionProfileArgs(
+            extensions=[azure_native.compute.ExtensionArgs(
+                name="RDPExtension",
+                properties=azure_native.compute.CloudServiceExtensionPropertiesArgs(
+                    auto_upgrade_minor_version=False,
+                    protected_settings="<PrivateConfig><Password>{password}</Password></PrivateConfig>",
+                    publisher="Microsoft.Windows.Azure.Extensions",
+                    settings="<PublicConfig><UserName>UserAzure</UserName><Expiration>10/22/2021 15:05:45</Expiration></PublicConfig>",
+                    type="RDP",
+                    type_handler_version="1.2",
+                ),
+            )],
+        ),
+        network_profile=azure_native.compute.CloudServiceNetworkProfileArgs(
+            load_balancer_configurations=[azure_native.compute.LoadBalancerConfigurationArgs(
+                name="contosolb",
+                properties=azure_native.compute.LoadBalancerConfigurationPropertiesArgs(
+                    frontend_ip_configurations=[azure_native.compute.LoadBalancerFrontendIpConfigurationArgs(
+                        name="contosofe",
+                        properties=azure_native.compute.LoadBalancerFrontendIpConfigurationPropertiesArgs(
+                            public_ip_address=azure_native.compute.SubResourceArgs(
+                                id="/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                            ),
+                        ),
+                    )],
+                ),
+            )],
+        ),
+        package_url="{PackageUrl}",
+        role_profile=azure_native.compute.CloudServiceRoleProfileArgs(
+            roles=[azure_native.compute.CloudServiceRoleProfilePropertiesArgs(
+                name="ContosoFrontend",
+                sku=azure_native.compute.CloudServiceRoleSkuArgs(
+                    capacity=1,
+                    name="Standard_D1_v2",
+                    tier="Standard",
+                ),
+            )],
+        ),
+        upgrade_mode="Auto",
+    ),
+    resource_group_name="ConstosoRG")

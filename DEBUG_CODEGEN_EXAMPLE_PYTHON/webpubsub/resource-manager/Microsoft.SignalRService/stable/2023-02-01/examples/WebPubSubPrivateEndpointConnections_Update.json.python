@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_pub_sub_private_endpoint_connection = azure_native.webpubsub.WebPubSubPrivateEndpointConnection("webPubSubPrivateEndpointConnection",
+    private_endpoint=azure_native.webpubsub.PrivateEndpointArgs(
+        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+    ),
+    private_endpoint_connection_name="mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    private_link_service_connection_state=azure_native.webpubsub.PrivateLinkServiceConnectionStateArgs(
+        actions_required="None",
+        status="Approved",
+    ),
+    resource_group_name="myResourceGroup",
+    resource_name_="myWebPubSubService")

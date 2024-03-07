@@ -1,0 +1,42 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+service_fabric_schedule = azure_native.devtestlab.ServiceFabricSchedule("serviceFabricSchedule",
+    daily_recurrence=azure_native.devtestlab.DayDetailsArgs(
+        time="19:00",
+    ),
+    hourly_recurrence=azure_native.devtestlab.HourDetailsArgs(
+        minute=0,
+    ),
+    lab_name="{labName}",
+    location="{location}",
+    name="{scheduleName}",
+    notification_settings=azure_native.devtestlab.NotificationSettingsArgs(
+        email_recipient="{email}",
+        notification_locale="EN",
+        status="{Enabled|Disabled}",
+        time_in_minutes=15,
+        webhook_url="{webhoolUrl}",
+    ),
+    resource_group_name="resourceGroupName",
+    service_fabric_name="{serviceFrabicName}",
+    status="{Enabled|Disabled}",
+    tags={
+        "tagName1": "tagValue1",
+    },
+    target_resource_id="/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}",
+    task_type="{Unknown|LabVmsShutdownTask|LabVmsStartupTask|LabVmReclamationTask|ComputeVmShutdownTask}",
+    time_zone_id="Pacific Standard Time",
+    user_name="@me",
+    weekly_recurrence=azure_native.devtestlab.WeekDetailsArgs(
+        time="19:00",
+        weekdays=[
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ],
+    ))

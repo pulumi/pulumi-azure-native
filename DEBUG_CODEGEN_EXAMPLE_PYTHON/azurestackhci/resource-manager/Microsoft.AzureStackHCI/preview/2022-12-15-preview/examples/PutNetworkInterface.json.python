@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_interface = azure_native.azurestackhci.NetworkInterface("networkInterface",
+    extended_location=azure_native.azurestackhci.ExtendedLocationArgs(
+        name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+        type="CustomLocation",
+    ),
+    ip_configurations=[azure_native.azurestackhci.IPConfigurationArgs(
+        name="ipconfig-sample",
+        properties=azure_native.azurestackhci.IPConfigurationPropertiesArgs(
+            subnet=azure_native.azurestackhci.IPConfigurationSubnetArgs(
+                id="test-vnet",
+            ),
+        ),
+    )],
+    location="West US2",
+    network_interface_name="test-nic",
+    resource_group_name="test-rg")

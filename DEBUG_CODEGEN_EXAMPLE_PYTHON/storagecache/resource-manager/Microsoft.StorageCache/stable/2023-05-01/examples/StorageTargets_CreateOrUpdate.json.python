@@ -1,0 +1,27 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+storage_target = azure_native.storagecache.StorageTarget("storageTarget",
+    cache_name="sc1",
+    junctions=[
+        azure_native.storagecache.NamespaceJunctionArgs(
+            namespace_path="/path/on/cache",
+            nfs_access_policy="default",
+            nfs_export="exp1",
+            target_path="/path/on/exp1",
+        ),
+        azure_native.storagecache.NamespaceJunctionArgs(
+            namespace_path="/path2/on/cache",
+            nfs_access_policy="rootSquash",
+            nfs_export="exp2",
+            target_path="/path2/on/exp2",
+        ),
+    ],
+    nfs3=azure_native.storagecache.Nfs3TargetArgs(
+        target="10.0.44.44",
+        usage_model="READ_ONLY",
+        verification_timer=30,
+    ),
+    resource_group_name="scgroup",
+    storage_target_name="st1",
+    target_type="nfs3")

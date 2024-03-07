@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+component_current_billing_feature = azure_native.insights.ComponentCurrentBillingFeature("componentCurrentBillingFeature",
+    current_billing_features=[
+        "Basic",
+        "Application Insights Enterprise",
+    ],
+    data_volume_cap=azure_native.insights.ApplicationInsightsComponentDataVolumeCapArgs(
+        cap=100,
+        stop_send_notification_when_hit_cap=True,
+    ),
+    resource_group_name="my-resource-group",
+    resource_name_="my-component")

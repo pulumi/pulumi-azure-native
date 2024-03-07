@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+transaction_node = azure_native.blockchain.TransactionNode("transactionNode",
+    blockchain_member_name="contosemember1",
+    location="southeastasia",
+    password="<password>",
+    resource_group_name="mygroup",
+    transaction_node_name="txnode2")

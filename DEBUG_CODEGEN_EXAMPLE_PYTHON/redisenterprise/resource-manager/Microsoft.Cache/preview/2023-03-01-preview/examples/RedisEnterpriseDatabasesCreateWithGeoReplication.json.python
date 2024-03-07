@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database = azure_native.cache.Database("database",
+    client_protocol="Encrypted",
+    cluster_name="cache1",
+    clustering_policy="EnterpriseCluster",
+    database_name="default",
+    eviction_policy="NoEviction",
+    geo_replication=azure_native.cache.DatabasePropertiesGeoReplicationArgs(
+        group_nickname="groupName",
+        linked_databases=[
+            azure_native.cache.LinkedDatabaseArgs(
+                id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default",
+            ),
+            azure_native.cache.LinkedDatabaseArgs(
+                id="/subscriptions/subid2/resourceGroups/rg2/providers/Microsoft.Cache/redisEnterprise/cache2/databases/default",
+            ),
+        ],
+    ),
+    port=10000,
+    resource_group_name="rg1")

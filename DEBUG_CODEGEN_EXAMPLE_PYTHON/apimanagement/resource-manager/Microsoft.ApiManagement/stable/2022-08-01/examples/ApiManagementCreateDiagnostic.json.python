@@ -1,0 +1,41 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+diagnostic = azure_native.apimanagement.Diagnostic("diagnostic",
+    always_log="allErrors",
+    backend=azure_native.apimanagement.PipelineDiagnosticSettingsArgs(
+        request=azure_native.apimanagement.HttpMessageDiagnosticArgs(
+            body=azure_native.apimanagement.BodyDiagnosticSettingsArgs(
+                bytes=512,
+            ),
+            headers=["Content-type"],
+        ),
+        response=azure_native.apimanagement.HttpMessageDiagnosticArgs(
+            body=azure_native.apimanagement.BodyDiagnosticSettingsArgs(
+                bytes=512,
+            ),
+            headers=["Content-type"],
+        ),
+    ),
+    diagnostic_id="applicationinsights",
+    frontend=azure_native.apimanagement.PipelineDiagnosticSettingsArgs(
+        request=azure_native.apimanagement.HttpMessageDiagnosticArgs(
+            body=azure_native.apimanagement.BodyDiagnosticSettingsArgs(
+                bytes=512,
+            ),
+            headers=["Content-type"],
+        ),
+        response=azure_native.apimanagement.HttpMessageDiagnosticArgs(
+            body=azure_native.apimanagement.BodyDiagnosticSettingsArgs(
+                bytes=512,
+            ),
+            headers=["Content-type"],
+        ),
+    ),
+    logger_id="/loggers/azuremonitor",
+    resource_group_name="rg1",
+    sampling=azure_native.apimanagement.SamplingSettingsArgs(
+        percentage=50,
+        sampling_type="fixed",
+    ),
+    service_name="apimService1")

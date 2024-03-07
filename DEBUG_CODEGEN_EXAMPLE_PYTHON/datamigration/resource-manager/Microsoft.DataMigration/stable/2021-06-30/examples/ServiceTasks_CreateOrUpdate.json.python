@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+service_task = azure_native.datamigration.ServiceTask("serviceTask",
+    group_name="DmsSdkRg",
+    properties={
+        "input": azure_native.datamigration.MongoDbConnectionInfoArgs(
+            server_version="NA",
+        ),
+        "taskType": "Service.Check.OCI",
+    },
+    service_name="DmsSdkService",
+    task_name="DmsSdkTask")

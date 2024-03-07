@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_environments_storage = azure_native.app.ManagedEnvironmentsStorage("managedEnvironmentsStorage",
+    environment_name="managedEnv",
+    properties=azure_native.app.ManagedEnvironmentStoragePropertiesArgs(
+        azure_file=azure_native.app.AzureFilePropertiesArgs(
+            access_mode="ReadOnly",
+            account_key="key",
+            account_name="account1",
+            share_name="share1",
+        ),
+    ),
+    resource_group_name="examplerg",
+    storage_name="jlaw-demo1")

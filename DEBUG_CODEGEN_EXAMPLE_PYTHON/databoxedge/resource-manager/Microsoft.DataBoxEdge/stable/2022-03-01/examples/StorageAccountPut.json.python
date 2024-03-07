@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+storage_account = azure_native.databoxedge.StorageAccount("storageAccount",
+    data_policy="Cloud",
+    description="It's an awesome storage account",
+    device_name="testedgedevice",
+    resource_group_name="GroupForEdgeAutomation",
+    storage_account_credential_id="/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/cisbvt",
+    storage_account_name="blobstorageaccount1",
+    storage_account_status="OK")

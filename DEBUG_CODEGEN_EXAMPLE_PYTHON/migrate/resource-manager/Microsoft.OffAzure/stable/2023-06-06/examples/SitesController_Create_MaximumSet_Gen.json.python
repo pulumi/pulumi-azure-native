@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sites_controller = azure_native.offazure.SitesController("sitesController",
+    agent_details=azure_native.offazure.SiteAgentPropertiesArgs(
+        key_vault_id="awxurtbjmofxuciewsqfgpkccpzw",
+        key_vault_uri="qizphgqwage",
+    ),
+    appliance_name="zkzibwptff",
+    discovery_solution_id="lvskpghpphpfumbzxroakznqplomiy",
+    location="mh",
+    resource_group_name="rgmigrate",
+    service_principal_identity_details=azure_native.offazure.SiteSpnPropertiesArgs(
+        aad_authority="yanzipdww",
+        application_id="tspgrujepxyxuprkqvfuqbbjrweeqa",
+        audience="oepwfaozztzvegmzvswafvotj",
+        object_id="tqrjngpgxnnto",
+        raw_cert_data="dotvgkslkmsgvtekgojnhcdrryk",
+        tenant_id="vesmyhu",
+    ),
+    site_name="3-MmUUL6025",
+    tags={
+        "key7046": "qywdefracwwzlugbwgqbt",
+    })

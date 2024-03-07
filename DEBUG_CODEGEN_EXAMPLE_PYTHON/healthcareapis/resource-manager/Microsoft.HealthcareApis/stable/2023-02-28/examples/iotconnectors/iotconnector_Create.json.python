@@ -1,0 +1,40 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+iot_connector = azure_native.healthcareapis.IotConnector("iotConnector",
+    device_mapping=azure_native.healthcareapis.IotMappingPropertiesArgs(
+        content={
+            "template": [{
+                "template": {
+                    "deviceIdExpression": "$.deviceid",
+                    "timestampExpression": "$.measurementdatetime",
+                    "typeMatchExpression": "$..[?(@heartrate)]",
+                    "typeName": "heartrate",
+                    "values": [{
+                        "required": "true",
+                        "valueExpression": "$.heartrate",
+                        "valueName": "hr",
+                    }],
+                },
+                "templateType": "JsonPathContent",
+            }],
+            "templateType": "CollectionContent",
+        },
+    ),
+    identity=azure_native.healthcareapis.ServiceManagedIdentityIdentityArgs(
+        type="SystemAssigned",
+    ),
+    ingestion_endpoint_configuration=azure_native.healthcareapis.IotEventHubIngestionEndpointConfigurationArgs(
+        consumer_group="ConsumerGroupA",
+        event_hub_name="MyEventHubName",
+        fully_qualified_event_hub_namespace="myeventhub.servicesbus.windows.net",
+    ),
+    iot_connector_name="blue",
+    location="westus",
+    resource_group_name="testRG",
+    tags={
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string",
+    },
+    workspace_name="workspace1")

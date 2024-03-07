@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.timeseriesinsights.PrivateEndpointConnection("privateEndpointConnection",
+    environment_name="myEnvironment",
+    private_endpoint_connection_name="myPrivateEndpointConnectionName",
+    private_link_service_connection_state=azure_native.timeseriesinsights.PrivateLinkServiceConnectionStateArgs(
+        description="Rejected for some reason",
+        status="Rejected",
+    ),
+    resource_group_name="myResourceGroup")

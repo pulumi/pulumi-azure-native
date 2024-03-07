@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+metrics_source = azure_native.logz.MetricsSource("metricsSource",
+    metrics_source_name="MetricsSource1",
+    monitor_name="myMonitor",
+    resource_group_name="myResourceGroup")

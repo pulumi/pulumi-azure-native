@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+linked_service = azure_native.machinelearningservices.LinkedService("linkedService",
+    identity=azure_native.machinelearningservices.IdentityArgs(
+        type=azure_native.machinelearningservices.ResourceIdentityType.SYSTEM_ASSIGNED,
+    ),
+    link_name="link-1",
+    location="westus",
+    name="link-1",
+    properties=azure_native.machinelearningservices.LinkedServicePropsArgs(
+        linked_service_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/Syn-1",
+    ),
+    resource_group_name="resourceGroup-1",
+    workspace_name="workspace-1")

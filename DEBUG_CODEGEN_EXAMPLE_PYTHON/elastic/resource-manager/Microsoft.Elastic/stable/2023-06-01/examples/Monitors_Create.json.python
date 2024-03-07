@@ -1,0 +1,6 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+monitor = azure_native.elastic.Monitor("monitor",
+    monitor_name="myMonitor",
+    resource_group_name="myResourceGroup")

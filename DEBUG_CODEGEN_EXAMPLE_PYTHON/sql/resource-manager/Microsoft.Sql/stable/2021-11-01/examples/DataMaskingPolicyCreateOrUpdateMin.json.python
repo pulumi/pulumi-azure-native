@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+data_masking_policy = azure_native.sql.DataMaskingPolicy("dataMaskingPolicy",
+    data_masking_policy_name="Default",
+    data_masking_state=azure_native.sql.DataMaskingState.ENABLED,
+    database_name="sqlcrudtest-331",
+    resource_group_name="sqlcrudtest-6852",
+    server_name="sqlcrudtest-2080")

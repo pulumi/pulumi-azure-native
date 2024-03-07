@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+    create_mode="Recovery",
+    database_name="testdb_recovered",
+    location="southeastasia",
+    managed_instance_name="server1",
+    recoverable_database_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+    resource_group_name="Default-SQL-SouthEastAsia")

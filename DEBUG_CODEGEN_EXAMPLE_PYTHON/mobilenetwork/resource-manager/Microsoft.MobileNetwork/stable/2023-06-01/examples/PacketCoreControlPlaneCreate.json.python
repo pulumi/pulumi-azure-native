@@ -1,0 +1,38 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+packet_core_control_plane = azure_native.mobilenetwork.PacketCoreControlPlane("packetCoreControlPlane",
+    control_plane_access_interface=azure_native.mobilenetwork.InterfacePropertiesArgs(
+        name="N2",
+    ),
+    core_network_technology="5GC",
+    installation=azure_native.mobilenetwork.InstallationArgs(
+        desired_state="Installed",
+    ),
+    local_diagnostics_access=azure_native.mobilenetwork.LocalDiagnosticsAccessConfigurationArgs(
+        authentication_type="AAD",
+        https_server_certificate=azure_native.mobilenetwork.HttpsServerCertificateArgs(
+            certificate_url="https://contosovault.vault.azure.net/certificates/ingress",
+        ),
+    ),
+    location="eastus",
+    packet_core_control_plane_name="TestPacketCoreCP",
+    platform=azure_native.mobilenetwork.PlatformConfigurationArgs(
+        azure_stack_edge_device=azure_native.mobilenetwork.AzureStackEdgeDeviceResourceIdArgs(
+            id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice",
+        ),
+        connected_cluster=azure_native.mobilenetwork.ConnectedClusterResourceIdArgs(
+            id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/TestConnectedCluster",
+        ),
+        custom_location=azure_native.mobilenetwork.CustomLocationResourceIdArgs(
+            id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/TestCustomLocation",
+        ),
+        type="AKS-HCI",
+    ),
+    resource_group_name="rg1",
+    sites=[azure_native.mobilenetwork.SiteResourceIdArgs(
+        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite",
+    )],
+    sku="G0",
+    ue_mtu=1600,
+    version="0.2.0")

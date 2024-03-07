@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cluster_manager = azure_native.networkcloud.ClusterManager("clusterManager",
+    analytics_workspace_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+    cluster_manager_name="clusterManagerName",
+    fabric_controller_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+    location="location",
+    managed_resource_group_configuration=azure_native.networkcloud.ManagedResourceGroupConfigurationArgs(
+        location="East US",
+        name="my-managed-rg",
+    ),
+    resource_group_name="resourceGroupName",
+    tags={
+        "key1": "myvalue1",
+        "key2": "myvalue2",
+    })

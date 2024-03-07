@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server = azure_native.dbforpostgresql.Server("server",
+    create_mode="Replica",
+    location="westus",
+    point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+    resource_group_name="testrg",
+    server_name="pgtestsvc5rep",
+    source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")

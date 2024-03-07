@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+wcf_relay_authorization_rule = azure_native.relay.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule",
+    authorization_rule_name="example-RelayAuthRules-01",
+    namespace_name="example-RelayNamespace-01",
+    relay_name="example-Relay-wcf-01",
+    resource_group_name="resourcegroup",
+    rights=[
+        "Listen",
+        "Send",
+    ])

@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+nat_rule = azure_native.network.NatRule("natRule",
+    external_mappings=[azure_native.network.VpnNatRuleMappingArgs(
+        address_space="192.168.21.0/24",
+    )],
+    gateway_name="gateway1",
+    internal_mappings=[azure_native.network.VpnNatRuleMappingArgs(
+        address_space="10.4.0.0/24",
+    )],
+    ip_configuration_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/cloudnet1-VNG/ipConfigurations/default",
+    mode="EgressSnat",
+    nat_rule_name="natRule1",
+    resource_group_name="rg1",
+    type="Static")

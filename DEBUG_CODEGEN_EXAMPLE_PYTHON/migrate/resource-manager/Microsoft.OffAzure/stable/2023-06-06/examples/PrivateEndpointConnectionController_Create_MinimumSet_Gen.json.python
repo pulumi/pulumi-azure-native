@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection_controller = azure_native.offazure.PrivateEndpointConnectionController("privateEndpointConnectionController",
+    pe_connection_name="-p-U2",
+    resource_group_name="rgmigrate",
+    site_name="1--tOY-47Q-X95WC3d-U")

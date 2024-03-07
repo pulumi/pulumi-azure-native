@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+azure_firewall = azure_native.network.AzureFirewall("azureFirewall",
+    azure_firewall_name="azurefirewall",
+    firewall_policy=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
+    ),
+    hub_ip_addresses=azure_native.network.HubIPAddressesArgs(
+        public_ips=azure_native.network.HubPublicIPAddressesArgs(
+            addresses=[],
+            count=1,
+        ),
+    ),
+    location="West US",
+    resource_group_name="rg1",
+    sku=azure_native.network.AzureFirewallSkuArgs(
+        name="AZFW_Hub",
+        tier="Standard",
+    ),
+    tags={
+        "key1": "value1",
+    },
+    threat_intel_mode="Alert",
+    virtual_hub=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    ),
+    zones=[])

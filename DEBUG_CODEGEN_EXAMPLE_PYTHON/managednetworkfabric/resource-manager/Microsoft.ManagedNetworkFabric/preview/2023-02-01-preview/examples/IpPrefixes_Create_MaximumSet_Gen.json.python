@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+ip_prefix = azure_native.managednetworkfabric.IpPrefix("ipPrefix",
+    annotation="annotationValue",
+    ip_prefix_name="example-ipPrefix",
+    ip_prefix_rules=[azure_native.managednetworkfabric.IpPrefixPropertiesIpPrefixRulesArgs(
+        action="Permit",
+        condition="EqualTo",
+        network_prefix="1.1.1.0/24",
+        sequence_number=12,
+        subnet_mask_length=28,
+    )],
+    location="EastUS",
+    resource_group_name="resourcegroupname",
+    tags={
+        "key6404": "",
+    })

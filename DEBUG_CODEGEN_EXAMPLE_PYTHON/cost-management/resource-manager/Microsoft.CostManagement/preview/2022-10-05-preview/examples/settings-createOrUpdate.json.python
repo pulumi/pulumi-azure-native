@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+tag_inheritance_setting = azure_native.costmanagement.TagInheritanceSetting("tagInheritanceSetting",
+    kind="taginheritance",
+    properties=azure_native.costmanagement.TagInheritancePropertiesArgs(
+        prefer_container_tags=False,
+    ),
+    scope="subscriptions/00000000-0000-0000-0000-000000000000",
+    type="taginheritance")

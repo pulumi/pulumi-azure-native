@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+import_sites_controller = azure_native.offazure.ImportSitesController("importSitesController",
+    location="woctgvdufvkzvjcirjpf",
+    resource_group_name="rgmigrate",
+    site_name="IHPDPK-1-")

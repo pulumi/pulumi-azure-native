@@ -1,0 +1,34 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+function = azure_native.streamanalytics.Function("function",
+    function_name="function588",
+    job_name="sj9093",
+    properties=azure_native.streamanalytics.ScalarFunctionPropertiesArgs(
+        binding=azure_native.streamanalytics.AzureMachineLearningWebServiceFunctionBindingArgs(
+            api_key="someApiKey==",
+            batch_size=1000,
+            endpoint="someAzureMLEndpointURL",
+            inputs=azure_native.streamanalytics.AzureMachineLearningWebServiceInputsArgs(
+                column_names=[azure_native.streamanalytics.AzureMachineLearningWebServiceInputColumnArgs(
+                    data_type="string",
+                    map_to=0,
+                    name="tweet",
+                )],
+                name="input1",
+            ),
+            outputs=[azure_native.streamanalytics.AzureMachineLearningWebServiceOutputColumnArgs(
+                data_type="string",
+                name="Sentiment",
+            )],
+            type="Microsoft.MachineLearning/WebService",
+        ),
+        inputs=[azure_native.streamanalytics.FunctionInputArgs(
+            data_type="nvarchar(max)",
+        )],
+        output=azure_native.streamanalytics.FunctionOutputArgs(
+            data_type="nvarchar(max)",
+        ),
+        type="Scalar",
+    ),
+    resource_group_name="sjrg7")

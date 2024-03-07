@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+space = azure_native.integrationspaces.Space("space",
+    description="This is the user provided description of the space resource.",
+    location="CentralUS",
+    resource_group_name="testrg",
+    space_name="Space1",
+    tags={
+        "key1": "Value1",
+    })

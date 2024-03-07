@@ -1,0 +1,6 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+resource_group = azure_native.resources.ResourceGroup("resourceGroup",
+    location="eastus",
+    resource_group_name="my-resource-group")

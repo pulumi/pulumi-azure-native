@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+global_reach_connection = azure_native.avs.GlobalReachConnection("globalReachConnection",
+    authorization_key="01010101-0101-0101-0101-010101010101",
+    global_reach_connection_name="connection1",
+    peer_express_route_circuit="/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.Network/expressRouteCircuits/mypeer",
+    private_cloud_name="cloud1",
+    resource_group_name="group1")

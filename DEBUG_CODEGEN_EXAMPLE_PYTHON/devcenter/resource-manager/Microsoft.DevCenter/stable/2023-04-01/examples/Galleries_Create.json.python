@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+gallery = azure_native.devcenter.Gallery("gallery",
+    dev_center_name="Contoso",
+    gallery_name="StandardGallery",
+    gallery_resource_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.Compute/galleries/StandardGallery",
+    resource_group_name="rg1")

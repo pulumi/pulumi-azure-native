@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+namespace_authorization_rule = azure_native.eventhub.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+    authorization_rule_name="sdk-Authrules-1746",
+    namespace_name="sdk-Namespace-2702",
+    resource_group_name="ArunMonocle",
+    rights=[
+        "Listen",
+        "Send",
+    ])

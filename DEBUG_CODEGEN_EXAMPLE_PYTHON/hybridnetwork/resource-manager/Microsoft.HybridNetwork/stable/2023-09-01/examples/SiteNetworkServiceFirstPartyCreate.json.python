@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+site_network_service = azure_native.hybridnetwork.SiteNetworkService("siteNetworkService",
+    location="westUs2",
+    properties=azure_native.hybridnetwork.SiteNetworkServicePropertiesFormatArgs(
+        desired_state_configuration_group_value_references={
+            "MyVM_Configuration": azure_native.hybridnetwork.ReferencedResourceArgs(
+                id="/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+            ),
+        },
+        network_service_design_version_resource_reference=azure_native.hybridnetwork.SecretDeploymentResourceReferenceArgs(
+            id="/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+            id_type="Secret",
+        ),
+        site_reference=azure_native.hybridnetwork.ReferencedResourceArgs(
+            id="/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+        ),
+    ),
+    resource_group_name="rg1",
+    site_network_service_name="testSiteNetworkServiceName",
+    sku=azure_native.hybridnetwork.SkuArgs(
+        name="Standard",
+    ))

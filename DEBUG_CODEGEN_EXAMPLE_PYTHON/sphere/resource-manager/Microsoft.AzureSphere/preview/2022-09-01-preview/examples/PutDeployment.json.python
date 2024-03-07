@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+deployment = azure_native.azuresphere.Deployment("deployment",
+    catalog_name="MyCatalog1",
+    deployment_name="MyDeployment1",
+    device_group_name="myDeviceGroup1",
+    product_name="MyProduct1",
+    resource_group_name="MyResourceGroup1")

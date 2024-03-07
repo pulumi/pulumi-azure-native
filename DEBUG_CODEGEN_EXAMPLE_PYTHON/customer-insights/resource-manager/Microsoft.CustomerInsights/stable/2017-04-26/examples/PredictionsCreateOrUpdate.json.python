@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+prediction = azure_native.customerinsights.Prediction("prediction",
+    auto_analyze=True,
+    description={
+        "en-us": "sdktest",
+    },
+    display_name={
+        "en-us": "sdktest",
+    },
+    grades=[],
+    hub_name="sdkTestHub",
+    involved_interaction_types=[],
+    involved_kpi_types=[],
+    involved_relationships=[],
+    mappings=azure_native.customerinsights.PredictionMappingsArgs(
+        grade="sdktest_Grade",
+        reason="sdktest_Reason",
+        score="sdktest_Score",
+    ),
+    negative_outcome_expression="Customers.FirstName = 'Mike'",
+    positive_outcome_expression="Customers.FirstName = 'David'",
+    prediction_name="sdktest",
+    primary_profile_type="Customers",
+    resource_group_name="TestHubRG",
+    scope_expression="*",
+    score_label="score label")

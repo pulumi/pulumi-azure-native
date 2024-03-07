@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.graphservices.Account("account",
+    properties=azure_native.graphservices.AccountResourcePropertiesArgs(
+        app_id="11111111-aaaa-1111-bbbb-111111111111",
+    ),
+    resource_group_name="testResourceGroupGRAM",
+    resource_name_="11111111-aaaa-1111-bbbb-1111111111111")

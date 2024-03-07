@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_record_set = azure_native.network.PrivateRecordSet("privateRecordSet",
+    metadata={
+        "key1": "value1",
+    },
+    private_zone_name="privatezone1.com",
+    record_type="SRV",
+    relative_record_set_name="recordSRV",
+    resource_group_name="resourceGroup1",
+    srv_records=[azure_native.network.SrvRecordArgs(
+        port=80,
+        priority=0,
+        target="contoso.com",
+        weight=10,
+    )],
+    ttl=3600)

@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.relay.PrivateEndpointConnection("privateEndpointConnection",
+    namespace_name="example-RelayNamespace-5849",
+    private_endpoint=azure_native.relay.PrivateEndpointArgs(
+        id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+    ),
+    private_endpoint_connection_name="{privateEndpointConnection name}",
+    private_link_service_connection_state=azure_native.relay.ConnectionStateArgs(
+        description="You may pass",
+        status="Approved",
+    ),
+    resource_group_name="resourcegroup")

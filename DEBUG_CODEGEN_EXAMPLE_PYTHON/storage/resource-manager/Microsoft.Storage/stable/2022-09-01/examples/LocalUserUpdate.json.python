@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+local_user = azure_native.storage.LocalUser("localUser",
+    account_name="sto2527",
+    has_shared_key=False,
+    has_ssh_key=False,
+    has_ssh_password=False,
+    home_directory="homedirectory2",
+    resource_group_name="res6977",
+    username="user1")

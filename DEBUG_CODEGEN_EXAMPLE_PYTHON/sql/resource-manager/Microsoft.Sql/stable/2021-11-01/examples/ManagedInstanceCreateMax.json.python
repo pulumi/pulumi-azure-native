@@ -1,0 +1,39 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_instance = azure_native.sql.ManagedInstance("managedInstance",
+    administrator_login="dummylogin",
+    administrator_login_password="PLACEHOLDER",
+    administrators=azure_native.sql.ManagedInstanceExternalAdministratorArgs(
+        azure_ad_only_authentication=True,
+        login="bob@contoso.com",
+        principal_type="User",
+        sid="00000011-1111-2222-2222-123456789111",
+        tenant_id="00000011-1111-2222-2222-123456789111",
+    ),
+    collation="SQL_Latin1_General_CP1_CI_AS",
+    dns_zone_partner="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+    instance_pool_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+    license_type="LicenseIncluded",
+    location="Japan East",
+    maintenance_configuration_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+    managed_instance_name="testinstance",
+    minimal_tls_version="1.2",
+    proxy_override="Redirect",
+    public_data_endpoint_enabled=False,
+    requested_backup_storage_redundancy="Geo",
+    resource_group_name="testrg",
+    service_principal=azure_native.sql.ServicePrincipalArgs(
+        type="SystemAssigned",
+    ),
+    sku=azure_native.sql.SkuArgs(
+        name="GP_Gen5",
+        tier="GeneralPurpose",
+    ),
+    storage_size_in_gb=1024,
+    subnet_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    tags={
+        "tagKey1": "TagValue1",
+    },
+    timezone_id="UTC",
+    v_cores=8)

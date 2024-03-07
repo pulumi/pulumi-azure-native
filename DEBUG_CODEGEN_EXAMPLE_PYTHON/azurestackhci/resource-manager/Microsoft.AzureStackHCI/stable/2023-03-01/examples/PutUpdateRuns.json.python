@@ -1,0 +1,25 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+update_run = azure_native.azurestackhci.UpdateRun("updateRun",
+    cluster_name="testcluster",
+    description="Update Azure Stack.",
+    end_time_utc="2022-04-06T13:58:42.969006+00:00",
+    error_message="",
+    last_updated_time_utc="2022-04-06T13:58:42.969006+00:00",
+    name="Unnamed step",
+    resource_group_name="testrg",
+    start_time_utc="2022-04-06T01:36:33.3876751+00:00",
+    status="Success",
+    steps=[azure_native.azurestackhci.StepArgs(
+        description="Prepare for SSU update",
+        end_time_utc="2022-04-06T01:37:16.8728314+00:00",
+        error_message="",
+        last_updated_time_utc="2022-04-06T01:37:16.8728314+00:00",
+        name="PreUpdate Cloud",
+        start_time_utc="2022-04-06T01:36:33.3876751+00:00",
+        status="Success",
+        steps=[],
+    )],
+    update_name="Microsoft4.2203.2.32",
+    update_run_name="23b779ba-0d52-4a80-8571-45ca74664ec3")

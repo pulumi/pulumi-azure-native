@@ -1,0 +1,44 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workflow = azure_native.devhub.Workflow("workflow",
+    acr=azure_native.devhub.ACRArgs(
+        acr_registry_name="registry1",
+        acr_repository_name="repo1",
+        acr_resource_group="resourceGroup1",
+        acr_subscription_id="subscriptionId1",
+    ),
+    aks_resource_id="/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+    app_name="my-app",
+    branch_name="branch1",
+    deployment_properties=azure_native.devhub.DeploymentPropertiesArgs(
+        kube_manifest_locations=["/src/manifests/"],
+        manifest_type="kube",
+        overrides={
+            "key1": "value1",
+        },
+    ),
+    docker_build_context="repo1/src/",
+    dockerfile="repo1/images/Dockerfile",
+    dockerfile_generation_mode="enabled",
+    dockerfile_output_directory="./",
+    generation_language="javascript",
+    image_name="myimage",
+    image_tag="latest",
+    language_version="14",
+    location="location1",
+    manifest_generation_mode="enabled",
+    manifest_output_directory="./",
+    manifest_type="kube",
+    oidc_credentials=azure_native.devhub.GitHubWorkflowProfileOidcCredentialsArgs(
+        azure_client_id="12345678-3456-7890-5678-012345678901",
+        azure_tenant_id="66666666-3456-7890-5678-012345678901",
+    ),
+    port="80",
+    repository_name="repo1",
+    repository_owner="owner1",
+    resource_group_name="resourceGroup1",
+    tags={
+        "appname": "testApp",
+    },
+    workflow_name="workflow1")

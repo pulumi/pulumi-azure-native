@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+change_data_capture = azure_native.datafactory.ChangeDataCapture("changeDataCapture",
+    allow_v_net_override=False,
+    change_data_capture_name="exampleChangeDataCapture",
+    description="Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database with automapped and non-automapped mappings.",
+    factory_name="exampleFactoryName",
+    resource_group_name="exampleResourceGroup")

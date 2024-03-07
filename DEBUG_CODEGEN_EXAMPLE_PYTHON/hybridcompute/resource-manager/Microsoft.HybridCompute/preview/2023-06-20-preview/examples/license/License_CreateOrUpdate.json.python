@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+license = azure_native.hybridcompute.License("license",
+    license_details=azure_native.hybridcompute.LicenseDetailsArgs(
+        edition="Datacenter",
+        processors=6,
+        state="Activated",
+        target="Windows Server 2012",
+        type="pCore",
+    ),
+    license_name="{licenseName}",
+    license_type="ESU",
+    location="eastus2euap",
+    resource_group_name="myResourceGroup")

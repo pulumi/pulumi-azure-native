@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+api_policy = azure_native.apimanagement.ApiPolicy("apiPolicy",
+    api_id="5600b57e7e8880006a040001",
+    format="rawxml",
+    policy_id="policy",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    value="""<policies>
+     <inbound>
+     <base />
+  <set-header name="newvalue" exists-action="override">
+   <value>"@(context.Request.Headers.FirstOrDefault(h => h.Ke=="Via"))" </value>
+    </set-header>
+  </inbound>
+      </policies>""")

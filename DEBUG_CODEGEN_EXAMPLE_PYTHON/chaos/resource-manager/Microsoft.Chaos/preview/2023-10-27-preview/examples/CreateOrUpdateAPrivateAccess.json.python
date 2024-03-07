@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_access = azure_native.chaos.PrivateAccess("privateAccess",
+    location="centraluseuap",
+    private_access_name="myPrivateAccess",
+    resource_group_name="myResourceGroup")

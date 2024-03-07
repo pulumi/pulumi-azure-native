@@ -1,0 +1,29 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+profile = azure_native.network.Profile("profile",
+    allowed_endpoint_record_types=["DomainName"],
+    dns_config=azure_native.network.DnsConfigArgs(
+        relative_name="azuresdkfornetautoresttrafficmanager6192",
+        ttl=35,
+    ),
+    endpoints=[azure_native.network.EndpointArgs(
+        endpoint_location="North Europe",
+        endpoint_status="Enabled",
+        name="My external endpoint",
+        target="foobar.contoso.com",
+        type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    )],
+    location="global",
+    monitor_config=azure_native.network.MonitorConfigArgs(
+        interval_in_seconds=10,
+        path="/testpath.aspx",
+        port=80,
+        protocol="HTTP",
+        timeout_in_seconds=5,
+        tolerated_number_of_failures=2,
+    ),
+    profile_name="azuresdkfornetautoresttrafficmanager6192",
+    profile_status="Enabled",
+    resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+    traffic_routing_method="Performance")

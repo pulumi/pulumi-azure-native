@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+b2c_tenant = azure_native.azureactivedirectory.B2CTenant("b2cTenant",
+    country_code="US",
+    display_name="Contoso",
+    location="United States",
+    resource_group_name="contosoResourceGroup",
+    resource_name_="contoso.onmicrosoft.com",
+    sku=azure_native.azureactivedirectory.B2CResourceSKUArgs(
+        name="Standard",
+        tier="A0",
+    ))

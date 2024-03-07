@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+variable = azure_native.automation.Variable("variable",
+    automation_account_name="sampleAccount9",
+    description="my description",
+    is_encrypted=False,
+    name="sampleVariable",
+    resource_group_name="rg",
+    value="\"ComputerName.domain.com\"",
+    variable_name="sampleVariable")

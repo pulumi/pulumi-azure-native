@@ -1,0 +1,43 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+    device=azure_native.hybridnetwork.SubResourceArgs(
+        id="/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
+    ),
+    location="eastus",
+    managed_application_parameters={},
+    network_function_name="testNf",
+    network_function_user_configurations=[azure_native.hybridnetwork.NetworkFunctionUserConfigurationArgs(
+        network_interfaces=[
+            azure_native.hybridnetwork.NetworkInterfaceArgs(
+                ip_configurations=[azure_native.hybridnetwork.NetworkInterfaceIPConfigurationArgs(
+                    gateway="",
+                    ip_address="",
+                    ip_allocation_method="Dynamic",
+                    ip_version="IPv4",
+                    subnet="",
+                )],
+                mac_address="",
+                network_interface_name="nic1",
+                vm_switch_type="Management",
+            ),
+            azure_native.hybridnetwork.NetworkInterfaceArgs(
+                ip_configurations=[azure_native.hybridnetwork.NetworkInterfaceIPConfigurationArgs(
+                    gateway="",
+                    ip_address="",
+                    ip_allocation_method="Dynamic",
+                    ip_version="IPv4",
+                    subnet="",
+                )],
+                mac_address="DC-97-F8-79-16-7D",
+                network_interface_name="nic2",
+                vm_switch_type="Wan",
+            ),
+        ],
+        role_name="testRole",
+        user_data_parameters={},
+    )],
+    resource_group_name="rg",
+    sku_name="testSku",
+    vendor_name="testVendor")

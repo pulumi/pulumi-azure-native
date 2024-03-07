@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+linked_subscription = azure_native.azurestack.LinkedSubscription("linkedSubscription",
+    linked_subscription_id="104fbb77-2b0e-476a-83de-65ad8acd1f0b",
+    linked_subscription_name="testLinkedSubscription",
+    location="eastus",
+    registration_resource_id="/subscriptions/dd8597b4-8739-4467-8b10-f8679f62bfbf/resourceGroups/azurestack/providers/Microsoft.AzureStack/registrations/testRegistration",
+    resource_group="azurestack")

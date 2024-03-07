@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+certificate = azure_native.app.Certificate("certificate",
+    certificate_name="certificate-firendly-name",
+    environment_name="testcontainerenv",
+    location="East US",
+    properties=azure_native.app.CertificatePropertiesArgs(
+        password="private key password",
+        value="Y2VydA==",
+    ),
+    resource_group_name="examplerg")

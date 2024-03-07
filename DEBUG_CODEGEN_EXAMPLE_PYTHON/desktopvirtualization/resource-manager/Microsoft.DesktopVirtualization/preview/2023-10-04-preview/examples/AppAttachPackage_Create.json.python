@@ -1,0 +1,41 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+app_attach_package = azure_native.desktopvirtualization.AppAttachPackage("appAttachPackage",
+    app_attach_package_name="msixpackagefullname",
+    location="southcentralus",
+    properties=azure_native.desktopvirtualization.AppAttachPackagePropertiesArgs(
+        fail_health_check_on_staging_failure="NeedsAssistance",
+        host_pool_references=[],
+        image=azure_native.desktopvirtualization.AppAttachPackageInfoPropertiesArgs(
+            certificate_expiry="2023-01-02T17:18:19.1234567Z",
+            certificate_name="certName",
+            display_name="displayname",
+            image_path="imagepath",
+            is_active=False,
+            is_regular_registration=False,
+            last_updated="2008-09-22T14:01:54.9571247Z",
+            package_alias="msixpackagealias",
+            package_applications=[azure_native.desktopvirtualization.MsixPackageApplicationsArgs(
+                app_id="AppId",
+                app_user_model_id="AppUserModelId",
+                description="PackageApplicationDescription",
+                friendly_name="FriendlyName",
+                icon_image_name="Iconimagename",
+                raw_icon="VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+                raw_png="VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+            )],
+            package_dependencies=[azure_native.desktopvirtualization.MsixPackageDependenciesArgs(
+                dependency_name="MsixPackage_Dependency_Name",
+                min_version="packageDep_version",
+                publisher="MsixPackage_Dependency_Publisher",
+            )],
+            package_family_name="MsixPackage_FamilyName",
+            package_full_name="MsixPackage_FullName",
+            package_name="MsixPackageName",
+            package_relative_path="packagerelativepath",
+            version="packageversion",
+        ),
+        key_vault_url="",
+    ),
+    resource_group_name="resourceGroup1")

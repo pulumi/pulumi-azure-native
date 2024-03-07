@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+restore_point = azure_native.compute.RestorePoint("restorePoint",
+    exclude_disks=[azure_native.compute.ApiEntityReferenceArgs(
+        id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+    )],
+    resource_group_name="myResourceGroup",
+    restore_point_collection_name="rpcName",
+    restore_point_name="rpName")

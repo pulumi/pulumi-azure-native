@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+infrastructure_resource = azure_native.integrationspaces.InfrastructureResource("infrastructureResource",
+    infrastructure_resource_name="InfrastructureResource1",
+    resource_group_name="testrg",
+    resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.ApiManagement/service/APIM1",
+    resource_type="Microsoft.ApiManagement/service",
+    space_name="Space1")

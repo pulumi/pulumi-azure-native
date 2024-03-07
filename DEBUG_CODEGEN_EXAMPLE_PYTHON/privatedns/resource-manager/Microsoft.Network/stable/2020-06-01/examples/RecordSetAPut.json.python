@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_record_set = azure_native.network.PrivateRecordSet("privateRecordSet",
+    a_records=[azure_native.network.ARecordArgs(
+        ipv4_address="1.2.3.4",
+    )],
+    metadata={
+        "key1": "value1",
+    },
+    private_zone_name="privatezone1.com",
+    record_type="A",
+    relative_record_set_name="recordA",
+    resource_group_name="resourceGroup1",
+    ttl=3600)

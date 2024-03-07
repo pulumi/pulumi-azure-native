@@ -1,0 +1,105 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cluster = azure_native.hdinsight.Cluster("cluster",
+    cluster_name="cluster1",
+    properties=azure_native.hdinsight.ClusterCreatePropertiesArgs(
+        cluster_definition=azure_native.hdinsight.ClusterDefinitionArgs(
+            component_version={
+                "Hadoop": "2.7",
+            },
+            configurations={
+                "gateway": {
+                    "restAuthCredential.isEnabled": True,
+                    "restAuthCredential.password": "**********",
+                    "restAuthCredential.username": "admin",
+                },
+            },
+            kind="hadoop",
+        ),
+        cluster_version="3.6",
+        compute_profile=azure_native.hdinsight.ComputeProfileArgs(
+            roles=[azure_native.hdinsight.RoleArgs(
+                autoscale_configuration=azure_native.hdinsight.AutoscaleArgs(
+                    recurrence=azure_native.hdinsight.AutoscaleRecurrenceArgs(
+                        schedule=[
+                            azure_native.hdinsight.AutoscaleScheduleArgs(
+                                days=[
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                ],
+                                time_and_capacity=azure_native.hdinsight.AutoscaleTimeAndCapacityArgs(
+                                    max_instance_count=3,
+                                    min_instance_count=3,
+                                    time="09:00",
+                                ),
+                            ),
+                            azure_native.hdinsight.AutoscaleScheduleArgs(
+                                days=[
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                ],
+                                time_and_capacity=azure_native.hdinsight.AutoscaleTimeAndCapacityArgs(
+                                    max_instance_count=6,
+                                    min_instance_count=6,
+                                    time="18:00",
+                                ),
+                            ),
+                            azure_native.hdinsight.AutoscaleScheduleArgs(
+                                days=[
+                                    "Saturday",
+                                    "Sunday",
+                                ],
+                                time_and_capacity=azure_native.hdinsight.AutoscaleTimeAndCapacityArgs(
+                                    max_instance_count=2,
+                                    min_instance_count=2,
+                                    time="09:00",
+                                ),
+                            ),
+                            azure_native.hdinsight.AutoscaleScheduleArgs(
+                                days=[
+                                    "Saturday",
+                                    "Sunday",
+                                ],
+                                time_and_capacity=azure_native.hdinsight.AutoscaleTimeAndCapacityArgs(
+                                    max_instance_count=4,
+                                    min_instance_count=4,
+                                    time="18:00",
+                                ),
+                            ),
+                        ],
+                        time_zone="China Standard Time",
+                    ),
+                ),
+                hardware_profile=azure_native.hdinsight.HardwareProfileArgs(
+                    vm_size="Standard_D4_V2",
+                ),
+                name="workernode",
+                os_profile=azure_native.hdinsight.OsProfileArgs(
+                    linux_operating_system_profile=azure_native.hdinsight.LinuxOperatingSystemProfileArgs(
+                        password="**********",
+                        username="sshuser",
+                    ),
+                ),
+                script_actions=[],
+                target_instance_count=4,
+            )],
+        ),
+        os_type="Linux",
+        storage_profile=azure_native.hdinsight.StorageProfileArgs(
+            storageaccounts=[azure_native.hdinsight.StorageAccountArgs(
+                container="hdinsight-autoscale-tes-2019-06-18t05-49-16-591z",
+                is_default=True,
+                key="storagekey",
+                name="mystorage.blob.core.windows.net",
+            )],
+        ),
+        tier="Standard",
+    ),
+    resource_group_name="rg1")

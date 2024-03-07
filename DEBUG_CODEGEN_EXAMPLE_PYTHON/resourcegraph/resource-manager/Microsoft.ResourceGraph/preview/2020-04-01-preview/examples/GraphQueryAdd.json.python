@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+graph_query = azure_native.resourcegraph.GraphQuery("graphQuery",
+    description="Docker VMs in PROD",
+    query="where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+    resource_group_name="my-resource-group",
+    resource_name_="MyDockerVMs",
+    tags={})

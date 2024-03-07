@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_hub_ip_configuration = azure_native.network.VirtualHubIpConfiguration("virtualHubIpConfiguration",
+    ip_config_name="ipconfig1",
+    resource_group_name="rg1",
+    subnet=azure_native.network.SubnetArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ),
+    virtual_hub_name="hub1")

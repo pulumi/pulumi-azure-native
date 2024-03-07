@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_pool_workload_classifier = azure_native.synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier",
+    member_name="dbo",
+    resource_group_name="sqlcrudtest-6852",
+    sql_pool_name="sqlcrudtest-9187",
+    workload_classifier_name="wlm_workloadclassifier",
+    workload_group_name="wlm_workloadgroup",
+    workspace_name="sqlcrudtest-2080")

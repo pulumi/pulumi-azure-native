@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+api = azure_native.apimanagement.Api("api",
+    api_id="tempgroup",
+    authentication_settings=azure_native.apimanagement.AuthenticationSettingsContractArgs(
+        openid=azure_native.apimanagement.OpenIdAuthenticationSettingsContractArgs(
+            bearer_token_sending_methods=["authorizationHeader"],
+            openid_provider_id="testopenid",
+        ),
+    ),
+    description="This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+    display_name="Swagger Petstore",
+    path="petstore",
+    protocols=["https"],
+    resource_group_name="rg1",
+    service_name="apimService1",
+    service_url="http://petstore.swagger.io/v2",
+    subscription_key_parameter_names=azure_native.apimanagement.SubscriptionKeyParameterNamesContractArgs(
+        header="Ocp-Apim-Subscription-Key",
+        query="subscription-key",
+    ))

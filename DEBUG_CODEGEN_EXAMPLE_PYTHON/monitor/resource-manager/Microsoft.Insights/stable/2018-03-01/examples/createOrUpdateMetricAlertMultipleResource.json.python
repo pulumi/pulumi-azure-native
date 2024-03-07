@@ -1,0 +1,40 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+metric_alert = azure_native.insights.MetricAlert("metricAlert",
+    actions=[azure_native.insights.MetricAlertActionArgs(
+        action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+        web_hook_properties={
+            "key11": "value11",
+            "key12": "value12",
+        },
+    )],
+    auto_mitigate=True,
+    criteria=azure_native.insights.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+        all_of=[azure_native.insights.MetricCriteriaArgs(
+            criterion_type="StaticThresholdCriterion",
+            dimensions=[],
+            metric_name="Percentage CPU",
+            metric_namespace="microsoft.compute/virtualmachines",
+            name="High_CPU_80",
+            operator="GreaterThan",
+            threshold=80.5,
+            time_aggregation="Average",
+        )],
+        odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    ),
+    description="This is the description of the rule1",
+    enabled=True,
+    evaluation_frequency="PT1M",
+    location="global",
+    resource_group_name="gigtest",
+    rule_name="MetricAlertOnMultipleResources",
+    scopes=[
+        "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+        "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+    ],
+    severity=3,
+    tags={},
+    target_resource_region="southcentralus",
+    target_resource_type="Microsoft.Compute/virtualMachines",
+    window_size="PT15M")

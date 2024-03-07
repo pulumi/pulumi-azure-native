@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sap_virtual_instance = azure_native.workloads.SAPVirtualInstance("sapVirtualInstance",
+    configuration=azure_native.workloads.DiscoveryConfigurationArgs(
+        central_server_vm_id="/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+        configuration_type="Discovery",
+        managed_rg_storage_account_name="q20saacssgrs",
+    ),
+    environment="NonProd",
+    location="northeurope",
+    resource_group_name="test-rg",
+    sap_product="S4HANA",
+    sap_virtual_instance_name="X00",
+    tags={
+        "createdby": "abc@microsoft.com",
+        "test": "abc",
+    })

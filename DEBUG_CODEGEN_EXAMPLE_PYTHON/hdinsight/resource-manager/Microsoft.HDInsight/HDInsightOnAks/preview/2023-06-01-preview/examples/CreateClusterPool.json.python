@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cluster_pool = azure_native.hdinsight.ClusterPool("clusterPool",
+    cluster_pool_name="clusterpool1",
+    cluster_pool_profile=azure_native.hdinsight.ClusterPoolResourcePropertiesClusterPoolProfileArgs(
+        cluster_pool_version="1.2",
+    ),
+    compute_profile=azure_native.hdinsight.ClusterPoolResourcePropertiesComputeProfileArgs(
+        vm_size="Standard_D3_v2",
+    ),
+    location="West US 2",
+    resource_group_name="hiloResourcegroup")

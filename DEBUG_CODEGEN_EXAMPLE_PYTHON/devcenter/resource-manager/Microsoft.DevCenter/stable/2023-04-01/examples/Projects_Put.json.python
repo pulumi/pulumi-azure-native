@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+project = azure_native.devcenter.Project("project",
+    description="This is my first project.",
+    dev_center_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso",
+    location="centralus",
+    project_name="DevProject",
+    resource_group_name="rg1",
+    tags={
+        "CostCenter": "R&D",
+    })

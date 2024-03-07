@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+event_hub_connection = azure_native.kusto.EventHubConnection("eventHubConnection",
+    cluster_name="KustoClusterRPTest4",
+    consumer_group="testConsumerGroup1",
+    database_name="KustoDatabase8",
+    event_hub_connection_name="kustoeventhubconnection1",
+    event_hub_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+    location="westus",
+    resource_group_name="kustorptest")

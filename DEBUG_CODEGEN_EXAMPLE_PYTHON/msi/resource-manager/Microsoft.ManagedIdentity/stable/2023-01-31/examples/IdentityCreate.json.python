@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+user_assigned_identity = azure_native.managedidentity.UserAssignedIdentity("userAssignedIdentity",
+    location="eastus",
+    resource_group_name="rgName",
+    resource_name_="resourceName",
+    tags={
+        "key1": "value1",
+        "key2": "value2",
+    })

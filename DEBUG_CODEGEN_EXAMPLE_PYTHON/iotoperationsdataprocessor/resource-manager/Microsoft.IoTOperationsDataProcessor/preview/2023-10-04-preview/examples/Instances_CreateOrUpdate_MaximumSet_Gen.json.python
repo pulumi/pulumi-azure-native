@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+instance = azure_native.iotoperationsdataprocessor.Instance("instance",
+    description="ytazzjdwgnnwsmexqasgpyabrtkgtf",
+    extended_location=azure_native.iotoperationsdataprocessor.ExtendedLocationArgs(
+        name="/subscriptions/e0aaa3df-e9a4-456a-9824-3c3b5c438110/resourceGroups/IoTOperationsDataProcessor-rg/providers/Microsoft.ExtendedLocation/customLocations/dev-space",
+        type="CustomLocation",
+    ),
+    instance_name="15wp-47-e60s18w",
+    location="westus",
+    resource_group_name="rgopenapi",
+    tags={})

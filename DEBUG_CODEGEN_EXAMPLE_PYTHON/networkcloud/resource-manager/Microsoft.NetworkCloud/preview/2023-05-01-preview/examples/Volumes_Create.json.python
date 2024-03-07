@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+volume = azure_native.networkcloud.Volume("volume",
+    extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+        name="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+        type="CustomLocation",
+    ),
+    location="location",
+    resource_group_name="resourceGroupName",
+    size_mi_b=10000,
+    tags={
+        "key1": "myvalue1",
+        "key2": "myvalue2",
+    },
+    volume_name="volumeName")

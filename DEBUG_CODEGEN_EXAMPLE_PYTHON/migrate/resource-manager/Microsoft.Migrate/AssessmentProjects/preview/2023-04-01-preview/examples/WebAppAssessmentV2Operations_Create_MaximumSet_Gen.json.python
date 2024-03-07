@@ -1,0 +1,40 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_app_assessment_v2_operation = azure_native.migrate.WebAppAssessmentV2Operation("webAppAssessmentV2Operation",
+    app_svc_container_settings=azure_native.migrate.AppSvcContainerSettingsArgs(
+        isolation_required=True,
+    ),
+    app_svc_native_settings=azure_native.migrate.AppSvcNativeSettingsArgs(
+        isolation_required=True,
+    ),
+    assessment_name="anraghun-selfhost-v2",
+    assessment_type="WebAppAssessment",
+    azure_location="UkWest",
+    azure_offer_code="MSAZR0003P",
+    azure_security_offering_type="NO",
+    confidence_rating_in_percentage=13,
+    currency="USD",
+    discount_percentage=13,
+    discovered_entity_light_summary=azure_native.migrate.DiscoveredEntityLightSummaryArgs(
+        number_of_machines=27,
+        number_of_servers=5,
+        number_of_web_apps=23,
+    ),
+    ea_subscription_id="",
+    entity_uptime=azure_native.migrate.EntityUptimeArgs(
+        days_per_month=18,
+        hours_per_day=13,
+    ),
+    environment_type="Production",
+    group_name="anraghun-selfhost-v2",
+    group_type="Default",
+    percentile="Percentile50",
+    perf_data_end_time="2023-11-03T05:42:45.496Z",
+    perf_data_start_time="2023-11-03T05:42:45.496Z",
+    project_name="sumukk-ccy-bcs4557project",
+    reserved_instance="None",
+    resource_group_name="rgopenapi",
+    scaling_factor=17,
+    sizing_criterion="PerformanceBased",
+    time_range="Day")

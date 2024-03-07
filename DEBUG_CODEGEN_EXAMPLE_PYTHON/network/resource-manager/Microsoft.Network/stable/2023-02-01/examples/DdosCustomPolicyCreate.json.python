@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+ddos_custom_policy = azure_native.network.DdosCustomPolicy("ddosCustomPolicy",
+    ddos_custom_policy_name="test-ddos-custom-policy",
+    location="centraluseuap",
+    resource_group_name="rg1")

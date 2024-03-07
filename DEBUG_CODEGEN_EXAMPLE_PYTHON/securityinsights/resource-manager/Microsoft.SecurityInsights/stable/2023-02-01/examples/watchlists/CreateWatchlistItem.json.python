@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+watchlist_item = azure_native.securityinsights.WatchlistItem("watchlistItem",
+    items_key_value={
+        "Business tier": "10.0.2.0/24",
+        "Data tier": "10.0.2.0/24",
+        "Gateway subnet": "10.0.255.224/27",
+        "Private DMZ in": "10.0.0.0/27",
+        "Public DMZ out": "10.0.0.96/27",
+        "Web Tier": "10.0.1.0/24",
+    },
+    resource_group_name="myRg",
+    watchlist_alias="highValueAsset",
+    watchlist_item_id="82ba292c-dc97-4dfc-969d-d4dd9e666842",
+    workspace_name="myWorkspace")

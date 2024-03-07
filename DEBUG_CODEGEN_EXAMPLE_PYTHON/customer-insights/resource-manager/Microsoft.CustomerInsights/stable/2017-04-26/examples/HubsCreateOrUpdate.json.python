@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hub = azure_native.customerinsights.Hub("hub",
+    hub_billing_info=azure_native.customerinsights.HubBillingInfoFormatArgs(
+        max_units=5,
+        min_units=1,
+        sku_name="B0",
+    ),
+    hub_name="sdkTestHub",
+    location="West US",
+    resource_group_name="TestHubRG")

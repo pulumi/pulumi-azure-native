@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+resource_guard = azure_native.dataprotection.ResourceGuard("resourceGuard",
+    location="WestUS",
+    resource_group_name="SampleResourceGroup",
+    resource_guards_name="swaggerExample",
+    tags={
+        "key1": "val1",
+    })

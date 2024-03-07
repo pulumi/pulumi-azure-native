@@ -1,0 +1,32 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connection_monitor = azure_native.network.ConnectionMonitor("connectionMonitor",
+    connection_monitor_name="cm1",
+    endpoints=[
+        azure_native.network.ConnectionMonitorEndpointArgs(
+            name="source",
+            resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/ct1",
+        ),
+        azure_native.network.ConnectionMonitorEndpointArgs(
+            address="bing.com",
+            name="destination",
+        ),
+    ],
+    location="eastus",
+    network_watcher_name="nw1",
+    resource_group_name="rg1",
+    test_configurations=[azure_native.network.ConnectionMonitorTestConfigurationArgs(
+        name="tcp",
+        protocol="Tcp",
+        tcp_configuration=azure_native.network.ConnectionMonitorTcpConfigurationArgs(
+            port=80,
+        ),
+        test_frequency_sec=60,
+    )],
+    test_groups=[azure_native.network.ConnectionMonitorTestGroupArgs(
+        destinations=["destination"],
+        name="tg",
+        sources=["source"],
+        test_configurations=["tcp"],
+    )])

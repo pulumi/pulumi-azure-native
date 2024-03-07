@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+dapr_subscription = azure_native.app.DaprSubscription("daprSubscription",
+    environment_name="myenvironment",
+    name="mysubscription",
+    pubsub_name="mypubsubcomponent",
+    resource_group_name="examplerg",
+    routes=azure_native.app.DaprSubscriptionRoutesArgs(
+        default="/products",
+    ),
+    topic="inventory")

@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+policy_fragment = azure_native.apimanagement.PolicyFragment("policyFragment",
+    description="A policy fragment example",
+    format="xml",
+    id="policyFragment1",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    value="<fragment><json-to-xml apply=\"always\" consider-accept-header=\"false\" /></fragment>")

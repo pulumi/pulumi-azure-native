@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+diagnostic_setting = azure_native.insights.DiagnosticSetting("diagnosticSetting",
+    event_hub_authorization_rule_id="/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+    event_hub_name="myeventhub",
+    log_analytics_destination_type="Dedicated",
+    logs=[azure_native.insights.LogSettingsArgs(
+        category="WorkflowRuntime",
+        enabled=True,
+        retention_policy=azure_native.insights.RetentionPolicyArgs(
+            days=0,
+            enabled=False,
+        ),
+    )],
+    marketplace_partner_id="/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+    metrics=[azure_native.insights.MetricSettingsArgs(
+        category="WorkflowMetrics",
+        enabled=True,
+        retention_policy=azure_native.insights.RetentionPolicyArgs(
+            days=0,
+            enabled=False,
+        ),
+    )],
+    name="mysetting",
+    resource_uri="subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6",
+    storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+    workspace_id="")

@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+digital_twins_endpoint = azure_native.digitaltwins.DigitalTwinsEndpoint("digitalTwinsEndpoint",
+    endpoint_name="myServiceBus",
+    properties=azure_native.digitaltwins.ServiceBusArgs(
+        authentication_type="KeyBased",
+        endpoint_type="ServiceBus",
+        primary_connection_string="Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+        secondary_connection_string="Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+    ),
+    resource_group_name="resRg",
+    resource_name_="myDigitalTwinsService")

@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_resource_sql_role_assignment = azure_native.documentdb.SqlResourceSqlRoleAssignment("sqlResourceSqlRoleAssignment",
+    account_name="myAccountName",
+    principal_id="myPrincipalId",
+    resource_group_name="myResourceGroupName",
+    role_assignment_id="myRoleAssignmentId",
+    role_definition_id="/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId",
+    scope="/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases/colls/redmond-purchases")

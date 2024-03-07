@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+email_service = azure_native.communication.EmailService("emailService",
+    data_location="United States",
+    email_service_name="MyEmailServiceResource",
+    location="Global",
+    resource_group_name="MyResourceGroup")

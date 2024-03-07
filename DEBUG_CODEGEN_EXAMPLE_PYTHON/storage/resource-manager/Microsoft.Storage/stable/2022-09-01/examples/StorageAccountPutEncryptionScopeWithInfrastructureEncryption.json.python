@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+encryption_scope = azure_native.storage.EncryptionScope("encryptionScope",
+    account_name="{storage-account-name}",
+    encryption_scope_name="{encryption-scope-name}",
+    require_infrastructure_encryption=True,
+    resource_group_name="resource-group-name")

@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+catalog = azure_native.azuresphere.Catalog("catalog",
+    catalog_name="MyCatalog1",
+    location="global",
+    resource_group_name="MyResourceGroup1")

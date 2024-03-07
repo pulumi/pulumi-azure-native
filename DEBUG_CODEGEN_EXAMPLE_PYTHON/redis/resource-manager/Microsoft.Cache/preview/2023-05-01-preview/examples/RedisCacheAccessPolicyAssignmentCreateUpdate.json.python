@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+access_policy_assignment = azure_native.cache.AccessPolicyAssignment("accessPolicyAssignment",
+    access_policy_assignment_name="accessPolicyAssignmentName1",
+    access_policy_name="accessPolicy1",
+    cache_name="cache1",
+    object_id="6497c918-11ad-41e7-1b0f-7c518a87d0b0",
+    object_id_alias="TestAADAppRedis",
+    resource_group_name="rg1")

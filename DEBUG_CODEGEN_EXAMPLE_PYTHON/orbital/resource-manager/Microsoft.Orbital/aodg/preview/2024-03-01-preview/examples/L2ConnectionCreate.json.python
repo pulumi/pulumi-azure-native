@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+l2_connection = azure_native.orbital.L2Connection("l2Connection",
+    edge_site=azure_native.orbital.L2ConnectionsPropertiesEdgeSiteArgs(
+        id="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/rg1/providers/Microsoft.Orbital/edgeSites/es1",
+    ),
+    ground_station=azure_native.orbital.L2ConnectionsPropertiesGroundStationArgs(
+        id="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/rg1/providers/Microsoft.Orbital/groundStations/gs1",
+    ),
+    l2_connection_name="connection1",
+    location="westus",
+    name="customerName-SiteName-01",
+    resource_group_name="rg1",
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    },
+    vlan_id=200)

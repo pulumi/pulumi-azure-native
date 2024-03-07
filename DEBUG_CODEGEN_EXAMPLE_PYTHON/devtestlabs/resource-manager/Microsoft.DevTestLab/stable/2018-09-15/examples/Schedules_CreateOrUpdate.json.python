@@ -1,0 +1,36 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+schedule = azure_native.devtestlab.Schedule("schedule",
+    daily_recurrence=azure_native.devtestlab.DayDetailsArgs(
+        time="{timeOfTheDayTheScheduleWillOccurEveryDay}",
+    ),
+    hourly_recurrence=azure_native.devtestlab.HourDetailsArgs(
+        minute=30,
+    ),
+    lab_name="{labName}",
+    location="{location}",
+    name="{scheduleName}",
+    notification_settings=azure_native.devtestlab.NotificationSettingsArgs(
+        email_recipient="{email}",
+        notification_locale="EN",
+        status="{Enabled|Disabled}",
+        time_in_minutes=15,
+        webhook_url="{webhookUrl}",
+    ),
+    resource_group_name="resourceGroupName",
+    status="{Enabled|Disabled}",
+    tags={
+        "tagName1": "tagValue1",
+    },
+    target_resource_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
+    task_type="{myLabVmTaskType}",
+    time_zone_id="Pacific Standard Time",
+    weekly_recurrence=azure_native.devtestlab.WeekDetailsArgs(
+        time="{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
+        weekdays=[
+            "Monday",
+            "Wednesday",
+            "Friday",
+        ],
+    ))

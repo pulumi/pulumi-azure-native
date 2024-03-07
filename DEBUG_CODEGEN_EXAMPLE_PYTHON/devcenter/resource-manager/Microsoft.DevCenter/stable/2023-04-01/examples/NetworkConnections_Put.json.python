@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_connection = azure_native.devcenter.NetworkConnection("networkConnection",
+    domain_join_type="HybridAzureADJoin",
+    domain_name="mydomaincontroller.local",
+    domain_password="Password value for user",
+    domain_username="testuser@mydomaincontroller.local",
+    location="centralus",
+    network_connection_name="uswest3network",
+    networking_resource_group_name="NetworkInterfaces",
+    resource_group_name="rg1",
+    subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default")

@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+nsp_access_rule = azure_native.network.NspAccessRule("nspAccessRule",
+    access_rule_name="accessRule1",
+    address_prefixes=[
+        "10.11.0.0/16",
+        "10.10.1.0/24",
+    ],
+    direction="Inbound",
+    network_security_perimeter_name="nsp1",
+    profile_name="profile1",
+    resource_group_name="rg1")

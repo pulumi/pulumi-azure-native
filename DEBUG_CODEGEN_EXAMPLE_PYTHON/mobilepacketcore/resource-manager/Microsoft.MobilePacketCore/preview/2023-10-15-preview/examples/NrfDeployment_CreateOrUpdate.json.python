@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+nrf_deployment = azure_native.mobilepacketcore.NrfDeployment("nrfDeployment",
+    cluster_service="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobilePacketCore/clusterServices/byoCluster",
+    component_parameters="{\"global\": {\"registry\": {\"docker\": []}}}",
+    location="eastus",
+    nrf_deployment_name="nrfDeployment1",
+    resource_group_name="rg1",
+    secrets_parameters="{\"global\": {\"secret\": {\"secretValue\": []}}}")

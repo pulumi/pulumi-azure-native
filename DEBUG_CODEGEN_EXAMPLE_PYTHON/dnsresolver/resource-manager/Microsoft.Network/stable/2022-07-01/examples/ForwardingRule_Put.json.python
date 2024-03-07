@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+forwarding_rule = azure_native.network.ForwardingRule("forwardingRule",
+    dns_forwarding_ruleset_name="sampleDnsForwardingRuleset",
+    domain_name="contoso.com.",
+    forwarding_rule_name="sampleForwardingRule",
+    forwarding_rule_state="Enabled",
+    metadata={
+        "additionalProp1": "value1",
+    },
+    resource_group_name="sampleResourceGroup",
+    target_dns_servers=[
+        azure_native.network.TargetDnsServerArgs(
+            ip_address="10.0.0.1",
+            port=53,
+        ),
+        azure_native.network.TargetDnsServerArgs(
+            ip_address="10.0.0.2",
+            port=53,
+        ),
+    ])

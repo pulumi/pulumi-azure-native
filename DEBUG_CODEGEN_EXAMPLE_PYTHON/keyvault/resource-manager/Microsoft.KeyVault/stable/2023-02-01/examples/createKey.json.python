@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+key = azure_native.keyvault.Key("key",
+    key_name="sample-key-name",
+    properties=azure_native.keyvault.KeyPropertiesArgs(
+        kty="RSA",
+    ),
+    resource_group_name="sample-group",
+    vault_name="sample-vault-name")

@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+static_site_user_provided_function_app_for_static_site = azure_native.web.StaticSiteUserProvidedFunctionAppForStaticSite("staticSiteUserProvidedFunctionAppForStaticSite",
+    function_app_name="testFunctionApp",
+    function_app_region="West US 2",
+    function_app_resource_id="/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/functionRG/providers/Microsoft.Web/sites/testFunctionApp",
+    is_forced=True,
+    name="testStaticSite0",
+    resource_group_name="rg")

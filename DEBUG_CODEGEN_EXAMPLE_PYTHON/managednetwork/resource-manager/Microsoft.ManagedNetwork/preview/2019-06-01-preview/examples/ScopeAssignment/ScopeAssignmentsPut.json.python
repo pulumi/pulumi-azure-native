@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+scope_assignment = azure_native.managednetwork.ScopeAssignment("scopeAssignment",
+    assigned_managed_network="/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork",
+    scope="subscriptions/subscriptionC",
+    scope_assignment_name="subscriptionCAssignment")

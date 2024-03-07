@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.purview.PrivateEndpointConnection("privateEndpointConnection",
+    account_name="account1",
+    private_endpoint_connection_name="privateEndpointConnection1",
+    private_link_service_connection_state=azure_native.purview.PrivateLinkServiceConnectionStateArgs(
+        description="Approved by johndoe@company.com",
+        status="Approved",
+    ),
+    resource_group_name="SampleResourceGroup")

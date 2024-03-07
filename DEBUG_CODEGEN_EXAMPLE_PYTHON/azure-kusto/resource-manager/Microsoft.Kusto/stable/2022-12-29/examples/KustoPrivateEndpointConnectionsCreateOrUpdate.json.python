@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.kusto.PrivateEndpointConnection("privateEndpointConnection",
+    cluster_name="kustoclusterrptest4",
+    private_endpoint_connection_name="privateEndpointTest",
+    private_link_service_connection_state=azure_native.kusto.PrivateLinkServiceConnectionStatePropertyArgs(
+        description="Approved by johndoe@contoso.com",
+        status="Approved",
+    ),
+    resource_group_name="kustorptest")

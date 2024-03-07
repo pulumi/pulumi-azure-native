@@ -1,0 +1,36 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cost_allocation_rule = azure_native.costmanagement.CostAllocationRule("costAllocationRule",
+    billing_account_id="100",
+    properties=azure_native.costmanagement.CostAllocationRulePropertiesArgs(
+        description="This is a testRule",
+        details=azure_native.costmanagement.CostAllocationRuleDetailsArgs(
+            source_resources=[azure_native.costmanagement.SourceCostAllocationResourceArgs(
+                name="category",
+                resource_type="Tag",
+                values=["devops"],
+            )],
+            target_resources=[azure_native.costmanagement.TargetCostAllocationResourceArgs(
+                name="ResourceGroupName",
+                policy_type="FixedProportion",
+                resource_type="Dimension",
+                values=[
+                    azure_native.costmanagement.CostAllocationProportionArgs(
+                        name="destinationRG",
+                        percentage=33.33,
+                    ),
+                    azure_native.costmanagement.CostAllocationProportionArgs(
+                        name="destinationRG2",
+                        percentage=33.33,
+                    ),
+                    azure_native.costmanagement.CostAllocationProportionArgs(
+                        name="destinationRG3",
+                        percentage=33.34,
+                    ),
+                ],
+            )],
+        ),
+        status="Active",
+    ),
+    rule_name="testRule")

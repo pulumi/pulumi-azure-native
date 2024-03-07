@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+shared_commitment_plan = azure_native.cognitiveservices.SharedCommitmentPlan("sharedCommitmentPlan",
+    commitment_plan_name="commitmentPlanName",
+    kind="SpeechServices",
+    location="West US",
+    properties=azure_native.cognitiveservices.CommitmentPlanPropertiesArgs(
+        auto_renew=True,
+        current=azure_native.cognitiveservices.CommitmentPeriodArgs(
+            tier="T1",
+        ),
+        hosting_model="Web",
+        plan_type="STT",
+    ),
+    resource_group_name="resourceGroupName",
+    sku=azure_native.cognitiveservices.SkuArgs(
+        name="S0",
+    ))

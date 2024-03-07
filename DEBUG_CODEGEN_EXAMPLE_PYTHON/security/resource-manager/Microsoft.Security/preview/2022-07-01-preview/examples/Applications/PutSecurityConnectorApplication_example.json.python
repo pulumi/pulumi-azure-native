@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+security_connector_application = azure_native.security.SecurityConnectorApplication("securityConnectorApplication",
+    application_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    description="An application on critical GCP recommendations",
+    display_name="GCP Admin's application",
+    resource_group_name="gcpResourceGroup",
+    security_connector_name="gcpconnector",
+    source_resource_type="Assessments")

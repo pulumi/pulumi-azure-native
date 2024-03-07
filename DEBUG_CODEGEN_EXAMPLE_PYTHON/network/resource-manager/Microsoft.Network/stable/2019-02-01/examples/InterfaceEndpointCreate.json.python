@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+interface_endpoint = azure_native.network.InterfaceEndpoint("interfaceEndpoint",
+    endpoint_service=azure_native.network.EndpointServiceArgs(
+        id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Provider/resourceType/resourceName",
+    ),
+    fqdn="uniqueIdentifier.fqdn.windows.net",
+    interface_endpoint_name="testIe",
+    resource_group_name="rg1",
+    subnet=azure_native.network.SubnetArgs(
+        id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ))

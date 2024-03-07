@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+archive_version = azure_native.containerregistry.ArchiveVersion("archiveVersion",
+    archive_name="myArchiveName",
+    archive_version_name="myArchiveVersionName",
+    package_type="rpm",
+    registry_name="myRegistry",
+    resource_group_name="myResourceGroup")

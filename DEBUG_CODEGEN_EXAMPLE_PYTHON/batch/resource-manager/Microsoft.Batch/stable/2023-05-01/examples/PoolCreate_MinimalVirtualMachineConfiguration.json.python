@@ -1,0 +1,25 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+pool = azure_native.batch.Pool("pool",
+    account_name="sampleacct",
+    deployment_configuration=azure_native.batch.DeploymentConfigurationArgs(
+        virtual_machine_configuration=azure_native.batch.VirtualMachineConfigurationArgs(
+            image_reference=azure_native.batch.ImageReferenceArgs(
+                offer="UbuntuServer",
+                publisher="Canonical",
+                sku="18.04-LTS",
+                version="latest",
+            ),
+            node_agent_sku_id="batch.node.ubuntu 18.04",
+        ),
+    ),
+    pool_name="testpool",
+    resource_group_name="default-azurebatch-japaneast",
+    scale_settings=azure_native.batch.ScaleSettingsArgs(
+        auto_scale=azure_native.batch.AutoScaleSettingsArgs(
+            evaluation_interval="PT5M",
+            formula="$TargetDedicatedNodes=1",
+        ),
+    ),
+    vm_size="STANDARD_D4")

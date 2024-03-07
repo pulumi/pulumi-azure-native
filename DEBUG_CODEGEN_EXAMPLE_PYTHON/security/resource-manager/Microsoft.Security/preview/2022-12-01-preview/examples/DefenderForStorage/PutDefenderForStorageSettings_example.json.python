@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+defender_for_storage = azure_native.security.DefenderForStorage("defenderForStorage",
+    is_enabled=True,
+    malware_scanning=azure_native.security.MalwareScanningPropertiesArgs(
+        cap_gb_per_month=-1,
+        is_enabled=True,
+        scan_results_event_grid_topic_resource_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.EventGrid/topics/sampletopic",
+    ),
+    override_subscription_level_settings=True,
+    resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount",
+    sensitive_data_discovery=azure_native.security.SensitiveDataDiscoveryPropertiesArgs(
+        is_enabled=True,
+    ),
+    setting_name="current")

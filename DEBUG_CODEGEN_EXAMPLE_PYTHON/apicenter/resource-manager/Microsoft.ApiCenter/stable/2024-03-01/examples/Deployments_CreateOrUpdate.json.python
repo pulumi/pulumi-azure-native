@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+deployment = azure_native.apicenter.Deployment("deployment",
+    api_name="echo-api",
+    definition_id="/workspaces/default/apis/echo-api/versions/2023-01-01/definitions/openapi",
+    deployment_name="production",
+    description="Public cloud production deployment.",
+    environment_id="/workspaces/default/environments/production",
+    resource_group_name="contoso-resources",
+    server=azure_native.apicenter.DeploymentServerArgs(
+        runtime_uri=["https://api.contoso.com"],
+    ),
+    service_name="contoso",
+    state="active",
+    title="Production deployment",
+    workspace_name="default")

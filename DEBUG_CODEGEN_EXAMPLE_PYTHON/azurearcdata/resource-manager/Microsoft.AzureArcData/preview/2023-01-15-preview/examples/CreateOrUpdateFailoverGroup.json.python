@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+failover_group = azure_native.azurearcdata.FailoverGroup("failoverGroup",
+    failover_group_name="testFailoverGroupName",
+    properties=azure_native.azurearcdata.FailoverGroupPropertiesArgs(
+        partner_managed_instance_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/partnerMI",
+        spec=azure_native.azurearcdata.FailoverGroupSpecArgs(
+            partner_sync_mode="async",
+            role="primary",
+        ),
+    ),
+    resource_group_name="testrg",
+    sql_managed_instance_name="testSqlManagedInstance")

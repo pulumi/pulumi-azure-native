@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database_principal_assignment = azure_native.synapse.DatabasePrincipalAssignment("databasePrincipalAssignment",
+    database_name="Kustodatabase8",
+    kusto_pool_name="kustoclusterrptest4",
+    principal_assignment_name="kustoprincipal1",
+    principal_id="87654321-1234-1234-1234-123456789123",
+    principal_type="App",
+    resource_group_name="kustorptest",
+    role="Admin",
+    tenant_id="12345678-1234-1234-1234-123456789123",
+    workspace_name="synapseWorkspaceName")

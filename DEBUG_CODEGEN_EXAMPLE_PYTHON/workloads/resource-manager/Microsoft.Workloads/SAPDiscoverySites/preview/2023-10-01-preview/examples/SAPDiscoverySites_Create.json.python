@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sap_discovery_site = azure_native.workloads.SapDiscoverySite("sapDiscoverySite",
+    location="eastus",
+    master_site_id="MasterSiteIdResourceId",
+    migrate_project_id="MigrateProjectId",
+    resource_group_name="test-rg",
+    sap_discovery_site_name="SampleSite",
+    tags={
+        "property1": "value1",
+        "property2": "value2",
+    })

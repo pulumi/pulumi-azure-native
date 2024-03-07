@@ -1,0 +1,29 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+customer_event = azure_native.testbase.CustomerEvent("customerEvent",
+    customer_event_name="WeeklySummary",
+    event_name="WeeklySummary",
+    receivers=[
+        azure_native.testbase.NotificationEventReceiverArgs(
+            receiver_type="UserObjects",
+            receiver_value=azure_native.testbase.NotificationReceiverValueArgs(
+                user_object_receiver_value=azure_native.testbase.UserObjectReceiverValueArgs(
+                    user_object_ids=[
+                        "245245245245325",
+                        "365365365363565",
+                    ],
+                ),
+            ),
+        ),
+        azure_native.testbase.NotificationEventReceiverArgs(
+            receiver_type="DistributionGroup",
+            receiver_value=azure_native.testbase.NotificationReceiverValueArgs(
+                distribution_group_list_receiver_value=azure_native.testbase.DistributionGroupListReceiverValueArgs(
+                    distribution_groups=["test@microsoft.com"],
+                ),
+            ),
+        ),
+    ],
+    resource_group_name="contoso-rg1",
+    test_base_account_name="contoso-testBaseAccount1")

@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hybrid_use_benefit = azure_native.softwareplan.HybridUseBenefit("hybridUseBenefit",
+    plan_id="94f46eda-45f8-493a-8425-251921463a89",
+    scope="subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
+    sku=azure_native.softwareplan.SkuArgs(
+        name="SQL_Server_Perpetual",
+    ))

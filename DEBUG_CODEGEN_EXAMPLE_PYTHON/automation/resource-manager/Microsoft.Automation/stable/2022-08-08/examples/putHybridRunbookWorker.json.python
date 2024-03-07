@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hybrid_runbook_worker = azure_native.automation.HybridRunbookWorker("hybridRunbookWorker",
+    automation_account_name="testaccount",
+    hybrid_runbook_worker_group_name="TestHybridGroup",
+    hybrid_runbook_worker_id="c010ad12-ef14-4a2a-aa9e-ef22c4745ddd",
+    resource_group_name="rg",
+    vm_resource_id="/subscriptions/vmsubid/resourceGroups/vmrg/providers/Microsoft.Compute/virtualMachines/vmname")

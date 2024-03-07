@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+origin = azure_native.cdn.Origin("origin",
+    enabled=True,
+    endpoint_name="endpoint1",
+    host_name="www.someDomain.net",
+    http_port=80,
+    https_port=443,
+    origin_host_header="www.someDomain.net",
+    origin_name="www-someDomain-net",
+    priority=1,
+    private_link_approval_message="Please approve the connection request for this Private Link",
+    private_link_location="eastus",
+    private_link_resource_id="/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+    profile_name="profile1",
+    resource_group_name="RG",
+    weight=50)

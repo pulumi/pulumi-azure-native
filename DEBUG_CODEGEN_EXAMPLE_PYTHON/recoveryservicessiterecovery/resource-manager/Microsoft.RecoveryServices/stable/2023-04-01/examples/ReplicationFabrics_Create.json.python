@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+replication_fabric = azure_native.recoveryservices.ReplicationFabric("replicationFabric",
+    fabric_name="cloud1",
+    properties=azure_native.recoveryservices.FabricCreationInputPropertiesArgs(
+        custom_details={
+            "instanceType": "FabricSpecificCreationInput",
+        },
+    ),
+    resource_group_name="resourceGroupPS1",
+    resource_name_="vault1")

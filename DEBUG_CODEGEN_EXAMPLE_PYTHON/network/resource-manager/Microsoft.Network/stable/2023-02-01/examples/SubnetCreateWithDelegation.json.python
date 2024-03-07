@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+subnet = azure_native.network.Subnet("subnet",
+    address_prefix="10.0.0.0/16",
+    resource_group_name="subnet-test",
+    subnet_name="subnet1",
+    virtual_network_name="vnetname")

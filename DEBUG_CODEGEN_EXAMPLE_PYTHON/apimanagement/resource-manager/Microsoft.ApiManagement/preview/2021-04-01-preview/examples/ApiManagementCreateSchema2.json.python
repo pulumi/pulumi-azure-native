@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+schema = azure_native.apimanagement.Schema("schema",
+    description="sample schema description",
+    resource_group_name="rg1",
+    schema_id="schema1",
+    schema_type="json",
+    service_name="apimService1")

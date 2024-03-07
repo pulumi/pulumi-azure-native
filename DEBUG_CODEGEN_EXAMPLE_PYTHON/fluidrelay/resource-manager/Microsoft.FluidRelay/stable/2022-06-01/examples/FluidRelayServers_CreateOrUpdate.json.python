@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+fluid_relay_server = azure_native.fluidrelay.FluidRelayServer("fluidRelayServer",
+    fluid_relay_server_name="myFluidRelayServer",
+    identity=azure_native.fluidrelay.IdentityArgs(
+        type=azure_native.fluidrelay.ResourceIdentityType.SYSTEM_ASSIGNED,
+    ),
+    location="west-us",
+    resource_group="myResourceGroup",
+    storagesku="basic",
+    tags={
+        "Category": "sales",
+    })

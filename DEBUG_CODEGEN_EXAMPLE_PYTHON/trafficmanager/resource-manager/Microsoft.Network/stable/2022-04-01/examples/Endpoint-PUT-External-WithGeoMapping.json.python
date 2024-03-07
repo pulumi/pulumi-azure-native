@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+endpoint = azure_native.network.Endpoint("endpoint",
+    endpoint_name="My%20external%20endpoint",
+    endpoint_status="Enabled",
+    endpoint_type="ExternalEndpoints",
+    geo_mapping=[
+        "GEO-AS",
+        "GEO-AF",
+    ],
+    name="My external endpoint",
+    profile_name="azuresdkfornetautoresttrafficmanager8224",
+    resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+    target="foobar.contoso.com",
+    type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")

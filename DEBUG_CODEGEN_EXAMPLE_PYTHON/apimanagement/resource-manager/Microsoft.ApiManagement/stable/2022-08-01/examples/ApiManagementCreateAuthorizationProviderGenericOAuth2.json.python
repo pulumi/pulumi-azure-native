@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+authorization_provider = azure_native.apimanagement.AuthorizationProvider("authorizationProvider",
+    authorization_provider_id="eventbrite",
+    display_name="eventbrite",
+    identity_provider="oauth2",
+    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsArgs(
+        grant_types=azure_native.apimanagement.AuthorizationProviderOAuth2GrantTypesArgs(
+            authorization_code={
+                "authorizationUrl": "https://www.eventbrite.com/oauth/authorize",
+                "clientId": "ZYIJTBTABHOUQQDLZY",
+                "clientSecret": "Q3iPSaKQ~fZFcJk5vKmqzUAfJagcJ8",
+                "refreshUrl": "https://www.eventbrite.com/oauth/token",
+                "scopes": "",
+                "tokenUrl": "https://www.eventbrite.com/oauth/token",
+            },
+        ),
+        redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+    ),
+    resource_group_name="rg1",
+    service_name="apimService1")

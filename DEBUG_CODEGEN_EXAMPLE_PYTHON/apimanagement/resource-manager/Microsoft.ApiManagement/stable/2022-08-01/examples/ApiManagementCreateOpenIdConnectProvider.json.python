@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+open_id_connect_provider = azure_native.apimanagement.OpenIdConnectProvider("openIdConnectProvider",
+    client_id="oidprovidertemplate3",
+    client_secret="x",
+    display_name="templateoidprovider3",
+    metadata_endpoint="https://oidprovider-template3.net",
+    opid="templateOpenIdConnect3",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    use_in_api_documentation=True,
+    use_in_test_console=False)

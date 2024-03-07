@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_database = azure_native.sql.ManagedDatabase("managedDatabase",
+    collation="SQL_Latin1_General_CP1_CI_AS",
+    create_mode="RestoreExternalBackup",
+    database_name="managedDatabase",
+    location="southeastasia",
+    managed_instance_name="managedInstance",
+    resource_group_name="Default-SQL-SouthEastAsia",
+    storage_container_sas_token="sv=2015-12-11&sr=c&sp=rl&sig=1234",
+    storage_container_uri="https://myaccountname.blob.core.windows.net/backups")

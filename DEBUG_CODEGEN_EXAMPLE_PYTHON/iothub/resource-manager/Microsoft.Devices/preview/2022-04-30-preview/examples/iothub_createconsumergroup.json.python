@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+iot_hub_resource_event_hub_consumer_group = azure_native.devices.IotHubResourceEventHubConsumerGroup("iotHubResourceEventHubConsumerGroup",
+    event_hub_endpoint_name="events",
+    name="test",
+    properties=azure_native.devices.EventHubConsumerGroupNameArgs(
+        name="test",
+    ),
+    resource_group_name="myResourceGroup",
+    resource_name_="testHub")

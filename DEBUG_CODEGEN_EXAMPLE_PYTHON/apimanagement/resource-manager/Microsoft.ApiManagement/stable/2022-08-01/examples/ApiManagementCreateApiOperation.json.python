@@ -1,0 +1,36 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+api_operation = azure_native.apimanagement.ApiOperation("apiOperation",
+    api_id="PetStoreTemplate2",
+    description="This can only be done by the logged in user.",
+    display_name="createUser2",
+    method="POST",
+    operation_id="newoperations",
+    request=azure_native.apimanagement.RequestContractArgs(
+        description="Created user object",
+        headers=[],
+        query_parameters=[],
+        representations=[azure_native.apimanagement.RepresentationContractArgs(
+            content_type="application/json",
+            schema_id="592f6c1d0af5840ca8897f0c",
+            type_name="User",
+        )],
+    ),
+    resource_group_name="rg1",
+    responses=[azure_native.apimanagement.ResponseContractArgs(
+        description="successful operation",
+        headers=[],
+        representations=[
+            azure_native.apimanagement.RepresentationContractArgs(
+                content_type="application/xml",
+            ),
+            azure_native.apimanagement.RepresentationContractArgs(
+                content_type="application/json",
+            ),
+        ],
+        status_code=200,
+    )],
+    service_name="apimService1",
+    template_parameters=[],
+    url_template="/user1")

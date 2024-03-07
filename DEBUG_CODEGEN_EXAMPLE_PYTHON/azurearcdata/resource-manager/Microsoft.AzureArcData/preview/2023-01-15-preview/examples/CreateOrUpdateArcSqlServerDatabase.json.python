@@ -1,0 +1,35 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_server_database = azure_native.azurearcdata.SqlServerDatabase("sqlServerDatabase",
+    database_name="testdb",
+    location="southeastasia",
+    properties=azure_native.azurearcdata.SqlServerDatabaseResourcePropertiesArgs(
+        backup_information=azure_native.azurearcdata.SqlServerDatabaseResourcePropertiesBackupInformationArgs(
+            last_full_backup="2022-05-05T16:26:33.883Z",
+            last_log_backup="2022-05-10T16:26:33.883Z",
+        ),
+        collation_name="SQL_Latin1_General_CP1_CI_AS",
+        compatibility_level=150,
+        database_creation_date="2022-04-05T16:26:33.883Z",
+        database_options=azure_native.azurearcdata.SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs(
+            is_auto_close_on=True,
+            is_auto_create_stats_on=True,
+            is_auto_shrink_on=True,
+            is_auto_update_stats_on=True,
+            is_encrypted=True,
+            is_memory_optimization_enabled=True,
+            is_remote_data_archive_enabled=True,
+            is_trustworthy_on=True,
+        ),
+        is_read_only=True,
+        recovery_mode="Full",
+        size_mb=150,
+        space_available_mb=100,
+        state="Online",
+    ),
+    resource_group_name="testrg",
+    sql_server_instance_name="testSqlServerInstance",
+    tags={
+        "mytag": "myval",
+    })

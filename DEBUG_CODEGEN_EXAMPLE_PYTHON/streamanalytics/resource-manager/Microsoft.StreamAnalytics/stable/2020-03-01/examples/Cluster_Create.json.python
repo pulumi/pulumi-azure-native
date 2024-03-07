@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cluster = azure_native.streamanalytics.Cluster("cluster",
+    cluster_name="An Example Cluster",
+    location="North US",
+    resource_group_name="sjrg",
+    sku=azure_native.streamanalytics.ClusterSkuArgs(
+        capacity=48,
+        name="Default",
+    ),
+    tags={
+        "key": "value",
+    })

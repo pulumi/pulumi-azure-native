@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+service = azure_native.search.Service("service",
+    hosting_mode=azure_native.search.HostingMode.DEFAULT,
+    location="westus",
+    partition_count=1,
+    replica_count=3,
+    resource_group_name="rg1",
+    search_service_name="mysearchservice",
+    sku=azure_native.search.SkuArgs(
+        name=azure_native.search.SkuName.STANDARD,
+    ),
+    tags={
+        "app-name": "My e-commerce app",
+    })

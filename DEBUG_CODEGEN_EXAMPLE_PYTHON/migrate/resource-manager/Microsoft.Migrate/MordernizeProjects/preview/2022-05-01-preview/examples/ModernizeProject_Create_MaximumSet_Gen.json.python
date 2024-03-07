@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+modernize_project = azure_native.migrate.ModernizeProject("modernizeProject",
+    identity=azure_native.migrate.ResourceIdentityArgs(
+        principal_id="ins",
+        tenant_id="fjnu",
+        type="None",
+        user_assigned_identities={
+            "key6848": azure_native.migrate.UserAssignedIdentityArgs(
+                client_id="lvlngepacjdjryqmxuvfdxwtkc",
+                principal_id="lumkynazsspljxiiwvz",
+            ),
+        },
+    ),
+    location="nbqyuxrgrlhx",
+    modernize_project_name="b",
+    properties=azure_native.migrate.ModernizeProjectModelPropertiesArgs(
+        migration_configuration=azure_native.migrate.MigrationConfigurationArgs(
+            key_vault_resource_id="vekhittkyogvwnqmggknv",
+            migration_solution_resource_id="bglfkwtzvqmhwpddwpvtdzaleaioxo",
+            storage_account_resource_id="dgcoticysafrpynyoxkgrspooiia",
+        ),
+    ),
+    resource_group_name="rgmigrateEngine",
+    tags={
+        "key8644": "wfyi",
+    })

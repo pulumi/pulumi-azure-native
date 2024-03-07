@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+migrate_agent = azure_native.migrate.MigrateAgent("migrateAgent",
+    agent_name="l",
+    modernize_project_name="rq1yec",
+    properties=azure_native.migrate.MigrateAgentModelPropertiesArgs(
+        authentication_identity=azure_native.migrate.IdentityModelArgs(
+            aad_authority="isbicanvfefdaci",
+            application_id="dibfqwjrnzikktkwe",
+            audience="yrfxszjhkczoyfi",
+            object_id="xfhhdosr",
+            tenant_id="uwceuawplakwjswbvllffbsz",
+        ),
+        custom_properties=azure_native.migrate.VMwareMigrateAgentModelCustomPropertiesArgs(),
+        machine_id="sihoniqzqfz",
+        machine_name="glhejppirkiamgxxro",
+    ),
+    resource_group_name="rgmigrateEngine",
+    tags={
+        "key5560": "jgffrfcgjrm",
+    })

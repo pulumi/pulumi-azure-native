@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+standby_virtual_machine_pool = azure_native.standbypool.StandbyVirtualMachinePool("standbyVirtualMachinePool",
+    location="West US",
+    resource_group_name="rgstandbypool",
+    standby_virtual_machine_pool_name="pool")

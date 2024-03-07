@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hub_route_table = azure_native.network.HubRouteTable("hubRouteTable",
+    labels=[
+        "label1",
+        "label2",
+    ],
+    resource_group_name="rg1",
+    route_table_name="hubRouteTable1",
+    routes=[azure_native.network.HubRouteArgs(
+        destination_type="CIDR",
+        destinations=[
+            "10.0.0.0/8",
+            "20.0.0.0/8",
+            "30.0.0.0/8",
+        ],
+        name="route1",
+        next_hop="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
+        next_hop_type="ResourceId",
+    )],
+    virtual_hub_name="virtualHub1")

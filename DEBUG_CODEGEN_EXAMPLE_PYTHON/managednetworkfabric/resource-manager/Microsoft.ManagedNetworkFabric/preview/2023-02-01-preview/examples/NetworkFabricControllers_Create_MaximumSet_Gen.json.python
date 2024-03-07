@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_fabric_controller = azure_native.managednetworkfabric.NetworkFabricController("networkFabricController",
+    annotation="lab 1",
+    infrastructure_express_route_connections=[azure_native.managednetworkfabric.ExpressRouteConnectionInformationArgs(
+        express_route_authorization_key="xxxxxxx",
+        express_route_circuit_id="/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+    )],
+    ipv4_address_space="172.253.0.0/19",
+    location="eastus",
+    managed_resource_group_configuration=azure_native.managednetworkfabric.ManagedResourceGroupConfigurationArgs(
+        location="eastus",
+        name="managedResourceGroupName",
+    ),
+    network_fabric_controller_name="NetworkControllerName",
+    resource_group_name="resourceGroupName",
+    workload_express_route_connections=[azure_native.managednetworkfabric.ExpressRouteConnectionInformationArgs(
+        express_route_authorization_key="xxxxx",
+        express_route_circuit_id="/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+    )])

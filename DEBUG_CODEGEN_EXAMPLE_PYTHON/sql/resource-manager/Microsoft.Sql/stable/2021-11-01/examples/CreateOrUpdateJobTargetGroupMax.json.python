@@ -1,0 +1,36 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job_target_group = azure_native.sql.JobTargetGroup("jobTargetGroup",
+    job_agent_name="agent1",
+    members=[
+        azure_native.sql.JobTargetArgs(
+            database_name="database1",
+            membership_type=azure_native.sql.JobTargetGroupMembershipType.EXCLUDE,
+            server_name="server1",
+            type="SqlDatabase",
+        ),
+        azure_native.sql.JobTargetArgs(
+            membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+            refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+            server_name="server1",
+            type="SqlServer",
+        ),
+        azure_native.sql.JobTargetArgs(
+            elastic_pool_name="pool1",
+            membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+            refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+            server_name="server2",
+            type="SqlElasticPool",
+        ),
+        azure_native.sql.JobTargetArgs(
+            membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+            refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+            server_name="server3",
+            shard_map_name="shardMap1",
+            type="SqlShardMap",
+        ),
+    ],
+    resource_group_name="group1",
+    server_name="server1",
+    target_group_name="targetGroup1")

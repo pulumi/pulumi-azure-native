@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+community_training = azure_native.community.CommunityTraining("communityTraining",
+    community_training_name="ctApplication",
+    disaster_recovery_enabled=True,
+    identity_configuration=azure_native.community.IdentityConfigurationPropertiesArgs(
+        b2c_authentication_policy="B2C_1_signup_signin",
+        b2c_password_reset_policy="B2C_1_pwd_reset",
+        client_id="8c92390f-2f30-493d-bd13-d3c3eba3709d",
+        client_secret="idenityConfigurationClientSecret",
+        custom_login_parameters="custom_hint",
+        domain_name="cttenant",
+        identity_type="ADB2C",
+        teams_enabled=False,
+        tenant_id="c1ffbb60-88cf-4b83-b54f-c47ae6220c19",
+    ),
+    location="southeastasia",
+    portal_admin_email_address="ctadmin@ct.com",
+    portal_name="ctwebsite",
+    portal_owner_email_address="ctcontact@ct.com",
+    portal_owner_organization_name="CT Portal Owner Organization",
+    resource_group_name="rgCommunityTaining",
+    sku=azure_native.community.SkuArgs(
+        name="Commercial",
+        tier=azure_native.community.SkuTier.STANDARD,
+    ),
+    zone_redundancy_enabled=True)

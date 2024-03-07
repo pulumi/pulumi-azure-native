@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+user = azure_native.apimanagement.User("user",
+    confirmation="signup",
+    email="foobar@outlook.com",
+    first_name="foo",
+    last_name="bar",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    user_id="5931a75ae4bbd512288c680b")

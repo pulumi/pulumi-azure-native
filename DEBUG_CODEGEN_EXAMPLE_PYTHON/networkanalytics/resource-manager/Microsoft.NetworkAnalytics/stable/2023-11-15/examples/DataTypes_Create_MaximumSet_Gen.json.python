@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+data_type = azure_native.networkanalytics.DataType("dataType",
+    data_product_name="dataproduct01",
+    data_type_name="datatypename",
+    database_cache_retention=23,
+    database_retention=6,
+    resource_group_name="aoiresourceGroupName",
+    state="STARTED",
+    storage_output_retention=27)

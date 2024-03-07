@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+data_export = azure_native.operationalinsights.DataExport("dataExport",
+    data_export_name="export1",
+    resource_group_name="RgTest1",
+    resource_id="/subscriptions/192b9f85-a39a-4276-b96d-d5cd351703f9/resourceGroups/OIAutoRest1234/providers/Microsoft.EventHub/namespaces/test",
+    table_names=["Heartbeat"],
+    workspace_name="DeWnTest1234")

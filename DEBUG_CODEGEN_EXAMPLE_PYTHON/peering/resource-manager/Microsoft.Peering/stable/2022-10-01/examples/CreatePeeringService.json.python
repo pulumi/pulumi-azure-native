@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+peering_service = azure_native.peering.PeeringService("peeringService",
+    location="eastus",
+    peering_service_location="state1",
+    peering_service_name="peeringServiceName",
+    peering_service_provider="serviceProvider1",
+    provider_backup_peering_location="peeringLocation2",
+    provider_primary_peering_location="peeringLocation1",
+    resource_group_name="rgName")

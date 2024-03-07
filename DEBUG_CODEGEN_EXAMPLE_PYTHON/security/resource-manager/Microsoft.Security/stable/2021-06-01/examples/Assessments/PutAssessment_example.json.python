@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+assessment = azure_native.security.Assessment("assessment",
+    assessment_name="8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    resource_details=azure_native.security.AzureResourceDetailsArgs(
+        source="Azure",
+    ),
+    resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
+    status=azure_native.security.AssessmentStatusArgs(
+        code="Healthy",
+    ))

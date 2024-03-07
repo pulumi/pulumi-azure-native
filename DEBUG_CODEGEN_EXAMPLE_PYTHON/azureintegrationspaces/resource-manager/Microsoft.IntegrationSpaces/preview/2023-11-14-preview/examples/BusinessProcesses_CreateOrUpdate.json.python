@@ -1,0 +1,83 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+business_process = azure_native.integrationspaces.BusinessProcess("businessProcess",
+    application_name="Application1",
+    business_process_mapping={
+        "Completed": azure_native.integrationspaces.BusinessProcessMappingItemArgs(
+            logic_app_resource_id="subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+            operation_name="CompletedPO",
+            operation_type="Action",
+            workflow_name="Fulfillment",
+        ),
+        "Denied": azure_native.integrationspaces.BusinessProcessMappingItemArgs(
+            logic_app_resource_id="subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+            operation_name="DeniedPO",
+            operation_type="Action",
+            workflow_name="Fulfillment",
+        ),
+        "Processing": azure_native.integrationspaces.BusinessProcessMappingItemArgs(
+            logic_app_resource_id="subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+            operation_name="ApprovedPO",
+            operation_type="Action",
+            workflow_name="PurchaseOrder",
+        ),
+        "Received": azure_native.integrationspaces.BusinessProcessMappingItemArgs(
+            logic_app_resource_id="subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+            operation_name="manual",
+            operation_type="Trigger",
+            workflow_name="PurchaseOrder",
+        ),
+        "Shipped": azure_native.integrationspaces.BusinessProcessMappingItemArgs(
+            logic_app_resource_id="subscriptions/sub1/resourcegroups/group1/providers/Microsoft.Web/sites/logicApp1",
+            operation_name="ShippedPO",
+            operation_type="Action",
+            workflow_name="Fulfillment",
+        ),
+    },
+    business_process_name="BusinessProcess1",
+    business_process_stages={
+        "Completed": azure_native.integrationspaces.BusinessProcessStageArgs(
+            description="Completed",
+            stages_before=["Shipped"],
+        ),
+        "Denied": azure_native.integrationspaces.BusinessProcessStageArgs(
+            description="Denied",
+            stages_before=["Processing"],
+        ),
+        "Processing": azure_native.integrationspaces.BusinessProcessStageArgs(
+            description="Processing",
+            properties={
+                "ApprovalState": "String",
+                "ApproverName": "String",
+                "POAmount": "Integer",
+            },
+            stages_before=["Received"],
+        ),
+        "Received": azure_native.integrationspaces.BusinessProcessStageArgs(
+            description="received",
+            properties={
+                "City": "String",
+                "Product": "String",
+                "Quantity": "Integer",
+                "State": "String",
+            },
+        ),
+        "Shipped": azure_native.integrationspaces.BusinessProcessStageArgs(
+            description="Shipped",
+            properties={
+                "ShipPriority": "Integer",
+                "TrackingID": "Integer",
+            },
+            stages_before=["Denied"],
+        ),
+    },
+    description="First Business Process",
+    identifier=azure_native.integrationspaces.BusinessProcessIdentifierArgs(
+        property_name="businessIdentifier-1",
+        property_type="String",
+    ),
+    resource_group_name="testrg",
+    space_name="Space1",
+    table_name="table1",
+    tracking_data_store_reference_name="trackingDataStoreReferenceName1")

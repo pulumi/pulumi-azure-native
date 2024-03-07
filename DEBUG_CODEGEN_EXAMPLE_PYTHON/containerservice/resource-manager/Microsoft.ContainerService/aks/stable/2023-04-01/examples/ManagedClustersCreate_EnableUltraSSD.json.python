@@ -1,0 +1,60 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+    addon_profiles={},
+    agent_pool_profiles=[azure_native.containerservice.ManagedClusterAgentPoolProfileArgs(
+        count=3,
+        enable_node_public_ip=True,
+        enable_ultra_ssd=True,
+        mode="System",
+        name="nodepool1",
+        os_type="Linux",
+        type="VirtualMachineScaleSets",
+        vm_size="Standard_DS2_v2",
+    )],
+    auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+        scale_down_delay_after_add="15m",
+        scan_interval="20s",
+    ),
+    disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    dns_prefix="dnsprefix1",
+    enable_pod_security_policy=True,
+    enable_rbac=True,
+    kubernetes_version="",
+    linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileArgs(
+        admin_username="azureuser",
+        ssh=azure_native.containerservice.ContainerServiceSshConfigurationArgs(
+            public_keys=[azure_native.containerservice.ContainerServiceSshPublicKeyArgs(
+                key_data="keydata",
+            )],
+        ),
+    ),
+    location="location1",
+    network_profile=azure_native.containerservice.ContainerServiceNetworkProfileArgs(
+        load_balancer_profile=azure_native.containerservice.ManagedClusterLoadBalancerProfileArgs(
+            managed_outbound_ips=azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                count=2,
+            ),
+        ),
+        load_balancer_sku="standard",
+        outbound_type="loadBalancer",
+    ),
+    resource_group_name="rg1",
+    resource_name_="clustername1",
+    service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileArgs(
+        client_id="clientid",
+        secret="secret",
+    ),
+    sku=azure_native.containerservice.ManagedClusterSKUArgs(
+        name="Basic",
+        tier="Free",
+    ),
+    tags={
+        "archv2": "",
+        "tier": "production",
+    },
+    windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileArgs(
+        admin_password="replacePassword1234$",
+        admin_username="azureuser",
+    ))

@@ -1,0 +1,6 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+modernize_project = azure_native.migrate.ModernizeProject("modernizeProject",
+    modernize_project_name="j",
+    resource_group_name="rgmigrateEngine")

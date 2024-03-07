@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+communication_service = azure_native.communication.CommunicationService("communicationService",
+    communication_service_name="MyCommunicationResource",
+    data_location="United States",
+    location="Global",
+    resource_group_name="MyResourceGroup")

@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+service = azure_native.windowsiot.Service("service",
+    admin_domain_name="d.e.f",
+    billing_domain_name="a.b.c",
+    device_name="service4445",
+    location="East US",
+    notes="blah",
+    quantity=1000000,
+    resource_group_name="res9101")

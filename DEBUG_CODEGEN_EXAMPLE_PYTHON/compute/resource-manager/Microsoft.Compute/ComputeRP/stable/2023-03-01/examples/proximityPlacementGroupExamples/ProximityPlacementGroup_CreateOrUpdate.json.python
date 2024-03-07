@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+proximity_placement_group = azure_native.compute.ProximityPlacementGroup("proximityPlacementGroup",
+    intent=azure_native.compute.ProximityPlacementGroupPropertiesIntentArgs(
+        vm_sizes=[
+            "Basic_A0",
+            "Basic_A2",
+        ],
+    ),
+    location="westus",
+    proximity_placement_group_name="myProximityPlacementGroup",
+    proximity_placement_group_type="Standard",
+    resource_group_name="myResourceGroup",
+    zones=["1"])

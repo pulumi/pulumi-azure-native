@@ -1,0 +1,39 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_pub_sub_hub = azure_native.webpubsub.WebPubSubHub("webPubSubHub",
+    hub_name="exampleHub",
+    properties=azure_native.webpubsub.WebPubSubHubPropertiesArgs(
+        anonymous_connect_policy="allow",
+        event_handlers=[azure_native.webpubsub.EventHandlerArgs(
+            auth=azure_native.webpubsub.UpstreamAuthSettingsArgs(
+                managed_identity=azure_native.webpubsub.ManagedIdentitySettingsArgs(
+                    resource="abc",
+                ),
+                type="ManagedIdentity",
+            ),
+            system_events=[
+                "connect",
+                "connected",
+            ],
+            url_template="http://host.com",
+            user_event_pattern="*",
+        )],
+        event_listeners=[azure_native.webpubsub.EventListenerArgs(
+            endpoint=azure_native.webpubsub.EventHubEndpointArgs(
+                event_hub_name="eventHubName1",
+                fully_qualified_namespace="example.servicebus.windows.net",
+                type="EventHub",
+            ),
+            filter=azure_native.webpubsub.EventNameFilterArgs(
+                system_events=[
+                    "connected",
+                    "disconnected",
+                ],
+                type="EventName",
+                user_event_pattern="*",
+            ),
+        )],
+    ),
+    resource_group_name="myResourceGroup",
+    resource_name_="myWebPubSubService")

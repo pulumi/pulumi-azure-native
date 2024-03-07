@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+file_share = azure_native.storage.FileShare("fileShare",
+    account_name="sto328",
+    resource_group_name="res3376",
+    share_name="share6185")

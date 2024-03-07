@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+vcenter_controller = azure_native.offazure.VcenterController("vcenterController",
+    resource_group_name="rgmigrate",
+    site_name="6-qSc554IYc4U08",
+    vcenter_name="R5I8Xj8--zsS6JYI-0FNhe")

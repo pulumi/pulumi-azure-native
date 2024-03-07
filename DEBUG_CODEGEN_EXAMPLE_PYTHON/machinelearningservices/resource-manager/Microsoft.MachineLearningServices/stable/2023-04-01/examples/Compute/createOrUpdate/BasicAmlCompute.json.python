@@ -1,0 +1,27 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+compute = azure_native.machinelearningservices.Compute("compute",
+    compute_name="compute123",
+    location="eastus",
+    properties=azure_native.machinelearningservices.AmlComputeArgs(
+        compute_type="AmlCompute",
+        properties=azure_native.machinelearningservices.AmlComputePropertiesArgs(
+            enable_node_public_ip=True,
+            isolated_network=False,
+            os_type="Windows",
+            remote_login_port_public_access="NotSpecified",
+            scale_settings=azure_native.machinelearningservices.ScaleSettingsArgs(
+                max_node_count=1,
+                min_node_count=0,
+                node_idle_time_before_scale_down="PT5M",
+            ),
+            virtual_machine_image=azure_native.machinelearningservices.VirtualMachineImageArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1",
+            ),
+            vm_priority="Dedicated",
+            vm_size="STANDARD_NC6",
+        ),
+    ),
+    resource_group_name="testrg123",
+    workspace_name="workspaces123")

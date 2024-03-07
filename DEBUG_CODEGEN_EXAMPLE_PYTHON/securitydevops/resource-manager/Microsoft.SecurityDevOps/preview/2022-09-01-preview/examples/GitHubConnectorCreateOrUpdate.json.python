@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+git_hub_connector = azure_native.securitydevops.GitHubConnector("gitHubConnector",
+    git_hub_connector_name="testconnector",
+    location="West US",
+    properties=azure_native.securitydevops.GitHubConnectorPropertiesArgs(
+        code="00000000000000000000",
+    ),
+    resource_group_name="westusrg")

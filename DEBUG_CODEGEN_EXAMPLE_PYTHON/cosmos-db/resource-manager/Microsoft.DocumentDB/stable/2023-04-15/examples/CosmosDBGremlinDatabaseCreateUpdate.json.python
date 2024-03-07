@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+gremlin_resource_gremlin_database = azure_native.documentdb.GremlinResourceGremlinDatabase("gremlinResourceGremlinDatabase",
+    account_name="ddb1",
+    database_name="databaseName",
+    location="West US",
+    options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+    resource=azure_native.documentdb.GremlinDatabaseResourceArgs(
+        id="databaseName",
+    ),
+    resource_group_name="rg1",
+    tags={})

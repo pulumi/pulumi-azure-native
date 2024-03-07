@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.automanage.Account("account",
+    account_name="account",
+    identity=azure_native.automanage.AccountIdentityArgs(
+        type=azure_native.automanage.ResourceIdentityType.SYSTEM_ASSIGNED,
+    ),
+    location="East US",
+    resource_group_name="resourceGroup",
+    tags={
+        "Organization": "Administration",
+    })

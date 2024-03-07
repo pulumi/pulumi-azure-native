@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+l2_isolation_domain = azure_native.managednetworkfabric.L2IsolationDomain("l2IsolationDomain",
+    l2_isolation_domain_name="example-l2domain",
+    location="eastus",
+    mtu=1500,
+    network_fabric_id="/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+    resource_group_name="resourceGroupName",
+    vlan_id=501)

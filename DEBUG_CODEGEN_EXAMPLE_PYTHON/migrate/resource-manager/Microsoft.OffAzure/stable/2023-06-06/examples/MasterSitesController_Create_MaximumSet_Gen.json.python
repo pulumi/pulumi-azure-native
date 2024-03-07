@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+master_sites_controller = azure_native.offazure.MasterSitesController("masterSitesController",
+    allow_multiple_sites=True,
+    customer_storage_account_arm_id="cdxrihtiskkn",
+    location="plyak",
+    public_network_access="NotSpecified",
+    resource_group_name="rgmigrate",
+    site_name="74c1J1m56557t52H-75",
+    sites=["zxupfq"],
+    tags={
+        "key7125": "jbhnzfuxjovyamasouyfhhzhevagvw",
+    })

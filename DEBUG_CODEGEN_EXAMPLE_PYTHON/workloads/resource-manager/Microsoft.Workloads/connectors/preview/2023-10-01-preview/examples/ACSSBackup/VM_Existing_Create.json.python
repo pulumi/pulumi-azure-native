@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+acss_backup_connection = azure_native.workloads.ACSSBackupConnection("acssBackupConnection",
+    backup_data=azure_native.workloads.VMBackupDataArgs(
+        backup_policy=azure_native.workloads.VMBackupPolicyPropertiesArgs(
+            name="defaultVmPolicy",
+        ),
+        backup_type="VM",
+        disk_exclusion_properties=azure_native.workloads.DiskExclusionPropertiesArgs(
+            disk_lun_list=[],
+            is_inclusion_list=True,
+        ),
+        recovery_services_vault=azure_native.workloads.ExistingRecoveryServicesVaultArgs(
+            id="/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+            vault_type="Existing",
+        ),
+    ),
+    backup_name="vmBackup",
+    connector_name="C1",
+    location="westcentralus",
+    resource_group_name="test-rg",
+    tags={})

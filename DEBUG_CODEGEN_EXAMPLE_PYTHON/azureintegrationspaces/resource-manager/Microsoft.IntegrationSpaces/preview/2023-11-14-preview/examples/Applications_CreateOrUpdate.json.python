@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+application = azure_native.integrationspaces.Application("application",
+    application_name="Application1",
+    description="This is the user provided description of the application.",
+    location="CentralUS",
+    resource_group_name="testrg",
+    space_name="Space1",
+    tags={
+        "key1": "Value1",
+    },
+    tracking_data_stores={
+        "dataStoreName1": azure_native.integrationspaces.TrackingDataStoreArgs(
+            data_store_ingestion_uri="https://ingest-someClusterName.someRegionName.kusto.windows.net",
+            data_store_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
+            data_store_uri="https://someClusterName.someRegionName.kusto.windows.net",
+            database_name="testDatabase1",
+        ),
+        "dataStoreName2": azure_native.integrationspaces.TrackingDataStoreArgs(
+            data_store_ingestion_uri="https://ingest-someClusterName.someRegionName.kusto.windows.net",
+            data_store_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Kusto/Clusters/cluster1",
+            data_store_uri="https://someClusterName.someRegionName.kusto.windows.net",
+            database_name="testDatabase1",
+        ),
+    })

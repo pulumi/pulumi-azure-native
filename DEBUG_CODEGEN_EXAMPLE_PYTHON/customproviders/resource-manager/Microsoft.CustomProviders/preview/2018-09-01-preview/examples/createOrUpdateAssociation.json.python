@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+association = azure_native.customproviders.Association("association",
+    association_name="associationName",
+    scope="scope",
+    target_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName")

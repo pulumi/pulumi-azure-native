@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+custom_assessment_automation = azure_native.security.CustomAssessmentAutomation("customAssessmentAutomation",
+    compressed_query="DQAKAEkAYQBtAF8ARwByAG8AdQBwAA0ACgB8ACAAZQB4AHQAZQBuAGQAIABIAGUAYQBsAHQAaABTAHQAYQB0AHUAcwAgAD0AIABpAGYAZgAoAHQAbwBzAHQAcgBpAG4AZwAoAFIAZQBjAG8AcgBkAC4AVQBzAGUAcgBOAGEAbQBlACkAIABjAG8AbgB0AGEAaQBuAHMAIAAnAHUAcwBlAHIAJwAsACAAJwBVAE4ASABFAEEATABUAEgAWQAnACwAIAAnAEgARQBBAEwAVABIAFkAJwApAA0ACgA=",
+    custom_assessment_automation_name="MyCustomAssessmentAutomation",
+    description="Data should be encrypted",
+    display_name="Password Policy",
+    remediation_description="Encrypt store by...",
+    resource_group_name="TestResourceGroup",
+    severity="Medium",
+    supported_cloud="AWS")

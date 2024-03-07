@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workload_network_dhcp = azure_native.avs.WorkloadNetworkDhcp("workloadNetworkDhcp",
+    dhcp_id="dhcp1",
+    private_cloud_name="cloud1",
+    properties=azure_native.avs.WorkloadNetworkDhcpServerArgs(
+        dhcp_type="SERVER",
+        display_name="dhcpConfigurations1",
+        lease_time=86400,
+        revision=1,
+        server_address="40.1.5.1/24",
+    ),
+    resource_group_name="group1")

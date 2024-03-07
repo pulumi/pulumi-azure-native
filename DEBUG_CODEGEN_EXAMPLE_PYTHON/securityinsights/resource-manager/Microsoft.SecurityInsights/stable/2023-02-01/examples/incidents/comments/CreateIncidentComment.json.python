@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+incident_comment = azure_native.securityinsights.IncidentComment("incidentComment",
+    incident_comment_id="4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+    incident_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    message="Some message",
+    resource_group_name="myRg",
+    workspace_name="myWorkspace")

@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+zone = azure_native.network.Zone("zone",
+    location="Global",
+    resource_group_name="rg1",
+    tags={
+        "key1": "value1",
+    },
+    zone_name="zone1")

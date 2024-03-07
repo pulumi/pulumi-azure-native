@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+failover_group = azure_native.sql.FailoverGroup("failoverGroup",
+    databases=[
+        "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-1",
+        "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-2",
+    ],
+    failover_group_name="failover-group-test-3",
+    partner_servers=[azure_native.sql.PartnerInfoArgs(
+        id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server",
+    )],
+    read_only_endpoint=azure_native.sql.FailoverGroupReadOnlyEndpointArgs(
+        failover_policy="Disabled",
+    ),
+    read_write_endpoint=azure_native.sql.FailoverGroupReadWriteEndpointArgs(
+        failover_policy="Automatic",
+        failover_with_data_loss_grace_period_minutes=480,
+    ),
+    resource_group_name="Default",
+    server_name="failover-group-primary-server")

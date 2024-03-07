@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection_operation = azure_native.migrate.PrivateEndpointConnectionOperation("privateEndpointConnectionOperation",
+    private_endpoint_connection_name="sakanwar1204project1634pe.bf42f8a1-09f5-4ee4-aea6-a019cc60f9d7",
+    private_link_service_connection_state=azure_native.migrate.PrivateLinkServiceConnectionStateArgs(
+        actions_required="",
+        status="Approved",
+    ),
+    project_name="sakanwar1204project",
+    resource_group_name="sakanwar")

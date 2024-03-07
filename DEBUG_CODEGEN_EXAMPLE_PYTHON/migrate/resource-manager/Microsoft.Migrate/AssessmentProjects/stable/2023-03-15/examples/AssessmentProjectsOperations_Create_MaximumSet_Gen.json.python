@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+assessment_projects_operation = azure_native.migrate.AssessmentProjectsOperation("assessmentProjectsOperation",
+    assessment_solution_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
+    customer_storage_account_arm_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
+    location="southeastasia",
+    project_name="sakanwar1204project",
+    project_status="Active",
+    provisioning_state="Succeeded",
+    public_network_access="Disabled",
+    resource_group_name="sakanwar",
+    tags={
+        "Migrate Project": "sakanwar-PE-SEA",
+    })

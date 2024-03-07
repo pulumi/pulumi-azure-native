@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sync_agent = azure_native.sql.SyncAgent("syncAgent",
+    resource_group_name="syncagentcrud-65440",
+    server_name="syncagentcrud-8475",
+    sync_agent_name="syncagentcrud-3187",
+    sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync")

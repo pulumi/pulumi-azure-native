@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+artifact_store = azure_native.hybridnetwork.ArtifactStore("artifactStore",
+    artifact_store_name="TestArtifactStore",
+    location="eastus",
+    properties=azure_native.hybridnetwork.ArtifactStorePropertiesFormatArgs(
+        managed_resource_group_configuration=azure_native.hybridnetwork.ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs(
+            location="eastus",
+            name="testRg",
+        ),
+        replication_strategy="SingleReplication",
+        store_type="AzureContainerRegistry",
+    ),
+    publisher_name="TestPublisher",
+    resource_group_name="rg")

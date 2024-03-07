@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+track = azure_native.media.Track("track",
+    account_name="contosomedia",
+    asset_name="ClimbingMountRainer",
+    resource_group_name="contosorg",
+    track=azure_native.media.TextTrackArgs(
+        display_name="A new track",
+        file_name="text3.ttml",
+        odata_type="#Microsoft.Media.TextTrack",
+        player_visibility="Visible",
+    ),
+    track_name="text3")

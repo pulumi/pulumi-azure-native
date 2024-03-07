@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+groups_operation = azure_native.migrate.GroupsOperation("groupsOperation",
+    group_name="kuchatur-test",
+    group_type="Default",
+    project_name="app18700project",
+    provisioning_state="Succeeded",
+    resource_group_name="ayagrawrg")

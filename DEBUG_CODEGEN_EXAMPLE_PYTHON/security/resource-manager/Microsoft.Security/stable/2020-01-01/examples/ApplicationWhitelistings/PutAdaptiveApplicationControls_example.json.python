@@ -1,0 +1,91 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+adaptive_application_control = azure_native.security.AdaptiveApplicationControl("adaptiveApplicationControl",
+    asc_location="centralus",
+    enforcement_mode="Audit",
+    group_name="ERELGROUP1",
+    path_recommendations=[
+        azure_native.security.PathRecommendationArgs(
+            action="Recommended",
+            common=True,
+            configuration_status="Configured",
+            file_type="Exe",
+            path="[Exe] O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US\\*\\*\\0.0.0.0",
+            publisher_info=azure_native.security.PublisherInfoArgs(
+                binary_name="*",
+                product_name="*",
+                publisher_name="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US",
+                version="0.0.0.0",
+            ),
+            type="PublisherSignature",
+            user_sids=["S-1-1-0"],
+            usernames=[azure_native.security.UserRecommendationArgs(
+                recommendation_action="Recommended",
+                username="Everyone",
+            )],
+        ),
+        azure_native.security.PathRecommendationArgs(
+            action="Recommended",
+            common=True,
+            configuration_status="Configured",
+            file_type="Exe",
+            path="%OSDRIVE%\\WINDOWSAZURE\\SECAGENT\\WASECAGENTPROV.EXE",
+            publisher_info=azure_native.security.PublisherInfoArgs(
+                binary_name="*",
+                product_name="MICROSOFT® COREXT",
+                publisher_name="CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+                version="0.0.0.0",
+            ),
+            type="ProductSignature",
+            user_sids=["S-1-1-0"],
+            usernames=[azure_native.security.UserRecommendationArgs(
+                recommendation_action="Recommended",
+                username="NT AUTHORITY\\SYSTEM",
+            )],
+        ),
+        azure_native.security.PathRecommendationArgs(
+            action="Recommended",
+            common=True,
+            configuration_status="Configured",
+            file_type="Exe",
+            path="%OSDRIVE%\\WINDOWSAZURE\\PACKAGES_201973_7415\\COLLECTGUESTLOGS.EXE",
+            publisher_info=azure_native.security.PublisherInfoArgs(
+                binary_name="*",
+                product_name="*",
+                publisher_name="CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+                version="0.0.0.0",
+            ),
+            type="PublisherSignature",
+            user_sids=["S-1-1-0"],
+            usernames=[azure_native.security.UserRecommendationArgs(
+                recommendation_action="Recommended",
+                username="NT AUTHORITY\\SYSTEM",
+            )],
+        ),
+        azure_native.security.PathRecommendationArgs(
+            action="Add",
+            common=True,
+            path="C:\\directory\\file.exe",
+            type="File",
+        ),
+    ],
+    protection_mode=azure_native.security.ProtectionModeArgs(
+        exe="Audit",
+        msi="None",
+        script="None",
+    ),
+    vm_recommendations=[
+        azure_native.security.VmRecommendationArgs(
+            configuration_status="Configured",
+            enforcement_support="Supported",
+            recommendation_action="Recommended",
+            resource_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/erelh-stable/providers/microsoft.compute/virtualmachines/erelh-16090",
+        ),
+        azure_native.security.VmRecommendationArgs(
+            configuration_status="Configured",
+            enforcement_support="Supported",
+            recommendation_action="Recommended",
+            resource_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/matanvs/providers/microsoft.compute/virtualmachines/matanvs19",
+        ),
+    ])

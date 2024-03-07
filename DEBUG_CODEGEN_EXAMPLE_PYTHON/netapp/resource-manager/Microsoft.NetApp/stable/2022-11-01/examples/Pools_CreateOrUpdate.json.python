@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+pool = azure_native.netapp.Pool("pool",
+    account_name="account1",
+    location="eastus",
+    pool_name="pool1",
+    qos_type="Auto",
+    resource_group_name="myRG",
+    service_level="Premium",
+    size=4398046511104)

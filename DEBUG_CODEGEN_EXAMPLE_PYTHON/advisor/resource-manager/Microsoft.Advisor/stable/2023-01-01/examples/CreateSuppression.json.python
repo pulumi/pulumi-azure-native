@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+suppression = azure_native.advisor.Suppression("suppression",
+    name="suppressionName1",
+    recommendation_id="recommendationId",
+    resource_uri="resourceUri",
+    ttl="07:00:00:00")

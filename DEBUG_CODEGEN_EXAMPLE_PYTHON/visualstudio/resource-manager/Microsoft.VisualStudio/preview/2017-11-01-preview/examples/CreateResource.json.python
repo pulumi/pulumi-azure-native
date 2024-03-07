@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+account = azure_native.visualstudio.Account("account",
+    account_name="Example",
+    location="Central US",
+    operation_type="create",
+    properties={},
+    resource_group_name="VS-Example-Group",
+    resource_name_="Example",
+    tags={})

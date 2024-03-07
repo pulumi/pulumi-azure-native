@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+relationship_link = azure_native.customerinsights.RelationshipLink("relationshipLink",
+    description={
+        "en-us": "Link Description",
+    },
+    display_name={
+        "en-us": "Link DisplayName",
+    },
+    hub_name="sdkTestHub",
+    interaction_type="testInteraction4332",
+    profile_property_references=[azure_native.customerinsights.ParticipantProfilePropertyReferenceArgs(
+        interaction_property_name="profile1",
+        profile_property_name="ProfileId",
+    )],
+    related_profile_property_references=[azure_native.customerinsights.ParticipantProfilePropertyReferenceArgs(
+        interaction_property_name="profile1",
+        profile_property_name="ProfileId",
+    )],
+    relationship_link_name="Somelink",
+    relationship_name="testProfile2326994",
+    resource_group_name="TestHubRG")

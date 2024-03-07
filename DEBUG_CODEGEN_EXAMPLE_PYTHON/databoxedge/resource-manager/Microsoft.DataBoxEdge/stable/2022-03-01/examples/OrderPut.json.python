@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+order = azure_native.databoxedge.Order("order",
+    contact_information=azure_native.databoxedge.ContactDetailsArgs(
+        company_name="Microsoft",
+        contact_person="John Mcclane",
+        email_list=["john@microsoft.com"],
+        phone="(800) 426-9400",
+    ),
+    device_name="testedgedevice",
+    resource_group_name="GroupForEdgeAutomation",
+    shipping_address=azure_native.databoxedge.AddressArgs(
+        address_line1="Microsoft Corporation",
+        address_line2="One Microsoft Way",
+        address_line3="Redmond",
+        city="WA",
+        country="USA",
+        postal_code="98052",
+        state="WA",
+    ))

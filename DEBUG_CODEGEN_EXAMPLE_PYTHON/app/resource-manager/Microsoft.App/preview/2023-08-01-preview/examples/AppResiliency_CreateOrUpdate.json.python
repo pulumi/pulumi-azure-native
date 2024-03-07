@@ -1,0 +1,46 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+app_resiliency = azure_native.app.AppResiliency("appResiliency",
+    app_name="testcontainerApp0",
+    circuit_breaker_policy=azure_native.app.CircuitBreakerPolicyArgs(
+        consecutive_errors=5,
+        interval_in_seconds=10,
+        max_ejection_percent=50,
+    ),
+    http_connection_pool=azure_native.app.HttpConnectionPoolArgs(
+        http1_max_pending_requests=1024,
+        http2_max_requests=1024,
+    ),
+    http_retry_policy=azure_native.app.HttpRetryPolicyArgs(
+        errors=[
+            "5xx",
+            "connect-failure",
+            "reset",
+            "retriable-headers",
+            "retriable-status-codes",
+        ],
+        headers=[azure_native.app.HeaderMatchArgs(
+            header="X-Content-Type",
+            prefix_match="GOATS",
+        )],
+        http_status_codes=[
+            502,
+            503,
+        ],
+        initial_delay_in_milliseconds=1000,
+        max_interval_in_milliseconds=10000,
+        max_retries=5,
+    ),
+    name="resiliency-policy-1",
+    resource_group_name="rg",
+    tcp_connection_pool=azure_native.app.TcpConnectionPoolArgs(
+        max_connections=100,
+    ),
+    tcp_retry_policy=azure_native.app.TcpRetryPolicyArgs(
+        max_connect_attempts=3,
+    ),
+    timeout_policy=azure_native.app.TimeoutPolicyArgs(
+        connection_timeout_in_seconds=5,
+        response_timeout_in_seconds=15,
+    ))

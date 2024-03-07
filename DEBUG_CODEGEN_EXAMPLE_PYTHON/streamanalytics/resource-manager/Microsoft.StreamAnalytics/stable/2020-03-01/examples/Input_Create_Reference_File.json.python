@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+input = azure_native.streamanalytics.Input("input",
+    input_name="input7225",
+    job_name="sj9597",
+    properties=azure_native.streamanalytics.ReferenceInputPropertiesArgs(
+        datasource=azure_native.streamanalytics.FileReferenceInputDataSourceArgs(
+            path="my/path",
+            type="File",
+        ),
+        type="Reference",
+    ),
+    resource_group_name="sjrg8440")

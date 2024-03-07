@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+rai_blocklist = azure_native.cognitiveservices.RaiBlocklist("raiBlocklist",
+    account_name="accountName",
+    properties=azure_native.cognitiveservices.RaiBlocklistPropertiesArgs(
+        description="Basic blocklist description",
+    ),
+    rai_blocklist_name="raiBlocklistName",
+    resource_group_name="resourceGroupName")

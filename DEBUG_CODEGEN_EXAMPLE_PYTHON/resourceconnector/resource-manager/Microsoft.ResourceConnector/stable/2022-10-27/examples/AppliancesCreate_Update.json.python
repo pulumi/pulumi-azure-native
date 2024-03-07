@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+appliance = azure_native.resourceconnector.Appliance("appliance",
+    distro="AKSEdge",
+    infrastructure_config=azure_native.resourceconnector.AppliancePropertiesInfrastructureConfigArgs(
+        provider="VMWare",
+    ),
+    location="West US",
+    resource_group_name="testresourcegroup",
+    resource_name_="appliance01")

@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+storage_appliance = azure_native.networkcloud.StorageAppliance("storageAppliance",
+    administrator_credentials=azure_native.networkcloud.AdministrativeCredentialsArgs(
+        password="{password}",
+        username="adminUser",
+    ),
+    extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+        name="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+        type="CustomLocation",
+    ),
+    location="location",
+    rack_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+    rack_slot=1,
+    resource_group_name="resourceGroupName",
+    serial_number="BM1219XXX",
+    storage_appliance_name="storageApplianceName",
+    storage_appliance_sku_id="684E-3B16-399E",
+    tags={
+        "key1": "myvalue1",
+        "key2": "myvalue2",
+    })

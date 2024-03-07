@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_hsm = azure_native.keyvault.ManagedHsm("managedHsm",
+    location="westus",
+    name="hsm1",
+    properties=azure_native.keyvault.ManagedHsmPropertiesArgs(
+        enable_purge_protection=False,
+        enable_soft_delete=True,
+        initial_admin_object_ids=["00000000-0000-0000-0000-000000000000"],
+        soft_delete_retention_in_days=90,
+        tenant_id="00000000-0000-0000-0000-000000000000",
+    ),
+    resource_group_name="hsm-group",
+    sku=azure_native.keyvault.ManagedHsmSkuArgs(
+        family="B",
+        name=azure_native.keyvault.ManagedHsmSkuName.STANDARD_B1,
+    ),
+    tags={
+        "Dept": "hsm",
+        "Environment": "dogfood",
+    })

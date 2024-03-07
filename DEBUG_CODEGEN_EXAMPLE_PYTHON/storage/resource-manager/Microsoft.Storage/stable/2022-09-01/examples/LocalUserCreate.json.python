@@ -1,0 +1,25 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+local_user = azure_native.storage.LocalUser("localUser",
+    account_name="sto2527",
+    has_ssh_password=True,
+    home_directory="homedirectory",
+    permission_scopes=[
+        azure_native.storage.PermissionScopeArgs(
+            permissions="rwd",
+            resource_name="share1",
+            service="file",
+        ),
+        azure_native.storage.PermissionScopeArgs(
+            permissions="rw",
+            resource_name="share2",
+            service="file",
+        ),
+    ],
+    resource_group_name="res6977",
+    ssh_authorized_keys=[azure_native.storage.SshPublicKeyArgs(
+        description="key name",
+        key="ssh-rsa keykeykeykeykey=",
+    )],
+    username="user1")

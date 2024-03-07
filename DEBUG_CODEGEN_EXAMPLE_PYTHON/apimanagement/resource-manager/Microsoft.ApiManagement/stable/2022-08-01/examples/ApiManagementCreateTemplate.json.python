@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+email_template = azure_native.apimanagement.EmailTemplate("emailTemplate",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    subject="Your request for $IssueName was successfully received.",
+    template_name="newIssueNotificationMessage")

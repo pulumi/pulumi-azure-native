@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+output = azure_native.streamanalytics.Output("output",
+    datasource=azure_native.streamanalytics.AzureSqlDatabaseOutputDataSourceArgs(
+        database="someDatabase",
+        password="somePassword",
+        server="someServer",
+        table="someTable",
+        type="Microsoft.Sql/Server/Database",
+        user="<user>",
+    ),
+    job_name="sj6458",
+    output_name="output1755",
+    resource_group_name="sjrg2157")

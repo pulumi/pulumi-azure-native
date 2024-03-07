@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+endpoint = azure_native.storagemover.Endpoint("endpoint",
+    endpoint_name="examples-endpointName",
+    properties=azure_native.storagemover.AzureStorageBlobContainerEndpointPropertiesArgs(
+        blob_container_name="examples-blobContainerName",
+        description="Example Storage Container Endpoint Description",
+        endpoint_type="AzureStorageBlobContainer",
+        storage_account_resource_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.Storage/storageAccounts/examples-storageAccountName/",
+    ),
+    resource_group_name="examples-rg",
+    storage_mover_name="examples-storageMoverName")

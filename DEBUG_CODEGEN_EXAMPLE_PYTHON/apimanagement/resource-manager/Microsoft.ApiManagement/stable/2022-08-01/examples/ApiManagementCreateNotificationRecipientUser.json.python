@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+notification_recipient_user = azure_native.apimanagement.NotificationRecipientUser("notificationRecipientUser",
+    notification_name="RequestPublisherNotificationMessage",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    user_id="576823d0a40f7e74ec07d642")

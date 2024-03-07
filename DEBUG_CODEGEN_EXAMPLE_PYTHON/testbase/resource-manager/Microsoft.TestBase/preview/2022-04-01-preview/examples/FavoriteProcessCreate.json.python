@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+favorite_process = azure_native.testbase.FavoriteProcess("favoriteProcess",
+    actual_process_name="testApp&.exe",
+    favorite_process_resource_name="testAppProcess",
+    package_name="contoso-package2",
+    resource_group_name="contoso-rg1",
+    test_base_account_name="contoso-testBaseAccount1")

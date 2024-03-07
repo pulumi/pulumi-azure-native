@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+certificate = azure_native.appplatform.Certificate("certificate",
+    certificate_name="mycertificate",
+    properties=azure_native.appplatform.KeyVaultCertificatePropertiesArgs(
+        cert_version="08a219d06d874795a96db47e06fbb01e",
+        key_vault_cert_name="mycert",
+        type="KeyVaultCertificate",
+        vault_uri="https://myvault.vault.azure.net",
+    ),
+    resource_group_name="myResourceGroup",
+    service_name="myservice")

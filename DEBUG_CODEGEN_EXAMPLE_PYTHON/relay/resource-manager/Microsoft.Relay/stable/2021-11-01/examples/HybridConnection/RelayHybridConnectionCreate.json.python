@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hybrid_connection = azure_native.relay.HybridConnection("hybridConnection",
+    hybrid_connection_name="example-Relay-Hybrid-01",
+    namespace_name="example-RelayNamespace-01",
+    requires_client_authorization=True,
+    resource_group_name="resourcegroup")

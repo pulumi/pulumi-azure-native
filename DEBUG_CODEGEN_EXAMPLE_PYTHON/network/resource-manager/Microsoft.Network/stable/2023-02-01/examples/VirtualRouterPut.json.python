@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_router = azure_native.network.VirtualRouter("virtualRouter",
+    hosted_gateway=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway",
+    ),
+    location="West US",
+    resource_group_name="rg1",
+    tags={
+        "key1": "value1",
+    },
+    virtual_router_name="virtualRouter")

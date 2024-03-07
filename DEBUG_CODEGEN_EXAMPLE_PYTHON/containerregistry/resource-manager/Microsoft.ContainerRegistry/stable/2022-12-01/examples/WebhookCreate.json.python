@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+webhook = azure_native.containerregistry.Webhook("webhook",
+    actions=["push"],
+    custom_headers={
+        "Authorization": "******",
+    },
+    location="westus",
+    registry_name="myRegistry",
+    resource_group_name="myResourceGroup",
+    scope="myRepository",
+    service_uri="http://myservice.com",
+    status="enabled",
+    tags={
+        "key": "value",
+    },
+    webhook_name="myWebhook")

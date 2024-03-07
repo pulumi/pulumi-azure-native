@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace_manager_configuration = azure_native.securityinsights.WorkspaceManagerConfiguration("workspaceManagerConfiguration",
+    mode="Enabled",
+    resource_group_name="myRg",
+    workspace_manager_configuration_name="default",
+    workspace_name="myWorkspace")

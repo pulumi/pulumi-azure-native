@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+channel = azure_native.botservice.Channel("channel",
+    channel_name="AlexaChannel",
+    location="global",
+    properties=azure_native.botservice.AlexaChannelArgs(
+        channel_name="AlexaChannel",
+        properties=azure_native.botservice.AlexaChannelPropertiesArgs(
+            alexa_skill_id="XAlexaSkillIdX",
+            is_enabled=True,
+        ),
+    ),
+    resource_group_name="OneResourceGroupName",
+    resource_name_="samplebotname")

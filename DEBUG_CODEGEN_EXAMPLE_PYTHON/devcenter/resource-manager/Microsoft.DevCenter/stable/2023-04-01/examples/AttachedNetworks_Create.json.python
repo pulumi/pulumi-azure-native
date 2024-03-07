@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+attached_network_by_dev_center = azure_native.devcenter.AttachedNetworkByDevCenter("attachedNetworkByDevCenter",
+    attached_network_connection_name="network-uswest3",
+    dev_center_name="Contoso",
+    network_connection_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/NetworkConnections/network-uswest3",
+    resource_group_name="rg1")

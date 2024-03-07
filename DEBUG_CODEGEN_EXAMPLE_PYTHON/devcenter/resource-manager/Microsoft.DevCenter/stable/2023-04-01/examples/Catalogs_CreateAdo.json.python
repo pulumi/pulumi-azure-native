@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+catalog = azure_native.devcenter.Catalog("catalog",
+    ado_git=azure_native.devcenter.GitCatalogArgs(
+        branch="main",
+        path="/templates",
+        secret_identifier="https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+        uri="https://contoso@dev.azure.com/contoso/contosoOrg/_git/centralrepo-fakecontoso",
+    ),
+    catalog_name="CentralCatalog",
+    dev_center_name="Contoso",
+    resource_group_name="rg1")

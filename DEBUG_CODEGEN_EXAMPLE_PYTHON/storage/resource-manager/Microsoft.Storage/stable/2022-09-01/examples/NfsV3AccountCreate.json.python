@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+storage_account = azure_native.storage.StorageAccount("storageAccount",
+    account_name="sto4445",
+    enable_https_traffic_only=False,
+    enable_nfs_v3=True,
+    is_hns_enabled=True,
+    kind="BlockBlobStorage",
+    location="eastus",
+    network_rule_set=azure_native.storage.NetworkRuleSetArgs(
+        bypass="AzureServices",
+        default_action=azure_native.storage.DefaultAction.ALLOW,
+        ip_rules=[],
+        virtual_network_rules=[azure_native.storage.VirtualNetworkRuleArgs(
+            virtual_network_resource_id="/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Network/virtualNetworks/net123/subnets/subnet12",
+        )],
+    ),
+    resource_group_name="res9101",
+    sku=azure_native.storage.SkuArgs(
+        name="Premium_LRS",
+    ))

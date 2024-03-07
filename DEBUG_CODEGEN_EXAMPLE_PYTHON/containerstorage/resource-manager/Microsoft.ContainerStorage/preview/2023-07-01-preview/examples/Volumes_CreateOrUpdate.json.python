@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+volume = azure_native.containerstorage.Volume("volume",
+    capacity_gi_b=25838,
+    labels={
+        "key2039": "value2039",
+    },
+    pool_name="test-pool",
+    resource_group_name="test-rg",
+    volume_name="test-volume")

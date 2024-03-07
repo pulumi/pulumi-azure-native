@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+notification_recipient_email = azure_native.apimanagement.NotificationRecipientEmail("notificationRecipientEmail",
+    email="foobar@live.com",
+    notification_name="RequestPublisherNotificationMessage",
+    resource_group_name="rg1",
+    service_name="apimService1")

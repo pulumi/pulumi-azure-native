@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+pipeline_run = azure_native.containerregistry.PipelineRun("pipelineRun",
+    pipeline_run_name="myPipelineRun",
+    registry_name="myRegistry",
+    request=azure_native.containerregistry.PipelineRunRequestArgs(
+        artifacts=[
+            "sourceRepository/hello-world",
+            "sourceRepository2@sha256:00000000000000000000000000000000000",
+        ],
+        pipeline_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline",
+        target=azure_native.containerregistry.PipelineRunTargetPropertiesArgs(
+            name="myblob.tar.gz",
+            type="AzureStorageBlob",
+        ),
+    ),
+    resource_group_name="myResourceGroup")

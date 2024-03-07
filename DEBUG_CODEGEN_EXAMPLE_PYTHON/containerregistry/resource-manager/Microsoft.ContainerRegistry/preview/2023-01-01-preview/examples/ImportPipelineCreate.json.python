@@ -1,0 +1,24 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+import_pipeline = azure_native.containerregistry.ImportPipeline("importPipeline",
+    identity=azure_native.containerregistry.IdentityPropertiesArgs(
+        type=azure_native.containerregistry.ResourceIdentityType.USER_ASSIGNED,
+        user_assigned_identities={
+            "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": azure_native.containerregistry.UserIdentityPropertiesArgs(),
+        },
+    ),
+    import_pipeline_name="myImportPipeline",
+    location="westus",
+    options=[
+        "OverwriteTags",
+        "DeleteSourceBlobOnSuccess",
+        "ContinueOnErrors",
+    ],
+    registry_name="myRegistry",
+    resource_group_name="myResourceGroup",
+    source=azure_native.containerregistry.ImportPipelineSourcePropertiesArgs(
+        key_vault_uri="https://myvault.vault.azure.net/secrets/acrimportsas",
+        type="AzureStorageBlobContainer",
+        uri="https://accountname.blob.core.windows.net/containername",
+    ))

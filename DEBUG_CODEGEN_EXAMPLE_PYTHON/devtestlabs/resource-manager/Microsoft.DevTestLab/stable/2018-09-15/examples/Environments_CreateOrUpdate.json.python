@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+environment = azure_native.devtestlab.Environment("environment",
+    deployment_properties=azure_native.devtestlab.EnvironmentDeploymentPropertiesArgs(
+        arm_template_id="/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}",
+        parameters=[],
+    ),
+    lab_name="{labName}",
+    name="{environmentName}",
+    resource_group_name="resourceGroupName",
+    user_name="@me")

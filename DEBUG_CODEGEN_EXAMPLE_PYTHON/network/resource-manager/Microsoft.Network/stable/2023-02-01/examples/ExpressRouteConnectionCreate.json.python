@@ -1,0 +1,42 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+express_route_connection = azure_native.network.ExpressRouteConnection("expressRouteConnection",
+    authorization_key="authorizationKey",
+    connection_name="connectionName",
+    express_route_circuit_peering=azure_native.network.ExpressRouteCircuitPeeringIdArgs(
+        id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+    ),
+    express_route_gateway_name="gateway-2",
+    id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+    name="connectionName",
+    resource_group_name="resourceGroupName",
+    routing_configuration=azure_native.network.RoutingConfigurationArgs(
+        associated_route_table=azure_native.network.SubResourceArgs(
+            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+        ),
+        inbound_route_map=azure_native.network.SubResourceArgs(
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+        ),
+        outbound_route_map=azure_native.network.SubResourceArgs(
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+        ),
+        propagated_route_tables=azure_native.network.PropagatedRouteTableArgs(
+            ids=[
+                azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                ),
+                azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+                ),
+                azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+                ),
+            ],
+            labels=[
+                "label1",
+                "label2",
+            ],
+        ),
+    ),
+    routing_weight=2)

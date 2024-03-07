@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+dns_resolver = azure_native.network.DnsResolver("dnsResolver",
+    dns_resolver_name="sampleDnsResolver",
+    location="westus2",
+    resource_group_name="sampleResourceGroup",
+    tags={
+        "key1": "value1",
+    },
+    virtual_network=azure_native.network.SubResourceArgs(
+        id="/subscriptions/cbb1387e-4b03-44f2-ad41-58d4677b9873/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+    ))

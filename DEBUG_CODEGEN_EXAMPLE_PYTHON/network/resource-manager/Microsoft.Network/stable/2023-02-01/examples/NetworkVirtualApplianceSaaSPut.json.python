@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+network_virtual_appliance = azure_native.network.NetworkVirtualAppliance("networkVirtualAppliance",
+    delegation=azure_native.network.DelegationPropertiesArgs(
+        service_name="PaloAltoNetworks.Cloudngfw/firewalls",
+    ),
+    location="West US",
+    network_virtual_appliance_name="nva",
+    resource_group_name="rg1",
+    tags={
+        "key1": "value1",
+    },
+    virtual_hub=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    ))

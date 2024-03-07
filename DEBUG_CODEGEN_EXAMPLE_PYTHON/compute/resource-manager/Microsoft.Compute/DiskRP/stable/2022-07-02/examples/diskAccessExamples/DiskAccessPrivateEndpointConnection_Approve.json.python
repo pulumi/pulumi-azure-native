@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+disk_access_a_private_endpoint_connection = azure_native.compute.DiskAccessAPrivateEndpointConnection("diskAccessAPrivateEndpointConnection",
+    disk_access_name="myDiskAccess",
+    private_endpoint_connection_name="myPrivateEndpointConnection",
+    private_link_service_connection_state=azure_native.compute.PrivateLinkServiceConnectionStateArgs(
+        description="Approving myPrivateEndpointConnection",
+        status="Approved",
+    ),
+    resource_group_name="myResourceGroup")

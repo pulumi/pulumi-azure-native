@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+packet_core_data_plane = azure_native.mobilenetwork.PacketCoreDataPlane("packetCoreDataPlane",
+    location="eastus",
+    packet_core_control_plane_name="testPacketCoreCP",
+    packet_core_data_plane_name="testPacketCoreDP",
+    resource_group_name="rg1",
+    user_plane_access_interface=azure_native.mobilenetwork.InterfacePropertiesArgs(
+        name="N3",
+    ))

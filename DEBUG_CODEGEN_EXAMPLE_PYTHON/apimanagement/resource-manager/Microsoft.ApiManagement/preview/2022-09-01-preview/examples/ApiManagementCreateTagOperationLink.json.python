@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+tag_operation_link = azure_native.apimanagement.TagOperationLink("tagOperationLink",
+    operation_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echo-api/operations/op1",
+    operation_link_id="link1",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    tag_id="tag1")

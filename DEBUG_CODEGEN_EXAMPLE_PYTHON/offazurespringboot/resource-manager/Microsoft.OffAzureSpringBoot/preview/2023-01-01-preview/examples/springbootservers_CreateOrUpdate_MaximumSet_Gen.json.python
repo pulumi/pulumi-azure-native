@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+springbootserver = azure_native.offazurespringboot.Springbootserver("springbootserver",
+    properties=azure_native.offazurespringboot.SpringbootserversPropertiesArgs(
+        errors=[],
+        fqdn_and_ip_address_list=[],
+        machine_arm_id="fvfkiapbqsprnbzczdfmuryknrna",
+        port=10,
+        server="thhuxocfyqpeluqcgnypi",
+        spring_boot_apps=17,
+        total_apps=5,
+    ),
+    resource_group_name="rgspringbootservers",
+    site_name="hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
+    springbootservers_name="zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn")

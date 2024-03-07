@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+backup_short_term_retention_policy = azure_native.sql.BackupShortTermRetentionPolicy("backupShortTermRetentionPolicy",
+    database_name="testdb",
+    diff_backup_interval_in_hours=24,
+    policy_name="default",
+    resource_group_name="resourceGroup",
+    retention_days=7,
+    server_name="testsvr")

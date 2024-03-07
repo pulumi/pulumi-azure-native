@@ -1,0 +1,27 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+rule = azure_native.cdn.Rule("rule",
+    actions=[azure_native.cdn.DeliveryRuleResponseHeaderActionArgs(
+        name="ModifyResponseHeader",
+        parameters=azure_native.cdn.HeaderActionParametersArgs(
+            header_action="Overwrite",
+            header_name="X-CDN",
+            type_name="DeliveryRuleHeaderActionParameters",
+            value="MSFT",
+        ),
+    )],
+    conditions=[azure_native.cdn.DeliveryRuleRequestMethodConditionArgs(
+        name="RequestMethod",
+        parameters=azure_native.cdn.RequestMethodMatchConditionParametersArgs(
+            match_values=["GET"],
+            negate_condition=False,
+            operator="Equal",
+            type_name="DeliveryRuleRequestMethodConditionParameters",
+        ),
+    )],
+    order=1,
+    profile_name="profile1",
+    resource_group_name="RG",
+    rule_name="rule1",
+    rule_set_name="ruleSet1")

@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+attached_database_configuration = azure_native.kusto.AttachedDatabaseConfiguration("attachedDatabaseConfiguration",
+    attached_database_configuration_name="attachedDatabaseConfigurationsTest",
+    cluster_name="kustoCluster2",
+    cluster_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2",
+    database_name="kustodatabase",
+    database_name_override="overridekustodatabase",
+    default_principals_modification_kind="Union",
+    location="westus",
+    resource_group_name="kustorptest",
+    table_level_sharing_properties=azure_native.kusto.TableLevelSharingPropertiesArgs(
+        external_tables_to_exclude=["ExternalTable2"],
+        external_tables_to_include=["ExternalTable1"],
+        materialized_views_to_exclude=["MaterializedViewTable2"],
+        materialized_views_to_include=["MaterializedViewTable1"],
+        tables_to_exclude=["Table2"],
+        tables_to_include=["Table1"],
+    ))

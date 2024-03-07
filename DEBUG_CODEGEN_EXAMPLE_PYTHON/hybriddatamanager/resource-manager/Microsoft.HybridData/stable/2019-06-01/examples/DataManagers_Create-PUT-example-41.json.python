@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+data_manager = azure_native.hybriddata.DataManager("dataManager",
+    data_manager_name="TestAzureSDKOperations",
+    location="westus",
+    resource_group_name="ResourceGroupForSDKTest")

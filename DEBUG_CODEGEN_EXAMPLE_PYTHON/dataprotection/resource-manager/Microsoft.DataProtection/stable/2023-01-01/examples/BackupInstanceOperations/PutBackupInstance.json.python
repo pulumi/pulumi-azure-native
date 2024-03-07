@@ -1,0 +1,50 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+    backup_instance_name="testInstance1",
+    properties=azure_native.dataprotection.BackupInstanceArgs(
+        data_source_info=azure_native.dataprotection.DatasourceArgs(
+            datasource_type="Microsoft.DBforPostgreSQL/servers/databases",
+            object_type="Datasource",
+            resource_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+            resource_location="",
+            resource_name="testdb",
+            resource_type="Microsoft.DBforPostgreSQL/servers/databases",
+            resource_uri="",
+        ),
+        data_source_set_info=azure_native.dataprotection.DatasourceSetArgs(
+            datasource_type="Microsoft.DBforPostgreSQL/servers/databases",
+            object_type="DatasourceSet",
+            resource_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+            resource_location="",
+            resource_name="viveksipgtest",
+            resource_type="Microsoft.DBforPostgreSQL/servers",
+            resource_uri="",
+        ),
+        datasource_auth_credentials=azure_native.dataprotection.SecretStoreBasedAuthCredentialsArgs(
+            object_type="SecretStoreBasedAuthCredentials",
+            secret_store_resource=azure_native.dataprotection.SecretStoreResourceArgs(
+                secret_store_type="AzureKeyVault",
+                uri="https://samplevault.vault.azure.net/secrets/credentials",
+            ),
+        ),
+        friendly_name="harshitbi2",
+        object_type="BackupInstance",
+        policy_info=azure_native.dataprotection.PolicyInfoArgs(
+            policy_id="/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+            policy_parameters=azure_native.dataprotection.PolicyParametersArgs(
+                data_store_parameters_list=[azure_native.dataprotection.AzureOperationalStoreParametersArgs(
+                    data_store_type="OperationalStore",
+                    object_type="AzureOperationalStoreParameters",
+                    resource_group_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                )],
+            ),
+        ),
+        validation_type="ShallowValidation",
+    ),
+    resource_group_name="000pikumar",
+    tags={
+        "key1": "val1",
+    },
+    vault_name="PratikPrivatePreviewVault1")

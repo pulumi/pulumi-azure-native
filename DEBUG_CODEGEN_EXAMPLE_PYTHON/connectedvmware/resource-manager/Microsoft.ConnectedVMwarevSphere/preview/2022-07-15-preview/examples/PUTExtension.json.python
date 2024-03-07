@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+machine_extension = azure_native.connectedvmwarevsphere.MachineExtension("machineExtension",
+    extension_name="CustomScriptExtension",
+    location="eastus2euap",
+    publisher="Microsoft.Compute",
+    resource_group_name="myResourceGroup",
+    settings={
+        "commandToExecute": "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"",
+    },
+    type="CustomScriptExtension",
+    type_handler_version="1.10",
+    virtual_machine_name="myMachine")

@@ -1,0 +1,25 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_hub_route_table_v2 = azure_native.network.VirtualHubRouteTableV2("virtualHubRouteTableV2",
+    attached_connections=["All_Vnets"],
+    resource_group_name="rg1",
+    route_table_name="virtualHubRouteTable1a",
+    routes=[
+        azure_native.network.VirtualHubRouteV2Args(
+            destination_type="CIDR",
+            destinations=[
+                "20.10.0.0/16",
+                "20.20.0.0/16",
+            ],
+            next_hop_type="IPAddress",
+            next_hops=["10.0.0.68"],
+        ),
+        azure_native.network.VirtualHubRouteV2Args(
+            destination_type="CIDR",
+            destinations=["0.0.0.0/0"],
+            next_hop_type="IPAddress",
+            next_hops=["10.0.0.68"],
+        ),
+    ],
+    virtual_hub_name="virtualHub1")

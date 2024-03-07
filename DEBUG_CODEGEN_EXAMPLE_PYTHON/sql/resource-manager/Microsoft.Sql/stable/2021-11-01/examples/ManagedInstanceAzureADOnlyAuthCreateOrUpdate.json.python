@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+managed_instance_azure_ad_only_authentication = azure_native.sql.ManagedInstanceAzureADOnlyAuthentication("managedInstanceAzureADOnlyAuthentication",
+    authentication_name="Default",
+    azure_ad_only_authentication=False,
+    managed_instance_name="managedInstance",
+    resource_group_name="Default-SQL-SouthEastAsia")

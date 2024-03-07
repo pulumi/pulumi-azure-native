@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+record_set = azure_native.network.RecordSet("recordSet",
+    metadata={
+        "key1": "value1",
+    },
+    mx_records=[azure_native.network.MxRecordArgs(
+        exchange="mail.contoso.com",
+        preference=0,
+    )],
+    record_type="MX",
+    relative_record_set_name="record1",
+    resource_group_name="rg1",
+    ttl=3600,
+    zone_name="zone1")

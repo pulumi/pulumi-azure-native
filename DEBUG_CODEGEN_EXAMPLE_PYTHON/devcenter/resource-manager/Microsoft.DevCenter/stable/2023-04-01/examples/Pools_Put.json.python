@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+pool = azure_native.devcenter.Pool("pool",
+    dev_box_definition_name="WebDevBox",
+    license_type="Windows_Client",
+    local_administrator="Enabled",
+    location="centralus",
+    network_connection_name="Network1-westus2",
+    pool_name="DevPool",
+    project_name="DevProject",
+    resource_group_name="rg1",
+    stop_on_disconnect=azure_native.devcenter.StopOnDisconnectConfigurationArgs(
+        grace_period_minutes=60,
+        status="Enabled",
+    ))

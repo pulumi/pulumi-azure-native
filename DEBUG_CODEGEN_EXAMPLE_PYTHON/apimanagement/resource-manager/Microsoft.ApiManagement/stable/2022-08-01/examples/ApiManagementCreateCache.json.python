@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cache = azure_native.apimanagement.Cache("cache",
+    cache_id="c1",
+    connection_string="apim.redis.cache.windows.net:6380,password=xc,ssl=True,abortConnect=False",
+    description="Redis cache instances in West India",
+    resource_group_name="rg1",
+    resource_id="https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redis/apimservice1",
+    service_name="apimService1",
+    use_from_location="default")

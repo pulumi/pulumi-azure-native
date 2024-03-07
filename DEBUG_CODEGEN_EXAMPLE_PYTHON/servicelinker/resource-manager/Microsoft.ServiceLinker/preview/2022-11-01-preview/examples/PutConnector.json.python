@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connector = azure_native.servicelinker.Connector("connector",
+    auth_info=azure_native.servicelinker.SecretAuthInfoArgs(
+        auth_type="secret",
+    ),
+    connector_name="connectorName",
+    location="westus",
+    resource_group_name="test-rg",
+    secret_store=azure_native.servicelinker.SecretStoreArgs(
+        key_vault_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+    ),
+    target_service=azure_native.servicelinker.AzureResourceArgs(
+        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+        type="AzureResource",
+    ))

@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+security_contact = azure_native.security.SecurityContact("securityContact",
+    alert_notifications=azure_native.security.SecurityContactPropertiesAlertNotificationsArgs(
+        minimal_severity="Low",
+        state="On",
+    ),
+    emails="john@contoso.com;jane@contoso.com",
+    notifications_by_role=azure_native.security.SecurityContactPropertiesNotificationsByRoleArgs(
+        roles=["Owner"],
+        state="On",
+    ),
+    phone="(214)275-4038",
+    security_contact_name="default")

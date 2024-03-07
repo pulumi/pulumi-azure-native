@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_machine_instance = azure_native.scvmm.VirtualMachineInstance("virtualMachineInstance",
+    extended_location=azure_native.scvmm.ExtendedLocationArgs(
+        name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+        type="customLocation",
+    ),
+    hardware_profile=azure_native.scvmm.HardwareProfileArgs(
+        cpu_count=4,
+        memory_mb=4196,
+    ),
+    infrastructure_profile=azure_native.scvmm.InfrastructureProfileArgs(
+        cloud_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/Clouds/HRCloud",
+        template_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachineTemplates/HRVirtualMachineTemplate",
+        vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer",
+    ),
+    resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM")

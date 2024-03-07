@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cloud_link = azure_native.avs.CloudLink("cloudLink",
+    cloud_link_name="cloudLink1",
+    linked_cloud="/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.AVS/privateClouds/cloud2",
+    private_cloud_name="cloud1",
+    resource_group_name="group1")

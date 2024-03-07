@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connected_registry = azure_native.containerregistry.ConnectedRegistry("connectedRegistry",
+    client_token_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/client1Token"],
+    connected_registry_name="myConnectedRegistry",
+    mode="ReadWrite",
+    notifications_list=[
+        "hello-world:*:*",
+        "sample/repo/*:1.0:*",
+    ],
+    parent=azure_native.containerregistry.ParentPropertiesArgs(
+        sync_properties=azure_native.containerregistry.SyncPropertiesArgs(
+            message_ttl="P2D",
+            schedule="0 9 * * *",
+            sync_window="PT3H",
+            token_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/syncToken",
+        ),
+    ),
+    registry_name="myRegistry",
+    resource_group_name="myResourceGroup")

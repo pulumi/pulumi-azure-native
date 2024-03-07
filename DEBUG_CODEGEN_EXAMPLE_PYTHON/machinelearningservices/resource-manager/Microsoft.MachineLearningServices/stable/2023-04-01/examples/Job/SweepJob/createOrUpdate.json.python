@@ -1,0 +1,72 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job = azure_native.machinelearningservices.Job("job",
+    id="string",
+    job_base_properties=azure_native.machinelearningservices.SweepJobArgs(
+        compute_id="string",
+        description="string",
+        display_name="string",
+        early_termination=azure_native.machinelearningservices.MedianStoppingPolicyArgs(
+            delay_evaluation=1,
+            evaluation_interval=1,
+            policy_type="MedianStopping",
+        ),
+        experiment_name="string",
+        job_type="Sweep",
+        limits=azure_native.machinelearningservices.SweepJobLimitsArgs(
+            job_limits_type="Sweep",
+            max_concurrent_trials=1,
+            max_total_trials=1,
+            trial_timeout="PT1S",
+        ),
+        objective=azure_native.machinelearningservices.ObjectiveArgs(
+            goal="Minimize",
+            primary_metric="string",
+        ),
+        properties={
+            "string": "string",
+        },
+        sampling_algorithm=azure_native.machinelearningservices.GridSamplingAlgorithmArgs(
+            sampling_algorithm_type="Grid",
+        ),
+        search_space={
+            "string": {},
+        },
+        services={
+            "string": azure_native.machinelearningservices.JobServiceArgs(
+                endpoint="string",
+                job_service_type="string",
+                port=1,
+                properties={
+                    "string": "string",
+                },
+            ),
+        },
+        tags={
+            "string": "string",
+        },
+        trial=azure_native.machinelearningservices.TrialComponentArgs(
+            code_id="string",
+            command="string",
+            distribution=azure_native.machinelearningservices.MpiArgs(
+                distribution_type="Mpi",
+                process_count_per_instance=1,
+            ),
+            environment_id="string",
+            environment_variables={
+                "string": "string",
+            },
+            resources=azure_native.machinelearningservices.JobResourceConfigurationArgs(
+                instance_count=1,
+                instance_type="string",
+                properties={
+                    "string": {
+                        "e6b6493e-7d5e-4db3-be1e-306ec641327e": None,
+                    },
+                },
+            ),
+        ),
+    ),
+    resource_group_name="test-rg",
+    workspace_name="my-aml-workspace")

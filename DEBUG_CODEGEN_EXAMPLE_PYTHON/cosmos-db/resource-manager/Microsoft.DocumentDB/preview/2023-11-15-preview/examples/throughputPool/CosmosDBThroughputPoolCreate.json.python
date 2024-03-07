@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+throughput_pool = azure_native.documentdb.ThroughputPool("throughputPool",
+    location="westus2",
+    max_throughput=10000,
+    resource_group_name="rg1",
+    tags={},
+    throughput_pool_name="tp1")

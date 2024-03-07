@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+input = azure_native.streamanalytics.Input("input",
+    input_name="input7970",
+    job_name="sj9742",
+    properties=azure_native.streamanalytics.StreamInputPropertiesArgs(
+        datasource=azure_native.streamanalytics.IoTHubStreamInputDataSourceArgs(
+            consumer_group_name="sdkconsumergroup",
+            endpoint="messages/events",
+            iot_hub_namespace="iothub",
+            shared_access_policy_key="sharedAccessPolicyKey=",
+            shared_access_policy_name="owner",
+            type="Microsoft.Devices/IotHubs",
+        ),
+        serialization=azure_native.streamanalytics.AvroSerializationArgs(
+            type="Avro",
+        ),
+        type="Stream",
+    ),
+    resource_group_name="sjrg3467")

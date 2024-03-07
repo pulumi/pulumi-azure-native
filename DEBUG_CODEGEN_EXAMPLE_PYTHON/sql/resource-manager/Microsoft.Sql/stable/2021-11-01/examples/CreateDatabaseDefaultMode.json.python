@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database = azure_native.sql.Database("database",
+    collation="SQL_Latin1_General_CP1_CI_AS",
+    create_mode="Default",
+    database_name="testdb",
+    location="southeastasia",
+    max_size_bytes=1073741824,
+    resource_group_name="Default-SQL-SouthEastAsia",
+    server_name="testsvr",
+    sku=azure_native.sql.SkuArgs(
+        name="S0",
+        tier="Standard",
+    ))

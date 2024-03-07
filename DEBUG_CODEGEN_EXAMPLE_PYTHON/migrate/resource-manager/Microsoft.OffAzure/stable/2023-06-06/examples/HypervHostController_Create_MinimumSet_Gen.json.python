@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hyperv_host_controller = azure_native.offazure.HypervHostController("hypervHostController",
+    host_name="IIfm6suXoKL",
+    resource_group_name="rgmigrate",
+    site_name="-25mH3")

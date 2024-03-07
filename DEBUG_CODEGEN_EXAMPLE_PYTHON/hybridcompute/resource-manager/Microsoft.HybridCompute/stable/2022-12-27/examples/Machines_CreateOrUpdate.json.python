@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+machine = azure_native.hybridcompute.Machine("machine",
+    client_public_key="string",
+    identity=azure_native.hybridcompute.IdentityArgs(
+        type=azure_native.hybridcompute.ResourceIdentityType.SYSTEM_ASSIGNED,
+    ),
+    location="eastus2euap",
+    location_data=azure_native.hybridcompute.LocationDataArgs(
+        name="Redmond",
+    ),
+    machine_name="myMachine",
+    parent_cluster_resource_id="{AzureStackHCIResourceId}",
+    private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+    resource_group_name="myResourceGroup",
+    vm_id="b7a098cc-b0b8-46e8-a205-62f301a62a8f")

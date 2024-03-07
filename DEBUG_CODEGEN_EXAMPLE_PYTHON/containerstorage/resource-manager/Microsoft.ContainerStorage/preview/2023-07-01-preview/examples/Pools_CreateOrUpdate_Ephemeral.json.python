@@ -1,0 +1,29 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+pool = azure_native.containerstorage.Pool("pool",
+    assignments=[azure_native.containerstorage.AssignmentArgs(
+        id="/subscriptions/bb4d87a2-4273-466c-a6ba-61d818061b3a/resourceGroups/test-rg/providers/Microsoft.ContainerService/managedClusters/containerstoragetest",
+    )],
+    location="eastus",
+    pool_name="test-pool",
+    pool_type=azure_native.containerstorage.PoolTypeArgs(
+        ephemeral_disk=azure_native.containerstorage.EphemeralDiskArgs(
+            replicas=3,
+        ),
+    ),
+    reclaim_policy="Delete",
+    resource_group_name="test-rg",
+    resources=azure_native.containerstorage.ResourcesArgs(
+        requests=azure_native.containerstorage.RequestsArgs(
+            storage=15578,
+        ),
+    ),
+    tags={
+        "key1888": "value1888",
+    },
+    zones=[
+        "1",
+        "2",
+        "3",
+    ])

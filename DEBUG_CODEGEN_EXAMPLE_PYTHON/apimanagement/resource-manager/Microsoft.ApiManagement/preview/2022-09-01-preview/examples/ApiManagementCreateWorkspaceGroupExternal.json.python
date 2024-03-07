@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace_group = azure_native.apimanagement.WorkspaceGroup("workspaceGroup",
+    description="new group to test",
+    display_name="NewGroup (samiraad.onmicrosoft.com)",
+    external_id="aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
+    group_id="aadGroup",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    type=azure_native.apimanagement.GroupType.EXTERNAL,
+    workspace_id="wks1")

@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+internet_gateway_rule = azure_native.managednetworkfabric.InternetGatewayRule("internetGatewayRule",
+    annotation="annotationValue",
+    internet_gateway_rule_name="example-internetGatewayRule",
+    location="eastus",
+    resource_group_name="example-rg",
+    rule_properties=azure_native.managednetworkfabric.RulePropertiesArgs(
+        action="Allow",
+        address_list=["10.10.10.10"],
+    ),
+    tags={
+        "keyID": "keyValue",
+    })

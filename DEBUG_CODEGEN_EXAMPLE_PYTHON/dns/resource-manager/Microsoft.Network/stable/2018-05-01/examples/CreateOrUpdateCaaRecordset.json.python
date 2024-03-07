@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+record_set = azure_native.network.RecordSet("recordSet",
+    caa_records=[azure_native.network.CaaRecordArgs(
+        flags=0,
+        tag="issue",
+        value="ca.contoso.com",
+    )],
+    metadata={
+        "key1": "value1",
+    },
+    record_type="CAA",
+    relative_record_set_name="record1",
+    resource_group_name="rg1",
+    ttl=3600,
+    zone_name="zone1")

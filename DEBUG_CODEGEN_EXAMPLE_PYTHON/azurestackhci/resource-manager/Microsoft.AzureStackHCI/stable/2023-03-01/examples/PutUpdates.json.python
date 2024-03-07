@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+update = azure_native.azurestackhci.Update("update",
+    additional_properties="additional properties",
+    availability_type="Local",
+    cluster_name="testcluster",
+    description="AzS Update 4.2203.2.32",
+    display_name="AzS Update - 4.2203.2.32",
+    installed_date="2022-04-06T14:08:18.254Z",
+    notify_message="Brief message with instructions for updates of AvailabilityType Notify",
+    package_path="\\\\SU1FileServer\\SU1_Infrastructure_2\\Updates\\Packages\\Microsoft4.2203.2.32",
+    package_size_in_mb=18858,
+    package_type="Infrastructure",
+    prerequisites=[azure_native.azurestackhci.UpdatePrerequisiteArgs(
+        package_name="update package name",
+        update_type="update type",
+        version="prerequisite version",
+    )],
+    progress_percentage=0,
+    publisher="Microsoft",
+    release_link="https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2203",
+    resource_group_name="testrg",
+    state="Installed",
+    update_name="Microsoft4.2203.2.32",
+    version="4.2203.2.32")

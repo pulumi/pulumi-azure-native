@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+solutions_controller_solution = azure_native.migrate.SolutionsControllerSolution("solutionsControllerSolution",
+    migrate_project_name="1GQwlI-",
+    resource_group_name="rghubmigrate",
+    solution_name="1zJY9v3KFENX698GSOl")

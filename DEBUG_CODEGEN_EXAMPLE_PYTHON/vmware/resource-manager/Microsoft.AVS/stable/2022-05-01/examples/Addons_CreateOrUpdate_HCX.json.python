@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+addon = azure_native.avs.Addon("addon",
+    addon_name="hcx",
+    private_cloud_name="cloud1",
+    properties=azure_native.avs.AddonHcxPropertiesArgs(
+        addon_type="HCX",
+        offer="VMware MaaS Cloud Provider (Enterprise)",
+    ),
+    resource_group_name="group1")

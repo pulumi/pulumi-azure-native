@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+express_route_gateway = azure_native.network.ExpressRouteGateway("expressRouteGateway",
+    allow_non_virtual_wan_traffic=False,
+    auto_scale_configuration=azure_native.network.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs(
+        bounds=azure_native.network.ExpressRouteGatewayPropertiesBoundsArgs(
+            min=3,
+        ),
+    ),
+    express_route_gateway_name="gateway-2",
+    location="westus",
+    resource_group_name="resourceGroupName",
+    virtual_hub=azure_native.network.VirtualHubIdArgs(
+        id="/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+    ))

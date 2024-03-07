@@ -1,0 +1,33 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+mongo_db_resource_mongo_db_collection = azure_native.documentdb.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection",
+    account_name="ddb1",
+    collection_name="collectionName",
+    database_name="databaseName",
+    location="West US",
+    options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+    resource=azure_native.documentdb.MongoDBCollectionResourceArgs(
+        id="collectionName",
+        indexes=[
+            azure_native.documentdb.MongoIndexArgs(
+                key=azure_native.documentdb.MongoIndexKeysArgs(
+                    keys=["_ts"],
+                ),
+                options=azure_native.documentdb.MongoIndexOptionsArgs(
+                    expire_after_seconds=100,
+                    unique=True,
+                ),
+            ),
+            azure_native.documentdb.MongoIndexArgs(
+                key=azure_native.documentdb.MongoIndexKeysArgs(
+                    keys=["_id"],
+                ),
+            ),
+        ],
+        shard_key={
+            "testKey": "Hash",
+        },
+    ),
+    resource_group_name="rg1",
+    tags={})

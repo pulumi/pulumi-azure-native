@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+container_registry = azure_native.appplatform.ContainerRegistry("containerRegistry",
+    container_registry_name="my-container-registry",
+    properties=azure_native.appplatform.ContainerRegistryPropertiesArgs(
+        credentials=azure_native.appplatform.ContainerRegistryBasicCredentialsArgs(
+            password="myPassword",
+            server="myServer",
+            type="BasicAuth",
+            username="myUsername",
+        ),
+    ),
+    resource_group_name="myResourceGroup",
+    service_name="my-service")

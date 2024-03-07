@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server_collectors_operation = azure_native.migrate.ServerCollectorsOperation("serverCollectorsOperation",
+    agent_properties=azure_native.migrate.CollectorAgentPropertiesBaseArgs(
+        id="498e4965-bbb1-47c2-8613-345baff9c509",
+        spn_details=azure_native.migrate.CollectorAgentSpnPropertiesBaseArgs(
+            application_id="65153d2f-9afb-44e8-b3ca-1369150b7354",
+            audience="65153d2f-9afb-44e8-b3ca-1369150b7354",
+            authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+            object_id="ddde6f96-87c8-420b-9d4d-f16a5090519e",
+            tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+        ),
+    ),
+    discovery_site_id="/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/ServerSites/walter7155site",
+    project_name="app18700project",
+    provisioning_state="Succeeded",
+    resource_group_name="ayagrawRG",
+    server_collector_name="walter389fcollector")

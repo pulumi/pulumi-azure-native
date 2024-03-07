@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+flow_log = azure_native.network.FlowLog("flowLog",
+    enabled=True,
+    flow_log_name="fl",
+    format=azure_native.network.FlowLogFormatParametersArgs(
+        type="JSON",
+        version=1,
+    ),
+    location="centraluseuap",
+    network_watcher_name="nw1",
+    resource_group_name="rg1",
+    storage_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
+    target_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg")

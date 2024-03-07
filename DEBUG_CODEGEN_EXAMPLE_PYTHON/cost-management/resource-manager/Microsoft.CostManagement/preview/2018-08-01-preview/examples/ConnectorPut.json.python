@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connector = azure_native.costmanagement.Connector("connector",
+    connector_name="AWSBillingAccount",
+    credentials_key="arn:aws:iam::123456789012:role/AzureCostManagementRole",
+    credentials_secret="external-id",
+    display_name="AWS-Consolidated-1",
+    location="westus",
+    report_id="HourlyWithResources",
+    resource_group_name="rg1",
+    status="active")

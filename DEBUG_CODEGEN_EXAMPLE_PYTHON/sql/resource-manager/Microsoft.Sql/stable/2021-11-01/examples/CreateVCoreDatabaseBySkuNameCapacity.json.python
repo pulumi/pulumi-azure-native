@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database = azure_native.sql.Database("database",
+    database_name="testdb",
+    location="southeastasia",
+    resource_group_name="Default-SQL-SouthEastAsia",
+    server_name="testsvr",
+    sku=azure_native.sql.SkuArgs(
+        capacity=2,
+        name="BC_Gen4",
+    ))

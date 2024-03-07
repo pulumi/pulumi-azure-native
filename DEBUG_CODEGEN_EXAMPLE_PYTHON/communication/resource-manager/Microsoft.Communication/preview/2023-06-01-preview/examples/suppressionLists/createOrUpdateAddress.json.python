@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+suppression_list_address = azure_native.communication.SuppressionListAddress("suppressionListAddress",
+    address_id="11112222-3333-4444-5555-aaaabbbbcccc",
+    domain_name="contoso.com",
+    email="newuser1@fabrikam.com",
+    email_service_name="contosoEmailService",
+    first_name="updatedFirstName",
+    resource_group_name="contosoResourceGroup",
+    suppression_list_name="aaaa1111-bbbb-2222-3333-aaaa11112222")

@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+v_center = azure_native.connectedvmwarevsphere.VCenter("vCenter",
+    credentials=azure_native.connectedvmwarevsphere.VICredentialArgs(
+        password="<password>",
+        username="tempuser",
+    ),
+    extended_location=azure_native.connectedvmwarevsphere.ExtendedLocationArgs(
+        name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+        type="customLocation",
+    ),
+    fqdn="ContosoVMware.contoso.com",
+    location="East US",
+    port=1234,
+    resource_group_name="testrg",
+    vcenter_name="ContosoVCenter")

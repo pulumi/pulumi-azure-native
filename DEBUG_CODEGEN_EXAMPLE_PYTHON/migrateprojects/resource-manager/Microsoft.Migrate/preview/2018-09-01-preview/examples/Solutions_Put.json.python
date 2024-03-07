@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+solution = azure_native.migrate.Solution("solution",
+    migrate_project_name="project01",
+    properties=azure_native.migrate.SolutionPropertiesArgs(
+        goal="Databases",
+        purpose="Assessment",
+        tool="DataMigrationAssistant",
+    ),
+    resource_group_name="myResourceGroup",
+    solution_name="dbsolution")

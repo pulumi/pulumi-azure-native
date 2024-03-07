@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+edge_site = azure_native.orbital.EdgeSite("edgeSite",
+    edge_site_name="es1",
+    global_communications_site=azure_native.orbital.EdgeSitesPropertiesGlobalCommunicationsSiteArgs(
+        id="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/providers/Microsoft.Orbital/globalCommunicationsSites/contoso-Vernon",
+    ),
+    location="westus",
+    resource_group_name="rg1",
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    })

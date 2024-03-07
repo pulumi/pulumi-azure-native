@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+nsp_link = azure_native.network.NspLink("nspLink",
+    auto_approved_remote_perimeter_resource_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp2",
+    link_name="link1",
+    network_security_perimeter_name="nsp1",
+    resource_group_name="rg1")

@@ -1,0 +1,67 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+data_flow = azure_native.datafactory.DataFlow("dataFlow",
+    data_flow_name="exampleDataFlow",
+    factory_name="exampleFactoryName",
+    properties=azure_native.datafactory.MappingDataFlowArgs(
+        description="Sample demo data flow to convert currencies showing usage of union, derive and conditional split transformation.",
+        script_lines=[
+            "source(output(",
+            "PreviousConversionRate as double,",
+            "Country as string,",
+            "DateTime1 as string,",
+            "CurrentConversionRate as double",
+            "),",
+            "allowSchemaDrift: false,",
+            "validateSchema: false) ~> USDCurrency",
+            "source(output(",
+            "PreviousConversionRate as double,",
+            "Country as string,",
+            "DateTime1 as string,",
+            "CurrentConversionRate as double",
+            "),",
+            "allowSchemaDrift: true,",
+            "validateSchema: false) ~> CADSource",
+            "USDCurrency, CADSource union(byName: true)~> Union",
+            "Union derive(NewCurrencyRate = round(CurrentConversionRate*1.25)) ~> NewCurrencyColumn",
+            "NewCurrencyColumn split(Country == 'USD',",
+            "Country == 'CAD',disjoint: false) ~> ConditionalSplit1@(USD, CAD)",
+            "ConditionalSplit1@USD sink(saveMode:'overwrite' ) ~> USDSink",
+            "ConditionalSplit1@CAD sink(saveMode:'overwrite' ) ~> CADSink",
+        ],
+        sinks=[
+            azure_native.datafactory.DataFlowSinkArgs(
+                dataset=azure_native.datafactory.DatasetReferenceArgs(
+                    reference_name="USDOutput",
+                    type="DatasetReference",
+                ),
+                name="USDSink",
+            ),
+            azure_native.datafactory.DataFlowSinkArgs(
+                dataset=azure_native.datafactory.DatasetReferenceArgs(
+                    reference_name="CADOutput",
+                    type="DatasetReference",
+                ),
+                name="CADSink",
+            ),
+        ],
+        sources=[
+            azure_native.datafactory.DataFlowSourceArgs(
+                dataset=azure_native.datafactory.DatasetReferenceArgs(
+                    reference_name="CurrencyDatasetUSD",
+                    type="DatasetReference",
+                ),
+                name="USDCurrency",
+            ),
+            azure_native.datafactory.DataFlowSourceArgs(
+                dataset=azure_native.datafactory.DatasetReferenceArgs(
+                    reference_name="CurrencyDatasetCAD",
+                    type="DatasetReference",
+                ),
+                name="CADSource",
+            ),
+        ],
+        type="MappingDataFlow",
+    ),
+    resource_group_name="exampleResourceGroup")

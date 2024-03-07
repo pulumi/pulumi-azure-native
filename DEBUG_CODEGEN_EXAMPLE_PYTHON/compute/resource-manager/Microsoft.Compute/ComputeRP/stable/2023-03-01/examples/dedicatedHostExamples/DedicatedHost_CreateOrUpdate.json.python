@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+dedicated_host = azure_native.compute.DedicatedHost("dedicatedHost",
+    host_group_name="myDedicatedHostGroup",
+    host_name="myDedicatedHost",
+    location="westus",
+    platform_fault_domain=1,
+    resource_group_name="myResourceGroup",
+    sku=azure_native.compute.SkuArgs(
+        name="DSv3-Type1",
+    ),
+    tags={
+        "department": "HR",
+    })

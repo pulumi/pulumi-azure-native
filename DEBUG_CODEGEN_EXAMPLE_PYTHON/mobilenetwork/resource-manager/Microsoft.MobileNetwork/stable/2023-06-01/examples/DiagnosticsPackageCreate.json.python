@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+diagnostics_package = azure_native.mobilenetwork.DiagnosticsPackage("diagnosticsPackage",
+    diagnostics_package_name="dp1",
+    packet_core_control_plane_name="TestPacketCoreCP",
+    resource_group_name="rg1")

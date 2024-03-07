@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+record_set = azure_native.network.RecordSet("recordSet",
+    metadata={
+        "key1": "value1",
+    },
+    record_type="TXT",
+    relative_record_set_name="record1",
+    resource_group_name="rg1",
+    ttl=3600,
+    txt_records=[azure_native.network.TxtRecordArgs(
+        value=[
+            "string1",
+            "string2",
+        ],
+    )],
+    zone_name="zone1")

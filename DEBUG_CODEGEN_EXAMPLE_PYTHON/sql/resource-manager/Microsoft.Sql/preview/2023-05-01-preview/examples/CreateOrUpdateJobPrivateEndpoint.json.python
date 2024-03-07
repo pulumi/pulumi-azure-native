@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job_private_endpoint = azure_native.sql.JobPrivateEndpoint("jobPrivateEndpoint",
+    job_agent_name="agent1",
+    private_endpoint_name="endpoint1",
+    resource_group_name="group1",
+    server_name="server1",
+    target_server_azure_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/targetserver1")

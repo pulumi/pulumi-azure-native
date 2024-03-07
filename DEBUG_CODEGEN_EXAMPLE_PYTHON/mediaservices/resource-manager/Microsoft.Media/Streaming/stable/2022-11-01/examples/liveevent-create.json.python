@@ -1,0 +1,37 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+live_event = azure_native.media.LiveEvent("liveEvent",
+    account_name="slitestmedia10",
+    description="test event 1",
+    input=azure_native.media.LiveEventInputArgs(
+        access_control=azure_native.media.LiveEventInputAccessControlArgs(
+            ip=azure_native.media.IPAccessControlArgs(
+                allow=[azure_native.media.IPRangeArgs(
+                    address="0.0.0.0",
+                    name="AllowAll",
+                    subnet_prefix_length=0,
+                )],
+            ),
+        ),
+        key_frame_interval_duration="PT6S",
+        streaming_protocol="RTMP",
+    ),
+    live_event_name="myLiveEvent1",
+    location="West US",
+    preview=azure_native.media.LiveEventPreviewArgs(
+        access_control=azure_native.media.LiveEventPreviewAccessControlArgs(
+            ip=azure_native.media.IPAccessControlArgs(
+                allow=[azure_native.media.IPRangeArgs(
+                    address="0.0.0.0",
+                    name="AllowAll",
+                    subnet_prefix_length=0,
+                )],
+            ),
+        ),
+    ),
+    resource_group_name="mediaresources",
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    })

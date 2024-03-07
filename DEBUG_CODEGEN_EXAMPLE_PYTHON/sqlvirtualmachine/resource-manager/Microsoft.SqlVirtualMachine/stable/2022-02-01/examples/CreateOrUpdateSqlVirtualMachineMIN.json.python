@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_virtual_machine = azure_native.sqlvirtualmachine.SqlVirtualMachine("sqlVirtualMachine",
+    location="northeurope",
+    resource_group_name="testrg",
+    sql_virtual_machine_name="testvm",
+    virtual_machine_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm")

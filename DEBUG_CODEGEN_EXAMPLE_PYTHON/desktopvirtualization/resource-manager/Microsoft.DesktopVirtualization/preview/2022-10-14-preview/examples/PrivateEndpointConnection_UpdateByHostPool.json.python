@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection_by_host_pool = azure_native.desktopvirtualization.PrivateEndpointConnectionByHostPool("privateEndpointConnectionByHostPool",
+    host_pool_name="hostPool1",
+    private_endpoint_connection_name="hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+    private_link_service_connection_state=azure_native.desktopvirtualization.PrivateLinkServiceConnectionStateArgs(
+        actions_required="None",
+        description="Approved by admin@consoto.com",
+        status="Approved",
+    ),
+    resource_group_name="resourceGroup1")

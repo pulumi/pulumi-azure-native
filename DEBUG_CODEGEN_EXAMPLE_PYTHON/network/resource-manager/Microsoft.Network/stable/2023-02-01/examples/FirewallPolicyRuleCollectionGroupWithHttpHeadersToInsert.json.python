@@ -1,0 +1,33 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+firewall_policy_rule_collection_group = azure_native.network.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup",
+    firewall_policy_name="firewallPolicy",
+    priority=110,
+    resource_group_name="rg1",
+    rule_collection_group_name="ruleCollectionGroup1",
+    rule_collections=[azure_native.network.FirewallPolicyFilterRuleCollectionArgs(
+        action=azure_native.network.FirewallPolicyFilterRuleCollectionActionArgs(
+            type="Allow",
+        ),
+        name="Example-Filter-Rule-Collection",
+        rule_collection_type="FirewallPolicyFilterRuleCollection",
+        rules=[azure_native.network.ApplicationRuleArgs(
+            description="Insert HTTP header rule",
+            fqdn_tags=["WindowsVirtualDesktop"],
+            http_headers_to_insert=[azure_native.network.FirewallPolicyHttpHeaderToInsertArgs(
+                header_name="Restrict-Access-To-Tenants",
+                header_value="contoso.com,fabrikam.onmicrosoft.com",
+            )],
+            name="rule1",
+            protocols=[azure_native.network.FirewallPolicyRuleApplicationProtocolArgs(
+                port=80,
+                protocol_type="Http",
+            )],
+            rule_type="ApplicationRule",
+            source_addresses=[
+                "216.58.216.164",
+                "10.0.0.0/24",
+            ],
+        )],
+    )])

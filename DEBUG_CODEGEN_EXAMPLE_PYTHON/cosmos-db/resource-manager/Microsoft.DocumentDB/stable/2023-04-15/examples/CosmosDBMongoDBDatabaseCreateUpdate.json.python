@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+mongo_db_resource_mongo_db_database = azure_native.documentdb.MongoDBResourceMongoDBDatabase("mongoDBResourceMongoDBDatabase",
+    account_name="ddb1",
+    database_name="databaseName",
+    location="West US",
+    options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+    resource=azure_native.documentdb.MongoDBDatabaseResourceArgs(
+        id="databaseName",
+    ),
+    resource_group_name="rg1",
+    tags={})

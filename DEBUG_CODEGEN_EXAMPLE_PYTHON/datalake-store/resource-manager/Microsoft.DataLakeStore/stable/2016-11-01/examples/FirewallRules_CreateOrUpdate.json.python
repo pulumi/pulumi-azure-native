@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+firewall_rule = azure_native.datalakestore.FirewallRule("firewallRule",
+    account_name="contosoadla",
+    end_ip_address="2.2.2.2",
+    firewall_rule_name="test_rule",
+    resource_group_name="contosorg",
+    start_ip_address="1.1.1.1")

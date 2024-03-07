@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+webhook = azure_native.automation.Webhook("webhook",
+    automation_account_name="myAutomationAccount33",
+    expiry_time="2018-03-29T22:18:13.7002872Z",
+    is_enabled=True,
+    name="TestWebhook",
+    resource_group_name="rg",
+    runbook=azure_native.automation.RunbookAssociationPropertyArgs(
+        name="TestRunbook",
+    ),
+    uri="<uri>",
+    webhook_name="TestWebhook")

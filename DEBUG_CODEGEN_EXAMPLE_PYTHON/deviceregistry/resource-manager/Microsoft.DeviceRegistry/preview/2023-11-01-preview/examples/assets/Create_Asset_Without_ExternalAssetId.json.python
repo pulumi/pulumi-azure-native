@@ -1,0 +1,57 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+asset = azure_native.deviceregistry.Asset("asset",
+    asset_endpoint_profile_uri="https://www.example.com/myAssetEndpointProfile",
+    asset_name="my-asset",
+    asset_type="MyAssetType",
+    data_points=[
+        azure_native.deviceregistry.DataPointArgs(
+            capability_id="dtmi:com:example:Thermostat:__temperature;1",
+            data_point_configuration="{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+            data_source="nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+            observability_mode="counter",
+        ),
+        azure_native.deviceregistry.DataPointArgs(
+            capability_id="dtmi:com:example:Thermostat:__pressure;1",
+            data_point_configuration="{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+            data_source="nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+            observability_mode="none",
+        ),
+    ],
+    default_data_points_configuration="{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    default_events_configuration="{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+    description="This is a sample Asset",
+    display_name="AssetDisplayName",
+    documentation_uri="https://www.example.com/manual",
+    enabled=True,
+    events=[
+        azure_native.deviceregistry.EventArgs(
+            capability_id="dtmi:com:example:Thermostat:__temperature;1",
+            event_configuration="{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+            event_notifier="nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+            observability_mode="none",
+        ),
+        azure_native.deviceregistry.EventArgs(
+            capability_id="dtmi:com:example:Thermostat:__pressure;1",
+            event_configuration="{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+            event_notifier="nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+            observability_mode="log",
+        ),
+    ],
+    extended_location=azure_native.deviceregistry.ExtendedLocationArgs(
+        name="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+        type="CustomLocation",
+    ),
+    hardware_revision="1.0",
+    location="West Europe",
+    manufacturer="Contoso",
+    manufacturer_uri="https://www.contoso.com/manufacturerUri",
+    model="ContosoModel",
+    product_code="SA34VDG",
+    resource_group_name="myResourceGroup",
+    serial_number="64-103816-519918-8",
+    software_revision="2.0",
+    tags={
+        "site": "building-1",
+    })

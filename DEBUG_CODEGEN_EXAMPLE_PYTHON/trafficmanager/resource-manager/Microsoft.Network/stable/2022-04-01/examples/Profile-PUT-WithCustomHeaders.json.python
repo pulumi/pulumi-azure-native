@@ -1,0 +1,53 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+profile = azure_native.network.Profile("profile",
+    dns_config=azure_native.network.DnsConfigArgs(
+        relative_name="azuresdkfornetautoresttrafficmanager6192",
+        ttl=35,
+    ),
+    endpoints=[azure_native.network.EndpointArgs(
+        custom_headers=[azure_native.network.EndpointPropertiesCustomHeadersArgs(
+            name="header-2",
+            value="value-2-overridden",
+        )],
+        endpoint_location="North Europe",
+        endpoint_status="Enabled",
+        name="My external endpoint",
+        target="foobar.contoso.com",
+        type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    )],
+    location="global",
+    monitor_config=azure_native.network.MonitorConfigArgs(
+        custom_headers=[
+            azure_native.network.MonitorConfigCustomHeadersArgs(
+                name="header-1",
+                value="value-1",
+            ),
+            azure_native.network.MonitorConfigCustomHeadersArgs(
+                name="header-2",
+                value="value-2",
+            ),
+        ],
+        expected_status_code_ranges=[
+            azure_native.network.MonitorConfigExpectedStatusCodeRangesArgs(
+                max=205,
+                min=200,
+            ),
+            azure_native.network.MonitorConfigExpectedStatusCodeRangesArgs(
+                max=410,
+                min=400,
+            ),
+        ],
+        interval_in_seconds=10,
+        path="/testpath.aspx",
+        port=80,
+        protocol="HTTP",
+        timeout_in_seconds=5,
+        tolerated_number_of_failures=2,
+    ),
+    profile_name="azuresdkfornetautoresttrafficmanager6192",
+    profile_status="Enabled",
+    resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+    traffic_routing_method="Performance",
+    traffic_view_enrollment_status="Disabled")

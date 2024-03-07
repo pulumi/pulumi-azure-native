@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+integration_account = azure_native.logic.IntegrationAccount("integrationAccount",
+    integration_account_name="testIntegrationAccount",
+    location="westus",
+    resource_group_name="testResourceGroup",
+    sku=azure_native.logic.IntegrationAccountSkuArgs(
+        name="Standard",
+    ))

@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+application_live_view = azure_native.appplatform.ApplicationLiveView("applicationLiveView",
+    application_live_view_name="default",
+    resource_group_name="myResourceGroup",
+    service_name="myservice")

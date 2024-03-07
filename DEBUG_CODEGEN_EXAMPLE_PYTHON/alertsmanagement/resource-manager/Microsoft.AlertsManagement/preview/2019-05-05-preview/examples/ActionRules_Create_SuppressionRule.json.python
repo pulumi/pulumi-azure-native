@@ -1,0 +1,50 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+action_rule_by_name = azure_native.alertsmanagement.ActionRuleByName("actionRuleByName",
+    action_rule_name="DailySuppression",
+    location="Global",
+    properties=azure_native.alertsmanagement.SuppressionArgs(
+        conditions=azure_native.alertsmanagement.ConditionsArgs(
+            monitor_condition=azure_native.alertsmanagement.ConditionArgs(
+                operator="Equals",
+                values=["Fired"],
+            ),
+            monitor_service=azure_native.alertsmanagement.ConditionArgs(
+                operator="Equals",
+                values=[
+                    "Platform",
+                    "Application Insights",
+                ],
+            ),
+            severity=azure_native.alertsmanagement.ConditionArgs(
+                operator="Equals",
+                values=[
+                    "Sev0",
+                    "Sev2",
+                ],
+            ),
+            target_resource_type=azure_native.alertsmanagement.ConditionArgs(
+                operator="NotEquals",
+                values=["Microsoft.Compute/VirtualMachines"],
+            ),
+        ),
+        description="Action rule on resource group for daily suppression",
+        scope=azure_native.alertsmanagement.ScopeArgs(
+            scope_type="ResourceGroup",
+            values=["/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/alertscorrelationrg"],
+        ),
+        status="Enabled",
+        suppression_config=azure_native.alertsmanagement.SuppressionConfigArgs(
+            recurrence_type="Daily",
+            schedule=azure_native.alertsmanagement.SuppressionScheduleArgs(
+                end_date="12/18/2018",
+                end_time="14:00:00",
+                start_date="12/09/2018",
+                start_time="06:00:00",
+            ),
+        ),
+        type="Suppression",
+    ),
+    resource_group_name="alertscorrelationrg",
+    tags={})

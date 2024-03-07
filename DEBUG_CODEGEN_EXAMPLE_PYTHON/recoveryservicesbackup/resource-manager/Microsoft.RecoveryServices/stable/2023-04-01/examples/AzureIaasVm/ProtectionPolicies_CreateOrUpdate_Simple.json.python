@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+protection_policy = azure_native.recoveryservices.ProtectionPolicy("protectionPolicy",
+    policy_name="testPolicy1",
+    properties=azure_native.recoveryservices.AzureIaaSVMProtectionPolicyArgs(
+        backup_management_type="AzureIaasVM",
+        retention_policy=azure_native.recoveryservices.LongTermRetentionPolicyArgs(
+            daily_schedule=azure_native.recoveryservices.DailyRetentionScheduleArgs(
+                retention_duration=azure_native.recoveryservices.RetentionDurationArgs(
+                    count=1,
+                    duration_type="Days",
+                ),
+                retention_times=["2018-01-24T02:00:00Z"],
+            ),
+            retention_policy_type="LongTermRetentionPolicy",
+        ),
+        schedule_policy=azure_native.recoveryservices.SimpleSchedulePolicyArgs(
+            schedule_policy_type="SimpleSchedulePolicy",
+            schedule_run_frequency="Daily",
+            schedule_run_times=["2018-01-24T02:00:00Z"],
+        ),
+        time_zone="Pacific Standard Time",
+    ),
+    resource_group_name="SwaggerTestRg",
+    vault_name="NetSDKTestRsVault")

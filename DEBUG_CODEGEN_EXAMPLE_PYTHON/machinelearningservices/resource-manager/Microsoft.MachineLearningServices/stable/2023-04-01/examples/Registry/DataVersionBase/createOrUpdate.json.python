@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+registry_data_version = azure_native.machinelearningservices.RegistryDataVersion("registryDataVersion",
+    data_version_base_properties=azure_native.machinelearningservices.MLTableDataArgs(
+        data_type="mltable",
+        data_uri="string",
+        description="string",
+        is_anonymous=False,
+        is_archived=False,
+        properties={
+            "string": "string",
+        },
+        referenced_uris=["string"],
+        tags={
+            "string": "string",
+        },
+    ),
+    name="string",
+    registry_name="registryName",
+    resource_group_name="test-rg",
+    version="string")

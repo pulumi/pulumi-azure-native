@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+serial_port = azure_native.serialconsole.SerialPort("serialPort",
+    parent_resource="myVM",
+    parent_resource_type="virtualMachines",
+    resource_group_name="myResourceGroup",
+    resource_provider_namespace="Microsoft.Compute",
+    serial_port="0",
+    state=azure_native.serialconsole.SerialPortState.ENABLED)

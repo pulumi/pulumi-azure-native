@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+blueprint = azure_native.blueprint.Blueprint("blueprint",
+    blueprint_name="simpleBlueprint",
+    description="An example blueprint containing an RG with two tags.",
+    resource_groups={
+        "myRGName": azure_native.blueprint.ResourceGroupDefinitionArgs(
+            display_name="My Resource Group",
+            location="westus",
+            name="myRGName",
+            tags={
+                "costcenter": "123456",
+                "nameOnlyTag": "",
+            },
+        ),
+    },
+    resource_scope="providers/Microsoft.Management/managementGroups/{ManagementGroupId}",
+    target_scope="subscription")

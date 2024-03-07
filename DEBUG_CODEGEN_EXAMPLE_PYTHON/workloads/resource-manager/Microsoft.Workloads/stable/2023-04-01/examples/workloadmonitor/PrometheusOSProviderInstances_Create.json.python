@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+provider_instance = azure_native.workloads.ProviderInstance("providerInstance",
+    monitor_name="mySapMonitor",
+    provider_instance_name="myProviderInstance",
+    provider_settings=azure_native.workloads.PrometheusOSProviderInstancePropertiesArgs(
+        prometheus_url="http://192.168.0.0:9090/metrics",
+        provider_type="PrometheusOS",
+        sap_sid="SID",
+        ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+        ssl_preference="ServerCertificate",
+    ),
+    resource_group_name="myResourceGroup")

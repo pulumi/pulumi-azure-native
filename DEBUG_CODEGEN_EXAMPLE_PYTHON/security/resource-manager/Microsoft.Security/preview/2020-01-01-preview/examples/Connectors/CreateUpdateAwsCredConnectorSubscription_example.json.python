@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connector = azure_native.security.Connector("connector",
+    authentication_details=azure_native.security.AwsCredsAuthenticationDetailsPropertiesArgs(
+        authentication_type="awsCreds",
+        aws_access_key_id="AKIARPZCNODDNAEQFSOE",
+        aws_secret_access_key="<awsSecretAccessKey>",
+    ),
+    connector_name="aws_dev1",
+    hybrid_compute_settings=azure_native.security.HybridComputeSettingsPropertiesArgs(
+        auto_provision="On",
+        proxy_server=azure_native.security.ProxyServerPropertiesArgs(
+            ip="167.220.197.140",
+            port="34",
+        ),
+        region="West US 2",
+        resource_group_name="AwsConnectorRG",
+        service_principal=azure_native.security.ServicePrincipalPropertiesArgs(
+            application_id="ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+            secret="<secret>",
+        ),
+    ))

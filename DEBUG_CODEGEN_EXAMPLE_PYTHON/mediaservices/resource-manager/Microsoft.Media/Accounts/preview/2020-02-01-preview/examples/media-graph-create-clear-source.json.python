@@ -1,0 +1,28 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+media_graph = azure_native.media.MediaGraph("mediaGraph",
+    account_name="contosomedia",
+    description="updated description",
+    media_graph_name="SampleMediaGraph",
+    resource_group_name="contoso",
+    sinks=[azure_native.media.MediaGraphAssetSinkArgs(
+        asset_name="SampleAsset",
+        inputs=["rtspSource"],
+        name="AssetSink",
+        odata_type="#Microsoft.Media.MediaGraphAssetSink",
+    )],
+    sources=[azure_native.media.MediaGraphRtspSourceArgs(
+        endpoint=azure_native.media.MediaGraphClearEndpointArgs(
+            credentials=azure_native.media.MediaGraphUsernamePasswordCredentialsArgs(
+                odata_type="#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+                password="examplepassword",
+                username="exampleusername",
+            ),
+            odata_type="#Microsoft.Media.MediaGraphClearEndpoint",
+            url="rtsp://contoso.com:554/stream1",
+        ),
+        name="rtspSource",
+        odata_type="#Microsoft.Media.MediaGraphRtspSource",
+        transport="Http",
+    )])

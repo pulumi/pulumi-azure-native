@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+disk_encryption_set = azure_native.compute.DiskEncryptionSet("diskEncryptionSet",
+    active_key=azure_native.compute.KeyForDiskEncryptionSetArgs(
+        key_url="https://myvaultdifferentsub.vault-int.azure-int.net/keys/{key}",
+    ),
+    disk_encryption_set_name="myDiskEncryptionSet",
+    encryption_type="EncryptionAtRestWithCustomerKey",
+    identity=azure_native.compute.EncryptionSetIdentityArgs(
+        type="SystemAssigned",
+    ),
+    location="West US",
+    resource_group_name="myResourceGroup")

@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+security_partner_provider = azure_native.network.SecurityPartnerProvider("securityPartnerProvider",
+    location="West US",
+    resource_group_name="rg1",
+    security_partner_provider_name="securityPartnerProvider",
+    security_provider_name="ZScaler",
+    tags={
+        "key1": "value1",
+    },
+    virtual_hub=azure_native.network.SubResourceArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    ))

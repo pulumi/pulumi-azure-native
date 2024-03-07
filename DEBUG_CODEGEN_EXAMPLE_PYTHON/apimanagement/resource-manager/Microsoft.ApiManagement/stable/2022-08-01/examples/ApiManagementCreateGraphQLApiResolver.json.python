@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+graph_ql_api_resolver = azure_native.apimanagement.GraphQLApiResolver("graphQLApiResolver",
+    api_id="someAPI",
+    description="A GraphQL Resolver example",
+    display_name="Query Users",
+    path="Query/users",
+    resolver_id="newResolver",
+    resource_group_name="rg1",
+    service_name="apimService1")

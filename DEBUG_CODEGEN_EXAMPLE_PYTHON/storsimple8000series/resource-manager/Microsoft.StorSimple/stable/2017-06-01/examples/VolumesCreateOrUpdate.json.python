@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+volume = azure_native.storsimple.Volume("volume",
+    access_control_record_ids=["/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2"],
+    device_name="Device05ForSDKTest",
+    manager_name="ManagerForSDKTest1",
+    monitoring_status=azure_native.storsimple.MonitoringStatus.ENABLED,
+    resource_group_name="ResourceGroupForSDKTest",
+    size_in_bytes=5368709120,
+    volume_container_name="VolumeContainerForSDKTest",
+    volume_name="Volume1ForSDKTest",
+    volume_status=azure_native.storsimple.VolumeStatus.OFFLINE,
+    volume_type=azure_native.storsimple.VolumeType.TIERED)

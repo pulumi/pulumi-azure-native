@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+gallery_image = azure_native.azurestackhci.GalleryImage("galleryImage",
+    container_name="Default_Container",
+    extended_location=azure_native.azurestackhci.ExtendedLocationArgs(
+        name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+        type="CustomLocation",
+    ),
+    gallery_image_name="test-gallery-image",
+    image_path="C:\\test.vhdx",
+    location="West US2",
+    resource_group_name="test-rg")

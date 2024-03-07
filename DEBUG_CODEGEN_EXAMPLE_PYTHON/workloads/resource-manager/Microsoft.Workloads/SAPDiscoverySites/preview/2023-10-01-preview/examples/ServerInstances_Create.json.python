@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server_instance = azure_native.workloads.ServerInstance("serverInstance",
+    resource_group_name="test-rg",
+    sap_discovery_site_name="SampleSite",
+    sap_instance_name="MPP_MPP",
+    server_instance_name="APP_SapServer1")

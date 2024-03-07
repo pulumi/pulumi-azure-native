@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+disk = azure_native.compute.Disk("disk",
+    creation_data=azure_native.compute.CreationDataArgs(
+        create_option="Empty",
+    ),
+    disk_access_id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}",
+    disk_name="myDisk",
+    disk_size_gb=200,
+    location="West US",
+    network_access_policy="AllowPrivate",
+    resource_group_name="myResourceGroup")

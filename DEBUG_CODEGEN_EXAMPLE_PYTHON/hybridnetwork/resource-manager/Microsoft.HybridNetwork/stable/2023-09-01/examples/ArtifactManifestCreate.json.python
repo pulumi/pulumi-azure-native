@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+artifact_manifest = azure_native.hybridnetwork.ArtifactManifest("artifactManifest",
+    artifact_manifest_name="TestManifest",
+    artifact_store_name="TestArtifactStore",
+    location="eastus",
+    properties=azure_native.hybridnetwork.ArtifactManifestPropertiesFormatArgs(
+        artifacts=[
+            azure_native.hybridnetwork.ManifestArtifactFormatArgs(
+                artifact_name="fed-rbac",
+                artifact_type="OCIArtifact",
+                artifact_version="1.0.0",
+            ),
+            azure_native.hybridnetwork.ManifestArtifactFormatArgs(
+                artifact_name="nginx",
+                artifact_type="OCIArtifact",
+                artifact_version="v1",
+            ),
+        ],
+    ),
+    publisher_name="TestPublisher",
+    resource_group_name="rg")

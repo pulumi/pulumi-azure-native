@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+app_service_certificate_order = azure_native.certificateregistration.AppServiceCertificateOrder("appServiceCertificateOrder",
+    auto_renew=True,
+    certificate_order_name="SampleCertificateOrderName",
+    certificates={
+        "SampleCertName1": azure_native.certificateregistration.AppServiceCertificateArgs(
+            key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+            key_vault_secret_name="SampleSecretName1",
+        ),
+        "SampleCertName2": azure_native.certificateregistration.AppServiceCertificateArgs(
+            key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+            key_vault_secret_name="SampleSecretName2",
+        ),
+    },
+    distinguished_name="CN=SampleCustomDomain.com",
+    key_size=2048,
+    location="Global",
+    product_type=azure_native.certificateregistration.CertificateProductType.STANDARD_DOMAIN_VALIDATED_SSL,
+    resource_group_name="testrg123",
+    validity_in_years=2)

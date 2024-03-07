@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workspace_tag_product_link = azure_native.apimanagement.WorkspaceTagProductLink("workspaceTagProductLink",
+    product_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/products/product1",
+    product_link_id="link1",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    tag_id="tag1",
+    workspace_id="wks1")

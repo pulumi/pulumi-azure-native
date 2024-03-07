@@ -1,0 +1,34 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+iot_connector_fhir_destination = azure_native.healthcareapis.IotConnectorFhirDestination("iotConnectorFhirDestination",
+    fhir_destination_name="dest1",
+    fhir_mapping=azure_native.healthcareapis.IotMappingPropertiesArgs(
+        content={
+            "template": [{
+                "template": {
+                    "codes": [{
+                        "code": "8867-4",
+                        "display": "Heart rate",
+                        "system": "http://loinc.org",
+                    }],
+                    "periodInterval": 60,
+                    "typeName": "heartrate",
+                    "value": {
+                        "defaultPeriod": 5000,
+                        "unit": "count/min",
+                        "valueName": "hr",
+                        "valueType": "SampledData",
+                    },
+                },
+                "templateType": "CodeValueFhir",
+            }],
+            "templateType": "CollectionFhirTemplate",
+        },
+    ),
+    fhir_service_resource_id="subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
+    iot_connector_name="blue",
+    location="westus",
+    resource_group_name="testRG",
+    resource_identity_resolution_type="Create",
+    workspace_name="workspace1")

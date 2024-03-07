@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+gallery = azure_native.compute.Gallery("gallery",
+    description="This is the gallery description.",
+    gallery_name="myGalleryName",
+    location="West US",
+    resource_group_name="myResourceGroup")

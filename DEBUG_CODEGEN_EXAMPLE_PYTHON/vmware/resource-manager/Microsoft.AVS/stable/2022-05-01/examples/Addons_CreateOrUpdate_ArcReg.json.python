@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+addon = azure_native.avs.Addon("addon",
+    addon_name="arc",
+    private_cloud_name="cloud1",
+    properties=azure_native.avs.AddonArcPropertiesArgs(
+        addon_type="Arc",
+        v_center="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg_test/providers/Microsoft.ConnectedVMwarevSphere/VCenters/test-vcenter",
+    ),
+    resource_group_name="group1")

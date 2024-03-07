@@ -1,0 +1,20 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+hunt = azure_native.securityinsights.Hunt("hunt",
+    attack_tactics=["Reconnaissance"],
+    attack_techniques=["T1595"],
+    description="Log4J Hunt Description",
+    display_name="Log4J new hunt",
+    hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+    hypothesis_status="Unknown",
+    labels=[
+        "Label1",
+        "Label2",
+    ],
+    owner=azure_native.securityinsights.HuntOwnerArgs(
+        object_id="873b5263-5d34-4149-b356-ad341b01e123",
+    ),
+    resource_group_name="myRg",
+    status="New",
+    workspace_name="myWorkspace")

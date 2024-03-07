@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+task_run = azure_native.containerregistry.TaskRun("taskRun",
+    force_update_tag="test",
+    registry_name="myRegistry",
+    resource_group_name="myResourceGroup",
+    run_request=azure_native.containerregistry.EncodedTaskRunRequestArgs(
+        credentials=azure_native.containerregistry.CredentialsArgs(),
+        encoded_task_content="c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+        encoded_values_content="Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+        platform=azure_native.containerregistry.PlatformPropertiesArgs(
+            architecture="amd64",
+            os="Linux",
+        ),
+        type="EncodedTaskRunRequest",
+        values=[],
+    ),
+    task_run_name="myRun")

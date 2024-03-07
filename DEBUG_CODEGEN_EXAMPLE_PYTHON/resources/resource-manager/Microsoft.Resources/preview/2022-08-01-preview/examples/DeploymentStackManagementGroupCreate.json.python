@@ -1,0 +1,26 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+deployment_stack_at_management_group = azure_native.resources.DeploymentStackAtManagementGroup("deploymentStackAtManagementGroup",
+    action_on_unmanage=azure_native.resources.DeploymentStackPropertiesActionOnUnmanageArgs(
+        management_groups="detach",
+        resource_groups="delete",
+        resources="delete",
+    ),
+    deny_settings=azure_native.resources.DenySettingsArgs(
+        apply_to_child_scopes=False,
+        excluded_actions=["action"],
+        excluded_principals=["principal"],
+        mode="denyDelete",
+    ),
+    deployment_stack_name="simpleDeploymentStack",
+    location="eastus",
+    management_group_id="myMg",
+    parameters={
+        "parameter1": {
+            "value": "a string",
+        },
+    },
+    tags={
+        "tagkey": "tagVal",
+    })

@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+route_table = azure_native.network.RouteTable("routeTable",
+    disable_bgp_route_propagation=True,
+    location="westus",
+    resource_group_name="rg1",
+    route_table_name="testrt",
+    routes=[azure_native.network.RouteArgs(
+        address_prefix="10.0.3.0/24",
+        name="route1",
+        next_hop_type="VirtualNetworkGateway",
+    )])

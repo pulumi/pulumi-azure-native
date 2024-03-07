@@ -1,0 +1,31 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+namespace = azure_native.notificationhubs.Namespace("namespace",
+    location="South Central US",
+    namespace_name="nh-sdk-ns",
+    properties=azure_native.notificationhubs.NamespacePropertiesArgs(
+        network_acls=azure_native.notificationhubs.NetworkAclsArgs(
+            ip_rules=[azure_native.notificationhubs.IpRuleArgs(
+                ip_mask="185.48.100.00/24",
+                rights=[
+                    "Manage",
+                    "Send",
+                    "Listen",
+                ],
+            )],
+            public_network_rule=azure_native.notificationhubs.PublicInternetAuthorizationRuleArgs(
+                rights=["Listen"],
+            ),
+        ),
+        zone_redundancy="Enabled",
+    ),
+    resource_group_name="5ktrial",
+    sku=azure_native.notificationhubs.SkuArgs(
+        name="Standard",
+        tier="Standard",
+    ),
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+    })

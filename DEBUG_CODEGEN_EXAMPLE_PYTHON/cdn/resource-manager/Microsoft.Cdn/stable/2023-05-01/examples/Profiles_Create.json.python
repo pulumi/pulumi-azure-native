@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+profile = azure_native.cdn.Profile("profile",
+    location="global",
+    profile_name="profile1",
+    resource_group_name="RG",
+    sku=azure_native.cdn.SkuArgs(
+        name="Premium_AzureFrontDoor",
+    ))

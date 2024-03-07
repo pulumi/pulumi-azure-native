@@ -1,0 +1,56 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+compute = azure_native.machinelearningservices.Compute("compute",
+    compute_name="compute123",
+    location="eastus",
+    properties=azure_native.machinelearningservices.ComputeInstanceArgs(
+        compute_type="ComputeInstance",
+        properties=azure_native.machinelearningservices.ComputeInstancePropertiesArgs(
+            application_sharing_policy="Personal",
+            compute_instance_authorization_type="personal",
+            custom_services=[azure_native.machinelearningservices.CustomServiceArgs(
+                docker=azure_native.machinelearningservices.DockerArgs(
+                    privileged=True,
+                ),
+                endpoints=[azure_native.machinelearningservices.EndpointArgs(
+                    name="connect",
+                    protocol="http",
+                    published=8787,
+                    target=8787,
+                )],
+                environment_variables={
+                    "test_variable": azure_native.machinelearningservices.EnvironmentVariableArgs(
+                        type="local",
+                        value="test_value",
+                    ),
+                },
+                image=azure_native.machinelearningservices.ImageArgs(
+                    reference="ghcr.io/azure/rocker-rstudio-ml-verse:latest",
+                    type="docker",
+                ),
+                name="rstudio",
+                volumes=[azure_native.machinelearningservices.VolumeDefinitionArgs(
+                    read_only=False,
+                    source="/home/azureuser/cloudfiles",
+                    target="/home/azureuser/cloudfiles",
+                    type="bind",
+                )],
+            )],
+            personal_compute_instance_settings=azure_native.machinelearningservices.PersonalComputeInstanceSettingsArgs(
+                assigned_user=azure_native.machinelearningservices.AssignedUserArgs(
+                    object_id="00000000-0000-0000-0000-000000000000",
+                    tenant_id="00000000-0000-0000-0000-000000000000",
+                ),
+            ),
+            ssh_settings=azure_native.machinelearningservices.ComputeInstanceSshSettingsArgs(
+                ssh_public_access="Disabled",
+            ),
+            subnet=azure_native.machinelearningservices.ResourceIdArgs(
+                id="test-subnet-resource-id",
+            ),
+            vm_size="STANDARD_NC6",
+        ),
+    ),
+    resource_group_name="testrg123",
+    workspace_name="workspaces123")

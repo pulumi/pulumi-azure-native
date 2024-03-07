@@ -1,0 +1,31 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+domain_service = azure_native.aad.DomainService("domainService",
+    domain_name="TestDomainService.com",
+    domain_security_settings=azure_native.aad.DomainSecuritySettingsArgs(
+        ntlm_v1="Enabled",
+        sync_ntlm_passwords="Enabled",
+        tls_v1="Disabled",
+    ),
+    domain_service_name="TestDomainService.com",
+    filtered_sync="Enabled",
+    ldaps_settings=azure_native.aad.LdapsSettingsArgs(
+        external_access="Enabled",
+        ldaps="Enabled",
+        pfx_certificate="MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+        pfx_certificate_password="<pfxCertificatePassword>",
+    ),
+    notification_settings=azure_native.aad.NotificationSettingsArgs(
+        additional_recipients=[
+            "jicha@microsoft.com",
+            "caalmont@microsoft.com",
+        ],
+        notify_dc_admins="Enabled",
+        notify_global_admins="Enabled",
+    ),
+    replica_sets=[azure_native.aad.ReplicaSetArgs(
+        location="West US",
+        subnet_id="/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
+    )],
+    resource_group_name="TestResourceGroup")

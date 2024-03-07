@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+data_network = azure_native.mobilenetwork.DataNetwork("dataNetwork",
+    data_network_name="testDataNetwork",
+    description="myFavouriteDataNetwork",
+    location="eastus",
+    mobile_network_name="testMobileNetwork",
+    resource_group_name="rg1")

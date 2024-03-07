@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connected_environment = azure_native.app.ConnectedEnvironment("connectedEnvironment",
+    connected_environment_name="testenv",
+    custom_domain_configuration=azure_native.app.CustomDomainConfigurationArgs(
+        certificate_password="private key password",
+        certificate_value="Y2VydA==",
+        dns_suffix="www.my-name.com",
+    ),
+    dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+    extended_location=azure_native.app.ExtendedLocationArgs(
+        name="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
+        type="CustomLocation",
+    ),
+    location="East US",
+    resource_group_name="examplerg",
+    static_ip="1.2.3.4")

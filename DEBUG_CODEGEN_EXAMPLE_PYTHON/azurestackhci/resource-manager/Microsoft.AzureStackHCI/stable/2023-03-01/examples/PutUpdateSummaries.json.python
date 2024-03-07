@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+update_summary = azure_native.azurestackhci.UpdateSummary("updateSummary",
+    cluster_name="testcluster",
+    current_version="4.2203.2.32",
+    hardware_model="PowerEdge R730xd",
+    last_checked="2022-04-07T18:04:07Z",
+    last_updated="2022-04-06T14:08:18.254Z",
+    oem_family="DellEMC",
+    resource_group_name="testrg",
+    state="AppliedSuccessfully")

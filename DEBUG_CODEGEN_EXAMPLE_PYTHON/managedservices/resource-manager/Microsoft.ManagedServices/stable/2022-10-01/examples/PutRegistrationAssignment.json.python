@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+registration_assignment = azure_native.managedservices.RegistrationAssignment("registrationAssignment",
+    properties=azure_native.managedservices.RegistrationAssignmentPropertiesArgs(
+        registration_definition_id="/subscriptions/0afefe50-734e-4610-8a82-a144ahf49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-6e081c90ada2",
+    ),
+    registration_assignment_id="26c128c2-fefa-4340-9bb1-6e081c90ada2",
+    scope="subscription/0afefe50-734e-4610-8a82-a144ahf49dea")

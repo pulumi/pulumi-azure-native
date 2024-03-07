@@ -1,0 +1,4 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+vendor = azure_native.hybridnetwork.Vendor("vendor", vendor_name="TestVendor")

@@ -1,0 +1,22 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+adc_catalog = azure_native.datacatalog.ADCCatalog("adcCatalog",
+    admins=[azure_native.datacatalog.PrincipalsArgs(
+        object_id="99999999-9999-9999-999999999999",
+        upn="myupn@microsoft.com",
+    )],
+    catalog_name="exampleCatalog",
+    enable_automatic_unit_adjustment=False,
+    location="North US",
+    resource_group_name="exampleResourceGroup",
+    sku="Standard",
+    tags={
+        "mykey": "myvalue",
+        "mykey2": "myvalue2",
+    },
+    units=1,
+    users=[azure_native.datacatalog.PrincipalsArgs(
+        object_id="99999999-9999-9999-999999999999",
+        upn="myupn@microsoft.com",
+    )])

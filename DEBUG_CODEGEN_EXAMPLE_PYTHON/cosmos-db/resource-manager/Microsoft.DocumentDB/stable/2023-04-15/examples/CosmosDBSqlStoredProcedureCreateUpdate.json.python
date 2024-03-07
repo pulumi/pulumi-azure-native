@@ -1,0 +1,14 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+sql_resource_sql_stored_procedure = azure_native.documentdb.SqlResourceSqlStoredProcedure("sqlResourceSqlStoredProcedure",
+    account_name="ddb1",
+    container_name="containerName",
+    database_name="databaseName",
+    options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+    resource=azure_native.documentdb.SqlStoredProcedureResourceArgs(
+        body="body",
+        id="storedProcedureName",
+    ),
+    resource_group_name="rg1",
+    stored_procedure_name="storedProcedureName")

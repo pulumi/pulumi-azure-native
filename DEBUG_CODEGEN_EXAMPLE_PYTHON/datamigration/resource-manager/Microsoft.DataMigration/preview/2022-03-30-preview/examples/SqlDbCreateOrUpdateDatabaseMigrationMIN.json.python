@@ -1,0 +1,29 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+database_migrations_sql_db = azure_native.datamigration.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb",
+    properties=azure_native.datamigration.DatabaseMigrationPropertiesSqlDbArgs(
+        kind="SqlDb",
+        migration_service="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+        scope="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+        source_database_name="aaa",
+        source_sql_connection=azure_native.datamigration.SqlConnectionInformationArgs(
+            authentication="WindowsAuthentication",
+            data_source="aaa",
+            encrypt_connection=True,
+            password="placeholder",
+            trust_server_certificate=True,
+            user_name="bbb",
+        ),
+        target_sql_connection=azure_native.datamigration.SqlConnectionInformationArgs(
+            authentication="SqlAuthentication",
+            data_source="sqldbinstance",
+            encrypt_connection=True,
+            password="placeholder",
+            trust_server_certificate=True,
+            user_name="bbb",
+        ),
+    ),
+    resource_group_name="testrg",
+    sql_db_instance_name="sqldbinstance",
+    target_db_name="db1")

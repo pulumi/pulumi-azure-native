@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.cognitiveservices.PrivateEndpointConnection("privateEndpointConnection",
+    account_name="sto9699",
+    private_endpoint_connection_name="{privateEndpointConnectionName}",
+    properties=azure_native.cognitiveservices.PrivateEndpointConnectionPropertiesArgs(
+        private_link_service_connection_state=azure_native.cognitiveservices.PrivateLinkServiceConnectionStateArgs(
+            description="Auto-Approved",
+            status="Approved",
+        ),
+    ),
+    resource_group_name="res7687")

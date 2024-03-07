@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+spatial_anchors_account = azure_native.mixedreality.SpatialAnchorsAccount("spatialAnchorsAccount",
+    account_name="MyAccount",
+    location="eastus2euap",
+    resource_group_name="MyResourceGroup")

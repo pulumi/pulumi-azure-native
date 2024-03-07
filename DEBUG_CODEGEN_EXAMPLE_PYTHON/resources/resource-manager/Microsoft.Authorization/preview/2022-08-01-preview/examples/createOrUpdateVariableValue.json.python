@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+variable_value = azure_native.authorization.VariableValue("variableValue",
+    values=[
+        azure_native.authorization.PolicyVariableValueColumnValueArgs(
+            column_name="StringColumn",
+            column_value="SampleValue",
+        ),
+        azure_native.authorization.PolicyVariableValueColumnValueArgs(
+            column_name="IntegerColumn",
+            column_value=10,
+        ),
+    ],
+    variable_name="DemoTestVariable",
+    variable_value_name="TestValue")

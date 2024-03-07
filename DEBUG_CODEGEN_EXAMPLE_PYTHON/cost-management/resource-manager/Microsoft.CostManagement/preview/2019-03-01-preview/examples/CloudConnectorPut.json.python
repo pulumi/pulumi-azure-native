@@ -1,0 +1,9 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cloud_connector = azure_native.costmanagement.CloudConnector("cloudConnector",
+    connector_name="aws-123456789012",
+    credentials_key="arn:aws:iam::123456789012:role/AzureCostManagementRole",
+    credentials_secret="external-id",
+    display_name="AWS-Consolidated-1",
+    report_id="HourlyWithResources")

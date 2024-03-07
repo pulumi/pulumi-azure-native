@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+manager = azure_native.storsimple.Manager("manager",
+    cis_intrinsic_settings=azure_native.storsimple.ManagerIntrinsicSettingsArgs(
+        type=azure_native.storsimple.ManagerType.GARDA_V1,
+    ),
+    location="westus",
+    manager_name="ManagerForSDKTest2",
+    resource_group_name="ResourceGroupForSDKTest",
+    sku=azure_native.storsimple.ManagerSkuArgs(
+        name=azure_native.storsimple.ManagerSkuType.STANDARD,
+    ))

@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+multiple_activation_key = azure_native.windowsesu.MultipleActivationKey("multipleActivationKey",
+    agreement_number="1a2b45ag",
+    installed_server_number=100,
+    is_eligible=True,
+    location="East US",
+    multiple_activation_key_name="server08-key-2019",
+    os_type="WindowsServer2008",
+    resource_group_name="testgr1",
+    support_type="SupplementalServicing")

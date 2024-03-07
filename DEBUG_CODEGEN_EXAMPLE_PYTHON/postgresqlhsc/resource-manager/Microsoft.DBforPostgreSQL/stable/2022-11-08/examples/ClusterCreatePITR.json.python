@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+cluster = azure_native.dbforpostgresql.Cluster("cluster",
+    cluster_name="testcluster",
+    location="westus",
+    point_in_time_utc="2017-12-14T00:00:37.467Z",
+    resource_group_name="TestGroup",
+    source_location="westus",
+    source_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/source-cluster")

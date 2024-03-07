@@ -1,0 +1,21 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+machine_learning_dataset = azure_native.machinelearningservices.MachineLearningDataset("machineLearningDataset",
+    dataset_name="datasetName123",
+    dataset_type="file",
+    parameters=azure_native.machinelearningservices.DatasetCreateRequestParametersArgs(
+        path=azure_native.machinelearningservices.DatasetCreateRequestPathArgs(
+            data_path=azure_native.machinelearningservices.DatasetCreateRequestDataPathArgs(
+                datastore_name="testblobfromarm",
+                relative_path="UI/03-26-2020_083359_UTC/latin1encoding.csv",
+            ),
+        ),
+    ),
+    registration=azure_native.machinelearningservices.DatasetCreateRequestRegistrationArgs(
+        description="test description",
+        name="datasetName123",
+    ),
+    resource_group_name="acjain-mleastUS2",
+    skip_validation=False,
+    workspace_name="acjain-mleastUS2")

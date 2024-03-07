@@ -1,0 +1,16 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+web_pub_sub_replica = azure_native.webpubsub.WebPubSubReplica("webPubSubReplica",
+    location="eastus",
+    replica_name="myWebPubSubService-eastus",
+    resource_group_name="myResourceGroup",
+    resource_name_="myWebPubSubService",
+    sku=azure_native.webpubsub.ResourceSkuArgs(
+        capacity=1,
+        name="Premium_P1",
+        tier="Premium",
+    ),
+    tags={
+        "key1": "value1",
+    })

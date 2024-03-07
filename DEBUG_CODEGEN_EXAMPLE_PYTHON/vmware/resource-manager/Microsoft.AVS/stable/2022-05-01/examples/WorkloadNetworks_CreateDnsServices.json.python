@@ -1,0 +1,13 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+workload_network_dns_service = azure_native.avs.WorkloadNetworkDnsService("workloadNetworkDnsService",
+    default_dns_zone="defaultDnsZone1",
+    display_name="dnsService1",
+    dns_service_id="dnsService1",
+    dns_service_ip="5.5.5.5",
+    fqdn_zones=["fqdnZone1"],
+    log_level="INFO",
+    private_cloud_name="cloud1",
+    resource_group_name="group1",
+    revision=1)

@@ -1,0 +1,72 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+job = azure_native.machinelearningservices.Job("job",
+    id="string",
+    job_base_properties=azure_native.machinelearningservices.CommandJobArgs(
+        code_id="string",
+        command="string",
+        compute_id="string",
+        description="string",
+        display_name="string",
+        distribution=azure_native.machinelearningservices.TensorFlowArgs(
+            distribution_type="TensorFlow",
+            parameter_server_count=1,
+            worker_count=1,
+        ),
+        environment_id="string",
+        environment_variables={
+            "string": "string",
+        },
+        experiment_name="string",
+        identity=azure_native.machinelearningservices.AmlTokenArgs(
+            identity_type="AMLToken",
+        ),
+        inputs={
+            "string": azure_native.machinelearningservices.LiteralJobInputArgs(
+                description="string",
+                job_input_type="literal",
+                value="string",
+            ),
+        },
+        job_type="Command",
+        limits=azure_native.machinelearningservices.CommandJobLimitsArgs(
+            job_limits_type="Command",
+            timeout="PT5M",
+        ),
+        outputs={
+            "string": azure_native.machinelearningservices.UriFileJobOutputArgs(
+                description="string",
+                job_output_type="uri_file",
+                mode="ReadWriteMount",
+                uri="string",
+            ),
+        },
+        properties={
+            "string": "string",
+        },
+        resources=azure_native.machinelearningservices.JobResourceConfigurationArgs(
+            instance_count=1,
+            instance_type="string",
+            properties={
+                "string": {
+                    "e6b6493e-7d5e-4db3-be1e-306ec641327e": None,
+                },
+            },
+        ),
+        services={
+            "string": azure_native.machinelearningservices.JobServiceArgs(
+                endpoint="string",
+                job_service_type="string",
+                port=1,
+                properties={
+                    "string": "string",
+                },
+            ),
+        },
+        tags={
+            "string": "string",
+        },
+    ),
+    resource_group_name="test-rg",
+    workspace_name="my-aml-workspace")

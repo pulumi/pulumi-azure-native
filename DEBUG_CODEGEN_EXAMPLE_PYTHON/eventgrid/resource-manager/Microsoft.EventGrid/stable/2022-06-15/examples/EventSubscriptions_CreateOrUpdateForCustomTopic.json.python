@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+event_subscription = azure_native.eventgrid.EventSubscription("eventSubscription",
+    destination=azure_native.eventgrid.EventHubEventSubscriptionDestinationArgs(
+        endpoint_type="EventHub",
+        resource_id="/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.EventHub/namespaces/ContosoNamespace/eventhubs/EH1",
+    ),
+    event_subscription_name="examplesubscription1",
+    filter=azure_native.eventgrid.EventSubscriptionFilterArgs(
+        is_subject_case_sensitive=False,
+        subject_begins_with="ExamplePrefix",
+        subject_ends_with="ExampleSuffix",
+    ),
+    scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")

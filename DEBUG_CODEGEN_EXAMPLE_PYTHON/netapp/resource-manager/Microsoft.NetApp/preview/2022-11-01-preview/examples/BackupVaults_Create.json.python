@@ -1,0 +1,8 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+backup_vault = azure_native.netapp.BackupVault("backupVault",
+    account_name="account1",
+    backup_vault_name="backupVault1",
+    location="eastus",
+    resource_group_name="myRG")

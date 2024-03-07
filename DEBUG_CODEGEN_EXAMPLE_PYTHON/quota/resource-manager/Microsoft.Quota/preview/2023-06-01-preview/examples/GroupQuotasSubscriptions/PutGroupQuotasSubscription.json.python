@@ -1,0 +1,6 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+group_quota_subscription = azure_native.quota.GroupQuotaSubscription("groupQuotaSubscription",
+    group_quota_name="groupquota1",
+    mg_id="E7EC67B3-7657-4966-BFFC-41EFD36BAA09")

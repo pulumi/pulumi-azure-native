@@ -1,0 +1,18 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+virtual_machine = azure_native.connectedvmwarevsphere.VirtualMachine("virtualMachine",
+    extended_location=azure_native.connectedvmwarevsphere.ExtendedLocationArgs(
+        name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+        type="customLocation",
+    ),
+    hardware_profile=azure_native.connectedvmwarevsphere.HardwareProfileArgs(
+        memory_size_mb=4196,
+        num_cpus=4,
+    ),
+    location="East US",
+    resource_group_name="testrg",
+    resource_pool_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool",
+    template_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachineTemplates/WebFrontEndTemplate",
+    v_center_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+    virtual_machine_name="DemoVM")

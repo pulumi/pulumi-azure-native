@@ -1,0 +1,10 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+app_service_certificate_order_certificate = azure_native.certificateregistration.AppServiceCertificateOrderCertificate("appServiceCertificateOrderCertificate",
+    certificate_order_name="SampleCertificateOrderName",
+    key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+    key_vault_secret_name="SampleSecretName1",
+    location="Global",
+    name="SampleCertName1",
+    resource_group_name="testrg123")

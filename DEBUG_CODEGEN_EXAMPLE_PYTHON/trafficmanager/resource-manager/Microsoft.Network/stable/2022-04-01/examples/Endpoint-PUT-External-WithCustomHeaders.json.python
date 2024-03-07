@@ -1,0 +1,23 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+endpoint = azure_native.network.Endpoint("endpoint",
+    custom_headers=[
+        azure_native.network.EndpointPropertiesCustomHeadersArgs(
+            name="header-1",
+            value="value-1",
+        ),
+        azure_native.network.EndpointPropertiesCustomHeadersArgs(
+            name="header-2",
+            value="value-2",
+        ),
+    ],
+    endpoint_location="North Europe",
+    endpoint_name="azsmnet7187",
+    endpoint_status="Enabled",
+    endpoint_type="ExternalEndpoints",
+    name="azsmnet7187",
+    profile_name="azsmnet6386",
+    resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+    target="foobar.contoso.com",
+    type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")

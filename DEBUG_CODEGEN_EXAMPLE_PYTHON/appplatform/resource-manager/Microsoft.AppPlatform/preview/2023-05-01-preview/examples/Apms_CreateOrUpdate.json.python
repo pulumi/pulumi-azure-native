@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+apm = azure_native.appplatform.Apm("apm",
+    apm_name="myappinsights",
+    properties=azure_native.appplatform.ApmPropertiesArgs(
+        properties={
+            "any-string": "any-string",
+            "sampling-rate": "12.0",
+        },
+        secrets={
+            "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+        },
+        type="ApplicationInsights",
+    ),
+    resource_group_name="myResourceGroup",
+    service_name="myservice")

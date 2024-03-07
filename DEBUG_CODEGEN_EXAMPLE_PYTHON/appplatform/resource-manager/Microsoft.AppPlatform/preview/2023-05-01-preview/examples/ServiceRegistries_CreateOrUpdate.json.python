@@ -1,0 +1,7 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+service_registry = azure_native.appplatform.ServiceRegistry("serviceRegistry",
+    resource_group_name="myResourceGroup",
+    service_name="myservice",
+    service_registry_name="default")

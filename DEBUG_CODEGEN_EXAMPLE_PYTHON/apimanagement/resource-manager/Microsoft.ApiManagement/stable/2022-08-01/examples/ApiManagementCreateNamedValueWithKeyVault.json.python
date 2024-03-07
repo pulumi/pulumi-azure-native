@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+named_value = azure_native.apimanagement.NamedValue("namedValue",
+    display_name="prop6namekv",
+    key_vault=azure_native.apimanagement.KeyVaultContractCreatePropertiesArgs(
+        identity_client_id="ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+        secret_identifier="https://contoso.vault.azure.net/secrets/aadSecret",
+    ),
+    named_value_id="testprop6",
+    resource_group_name="rg1",
+    secret=True,
+    service_name="apimService1",
+    tags=[
+        "foo",
+        "bar",
+    ])

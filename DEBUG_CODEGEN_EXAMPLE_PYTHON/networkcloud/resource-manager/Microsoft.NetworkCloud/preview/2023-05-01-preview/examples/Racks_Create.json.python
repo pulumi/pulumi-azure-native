@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+rack = azure_native.networkcloud.Rack("rack",
+    availability_zone="1",
+    extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+        name="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+        type="CustomLocation",
+    ),
+    location="location",
+    rack_location="Rack 28",
+    rack_name="rackName",
+    rack_serial_number="RACK_SERIAL_NUMBER",
+    rack_sku_id="RACK-TYPE-1",
+    resource_group_name="resourceGroupName",
+    tags={
+        "key1": "myvalue1",
+        "key2": "myvalue2",
+    })

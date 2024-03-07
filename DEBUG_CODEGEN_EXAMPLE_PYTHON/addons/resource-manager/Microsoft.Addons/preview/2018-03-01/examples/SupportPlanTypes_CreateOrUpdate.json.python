@@ -1,0 +1,6 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+support_plan_type = azure_native.addons.SupportPlanType("supportPlanType",
+    plan_type_name="Standard",
+    provider_name="Canonical")

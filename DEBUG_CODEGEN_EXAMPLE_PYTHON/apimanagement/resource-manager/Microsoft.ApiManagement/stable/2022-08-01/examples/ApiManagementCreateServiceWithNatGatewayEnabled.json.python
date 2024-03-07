@@ -1,0 +1,19 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+api_management_service = azure_native.apimanagement.ApiManagementService("apiManagementService",
+    location="East US",
+    nat_gateway_state="Enabled",
+    publisher_email="apim@autorestsdk.com",
+    publisher_name="autorestsdk",
+    resource_group_name="rg1",
+    service_name="apimService1",
+    sku=azure_native.apimanagement.ApiManagementServiceSkuPropertiesArgs(
+        capacity=1,
+        name="Premium",
+    ),
+    tags={
+        "tag1": "value1",
+        "tag2": "value2",
+        "tag3": "value3",
+    })

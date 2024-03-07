@@ -1,0 +1,41 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+scheduled_query_rule = azure_native.insights.ScheduledQueryRule("scheduledQueryRule",
+    actions=azure_native.insights.ActionsArgs(
+        action_groups=["/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup"],
+        custom_properties={
+            "key11": "value11",
+            "key12": "value12",
+        },
+    ),
+    check_workspace_alerts_storage_configured=True,
+    criteria=azure_native.insights.ScheduledQueryRuleCriteriaArgs(
+        all_of=[azure_native.insights.ConditionArgs(
+            dimensions=[],
+            failing_periods=azure_native.insights.ConditionFailingPeriodsArgs(
+                min_failing_periods_to_alert=1,
+                number_of_evaluation_periods=1,
+            ),
+            operator="GreaterThan",
+            query="Heartbeat",
+            threshold=360,
+            time_aggregation="Count",
+        )],
+    ),
+    description="Health check rule",
+    enabled=True,
+    evaluation_frequency="PT5M",
+    location="eastus",
+    mute_actions_duration="PT30M",
+    resource_group_name="QueryResourceGroupName",
+    rule_name="heartbeat",
+    rule_resolve_configuration=azure_native.insights.RuleResolveConfigurationArgs(
+        auto_resolved=True,
+        time_to_resolve="PT10M",
+    ),
+    scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1"],
+    severity=4,
+    skip_query_validation=True,
+    target_resource_types=["Microsoft.Compute/virtualMachines"],
+    window_size="PT10M")

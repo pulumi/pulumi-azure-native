@@ -1,0 +1,25 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+proactive_detection_configuration = azure_native.insights.ProactiveDetectionConfiguration("proactiveDetectionConfiguration",
+    configuration_id="slowpageloadtime",
+    custom_emails=[
+        "foo@microsoft.com",
+        "foo2@microsoft.com",
+    ],
+    enabled=True,
+    location="South Central US",
+    name="slowpageloadtime",
+    resource_group_name="my-resource-group",
+    resource_name_="my-component",
+    rule_definitions=azure_native.insights.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs(
+        description="Smart Detection rules notify you of performance anomaly issues.",
+        display_name="Slow page load time",
+        help_url="https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+        is_enabled_by_default=True,
+        is_hidden=False,
+        is_in_preview=False,
+        name="slowpageloadtime",
+        supports_email_notifications=True,
+    ),
+    send_emails_to_subscription_owners=True)

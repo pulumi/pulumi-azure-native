@@ -1,0 +1,17 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server = azure_native.dbformysql.Server("server",
+    create_mode="PointInTimeRestore",
+    location="SoutheastAsia",
+    resource_group_name="TargetResourceGroup",
+    restore_point_in_time="2021-06-24T00:00:37.467Z",
+    server_name="targetserver",
+    sku=azure_native.dbformysql.SkuArgs(
+        name="Standard_D14_v2",
+        tier="GeneralPurpose",
+    ),
+    source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+    tags={
+        "num": "1",
+    })

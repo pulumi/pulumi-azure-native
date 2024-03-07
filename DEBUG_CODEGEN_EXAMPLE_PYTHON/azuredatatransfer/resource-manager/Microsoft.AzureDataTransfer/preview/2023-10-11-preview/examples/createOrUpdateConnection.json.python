@@ -1,0 +1,12 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+connection = azure_native.azuredatatransfer.Connection("connection",
+    connection_name="testConnection",
+    location="East US",
+    properties=azure_native.azuredatatransfer.ConnectionPropertiesArgs(
+        justification="justification",
+        pipeline="testdc",
+        requirement_id="id",
+    ),
+    resource_group_name="testRG")

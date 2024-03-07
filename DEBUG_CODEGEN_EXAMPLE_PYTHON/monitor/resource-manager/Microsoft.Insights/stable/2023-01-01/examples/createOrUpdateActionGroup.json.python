@@ -1,0 +1,100 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+action_group = azure_native.insights.ActionGroup("actionGroup",
+    action_group_name="SampleActionGroup",
+    arm_role_receivers=[azure_native.insights.ArmRoleReceiverArgs(
+        name="Sample armRole",
+        role_id="8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+        use_common_alert_schema=True,
+    )],
+    automation_runbook_receivers=[azure_native.insights.AutomationRunbookReceiverArgs(
+        automation_account_id="/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest",
+        is_global_runbook=False,
+        name="testRunbook",
+        runbook_name="Sample runbook",
+        service_uri="<serviceUri>",
+        use_common_alert_schema=True,
+        webhook_resource_id="/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest/webhooks/Alert1510184037084",
+    )],
+    azure_app_push_receivers=[azure_native.insights.AzureAppPushReceiverArgs(
+        email_address="johndoe@email.com",
+        name="Sample azureAppPush",
+    )],
+    azure_function_receivers=[azure_native.insights.AzureFunctionReceiverArgs(
+        function_app_resource_id="/subscriptions/5def922a-3ed4-49c1-b9fd-05ec533819a3/resourceGroups/aznsTest/providers/Microsoft.Web/sites/testFunctionApp",
+        function_name="HttpTriggerCSharp1",
+        http_trigger_url="http://test.me",
+        name="Sample azureFunction",
+        use_common_alert_schema=True,
+    )],
+    email_receivers=[
+        azure_native.insights.EmailReceiverArgs(
+            email_address="johndoe@email.com",
+            name="John Doe's email",
+            use_common_alert_schema=False,
+        ),
+        azure_native.insights.EmailReceiverArgs(
+            email_address="janesmith@email.com",
+            name="Jane Smith's email",
+            use_common_alert_schema=True,
+        ),
+    ],
+    enabled=True,
+    event_hub_receivers=[azure_native.insights.EventHubReceiverArgs(
+        event_hub_name="testEventHub",
+        event_hub_name_space="testEventHubNameSpace",
+        name="Sample eventHub",
+        subscription_id="187f412d-1758-44d9-b052-169e2564721d",
+        tenant_id="68a4459a-ccb8-493c-b9da-dd30457d1b84",
+    )],
+    group_short_name="sample",
+    itsm_receivers=[azure_native.insights.ItsmReceiverArgs(
+        connection_id="a3b9076c-ce8e-434e-85b4-aff10cb3c8f1",
+        name="Sample itsm",
+        region="westcentralus",
+        ticket_configuration="{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}",
+        workspace_id="5def922a-3ed4-49c1-b9fd-05ec533819a3|55dfd1f8-7e59-4f89-bf56-4c82f5ace23c",
+    )],
+    location="Global",
+    logic_app_receivers=[azure_native.insights.LogicAppReceiverArgs(
+        callback_url="https://prod-27.northcentralus.logic.azure.com/workflows/68e572e818e5457ba898763b7db90877/triggers/manual/paths/invoke/azns/test?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Abpsb72UYJxPPvmDo937uzofupO5r_vIeWEx7KVHo7w",
+        name="Sample logicApp",
+        resource_id="/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/LogicApp/providers/Microsoft.Logic/workflows/testLogicApp",
+        use_common_alert_schema=False,
+    )],
+    resource_group_name="Default-NotificationRules",
+    sms_receivers=[
+        azure_native.insights.SmsReceiverArgs(
+            country_code="1",
+            name="John Doe's mobile",
+            phone_number="1234567890",
+        ),
+        azure_native.insights.SmsReceiverArgs(
+            country_code="1",
+            name="Jane Smith's mobile",
+            phone_number="0987654321",
+        ),
+    ],
+    tags={},
+    voice_receivers=[azure_native.insights.VoiceReceiverArgs(
+        country_code="1",
+        name="Sample voice",
+        phone_number="1234567890",
+    )],
+    webhook_receivers=[
+        azure_native.insights.WebhookReceiverArgs(
+            name="Sample webhook 1",
+            service_uri="http://www.example.com/webhook1",
+            use_common_alert_schema=True,
+        ),
+        azure_native.insights.WebhookReceiverArgs(
+            identifier_uri="http://someidentifier/d7811ba3-7996-4a93-99b6-6b2f3f355f8a",
+            name="Sample webhook 2",
+            object_id="d3bb868c-fe44-452c-aa26-769a6538c808",
+            service_uri="http://www.example.com/webhook2",
+            tenant_id="68a4459a-ccb8-493c-b9da-dd30457d1b84",
+            use_aad_auth=True,
+            use_common_alert_schema=True,
+        ),
+    ])

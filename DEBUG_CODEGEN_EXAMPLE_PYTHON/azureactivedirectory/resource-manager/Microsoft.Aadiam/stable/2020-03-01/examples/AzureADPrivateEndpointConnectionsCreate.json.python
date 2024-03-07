@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_endpoint_connection = azure_native.aadiam.PrivateEndpointConnection("privateEndpointConnection",
+    policy_name="example-policy-5849",
+    private_endpoint=azure_native.aadiam.PrivateEndpointArgs(
+        id="subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/microsoft.aadiam/privateLinkForAzureAD/ddb1/privateLinkConnections/{privateEndpointConnection name}",
+    ),
+    private_endpoint_connection_name="{privateEndpointConnection name}",
+    private_link_service_connection_state=azure_native.aadiam.PrivateLinkServiceConnectionStateArgs(
+        actions_required="None",
+        description="You may pass",
+        status="Approved",
+    ),
+    resource_group_name="resourcegroup")

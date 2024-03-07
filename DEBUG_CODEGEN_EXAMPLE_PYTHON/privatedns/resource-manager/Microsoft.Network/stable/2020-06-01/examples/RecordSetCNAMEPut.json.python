@@ -1,0 +1,15 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+private_record_set = azure_native.network.PrivateRecordSet("privateRecordSet",
+    cname_record=azure_native.network.CnameRecordArgs(
+        cname="contoso.com",
+    ),
+    metadata={
+        "key1": "value1",
+    },
+    private_zone_name="privatezone1.com",
+    record_type="CNAME",
+    relative_record_set_name="recordCNAME",
+    resource_group_name="resourceGroup1",
+    ttl=3600)

@@ -1,0 +1,11 @@
+import pulumi
+import pulumi_azure_native as azure_native
+
+server = azure_native.dbformariadb.Server("server",
+    location="westus",
+    properties=azure_native.dbformariadb.ServerPropertiesForReplicaArgs(
+        create_mode="Replica",
+        source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/MasterResourceGroup/providers/Microsoft.DBforMariaDB/servers/masterserver",
+    ),
+    resource_group_name="TargetResourceGroup",
+    server_name="targetserver")
