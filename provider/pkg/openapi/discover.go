@@ -633,6 +633,14 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 		}
 	}
 
+	// Finally, check for resources that don't match our standard criteria but have a custom implementation.
+	// We could get rid of the requirement for a GET operation by extending custom resources to provide their own resource name.
+	if !foundResourceOrInvoke && customresources.IsCustomResource(path) && pathItem.Get != nil && !pathItem.Get.Deprecated {
+		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
+		recordDisambiguation(disambiguation)
+		addResource(typeName, nil /* defaultBody */, nil /* pathItemList */)
+	}
+
 	// Add a POST invoke entry.
 	if pathItem.Post != nil && !pathItem.Post.Deprecated {
 		parts := strings.Split(path, "/")

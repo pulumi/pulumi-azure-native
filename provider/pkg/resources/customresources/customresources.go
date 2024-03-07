@@ -85,6 +85,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		customWebAppDelete(lookupResource, azureClient),
 		blobContainerLegalHold(azureClient),
 		pimRoleManagementPolicy,
+		pimRoleEligibilityScheduleInstance(),
 	}
 
 	result := map[string]*CustomResource{}

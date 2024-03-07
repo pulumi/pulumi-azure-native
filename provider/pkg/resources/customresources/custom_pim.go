@@ -184,3 +184,9 @@ func mapRulesById(managementPolicy resource.PropertyMap) map[string]resource.Pro
 	}
 	return rulesById
 }
+
+func pimRoleEligibilityScheduleInstance() *CustomResource {
+	return &CustomResource{
+		path: "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/{roleEligibilityScheduleInstanceName}",
+	}
+}
