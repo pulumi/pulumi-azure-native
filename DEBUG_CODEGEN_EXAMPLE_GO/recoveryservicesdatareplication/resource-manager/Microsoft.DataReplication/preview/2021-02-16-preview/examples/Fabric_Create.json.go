@@ -9,7 +9,7 @@ pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := datareplication.NewFabric(ctx, "fabric", &datareplication.FabricArgs{
 FabricName: pulumi.String("wPR"),
 Location: pulumi.String("tqygutlpob"),
-Properties: datareplication.FabricModelPropertiesResponse{
+Properties: &datareplication.FabricModelPropertiesArgs{
 CustomProperties: interface{}{
 InstanceType: pulumi.String("FabricModelCustomProperties"),
 },

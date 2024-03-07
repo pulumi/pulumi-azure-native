@@ -15,11 +15,11 @@ func main() {
 			},
 			PolicyAssignmentName: pulumi.String("CostManagement"),
 			PolicyDefinitionId:   pulumi.String("/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement"),
-			ResourceSelectors: []authorization.ResourceSelectorArgs{
-				{
+			ResourceSelectors: authorization.ResourceSelectorArray{
+				&authorization.ResourceSelectorArgs{
 					Name: pulumi.String("SDPRegions"),
 					Selectors: authorization.SelectorArray{
-						{
+						&authorization.SelectorArgs{
 							In: pulumi.StringArray{
 								pulumi.String("eastus2euap"),
 								pulumi.String("centraluseuap"),

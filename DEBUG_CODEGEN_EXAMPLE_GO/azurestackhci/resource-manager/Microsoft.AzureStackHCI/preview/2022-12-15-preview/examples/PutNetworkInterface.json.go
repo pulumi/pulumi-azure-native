@@ -12,11 +12,11 @@ func main() {
 				Name: pulumi.String("/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location"),
 				Type: pulumi.String("CustomLocation"),
 			},
-			IpConfigurations: []azurestackhci.IPConfigurationArgs{
-				{
+			IpConfigurations: azurestackhci.IPConfigurationArray{
+				&azurestackhci.IPConfigurationArgs{
 					Name: pulumi.String("ipconfig-sample"),
-					Properties: {
-						Subnet: {
+					Properties: &azurestackhci.IPConfigurationPropertiesArgs{
+						Subnet: &azurestackhci.IPConfigurationSubnetArgs{
 							Id: pulumi.String("test-vnet"),
 						},
 					},

@@ -7,7 +7,7 @@ storage_space_retrieve = azure_native.hybridcontainerservice.StorageSpaceRetriev
         type="CustomLocation",
     ),
     location="westus",
-    properties=azure_native.hybridcontainerservice.StorageSpacesPropertiesResponseArgs(
+    properties=azure_native.hybridcontainerservice.StorageSpacesPropertiesArgs(
         hci_storage_profile=azure_native.hybridcontainerservice.StorageSpacesPropertiesHciStorageProfileArgs(
             moc_group="target-group",
             moc_location="MocLocation",

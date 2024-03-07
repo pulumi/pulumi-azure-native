@@ -13,7 +13,7 @@ func main() {
 				Name: pulumi.String("losangeles001"),
 				Type: pulumi.String("EdgeZone"),
 			},
-			ImmutableStorageWithVersioning: storage.ImmutableStorageAccountResponse{
+			ImmutableStorageWithVersioning: &storage.ImmutableStorageAccountArgs{
 				Enabled: pulumi.Bool(true),
 				ImmutabilityPolicy: &storage.AccountImmutabilityPolicyPropertiesArgs{
 					AllowProtectedAppendWrites:            pulumi.Bool(true),

@@ -11,8 +11,8 @@ func main() {
 			Metadata: pulumi.StringMap{
 				"key1": pulumi.String("value1"),
 			},
-			PtrRecords: []network.PtrRecordArgs{
-				{
+			PtrRecords: network.PtrRecordArray{
+				&network.PtrRecordArgs{
 					Ptrdname: pulumi.String("localhost"),
 				},
 			},

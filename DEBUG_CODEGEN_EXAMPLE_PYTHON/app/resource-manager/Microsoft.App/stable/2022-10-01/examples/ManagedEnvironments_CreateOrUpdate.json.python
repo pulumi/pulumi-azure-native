@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 managed_environment = azure_native.app.ManagedEnvironment("managedEnvironment",
-    app_logs_configuration=azure_native.app.AppLogsConfigurationResponseArgs(
+    app_logs_configuration=azure_native.app.AppLogsConfigurationArgs(
         log_analytics_configuration=azure_native.app.LogAnalyticsConfigurationArgs(
             customer_id="string",
             shared_key="string",
@@ -21,7 +21,7 @@ managed_environment = azure_native.app.ManagedEnvironment("managedEnvironment",
     sku=azure_native.app.EnvironmentSkuPropertiesArgs(
         name="Premium",
     ),
-    vnet_configuration=azure_native.app.VnetConfigurationResponseArgs(
+    vnet_configuration=azure_native.app.VnetConfigurationArgs(
         outbound_settings=azure_native.app.ManagedEnvironmentOutboundSettingsArgs(
             out_bound_type="UserDefinedRouting",
             virtual_network_appliance_ip="192.168.1.20",

@@ -10,7 +10,7 @@ func main() {
 		_, err := managednetwork.NewManagedNetworkPeeringPolicy(ctx, "managedNetworkPeeringPolicy", &managednetwork.ManagedNetworkPeeringPolicyArgs{
 			ManagedNetworkName:              pulumi.String("myManagedNetwork"),
 			ManagedNetworkPeeringPolicyName: pulumi.String("myHubAndSpoke"),
-			Properties: managednetwork.ManagedNetworkPeeringPolicyPropertiesResponse{
+			Properties: &managednetwork.ManagedNetworkPeeringPolicyPropertiesArgs{
 				Hub: &managednetwork.ResourceIdArgs{
 					Id: pulumi.String("/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myHubVnet"),
 				},

@@ -12,17 +12,17 @@ func main() {
 			ManagedNetworkName:      pulumi.String("myManagedNetwork"),
 			ManagementGroups:        managednetwork.ResourceIdArray{},
 			ResourceGroupName:       pulumi.String("myResourceGroup"),
-			Subnets: []managednetwork.ResourceIdArgs{
-				{
+			Subnets: managednetwork.ResourceIdArray{
+				&managednetwork.ResourceIdArgs{
 					Id: pulumi.String("/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA"),
 				},
 			},
 			Subscriptions: managednetwork.ResourceIdArray{},
-			VirtualNetworks: []managednetwork.ResourceIdArgs{
-				{
+			VirtualNetworks: managednetwork.ResourceIdArray{
+				&managednetwork.ResourceIdArgs{
 					Id: pulumi.String("/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA"),
 				},
-				{
+				&managednetwork.ResourceIdArgs{
 					Id: pulumi.String("/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB"),
 				},
 			},

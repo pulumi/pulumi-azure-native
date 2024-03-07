@@ -9,12 +9,12 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := databoxedge.NewMonitoringConfig(ctx, "monitoringConfig", &databoxedge.MonitoringConfigArgs{
 			DeviceName: pulumi.String("testedgedevice"),
-			MetricConfigurations: []databoxedge.MetricConfigurationArgs{
-				{
+			MetricConfigurations: databoxedge.MetricConfigurationArray{
+				&databoxedge.MetricConfigurationArgs{
 					CounterSets: databoxedge.MetricCounterSetArray{
-						{
+						&databoxedge.MetricCounterSetArgs{
 							Counters: databoxedge.MetricCounterArray{
-								{
+								&databoxedge.MetricCounterArgs{
 									Name: pulumi.String("test"),
 								},
 							},

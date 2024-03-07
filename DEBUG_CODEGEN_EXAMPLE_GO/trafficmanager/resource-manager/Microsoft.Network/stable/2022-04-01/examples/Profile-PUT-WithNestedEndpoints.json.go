@@ -12,8 +12,8 @@ func main() {
 				RelativeName: pulumi.String("parentprofile"),
 				Ttl:          pulumi.Float64(35),
 			},
-			Endpoints: []network.EndpointTypeArgs{
-				{
+			Endpoints: network.EndpointTypeArray{
+				&network.EndpointTypeArgs{
 					EndpointStatus:        pulumi.String("Enabled"),
 					MinChildEndpoints:     pulumi.Float64(2),
 					MinChildEndpointsIPv4: pulumi.Float64(1),
@@ -24,7 +24,7 @@ func main() {
 					Type:                  pulumi.String("Microsoft.Network/trafficManagerProfiles/nestedEndpoints"),
 					Weight:                pulumi.Float64(1),
 				},
-				{
+				&network.EndpointTypeArgs{
 					EndpointStatus:        pulumi.String("Enabled"),
 					MinChildEndpoints:     pulumi.Float64(2),
 					MinChildEndpointsIPv4: pulumi.Float64(2),

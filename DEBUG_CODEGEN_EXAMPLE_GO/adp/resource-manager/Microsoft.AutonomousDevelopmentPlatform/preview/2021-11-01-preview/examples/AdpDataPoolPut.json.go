@@ -10,9 +10,9 @@ func main() {
 		_, err := autonomousdevelopmentplatform.NewDataPool(ctx, "dataPool", &autonomousdevelopmentplatform.DataPoolArgs{
 			AccountName:  pulumi.String("sampleacct"),
 			DataPoolName: pulumi.String("sampledp"),
-			Locations: []autonomousdevelopmentplatform.DataPoolLocationArgs{
-				{
-					Encryption: {
+			Locations: autonomousdevelopmentplatform.DataPoolLocationArray{
+				&autonomousdevelopmentplatform.DataPoolLocationArgs{
+					Encryption: &autonomousdevelopmentplatform.DataPoolEncryptionArgs{
 						KeyName:              pulumi.String("key1"),
 						KeyVaultUri:          pulumi.String("https://vaulturi"),
 						KeyVersion:           pulumi.String("123"),

@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := managednetworkfabric.NewInternalNetwork(ctx, "internalNetwork", &managednetworkfabric.InternalNetworkArgs{
-			BgpConfiguration: managednetworkfabric.BgpConfigurationResponse{
+			BgpConfiguration: &managednetworkfabric.BgpConfigurationArgs{
 				AllowAS:               pulumi.Int(1),
 				AllowASOverride:       pulumi.String("Enable"),
 				DefaultRouteOriginate: pulumi.String("True"),
@@ -30,13 +30,13 @@ func main() {
 				},
 				PeerASN: pulumi.Int(6),
 			},
-			ConnectedIPv4Subnets: []managednetworkfabric.ConnectedSubnetArgs{
-				{
+			ConnectedIPv4Subnets: managednetworkfabric.ConnectedSubnetArray{
+				&managednetworkfabric.ConnectedSubnetArgs{
 					Prefix: pulumi.String("10.0.0.0/24"),
 				},
 			},
-			ConnectedIPv6Subnets: []managednetworkfabric.ConnectedSubnetArgs{
-				{
+			ConnectedIPv6Subnets: managednetworkfabric.ConnectedSubnetArray{
+				&managednetworkfabric.ConnectedSubnetArgs{
 					Prefix: pulumi.String("3FFE:FFFF:0:CD30::a0/29"),
 				},
 			},
@@ -46,7 +46,7 @@ func main() {
 			L3IsolationDomainName: pulumi.String("example-l3domain"),
 			Mtu:                   pulumi.Int(1500),
 			ResourceGroupName:     pulumi.String("resourceGroupName"),
-			StaticRouteConfiguration: managednetworkfabric.StaticRouteConfigurationResponse{
+			StaticRouteConfiguration: &managednetworkfabric.StaticRouteConfigurationArgs{
 				Ipv4Routes: managednetworkfabric.StaticRoutePropertiesArray{
 					&managednetworkfabric.StaticRoutePropertiesArgs{
 						NextHop: pulumi.StringArray{

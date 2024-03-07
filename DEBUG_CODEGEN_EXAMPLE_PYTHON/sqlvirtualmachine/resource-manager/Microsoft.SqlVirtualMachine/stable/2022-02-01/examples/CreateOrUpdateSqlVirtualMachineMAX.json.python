@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 sql_virtual_machine = azure_native.sqlvirtualmachine.SqlVirtualMachine("sqlVirtualMachine",
-    assessment_settings=azure_native.sqlvirtualmachine.AssessmentSettingsResponseArgs(
+    assessment_settings=azure_native.sqlvirtualmachine.AssessmentSettingsArgs(
         enable=True,
         run_immediately=True,
         schedule=azure_native.sqlvirtualmachine.ScheduleArgs(
@@ -38,7 +38,7 @@ sql_virtual_machine = azure_native.sqlvirtualmachine.SqlVirtualMachine("sqlVirtu
     ),
     location="northeurope",
     resource_group_name="testrg",
-    server_configurations_management_settings=azure_native.sqlvirtualmachine.ServerConfigurationsManagementSettingsResponseArgs(
+    server_configurations_management_settings=azure_native.sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs(
         additional_features_server_configurations=azure_native.sqlvirtualmachine.AdditionalFeaturesServerConfigurationsArgs(
             is_r_services_enabled=False,
         ),

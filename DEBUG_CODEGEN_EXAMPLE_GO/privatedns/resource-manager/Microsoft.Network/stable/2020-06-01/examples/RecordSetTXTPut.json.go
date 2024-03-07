@@ -16,8 +16,8 @@ func main() {
 			RelativeRecordSetName: pulumi.String("recordTXT"),
 			ResourceGroupName:     pulumi.String("resourceGroup1"),
 			Ttl:                   pulumi.Float64(3600),
-			TxtRecords: []network.TxtRecordArgs{
-				{
+			TxtRecords: network.TxtRecordArray{
+				&network.TxtRecordArgs{
 					Value: pulumi.StringArray{
 						pulumi.String("string1"),
 						pulumi.String("string2"),

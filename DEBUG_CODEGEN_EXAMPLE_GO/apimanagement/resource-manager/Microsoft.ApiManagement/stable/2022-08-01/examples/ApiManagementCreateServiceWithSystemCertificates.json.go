@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := apimanagement.NewApiManagementService(ctx, "apiManagementService", &apimanagement.ApiManagementServiceArgs{
-			Certificates: []apimanagement.CertificateConfigurationArgs{
-				{
+			Certificates: apimanagement.CertificateConfigurationArray{
+				&apimanagement.CertificateConfigurationArgs{
 					CertificatePassword: pulumi.String("Password"),
 					EncodedCertificate:  pulumi.String("*******Base64 encoded Certificate******************"),
 					StoreName:           pulumi.String("CertificateAuthority"),

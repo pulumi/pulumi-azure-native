@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 ledger = azure_native.confidentialledger.Ledger("ledger",
     ledger_name="DummyLedgerName",
     location="EastUS",
-    properties=azure_native.confidentialledger.LedgerPropertiesResponseArgs(
+    properties=azure_native.confidentialledger.LedgerPropertiesArgs(
         aad_based_security_principals=[azure_native.confidentialledger.AADBasedSecurityPrincipalArgs(
             ledger_role_name="Administrator",
             principal_id="34621747-6fc8-4771-a2eb-72f31c461f2e",

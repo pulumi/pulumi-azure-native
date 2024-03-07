@@ -27,22 +27,22 @@ func main() {
 			PartitionKeyProperty: pulumi.String("c"),
 			PartitionStrategy:    pulumi.String("default"),
 			ResourceGroupName:    pulumi.String("rgiotoperationsmq"),
-			Routes: []iotoperationsmq.KafkaRoutesArgs{
-				{
-					KafkaToMqtt: {
+			Routes: iotoperationsmq.KafkaRoutesArray{
+				&iotoperationsmq.KafkaRoutesArgs{
+					KafkaToMqtt: &iotoperationsmq.KafkaToMqttRoutesArgs{
 						ConsumerGroupId: pulumi.String("usork"),
 						KafkaTopic:      pulumi.String("ggwhwbsr"),
 						MqttTopic:       pulumi.String("jwvmmhfqqkkmqrpslbdfmpbdetfu"),
 						Name:            pulumi.String("lrnvudysggscnqvmnlkrk"),
 						Qos:             pulumi.Int(1),
 					},
-					MqttToKafka: {
+					MqttToKafka: &iotoperationsmq.MqttToKafkaRoutesArgs{
 						KafkaAcks:  pulumi.String("zero"),
 						KafkaTopic: pulumi.String("tellycttwulueqcpqf"),
 						MqttTopic:  pulumi.String("raipkrcwvdnnflywhgjwnquarf"),
 						Name:       pulumi.String("qpshqcaxvxnyjzimvchngupzezdei"),
 						Qos:        pulumi.Int(1),
-						SharedSubscription: {
+						SharedSubscription: &iotoperationsmq.KafkaSharedSubscriptionPropertiesArgs{
 							GroupMinimumShareNumber: pulumi.Int(216),
 							GroupName:               pulumi.String("nwdyccsditzhchuksmi"),
 						},

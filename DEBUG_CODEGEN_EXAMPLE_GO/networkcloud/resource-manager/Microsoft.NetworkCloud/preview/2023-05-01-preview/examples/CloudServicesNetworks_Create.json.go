@@ -8,11 +8,11 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := networkcloud.NewCloudServicesNetwork(ctx, "cloudServicesNetwork", &networkcloud.CloudServicesNetworkArgs{
-			AdditionalEgressEndpoints: []networkcloud.EgressEndpointArgs{
-				{
+			AdditionalEgressEndpoints: networkcloud.EgressEndpointArray{
+				&networkcloud.EgressEndpointArgs{
 					Category: pulumi.String("azure-resource-management"),
 					Endpoints: networkcloud.EndpointDependencyArray{
-						{
+						&networkcloud.EndpointDependencyArgs{
 							DomainName: pulumi.String("https://storageaccountex.blob.core.windows.net"),
 							Port:       pulumi.Float64(443),
 						},

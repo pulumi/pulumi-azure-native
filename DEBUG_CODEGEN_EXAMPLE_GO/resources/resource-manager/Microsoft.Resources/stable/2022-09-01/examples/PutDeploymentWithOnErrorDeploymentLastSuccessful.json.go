@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := resources.NewDeployment(ctx, "deployment", &resources.DeploymentArgs{
 			DeploymentName: pulumi.String("my-deployment"),
-			Properties: resources.DeploymentPropertiesExtendedResponse{
+			Properties: &resources.DeploymentPropertiesArgs{
 				Mode: resources.DeploymentModeComplete,
 				OnErrorDeployment: &resources.OnErrorDeploymentArgs{
 					Type: resources.OnErrorDeploymentTypeLastSuccessful,

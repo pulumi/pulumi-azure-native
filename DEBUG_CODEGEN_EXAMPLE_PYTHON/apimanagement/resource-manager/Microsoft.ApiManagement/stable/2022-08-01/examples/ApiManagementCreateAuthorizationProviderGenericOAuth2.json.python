@@ -5,7 +5,7 @@ authorization_provider = azure_native.apimanagement.AuthorizationProvider("autho
     authorization_provider_id="eventbrite",
     display_name="eventbrite",
     identity_provider="oauth2",
-    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsResponseArgs(
+    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsArgs(
         grant_types=azure_native.apimanagement.AuthorizationProviderOAuth2GrantTypesArgs(
             authorization_code={
                 "authorizationUrl": "https://www.eventbrite.com/oauth/authorize",

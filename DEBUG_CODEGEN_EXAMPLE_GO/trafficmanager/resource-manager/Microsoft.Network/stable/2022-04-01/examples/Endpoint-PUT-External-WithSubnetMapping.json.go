@@ -14,12 +14,12 @@ func main() {
 			Name:              pulumi.String("My external endpoint"),
 			ProfileName:       pulumi.String("azuresdkfornetautoresttrafficmanager8224"),
 			ResourceGroupName: pulumi.String("azuresdkfornetautoresttrafficmanager2191"),
-			Subnets: []network.EndpointPropertiesSubnetsArgs{
-				{
+			Subnets: network.EndpointPropertiesSubnetsArray{
+				&network.EndpointPropertiesSubnetsArgs{
 					First: pulumi.String("1.2.3.0"),
 					Scope: pulumi.Int(24),
 				},
-				{
+				&network.EndpointPropertiesSubnetsArgs{
 					First: pulumi.String("25.26.27.28"),
 					Last:  pulumi.String("29.30.31.32"),
 				},

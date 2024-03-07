@@ -10,7 +10,7 @@ func main() {
 		_, err := logic.NewIntegrationAccountCertificate(ctx, "integrationAccountCertificate", &logic.IntegrationAccountCertificateArgs{
 			CertificateName:        pulumi.String("testCertificate"),
 			IntegrationAccountName: pulumi.String("testIntegrationAccount"),
-			Key: logic.KeyVaultKeyReferenceResponse{
+			Key: &logic.KeyVaultKeyReferenceArgs{
 				KeyName: pulumi.String("<keyName>"),
 				KeyVault: &logic.KeyVaultKeyReferenceKeyVaultArgs{
 					Id: pulumi.String("/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>"),

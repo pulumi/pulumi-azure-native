@@ -4,12 +4,12 @@ import pulumi_azure_native as azure_native
 inbound_endpoint = azure_native.network.InboundEndpoint("inboundEndpoint",
     dns_resolver_name="sampleDnsResolver",
     inbound_endpoint_name="sampleInboundEndpoint",
-    ip_configurations=[{
-        "privateIpAllocationMethod": "Dynamic",
-        "subnet": azure_native.network.SubResourceArgs(
+    ip_configurations=[azure_native.network.InboundEndpointIPConfigurationArgs(
+        private_ip_allocation_method="Dynamic",
+        subnet=azure_native.network.SubResourceArgs(
             id="/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
         ),
-    }],
+    )],
     location="westus2",
     resource_group_name="sampleResourceGroup",
     tags={

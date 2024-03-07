@@ -11,19 +11,19 @@ func main() {
 			BandwidthSettingName: pulumi.String("BWSForTest"),
 			ManagerName:          pulumi.String("ManagerForSDKTest1"),
 			ResourceGroupName:    pulumi.String("ResourceGroupForSDKTest"),
-			Schedules: []storsimple.BandwidthScheduleArgs{
-				{
+			Schedules: storsimple.BandwidthScheduleArray{
+				&storsimple.BandwidthScheduleArgs{
 					Days: storsimple.DayOfWeekArray{
 						storsimple.DayOfWeekSaturday,
 						storsimple.DayOfWeekSunday,
 					},
 					RateInMbps: pulumi.Int(10),
-					Start: {
+					Start: &storsimple.TimeArgs{
 						Hours:   pulumi.Int(10),
 						Minutes: pulumi.Int(0),
 						Seconds: pulumi.Int(0),
 					},
-					Stop: {
+					Stop: &storsimple.TimeArgs{
 						Hours:   pulumi.Int(20),
 						Minutes: pulumi.Int(0),
 						Seconds: pulumi.Int(0),

@@ -2,9 +2,9 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 streaming_endpoint = azure_native.media.StreamingEndpoint("streamingEndpoint",
-    access_control=azure_native.media.StreamingEndpointAccessControlResponseArgs(
-        akamai={
-            "akamaiSignatureHeaderAuthenticationKeyList": [
+    access_control=azure_native.media.StreamingEndpointAccessControlArgs(
+        akamai=azure_native.media.AkamaiAccessControlArgs(
+            akamai_signature_header_authentication_key_list=[
                 azure_native.media.AkamaiSignatureHeaderAuthenticationKeyArgs(
                     base64_key="dGVzdGlkMQ==",
                     expiration="2029-12-31T16:00:00-08:00",
@@ -16,13 +16,13 @@ streaming_endpoint = azure_native.media.StreamingEndpoint("streamingEndpoint",
                     identifier="id2",
                 ),
             ],
-        },
-        ip={
-            "allow": [azure_native.media.IPRangeArgs(
+        ),
+        ip=azure_native.media.IPAccessControlArgs(
+            allow=[azure_native.media.IPRangeArgs(
                 address="192.168.1.1",
                 name="AllowedIp",
             )],
-        },
+        ),
     ),
     account_name="slitestmedia10",
     availability_set_name="availableset",

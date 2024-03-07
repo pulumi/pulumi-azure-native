@@ -10,10 +10,10 @@ func main() {
 		_, err := network.NewRulesEngine(ctx, "rulesEngine", &network.RulesEngineArgs{
 			FrontDoorName:     pulumi.String("frontDoor1"),
 			ResourceGroupName: pulumi.String("rg1"),
-			Rules: []network.RulesEngineRuleArgs{
-				{
-					Action: {
-						RouteConfigurationOverride: {
+			Rules: network.RulesEngineRuleArray{
+				&network.RulesEngineRuleArgs{
+					Action: &network.RulesEngineActionArgs{
+						RouteConfigurationOverride: network.RedirectConfiguration{
 							CustomFragment:    "fragment",
 							CustomHost:        "www.bing.com",
 							CustomPath:        "/api",
@@ -24,7 +24,7 @@ func main() {
 						},
 					},
 					MatchConditions: network.RulesEngineMatchConditionArray{
-						{
+						&network.RulesEngineMatchConditionArgs{
 							RulesEngineMatchValue: pulumi.StringArray{
 								pulumi.String("CH"),
 							},
@@ -36,10 +36,10 @@ func main() {
 					Name:                    pulumi.String("Rule1"),
 					Priority:                pulumi.Int(1),
 				},
-				{
-					Action: {
+				&network.RulesEngineRuleArgs{
+					Action: &network.RulesEngineActionArgs{
 						ResponseHeaderActions: network.HeaderActionArray{
-							{
+							&network.HeaderActionArgs{
 								HeaderActionType: pulumi.String("Overwrite"),
 								HeaderName:       pulumi.String("Cache-Control"),
 								Value:            pulumi.String("public, max-age=31536000"),
@@ -47,7 +47,7 @@ func main() {
 						},
 					},
 					MatchConditions: network.RulesEngineMatchConditionArray{
-						{
+						&network.RulesEngineMatchConditionArgs{
 							RulesEngineMatchValue: pulumi.StringArray{
 								pulumi.String("jpg"),
 							},
@@ -61,13 +61,13 @@ func main() {
 					Name:     pulumi.String("Rule2"),
 					Priority: pulumi.Int(2),
 				},
-				{
-					Action: {
-						RouteConfigurationOverride: {
-							BackendPool: {
+				&network.RulesEngineRuleArgs{
+					Action: &network.RulesEngineActionArgs{
+						RouteConfigurationOverride: network.ForwardingConfiguration{
+							BackendPool: network.SubResource{
 								Id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/backendPools/backendPool1",
 							},
-							CacheConfiguration: {
+							CacheConfiguration: network.CacheConfiguration{
 								CacheDuration:                "P1DT12H20M30S",
 								DynamicCompression:           "Disabled",
 								QueryParameterStripDirective: "StripOnly",
@@ -78,7 +78,7 @@ func main() {
 						},
 					},
 					MatchConditions: network.RulesEngineMatchConditionArray{
-						{
+						&network.RulesEngineMatchConditionArgs{
 							NegateCondition: pulumi.Bool(false),
 							RulesEngineMatchValue: pulumi.StringArray{
 								pulumi.String("allowoverride"),

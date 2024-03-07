@@ -10,7 +10,7 @@ func main() {
 		_, err := healthcareapis.NewService(ctx, "service", &healthcareapis.ServiceArgs{
 			Kind:     healthcareapis.Kind_Fhir_R4,
 			Location: pulumi.String("westus2"),
-			Properties: healthcareapis.ServicesPropertiesResponse{
+			Properties: &healthcareapis.ServicesPropertiesArgs{
 				AccessPolicies: healthcareapis.ServiceAccessPolicyEntryArray{
 					&healthcareapis.ServiceAccessPolicyEntryArgs{
 						ObjectId: pulumi.String("c487e7d1-3210-41a3-8ccc-e9372b78da47"),

@@ -15,8 +15,8 @@ func main() {
 			PackageName:       pulumi.String("contoso-package2"),
 			ResourceGroupName: pulumi.String("contoso-rg1"),
 			Tags:              nil,
-			TargetOSList: []testbase.TargetOSInfoArgs{
-				{
+			TargetOSList: testbase.TargetOSInfoArray{
+				&testbase.TargetOSInfoArgs{
 					OsUpdateType: pulumi.String("Security updates"),
 					TargetOSs: pulumi.StringArray{
 						pulumi.String("Windows 10 2004"),
@@ -25,10 +25,10 @@ func main() {
 				},
 			},
 			TestBaseAccountName: pulumi.String("contoso-testBaseAccount1"),
-			Tests: []testbase.TestArgs{
-				{
+			Tests: testbase.TestArray{
+				&testbase.TestArgs{
 					Commands: testbase.CommandArray{
-						{
+						&testbase.CommandArgs{
 							Action:            pulumi.String("Install"),
 							AlwaysRun:         pulumi.Bool(true),
 							ApplyUpdateBefore: pulumi.Bool(false),
@@ -40,7 +40,7 @@ func main() {
 							RunAsInteractive:  pulumi.Bool(true),
 							RunElevated:       pulumi.Bool(true),
 						},
-						{
+						&testbase.CommandArgs{
 							Action:            pulumi.String("Launch"),
 							AlwaysRun:         pulumi.Bool(false),
 							ApplyUpdateBefore: pulumi.Bool(true),
@@ -52,7 +52,7 @@ func main() {
 							RunAsInteractive:  pulumi.Bool(true),
 							RunElevated:       pulumi.Bool(true),
 						},
-						{
+						&testbase.CommandArgs{
 							Action:            pulumi.String("Close"),
 							AlwaysRun:         pulumi.Bool(false),
 							ApplyUpdateBefore: pulumi.Bool(false),
@@ -64,7 +64,7 @@ func main() {
 							RunAsInteractive:  pulumi.Bool(true),
 							RunElevated:       pulumi.Bool(true),
 						},
-						{
+						&testbase.CommandArgs{
 							Action:            pulumi.String("Uninstall"),
 							AlwaysRun:         pulumi.Bool(true),
 							ApplyUpdateBefore: pulumi.Bool(false),

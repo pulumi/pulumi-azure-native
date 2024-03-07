@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := mobilepacketcore.NewObservabilityService(ctx, "observabilityService", &mobilepacketcore.ObservabilityServiceArgs{
 			ClusterService: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobilePacketCore/clusterServices/byoCluster"),
-			ComponentParameters: []mobilepacketcore.QualifiedComponentDeploymentParametersArgs{
-				{
+			ComponentParameters: mobilepacketcore.QualifiedComponentDeploymentParametersArray{
+				&mobilepacketcore.QualifiedComponentDeploymentParametersArgs{
 					Parameters: pulumi.String("{\"global\": {\"registry\": {\"docker\": []}}}"),
 					Secrets:    pulumi.String("{\"global\": {\"secret\": {\"secretValue\": []}}}"),
 					Type:       pulumi.String("fed-crds"),

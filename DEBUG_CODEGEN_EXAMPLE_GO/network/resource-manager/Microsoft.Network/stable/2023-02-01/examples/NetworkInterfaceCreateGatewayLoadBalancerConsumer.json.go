@@ -9,16 +9,16 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewNetworkInterface(ctx, "networkInterface", &network.NetworkInterfaceArgs{
 			EnableAcceleratedNetworking: pulumi.Bool(true),
-			IpConfigurations: []network.NetworkInterfaceIPConfigurationArgs{
-				{
-					GatewayLoadBalancer: {
+			IpConfigurations: network.NetworkInterfaceIPConfigurationArray{
+				&network.NetworkInterfaceIPConfigurationArgs{
+					GatewayLoadBalancer: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb-provider"),
 					},
 					Name: pulumi.String("ipconfig1"),
-					PublicIPAddress: {
+					PublicIPAddress: &network.PublicIPAddressTypeArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip"),
 					},
-					Subnet: {
+					Subnet: &network.SubnetTypeArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default"),
 					},
 				},

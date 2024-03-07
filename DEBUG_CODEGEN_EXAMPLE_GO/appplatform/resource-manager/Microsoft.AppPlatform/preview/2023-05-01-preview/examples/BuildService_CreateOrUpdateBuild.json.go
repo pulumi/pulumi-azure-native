@@ -10,7 +10,7 @@ func main() {
 		_, err := appplatform.NewBuildServiceBuild(ctx, "buildServiceBuild", &appplatform.BuildServiceBuildArgs{
 			BuildName:        pulumi.String("mybuild"),
 			BuildServiceName: pulumi.String("default"),
-			Properties: appplatform.BuildPropertiesResponse{
+			Properties: &appplatform.BuildPropertiesArgs{
 				AgentPool: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default"),
 				Apms: appplatform.ApmReferenceArray{
 					&appplatform.ApmReferenceArgs{

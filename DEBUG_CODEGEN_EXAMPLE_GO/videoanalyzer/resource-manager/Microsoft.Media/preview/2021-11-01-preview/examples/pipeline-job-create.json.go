@@ -10,12 +10,12 @@ func main() {
 		_, err := videoanalyzer.NewPipelineJob(ctx, "pipelineJob", &videoanalyzer.PipelineJobArgs{
 			AccountName: pulumi.String("testaccount2"),
 			Description: pulumi.String("Pipeline Job 1 Dsecription"),
-			Parameters: []videoanalyzer.ParameterDefinitionArgs{
-				{
+			Parameters: videoanalyzer.ParameterDefinitionArray{
+				&videoanalyzer.ParameterDefinitionArgs{
 					Name:  pulumi.String("timesequences"),
 					Value: pulumi.String("[[\"2020-10-05T03:30:00Z\", \"2020-10-05T04:30:00Z\"]]"),
 				},
-				{
+				&videoanalyzer.ParameterDefinitionArgs{
 					Name:  pulumi.String("videoSourceName"),
 					Value: pulumi.String("camera001"),
 				},

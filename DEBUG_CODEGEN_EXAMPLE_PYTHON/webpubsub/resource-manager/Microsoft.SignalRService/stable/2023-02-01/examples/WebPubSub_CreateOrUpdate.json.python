@@ -7,7 +7,7 @@ web_pub_sub = azure_native.webpubsub.WebPubSub("webPubSub",
     identity=azure_native.webpubsub.ManagedIdentityArgs(
         type="SystemAssigned",
     ),
-    live_trace_configuration=azure_native.webpubsub.LiveTraceConfigurationResponseArgs(
+    live_trace_configuration=azure_native.webpubsub.LiveTraceConfigurationArgs(
         categories=[azure_native.webpubsub.LiveTraceCategoryArgs(
             enabled="true",
             name="ConnectivityLogs",
@@ -15,7 +15,7 @@ web_pub_sub = azure_native.webpubsub.WebPubSub("webPubSub",
         enabled="false",
     ),
     location="eastus",
-    network_acls=azure_native.webpubsub.WebPubSubNetworkACLsResponseArgs(
+    network_acls=azure_native.webpubsub.WebPubSubNetworkACLsArgs(
         default_action="Deny",
         private_endpoints=[azure_native.webpubsub.PrivateEndpointACLArgs(
             allow=["ServerConnection"],

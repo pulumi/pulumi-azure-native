@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := migrate.NewSolutionsControllerSolution(ctx, "solutionsControllerSolution", &migrate.SolutionsControllerSolutionArgs{
 			MigrateProjectName: pulumi.String("1GQwlI-"),
-			Properties: migrate.SolutionPropertiesResponse{
+			Properties: &migrate.SolutionPropertiesArgs{
 				CleanupState: pulumi.String("None"),
 				Details: &migrate.SolutionDetailsArgs{
 					AssessmentCount: pulumi.Int(7),

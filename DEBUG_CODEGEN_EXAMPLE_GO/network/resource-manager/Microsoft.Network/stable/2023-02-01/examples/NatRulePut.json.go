@@ -8,14 +8,14 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewNatRule(ctx, "natRule", &network.NatRuleArgs{
-			ExternalMappings: []network.VpnNatRuleMappingArgs{
-				{
+			ExternalMappings: network.VpnNatRuleMappingArray{
+				&network.VpnNatRuleMappingArgs{
 					AddressSpace: pulumi.String("192.168.21.0/24"),
 				},
 			},
 			GatewayName: pulumi.String("gateway1"),
-			InternalMappings: []network.VpnNatRuleMappingArgs{
-				{
+			InternalMappings: network.VpnNatRuleMappingArray{
+				&network.VpnNatRuleMappingArgs{
 					AddressSpace: pulumi.String("10.4.0.0/24"),
 				},
 			},

@@ -11,7 +11,7 @@ func main() {
 			AssignmentName: pulumi.String("assignSimpleBlueprint"),
 			BlueprintId:    pulumi.String("/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint"),
 			Description:    pulumi.String("enforce pre-defined simpleBlueprint to this XXXXXXXX subscription."),
-			Identity: blueprint.ManagedServiceIdentityResponse{
+			Identity: &blueprint.ManagedServiceIdentityArgs{
 				Type: pulumi.String("UserAssigned"),
 				UserAssignedIdentities: blueprint.UserAssignedIdentityMap{
 					"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": nil,

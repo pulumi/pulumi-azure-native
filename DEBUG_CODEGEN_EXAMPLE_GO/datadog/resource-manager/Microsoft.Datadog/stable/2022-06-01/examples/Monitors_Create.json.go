@@ -10,7 +10,7 @@ func main() {
 		_, err := datadog.NewMonitor(ctx, "monitor", &datadog.MonitorArgs{
 			Location:    pulumi.String("West US"),
 			MonitorName: pulumi.String("myMonitor"),
-			Properties: datadog.MonitorPropertiesResponse{
+			Properties: &datadog.MonitorPropertiesArgs{
 				DatadogOrganizationProperties: &datadog.DatadogOrganizationPropertiesArgs{
 					EnterpriseAppId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 					Id:              pulumi.String("myOrg123"),

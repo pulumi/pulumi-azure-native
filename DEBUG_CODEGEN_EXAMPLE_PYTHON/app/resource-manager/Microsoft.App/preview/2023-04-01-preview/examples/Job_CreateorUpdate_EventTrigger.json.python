@@ -2,23 +2,23 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 job = azure_native.app.Job("job",
-    configuration=azure_native.app.JobConfigurationResponseArgs(
-        event_trigger_config={
-            "parallelism": 4,
-            "replicaCompletionCount": 1,
-            "scale": {
-                "maxExecutions": 5,
-                "minExecutions": 1,
-                "pollingInterval": 40,
-                "rules": [azure_native.app.JobScaleRuleArgs(
+    configuration=azure_native.app.JobConfigurationArgs(
+        event_trigger_config=azure_native.app.JobConfigurationEventTriggerConfigArgs(
+            parallelism=4,
+            replica_completion_count=1,
+            scale=azure_native.app.JobScaleArgs(
+                max_executions=5,
+                min_executions=1,
+                polling_interval=40,
+                rules=[azure_native.app.JobScaleRuleArgs(
                     metadata={
                         "topicName": "my-topic",
                     },
                     name="servicebuscalingrule",
                     type="azure-servicebus",
                 )],
-            },
-        },
+            ),
+        ),
         replica_retry_limit=10,
         replica_timeout=10,
         trigger_type="Event",
@@ -27,22 +27,22 @@ job = azure_native.app.Job("job",
     job_name="testcontainerappsjob0",
     location="East US",
     resource_group_name="rg",
-    template=azure_native.app.JobTemplateResponseArgs(
+    template=azure_native.app.JobTemplateArgs(
         containers=[azure_native.app.ContainerArgs(
             image="repo/testcontainerappsjob0:v1",
             name="testcontainerappsjob0",
         )],
-        init_containers=[{
-            "args": [
+        init_containers=[azure_native.app.InitContainerArgs(
+            args=[
                 "-c",
                 "while true; do echo hello; sleep 10;done",
             ],
-            "command": ["/bin/sh"],
-            "image": "repo/testcontainerappsjob0:v4",
-            "name": "testinitcontainerAppsJob0",
-            "resources": azure_native.app.ContainerResourcesArgs(
+            command=["/bin/sh"],
+            image="repo/testcontainerappsjob0:v4",
+            name="testinitcontainerAppsJob0",
+            resources=azure_native.app.ContainerResourcesArgs(
                 cpu=0.5,
                 memory="1Gi",
             ),
-        }],
+        )],
     ))

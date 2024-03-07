@@ -8,10 +8,10 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := insights.NewMetricAlert(ctx, "metricAlert", &insights.MetricAlertArgs{
-			Actions: []insights.MetricAlertActionArgs{
-				{
+			Actions: insights.MetricAlertActionArray{
+				&insights.MetricAlertActionArgs{
 					ActionGroupId: pulumi.String("/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2"),
-					WebHookProperties: {
+					WebHookProperties: pulumi.StringMap{
 						"key11": pulumi.String("value11"),
 						"key12": pulumi.String("value12"),
 					},

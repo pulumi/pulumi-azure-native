@@ -8,13 +8,13 @@ func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := migrate.NewWorkloadDeployment(ctx, "workloadDeployment", &migrate.WorkloadDeploymentArgs{
 ModernizeProjectName: pulumi.String("l6r8"),
-Properties: migrate.WorkloadDeploymentModelPropertiesResponse{
+Properties: &migrate.WorkloadDeploymentModelPropertiesArgs{
 CustomProperties: interface{}{
 InstanceType: pulumi.String("IISAKSWorkloadDeployment"),
 },
 DisplayName: pulumi.String("wqe"),
 TargetPlatform: pulumi.String("AzureKubernetesService"),
-WorkloadInstanceProperties: interface{}{
+WorkloadInstanceProperties: &migrate.WorkloadInstanceModelPropertiesArgs{
 CustomProperties: interface{}{
 InstanceType: pulumi.String("IISWorkload"),
 WebAppArmId: pulumi.String("xseseqsrzdiga"),

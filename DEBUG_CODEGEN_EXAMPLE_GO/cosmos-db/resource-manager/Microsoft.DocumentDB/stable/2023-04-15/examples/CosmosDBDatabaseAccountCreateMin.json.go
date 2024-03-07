@@ -12,8 +12,8 @@ func main() {
 			CreateMode:               pulumi.String("Default"),
 			DatabaseAccountOfferType: documentdb.DatabaseAccountOfferTypeStandard,
 			Location:                 pulumi.String("westus"),
-			Locations: []documentdb.LocationArgs{
-				{
+			Locations: documentdb.LocationArray{
+				&documentdb.LocationArgs{
 					FailoverPriority: pulumi.Int(0),
 					IsZoneRedundant:  pulumi.Bool(false),
 					LocationName:     pulumi.String("southcentralus"),

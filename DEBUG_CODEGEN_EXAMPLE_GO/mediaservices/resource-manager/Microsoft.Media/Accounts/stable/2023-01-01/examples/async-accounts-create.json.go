@@ -11,8 +11,8 @@ func main() {
 			AccountName:       pulumi.String("contososports"),
 			Location:          pulumi.String("South Central US"),
 			ResourceGroupName: pulumi.String("contosorg"),
-			StorageAccounts: []media.StorageAccountArgs{
-				{
+			StorageAccounts: media.StorageAccountArray{
+				&media.StorageAccountArgs{
 					Id:   pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/teststorageaccount"),
 					Type: pulumi.String("Primary"),
 				},

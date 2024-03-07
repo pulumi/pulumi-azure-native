@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 service = azure_native.search.Service("service",
     hosting_mode=azure_native.search.HostingMode.DEFAULT,
     location="westus",
-    network_rule_set=azure_native.search.NetworkRuleSetResponseArgs(
+    network_rule_set=azure_native.search.NetworkRuleSetArgs(
         ip_rules=[
             azure_native.search.IpRuleArgs(
                 value="123.4.5.6",

@@ -43,7 +43,7 @@ return await Deployment.RunAsync(() =>
                         },
                         MetricRules = new AzureNative.Datadog.Inputs.MetricRulesArgs
                         {
-                            FilteringTags = new[] {},
+                            FilteringTags = new() { },
                         },
                     },
                 },
@@ -77,7 +77,7 @@ return await Deployment.RunAsync(() =>
                         },
                         MetricRules = new AzureNative.Datadog.Inputs.MetricRulesArgs
                         {
-                            FilteringTags = new[] {},
+                            FilteringTags = new() { },
                         },
                     },
                 },

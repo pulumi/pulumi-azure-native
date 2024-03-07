@@ -2,14 +2,14 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 config_server = azure_native.appplatform.ConfigServer("configServer",
-    properties=azure_native.appplatform.ConfigServerPropertiesResponseArgs(
-        config_server={
-            "gitProperty": azure_native.appplatform.ConfigServerGitPropertyArgs(
+    properties=azure_native.appplatform.ConfigServerPropertiesArgs(
+        config_server=azure_native.appplatform.ConfigServerSettingsArgs(
+            git_property=azure_native.appplatform.ConfigServerGitPropertyArgs(
                 label="master",
                 search_paths=["/"],
                 uri="https://github.com/fake-user/fake-repository.git",
             ),
-        },
+        ),
     ),
     resource_group_name="myResourceGroup",
     service_name="myservice")

@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := streamanalytics.NewPrivateEndpoint(ctx, "privateEndpoint", &streamanalytics.PrivateEndpointArgs{
 			ClusterName: pulumi.String("testcluster"),
-			ManualPrivateLinkServiceConnections: []streamanalytics.PrivateLinkServiceConnectionArgs{
-				{
+			ManualPrivateLinkServiceConnections: streamanalytics.PrivateLinkServiceConnectionArray{
+				&streamanalytics.PrivateLinkServiceConnectionArgs{
 					GroupIds: pulumi.StringArray{
 						pulumi.String("groupIdFromResource"),
 					},

@@ -17,7 +17,7 @@ agent_pool = azure_native.containerservice.AgentPool("agentPool",
         image_gc_low_threshold=70,
         topology_manager_policy="best-effort",
     ),
-    linux_os_config=azure_native.containerservice.LinuxOSConfigResponseArgs(
+    linux_os_config=azure_native.containerservice.LinuxOSConfigArgs(
         swap_file_size_mb=1500,
         sysctls=azure_native.containerservice.SysctlConfigArgs(
             kernel_threads_max=99999,

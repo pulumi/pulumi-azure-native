@@ -7,18 +7,18 @@ gremlin_resource_gremlin_graph = azure_native.documentdb.GremlinResourceGremlinG
     graph_name="graphName",
     location="West US",
     options=azure_native.documentdb.CreateUpdateOptionsArgs(),
-    resource=azure_native.documentdb.GremlinGraphGetPropertiesResponseResourceArgs(
+    resource=azure_native.documentdb.GremlinGraphResourceArgs(
         conflict_resolution_policy=azure_native.documentdb.ConflictResolutionPolicyArgs(
             conflict_resolution_path="/path",
             mode="LastWriterWins",
         ),
         default_ttl=100,
         id="graphName",
-        indexing_policy={
-            "automatic": True,
-            "excludedPaths": [],
-            "includedPaths": [{
-                "indexes": [
+        indexing_policy=azure_native.documentdb.IndexingPolicyArgs(
+            automatic=True,
+            excluded_paths=[],
+            included_paths=[azure_native.documentdb.IncludedPathArgs(
+                indexes=[
                     azure_native.documentdb.IndexesArgs(
                         data_type="String",
                         kind="Range",
@@ -30,19 +30,19 @@ gremlin_resource_gremlin_graph = azure_native.documentdb.GremlinResourceGremlinG
                         precision=-1,
                     ),
                 ],
-                "path": "/*",
-            }],
-            "indexingMode": "consistent",
-        },
+                path="/*",
+            )],
+            indexing_mode="consistent",
+        ),
         partition_key=azure_native.documentdb.ContainerPartitionKeyArgs(
             kind="Hash",
             paths=["/AccountNumber"],
         ),
-        unique_key_policy={
-            "uniqueKeys": [azure_native.documentdb.UniqueKeyArgs(
+        unique_key_policy=azure_native.documentdb.UniqueKeyPolicyArgs(
+            unique_keys=[azure_native.documentdb.UniqueKeyArgs(
                 paths=["/testPath"],
             )],
-        },
+        ),
     ),
     resource_group_name="rg1",
     tags={})

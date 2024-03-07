@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 partner_configuration = azure_native.eventgrid.PartnerConfiguration("partnerConfiguration",
-    partner_authorization=azure_native.eventgrid.PartnerAuthorizationResponseArgs(
+    partner_authorization=azure_native.eventgrid.PartnerAuthorizationArgs(
         authorized_partners_list=[
             azure_native.eventgrid.PartnerArgs(
                 authorization_expiration_time_in_utc="2022-01-28T01:20:55.142Z",

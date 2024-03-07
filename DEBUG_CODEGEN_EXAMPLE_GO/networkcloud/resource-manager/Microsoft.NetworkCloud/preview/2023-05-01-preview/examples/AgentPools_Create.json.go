@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := networkcloud.NewAgentPool(ctx, "agentPool", &networkcloud.AgentPoolArgs{
-			AdministratorConfiguration: networkcloud.AdministratorConfigurationResponse{
+			AdministratorConfiguration: &networkcloud.AdministratorConfigurationArgs{
 				AdminUsername: pulumi.String("azure"),
 				SshPublicKeys: networkcloud.SshPublicKeyArray{
 					&networkcloud.SshPublicKeyArgs{
@@ -21,7 +21,7 @@ func main() {
 				HugepagesSize:  pulumi.String("1G"),
 			},
 			AgentPoolName: pulumi.String("agentPoolName"),
-			AttachedNetworkConfiguration: networkcloud.AttachedNetworkConfigurationResponse{
+			AttachedNetworkConfiguration: &networkcloud.AttachedNetworkConfigurationArgs{
 				L2Networks: networkcloud.L2NetworkAttachmentConfigurationArray{
 					&networkcloud.L2NetworkAttachmentConfigurationArgs{
 						NetworkId:  pulumi.String("/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName"),
@@ -53,8 +53,8 @@ func main() {
 				Type: pulumi.String("CustomLocation"),
 			},
 			KubernetesClusterName: pulumi.String("kubernetesClusterName"),
-			Labels: []networkcloud.KubernetesLabelArgs{
-				{
+			Labels: networkcloud.KubernetesLabelArray{
+				&networkcloud.KubernetesLabelArgs{
 					Key:   pulumi.String("kubernetes.label"),
 					Value: pulumi.String("true"),
 				},
@@ -66,8 +66,8 @@ func main() {
 				"key1": pulumi.String("myvalue1"),
 				"key2": pulumi.String("myvalue2"),
 			},
-			Taints: []networkcloud.KubernetesLabelArgs{
-				{
+			Taints: networkcloud.KubernetesLabelArray{
+				&networkcloud.KubernetesLabelArgs{
 					Key:   pulumi.String("kubernetes.taint"),
 					Value: pulumi.String("true"),
 				},

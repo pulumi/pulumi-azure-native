@@ -10,7 +10,7 @@ func main() {
 		_, err := migrate.NewMigrateAgent(ctx, "migrateAgent", &migrate.MigrateAgentArgs{
 			AgentName:            pulumi.String("l"),
 			ModernizeProjectName: pulumi.String("rq1yec"),
-			Properties: migrate.MigrateAgentModelPropertiesResponse{
+			Properties: &migrate.MigrateAgentModelPropertiesArgs{
 				AuthenticationIdentity: &migrate.IdentityModelArgs{
 					AadAuthority:  pulumi.String("isbicanvfefdaci"),
 					ApplicationId: pulumi.String("dibfqwjrnzikktkwe"),

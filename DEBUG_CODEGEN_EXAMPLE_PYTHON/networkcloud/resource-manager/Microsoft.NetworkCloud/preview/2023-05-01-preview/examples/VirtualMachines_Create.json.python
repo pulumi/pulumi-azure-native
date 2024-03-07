@@ -34,7 +34,7 @@ virtual_machine = azure_native.networkcloud.VirtualMachine("virtualMachine",
     ssh_public_keys=[azure_native.networkcloud.SshPublicKeyArgs(
         key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
     )],
-    storage_profile=azure_native.networkcloud.StorageProfileResponseArgs(
+    storage_profile=azure_native.networkcloud.StorageProfileArgs(
         os_disk=azure_native.networkcloud.OsDiskArgs(
             create_option="Ephemeral",
             delete_option="Delete",

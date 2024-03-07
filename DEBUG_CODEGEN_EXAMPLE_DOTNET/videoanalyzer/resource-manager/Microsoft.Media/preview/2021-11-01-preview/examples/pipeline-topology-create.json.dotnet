@@ -31,29 +31,29 @@ return await Deployment.RunAsync(() =>
         ResourceGroupName = "testrg",
         Sinks = new[]
         {
-            
+            new AzureNative.VideoAnalyzer.Inputs.VideoSinkArgs
             {
-                { "inputs", new[]
+                Inputs = new[]
                 {
                     new AzureNative.VideoAnalyzer.Inputs.NodeInputArgs
                     {
                         NodeName = "rtspSource",
                     },
-                } },
-                { "name", "videoSink" },
-                { "type", "#Microsoft.VideoAnalyzer.VideoSink" },
-                { "videoCreationProperties", new AzureNative.VideoAnalyzer.Inputs.VideoCreationPropertiesArgs
+                },
+                Name = "videoSink",
+                Type = "#Microsoft.VideoAnalyzer.VideoSink",
+                VideoCreationProperties = new AzureNative.VideoAnalyzer.Inputs.VideoCreationPropertiesArgs
                 {
                     Description = "Parking lot south entrance",
                     SegmentLength = "PT30S",
                     Title = "Parking Lot (Camera 1)",
-                } },
-                { "videoName", "camera001" },
-                { "videoPublishingOptions", new AzureNative.VideoAnalyzer.Inputs.VideoPublishingOptionsArgs
+                },
+                VideoName = "camera001",
+                VideoPublishingOptions = new AzureNative.VideoAnalyzer.Inputs.VideoPublishingOptionsArgs
                 {
                     DisableArchive = "false",
                     DisableRtspPublishing = "true",
-                } },
+                },
             },
         },
         Sku = new AzureNative.VideoAnalyzer.Inputs.SkuArgs

@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 workspace_api = azure_native.apimanagement.WorkspaceApi("workspaceApi",
     api_id="tempgroup",
-    authentication_settings=azure_native.apimanagement.AuthenticationSettingsContractResponseArgs(
+    authentication_settings=azure_native.apimanagement.AuthenticationSettingsContractArgs(
         o_auth2=azure_native.apimanagement.OAuth2AuthenticationSettingsContractArgs(
             authorization_server_id="authorizationServerId2283",
             scope="oauth2scope2580",

@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := migrate.NewWebAppCollectorOperation(ctx, "webAppCollectorOperation", &migrate.WebAppCollectorOperationArgs{
-			AgentProperties: migrate.CollectorAgentPropertiesBaseResponse{
+			AgentProperties: &migrate.CollectorAgentPropertiesBaseArgs{
 				Id:               pulumi.String("fed93df5-b787-4e3f-a764-e3d2b9101a59-agent"),
 				LastHeartbeatUtc: pulumi.String("2023-11-03T05:43:02.078Z"),
 				SpnDetails: &migrate.CollectorAgentSpnPropertiesBaseArgs{

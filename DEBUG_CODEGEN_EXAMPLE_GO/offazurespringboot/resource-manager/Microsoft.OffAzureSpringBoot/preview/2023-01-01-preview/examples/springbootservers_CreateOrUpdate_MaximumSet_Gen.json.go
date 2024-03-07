@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := offazurespringboot.NewSpringbootserver(ctx, "springbootserver", &offazurespringboot.SpringbootserverArgs{
-			Properties: offazurespringboot.SpringbootserversPropertiesResponse{
+			Properties: &offazurespringboot.SpringbootserversPropertiesArgs{
 				Errors:               offazurespringboot.ErrorArray{},
 				FqdnAndIpAddressList: pulumi.StringArray{},
 				MachineArmId:         pulumi.String("fvfkiapbqsprnbzczdfmuryknrna"),

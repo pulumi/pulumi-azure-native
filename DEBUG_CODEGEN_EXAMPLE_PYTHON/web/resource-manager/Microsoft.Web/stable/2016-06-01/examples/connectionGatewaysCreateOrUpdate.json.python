@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 connection_gateway = azure_native.web.ConnectionGateway("connectionGateway",
     connection_gateway_name="test123",
-    properties=azure_native.web.ConnectionGatewayDefinitionResponsePropertiesArgs(
+    properties=azure_native.web.ConnectionGatewayDefinitionPropertiesArgs(
         backend_uri="https://WABI-WEST-US-redirect.analysis.windows.net",
         connection_gateway_installation=azure_native.web.ConnectionGatewayReferenceArgs(
             id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",

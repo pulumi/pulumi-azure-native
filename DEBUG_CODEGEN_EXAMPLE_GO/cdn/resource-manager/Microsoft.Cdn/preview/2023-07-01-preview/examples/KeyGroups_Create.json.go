@@ -9,14 +9,14 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := cdn.NewKeyGroup(ctx, "keyGroup", &cdn.KeyGroupArgs{
 			KeyGroupName: pulumi.String("kg1"),
-			KeyReferences: []cdn.ResourceReferenceArgs{
-				{
+			KeyReferences: cdn.ResourceReferenceArray{
+				&cdn.ResourceReferenceArgs{
 					Id: pulumi.String("/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1"),
 				},
-				{
+				&cdn.ResourceReferenceArgs{
 					Id: pulumi.String("/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret2"),
 				},
-				{
+				&cdn.ResourceReferenceArgs{
 					Id: pulumi.String("/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret3"),
 				},
 			},

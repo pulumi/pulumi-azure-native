@@ -4,37 +4,38 @@ import (
 	"github.com/pulumi/pulumi-azure-native-sdk/providerhub/v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
 func main() {
-pulumi.Run(func(ctx *pulumi.Context) error {
-_, err := providerhub.NewSkusNestedResourceTypeSecond(ctx, "skusNestedResourceTypeSecond", &providerhub.SkusNestedResourceTypeSecondArgs{
-NestedResourceTypeFirst: pulumi.String("nestedResourceTypeFirst"),
-NestedResourceTypeSecond: pulumi.String("nestedResourceTypeSecond"),
-Properties: providerhub.SkuResourceResponseProperties{
-SkuSettings: providerhub.SkuSettingArray{
-&providerhub.SkuSettingArgs{
-Kind: pulumi.String("Standard"),
-Name: pulumi.String("freeSku"),
-Tier: pulumi.String("Tier1"),
-},
-interface{}{
-Costs: providerhub.SkuCostArray{
-&providerhub.SkuCostArgs{
-MeterId: pulumi.String("xxx"),
-},
-},
-Kind: pulumi.String("Premium"),
-Name: pulumi.String("premiumSku"),
-Tier: pulumi.String("Tier2"),
-},
-},
-},
-ProviderNamespace: pulumi.String("Microsoft.Contoso"),
-ResourceType: pulumi.String("testResourceType"),
-Sku: pulumi.String("testSku"),
-})
-if err != nil {
-return err
-}
-return nil
-})
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := providerhub.NewSkusNestedResourceTypeSecond(ctx, "skusNestedResourceTypeSecond", &providerhub.SkusNestedResourceTypeSecondArgs{
+			NestedResourceTypeFirst:  pulumi.String("nestedResourceTypeFirst"),
+			NestedResourceTypeSecond: pulumi.String("nestedResourceTypeSecond"),
+			Properties: &providerhub.SkuResourcePropertiesArgs{
+				SkuSettings: providerhub.SkuSettingArray{
+					&providerhub.SkuSettingArgs{
+						Kind: pulumi.String("Standard"),
+						Name: pulumi.String("freeSku"),
+						Tier: pulumi.String("Tier1"),
+					},
+					&providerhub.SkuSettingArgs{
+						Costs: providerhub.SkuCostArray{
+							&providerhub.SkuCostArgs{
+								MeterId: pulumi.String("xxx"),
+							},
+						},
+						Kind: pulumi.String("Premium"),
+						Name: pulumi.String("premiumSku"),
+						Tier: pulumi.String("Tier2"),
+					},
+				},
+			},
+			ProviderNamespace: pulumi.String("Microsoft.Contoso"),
+			ResourceType:      pulumi.String("testResourceType"),
+			Sku:               pulumi.String("testSku"),
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
 }

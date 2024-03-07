@@ -16,8 +16,8 @@ func main() {
 			NodeTypeName:            pulumi.String("BE"),
 			ResourceGroupName:       pulumi.String("resRg"),
 			UseTempDataDisk:         pulumi.Bool(true),
-			VmExtensions: []servicefabric.VMSSExtensionArgs{
-				{
+			VmExtensions: servicefabric.VMSSExtensionArray{
+				&servicefabric.VMSSExtensionArgs{
 					AutoUpgradeMinorVersion: pulumi.Bool(true),
 					Name:                    pulumi.String("Microsoft.Azure.Geneva.GenevaMonitoring"),
 					Publisher:               pulumi.String("Microsoft.Azure.Geneva"),

@@ -20,11 +20,11 @@ func main() {
 				pulumi.String("Limit_Skus"),
 			},
 			PolicyExemptionName: pulumi.String("DemoExpensiveVM"),
-			ResourceSelectors: []authorization.ResourceSelectorArgs{
-				{
+			ResourceSelectors: authorization.ResourceSelectorArray{
+				&authorization.ResourceSelectorArgs{
 					Name: pulumi.String("SDPRegions"),
 					Selectors: authorization.SelectorArray{
-						{
+						&authorization.SelectorArgs{
 							In: pulumi.StringArray{
 								pulumi.String("eastus2euap"),
 								pulumi.String("centraluseuap"),

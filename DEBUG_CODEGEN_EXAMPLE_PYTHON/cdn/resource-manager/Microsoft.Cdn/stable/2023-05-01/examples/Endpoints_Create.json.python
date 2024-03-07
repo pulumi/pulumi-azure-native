@@ -9,10 +9,10 @@ endpoint = azure_native.cdn.Endpoint("endpoint",
     default_origin_group=azure_native.cdn.ResourceReferenceArgs(
         id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1",
     ),
-    delivery_policy=azure_native.cdn.EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs(
+    delivery_policy=azure_native.cdn.EndpointPropertiesUpdateParametersDeliveryPolicyArgs(
         description="Test description for a policy.",
-        rules=[{
-            "actions": [
+        rules=[azure_native.cdn.DeliveryRuleArgs(
+            actions=[
                 azure_native.cdn.DeliveryRuleCacheExpirationActionArgs(
                     name="CacheExpiration",
                     parameters=azure_native.cdn.CacheExpirationActionParametersArgs(
@@ -41,7 +41,7 @@ endpoint = azure_native.cdn.Endpoint("endpoint",
                     ),
                 ),
             ],
-            "conditions": [azure_native.cdn.DeliveryRuleRemoteAddressConditionArgs(
+            conditions=[azure_native.cdn.DeliveryRuleRemoteAddressConditionArgs(
                 name="RemoteAddress",
                 parameters=azure_native.cdn.RemoteAddressMatchConditionParametersArgs(
                     match_values=[
@@ -53,24 +53,24 @@ endpoint = azure_native.cdn.Endpoint("endpoint",
                     type_name="DeliveryRuleRemoteAddressConditionParameters",
                 ),
             )],
-            "name": "rule1",
-            "order": 1,
-        }],
+            name="rule1",
+            order=1,
+        )],
     ),
     endpoint_name="endpoint1",
     is_compression_enabled=True,
     is_http_allowed=True,
     is_https_allowed=True,
     location="WestUs",
-    origin_groups=[{
-        "healthProbeSettings": azure_native.cdn.HealthProbeParametersArgs(
+    origin_groups=[azure_native.cdn.DeepCreatedOriginGroupArgs(
+        health_probe_settings=azure_native.cdn.HealthProbeParametersArgs(
             probe_interval_in_seconds=120,
             probe_path="/health.aspx",
             probe_protocol=azure_native.cdn.ProbeProtocol.HTTP,
             probe_request_type=azure_native.cdn.HealthProbeRequestType.GET,
         ),
-        "name": "originGroup1",
-        "origins": [
+        name="originGroup1",
+        origins=[
             azure_native.cdn.ResourceReferenceArgs(
                 id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
             ),
@@ -78,11 +78,11 @@ endpoint = azure_native.cdn.Endpoint("endpoint",
                 id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin2",
             ),
         ],
-        "responseBasedOriginErrorDetectionSettings": azure_native.cdn.ResponseBasedOriginErrorDetectionParametersArgs(
+        response_based_origin_error_detection_settings=azure_native.cdn.ResponseBasedOriginErrorDetectionParametersArgs(
             response_based_detected_error_types=azure_native.cdn.ResponseBasedDetectedErrorTypes.TCP_ERRORS_ONLY,
             response_based_failover_threshold_percentage=10,
         ),
-    }],
+    )],
     origin_host_header="www.bing.com",
     origin_path="/photos",
     origins=[

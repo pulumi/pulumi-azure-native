@@ -8,14 +8,14 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := servicefabric.NewNodeType(ctx, "nodeType", &servicefabric.NodeTypeArgs{
-			AdditionalDataDisks: []servicefabric.VmssDataDiskArgs{
-				{
+			AdditionalDataDisks: servicefabric.VmssDataDiskArray{
+				&servicefabric.VmssDataDiskArgs{
 					DiskLetter: pulumi.String("F"),
 					DiskSizeGB: pulumi.Int(256),
 					DiskType:   pulumi.String("StandardSSD_LRS"),
 					Lun:        pulumi.Int(1),
 				},
-				{
+				&servicefabric.VmssDataDiskArgs{
 					DiskLetter: pulumi.String("G"),
 					DiskSizeGB: pulumi.Int(150),
 					DiskType:   pulumi.String("Premium_LRS"),
@@ -34,8 +34,8 @@ func main() {
 			EnableNodePublicIP:          pulumi.Bool(true),
 			EnableOverProvisioning:      pulumi.Bool(false),
 			EvictionPolicy:              pulumi.String("Deallocate"),
-			FrontendConfigurations: []servicefabric.FrontendConfigurationArgs{
-				{
+			FrontendConfigurations: servicefabric.FrontendConfigurationArray{
+				&servicefabric.FrontendConfigurationArgs{
 					ApplicationGatewayBackendAddressPoolId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/applicationGateways/appgw-test/backendAddressPools/appgwBepoolTest"),
 					LoadBalancerBackendAddressPoolId:       pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/backendAddressPools/LoadBalancerBEAddressPool"),
 					LoadBalancerInboundNatPoolId:           pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/inboundNatPools/LoadBalancerNATPool"),
@@ -59,8 +59,8 @@ func main() {
 			SubnetId:                     pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1"),
 			UseDefaultPublicLoadBalancer: pulumi.Bool(true),
 			UseEphemeralOSDisk:           pulumi.Bool(true),
-			VmExtensions: []servicefabric.VMSSExtensionArgs{
-				{
+			VmExtensions: servicefabric.VMSSExtensionArray{
+				&servicefabric.VMSSExtensionArgs{
 					AutoUpgradeMinorVersion: pulumi.Bool(true),
 					EnableAutomaticUpgrade:  pulumi.Bool(true),
 					ForceUpdateTag:          pulumi.String("v.1.0"),
@@ -82,13 +82,13 @@ func main() {
 					pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2"),
 				},
 			},
-			VmSecrets: []servicefabric.VaultSecretGroupArgs{
-				{
-					SourceVault: {
+			VmSecrets: servicefabric.VaultSecretGroupArray{
+				&servicefabric.VaultSecretGroupArgs{
+					SourceVault: &servicefabric.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault"),
 					},
 					VaultCertificates: servicefabric.VaultCertificateArray{
-						{
+						&servicefabric.VaultCertificateArgs{
 							CertificateStore: pulumi.String("My"),
 							CertificateUrl:   pulumi.String("https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c"),
 						},

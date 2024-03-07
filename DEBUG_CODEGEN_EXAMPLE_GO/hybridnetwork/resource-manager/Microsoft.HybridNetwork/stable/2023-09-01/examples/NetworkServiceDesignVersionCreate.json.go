@@ -11,7 +11,7 @@ func main() {
 			Location:                        pulumi.String("eastus"),
 			NetworkServiceDesignGroupName:   pulumi.String("TestNetworkServiceDesignGroupName"),
 			NetworkServiceDesignVersionName: pulumi.String("1.0.0"),
-			Properties: hybridnetwork.NetworkServiceDesignVersionPropertiesFormatResponse{
+			Properties: &hybridnetwork.NetworkServiceDesignVersionPropertiesFormatArgs{
 				ConfigurationGroupSchemaReferences: hybridnetwork.ReferencedResourceMap{
 					"MyVM_Configuration": &hybridnetwork.ReferencedResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/publishers/contosoGroup/networkServiceDesignGroups/NSD_contoso/configurationGroupSchemas/MyVM_Configuration_Schema"),

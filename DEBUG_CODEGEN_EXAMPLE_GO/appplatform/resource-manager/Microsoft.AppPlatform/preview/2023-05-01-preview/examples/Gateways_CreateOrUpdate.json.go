@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := appplatform.NewGateway(ctx, "gateway", &appplatform.GatewayArgs{
 			GatewayName: pulumi.String("default"),
-			Properties: appplatform.GatewayPropertiesResponse{
+			Properties: &appplatform.GatewayPropertiesArgs{
 				Public: pulumi.Bool(true),
 				ResourceRequests: &appplatform.GatewayResourceRequestsArgs{
 					Cpu:    pulumi.String("1"),

@@ -9,18 +9,18 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewLoadBalancerBackendAddressPool(ctx, "loadBalancerBackendAddressPool", &network.LoadBalancerBackendAddressPoolArgs{
 			BackendAddressPoolName: pulumi.String("backend"),
-			LoadBalancerBackendAddresses: []network.LoadBalancerBackendAddressArgs{
-				{
+			LoadBalancerBackendAddresses: network.LoadBalancerBackendAddressArray{
+				&network.LoadBalancerBackendAddressArgs{
 					IpAddress: pulumi.String("10.0.0.4"),
 					Name:      pulumi.String("address1"),
-					VirtualNetwork: {
+					VirtualNetwork: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb"),
 					},
 				},
-				{
+				&network.LoadBalancerBackendAddressArgs{
 					IpAddress: pulumi.String("10.0.0.5"),
 					Name:      pulumi.String("address2"),
-					VirtualNetwork: {
+					VirtualNetwork: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb"),
 					},
 				},

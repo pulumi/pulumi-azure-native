@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewPrivateRecordSet(ctx, "privateRecordSet", &network.PrivateRecordSetArgs{
-			AaaaRecords: []network.AaaaRecordArgs{
-				{
+			AaaaRecords: network.AaaaRecordArray{
+				&network.AaaaRecordArgs{
 					Ipv6Address: pulumi.String("::1"),
 				},
 			},

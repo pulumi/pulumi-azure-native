@@ -8,7 +8,7 @@ func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := dataprotection.NewBackupInstance(ctx, "backupInstance", &dataprotection.BackupInstanceArgs{
 BackupInstanceName: pulumi.String("testInstance1"),
-Properties: dataprotection.BackupInstanceResponse{
+Properties: &dataprotection.BackupInstanceTypeArgs{
 DataSourceInfo: &dataprotection.DatasourceArgs{
 DatasourceType: pulumi.String("Microsoft.DBforPostgreSQL/servers/databases"),
 ObjectType: pulumi.String("Datasource"),
@@ -36,9 +36,9 @@ Uri: pulumi.String("https://samplevault.vault.azure.net/secrets/credentials"),
 },
 FriendlyName: pulumi.String("harshitbi2"),
 ObjectType: pulumi.String("BackupInstance"),
-PolicyInfo: interface{}{
+PolicyInfo: &dataprotection.PolicyInfoArgs{
 PolicyId: pulumi.String("/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1"),
-PolicyParameters: interface{}{
+PolicyParameters: &dataprotection.PolicyParametersArgs{
 DataStoreParametersList: []dataprotection.AzureOperationalStoreParametersArgs{
 {
 DataStoreType: pulumi.String("OperationalStore"),

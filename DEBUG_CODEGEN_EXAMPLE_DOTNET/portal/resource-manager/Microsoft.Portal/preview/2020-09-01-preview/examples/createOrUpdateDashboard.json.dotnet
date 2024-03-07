@@ -40,7 +40,7 @@ return await Deployment.RunAsync(() =>
             new AzureNative.Portal.Inputs.DashboardLensArgs
             {
                 Order = 2,
-                Parts = new[] {},
+                Parts = new() { },
             },
         },
         Location = "eastus",

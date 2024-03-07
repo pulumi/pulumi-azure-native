@@ -3,12 +3,12 @@ import pulumi_azure_native as azure_native
 
 formula = azure_native.devtestlab.Formula("formula",
     description="Formula using a Linux base",
-    formula_content=azure_native.devtestlab.LabVirtualMachineCreationParameterResponseArgs(
+    formula_content=azure_native.devtestlab.LabVirtualMachineCreationParameterArgs(
         allow_claim=False,
-        artifacts=[{
-            "artifactId": "/artifactsources/{artifactSourceName}/artifacts/linux-install-nodejs",
-            "parameters": [],
-        }],
+        artifacts=[azure_native.devtestlab.ArtifactInstallPropertiesArgs(
+            artifact_id="/artifactsources/{artifactSourceName}/artifacts/linux-install-nodejs",
+            parameters=[],
+        )],
         disallow_public_ip_address=True,
         gallery_image_reference=azure_native.devtestlab.GalleryImageReferenceArgs(
             offer="0001-com-ubuntu-server-groovy",
@@ -21,14 +21,14 @@ formula = azure_native.devtestlab.Formula("formula",
         lab_subnet_name="Dtl{labName}Subnet",
         lab_virtual_network_id="/virtualnetworks/dtl{labName}",
         location="{location}",
-        network_interface={
-            "sharedPublicIpAddressConfiguration": {
-                "inboundNatRules": [azure_native.devtestlab.InboundNatRuleArgs(
+        network_interface=azure_native.devtestlab.NetworkInterfacePropertiesArgs(
+            shared_public_ip_address_configuration=azure_native.devtestlab.SharedPublicIpAddressConfigurationArgs(
+                inbound_nat_rules=[azure_native.devtestlab.InboundNatRuleArgs(
                     backend_port=22,
                     transport_protocol="Tcp",
                 )],
-            },
-        },
+            ),
+        ),
         notes="Ubuntu Server 20.10",
         size="Standard_B1ms",
         storage_type="Standard",

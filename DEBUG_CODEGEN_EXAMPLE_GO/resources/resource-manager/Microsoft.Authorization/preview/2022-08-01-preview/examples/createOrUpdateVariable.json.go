@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := authorization.NewVariable(ctx, "variable", &authorization.VariableArgs{
-			Columns: []authorization.PolicyVariableColumnArgs{
-				{
+			Columns: authorization.PolicyVariableColumnArray{
+				&authorization.PolicyVariableColumnArgs{
 					ColumnName: pulumi.String("TestColumn"),
 				},
 			},

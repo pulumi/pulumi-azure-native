@@ -17,7 +17,7 @@ func main() {
 				pulumi.String("hello-world:*:*"),
 				pulumi.String("sample/repo/*:1.0:*"),
 			},
-			Parent: containerregistry.ParentPropertiesResponse{
+			Parent: &containerregistry.ParentPropertiesArgs{
 				SyncProperties: &containerregistry.SyncPropertiesArgs{
 					MessageTtl: pulumi.String("P2D"),
 					Schedule:   pulumi.String("0 9 * * *"),

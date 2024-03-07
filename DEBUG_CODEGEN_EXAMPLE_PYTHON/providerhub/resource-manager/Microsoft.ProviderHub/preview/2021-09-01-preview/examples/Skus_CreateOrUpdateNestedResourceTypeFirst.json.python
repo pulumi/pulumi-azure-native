@@ -3,21 +3,21 @@ import pulumi_azure_native as azure_native
 
 skus_nested_resource_type_first = azure_native.providerhub.SkusNestedResourceTypeFirst("skusNestedResourceTypeFirst",
     nested_resource_type_first="nestedResourceTypeFirst",
-    properties=azure_native.providerhub.SkuResourceResponsePropertiesArgs(
+    properties=azure_native.providerhub.SkuResourcePropertiesArgs(
         sku_settings=[
             azure_native.providerhub.SkuSettingArgs(
                 kind="Standard",
                 name="freeSku",
                 tier="Tier1",
             ),
-            {
-                "costs": [azure_native.providerhub.SkuCostArgs(
+            azure_native.providerhub.SkuSettingArgs(
+                costs=[azure_native.providerhub.SkuCostArgs(
                     meter_id="xxx",
                 )],
-                "kind": "Premium",
-                "name": "premiumSku",
-                "tier": "Tier2",
-            },
+                kind="Premium",
+                name="premiumSku",
+                tier="Tier2",
+            ),
         ],
     ),
     provider_namespace="Microsoft.Contoso",

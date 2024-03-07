@@ -13,7 +13,7 @@ func main() {
 				Type: pulumi.String("CustomLocation"),
 			},
 			Location: pulumi.String("westus"),
-			Properties: hybridcontainerservice.StorageSpacesPropertiesResponse{
+			Properties: &hybridcontainerservice.StorageSpacesPropertiesArgs{
 				HciStorageProfile: &hybridcontainerservice.StorageSpacesPropertiesHciStorageProfileArgs{
 					MocGroup:            pulumi.String("target-group"),
 					MocLocation:         pulumi.String("MocLocation"),

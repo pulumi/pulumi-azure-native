@@ -11,14 +11,14 @@ func main() {
 			Description:         pulumi.String("This is a schedule for our Dev/Test environment."),
 			ManagedInstanceName: pulumi.String("schedulemi"),
 			ResourceGroupName:   pulumi.String("schedulerg"),
-			ScheduleList: []sql.ScheduleItemArgs{
-				{
+			ScheduleList: sql.ScheduleItemArray{
+				&sql.ScheduleItemArgs{
 					StartDay:  pulumi.String("Thursday"),
 					StartTime: pulumi.String("18:00"),
 					StopDay:   pulumi.String("Thursday"),
 					StopTime:  pulumi.String("17:00"),
 				},
-				{
+				&sql.ScheduleItemArgs{
 					StartDay:  pulumi.String("Thursday"),
 					StartTime: pulumi.String("15:00"),
 					StopDay:   pulumi.String("Thursday"),

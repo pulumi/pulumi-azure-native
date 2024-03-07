@@ -8,12 +8,12 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewNetworkProfile(ctx, "networkProfile", &network.NetworkProfileArgs{
-			ContainerNetworkInterfaceConfigurations: []network.ContainerNetworkInterfaceConfigurationArgs{
-				{
+			ContainerNetworkInterfaceConfigurations: network.ContainerNetworkInterfaceConfigurationArray{
+				&network.ContainerNetworkInterfaceConfigurationArgs{
 					IpConfigurations: network.IPConfigurationProfileArray{
-						{
+						&network.IPConfigurationProfileArgs{
 							Name: pulumi.String("ipconfig1"),
-							Subnet: {
+							Subnet: &network.SubnetTypeArgs{
 								Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1"),
 							},
 						},

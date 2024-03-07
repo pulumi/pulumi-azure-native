@@ -22,10 +22,10 @@ func main() {
 					Type: pulumi.String("String"),
 				},
 			},
-			PolicyDefinitions: []authorization.PolicyDefinitionReferenceArgs{
-				{
-					Parameters: {
-						"listOfAllowedSKUs": {
+			PolicyDefinitions: authorization.PolicyDefinitionReferenceArray{
+				&authorization.PolicyDefinitionReferenceArgs{
+					Parameters: authorization.ParameterValuesValueMap{
+						"listOfAllowedSKUs": &authorization.ParameterValuesValueArgs{
 							Value: pulumi.Any{
 								"Standard_GRS",
 								"Standard_LRS",
@@ -35,12 +35,12 @@ func main() {
 					PolicyDefinitionId:          pulumi.String("/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1"),
 					PolicyDefinitionReferenceId: pulumi.String("Limit_Skus"),
 				},
-				{
-					Parameters: {
-						"prefix": {
+				&authorization.PolicyDefinitionReferenceArgs{
+					Parameters: authorization.ParameterValuesValueMap{
+						"prefix": &authorization.ParameterValuesValueArgs{
 							Value: pulumi.Any("[parameters('namePrefix')]"),
 						},
-						"suffix": {
+						"suffix": &authorization.ParameterValuesValueArgs{
 							Value: pulumi.Any("-LC"),
 						},
 					},

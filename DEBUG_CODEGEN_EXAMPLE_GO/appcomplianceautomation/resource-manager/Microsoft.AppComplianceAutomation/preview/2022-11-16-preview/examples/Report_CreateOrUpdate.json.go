@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := appcomplianceautomation.NewReport(ctx, "report", &appcomplianceautomation.ReportArgs{
-			Properties: appcomplianceautomation.ReportPropertiesResponse{
+			Properties: &appcomplianceautomation.ReportPropertiesArgs{
 				OfferGuid: pulumi.String("0000"),
 				Resources: appcomplianceautomation.ResourceMetadataArray{
 					&appcomplianceautomation.ResourceMetadataArgs{

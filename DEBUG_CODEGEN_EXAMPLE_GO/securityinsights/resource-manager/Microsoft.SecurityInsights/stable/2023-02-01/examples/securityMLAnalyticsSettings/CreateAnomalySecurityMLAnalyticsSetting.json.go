@@ -59,8 +59,8 @@ func main() {
 			Frequency:         pulumi.String("PT1H"),
 			IsDefaultSettings: pulumi.Bool(true),
 			Kind:              pulumi.String("Anomaly"),
-			RequiredDataConnectors: []securityinsights.SecurityMLAnalyticsSettingsDataSourceArgs{
-				{
+			RequiredDataConnectors: securityinsights.SecurityMLAnalyticsSettingsDataSourceArray{
+				&securityinsights.SecurityMLAnalyticsSettingsDataSourceArgs{
 					ConnectorId: pulumi.String("AWS"),
 					DataTypes: pulumi.StringArray{
 						pulumi.String("AWSCloudTrail"),

@@ -7,13 +7,13 @@ container_apps_auth_config = azure_native.app.ContainerAppsAuthConfig("container
     global_validation=azure_native.app.GlobalValidationArgs(
         unauthenticated_client_action=azure_native.app.UnauthenticatedClientActionV2.ALLOW_ANONYMOUS,
     ),
-    identity_providers=azure_native.app.IdentityProvidersResponseArgs(
-        facebook={
-            "registration": azure_native.app.AppRegistrationArgs(
+    identity_providers=azure_native.app.IdentityProvidersArgs(
+        facebook=azure_native.app.FacebookArgs(
+            registration=azure_native.app.AppRegistrationArgs(
                 app_id="123",
                 app_secret_setting_name="facebook-secret",
             ),
-        },
+        ),
     ),
     platform=azure_native.app.AuthPlatformArgs(
         enabled=True,

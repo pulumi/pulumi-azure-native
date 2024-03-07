@@ -36,21 +36,21 @@ return await Deployment.RunAsync(() =>
             {
                 new AzureNative.WebPubSub.Inputs.EventListenerArgs
                 {
-                    Endpoint = 
+                    Endpoint = new AzureNative.WebPubSub.Inputs.EventHubEndpointArgs
                     {
-                        { "eventHubName", "eventHubName1" },
-                        { "fullyQualifiedNamespace", "example.servicebus.windows.net" },
-                        { "type", "EventHub" },
+                        EventHubName = "eventHubName1",
+                        FullyQualifiedNamespace = "example.servicebus.windows.net",
+                        Type = "EventHub",
                     },
-                    Filter = 
+                    Filter = new AzureNative.WebPubSub.Inputs.EventNameFilterArgs
                     {
-                        { "systemEvents", new[]
+                        SystemEvents = new[]
                         {
                             "connected",
                             "disconnected",
-                        } },
-                        { "type", "EventName" },
-                        { "userEventPattern", "*" },
+                        },
+                        Type = "EventName",
+                        UserEventPattern = "*",
                     },
                 },
             },

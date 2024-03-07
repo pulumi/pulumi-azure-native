@@ -11,7 +11,7 @@ func main() {
 			ImageName:         pulumi.String("myImage"),
 			Location:          pulumi.String("West US"),
 			ResourceGroupName: pulumi.String("myResourceGroup"),
-			StorageProfile: compute.ImageStorageProfileResponse{
+			StorageProfile: &compute.ImageStorageProfileArgs{
 				DataDisks: compute.ImageDataDiskArray{
 					&compute.ImageDataDiskArgs{
 						BlobUri: pulumi.String("https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd"),

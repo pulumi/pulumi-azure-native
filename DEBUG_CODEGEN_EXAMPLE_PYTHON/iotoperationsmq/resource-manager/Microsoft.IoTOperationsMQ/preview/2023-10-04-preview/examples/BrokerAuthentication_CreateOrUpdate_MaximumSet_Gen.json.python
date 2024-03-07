@@ -2,78 +2,78 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 broker_authentication = azure_native.iotoperationsmq.BrokerAuthentication("brokerAuthentication",
-    authentication_methods=[{
-        "custom": {
-            "auth": {
-                "x509": {
-                    "keyVault": {
-                        "vault": {
-                            "credentials": azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
+    authentication_methods=[azure_native.iotoperationsmq.BrokerAuthenticatorMethodsArgs(
+        custom=azure_native.iotoperationsmq.BrokerAuthenticatorMethodCustomArgs(
+            auth=azure_native.iotoperationsmq.BrokerAuthenticatorCustomAuthArgs(
+                x509=azure_native.iotoperationsmq.BrokerAuthenticatorCustomAuthX509Args(
+                    key_vault=azure_native.iotoperationsmq.KeyVaultCertificatePropertiesArgs(
+                        vault=azure_native.iotoperationsmq.KeyVaultConnectionPropertiesArgs(
+                            credentials=azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
                                 service_principal_local_secret_name="wuimjwpbhoglbsxxa",
                             ),
-                            "directoryId": "eyjniptiykzcgbzok",
-                            "name": "lxmwfan",
-                        },
-                        "vaultCaChainSecret": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                            directory_id="eyjniptiykzcgbzok",
+                            name="lxmwfan",
+                        ),
+                        vault_ca_chain_secret=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                             name="bmectskddmpjxnsogwooexj",
                             version="unjfbf",
                         ),
-                        "vaultCert": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                        vault_cert=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                             name="bmectskddmpjxnsogwooexj",
                             version="unjfbf",
                         ),
-                    },
-                    "secretName": "dordbwjewnqkhfd",
-                },
-            },
-            "caCertConfigMap": "diufihyysdcosgy",
-            "endpoint": "yy",
-            "headers": {},
-        },
-        "sat": azure_native.iotoperationsmq.BrokerAuthenticatorMethodSatArgs(
+                    ),
+                    secret_name="dordbwjewnqkhfd",
+                ),
+            ),
+            ca_cert_config_map="diufihyysdcosgy",
+            endpoint="yy",
+            headers={},
+        ),
+        sat=azure_native.iotoperationsmq.BrokerAuthenticatorMethodSatArgs(
             audiences=["fiyitxutbuuhwtltukyjacads"],
         ),
-        "svid": azure_native.iotoperationsmq.BrokerAuthenticatorMethodSvidArgs(
+        svid=azure_native.iotoperationsmq.BrokerAuthenticatorMethodSvidArgs(
             agent_socket_path="gnyowebmeaj",
             identity_max_retry=4031184731,
             identity_wait_retry_ms=2243705844935085568,
         ),
-        "usernamePassword": {
-            "keyVault": {
-                "vault": {
-                    "credentials": azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
+        username_password=azure_native.iotoperationsmq.BrokerAuthenticatorMethodUsernamePasswordArgs(
+            key_vault=azure_native.iotoperationsmq.KeyVaultSecretPropertiesArgs(
+                vault=azure_native.iotoperationsmq.KeyVaultConnectionPropertiesArgs(
+                    credentials=azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
                         service_principal_local_secret_name="wuimjwpbhoglbsxxa",
                     ),
-                    "directoryId": "eyjniptiykzcgbzok",
-                    "name": "lxmwfan",
-                },
-                "vaultSecret": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                    directory_id="eyjniptiykzcgbzok",
+                    name="lxmwfan",
+                ),
+                vault_secret=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                     name="bmectskddmpjxnsogwooexj",
                     version="unjfbf",
                 ),
-            },
-            "secretName": "blk",
-        },
-        "x509": {
-            "attributes": {
-                "keyVault": {
-                    "vault": {
-                        "credentials": azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
+            ),
+            secret_name="blk",
+        ),
+        x509=azure_native.iotoperationsmq.BrokerAuthenticatorMethodX509Args(
+            attributes=azure_native.iotoperationsmq.BrokerAuthenticatorMethodX509AttributesArgs(
+                key_vault=azure_native.iotoperationsmq.KeyVaultSecretPropertiesArgs(
+                    vault=azure_native.iotoperationsmq.KeyVaultConnectionPropertiesArgs(
+                        credentials=azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
                             service_principal_local_secret_name="wuimjwpbhoglbsxxa",
                         ),
-                        "directoryId": "eyjniptiykzcgbzok",
-                        "name": "lxmwfan",
-                    },
-                    "vaultSecret": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                        directory_id="eyjniptiykzcgbzok",
+                        name="lxmwfan",
+                    ),
+                    vault_secret=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                         name="bmectskddmpjxnsogwooexj",
                         version="unjfbf",
                     ),
-                },
-                "secretName": "ybcke",
-            },
-            "trustedClientCaCertConfigMap": "udidafmnpt",
-        },
-    }],
+                ),
+                secret_name="ybcke",
+            ),
+            trusted_client_ca_cert_config_map="udidafmnpt",
+        ),
+    )],
     authentication_name="lUo-GQ3-95F-1O-",
     broker_name="87v1GC9557XuP-JLI4-",
     extended_location=azure_native.iotoperationsmq.ExtendedLocationPropertyArgs(

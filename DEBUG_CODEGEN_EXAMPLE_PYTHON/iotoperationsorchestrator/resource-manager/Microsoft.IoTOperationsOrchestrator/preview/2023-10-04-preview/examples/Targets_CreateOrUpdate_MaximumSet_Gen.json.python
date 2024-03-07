@@ -21,11 +21,11 @@ target = azure_native.iotoperationsorchestrator.Target("target",
     resource_group_name="rgopenapi",
     scope="lm",
     tags={},
-    topologies=[{
-        "bindings": [azure_native.iotoperationsorchestrator.BindingPropertiesArgs(
+    topologies=[azure_native.iotoperationsorchestrator.TopologiesPropertiesArgs(
+        bindings=[azure_native.iotoperationsorchestrator.BindingPropertiesArgs(
             config={},
             provider="qpwesjlyyggcbehwigbobqum",
             role="role",
         )],
-    }],
+    )],
     version="prbigsnjltnzqliu")

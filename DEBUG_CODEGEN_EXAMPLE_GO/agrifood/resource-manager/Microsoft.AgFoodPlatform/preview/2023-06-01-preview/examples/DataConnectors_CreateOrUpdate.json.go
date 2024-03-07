@@ -10,7 +10,7 @@ func main() {
 		_, err := agfoodplatform.NewDataConnector(ctx, "dataConnector", &agfoodplatform.DataConnectorArgs{
 			DataConnectorName:                     pulumi.String("WeatherIBM"),
 			DataManagerForAgricultureResourceName: pulumi.String("examples-dataManagerForAgricultureResourceName"),
-			Properties: agfoodplatform.DataConnectorPropertiesResponse{
+			Properties: &agfoodplatform.DataConnectorPropertiesArgs{
 				Credentials: agfoodplatform.ApiKeyAuthCredentials{
 					ApiKey: agfoodplatform.KeyVaultProperties{
 						KeyName:     "abcApiKey",

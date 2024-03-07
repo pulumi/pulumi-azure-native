@@ -9,12 +9,12 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := authorization.NewVariableValueAtManagementGroup(ctx, "variableValueAtManagementGroup", &authorization.VariableValueAtManagementGroupArgs{
 			ManagementGroupId: pulumi.String("DevOrg"),
-			Values: []authorization.PolicyVariableValueColumnValueArgs{
-				{
+			Values: authorization.PolicyVariableValueColumnValueArray{
+				&authorization.PolicyVariableValueColumnValueArgs{
 					ColumnName:  pulumi.String("StringColumn"),
 					ColumnValue: pulumi.Any("SampleValue"),
 				},
-				{
+				&authorization.PolicyVariableValueColumnValueArgs{
 					ColumnName:  pulumi.String("IntegerColumn"),
 					ColumnValue: pulumi.Any(10),
 				},

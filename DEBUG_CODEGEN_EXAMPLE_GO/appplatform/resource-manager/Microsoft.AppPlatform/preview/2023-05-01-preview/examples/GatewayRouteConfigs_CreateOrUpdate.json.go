@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := appplatform.NewGatewayRouteConfig(ctx, "gatewayRouteConfig", &appplatform.GatewayRouteConfigArgs{
 			GatewayName: pulumi.String("default"),
-			Properties: appplatform.GatewayRouteConfigPropertiesResponse{
+			Properties: &appplatform.GatewayRouteConfigPropertiesArgs{
 				AppResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myApp"),
 				OpenApi: &appplatform.GatewayRouteConfigOpenApiPropertiesArgs{
 					Uri: pulumi.String("https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.json"),

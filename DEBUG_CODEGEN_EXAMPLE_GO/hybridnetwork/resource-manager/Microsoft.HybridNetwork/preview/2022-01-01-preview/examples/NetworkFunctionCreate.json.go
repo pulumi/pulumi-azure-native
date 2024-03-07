@@ -14,12 +14,12 @@ func main() {
 			Location:                     pulumi.String("eastus"),
 			ManagedApplicationParameters: nil,
 			NetworkFunctionName:          pulumi.String("testNf"),
-			NetworkFunctionUserConfigurations: []hybridnetwork.NetworkFunctionUserConfigurationArgs{
-				{
+			NetworkFunctionUserConfigurations: hybridnetwork.NetworkFunctionUserConfigurationArray{
+				&hybridnetwork.NetworkFunctionUserConfigurationArgs{
 					NetworkInterfaces: hybridnetwork.NetworkInterfaceArray{
-						{
+						&hybridnetwork.NetworkInterfaceArgs{
 							IpConfigurations: hybridnetwork.NetworkInterfaceIPConfigurationArray{
-								{
+								&hybridnetwork.NetworkInterfaceIPConfigurationArgs{
 									Gateway:            pulumi.String(""),
 									IpAddress:          pulumi.String(""),
 									IpAllocationMethod: pulumi.String("Dynamic"),
@@ -31,9 +31,9 @@ func main() {
 							NetworkInterfaceName: pulumi.String("nic1"),
 							VmSwitchType:         pulumi.String("Management"),
 						},
-						{
+						&hybridnetwork.NetworkInterfaceArgs{
 							IpConfigurations: hybridnetwork.NetworkInterfaceIPConfigurationArray{
-								{
+								&hybridnetwork.NetworkInterfaceIPConfigurationArgs{
 									Gateway:            pulumi.String(""),
 									IpAddress:          pulumi.String(""),
 									IpAllocationMethod: pulumi.String("Dynamic"),

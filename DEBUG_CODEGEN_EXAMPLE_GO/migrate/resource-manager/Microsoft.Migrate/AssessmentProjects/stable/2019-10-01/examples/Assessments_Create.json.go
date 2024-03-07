@@ -12,7 +12,7 @@ func main() {
 			ETag:           pulumi.String("\"1e000c2c-0000-0d00-0000-5cdaa4190000\""),
 			GroupName:      pulumi.String("Group2"),
 			ProjectName:    pulumi.String("abgoyalWEselfhostb72bproject"),
-			Properties: migrate.AssessmentPropertiesResponse{
+			Properties: &migrate.AssessmentPropertiesArgs{
 				AzureDiskType:          pulumi.String("StandardOrPremium"),
 				AzureHybridUseBenefit:  pulumi.String("Yes"),
 				AzureLocation:          pulumi.String("NorthEurope"),

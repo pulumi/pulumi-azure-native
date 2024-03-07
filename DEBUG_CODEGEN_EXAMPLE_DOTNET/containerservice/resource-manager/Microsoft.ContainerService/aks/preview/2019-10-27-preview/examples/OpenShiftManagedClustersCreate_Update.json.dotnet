@@ -35,13 +35,13 @@ return await Deployment.RunAsync(() =>
                 new AzureNative.ContainerService.Inputs.OpenShiftManagedClusterIdentityProviderArgs
                 {
                     Name = "Azure AD",
-                    Provider = 
+                    Provider = new AzureNative.ContainerService.Inputs.OpenShiftManagedClusterAADIdentityProviderArgs
                     {
-                        { "clientId", "clientId" },
-                        { "customerAdminGroupId", "customerAdminGroupId" },
-                        { "kind", "AADIdentityProvider" },
-                        { "secret", "secret" },
-                        { "tenantId", "tenantId" },
+                        ClientId = "clientId",
+                        CustomerAdminGroupId = "customerAdminGroupId",
+                        Kind = "AADIdentityProvider",
+                        Secret = "secret",
+                        TenantId = "tenantId",
                     },
                 },
             },

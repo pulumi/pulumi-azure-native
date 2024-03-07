@@ -7,14 +7,14 @@ import (
 func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := machinelearningservices.NewFeaturesetVersion(ctx, "featuresetVersion", &machinelearningservices.FeaturesetVersionArgs{
-FeaturesetVersionProperties: machinelearningservices.FeaturesetVersionResponse{
+FeaturesetVersionProperties: &machinelearningservices.FeaturesetVersionTypeArgs{
 Description: pulumi.String("string"),
 Entities: pulumi.StringArray{
 pulumi.String("string"),
 },
 IsAnonymous: pulumi.Bool(false),
 IsArchived: pulumi.Bool(false),
-MaterializationSettings: interface{}{
+MaterializationSettings: &machinelearningservices.MaterializationSettingsArgs{
 Notification: &machinelearningservices.NotificationSettingArgs{
 EmailOn: pulumi.StringArray{
 pulumi.String("JobFailed"),

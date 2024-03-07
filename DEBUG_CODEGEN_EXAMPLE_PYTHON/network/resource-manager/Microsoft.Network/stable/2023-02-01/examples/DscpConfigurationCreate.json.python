@@ -5,22 +5,22 @@ dscp_configuration = azure_native.network.DscpConfiguration("dscpConfiguration",
     dscp_configuration_name="mydscpconfig",
     location="eastus",
     qos_definition_collection=[
-        {
-            "destinationIpRanges": [azure_native.network.QosIpRangeArgs(
+        azure_native.network.QosDefinitionArgs(
+            destination_ip_ranges=[azure_native.network.QosIpRangeArgs(
                 end_ip="127.0.10.2",
                 start_ip="127.0.10.1",
             )],
-            "destinationPortRanges": [azure_native.network.QosPortRangeArgs(
+            destination_port_ranges=[azure_native.network.QosPortRangeArgs(
                 end=15,
                 start=15,
             )],
-            "markings": [1],
-            "protocol": "Tcp",
-            "sourceIpRanges": [azure_native.network.QosIpRangeArgs(
+            markings=[1],
+            protocol="Tcp",
+            source_ip_ranges=[azure_native.network.QosIpRangeArgs(
                 end_ip="127.0.0.2",
                 start_ip="127.0.0.1",
             )],
-            "sourcePortRanges": [
+            source_port_ranges=[
                 azure_native.network.QosPortRangeArgs(
                     end=11,
                     start=10,
@@ -30,26 +30,26 @@ dscp_configuration = azure_native.network.DscpConfiguration("dscpConfiguration",
                     start=20,
                 ),
             ],
-        },
-        {
-            "destinationIpRanges": [azure_native.network.QosIpRangeArgs(
+        ),
+        azure_native.network.QosDefinitionArgs(
+            destination_ip_ranges=[azure_native.network.QosIpRangeArgs(
                 end_ip="12.0.10.2",
                 start_ip="12.0.10.1",
             )],
-            "destinationPortRanges": [azure_native.network.QosPortRangeArgs(
+            destination_port_ranges=[azure_native.network.QosPortRangeArgs(
                 end=52,
                 start=51,
             )],
-            "markings": [2],
-            "protocol": "Udp",
-            "sourceIpRanges": [azure_native.network.QosIpRangeArgs(
+            markings=[2],
+            protocol="Udp",
+            source_ip_ranges=[azure_native.network.QosIpRangeArgs(
                 end_ip="12.0.0.2",
                 start_ip="12.0.0.1",
             )],
-            "sourcePortRanges": [azure_native.network.QosPortRangeArgs(
+            source_port_ranges=[azure_native.network.QosPortRangeArgs(
                 end=12,
                 start=11,
             )],
-        },
+        ),
     ],
     resource_group_name="rg1")

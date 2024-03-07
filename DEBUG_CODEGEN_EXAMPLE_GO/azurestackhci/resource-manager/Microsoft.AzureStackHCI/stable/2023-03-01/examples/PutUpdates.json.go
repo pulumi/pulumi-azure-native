@@ -18,8 +18,8 @@ func main() {
 			PackagePath:          pulumi.String("\\\\SU1FileServer\\SU1_Infrastructure_2\\Updates\\Packages\\Microsoft4.2203.2.32"),
 			PackageSizeInMb:      pulumi.Float64(18858),
 			PackageType:          pulumi.String("Infrastructure"),
-			Prerequisites: []azurestackhci.UpdatePrerequisiteArgs{
-				{
+			Prerequisites: azurestackhci.UpdatePrerequisiteArray{
+				&azurestackhci.UpdatePrerequisiteArgs{
 					PackageName: pulumi.String("update package name"),
 					UpdateType:  pulumi.String("update type"),
 					Version:     pulumi.String("prerequisite version"),

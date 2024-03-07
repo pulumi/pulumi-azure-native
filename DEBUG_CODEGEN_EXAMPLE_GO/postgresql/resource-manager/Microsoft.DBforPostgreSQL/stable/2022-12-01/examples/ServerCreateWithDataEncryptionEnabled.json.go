@@ -24,7 +24,7 @@ func main() {
 			HighAvailability: &dbforpostgresql.HighAvailabilityArgs{
 				Mode: pulumi.String("ZoneRedundant"),
 			},
-			Identity: dbforpostgresql.UserAssignedIdentityResponse{
+			Identity: &dbforpostgresql.UserAssignedIdentityArgs{
 				Type: pulumi.String("UserAssigned"),
 				UserAssignedIdentities: dbforpostgresql.UserIdentityMap{
 					"/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity": nil,

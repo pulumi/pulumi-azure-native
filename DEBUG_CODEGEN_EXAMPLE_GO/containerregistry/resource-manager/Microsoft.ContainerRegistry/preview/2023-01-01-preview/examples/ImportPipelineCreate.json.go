@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := containerregistry.NewImportPipeline(ctx, "importPipeline", &containerregistry.ImportPipelineArgs{
-			Identity: containerregistry.IdentityPropertiesResponse{
+			Identity: &containerregistry.IdentityPropertiesArgs{
 				Type: containerregistry.ResourceIdentityTypeUserAssigned,
 				UserAssignedIdentities: containerregistry.UserIdentityPropertiesMap{
 					"/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": nil,

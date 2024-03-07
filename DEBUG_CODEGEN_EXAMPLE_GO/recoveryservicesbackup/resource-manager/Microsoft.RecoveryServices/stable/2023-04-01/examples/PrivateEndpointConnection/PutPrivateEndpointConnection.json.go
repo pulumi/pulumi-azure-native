@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := recoveryservices.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &recoveryservices.PrivateEndpointConnectionArgs{
 			PrivateEndpointConnectionName: pulumi.String("gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b"),
-			Properties: recoveryservices.PrivateEndpointConnectionResponse{
+			Properties: &recoveryservices.PrivateEndpointConnectionTypeArgs{
 				GroupIds: pulumi.StringArray{
 					pulumi.String("AzureBackup_secondary"),
 				},

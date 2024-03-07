@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := azurestackhci.NewEdgeDevice(ctx, "edgeDevice", &azurestackhci.EdgeDeviceArgs{
-			DeviceConfiguration: azurestackhci.DeviceConfigurationResponse{
+			DeviceConfiguration: &azurestackhci.DeviceConfigurationArgs{
 				DeviceMetadata: pulumi.String(""),
 				NicDetails: azurestackhci.NicDetailArray{
 					&azurestackhci.NicDetailArgs{

@@ -10,7 +10,7 @@ func main() {
 		_, err := resources.NewDeploymentAtTenantScope(ctx, "deploymentAtTenantScope", &resources.DeploymentAtTenantScopeArgs{
 			DeploymentName: pulumi.String("tenant-dep01"),
 			Location:       pulumi.String("eastus"),
-			Properties: resources.DeploymentPropertiesExtendedResponse{
+			Properties: &resources.DeploymentPropertiesArgs{
 				Mode:       resources.DeploymentModeIncremental,
 				Parameters: nil,
 				TemplateLink: &resources.TemplateLinkArgs{

@@ -10,7 +10,7 @@ func main() {
 		_, err := notificationhubs.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &notificationhubs.PrivateEndpointConnectionArgs{
 			NamespaceName:                 pulumi.String("nh-sdk-ns"),
 			PrivateEndpointConnectionName: pulumi.String("nh-sdk-ns.1fa229cd-bf3f-47f0-8c49-afb36723997e"),
-			Properties: notificationhubs.PrivateEndpointConnectionPropertiesResponse{
+			Properties: &notificationhubs.PrivateEndpointConnectionPropertiesArgs{
 				PrivateLinkServiceConnectionState: &notificationhubs.RemotePrivateLinkServiceConnectionStateArgs{
 					Status: pulumi.String("Approved"),
 				},

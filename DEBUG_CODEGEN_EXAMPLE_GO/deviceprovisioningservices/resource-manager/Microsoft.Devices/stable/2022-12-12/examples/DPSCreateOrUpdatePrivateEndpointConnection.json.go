@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := devices.NewIotDpsResourcePrivateEndpointConnection(ctx, "iotDpsResourcePrivateEndpointConnection", &devices.IotDpsResourcePrivateEndpointConnectionArgs{
 			PrivateEndpointConnectionName: pulumi.String("myPrivateEndpointConnection"),
-			Properties: devices.PrivateEndpointConnectionPropertiesResponse{
+			Properties: &devices.PrivateEndpointConnectionPropertiesArgs{
 				PrivateLinkServiceConnectionState: &devices.PrivateLinkServiceConnectionStateArgs{
 					Description: pulumi.String("Approved by johndoe@contoso.com"),
 					Status:      pulumi.String("Approved"),

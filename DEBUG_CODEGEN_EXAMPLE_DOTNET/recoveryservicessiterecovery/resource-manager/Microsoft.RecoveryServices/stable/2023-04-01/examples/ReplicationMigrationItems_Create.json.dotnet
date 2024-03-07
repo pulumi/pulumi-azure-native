@@ -12,10 +12,10 @@ return await Deployment.RunAsync(() =>
         Properties = new AzureNative.RecoveryServices.Inputs.EnableMigrationInputPropertiesArgs
         {
             PolicyId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationPolicies/vmwarepolicy1",
-            ProviderSpecificDetails = 
+            ProviderSpecificDetails = new AzureNative.RecoveryServices.Inputs.VMwareCbtEnableMigrationInputArgs
             {
-                { "dataMoverRunAsAccountId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/dataMoverRunAsAccount1" },
-                { "disksToInclude", new[]
+                DataMoverRunAsAccountId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/dataMoverRunAsAccount1",
+                DisksToInclude = new[]
                 {
                     new AzureNative.RecoveryServices.Inputs.VMwareCbtDiskInputArgs
                     {
@@ -24,12 +24,12 @@ return await Deployment.RunAsync(() =>
                         LogStorageAccountId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Storage/storageAccounts/logStorageAccount1",
                         LogStorageAccountSasSecretName = "logStorageSas",
                     },
-                } },
-                { "instanceType", "VMwareCbt" },
-                { "snapshotRunAsAccountId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/snapshotRunAsAccount1" },
-                { "targetNetworkId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Network/virtualNetworks/virtualNetwork1" },
-                { "targetResourceGroupId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1" },
-                { "vmwareMachineId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/machines/virtualmachine1" },
+                },
+                InstanceType = "VMwareCbt",
+                SnapshotRunAsAccountId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/snapshotRunAsAccount1",
+                TargetNetworkId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Network/virtualNetworks/virtualNetwork1",
+                TargetResourceGroupId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1",
+                VmwareMachineId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/machines/virtualmachine1",
             },
         },
         ProtectionContainerName = "vmwareContainer1",

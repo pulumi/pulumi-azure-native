@@ -12,10 +12,10 @@ func main() {
 				RelativeName: pulumi.String("azuresdkfornetautoresttrafficmanager6192"),
 				Ttl:          pulumi.Float64(35),
 			},
-			Endpoints: []network.EndpointTypeArgs{
-				{
+			Endpoints: network.EndpointTypeArray{
+				&network.EndpointTypeArgs{
 					CustomHeaders: network.EndpointPropertiesCustomHeadersArray{
-						{
+						&network.EndpointPropertiesCustomHeadersArgs{
 							Name:  pulumi.String("header-2"),
 							Value: pulumi.String("value-2-overridden"),
 						},
@@ -28,7 +28,7 @@ func main() {
 				},
 			},
 			Location: pulumi.String("global"),
-			MonitorConfig: network.MonitorConfigResponse{
+			MonitorConfig: &network.MonitorConfigArgs{
 				CustomHeaders: network.MonitorConfigCustomHeadersArray{
 					&network.MonitorConfigCustomHeadersArgs{
 						Name:  pulumi.String("header-1"),

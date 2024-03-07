@@ -11,9 +11,9 @@ func main() {
 			AccountName:          pulumi.String("contosomedia"),
 			ContentKeyPolicyName: pulumi.String("PolicyWithPlayReadyOptionAndOpenRestriction"),
 			Description:          pulumi.String("ArmPolicyDescription"),
-			Options: []media.ContentKeyPolicyOptionArgs{
-				{
-					Configuration: {
+			Options: media.ContentKeyPolicyOptionArray{
+				&media.ContentKeyPolicyOptionArgs{
+					Configuration: media.ContentKeyPolicyPlayReadyConfiguration{
 						Licenses: []media.ContentKeyPolicyPlayReadyLicense{
 							{
 								AllowTestDevices: true,
@@ -36,7 +36,7 @@ func main() {
 						OdataType: "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
 					},
 					Name: pulumi.String("ArmPolicyOptionName"),
-					Restriction: {
+					Restriction: media.ContentKeyPolicyOpenRestriction{
 						OdataType: "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
 					},
 				},

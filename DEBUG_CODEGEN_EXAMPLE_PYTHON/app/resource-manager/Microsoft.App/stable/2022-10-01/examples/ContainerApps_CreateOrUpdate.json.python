@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 container_app = azure_native.app.ContainerApp("containerApp",
-    configuration=azure_native.app.ConfigurationResponseArgs(
+    configuration=azure_native.app.ConfigurationArgs(
         dapr=azure_native.app.DaprArgs(
             app_port=3000,
             app_protocol="http",
@@ -12,9 +12,9 @@ container_app = azure_native.app.ContainerApp("containerApp",
             http_read_buffer_size=30,
             log_level="debug",
         ),
-        ingress={
-            "clientCertificateMode": "accept",
-            "corsPolicy": azure_native.app.CorsPolicyArgs(
+        ingress=azure_native.app.IngressArgs(
+            client_certificate_mode="accept",
+            cors_policy=azure_native.app.CorsPolicyArgs(
                 allow_credentials=True,
                 allowed_headers=[
                     "HEADER1",
@@ -34,7 +34,7 @@ container_app = azure_native.app.ContainerApp("containerApp",
                 ],
                 max_age=1234,
             ),
-            "customDomains": [
+            custom_domains=[
                 azure_native.app.CustomDomainArgs(
                     binding_type="SniEnabled",
                     certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
@@ -46,8 +46,8 @@ container_app = azure_native.app.ContainerApp("containerApp",
                     name="www.my-other-name.com",
                 ),
             ],
-            "external": True,
-            "ipSecurityRestrictions": [
+            external=True,
+            ip_security_restrictions=[
                 azure_native.app.IpSecurityRestrictionRuleArgs(
                     action="Allow",
                     description="Allowing all IP's within the subnet below to access containerapp",
@@ -61,62 +61,62 @@ container_app = azure_native.app.ContainerApp("containerApp",
                     name="Allow work IP B subnet",
                 ),
             ],
-            "targetPort": 3000,
-            "traffic": [azure_native.app.TrafficWeightArgs(
+            target_port=3000,
+            traffic=[azure_native.app.TrafficWeightArgs(
                 label="production",
                 revision_name="testcontainerapp0-ab1234",
                 weight=100,
             )],
-        },
+        ),
         max_inactive_revisions=10,
     ),
     container_app_name="testcontainerapp0",
     environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
     location="East US",
     resource_group_name="rg",
-    template=azure_native.app.TemplateResponseArgs(
-        containers=[{
-            "image": "repo/testcontainerapp0:v1",
-            "name": "testcontainerapp0",
-            "probes": [{
-                "httpGet": {
-                    "httpHeaders": [azure_native.app.ContainerAppProbeHttpHeadersArgs(
+    template=azure_native.app.TemplateArgs(
+        containers=[azure_native.app.ContainerArgs(
+            image="repo/testcontainerapp0:v1",
+            name="testcontainerapp0",
+            probes=[azure_native.app.ContainerAppProbeArgs(
+                http_get=azure_native.app.ContainerAppProbeHttpGetArgs(
+                    http_headers=[azure_native.app.ContainerAppProbeHttpHeadersArgs(
                         name="Custom-Header",
                         value="Awesome",
                     )],
-                    "path": "/health",
-                    "port": 8080,
-                },
-                "initialDelaySeconds": 3,
-                "periodSeconds": 3,
-                "type": "Liveness",
-            }],
-        }],
-        init_containers=[{
-            "args": [
+                    path="/health",
+                    port=8080,
+                ),
+                initial_delay_seconds=3,
+                period_seconds=3,
+                type="Liveness",
+            )],
+        )],
+        init_containers=[azure_native.app.InitContainerArgs(
+            args=[
                 "-c",
                 "while true; do echo hello; sleep 10;done",
             ],
-            "command": ["/bin/sh"],
-            "image": "repo/testcontainerapp0:v4",
-            "name": "testinitcontainerApp0",
-            "resources": azure_native.app.ContainerResourcesArgs(
+            command=["/bin/sh"],
+            image="repo/testcontainerapp0:v4",
+            name="testinitcontainerApp0",
+            resources=azure_native.app.ContainerResourcesArgs(
                 cpu=0.5,
                 memory="1Gi",
             ),
-        }],
-        scale={
-            "maxReplicas": 5,
-            "minReplicas": 1,
-            "rules": [{
-                "custom": azure_native.app.CustomScaleRuleArgs(
+        )],
+        scale=azure_native.app.ScaleArgs(
+            max_replicas=5,
+            min_replicas=1,
+            rules=[azure_native.app.ScaleRuleArgs(
+                custom=azure_native.app.CustomScaleRuleArgs(
                     metadata={
                         "concurrentRequests": "50",
                     },
                     type="http",
                 ),
-                "name": "httpscalingrule",
-            }],
-        },
+                name="httpscalingrule",
+            )],
+        ),
     ),
     workload_profile_type="GeneralPurpose")

@@ -14,12 +14,12 @@ func main() {
 			AssociatedOutboundConnections: pulumi.StringArray{},
 			ResourceGroupName:             pulumi.String("rg1"),
 			RouteMapName:                  pulumi.String("routeMap1"),
-			Rules: []network.RouteMapRuleArgs{
-				{
+			Rules: network.RouteMapRuleArray{
+				&network.RouteMapRuleArgs{
 					Actions: network.ActionArray{
-						{
+						&network.ActionArgs{
 							Parameters: network.ParameterArray{
-								{
+								&network.ParameterArgs{
 									AsPath: pulumi.StringArray{
 										pulumi.String("22334"),
 									},
@@ -31,7 +31,7 @@ func main() {
 						},
 					},
 					MatchCriteria: network.CriterionArray{
-						{
+						&network.CriterionArgs{
 							AsPath:         pulumi.StringArray{},
 							Community:      pulumi.StringArray{},
 							MatchCondition: pulumi.String("Contains"),

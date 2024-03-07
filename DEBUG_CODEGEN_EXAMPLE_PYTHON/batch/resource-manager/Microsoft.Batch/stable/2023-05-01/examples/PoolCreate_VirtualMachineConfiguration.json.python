@@ -3,9 +3,9 @@ import pulumi_azure_native as azure_native
 
 pool = azure_native.batch.Pool("pool",
     account_name="sampleacct",
-    deployment_configuration=azure_native.batch.DeploymentConfigurationResponseArgs(
-        virtual_machine_configuration={
-            "dataDisks": [
+    deployment_configuration=azure_native.batch.DeploymentConfigurationArgs(
+        virtual_machine_configuration=azure_native.batch.VirtualMachineConfigurationArgs(
+            data_disks=[
                 azure_native.batch.DataDiskArgs(
                     caching=azure_native.batch.CachingType.READ_WRITE,
                     disk_size_gb=30,
@@ -19,41 +19,41 @@ pool = azure_native.batch.Pool("pool",
                     storage_account_type=azure_native.batch.StorageAccountType.STANDARD_LRS,
                 ),
             ],
-            "diskEncryptionConfiguration": azure_native.batch.DiskEncryptionConfigurationArgs(
+            disk_encryption_configuration=azure_native.batch.DiskEncryptionConfigurationArgs(
                 targets=[
                     azure_native.batch.DiskEncryptionTarget.OS_DISK,
                     azure_native.batch.DiskEncryptionTarget.TEMPORARY_DISK,
                 ],
             ),
-            "imageReference": azure_native.batch.ImageReferenceArgs(
+            image_reference=azure_native.batch.ImageReferenceArgs(
                 offer="WindowsServer",
                 publisher="MicrosoftWindowsServer",
                 sku="2016-Datacenter-SmallDisk",
                 version="latest",
             ),
-            "licenseType": "Windows_Server",
-            "nodeAgentSkuId": "batch.node.windows amd64",
-            "nodePlacementConfiguration": azure_native.batch.NodePlacementConfigurationArgs(
+            license_type="Windows_Server",
+            node_agent_sku_id="batch.node.windows amd64",
+            node_placement_configuration=azure_native.batch.NodePlacementConfigurationArgs(
                 policy=azure_native.batch.NodePlacementPolicyType.ZONAL,
             ),
-            "osDisk": {
-                "ephemeralOSDiskSettings": azure_native.batch.DiffDiskSettingsArgs(
+            os_disk=azure_native.batch.OSDiskArgs(
+                ephemeral_os_disk_settings=azure_native.batch.DiffDiskSettingsArgs(
                     placement=azure_native.batch.DiffDiskPlacement.CACHE_DISK,
                 ),
-            },
-            "windowsConfiguration": azure_native.batch.WindowsConfigurationArgs(
+            ),
+            windows_configuration=azure_native.batch.WindowsConfigurationArgs(
                 enable_automatic_updates=False,
             ),
-        },
+        ),
     ),
-    network_configuration=azure_native.batch.NetworkConfigurationResponseArgs(
-        endpoint_configuration={
-            "inboundNatPools": [{
-                "backendPort": 12001,
-                "frontendPortRangeEnd": 15100,
-                "frontendPortRangeStart": 15000,
-                "name": "testnat",
-                "networkSecurityGroupRules": [
+    network_configuration=azure_native.batch.NetworkConfigurationArgs(
+        endpoint_configuration=azure_native.batch.PoolEndpointConfigurationArgs(
+            inbound_nat_pools=[azure_native.batch.InboundNatPoolArgs(
+                backend_port=12001,
+                frontend_port_range_end=15100,
+                frontend_port_range_start=15000,
+                name="testnat",
+                network_security_group_rules=[
                     azure_native.batch.NetworkSecurityGroupRuleArgs(
                         access=azure_native.batch.NetworkSecurityGroupRuleAccess.ALLOW,
                         priority=150,
@@ -70,13 +70,13 @@ pool = azure_native.batch.Pool("pool",
                         source_port_ranges=["*"],
                     ),
                 ],
-                "protocol": azure_native.batch.InboundEndpointProtocol.TCP,
-            }],
-        },
+                protocol=azure_native.batch.InboundEndpointProtocol.TCP,
+            )],
+        ),
     ),
     pool_name="testpool",
     resource_group_name="default-azurebatch-japaneast",
-    scale_settings=azure_native.batch.ScaleSettingsResponseArgs(
+    scale_settings=azure_native.batch.ScaleSettingsArgs(
         auto_scale=azure_native.batch.AutoScaleSettingsArgs(
             evaluation_interval="PT5M",
             formula="$TargetDedicatedNodes=1",

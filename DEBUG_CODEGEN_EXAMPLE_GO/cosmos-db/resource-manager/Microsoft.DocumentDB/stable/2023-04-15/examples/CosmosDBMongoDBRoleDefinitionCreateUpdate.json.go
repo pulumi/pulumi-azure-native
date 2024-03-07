@@ -11,13 +11,13 @@ func main() {
 			AccountName:           pulumi.String("myAccountName"),
 			DatabaseName:          pulumi.String("sales"),
 			MongoRoleDefinitionId: pulumi.String("myMongoRoleDefinitionId"),
-			Privileges: []documentdb.PrivilegeArgs{
-				{
+			Privileges: documentdb.PrivilegeArray{
+				&documentdb.PrivilegeArgs{
 					Actions: pulumi.StringArray{
 						pulumi.String("insert"),
 						pulumi.String("find"),
 					},
-					Resource: {
+					Resource: &documentdb.PrivilegeResourceArgs{
 						Collection: pulumi.String("sales"),
 						Db:         pulumi.String("sales"),
 					},
@@ -25,8 +25,8 @@ func main() {
 			},
 			ResourceGroupName: pulumi.String("myResourceGroupName"),
 			RoleName:          pulumi.String("myRoleName"),
-			Roles: []documentdb.RoleArgs{
-				{
+			Roles: documentdb.RoleArray{
+				&documentdb.RoleArgs{
 					Db:   pulumi.String("sales"),
 					Role: pulumi.String("myInheritedRole"),
 				},

@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewRecordSet(ctx, "recordSet", &network.RecordSetArgs{
-			CaaRecords: []network.CaaRecordArgs{
-				{
+			CaaRecords: network.CaaRecordArray{
+				&network.CaaRecordArgs{
 					Flags: pulumi.Int(0),
 					Tag:   pulumi.String("issue"),
 					Value: pulumi.String("ca.contoso.com"),

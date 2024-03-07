@@ -7,7 +7,7 @@ api_operation = azure_native.apimanagement.ApiOperation("apiOperation",
     display_name="createUser2",
     method="POST",
     operation_id="newoperations",
-    request=azure_native.apimanagement.RequestContractResponseArgs(
+    request=azure_native.apimanagement.RequestContractArgs(
         description="Created user object",
         headers=[],
         query_parameters=[],
@@ -18,10 +18,10 @@ api_operation = azure_native.apimanagement.ApiOperation("apiOperation",
         )],
     ),
     resource_group_name="rg1",
-    responses=[{
-        "description": "successful operation",
-        "headers": [],
-        "representations": [
+    responses=[azure_native.apimanagement.ResponseContractArgs(
+        description="successful operation",
+        headers=[],
+        representations=[
             azure_native.apimanagement.RepresentationContractArgs(
                 content_type="application/xml",
             ),
@@ -29,8 +29,8 @@ api_operation = azure_native.apimanagement.ApiOperation("apiOperation",
                 content_type="application/json",
             ),
         ],
-        "statusCode": 200,
-    }],
+        status_code=200,
+    )],
     service_name="apimService1",
     template_parameters=[],
     url_template="/user1")

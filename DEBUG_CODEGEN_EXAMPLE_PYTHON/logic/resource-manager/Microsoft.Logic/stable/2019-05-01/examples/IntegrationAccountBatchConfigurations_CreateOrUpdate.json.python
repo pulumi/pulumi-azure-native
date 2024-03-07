@@ -5,17 +5,17 @@ integration_account_batch_configuration = azure_native.logic.IntegrationAccountB
     batch_configuration_name="testBatchConfiguration",
     integration_account_name="testIntegrationAccount",
     location="westus",
-    properties=azure_native.logic.BatchConfigurationPropertiesResponseArgs(
+    properties=azure_native.logic.BatchConfigurationPropertiesArgs(
         batch_group_name="DEFAULT",
-        release_criteria={
-            "batchSize": 234567,
-            "messageCount": 10,
-            "recurrence": azure_native.logic.WorkflowTriggerRecurrenceArgs(
+        release_criteria=azure_native.logic.BatchReleaseCriteriaArgs(
+            batch_size=234567,
+            message_count=10,
+            recurrence=azure_native.logic.WorkflowTriggerRecurrenceArgs(
                 frequency="Minute",
                 interval=1,
                 start_time="2017-03-24T11:43:00",
                 time_zone="India Standard Time",
             ),
-        },
+        ),
     ),
     resource_group_name="testResourceGroup")

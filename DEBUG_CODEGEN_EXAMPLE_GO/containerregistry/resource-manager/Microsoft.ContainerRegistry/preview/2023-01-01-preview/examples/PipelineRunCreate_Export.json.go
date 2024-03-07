@@ -10,7 +10,7 @@ func main() {
 		_, err := containerregistry.NewPipelineRun(ctx, "pipelineRun", &containerregistry.PipelineRunArgs{
 			PipelineRunName: pulumi.String("myPipelineRun"),
 			RegistryName:    pulumi.String("myRegistry"),
-			Request: containerregistry.PipelineRunRequestResponse{
+			Request: &containerregistry.PipelineRunRequestArgs{
 				Artifacts: pulumi.StringArray{
 					pulumi.String("sourceRepository/hello-world"),
 					pulumi.String("sourceRepository2@sha256:00000000000000000000000000000000000"),

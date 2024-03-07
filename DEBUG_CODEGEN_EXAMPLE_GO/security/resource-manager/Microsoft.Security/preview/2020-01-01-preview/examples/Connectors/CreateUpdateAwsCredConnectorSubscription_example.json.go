@@ -14,7 +14,7 @@ func main() {
 				AwsSecretAccessKey: "<awsSecretAccessKey>",
 			},
 			ConnectorName: pulumi.String("aws_dev1"),
-			HybridComputeSettings: security.HybridComputeSettingsPropertiesResponse{
+			HybridComputeSettings: &security.HybridComputeSettingsPropertiesArgs{
 				AutoProvision: pulumi.String("On"),
 				ProxyServer: &security.ProxyServerPropertiesArgs{
 					Ip:   pulumi.String("167.220.197.140"),

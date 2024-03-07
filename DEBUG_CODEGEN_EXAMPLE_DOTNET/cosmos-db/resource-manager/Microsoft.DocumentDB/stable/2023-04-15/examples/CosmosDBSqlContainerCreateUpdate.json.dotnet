@@ -38,7 +38,7 @@ return await Deployment.RunAsync(() =>
             IndexingPolicy = new AzureNative.DocumentDB.Inputs.IndexingPolicyArgs
             {
                 Automatic = true,
-                ExcludedPaths = new[] {},
+                ExcludedPaths = new() { },
                 IncludedPaths = new[]
                 {
                     new AzureNative.DocumentDB.Inputs.IncludedPathArgs

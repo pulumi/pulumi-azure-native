@@ -16,8 +16,8 @@ func main() {
 				ProbeRequestType:       cdn.HealthProbeRequestTypeGET,
 			},
 			OriginGroupName: pulumi.String("origingroup1"),
-			Origins: []cdn.ResourceReferenceArgs{
-				{
+			Origins: cdn.ResourceReferenceArray{
+				&cdn.ResourceReferenceArgs{
 					Id: pulumi.String("/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1"),
 				},
 			},

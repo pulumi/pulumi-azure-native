@@ -3,14 +3,14 @@ import pulumi_azure_native as azure_native
 
 pool = azure_native.batch.Pool("pool",
     account_name="sampleacct",
-    deployment_configuration=azure_native.batch.DeploymentConfigurationResponseArgs(
+    deployment_configuration=azure_native.batch.DeploymentConfigurationArgs(
         cloud_service_configuration=azure_native.batch.CloudServiceConfigurationArgs(
             os_family="5",
         ),
     ),
     pool_name="testpool",
     resource_group_name="default-azurebatch-japaneast",
-    scale_settings=azure_native.batch.ScaleSettingsResponseArgs(
+    scale_settings=azure_native.batch.ScaleSettingsArgs(
         fixed_scale=azure_native.batch.FixedScaleSettingsArgs(
             target_dedicated_nodes=3,
         ),

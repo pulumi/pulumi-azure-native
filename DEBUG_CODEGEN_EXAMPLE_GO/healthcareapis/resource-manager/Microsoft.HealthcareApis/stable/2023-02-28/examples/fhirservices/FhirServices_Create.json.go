@@ -8,11 +8,11 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := healthcareapis.NewFhirService(ctx, "fhirService", &healthcareapis.FhirServiceArgs{
-			AccessPolicies: []healthcareapis.FhirServiceAccessPolicyEntryArgs{
-				{
+			AccessPolicies: healthcareapis.FhirServiceAccessPolicyEntryArray{
+				&healthcareapis.FhirServiceAccessPolicyEntryArgs{
 					ObjectId: pulumi.String("c487e7d1-3210-41a3-8ccc-e9372b78da47"),
 				},
-				{
+				&healthcareapis.FhirServiceAccessPolicyEntryArgs{
 					ObjectId: pulumi.String("5b307da8-43d4-492b-8b66-b0294ade872f"),
 				},
 			},

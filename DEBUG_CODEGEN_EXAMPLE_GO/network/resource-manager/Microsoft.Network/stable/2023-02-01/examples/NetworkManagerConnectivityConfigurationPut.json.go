@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewConnectivityConfiguration(ctx, "connectivityConfiguration", &network.ConnectivityConfigurationArgs{
-			AppliesToGroups: []network.ConnectivityGroupItemArgs{
-				{
+			AppliesToGroups: network.ConnectivityGroupItemArray{
+				&network.ConnectivityGroupItemArgs{
 					GroupConnectivity: pulumi.String("None"),
 					IsGlobal:          pulumi.String("False"),
 					NetworkGroupId:    pulumi.String("subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1"),
@@ -20,8 +20,8 @@ func main() {
 			ConnectivityTopology:  pulumi.String("HubAndSpoke"),
 			DeleteExistingPeering: pulumi.String("True"),
 			Description:           pulumi.String("Sample Configuration"),
-			Hubs: []network.HubArgs{
-				{
+			Hubs: network.HubArray{
+				&network.HubArgs{
 					ResourceId:   pulumi.String("subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig"),
 					ResourceType: pulumi.String("Microsoft.Network/virtualNetworks"),
 				},

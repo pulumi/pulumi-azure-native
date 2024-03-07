@@ -10,7 +10,7 @@ func main() {
 		_, err := cognitiveservices.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &cognitiveservices.PrivateEndpointConnectionArgs{
 			AccountName:                   pulumi.String("sto9699"),
 			PrivateEndpointConnectionName: pulumi.String("{privateEndpointConnectionName}"),
-			Properties: cognitiveservices.PrivateEndpointConnectionPropertiesResponse{
+			Properties: &cognitiveservices.PrivateEndpointConnectionPropertiesArgs{
 				PrivateLinkServiceConnectionState: &cognitiveservices.PrivateLinkServiceConnectionStateArgs{
 					Description: pulumi.String("Auto-Approved"),
 					Status:      pulumi.String("Approved"),

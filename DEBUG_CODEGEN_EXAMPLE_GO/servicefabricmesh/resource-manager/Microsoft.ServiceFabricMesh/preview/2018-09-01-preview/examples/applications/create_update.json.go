@@ -12,8 +12,8 @@ func main() {
 			Description:             pulumi.String("Service Fabric Mesh sample application."),
 			Location:                pulumi.String("EastUS"),
 			ResourceGroupName:       pulumi.String("sbz_demo"),
-			Services: []servicefabricmesh.ServiceResourceDescriptionArgs{
-				{
+			Services: servicefabricmesh.ServiceResourceDescriptionArray{
+				&servicefabricmesh.ServiceResourceDescriptionArgs{
 					CodePackages: []servicefabricmesh.ContainerCodePackagePropertiesArgs{
 						{
 							Endpoints: servicefabricmesh.EndpointPropertiesArray{
@@ -35,9 +35,9 @@ func main() {
 					Description: pulumi.String("SeaBreeze Hello World Service."),
 					Name:        pulumi.String("helloWorldService"),
 					NetworkRefs: servicefabricmesh.NetworkRefArray{
-						{
+						&servicefabricmesh.NetworkRefArgs{
 							EndpointRefs: servicefabricmesh.EndpointRefArray{
-								{
+								&servicefabricmesh.EndpointRefArgs{
 									Name: pulumi.String("helloWorldListener"),
 								},
 							},

@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := recoveryservices.NewReplicationRecoveryServicesProvider(ctx, "replicationRecoveryServicesProvider", &recoveryservices.ReplicationRecoveryServicesProviderArgs{
 			FabricName: pulumi.String("vmwarefabric1"),
-			Properties: recoveryservices.RecoveryServicesProviderPropertiesResponse{
+			Properties: &recoveryservices.AddRecoveryServicesProviderInputPropertiesArgs{
 				AuthenticationIdentityInput: &recoveryservices.IdentityProviderInputArgs{
 					AadAuthority:  pulumi.String("https://login.microsoftonline.com"),
 					ApplicationId: pulumi.String("f66fce08-c0c6-47a1-beeb-0ede5ea94f90"),

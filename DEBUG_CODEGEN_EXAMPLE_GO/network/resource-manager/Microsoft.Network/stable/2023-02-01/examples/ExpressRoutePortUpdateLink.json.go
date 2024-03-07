@@ -12,8 +12,8 @@ func main() {
 			BillingType:          pulumi.String("UnlimitedData"),
 			Encapsulation:        pulumi.String("QinQ"),
 			ExpressRoutePortName: pulumi.String("portName"),
-			Links: []network.ExpressRouteLinkArgs{
-				{
+			Links: network.ExpressRouteLinkArray{
+				&network.ExpressRouteLinkArgs{
 					AdminState: pulumi.String("Enabled"),
 					Name:       pulumi.String("link1"),
 				},

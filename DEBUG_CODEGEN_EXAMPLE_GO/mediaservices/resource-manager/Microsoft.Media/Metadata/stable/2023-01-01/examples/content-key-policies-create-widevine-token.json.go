@@ -11,16 +11,16 @@ func main() {
 			AccountName:          pulumi.String("contosomedia"),
 			ContentKeyPolicyName: pulumi.String("PolicyWithWidevineOptionAndJwtTokenRestriction"),
 			Description:          pulumi.String("ArmPolicyDescription"),
-			Options: []media.ContentKeyPolicyOptionArgs{
-				{
-					Configuration: {
+			Options: media.ContentKeyPolicyOptionArray{
+				&media.ContentKeyPolicyOptionArgs{
+					Configuration: media.ContentKeyPolicyWidevineConfiguration{
 						OdataType:        "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
 						WidevineTemplate: "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
 					},
 					Name: pulumi.String("widevineoption"),
-					Restriction: {
+					Restriction: media.ContentKeyPolicyTokenRestriction{
 						AlternateVerificationKeys: []interface{}{
-							{
+							media.ContentKeyPolicySymmetricTokenKey{
 								KeyValue:  "AAAAAAAAAAAAAAAAAAAAAA==",
 								OdataType: "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
 							},
@@ -28,7 +28,7 @@ func main() {
 						Audience:  "urn:audience",
 						Issuer:    "urn:issuer",
 						OdataType: "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
-						PrimaryVerificationKey: {
+						PrimaryVerificationKey: media.ContentKeyPolicyRsaTokenKey{
 							Exponent:  "AQAB",
 							Modulus:   "AQAD",
 							OdataType: "#Microsoft.Media.ContentKeyPolicyRsaTokenKey",

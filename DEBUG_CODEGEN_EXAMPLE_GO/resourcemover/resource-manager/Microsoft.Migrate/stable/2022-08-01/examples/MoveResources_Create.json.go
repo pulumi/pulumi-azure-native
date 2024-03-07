@@ -10,7 +10,7 @@ func main() {
 		_, err := migrate.NewMoveResource(ctx, "moveResource", &migrate.MoveResourceArgs{
 			MoveCollectionName: pulumi.String("movecollection1"),
 			MoveResourceName:   pulumi.String("moveresourcename1"),
-			Properties: migrate.MoveResourcePropertiesResponse{
+			Properties: &migrate.MoveResourcePropertiesArgs{
 				DependsOnOverrides: migrate.MoveResourceDependencyOverrideArray{
 					&migrate.MoveResourceDependencyOverrideArgs{
 						Id:       pulumi.String("/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/eastusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140"),

@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 access_policy = azure_native.videoanalyzer.AccessPolicy("accessPolicy",
     access_policy_name="accessPolicyName1",
     account_name="testaccount2",
-    authentication=azure_native.videoanalyzer.JwtAuthenticationResponseArgs(
+    authentication=azure_native.videoanalyzer.JwtAuthenticationArgs(
         audiences=["audience1"],
         claims=[
             azure_native.videoanalyzer.TokenClaimArgs(

@@ -21,7 +21,7 @@ pipeline_topology = azure_native.videoanalyzer.PipelineTopology("pipelineTopolog
     ],
     pipeline_topology_name="pipelineTopology1",
     resource_group_name="testrg",
-    sinks=[azure_native.videoanalyzer.VideoSinkResponseArgs(
+    sinks=[azure_native.videoanalyzer.VideoSinkArgs(
         inputs=[azure_native.videoanalyzer.NodeInputArgs(
             node_name="rtspSource",
         )],

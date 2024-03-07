@@ -12,12 +12,12 @@ func main() {
 			Enabled:     pulumi.Bool(true),
 			Frequency:   pulumi.Int(900),
 			Location:    pulumi.String("South Central US"),
-			Locations: []insights.WebTestGeolocationArgs{
-				{
+			Locations: insights.WebTestGeolocationArray{
+				&insights.WebTestGeolocationArgs{
 					Location: pulumi.String("us-fl-mia-edge"),
 				},
 			},
-			Request: insights.WebTestPropertiesResponseRequest{
+			Request: &insights.WebTestPropertiesRequestArgs{
 				Headers: insights.HeaderFieldArray{
 					&insights.HeaderFieldArgs{
 						HeaderFieldName:  pulumi.String("Content-Language"),

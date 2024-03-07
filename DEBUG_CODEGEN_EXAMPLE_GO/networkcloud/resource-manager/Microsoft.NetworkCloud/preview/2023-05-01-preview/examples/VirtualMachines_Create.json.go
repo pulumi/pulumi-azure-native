@@ -21,8 +21,8 @@ func main() {
 			},
 			Location:     pulumi.String("location"),
 			MemorySizeGB: pulumi.Float64(8),
-			NetworkAttachments: []networkcloud.NetworkAttachmentArgs{
-				{
+			NetworkAttachments: networkcloud.NetworkAttachmentArray{
+				&networkcloud.NetworkAttachmentArgs{
 					AttachedNetworkId:     pulumi.String("/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName"),
 					DefaultGateway:        pulumi.String("True"),
 					IpAllocationMethod:    pulumi.String("Dynamic"),
@@ -32,8 +32,8 @@ func main() {
 				},
 			},
 			NetworkData: pulumi.String("bmV0d29ya0RhdGVTYW1wbGU="),
-			PlacementHints: []networkcloud.VirtualMachinePlacementHintArgs{
-				{
+			PlacementHints: networkcloud.VirtualMachinePlacementHintArray{
+				&networkcloud.VirtualMachinePlacementHintArgs{
 					HintType:            pulumi.String("Affinity"),
 					ResourceId:          pulumi.String("/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName"),
 					SchedulingExecution: pulumi.String("Hard"),
@@ -41,12 +41,12 @@ func main() {
 				},
 			},
 			ResourceGroupName: pulumi.String("resourceGroupName"),
-			SshPublicKeys: []networkcloud.SshPublicKeyArgs{
-				{
+			SshPublicKeys: networkcloud.SshPublicKeyArray{
+				&networkcloud.SshPublicKeyArgs{
 					KeyData: pulumi.String("ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"),
 				},
 			},
-			StorageProfile: networkcloud.StorageProfileResponse{
+			StorageProfile: &networkcloud.StorageProfileArgs{
 				OsDisk: &networkcloud.OsDiskArgs{
 					CreateOption: pulumi.String("Ephemeral"),
 					DeleteOption: pulumi.String("Delete"),

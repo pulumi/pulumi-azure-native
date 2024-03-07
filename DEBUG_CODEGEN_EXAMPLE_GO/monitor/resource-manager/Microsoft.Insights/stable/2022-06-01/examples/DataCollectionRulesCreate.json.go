@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := insights.NewDataCollectionRule(ctx, "dataCollectionRule", &insights.DataCollectionRuleArgs{
 			DataCollectionRuleName: pulumi.String("myCollectionRule"),
-			DataFlows: []insights.DataFlowArgs{
-				{
+			DataFlows: insights.DataFlowArray{
+				&insights.DataFlowArgs{
 					Destinations: pulumi.StringArray{
 						pulumi.String("centralWorkspace"),
 					},
@@ -21,7 +21,7 @@ func main() {
 					},
 				},
 			},
-			DataSources: insights.DataCollectionRuleResponseDataSources{
+			DataSources: &insights.DataCollectionRuleDataSourcesArgs{
 				PerformanceCounters: insights.PerfCounterDataSourceArray{
 					&insights.PerfCounterDataSourceArgs{
 						CounterSpecifiers: pulumi.StringArray{
@@ -99,7 +99,7 @@ func main() {
 					},
 				},
 			},
-			Destinations: insights.DataCollectionRuleResponseDestinations{
+			Destinations: &insights.DataCollectionRuleDestinationsArgs{
 				LogAnalytics: insights.LogAnalyticsDestinationArray{
 					&insights.LogAnalyticsDestinationArgs{
 						Name:                pulumi.String("centralWorkspace"),

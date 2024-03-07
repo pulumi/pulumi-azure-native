@@ -7,7 +7,7 @@ import (
 func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := datareplication.NewReplicationExtension(ctx, "replicationExtension", &datareplication.ReplicationExtensionArgs{
-Properties: interface{}{
+Properties: &datareplication.ReplicationExtensionModelPropertiesArgs{
 CustomProperties: interface{}{
 InstanceType: pulumi.String("ReplicationExtensionModelCustomProperties"),
 },

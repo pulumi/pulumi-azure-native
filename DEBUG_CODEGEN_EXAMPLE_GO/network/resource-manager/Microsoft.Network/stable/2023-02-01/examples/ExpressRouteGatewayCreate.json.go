@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewExpressRouteGateway(ctx, "expressRouteGateway", &network.ExpressRouteGatewayArgs{
 			AllowNonVirtualWanTraffic: pulumi.Bool(false),
-			AutoScaleConfiguration: network.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration{
+			AutoScaleConfiguration: &network.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs{
 				Bounds: &network.ExpressRouteGatewayPropertiesBoundsArgs{
 					Min: pulumi.Int(3),
 				},

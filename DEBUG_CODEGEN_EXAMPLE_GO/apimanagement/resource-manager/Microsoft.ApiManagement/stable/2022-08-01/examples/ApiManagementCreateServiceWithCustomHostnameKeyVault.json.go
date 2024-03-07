@@ -11,28 +11,28 @@ func main() {
 			ApiVersionConstraint: &apimanagement.ApiVersionConstraintArgs{
 				MinApiVersion: pulumi.String("2019-01-01"),
 			},
-			HostnameConfigurations: []apimanagement.HostnameConfigurationArgs{
-				{
+			HostnameConfigurations: apimanagement.HostnameConfigurationArray{
+				&apimanagement.HostnameConfigurationArgs{
 					DefaultSslBinding: pulumi.Bool(true),
 					HostName:          pulumi.String("gateway1.msitesting.net"),
 					IdentityClientId:  pulumi.String("329419bc-adec-4dce-9568-25a6d486e468"),
 					KeyVaultId:        pulumi.String("https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert"),
 					Type:              pulumi.String("Proxy"),
 				},
-				{
+				&apimanagement.HostnameConfigurationArgs{
 					HostName:         pulumi.String("mgmt.msitesting.net"),
 					IdentityClientId: pulumi.String("329419bc-adec-4dce-9568-25a6d486e468"),
 					KeyVaultId:       pulumi.String("https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert"),
 					Type:             pulumi.String("Management"),
 				},
-				{
+				&apimanagement.HostnameConfigurationArgs{
 					HostName:         pulumi.String("portal1.msitesting.net"),
 					IdentityClientId: pulumi.String("329419bc-adec-4dce-9568-25a6d486e468"),
 					KeyVaultId:       pulumi.String("https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert"),
 					Type:             pulumi.String("Portal"),
 				},
 			},
-			Identity: apimanagement.ApiManagementServiceIdentityResponse{
+			Identity: &apimanagement.ApiManagementServiceIdentityArgs{
 				Type: pulumi.String("UserAssigned"),
 				UserAssignedIdentities: apimanagement.UserIdentityPropertiesMap{
 					"/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": nil,

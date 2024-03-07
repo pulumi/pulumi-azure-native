@@ -119,7 +119,7 @@ return await Deployment.RunAsync(() =>
                                 Username = "sshuser",
                             },
                         },
-                        ScriptActions = new[] {},
+                        ScriptActions = new() { },
                         TargetInstanceCount = 4,
                     },
                 },

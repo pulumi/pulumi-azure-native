@@ -13,27 +13,27 @@ func main() {
 				Name: pulumi.String("helloWorldNetwork"),
 			},
 			GatewayResourceName: pulumi.String("sampleGateway"),
-			Http: []servicefabricmesh.HttpConfigArgs{
-				{
+			Http: servicefabricmesh.HttpConfigArray{
+				&servicefabricmesh.HttpConfigArgs{
 					Hosts: servicefabricmesh.HttpHostConfigArray{
-						{
+						&servicefabricmesh.HttpHostConfigArgs{
 							Name: pulumi.String("contoso.com"),
 							Routes: servicefabricmesh.HttpRouteConfigArray{
-								{
-									Destination: {
+								&servicefabricmesh.HttpRouteConfigArgs{
+									Destination: &servicefabricmesh.GatewayDestinationArgs{
 										ApplicationName: pulumi.String("httpHelloWorldApp"),
 										EndpointName:    pulumi.String("indexHttpEndpoint"),
 										ServiceName:     pulumi.String("indexService"),
 									},
-									Match: {
+									Match: &servicefabricmesh.HttpRouteMatchRuleArgs{
 										Headers: servicefabricmesh.HttpRouteMatchHeaderArray{
-											{
+											&servicefabricmesh.HttpRouteMatchHeaderArgs{
 												Name:  pulumi.String("accept"),
 												Type:  pulumi.String("exact"),
 												Value: pulumi.String("application/json"),
 											},
 										},
-										Path: {
+										Path: &servicefabricmesh.HttpRouteMatchPathArgs{
 											Rewrite: pulumi.String("/"),
 											Type:    pulumi.String("prefix"),
 											Value:   pulumi.String("/index"),
@@ -54,9 +54,9 @@ func main() {
 				Name: pulumi.String("Open"),
 			},
 			Tags: nil,
-			Tcp: []servicefabricmesh.TcpConfigArgs{
-				{
-					Destination: {
+			Tcp: servicefabricmesh.TcpConfigArray{
+				&servicefabricmesh.TcpConfigArgs{
+					Destination: &servicefabricmesh.GatewayDestinationArgs{
 						ApplicationName: pulumi.String("helloWorldApp"),
 						EndpointName:    pulumi.String("helloWorldListener"),
 						ServiceName:     pulumi.String("helloWorldService"),

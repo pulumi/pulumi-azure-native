@@ -8,11 +8,11 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := securityinsights.NewWorkspaceManagerAssignment(ctx, "workspaceManagerAssignment", &securityinsights.WorkspaceManagerAssignmentArgs{
-			Items: []securityinsights.AssignmentItemArgs{
-				{
+			Items: securityinsights.AssignmentItemArray{
+				&securityinsights.AssignmentItemArgs{
 					ResourceId: pulumi.String("/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleOne"),
 				},
-				{
+				&securityinsights.AssignmentItemArgs{
 					ResourceId: pulumi.String("/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleTwo"),
 				},
 			},

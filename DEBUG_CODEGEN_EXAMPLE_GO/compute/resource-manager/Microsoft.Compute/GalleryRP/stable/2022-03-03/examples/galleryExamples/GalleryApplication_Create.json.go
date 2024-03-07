@@ -8,12 +8,12 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := compute.NewGalleryApplication(ctx, "galleryApplication", &compute.GalleryApplicationArgs{
-			CustomActions: []compute.GalleryApplicationCustomActionArgs{
-				{
+			CustomActions: compute.GalleryApplicationCustomActionArray{
+				&compute.GalleryApplicationCustomActionArgs{
 					Description: pulumi.String("This is the custom action description."),
 					Name:        pulumi.String("myCustomAction"),
 					Parameters: compute.GalleryApplicationCustomActionParameterArray{
-						{
+						&compute.GalleryApplicationCustomActionParameterArgs{
 							DefaultValue: pulumi.String("default value of parameter."),
 							Description:  pulumi.String("This is the description of the parameter"),
 							Name:         pulumi.String("myCustomActionParameter"),

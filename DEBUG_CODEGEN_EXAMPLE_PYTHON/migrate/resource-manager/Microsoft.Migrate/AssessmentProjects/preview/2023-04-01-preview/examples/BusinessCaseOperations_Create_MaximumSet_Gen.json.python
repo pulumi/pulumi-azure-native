@@ -5,7 +5,7 @@ business_case_operation = azure_native.migrate.BusinessCaseOperation("businessCa
     business_case_name="sample-business-case",
     project_name="multipleto8617project",
     resource_group_name="rgopenapi",
-    settings=azure_native.migrate.SettingsResponseArgs(
+    settings=azure_native.migrate.SettingsArgs(
         azure_settings=azure_native.migrate.AzureSettingsArgs(
             avs_labor_cost_percentage=0,
             business_case_type="OptimizeForCost",
@@ -30,77 +30,77 @@ business_case_operation = azure_native.migrate.BusinessCaseOperation("businessCa
             wacc=79,
             workload_discovery_source="Appliance",
         ),
-        on_premise_settings={
-            "computeSettings": {
-                "hyperthreadCoreToMemoryRatio": 12,
-                "price": 16,
-                "sqlServerLicensing": [azure_native.migrate.SqlServerLicensingSettingsArgs(
+        on_premise_settings=azure_native.migrate.OnPremiseSettingsArgs(
+            compute_settings=azure_native.migrate.ComputeSettingsArgs(
+                hyperthread_core_to_memory_ratio=12,
+                price=16,
+                sql_server_licensing=[azure_native.migrate.SqlServerLicensingSettingsArgs(
                     license_cost=27,
                     software_assurance_cost=16,
                     version="Enterprise",
                 )],
-                "virtualizationSoftwareSettings": {
-                    "licenseAndSupportList": [azure_native.migrate.VsphereLicenseArgs(
+                virtualization_software_settings=azure_native.migrate.VirtualizationSoftwareSettingsArgs(
+                    license_and_support_list=[azure_native.migrate.VsphereLicenseArgs(
                         basic_support_cost=22,
                         license_cost=8,
                         license_type="VSphereStandard",
                         production_support_cost=22,
                     )],
-                    "numberOfPhysicalCoresPerLicense": 17,
-                    "softwareAssuranceCost": 14,
-                },
-                "windowsServerLicensing": azure_native.migrate.WindowsServerLicensingSettingsArgs(
+                    number_of_physical_cores_per_license=17,
+                    software_assurance_cost=14,
+                ),
+                windows_server_licensing=azure_native.migrate.WindowsServerLicensingSettingsArgs(
                     license_cost=9,
                     licenses_per_core=11,
                     software_assurance_cost=1,
                 ),
-            },
-            "facilitySettings": azure_native.migrate.FacilitySettingsArgs(
+            ),
+            facility_settings=azure_native.migrate.FacilitySettingsArgs(
                 facilities_cost=7,
             ),
-            "laborSettings": azure_native.migrate.LaborSettingsArgs(
+            labor_settings=azure_native.migrate.LaborSettingsArgs(
                 hourly_admin_cost=25,
                 physical_servers_per_admin=6,
                 virtual_machines_per_admin=24,
             ),
-            "managementSettings": {
-                "hypervVirtualizationManagementSettings": {
-                    "licenseAndSupportList": [azure_native.migrate.HypervLicenseArgs(
+            management_settings=azure_native.migrate.ManagementSettingsArgs(
+                hyperv_virtualization_management_settings=azure_native.migrate.HypervVirtualizationManagementSettingsArgs(
+                    license_and_support_list=[azure_native.migrate.HypervLicenseArgs(
                         license_cost=4,
                         license_type="Standard",
                     )],
-                    "numberOfPhysicalCoresPerLicense": 2,
-                    "softwareAssuranceCost": 11,
-                },
-                "otherManagementCostsSettings": azure_native.migrate.OtherManagementCostsSettingsArgs(
+                    number_of_physical_cores_per_license=2,
+                    software_assurance_cost=11,
+                ),
+                other_management_costs_settings=azure_native.migrate.OtherManagementCostsSettingsArgs(
                     data_protection_cost_per_server_per_year=18,
                     monitoring_cost_per_server_per_year=10,
                     patching_cost_per_server_per_year=18,
                 ),
-                "thirdPartyManagementSettings": azure_native.migrate.ThirdPartyManagementSettingsArgs(
+                third_party_management_settings=azure_native.migrate.ThirdPartyManagementSettingsArgs(
                     license_cost=23,
                     support_cost=9,
                 ),
-                "vsphereManagementSettings": {
-                    "licenseAndSupportList": [azure_native.migrate.VsphereManagementLicenseArgs(
+                vsphere_management_settings=azure_native.migrate.VsphereManagementSettingsArgs(
+                    license_and_support_list=[azure_native.migrate.VsphereManagementLicenseArgs(
                         basic_support_cost=1,
                         license_cost=6,
                         license_type="VSphereServerStandard",
                         production_support_cost=18,
                     )],
-                },
-            },
-            "networkSettings": azure_native.migrate.NetworkSettingsArgs(
+                ),
+            ),
+            network_settings=azure_native.migrate.NetworkSettingsArgs(
                 hardware_software_cost_percentage=50,
                 maintenance_cost_percentage=48,
             ),
-            "securitySettings": azure_native.migrate.SecuritySettingsArgs(
+            security_settings=azure_native.migrate.SecuritySettingsArgs(
                 server_security_cost_per_server_per_year=14,
                 sql_server_security_cost_per_server_per_year=7,
             ),
-            "storageSettings": azure_native.migrate.StorageSettingsArgs(
+            storage_settings=azure_native.migrate.StorageSettingsArgs(
                 cost_per_gb_per_month=22,
                 maintainance_cost_percentage_to_acquisition_cost=1,
             ),
-        },
+        ),
     ))

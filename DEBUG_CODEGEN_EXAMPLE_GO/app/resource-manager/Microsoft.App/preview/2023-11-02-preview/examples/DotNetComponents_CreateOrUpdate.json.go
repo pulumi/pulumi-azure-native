@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := app.NewDotNetComponent(ctx, "dotNetComponent", &app.DotNetComponentArgs{
 			ComponentType: pulumi.String("AspireDashboard"),
-			Configurations: []app.DotNetComponentConfigurationPropertyArgs{
-				{
+			Configurations: app.DotNetComponentConfigurationPropertyArray{
+				&app.DotNetComponentConfigurationPropertyArgs{
 					PropertyName: pulumi.String("dashboard-theme"),
 					Value:        pulumi.String("dark"),
 				},

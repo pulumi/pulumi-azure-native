@@ -22,34 +22,34 @@ func main() {
 				Timescale:                  pulumi.Float64(10000000),
 			},
 			ResourceGroupName: pulumi.String("contosorg"),
-			Tracks: []media.FilterTrackSelectionArgs{
-				{
+			Tracks: media.FilterTrackSelectionArray{
+				&media.FilterTrackSelectionArgs{
 					TrackSelections: media.FilterTrackPropertyConditionArray{
-						{
+						&media.FilterTrackPropertyConditionArgs{
 							Operation: pulumi.String("Equal"),
 							Property:  pulumi.String("Type"),
 							Value:     pulumi.String("Audio"),
 						},
-						{
+						&media.FilterTrackPropertyConditionArgs{
 							Operation: pulumi.String("NotEqual"),
 							Property:  pulumi.String("Language"),
 							Value:     pulumi.String("en"),
 						},
-						{
+						&media.FilterTrackPropertyConditionArgs{
 							Operation: pulumi.String("NotEqual"),
 							Property:  pulumi.String("FourCC"),
 							Value:     pulumi.String("EC-3"),
 						},
 					},
 				},
-				{
+				&media.FilterTrackSelectionArgs{
 					TrackSelections: media.FilterTrackPropertyConditionArray{
-						{
+						&media.FilterTrackPropertyConditionArgs{
 							Operation: pulumi.String("Equal"),
 							Property:  pulumi.String("Type"),
 							Value:     pulumi.String("Video"),
 						},
-						{
+						&media.FilterTrackPropertyConditionArgs{
 							Operation: pulumi.String("Equal"),
 							Property:  pulumi.String("Bitrate"),
 							Value:     pulumi.String("3000000-5000000"),

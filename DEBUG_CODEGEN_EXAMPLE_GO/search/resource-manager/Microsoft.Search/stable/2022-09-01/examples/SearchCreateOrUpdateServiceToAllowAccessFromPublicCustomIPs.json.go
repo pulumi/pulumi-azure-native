@@ -10,7 +10,7 @@ func main() {
 		_, err := search.NewService(ctx, "service", &search.ServiceArgs{
 			HostingMode: search.HostingModeDefault,
 			Location:    pulumi.String("westus"),
-			NetworkRuleSet: search.NetworkRuleSetResponse{
+			NetworkRuleSet: &search.NetworkRuleSetArgs{
 				IpRules: search.IpRuleArray{
 					&search.IpRuleArgs{
 						Value: pulumi.String("123.4.5.6"),

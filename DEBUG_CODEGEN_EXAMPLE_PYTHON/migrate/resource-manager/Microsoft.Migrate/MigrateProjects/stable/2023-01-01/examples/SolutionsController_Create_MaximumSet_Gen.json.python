@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 solutions_controller_solution = azure_native.migrate.SolutionsControllerSolution("solutionsControllerSolution",
     migrate_project_name="1GQwlI-",
-    properties=azure_native.migrate.SolutionPropertiesResponseArgs(
+    properties=azure_native.migrate.SolutionPropertiesArgs(
         cleanup_state="None",
         details=azure_native.migrate.SolutionDetailsArgs(
             assessment_count=7,

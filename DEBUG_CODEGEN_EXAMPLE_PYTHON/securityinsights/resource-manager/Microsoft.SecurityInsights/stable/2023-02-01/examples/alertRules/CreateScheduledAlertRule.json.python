@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 scheduled_alert_rule = azure_native.securityinsights.ScheduledAlertRule("scheduledAlertRule",
-    alert_details_override=azure_native.securityinsights.AlertDetailsOverrideResponseArgs(
+    alert_details_override=azure_native.securityinsights.AlertDetailsOverrideArgs(
         alert_description_format="Suspicious activity was made by {{ComputerIP}}",
         alert_display_name_format="Alert from {{Computer}}",
         alert_dynamic_properties=[
@@ -28,25 +28,25 @@ scheduled_alert_rule = azure_native.securityinsights.ScheduledAlertRule("schedul
     display_name="My scheduled rule",
     enabled=True,
     entity_mappings=[
-        {
-            "entityType": "Host",
-            "fieldMappings": [azure_native.securityinsights.FieldMappingArgs(
+        azure_native.securityinsights.EntityMappingArgs(
+            entity_type="Host",
+            field_mappings=[azure_native.securityinsights.FieldMappingArgs(
                 column_name="Computer",
                 identifier="FullName",
             )],
-        },
-        {
-            "entityType": "IP",
-            "fieldMappings": [azure_native.securityinsights.FieldMappingArgs(
+        ),
+        azure_native.securityinsights.EntityMappingArgs(
+            entity_type="IP",
+            field_mappings=[azure_native.securityinsights.FieldMappingArgs(
                 column_name="ComputerIP",
                 identifier="Address",
             )],
-        },
+        ),
     ],
     event_grouping_settings=azure_native.securityinsights.EventGroupingSettingsArgs(
         aggregation_kind="AlertPerResult",
     ),
-    incident_configuration=azure_native.securityinsights.IncidentConfigurationResponseArgs(
+    incident_configuration=azure_native.securityinsights.IncidentConfigurationArgs(
         create_incident=True,
         grouping_configuration=azure_native.securityinsights.GroupingConfigurationArgs(
             enabled=True,

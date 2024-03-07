@@ -11,7 +11,7 @@ func main() {
 			AuthorizationProviderId: pulumi.String("eventbrite"),
 			DisplayName:             pulumi.String("eventbrite"),
 			IdentityProvider:        pulumi.String("oauth2"),
-			Oauth2: apimanagement.AuthorizationProviderOAuth2SettingsResponse{
+			Oauth2: &apimanagement.AuthorizationProviderOAuth2SettingsArgs{
 				GrantTypes: &apimanagement.AuthorizationProviderOAuth2GrantTypesArgs{
 					AuthorizationCode: pulumi.StringMap{
 						"authorizationUrl": pulumi.String("https://www.eventbrite.com/oauth/authorize"),

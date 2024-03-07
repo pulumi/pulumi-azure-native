@@ -17,12 +17,12 @@ func main() {
 			MqttBridgeConnectorName: pulumi.String("5sKfh6461-KDI8h-5"),
 			MqttBridgeConnectorRef:  pulumi.String("aemmhvfdzmdtxwgimpaqephgo"),
 			ResourceGroupName:       pulumi.String("rgiotoperationsmq"),
-			Routes: []iotoperationsmq.MqttBridgeRoutesArgs{
-				{
+			Routes: iotoperationsmq.MqttBridgeRoutesArray{
+				&iotoperationsmq.MqttBridgeRoutesArgs{
 					Direction: pulumi.String("remote-to-local"),
 					Name:      pulumi.String("u"),
 					Qos:       pulumi.Int(2),
-					SharedSubscription: {
+					SharedSubscription: &iotoperationsmq.MqttBridgeRouteSharedSubscriptionArgs{
 						GroupMinimumShareNumber: pulumi.Int(129),
 						GroupName:               pulumi.String("exnfgkdccpuvzqhxrg"),
 					},

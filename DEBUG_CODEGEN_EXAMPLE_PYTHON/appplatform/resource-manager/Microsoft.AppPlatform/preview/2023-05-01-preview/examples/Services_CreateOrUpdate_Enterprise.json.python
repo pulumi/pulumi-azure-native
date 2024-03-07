@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 service = azure_native.appplatform.Service("service",
     location="eastus",
-    properties=azure_native.appplatform.ClusterResourcePropertiesResponseArgs(
+    properties=azure_native.appplatform.ClusterResourcePropertiesArgs(
         marketplace_resource=azure_native.appplatform.MarketplaceResourceArgs(
             plan="tanzu-asc-ent-mtr",
             product="azure-spring-cloud-vmware-tanzu-2",

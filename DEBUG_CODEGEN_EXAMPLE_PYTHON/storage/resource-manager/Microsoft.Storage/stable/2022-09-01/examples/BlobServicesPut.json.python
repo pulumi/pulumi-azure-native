@@ -8,7 +8,7 @@ blob_service_properties = azure_native.storage.BlobServiceProperties("blobServic
         enabled=True,
         retention_in_days=7,
     ),
-    cors=azure_native.storage.CorsRulesResponseArgs(
+    cors=azure_native.storage.CorsRulesArgs(
         cors_rules=[
             azure_native.storage.CorsRuleArgs(
                 allowed_headers=[

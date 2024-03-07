@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 network_interface = azure_native.network.NetworkInterface("networkInterface",
     disable_tcp_state_tracking=True,
     enable_accelerated_networking=True,
-    ip_configurations=[azure_native.network.NetworkInterfaceIPConfigurationResponseArgs(
+    ip_configurations=[azure_native.network.NetworkInterfaceIPConfigurationArgs(
         name="ipconfig1",
         public_ip_address=azure_native.network.PublicIPAddressArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",

@@ -10,11 +10,11 @@ func main() {
 		_, err := testbase.NewCustomerEvent(ctx, "customerEvent", &testbase.CustomerEventArgs{
 			CustomerEventName: pulumi.String("WeeklySummary"),
 			EventName:         pulumi.String("WeeklySummary"),
-			Receivers: []testbase.NotificationEventReceiverArgs{
-				{
+			Receivers: testbase.NotificationEventReceiverArray{
+				&testbase.NotificationEventReceiverArgs{
 					ReceiverType: pulumi.String("UserObjects"),
-					ReceiverValue: {
-						UserObjectReceiverValue: {
+					ReceiverValue: &testbase.NotificationReceiverValueArgs{
+						UserObjectReceiverValue: &testbase.UserObjectReceiverValueArgs{
 							UserObjectIds: pulumi.StringArray{
 								pulumi.String("245245245245325"),
 								pulumi.String("365365365363565"),
@@ -22,10 +22,10 @@ func main() {
 						},
 					},
 				},
-				{
+				&testbase.NotificationEventReceiverArgs{
 					ReceiverType: pulumi.String("DistributionGroup"),
-					ReceiverValue: {
-						DistributionGroupListReceiverValue: {
+					ReceiverValue: &testbase.NotificationReceiverValueArgs{
+						DistributionGroupListReceiverValue: &testbase.DistributionGroupListReceiverValueArgs{
 							DistributionGroups: pulumi.StringArray{
 								pulumi.String("test@microsoft.com"),
 							},

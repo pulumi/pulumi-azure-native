@@ -12,7 +12,7 @@ func main() {
 			GalleryName:       pulumi.String("myGalleryName"),
 			Location:          pulumi.String("West US"),
 			ResourceGroupName: pulumi.String("myResourceGroup"),
-			SharingProfile: compute.SharingProfileResponse{
+			SharingProfile: &compute.SharingProfileArgs{
 				CommunityGalleryInfo: &compute.CommunityGalleryInfoArgs{
 					Eula:             pulumi.String("eula"),
 					PublicNamePrefix: pulumi.String("PirPublic"),

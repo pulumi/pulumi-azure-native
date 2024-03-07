@@ -33,7 +33,7 @@ return await Deployment.RunAsync(() =>
             new AzureNative.ApiManagement.Inputs.ResponseContractArgs
             {
                 Description = "successful operation",
-                Headers = new[] {},
+                Headers = new() { },
                 Representations = new[]
                 {
                     new AzureNative.ApiManagement.Inputs.RepresentationContractArgs

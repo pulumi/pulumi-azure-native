@@ -15,13 +15,13 @@ data_lake_connector = azure_native.iotoperationsmq.DataLakeConnector("dataLakeCo
         tag="jygfdiamhhm",
     ),
     instances=53467,
-    local_broker_connection=azure_native.iotoperationsmq.LocalBrokerConnectionSpecResponseArgs(
-        authentication={
-            "kubernetes": azure_native.iotoperationsmq.LocalBrokerKubernetesAuthenticationArgs(
+    local_broker_connection=azure_native.iotoperationsmq.LocalBrokerConnectionSpecArgs(
+        authentication=azure_native.iotoperationsmq.LocalBrokerAuthenticationMethodsArgs(
+            kubernetes=azure_native.iotoperationsmq.LocalBrokerKubernetesAuthenticationArgs(
                 secret_path="soukzfkouir",
                 service_account_token_name="suwetviuhmhorhvsidlznnufe",
             ),
-        },
+        ),
         endpoint="xc",
         tls=azure_native.iotoperationsmq.LocalBrokerConnectionTlsArgs(
             tls_enabled=True,
@@ -40,35 +40,35 @@ data_lake_connector = azure_native.iotoperationsmq.DataLakeConnector("dataLakeCo
     protocol="v3",
     resource_group_name="rgiotoperationsmq",
     tags={},
-    target=azure_native.iotoperationsmq.DataLakeTargetStorageResponseArgs(
-        datalake_storage={
-            "authentication": {
-                "accessTokenSecretName": "cfaoxjbfbwdldqjbfczvovgooyqkl",
-                "systemAssignedManagedIdentity": azure_native.iotoperationsmq.ManagedIdentityAuthenticationArgs(
+    target=azure_native.iotoperationsmq.DataLakeTargetStorageArgs(
+        datalake_storage=azure_native.iotoperationsmq.DataLakeServiceStorageArgs(
+            authentication=azure_native.iotoperationsmq.DataLakeServiceStorageAuthenticationArgs(
+                access_token_secret_name="cfaoxjbfbwdldqjbfczvovgooyqkl",
+                system_assigned_managed_identity=azure_native.iotoperationsmq.ManagedIdentityAuthenticationArgs(
                     audience="kjderojhpehosgfcrxxbh",
                     extension_name="cyckjqqzspleajbtkniwrfsqygjfhe",
                 ),
-            },
-            "endpoint": "bddy",
-        },
-        fabric_one_lake={
-            "authentication": {
-                "systemAssignedManagedIdentity": azure_native.iotoperationsmq.ManagedIdentityAuthenticationArgs(
+            ),
+            endpoint="bddy",
+        ),
+        fabric_one_lake=azure_native.iotoperationsmq.DataLakeFabricStorageArgs(
+            authentication=azure_native.iotoperationsmq.DataLakeFabricStorageAuthenticationArgs(
+                system_assigned_managed_identity=azure_native.iotoperationsmq.ManagedIdentityAuthenticationArgs(
                     audience="kjderojhpehosgfcrxxbh",
                     extension_name="cyckjqqzspleajbtkniwrfsqygjfhe",
                 ),
-            },
-            "endpoint": "S.fabric.microsoft.com",
-            "fabricPath": "files",
-            "guids": azure_native.iotoperationsmq.FabricGuidsArgs(
+            ),
+            endpoint="S.fabric.microsoft.com",
+            fabric_path="files",
+            guids=azure_native.iotoperationsmq.FabricGuidsArgs(
                 lakehouse_guid="grsapopwjnuzbmnxbjnawaae",
                 workspace_guid="iwqfplayvdkdxumpdc",
             ),
-            "names": azure_native.iotoperationsmq.FabricNamesArgs(
+            names=azure_native.iotoperationsmq.FabricNamesArgs(
                 lakehouse_name="iqgqtk",
                 workspace_name="fxvlfhfcmlhcbgpopyqfikqsryct",
             ),
-        },
+        ),
         local_storage=azure_native.iotoperationsmq.DataLakeLocalStorageArgs(
             volume_name="nmzsioldiwteljpplmftk",
         ),

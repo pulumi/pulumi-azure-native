@@ -3,9 +3,9 @@ import pulumi_azure_native as azure_native
 
 guest_diagnostics_setting = azure_native.insights.GuestDiagnosticsSetting("guestDiagnosticsSetting",
     data_sources=[
-        {
-            "configuration": {
-                "perfCounters": [
+        azure_native.insights.DataSourceArgs(
+            configuration=azure_native.insights.DataSourceConfigurationArgs(
+                perf_counters=[
                     azure_native.insights.PerformanceCounterConfigurationArgs(
                         name="\\Process(_Total)\\%Processor Time",
                         sampling_period="PT1M",
@@ -15,15 +15,15 @@ guest_diagnostics_setting = azure_native.insights.GuestDiagnosticsSetting("guest
                         sampling_period="PT1M",
                     ),
                 ],
-            },
-            "kind": "PerformanceCounter",
-            "sinks": [azure_native.insights.SinkConfigurationArgs(
+            ),
+            kind="PerformanceCounter",
+            sinks=[azure_native.insights.SinkConfigurationArgs(
                 kind="LogAnalytics",
             )],
-        },
-        {
-            "configuration": {
-                "providers": [
+        ),
+        azure_native.insights.DataSourceArgs(
+            configuration=azure_native.insights.DataSourceConfigurationArgs(
+                providers=[
                     azure_native.insights.EtwProviderConfigurationArgs(
                         id="1",
                     ),
@@ -31,15 +31,15 @@ guest_diagnostics_setting = azure_native.insights.GuestDiagnosticsSetting("guest
                         id="2",
                     ),
                 ],
-            },
-            "kind": "ETWProviders",
-            "sinks": [azure_native.insights.SinkConfigurationArgs(
+            ),
+            kind="ETWProviders",
+            sinks=[azure_native.insights.SinkConfigurationArgs(
                 kind="LogAnalytics",
             )],
-        },
-        {
-            "configuration": {
-                "eventLogs": [
+        ),
+        azure_native.insights.DataSourceArgs(
+            configuration=azure_native.insights.DataSourceConfigurationArgs(
+                event_logs=[
                     azure_native.insights.EventLogConfigurationArgs(
                         filter="SourceName == Xyz AND EventId = \"100\" AND  $Xpath/Column=\"DCName\" = \"CatWoman\"",
                         log_name="Application",
@@ -49,12 +49,12 @@ guest_diagnostics_setting = azure_native.insights.GuestDiagnosticsSetting("guest
                         log_name="Application",
                     ),
                 ],
-            },
-            "kind": "WindowsEventLogs",
-            "sinks": [azure_native.insights.SinkConfigurationArgs(
+            ),
+            kind="WindowsEventLogs",
+            sinks=[azure_native.insights.SinkConfigurationArgs(
                 kind="LogAnalytics",
             )],
-        },
+        ),
     ],
     diagnostic_settings_name="SampleDiagSetting",
     location="Global",

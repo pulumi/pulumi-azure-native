@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 hyper_v_site = azure_native.offazure.HyperVSite("hyperVSite",
     location="eastus",
-    properties=azure_native.offazure.SitePropertiesResponseArgs(
+    properties=azure_native.offazure.SitePropertiesArgs(
         service_principal_identity_details=azure_native.offazure.SiteSpnPropertiesArgs(
             aad_authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
             application_id="e9f013df-2a2a-4871-b766-e79867f30348",

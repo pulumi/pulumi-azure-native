@@ -10,7 +10,7 @@ func main() {
 		_, err := alertsmanagement.NewAlertProcessingRuleByName(ctx, "alertProcessingRuleByName", &alertsmanagement.AlertProcessingRuleByNameArgs{
 			AlertProcessingRuleName: pulumi.String("RemoveActionGroupsMaintenanceWindow"),
 			Location:                pulumi.String("Global"),
-			Properties: alertsmanagement.AlertProcessingRulePropertiesResponse{
+			Properties: &alertsmanagement.AlertProcessingRulePropertiesArgs{
 				Actions: pulumi.Array{
 					alertsmanagement.RemoveAllActionGroups{
 						ActionType: "RemoveAllActionGroups",

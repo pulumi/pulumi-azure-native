@@ -25,21 +25,21 @@ managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
     enable_rbac=True,
     fqdn_subdomain="domain1",
     kubernetes_version="",
-    linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+    linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileArgs(
         admin_username="azureuser",
-        ssh={
-            "publicKeys": [azure_native.containerservice.ContainerServiceSshPublicKeyArgs(
+        ssh=azure_native.containerservice.ContainerServiceSshConfigurationArgs(
+            public_keys=[azure_native.containerservice.ContainerServiceSshPublicKeyArgs(
                 key_data="keydata",
             )],
-        },
+        ),
     ),
     location="location1",
-    network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
-        load_balancer_profile={
-            "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+    network_profile=azure_native.containerservice.ContainerServiceNetworkProfileArgs(
+        load_balancer_profile=azure_native.containerservice.ManagedClusterLoadBalancerProfileArgs(
+            managed_outbound_ips=azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
                 count=2,
             ),
-        },
+        ),
         load_balancer_sku="standard",
         outbound_type="loadBalancer",
     ),

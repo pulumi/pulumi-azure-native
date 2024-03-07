@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := securityinsights.NewScheduledAlertRule(ctx, "scheduledAlertRule", &securityinsights.ScheduledAlertRuleArgs{
-			AlertDetailsOverride: securityinsights.AlertDetailsOverrideResponse{
+			AlertDetailsOverride: &securityinsights.AlertDetailsOverrideArgs{
 				AlertDescriptionFormat: pulumi.String("Suspicious activity was made by {{ComputerIP}}"),
 				AlertDisplayNameFormat: pulumi.String("Alert from {{Computer}}"),
 				AlertDynamicProperties: securityinsights.AlertPropertyMappingArray{
@@ -33,20 +33,20 @@ func main() {
 			Description: pulumi.String("An example for a scheduled rule"),
 			DisplayName: pulumi.String("My scheduled rule"),
 			Enabled:     pulumi.Bool(true),
-			EntityMappings: []securityinsights.EntityMappingArgs{
-				{
+			EntityMappings: securityinsights.EntityMappingArray{
+				&securityinsights.EntityMappingArgs{
 					EntityType: pulumi.String("Host"),
 					FieldMappings: securityinsights.FieldMappingArray{
-						{
+						&securityinsights.FieldMappingArgs{
 							ColumnName: pulumi.String("Computer"),
 							Identifier: pulumi.String("FullName"),
 						},
 					},
 				},
-				{
+				&securityinsights.EntityMappingArgs{
 					EntityType: pulumi.String("IP"),
 					FieldMappings: securityinsights.FieldMappingArray{
-						{
+						&securityinsights.FieldMappingArgs{
 							ColumnName: pulumi.String("ComputerIP"),
 							Identifier: pulumi.String("Address"),
 						},
@@ -56,7 +56,7 @@ func main() {
 			EventGroupingSettings: &securityinsights.EventGroupingSettingsArgs{
 				AggregationKind: pulumi.String("AlertPerResult"),
 			},
-			IncidentConfiguration: securityinsights.IncidentConfigurationResponse{
+			IncidentConfiguration: &securityinsights.IncidentConfigurationArgs{
 				CreateIncident: pulumi.Bool(true),
 				GroupingConfiguration: &securityinsights.GroupingConfigurationArgs{
 					Enabled: pulumi.Bool(true),

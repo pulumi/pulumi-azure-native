@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := appplatform.NewService(ctx, "service", &appplatform.ServiceArgs{
 			Location: pulumi.String("eastus"),
-			Properties: appplatform.ClusterResourcePropertiesResponse{
+			Properties: &appplatform.ClusterResourcePropertiesArgs{
 				MarketplaceResource: &appplatform.MarketplaceResourceArgs{
 					Plan:      pulumi.String("tanzu-asc-ent-mtr"),
 					Product:   pulumi.String("azure-spring-cloud-vmware-tanzu-2"),

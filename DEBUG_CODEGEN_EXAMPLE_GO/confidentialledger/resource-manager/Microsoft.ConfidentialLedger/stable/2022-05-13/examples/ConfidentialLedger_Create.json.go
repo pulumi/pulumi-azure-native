@@ -10,7 +10,7 @@ func main() {
 		_, err := confidentialledger.NewLedger(ctx, "ledger", &confidentialledger.LedgerArgs{
 			LedgerName: pulumi.String("DummyLedgerName"),
 			Location:   pulumi.String("EastUS"),
-			Properties: confidentialledger.LedgerPropertiesResponse{
+			Properties: &confidentialledger.LedgerPropertiesArgs{
 				AadBasedSecurityPrincipals: confidentialledger.AADBasedSecurityPrincipalArray{
 					&confidentialledger.AADBasedSecurityPrincipalArgs{
 						LedgerRoleName: pulumi.String("Administrator"),

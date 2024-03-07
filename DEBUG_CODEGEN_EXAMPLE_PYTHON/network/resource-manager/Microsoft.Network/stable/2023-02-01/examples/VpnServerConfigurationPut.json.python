@@ -3,28 +3,28 @@ import pulumi_azure_native as azure_native
 
 vpn_server_configuration = azure_native.network.VpnServerConfiguration("vpnServerConfiguration",
     configuration_policy_groups=[
-        {
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1",
-            "isDefault": True,
-            "name": "policyGroup1",
-            "policyMembers": [azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+        azure_native.network.VpnServerConfigurationPolicyGroupArgs(
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1",
+            is_default=True,
+            name="policyGroup1",
+            policy_members=[azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
                 attribute_type="RadiusAzureGroupId",
                 attribute_value="6ad1bd08",
                 name="policy1",
             )],
-            "priority": 0,
-        },
-        {
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup2",
-            "isDefault": True,
-            "name": "policyGroup2",
-            "policyMembers": [azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+            priority=0,
+        ),
+        azure_native.network.VpnServerConfigurationPolicyGroupArgs(
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup2",
+            is_default=True,
+            name="policyGroup2",
+            policy_members=[azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
                 attribute_type="CertificateGroupId",
                 attribute_value="red.com",
                 name="policy2",
             )],
-            "priority": 0,
-        },
+            priority=0,
+        ),
     ],
     location="West US",
     radius_client_root_certificates=[azure_native.network.VpnServerConfigRadiusClientRootCertificateArgs(

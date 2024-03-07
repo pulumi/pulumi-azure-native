@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := app.NewManagedEnvironmentsStorage(ctx, "managedEnvironmentsStorage", &app.ManagedEnvironmentsStorageArgs{
 			EnvironmentName: pulumi.String("managedEnv"),
-			Properties: app.ManagedEnvironmentStorageResponseProperties{
+			Properties: &app.ManagedEnvironmentStoragePropertiesArgs{
 				AzureFile: &app.AzureFilePropertiesArgs{
 					AccessMode:  pulumi.String("ReadOnly"),
 					AccountKey:  pulumi.String("key"),

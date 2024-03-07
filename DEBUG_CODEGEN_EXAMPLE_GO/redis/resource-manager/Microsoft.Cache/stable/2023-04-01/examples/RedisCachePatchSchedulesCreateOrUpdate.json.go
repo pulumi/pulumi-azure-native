@@ -11,13 +11,13 @@ func main() {
 			Default:           pulumi.String("default"),
 			Name:              pulumi.String("cache1"),
 			ResourceGroupName: pulumi.String("rg1"),
-			ScheduleEntries: []cache.ScheduleEntryArgs{
-				{
+			ScheduleEntries: cache.ScheduleEntryArray{
+				&cache.ScheduleEntryArgs{
 					DayOfWeek:         cache.DayOfWeekMonday,
 					MaintenanceWindow: pulumi.String("PT5H"),
 					StartHourUtc:      pulumi.Int(12),
 				},
-				{
+				&cache.ScheduleEntryArgs{
 					DayOfWeek:    cache.DayOfWeekTuesday,
 					StartHourUtc: pulumi.Int(12),
 				},

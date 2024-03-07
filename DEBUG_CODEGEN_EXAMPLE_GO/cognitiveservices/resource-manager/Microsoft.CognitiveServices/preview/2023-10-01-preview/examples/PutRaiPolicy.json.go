@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := cognitiveservices.NewRaiPolicy(ctx, "raiPolicy", &cognitiveservices.RaiPolicyArgs{
 			AccountName: pulumi.String("accountName"),
-			Properties: cognitiveservices.RaiPolicyPropertiesResponse{
+			Properties: &cognitiveservices.RaiPolicyPropertiesArgs{
 				BasePolicyName: pulumi.String("112"),
 				ContentFilters: cognitiveservices.RaiPolicyContentFilterArray{
 					&cognitiveservices.RaiPolicyContentFilterArgs{

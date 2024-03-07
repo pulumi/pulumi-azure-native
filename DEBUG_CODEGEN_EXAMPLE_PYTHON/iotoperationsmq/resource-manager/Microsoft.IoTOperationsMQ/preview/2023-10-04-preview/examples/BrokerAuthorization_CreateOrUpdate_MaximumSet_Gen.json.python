@@ -3,19 +3,19 @@ import pulumi_azure_native as azure_native
 
 broker_authorization = azure_native.iotoperationsmq.BrokerAuthorization("brokerAuthorization",
     authorization_name="C15G",
-    authorization_policies=azure_native.iotoperationsmq.AuthorizationConfigResponseArgs(
+    authorization_policies=azure_native.iotoperationsmq.AuthorizationConfigArgs(
         enable_cache=True,
-        rules=[{
-            "brokerResources": [azure_native.iotoperationsmq.ResourceInfoDefinitionArgs(
+        rules=[azure_native.iotoperationsmq.AuthorizationBasicRuleArgs(
+            broker_resources=[azure_native.iotoperationsmq.ResourceInfoDefinitionArgs(
                 method="Connect",
                 topics=["v"],
             )],
-            "principals": azure_native.iotoperationsmq.PrincipalDefinitionArgs(
+            principals=azure_native.iotoperationsmq.PrincipalDefinitionArgs(
                 attributes=[{}],
                 clientids=["smrfzvniq"],
                 usernames=["jtwwmsrzriat"],
             ),
-        }],
+        )],
     ),
     broker_name="7E0-tXS-6u1h-Vx396----",
     extended_location=azure_native.iotoperationsmq.ExtendedLocationPropertyArgs(

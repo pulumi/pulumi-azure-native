@@ -8,7 +8,7 @@ func main() {
 pulumi.Run(func(ctx *pulumi.Context) error {
 _, err := recoveryservices.NewReplicationFabric(ctx, "replicationFabric", &recoveryservices.ReplicationFabricArgs{
 FabricName: pulumi.String("cloud1"),
-Properties: recoveryservices.FabricPropertiesResponse{
+Properties: &recoveryservices.FabricCreationInputPropertiesArgs{
 CustomDetails: interface{}{
 InstanceType: pulumi.String("FabricSpecificCreationInput"),
 },

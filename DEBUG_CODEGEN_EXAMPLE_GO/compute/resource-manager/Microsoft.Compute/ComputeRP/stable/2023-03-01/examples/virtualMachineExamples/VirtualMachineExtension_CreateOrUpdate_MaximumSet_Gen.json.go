@@ -11,7 +11,7 @@ func main() {
 			AutoUpgradeMinorVersion: pulumi.Bool(true),
 			EnableAutomaticUpgrade:  pulumi.Bool(true),
 			ForceUpdateTag:          pulumi.String("a"),
-			InstanceView: compute.VirtualMachineExtensionInstanceViewResponse{
+			InstanceView: &compute.VirtualMachineExtensionInstanceViewArgs{
 				Name: pulumi.String("aaaaaaaaaaaaaaaaa"),
 				Statuses: compute.InstanceViewStatusArray{
 					&compute.InstanceViewStatusArgs{

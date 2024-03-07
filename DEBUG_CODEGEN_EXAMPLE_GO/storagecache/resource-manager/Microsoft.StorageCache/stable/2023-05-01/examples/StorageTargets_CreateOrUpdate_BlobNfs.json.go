@@ -15,8 +15,8 @@ func main() {
 				WriteBackTimer:    pulumi.Int(3600),
 			},
 			CacheName: pulumi.String("sc1"),
-			Junctions: []storagecache.NamespaceJunctionArgs{
-				{
+			Junctions: storagecache.NamespaceJunctionArray{
+				&storagecache.NamespaceJunctionArgs{
 					NamespacePath: pulumi.String("/blobnfs"),
 				},
 			},

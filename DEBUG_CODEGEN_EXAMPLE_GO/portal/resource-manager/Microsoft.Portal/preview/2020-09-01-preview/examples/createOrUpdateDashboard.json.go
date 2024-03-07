@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := portal.NewDashboard(ctx, "dashboard", &portal.DashboardArgs{
 			DashboardName: pulumi.String("testDashboard"),
-			Lenses: []portal.DashboardLensArgs{
-				{
+			Lenses: portal.DashboardLensArray{
+				&portal.DashboardLensArgs{
 					Order: pulumi.Int(1),
 					Parts: []portal.DashboardPartsArgs{
 						{
@@ -31,7 +31,7 @@ func main() {
 						},
 					},
 				},
-				{
+				&portal.DashboardLensArgs{
 					Order: pulumi.Int(2),
 					Parts: portal.DashboardPartsArray{},
 				},

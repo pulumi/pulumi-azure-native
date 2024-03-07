@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := eventhub.NewEventHub(ctx, "eventHub", &eventhub.EventHubArgs{
-			CaptureDescription: eventhub.CaptureDescriptionResponse{
+			CaptureDescription: &eventhub.CaptureDescriptionArgs{
 				Destination: &eventhub.DestinationArgs{
 					ArchiveNameFormat:        pulumi.String("{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}"),
 					BlobContainer:            pulumi.String("container"),

@@ -13,12 +13,12 @@ func main() {
 			Location:       pulumi.String("eastus2"),
 			MachineName:    pulumi.String("myMachine"),
 			OutputBlobUri:  pulumi.String("https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt"),
-			Parameters: []hybridcompute.RunCommandInputParameterArgs{
-				{
+			Parameters: hybridcompute.RunCommandInputParameterArray{
+				&hybridcompute.RunCommandInputParameterArgs{
 					Name:  pulumi.String("param1"),
 					Value: pulumi.String("value1"),
 				},
-				{
+				&hybridcompute.RunCommandInputParameterArgs{
 					Name:  pulumi.String("param2"),
 					Value: pulumi.String("value2"),
 				},

@@ -13,7 +13,7 @@ func main() {
 				pulumi.String("1.1.1.1"),
 			},
 			Location: pulumi.String("eastus"),
-			NaptConfiguration: mobilenetwork.NaptConfigurationResponse{
+			NaptConfiguration: &mobilenetwork.NaptConfigurationArgs{
 				Enabled:       pulumi.String("Enabled"),
 				PinholeLimits: pulumi.Int(65536),
 				PinholeTimeouts: &mobilenetwork.PinholeTimeoutsArgs{

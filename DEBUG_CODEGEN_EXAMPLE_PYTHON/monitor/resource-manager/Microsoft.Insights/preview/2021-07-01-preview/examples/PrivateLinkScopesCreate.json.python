@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 private_link_scope = azure_native.insights.PrivateLinkScope("privateLinkScope",
-    access_mode_settings=azure_native.insights.AccessModeSettingsResponseArgs(
+    access_mode_settings=azure_native.insights.AccessModeSettingsArgs(
         exclusions=[],
         ingestion_access_mode="Open",
         query_access_mode="Open",

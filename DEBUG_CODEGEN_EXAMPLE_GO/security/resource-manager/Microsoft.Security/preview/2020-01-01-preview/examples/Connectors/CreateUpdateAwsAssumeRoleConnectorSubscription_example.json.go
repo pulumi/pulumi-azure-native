@@ -14,7 +14,7 @@ func main() {
 				AwsExternalId:      "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
 			},
 			ConnectorName: pulumi.String("aws_dev2"),
-			HybridComputeSettings: security.HybridComputeSettingsPropertiesResponse{
+			HybridComputeSettings: &security.HybridComputeSettingsPropertiesArgs{
 				AutoProvision: pulumi.String("On"),
 				ProxyServer: &security.ProxyServerPropertiesArgs{
 					Ip:   pulumi.String("167.220.197.140"),

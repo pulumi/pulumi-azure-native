@@ -12,10 +12,10 @@ func main() {
 			DestinationAccount:        pulumi.String("dst112"),
 			ObjectReplicationPolicyId: pulumi.String("default"),
 			ResourceGroupName:         pulumi.String("res7687"),
-			Rules: []storage.ObjectReplicationPolicyRuleArgs{
-				{
+			Rules: storage.ObjectReplicationPolicyRuleArray{
+				&storage.ObjectReplicationPolicyRuleArgs{
 					DestinationContainer: pulumi.String("dcont139"),
-					Filters: {
+					Filters: &storage.ObjectReplicationPolicyFilterArgs{
 						PrefixMatch: pulumi.StringArray{
 							pulumi.String("blobA"),
 							pulumi.String("blobB"),

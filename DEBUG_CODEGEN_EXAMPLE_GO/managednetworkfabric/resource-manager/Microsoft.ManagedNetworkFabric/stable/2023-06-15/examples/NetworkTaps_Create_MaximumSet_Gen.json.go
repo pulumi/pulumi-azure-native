@@ -9,12 +9,12 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := managednetworkfabric.NewNetworkTap(ctx, "networkTap", &managednetworkfabric.NetworkTapArgs{
 			Annotation: pulumi.String("annotation"),
-			Destinations: []managednetworkfabric.NetworkTapPropertiesDestinationsArgs{
-				{
+			Destinations: managednetworkfabric.NetworkTapPropertiesDestinationsArray{
+				&managednetworkfabric.NetworkTapPropertiesDestinationsArgs{
 					DestinationId:        pulumi.String("/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsloationDomains/example-l3Domain/internalNetworks/example-internalNetwork"),
 					DestinationTapRuleId: pulumi.String("/subscriptions/xxxx-xxxx-xxxx-xxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-destinationTapRule"),
 					DestinationType:      pulumi.String("IsolationDomain"),
-					IsolationDomainProperties: {
+					IsolationDomainProperties: &managednetworkfabric.IsolationDomainPropertiesArgs{
 						Encapsulation: pulumi.String("None"),
 						NeighborGroupIds: pulumi.StringArray{
 							pulumi.String("/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"),

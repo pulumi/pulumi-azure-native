@@ -5,20 +5,20 @@ bandwidth_setting = azure_native.storsimple.BandwidthSetting("bandwidthSetting",
     bandwidth_setting_name="BWSForTest",
     manager_name="ManagerForSDKTest1",
     resource_group_name="ResourceGroupForSDKTest",
-    schedules=[{
-        "days": [
+    schedules=[azure_native.storsimple.BandwidthScheduleArgs(
+        days=[
             azure_native.storsimple.DayOfWeek.SATURDAY,
             azure_native.storsimple.DayOfWeek.SUNDAY,
         ],
-        "rateInMbps": 10,
-        "start": azure_native.storsimple.TimeArgs(
+        rate_in_mbps=10,
+        start=azure_native.storsimple.TimeArgs(
             hours=10,
             minutes=0,
             seconds=0,
         ),
-        "stop": azure_native.storsimple.TimeArgs(
+        stop=azure_native.storsimple.TimeArgs(
             hours=20,
             minutes=0,
             seconds=0,
         ),
-    }])
+    )])

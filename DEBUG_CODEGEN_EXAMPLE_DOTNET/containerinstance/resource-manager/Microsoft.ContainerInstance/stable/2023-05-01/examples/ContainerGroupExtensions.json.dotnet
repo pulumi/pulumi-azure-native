@@ -13,7 +13,7 @@ return await Deployment.RunAsync(() =>
             new AzureNative.ContainerInstance.Inputs.ContainerArgs
             {
                 Command = new() { },
-                EnvironmentVariables = new[] {},
+                EnvironmentVariables = new() { },
                 Image = "nginx",
                 Name = "demo1",
                 Ports = new[]

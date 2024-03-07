@@ -10,7 +10,7 @@ func main() {
 		_, err := appplatform.NewCustomizedAccelerator(ctx, "customizedAccelerator", &appplatform.CustomizedAcceleratorArgs{
 			ApplicationAcceleratorName: pulumi.String("default"),
 			CustomizedAcceleratorName:  pulumi.String("acc-name"),
-			Properties: appplatform.CustomizedAcceleratorPropertiesResponse{
+			Properties: &appplatform.CustomizedAcceleratorPropertiesArgs{
 				AcceleratorTags: pulumi.StringArray{
 					pulumi.String("tag-a"),
 					pulumi.String("tag-b"),

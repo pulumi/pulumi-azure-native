@@ -14,7 +14,7 @@ func main() {
 			ExpirationDateUtc:         pulumi.String("2019-12-01T19:50:47.083633Z"),
 			Reason:                    pulumi.String("FalsePositive"),
 			State:                     pulumi.String("Enabled"),
-			SuppressionAlertsScope: security.SuppressionAlertsScopeResponse{
+			SuppressionAlertsScope: &security.SuppressionAlertsScopeArgs{
 				AllOf: security.ScopeElementArray{
 					&security.ScopeElementArgs{
 						Field: pulumi.String("entities.ip.address"),

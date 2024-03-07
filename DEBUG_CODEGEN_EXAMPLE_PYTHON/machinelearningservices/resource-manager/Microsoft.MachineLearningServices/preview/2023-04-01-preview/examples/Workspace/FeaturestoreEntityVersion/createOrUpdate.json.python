@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 featurestore_entity_version = azure_native.machinelearningservices.FeaturestoreEntityVersion("featurestoreEntityVersion",
-    featurestore_entity_version_properties=azure_native.machinelearningservices.FeaturestoreEntityVersionResponseArgs(
+    featurestore_entity_version_properties=azure_native.machinelearningservices.FeaturestoreEntityVersionArgs(
         description="string",
         index_columns=[azure_native.machinelearningservices.IndexColumnArgs(
             column_name="string",

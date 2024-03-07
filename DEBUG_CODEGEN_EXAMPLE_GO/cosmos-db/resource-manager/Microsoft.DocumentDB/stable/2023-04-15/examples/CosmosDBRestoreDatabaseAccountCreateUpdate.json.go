@@ -30,8 +30,8 @@ func main() {
 			KeyVaultKeyUri:           pulumi.String("https://myKeyVault.vault.azure.net"),
 			Kind:                     pulumi.String("GlobalDocumentDB"),
 			Location:                 pulumi.String("westus"),
-			Locations: []documentdb.LocationArgs{
-				{
+			Locations: documentdb.LocationArray{
+				&documentdb.LocationArgs{
 					FailoverPriority: pulumi.Int(0),
 					IsZoneRedundant:  pulumi.Bool(false),
 					LocationName:     pulumi.String("southcentralus"),
@@ -39,7 +39,7 @@ func main() {
 			},
 			MinimalTlsVersion: pulumi.String("Tls"),
 			ResourceGroupName: pulumi.String("rg1"),
-			RestoreParameters: documentdb.RestoreParametersResponse{
+			RestoreParameters: &documentdb.RestoreParametersArgs{
 				DatabasesToRestore: documentdb.DatabaseRestoreResourceArray{
 					&documentdb.DatabaseRestoreResourceArgs{
 						CollectionNames: pulumi.StringArray{

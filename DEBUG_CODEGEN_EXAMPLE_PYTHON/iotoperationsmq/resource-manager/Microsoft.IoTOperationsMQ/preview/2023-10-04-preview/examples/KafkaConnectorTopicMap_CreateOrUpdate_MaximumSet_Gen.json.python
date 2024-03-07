@@ -21,25 +21,25 @@ kafka_connector_topic_map = azure_native.iotoperationsmq.KafkaConnectorTopicMap(
     partition_key_property="c",
     partition_strategy="default",
     resource_group_name="rgiotoperationsmq",
-    routes=[{
-        "kafkaToMqtt": azure_native.iotoperationsmq.KafkaToMqttRoutesArgs(
+    routes=[azure_native.iotoperationsmq.KafkaRoutesArgs(
+        kafka_to_mqtt=azure_native.iotoperationsmq.KafkaToMqttRoutesArgs(
             consumer_group_id="usork",
             kafka_topic="ggwhwbsr",
             mqtt_topic="jwvmmhfqqkkmqrpslbdfmpbdetfu",
             name="lrnvudysggscnqvmnlkrk",
             qos=1,
         ),
-        "mqttToKafka": {
-            "kafkaAcks": "zero",
-            "kafkaTopic": "tellycttwulueqcpqf",
-            "mqttTopic": "raipkrcwvdnnflywhgjwnquarf",
-            "name": "qpshqcaxvxnyjzimvchngupzezdei",
-            "qos": 1,
-            "sharedSubscription": azure_native.iotoperationsmq.KafkaSharedSubscriptionPropertiesArgs(
+        mqtt_to_kafka=azure_native.iotoperationsmq.MqttToKafkaRoutesArgs(
+            kafka_acks="zero",
+            kafka_topic="tellycttwulueqcpqf",
+            mqtt_topic="raipkrcwvdnnflywhgjwnquarf",
+            name="qpshqcaxvxnyjzimvchngupzezdei",
+            qos=1,
+            shared_subscription=azure_native.iotoperationsmq.KafkaSharedSubscriptionPropertiesArgs(
                 group_minimum_share_number=216,
                 group_name="nwdyccsditzhchuksmi",
             ),
-        },
-    }],
+        ),
+    )],
     tags={},
     topic_map_name="q582ViEY-b7wF1OO2A")

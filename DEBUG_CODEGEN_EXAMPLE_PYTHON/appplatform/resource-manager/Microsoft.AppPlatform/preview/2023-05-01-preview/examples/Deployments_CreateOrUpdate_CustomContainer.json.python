@@ -4,12 +4,12 @@ import pulumi_azure_native as azure_native
 deployment = azure_native.appplatform.Deployment("deployment",
     app_name="myapp",
     deployment_name="mydeployment",
-    properties=azure_native.appplatform.DeploymentResourcePropertiesResponseArgs(
-        deployment_settings={
-            "environmentVariables": {
+    properties=azure_native.appplatform.DeploymentResourcePropertiesArgs(
+        deployment_settings=azure_native.appplatform.DeploymentSettingsArgs(
+            environment_variables={
                 "env": "test",
             },
-            "livenessProbe": azure_native.appplatform.ProbeArgs(
+            liveness_probe=azure_native.appplatform.ProbeArgs(
                 disable_probe=False,
                 failure_threshold=3,
                 initial_delay_seconds=30,
@@ -20,7 +20,7 @@ deployment = azure_native.appplatform.Deployment("deployment",
                     type="HTTPGetAction",
                 ),
             ),
-            "readinessProbe": azure_native.appplatform.ProbeArgs(
+            readiness_probe=azure_native.appplatform.ProbeArgs(
                 disable_probe=False,
                 failure_threshold=3,
                 initial_delay_seconds=30,
@@ -31,12 +31,12 @@ deployment = azure_native.appplatform.Deployment("deployment",
                     type="HTTPGetAction",
                 ),
             ),
-            "resourceRequests": azure_native.appplatform.ResourceRequestsArgs(
+            resource_requests=azure_native.appplatform.ResourceRequestsArgs(
                 cpu="1000m",
                 memory="3Gi",
             ),
-            "terminationGracePeriodSeconds": 30,
-        },
+            termination_grace_period_seconds=30,
+        ),
         source=azure_native.appplatform.CustomContainerUserSourceInfoArgs(
             custom_container=azure_native.appplatform.CustomContainerArgs(
                 args=[

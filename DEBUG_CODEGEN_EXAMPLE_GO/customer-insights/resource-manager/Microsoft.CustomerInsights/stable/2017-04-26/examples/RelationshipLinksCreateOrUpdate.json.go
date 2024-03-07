@@ -16,14 +16,14 @@ func main() {
 			},
 			HubName:         pulumi.String("sdkTestHub"),
 			InteractionType: pulumi.String("testInteraction4332"),
-			ProfilePropertyReferences: []customerinsights.ParticipantProfilePropertyReferenceArgs{
-				{
+			ProfilePropertyReferences: customerinsights.ParticipantProfilePropertyReferenceArray{
+				&customerinsights.ParticipantProfilePropertyReferenceArgs{
 					InteractionPropertyName: pulumi.String("profile1"),
 					ProfilePropertyName:     pulumi.String("ProfileId"),
 				},
 			},
-			RelatedProfilePropertyReferences: []customerinsights.ParticipantProfilePropertyReferenceArgs{
-				{
+			RelatedProfilePropertyReferences: customerinsights.ParticipantProfilePropertyReferenceArray{
+				&customerinsights.ParticipantProfilePropertyReferenceArgs{
 					InteractionPropertyName: pulumi.String("profile1"),
 					ProfilePropertyName:     pulumi.String("ProfileId"),
 				},

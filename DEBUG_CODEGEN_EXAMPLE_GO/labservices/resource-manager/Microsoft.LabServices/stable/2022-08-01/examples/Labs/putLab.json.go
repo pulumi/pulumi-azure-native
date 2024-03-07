@@ -34,7 +34,7 @@ func main() {
 				OpenAccess: labservices.EnableStateDisabled,
 			},
 			Title: pulumi.String("Test Lab"),
-			VirtualMachineProfile: labservices.VirtualMachineProfileResponse{
+			VirtualMachineProfile: &labservices.VirtualMachineProfileArgs{
 				AdditionalCapabilities: &labservices.VirtualMachineAdditionalCapabilitiesArgs{
 					InstallGpuDrivers: labservices.EnableStateDisabled,
 				},

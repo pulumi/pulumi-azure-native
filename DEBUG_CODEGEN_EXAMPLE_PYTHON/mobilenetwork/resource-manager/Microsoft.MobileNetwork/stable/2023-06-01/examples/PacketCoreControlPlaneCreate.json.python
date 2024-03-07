@@ -9,7 +9,7 @@ packet_core_control_plane = azure_native.mobilenetwork.PacketCoreControlPlane("p
     installation=azure_native.mobilenetwork.InstallationArgs(
         desired_state="Installed",
     ),
-    local_diagnostics_access=azure_native.mobilenetwork.LocalDiagnosticsAccessConfigurationResponseArgs(
+    local_diagnostics_access=azure_native.mobilenetwork.LocalDiagnosticsAccessConfigurationArgs(
         authentication_type="AAD",
         https_server_certificate=azure_native.mobilenetwork.HttpsServerCertificateArgs(
             certificate_url="https://contosovault.vault.azure.net/certificates/ingress",
@@ -17,7 +17,7 @@ packet_core_control_plane = azure_native.mobilenetwork.PacketCoreControlPlane("p
     ),
     location="eastus",
     packet_core_control_plane_name="TestPacketCoreCP",
-    platform=azure_native.mobilenetwork.PlatformConfigurationResponseArgs(
+    platform=azure_native.mobilenetwork.PlatformConfigurationArgs(
         azure_stack_edge_device=azure_native.mobilenetwork.AzureStackEdgeDeviceResourceIdArgs(
             id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice",
         ),

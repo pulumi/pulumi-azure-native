@@ -33,12 +33,12 @@ return await Deployment.RunAsync(() =>
                 {
                     InstanceType = "string",
                 },
-                Schedule = 
+                Schedule = new AzureNative.MachineLearningServices.Inputs.RecurrenceTriggerArgs
                 {
-                    { "endTime", "string" },
-                    { "frequency", "Day" },
-                    { "interval", 1 },
-                    { "schedule", new AzureNative.MachineLearningServices.Inputs.RecurrenceScheduleArgs
+                    EndTime = "string",
+                    Frequency = "Day",
+                    Interval = 1,
+                    Schedule = new AzureNative.MachineLearningServices.Inputs.RecurrenceScheduleArgs
                     {
                         Hours = new[]
                         {
@@ -56,10 +56,10 @@ return await Deployment.RunAsync(() =>
                         {
                             "Monday",
                         },
-                    } },
-                    { "startTime", "string" },
-                    { "timeZone", "string" },
-                    { "triggerType", "Recurrence" },
+                    },
+                    StartTime = "string",
+                    TimeZone = "string",
+                    TriggerType = "Recurrence",
                 },
                 SparkConfiguration = 
                 {

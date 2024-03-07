@@ -10,7 +10,7 @@ func main() {
 		_, err := recommendationsservice.NewAccount(ctx, "account", &recommendationsservice.AccountArgs{
 			AccountName: pulumi.String("sampleAccount"),
 			Location:    pulumi.String("West US"),
-			Properties: recommendationsservice.AccountResourceResponseProperties{
+			Properties: &recommendationsservice.AccountResourcePropertiesArgs{
 				Configuration: pulumi.String("Capacity"),
 				EndpointAuthentications: recommendationsservice.EndpointAuthenticationArray{
 					&recommendationsservice.EndpointAuthenticationArgs{

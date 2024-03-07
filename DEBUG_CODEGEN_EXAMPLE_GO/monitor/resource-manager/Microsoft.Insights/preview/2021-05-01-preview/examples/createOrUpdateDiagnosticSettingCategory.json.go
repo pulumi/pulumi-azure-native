@@ -11,22 +11,22 @@ func main() {
 			EventHubAuthorizationRuleId: pulumi.String("/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule"),
 			EventHubName:                pulumi.String("myeventhub"),
 			LogAnalyticsDestinationType: pulumi.String("Dedicated"),
-			Logs: []insights.LogSettingsArgs{
-				{
+			Logs: insights.LogSettingsArray{
+				&insights.LogSettingsArgs{
 					Category: pulumi.String("WorkflowRuntime"),
 					Enabled:  pulumi.Bool(true),
-					RetentionPolicy: {
+					RetentionPolicy: &insights.RetentionPolicyArgs{
 						Days:    pulumi.Int(0),
 						Enabled: pulumi.Bool(false),
 					},
 				},
 			},
 			MarketplacePartnerId: pulumi.String("/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1"),
-			Metrics: []insights.MetricSettingsArgs{
-				{
+			Metrics: insights.MetricSettingsArray{
+				&insights.MetricSettingsArgs{
 					Category: pulumi.String("WorkflowMetrics"),
 					Enabled:  pulumi.Bool(true),
-					RetentionPolicy: {
+					RetentionPolicy: &insights.RetentionPolicyArgs{
 						Days:    pulumi.Int(0),
 						Enabled: pulumi.Bool(false),
 					},

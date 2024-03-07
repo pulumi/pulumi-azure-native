@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := costmanagement.NewSetting(ctx, "setting", &costmanagement.SettingArgs{
-			Cache: []costmanagement.SettingsPropertiesCacheArgs{
-				{
+			Cache: costmanagement.SettingsPropertiesCacheArray{
+				&costmanagement.SettingsPropertiesCacheArgs{
 					Channel:    pulumi.String("Modern"),
 					Id:         pulumi.String("/providers/Microsoft.Management/managementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47"),
 					Name:       pulumi.String("72f988bf-86f1-41af-91ab-2d7cd011db47"),

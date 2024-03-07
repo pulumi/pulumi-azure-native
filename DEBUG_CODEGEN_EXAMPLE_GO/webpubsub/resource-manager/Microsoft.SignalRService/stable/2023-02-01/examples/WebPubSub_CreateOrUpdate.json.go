@@ -13,7 +13,7 @@ func main() {
 			Identity: &webpubsub.ManagedIdentityArgs{
 				Type: pulumi.String("SystemAssigned"),
 			},
-			LiveTraceConfiguration: webpubsub.LiveTraceConfigurationResponse{
+			LiveTraceConfiguration: &webpubsub.LiveTraceConfigurationArgs{
 				Categories: webpubsub.LiveTraceCategoryArray{
 					&webpubsub.LiveTraceCategoryArgs{
 						Enabled: pulumi.String("true"),
@@ -23,7 +23,7 @@ func main() {
 				Enabled: pulumi.String("false"),
 			},
 			Location: pulumi.String("eastus"),
-			NetworkACLs: webpubsub.WebPubSubNetworkACLsResponse{
+			NetworkACLs: &webpubsub.WebPubSubNetworkACLsArgs{
 				DefaultAction: pulumi.String("Deny"),
 				PrivateEndpoints: webpubsub.PrivateEndpointACLArray{
 					&webpubsub.PrivateEndpointACLArgs{

@@ -14,8 +14,8 @@ func main() {
 			RecordType:            pulumi.String("SRV"),
 			RelativeRecordSetName: pulumi.String("record1"),
 			ResourceGroupName:     pulumi.String("rg1"),
-			SrvRecords: []network.SrvRecordArgs{
-				{
+			SrvRecords: network.SrvRecordArray{
+				&network.SrvRecordArgs{
 					Port:     pulumi.Int(80),
 					Priority: pulumi.Int(0),
 					Target:   pulumi.String("contoso.com"),

@@ -19,19 +19,19 @@ func main() {
 				pulumi.String("fqdn2"),
 				pulumi.String("fqdn3"),
 			},
-			IpConfigurations: []network.PrivateLinkServiceIpConfigurationArgs{
-				{
+			IpConfigurations: network.PrivateLinkServiceIpConfigurationArray{
+				&network.PrivateLinkServiceIpConfigurationArgs{
 					Name:                      pulumi.String("fe-lb"),
 					PrivateIPAddress:          pulumi.String("10.0.1.4"),
 					PrivateIPAddressVersion:   pulumi.String("IPv4"),
 					PrivateIPAllocationMethod: pulumi.String("Static"),
-					Subnet: {
+					Subnet: &network.SubnetTypeArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb"),
 					},
 				},
 			},
-			LoadBalancerFrontendIpConfigurations: []network.FrontendIPConfigurationArgs{
-				{
+			LoadBalancerFrontendIpConfigurations: network.FrontendIPConfigurationArray{
+				&network.FrontendIPConfigurationArgs{
 					Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb"),
 				},
 			},

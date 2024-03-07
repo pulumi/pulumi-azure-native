@@ -10,9 +10,9 @@ func main() {
 		_, err := media.NewTransform(ctx, "transform", &media.TransformArgs{
 			AccountName: pulumi.String("contosomedia"),
 			Description: pulumi.String("Example Transform to illustrate create and update."),
-			Outputs: []media.TransformOutputTypeArgs{
-				{
-					Preset: {
+			Outputs: media.TransformOutputTypeArray{
+				&media.TransformOutputTypeArgs{
+					Preset: media.BuiltInStandardEncoderPreset{
 						OdataType:  "#Microsoft.Media.BuiltInStandardEncoderPreset",
 						PresetName: "AdaptiveStreaming",
 					},

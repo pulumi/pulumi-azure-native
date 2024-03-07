@@ -10,7 +10,7 @@ func main() {
 		_, err := network.NewVirtualApplianceSite(ctx, "virtualApplianceSite", &network.VirtualApplianceSiteArgs{
 			AddressPrefix:               pulumi.String("192.168.1.0/24"),
 			NetworkVirtualApplianceName: pulumi.String("nva"),
-			O365Policy: network.Office365PolicyPropertiesResponse{
+			O365Policy: &network.Office365PolicyPropertiesArgs{
 				BreakOutCategories: &network.BreakOutCategoryPoliciesArgs{
 					Allow:    pulumi.Bool(true),
 					Default:  pulumi.Bool(true),

@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := web.NewConnectionGateway(ctx, "connectionGateway", &web.ConnectionGatewayArgs{
 			ConnectionGatewayName: pulumi.String("test123"),
-			Properties: web.ConnectionGatewayDefinitionResponseProperties{
+			Properties: &web.ConnectionGatewayDefinitionPropertiesArgs{
 				BackendUri: pulumi.String("https://WABI-WEST-US-redirect.analysis.windows.net"),
 				ConnectionGatewayInstallation: &web.ConnectionGatewayReferenceArgs{
 					Id: pulumi.String("/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c"),

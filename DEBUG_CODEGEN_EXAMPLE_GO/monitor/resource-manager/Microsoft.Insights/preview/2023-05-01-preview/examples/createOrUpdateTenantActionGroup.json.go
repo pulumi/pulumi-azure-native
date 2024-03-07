@@ -8,19 +8,19 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := insights.NewTenantActionGroup(ctx, "tenantActionGroup", &insights.TenantActionGroupArgs{
-			AzureAppPushReceivers: []insights.AzureAppPushReceiverArgs{
-				{
+			AzureAppPushReceivers: insights.AzureAppPushReceiverArray{
+				&insights.AzureAppPushReceiverArgs{
 					EmailAddress: pulumi.String("johndoe@email.com"),
 					Name:         pulumi.String("Sample azureAppPush"),
 				},
 			},
-			EmailReceivers: []insights.EmailReceiverArgs{
-				{
+			EmailReceivers: insights.EmailReceiverArray{
+				&insights.EmailReceiverArgs{
 					EmailAddress:         pulumi.String("johndoe@email.com"),
 					Name:                 pulumi.String("John Doe's email"),
 					UseCommonAlertSchema: pulumi.Bool(false),
 				},
-				{
+				&insights.EmailReceiverArgs{
 					EmailAddress:         pulumi.String("janesmith@email.com"),
 					Name:                 pulumi.String("Jane Smith's email"),
 					UseCommonAlertSchema: pulumi.Bool(true),
@@ -30,13 +30,13 @@ func main() {
 			GroupShortName:    pulumi.String("sample"),
 			Location:          pulumi.String("Global"),
 			ManagementGroupId: pulumi.String("72f988bf-86f1-41af-91ab-2d7cd011db47"),
-			SmsReceivers: []insights.SmsReceiverArgs{
-				{
+			SmsReceivers: insights.SmsReceiverArray{
+				&insights.SmsReceiverArgs{
 					CountryCode: pulumi.String("1"),
 					Name:        pulumi.String("John Doe's mobile"),
 					PhoneNumber: pulumi.String("2062022299"),
 				},
-				{
+				&insights.SmsReceiverArgs{
 					CountryCode: pulumi.String("1"),
 					Name:        pulumi.String("Jane Smith's mobile"),
 					PhoneNumber: pulumi.String("0987654321"),
@@ -44,20 +44,20 @@ func main() {
 			},
 			Tags:                  nil,
 			TenantActionGroupName: pulumi.String("testTenantActionGroup"),
-			VoiceReceivers: []insights.VoiceReceiverArgs{
-				{
+			VoiceReceivers: insights.VoiceReceiverArray{
+				&insights.VoiceReceiverArgs{
 					CountryCode: pulumi.String("1"),
 					Name:        pulumi.String("Sample voice"),
 					PhoneNumber: pulumi.String("2062022299"),
 				},
 			},
-			WebhookReceivers: []insights.WebhookReceiverArgs{
-				{
+			WebhookReceivers: insights.WebhookReceiverArray{
+				&insights.WebhookReceiverArgs{
 					Name:                 pulumi.String("Sample webhook 1"),
 					ServiceUri:           pulumi.String("http://www.example.com/webhook1"),
 					UseCommonAlertSchema: pulumi.Bool(true),
 				},
-				{
+				&insights.WebhookReceiverArgs{
 					IdentifierUri:        pulumi.String("http://someidentifier/d7811ba3-7996-4a93-99b6-6b2f3f355f8a"),
 					Name:                 pulumi.String("Sample webhook 2"),
 					ObjectId:             pulumi.String("d3bb868c-fe44-452c-aa26-769a6538c808"),

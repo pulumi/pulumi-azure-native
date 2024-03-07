@@ -11,17 +11,17 @@ func main() {
 			AccountName:          pulumi.String("contosomedia"),
 			ContentKeyPolicyName: pulumi.String("PolicyWithClearKeyOptionAndSwtTokenRestriction"),
 			Description:          pulumi.String("ArmPolicyDescription"),
-			Options: []media.ContentKeyPolicyOptionArgs{
-				{
-					Configuration: {
+			Options: media.ContentKeyPolicyOptionArray{
+				&media.ContentKeyPolicyOptionArgs{
+					Configuration: media.ContentKeyPolicyClearKeyConfiguration{
 						OdataType: "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
 					},
 					Name: pulumi.String("ClearKeyOption"),
-					Restriction: {
+					Restriction: media.ContentKeyPolicyTokenRestriction{
 						Audience:  "urn:audience",
 						Issuer:    "urn:issuer",
 						OdataType: "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
-						PrimaryVerificationKey: {
+						PrimaryVerificationKey: media.ContentKeyPolicySymmetricTokenKey{
 							KeyValue:  "AAAAAAAAAAAAAAAAAAAAAA==",
 							OdataType: "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
 						},

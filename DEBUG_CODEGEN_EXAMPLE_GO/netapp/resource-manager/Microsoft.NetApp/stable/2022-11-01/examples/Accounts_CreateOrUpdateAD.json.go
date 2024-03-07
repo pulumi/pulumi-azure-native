@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := netapp.NewAccount(ctx, "account", &netapp.AccountArgs{
 			AccountName: pulumi.String("account1"),
-			ActiveDirectories: []netapp.ActiveDirectoryArgs{
-				{
+			ActiveDirectories: netapp.ActiveDirectoryArray{
+				&netapp.ActiveDirectoryArgs{
 					AesEncryption:      pulumi.Bool(true),
 					Dns:                pulumi.String("10.10.10.3"),
 					Domain:             pulumi.String("10.10.10.3"),

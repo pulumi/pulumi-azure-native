@@ -18,44 +18,44 @@ virtual_network_gateway = azure_native.network.VirtualNetworkGateway("virtualNet
     enable_bgp_route_translation_for_nat=False,
     enable_dns_forwarding=True,
     gateway_type="Vpn",
-    ip_configurations=[{
-        "name": "gwipconfig1",
-        "privateIPAllocationMethod": "Dynamic",
-        "publicIPAddress": azure_native.network.SubResourceArgs(
+    ip_configurations=[azure_native.network.VirtualNetworkGatewayIPConfigurationArgs(
+        name="gwipconfig1",
+        private_ip_allocation_method="Dynamic",
+        public_ip_address=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
         ),
-        "subnet": azure_native.network.SubResourceArgs(
+        subnet=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
         ),
-    }],
+    )],
     location="centralus",
     nat_rules=[
-        {
-            "externalMappings": [azure_native.network.VpnNatRuleMappingArgs(
+        azure_native.network.VirtualNetworkGatewayNatRuleArgs(
+            external_mappings=[azure_native.network.VpnNatRuleMappingArgs(
                 address_space="50.0.0.0/24",
             )],
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule1",
-            "internalMappings": [azure_native.network.VpnNatRuleMappingArgs(
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule1",
+            internal_mappings=[azure_native.network.VpnNatRuleMappingArgs(
                 address_space="10.10.0.0/24",
             )],
-            "ipConfigurationId": "",
-            "mode": "EgressSnat",
-            "name": "natRule1",
-            "type": "Static",
-        },
-        {
-            "externalMappings": [azure_native.network.VpnNatRuleMappingArgs(
+            ip_configuration_id="",
+            mode="EgressSnat",
+            name="natRule1",
+            type="Static",
+        ),
+        azure_native.network.VirtualNetworkGatewayNatRuleArgs(
+            external_mappings=[azure_native.network.VpnNatRuleMappingArgs(
                 address_space="30.0.0.0/24",
             )],
-            "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule2",
-            "internalMappings": [azure_native.network.VpnNatRuleMappingArgs(
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule2",
+            internal_mappings=[azure_native.network.VpnNatRuleMappingArgs(
                 address_space="20.10.0.0/24",
             )],
-            "ipConfigurationId": "",
-            "mode": "IngressSnat",
-            "name": "natRule2",
-            "type": "Static",
-        },
+            ip_configuration_id="",
+            mode="IngressSnat",
+            name="natRule2",
+            type="Static",
+        ),
     ],
     resource_group_name="rg1",
     sku=azure_native.network.VirtualNetworkGatewaySkuArgs(
@@ -63,7 +63,7 @@ virtual_network_gateway = azure_native.network.VirtualNetworkGateway("virtualNet
         tier="VpnGw1",
     ),
     virtual_network_gateway_name="vpngw",
-    vpn_client_configuration=azure_native.network.VpnClientConfigurationResponseArgs(
+    vpn_client_configuration=azure_native.network.VpnClientConfigurationArgs(
         radius_servers=[azure_native.network.RadiusServerArgs(
             radius_server_address="10.2.0.0",
             radius_server_score=20,

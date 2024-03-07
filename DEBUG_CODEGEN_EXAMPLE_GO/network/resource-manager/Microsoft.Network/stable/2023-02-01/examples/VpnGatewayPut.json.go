@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewVpnGateway(ctx, "vpnGateway", &network.VpnGatewayArgs{
-			BgpSettings: network.BgpSettingsResponse{
+			BgpSettings: &network.BgpSettingsArgs{
 				Asn: pulumi.Float64(65515),
 				BgpPeeringAddresses: network.IPConfigurationBgpPeeringAddressArray{
 					&network.IPConfigurationBgpPeeringAddressArgs{
@@ -26,24 +26,24 @@ func main() {
 				},
 				PeerWeight: pulumi.Int(0),
 			},
-			Connections: []network.VpnConnectionTypeArgs{
-				{
+			Connections: network.VpnConnectionTypeArray{
+				&network.VpnConnectionTypeArgs{
 					Name: pulumi.String("vpnConnection1"),
-					RemoteVpnSite: {
+					RemoteVpnSite: &network.SubResourceArgs{
 						Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1"),
 					},
 					VpnLinkConnections: network.VpnSiteLinkConnectionArray{
-						{
+						&network.VpnSiteLinkConnectionArgs{
 							ConnectionBandwidth: pulumi.Int(200),
 							EgressNatRules: network.SubResourceArray{
-								{
+								&network.SubResourceArgs{
 									Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/nat03"),
 								},
 							},
 							Name:                      pulumi.String("Connection-Link1"),
 							SharedKey:                 pulumi.String("key"),
 							VpnConnectionProtocolType: pulumi.String("IKEv2"),
-							VpnSiteLink: {
+							VpnSiteLink: &network.SubResourceArgs{
 								Id: pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1"),
 							},
 						},
@@ -54,15 +54,15 @@ func main() {
 			GatewayName:                     pulumi.String("gateway1"),
 			IsRoutingPreferenceInternet:     pulumi.Bool(false),
 			Location:                        pulumi.String("westcentralus"),
-			NatRules: []network.VpnGatewayNatRuleArgs{
-				{
+			NatRules: network.VpnGatewayNatRuleArray{
+				&network.VpnGatewayNatRuleArgs{
 					ExternalMappings: network.VpnNatRuleMappingArray{
-						{
+						&network.VpnNatRuleMappingArgs{
 							AddressSpace: pulumi.String("192.168.0.0/26"),
 						},
 					},
 					InternalMappings: network.VpnNatRuleMappingArray{
-						{
+						&network.VpnNatRuleMappingArgs{
 							AddressSpace: pulumi.String("0.0.0.0/26"),
 						},
 					},

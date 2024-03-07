@@ -10,7 +10,7 @@ func main() {
 		_, err := importexport.NewJob(ctx, "job", &importexport.JobArgs{
 			JobName:  pulumi.String("myExportJob"),
 			Location: pulumi.String("West US"),
-			Properties: importexport.JobDetailsResponse{
+			Properties: &importexport.JobDetailsArgs{
 				BackupDriveManifest: pulumi.Bool(true),
 				DiagnosticsPath:     pulumi.String("waimportexport"),
 				Export: &importexport.ExportArgs{

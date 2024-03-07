@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 connected_environments_storage = azure_native.app.ConnectedEnvironmentsStorage("connectedEnvironmentsStorage",
     connected_environment_name="env",
-    properties=azure_native.app.ConnectedEnvironmentStorageResponsePropertiesArgs(
+    properties=azure_native.app.ConnectedEnvironmentStoragePropertiesArgs(
         azure_file=azure_native.app.AzureFilePropertiesArgs(
             access_mode="ReadOnly",
             account_key="key",

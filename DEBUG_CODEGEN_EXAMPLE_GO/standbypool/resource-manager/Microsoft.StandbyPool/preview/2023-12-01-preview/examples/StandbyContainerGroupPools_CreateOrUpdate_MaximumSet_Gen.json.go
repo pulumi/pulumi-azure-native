@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := standbypool.NewStandbyContainerGroupPool(ctx, "standbyContainerGroupPool", &standbypool.StandbyContainerGroupPoolArgs{
-			ContainerGroupProperties: standbypool.ContainerGroupPropertiesResponse{
+			ContainerGroupProperties: &standbypool.ContainerGroupPropertiesArgs{
 				ContainerGroupProfile: &standbypool.ContainerGroupProfileArgs{
 					Id:       pulumi.String("/subscriptions/8CC31D61-82D7-4B2B-B9DC-6B924DE7D229/resourceGroups/rgstandbypool/providers/Microsoft.ContainerInstance/containerGroupProfiles/cgProfile"),
 					Revision: pulumi.Float64(1),

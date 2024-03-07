@@ -3,16 +3,16 @@ import pulumi_azure_native as azure_native
 
 iot_hub_resource = azure_native.devices.IotHubResource("iotHubResource",
     location="centraluseuap",
-    properties=azure_native.devices.IotHubPropertiesResponseArgs(
-        cloud_to_device={
-            "defaultTtlAsIso8601": "PT1H",
-            "feedback": azure_native.devices.FeedbackPropertiesArgs(
+    properties=azure_native.devices.IotHubPropertiesArgs(
+        cloud_to_device=azure_native.devices.CloudToDevicePropertiesArgs(
+            default_ttl_as_iso8601="PT1H",
+            feedback=azure_native.devices.FeedbackPropertiesArgs(
                 lock_duration_as_iso8601="PT1M",
                 max_delivery_count=10,
                 ttl_as_iso8601="PT1H",
             ),
-            "maxDeliveryCount": 10,
-        },
+            max_delivery_count=10,
+        ),
         enable_data_residency=True,
         enable_file_upload_notifications=False,
         event_hub_endpoints={
@@ -31,10 +31,10 @@ iot_hub_resource = azure_native.devices.IotHubResource("iotHubResource",
             ),
         },
         min_tls_version="1.2",
-        network_rule_sets={
-            "applyToBuiltInEventHubEndpoint": True,
-            "defaultAction": "Deny",
-            "ipRules": [
+        network_rule_sets=azure_native.devices.NetworkRuleSetPropertiesArgs(
+            apply_to_built_in_event_hub_endpoint=True,
+            default_action="Deny",
+            ip_rules=[
                 azure_native.devices.NetworkRuleSetIpRuleArgs(
                     action="Allow",
                     filter_name="rule1",
@@ -46,26 +46,26 @@ iot_hub_resource = azure_native.devices.IotHubResource("iotHubResource",
                     ip_mask="157.55.59.128/25",
                 ),
             ],
-        },
+        ),
         root_certificate=azure_native.devices.RootCertificatePropertiesArgs(
             enable_root_certificate_v2=True,
         ),
-        routing={
-            "endpoints": {
-                "eventHubs": [],
-                "serviceBusQueues": [],
-                "serviceBusTopics": [],
-                "storageContainers": [],
-            },
-            "fallbackRoute": azure_native.devices.FallbackRoutePropertiesArgs(
+        routing=azure_native.devices.RoutingPropertiesArgs(
+            endpoints=azure_native.devices.RoutingEndpointsArgs(
+                event_hubs=[],
+                service_bus_queues=[],
+                service_bus_topics=[],
+                storage_containers=[],
+            ),
+            fallback_route=azure_native.devices.FallbackRoutePropertiesArgs(
                 condition="true",
                 endpoint_names=["events"],
                 is_enabled=True,
                 name="$fallback",
                 source="DeviceMessages",
             ),
-            "routes": [],
-        },
+            routes=[],
+        ),
         storage_endpoints={
             "$default": azure_native.devices.StorageEndpointPropertiesArgs(
                 connection_string="",

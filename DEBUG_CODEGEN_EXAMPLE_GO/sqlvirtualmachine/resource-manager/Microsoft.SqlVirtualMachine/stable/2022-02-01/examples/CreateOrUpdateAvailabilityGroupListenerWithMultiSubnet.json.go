@@ -10,16 +10,16 @@ func main() {
 		_, err := sqlvirtualmachine.NewAvailabilityGroupListener(ctx, "availabilityGroupListener", &sqlvirtualmachine.AvailabilityGroupListenerArgs{
 			AvailabilityGroupListenerName: pulumi.String("agl-test"),
 			AvailabilityGroupName:         pulumi.String("ag-test"),
-			MultiSubnetIpConfigurations: []sqlvirtualmachine.MultiSubnetIpConfigurationArgs{
-				{
-					PrivateIpAddress: {
+			MultiSubnetIpConfigurations: sqlvirtualmachine.MultiSubnetIpConfigurationArray{
+				&sqlvirtualmachine.MultiSubnetIpConfigurationArgs{
+					PrivateIpAddress: &sqlvirtualmachine.PrivateIPAddressArgs{
 						IpAddress:        pulumi.String("10.0.0.112"),
 						SubnetResourceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default"),
 					},
 					SqlVirtualMachineInstance: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm2"),
 				},
-				{
-					PrivateIpAddress: {
+				&sqlvirtualmachine.MultiSubnetIpConfigurationArgs{
+					PrivateIpAddress: &sqlvirtualmachine.PrivateIPAddressArgs{
 						IpAddress:        pulumi.String("10.0.1.112"),
 						SubnetResourceId: pulumi.String("/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/alternate"),
 					},

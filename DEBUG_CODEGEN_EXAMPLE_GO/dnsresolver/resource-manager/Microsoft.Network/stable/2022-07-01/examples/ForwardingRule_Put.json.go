@@ -16,12 +16,12 @@ func main() {
 				"additionalProp1": pulumi.String("value1"),
 			},
 			ResourceGroupName: pulumi.String("sampleResourceGroup"),
-			TargetDnsServers: []network.TargetDnsServerArgs{
-				{
+			TargetDnsServers: network.TargetDnsServerArray{
+				&network.TargetDnsServerArgs{
 					IpAddress: pulumi.String("10.0.0.1"),
 					Port:      pulumi.Int(53),
 				},
-				{
+				&network.TargetDnsServerArgs{
 					IpAddress: pulumi.String("10.0.0.2"),
 					Port:      pulumi.Int(53),
 				},

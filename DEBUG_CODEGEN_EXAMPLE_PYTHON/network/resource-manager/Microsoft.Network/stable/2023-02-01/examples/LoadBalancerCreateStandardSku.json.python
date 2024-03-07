@@ -5,43 +5,43 @@ load_balancer = azure_native.network.LoadBalancer("loadBalancer",
     backend_address_pools=[azure_native.network.BackendAddressPoolArgs(
         name="be-lb",
     )],
-    frontend_ip_configurations=[{
-        "name": "fe-lb",
-        "subnet": azure_native.network.SubnetArgs(
+    frontend_ip_configurations=[azure_native.network.FrontendIPConfigurationArgs(
+        name="fe-lb",
+        subnet=azure_native.network.SubnetArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
         ),
-    }],
+    )],
     inbound_nat_pools=[],
-    inbound_nat_rules=[{
-        "backendPort": 3389,
-        "enableFloatingIP": True,
-        "frontendIPConfiguration": azure_native.network.SubResourceArgs(
+    inbound_nat_rules=[azure_native.network.InboundNatRuleArgs(
+        backend_port=3389,
+        enable_floating_ip=True,
+        frontend_ip_configuration=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
         ),
-        "frontendPort": 3389,
-        "idleTimeoutInMinutes": 15,
-        "name": "in-nat-rule",
-        "protocol": "Tcp",
-    }],
+        frontend_port=3389,
+        idle_timeout_in_minutes=15,
+        name="in-nat-rule",
+        protocol="Tcp",
+    )],
     load_balancer_name="lb",
-    load_balancing_rules=[{
-        "backendAddressPool": azure_native.network.SubResourceArgs(
+    load_balancing_rules=[azure_native.network.LoadBalancingRuleArgs(
+        backend_address_pool=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
         ),
-        "backendPort": 80,
-        "enableFloatingIP": True,
-        "frontendIPConfiguration": azure_native.network.SubResourceArgs(
+        backend_port=80,
+        enable_floating_ip=True,
+        frontend_ip_configuration=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
         ),
-        "frontendPort": 80,
-        "idleTimeoutInMinutes": 15,
-        "loadDistribution": "Default",
-        "name": "rulelb",
-        "probe": azure_native.network.SubResourceArgs(
+        frontend_port=80,
+        idle_timeout_in_minutes=15,
+        load_distribution="Default",
+        name="rulelb",
+        probe=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
         ),
-        "protocol": "Tcp",
-    }],
+        protocol="Tcp",
+    )],
     location="eastus",
     outbound_rules=[],
     probes=[azure_native.network.ProbeArgs(

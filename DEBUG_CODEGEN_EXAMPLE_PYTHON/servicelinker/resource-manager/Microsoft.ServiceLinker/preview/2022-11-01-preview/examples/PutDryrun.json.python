@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 linker_dryrun = azure_native.servicelinker.LinkerDryrun("linkerDryrun",
     dryrun_name="dryrunName",
-    parameters=azure_native.servicelinker.CreateOrUpdateDryrunParametersResponseArgs(
+    parameters=azure_native.servicelinker.CreateOrUpdateDryrunParametersArgs(
         action_name="createOrUpdate",
         auth_info=azure_native.servicelinker.SecretAuthInfoArgs(
             auth_type="secret",

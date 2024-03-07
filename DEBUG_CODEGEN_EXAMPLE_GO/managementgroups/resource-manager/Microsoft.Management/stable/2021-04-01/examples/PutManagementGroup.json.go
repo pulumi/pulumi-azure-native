@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := management.NewManagementGroup(ctx, "managementGroup", &management.ManagementGroupArgs{
-			Details: management.ManagementGroupDetailsResponse{
+			Details: &management.CreateManagementGroupDetailsArgs{
 				Parent: &management.CreateParentGroupInfoArgs{
 					Id: pulumi.String("/providers/Microsoft.Management/managementGroups/RootGroup"),
 				},

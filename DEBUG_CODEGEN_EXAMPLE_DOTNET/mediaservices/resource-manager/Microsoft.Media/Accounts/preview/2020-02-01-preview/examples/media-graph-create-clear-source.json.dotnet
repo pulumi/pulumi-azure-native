@@ -13,22 +13,22 @@ return await Deployment.RunAsync(() =>
         ResourceGroupName = "contoso",
         Sinks = new[]
         {
-            
+            new AzureNative.Media.Inputs.MediaGraphAssetSinkArgs
             {
-                { "assetName", "SampleAsset" },
-                { "inputs", new[]
+                AssetName = "SampleAsset",
+                Inputs = new[]
                 {
                     "rtspSource",
-                } },
-                { "name", "AssetSink" },
-                { "odataType", "#Microsoft.Media.MediaGraphAssetSink" },
+                },
+                Name = "AssetSink",
+                OdataType = "#Microsoft.Media.MediaGraphAssetSink",
             },
         },
         Sources = new[]
         {
-            
+            new AzureNative.Media.Inputs.MediaGraphRtspSourceArgs
             {
-                { "endpoint", new AzureNative.Media.Inputs.MediaGraphClearEndpointArgs
+                Endpoint = new AzureNative.Media.Inputs.MediaGraphClearEndpointArgs
                 {
                     Credentials = new AzureNative.Media.Inputs.MediaGraphUsernamePasswordCredentialsArgs
                     {
@@ -38,10 +38,10 @@ return await Deployment.RunAsync(() =>
                     },
                     OdataType = "#Microsoft.Media.MediaGraphClearEndpoint",
                     Url = "rtsp://contoso.com:554/stream1",
-                } },
-                { "name", "rtspSource" },
-                { "odataType", "#Microsoft.Media.MediaGraphRtspSource" },
-                { "transport", "Http" },
+                },
+                Name = "rtspSource",
+                OdataType = "#Microsoft.Media.MediaGraphRtspSource",
+                Transport = "Http",
             },
         },
     });

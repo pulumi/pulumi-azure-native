@@ -15,7 +15,7 @@ func main() {
 			HardwareProfile: &azurestackhci.VirtualMachineInstancePropertiesHardwareProfileArgs{
 				VmSize: pulumi.String("Default"),
 			},
-			NetworkProfile: azurestackhci.VirtualMachineInstancePropertiesResponseNetworkProfile{
+			NetworkProfile: &azurestackhci.VirtualMachineInstancePropertiesNetworkProfileArgs{
 				NetworkInterfaces: azurestackhci.VirtualMachineInstancePropertiesNetworkInterfacesArray{
 					&azurestackhci.VirtualMachineInstancePropertiesNetworkInterfacesArgs{
 						Id: pulumi.String("test-nic"),
@@ -23,13 +23,13 @@ func main() {
 				},
 			},
 			ResourceUri: pulumi.String("subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/Microsoft.HybridCompute/machines/DemoVM"),
-			SecurityProfile: azurestackhci.VirtualMachineInstancePropertiesResponseSecurityProfile{
+			SecurityProfile: &azurestackhci.VirtualMachineInstancePropertiesSecurityProfileArgs{
 				EnableTPM: pulumi.Bool(true),
 				UefiSettings: &azurestackhci.VirtualMachineInstancePropertiesUefiSettingsArgs{
 					SecureBootEnabled: pulumi.Bool(true),
 				},
 			},
-			StorageProfile: azurestackhci.VirtualMachineInstancePropertiesResponseStorageProfile{
+			StorageProfile: &azurestackhci.VirtualMachineInstancePropertiesStorageProfileArgs{
 				OsDisk: &azurestackhci.VirtualMachineInstancePropertiesOsDiskArgs{
 					Id: pulumi.String("/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualHardDisks/test-vhd"),
 				},

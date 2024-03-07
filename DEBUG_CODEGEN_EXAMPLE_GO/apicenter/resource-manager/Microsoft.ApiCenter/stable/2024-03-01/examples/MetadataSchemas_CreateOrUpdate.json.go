@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := apicenter.NewMetadataSchema(ctx, "metadataSchema", &apicenter.MetadataSchemaArgs{
-			AssignedTo: []apicenter.MetadataAssignmentArgs{
-				{
+			AssignedTo: apicenter.MetadataAssignmentArray{
+				&apicenter.MetadataAssignmentArgs{
 					Deprecated: pulumi.Bool(true),
 					Entity:     pulumi.String("api"),
 				},

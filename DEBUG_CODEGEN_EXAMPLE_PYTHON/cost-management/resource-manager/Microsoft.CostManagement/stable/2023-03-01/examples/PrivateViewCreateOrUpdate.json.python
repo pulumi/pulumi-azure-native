@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 view = azure_native.costmanagement.View("view",
     accumulated="true",
     chart="Table",
-    data_set=azure_native.costmanagement.ReportConfigDatasetResponseArgs(
+    data_set=azure_native.costmanagement.ReportConfigDatasetArgs(
         aggregation={
             "totalCost": azure_native.costmanagement.ReportConfigAggregationArgs(
                 function="Sum",

@@ -10,8 +10,8 @@ func main() {
 		_, err := network.NewSubnet(ctx, "subnet", &network.SubnetArgs{
 			AddressPrefix:     pulumi.String("10.0.0.0/16"),
 			ResourceGroupName: pulumi.String("subnet-test"),
-			ServiceEndpoints: []network.ServiceEndpointPropertiesFormatArgs{
-				{
+			ServiceEndpoints: network.ServiceEndpointPropertiesFormatArray{
+				&network.ServiceEndpointPropertiesFormatArgs{
 					Service: pulumi.String("Microsoft.Storage"),
 				},
 			},

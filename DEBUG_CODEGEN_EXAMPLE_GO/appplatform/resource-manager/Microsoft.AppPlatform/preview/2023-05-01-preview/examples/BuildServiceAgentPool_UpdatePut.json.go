@@ -10,7 +10,7 @@ func main() {
 		_, err := appplatform.NewBuildServiceAgentPool(ctx, "buildServiceAgentPool", &appplatform.BuildServiceAgentPoolArgs{
 			AgentPoolName:    pulumi.String("default"),
 			BuildServiceName: pulumi.String("default"),
-			Properties: appplatform.BuildServiceAgentPoolPropertiesResponse{
+			Properties: &appplatform.BuildServiceAgentPoolPropertiesArgs{
 				PoolSize: &appplatform.BuildServiceAgentPoolSizePropertiesArgs{
 					Name: pulumi.String("S3"),
 				},

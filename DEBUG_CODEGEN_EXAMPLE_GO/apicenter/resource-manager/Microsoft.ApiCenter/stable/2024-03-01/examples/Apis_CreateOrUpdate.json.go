@@ -13,8 +13,8 @@ func main() {
 				Author: "John Doe",
 			},
 			Description: pulumi.String("A simple HTTP request/response service."),
-			ExternalDocumentation: []apicenter.ExternalDocumentationArgs{
-				{
+			ExternalDocumentation: apicenter.ExternalDocumentationArray{
+				&apicenter.ExternalDocumentationArgs{
 					Title: pulumi.String("Onboarding docs"),
 					Url:   pulumi.String("https://docs.contoso.com"),
 				},

@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := apimanagement.NewAuthorizationServer(ctx, "authorizationServer", &apimanagement.AuthorizationServerArgs{
 			AuthorizationEndpoint: pulumi.String("https://www.contoso.com/oauth2/auth"),
-			AuthorizationMethods: []apimanagement.AuthorizationMethod{
+			AuthorizationMethods: apimanagement.AuthorizationMethodArray{
 				apimanagement.AuthorizationMethodGET,
 			},
 			Authsid: pulumi.String("newauthServer"),

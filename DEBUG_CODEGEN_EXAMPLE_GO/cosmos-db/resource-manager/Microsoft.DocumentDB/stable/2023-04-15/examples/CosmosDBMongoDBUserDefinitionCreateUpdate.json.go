@@ -15,8 +15,8 @@ func main() {
 			MongoUserDefinitionId: pulumi.String("myMongoUserDefinitionId"),
 			Password:              pulumi.String("myPassword"),
 			ResourceGroupName:     pulumi.String("myResourceGroupName"),
-			Roles: []documentdb.RoleArgs{
-				{
+			Roles: documentdb.RoleArray{
+				&documentdb.RoleArgs{
 					Db:   pulumi.String("sales"),
 					Role: pulumi.String("myReadRole"),
 				},

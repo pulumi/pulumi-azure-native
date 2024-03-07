@@ -10,13 +10,13 @@ func main() {
 		_, err := network.NewConfigurationPolicyGroup(ctx, "configurationPolicyGroup", &network.ConfigurationPolicyGroupArgs{
 			ConfigurationPolicyGroupName: pulumi.String("policyGroup1"),
 			IsDefault:                    pulumi.Bool(true),
-			PolicyMembers: []network.VpnServerConfigurationPolicyGroupMemberArgs{
-				{
+			PolicyMembers: network.VpnServerConfigurationPolicyGroupMemberArray{
+				&network.VpnServerConfigurationPolicyGroupMemberArgs{
 					AttributeType:  pulumi.String("RadiusAzureGroupId"),
 					AttributeValue: pulumi.String("6ad1bd08"),
 					Name:           pulumi.String("policy1"),
 				},
-				{
+				&network.VpnServerConfigurationPolicyGroupMemberArgs{
 					AttributeType:  pulumi.String("CertificateGroupId"),
 					AttributeValue: pulumi.String("red.com"),
 					Name:           pulumi.String("policy2"),

@@ -9,8 +9,8 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewPacketCapture(ctx, "packetCapture", &network.PacketCaptureArgs{
 			BytesToCapturePerPacket: pulumi.Float64(10000),
-			Filters: []network.PacketCaptureFilterArgs{
-				{
+			Filters: network.PacketCaptureFilterArray{
+				&network.PacketCaptureFilterArgs{
 					LocalIPAddress: pulumi.String("10.0.0.4"),
 					LocalPort:      pulumi.String("80"),
 					Protocol:       pulumi.String("TCP"),

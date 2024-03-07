@@ -12,7 +12,7 @@ func main() {
 			GalleryImageVersionName: pulumi.String("1.0.0"),
 			GalleryName:             pulumi.String("myGalleryName"),
 			Location:                pulumi.String("West US"),
-			PublishingProfile: compute.GalleryImageVersionPublishingProfileResponse{
+			PublishingProfile: &compute.GalleryImageVersionPublishingProfileArgs{
 				ReplicationMode: pulumi.String("Shallow"),
 				TargetRegions: compute.TargetRegionArray{
 					&compute.TargetRegionArgs{
@@ -26,7 +26,7 @@ func main() {
 			SafetyProfile: &compute.GalleryImageVersionSafetyProfileArgs{
 				AllowDeletionOfReplicatedLocations: pulumi.Bool(false),
 			},
-			StorageProfile: compute.GalleryImageVersionStorageProfileResponse{
+			StorageProfile: &compute.GalleryImageVersionStorageProfileArgs{
 				Source: &compute.GalleryArtifactVersionFullSourceArgs{
 					Id: pulumi.String("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}"),
 				},

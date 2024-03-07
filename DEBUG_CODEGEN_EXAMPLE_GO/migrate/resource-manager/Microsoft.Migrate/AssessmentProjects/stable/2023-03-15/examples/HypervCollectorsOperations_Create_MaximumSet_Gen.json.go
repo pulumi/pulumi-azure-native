@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := migrate.NewHypervCollectorsOperation(ctx, "hypervCollectorsOperation", &migrate.HypervCollectorsOperationArgs{
-			AgentProperties: migrate.CollectorAgentPropertiesBaseResponse{
+			AgentProperties: &migrate.CollectorAgentPropertiesBaseArgs{
 				Id:               pulumi.String("12f1d90f-b3fa-4926-8893-e56803a09af0"),
 				LastHeartbeatUtc: pulumi.String("2022-07-07T14:25:35.708325Z"),
 				SpnDetails: &migrate.CollectorAgentSpnPropertiesBaseArgs{

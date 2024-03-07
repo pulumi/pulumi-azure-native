@@ -8,7 +8,7 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := logic.NewRosettaNetProcessConfiguration(ctx, "rosettaNetProcessConfiguration", &logic.RosettaNetProcessConfigurationArgs{
-			ActivitySettings: logic.RosettaNetPipActivitySettingsResponse{
+			ActivitySettings: &logic.RosettaNetPipActivitySettingsArgs{
 				AcknowledgmentOfReceiptSettings: &logic.RosettaNetPipAcknowledgmentOfReceiptSettingsArgs{
 					IsNonRepudiationRequired:   pulumi.Bool(false),
 					TimeToAcknowledgeInSeconds: pulumi.Int(600),
@@ -26,7 +26,7 @@ func main() {
 				ActivityType: logic.RosettaNetPipActivityTypeRequestResponse,
 			},
 			Description: pulumi.String("Test description"),
-			InitiatorRoleSettings: logic.RosettaNetPipRoleSettingsResponse{
+			InitiatorRoleSettings: &logic.RosettaNetPipRoleSettingsArgs{
 				Action: pulumi.String("Purchase Order Request"),
 				BusinessDocument: &logic.RosettaNetPipBusinessDocumentArgs{
 					Description: pulumi.String("A request to accept a purchase order for fulfillment.."),
@@ -44,7 +44,7 @@ func main() {
 			ProcessName:            pulumi.String("Request Purchase Order"),
 			ProcessVersion:         pulumi.String("V02.02.00"),
 			ResourceGroupName:      pulumi.String("testrg123"),
-			ResponderRoleSettings: logic.RosettaNetPipRoleSettingsResponse{
+			ResponderRoleSettings: &logic.RosettaNetPipRoleSettingsArgs{
 				Action: pulumi.String("Purchase Order Confirmation Action"),
 				BusinessDocument: &logic.RosettaNetPipBusinessDocumentArgs{
 					Description: pulumi.String("Formally confirms the status of line item(s) in a Purchase Order. A Purchase Order line item may have one of the following states: accepted, rejected, or pending."),

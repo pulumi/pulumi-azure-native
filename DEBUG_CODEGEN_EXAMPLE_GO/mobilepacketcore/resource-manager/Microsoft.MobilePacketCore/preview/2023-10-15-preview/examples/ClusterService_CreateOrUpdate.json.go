@@ -13,8 +13,8 @@ func main() {
 				CustomLocationId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cluster124Location",
 				Type:             "NexusAks",
 			},
-			ComponentParameters: []mobilepacketcore.QualifiedComponentDeploymentParametersArgs{
-				{
+			ComponentParameters: mobilepacketcore.QualifiedComponentDeploymentParametersArray{
+				&mobilepacketcore.QualifiedComponentDeploymentParametersArgs{
 					Parameters: pulumi.String("{\"global\": {\"registry\": {\"docker\": []}}}"),
 					Secrets:    pulumi.String("{\"global\": {\"secret\": {\"secretValue\": []}}}"),
 					Type:       pulumi.String("fed-crds"),

@@ -9,7 +9,7 @@ func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := hybridcompute.NewPrivateEndpointConnection(ctx, "privateEndpointConnection", &hybridcompute.PrivateEndpointConnectionArgs{
 			PrivateEndpointConnectionName: pulumi.String("private-endpoint-connection-name"),
-			Properties: hybridcompute.PrivateEndpointConnectionPropertiesResponse{
+			Properties: &hybridcompute.PrivateEndpointConnectionPropertiesArgs{
 				PrivateLinkServiceConnectionState: &hybridcompute.PrivateLinkServiceConnectionStatePropertyArgs{
 					Description: pulumi.String("Approved by johndoe@contoso.com"),
 					Status:      pulumi.String("Approved"),

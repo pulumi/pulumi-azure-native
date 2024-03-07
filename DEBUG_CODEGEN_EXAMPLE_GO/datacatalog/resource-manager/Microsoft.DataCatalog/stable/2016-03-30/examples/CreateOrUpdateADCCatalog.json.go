@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := datacatalog.NewADCCatalog(ctx, "adcCatalog", &datacatalog.ADCCatalogArgs{
-			Admins: []datacatalog.PrincipalsArgs{
-				{
+			Admins: datacatalog.PrincipalsArray{
+				&datacatalog.PrincipalsArgs{
 					ObjectId: pulumi.String("99999999-9999-9999-999999999999"),
 					Upn:      pulumi.String("myupn@microsoft.com"),
 				},
@@ -24,8 +24,8 @@ func main() {
 				"mykey2": pulumi.String("myvalue2"),
 			},
 			Units: pulumi.Int(1),
-			Users: []datacatalog.PrincipalsArgs{
-				{
+			Users: datacatalog.PrincipalsArray{
+				&datacatalog.PrincipalsArgs{
 					ObjectId: pulumi.String("99999999-9999-9999-999999999999"),
 					Upn:      pulumi.String("myupn@microsoft.com"),
 				},

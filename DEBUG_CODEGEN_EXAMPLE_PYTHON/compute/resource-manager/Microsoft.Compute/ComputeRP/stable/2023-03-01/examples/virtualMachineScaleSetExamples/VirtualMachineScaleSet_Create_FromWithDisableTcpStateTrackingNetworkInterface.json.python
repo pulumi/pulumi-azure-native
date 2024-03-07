@@ -13,55 +13,55 @@ virtual_machine_scale_set = azure_native.compute.VirtualMachineScaleSet("virtual
     upgrade_policy=azure_native.compute.UpgradePolicyArgs(
         mode=azure_native.compute.UpgradeMode.MANUAL,
     ),
-    virtual_machine_profile=azure_native.compute.VirtualMachineScaleSetVMProfileResponseArgs(
-        network_profile={
-            "networkInterfaceConfigurations": [
-                {
-                    "disableTcpStateTracking": True,
-                    "enableAcceleratedNetworking": True,
-                    "enableIPForwarding": True,
-                    "ipConfigurations": [{
-                        "name": "{vmss-name}",
-                        "subnet": azure_native.compute.ApiEntityReferenceArgs(
+    virtual_machine_profile=azure_native.compute.VirtualMachineScaleSetVMProfileArgs(
+        network_profile=azure_native.compute.VirtualMachineScaleSetNetworkProfileArgs(
+            network_interface_configurations=[
+                azure_native.compute.VirtualMachineScaleSetNetworkConfigurationArgs(
+                    disable_tcp_state_tracking=True,
+                    enable_accelerated_networking=True,
+                    enable_ip_forwarding=True,
+                    ip_configurations=[azure_native.compute.VirtualMachineScaleSetIPConfigurationArgs(
+                        name="{vmss-name}",
+                        subnet=azure_native.compute.ApiEntityReferenceArgs(
                             id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/{existing-virtual-network-name}/subnets/{existing-subnet-name}",
                         ),
-                    }],
-                    "name": "{nicConfig1-name}",
-                    "primary": True,
-                },
-                {
-                    "disableTcpStateTracking": False,
-                    "enableAcceleratedNetworking": False,
-                    "enableIPForwarding": False,
-                    "ipConfigurations": [{
-                        "name": "{nicConfig2-name}",
-                        "primary": True,
-                        "privateIPAddressVersion": "IPv4",
-                        "subnet": azure_native.compute.ApiEntityReferenceArgs(
+                    )],
+                    name="{nicConfig1-name}",
+                    primary=True,
+                ),
+                azure_native.compute.VirtualMachineScaleSetNetworkConfigurationArgs(
+                    disable_tcp_state_tracking=False,
+                    enable_accelerated_networking=False,
+                    enable_ip_forwarding=False,
+                    ip_configurations=[azure_native.compute.VirtualMachineScaleSetIPConfigurationArgs(
+                        name="{nicConfig2-name}",
+                        primary=True,
+                        private_ip_address_version="IPv4",
+                        subnet=azure_native.compute.ApiEntityReferenceArgs(
                             id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/{existing-virtual-network-name}/subnets/{existing-fpga-subnet-name2}",
                         ),
-                    }],
-                    "name": "{nicConfig2-name}",
-                    "primary": False,
-                },
+                    )],
+                    name="{nicConfig2-name}",
+                    primary=False,
+                ),
             ],
-        },
+        ),
         os_profile=azure_native.compute.VirtualMachineScaleSetOSProfileArgs(
             admin_password="{your-password}",
             admin_username="{your-username}",
             computer_name_prefix="{vmss-name}",
         ),
-        storage_profile={
-            "imageReference": azure_native.compute.ImageReferenceArgs(
+        storage_profile=azure_native.compute.VirtualMachineScaleSetStorageProfileArgs(
+            image_reference=azure_native.compute.ImageReferenceArgs(
                 id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
             ),
-            "osDisk": {
-                "caching": azure_native.compute.CachingTypes.READ_WRITE,
-                "createOption": "FromImage",
-                "managedDisk": azure_native.compute.VirtualMachineScaleSetManagedDiskParametersArgs(
+            os_disk=azure_native.compute.VirtualMachineScaleSetOSDiskArgs(
+                caching=azure_native.compute.CachingTypes.READ_WRITE,
+                create_option="FromImage",
+                managed_disk=azure_native.compute.VirtualMachineScaleSetManagedDiskParametersArgs(
                     storage_account_type="Standard_LRS",
                 ),
-            },
-        },
+            ),
+        ),
     ),
     vm_scale_set_name="{vmss-name}")

@@ -13,11 +13,11 @@ func main() {
 			Metadata: pulumi.Any{
 				AssignedBy: "Special Someone",
 			},
-			Overrides: []authorization.OverrideArgs{
-				{
+			Overrides: authorization.OverrideArray{
+				&authorization.OverrideArgs{
 					Kind: pulumi.String("policyEffect"),
 					Selectors: authorization.SelectorArray{
-						{
+						&authorization.SelectorArgs{
 							In: pulumi.StringArray{
 								pulumi.String("Limit_Skus"),
 								pulumi.String("Limit_Locations"),

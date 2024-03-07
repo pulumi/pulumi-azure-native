@@ -27,8 +27,8 @@ ExperimentName: "string",
 Identity: machinelearningservices.AmlToken{
 IdentityType: "AMLToken",
 },
-Inputs: interface{}{
-String: machinelearningservices.LiteralJobInput{
+Inputs: map[string]interface{}{
+"string": machinelearningservices.LiteralJobInput{
 Description: "string",
 JobInputType: "literal",
 Value: "string",
@@ -39,8 +39,8 @@ Limits: machinelearningservices.CommandJobLimits{
 JobLimitsType: "Command",
 Timeout: "PT5M",
 },
-Outputs: interface{}{
-String: machinelearningservices.UriFileJobOutput{
+Outputs: map[string]interface{}{
+"string": machinelearningservices.UriFileJobOutput{
 Description: "string",
 JobOutputType: "uri_file",
 Mode: "ReadWriteMount",

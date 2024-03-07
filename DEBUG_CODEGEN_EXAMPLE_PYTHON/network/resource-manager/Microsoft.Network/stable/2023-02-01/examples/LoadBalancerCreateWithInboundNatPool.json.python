@@ -3,29 +3,29 @@ import pulumi_azure_native as azure_native
 
 load_balancer = azure_native.network.LoadBalancer("loadBalancer",
     backend_address_pools=[],
-    frontend_ip_configurations=[{
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
-        "name": "test",
-        "privateIPAllocationMethod": "Dynamic",
-        "subnet": azure_native.network.SubnetArgs(
+    frontend_ip_configurations=[azure_native.network.FrontendIPConfigurationArgs(
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+        name="test",
+        private_ip_allocation_method="Dynamic",
+        subnet=azure_native.network.SubnetArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/lbvnet/subnets/lbsubnet",
         ),
-        "zones": [],
-    }],
-    inbound_nat_pools=[{
-        "backendPort": 8888,
-        "enableFloatingIP": True,
-        "enableTcpReset": True,
-        "frontendIPConfiguration": azure_native.network.SubResourceArgs(
+        zones=[],
+    )],
+    inbound_nat_pools=[azure_native.network.InboundNatPoolArgs(
+        backend_port=8888,
+        enable_floating_ip=True,
+        enable_tcp_reset=True,
+        frontend_ip_configuration=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
         ),
-        "frontendPortRangeEnd": 8085,
-        "frontendPortRangeStart": 8080,
-        "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatPools/test",
-        "idleTimeoutInMinutes": 10,
-        "name": "test",
-        "protocol": "Tcp",
-    }],
+        frontend_port_range_end=8085,
+        frontend_port_range_start=8080,
+        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatPools/test",
+        idle_timeout_in_minutes=10,
+        name="test",
+        protocol="Tcp",
+    )],
     inbound_nat_rules=[],
     load_balancer_name="lb",
     load_balancing_rules=[],

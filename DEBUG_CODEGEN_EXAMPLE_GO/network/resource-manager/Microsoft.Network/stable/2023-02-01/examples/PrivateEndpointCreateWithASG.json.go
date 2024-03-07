@@ -8,15 +8,15 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := network.NewPrivateEndpoint(ctx, "privateEndpoint", &network.PrivateEndpointArgs{
-			ApplicationSecurityGroups: []network.ApplicationSecurityGroupTypeArgs{
-				{
+			ApplicationSecurityGroups: network.ApplicationSecurityGroupTypeArray{
+				&network.ApplicationSecurityGroupTypeArgs{
 					Id: pulumi.String("/subscriptions/subId/resourceGroups/rg1/provders/Microsoft.Network/applicationSecurityGroup/asg1"),
 				},
 			},
 			Location:            pulumi.String("eastus2euap"),
 			PrivateEndpointName: pulumi.String("testPe"),
-			PrivateLinkServiceConnections: []network.PrivateLinkServiceConnectionArgs{
-				{
+			PrivateLinkServiceConnections: network.PrivateLinkServiceConnectionArray{
+				&network.PrivateLinkServiceConnectionArgs{
 					GroupIds: pulumi.StringArray{
 						pulumi.String("groupIdFromResource"),
 					},

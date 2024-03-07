@@ -13,33 +13,33 @@ managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
     )],
     dns_prefix="dnsprefix1",
     kubernetes_version="",
-    linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+    linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileArgs(
         admin_username="azureuser",
-        ssh={
-            "publicKeys": [azure_native.containerservice.ContainerServiceSshPublicKeyArgs(
+        ssh=azure_native.containerservice.ContainerServiceSshConfigurationArgs(
+            public_keys=[azure_native.containerservice.ContainerServiceSshPublicKeyArgs(
                 key_data="keydata",
             )],
-        },
+        ),
     ),
     location="location1",
-    network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
-        load_balancer_profile={
-            "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+    network_profile=azure_native.containerservice.ContainerServiceNetworkProfileArgs(
+        load_balancer_profile=azure_native.containerservice.ManagedClusterLoadBalancerProfileArgs(
+            managed_outbound_ips=azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
                 count=2,
             ),
-        },
+        ),
         load_balancer_sku="standard",
         outbound_type="loadBalancer",
     ),
     resource_group_name="rg1",
     resource_name_="clustername1",
-    security_profile=azure_native.containerservice.ManagedClusterSecurityProfileResponseArgs(
-        defender={
-            "logAnalyticsWorkspaceResourceId": "/subscriptions/SUB_ID/resourcegroups/RG_NAME/providers/microsoft.operationalinsights/workspaces/WORKSPACE_NAME",
-            "securityMonitoring": azure_native.containerservice.ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs(
+    security_profile=azure_native.containerservice.ManagedClusterSecurityProfileArgs(
+        defender=azure_native.containerservice.ManagedClusterSecurityProfileDefenderArgs(
+            log_analytics_workspace_resource_id="/subscriptions/SUB_ID/resourcegroups/RG_NAME/providers/microsoft.operationalinsights/workspaces/WORKSPACE_NAME",
+            security_monitoring=azure_native.containerservice.ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs(
                 enabled=True,
             ),
-        },
+        ),
         workload_identity=azure_native.containerservice.ManagedClusterSecurityProfileWorkloadIdentityArgs(
             enabled=True,
         ),

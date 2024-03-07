@@ -8,14 +8,14 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := datamigration.NewDatabaseMigrationsMongoToCosmosDbvCoreMongo(ctx, "databaseMigrationsMongoToCosmosDbvCoreMongo", &datamigration.DatabaseMigrationsMongoToCosmosDbvCoreMongoArgs{
-			CollectionList: []datamigration.MongoMigrationCollectionArgs{
-				{
+			CollectionList: datamigration.MongoMigrationCollectionArray{
+				&datamigration.MongoMigrationCollectionArgs{
 					SourceCollection: pulumi.String("sourceCol1"),
 					SourceDatabase:   pulumi.String("sourceDb1"),
 					TargetCollection: pulumi.String("targetCol1"),
 					TargetDatabase:   pulumi.String("targetDb1"),
 				},
-				{
+				&datamigration.MongoMigrationCollectionArgs{
 					SourceCollection: pulumi.String("sourceCol2"),
 					SourceDatabase:   pulumi.String("sourceDb2"),
 				},

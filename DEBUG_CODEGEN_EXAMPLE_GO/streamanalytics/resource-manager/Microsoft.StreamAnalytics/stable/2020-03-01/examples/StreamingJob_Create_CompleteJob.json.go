@@ -14,11 +14,11 @@ func main() {
 			EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(0),
 			EventsOutOfOrderPolicy:             pulumi.String("Drop"),
 			Functions:                          streamanalytics.FunctionTypeArray{},
-			Inputs: []streamanalytics.InputTypeArgs{
-				{
+			Inputs: streamanalytics.InputTypeArray{
+				&streamanalytics.InputTypeArgs{
 					Name: pulumi.String("inputtest"),
-					Properties: {
-						Datasource: {
+					Properties: streamanalytics.StreamInputProperties{
+						Datasource: streamanalytics.BlobStreamInputDataSource{
 							Container:   "containerName",
 							PathPattern: "",
 							StorageAccounts: []streamanalytics.StorageAccount{
@@ -29,7 +29,7 @@ func main() {
 							},
 							Type: "Microsoft.Storage/Blob",
 						},
-						Serialization: {
+						Serialization: streamanalytics.JsonSerialization{
 							Encoding: "UTF8",
 							Type:     "Json",
 						},
@@ -40,9 +40,9 @@ func main() {
 			JobName:           pulumi.String("sj7804"),
 			Location:          pulumi.String("West US"),
 			OutputErrorPolicy: pulumi.String("Drop"),
-			Outputs: []streamanalytics.OutputTypeArgs{
-				{
-					Datasource: {
+			Outputs: streamanalytics.OutputTypeArray{
+				&streamanalytics.OutputTypeArgs{
+					Datasource: streamanalytics.AzureSqlDatabaseOutputDataSource{
 						Database: "databaseName",
 						Password: "userPassword",
 						Server:   "serverName",

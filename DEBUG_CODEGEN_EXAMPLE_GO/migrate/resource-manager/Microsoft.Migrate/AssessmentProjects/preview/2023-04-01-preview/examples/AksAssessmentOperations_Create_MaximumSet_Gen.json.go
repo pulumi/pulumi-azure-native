@@ -14,7 +14,7 @@ func main() {
 			Scope: &migrate.AssessmentScopeParametersArgs{
 				ServerGroupId: pulumi.String("/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp"),
 			},
-			Settings: migrate.AKSAssessmentSettingsResponse{
+			Settings: &migrate.AKSAssessmentSettingsArgs{
 				AzureLocation:      pulumi.String("Unknown"),
 				Category:           pulumi.String("All"),
 				Consolidation:      pulumi.String("Full"),

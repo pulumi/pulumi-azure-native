@@ -8,8 +8,8 @@ import (
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		_, err := iotoperationsorchestrator.NewSolution(ctx, "solution", &iotoperationsorchestrator.SolutionArgs{
-			Components: []iotoperationsorchestrator.ComponentPropertiesArgs{
-				{
+			Components: iotoperationsorchestrator.ComponentPropertiesArray{
+				&iotoperationsorchestrator.ComponentPropertiesArgs{
 					Dependencies: pulumi.StringArray{
 						pulumi.String("x"),
 					},

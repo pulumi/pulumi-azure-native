@@ -14,20 +14,20 @@ func main() {
 			Location:          pulumi.String("East US"),
 			ResourceGroupName: pulumi.String("promResourceGroup"),
 			RuleGroupName:     pulumi.String("myPrometheusRuleGroup"),
-			Rules: []alertsmanagement.PrometheusRuleArgs{
-				{
+			Rules: alertsmanagement.PrometheusRuleArray{
+				&alertsmanagement.PrometheusRuleArgs{
 					Actions: alertsmanagement.PrometheusRuleGroupActionArray{},
 					Alert:   pulumi.String("Billing_Processing_Very_Slow"),
-					Annotations: {
+					Annotations: pulumi.StringMap{
 						"annotationName1": pulumi.String("annotationValue1"),
 					},
 					Enabled:    pulumi.Bool(true),
 					Expression: pulumi.String("job_type:billing_jobs_duration_seconds:99p5m > 30"),
 					For:        pulumi.String("PT5M"),
-					Labels: {
+					Labels: pulumi.StringMap{
 						"team": pulumi.String("prod"),
 					},
-					ResolveConfiguration: {
+					ResolveConfiguration: &alertsmanagement.PrometheusRuleResolveConfigurationArgs{
 						AutoResolved:  pulumi.Bool(true),
 						TimeToResolve: pulumi.String("PT10M"),
 					},

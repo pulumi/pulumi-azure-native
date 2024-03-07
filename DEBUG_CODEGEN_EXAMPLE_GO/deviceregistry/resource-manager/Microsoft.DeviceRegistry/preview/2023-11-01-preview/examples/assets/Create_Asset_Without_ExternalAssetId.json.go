@@ -11,14 +11,14 @@ func main() {
 			AssetEndpointProfileUri: pulumi.String("https://www.example.com/myAssetEndpointProfile"),
 			AssetName:               pulumi.String("my-asset"),
 			AssetType:               pulumi.String("MyAssetType"),
-			DataPoints: []deviceregistry.DataPointArgs{
-				{
+			DataPoints: deviceregistry.DataPointArray{
+				&deviceregistry.DataPointArgs{
 					CapabilityId:           pulumi.String("dtmi:com:example:Thermostat:__temperature;1"),
 					DataPointConfiguration: pulumi.String("{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}"),
 					DataSource:             pulumi.String("nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1"),
 					ObservabilityMode:      pulumi.String("counter"),
 				},
-				{
+				&deviceregistry.DataPointArgs{
 					CapabilityId:           pulumi.String("dtmi:com:example:Thermostat:__pressure;1"),
 					DataPointConfiguration: pulumi.String("{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}"),
 					DataSource:             pulumi.String("nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2"),
@@ -31,14 +31,14 @@ func main() {
 			DisplayName:                    pulumi.String("AssetDisplayName"),
 			DocumentationUri:               pulumi.String("https://www.example.com/manual"),
 			Enabled:                        pulumi.Bool(true),
-			Events: []deviceregistry.EventArgs{
-				{
+			Events: deviceregistry.EventArray{
+				&deviceregistry.EventArgs{
 					CapabilityId:       pulumi.String("dtmi:com:example:Thermostat:__temperature;1"),
 					EventConfiguration: pulumi.String("{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}"),
 					EventNotifier:      pulumi.String("nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3"),
 					ObservabilityMode:  pulumi.String("none"),
 				},
-				{
+				&deviceregistry.EventArgs{
 					CapabilityId:       pulumi.String("dtmi:com:example:Thermostat:__pressure;1"),
 					EventConfiguration: pulumi.String("{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}"),
 					EventNotifier:      pulumi.String("nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4"),

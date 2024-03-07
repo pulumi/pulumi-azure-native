@@ -13,16 +13,16 @@ ComputeId: "string",
 Description: "string",
 DisplayName: "string",
 ExperimentName: "string",
-Inputs: interface{}{
-String: machinelearningservices.LiteralJobInput{
+Inputs: map[string]interface{}{
+"string": machinelearningservices.LiteralJobInput{
 Description: "string",
 JobInputType: "literal",
 Value: "string",
 },
 },
 JobType: "Pipeline",
-Outputs: interface{}{
-String: machinelearningservices.UriFileJobOutput{
+Outputs: map[string]interface{}{
+"string": machinelearningservices.UriFileJobOutput{
 Description: "string",
 JobOutputType: "uri_file",
 Mode: "Upload",

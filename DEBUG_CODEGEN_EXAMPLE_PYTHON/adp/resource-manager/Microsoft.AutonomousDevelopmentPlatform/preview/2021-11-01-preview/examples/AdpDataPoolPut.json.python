@@ -4,13 +4,13 @@ import pulumi_azure_native as azure_native
 data_pool = azure_native.autonomousdevelopmentplatform.DataPool("dataPool",
     account_name="sampleacct",
     data_pool_name="sampledp",
-    locations=[{
-        "encryption": azure_native.autonomousdevelopmentplatform.DataPoolEncryptionArgs(
+    locations=[azure_native.autonomousdevelopmentplatform.DataPoolLocationArgs(
+        encryption=azure_native.autonomousdevelopmentplatform.DataPoolEncryptionArgs(
             key_name="key1",
             key_vault_uri="https://vaulturi",
             key_version="123",
             user_assigned_identity="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
         ),
-        "name": "westus",
-    }],
+        name="westus",
+    )],
     resource_group_name="adpClient")

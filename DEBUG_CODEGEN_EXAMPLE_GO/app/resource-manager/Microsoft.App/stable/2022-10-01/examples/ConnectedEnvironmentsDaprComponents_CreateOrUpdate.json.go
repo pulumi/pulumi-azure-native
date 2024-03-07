@@ -13,20 +13,20 @@ func main() {
 			ConnectedEnvironmentName: pulumi.String("myenvironment"),
 			IgnoreErrors:             pulumi.Bool(false),
 			InitTimeout:              pulumi.String("50s"),
-			Metadata: []app.DaprMetadataArgs{
-				{
+			Metadata: app.DaprMetadataArray{
+				&app.DaprMetadataArgs{
 					Name:  pulumi.String("url"),
 					Value: pulumi.String("<COSMOS-URL>"),
 				},
-				{
+				&app.DaprMetadataArgs{
 					Name:  pulumi.String("database"),
 					Value: pulumi.String("itemsDB"),
 				},
-				{
+				&app.DaprMetadataArgs{
 					Name:  pulumi.String("collection"),
 					Value: pulumi.String("items"),
 				},
-				{
+				&app.DaprMetadataArgs{
 					Name:      pulumi.String("masterkey"),
 					SecretRef: pulumi.String("masterkey"),
 				},
@@ -36,8 +36,8 @@ func main() {
 				pulumi.String("container-app-1"),
 				pulumi.String("container-app-2"),
 			},
-			Secrets: []app.SecretArgs{
-				{
+			Secrets: app.SecretArray{
+				&app.SecretArgs{
 					Name:  pulumi.String("masterkey"),
 					Value: pulumi.String("keyvalue"),
 				},

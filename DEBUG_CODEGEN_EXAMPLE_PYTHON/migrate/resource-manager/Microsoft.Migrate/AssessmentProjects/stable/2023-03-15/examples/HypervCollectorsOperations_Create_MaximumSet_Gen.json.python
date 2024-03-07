@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 hyperv_collectors_operation = azure_native.migrate.HypervCollectorsOperation("hypervCollectorsOperation",
-    agent_properties=azure_native.migrate.CollectorAgentPropertiesBaseResponseArgs(
+    agent_properties=azure_native.migrate.CollectorAgentPropertiesBaseArgs(
         id="12f1d90f-b3fa-4926-8893-e56803a09af0",
         last_heartbeat_utc="2022-07-07T14:25:35.708325Z",
         spn_details=azure_native.migrate.CollectorAgentSpnPropertiesBaseArgs(

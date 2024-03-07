@@ -11,7 +11,7 @@ data_collection_rule = azure_native.insights.DataCollectionRule("dataCollectionR
             "Microsoft-WindowsEvent",
         ],
     )],
-    data_sources=azure_native.insights.DataCollectionRuleResponseDataSourcesArgs(
+    data_sources=azure_native.insights.DataCollectionRuleDataSourcesArgs(
         performance_counters=[
             azure_native.insights.PerfCounterDataSourceArgs(
                 counter_specifiers=[
@@ -69,7 +69,7 @@ data_collection_rule = azure_native.insights.DataCollectionRule("dataCollectionR
             ),
         ],
     ),
-    destinations=azure_native.insights.DataCollectionRuleResponseDestinationsArgs(
+    destinations=azure_native.insights.DataCollectionRuleDestinationsArgs(
         log_analytics=[azure_native.insights.LogAnalyticsDestinationArgs(
             name="centralWorkspace",
             workspace_resource_id="/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
