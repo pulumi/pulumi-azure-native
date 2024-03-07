@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var digitalTwinsEndpoint = new AzureNative.DigitalTwins.DigitalTwinsEndpoint("digitalTwinsEndpoint", new()
+    {
+        EndpointName = "myServiceBus",
+        Properties = new AzureNative.DigitalTwins.Inputs.ServiceBusArgs
+        {
+            AuthenticationType = "IdentityBased",
+            EndpointType = "ServiceBus",
+            EndpointUri = "sb://mysb.servicebus.windows.net/",
+            EntityPath = "mysbtopic",
+            Identity = new AzureNative.DigitalTwins.Inputs.ManagedIdentityReferenceArgs
+            {
+                Type = "UserAssigned",
+                UserAssignedIdentity = "/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity",
+            },
+        },
+        ResourceGroupName = "resRg",
+        ResourceName = "myDigitalTwinsService",
+    });
+
+});
+

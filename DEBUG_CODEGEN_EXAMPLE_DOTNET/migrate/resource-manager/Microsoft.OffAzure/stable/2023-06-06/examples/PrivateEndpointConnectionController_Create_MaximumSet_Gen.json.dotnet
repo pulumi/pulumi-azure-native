@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnectionController = new AzureNative.OffAzure.PrivateEndpointConnectionController("privateEndpointConnectionController", new()
+    {
+        PeConnectionName = "-KF3-86-D3L-8M",
+        PrivateLinkServiceConnectionState = new AzureNative.OffAzure.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "swxghzuajrasojk",
+            Description = "ljdykrrhmzi",
+            Status = "Approved",
+        },
+        ResourceGroupName = "rgmigrate",
+        SiteName = "LuBO2I1-B85pJ1BZ251",
+    });
+
+});
+

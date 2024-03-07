@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fluidRelayServer = new AzureNative.FluidRelay.FluidRelayServer("fluidRelayServer", new()
+    {
+        FluidRelayServerName = "myFluidRelayServer",
+        Identity = new AzureNative.FluidRelay.Inputs.IdentityArgs
+        {
+            Type = AzureNative.FluidRelay.ResourceIdentityType.SystemAssigned,
+        },
+        Location = "west-us",
+        ResourceGroup = "myResourceGroup",
+        Storagesku = "basic",
+        Tags = 
+        {
+            { "Category", "sales" },
+        },
+    });
+
+});
+

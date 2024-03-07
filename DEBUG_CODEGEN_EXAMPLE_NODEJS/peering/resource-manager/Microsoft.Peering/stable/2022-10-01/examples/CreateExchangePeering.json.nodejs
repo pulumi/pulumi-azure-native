@@ -1,0 +1,42 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const peering = new azure_native.peering.Peering("peering", {
+    exchange: {
+        connections: [
+            {
+                bgpSession: {
+                    maxPrefixesAdvertisedV4: 1000,
+                    maxPrefixesAdvertisedV6: 100,
+                    md5AuthenticationKey: "test-md5-auth-key",
+                    peerSessionIPv4Address: "192.168.2.1",
+                    peerSessionIPv6Address: "fd00::1",
+                },
+                connectionIdentifier: "CE495334-0E94-4E51-8164-8116D6CD284D",
+                peeringDBFacilityId: 99999,
+            },
+            {
+                bgpSession: {
+                    maxPrefixesAdvertisedV4: 1000,
+                    maxPrefixesAdvertisedV6: 100,
+                    md5AuthenticationKey: "test-md5-auth-key",
+                    peerSessionIPv4Address: "192.168.2.2",
+                    peerSessionIPv6Address: "fd00::2",
+                },
+                connectionIdentifier: "CDD8E673-CB07-47E6-84DE-3739F778762B",
+                peeringDBFacilityId: 99999,
+            },
+        ],
+        peerAsn: {
+            id: "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+        },
+    },
+    kind: "Exchange",
+    location: "eastus",
+    peeringLocation: "peeringLocation0",
+    peeringName: "peeringName",
+    resourceGroupName: "rgName",
+    sku: {
+        name: "Basic_Exchange_Free",
+    },
+});

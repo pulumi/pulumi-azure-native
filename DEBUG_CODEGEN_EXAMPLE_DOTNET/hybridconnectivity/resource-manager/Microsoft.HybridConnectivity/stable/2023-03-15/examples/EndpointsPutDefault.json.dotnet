@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var endpoint = new AzureNative.HybridConnectivity.Endpoint("endpoint", new()
+    {
+        EndpointName = "default",
+        Properties = new AzureNative.HybridConnectivity.Inputs.EndpointPropertiesArgs
+        {
+            Type = "default",
+        },
+        ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+    });
+
+});
+

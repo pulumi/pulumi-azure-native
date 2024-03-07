@@ -1,0 +1,44 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var bigDataPool = new AzureNative.Synapse.BigDataPool("bigDataPool", new()
+    {
+        AutoPause = new AzureNative.Synapse.Inputs.AutoPausePropertiesArgs
+        {
+            DelayInMinutes = 15,
+            Enabled = true,
+        },
+        AutoScale = new AzureNative.Synapse.Inputs.AutoScalePropertiesArgs
+        {
+            Enabled = true,
+            MaxNodeCount = 50,
+            MinNodeCount = 3,
+        },
+        BigDataPoolName = "ExamplePool",
+        DefaultSparkLogFolder = "/logs",
+        IsAutotuneEnabled = false,
+        LibraryRequirements = new AzureNative.Synapse.Inputs.LibraryRequirementsArgs
+        {
+            Content = "",
+            Filename = "requirements.txt",
+        },
+        Location = "West US 2",
+        NodeCount = 4,
+        NodeSize = "Medium",
+        NodeSizeFamily = "MemoryOptimized",
+        ResourceGroupName = "ExampleResourceGroup",
+        SparkEventsFolder = "/events",
+        SparkVersion = "3.3",
+        Tags = 
+        {
+            { "key", "value" },
+        },
+        WorkspaceName = "ExampleWorkspace",
+    });
+
+});
+

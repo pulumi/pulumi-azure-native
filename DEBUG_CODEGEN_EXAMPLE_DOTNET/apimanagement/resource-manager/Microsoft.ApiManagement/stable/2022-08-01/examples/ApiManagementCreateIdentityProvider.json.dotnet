@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var identityProvider = new AzureNative.ApiManagement.IdentityProvider("identityProvider", new()
+    {
+        ClientId = "facebookid",
+        ClientSecret = "facebookapplicationsecret",
+        IdentityProviderName = "facebook",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

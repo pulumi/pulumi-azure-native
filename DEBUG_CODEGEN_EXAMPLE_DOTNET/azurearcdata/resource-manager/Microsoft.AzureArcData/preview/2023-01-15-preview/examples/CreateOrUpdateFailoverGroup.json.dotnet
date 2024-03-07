@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var failoverGroup = new AzureNative.AzureArcData.FailoverGroup("failoverGroup", new()
+    {
+        FailoverGroupName = "testFailoverGroupName",
+        Properties = new AzureNative.AzureArcData.Inputs.FailoverGroupPropertiesArgs
+        {
+            PartnerManagedInstanceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/partnerMI",
+            Spec = new AzureNative.AzureArcData.Inputs.FailoverGroupSpecArgs
+            {
+                PartnerSyncMode = "async",
+                Role = "primary",
+            },
+        },
+        ResourceGroupName = "testrg",
+        SqlManagedInstanceName = "testSqlManagedInstance",
+    });
+
+});
+

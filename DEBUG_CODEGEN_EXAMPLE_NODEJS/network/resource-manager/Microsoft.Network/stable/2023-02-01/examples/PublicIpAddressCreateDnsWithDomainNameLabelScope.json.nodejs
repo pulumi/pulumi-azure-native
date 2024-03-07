@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const publicIPAddress = new azure_native.network.PublicIPAddress("publicIPAddress", {
+    dnsSettings: {
+        domainNameLabel: "dnslbl",
+        domainNameLabelScope: azure_native.network.PublicIpAddressDnsSettingsDomainNameLabelScope.TenantReuse,
+    },
+    location: "eastus",
+    publicIpAddressName: "test-ip",
+    resourceGroupName: "rg1",
+});

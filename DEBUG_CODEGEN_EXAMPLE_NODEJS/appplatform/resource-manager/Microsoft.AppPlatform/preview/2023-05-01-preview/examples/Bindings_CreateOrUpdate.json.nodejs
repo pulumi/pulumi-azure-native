@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const binding = new azure_native.appplatform.Binding("binding", {
+    appName: "myapp",
+    bindingName: "mybinding",
+    properties: {
+        bindingParameters: {
+            apiType: "SQL",
+            databaseName: "db1",
+        },
+        key: "xxxx",
+        resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1",
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

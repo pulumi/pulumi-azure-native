@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const partnerRegistration = new azure_native.eventgrid.PartnerRegistration("partnerRegistration", {
+    location: "global",
+    partnerRegistrationName: "examplePartnerRegistrationName1",
+    resourceGroupName: "examplerg",
+    tags: {
+        key1: "value1",
+        key2: "Value2",
+        key3: "Value3",
+    },
+});

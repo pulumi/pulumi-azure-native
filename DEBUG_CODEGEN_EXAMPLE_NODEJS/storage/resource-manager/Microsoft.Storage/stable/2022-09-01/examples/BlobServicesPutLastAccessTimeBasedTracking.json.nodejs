@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const blobServiceProperties = new azure_native.storage.BlobServiceProperties("blobServiceProperties", {
+    accountName: "sto8607",
+    blobServicesName: "default",
+    lastAccessTimeTrackingPolicy: {
+        blobType: ["blockBlob"],
+        enable: true,
+        name: "AccessTimeTracking",
+        trackingGranularityInDays: 1,
+    },
+    resourceGroupName: "res4410",
+});

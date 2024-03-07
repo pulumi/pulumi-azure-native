@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var guestAgent = new AzureNative.ConnectedVMwarevSphere.GuestAgent("guestAgent", new()
+    {
+        Credentials = new AzureNative.ConnectedVMwarevSphere.Inputs.GuestCredentialArgs
+        {
+            Password = "<password>",
+            Username = "tempuser",
+        },
+        HttpProxyConfig = new AzureNative.ConnectedVMwarevSphere.Inputs.HttpProxyConfigurationArgs
+        {
+            HttpsProxy = "http://192.1.2.3:8080",
+        },
+        Name = "default",
+        ProvisioningAction = "install",
+        ResourceGroupName = "testrg",
+        VirtualMachineName = "ContosoVm",
+    });
+
+});
+

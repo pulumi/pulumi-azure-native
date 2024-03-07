@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var firewallPolicyRuleCollectionGroup = new AzureNative.Network.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", new()
+    {
+        FirewallPolicyName = "firewallPolicy",
+        Priority = 110,
+        ResourceGroupName = "rg1",
+        RuleCollectionGroupName = "ruleCollectionGroup1",
+        RuleCollections = new[]
+        {
+            new AzureNative.Network.Inputs.FirewallPolicyFilterRuleCollectionArgs
+            {
+                Action = new AzureNative.Network.Inputs.FirewallPolicyFilterRuleCollectionActionArgs
+                {
+                    Type = "Deny",
+                },
+                Name = "Example-Filter-Rule-Collection",
+                RuleCollectionType = "FirewallPolicyFilterRuleCollection",
+                Rules = new[]
+                {
+                    new AzureNative.Network.Inputs.ApplicationRuleArgs
+                    {
+                        Description = "Deny inbound rule",
+                        Name = "rule1",
+                        Protocols = new[]
+                        {
+                            new AzureNative.Network.Inputs.FirewallPolicyRuleApplicationProtocolArgs
+                            {
+                                Port = 443,
+                                ProtocolType = "Https",
+                            },
+                        },
+                        RuleType = "ApplicationRule",
+                        SourceAddresses = new[]
+                        {
+                            "216.58.216.164",
+                            "10.0.0.0/24",
+                        },
+                        WebCategories = new[]
+                        {
+                            "Hacking",
+                        },
+                    },
+                },
+            },
+        },
+    });
+
+});
+

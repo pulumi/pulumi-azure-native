@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.offazure.PrivateEndpointConnection("privateEndpointConnection", {
+    peConnectionName: "privateendpt1938mastersit9007pe.4f2f2970-0bfa-45d4-9ee1-d9f79502fc6f",
+    resourceGroupName: "ayagrawrg",
+    siteName: "privateendpt1938mastersite",
+});

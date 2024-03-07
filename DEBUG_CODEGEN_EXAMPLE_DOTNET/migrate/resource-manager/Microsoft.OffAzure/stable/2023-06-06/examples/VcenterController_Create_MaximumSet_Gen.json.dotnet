@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vcenterController = new AzureNative.OffAzure.VcenterController("vcenterController", new()
+    {
+        Fqdn = "mzrejobgzhpxhynsfpumuhk",
+        FriendlyName = "qqsnhutpvockzhwuesuohnfirvxmw",
+        Port = "ahagklwzutlumcdhawkrfzmpfypcz",
+        ProvisioningState = "Created",
+        ResourceGroupName = "rgmigrate",
+        RunAsAccountId = "orrfsvlcuoagqlkkqsd",
+        SiteName = "Snu-38v6",
+        VcenterName = "e72lZRSD",
+    });
+
+});
+

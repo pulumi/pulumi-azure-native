@@ -1,0 +1,51 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var bot = new AzureNative.BotService.Bot("bot", new()
+    {
+        Kind = "sdk",
+        Location = "West US",
+        Properties = new AzureNative.BotService.Inputs.BotPropertiesArgs
+        {
+            CmekKeyVaultUrl = "https://myCmekKey",
+            Description = "The description of the bot",
+            DeveloperAppInsightKey = "appinsightskey",
+            DeveloperAppInsightsApiKey = "appinsightsapikey",
+            DeveloperAppInsightsApplicationId = "appinsightsappid",
+            DisableLocalAuth = true,
+            DisplayName = "The Name of the bot",
+            Endpoint = "http://mybot.coffee",
+            IconUrl = "http://myicon",
+            IsCmekEnabled = true,
+            LuisAppIds = new[]
+            {
+                "luisappid1",
+                "luisappid2",
+            },
+            LuisKey = "luiskey",
+            MsaAppId = "exampleappid",
+            MsaAppMSIResourceId = "/subscriptions/foo/resourcegroups/bar/providers/microsoft.managedidentity/userassignedidentities/sampleId",
+            MsaAppTenantId = "exampleapptenantid",
+            MsaAppType = "UserAssignedMSI",
+            PublicNetworkAccess = "Enabled",
+            SchemaTransformationVersion = "1.0",
+        },
+        ResourceGroupName = "OneResourceGroupName",
+        ResourceName = "samplebotname",
+        Sku = new AzureNative.BotService.Inputs.SkuArgs
+        {
+            Name = "S1",
+        },
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+    });
+
+});
+

@@ -1,0 +1,89 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var openShiftManagedCluster = new AzureNative.ContainerService.OpenShiftManagedCluster("openShiftManagedCluster", new()
+    {
+        AgentPoolProfiles = new[]
+        {
+            new AzureNative.ContainerService.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+            {
+                Count = 3,
+                Name = "infra",
+                OsType = "Linux",
+                Role = "infra",
+                SubnetCidr = "10.0.0.0/24",
+                VmSize = "Standard_D4s_v3",
+            },
+            new AzureNative.ContainerService.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+            {
+                Count = 4,
+                Name = "compute",
+                OsType = "Linux",
+                Role = "compute",
+                SubnetCidr = "10.0.0.0/24",
+                VmSize = "Standard_D4s_v3",
+            },
+        },
+        AuthProfile = new AzureNative.ContainerService.Inputs.OpenShiftManagedClusterAuthProfileArgs
+        {
+            IdentityProviders = new[]
+            {
+                new AzureNative.ContainerService.Inputs.OpenShiftManagedClusterIdentityProviderArgs
+                {
+                    Name = "Azure AD",
+                    Provider = 
+                    {
+                        { "clientId", "clientId" },
+                        { "customerAdminGroupId", "customerAdminGroupId" },
+                        { "kind", "AADIdentityProvider" },
+                        { "secret", "secret" },
+                        { "tenantId", "tenantId" },
+                    },
+                },
+            },
+        },
+        Location = "location1",
+        MasterPoolProfile = new AzureNative.ContainerService.Inputs.OpenShiftManagedClusterMasterPoolProfileArgs
+        {
+            ApiProperties = new AzureNative.ContainerService.Inputs.OpenShiftAPIPropertiesArgs
+            {
+                PrivateApiServer = true,
+            },
+            Count = 3,
+            SubnetCidr = "10.0.0.0/24",
+            VmSize = "Standard_D4s_v3",
+        },
+        MonitorProfile = new AzureNative.ContainerService.Inputs.OpenShiftManagedClusterMonitorProfileArgs
+        {
+            Enabled = true,
+            WorkspaceResourceID = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+        },
+        NetworkProfile = new AzureNative.ContainerService.Inputs.NetworkProfileArgs
+        {
+            ManagementSubnetCidr = "10.0.1.0/24",
+            VnetCidr = "10.0.0.0/8",
+        },
+        OpenShiftVersion = "v3.11",
+        RefreshCluster = true,
+        ResourceGroupName = "rg1",
+        ResourceName = "privateclustername1",
+        RouterProfiles = new[]
+        {
+            new AzureNative.ContainerService.Inputs.OpenShiftRouterProfileArgs
+            {
+                Name = "default",
+            },
+        },
+        Tags = 
+        {
+            { "archv2", "" },
+            { "tier", "production" },
+        },
+    });
+
+});
+

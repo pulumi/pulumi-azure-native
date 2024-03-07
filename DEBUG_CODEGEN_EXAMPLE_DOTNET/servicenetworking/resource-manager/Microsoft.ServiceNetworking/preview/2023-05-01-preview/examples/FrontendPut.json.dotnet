@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var frontendsInterface = new AzureNative.ServiceNetworking.FrontendsInterface("frontendsInterface", new()
+    {
+        FrontendName = "fe1",
+        Location = "NorthCentralUS",
+        ResourceGroupName = "rg1",
+        TrafficControllerName = "tc1",
+    });
+
+});
+

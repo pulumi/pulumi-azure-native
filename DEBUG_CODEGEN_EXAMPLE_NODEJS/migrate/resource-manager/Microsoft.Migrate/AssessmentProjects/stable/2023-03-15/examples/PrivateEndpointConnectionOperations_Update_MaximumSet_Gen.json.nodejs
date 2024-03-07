@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnectionOperation = new azure_native.migrate.PrivateEndpointConnectionOperation("privateEndpointConnectionOperation", {
+    privateEndpointConnectionName: "sakanwar1204project1634pe.bf42f8a1-09f5-4ee4-aea6-a019cc60f9d7",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "",
+        status: "Approved",
+    },
+    projectName: "sakanwar1204project",
+    resourceGroupName: "sakanwar",
+});

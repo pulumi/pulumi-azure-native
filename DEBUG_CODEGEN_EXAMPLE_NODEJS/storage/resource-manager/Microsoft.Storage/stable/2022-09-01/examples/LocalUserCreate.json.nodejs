@@ -1,0 +1,26 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const localUser = new azure_native.storage.LocalUser("localUser", {
+    accountName: "sto2527",
+    hasSshPassword: true,
+    homeDirectory: "homedirectory",
+    permissionScopes: [
+        {
+            permissions: "rwd",
+            resourceName: "share1",
+            service: "file",
+        },
+        {
+            permissions: "rw",
+            resourceName: "share2",
+            service: "file",
+        },
+    ],
+    resourceGroupName: "res6977",
+    sshAuthorizedKeys: [{
+        description: "key name",
+        key: "ssh-rsa keykeykeykeykey=",
+    }],
+    username: "user1",
+});

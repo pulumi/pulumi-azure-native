@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var certificate = new AzureNative.Devices.Certificate("certificate", new()
+    {
+        CertificateName = "cert",
+        Properties = new AzureNative.Devices.Inputs.CertificatePropertiesArgs
+        {
+            Certificate = "############################################",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "iothub",
+    });
+
+});
+

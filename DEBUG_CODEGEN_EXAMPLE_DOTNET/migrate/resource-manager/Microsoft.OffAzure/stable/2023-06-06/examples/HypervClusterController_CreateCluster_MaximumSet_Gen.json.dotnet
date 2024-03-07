@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hypervClusterControllerCluster = new AzureNative.OffAzure.HypervClusterControllerCluster("hypervClusterControllerCluster", new()
+    {
+        ClusterName = "v5285",
+        Fqdn = "lyqquicmqfagukcwfquemrkrexic",
+        HostFqdnList = new[]
+        {
+            "frozqzatdahnwlccznpmw",
+        },
+        ProvisioningState = "Created",
+        ResourceGroupName = "rgmigrate",
+        RunAsAccountId = "valugnnrofauhagzzxksfjbcwuqhue",
+        SiteName = "224qC-GNR",
+    });
+
+});
+

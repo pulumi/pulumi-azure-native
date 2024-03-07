@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectivityConfiguration = new AzureNative.Network.ConnectivityConfiguration("connectivityConfiguration", new()
+    {
+        AppliesToGroups = new[]
+        {
+            new AzureNative.Network.Inputs.ConnectivityGroupItemArgs
+            {
+                GroupConnectivity = "None",
+                IsGlobal = "False",
+                NetworkGroupId = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1",
+                UseHubGateway = "True",
+            },
+        },
+        ConfigurationName = "myTestConnectivityConfig",
+        ConnectivityTopology = "HubAndSpoke",
+        DeleteExistingPeering = "True",
+        Description = "Sample Configuration",
+        Hubs = new[]
+        {
+            new AzureNative.Network.Inputs.HubArgs
+            {
+                ResourceId = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig",
+                ResourceType = "Microsoft.Network/virtualNetworks",
+            },
+        },
+        IsGlobal = "True",
+        NetworkManagerName = "testNetworkManager",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

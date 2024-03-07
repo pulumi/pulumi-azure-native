@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var slice = new AzureNative.MobileNetwork.Slice("slice", new()
+    {
+        Description = "myFavouriteSlice",
+        Location = "eastus",
+        MobileNetworkName = "testMobileNetwork",
+        ResourceGroupName = "rg1",
+        SliceName = "testSlice",
+        Snssai = new AzureNative.MobileNetwork.Inputs.SnssaiArgs
+        {
+            Sd = "1abcde",
+            Sst = 1,
+        },
+    });
+
+});
+

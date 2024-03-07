@@ -1,0 +1,92 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachineScaleSet = new AzureNative.Compute.VirtualMachineScaleSet("virtualMachineScaleSet", new()
+    {
+        Location = "westus",
+        Overprovision = true,
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Compute.Inputs.SkuArgs
+        {
+            Capacity = 3,
+            Name = "Standard_D1_v2",
+            Tier = "Standard",
+        },
+        UpgradePolicy = new AzureNative.Compute.Inputs.UpgradePolicyArgs
+        {
+            Mode = AzureNative.Compute.UpgradeMode.Manual,
+        },
+        VirtualMachineProfile = new AzureNative.Compute.Inputs.VirtualMachineScaleSetVMProfileArgs
+        {
+            NetworkProfile = new AzureNative.Compute.Inputs.VirtualMachineScaleSetNetworkProfileArgs
+            {
+                NetworkInterfaceConfigurations = new[]
+                {
+                    new AzureNative.Compute.Inputs.VirtualMachineScaleSetNetworkConfigurationArgs
+                    {
+                        EnableIPForwarding = true,
+                        IpConfigurations = new[]
+                        {
+                            new AzureNative.Compute.Inputs.VirtualMachineScaleSetIPConfigurationArgs
+                            {
+                                Name = "{vmss-name}",
+                                Subnet = new AzureNative.Compute.Inputs.ApiEntityReferenceArgs
+                                {
+                                    Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/{existing-virtual-network-name}/subnets/{existing-subnet-name}",
+                                },
+                            },
+                        },
+                        Name = "{vmss-name}",
+                        Primary = true,
+                    },
+                },
+            },
+            OsProfile = new AzureNative.Compute.Inputs.VirtualMachineScaleSetOSProfileArgs
+            {
+                AdminUsername = "{your-username}",
+                ComputerNamePrefix = "{vmss-name}",
+                LinuxConfiguration = new AzureNative.Compute.Inputs.LinuxConfigurationArgs
+                {
+                    DisablePasswordAuthentication = true,
+                    Ssh = new AzureNative.Compute.Inputs.SshConfigurationArgs
+                    {
+                        PublicKeys = new[]
+                        {
+                            new AzureNative.Compute.Inputs.SshPublicKeyArgs
+                            {
+                                KeyData = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1",
+                                Path = "/home/{your-username}/.ssh/authorized_keys",
+                            },
+                        },
+                    },
+                },
+            },
+            StorageProfile = new AzureNative.Compute.Inputs.VirtualMachineScaleSetStorageProfileArgs
+            {
+                ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+                {
+                    Offer = "WindowsServer",
+                    Publisher = "MicrosoftWindowsServer",
+                    Sku = "2016-Datacenter",
+                    Version = "latest",
+                },
+                OsDisk = new AzureNative.Compute.Inputs.VirtualMachineScaleSetOSDiskArgs
+                {
+                    Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+                    CreateOption = "FromImage",
+                    ManagedDisk = new AzureNative.Compute.Inputs.VirtualMachineScaleSetManagedDiskParametersArgs
+                    {
+                        StorageAccountType = "Standard_LRS",
+                    },
+                },
+            },
+        },
+        VmScaleSetName = "{vmss-name}",
+    });
+
+});
+

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var localUser = new AzureNative.Storage.LocalUser("localUser", new()
+    {
+        AccountName = "sto2527",
+        HasSharedKey = false,
+        HasSshKey = false,
+        HasSshPassword = false,
+        HomeDirectory = "homedirectory2",
+        ResourceGroupName = "res6977",
+        Username = "user1",
+    });
+
+});
+

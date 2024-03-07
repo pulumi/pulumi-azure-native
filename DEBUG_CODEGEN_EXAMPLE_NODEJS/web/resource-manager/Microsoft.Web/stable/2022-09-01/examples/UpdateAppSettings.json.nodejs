@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webAppApplicationSettings = new azure_native.web.WebAppApplicationSettings("webAppApplicationSettings", {
+    name: "sitef6141",
+    properties: {
+        Setting1: "Value1",
+        Setting2: "Value2",
+    },
+    resourceGroupName: "testrg123",
+});

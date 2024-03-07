@@ -1,0 +1,33 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const connectionMonitor = new azure_native.network.ConnectionMonitor("connectionMonitor", {
+    connectionMonitorName: "cm1",
+    endpoints: [
+        {
+            name: "source",
+            resourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/ct1",
+        },
+        {
+            address: "bing.com",
+            name: "destination",
+        },
+    ],
+    location: "eastus",
+    networkWatcherName: "nw1",
+    resourceGroupName: "rg1",
+    testConfigurations: [{
+        name: "tcp",
+        protocol: "Tcp",
+        tcpConfiguration: {
+            port: 80,
+        },
+        testFrequencySec: 60,
+    }],
+    testGroups: [{
+        destinations: ["destination"],
+        name: "tg",
+        sources: ["source"],
+        testConfigurations: ["tcp"],
+    }],
+});

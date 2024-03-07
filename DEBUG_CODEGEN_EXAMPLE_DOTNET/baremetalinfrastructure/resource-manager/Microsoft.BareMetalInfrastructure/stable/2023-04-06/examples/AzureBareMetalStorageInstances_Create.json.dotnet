@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var azureBareMetalStorageInstance = new AzureNative.BareMetalInfrastructure.AzureBareMetalStorageInstance("azureBareMetalStorageInstance", new()
+    {
+        AzureBareMetalStorageInstanceName = "myAzureBareMetalStorageInstance",
+        AzureBareMetalStorageInstanceUniqueIdentifier = "23415635-4d7e-41dc-9598-8194f22c24e9",
+        Location = "westus2",
+        ResourceGroupName = "myResourceGroup",
+        StorageProperties = new AzureNative.BareMetalInfrastructure.Inputs.StoragePropertiesArgs
+        {
+            Generation = "Gen4",
+            HardwareType = "NetApp",
+            OfferingType = "EPIC",
+            ProvisioningState = "Succeeded",
+            StorageBillingProperties = new AzureNative.BareMetalInfrastructure.Inputs.StorageBillingPropertiesArgs
+            {
+                AzureBareMetalStorageInstanceSize = "",
+                BillingMode = "PAYG",
+            },
+            StorageType = "FC",
+            WorkloadType = "ODB",
+        },
+        Tags = 
+        {
+            { "key", "value" },
+        },
+    });
+
+});
+

@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var output = new AzureNative.StreamAnalytics.Output("output", new()
+    {
+        Datasource = new AzureNative.StreamAnalytics.Inputs.AzureSqlDatabaseOutputDataSourceArgs
+        {
+            Database = "someDatabase",
+            Password = "somePassword",
+            Server = "someServer",
+            Table = "someTable",
+            Type = "Microsoft.Sql/Server/Database",
+            User = "<user>",
+        },
+        JobName = "sj6458",
+        OutputName = "output1755",
+        ResourceGroupName = "sjrg2157",
+    });
+
+});
+

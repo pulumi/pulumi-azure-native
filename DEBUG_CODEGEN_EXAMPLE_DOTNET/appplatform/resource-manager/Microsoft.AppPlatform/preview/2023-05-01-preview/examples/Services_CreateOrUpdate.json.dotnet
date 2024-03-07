@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.AppPlatform.Service("service", new()
+    {
+        Location = "eastus",
+        Properties = null,
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+        {
+            Name = "S0",
+            Tier = "Standard",
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

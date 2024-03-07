@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var logProfile = new AzureNative.Insights.LogProfile("logProfile", new()
+    {
+        Categories = new[]
+        {
+            "Write",
+            "Delete",
+            "Action",
+        },
+        Location = "",
+        Locations = new[]
+        {
+            "global",
+        },
+        LogProfileName = "Rac46PostSwapRG",
+        RetentionPolicy = new AzureNative.Insights.Inputs.RetentionPolicyArgs
+        {
+            Days = 3,
+            Enabled = true,
+        },
+        ServiceBusRuleId = "",
+        StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.Compute.Disk("disk", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "Empty",
+        },
+        DiskIOPSReadWrite = 125,
+        DiskMBpsReadWrite = 3000,
+        DiskName = "myPremiumV2Disk",
+        DiskSizeGB = 200,
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Compute.Inputs.DiskSkuArgs
+        {
+            Name = "PremiumV2_LRS",
+        },
+    });
+
+});
+

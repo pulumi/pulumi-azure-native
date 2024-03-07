@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const topicSpace = new azure_native.eventgrid.TopicSpace("topicSpace", {
+    namespaceName: "exampleNamespaceName1",
+    resourceGroupName: "examplerg",
+    topicSpaceName: "exampleTopicSpaceName1",
+    topicTemplates: [
+        "filter1",
+        "filter2",
+    ],
+});

@@ -1,0 +1,52 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const scalingPlanPersonalSchedule = new azure_native.desktopvirtualization.ScalingPlanPersonalSchedule("scalingPlanPersonalSchedule", {
+    daysOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+    ],
+    offPeakActionOnDisconnect: "None",
+    offPeakActionOnLogoff: "Deallocate",
+    offPeakMinutesToWaitOnDisconnect: 10,
+    offPeakMinutesToWaitOnLogoff: 10,
+    offPeakStartTime: {
+        hour: 20,
+        minute: 0,
+    },
+    offPeakStartVMOnConnect: "Enable",
+    peakActionOnDisconnect: "None",
+    peakActionOnLogoff: "Deallocate",
+    peakMinutesToWaitOnDisconnect: 10,
+    peakMinutesToWaitOnLogoff: 10,
+    peakStartTime: {
+        hour: 8,
+        minute: 0,
+    },
+    peakStartVMOnConnect: "Enable",
+    rampDownActionOnDisconnect: "None",
+    rampDownActionOnLogoff: "Deallocate",
+    rampDownMinutesToWaitOnDisconnect: 10,
+    rampDownMinutesToWaitOnLogoff: 10,
+    rampDownStartTime: {
+        hour: 18,
+        minute: 0,
+    },
+    rampDownStartVMOnConnect: "Enable",
+    rampUpActionOnDisconnect: "None",
+    rampUpActionOnLogoff: "None",
+    rampUpAutoStartHosts: "All",
+    rampUpMinutesToWaitOnDisconnect: 10,
+    rampUpMinutesToWaitOnLogoff: 10,
+    rampUpStartTime: {
+        hour: 6,
+        minute: 0,
+    },
+    rampUpStartVMOnConnect: "Enable",
+    resourceGroupName: "resourceGroup1",
+    scalingPlanName: "scalingPlan1",
+    scalingPlanScheduleName: "scalingPlanScheduleWeekdays1",
+});

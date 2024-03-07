@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var containerAppsSourceControl = new AzureNative.App.ContainerAppsSourceControl("containerAppsSourceControl", new()
+    {
+        Branch = "master",
+        ContainerAppName = "testcanadacentral",
+        GithubActionConfiguration = new AzureNative.App.Inputs.GithubActionConfigurationArgs
+        {
+            AzureCredentials = new AzureNative.App.Inputs.AzureCredentialsArgs
+            {
+                ClientId = "<clientid>",
+                ClientSecret = "<clientsecret>",
+                TenantId = "<tenantid>",
+            },
+            ContextPath = "./",
+            Image = "image/tag",
+            RegistryInfo = new AzureNative.App.Inputs.RegistryInfoArgs
+            {
+                RegistryPassword = "<registrypassword>",
+                RegistryUrl = "xwang971reg.azurecr.io",
+                RegistryUserName = "xwang971reg",
+            },
+        },
+        RepoUrl = "https://github.com/xwang971/ghatest",
+        ResourceGroupName = "workerapps-rg-xj",
+        SourceControlName = "current",
+    });
+
+});
+

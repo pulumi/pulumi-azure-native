@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppAzureStorageAccounts = new AzureNative.Web.WebAppAzureStorageAccounts("webAppAzureStorageAccounts", new()
+    {
+        Name = "sitef6141",
+        Properties = 
+        {
+            { "account1", new AzureNative.Web.Inputs.AzureStorageInfoValueArgs
+            {
+                AccessKey = "26515^%@#*",
+                AccountName = "testsa",
+                MountPath = "/mounts/a/files",
+                ShareName = "web",
+                Type = AzureNative.Web.AzureStorageType.AzureFiles,
+            } },
+        },
+        ResourceGroupName = "testrg123",
+    });
+
+});
+

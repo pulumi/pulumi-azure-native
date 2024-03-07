@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const adcCatalog = new azure_native.datacatalog.ADCCatalog("adcCatalog", {
+    admins: [{
+        objectId: "99999999-9999-9999-999999999999",
+        upn: "myupn@microsoft.com",
+    }],
+    catalogName: "exampleCatalog",
+    enableAutomaticUnitAdjustment: false,
+    location: "North US",
+    resourceGroupName: "exampleResourceGroup",
+    sku: "Standard",
+    tags: {
+        mykey: "myvalue",
+        mykey2: "myvalue2",
+    },
+    units: 1,
+    users: [{
+        objectId: "99999999-9999-9999-999999999999",
+        upn: "myupn@microsoft.com",
+    }],
+});

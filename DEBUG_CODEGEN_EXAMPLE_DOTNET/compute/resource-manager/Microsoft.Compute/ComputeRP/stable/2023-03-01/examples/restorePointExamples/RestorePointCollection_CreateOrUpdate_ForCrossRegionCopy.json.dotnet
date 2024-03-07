@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var restorePointCollection = new AzureNative.Compute.RestorePointCollection("restorePointCollection", new()
+    {
+        Location = "norwayeast",
+        ResourceGroupName = "myResourceGroup",
+        RestorePointCollectionName = "myRpc",
+        Source = new AzureNative.Compute.Inputs.RestorePointCollectionSourcePropertiesArgs
+        {
+            Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName",
+        },
+        Tags = 
+        {
+            { "myTag1", "tagValue1" },
+        },
+    });
+
+});
+

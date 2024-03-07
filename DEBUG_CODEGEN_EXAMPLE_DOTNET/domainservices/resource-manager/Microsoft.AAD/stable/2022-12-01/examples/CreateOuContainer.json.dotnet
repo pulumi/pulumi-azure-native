@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ouContainer = new AzureNative.Aad.OuContainer("ouContainer", new()
+    {
+        AccountName = "AccountName1",
+        DomainServiceName = "OuContainer.com",
+        OuContainerName = "OuContainer1",
+        Password = "<password>",
+        ResourceGroupName = "OuContainerResourceGroup",
+        Spn = "Spn1",
+    });
+
+});
+

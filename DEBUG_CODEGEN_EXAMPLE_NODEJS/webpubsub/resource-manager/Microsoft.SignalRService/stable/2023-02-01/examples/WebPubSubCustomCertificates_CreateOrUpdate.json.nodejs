@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webPubSubCustomCertificate = new azure_native.webpubsub.WebPubSubCustomCertificate("webPubSubCustomCertificate", {
+    certificateName: "myCert",
+    keyVaultBaseUri: "https://myvault.keyvault.azure.net/",
+    keyVaultSecretName: "mycert",
+    keyVaultSecretVersion: "bb6a44b2743f47f68dad0d6cc9756432",
+    resourceGroupName: "myResourceGroup",
+    resourceName: "myWebPubSubService",
+});

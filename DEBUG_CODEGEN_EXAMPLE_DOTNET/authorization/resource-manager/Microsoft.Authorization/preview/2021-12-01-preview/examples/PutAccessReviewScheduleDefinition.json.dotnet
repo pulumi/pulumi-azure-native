@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var scopeAccessReviewScheduleDefinitionById = new AzureNative.Authorization.ScopeAccessReviewScheduleDefinitionById("scopeAccessReviewScheduleDefinitionById", new()
+    {
+        ScheduleDefinitionId = "fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+        Scope = "subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+    });
+
+});
+

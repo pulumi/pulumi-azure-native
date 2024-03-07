@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const account = new azure_native.datashare.Account("account", {
+    accountName: "Account1",
+    identity: {
+        type: "SystemAssigned",
+    },
+    location: "West US 2",
+    resourceGroupName: "SampleResourceGroup",
+    tags: {
+        tag1: "Red",
+        tag2: "White",
+    },
+});

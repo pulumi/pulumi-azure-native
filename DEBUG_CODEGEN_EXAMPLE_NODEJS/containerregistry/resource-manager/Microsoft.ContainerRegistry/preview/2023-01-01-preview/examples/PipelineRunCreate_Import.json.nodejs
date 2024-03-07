@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pipelineRun = new azure_native.containerregistry.PipelineRun("pipelineRun", {
+    forceUpdateTag: "2020-03-04T17:23:21.9261521+00:00",
+    pipelineRunName: "myPipelineRun",
+    registryName: "myRegistry",
+    request: {
+        catalogDigest: "sha256@",
+        pipelineResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline",
+        source: {
+            name: "myblob.tar.gz",
+            type: "AzureStorageBlob",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+});

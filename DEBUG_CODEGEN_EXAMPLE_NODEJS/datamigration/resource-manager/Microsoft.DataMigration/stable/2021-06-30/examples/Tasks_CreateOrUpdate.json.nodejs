@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const task = new azure_native.datamigration.Task("task", {
+    groupName: "DmsSdkRg",
+    projectName: "DmsSdkProject",
+    properties: {
+        input: {
+            targetConnectionInfo: {
+                authentication: "SqlAuthentication",
+                dataSource: "ssma-test-server.database.windows.net",
+                encryptConnection: true,
+                password: "testpassword",
+                trustServerCertificate: true,
+                type: "SqlConnectionInfo",
+                userName: "testuser",
+            },
+        },
+        taskType: "ConnectToTarget.SqlDb",
+    },
+    serviceName: "DmsSdkService",
+    taskName: "DmsSdkTask",
+});

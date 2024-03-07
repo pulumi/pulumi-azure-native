@@ -12,14 +12,14 @@ policy_exemption = azure_native.authorization.PolicyExemption("policyExemption",
     policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
     policy_definition_reference_ids=["Limit_Skus"],
     policy_exemption_name="DemoExpensiveVM",
-    resource_selectors=[azure_native.authorization.ResourceSelectorArgs(
-        name="SDPRegions",
-        selectors=[azure_native.authorization.SelectorArgs(
+    resource_selectors=[{
+        "name": "SDPRegions",
+        "selectors": [azure_native.authorization.SelectorArgs(
             in_=[
                 "eastus2euap",
                 "centraluseuap",
             ],
             kind="resourceLocation",
         )],
-    )],
+    }],
     scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")

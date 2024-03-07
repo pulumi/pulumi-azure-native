@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const resourceGuardProxy = new azure_native.recoveryservices.ResourceGuardProxy("resourceGuardProxy", {
+    properties: {
+        resourceGuardResourceId: "/subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew",
+    },
+    resourceGroupName: "SampleResourceGroup",
+    resourceGuardProxyName: "swaggerExample",
+    vaultName: "sampleVault",
+});

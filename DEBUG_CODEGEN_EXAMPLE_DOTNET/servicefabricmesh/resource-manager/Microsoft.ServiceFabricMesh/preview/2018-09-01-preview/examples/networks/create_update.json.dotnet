@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var network = new AzureNative.ServiceFabricMesh.Network("network", new()
+    {
+        Location = "EastUS",
+        NetworkResourceName = "sampleNetwork",
+        Properties = null,
+        ResourceGroupName = "sbz_demo",
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,66 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sapVirtualInstance = new AzureNative.Workloads.SAPVirtualInstance("sapVirtualInstance", new()
+    {
+        Configuration = new AzureNative.Workloads.Inputs.DeploymentWithOSConfigurationArgs
+        {
+            AppLocation = "eastus",
+            ConfigurationType = "DeploymentWithOSConfig",
+            InfrastructureConfiguration = new AzureNative.Workloads.Inputs.SingleServerConfigurationArgs
+            {
+                AppResourceGroup = "test-rg",
+                DeploymentType = "SingleServer",
+                SubnetId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/testsubnet",
+                VirtualMachineConfiguration = new AzureNative.Workloads.Inputs.VirtualMachineConfigurationArgs
+                {
+                    ImageReference = new AzureNative.Workloads.Inputs.ImageReferenceArgs
+                    {
+                        Offer = "SLES-SAP",
+                        Publisher = "SUSE",
+                        Sku = "12-sp4-gen2",
+                        Version = "2022.02.01",
+                    },
+                    OsProfile = new AzureNative.Workloads.Inputs.OSProfileArgs
+                    {
+                        AdminUsername = "azureappadmin",
+                        OsConfiguration = new AzureNative.Workloads.Inputs.LinuxConfigurationArgs
+                        {
+                            DisablePasswordAuthentication = true,
+                            OsType = "Linux",
+                            SshKeyPair = new AzureNative.Workloads.Inputs.SshKeyPairArgs
+                            {
+                                PrivateKey = "{{privateKey}}",
+                                PublicKey = "{{sshkey}}",
+                            },
+                        },
+                    },
+                    VmSize = "Standard_E32ds_v4",
+                },
+            },
+            OsSapConfiguration = new AzureNative.Workloads.Inputs.OsSapConfigurationArgs
+            {
+                SapFqdn = "sap.bpaas.com",
+            },
+            SoftwareConfiguration = new AzureNative.Workloads.Inputs.SAPInstallWithoutOSConfigSoftwareConfigurationArgs
+            {
+                BomUrl = "https://teststorageaccount.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml",
+                SapBitsStorageAccountId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+                SoftwareInstallationType = "SAPInstallWithoutOSConfig",
+                SoftwareVersion = "SAP S/4HANA 1909 SPS 03",
+            },
+        },
+        Environment = "NonProd",
+        Location = "eastus2",
+        ResourceGroupName = "test-rg",
+        SapProduct = "S4HANA",
+        SapVirtualInstanceName = "X00",
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var importSitesController = new AzureNative.OffAzure.ImportSitesController("importSitesController", new()
+    {
+        DiscoverySolutionId = "lfaswhiwdttdpkrvnrpriauexdjs",
+        Location = "woctgvdufvkzvjcirjpf",
+        ProvisioningState = "Created",
+        ResourceGroupName = "rgmigrate",
+        SiteName = "O-K1FS",
+        Tags = 
+        {
+            { "key2067", "taqzca" },
+        },
+    });
+
+});
+

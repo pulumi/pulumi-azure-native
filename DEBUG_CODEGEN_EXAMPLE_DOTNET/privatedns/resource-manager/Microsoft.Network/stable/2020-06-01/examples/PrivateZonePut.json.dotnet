@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateZone = new AzureNative.Network.PrivateZone("privateZone", new()
+    {
+        Location = "Global",
+        PrivateZoneName = "privatezone1.com",
+        ResourceGroupName = "resourceGroup1",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

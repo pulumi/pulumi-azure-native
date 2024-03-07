@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const localUser = new azure_native.storage.LocalUser("localUser", {
+    accountName: "sto2527",
+    hasSharedKey: false,
+    hasSshKey: false,
+    hasSshPassword: false,
+    homeDirectory: "homedirectory2",
+    resourceGroupName: "res6977",
+    username: "user1",
+});

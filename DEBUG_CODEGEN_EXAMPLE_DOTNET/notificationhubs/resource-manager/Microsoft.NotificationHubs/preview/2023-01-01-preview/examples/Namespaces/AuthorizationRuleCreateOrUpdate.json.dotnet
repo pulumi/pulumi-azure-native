@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var namespaceAuthorizationRule = new AzureNative.NotificationHubs.NamespaceAuthorizationRule("namespaceAuthorizationRule", new()
+    {
+        AuthorizationRuleName = "sdk-AuthRules-1788",
+        NamespaceName = "nh-sdk-ns",
+        Properties = new AzureNative.NotificationHubs.Inputs.SharedAccessAuthorizationRulePropertiesArgs
+        {
+            Rights = new[]
+            {
+                "Listen",
+                "Send",
+            },
+        },
+        ResourceGroupName = "5ktrial",
+    });
+
+});
+

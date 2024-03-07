@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var kubeEnvironment = new AzureNative.Web.KubeEnvironment("kubeEnvironment", new()
+    {
+        Location = "East US",
+        Name = "testkubeenv",
+        ResourceGroupName = "examplerg",
+        StaticIp = "1.2.3.4",
+    });
+
+});
+

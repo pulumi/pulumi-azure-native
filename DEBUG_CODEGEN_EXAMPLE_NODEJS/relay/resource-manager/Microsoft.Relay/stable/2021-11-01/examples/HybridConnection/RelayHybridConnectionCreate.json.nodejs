@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hybridConnection = new azure_native.relay.HybridConnection("hybridConnection", {
+    hybridConnectionName: "example-Relay-Hybrid-01",
+    namespaceName: "example-RelayNamespace-01",
+    requiresClientAuthorization: true,
+    resourceGroupName: "resourcegroup",
+});

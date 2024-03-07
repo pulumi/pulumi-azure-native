@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const blobContainerImmutabilityPolicy = new azure_native.storage.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", {
+    accountName: "sto7069",
+    allowProtectedAppendWritesAll: true,
+    containerName: "container6397",
+    immutabilityPeriodSinceCreationInDays: 3,
+    immutabilityPolicyName: "default",
+    resourceGroupName: "res1782",
+});

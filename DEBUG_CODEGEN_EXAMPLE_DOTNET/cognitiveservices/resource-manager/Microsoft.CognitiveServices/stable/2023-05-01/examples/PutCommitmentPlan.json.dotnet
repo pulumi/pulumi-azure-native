@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var commitmentPlan = new AzureNative.CognitiveServices.CommitmentPlan("commitmentPlan", new()
+    {
+        AccountName = "accountName",
+        CommitmentPlanName = "commitmentPlanName",
+        Properties = new AzureNative.CognitiveServices.Inputs.CommitmentPlanPropertiesArgs
+        {
+            AutoRenew = true,
+            Current = new AzureNative.CognitiveServices.Inputs.CommitmentPeriodArgs
+            {
+                Tier = "T1",
+            },
+            HostingModel = "Web",
+            PlanType = "Speech2Text",
+        },
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

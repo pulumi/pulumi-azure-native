@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pricing = new AzureNative.Security.Pricing("pricing", new()
+    {
+        PricingName = "virtualMachines",
+        PricingTier = "Standard",
+        ScopeId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/DEMO/providers/Microsoft.Compute/virtualMachines/VM-1",
+        SubPlan = "P1",
+    });
+
+});
+

@@ -1,0 +1,65 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.MachineLearningServices.Job("job", new()
+    {
+        Id = "string",
+        JobBaseProperties = new AzureNative.MachineLearningServices.Inputs.PipelineJobArgs
+        {
+            ComputeId = "string",
+            Description = "string",
+            DisplayName = "string",
+            ExperimentName = "string",
+            Inputs = 
+            {
+                { "string", new AzureNative.MachineLearningServices.Inputs.LiteralJobInputArgs
+                {
+                    Description = "string",
+                    JobInputType = "literal",
+                    Value = "string",
+                } },
+            },
+            JobType = "Pipeline",
+            Outputs = 
+            {
+                { "string", new AzureNative.MachineLearningServices.Inputs.UriFileJobOutputArgs
+                {
+                    Description = "string",
+                    JobOutputType = "uri_file",
+                    Mode = "Upload",
+                    Uri = "string",
+                } },
+            },
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Services = 
+            {
+                { "string", new AzureNative.MachineLearningServices.Inputs.JobServiceArgs
+                {
+                    Endpoint = "string",
+                    JobServiceType = "string",
+                    Port = 1,
+                    Properties = 
+                    {
+                        { "string", "string" },
+                    },
+                } },
+            },
+            Settings = null,
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        ResourceGroupName = "test-rg",
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

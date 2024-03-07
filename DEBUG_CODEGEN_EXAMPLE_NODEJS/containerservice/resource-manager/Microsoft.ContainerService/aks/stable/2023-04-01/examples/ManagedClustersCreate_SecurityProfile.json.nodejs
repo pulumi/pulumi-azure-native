@@ -1,0 +1,55 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedCluster = new azure_native.containerservice.ManagedCluster("managedCluster", {
+    agentPoolProfiles: [{
+        count: 3,
+        enableNodePublicIP: true,
+        mode: "System",
+        name: "nodepool1",
+        osType: "Linux",
+        type: "VirtualMachineScaleSets",
+        vmSize: "Standard_DS2_v2",
+    }],
+    dnsPrefix: "dnsprefix1",
+    kubernetesVersion: "",
+    linuxProfile: {
+        adminUsername: "azureuser",
+        ssh: {
+            publicKeys: [{
+                keyData: "keydata",
+            }],
+        },
+    },
+    location: "location1",
+    networkProfile: {
+        loadBalancerProfile: {
+            managedOutboundIPs: {
+                count: 2,
+            },
+        },
+        loadBalancerSku: "standard",
+        outboundType: "loadBalancer",
+    },
+    resourceGroupName: "rg1",
+    resourceName: "clustername1",
+    securityProfile: {
+        defender: {
+            logAnalyticsWorkspaceResourceId: "/subscriptions/SUB_ID/resourcegroups/RG_NAME/providers/microsoft.operationalinsights/workspaces/WORKSPACE_NAME",
+            securityMonitoring: {
+                enabled: true,
+            },
+        },
+        workloadIdentity: {
+            enabled: true,
+        },
+    },
+    sku: {
+        name: "Basic",
+        tier: "Free",
+    },
+    tags: {
+        archv2: "",
+        tier: "production",
+    },
+});

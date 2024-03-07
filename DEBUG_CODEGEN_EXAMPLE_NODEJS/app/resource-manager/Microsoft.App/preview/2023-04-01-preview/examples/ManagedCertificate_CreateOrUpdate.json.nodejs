@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedCertificate = new azure_native.app.ManagedCertificate("managedCertificate", {
+    environmentName: "testcontainerenv",
+    location: "East US",
+    managedCertificateName: "certificate-firendly-name",
+    properties: {
+        domainControlValidation: "CNAME",
+        subjectName: "my-subject-name.company.country.net",
+    },
+    resourceGroupName: "examplerg",
+});

@@ -1,0 +1,73 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const job = new azure_native.machinelearningservices.Job("job", {
+    id: "string",
+    jobBaseProperties: {
+        computeId: "string",
+        description: "string",
+        displayName: "string",
+        environmentId: "string",
+        environmentVariables: {
+            string: "string",
+        },
+        experimentName: "string",
+        identity: {
+            identityType: "AMLToken",
+        },
+        isArchived: false,
+        jobType: "AutoML",
+        outputs: {
+            string: {
+                description: "string",
+                jobOutputType: "uri_file",
+                mode: "ReadWriteMount",
+                uri: "string",
+            },
+        },
+        properties: {
+            string: "string",
+        },
+        resources: {
+            instanceCount: 1,
+            instanceType: "string",
+            properties: {
+                string: {
+                    "9bec0ab0-c62f-4fa9-a97c-7b24bbcc90ad": undefined,
+                },
+            },
+        },
+        services: {
+            string: {
+                endpoint: "string",
+                jobServiceType: "string",
+                port: 1,
+                properties: {
+                    string: "string",
+                },
+            },
+        },
+        tags: {
+            string: "string",
+        },
+        taskDetails: {
+            limitSettings: {
+                maxTrials: 2,
+            },
+            modelSettings: {
+                validationCropSize: 2,
+            },
+            searchSpace: [{
+                validationCropSize: "choice(2, 360)",
+            }],
+            targetColumnName: "string",
+            taskType: "ImageClassification",
+            trainingData: {
+                jobInputType: "mltable",
+                uri: "string",
+            },
+        },
+    },
+    resourceGroupName: "test-rg",
+    workspaceName: "my-aml-workspace",
+});

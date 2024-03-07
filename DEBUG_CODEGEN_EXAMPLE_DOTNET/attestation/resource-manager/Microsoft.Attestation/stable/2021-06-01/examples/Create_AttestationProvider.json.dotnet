@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var attestationProvider = new AzureNative.Attestation.AttestationProvider("attestationProvider", new()
+    {
+        Location = "East US",
+        Properties = new AzureNative.Attestation.Inputs.AttestationServiceCreationSpecificParamsArgs
+        {
+            PublicNetworkAccess = "Enabled",
+            TpmAttestationAuthentication = "Enabled",
+        },
+        ProviderName = "myattestationprovider",
+        ResourceGroupName = "MyResourceGroup",
+        Tags = 
+        {
+            { "Property1", "Value1" },
+            { "Property2", "Value2" },
+            { "Property3", "Value3" },
+        },
+    });
+
+});
+

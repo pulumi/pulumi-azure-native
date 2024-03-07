@@ -1,0 +1,89 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const nodeType = new azure_native.servicefabric.NodeType("nodeType", {
+    additionalDataDisks: [
+        {
+            diskLetter: "F",
+            diskSizeGB: 256,
+            diskType: "StandardSSD_LRS",
+            lun: 1,
+        },
+        {
+            diskLetter: "G",
+            diskSizeGB: 150,
+            diskType: "Premium_LRS",
+            lun: 2,
+        },
+    ],
+    capacities: {
+        ClientConnections: "65536",
+    },
+    clusterName: "myCluster",
+    dataDiskLetter: "S",
+    dataDiskSizeGB: 200,
+    dataDiskType: "Premium_LRS",
+    enableAcceleratedNetworking: true,
+    enableEncryptionAtHost: true,
+    enableNodePublicIP: true,
+    enableOverProvisioning: false,
+    evictionPolicy: "Deallocate",
+    frontendConfigurations: [{
+        applicationGatewayBackendAddressPoolId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/applicationGateways/appgw-test/backendAddressPools/appgwBepoolTest",
+        loadBalancerBackendAddressPoolId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/backendAddressPools/LoadBalancerBEAddressPool",
+        loadBalancerInboundNatPoolId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/inboundNatPools/LoadBalancerNATPool",
+    }],
+    isPrimary: false,
+    isSpotVM: true,
+    isStateless: true,
+    multiplePlacementGroups: true,
+    natGatewayId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/natGateways/myNatGateway",
+    nodeTypeName: "BE",
+    placementProperties: {
+        HasSSD: "true",
+        NodeColor: "green",
+        SomeProperty: "5",
+    },
+    resourceGroupName: "resRg",
+    secureBootEnabled: true,
+    securityType: "TrustedLaunch",
+    spotRestoreTimeout: "PT30M",
+    subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    useDefaultPublicLoadBalancer: true,
+    useEphemeralOSDisk: true,
+    vmExtensions: [{
+        autoUpgradeMinorVersion: true,
+        enableAutomaticUpgrade: true,
+        forceUpdateTag: "v.1.0",
+        name: "Microsoft.Azure.Geneva.GenevaMonitoring",
+        publisher: "Microsoft.Azure.Geneva",
+        settings: {},
+        type: "GenevaMonitoring",
+        typeHandlerVersion: "2.0",
+    }],
+    vmImageOffer: "WindowsServer",
+    vmImagePublisher: "MicrosoftWindowsServer",
+    vmImageSku: "2016-Datacenter-Server-Core",
+    vmImageVersion: "latest",
+    vmInstanceCount: 10,
+    vmManagedIdentity: {
+        userAssignedIdentities: [
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+        ],
+    },
+    vmSecrets: [{
+        sourceVault: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+        },
+        vaultCertificates: [{
+            certificateStore: "My",
+            certificateUrl: "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+        }],
+    }],
+    vmSetupActions: [
+        "EnableContainers",
+        "EnableHyperV",
+    ],
+    vmSize: "Standard_DS3",
+});

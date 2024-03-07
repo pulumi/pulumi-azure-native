@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.videoanalyzer.PrivateEndpointConnection("privateEndpointConnection", {
+    accountName: "contososports",
+    name: "10000000-0000-0000-0000-000000000000",
+    privateLinkServiceConnectionState: {
+        description: "Test description.",
+        status: "Approved",
+    },
+    resourceGroupName: "contoso",
+});

@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedCluster = new AzureNative.ServiceFabric.ManagedCluster("managedCluster", new()
+    {
+        AdminPassword = "{vm-password}",
+        AdminUserName = "vmadmin",
+        ClusterName = "myCluster",
+        ClusterUpgradeCadence = "Wave1",
+        ClusterUpgradeMode = "Automatic",
+        DnsName = "myCluster",
+        FabricSettings = new[]
+        {
+            new AzureNative.ServiceFabric.Inputs.SettingsSectionDescriptionArgs
+            {
+                Name = "ManagedIdentityTokenService",
+                Parameters = new[]
+                {
+                    new AzureNative.ServiceFabric.Inputs.SettingsParameterDescriptionArgs
+                    {
+                        Name = "IsEnabled",
+                        Value = "true",
+                    },
+                },
+            },
+        },
+        Location = "eastus",
+        ResourceGroupName = "resRg",
+        Sku = new AzureNative.ServiceFabric.Inputs.SkuArgs
+        {
+            Name = "Basic",
+        },
+    });
+
+});
+

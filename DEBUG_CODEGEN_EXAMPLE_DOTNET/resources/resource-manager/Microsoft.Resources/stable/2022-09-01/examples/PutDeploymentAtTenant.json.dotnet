@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deploymentAtTenantScope = new AzureNative.Resources.DeploymentAtTenantScope("deploymentAtTenantScope", new()
+    {
+        DeploymentName = "tenant-dep01",
+        Location = "eastus",
+        Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+        {
+            Mode = AzureNative.Resources.DeploymentMode.Incremental,
+            Parameters = null,
+            TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+            {
+                Uri = "https://example.com/exampleTemplate.json",
+            },
+        },
+        Tags = 
+        {
+            { "tagKey1", "tag-value-1" },
+            { "tagKey2", "tag-value-2" },
+        },
+    });
+
+});
+

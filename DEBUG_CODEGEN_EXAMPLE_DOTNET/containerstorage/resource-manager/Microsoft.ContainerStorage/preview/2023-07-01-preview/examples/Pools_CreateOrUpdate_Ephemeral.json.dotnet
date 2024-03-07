@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.ContainerStorage.Pool("pool", new()
+    {
+        Assignments = new[]
+        {
+            new AzureNative.ContainerStorage.Inputs.AssignmentArgs
+            {
+                Id = "/subscriptions/bb4d87a2-4273-466c-a6ba-61d818061b3a/resourceGroups/test-rg/providers/Microsoft.ContainerService/managedClusters/containerstoragetest",
+            },
+        },
+        Location = "eastus",
+        PoolName = "test-pool",
+        PoolType = new AzureNative.ContainerStorage.Inputs.PoolTypeArgs
+        {
+            EphemeralDisk = new AzureNative.ContainerStorage.Inputs.EphemeralDiskArgs
+            {
+                Replicas = 3,
+            },
+        },
+        ReclaimPolicy = "Delete",
+        ResourceGroupName = "test-rg",
+        Resources = new AzureNative.ContainerStorage.Inputs.ResourcesArgs
+        {
+            Requests = new AzureNative.ContainerStorage.Inputs.RequestsArgs
+            {
+                Storage = 15578,
+            },
+        },
+        Tags = 
+        {
+            { "key1888", "value1888" },
+        },
+        Zones = new[]
+        {
+            "1",
+            "2",
+            "3",
+        },
+    });
+
+});
+

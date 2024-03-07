@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedClusterApplication = new AzureNative.ServiceFabric.ManagedClusterApplication("managedClusterApplication", new()
+    {
+        ApplicationName = "myApp",
+        ClusterName = "myCluster",
+        Location = "eastus",
+        ResourceGroupName = "resRg",
+        Version = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0",
+    });
+
+});
+

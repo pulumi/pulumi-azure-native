@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    {
+        AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+        {
+            AddressPrefixes = new[]
+            {
+                "10.0.0.0/16",
+            },
+        },
+        FlowTimeoutInMinutes = 10,
+        Location = "eastus",
+        ResourceGroupName = "rg1",
+        VirtualNetworkName = "test-vnet",
+    });
+
+});
+

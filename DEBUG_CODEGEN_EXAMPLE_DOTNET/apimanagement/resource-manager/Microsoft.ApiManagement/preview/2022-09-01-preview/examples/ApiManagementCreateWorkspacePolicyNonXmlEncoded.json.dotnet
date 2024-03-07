@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspacePolicy = new AzureNative.ApiManagement.WorkspacePolicy("workspacePolicy", new()
+    {
+        Format = "rawxml",
+        PolicyId = "policy",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Value = @"<policies>
+     <inbound>
+     <base />
+  <set-header name=""newvalue"" exists-action=""override"">
+   <value>""@(context.Request.Headers.FirstOrDefault(h => h.Ke==""Via""))"" </value>
+    </set-header>
+  </inbound>
+      </policies>",
+        WorkspaceId = "wks1",
+    });
+
+});
+

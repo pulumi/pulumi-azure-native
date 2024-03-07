@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webPubSubSharedPrivateLinkResource = new azure_native.webpubsub.WebPubSubSharedPrivateLinkResource("webPubSubSharedPrivateLinkResource", {
+    groupId: "sites",
+    privateLinkResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp",
+    requestMessage: "Please approve",
+    resourceGroupName: "myResourceGroup",
+    resourceName: "myWebPubSubService",
+    sharedPrivateLinkResourceName: "upstream",
+});

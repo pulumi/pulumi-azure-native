@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceManagerGroup = new azure_native.securityinsights.WorkspaceManagerGroup("workspaceManagerGroup", {
+    description: "Group of all financial and banking institutions",
+    displayName: "Banks",
+    memberResourceNames: [
+        "afbd324f-6c48-459c-8710-8d1e1cd03812",
+        "f5fa104e-c0e3-4747-9182-d342dc048a9e",
+    ],
+    resourceGroupName: "myRg",
+    workspaceManagerGroupName: "37207a7a-3b8a-438f-a559-c7df400e1b96",
+    workspaceName: "myWorkspace",
+});

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var iotDpsResource = new AzureNative.Devices.IotDpsResource("iotDpsResource", new()
+    {
+        Location = "East US",
+        Properties = new AzureNative.Devices.Inputs.IotDpsPropertiesDescriptionArgs
+        {
+            EnableDataResidency = false,
+        },
+        ProvisioningServiceName = "myFirstProvisioningService",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Devices.Inputs.IotDpsSkuInfoArgs
+        {
+            Capacity = 1,
+            Name = "S1",
+        },
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedCertificate = new AzureNative.App.ManagedCertificate("managedCertificate", new()
+    {
+        EnvironmentName = "testcontainerenv",
+        Location = "East US",
+        ManagedCertificateName = "certificate-firendly-name",
+        Properties = new AzureNative.App.Inputs.ManagedCertificatePropertiesArgs
+        {
+            DomainControlValidation = "CNAME",
+            SubjectName = "my-subject-name.company.country.net",
+        },
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

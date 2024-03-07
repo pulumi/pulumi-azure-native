@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var objectAnchorsAccount = new AzureNative.MixedReality.ObjectAnchorsAccount("objectAnchorsAccount", new()
+    {
+        AccountName = "MyAccount",
+        Identity = new AzureNative.MixedReality.Inputs.ObjectAnchorsAccountIdentityArgs
+        {
+            Type = AzureNative.MixedReality.ResourceIdentityType.SystemAssigned,
+        },
+        Location = "eastus2euap",
+        ResourceGroupName = "MyResourceGroup",
+    });
+
+});
+

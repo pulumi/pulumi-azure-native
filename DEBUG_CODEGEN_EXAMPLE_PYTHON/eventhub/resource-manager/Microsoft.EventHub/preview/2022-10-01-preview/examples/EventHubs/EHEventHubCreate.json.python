@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 event_hub = azure_native.eventhub.EventHub("eventHub",
-    capture_description=azure_native.eventhub.CaptureDescriptionArgs(
+    capture_description=azure_native.eventhub.CaptureDescriptionResponseArgs(
         destination=azure_native.eventhub.DestinationArgs(
             archive_name_format="{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
             blob_container="container",

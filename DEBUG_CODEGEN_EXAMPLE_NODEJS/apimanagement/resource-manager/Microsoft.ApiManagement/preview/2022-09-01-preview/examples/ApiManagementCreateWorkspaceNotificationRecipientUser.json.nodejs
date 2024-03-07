@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceNotificationRecipientUser = new azure_native.apimanagement.WorkspaceNotificationRecipientUser("workspaceNotificationRecipientUser", {
+    notificationName: "RequestPublisherNotificationMessage",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    userId: "576823d0a40f7e74ec07d642",
+    workspaceId: "wks1",
+});

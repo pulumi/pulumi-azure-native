@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualEndpoint = new AzureNative.DBforPostgreSQL.VirtualEndpoint("virtualEndpoint", new()
+    {
+        EndpointType = "ReadWrite",
+        Members = new[]
+        {
+            "testPrimary1",
+        },
+        ResourceGroupName = "testrg",
+        ServerName = "pgtestsvc4",
+        VirtualEndpointName = "pgVirtualEndpoint1",
+    });
+
+});
+

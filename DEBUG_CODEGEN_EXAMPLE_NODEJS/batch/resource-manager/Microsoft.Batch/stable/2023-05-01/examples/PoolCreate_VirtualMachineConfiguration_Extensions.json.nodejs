@@ -1,0 +1,38 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pool = new azure_native.batch.Pool("pool", {
+    accountName: "sampleacct",
+    deploymentConfiguration: {
+        virtualMachineConfiguration: {
+            extensions: [{
+                autoUpgradeMinorVersion: true,
+                enableAutomaticUpgrade: true,
+                name: "batchextension1",
+                publisher: "Microsoft.Azure.KeyVault",
+                settings: {
+                    authenticationSettingsKey: "authenticationSettingsValue",
+                    secretsManagementSettingsKey: "secretsManagementSettingsValue",
+                },
+                type: "KeyVaultForLinux",
+                typeHandlerVersion: "2.0",
+            }],
+            imageReference: {
+                offer: "0001-com-ubuntu-server-focal",
+                publisher: "Canonical",
+                sku: "20_04-lts",
+            },
+            nodeAgentSkuId: "batch.node.ubuntu 20.04",
+        },
+    },
+    poolName: "testpool",
+    resourceGroupName: "default-azurebatch-japaneast",
+    scaleSettings: {
+        autoScale: {
+            evaluationInterval: "PT5M",
+            formula: "$TargetDedicatedNodes=1",
+        },
+    },
+    targetNodeCommunicationMode: azure_native.batch.NodeCommunicationMode.Default,
+    vmSize: "STANDARD_D4",
+});

@@ -1,0 +1,112 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlManagedInstance = new AzureNative.AzureArcData.SqlManagedInstance("sqlManagedInstance", new()
+    {
+        ExtendedLocation = new AzureNative.AzureArcData.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+            Type = "CustomLocation",
+        },
+        Location = "northeurope",
+        Properties = new AzureNative.AzureArcData.Inputs.SqlManagedInstancePropertiesArgs
+        {
+            ActiveDirectoryInformation = new AzureNative.AzureArcData.Inputs.ActiveDirectoryInformationArgs
+            {
+                KeytabInformation = new AzureNative.AzureArcData.Inputs.KeytabInformationArgs
+                {
+                    Keytab = "********",
+                },
+            },
+            Admin = "Admin user",
+            BasicLoginInformation = new AzureNative.AzureArcData.Inputs.BasicLoginInformationArgs
+            {
+                Password = "********",
+                Username = "username",
+            },
+            ClusterId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s",
+            EndTime = "Instance end time",
+            ExtensionId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s/providers/Microsoft.KubernetesConfiguration/extensions/extension",
+            K8sRaw = new AzureNative.AzureArcData.Inputs.SqlManagedInstanceK8sRawArgs
+            {
+                Spec = new AzureNative.AzureArcData.Inputs.SqlManagedInstanceK8sSpecArgs
+                {
+                    Replicas = 1,
+                    Scheduling = new AzureNative.AzureArcData.Inputs.K8sSchedulingArgs
+                    {
+                        Default = new AzureNative.AzureArcData.Inputs.K8sSchedulingOptionsArgs
+                        {
+                            Resources = new AzureNative.AzureArcData.Inputs.K8sResourceRequirementsArgs
+                            {
+                                Limits = 
+                                {
+                                    { "additionalProperty", "additionalValue" },
+                                    { "cpu", "1" },
+                                    { "memory", "8Gi" },
+                                },
+                                Requests = 
+                                {
+                                    { "additionalProperty", "additionalValue" },
+                                    { "cpu", "1" },
+                                    { "memory", "8Gi" },
+                                },
+                            },
+                        },
+                    },
+                    Security = new AzureNative.AzureArcData.Inputs.K8sSecurityArgs
+                    {
+                        ActiveDirectory = new AzureNative.AzureArcData.Inputs.K8sActiveDirectoryArgs
+                        {
+                            AccountName = "Account name",
+                            Connector = new AzureNative.AzureArcData.Inputs.K8sActiveDirectoryConnectorArgs
+                            {
+                                Name = "Name of connector",
+                                Namespace = "Namespace of connector",
+                            },
+                            EncryptionTypes = new[]
+                            {
+                                "Encryption type item1, Encryption type item2,...",
+                            },
+                            KeytabSecret = "Key tab secret of account",
+                        },
+                        AdminLoginSecret = "test-sql-login-secret",
+                        ServiceCertificateSecret = "Service Certificate Secret",
+                        TransparentDataEncryption = new AzureNative.AzureArcData.Inputs.K8stransparentDataEncryptionArgs
+                        {
+                            Mode = "SystemManaged",
+                        },
+                    },
+                    Settings = new AzureNative.AzureArcData.Inputs.K8sSettingsArgs
+                    {
+                        Network = new AzureNative.AzureArcData.Inputs.K8sNetworkSettingsArgs
+                        {
+                            Forceencryption = 0,
+                            Tlsciphers = "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384",
+                            Tlsprotocols = "1.2",
+                        },
+                    },
+                },
+            },
+            LicenseType = "LicenseIncluded",
+            StartTime = "Instance start time",
+        },
+        ResourceGroupName = "testrg",
+        Sku = new AzureNative.AzureArcData.Inputs.SqlManagedInstanceSkuArgs
+        {
+            Dev = true,
+            Name = AzureNative.AzureArcData.SqlManagedInstanceSkuName.VCore,
+            Tier = AzureNative.AzureArcData.SqlManagedInstanceSkuTier.GeneralPurpose,
+        },
+        SqlManagedInstanceName = "testsqlManagedInstance",
+        Tags = 
+        {
+            { "mytag", "myval" },
+        },
+    });
+
+});
+

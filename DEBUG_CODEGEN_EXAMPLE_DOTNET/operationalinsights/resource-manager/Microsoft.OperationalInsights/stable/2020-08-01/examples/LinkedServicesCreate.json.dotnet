@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var linkedService = new AzureNative.OperationalInsights.LinkedService("linkedService", new()
+    {
+        LinkedServiceName = "Cluster",
+        ResourceGroupName = "mms-eus",
+        WorkspaceName = "TestLinkWS",
+        WriteAccessResourceId = "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/clusters/testcluster",
+    });
+
+});
+

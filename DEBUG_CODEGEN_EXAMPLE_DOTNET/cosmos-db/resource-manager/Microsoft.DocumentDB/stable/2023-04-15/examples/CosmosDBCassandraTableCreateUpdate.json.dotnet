@@ -1,0 +1,51 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cassandraResourceCassandraTable = new AzureNative.DocumentDB.CassandraResourceCassandraTable("cassandraResourceCassandraTable", new()
+    {
+        AccountName = "ddb1",
+        KeyspaceName = "keyspaceName",
+        Location = "West US",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.CassandraTableResourceArgs
+        {
+            DefaultTtl = 100,
+            Id = "tableName",
+            Schema = new AzureNative.DocumentDB.Inputs.CassandraSchemaArgs
+            {
+                ClusterKeys = new[]
+                {
+                    new AzureNative.DocumentDB.Inputs.ClusterKeyArgs
+                    {
+                        Name = "columnA",
+                        OrderBy = "Asc",
+                    },
+                },
+                Columns = new[]
+                {
+                    new AzureNative.DocumentDB.Inputs.ColumnArgs
+                    {
+                        Name = "columnA",
+                        Type = "Ascii",
+                    },
+                },
+                PartitionKeys = new[]
+                {
+                    new AzureNative.DocumentDB.Inputs.CassandraPartitionKeyArgs
+                    {
+                        Name = "columnA",
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "rg1",
+        TableName = "tableName",
+        Tags = null,
+    });
+
+});
+

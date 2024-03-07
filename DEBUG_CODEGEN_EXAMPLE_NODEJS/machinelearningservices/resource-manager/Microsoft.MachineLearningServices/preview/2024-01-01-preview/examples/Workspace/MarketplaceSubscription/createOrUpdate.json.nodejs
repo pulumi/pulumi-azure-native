@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const marketplaceSubscription = new azure_native.machinelearningservices.MarketplaceSubscription("marketplaceSubscription", {
+    marketplaceSubscriptionProperties: {
+        modelId: "string",
+    },
+    name: "string",
+    resourceGroupName: "test-rg",
+    workspaceName: "my-aml-workspace",
+});

@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspace = new azure_native.machinelearningexperimentation.Workspace("workspace", {
+    accountName: "testaccount",
+    friendlyName: "testName",
+    location: "East US",
+    resourceGroupName: "myResourceGroup",
+    tags: {
+        tagKey1: "TagValue1",
+    },
+    workspaceName: "testworkspace",
+});

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disk = new azure_native.compute.Disk("disk", {
+    creationData: {
+        createOption: "Empty",
+    },
+    diskAccessId: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}",
+    diskName: "myDisk",
+    diskSizeGB: 200,
+    location: "West US",
+    networkAccessPolicy: "AllowPrivate",
+    resourceGroupName: "myResourceGroup",
+});

@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    {
+        Capacities = null,
+        ClusterName = "myCluster",
+        DataDiskSizeGB = 200,
+        DataDiskType = "StandardSSD_LRS",
+        HostGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testhostgroupRG/providers/Microsoft.Compute/hostGroups/testHostGroup",
+        IsPrimary = false,
+        NodeTypeName = "BE",
+        PlacementProperties = null,
+        ResourceGroupName = "resRg",
+        VmImageOffer = "WindowsServer",
+        VmImagePublisher = "MicrosoftWindowsServer",
+        VmImageSku = "2019-Datacenter",
+        VmImageVersion = "latest",
+        VmInstanceCount = 10,
+        VmSize = "Standard_D8s_v3",
+        Zones = new[]
+        {
+            "1",
+        },
+    });
+
+});
+

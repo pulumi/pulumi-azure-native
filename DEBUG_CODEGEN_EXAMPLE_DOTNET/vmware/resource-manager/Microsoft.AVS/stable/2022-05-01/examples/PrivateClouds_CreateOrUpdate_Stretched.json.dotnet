@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateCloud = new AzureNative.AVS.PrivateCloud("privateCloud", new()
+    {
+        Availability = new AzureNative.AVS.Inputs.AvailabilityPropertiesArgs
+        {
+            SecondaryZone = 2,
+            Strategy = "DualZone",
+            Zone = 1,
+        },
+        Location = "eastus2",
+        ManagementCluster = new AzureNative.AVS.Inputs.ManagementClusterArgs
+        {
+            ClusterSize = 4,
+        },
+        NetworkBlock = "192.168.48.0/22",
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+        Sku = new AzureNative.AVS.Inputs.SkuArgs
+        {
+            Name = "AV36",
+        },
+        Tags = null,
+    });
+
+});
+

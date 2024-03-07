@@ -7,7 +7,7 @@ workspace_api_operation = azure_native.apimanagement.WorkspaceApiOperation("work
     display_name="createUser2",
     method="POST",
     operation_id="newoperations",
-    request=azure_native.apimanagement.RequestContractArgs(
+    request=azure_native.apimanagement.RequestContractResponseArgs(
         description="Created user object",
         headers=[],
         query_parameters=[],
@@ -18,10 +18,10 @@ workspace_api_operation = azure_native.apimanagement.WorkspaceApiOperation("work
         )],
     ),
     resource_group_name="rg1",
-    responses=[azure_native.apimanagement.ResponseContractArgs(
-        description="successful operation",
-        headers=[],
-        representations=[
+    responses=[{
+        "description": "successful operation",
+        "headers": [],
+        "representations": [
             azure_native.apimanagement.RepresentationContractArgs(
                 content_type="application/xml",
             ),
@@ -29,8 +29,8 @@ workspace_api_operation = azure_native.apimanagement.WorkspaceApiOperation("work
                 content_type="application/json",
             ),
         ],
-        status_code=200,
-    )],
+        "statusCode": 200,
+    }],
     service_name="apimService1",
     template_parameters=[],
     url_template="/user1",

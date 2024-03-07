@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const roleDefinition = new azure_native.authorization.RoleDefinition("roleDefinition", {
+    roleDefinitionId: "roleDefinitionId",
+    scope: "scope",
+});

@@ -1,0 +1,52 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.Kusto.Cluster("cluster", new()
+    {
+        AllowedIpRangeList = new[]
+        {
+            "0.0.0.0/0",
+        },
+        ClusterName = "kustoCluster",
+        EnableAutoStop = true,
+        EnableDoubleEncryption = false,
+        EnablePurge = true,
+        EnableStreamingIngest = true,
+        Identity = new AzureNative.Kusto.Inputs.IdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        LanguageExtensions = new AzureNative.Kusto.Inputs.LanguageExtensionsListArgs
+        {
+            Value = new[]
+            {
+                new AzureNative.Kusto.Inputs.LanguageExtensionArgs
+                {
+                    LanguageExtensionImageName = "Python3_10_8",
+                    LanguageExtensionName = "PYTHON",
+                },
+                new AzureNative.Kusto.Inputs.LanguageExtensionArgs
+                {
+                    LanguageExtensionImageName = "R",
+                    LanguageExtensionName = "R",
+                },
+            },
+        },
+        Location = "westus",
+        PublicIPType = "DualStack",
+        PublicNetworkAccess = "Enabled",
+        ResourceGroupName = "kustorptest",
+        Sku = new AzureNative.Kusto.Inputs.AzureSkuArgs
+        {
+            Capacity = 2,
+            Name = "Standard_L16as_v3",
+            Tier = "Standard",
+        },
+    });
+
+});
+

@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectedEnvironment = new AzureNative.App.ConnectedEnvironment("connectedEnvironment", new()
+    {
+        ConnectedEnvironmentName = "testenv",
+        CustomDomainConfiguration = new AzureNative.App.Inputs.CustomDomainConfigurationArgs
+        {
+            CertificatePassword = "private key password",
+            CertificateValue = "Y2VydA==",
+            DnsSuffix = "www.my-name.com",
+        },
+        DaprAIConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+        ExtendedLocation = new AzureNative.App.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
+            Type = "CustomLocation",
+        },
+        Location = "East US",
+        ResourceGroupName = "examplerg",
+        StaticIp = "1.2.3.4",
+    });
+
+});
+

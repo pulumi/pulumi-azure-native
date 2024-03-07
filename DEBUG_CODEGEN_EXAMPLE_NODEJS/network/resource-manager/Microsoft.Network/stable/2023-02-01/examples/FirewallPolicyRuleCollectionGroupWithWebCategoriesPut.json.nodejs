@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const firewallPolicyRuleCollectionGroup = new azure_native.network.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", {
+    firewallPolicyName: "firewallPolicy",
+    priority: 110,
+    resourceGroupName: "rg1",
+    ruleCollectionGroupName: "ruleCollectionGroup1",
+    ruleCollections: [{
+        action: {
+            type: "Deny",
+        },
+        name: "Example-Filter-Rule-Collection",
+        ruleCollectionType: "FirewallPolicyFilterRuleCollection",
+        rules: [{
+            description: "Deny inbound rule",
+            name: "rule1",
+            protocols: [{
+                port: 443,
+                protocolType: "Https",
+            }],
+            ruleType: "ApplicationRule",
+            sourceAddresses: [
+                "216.58.216.164",
+                "10.0.0.0/24",
+            ],
+            webCategories: ["Hacking"],
+        }],
+    }],
+});

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var appServiceEnvironmentAseCustomDnsSuffixConfiguration = new AzureNative.Web.AppServiceEnvironmentAseCustomDnsSuffixConfiguration("appServiceEnvironmentAseCustomDnsSuffixConfiguration", new()
+    {
+        CertificateUrl = "https://test-kv.vault.azure.net/secrets/contosocert",
+        DnsSuffix = "contoso.com",
+        KeyVaultReferenceIdentity = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
+        Name = "test-ase",
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var input = new AzureNative.StreamAnalytics.Input("input", new()
+    {
+        InputName = "input7970",
+        JobName = "sj9742",
+        Properties = new AzureNative.StreamAnalytics.Inputs.StreamInputPropertiesArgs
+        {
+            Datasource = new AzureNative.StreamAnalytics.Inputs.GatewayMessageBusStreamInputDataSourceArgs
+            {
+                Topic = "EdgeTopic1",
+                Type = "GatewayMessageBus",
+            },
+            Type = "Stream",
+        },
+        ResourceGroupName = "sjrg3467",
+    });
+
+});
+

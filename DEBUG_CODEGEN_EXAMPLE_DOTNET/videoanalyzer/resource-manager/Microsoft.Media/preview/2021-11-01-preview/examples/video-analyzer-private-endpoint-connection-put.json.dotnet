@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.VideoAnalyzer.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        AccountName = "contososports",
+        Name = "10000000-0000-0000-0000-000000000000",
+        PrivateLinkServiceConnectionState = new AzureNative.VideoAnalyzer.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Test description.",
+            Status = "Approved",
+        },
+        ResourceGroupName = "contoso",
+    });
+
+});
+

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const incidentTask = new azure_native.securityinsights.IncidentTask("incidentTask", {
+    description: "Task description",
+    incidentId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    incidentTaskId: "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+    resourceGroupName: "myRg",
+    status: "New",
+    title: "Task title",
+    workspaceName: "myWorkspace",
+});

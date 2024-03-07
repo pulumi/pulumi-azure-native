@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlPool = new AzureNative.Synapse.SqlPool("sqlPool", new()
+    {
+        Collation = "",
+        CreateMode = "",
+        Location = "Southeast Asia",
+        MaxSizeBytes = 0,
+        RecoverableDatabaseId = "",
+        ResourceGroupName = "ExampleResourceGroup",
+        Sku = new AzureNative.Synapse.Inputs.SkuArgs
+        {
+            Name = "",
+            Tier = "",
+        },
+        SourceDatabaseId = "",
+        SqlPoolName = "ExampleSqlPool",
+        StorageAccountType = "LRS",
+        Tags = null,
+        WorkspaceName = "ExampleWorkspace",
+    });
+
+});
+

@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var aksAssessmentOperation = new AzureNative.Migrate.AksAssessmentOperation("aksAssessmentOperation", new()
+    {
+        AssessmentName = "testaksassessment",
+        ProjectName = "testproject",
+        ResourceGroupName = "rgaksswagger",
+        Scope = new AzureNative.Migrate.Inputs.AssessmentScopeParametersArgs
+        {
+            ServerGroupId = "/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp",
+        },
+        Settings = new AzureNative.Migrate.Inputs.AKSAssessmentSettingsArgs
+        {
+            AzureLocation = "Unknown",
+            Category = "All",
+            Consolidation = "Full",
+            Currency = "Unknown",
+            DiscountPercentage = 15,
+            EnvironmentType = "Unknown",
+            LicensingProgram = "Default",
+            PerformanceData = new AzureNative.Migrate.Inputs.PerfDataSettingsArgs
+            {
+                Percentile = "Percentile50",
+                PerfDataEndTime = "2023-11-07T06:51:24.320Z",
+                PerfDataStartTime = "2023-11-07T06:51:24.320Z",
+                TimeRange = "Day",
+            },
+            PricingTier = "Standard",
+            SavingsOptions = "None",
+            ScalingFactor = 3,
+            SizingCriteria = "PerformanceBased",
+        },
+    });
+
+});
+

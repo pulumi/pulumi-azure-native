@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var diagnosticsPackage = new AzureNative.MobileNetwork.DiagnosticsPackage("diagnosticsPackage", new()
+    {
+        DiagnosticsPackageName = "dp1",
+        PacketCoreControlPlaneName = "TestPacketCoreCP",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

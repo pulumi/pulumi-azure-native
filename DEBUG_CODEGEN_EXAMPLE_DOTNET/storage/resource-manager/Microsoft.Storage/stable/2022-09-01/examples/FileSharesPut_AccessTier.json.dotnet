@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fileShare = new AzureNative.Storage.FileShare("fileShare", new()
+    {
+        AccessTier = "Hot",
+        AccountName = "sto666",
+        ResourceGroupName = "res346",
+        ShareName = "share1235",
+    });
+
+});
+

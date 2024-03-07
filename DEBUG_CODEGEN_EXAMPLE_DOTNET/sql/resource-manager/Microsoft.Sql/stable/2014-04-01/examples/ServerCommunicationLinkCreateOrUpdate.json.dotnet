@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serverCommunicationLink = new AzureNative.Sql.ServerCommunicationLink("serverCommunicationLink", new()
+    {
+        CommunicationLinkName = "link1",
+        PartnerServer = "sqldcrudtest-test",
+        ResourceGroupName = "sqlcrudtest-7398",
+        ServerName = "sqlcrudtest-4645",
+    });
+
+});
+

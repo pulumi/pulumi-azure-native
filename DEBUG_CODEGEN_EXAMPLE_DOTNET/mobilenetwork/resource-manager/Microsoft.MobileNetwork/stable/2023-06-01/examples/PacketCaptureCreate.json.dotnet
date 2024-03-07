@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var packetCapture = new AzureNative.MobileNetwork.PacketCapture("packetCapture", new()
+    {
+        BytesToCapturePerPacket = 10000,
+        NetworkInterfaces = new[]
+        {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP",
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP",
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestADN",
+        },
+        PacketCaptureName = "pc1",
+        PacketCoreControlPlaneName = "TestPacketCoreCP",
+        ResourceGroupName = "rg1",
+        TimeLimitInSeconds = 100,
+        TotalBytesPerSession = 100000,
+    });
+
+});
+

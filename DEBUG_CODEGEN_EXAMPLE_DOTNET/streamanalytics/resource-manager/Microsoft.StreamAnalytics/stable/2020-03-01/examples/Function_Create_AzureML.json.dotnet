@@ -1,0 +1,59 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var function = new AzureNative.StreamAnalytics.Function("function", new()
+    {
+        FunctionName = "function588",
+        JobName = "sj9093",
+        Properties = new AzureNative.StreamAnalytics.Inputs.ScalarFunctionPropertiesArgs
+        {
+            Binding = new AzureNative.StreamAnalytics.Inputs.AzureMachineLearningWebServiceFunctionBindingArgs
+            {
+                ApiKey = "someApiKey==",
+                BatchSize = 1000,
+                Endpoint = "someAzureMLEndpointURL",
+                Inputs = new AzureNative.StreamAnalytics.Inputs.AzureMachineLearningWebServiceInputsArgs
+                {
+                    ColumnNames = new[]
+                    {
+                        new AzureNative.StreamAnalytics.Inputs.AzureMachineLearningWebServiceInputColumnArgs
+                        {
+                            DataType = "string",
+                            MapTo = 0,
+                            Name = "tweet",
+                        },
+                    },
+                    Name = "input1",
+                },
+                Outputs = new[]
+                {
+                    new AzureNative.StreamAnalytics.Inputs.AzureMachineLearningWebServiceOutputColumnArgs
+                    {
+                        DataType = "string",
+                        Name = "Sentiment",
+                    },
+                },
+                Type = "Microsoft.MachineLearning/WebService",
+            },
+            Inputs = new[]
+            {
+                new AzureNative.StreamAnalytics.Inputs.FunctionInputArgs
+                {
+                    DataType = "nvarchar(max)",
+                },
+            },
+            Output = new AzureNative.StreamAnalytics.Inputs.FunctionOutputArgs
+            {
+                DataType = "nvarchar(max)",
+            },
+            Type = "Scalar",
+        },
+        ResourceGroupName = "sjrg7",
+    });
+
+});
+

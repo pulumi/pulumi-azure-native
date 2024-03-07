@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.StorageSync.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "{privateEndpointConnectionName}",
+        PrivateLinkServiceConnectionState = new AzureNative.StorageSync.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Auto-Approved",
+            Status = "Approved",
+        },
+        ResourceGroupName = "res7687",
+        StorageSyncServiceName = "sss2527",
+    });
+
+});
+

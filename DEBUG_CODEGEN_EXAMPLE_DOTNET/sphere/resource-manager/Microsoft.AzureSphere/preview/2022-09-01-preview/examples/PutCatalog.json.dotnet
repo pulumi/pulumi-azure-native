@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var catalog = new AzureNative.AzureSphere.Catalog("catalog", new()
+    {
+        CatalogName = "MyCatalog1",
+        Location = "global",
+        ResourceGroupName = "MyResourceGroup1",
+    });
+
+});
+

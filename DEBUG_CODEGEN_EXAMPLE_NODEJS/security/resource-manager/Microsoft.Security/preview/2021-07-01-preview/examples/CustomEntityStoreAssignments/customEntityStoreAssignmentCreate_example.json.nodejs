@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customEntityStoreAssignment = new azure_native.security.CustomEntityStoreAssignment("customEntityStoreAssignment", {
+    customEntityStoreAssignmentName: "33e7cc6e-a139-4723-a0e5-76993aee0771",
+    principal: "aaduser=f3923a3e-ad57-4752-b1a9-fbf3c8e5e082;72f988bf-86f1-41af-91ab-2d7cd011db47",
+    resourceGroupName: "TestResourceGroup",
+});

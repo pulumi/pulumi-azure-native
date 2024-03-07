@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sourceControl = new azure_native.securityinsights.SourceControl("sourceControl", {
+    contentTypes: [
+        "AnalyticRules",
+        "Workbook",
+    ],
+    description: "This is a source control",
+    displayName: "My Source Control",
+    repoType: "Github",
+    repository: {
+        branch: "master",
+        displayUrl: "https://github.com/user/repo",
+        pathMapping: [
+            {
+                contentType: "AnalyticRules",
+                path: "path/to/rules",
+            },
+            {
+                contentType: "Workbook",
+                path: "path/to/workbooks",
+            },
+        ],
+        url: "https://github.com/user/repo",
+    },
+    resourceGroupName: "myRg",
+    sourceControlId: "789e0c1f-4a3d-43ad-809c-e713b677b04a",
+    workspaceName: "myWorkspace",
+});

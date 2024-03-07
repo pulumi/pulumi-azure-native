@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.powerbi.PrivateEndpointConnection("privateEndpointConnection", {
+    azureResourceName: "azureResourceName",
+    privateEndpoint: {
+        id: "/subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpointName",
+    },
+    privateEndpointName: "myPrivateEndpointName",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "None",
+        description: "",
+        status: "Approved ",
+    },
+    resourceGroupName: "resourceGroup",
+});

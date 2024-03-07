@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var profile = new AzureNative.Network.Profile("profile", new()
+    {
+        DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+        {
+            RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+            Ttl = 35,
+        },
+        Endpoints = new[]
+        {
+            new AzureNative.Network.Inputs.EndpointArgs
+            {
+                CustomHeaders = new[]
+                {
+                    new AzureNative.Network.Inputs.EndpointPropertiesCustomHeadersArgs
+                    {
+                        Name = "header-2",
+                        Value = "value-2-overridden",
+                    },
+                },
+                EndpointLocation = "North Europe",
+                EndpointStatus = "Enabled",
+                Name = "My external endpoint",
+                Target = "foobar.contoso.com",
+                Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            },
+        },
+        Location = "global",
+        MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+        {
+            CustomHeaders = new[]
+            {
+                new AzureNative.Network.Inputs.MonitorConfigCustomHeadersArgs
+                {
+                    Name = "header-1",
+                    Value = "value-1",
+                },
+                new AzureNative.Network.Inputs.MonitorConfigCustomHeadersArgs
+                {
+                    Name = "header-2",
+                    Value = "value-2",
+                },
+            },
+            ExpectedStatusCodeRanges = new[]
+            {
+                new AzureNative.Network.Inputs.MonitorConfigExpectedStatusCodeRangesArgs
+                {
+                    Max = 205,
+                    Min = 200,
+                },
+                new AzureNative.Network.Inputs.MonitorConfigExpectedStatusCodeRangesArgs
+                {
+                    Max = 410,
+                    Min = 400,
+                },
+            },
+            IntervalInSeconds = 10,
+            Path = "/testpath.aspx",
+            Port = 80,
+            Protocol = "HTTP",
+            TimeoutInSeconds = 5,
+            ToleratedNumberOfFailures = 2,
+        },
+        ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+        ProfileStatus = "Enabled",
+        ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+        TrafficRoutingMethod = "Performance",
+        TrafficViewEnrollmentStatus = "Disabled",
+    });
+
+});
+

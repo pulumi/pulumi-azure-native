@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var distributedAvailabilityGroup = new AzureNative.Sql.DistributedAvailabilityGroup("distributedAvailabilityGroup", new()
+    {
+        DistributedAvailabilityGroupName = "dag",
+        ManagedInstanceName = "testcl",
+        PrimaryAvailabilityGroupName = "BoxLocalAg1",
+        ResourceGroupName = "testrg",
+        SecondaryAvailabilityGroupName = "testcl",
+        SourceEndpoint = "TCP://SERVER:7022",
+        TargetDatabase = "testdb",
+    });
+
+});
+

@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const backupSchedule = new azure_native.storsimple.BackupSchedule("backupSchedule", {
+    backupPolicyName: "BkUpPolicy01ForSDKTest",
+    backupScheduleName: "schedule2",
+    backupType: azure_native.storsimple.BackupType.CloudSnapshot,
+    deviceName: "Device05ForSDKTest",
+    kind: azure_native.storsimple.Kind.Series8000,
+    managerName: "ManagerForSDKTest1",
+    resourceGroupName: "ResourceGroupForSDKTest",
+    retentionCount: 1,
+    scheduleRecurrence: {
+        recurrenceType: azure_native.storsimple.RecurrenceType.Weekly,
+        recurrenceValue: 1,
+        weeklyDaysList: [
+            azure_native.storsimple.DayOfWeek.Friday,
+            azure_native.storsimple.DayOfWeek.Thursday,
+            azure_native.storsimple.DayOfWeek.Monday,
+        ],
+    },
+    scheduleStatus: azure_native.storsimple.ScheduleStatus.Enabled,
+    startTime: "2017-06-24T01:00:00Z",
+});

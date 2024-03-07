@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var channel = new AzureNative.EventGrid.Channel("channel", new()
+    {
+        ChannelName = "exampleChannelName1",
+        ChannelType = "PartnerTopic",
+        ExpirationTimeIfNotActivatedUtc = "2021-10-21T22:50:25.410433Z",
+        MessageForActivation = "Example message to approver",
+        PartnerNamespaceName = "examplePartnerNamespaceName1",
+        PartnerTopicInfo = new AzureNative.EventGrid.Inputs.PartnerTopicInfoArgs
+        {
+            AzureSubscriptionId = "5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+            Name = "examplePartnerTopic1",
+            ResourceGroupName = "examplerg2",
+            Source = "ContosoCorp.Accounts.User1",
+        },
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

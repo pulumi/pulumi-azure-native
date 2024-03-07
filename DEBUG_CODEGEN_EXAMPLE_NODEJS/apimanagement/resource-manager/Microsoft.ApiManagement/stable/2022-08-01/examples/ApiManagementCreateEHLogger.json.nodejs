@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const logger = new azure_native.apimanagement.Logger("logger", {
+    credentials: {
+        connectionString: "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=",
+        name: "hydraeventhub",
+    },
+    description: "adding a new logger",
+    loggerId: "eh1",
+    loggerType: "azureEventHub",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

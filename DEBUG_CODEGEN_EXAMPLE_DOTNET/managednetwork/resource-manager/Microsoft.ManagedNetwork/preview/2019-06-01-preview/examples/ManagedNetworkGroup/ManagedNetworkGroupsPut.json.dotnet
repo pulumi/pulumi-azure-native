@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedNetworkGroup = new AzureNative.ManagedNetwork.ManagedNetworkGroup("managedNetworkGroup", new()
+    {
+        ManagedNetworkGroupName = "myManagedNetworkGroup1",
+        ManagedNetworkName = "myManagedNetwork",
+        ManagementGroups = new[] {},
+        ResourceGroupName = "myResourceGroup",
+        Subnets = new[]
+        {
+            new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+            {
+                Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
+            },
+        },
+        Subscriptions = new[] {},
+        VirtualNetworks = new[]
+        {
+            new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+            {
+                Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+            },
+            new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+            {
+                Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+            },
+        },
+    });
+
+});
+

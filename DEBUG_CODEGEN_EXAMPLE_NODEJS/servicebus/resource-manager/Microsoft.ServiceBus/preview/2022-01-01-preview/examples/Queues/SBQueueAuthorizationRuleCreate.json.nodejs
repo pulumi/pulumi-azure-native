@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const queueAuthorizationRule = new azure_native.servicebus.QueueAuthorizationRule("queueAuthorizationRule", {
+    authorizationRuleName: "sdk-AuthRules-5800",
+    namespaceName: "sdk-Namespace-7982",
+    queueName: "sdk-Queues-2317",
+    resourceGroupName: "ArunMonocle",
+    rights: [
+        "Listen",
+        "Send",
+    ],
+});

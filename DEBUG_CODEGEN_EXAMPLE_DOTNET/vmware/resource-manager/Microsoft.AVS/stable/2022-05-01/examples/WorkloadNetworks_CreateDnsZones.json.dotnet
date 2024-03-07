@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadNetworkDnsZone = new AzureNative.AVS.WorkloadNetworkDnsZone("workloadNetworkDnsZone", new()
+    {
+        DisplayName = "dnsZone1",
+        DnsServerIps = new[]
+        {
+            "1.1.1.1",
+        },
+        DnsZoneId = "dnsZone1",
+        Domain = new[] {},
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+        Revision = 1,
+        SourceIp = "8.8.8.8",
+    });
+
+});
+

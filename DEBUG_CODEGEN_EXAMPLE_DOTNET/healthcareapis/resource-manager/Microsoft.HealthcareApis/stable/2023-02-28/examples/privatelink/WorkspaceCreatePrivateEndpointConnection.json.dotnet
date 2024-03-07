@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspacePrivateEndpointConnection = new AzureNative.HealthcareApis.WorkspacePrivateEndpointConnection("workspacePrivateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "myConnection",
+        PrivateLinkServiceConnectionState = new AzureNative.HealthcareApis.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Auto-Approved",
+            Status = "Approved",
+        },
+        ResourceGroupName = "testRG",
+        WorkspaceName = "workspace1",
+    });
+
+});
+

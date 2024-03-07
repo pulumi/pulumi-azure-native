@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customIPPrefix = new AzureNative.Network.CustomIPPrefix("customIPPrefix", new()
+    {
+        Cidr = "0.0.0.0/24",
+        CustomIpPrefixName = "test-customipprefix",
+        Location = "westus",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

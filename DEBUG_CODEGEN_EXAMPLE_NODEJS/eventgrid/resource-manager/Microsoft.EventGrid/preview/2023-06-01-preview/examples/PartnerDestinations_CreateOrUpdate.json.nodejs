@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const partnerDestination = new azure_native.eventgrid.PartnerDestination("partnerDestination", {
+    endpointBaseUrl: "https://www.example/endpoint",
+    endpointServiceContext: "This is an example",
+    expirationTimeIfNotActivatedUtc: "2022-03-14T19:33:43.430Z",
+    location: "westus2",
+    messageForActivation: "Sample Activation message",
+    partnerDestinationName: "examplePartnerDestinationName1",
+    partnerRegistrationImmutableId: "0bd70ee2-7d95-447e-ab1f-c4f320019404",
+    resourceGroupName: "examplerg",
+});

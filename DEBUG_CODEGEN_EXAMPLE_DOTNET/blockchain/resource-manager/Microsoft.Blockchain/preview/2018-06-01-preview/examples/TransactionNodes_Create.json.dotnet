@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var transactionNode = new AzureNative.Blockchain.TransactionNode("transactionNode", new()
+    {
+        BlockchainMemberName = "contosemember1",
+        Location = "southeastasia",
+        Password = "<password>",
+        ResourceGroupName = "mygroup",
+        TransactionNodeName = "txnode2",
+    });
+
+});
+

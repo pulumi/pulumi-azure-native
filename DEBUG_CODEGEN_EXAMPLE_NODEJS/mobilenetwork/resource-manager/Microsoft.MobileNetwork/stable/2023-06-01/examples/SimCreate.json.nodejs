@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sim = new azure_native.mobilenetwork.Sim("sim", {
+    authenticationKey: "00000000000000000000000000000000",
+    deviceType: "Video camera",
+    integratedCircuitCardIdentifier: "8900000000000000000",
+    internationalMobileSubscriberIdentity: "00000",
+    operatorKeyCode: "00000000000000000000000000000000",
+    resourceGroupName: "rg1",
+    simGroupName: "testSimGroup",
+    simName: "testSim",
+    simPolicy: {
+        id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy",
+    },
+    staticIpConfiguration: [{
+        attachedDataNetwork: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
+        },
+        slice: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+        },
+        staticIp: {
+            ipv4Address: "2.4.0.1",
+        },
+    }],
+});

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const graphResourceGraph = new azure_native.documentdb.GraphResourceGraph("graphResourceGraph", {
+    accountName: "ddb1",
+    graphName: "graphName",
+    location: "West US",
+    options: {},
+    resource: {
+        id: "graphName",
+    },
+    resourceGroupName: "rg1",
+    tags: {},
+});

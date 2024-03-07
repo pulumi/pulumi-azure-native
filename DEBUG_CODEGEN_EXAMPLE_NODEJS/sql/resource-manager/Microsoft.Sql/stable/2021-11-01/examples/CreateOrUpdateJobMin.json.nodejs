@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const job = new azure_native.sql.Job("job", {
+    jobAgentName: "agent1",
+    jobName: "job1",
+    resourceGroupName: "group1",
+    serverName: "server1",
+});

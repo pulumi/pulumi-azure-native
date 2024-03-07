@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var authorizationProvider = new AzureNative.ApiManagement.AuthorizationProvider("authorizationProvider", new()
+    {
+        AuthorizationProviderId = "google",
+        DisplayName = "google",
+        IdentityProvider = "google",
+        Oauth2 = new AzureNative.ApiManagement.Inputs.AuthorizationProviderOAuth2SettingsArgs
+        {
+            GrantTypes = new AzureNative.ApiManagement.Inputs.AuthorizationProviderOAuth2GrantTypesArgs
+            {
+                AuthorizationCode = 
+                {
+                    { "clientId", "508791967882-5qv6o2i99a75un7329vlegtk78kr766h.apps.googleusercontent.com" },
+                    { "clientSecret", "qDN0VyVFjU1OsOyT5Kz8ce" },
+                    { "scopes", "openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email" },
+                },
+            },
+            RedirectUrl = "https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

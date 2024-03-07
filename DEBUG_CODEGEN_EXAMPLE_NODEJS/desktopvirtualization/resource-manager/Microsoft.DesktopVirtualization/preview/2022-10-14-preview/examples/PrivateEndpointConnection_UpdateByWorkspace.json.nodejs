@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnectionByWorkspace = new azure_native.desktopvirtualization.PrivateEndpointConnectionByWorkspace("privateEndpointConnectionByWorkspace", {
+    privateEndpointConnectionName: "workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "None",
+        description: "Approved by admin@consoto.com",
+        status: "Approved",
+    },
+    resourceGroupName: "resourceGroup1",
+    workspaceName: "workspace1",
+});

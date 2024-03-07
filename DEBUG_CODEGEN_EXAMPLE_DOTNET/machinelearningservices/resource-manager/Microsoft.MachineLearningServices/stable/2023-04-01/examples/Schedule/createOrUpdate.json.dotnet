@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var schedule = new AzureNative.MachineLearningServices.Schedule("schedule", new()
+    {
+        Name = "string",
+        ResourceGroupName = "test-rg",
+        ScheduleProperties = new AzureNative.MachineLearningServices.Inputs.ScheduleArgs
+        {
+            Action = new AzureNative.MachineLearningServices.Inputs.EndpointScheduleActionArgs
+            {
+                ActionType = "InvokeBatchEndpoint",
+                EndpointInvocationDefinition = 
+                {
+                    { "9965593e-526f-4b89-bb36-761138cf2794", null },
+                },
+            },
+            Description = "string",
+            DisplayName = "string",
+            IsEnabled = false,
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+            Trigger = new AzureNative.MachineLearningServices.Inputs.CronTriggerArgs
+            {
+                EndTime = "string",
+                Expression = "string",
+                StartTime = "string",
+                TimeZone = "string",
+                TriggerType = "Cron",
+            },
+        },
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

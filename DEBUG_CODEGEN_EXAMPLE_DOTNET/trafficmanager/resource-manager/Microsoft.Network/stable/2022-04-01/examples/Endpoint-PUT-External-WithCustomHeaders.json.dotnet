@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var endpoint = new AzureNative.Network.Endpoint("endpoint", new()
+    {
+        CustomHeaders = new[]
+        {
+            new AzureNative.Network.Inputs.EndpointPropertiesCustomHeadersArgs
+            {
+                Name = "header-1",
+                Value = "value-1",
+            },
+            new AzureNative.Network.Inputs.EndpointPropertiesCustomHeadersArgs
+            {
+                Name = "header-2",
+                Value = "value-2",
+            },
+        },
+        EndpointLocation = "North Europe",
+        EndpointName = "azsmnet7187",
+        EndpointStatus = "Enabled",
+        EndpointType = "ExternalEndpoints",
+        Name = "azsmnet7187",
+        ProfileName = "azsmnet6386",
+        ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+        Target = "foobar.contoso.com",
+        Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    });
+
+});
+

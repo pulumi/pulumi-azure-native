@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var jobPrivateEndpoint = new AzureNative.Sql.JobPrivateEndpoint("jobPrivateEndpoint", new()
+    {
+        JobAgentName = "agent1",
+        PrivateEndpointName = "endpoint1",
+        ResourceGroupName = "group1",
+        ServerName = "server1",
+        TargetServerAzureResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/targetserver1",
+    });
+
+});
+

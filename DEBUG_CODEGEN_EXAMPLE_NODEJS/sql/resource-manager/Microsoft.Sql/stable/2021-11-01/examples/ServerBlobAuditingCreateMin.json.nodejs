@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serverBlobAuditingPolicy = new azure_native.sql.ServerBlobAuditingPolicy("serverBlobAuditingPolicy", {
+    blobAuditingPolicyName: "default",
+    resourceGroupName: "blobauditingtest-4799",
+    serverName: "blobauditingtest-6440",
+    state: azure_native.sql.BlobAuditingPolicyState.Enabled,
+    storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    storageEndpoint: "https://mystorage.blob.core.windows.net",
+});

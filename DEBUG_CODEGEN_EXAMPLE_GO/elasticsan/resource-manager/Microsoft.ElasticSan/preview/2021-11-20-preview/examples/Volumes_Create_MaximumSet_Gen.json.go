@@ -1,0 +1,29 @@
+package main
+
+import (
+	"github.com/pulumi/pulumi-azure-native-sdk/elasticsan/v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := elasticsan.NewVolume(ctx, "volume", &elasticsan.VolumeArgs{
+			CreationData: &elasticsan.SourceCreationDataArgs{
+				CreateSource: elasticsan.VolumeCreateOptionNone,
+				SourceUri:    pulumi.String("aaaaaa"),
+			},
+			ElasticSanName:    pulumi.String("ti7q-k952-1qB3J_5"),
+			ResourceGroupName: pulumi.String("rgelasticsan"),
+			SizeGiB:           pulumi.Float64(22),
+			Tags: pulumi.StringMap{
+				"key7423": pulumi.String("aaaa"),
+			},
+			VolumeGroupName: pulumi.String("u_5I_1j4t3"),
+			VolumeName:      pulumi.String("9132y"),
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}

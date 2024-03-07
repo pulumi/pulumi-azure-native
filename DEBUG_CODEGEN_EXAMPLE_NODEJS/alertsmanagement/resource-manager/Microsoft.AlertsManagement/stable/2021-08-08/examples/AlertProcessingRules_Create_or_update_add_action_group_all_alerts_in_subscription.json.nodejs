@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+    alertProcessingRuleName: "AddActionGroupToSubscription",
+    location: "Global",
+    properties: {
+        actions: [{
+            actionGroupIds: ["/subscriptions/subId1/resourcegroups/RGId1/providers/microsoft.insights/actiongroups/ActionGroup1"],
+            actionType: "AddActionGroups",
+        }],
+        description: "Add ActionGroup1 to all alerts in the subscription",
+        enabled: true,
+        scopes: ["/subscriptions/subId1"],
+    },
+    resourceGroupName: "alertscorrelationrg",
+    tags: {},
+});

@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cloudHsmCluster = new azure_native.hardwaresecuritymodules.CloudHsmCluster("cloudHsmCluster", {
+    cloudHsmClusterName: "chsm1",
+    location: "eastus2",
+    resourceGroupName: "rgcloudhsm",
+    securityDomain: {
+        fipsState: 2,
+    },
+    sku: {
+        family: "B",
+        name: azure_native.hardwaresecuritymodules.CloudHsmClusterSkuName.Standard_B1,
+    },
+    tags: {
+        Dept: "hsm",
+        Environment: "dogfood",
+    },
+});

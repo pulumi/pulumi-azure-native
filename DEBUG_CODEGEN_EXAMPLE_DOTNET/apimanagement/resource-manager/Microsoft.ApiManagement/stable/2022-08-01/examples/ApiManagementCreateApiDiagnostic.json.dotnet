@@ -1,0 +1,74 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiDiagnostic = new AzureNative.ApiManagement.ApiDiagnostic("apiDiagnostic", new()
+    {
+        AlwaysLog = "allErrors",
+        ApiId = "57d1f7558aa04f15146d9d8a",
+        Backend = new AzureNative.ApiManagement.Inputs.PipelineDiagnosticSettingsArgs
+        {
+            Request = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+            {
+                Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+                {
+                    Bytes = 512,
+                },
+                Headers = new[]
+                {
+                    "Content-type",
+                },
+            },
+            Response = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+            {
+                Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+                {
+                    Bytes = 512,
+                },
+                Headers = new[]
+                {
+                    "Content-type",
+                },
+            },
+        },
+        DiagnosticId = "applicationinsights",
+        Frontend = new AzureNative.ApiManagement.Inputs.PipelineDiagnosticSettingsArgs
+        {
+            Request = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+            {
+                Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+                {
+                    Bytes = 512,
+                },
+                Headers = new[]
+                {
+                    "Content-type",
+                },
+            },
+            Response = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+            {
+                Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+                {
+                    Bytes = 512,
+                },
+                Headers = new[]
+                {
+                    "Content-type",
+                },
+            },
+        },
+        LoggerId = "/loggers/applicationinsights",
+        ResourceGroupName = "rg1",
+        Sampling = new AzureNative.ApiManagement.Inputs.SamplingSettingsArgs
+        {
+            Percentage = 50,
+            SamplingType = "fixed",
+        },
+        ServiceName = "apimService1",
+    });
+
+});
+

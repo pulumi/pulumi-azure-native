@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const huntComment = new azure_native.securityinsights.HuntComment("huntComment", {
+    huntCommentId: "2216d0e1-91e3-4902-89fd-d2df8c535096",
+    huntId: "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+    message: "This is a test comment.",
+    resourceGroupName: "myRg",
+    workspaceName: "myWorkspace",
+});

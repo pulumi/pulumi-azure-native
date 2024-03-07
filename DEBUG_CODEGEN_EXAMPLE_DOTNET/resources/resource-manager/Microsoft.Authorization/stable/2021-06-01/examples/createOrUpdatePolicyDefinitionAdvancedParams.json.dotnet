@@ -1,0 +1,74 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policyDefinition = new AzureNative.Authorization.PolicyDefinition("policyDefinition", new()
+    {
+        Description = "Audit enabling of logs and retain them up to a year. This enables recreation of activity trails for investigation purposes when a security incident occurs or your network is compromised",
+        DisplayName = "Event Hubs should have diagnostic logging enabled",
+        Metadata = 
+        {
+            { "category", "Event Hub" },
+        },
+        Mode = "Indexed",
+        Parameters = 
+        {
+            { "requiredRetentionDays", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+            {
+                AllowedValues = new[]
+                {
+                    0,
+                    30,
+                    90,
+                    180,
+                    365,
+                },
+                DefaultValue = 365,
+                Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+                {
+                    Description = "The required diagnostic logs retention in days",
+                    DisplayName = "Required retention (days)",
+                },
+                Type = "Integer",
+            } },
+        },
+        PolicyDefinitionName = "EventHubDiagnosticLogs",
+        PolicyRule = 
+        {
+            { "if", 
+            {
+                { "equals", "Microsoft.EventHub/namespaces" },
+                { "field", "type" },
+            } },
+            { "then", 
+            {
+                { "details", 
+                {
+                    { "existenceCondition", 
+                    {
+                        { "allOf", new[]
+                        {
+                            
+                            {
+                                { "equals", "true" },
+                                { "field", "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled" },
+                            },
+                            
+                            {
+                                { "equals", "[parameters('requiredRetentionDays')]" },
+                                { "field", "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days" },
+                            },
+                        } },
+                    } },
+                    { "type", "Microsoft.Insights/diagnosticSettings" },
+                } },
+                { "effect", "AuditIfNotExists" },
+            } },
+        },
+    });
+
+});
+

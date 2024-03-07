@@ -1,0 +1,50 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+    apiVersionConstraint: {
+        minApiVersion: "2019-01-01",
+    },
+    hostnameConfigurations: [
+        {
+            defaultSslBinding: true,
+            hostName: "gateway1.msitesting.net",
+            identityClientId: "329419bc-adec-4dce-9568-25a6d486e468",
+            keyVaultId: "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+            type: "Proxy",
+        },
+        {
+            hostName: "mgmt.msitesting.net",
+            identityClientId: "329419bc-adec-4dce-9568-25a6d486e468",
+            keyVaultId: "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+            type: "Management",
+        },
+        {
+            hostName: "portal1.msitesting.net",
+            identityClientId: "329419bc-adec-4dce-9568-25a6d486e468",
+            keyVaultId: "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+            type: "Portal",
+        },
+    ],
+    identity: {
+        type: "UserAssigned",
+        userAssignedIdentities: {
+            "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+        },
+    },
+    location: "North Europe",
+    publisherEmail: "apim@autorestsdk.com",
+    publisherName: "autorestsdk",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    sku: {
+        capacity: 1,
+        name: "Premium",
+    },
+    tags: {
+        tag1: "value1",
+        tag2: "value2",
+        tag3: "value3",
+    },
+    virtualNetworkType: "None",
+});

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var invitation = new AzureNative.DataShare.Invitation("invitation", new()
+    {
+        AccountName = "Account1",
+        ExpirationDate = "2020-08-26T22:33:24.5785265Z",
+        InvitationName = "Invitation1",
+        ResourceGroupName = "SampleResourceGroup",
+        ShareName = "Share1",
+        TargetEmail = "receiver@microsoft.com",
+    });
+
+});
+

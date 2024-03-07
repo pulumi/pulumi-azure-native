@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var image = new AzureNative.Compute.Image("image", new()
+    {
+        ImageName = "myImage",
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+        StorageProfile = new AzureNative.Compute.Inputs.ImageStorageProfileArgs
+        {
+            OsDisk = new AzureNative.Compute.Inputs.ImageOSDiskArgs
+            {
+                BlobUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                OsState = AzureNative.Compute.OperatingSystemStateTypes.Generalized,
+                OsType = AzureNative.Compute.OperatingSystemTypes.Linux,
+            },
+            ZoneResilient = true,
+        },
+    });
+
+});
+

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nrfDeployment = new AzureNative.MobilePacketCore.NrfDeployment("nrfDeployment", new()
+    {
+        ClusterService = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobilePacketCore/clusterServices/byoCluster",
+        ComponentParameters = "{\"global\": {\"registry\": {\"docker\": []}}}",
+        Location = "eastus",
+        NrfDeploymentName = "nrfDeployment1",
+        ResourceGroupName = "rg1",
+        SecretsParameters = "{\"global\": {\"secret\": {\"secretValue\": []}}}",
+    });
+
+});
+

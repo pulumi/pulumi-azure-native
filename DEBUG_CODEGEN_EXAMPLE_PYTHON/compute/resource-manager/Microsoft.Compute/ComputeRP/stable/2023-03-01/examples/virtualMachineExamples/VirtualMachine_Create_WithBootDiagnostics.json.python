@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
-    diagnostics_profile=azure_native.compute.DiagnosticsProfileArgs(
+    diagnostics_profile=azure_native.compute.DiagnosticsProfileResponseArgs(
         boot_diagnostics=azure_native.compute.BootDiagnosticsArgs(
             enabled=True,
             storage_uri="http://{existing-storage-account-name}.blob.core.windows.net",
@@ -12,7 +12,7 @@ virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
         vm_size="Standard_D1_v2",
     ),
     location="westus",
-    network_profile=azure_native.compute.NetworkProfileArgs(
+    network_profile=azure_native.compute.NetworkProfileResponseArgs(
         network_interfaces=[azure_native.compute.NetworkInterfaceReferenceArgs(
             id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
             primary=True,
@@ -24,20 +24,20 @@ virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
         computer_name="myVM",
     ),
     resource_group_name="myResourceGroup",
-    storage_profile=azure_native.compute.StorageProfileArgs(
+    storage_profile=azure_native.compute.StorageProfileResponseArgs(
         image_reference=azure_native.compute.ImageReferenceArgs(
             offer="WindowsServer",
             publisher="MicrosoftWindowsServer",
             sku="2016-Datacenter",
             version="latest",
         ),
-        os_disk=azure_native.compute.OSDiskArgs(
-            caching=azure_native.compute.CachingTypes.READ_WRITE,
-            create_option="FromImage",
-            managed_disk=azure_native.compute.ManagedDiskParametersArgs(
+        os_disk={
+            "caching": azure_native.compute.CachingTypes.READ_WRITE,
+            "createOption": "FromImage",
+            "managedDisk": azure_native.compute.ManagedDiskParametersArgs(
                 storage_account_type="Standard_LRS",
             ),
-            name="myVMosdisk",
-        ),
+            "name": "myVMosdisk",
+        },
     ),
     vm_name="myVM")

@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var appServicePlan = new AzureNative.Web.AppServicePlan("appServicePlan", new()
+    {
+        Kind = "app",
+        Location = "East US",
+        Name = "testsf6141",
+        ResourceGroupName = "testrg123",
+        Sku = new AzureNative.Web.Inputs.SkuDescriptionArgs
+        {
+            Capacity = 1,
+            Family = "P",
+            Name = "P1",
+            Size = "P1",
+            Tier = "Premium",
+        },
+    });
+
+});
+

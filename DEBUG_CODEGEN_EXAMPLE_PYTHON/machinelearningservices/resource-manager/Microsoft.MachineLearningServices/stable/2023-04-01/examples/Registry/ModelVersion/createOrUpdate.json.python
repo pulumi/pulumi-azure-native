@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 registry_model_version = azure_native.machinelearningservices.RegistryModelVersion("registryModelVersion",
     model_name="string",
-    model_version_properties=azure_native.machinelearningservices.ModelVersionArgs(
+    model_version_properties=azure_native.machinelearningservices.ModelVersionResponseArgs(
         description="string",
         flavors={
             "string": azure_native.machinelearningservices.FlavorDataArgs(

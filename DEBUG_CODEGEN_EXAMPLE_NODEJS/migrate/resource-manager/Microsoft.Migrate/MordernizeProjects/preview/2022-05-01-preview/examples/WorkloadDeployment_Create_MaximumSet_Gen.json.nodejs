@@ -1,0 +1,31 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadDeployment = new azure_native.migrate.WorkloadDeployment("workloadDeployment", {
+    modernizeProjectName: "l6r8",
+    properties: {
+        customProperties: {
+            instanceType: "IISAKSWorkloadDeployment",
+        },
+        displayName: "wqe",
+        targetPlatform: "AzureKubernetesService",
+        workloadInstanceProperties: {
+            customProperties: {
+                instanceType: "IISWorkload",
+                webAppArmId: "xseseqsrzdiga",
+                webAppSiteName: "mirgzmy",
+            },
+            displayName: "juoorbubchvk",
+            masterSiteName: "ubks",
+            migrateAgentId: "aqgzsxqbk",
+            name: "wonkuhgsafzviuwqerzdmme",
+            sourceName: "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+            sourcePlatform: "eh",
+        },
+    },
+    resourceGroupName: "rgmigrateEngine",
+    tags: {
+        key8241: "gcyxztzr",
+    },
+    workloadDeploymentName: "l4t",
+});

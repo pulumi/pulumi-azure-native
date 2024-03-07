@@ -1,0 +1,53 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppAssessmentV2Operation = new AzureNative.Migrate.WebAppAssessmentV2Operation("webAppAssessmentV2Operation", new()
+    {
+        AppSvcContainerSettings = new AzureNative.Migrate.Inputs.AppSvcContainerSettingsArgs
+        {
+            IsolationRequired = true,
+        },
+        AppSvcNativeSettings = new AzureNative.Migrate.Inputs.AppSvcNativeSettingsArgs
+        {
+            IsolationRequired = true,
+        },
+        AssessmentName = "anraghun-selfhost-v2",
+        AssessmentType = "WebAppAssessment",
+        AzureLocation = "UkWest",
+        AzureOfferCode = "MSAZR0003P",
+        AzureSecurityOfferingType = "NO",
+        ConfidenceRatingInPercentage = 13,
+        Currency = "USD",
+        DiscountPercentage = 13,
+        DiscoveredEntityLightSummary = new AzureNative.Migrate.Inputs.DiscoveredEntityLightSummaryArgs
+        {
+            NumberOfMachines = 27,
+            NumberOfServers = 5,
+            NumberOfWebApps = 23,
+        },
+        EaSubscriptionId = "",
+        EntityUptime = new AzureNative.Migrate.Inputs.EntityUptimeArgs
+        {
+            DaysPerMonth = 18,
+            HoursPerDay = 13,
+        },
+        EnvironmentType = "Production",
+        GroupName = "anraghun-selfhost-v2",
+        GroupType = "Default",
+        Percentile = "Percentile50",
+        PerfDataEndTime = "2023-11-03T05:42:45.496Z",
+        PerfDataStartTime = "2023-11-03T05:42:45.496Z",
+        ProjectName = "sumukk-ccy-bcs4557project",
+        ReservedInstance = "None",
+        ResourceGroupName = "rgopenapi",
+        ScalingFactor = 17,
+        SizingCriterion = "PerformanceBased",
+        TimeRange = "Day",
+    });
+
+});
+

@@ -5,16 +5,16 @@ mongo_db_resource_mongo_role_definition = azure_native.documentdb.MongoDBResourc
     account_name="myAccountName",
     database_name="sales",
     mongo_role_definition_id="myMongoRoleDefinitionId",
-    privileges=[azure_native.documentdb.PrivilegeArgs(
-        actions=[
+    privileges=[{
+        "actions": [
             "insert",
             "find",
         ],
-        resource=azure_native.documentdb.PrivilegeResourceArgs(
+        "resource": azure_native.documentdb.PrivilegeResourceArgs(
             collection="sales",
             db="sales",
         ),
-    )],
+    }],
     resource_group_name="myResourceGroupName",
     role_name="myRoleName",
     roles=[azure_native.documentdb.RoleArgs(

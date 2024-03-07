@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agentPool = new AzureNative.ContainerService.AgentPool("agentPool", new()
+    {
+        AgentPoolName = "agentpool1",
+        Count = 3,
+        KubeletConfig = new AzureNative.ContainerService.Inputs.KubeletConfigArgs
+        {
+            AllowedUnsafeSysctls = new[]
+            {
+                "kernel.msg*",
+                "net.core.somaxconn",
+            },
+            CpuCfsQuota = true,
+            CpuCfsQuotaPeriod = "200ms",
+            CpuManagerPolicy = "static",
+            FailSwapOn = false,
+            ImageGcHighThreshold = 90,
+            ImageGcLowThreshold = 70,
+            TopologyManagerPolicy = "best-effort",
+        },
+        LinuxOSConfig = new AzureNative.ContainerService.Inputs.LinuxOSConfigArgs
+        {
+            SwapFileSizeMB = 1500,
+            Sysctls = new AzureNative.ContainerService.Inputs.SysctlConfigArgs
+            {
+                KernelThreadsMax = 99999,
+                NetCoreWmemDefault = 12345,
+                NetIpv4IpLocalPortRange = "20000 60000",
+                NetIpv4TcpTwReuse = true,
+            },
+            TransparentHugePageDefrag = "madvise",
+            TransparentHugePageEnabled = "always",
+        },
+        OrchestratorVersion = "",
+        OsType = "Linux",
+        ResourceGroupName = "rg1",
+        ResourceName = "clustername1",
+        VmSize = "Standard_DS2_v2",
+    });
+
+});
+

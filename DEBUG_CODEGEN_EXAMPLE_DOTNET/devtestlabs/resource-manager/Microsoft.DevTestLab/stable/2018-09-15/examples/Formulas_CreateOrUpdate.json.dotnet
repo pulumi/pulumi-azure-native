@@ -1,0 +1,61 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var formula = new AzureNative.DevTestLab.Formula("formula", new()
+    {
+        Description = "Formula using a Linux base",
+        FormulaContent = new AzureNative.DevTestLab.Inputs.LabVirtualMachineCreationParameterArgs
+        {
+            AllowClaim = false,
+            Artifacts = new[]
+            {
+                new AzureNative.DevTestLab.Inputs.ArtifactInstallPropertiesArgs
+                {
+                    ArtifactId = "/artifactsources/{artifactSourceName}/artifacts/linux-install-nodejs",
+                    Parameters = new[] {},
+                },
+            },
+            DisallowPublicIpAddress = true,
+            GalleryImageReference = new AzureNative.DevTestLab.Inputs.GalleryImageReferenceArgs
+            {
+                Offer = "0001-com-ubuntu-server-groovy",
+                OsType = "Linux",
+                Publisher = "canonical",
+                Sku = "20_10",
+                Version = "latest",
+            },
+            IsAuthenticationWithSshKey = false,
+            LabSubnetName = "Dtl{labName}Subnet",
+            LabVirtualNetworkId = "/virtualnetworks/dtl{labName}",
+            Location = "{location}",
+            NetworkInterface = new AzureNative.DevTestLab.Inputs.NetworkInterfacePropertiesArgs
+            {
+                SharedPublicIpAddressConfiguration = new AzureNative.DevTestLab.Inputs.SharedPublicIpAddressConfigurationArgs
+                {
+                    InboundNatRules = new[]
+                    {
+                        new AzureNative.DevTestLab.Inputs.InboundNatRuleArgs
+                        {
+                            BackendPort = 22,
+                            TransportProtocol = "Tcp",
+                        },
+                    },
+                },
+            },
+            Notes = "Ubuntu Server 20.10",
+            Size = "Standard_B1ms",
+            StorageType = "Standard",
+            UserName = "user",
+        },
+        LabName = "{labName}",
+        Location = "{location}",
+        Name = "{formulaName}",
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

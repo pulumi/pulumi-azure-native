@@ -1,0 +1,74 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var view = new AzureNative.CostManagement.View("view", new()
+    {
+        Accumulated = "true",
+        Chart = "Table",
+        DataSet = new AzureNative.CostManagement.Inputs.ReportConfigDatasetArgs
+        {
+            Aggregation = 
+            {
+                { "totalCost", new AzureNative.CostManagement.Inputs.ReportConfigAggregationArgs
+                {
+                    Function = "Sum",
+                    Name = "PreTaxCost",
+                } },
+            },
+            Granularity = "Daily",
+            Grouping = new() { },
+            Sorting = new[]
+            {
+                new AzureNative.CostManagement.Inputs.ReportConfigSortingArgs
+                {
+                    Direction = "Ascending",
+                    Name = "UsageDate",
+                },
+            },
+        },
+        DisplayName = "swagger Example",
+        ETag = "\"1d4ff9fe66f1d10\"",
+        Kpis = new[]
+        {
+            new AzureNative.CostManagement.Inputs.KpiPropertiesArgs
+            {
+                Enabled = true,
+                Type = "Forecast",
+            },
+            new AzureNative.CostManagement.Inputs.KpiPropertiesArgs
+            {
+                Enabled = true,
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Consumption/budgets/swaggerDemo",
+                Type = "Budget",
+            },
+        },
+        Metric = "ActualCost",
+        Pivots = new[]
+        {
+            new AzureNative.CostManagement.Inputs.PivotPropertiesArgs
+            {
+                Name = "ServiceName",
+                Type = "Dimension",
+            },
+            new AzureNative.CostManagement.Inputs.PivotPropertiesArgs
+            {
+                Name = "MeterCategory",
+                Type = "Dimension",
+            },
+            new AzureNative.CostManagement.Inputs.PivotPropertiesArgs
+            {
+                Name = "swaggerTagKey",
+                Type = "TagKey",
+            },
+        },
+        Timeframe = "MonthToDate",
+        Type = "Usage",
+        ViewName = "swaggerExample",
+    });
+
+});
+

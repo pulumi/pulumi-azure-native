@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const linkedService = new azure_native.operationalinsights.LinkedService("linkedService", {
+    linkedServiceName: "Cluster",
+    resourceGroupName: "mms-eus",
+    workspaceName: "TestLinkWS",
+    writeAccessResourceId: "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/clusters/testcluster",
+});

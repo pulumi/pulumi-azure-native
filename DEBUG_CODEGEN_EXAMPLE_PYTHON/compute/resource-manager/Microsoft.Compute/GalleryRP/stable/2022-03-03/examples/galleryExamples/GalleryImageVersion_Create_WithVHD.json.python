@@ -6,22 +6,22 @@ gallery_image_version = azure_native.compute.GalleryImageVersion("galleryImageVe
     gallery_image_version_name="1.0.0",
     gallery_name="myGalleryName",
     location="West US",
-    publishing_profile=azure_native.compute.GalleryImageVersionPublishingProfileArgs(
+    publishing_profile=azure_native.compute.GalleryImageVersionPublishingProfileResponseArgs(
         target_regions=[
-            azure_native.compute.TargetRegionArgs(
-                encryption=azure_native.compute.EncryptionImagesArgs(
-                    data_disk_images=[azure_native.compute.DataDiskImageEncryptionArgs(
+            {
+                "encryption": {
+                    "dataDiskImages": [azure_native.compute.DataDiskImageEncryptionArgs(
                         disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
                         lun=1,
                     )],
-                    os_disk_image=azure_native.compute.OSDiskImageEncryptionArgs(
+                    "osDiskImage": azure_native.compute.OSDiskImageEncryptionArgs(
                         disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
                     ),
-                ),
-                exclude_from_latest=False,
-                name="West US",
-                regional_replica_count=1,
-            ),
+                },
+                "excludeFromLatest": False,
+                "name": "West US",
+                "regionalReplicaCount": 1,
+            },
             azure_native.compute.TargetRegionArgs(
                 exclude_from_latest=False,
                 name="East US",
@@ -34,20 +34,20 @@ gallery_image_version = azure_native.compute.GalleryImageVersion("galleryImageVe
     safety_profile=azure_native.compute.GalleryImageVersionSafetyProfileArgs(
         allow_deletion_of_replicated_locations=False,
     ),
-    storage_profile=azure_native.compute.GalleryImageVersionStorageProfileArgs(
-        data_disk_images=[azure_native.compute.GalleryDataDiskImageArgs(
-            host_caching=azure_native.compute.HostCaching.NONE,
-            lun=1,
-            source=azure_native.compute.GalleryDiskImageSourceArgs(
+    storage_profile=azure_native.compute.GalleryImageVersionStorageProfileResponseArgs(
+        data_disk_images=[{
+            "hostCaching": azure_native.compute.HostCaching.NONE,
+            "lun": 1,
+            "source": azure_native.compute.GalleryDiskImageSourceArgs(
                 id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
                 uri="https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
             ),
-        )],
-        os_disk_image=azure_native.compute.GalleryOSDiskImageArgs(
-            host_caching=azure_native.compute.HostCaching.READ_ONLY,
-            source=azure_native.compute.GalleryDiskImageSourceArgs(
+        }],
+        os_disk_image={
+            "hostCaching": azure_native.compute.HostCaching.READ_ONLY,
+            "source": azure_native.compute.GalleryDiskImageSourceArgs(
                 id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
                 uri="https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
             ),
-        ),
+        },
     ))

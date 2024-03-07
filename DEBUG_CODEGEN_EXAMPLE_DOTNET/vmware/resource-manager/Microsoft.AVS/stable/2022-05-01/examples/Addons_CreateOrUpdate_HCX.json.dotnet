@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var addon = new AzureNative.AVS.Addon("addon", new()
+    {
+        AddonName = "hcx",
+        PrivateCloudName = "cloud1",
+        Properties = new AzureNative.AVS.Inputs.AddonHcxPropertiesArgs
+        {
+            AddonType = "HCX",
+            Offer = "VMware MaaS Cloud Provider (Enterprise)",
+        },
+        ResourceGroupName = "group1",
+    });
+
+});
+

@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const zone = new azure_native.network.Zone("zone", {
+    location: "Global",
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "value1",
+    },
+    zoneName: "zone1",
+});

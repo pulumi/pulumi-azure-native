@@ -1,0 +1,67 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var appResiliency = new AzureNative.App.AppResiliency("appResiliency", new()
+    {
+        AppName = "testcontainerApp0",
+        CircuitBreakerPolicy = new AzureNative.App.Inputs.CircuitBreakerPolicyArgs
+        {
+            ConsecutiveErrors = 5,
+            IntervalInSeconds = 10,
+            MaxEjectionPercent = 50,
+        },
+        HttpConnectionPool = new AzureNative.App.Inputs.HttpConnectionPoolArgs
+        {
+            Http1MaxPendingRequests = 1024,
+            Http2MaxRequests = 1024,
+        },
+        HttpRetryPolicy = new AzureNative.App.Inputs.HttpRetryPolicyArgs
+        {
+            Errors = new[]
+            {
+                "5xx",
+                "connect-failure",
+                "reset",
+                "retriable-headers",
+                "retriable-status-codes",
+            },
+            Headers = new[]
+            {
+                new AzureNative.App.Inputs.HeaderMatchArgs
+                {
+                    Header = "X-Content-Type",
+                    PrefixMatch = "GOATS",
+                },
+            },
+            HttpStatusCodes = new[]
+            {
+                502,
+                503,
+            },
+            InitialDelayInMilliseconds = 1000,
+            MaxIntervalInMilliseconds = 10000,
+            MaxRetries = 5,
+        },
+        Name = "resiliency-policy-1",
+        ResourceGroupName = "rg",
+        TcpConnectionPool = new AzureNative.App.Inputs.TcpConnectionPoolArgs
+        {
+            MaxConnections = 100,
+        },
+        TcpRetryPolicy = new AzureNative.App.Inputs.TcpRetryPolicyArgs
+        {
+            MaxConnectAttempts = 3,
+        },
+        TimeoutPolicy = new AzureNative.App.Inputs.TimeoutPolicyArgs
+        {
+            ConnectionTimeoutInSeconds = 5,
+            ResponseTimeoutInSeconds = 15,
+        },
+    });
+
+});
+

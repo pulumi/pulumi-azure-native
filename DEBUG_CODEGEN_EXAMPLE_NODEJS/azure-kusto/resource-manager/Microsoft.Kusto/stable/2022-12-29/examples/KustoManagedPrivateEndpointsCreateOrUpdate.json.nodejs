@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedPrivateEndpoint = new azure_native.kusto.ManagedPrivateEndpoint("managedPrivateEndpoint", {
+    clusterName: "kustoCluster",
+    groupId: "blob",
+    managedPrivateEndpointName: "managedPrivateEndpointTest",
+    privateLinkResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Storage/storageAccounts/storageAccountTest",
+    requestMessage: "Please Approve.",
+    resourceGroupName: "kustorptest",
+});

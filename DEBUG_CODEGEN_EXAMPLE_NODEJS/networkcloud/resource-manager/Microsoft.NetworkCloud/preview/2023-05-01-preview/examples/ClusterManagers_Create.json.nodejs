@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const clusterManager = new azure_native.networkcloud.ClusterManager("clusterManager", {
+    analyticsWorkspaceId: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+    clusterManagerName: "clusterManagerName",
+    fabricControllerId: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+    location: "location",
+    managedResourceGroupConfiguration: {
+        location: "East US",
+        name: "my-managed-rg",
+    },
+    resourceGroupName: "resourceGroupName",
+    tags: {
+        key1: "myvalue1",
+        key2: "myvalue2",
+    },
+});

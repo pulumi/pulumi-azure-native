@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const clusterPool = new azure_native.hdinsight.ClusterPool("clusterPool", {
+    clusterPoolName: "clusterpool1",
+    clusterPoolProfile: {
+        clusterPoolVersion: "1.2",
+    },
+    computeProfile: {
+        vmSize: "Standard_D3_v2",
+    },
+    location: "West US 2",
+    resourceGroupName: "hiloResourcegroup",
+});

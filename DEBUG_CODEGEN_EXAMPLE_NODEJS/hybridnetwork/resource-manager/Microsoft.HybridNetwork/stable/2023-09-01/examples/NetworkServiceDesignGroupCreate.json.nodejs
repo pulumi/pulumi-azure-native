@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkServiceDesignGroup = new azure_native.hybridnetwork.NetworkServiceDesignGroup("networkServiceDesignGroup", {
+    location: "eastus",
+    networkServiceDesignGroupName: "TestNetworkServiceDesignGroupName",
+    publisherName: "TestPublisher",
+    resourceGroupName: "rg",
+});

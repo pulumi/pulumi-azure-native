@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpoint = new AzureNative.StreamAnalytics.PrivateEndpoint("privateEndpoint", new()
+    {
+        ClusterName = "testcluster",
+        ManualPrivateLinkServiceConnections = new[]
+        {
+            new AzureNative.StreamAnalytics.Inputs.PrivateLinkServiceConnectionArgs
+            {
+                GroupIds = new[]
+                {
+                    "groupIdFromResource",
+                },
+                PrivateLinkServiceId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+            },
+        },
+        PrivateEndpointName = "testpe",
+        ResourceGroupName = "sjrg",
+    });
+
+});
+

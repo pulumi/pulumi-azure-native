@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const deploymentAtSubscriptionScope = new azure_native.resources.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope", {
+    deploymentName: "my-deployment",
+    location: "eastus",
+    properties: {
+        mode: azure_native.resources.DeploymentMode.Incremental,
+        parameters: {},
+        templateLink: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+        },
+    },
+});

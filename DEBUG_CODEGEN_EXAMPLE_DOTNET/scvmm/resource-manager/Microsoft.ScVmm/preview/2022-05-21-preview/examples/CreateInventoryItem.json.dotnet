@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var inventoryItem = new AzureNative.ScVmm.InventoryItem("inventoryItem", new()
+    {
+        InventoryItemName = "12345678-1234-1234-1234-123456789abc",
+        InventoryType = "Cloud",
+        ResourceGroupName = "testrg",
+        VmmServerName = "ContosoVMMServer",
+    });
+
+});
+

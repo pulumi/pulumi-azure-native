@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connector = new AzureNative.ServiceLinker.Connector("connector", new()
+    {
+        AuthInfo = new AzureNative.ServiceLinker.Inputs.SecretAuthInfoArgs
+        {
+            AuthType = "secret",
+        },
+        ConnectorName = "connectorName",
+        Location = "westus",
+        ResourceGroupName = "test-rg",
+        SecretStore = new AzureNative.ServiceLinker.Inputs.SecretStoreArgs
+        {
+            KeyVaultId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+        },
+        TargetService = new AzureNative.ServiceLinker.Inputs.AzureResourceArgs
+        {
+            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+            Type = "AzureResource",
+        },
+    });
+
+});
+

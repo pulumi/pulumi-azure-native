@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    {
+        ARecords = new[]
+        {
+            new AzureNative.Network.Inputs.ARecordArgs
+            {
+                Ipv4Address = "1.2.3.4",
+            },
+        },
+        Metadata = 
+        {
+            { "key1", "value1" },
+        },
+        PrivateZoneName = "privatezone1.com",
+        RecordType = "A",
+        RelativeRecordSetName = "recordA",
+        ResourceGroupName = "resourceGroup1",
+        Ttl = 3600,
+    });
+
+});
+

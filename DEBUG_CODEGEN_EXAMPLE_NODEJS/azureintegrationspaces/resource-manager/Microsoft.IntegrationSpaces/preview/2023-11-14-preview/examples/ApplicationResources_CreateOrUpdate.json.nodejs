@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const applicationResource = new azure_native.integrationspaces.ApplicationResource("applicationResource", {
+    applicationName: "Application1",
+    resourceGroupName: "testrg",
+    resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Web/sites/LogicApp1",
+    resourceKind: "LogicApp",
+    resourceName: "Resource1",
+    resourceType: "Microsoft.Web/sites",
+    spaceName: "Space1",
+});

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataMaskingPolicy = new AzureNative.Sql.DataMaskingPolicy("dataMaskingPolicy", new()
+    {
+        DataMaskingPolicyName = "Default",
+        DataMaskingState = AzureNative.Sql.DataMaskingState.Enabled,
+        DatabaseName = "sqlcrudtest-331",
+        ResourceGroupName = "sqlcrudtest-6852",
+        ServerName = "sqlcrudtest-2080",
+    });
+
+});
+

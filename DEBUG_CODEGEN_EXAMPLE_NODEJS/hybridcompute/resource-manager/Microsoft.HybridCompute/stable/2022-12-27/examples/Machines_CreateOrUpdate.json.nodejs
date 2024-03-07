@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const machine = new azure_native.hybridcompute.Machine("machine", {
+    clientPublicKey: "string",
+    identity: {
+        type: azure_native.hybridcompute.ResourceIdentityType.SystemAssigned,
+    },
+    location: "eastus2euap",
+    locationData: {
+        name: "Redmond",
+    },
+    machineName: "myMachine",
+    parentClusterResourceId: "{AzureStackHCIResourceId}",
+    privateLinkScopeResourceId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+    resourceGroupName: "myResourceGroup",
+    vmId: "b7a098cc-b0b8-46e8-a205-62f301a62a8f",
+});

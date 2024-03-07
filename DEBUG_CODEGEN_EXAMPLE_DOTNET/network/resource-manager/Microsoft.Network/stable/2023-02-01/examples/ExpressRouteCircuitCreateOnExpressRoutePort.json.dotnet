@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var expressRouteCircuit = new AzureNative.Network.ExpressRouteCircuit("expressRouteCircuit", new()
+    {
+        AuthorizationKey = "b0be57f5-1fba-463b-adec-ffe767354cdd",
+        BandwidthInGbps = 10,
+        CircuitName = "expressRouteCircuit1",
+        ExpressRoutePort = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName",
+        },
+        Location = "westus",
+        ResourceGroupName = "rg1",
+        Sku = new AzureNative.Network.Inputs.ExpressRouteCircuitSkuArgs
+        {
+            Family = "MeteredData",
+            Name = "Premium_MeteredData",
+            Tier = "Premium",
+        },
+    });
+
+});
+

@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const maintenanceConfiguration = new azure_native.maintenance.MaintenanceConfiguration("maintenanceConfiguration", {
+    duration: "05:00",
+    expirationDateTime: "9999-12-31 00:00",
+    location: "westus2",
+    maintenanceScope: "OSImage",
+    namespace: "Microsoft.Maintenance",
+    recurEvery: "Day",
+    resourceGroupName: "examplerg",
+    resourceName: "configuration1",
+    startDateTime: "2020-04-30 08:00",
+    timeZone: "Pacific Standard Time",
+    visibility: "Custom",
+});

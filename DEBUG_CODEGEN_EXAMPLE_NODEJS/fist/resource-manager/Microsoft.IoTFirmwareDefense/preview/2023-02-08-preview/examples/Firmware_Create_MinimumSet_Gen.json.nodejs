@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const firmware = new azure_native.iotfirmwaredefense.Firmware("firmware", {
+    firmwareId: "umrkdttp",
+    resourceGroupName: "rgworkspaces-firmwares",
+    workspaceName: "A7",
+});

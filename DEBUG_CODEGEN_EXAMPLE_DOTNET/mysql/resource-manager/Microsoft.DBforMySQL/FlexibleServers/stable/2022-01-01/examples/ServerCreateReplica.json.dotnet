@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var server = new AzureNative.DBforMySQL.Server("server", new()
+    {
+        CreateMode = "Replica",
+        Location = "SoutheastAsia",
+        ResourceGroupName = "testgr",
+        ServerName = "replica-server",
+        SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testgr/providers/Microsoft.DBforMySQL/flexibleServers/source-server",
+    });
+
+});
+

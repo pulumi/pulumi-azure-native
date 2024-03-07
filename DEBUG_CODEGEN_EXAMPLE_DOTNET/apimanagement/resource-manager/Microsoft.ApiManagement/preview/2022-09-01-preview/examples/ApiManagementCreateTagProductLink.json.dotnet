@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var tagProductLink = new AzureNative.ApiManagement.TagProductLink("tagProductLink", new()
+    {
+        ProductId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/product1",
+        ProductLinkId = "link1",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        TagId = "tag1",
+    });
+
+});
+

@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlVirtualMachine = new azure_native.sqlvirtualmachine.SqlVirtualMachine("sqlVirtualMachine", {
+    location: "northeurope",
+    resourceGroupName: "testrg",
+    sqlVirtualMachineGroupResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup",
+    sqlVirtualMachineName: "testvm",
+    virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm2",
+    wsfcDomainCredentials: {
+        clusterBootstrapAccountPassword: "<Password>",
+        clusterOperatorAccountPassword: "<Password>",
+        sqlServiceAccountPassword: "<Password>",
+    },
+    wsfcStaticIp: "10.0.0.7",
+});

@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var extension = new AzureNative.KubernetesConfiguration.Extension("extension", new()
+    {
+        AutoUpgradeMinorVersion = true,
+        ClusterName = "clusterName1",
+        ClusterResourceName = "connectedClusters",
+        ClusterRp = "Microsoft.Kubernetes",
+        ConfigurationProtectedSettings = 
+        {
+            { "omsagent.secret.key", "secretKeyValue01" },
+        },
+        ConfigurationSettings = 
+        {
+            { "omsagent.env.clusterName", "clusterName1" },
+            { "omsagent.secret.wsid", "a38cef99-5a89-52ed-b6db-22095c23664b" },
+        },
+        ExtensionName = "ClusterMonitor",
+        ExtensionType = "azuremonitor-containers",
+        ReleaseTrain = "Preview",
+        ResourceGroupName = "rg1",
+        Scope = new AzureNative.KubernetesConfiguration.Inputs.ScopeArgs
+        {
+            Cluster = new AzureNative.KubernetesConfiguration.Inputs.ScopeClusterArgs
+            {
+                ReleaseNamespace = "kube-system",
+            },
+        },
+    });
+
+});
+

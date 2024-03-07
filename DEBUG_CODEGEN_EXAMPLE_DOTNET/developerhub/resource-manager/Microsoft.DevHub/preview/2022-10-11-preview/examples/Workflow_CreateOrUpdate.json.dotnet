@@ -1,0 +1,51 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workflow = new AzureNative.DevHub.Workflow("workflow", new()
+    {
+        Acr = new AzureNative.DevHub.Inputs.ACRArgs
+        {
+            AcrRegistryName = "registry1",
+            AcrRepositoryName = "repo1",
+            AcrResourceGroup = "resourceGroup1",
+            AcrSubscriptionId = "subscriptionId1",
+        },
+        AksResourceId = "/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+        BranchName = "branch1",
+        DeploymentProperties = new AzureNative.DevHub.Inputs.DeploymentPropertiesArgs
+        {
+            KubeManifestLocations = new[]
+            {
+                "/src/manifests/",
+            },
+            ManifestType = "kube",
+            Overrides = 
+            {
+                { "key1", "value1" },
+            },
+        },
+        DockerBuildContext = "repo1/src/",
+        Dockerfile = "repo1/images/Dockerfile",
+        Location = "location1",
+        Namespace = "namespace1",
+        OidcCredentials = new AzureNative.DevHub.Inputs.GitHubWorkflowProfileOidcCredentialsArgs
+        {
+            AzureClientId = "12345678-3456-7890-5678-012345678901",
+            AzureTenantId = "66666666-3456-7890-5678-012345678901",
+        },
+        RepositoryName = "repo1",
+        RepositoryOwner = "owner1",
+        ResourceGroupName = "resourceGroup1",
+        Tags = 
+        {
+            { "appname", "testApp" },
+        },
+        WorkflowName = "workflow1",
+    });
+
+});
+

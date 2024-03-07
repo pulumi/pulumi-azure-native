@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const azureMonitorWorkspace = new azure_native.monitor.AzureMonitorWorkspace("azureMonitorWorkspace", {
+    azureMonitorWorkspaceName: "myAzureMonitorWorkspace",
+    location: "eastus",
+    resourceGroupName: "myResourceGroup",
+});

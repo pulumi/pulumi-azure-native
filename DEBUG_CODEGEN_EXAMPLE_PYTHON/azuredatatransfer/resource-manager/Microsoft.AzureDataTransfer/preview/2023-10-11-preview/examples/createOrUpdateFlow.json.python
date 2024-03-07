@@ -5,7 +5,7 @@ flow = azure_native.azuredatatransfer.Flow("flow",
     connection_name="testConnection",
     flow_name="testFlow",
     location="East US",
-    properties=azure_native.azuredatatransfer.FlowPropertiesArgs(
+    properties=azure_native.azuredatatransfer.FlowPropertiesResponseArgs(
         connection=azure_native.azuredatatransfer.SelectedResourceArgs(
             id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.AzureDataTransfer/connections/testConnection",
         ),

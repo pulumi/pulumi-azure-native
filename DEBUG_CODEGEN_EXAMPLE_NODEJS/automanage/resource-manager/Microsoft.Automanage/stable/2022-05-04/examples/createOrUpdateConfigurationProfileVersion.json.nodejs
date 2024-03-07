@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const configurationProfilesVersion = new azure_native.automanage.ConfigurationProfilesVersion("configurationProfilesVersion", {
+    configurationProfileName: "customConfigurationProfile",
+    location: "East US",
+    properties: {
+        configuration: {
+            "Antimalware/Enable": false,
+            "AzureSecurityCenter/Enable": true,
+            "Backup/Enable": false,
+            "BootDiagnostics/Enable": true,
+            "ChangeTrackingAndInventory/Enable": true,
+            "GuestConfiguration/Enable": true,
+            "LogAnalytics/Enable": true,
+            "UpdateManagement/Enable": true,
+            "VMInsights/Enable": true,
+        },
+    },
+    resourceGroupName: "myResourceGroupName",
+    tags: {
+        Organization: "Administration",
+    },
+    versionName: "version1",
+});

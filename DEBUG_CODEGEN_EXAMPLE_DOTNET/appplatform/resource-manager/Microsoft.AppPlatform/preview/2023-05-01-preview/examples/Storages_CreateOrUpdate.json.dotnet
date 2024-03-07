@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storage = new AzureNative.AppPlatform.Storage("storage", new()
+    {
+        Properties = new AzureNative.AppPlatform.Inputs.StorageAccountArgs
+        {
+            AccountKey = "account-key-of-storage-account",
+            AccountName = "storage-account-name",
+            StorageType = "StorageAccount",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        StorageName = "mystorage",
+    });
+
+});
+

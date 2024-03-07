@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var namespaceAuthorizationRule = new AzureNative.EventHub.NamespaceAuthorizationRule("namespaceAuthorizationRule", new()
+    {
+        AuthorizationRuleName = "sdk-Authrules-1746",
+        NamespaceName = "sdk-Namespace-2702",
+        ResourceGroupName = "ArunMonocle",
+        Rights = new[]
+        {
+            "Listen",
+            "Send",
+        },
+    });
+
+});
+

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var flow = new AzureNative.AzureDataTransfer.Flow("flow", new()
+    {
+        ConnectionName = "testConnection",
+        FlowName = "testFlow",
+        Location = "East US",
+        Properties = new AzureNative.AzureDataTransfer.Inputs.FlowPropertiesArgs
+        {
+            Connection = new AzureNative.AzureDataTransfer.Inputs.SelectedResourceArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.AzureDataTransfer/connections/testConnection",
+            },
+            FlowType = "Blob",
+            StorageAccountName = "testsa",
+            StorageContainerName = "testcontainer",
+        },
+        ResourceGroupName = "testRG",
+    });
+
+});
+

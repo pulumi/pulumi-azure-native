@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var assessment = new AzureNative.Security.Assessment("assessment", new()
+    {
+        AssessmentName = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+        ResourceDetails = new AzureNative.Security.Inputs.AzureResourceDetailsArgs
+        {
+            Source = "Azure",
+        },
+        ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
+        Status = new AzureNative.Security.Inputs.AssessmentStatusArgs
+        {
+            Code = "Healthy",
+        },
+    });
+
+});
+

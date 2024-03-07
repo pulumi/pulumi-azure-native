@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var protectionIntent = new AzureNative.RecoveryServices.ProtectionIntent("protectionIntent", new()
+    {
+        FabricName = "Azure",
+        IntentObjectName = "vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+        Properties = new AzureNative.RecoveryServices.Inputs.AzureResourceProtectionIntentArgs
+        {
+            PolicyId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupPolicies/myPolicy",
+            ProtectionIntentItemType = "AzureResourceItem",
+            SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/chamsrgtest/providers/Microsoft.Compute/virtualMachines/chamscandel",
+        },
+        ResourceGroupName = "myRG",
+        VaultName = "myVault",
+    });
+
+});
+

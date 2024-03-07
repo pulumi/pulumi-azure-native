@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachineInstance = new AzureNative.AzureStackHCI.VirtualMachineInstance("virtualMachineInstance", new()
+    {
+        ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+            Type = "CustomLocation",
+        },
+        HardwareProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachineInstancePropertiesHardwareProfileArgs
+        {
+            VmSize = "Default",
+        },
+        NetworkProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachineInstancePropertiesNetworkProfileArgs
+        {
+            NetworkInterfaces = new[]
+            {
+                new AzureNative.AzureStackHCI.Inputs.VirtualMachineInstancePropertiesNetworkInterfacesArgs
+                {
+                    Id = "test-nic",
+                },
+            },
+        },
+        OsProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachineInstancePropertiesOsProfileArgs
+        {
+            AdminPassword = "password",
+            AdminUsername = "localadmin",
+            ComputerName = "luamaster",
+        },
+        ResourceUri = "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/Microsoft.HybridCompute/machines/DemoVM",
+        SecurityProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachineInstancePropertiesSecurityProfileArgs
+        {
+            EnableTPM = true,
+            UefiSettings = new AzureNative.AzureStackHCI.Inputs.VirtualMachineInstancePropertiesUefiSettingsArgs
+            {
+                SecureBootEnabled = true,
+            },
+        },
+        StorageProfile = new AzureNative.AzureStackHCI.Inputs.VirtualMachineInstancePropertiesStorageProfileArgs
+        {
+            ImageReference = new AzureNative.AzureStackHCI.Inputs.VirtualMachineInstancePropertiesImageReferenceArgs
+            {
+                Id = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/test-marketplace-gallery-image",
+            },
+            VmConfigStoragePathId = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+        },
+    });
+
+});
+

@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const connector = new azure_native.security.Connector("connector", {
+    authenticationDetails: {
+        authenticationType: "awsAssumeRole",
+        awsAssumeRoleArn: "arn:aws:iam::81231569658:role/AscConnector",
+        awsExternalId: "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    },
+    connectorName: "aws_dev2",
+    hybridComputeSettings: {
+        autoProvision: "On",
+        proxyServer: {
+            ip: "167.220.197.140",
+            port: "34",
+        },
+        region: "West US 2",
+        resourceGroupName: "AwsConnectorRG",
+        servicePrincipal: {
+            applicationId: "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+            secret: "<secret>",
+        },
+    },
+});

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var container = new AzureNative.DataBoxEdge.Container("container", new()
+    {
+        ContainerName = "blobcontainer1",
+        DataFormat = "BlockBlob",
+        DeviceName = "testedgedevice",
+        ResourceGroupName = "GroupForEdgeAutomation",
+        StorageAccountName = "storageaccount1",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var tagByApi = new AzureNative.ApiManagement.TagByApi("tagByApi", new()
+    {
+        ApiId = "5931a75ae4bbd512a88c680b",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        TagId = "tagId1",
+    });
+
+});
+

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const synapseWorkspaceSqlPoolTableDataSetMapping = new azure_native.datashare.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping", {
+    accountName: "consumerAccount",
+    dataSetId: "3dc64e49-1fc3-4186-b3dc-d388c4d3076a",
+    dataSetMappingName: "datasetMappingName1",
+    kind: "SynapseWorkspaceSqlPoolTable",
+    resourceGroupName: "SampleResourceGroup",
+    shareSubscriptionName: "ShareSubscription1",
+    synapseWorkspaceSqlPoolTableResourceId: "/subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/sqlPools/ExampleSqlPool/schemas/dbo/tables/table1",
+});

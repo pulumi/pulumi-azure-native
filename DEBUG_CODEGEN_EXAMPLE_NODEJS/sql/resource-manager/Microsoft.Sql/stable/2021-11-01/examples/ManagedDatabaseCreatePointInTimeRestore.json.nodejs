@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedDatabase = new azure_native.sql.ManagedDatabase("managedDatabase", {
+    createMode: "PointInTimeRestore",
+    databaseName: "managedDatabase",
+    location: "southeastasia",
+    managedInstanceName: "managedInstance",
+    resourceGroupName: "Default-SQL-SouthEastAsia",
+    restorePointInTime: "2017-07-14T05:35:31.503Z",
+    sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr/databases/testdb",
+});

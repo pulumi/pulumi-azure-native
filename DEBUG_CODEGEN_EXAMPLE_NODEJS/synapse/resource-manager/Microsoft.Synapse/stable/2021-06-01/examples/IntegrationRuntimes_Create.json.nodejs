@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const integrationRuntime = new azure_native.synapse.IntegrationRuntime("integrationRuntime", {
+    integrationRuntimeName: "exampleIntegrationRuntime",
+    properties: {
+        description: "A selfhosted integration runtime",
+        type: "SelfHosted",
+    },
+    resourceGroupName: "exampleResourceGroup",
+    workspaceName: "exampleWorkspace",
+});

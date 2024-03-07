@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const connectionMonitorTest = new azure_native.peering.ConnectionMonitorTest("connectionMonitorTest", {
+    connectionMonitorTestName: "connectionMonitorTestName",
+    destination: "Example Destination",
+    destinationPort: 443,
+    peeringServiceName: "peeringServiceName",
+    resourceGroupName: "rgName",
+    sourceAgent: "Example Source Agent",
+    testFrequencyInSec: 30,
+});

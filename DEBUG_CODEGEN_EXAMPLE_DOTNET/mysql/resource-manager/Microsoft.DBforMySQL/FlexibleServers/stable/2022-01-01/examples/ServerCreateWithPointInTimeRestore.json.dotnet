@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var server = new AzureNative.DBforMySQL.Server("server", new()
+    {
+        CreateMode = "PointInTimeRestore",
+        Location = "SoutheastAsia",
+        ResourceGroupName = "TargetResourceGroup",
+        RestorePointInTime = "2021-06-24T00:00:37.467Z",
+        ServerName = "targetserver",
+        Sku = new AzureNative.DBforMySQL.Inputs.SkuArgs
+        {
+            Name = "Standard_D14_v2",
+            Tier = "GeneralPurpose",
+        },
+        SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+        Tags = 
+        {
+            { "num", "1" },
+        },
+    });
+
+});
+

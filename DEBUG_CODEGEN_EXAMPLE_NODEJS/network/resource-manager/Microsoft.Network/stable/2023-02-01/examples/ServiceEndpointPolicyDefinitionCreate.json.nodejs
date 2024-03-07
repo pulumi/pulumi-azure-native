@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serviceEndpointPolicyDefinition = new azure_native.network.ServiceEndpointPolicyDefinition("serviceEndpointPolicyDefinition", {
+    description: "Storage Service EndpointPolicy Definition",
+    resourceGroupName: "rg1",
+    service: "Microsoft.Storage",
+    serviceEndpointPolicyDefinitionName: "testDefinition",
+    serviceEndpointPolicyName: "testPolicy",
+    serviceResources: [
+        "/subscriptions/subid1",
+        "/subscriptions/subid1/resourceGroups/storageRg",
+        "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+    ],
+});

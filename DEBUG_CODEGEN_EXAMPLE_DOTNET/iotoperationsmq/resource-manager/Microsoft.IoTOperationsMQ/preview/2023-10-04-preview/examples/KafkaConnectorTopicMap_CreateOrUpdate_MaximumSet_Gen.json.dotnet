@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var kafkaConnectorTopicMap = new AzureNative.IoTOperationsMQ.KafkaConnectorTopicMap("kafkaConnectorTopicMap", new()
+    {
+        Batching = new AzureNative.IoTOperationsMQ.Inputs.KafkaTopicMapBatchingArgs
+        {
+            Enabled = true,
+            LatencyMs = 9110,
+            MaxBytes = 732052221,
+            MaxMessages = 373078076,
+        },
+        Compression = "none",
+        CopyMqttProperties = "efpqgkycuawnzyubdyt",
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        KafkaConnectorName = "216VN",
+        KafkaConnectorRef = "icivjwerdspx",
+        Location = "pavphpzfsgdudpyvufyebqh",
+        MqName = "-1-eD-7-J",
+        PartitionKeyProperty = "c",
+        PartitionStrategy = "default",
+        ResourceGroupName = "rgiotoperationsmq",
+        Routes = new[]
+        {
+            new AzureNative.IoTOperationsMQ.Inputs.KafkaRoutesArgs
+            {
+                KafkaToMqtt = new AzureNative.IoTOperationsMQ.Inputs.KafkaToMqttRoutesArgs
+                {
+                    ConsumerGroupId = "usork",
+                    KafkaTopic = "ggwhwbsr",
+                    MqttTopic = "jwvmmhfqqkkmqrpslbdfmpbdetfu",
+                    Name = "lrnvudysggscnqvmnlkrk",
+                    Qos = 1,
+                },
+                MqttToKafka = new AzureNative.IoTOperationsMQ.Inputs.MqttToKafkaRoutesArgs
+                {
+                    KafkaAcks = "zero",
+                    KafkaTopic = "tellycttwulueqcpqf",
+                    MqttTopic = "raipkrcwvdnnflywhgjwnquarf",
+                    Name = "qpshqcaxvxnyjzimvchngupzezdei",
+                    Qos = 1,
+                    SharedSubscription = new AzureNative.IoTOperationsMQ.Inputs.KafkaSharedSubscriptionPropertiesArgs
+                    {
+                        GroupMinimumShareNumber = 216,
+                        GroupName = "nwdyccsditzhchuksmi",
+                    },
+                },
+            },
+        },
+        Tags = null,
+        TopicMapName = "q582ViEY-b7wF1OO2A",
+    });
+
+});
+

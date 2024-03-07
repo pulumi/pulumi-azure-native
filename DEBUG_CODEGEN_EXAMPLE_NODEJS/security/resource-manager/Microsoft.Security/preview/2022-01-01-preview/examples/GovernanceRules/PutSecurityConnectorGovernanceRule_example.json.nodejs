@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const governanceRule = new azure_native.security.GovernanceRule("governanceRule", {
+    description: "A rule on critical GCP recommendations",
+    displayName: "GCP Admin's rule",
+    governanceEmailNotification: {
+        disableManagerEmailNotification: true,
+        disableOwnerEmailNotification: false,
+    },
+    isDisabled: false,
+    isGracePeriod: true,
+    ownerSource: {
+        type: "Manually",
+        value: "user@contoso.com",
+    },
+    remediationTimeframe: "7.00:00:00",
+    ruleId: "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    rulePriority: 200,
+    ruleType: "Integrated",
+    scope: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+    sourceResourceType: "Assessments",
+});

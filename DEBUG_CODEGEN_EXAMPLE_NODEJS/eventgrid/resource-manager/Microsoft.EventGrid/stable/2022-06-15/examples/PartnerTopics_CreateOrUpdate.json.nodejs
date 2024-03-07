@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const partnerTopic = new azure_native.eventgrid.PartnerTopic("partnerTopic", {
+    expirationTimeIfNotActivatedUtc: "2022-03-23T23:06:13.109Z",
+    location: "westus2",
+    messageForActivation: "Example message for activation",
+    partnerRegistrationImmutableId: "6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
+    partnerTopicFriendlyDescription: "Example description",
+    partnerTopicName: "examplePartnerTopicName1",
+    resourceGroupName: "examplerg",
+    source: "ContosoCorp.Accounts.User1",
+});

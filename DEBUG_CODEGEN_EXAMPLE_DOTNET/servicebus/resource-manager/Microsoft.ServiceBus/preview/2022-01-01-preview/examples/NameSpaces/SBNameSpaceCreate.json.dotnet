@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var @namespace = new AzureNative.ServiceBus.Namespace("namespace", new()
+    {
+        Location = "South Central US",
+        NamespaceName = "sdk-Namespace2924",
+        ResourceGroupName = "ArunMonocle",
+        Sku = new AzureNative.ServiceBus.Inputs.SBSkuArgs
+        {
+            Name = "Standard",
+            Tier = "Standard",
+        },
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+    });
+
+});
+

@@ -1,0 +1,72 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customizableConnectorDefinition = new azure_native.securityinsights.CustomizableConnectorDefinition("customizableConnectorDefinition", {
+    connectorUiConfig: {
+        availability: {
+            isPreview: false,
+            status: 1,
+        },
+        connectivityCriteria: [{
+            type: "IsConnectedQuery",
+            value: [`GitHubAuditLogPolling_CL 
+ | summarize LastLogReceived = max(TimeGenerated)
+ | project IsConnected = LastLogReceived > ago(30d)`],
+        }],
+        dataTypes: [{
+            lastDataReceivedQuery: `GitHubAuditLogPolling_CL 
+            | summarize Time = max(TimeGenerated)
+            | where isnotempty(Time)`,
+            name: "GitHubAuditLogPolling_CL",
+        }],
+        descriptionMarkdown: "The GitHub audit log connector provides the capability to ingest GitHub logs into Azure Sentinel. By connecting GitHub audit logs into Azure Sentinel, you can view this data in workbooks, use it to create custom alerts, and improve your investigation process.",
+        graphQueries: [{
+            baseQuery: "GitHubAuditLogPolling_CL",
+            legend: "GitHub audit log events",
+            metricName: "Total events received",
+        }],
+        instructionSteps: [{
+            description: `Enable GitHub audit Logs. 
+ Follow [this](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create or find your personal key`,
+            instructions: [{
+                parameters: {
+                    clientIdLabel: "Client ID",
+                    clientSecretLabel: "Client Secret",
+                    connectButtonLabel: "Connect",
+                    disconnectButtonLabel: "Disconnect",
+                },
+                type: "OAuthForm",
+            }],
+            title: "Connect GitHub Enterprise Audit Log to Azure Sentinel",
+        }],
+        permissions: {
+            customs: [{
+                description: "You need access to GitHub personal token, the key should have 'admin:org' scope",
+                name: "GitHub API personal token Key",
+            }],
+            resourceProvider: [{
+                permissionsDisplayText: "read and write permissions are required.",
+                provider: "Microsoft.OperationalInsights/workspaces",
+                providerDisplayName: "Workspace",
+                requiredPermissions: {
+                    action: false,
+                    "delete": false,
+                    read: false,
+                    write: true,
+                },
+                scope: "Workspace",
+            }],
+        },
+        publisher: "GitHub",
+        sampleQueries: [{
+            description: "All logs",
+            query: `GitHubAuditLogPolling_CL 
+ | take 10`,
+        }],
+        title: "GitHub Enterprise Audit Log",
+    },
+    dataConnectorDefinitionName: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    kind: "Customizable",
+    resourceGroupName: "myRg",
+    workspaceName: "myWorkspace",
+});

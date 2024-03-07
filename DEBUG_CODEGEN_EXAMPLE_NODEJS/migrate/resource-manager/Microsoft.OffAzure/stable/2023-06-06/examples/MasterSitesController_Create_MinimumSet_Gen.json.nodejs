@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const masterSitesController = new azure_native.offazure.MasterSitesController("masterSitesController", {
+    location: "plyak",
+    resourceGroupName: "rgmigrate",
+    siteName: "-3A8SuY-jRr63J",
+});

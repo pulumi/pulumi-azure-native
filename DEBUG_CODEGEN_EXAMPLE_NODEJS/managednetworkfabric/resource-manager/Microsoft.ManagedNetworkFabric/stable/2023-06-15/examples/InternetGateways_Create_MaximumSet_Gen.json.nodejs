@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const internetGateway = new azure_native.managednetworkfabric.InternetGateway("internetGateway", {
+    annotation: "annotation",
+    internetGatewayName: "example-internetGateway",
+    internetGatewayRuleId: "/subscriptions/xxxx-xxxx-xxxx-xxxx/providers/Microsoft.ManagedNetworkFabric/internetGatewayRules/example-internetGatewayRule",
+    location: "eastus",
+    networkFabricControllerId: "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/example-networkFabricController",
+    resourceGroupName: "example-rg",
+    tags: {
+        key3540: "1234",
+    },
+    type: "Infrastructure",
+});

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var signalRCustomDomain = new AzureNative.SignalRService.SignalRCustomDomain("signalRCustomDomain", new()
+    {
+        CustomCertificate = new AzureNative.SignalRService.Inputs.ResourceReferenceArgs
+        {
+            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customCertificates/myCert",
+        },
+        DomainName = "example.com",
+        Name = "myDomain",
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "mySignalRService",
+    });
+
+});
+

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const prefix = new azure_native.peering.Prefix("prefix", {
+    peeringServiceName: "peeringServiceName",
+    peeringServicePrefixKey: "00000000-0000-0000-0000-000000000000",
+    prefix: "192.168.1.0/24",
+    prefixName: "peeringServicePrefixName",
+    resourceGroupName: "rgName",
+});

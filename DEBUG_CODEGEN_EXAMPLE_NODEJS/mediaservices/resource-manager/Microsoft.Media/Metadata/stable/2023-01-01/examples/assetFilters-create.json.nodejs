@@ -1,0 +1,55 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const assetFilter = new azure_native.media.AssetFilter("assetFilter", {
+    accountName: "contosomedia",
+    assetName: "ClimbingMountRainer",
+    filterName: "newAssetFilter",
+    firstQuality: {
+        bitrate: 128000,
+    },
+    presentationTimeRange: {
+        endTimestamp: 170000000,
+        forceEndTimestamp: false,
+        liveBackoffDuration: 0,
+        presentationWindowDuration: 9223372036854774784,
+        startTimestamp: 0,
+        timescale: 10000000,
+    },
+    resourceGroupName: "contosorg",
+    tracks: [
+        {
+            trackSelections: [
+                {
+                    operation: "Equal",
+                    property: "Type",
+                    value: "Audio",
+                },
+                {
+                    operation: "NotEqual",
+                    property: "Language",
+                    value: "en",
+                },
+                {
+                    operation: "NotEqual",
+                    property: "FourCC",
+                    value: "EC-3",
+                },
+            ],
+        },
+        {
+            trackSelections: [
+                {
+                    operation: "Equal",
+                    property: "Type",
+                    value: "Video",
+                },
+                {
+                    operation: "Equal",
+                    property: "Bitrate",
+                    value: "3000000-5000000",
+                },
+            ],
+        },
+    ],
+});

@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const schemaRegistry = new azure_native.eventhub.SchemaRegistry("schemaRegistry", {
+    groupProperties: {},
+    namespaceName: "ali-ua-test-eh-system-1",
+    resourceGroupName: "alitest",
+    schemaCompatibility: "Forward",
+    schemaGroupName: "testSchemaGroup1",
+    schemaType: "Avro",
+});

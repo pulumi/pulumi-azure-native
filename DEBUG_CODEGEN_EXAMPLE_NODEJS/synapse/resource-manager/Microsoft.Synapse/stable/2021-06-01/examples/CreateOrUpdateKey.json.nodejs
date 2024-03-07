@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const key = new azure_native.synapse.Key("key", {
+    isActiveCMK: true,
+    keyName: "somekey",
+    keyVaultUrl: "https://vault.azure.net/keys/somesecret",
+    resourceGroupName: "ExampleResourceGroup",
+    workspaceName: "ExampleWorkspace",
+});

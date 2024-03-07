@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var registryModelVersion = new AzureNative.MachineLearningServices.RegistryModelVersion("registryModelVersion", new()
+    {
+        ModelName = "string",
+        ModelVersionProperties = new AzureNative.MachineLearningServices.Inputs.ModelVersionArgs
+        {
+            Description = "string",
+            Flavors = 
+            {
+                { "string", new AzureNative.MachineLearningServices.Inputs.FlavorDataArgs
+                {
+                    Data = 
+                    {
+                        { "string", "string" },
+                    },
+                } },
+            },
+            IsAnonymous = false,
+            ModelType = "CustomModel",
+            ModelUri = "string",
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        RegistryName = "my-aml-registry",
+        ResourceGroupName = "test-rg",
+        Version = "string",
+    });
+
+});
+

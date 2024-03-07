@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.DataShare.Account("account", new()
+    {
+        AccountName = "Account1",
+        Identity = new AzureNative.DataShare.Inputs.IdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Location = "West US 2",
+        ResourceGroupName = "SampleResourceGroup",
+        Tags = 
+        {
+            { "tag1", "Red" },
+            { "tag2", "White" },
+        },
+    });
+
+});
+

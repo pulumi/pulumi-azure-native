@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const metadataSchema = new azure_native.apicenter.MetadataSchema("metadataSchema", {
+    assignedTo: [{
+        deprecated: true,
+        entity: "api",
+    }],
+    metadataSchemaName: "author",
+    resourceGroupName: "contoso-resources",
+    schema: "{\"type\":\"string\", \"title\":\"Author\", pattern: \"^[a-zA-Z]+$\"}",
+    serviceName: "contoso",
+});

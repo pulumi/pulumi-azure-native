@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var appServiceEnvironmentPrivateEndpointConnection = new AzureNative.Web.AppServiceEnvironmentPrivateEndpointConnection("appServiceEnvironmentPrivateEndpointConnection", new()
+    {
+        Name = "test-ase",
+        PrivateEndpointConnectionName = "fa38656c-034e-43d8-adce-fe06ce039c98",
+        PrivateLinkServiceConnectionState = new AzureNative.Web.Inputs.PrivateLinkConnectionStateArgs
+        {
+            Description = "Approved by johndoe@company.com",
+            Status = "Approved",
+        },
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

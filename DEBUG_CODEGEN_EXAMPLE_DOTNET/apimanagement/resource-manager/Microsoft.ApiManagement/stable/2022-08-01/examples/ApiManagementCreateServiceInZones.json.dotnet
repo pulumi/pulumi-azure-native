@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiManagementService = new AzureNative.ApiManagement.ApiManagementService("apiManagementService", new()
+    {
+        Location = "North europe",
+        PublisherEmail = "apim@autorestsdk.com",
+        PublisherName = "autorestsdk",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Sku = new AzureNative.ApiManagement.Inputs.ApiManagementServiceSkuPropertiesArgs
+        {
+            Capacity = 2,
+            Name = "Premium",
+        },
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+            { "tag3", "value3" },
+        },
+        Zones = new[]
+        {
+            "1",
+            "2",
+        },
+    });
+
+});
+

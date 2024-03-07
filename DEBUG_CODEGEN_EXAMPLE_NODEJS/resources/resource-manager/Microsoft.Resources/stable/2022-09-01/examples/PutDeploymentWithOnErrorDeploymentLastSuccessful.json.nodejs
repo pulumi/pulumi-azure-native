@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const deployment = new azure_native.resources.Deployment("deployment", {
+    deploymentName: "my-deployment",
+    properties: {
+        mode: azure_native.resources.DeploymentMode.Complete,
+        onErrorDeployment: {
+            type: azure_native.resources.OnErrorDeploymentType.LastSuccessful,
+        },
+        parameters: {},
+        templateLink: {
+            uri: "https://example.com/exampleTemplate.json",
+        },
+    },
+    resourceGroupName: "my-resource-group",
+});

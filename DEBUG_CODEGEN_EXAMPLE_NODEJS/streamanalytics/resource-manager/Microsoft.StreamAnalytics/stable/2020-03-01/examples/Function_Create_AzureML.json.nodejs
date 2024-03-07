@@ -1,0 +1,35 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const _function = new azure_native.streamanalytics.Function("function", {
+    functionName: "function588",
+    jobName: "sj9093",
+    properties: {
+        binding: {
+            apiKey: "someApiKey==",
+            batchSize: 1000,
+            endpoint: "someAzureMLEndpointURL",
+            inputs: {
+                columnNames: [{
+                    dataType: "string",
+                    mapTo: 0,
+                    name: "tweet",
+                }],
+                name: "input1",
+            },
+            outputs: [{
+                dataType: "string",
+                name: "Sentiment",
+            }],
+            type: "Microsoft.MachineLearning/WebService",
+        },
+        inputs: [{
+            dataType: "nvarchar(max)",
+        }],
+        output: {
+            dataType: "nvarchar(max)",
+        },
+        type: "Scalar",
+    },
+    resourceGroupName: "sjrg7",
+});

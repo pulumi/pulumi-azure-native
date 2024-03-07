@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deployment = new AzureNative.Resources.Deployment("deployment", new()
+    {
+        DeploymentName = "my-deployment",
+        Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+        {
+            Mode = AzureNative.Resources.DeploymentMode.Incremental,
+            Parameters = null,
+            TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+            },
+        },
+        ResourceGroupName = "my-resource-group",
+    });
+
+});
+

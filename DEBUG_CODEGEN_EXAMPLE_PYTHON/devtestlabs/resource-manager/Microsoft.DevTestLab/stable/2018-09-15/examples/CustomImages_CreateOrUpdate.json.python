@@ -9,7 +9,7 @@ custom_image = azure_native.devtestlab.CustomImage("customImage",
     tags={
         "tagName1": "tagValue1",
     },
-    vm=azure_native.devtestlab.CustomImagePropertiesFromVmArgs(
+    vm=azure_native.devtestlab.CustomImagePropertiesFromVmResponseArgs(
         linux_os_info=azure_native.devtestlab.LinuxOsInfoArgs(
             linux_os_state="NonDeprovisioned",
         ),

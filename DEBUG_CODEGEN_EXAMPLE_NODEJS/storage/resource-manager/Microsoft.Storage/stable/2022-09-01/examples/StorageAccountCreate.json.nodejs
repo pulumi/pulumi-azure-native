@@ -1,0 +1,52 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+    accountName: "sto4445",
+    allowBlobPublicAccess: false,
+    allowSharedKeyAccess: true,
+    defaultToOAuthAuthentication: false,
+    encryption: {
+        keySource: "Microsoft.Storage",
+        requireInfrastructureEncryption: false,
+        services: {
+            blob: {
+                enabled: true,
+                keyType: "Account",
+            },
+            file: {
+                enabled: true,
+                keyType: "Account",
+            },
+        },
+    },
+    extendedLocation: {
+        name: "losangeles001",
+        type: "EdgeZone",
+    },
+    isHnsEnabled: true,
+    isSftpEnabled: true,
+    keyPolicy: {
+        keyExpirationPeriodInDays: 20,
+    },
+    kind: "Storage",
+    location: "eastus",
+    minimumTlsVersion: "TLS1_2",
+    resourceGroupName: "res9101",
+    routingPreference: {
+        publishInternetEndpoints: true,
+        publishMicrosoftEndpoints: true,
+        routingChoice: "MicrosoftRouting",
+    },
+    sasPolicy: {
+        expirationAction: "Log",
+        sasExpirationPeriod: "1.15:59:59",
+    },
+    sku: {
+        name: "Standard_GRS",
+    },
+    tags: {
+        key1: "value1",
+        key2: "value2",
+    },
+});

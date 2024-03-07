@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sharedCommitmentPlan = new AzureNative.CognitiveServices.SharedCommitmentPlan("sharedCommitmentPlan", new()
+    {
+        CommitmentPlanName = "commitmentPlanName",
+        Kind = "SpeechServices",
+        Location = "West US",
+        Properties = new AzureNative.CognitiveServices.Inputs.CommitmentPlanPropertiesArgs
+        {
+            AutoRenew = true,
+            Current = new AzureNative.CognitiveServices.Inputs.CommitmentPeriodArgs
+            {
+                Tier = "T1",
+            },
+            HostingModel = "Web",
+            PlanType = "STT",
+        },
+        ResourceGroupName = "resourceGroupName",
+        Sku = new AzureNative.CognitiveServices.Inputs.SkuArgs
+        {
+            Name = "S0",
+        },
+    });
+
+});
+

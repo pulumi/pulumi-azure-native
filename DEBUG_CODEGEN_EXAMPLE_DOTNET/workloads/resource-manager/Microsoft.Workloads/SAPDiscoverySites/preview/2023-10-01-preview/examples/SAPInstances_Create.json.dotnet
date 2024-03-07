@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sapInstance = new AzureNative.Workloads.SapInstance("sapInstance", new()
+    {
+        Location = "eastus",
+        ResourceGroupName = "test-rg",
+        SapDiscoverySiteName = "SampleSite",
+        SapInstanceName = "MPP_MPP",
+        Tags = 
+        {
+            { "property1", "value1" },
+            { "property2", "value2" },
+        },
+    });
+
+});
+

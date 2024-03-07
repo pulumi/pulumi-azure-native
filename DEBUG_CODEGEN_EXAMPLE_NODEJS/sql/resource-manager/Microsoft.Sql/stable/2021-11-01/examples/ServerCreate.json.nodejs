@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const server = new azure_native.sql.Server("server", {
+    administratorLogin: "dummylogin",
+    administratorLoginPassword: "PLACEHOLDER",
+    administrators: {
+        azureADOnlyAuthentication: true,
+        login: "bob@contoso.com",
+        principalType: "User",
+        sid: "00000011-1111-2222-2222-123456789111",
+        tenantId: "00000011-1111-2222-2222-123456789111",
+    },
+    location: "Japan East",
+    publicNetworkAccess: "Enabled",
+    resourceGroupName: "sqlcrudtest-7398",
+    restrictOutboundNetworkAccess: "Enabled",
+    serverName: "sqlcrudtest-4645",
+});

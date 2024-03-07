@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const connectedEnvironmentsStorage = new azure_native.app.ConnectedEnvironmentsStorage("connectedEnvironmentsStorage", {
+    connectedEnvironmentName: "env",
+    properties: {
+        azureFile: {
+            accessMode: "ReadOnly",
+            accountKey: "key",
+            accountName: "account1",
+            shareName: "share1",
+        },
+    },
+    resourceGroupName: "examplerg",
+    storageName: "jlaw-demo1",
+});

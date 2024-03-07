@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const importSitesController = new azure_native.offazure.ImportSitesController("importSitesController", {
+    location: "woctgvdufvkzvjcirjpf",
+    resourceGroupName: "rgmigrate",
+    siteName: "IHPDPK-1-",
+});

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const securityAdminConfiguration = new azure_native.network.SecurityAdminConfiguration("securityAdminConfiguration", {
+    applyOnNetworkIntentPolicyBasedServices: ["None"],
+    configurationName: "myTestSecurityConfig",
+    description: "A sample policy",
+    networkManagerName: "testNetworkManager",
+    resourceGroupName: "rg1",
+});

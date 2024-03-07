@@ -1,0 +1,53 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var contentKeyPolicy = new AzureNative.Media.ContentKeyPolicy("contentKeyPolicy", new()
+    {
+        AccountName = "contosomedia",
+        ContentKeyPolicyName = "PolicyCreatedWithMultipleOptions",
+        Description = "ArmPolicyDescription",
+        Options = new[]
+        {
+            new AzureNative.Media.Inputs.ContentKeyPolicyOptionArgs
+            {
+                Configuration = new AzureNative.Media.Inputs.ContentKeyPolicyClearKeyConfigurationArgs
+                {
+                    OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+                },
+                Name = "ClearKeyOption",
+                Restriction = new AzureNative.Media.Inputs.ContentKeyPolicyTokenRestrictionArgs
+                {
+                    Audience = "urn:audience",
+                    Issuer = "urn:issuer",
+                    OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                    PrimaryVerificationKey = new AzureNative.Media.Inputs.ContentKeyPolicySymmetricTokenKeyArgs
+                    {
+                        KeyValue = "AAAAAAAAAAAAAAAAAAAAAA==",
+                        OdataType = "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                    },
+                    RestrictionTokenType = "Swt",
+                },
+            },
+            new AzureNative.Media.Inputs.ContentKeyPolicyOptionArgs
+            {
+                Configuration = new AzureNative.Media.Inputs.ContentKeyPolicyWidevineConfigurationArgs
+                {
+                    OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+                    WidevineTemplate = "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
+                },
+                Name = "widevineoption",
+                Restriction = new AzureNative.Media.Inputs.ContentKeyPolicyOpenRestrictionArgs
+                {
+                    OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+                },
+            },
+        },
+        ResourceGroupName = "contosorg",
+    });
+
+});
+

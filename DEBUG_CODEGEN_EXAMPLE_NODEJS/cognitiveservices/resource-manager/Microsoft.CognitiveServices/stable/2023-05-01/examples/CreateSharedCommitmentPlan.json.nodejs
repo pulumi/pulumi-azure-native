@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sharedCommitmentPlan = new azure_native.cognitiveservices.SharedCommitmentPlan("sharedCommitmentPlan", {
+    commitmentPlanName: "commitmentPlanName",
+    kind: "SpeechServices",
+    location: "West US",
+    properties: {
+        autoRenew: true,
+        current: {
+            tier: "T1",
+        },
+        hostingModel: "Web",
+        planType: "STT",
+    },
+    resourceGroupName: "resourceGroupName",
+    sku: {
+        name: "S0",
+    },
+});

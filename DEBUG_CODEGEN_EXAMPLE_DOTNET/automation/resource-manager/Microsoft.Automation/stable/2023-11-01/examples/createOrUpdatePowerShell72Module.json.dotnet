@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var powerShell72Module = new AzureNative.Automation.PowerShell72Module("powerShell72Module", new()
+    {
+        AutomationAccountName = "myAutomationAccount33",
+        ContentLink = new AzureNative.Automation.Inputs.ContentLinkArgs
+        {
+            ContentHash = new AzureNative.Automation.Inputs.ContentHashArgs
+            {
+                Algorithm = "sha265",
+                Value = "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87B",
+            },
+            Uri = "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+            Version = "1.0.0.0",
+        },
+        ModuleName = "OmsCompositeResources",
+        ResourceGroupName = "rg",
+    });
+
+});
+

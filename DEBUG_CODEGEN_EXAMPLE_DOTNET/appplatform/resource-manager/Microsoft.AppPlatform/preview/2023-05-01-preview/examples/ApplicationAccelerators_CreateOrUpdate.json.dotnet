@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var applicationAccelerator = new AzureNative.AppPlatform.ApplicationAccelerator("applicationAccelerator", new()
+    {
+        ApplicationAcceleratorName = "default",
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+        {
+            Capacity = 2,
+            Name = "E0",
+            Tier = "Enterprise",
+        },
+    });
+
+});
+

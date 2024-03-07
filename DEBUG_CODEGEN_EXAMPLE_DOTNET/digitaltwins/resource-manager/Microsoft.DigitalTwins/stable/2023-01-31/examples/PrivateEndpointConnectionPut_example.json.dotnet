@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.DigitalTwins.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "myPrivateConnection",
+        Properties = new AzureNative.DigitalTwins.Inputs.ConnectionPropertiesArgs
+        {
+            PrivateLinkServiceConnectionState = new AzureNative.DigitalTwins.Inputs.ConnectionPropertiesPrivateLinkServiceConnectionStateArgs
+            {
+                Description = "Approved by johndoe@company.com.",
+                Status = "Approved",
+            },
+        },
+        ResourceGroupName = "resRg",
+        ResourceName = "myDigitalTwinsService",
+    });
+
+});
+

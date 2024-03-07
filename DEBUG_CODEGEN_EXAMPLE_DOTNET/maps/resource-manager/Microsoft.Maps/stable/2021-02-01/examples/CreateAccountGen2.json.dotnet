@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.Maps.Account("account", new()
+    {
+        AccountName = "myMapsAccount",
+        Kind = "Gen2",
+        Location = "global",
+        Properties = new AzureNative.Maps.Inputs.MapsAccountPropertiesArgs
+        {
+            DisableLocalAuth = true,
+        },
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Maps.Inputs.SkuArgs
+        {
+            Name = "G2",
+        },
+        Tags = 
+        {
+            { "test", "true" },
+        },
+    });
+
+});
+

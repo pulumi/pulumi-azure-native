@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sapCentralInstance = new azure_native.workloads.SAPCentralInstance("sapCentralInstance", {
+    centralInstanceName: "centralServer",
+    location: "westcentralus",
+    resourceGroupName: "test-rg",
+    sapVirtualInstanceName: "X00",
+    tags: {},
+});

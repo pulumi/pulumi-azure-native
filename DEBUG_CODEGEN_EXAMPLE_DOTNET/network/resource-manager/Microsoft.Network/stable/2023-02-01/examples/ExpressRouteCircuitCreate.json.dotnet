@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var expressRouteCircuit = new AzureNative.Network.ExpressRouteCircuit("expressRouteCircuit", new()
+    {
+        AllowClassicOperations = false,
+        Authorizations = new[] {},
+        CircuitName = "circuitName",
+        Location = "Brazil South",
+        Peerings = new[] {},
+        ResourceGroupName = "rg1",
+        ServiceProviderProperties = new AzureNative.Network.Inputs.ExpressRouteCircuitServiceProviderPropertiesArgs
+        {
+            BandwidthInMbps = 200,
+            PeeringLocation = "Silicon Valley",
+            ServiceProviderName = "Equinix",
+        },
+        Sku = new AzureNative.Network.Inputs.ExpressRouteCircuitSkuArgs
+        {
+            Family = "MeteredData",
+            Name = "Standard_MeteredData",
+            Tier = "Standard",
+        },
+    });
+
+});
+

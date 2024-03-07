@@ -1,0 +1,86 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pipelineTopology = new AzureNative.VideoAnalyzer.PipelineTopology("pipelineTopology", new()
+    {
+        AccountName = "testaccount2",
+        Description = "Pipeline Topology 1 Description",
+        Kind = "Live",
+        Parameters = new[]
+        {
+            new AzureNative.VideoAnalyzer.Inputs.ParameterDeclarationArgs
+            {
+                Default = "rtsp://microsoft.com/video.mp4",
+                Description = "rtsp source url parameter",
+                Name = "rtspUrlParameter",
+                Type = "String",
+            },
+            new AzureNative.VideoAnalyzer.Inputs.ParameterDeclarationArgs
+            {
+                Default = "password",
+                Description = "rtsp source password parameter",
+                Name = "rtspPasswordParameter",
+                Type = "SecretString",
+            },
+        },
+        PipelineTopologyName = "pipelineTopology1",
+        ResourceGroupName = "testrg",
+        Sinks = new[]
+        {
+            
+            {
+                { "inputs", new[]
+                {
+                    new AzureNative.VideoAnalyzer.Inputs.NodeInputArgs
+                    {
+                        NodeName = "rtspSource",
+                    },
+                } },
+                { "name", "videoSink" },
+                { "type", "#Microsoft.VideoAnalyzer.VideoSink" },
+                { "videoCreationProperties", new AzureNative.VideoAnalyzer.Inputs.VideoCreationPropertiesArgs
+                {
+                    Description = "Parking lot south entrance",
+                    SegmentLength = "PT30S",
+                    Title = "Parking Lot (Camera 1)",
+                } },
+                { "videoName", "camera001" },
+                { "videoPublishingOptions", new AzureNative.VideoAnalyzer.Inputs.VideoPublishingOptionsArgs
+                {
+                    DisableArchive = "false",
+                    DisableRtspPublishing = "true",
+                } },
+            },
+        },
+        Sku = new AzureNative.VideoAnalyzer.Inputs.SkuArgs
+        {
+            Name = "Live_S1",
+        },
+        Sources = new[]
+        {
+            new AzureNative.VideoAnalyzer.Inputs.RtspSourceArgs
+            {
+                Endpoint = new AzureNative.VideoAnalyzer.Inputs.UnsecuredEndpointArgs
+                {
+                    Credentials = new AzureNative.VideoAnalyzer.Inputs.UsernamePasswordCredentialsArgs
+                    {
+                        Password = "${rtspPasswordParameter}",
+                        Type = "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
+                        Username = "username",
+                    },
+                    Type = "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
+                    Url = "${rtspUrlParameter}",
+                },
+                Name = "rtspSource",
+                Transport = "Http",
+                Type = "#Microsoft.VideoAnalyzer.RtspSource",
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.hdinsight.PrivateEndpointConnection("privateEndpointConnection", {
+    clusterName: "cluster1",
+    privateEndpointConnectionName: "testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "None",
+        description: "update it from pending to approved.",
+        status: "Approved",
+    },
+    resourceGroupName: "rg1",
+});

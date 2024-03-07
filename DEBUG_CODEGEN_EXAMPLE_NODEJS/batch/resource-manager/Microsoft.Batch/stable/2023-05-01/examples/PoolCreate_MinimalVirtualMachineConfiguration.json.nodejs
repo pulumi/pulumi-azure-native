@@ -1,0 +1,26 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pool = new azure_native.batch.Pool("pool", {
+    accountName: "sampleacct",
+    deploymentConfiguration: {
+        virtualMachineConfiguration: {
+            imageReference: {
+                offer: "UbuntuServer",
+                publisher: "Canonical",
+                sku: "18.04-LTS",
+                version: "latest",
+            },
+            nodeAgentSkuId: "batch.node.ubuntu 18.04",
+        },
+    },
+    poolName: "testpool",
+    resourceGroupName: "default-azurebatch-japaneast",
+    scaleSettings: {
+        autoScale: {
+            evaluationInterval: "PT5M",
+            formula: "$TargetDedicatedNodes=1",
+        },
+    },
+    vmSize: "STANDARD_D4",
+});

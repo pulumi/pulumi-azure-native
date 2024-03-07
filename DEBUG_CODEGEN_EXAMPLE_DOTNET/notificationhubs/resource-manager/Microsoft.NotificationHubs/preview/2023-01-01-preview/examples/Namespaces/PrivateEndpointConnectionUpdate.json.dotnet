@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.NotificationHubs.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        NamespaceName = "nh-sdk-ns",
+        PrivateEndpointConnectionName = "nh-sdk-ns.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+        Properties = new AzureNative.NotificationHubs.Inputs.PrivateEndpointConnectionPropertiesArgs
+        {
+            PrivateLinkServiceConnectionState = new AzureNative.NotificationHubs.Inputs.RemotePrivateLinkServiceConnectionStateArgs
+            {
+                Status = "Approved",
+            },
+        },
+        ResourceGroupName = "5ktrial",
+    });
+
+});
+

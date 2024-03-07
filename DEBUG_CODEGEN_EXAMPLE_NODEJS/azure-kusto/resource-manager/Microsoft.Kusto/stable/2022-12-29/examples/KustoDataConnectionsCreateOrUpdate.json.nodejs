@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const iotHubDataConnection = new azure_native.kusto.IotHubDataConnection("iotHubDataConnection", {
+    clusterName: "kustoCluster",
+    dataConnectionName: "dataConnectionTest",
+    databaseName: "KustoDatabase8",
+    resourceGroupName: "kustorptest",
+});

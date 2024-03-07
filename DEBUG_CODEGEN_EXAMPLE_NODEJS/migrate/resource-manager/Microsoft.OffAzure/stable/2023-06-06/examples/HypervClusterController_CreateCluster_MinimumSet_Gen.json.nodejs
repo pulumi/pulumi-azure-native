@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hypervClusterControllerCluster = new azure_native.offazure.HypervClusterControllerCluster("hypervClusterControllerCluster", {
+    clusterName: "-18--O4iS57-729MV9PCErt",
+    resourceGroupName: "rgmigrate",
+    siteName: "--xY37--V518",
+});

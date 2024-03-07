@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var roleAssignment = new AzureNative.CustomerInsights.RoleAssignment("roleAssignment", new()
+    {
+        AssignmentName = "assignmentName8976",
+        HubName = "sdkTestHub",
+        Principals = new[]
+        {
+            new AzureNative.CustomerInsights.Inputs.AssignmentPrincipalArgs
+            {
+                PrincipalId = "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+                PrincipalType = "User",
+            },
+            new AzureNative.CustomerInsights.Inputs.AssignmentPrincipalArgs
+            {
+                PrincipalId = "93061d15a5054f2b9948ae25724cf9d5",
+                PrincipalType = "User",
+            },
+        },
+        ResourceGroupName = "TestHubRG",
+        Role = AzureNative.CustomerInsights.RoleTypes.Admin,
+    });
+
+});
+

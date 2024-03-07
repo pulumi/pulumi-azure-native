@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var staticSiteCustomDomain = new AzureNative.Web.StaticSiteCustomDomain("staticSiteCustomDomain", new()
+    {
+        DomainName = "custom.domain.net",
+        Name = "testStaticSite0",
+        ResourceGroupName = "rg",
+    });
+
+});
+

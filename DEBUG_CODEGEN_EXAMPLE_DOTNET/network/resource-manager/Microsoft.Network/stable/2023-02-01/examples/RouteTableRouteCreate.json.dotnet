@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var route = new AzureNative.Network.Route("route", new()
+    {
+        AddressPrefix = "10.0.3.0/24",
+        NextHopType = "VirtualNetworkGateway",
+        ResourceGroupName = "rg1",
+        RouteName = "route1",
+        RouteTableName = "testrt",
+    });
+
+});
+

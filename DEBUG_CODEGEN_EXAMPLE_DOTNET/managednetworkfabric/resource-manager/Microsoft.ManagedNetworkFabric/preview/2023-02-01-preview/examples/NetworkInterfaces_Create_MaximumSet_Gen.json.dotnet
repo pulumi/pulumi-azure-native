@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkInterface = new AzureNative.ManagedNetworkFabric.NetworkInterface("networkInterface", new()
+    {
+        Annotation = "null",
+        NetworkDeviceName = "networkDeviceName",
+        NetworkInterfaceName = "networkInterfaceName",
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

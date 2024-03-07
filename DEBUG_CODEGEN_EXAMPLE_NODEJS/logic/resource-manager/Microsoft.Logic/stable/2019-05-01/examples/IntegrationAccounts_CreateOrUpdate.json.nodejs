@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const integrationAccount = new azure_native.logic.IntegrationAccount("integrationAccount", {
+    integrationAccountName: "testIntegrationAccount",
+    location: "westus",
+    resourceGroupName: "testResourceGroup",
+    sku: {
+        name: "Standard",
+    },
+});

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var springbootserver = new AzureNative.OffAzureSpringBoot.Springbootserver("springbootserver", new()
+    {
+        Properties = new AzureNative.OffAzureSpringBoot.Inputs.SpringbootserversPropertiesArgs
+        {
+            Errors = new() { },
+            FqdnAndIpAddressList = new() { },
+            MachineArmId = "fvfkiapbqsprnbzczdfmuryknrna",
+            Port = 10,
+            Server = "thhuxocfyqpeluqcgnypi",
+            SpringBootApps = 17,
+            TotalApps = 5,
+        },
+        ResourceGroupName = "rgspringbootservers",
+        SiteName = "hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
+        SpringbootserversName = "zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn",
+    });
+
+});
+

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.azurestackhci.Cluster("cluster", {
+    aadClientId: "24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+    aadTenantId: "7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+    cloudManagementEndpoint: "https://98294836-31be-4668-aeae-698667faf99b.waconazure.com",
+    clusterName: "myCluster",
+    location: "East US",
+    resourceGroupName: "test-rg",
+    type: "SystemAssigned",
+});

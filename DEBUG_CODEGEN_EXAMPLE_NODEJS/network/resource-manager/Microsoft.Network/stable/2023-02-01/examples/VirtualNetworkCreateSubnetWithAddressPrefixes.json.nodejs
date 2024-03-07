@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualNetwork = new azure_native.network.VirtualNetwork("virtualNetwork", {
+    addressSpace: {
+        addressPrefixes: ["10.0.0.0/16"],
+    },
+    location: "eastus",
+    resourceGroupName: "rg1",
+    subnets: [{
+        addressPrefixes: [
+            "10.0.0.0/28",
+            "10.0.1.0/28",
+        ],
+        name: "test-2",
+    }],
+    virtualNetworkName: "test-vnet",
+});

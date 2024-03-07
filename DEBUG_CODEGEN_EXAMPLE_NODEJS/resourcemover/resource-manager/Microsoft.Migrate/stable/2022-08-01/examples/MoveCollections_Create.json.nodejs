@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const moveCollection = new azure_native.migrate.MoveCollection("moveCollection", {
+    identity: {
+        type: "SystemAssigned",
+    },
+    location: "eastus2",
+    moveCollectionName: "movecollection1",
+    properties: {
+        sourceRegion: "eastus",
+        targetRegion: "westus",
+    },
+    resourceGroupName: "rg1",
+});

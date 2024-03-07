@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const notificationRegistration = new azure_native.providerhub.NotificationRegistration("notificationRegistration", {
+    notificationRegistrationName: "fooNotificationRegistration",
+    properties: {
+        includedEvents: [
+            "*/write",
+            "Microsoft.Contoso/employees/delete",
+        ],
+        messageScope: "RegisteredSubscriptions",
+        notificationEndpoints: [
+            {
+                locations: [
+                    "",
+                    "East US",
+                ],
+                notificationDestination: "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+            },
+            {
+                locations: ["North Europe"],
+                notificationDestination: "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+            },
+        ],
+        notificationMode: "EventHub",
+    },
+    providerNamespace: "Microsoft.Contoso",
+});

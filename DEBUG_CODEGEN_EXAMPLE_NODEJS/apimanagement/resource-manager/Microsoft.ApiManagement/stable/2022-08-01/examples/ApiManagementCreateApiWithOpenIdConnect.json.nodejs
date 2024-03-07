@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const api = new azure_native.apimanagement.Api("api", {
+    apiId: "tempgroup",
+    authenticationSettings: {
+        openid: {
+            bearerTokenSendingMethods: ["authorizationHeader"],
+            openidProviderId: "testopenid",
+        },
+    },
+    description: "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+    displayName: "Swagger Petstore",
+    path: "petstore",
+    protocols: ["https"],
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    serviceUrl: "http://petstore.swagger.io/v2",
+    subscriptionKeyParameterNames: {
+        header: "Ocp-Apim-Subscription-Key",
+        query: "subscription-key",
+    },
+});

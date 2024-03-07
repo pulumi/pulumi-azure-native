@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hcxEnterpriseSite = new azure_native.avs.HcxEnterpriseSite("hcxEnterpriseSite", {
+    hcxEnterpriseSiteName: "site1",
+    privateCloudName: "cloud1",
+    resourceGroupName: "group1",
+});

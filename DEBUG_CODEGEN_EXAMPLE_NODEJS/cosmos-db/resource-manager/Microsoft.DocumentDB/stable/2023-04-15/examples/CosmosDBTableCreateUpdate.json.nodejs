@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const tableResourceTable = new azure_native.documentdb.TableResourceTable("tableResourceTable", {
+    accountName: "ddb1",
+    location: "West US",
+    options: {},
+    resource: {
+        id: "tableName",
+    },
+    resourceGroupName: "rg1",
+    tableName: "tableName",
+    tags: {},
+});

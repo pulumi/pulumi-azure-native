@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deployment = new AzureNative.CognitiveServices.Deployment("deployment", new()
+    {
+        AccountName = "accountName",
+        DeploymentName = "deploymentName",
+        Properties = new AzureNative.CognitiveServices.Inputs.DeploymentPropertiesArgs
+        {
+            Model = new AzureNative.CognitiveServices.Inputs.DeploymentModelArgs
+            {
+                Format = "OpenAI",
+                Name = "ada",
+                Version = "1",
+            },
+        },
+        ResourceGroupName = "resourceGroupName",
+        Sku = new AzureNative.CognitiveServices.Inputs.SkuArgs
+        {
+            Capacity = 1,
+            Name = "Standard",
+        },
+    });
+
+});
+

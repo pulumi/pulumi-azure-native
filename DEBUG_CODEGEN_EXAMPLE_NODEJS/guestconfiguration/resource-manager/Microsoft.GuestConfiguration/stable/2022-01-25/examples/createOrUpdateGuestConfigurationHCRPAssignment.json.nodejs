@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const guestConfigurationHCRPAssignment = new azure_native.guestconfiguration.GuestConfigurationHCRPAssignment("guestConfigurationHCRPAssignment", {
+    guestConfigurationAssignmentName: "NotInstalledApplicationForWindows",
+    location: "westcentralus",
+    machineName: "myMachineName",
+    name: "NotInstalledApplicationForWindows",
+    properties: {
+        context: "Azure policy",
+        guestConfiguration: {
+            assignmentType: "ApplyAndAutoCorrect",
+            configurationParameter: [{
+                name: "[InstalledApplication]NotInstalledApplicationResource1;Name",
+                value: "NotePad,sql",
+            }],
+            contentHash: "123contenthash",
+            contentUri: "https://thisisfake/pacakge",
+            name: "NotInstalledApplicationForWindows",
+            version: "1.0.0.3",
+        },
+    },
+    resourceGroupName: "myResourceGroupName",
+});

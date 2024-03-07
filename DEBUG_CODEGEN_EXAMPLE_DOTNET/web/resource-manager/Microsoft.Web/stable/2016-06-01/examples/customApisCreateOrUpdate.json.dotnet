@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customApi = new AzureNative.Web.CustomApi("customApi", new()
+    {
+        ApiName = "testCustomApi",
+        Properties = new AzureNative.Web.Inputs.CustomApiPropertiesDefinitionArgs
+        {
+            ApiDefinitions = new AzureNative.Web.Inputs.ApiResourceDefinitionsArgs
+            {
+                OriginalSwaggerUrl = "https://tempuri.org/swagger.json",
+            },
+            ApiType = "Rest",
+            Capabilities = new() { },
+            Description = "",
+            DisplayName = "testCustomApi",
+            IconUri = "/testIcon.svg",
+        },
+        ResourceGroupName = "testResourceGroup",
+    });
+
+});
+

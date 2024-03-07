@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var applicationDefinition = new AzureNative.Solutions.ApplicationDefinition("applicationDefinition", new()
+    {
+        ApplicationDefinitionName = "myManagedApplicationDef",
+        Authorizations = new[]
+        {
+            new AzureNative.Solutions.Inputs.ApplicationAuthorizationArgs
+            {
+                PrincipalId = "validprincipalguid",
+                RoleDefinitionId = "validroleguid",
+            },
+        },
+        Description = "myManagedApplicationDef description",
+        DisplayName = "myManagedApplicationDef",
+        LockLevel = AzureNative.Solutions.ApplicationLockLevel.None,
+        PackageFileUri = "https://path/to/packagezipfile",
+        ResourceGroupName = "rg",
+    });
+
+});
+

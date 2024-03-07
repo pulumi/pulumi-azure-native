@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 web_service = azure_native.machinelearning.WebService("webService",
     location="West US",
-    properties=azure_native.machinelearning.WebServicePropertiesForGraphArgs(
+    properties=azure_native.machinelearning.WebServicePropertiesForGraphResponseArgs(
         assets={
             "asset1": azure_native.machinelearning.AssetItemArgs(
                 location_info=azure_native.machinelearning.BlobLocationArgs(
@@ -41,9 +41,9 @@ web_service = azure_native.machinelearning.WebService("webService",
             },
         ),
         expose_sample_data=True,
-        input=azure_native.machinelearning.ServiceInputOutputSpecificationArgs(
-            description="",
-            properties={
+        input={
+            "description": "",
+            "properties": {
                 "input1": azure_native.machinelearning.TableSpecificationArgs(
                     description="",
                     properties={
@@ -56,15 +56,15 @@ web_service = azure_native.machinelearning.WebService("webService",
                     type="object",
                 ),
             },
-            title="",
-            type="object",
-        ),
+            "title": "",
+            "type": "object",
+        },
         machine_learning_workspace=azure_native.machinelearning.MachineLearningWorkspaceArgs(
             id="workspaceId",
         ),
-        output=azure_native.machinelearning.ServiceInputOutputSpecificationArgs(
-            description="",
-            properties={
+        output={
+            "description": "",
+            "properties": {
                 "output1": azure_native.machinelearning.TableSpecificationArgs(
                     description="",
                     properties={
@@ -82,11 +82,11 @@ web_service = azure_native.machinelearning.WebService("webService",
                     type="object",
                 ),
             },
-            title="",
-            type="object",
-        ),
-        package=azure_native.machinelearning.GraphPackageArgs(
-            edges=[
+            "title": "",
+            "type": "object",
+        },
+        package={
+            "edges": [
                 azure_native.machinelearning.GraphEdgeArgs(
                     source_node_id="node2",
                     source_port_id="Results dataset",
@@ -104,8 +104,8 @@ web_service = azure_native.machinelearning.WebService("webService",
                     target_node_id="node4",
                 ),
             ],
-            graph_parameters={},
-            nodes={
+            "graphParameters": {},
+            "nodes": {
                 "node1": azure_native.machinelearning.GraphNodeArgs(
                     asset_id="asset1",
                     parameters={
@@ -147,7 +147,7 @@ web_service = azure_native.machinelearning.WebService("webService",
                     output_id="output1",
                 ),
             },
-        ),
+        },
         package_type="Graph",
         parameters={},
         payloads_in_blob_storage=False,

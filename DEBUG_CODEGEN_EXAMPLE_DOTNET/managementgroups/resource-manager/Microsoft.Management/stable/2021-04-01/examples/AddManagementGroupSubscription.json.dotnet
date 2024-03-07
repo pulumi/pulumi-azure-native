@@ -1,0 +1,14 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managementGroupSubscription = new AzureNative.Management.ManagementGroupSubscription("managementGroupSubscription", new()
+    {
+        GroupId = "Group",
+    });
+
+});
+

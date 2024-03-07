@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var patchSchedule = new AzureNative.Cache.PatchSchedule("patchSchedule", new()
+    {
+        Default = "default",
+        Name = "cache1",
+        ResourceGroupName = "rg1",
+        ScheduleEntries = new[]
+        {
+            new AzureNative.Cache.Inputs.ScheduleEntryArgs
+            {
+                DayOfWeek = AzureNative.Cache.DayOfWeek.Monday,
+                MaintenanceWindow = "PT5H",
+                StartHourUtc = 12,
+            },
+            new AzureNative.Cache.Inputs.ScheduleEntryArgs
+            {
+                DayOfWeek = AzureNative.Cache.DayOfWeek.Tuesday,
+                StartHourUtc = 12,
+            },
+        },
+    });
+
+});
+

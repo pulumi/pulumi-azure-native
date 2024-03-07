@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlVirtualMachineGroup = new AzureNative.SqlVirtualMachine.SqlVirtualMachineGroup("sqlVirtualMachineGroup", new()
+    {
+        Location = "northeurope",
+        ResourceGroupName = "testrg",
+        SqlImageOffer = "SQL2016-WS2016",
+        SqlImageSku = "Enterprise",
+        SqlVirtualMachineGroupName = "testvmgroup",
+        Tags = 
+        {
+            { "mytag", "myval" },
+        },
+        WsfcDomainProfile = new AzureNative.SqlVirtualMachine.Inputs.WsfcDomainProfileArgs
+        {
+            ClusterBootstrapAccount = "testrpadmin",
+            ClusterOperatorAccount = "testrp@testdomain.com",
+            ClusterSubnetType = "MultiSubnet",
+            DomainFqdn = "testdomain.com",
+            OuPath = "OU=WSCluster,DC=testdomain,DC=com",
+            SqlServiceAccount = "sqlservice@testdomain.com",
+            StorageAccountPrimaryKey = "<primary storage access key>",
+            StorageAccountUrl = "https://storgact.blob.core.windows.net/",
+        },
+    });
+
+});
+

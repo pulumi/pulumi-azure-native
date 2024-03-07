@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const project = new azure_native.devcenter.Project("project", {
+    description: "This is my first project.",
+    devCenterId: "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso",
+    location: "centralus",
+    projectName: "DevProject",
+    resourceGroupName: "rg1",
+    tags: {
+        CostCenter: "R&D",
+    },
+});

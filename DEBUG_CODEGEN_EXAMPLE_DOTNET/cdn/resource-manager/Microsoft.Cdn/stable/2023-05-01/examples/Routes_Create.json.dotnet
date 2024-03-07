@@ -1,0 +1,62 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var route = new AzureNative.Cdn.Route("route", new()
+    {
+        CacheConfiguration = new AzureNative.Cdn.Inputs.AfdRouteCacheConfigurationArgs
+        {
+            CompressionSettings = new AzureNative.Cdn.Inputs.CompressionSettingsArgs
+            {
+                ContentTypesToCompress = new[]
+                {
+                    "text/html",
+                    "application/octet-stream",
+                },
+                IsCompressionEnabled = true,
+            },
+            QueryParameters = "querystring=test",
+            QueryStringCachingBehavior = "IgnoreSpecifiedQueryStrings",
+        },
+        CustomDomains = new[]
+        {
+            new AzureNative.Cdn.Inputs.ActivatedResourceReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1",
+            },
+        },
+        EnabledState = "Enabled",
+        EndpointName = "endpoint1",
+        ForwardingProtocol = "MatchRequest",
+        HttpsRedirect = "Enabled",
+        LinkToDefaultDomain = "Enabled",
+        OriginGroup = new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1",
+        },
+        PatternsToMatch = new[]
+        {
+            "/*",
+        },
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+        RouteName = "route1",
+        RuleSets = new[]
+        {
+            new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1",
+            },
+        },
+        SupportedProtocols = new[]
+        {
+            "Https",
+            "Http",
+        },
+    });
+
+});
+

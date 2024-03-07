@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const wcfRelay = new azure_native.relay.WCFRelay("wcfRelay", {
+    namespaceName: "example-RelayNamespace-9953",
+    relayName: "example-Relay-Wcf-1194",
+    relayType: azure_native.relay.Relaytype.NetTcp,
+    requiresClientAuthorization: true,
+    requiresTransportSecurity: true,
+    resourceGroupName: "resourcegroup",
+});

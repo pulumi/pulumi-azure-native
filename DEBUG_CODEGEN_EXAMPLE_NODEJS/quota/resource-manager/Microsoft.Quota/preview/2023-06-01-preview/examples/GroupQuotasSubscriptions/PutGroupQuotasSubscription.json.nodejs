@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const groupQuotaSubscription = new azure_native.quota.GroupQuotaSubscription("groupQuotaSubscription", {
+    groupQuotaName: "groupquota1",
+    mgId: "E7EC67B3-7657-4966-BFFC-41EFD36BAA09",
+});

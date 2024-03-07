@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const project = new azure_native.datamigration.Project("project", {
+    groupName: "DmsSdkRg",
+    location: "southcentralus",
+    projectName: "DmsSdkProject",
+    serviceName: "DmsSdkService",
+    sourcePlatform: "SQL",
+    targetPlatform: "SQLDB",
+});

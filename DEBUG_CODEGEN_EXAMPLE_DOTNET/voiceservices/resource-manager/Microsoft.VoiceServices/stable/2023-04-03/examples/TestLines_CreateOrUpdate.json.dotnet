@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var testLine = new AzureNative.VoiceServices.TestLine("testLine", new()
+    {
+        CommunicationsGatewayName = "myname",
+        Location = "useast",
+        PhoneNumber = "+1-555-1234",
+        Purpose = "Automated",
+        ResourceGroupName = "testrg",
+        TestLineName = "myline",
+    });
+
+});
+

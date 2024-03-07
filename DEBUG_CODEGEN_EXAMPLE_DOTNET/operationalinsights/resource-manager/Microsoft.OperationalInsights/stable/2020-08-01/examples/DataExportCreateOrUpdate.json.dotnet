@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataExport = new AzureNative.OperationalInsights.DataExport("dataExport", new()
+    {
+        DataExportName = "export1",
+        ResourceGroupName = "RgTest1",
+        ResourceId = "/subscriptions/192b9f85-a39a-4276-b96d-d5cd351703f9/resourceGroups/OIAutoRest1234/providers/Microsoft.EventHub/namespaces/test",
+        TableNames = new[]
+        {
+            "Heartbeat",
+        },
+        WorkspaceName = "DeWnTest1234",
+    });
+
+});
+

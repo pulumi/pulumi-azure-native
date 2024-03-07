@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storage = new azure_native.appplatform.Storage("storage", {
+    properties: {
+        accountKey: "account-key-of-storage-account",
+        accountName: "storage-account-name",
+        storageType: "StorageAccount",
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+    storageName: "mystorage",
+});

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var groupsOperation = new AzureNative.Migrate.GroupsOperation("groupsOperation", new()
+    {
+        GroupName = "kuchatur-test",
+        GroupType = "Default",
+        ProjectName = "app18700project",
+        ProvisioningState = "Succeeded",
+        ResourceGroupName = "ayagrawrg",
+    });
+
+});
+

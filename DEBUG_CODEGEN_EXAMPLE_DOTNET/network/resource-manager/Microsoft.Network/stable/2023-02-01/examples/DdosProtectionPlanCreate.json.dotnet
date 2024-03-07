@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ddosProtectionPlan = new AzureNative.Network.DdosProtectionPlan("ddosProtectionPlan", new()
+    {
+        DdosProtectionPlanName = "test-plan",
+        Location = "westus",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

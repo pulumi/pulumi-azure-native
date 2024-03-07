@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const configurationAssignment = new azure_native.maintenance.ConfigurationAssignment("configurationAssignment", {
+    configurationAssignmentName: "workervmConfiguration",
+    maintenanceConfigurationId: "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1",
+    providerName: "Microsoft.Compute",
+    resourceGroupName: "examplerg",
+    resourceName: "smdtest1",
+    resourceType: "virtualMachineScaleSets",
+});

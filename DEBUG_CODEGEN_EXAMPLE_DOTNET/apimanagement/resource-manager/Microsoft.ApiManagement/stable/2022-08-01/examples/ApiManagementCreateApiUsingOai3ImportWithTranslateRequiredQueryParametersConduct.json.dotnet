@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var api = new AzureNative.ApiManagement.Api("api", new()
+    {
+        ApiId = "petstore",
+        Format = "openapi-link",
+        Path = "petstore",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        TranslateRequiredQueryParametersConduct = "template",
+        Value = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml",
+    });
+
+});
+

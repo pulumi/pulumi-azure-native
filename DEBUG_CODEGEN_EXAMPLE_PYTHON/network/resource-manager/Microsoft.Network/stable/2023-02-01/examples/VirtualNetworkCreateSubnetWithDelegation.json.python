@@ -7,12 +7,12 @@ virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
     ),
     location="westcentralus",
     resource_group_name="rg1",
-    subnets=[azure_native.network.SubnetArgs(
-        address_prefix="10.0.0.0/24",
-        delegations=[azure_native.network.DelegationArgs(
+    subnets=[{
+        "addressPrefix": "10.0.0.0/24",
+        "delegations": [azure_native.network.DelegationArgs(
             name="myDelegation",
             service_name="Microsoft.Sql/managedInstances",
         )],
-        name="test-1",
-    )],
+        "name": "test-1",
+    }],
     virtual_network_name="test-vnet")

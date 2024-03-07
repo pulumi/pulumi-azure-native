@@ -13,14 +13,14 @@ sim = azure_native.mobilenetwork.Sim("sim",
     sim_policy=azure_native.mobilenetwork.SimPolicyResourceIdArgs(
         id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy",
     ),
-    static_ip_configuration=[azure_native.mobilenetwork.SimStaticIpPropertiesArgs(
-        attached_data_network=azure_native.mobilenetwork.AttachedDataNetworkResourceIdArgs(
+    static_ip_configuration=[{
+        "attachedDataNetwork": azure_native.mobilenetwork.AttachedDataNetworkResourceIdArgs(
             id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
         ),
-        slice=azure_native.mobilenetwork.SliceResourceIdArgs(
+        "slice": azure_native.mobilenetwork.SliceResourceIdArgs(
             id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
         ),
-        static_ip=azure_native.mobilenetwork.SimStaticIpPropertiesStaticIpArgs(
+        "staticIp": azure_native.mobilenetwork.SimStaticIpPropertiesStaticIpArgs(
             ipv4_address="2.4.0.1",
         ),
-    )])
+    }])

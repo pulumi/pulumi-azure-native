@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var scheduledActionByScope = new AzureNative.CostManagement.ScheduledActionByScope("scheduledActionByScope", new()
+    {
+        DisplayName = "Daily anomaly by resource",
+        Kind = "InsightAlert",
+        Name = "dailyAnomalyByResource",
+        Notification = new AzureNative.CostManagement.Inputs.NotificationPropertiesArgs
+        {
+            Subject = "Cost anomaly detected in the resource",
+            To = new[]
+            {
+                "user@gmail.com",
+                "team@gmail.com",
+            },
+        },
+        Schedule = new AzureNative.CostManagement.Inputs.SchedulePropertiesArgs
+        {
+            EndDate = "2021-06-19T22:21:51.1287144Z",
+            Frequency = "Daily",
+            StartDate = "2020-06-19T22:21:51.1287144Z",
+        },
+        Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
+        Status = "Enabled",
+        ViewId = "/providers/Microsoft.CostManagement/views/swaggerExample",
+    });
+
+});
+

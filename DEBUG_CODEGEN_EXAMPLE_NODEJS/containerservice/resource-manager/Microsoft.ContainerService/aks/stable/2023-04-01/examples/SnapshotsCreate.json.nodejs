@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const snapshot = new azure_native.containerservice.Snapshot("snapshot", {
+    creationData: {
+        sourceResourceId: "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool0",
+    },
+    location: "westus",
+    resourceGroupName: "rg1",
+    resourceName: "snapshot1",
+    tags: {
+        key1: "val1",
+        key2: "val2",
+    },
+});

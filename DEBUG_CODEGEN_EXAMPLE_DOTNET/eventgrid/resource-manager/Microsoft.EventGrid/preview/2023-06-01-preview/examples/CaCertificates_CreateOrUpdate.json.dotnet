@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var caCertificate = new AzureNative.EventGrid.CaCertificate("caCertificate", new()
+    {
+        CaCertificateName = "exampleCACertificateName1",
+        Description = "This is a test certificate",
+        EncodedCertificate = "base64EncodePemFormattedCertificateString",
+        NamespaceName = "exampleNamespaceName1",
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

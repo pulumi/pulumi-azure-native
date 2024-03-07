@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var siteNetworkService = new AzureNative.HybridNetwork.SiteNetworkService("siteNetworkService", new()
+    {
+        Location = "westUs2",
+        Properties = new AzureNative.HybridNetwork.Inputs.SiteNetworkServicePropertiesFormatArgs
+        {
+            DesiredStateConfigurationGroupValueReferences = 
+            {
+                { "MyVM_Configuration", new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+                {
+                    Id = "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+                } },
+            },
+            NetworkServiceDesignVersionResourceReference = new AzureNative.HybridNetwork.Inputs.OpenDeploymentResourceReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+                IdType = "Open",
+            },
+            SiteReference = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+            {
+                Id = "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+            },
+        },
+        ResourceGroupName = "rg1",
+        SiteNetworkServiceName = "testSiteNetworkServiceName",
+        Sku = new AzureNative.HybridNetwork.Inputs.SkuArgs
+        {
+            Name = "Standard",
+        },
+    });
+
+});
+

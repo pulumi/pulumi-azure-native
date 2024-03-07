@@ -1,0 +1,58 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hostPool = new AzureNative.DesktopVirtualization.HostPool("hostPool", new()
+    {
+        AgentUpdate = new AzureNative.DesktopVirtualization.Inputs.AgentUpdatePropertiesArgs
+        {
+            MaintenanceWindowTimeZone = "Alaskan Standard Time",
+            MaintenanceWindows = new[]
+            {
+                new AzureNative.DesktopVirtualization.Inputs.MaintenanceWindowPropertiesArgs
+                {
+                    DayOfWeek = AzureNative.DesktopVirtualization.DayOfWeek.Friday,
+                    Hour = 7,
+                },
+                new AzureNative.DesktopVirtualization.Inputs.MaintenanceWindowPropertiesArgs
+                {
+                    DayOfWeek = AzureNative.DesktopVirtualization.DayOfWeek.Saturday,
+                    Hour = 8,
+                },
+            },
+            Type = "Scheduled",
+            UseSessionHostLocalTime = false,
+        },
+        Description = "des1",
+        FriendlyName = "friendly",
+        HostPoolName = "hostPool1",
+        HostPoolType = "Pooled",
+        LoadBalancerType = "BreadthFirst",
+        Location = "centralus",
+        MaxSessionLimit = 999999,
+        PersonalDesktopAssignmentType = "Automatic",
+        PreferredAppGroupType = "Desktop",
+        RegistrationInfo = new AzureNative.DesktopVirtualization.Inputs.RegistrationInfoArgs
+        {
+            ExpirationTime = "2020-10-01T14:01:54.9571247Z",
+            RegistrationTokenOperation = "Update",
+        },
+        ResourceGroupName = "resourceGroup1",
+        SsoClientId = "client",
+        SsoClientSecretKeyVaultPath = "https://keyvault/secret",
+        SsoSecretType = "SharedKey",
+        SsoadfsAuthority = "https://adfs",
+        StartVMOnConnect = false,
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+        VmTemplate = "{json:json}",
+    });
+
+});
+

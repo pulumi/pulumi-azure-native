@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageSpaceRetrieve = new AzureNative.HybridContainerService.StorageSpaceRetrieve("storageSpaceRetrieve", new()
+    {
+        ExtendedLocation = new AzureNative.HybridContainerService.Inputs.StorageSpacesExtendedLocationArgs
+        {
+            Name = "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+            Type = "CustomLocation",
+        },
+        Location = "westus",
+        Properties = new AzureNative.HybridContainerService.Inputs.StorageSpacesPropertiesArgs
+        {
+            HciStorageProfile = new AzureNative.HybridContainerService.Inputs.StorageSpacesPropertiesHciStorageProfileArgs
+            {
+                MocGroup = "target-group",
+                MocLocation = "MocLocation",
+                MocStorageContainer = "WssdStorageContainer",
+            },
+        },
+        ResourceGroupName = "test-arcappliance-resgrp",
+        StorageSpacesName = "test-storage",
+    });
+
+});
+

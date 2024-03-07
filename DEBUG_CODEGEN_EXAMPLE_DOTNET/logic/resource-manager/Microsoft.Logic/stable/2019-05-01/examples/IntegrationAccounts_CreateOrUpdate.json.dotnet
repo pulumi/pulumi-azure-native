@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var integrationAccount = new AzureNative.Logic.IntegrationAccount("integrationAccount", new()
+    {
+        IntegrationAccountName = "testIntegrationAccount",
+        Location = "westus",
+        ResourceGroupName = "testResourceGroup",
+        Sku = new AzureNative.Logic.Inputs.IntegrationAccountSkuArgs
+        {
+            Name = "Standard",
+        },
+    });
+
+});
+

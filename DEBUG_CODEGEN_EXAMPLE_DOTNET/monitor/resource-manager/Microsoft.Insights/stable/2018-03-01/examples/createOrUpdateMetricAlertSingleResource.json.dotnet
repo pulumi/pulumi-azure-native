@@ -1,0 +1,56 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var metricAlert = new AzureNative.Insights.MetricAlert("metricAlert", new()
+    {
+        Actions = new[]
+        {
+            new AzureNative.Insights.Inputs.MetricAlertActionArgs
+            {
+                ActionGroupId = "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                WebHookProperties = 
+                {
+                    { "key11", "value11" },
+                    { "key12", "value12" },
+                },
+            },
+        },
+        AutoMitigate = true,
+        Criteria = new AzureNative.Insights.Inputs.MetricAlertSingleResourceMultipleMetricCriteriaArgs
+        {
+            AllOf = new[]
+            {
+                new AzureNative.Insights.Inputs.MetricCriteriaArgs
+                {
+                    CriterionType = "StaticThresholdCriterion",
+                    Dimensions = new() { },
+                    MetricName = "\\Processor(_Total)\\% Processor Time",
+                    Name = "High_CPU_80",
+                    Operator = "GreaterThan",
+                    Threshold = 80.5,
+                    TimeAggregation = "Average",
+                },
+            },
+            OdataType = "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+        },
+        Description = "This is the description of the rule1",
+        Enabled = true,
+        EvaluationFrequency = "Pt1m",
+        Location = "global",
+        ResourceGroupName = "gigtest",
+        RuleName = "chiricutin",
+        Scopes = new[]
+        {
+            "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme",
+        },
+        Severity = 3,
+        Tags = null,
+        WindowSize = "Pt15m",
+    });
+
+});
+

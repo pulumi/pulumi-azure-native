@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var device = new AzureNative.DataBoxEdge.Device("device", new()
+    {
+        DataResidency = new AzureNative.DataBoxEdge.Inputs.DataResidencyArgs
+        {
+            Type = "ZoneReplication",
+        },
+        DeviceName = "testedgedevice",
+        Location = "WUS",
+        ResourceGroupName = "GroupForEdgeAutomation",
+        Sku = new AzureNative.DataBoxEdge.Inputs.SkuArgs
+        {
+            Name = "Edge",
+            Tier = "Standard",
+        },
+        Tags = null,
+    });
+
+});
+

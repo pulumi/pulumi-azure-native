@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const nspAssociation = new azure_native.network.NspAssociation("nspAssociation", {
+    accessMode: "Enforced",
+    associationName: "association1",
+    networkSecurityPerimeterName: "nsp1",
+    privateLinkResource: {
+        id: "/subscriptions/{paasSubscriptionId}/resourceGroups/{paasResourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}",
+    },
+    profile: {
+        id: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/{profileName}",
+    },
+    resourceGroupName: "rg1",
+});

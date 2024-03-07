@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var migrateProjectsControllerMigrateProject = new AzureNative.Migrate.MigrateProjectsControllerMigrateProject("migrateProjectsControllerMigrateProject", new()
+    {
+        Location = "eastus",
+        MigrateProjectName = "projTest1",
+        Properties = new AzureNative.Migrate.Inputs.MigrateProjectPropertiesArgs
+        {
+            PublicNetworkAccess = "Enabled",
+        },
+        ResourceGroupName = "pajindTest1",
+    });
+
+});
+

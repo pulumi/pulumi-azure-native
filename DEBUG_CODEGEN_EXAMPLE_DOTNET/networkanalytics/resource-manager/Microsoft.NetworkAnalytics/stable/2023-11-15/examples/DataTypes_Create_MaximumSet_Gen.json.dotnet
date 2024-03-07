@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataType = new AzureNative.NetworkAnalytics.DataType("dataType", new()
+    {
+        DataProductName = "dataproduct01",
+        DataTypeName = "datatypename",
+        DatabaseCacheRetention = 23,
+        DatabaseRetention = 6,
+        ResourceGroupName = "aoiresourceGroupName",
+        State = "STARTED",
+        StorageOutputRetention = 27,
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customerSubscription = new AzureNative.AzureStack.CustomerSubscription("customerSubscription", new()
+    {
+        CustomerSubscriptionName = "E09A4E93-29A7-4EBA-A6D4-76202383F07F",
+        RegistrationName = "testregistration",
+        ResourceGroup = "azurestack",
+        TenantId = "dbab3982-796f-4d03-9908-044c08aef8a2",
+    });
+
+});
+

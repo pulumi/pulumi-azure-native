@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 alias = azure_native.subscription.Alias("alias",
     alias_name="aliasForNewSub",
-    properties=azure_native.subscription.PutAliasRequestPropertiesArgs(
+    properties=azure_native.subscription.SubscriptionAliasResponsePropertiesResponseArgs(
         additional_properties=azure_native.subscription.PutAliasRequestAdditionalPropertiesArgs(
             subscription_owner_id="f09b39eb-c496-482c-9ab9-afd799572f4c",
             subscription_tenant_id="66f6e4d6-07dc-4aea-94ea-e12d3026a3c8",

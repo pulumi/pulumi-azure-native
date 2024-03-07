@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serverSecurityAlertPolicy = new AzureNative.Sql.ServerSecurityAlertPolicy("serverSecurityAlertPolicy", new()
+    {
+        DisabledAlerts = new[]
+        {
+            "Access_Anomaly",
+            "Usage_Anomaly",
+        },
+        EmailAccountAdmins = true,
+        EmailAddresses = new[]
+        {
+            "testSecurityAlert@microsoft.com",
+        },
+        ResourceGroupName = "securityalert-4799",
+        RetentionDays = 5,
+        SecurityAlertPolicyName = "Default",
+        ServerName = "securityalert-6440",
+        State = AzureNative.Sql.SecurityAlertsPolicyState.Enabled,
+        StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+        StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    });
+
+});
+

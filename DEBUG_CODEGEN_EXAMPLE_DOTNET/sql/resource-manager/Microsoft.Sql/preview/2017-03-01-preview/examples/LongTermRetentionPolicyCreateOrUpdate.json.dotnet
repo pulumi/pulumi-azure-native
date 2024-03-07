@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var backupLongTermRetentionPolicy = new AzureNative.Sql.BackupLongTermRetentionPolicy("backupLongTermRetentionPolicy", new()
+    {
+        DatabaseName = "testDatabase",
+        MonthlyRetention = "P1Y",
+        PolicyName = "default",
+        ResourceGroupName = "resourceGroup",
+        ServerName = "testserver",
+        WeekOfYear = 5,
+        WeeklyRetention = "P1M",
+        YearlyRetention = "P5Y",
+    });
+
+});
+

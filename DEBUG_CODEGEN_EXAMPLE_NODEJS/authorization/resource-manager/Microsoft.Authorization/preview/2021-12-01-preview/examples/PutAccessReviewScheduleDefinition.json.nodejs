@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const scopeAccessReviewScheduleDefinitionById = new azure_native.authorization.ScopeAccessReviewScheduleDefinitionById("scopeAccessReviewScheduleDefinitionById", {
+    scheduleDefinitionId: "fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+    scope: "subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+});

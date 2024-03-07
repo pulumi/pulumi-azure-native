@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var notificationHubAuthorizationRule = new AzureNative.NotificationHubs.NotificationHubAuthorizationRule("notificationHubAuthorizationRule", new()
+    {
+        AuthorizationRuleName = "MyManageSharedAccessKey",
+        NamespaceName = "nh-sdk-ns",
+        NotificationHubName = "nh-sdk-hub",
+        Properties = new AzureNative.NotificationHubs.Inputs.SharedAccessAuthorizationRulePropertiesArgs
+        {
+            Rights = new[]
+            {
+                "Listen",
+                "Send",
+            },
+        },
+        ResourceGroupName = "5ktrial",
+    });
+
+});
+

@@ -1,0 +1,57 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var bareMetalMachineKeySet = new AzureNative.NetworkCloud.BareMetalMachineKeySet("bareMetalMachineKeySet", new()
+    {
+        AzureGroupId = "f110271b-XXXX-4163-9b99-214d91660f0e",
+        BareMetalMachineKeySetName = "bareMetalMachineKeySetName",
+        ClusterName = "clusterName",
+        Expiration = "2022-12-31T23:59:59.008Z",
+        ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+            Type = "CustomLocation",
+        },
+        JumpHostsAllowed = new[]
+        {
+            "192.0.2.1",
+            "192.0.2.5",
+        },
+        Location = "location",
+        OsGroupName = "standardAccessGroup",
+        PrivilegeLevel = "Standard",
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+        UserList = new[]
+        {
+            new AzureNative.NetworkCloud.Inputs.KeySetUserArgs
+            {
+                AzureUserName = "userABC",
+                Description = "Needs access for troubleshooting as a part of the support team",
+                SshPublicKey = new AzureNative.NetworkCloud.Inputs.SshPublicKeyArgs
+                {
+                    KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                },
+            },
+            new AzureNative.NetworkCloud.Inputs.KeySetUserArgs
+            {
+                AzureUserName = "userXYZ",
+                Description = "Needs access for troubleshooting as a part of the support team",
+                SshPublicKey = new AzureNative.NetworkCloud.Inputs.SshPublicKeyArgs
+                {
+                    KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                },
+            },
+        },
+    });
+
+});
+

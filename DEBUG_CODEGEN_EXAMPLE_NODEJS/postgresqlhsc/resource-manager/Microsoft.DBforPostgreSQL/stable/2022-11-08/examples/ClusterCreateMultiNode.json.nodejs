@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.dbforpostgresql.Cluster("cluster", {
+    administratorLoginPassword: "password",
+    citusVersion: "11.1",
+    clusterName: "testcluster-multinode",
+    coordinatorEnablePublicIpAccess: true,
+    coordinatorServerEdition: "GeneralPurpose",
+    coordinatorStorageQuotaInMb: 524288,
+    coordinatorVCores: 4,
+    enableHa: true,
+    enableShardsOnCoordinator: false,
+    location: "westus",
+    nodeCount: 3,
+    nodeEnablePublicIpAccess: false,
+    nodeServerEdition: "MemoryOptimized",
+    nodeStorageQuotaInMb: 524288,
+    nodeVCores: 8,
+    postgresqlVersion: "15",
+    preferredPrimaryZone: "1",
+    resourceGroupName: "TestGroup",
+    tags: {},
+});

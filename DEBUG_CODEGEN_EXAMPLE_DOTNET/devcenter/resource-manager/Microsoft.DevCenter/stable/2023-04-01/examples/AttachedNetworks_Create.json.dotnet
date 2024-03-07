@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var attachedNetworkByDevCenter = new AzureNative.DevCenter.AttachedNetworkByDevCenter("attachedNetworkByDevCenter", new()
+    {
+        AttachedNetworkConnectionName = "network-uswest3",
+        DevCenterName = "Contoso",
+        NetworkConnectionId = "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/NetworkConnections/network-uswest3",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

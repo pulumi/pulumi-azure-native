@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineExtension = new AzureNative.HybridCompute.MachineExtension("machineExtension", new()
+    {
+        ExtensionName = "CustomScriptExtension",
+        Location = "eastus2euap",
+        MachineName = "myMachine",
+        Properties = new AzureNative.HybridCompute.Inputs.MachineExtensionPropertiesArgs
+        {
+            Publisher = "Microsoft.Compute",
+            Settings = 
+            {
+                { "commandToExecute", "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"" },
+            },
+            Type = "CustomScriptExtension",
+            TypeHandlerVersion = "1.10",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

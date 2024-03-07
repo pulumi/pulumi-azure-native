@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dedicatedCloudNode = new AzureNative.VMwareCloudSimple.DedicatedCloudNode("dedicatedCloudNode", new()
+    {
+        AvailabilityZoneId = "az1",
+        DedicatedCloudNodeName = "myNode",
+        Id = "general",
+        Location = "westus",
+        Name = "CS28-Node",
+        NodesCount = 1,
+        PlacementGroupId = "n1",
+        PurchaseId = "56acbd46-3d36-4bbf-9b08-57c30fdf6932",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.VMwareCloudSimple.Inputs.SkuArgs
+        {
+            Name = "VMware_CloudSimple_CS28",
+        },
+    });
+
+});
+

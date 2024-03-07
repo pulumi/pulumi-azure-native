@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnectionController = new azure_native.offazure.PrivateEndpointConnectionController("privateEndpointConnectionController", {
+    peConnectionName: "-KF3-86-D3L-8M",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "swxghzuajrasojk",
+        description: "ljdykrrhmzi",
+        status: "Approved",
+    },
+    resourceGroupName: "rgmigrate",
+    siteName: "LuBO2I1-B85pJ1BZ251",
+});

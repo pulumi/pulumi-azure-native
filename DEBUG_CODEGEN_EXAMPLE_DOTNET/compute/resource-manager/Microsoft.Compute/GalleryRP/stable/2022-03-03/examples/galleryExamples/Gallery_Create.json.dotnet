@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var gallery = new AzureNative.Compute.Gallery("gallery", new()
+    {
+        Description = "This is the gallery description.",
+        GalleryName = "myGalleryName",
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

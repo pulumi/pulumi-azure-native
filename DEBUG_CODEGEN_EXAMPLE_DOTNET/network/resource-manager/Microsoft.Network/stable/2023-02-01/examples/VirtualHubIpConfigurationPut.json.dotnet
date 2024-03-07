@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualHubIpConfiguration = new AzureNative.Network.VirtualHubIpConfiguration("virtualHubIpConfiguration", new()
+    {
+        IpConfigName = "ipconfig1",
+        ResourceGroupName = "rg1",
+        Subnet = new AzureNative.Network.Inputs.SubnetArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+        },
+        VirtualHubName = "hub1",
+    });
+
+});
+

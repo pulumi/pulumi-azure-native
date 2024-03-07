@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const snapshot = new azure_native.containerstorage.Snapshot("snapshot", {
+    poolName: "test-pool",
+    resourceGroupName: "test-rg",
+    snapshotName: "test-snapshot",
+    source: "C0C6I6",
+});

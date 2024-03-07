@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var device = new AzureNative.AzureSphere.Device("device", new()
+    {
+        CatalogName = "MyCatalog1",
+        DeviceGroupName = "myDeviceGroup1",
+        DeviceName = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        ProductName = "MyProduct1",
+        ResourceGroupName = "MyResourceGroup1",
+    });
+
+});
+

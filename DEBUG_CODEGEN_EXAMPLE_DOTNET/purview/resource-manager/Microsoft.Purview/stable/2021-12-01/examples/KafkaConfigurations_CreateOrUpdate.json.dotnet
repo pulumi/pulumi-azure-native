@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var kafkaConfiguration = new AzureNative.Purview.KafkaConfiguration("kafkaConfiguration", new()
+    {
+        AccountName = "account1",
+        ConsumerGroup = "consumerGroup",
+        Credentials = new AzureNative.Purview.Inputs.CredentialsArgs
+        {
+            IdentityId = "/subscriptions/47e8596d-ee73-4eb2-b6b4-cc13c2b87ssd/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testId",
+            Type = "UserAssigned",
+        },
+        EventHubPartitionId = "partitionId",
+        EventHubResourceId = "/subscriptions/225be6fe-ec1c-4d51-a368-f69348d2e6c5/resourceGroups/testRG/providers/Microsoft.EventHub/namespaces/eventHubNameSpaceName",
+        EventHubType = "Notification",
+        EventStreamingState = "Enabled",
+        EventStreamingType = "Azure",
+        KafkaConfigurationName = "kafkaConfigName",
+        ResourceGroupName = "rgpurview",
+    });
+
+});
+

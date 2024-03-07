@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const lab = new azure_native.devtestlab.Lab("lab", {
+    labStorageType: "{Standard|Premium}",
+    location: "{location}",
+    name: "{labName}",
+    resourceGroupName: "resourceGroupName",
+    tags: {
+        tagName1: "tagValue1",
+    },
+});

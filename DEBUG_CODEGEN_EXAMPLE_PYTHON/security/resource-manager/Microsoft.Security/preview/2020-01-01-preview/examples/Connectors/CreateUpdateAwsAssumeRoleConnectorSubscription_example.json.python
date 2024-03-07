@@ -8,7 +8,7 @@ connector = azure_native.security.Connector("connector",
         aws_external_id="20ff7fc3-e762-44dd-bd96-b71116dcdc23",
     ),
     connector_name="aws_dev2",
-    hybrid_compute_settings=azure_native.security.HybridComputeSettingsPropertiesArgs(
+    hybrid_compute_settings=azure_native.security.HybridComputeSettingsPropertiesResponseArgs(
         auto_provision="On",
         proxy_server=azure_native.security.ProxyServerPropertiesArgs(
             ip="167.220.197.140",

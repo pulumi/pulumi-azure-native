@@ -7,17 +7,17 @@ policy_assignment = azure_native.authorization.PolicyAssignment("policyAssignmen
     metadata={
         "assignedBy": "Special Someone",
     },
-    overrides=[azure_native.authorization.OverrideArgs(
-        kind="policyEffect",
-        selectors=[azure_native.authorization.SelectorArgs(
+    overrides=[{
+        "kind": "policyEffect",
+        "selectors": [azure_native.authorization.SelectorArgs(
             in_=[
                 "Limit_Skus",
                 "Limit_Locations",
             ],
             kind="policyDefinitionReferenceId",
         )],
-        value="Audit",
-    )],
+        "value": "Audit",
+    }],
     policy_assignment_name="CostManagement",
     policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
     scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")

@@ -1,0 +1,102 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mqttBridgeConnector = new AzureNative.IoTOperationsMQ.MqttBridgeConnector("mqttBridgeConnector", new()
+    {
+        BridgeInstances = 4528,
+        ClientIdPrefix = "yqipejvabahsexbnttiegjnh",
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        Image = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+        {
+            PullPolicy = "imfuzvqxgbdwliqnn",
+            PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+            Repository = "m",
+            Tag = "jygfdiamhhm",
+        },
+        LocalBrokerConnection = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerConnectionSpecArgs
+        {
+            Authentication = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerAuthenticationMethodsArgs
+            {
+                Kubernetes = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerKubernetesAuthenticationArgs
+                {
+                    SecretPath = "soukzfkouir",
+                    ServiceAccountTokenName = "suwetviuhmhorhvsidlznnufe",
+                },
+            },
+            Endpoint = "xc",
+            Tls = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerConnectionTlsArgs
+            {
+                TlsEnabled = true,
+                TrustedCaCertificateConfigMap = "rinkomfeznsfedbmllxlbmmhc",
+            },
+        },
+        Location = "frztvxzhskx",
+        LogLevel = "gpgijsotipdtvvkpnckuziqqv",
+        MqName = "R8-6x-Y-L-F-21RP5-XVv",
+        MqttBridgeConnectorName = "k1v-U4P2440C1b7T8y-G",
+        NodeTolerations = new AzureNative.IoTOperationsMQ.Inputs.NodeTolerationsArgs
+        {
+            Effect = "eeswvciblqmmaeesjoflyvxqbz",
+            Key = "wbrstdwxgm",
+            Operator = "lbegegneekwnyodtzraarivtwhmzep",
+            Value = "sfafsjdcezdmkwibxeluukxgl",
+        },
+        Protocol = "v3",
+        RemoteBrokerConnection = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRemoteBrokerConnectionSpecArgs
+        {
+            Authentication = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRemoteBrokerAuthenticationMethodsArgs
+            {
+                SystemAssignedManagedIdentity = new AzureNative.IoTOperationsMQ.Inputs.ManagedIdentityAuthenticationArgs
+                {
+                    Audience = "kjderojhpehosgfcrxxbh",
+                    ExtensionName = "cyckjqqzspleajbtkniwrfsqygjfhe",
+                },
+                X509 = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRemoteBrokerX509AuthenticationArgs
+                {
+                    KeyVault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCertificatePropertiesArgs
+                    {
+                        Vault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultConnectionPropertiesArgs
+                        {
+                            Credentials = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCredentialsPropertiesArgs
+                            {
+                                ServicePrincipalLocalSecretName = "wuimjwpbhoglbsxxa",
+                            },
+                            DirectoryId = "eyjniptiykzcgbzok",
+                            Name = "lxmwfan",
+                        },
+                        VaultCaChainSecret = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+                        {
+                            Name = "bmectskddmpjxnsogwooexj",
+                            Version = "unjfbf",
+                        },
+                        VaultCert = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+                        {
+                            Name = "bmectskddmpjxnsogwooexj",
+                            Version = "unjfbf",
+                        },
+                    },
+                    SecretName = "x",
+                },
+            },
+            Endpoint = "bshzrukafmxjgnrlhzlxbbzjdbqh",
+            Protocol = "mqtt",
+            Tls = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRemoteBrokerConnectionTlsArgs
+            {
+                TlsEnabled = true,
+                TrustedCaCertificateConfigMap = "ivtebqmclgfjx",
+            },
+        },
+        ResourceGroupName = "rgiotoperationsmq",
+        Tags = null,
+    });
+
+});
+

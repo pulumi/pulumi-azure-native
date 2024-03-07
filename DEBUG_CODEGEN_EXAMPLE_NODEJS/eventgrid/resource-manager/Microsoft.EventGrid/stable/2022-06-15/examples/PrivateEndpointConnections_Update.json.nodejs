@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.eventgrid.PrivateEndpointConnection("privateEndpointConnection", {
+    parentName: "exampletopic1",
+    parentType: "topics",
+    privateEndpointConnectionName: "BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "None",
+        description: "approving connection",
+        status: "Approved",
+    },
+    resourceGroupName: "examplerg",
+});

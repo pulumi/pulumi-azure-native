@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var catalog = new AzureNative.DevCenter.Catalog("catalog", new()
+    {
+        AdoGit = new AzureNative.DevCenter.Inputs.GitCatalogArgs
+        {
+            Branch = "main",
+            Path = "/templates",
+            SecretIdentifier = "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+            Uri = "https://contoso@dev.azure.com/contoso/contosoOrg/_git/centralrepo-fakecontoso",
+        },
+        CatalogName = "CentralCatalog",
+        DevCenterName = "Contoso",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

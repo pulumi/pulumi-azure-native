@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var liveOutput = new AzureNative.Media.LiveOutput("liveOutput", new()
+    {
+        AccountName = "slitestmedia10",
+        ArchiveWindowLength = "PT5M",
+        AssetName = "6f3264f5-a189-48b4-a29a-a40f22575212",
+        Description = "test live output 1",
+        Hls = new AzureNative.Media.Inputs.HlsArgs
+        {
+            FragmentsPerTsSegment = 5,
+        },
+        LiveEventName = "myLiveEvent1",
+        LiveOutputName = "myLiveOutput1",
+        ManifestName = "testmanifest",
+        ResourceGroupName = "mediaresources",
+        RewindWindowLength = "PT4M",
+    });
+
+});
+

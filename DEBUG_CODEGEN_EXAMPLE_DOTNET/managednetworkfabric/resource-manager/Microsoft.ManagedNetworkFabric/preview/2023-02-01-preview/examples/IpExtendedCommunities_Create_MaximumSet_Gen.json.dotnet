@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ipExtendedCommunity = new AzureNative.ManagedNetworkFabric.IpExtendedCommunity("ipExtendedCommunity", new()
+    {
+        Action = "Permit",
+        Annotation = "annotationValue",
+        IpExtendedCommunityName = "example_ipExtendedCommunity",
+        Location = "EastUs",
+        ResourceGroupName = "rgIpExtendedCommunityLists",
+        RouteTargets = new[]
+        {
+            "1234:5678",
+        },
+        Tags = 
+        {
+            { "key5054", "key" },
+        },
+    });
+
+});
+

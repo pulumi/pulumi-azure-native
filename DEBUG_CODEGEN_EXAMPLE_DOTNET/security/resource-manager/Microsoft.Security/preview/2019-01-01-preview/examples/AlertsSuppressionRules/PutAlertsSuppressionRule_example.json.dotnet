@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var alertsSuppressionRule = new AzureNative.Security.AlertsSuppressionRule("alertsSuppressionRule", new()
+    {
+        AlertType = "IpAnomaly",
+        AlertsSuppressionRuleName = "dismissIpAnomalyAlerts",
+        Comment = "Test VM",
+        ExpirationDateUtc = "2019-12-01T19:50:47.083633Z",
+        Reason = "FalsePositive",
+        State = "Enabled",
+        SuppressionAlertsScope = new AzureNative.Security.Inputs.SuppressionAlertsScopeArgs
+        {
+            AllOf = new[]
+            {
+                new AzureNative.Security.Inputs.ScopeElementArgs
+                {
+                    Field = "entities.ip.address",
+                },
+                new AzureNative.Security.Inputs.ScopeElementArgs
+                {
+                    Field = "entities.process.commandline",
+                },
+            },
+        },
+    });
+
+});
+

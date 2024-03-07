@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var standbyContainerGroupPool = new AzureNative.StandbyPool.StandbyContainerGroupPool("standbyContainerGroupPool", new()
+    {
+        ContainerGroupProperties = new AzureNative.StandbyPool.Inputs.ContainerGroupPropertiesArgs
+        {
+            ContainerGroupProfile = new AzureNative.StandbyPool.Inputs.ContainerGroupProfileArgs
+            {
+                Id = "/subscriptions/8CC31D61-82D7-4B2B-B9DC-6B924DE7D229/resourceGroups/rgstandbypool/providers/Microsoft.ContainerInstance/containerGroupProfiles/cgProfile",
+                Revision = 1,
+            },
+            SubnetIds = new[]
+            {
+                new AzureNative.StandbyPool.Inputs.SubnetArgs
+                {
+                    Id = "/subscriptions/8cf6c1b6-c80f-437c-87ad-45fbaff54f73/resourceGroups/rgstandbypool/providers/Microsoft.Network/virtualNetworks/cgSubnet/subnets/cgSubnet",
+                },
+            },
+        },
+        ElasticityProfile = new AzureNative.StandbyPool.Inputs.StandbyContainerGroupPoolElasticityProfileArgs
+        {
+            MaxReadyCapacity = 688,
+            RefillPolicy = "always",
+        },
+        Location = "West US",
+        ResourceGroupName = "rgstandbypool",
+        StandbyContainerGroupPoolName = "pool",
+        Tags = null,
+    });
+
+});
+

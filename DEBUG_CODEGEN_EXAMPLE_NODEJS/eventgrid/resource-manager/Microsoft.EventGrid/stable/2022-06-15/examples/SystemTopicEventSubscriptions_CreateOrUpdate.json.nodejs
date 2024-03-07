@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const systemTopicEventSubscription = new azure_native.eventgrid.SystemTopicEventSubscription("systemTopicEventSubscription", {
+    destination: {
+        endpointType: "WebHook",
+        endpointUrl: "https://requestb.in/15ksip71",
+    },
+    eventSubscriptionName: "exampleEventSubscriptionName1",
+    filter: {
+        isSubjectCaseSensitive: false,
+        subjectBeginsWith: "ExamplePrefix",
+        subjectEndsWith: "ExampleSuffix",
+    },
+    resourceGroupName: "examplerg",
+    systemTopicName: "exampleSystemTopic1",
+});

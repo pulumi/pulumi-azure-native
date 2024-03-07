@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var clusterPool = new AzureNative.HDInsight.ClusterPool("clusterPool", new()
+    {
+        ClusterPoolName = "clusterpool1",
+        ClusterPoolProfile = new AzureNative.HDInsight.Inputs.ClusterPoolResourcePropertiesClusterPoolProfileArgs
+        {
+            ClusterPoolVersion = "1.2",
+        },
+        ComputeProfile = new AzureNative.HDInsight.Inputs.ClusterPoolResourcePropertiesComputeProfileArgs
+        {
+            VmSize = "Standard_D3_v2",
+        },
+        Location = "West US 2",
+        ResourceGroupName = "hiloResourcegroup",
+    });
+
+});
+

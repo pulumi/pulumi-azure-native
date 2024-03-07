@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var datastore = new AzureNative.AVS.Datastore("datastore", new()
+    {
+        ClusterName = "cluster1",
+        DatastoreName = "datastore1",
+        NetAppVolume = new AzureNative.AVS.Inputs.NetAppVolumeArgs
+        {
+            Id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.NetApp/netAppAccounts/NetAppAccount1/capacityPools/CapacityPool1/volumes/NFSVol1",
+        },
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+    });
+
+});
+

@@ -1,0 +1,42 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const containerGroup = new azure_native.containerinstance.ContainerGroup("containerGroup", {
+    confidentialComputeProperties: {
+        ccePolicy: "eyJhbGxvd19hbGwiOiB0cnVlLCAiY29udGFpbmVycyI6IHsibGVuZ3RoIjogMCwgImVsZW1lbnRzIjogbnVsbH19",
+    },
+    containerGroupName: "demo1",
+    containers: [{
+        command: [],
+        environmentVariables: [],
+        image: "confiimage",
+        name: "accdemo",
+        ports: [{
+            port: 8000,
+        }],
+        resources: {
+            requests: {
+                cpu: 1,
+                memoryInGB: 1.5,
+            },
+        },
+        securityContext: {
+            capabilities: {
+                add: ["CAP_NET_ADMIN"],
+            },
+            privileged: false,
+        },
+    }],
+    imageRegistryCredentials: [],
+    ipAddress: {
+        ports: [{
+            port: 8000,
+            protocol: "TCP",
+        }],
+        type: "Public",
+    },
+    location: "westeurope",
+    osType: "Linux",
+    resourceGroupName: "demo",
+    sku: "Confidential",
+});

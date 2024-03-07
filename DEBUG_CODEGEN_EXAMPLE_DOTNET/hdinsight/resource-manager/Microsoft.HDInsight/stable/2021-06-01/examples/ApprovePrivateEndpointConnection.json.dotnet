@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.HDInsight.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        ClusterName = "cluster1",
+        PrivateEndpointConnectionName = "testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2",
+        PrivateLinkServiceConnectionState = new AzureNative.HDInsight.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "None",
+            Description = "update it from pending to approved.",
+            Status = "Approved",
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

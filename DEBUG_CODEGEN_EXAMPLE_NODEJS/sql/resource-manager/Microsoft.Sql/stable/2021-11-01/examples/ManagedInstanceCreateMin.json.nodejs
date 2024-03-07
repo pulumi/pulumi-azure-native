@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedInstance = new azure_native.sql.ManagedInstance("managedInstance", {
+    administratorLogin: "dummylogin",
+    administratorLoginPassword: "PLACEHOLDER",
+    licenseType: "LicenseIncluded",
+    location: "Japan East",
+    managedInstanceName: "testinstance",
+    resourceGroupName: "testrg",
+    sku: {
+        name: "GP_Gen4",
+        tier: "GeneralPurpose",
+    },
+    storageSizeInGB: 1024,
+    subnetId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    vCores: 8,
+});

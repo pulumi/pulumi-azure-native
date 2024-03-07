@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nspAccessRule = new AzureNative.Network.NspAccessRule("nspAccessRule", new()
+    {
+        AccessRuleName = "accessRule1",
+        AddressPrefixes = new[]
+        {
+            "10.11.0.0/16",
+            "10.10.1.0/24",
+        },
+        Direction = "Inbound",
+        NetworkSecurityPerimeterName = "nsp1",
+        ProfileName = "profile1",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

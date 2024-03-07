@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const linkedSubscription = new azure_native.azurestack.LinkedSubscription("linkedSubscription", {
+    linkedSubscriptionId: "104fbb77-2b0e-476a-83de-65ad8acd1f0b",
+    linkedSubscriptionName: "testLinkedSubscription",
+    location: "eastus",
+    registrationResourceId: "/subscriptions/dd8597b4-8739-4467-8b10-f8679f62bfbf/resourceGroups/azurestack/providers/Microsoft.AzureStack/registrations/testRegistration",
+    resourceGroup: "azurestack",
+});

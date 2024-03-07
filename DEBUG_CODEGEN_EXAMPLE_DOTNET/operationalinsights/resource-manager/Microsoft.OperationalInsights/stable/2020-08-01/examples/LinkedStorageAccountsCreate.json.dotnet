@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var linkedStorageAccount = new AzureNative.OperationalInsights.LinkedStorageAccount("linkedStorageAccount", new()
+    {
+        DataSourceType = "CustomLogs",
+        ResourceGroupName = "mms-eus",
+        StorageAccountIds = new[]
+        {
+            "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA",
+            "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB",
+        },
+        WorkspaceName = "testLinkStorageAccountsWS",
+    });
+
+});
+

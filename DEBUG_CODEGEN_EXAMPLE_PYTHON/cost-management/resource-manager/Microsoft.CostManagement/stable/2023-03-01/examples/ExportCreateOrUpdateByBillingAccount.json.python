@@ -2,9 +2,9 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 export = azure_native.costmanagement.Export("export",
-    definition=azure_native.costmanagement.ExportDefinitionArgs(
-        data_set=azure_native.costmanagement.ExportDatasetArgs(
-            configuration=azure_native.costmanagement.ExportDatasetConfigurationArgs(
+    definition=azure_native.costmanagement.ExportDefinitionResponseArgs(
+        data_set={
+            "configuration": azure_native.costmanagement.ExportDatasetConfigurationArgs(
                 columns=[
                     "Date",
                     "MeterId",
@@ -13,12 +13,12 @@ export = azure_native.costmanagement.Export("export",
                     "Quantity",
                 ],
             ),
-            granularity="Daily",
-        ),
+            "granularity": "Daily",
+        },
         timeframe="MonthToDate",
         type="ActualCost",
     ),
-    delivery_info=azure_native.costmanagement.ExportDeliveryInfoArgs(
+    delivery_info=azure_native.costmanagement.ExportDeliveryInfoResponseArgs(
         destination=azure_native.costmanagement.ExportDeliveryDestinationArgs(
             container="exports",
             resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
@@ -27,7 +27,7 @@ export = azure_native.costmanagement.Export("export",
     ),
     export_name="TestExport",
     format="Csv",
-    schedule=azure_native.costmanagement.ExportScheduleArgs(
+    schedule=azure_native.costmanagement.ExportScheduleResponseArgs(
         recurrence="Weekly",
         recurrence_period=azure_native.costmanagement.ExportRecurrencePeriodArgs(
             from_="2020-06-01T00:00:00Z",

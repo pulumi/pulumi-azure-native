@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var monitoringConfig = new AzureNative.DataBoxEdge.MonitoringConfig("monitoringConfig", new()
+    {
+        DeviceName = "testedgedevice",
+        MetricConfigurations = new[]
+        {
+            new AzureNative.DataBoxEdge.Inputs.MetricConfigurationArgs
+            {
+                CounterSets = new[]
+                {
+                    new AzureNative.DataBoxEdge.Inputs.MetricCounterSetArgs
+                    {
+                        Counters = new[]
+                        {
+                            new AzureNative.DataBoxEdge.Inputs.MetricCounterArgs
+                            {
+                                Name = "test",
+                            },
+                        },
+                    },
+                },
+                MdmAccount = "test",
+                MetricNameSpace = "test",
+                ResourceId = "test",
+            },
+        },
+        ResourceGroupName = "GroupForEdgeAutomation",
+        RoleName = "testrole",
+    });
+
+});
+

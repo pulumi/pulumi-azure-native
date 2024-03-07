@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var moveCollection = new AzureNative.Migrate.MoveCollection("moveCollection", new()
+    {
+        Identity = new AzureNative.Migrate.Inputs.IdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Location = "eastus2",
+        MoveCollectionName = "movecollection1",
+        Properties = new AzureNative.Migrate.Inputs.MoveCollectionPropertiesArgs
+        {
+            SourceRegion = "eastus",
+            TargetRegion = "westus",
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

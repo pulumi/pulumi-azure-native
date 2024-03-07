@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 software_update_configuration_by_name = azure_native.automation.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName",
     automation_account_name="myaccount",
     resource_group_name="mygroup",
-    schedule_info=azure_native.automation.SUCSchedulePropertiesArgs(
+    schedule_info=azure_native.automation.SUCSchedulePropertiesResponseArgs(
         advanced_schedule=azure_native.automation.AdvancedScheduleArgs(
             week_days=[
                 "Monday",
@@ -18,7 +18,7 @@ software_update_configuration_by_name = azure_native.automation.SoftwareUpdateCo
         time_zone="America/Los_Angeles",
     ),
     software_update_configuration_name="testpatch",
-    tasks=azure_native.automation.SoftwareUpdateConfigurationTasksArgs(
+    tasks=azure_native.automation.SoftwareUpdateConfigurationTasksResponseArgs(
         post_task=azure_native.automation.TaskPropertiesArgs(
             source="GetCache",
         ),
@@ -29,7 +29,7 @@ software_update_configuration_by_name = azure_native.automation.SoftwareUpdateCo
             source="HelloWorld",
         ),
     ),
-    update_configuration=azure_native.automation.UpdateConfigurationArgs(
+    update_configuration=azure_native.automation.UpdateConfigurationResponseArgs(
         azure_virtual_machines=[
             "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
             "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
@@ -41,17 +41,17 @@ software_update_configuration_by_name = azure_native.automation.SoftwareUpdateCo
             "box2.contoso.com",
         ],
         operating_system=azure_native.automation.OperatingSystemType.WINDOWS,
-        targets=azure_native.automation.TargetPropertiesArgs(
-            azure_queries=[azure_native.automation.AzureQueryPropertiesArgs(
-                locations=[
+        targets={
+            "azureQueries": [{
+                "locations": [
                     "Japan East",
                     "UK South",
                 ],
-                scope=[
+                "scope": [
                     "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
                     "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
                 ],
-                tag_settings=azure_native.automation.TagSettingsPropertiesArgs(
+                "tagSettings": azure_native.automation.TagSettingsPropertiesArgs(
                     filter_operator=azure_native.automation.TagOperators.ALL,
                     tags={
                         "tag1": [
@@ -66,8 +66,8 @@ software_update_configuration_by_name = azure_native.automation.SoftwareUpdateCo
                         ],
                     },
                 ),
-            )],
-            non_azure_queries=[
+            }],
+            "nonAzureQueries": [
                 azure_native.automation.NonAzureQueryPropertiesArgs(
                     function_alias="SavedSearch1",
                     workspace_id="WorkspaceId1",
@@ -77,7 +77,7 @@ software_update_configuration_by_name = azure_native.automation.SoftwareUpdateCo
                     workspace_id="WorkspaceId2",
                 ),
             ],
-        ),
+        },
         windows=azure_native.automation.WindowsPropertiesArgs(
             excluded_kb_numbers=[
                 "168934",

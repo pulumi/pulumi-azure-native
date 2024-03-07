@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const space = new azure_native.integrationspaces.Space("space", {
+    description: "This is the user provided description of the space resource.",
+    location: "CentralUS",
+    resourceGroupName: "testrg",
+    spaceName: "Space1",
+    tags: {
+        key1: "Value1",
+    },
+});

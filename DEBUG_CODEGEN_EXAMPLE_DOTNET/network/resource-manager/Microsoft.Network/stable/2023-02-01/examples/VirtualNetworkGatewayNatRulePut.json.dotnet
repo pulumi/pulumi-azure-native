@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualNetworkGatewayNatRule = new AzureNative.Network.VirtualNetworkGatewayNatRule("virtualNetworkGatewayNatRule", new()
+    {
+        ExternalMappings = new[]
+        {
+            new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+            {
+                AddressSpace = "192.168.21.0/24",
+                PortRange = "300-400",
+            },
+        },
+        InternalMappings = new[]
+        {
+            new AzureNative.Network.Inputs.VpnNatRuleMappingArgs
+            {
+                AddressSpace = "10.4.0.0/24",
+                PortRange = "200-300",
+            },
+        },
+        IpConfigurationId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/gateway1/ipConfigurations/default",
+        Mode = "EgressSnat",
+        NatRuleName = "natRule1",
+        ResourceGroupName = "rg1",
+        Type = "Static",
+        VirtualNetworkGatewayName = "gateway1",
+    });
+
+});
+

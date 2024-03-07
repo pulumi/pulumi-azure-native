@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedPrivateEndpoint = new azure_native.dashboard.ManagedPrivateEndpoint("managedPrivateEndpoint", {
+    groupIds: ["grafana"],
+    location: "West US",
+    managedPrivateEndpointName: "myMPEName",
+    privateLinkResourceId: "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-000000000000/resourceGroups/xx-rg/providers/Microsoft.Kusto/Clusters/sampleKustoResource",
+    privateLinkResourceRegion: "West US",
+    privateLinkServiceUrl: "my-self-hosted-influxdb.westus.mydomain.com",
+    requestMessage: "Example Request Message",
+    resourceGroupName: "myResourceGroup",
+    workspaceName: "myWorkspace",
+});

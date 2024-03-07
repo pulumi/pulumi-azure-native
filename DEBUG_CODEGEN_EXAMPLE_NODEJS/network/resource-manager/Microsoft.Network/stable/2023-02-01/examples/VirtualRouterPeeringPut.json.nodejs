@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualRouterPeering = new azure_native.network.VirtualRouterPeering("virtualRouterPeering", {
+    peerAsn: 20000,
+    peerIp: "192.168.1.5",
+    peeringName: "peering1",
+    resourceGroupName: "rg1",
+    virtualRouterName: "virtualRouter",
+});

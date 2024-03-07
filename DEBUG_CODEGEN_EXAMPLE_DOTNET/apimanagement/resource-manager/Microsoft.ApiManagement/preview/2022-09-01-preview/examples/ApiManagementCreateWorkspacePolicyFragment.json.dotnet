@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspacePolicyFragment = new AzureNative.ApiManagement.WorkspacePolicyFragment("workspacePolicyFragment", new()
+    {
+        Description = "A policy fragment example",
+        Format = "xml",
+        Id = "policyFragment1",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Value = "<fragment><json-to-xml apply=\"always\" consider-accept-header=\"false\" /></fragment>",
+        WorkspaceId = "wks1",
+    });
+
+});
+

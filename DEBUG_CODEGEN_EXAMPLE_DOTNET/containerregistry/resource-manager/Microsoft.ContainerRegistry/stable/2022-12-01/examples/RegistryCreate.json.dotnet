@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var registry = new AzureNative.ContainerRegistry.Registry("registry", new()
+    {
+        AdminUserEnabled = true,
+        Location = "westus",
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.ContainerRegistry.Inputs.SkuArgs
+        {
+            Name = "Standard",
+        },
+        Tags = 
+        {
+            { "key", "value" },
+        },
+    });
+
+});
+

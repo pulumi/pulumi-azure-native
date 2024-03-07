@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadNetworkDhcp = new azure_native.avs.WorkloadNetworkDhcp("workloadNetworkDhcp", {
+    dhcpId: "dhcp1",
+    privateCloudName: "cloud1",
+    properties: {
+        dhcpType: "SERVER",
+        displayName: "dhcpConfigurations1",
+        leaseTime: 86400,
+        revision: 1,
+        serverAddress: "40.1.5.1/24",
+    },
+    resourceGroupName: "group1",
+});

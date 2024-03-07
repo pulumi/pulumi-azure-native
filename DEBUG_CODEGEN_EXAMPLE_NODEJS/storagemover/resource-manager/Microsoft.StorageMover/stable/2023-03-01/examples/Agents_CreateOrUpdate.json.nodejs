@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const agent = new azure_native.storagemover.Agent("agent", {
+    agentName: "examples-agentName",
+    arcResourceId: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+    arcVmUuid: "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+    description: "Example Agent Description",
+    resourceGroupName: "examples-rg",
+    storageMoverName: "examples-storageMoverName",
+});

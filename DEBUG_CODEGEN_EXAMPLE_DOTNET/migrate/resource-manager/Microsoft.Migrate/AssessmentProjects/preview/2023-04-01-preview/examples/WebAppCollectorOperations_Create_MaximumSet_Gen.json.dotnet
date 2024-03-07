@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppCollectorOperation = new AzureNative.Migrate.WebAppCollectorOperation("webAppCollectorOperation", new()
+    {
+        AgentProperties = new AzureNative.Migrate.Inputs.CollectorAgentPropertiesBaseArgs
+        {
+            Id = "fed93df5-b787-4e3f-a764-e3d2b9101a59-agent",
+            LastHeartbeatUtc = "2023-11-03T05:43:02.078Z",
+            SpnDetails = new AzureNative.Migrate.Inputs.CollectorAgentSpnPropertiesBaseArgs
+            {
+                ApplicationId = "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                Audience = "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                Authority = "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                ObjectId = "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+                TenantId = "2f70d5e8-7adc-4c64-910a-7031079efc6e",
+            },
+        },
+        CollectorName = "collector1",
+        DiscoverySiteId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sumukk-ccy-bcs/providers/Microsoft.OffAzure/MasterSites/sumukk-ccy-bcs9880mastersite/WebAppSites/sumukk-ccy-bcs9880webappsites",
+        ProjectName = "sumukk-ccy-bcs4557project",
+        ResourceGroupName = "rgopenapi",
+    });
+
+});
+

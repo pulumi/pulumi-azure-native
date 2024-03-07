@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mongoDBResourceMongoUserDefinition = new AzureNative.DocumentDB.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition", new()
+    {
+        AccountName = "myAccountName",
+        CustomData = "My custom data",
+        DatabaseName = "sales",
+        Mechanisms = "SCRAM-SHA-256",
+        MongoUserDefinitionId = "myMongoUserDefinitionId",
+        Password = "myPassword",
+        ResourceGroupName = "myResourceGroupName",
+        Roles = new[]
+        {
+            new AzureNative.DocumentDB.Inputs.RoleArgs
+            {
+                Db = "sales",
+                Role = "myReadRole",
+            },
+        },
+        UserName = "myUserName",
+    });
+
+});
+

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var productWiki = new AzureNative.ApiManagement.ProductWiki("productWiki", new()
+    {
+        Documents = new[]
+        {
+            new AzureNative.ApiManagement.Inputs.WikiDocumentationContractArgs
+            {
+                DocumentationId = "docId1",
+            },
+            new AzureNative.ApiManagement.Inputs.WikiDocumentationContractArgs
+            {
+                DocumentationId = "docId2",
+            },
+        },
+        ProductId = "57d1f7558aa04f15146d9d8a",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

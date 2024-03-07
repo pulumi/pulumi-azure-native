@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const fleetUpdateStrategy = new azure_native.containerservice.FleetUpdateStrategy("fleetUpdateStrategy", {
+    fleetName: "fleet1",
+    resourceGroupName: "rg1",
+    strategy: {
+        stages: [{
+            afterStageWaitInSeconds: 3600,
+            groups: [{
+                name: "group-a",
+            }],
+            name: "stage1",
+        }],
+    },
+    updateStrategyName: "strartegy1",
+});

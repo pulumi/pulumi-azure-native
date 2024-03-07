@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var buildServiceAgentPool = new AzureNative.AppPlatform.BuildServiceAgentPool("buildServiceAgentPool", new()
+    {
+        AgentPoolName = "default",
+        BuildServiceName = "default",
+        Properties = new AzureNative.AppPlatform.Inputs.BuildServiceAgentPoolPropertiesArgs
+        {
+            PoolSize = new AzureNative.AppPlatform.Inputs.BuildServiceAgentPoolSizePropertiesArgs
+            {
+                Name = "S3",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

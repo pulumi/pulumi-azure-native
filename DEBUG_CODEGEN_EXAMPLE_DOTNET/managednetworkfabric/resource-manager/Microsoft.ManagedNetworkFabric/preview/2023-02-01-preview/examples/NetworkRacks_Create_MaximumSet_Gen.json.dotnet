@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkRack = new AzureNative.ManagedNetworkFabric.NetworkRack("networkRack", new()
+    {
+        Annotation = "null",
+        Location = "eastus",
+        NetworkFabricId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/networkFabricName",
+        NetworkRackName = "networkRackName",
+        NetworkRackSku = "RackSKU",
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "keyID", "keyValue" },
+        },
+    });
+
+});
+

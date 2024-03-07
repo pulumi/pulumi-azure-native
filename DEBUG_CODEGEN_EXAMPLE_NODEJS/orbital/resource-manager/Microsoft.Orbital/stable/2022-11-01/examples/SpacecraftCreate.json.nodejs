@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const spacecraft = new azure_native.orbital.Spacecraft("spacecraft", {
+    links: [
+        {
+            bandwidthMHz: 2,
+            centerFrequencyMHz: 2250,
+            direction: "Uplink",
+            name: "uplink_lhcp1",
+            polarization: "LHCP",
+        },
+        {
+            bandwidthMHz: 15,
+            centerFrequencyMHz: 8160,
+            direction: "Downlink",
+            name: "downlink_rhcp1",
+            polarization: "RHCP",
+        },
+    ],
+    location: "eastus2",
+    noradId: "36411",
+    resourceGroupName: "contoso-Rgp",
+    spacecraftName: "CONTOSO_SAT",
+    titleLine: "CONTOSO_SAT",
+    tleLine1: "1 27424U 02022A   22167.05119303  .00000638  00000+0  15103-3 0  9994",
+    tleLine2: "2 27424  98.2477 108.9546 0000928  92.9194 327.0802 14.57300770 69982",
+});

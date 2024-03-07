@@ -1,0 +1,49 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cloudService = new azure_native.compute.CloudService("cloudService", {
+    cloudServiceName: "{cs-name}",
+    location: "westus",
+    properties: {
+        configuration: "{ServiceConfiguration}",
+        networkProfile: {
+            loadBalancerConfigurations: [{
+                name: "contosolb",
+                properties: {
+                    frontendIpConfigurations: [{
+                        name: "contosofe",
+                        properties: {
+                            publicIPAddress: {
+                                id: "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                            },
+                        },
+                    }],
+                },
+            }],
+        },
+        packageUrl: "{PackageUrl}",
+        roleProfile: {
+            roles: [
+                {
+                    name: "ContosoFrontend",
+                    sku: {
+                        capacity: 1,
+                        name: "Standard_D1_v2",
+                        tier: "Standard",
+                    },
+                },
+                {
+                    name: "ContosoBackend",
+                    sku: {
+                        capacity: 1,
+                        name: "Standard_D1_v2",
+                        tier: "Standard",
+                    },
+                },
+            ],
+        },
+        upgradeMode: "Auto",
+    },
+    resourceGroupName: "ConstosoRG",
+    zones: ["1"],
+});

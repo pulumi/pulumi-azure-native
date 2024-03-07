@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const trustedIdProvider = new azure_native.datalakestore.TrustedIdProvider("trustedIdProvider", {
+    accountName: "contosoadla",
+    idProvider: "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+    resourceGroupName: "contosorg",
+    trustedIdProviderName: "test_trusted_id_provider_name",
+});

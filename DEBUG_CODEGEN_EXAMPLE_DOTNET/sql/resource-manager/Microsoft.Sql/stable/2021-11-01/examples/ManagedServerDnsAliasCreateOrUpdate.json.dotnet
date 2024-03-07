@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedServerDnsAlias = new AzureNative.Sql.ManagedServerDnsAlias("managedServerDnsAlias", new()
+    {
+        DnsAliasName = "dns-alias-mi",
+        ManagedInstanceName = "dns-mi",
+        ResourceGroupName = "Default",
+    });
+
+});
+

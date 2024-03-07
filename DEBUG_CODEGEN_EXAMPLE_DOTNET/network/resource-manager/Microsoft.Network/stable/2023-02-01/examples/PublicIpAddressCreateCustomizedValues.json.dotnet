@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var publicIPAddress = new AzureNative.Network.PublicIPAddress("publicIPAddress", new()
+    {
+        IdleTimeoutInMinutes = 10,
+        Location = "eastus",
+        PublicIPAddressVersion = "IPv4",
+        PublicIPAllocationMethod = "Static",
+        PublicIpAddressName = "test-ip",
+        ResourceGroupName = "rg1",
+        Sku = new AzureNative.Network.Inputs.PublicIPAddressSkuArgs
+        {
+            Name = "Standard",
+            Tier = "Global",
+        },
+    });
+
+});
+

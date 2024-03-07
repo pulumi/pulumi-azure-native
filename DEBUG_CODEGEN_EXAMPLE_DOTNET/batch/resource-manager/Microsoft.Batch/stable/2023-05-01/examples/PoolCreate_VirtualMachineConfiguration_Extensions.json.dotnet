@@ -1,0 +1,56 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.Batch.Pool("pool", new()
+    {
+        AccountName = "sampleacct",
+        DeploymentConfiguration = new AzureNative.Batch.Inputs.DeploymentConfigurationArgs
+        {
+            VirtualMachineConfiguration = new AzureNative.Batch.Inputs.VirtualMachineConfigurationArgs
+            {
+                Extensions = new[]
+                {
+                    new AzureNative.Batch.Inputs.VMExtensionArgs
+                    {
+                        AutoUpgradeMinorVersion = true,
+                        EnableAutomaticUpgrade = true,
+                        Name = "batchextension1",
+                        Publisher = "Microsoft.Azure.KeyVault",
+                        Settings = 
+                        {
+                            { "authenticationSettingsKey", "authenticationSettingsValue" },
+                            { "secretsManagementSettingsKey", "secretsManagementSettingsValue" },
+                        },
+                        Type = "KeyVaultForLinux",
+                        TypeHandlerVersion = "2.0",
+                    },
+                },
+                ImageReference = new AzureNative.Batch.Inputs.ImageReferenceArgs
+                {
+                    Offer = "0001-com-ubuntu-server-focal",
+                    Publisher = "Canonical",
+                    Sku = "20_04-lts",
+                },
+                NodeAgentSkuId = "batch.node.ubuntu 20.04",
+            },
+        },
+        PoolName = "testpool",
+        ResourceGroupName = "default-azurebatch-japaneast",
+        ScaleSettings = new AzureNative.Batch.Inputs.ScaleSettingsArgs
+        {
+            AutoScale = new AzureNative.Batch.Inputs.AutoScaleSettingsArgs
+            {
+                EvaluationInterval = "PT5M",
+                Formula = "$TargetDedicatedNodes=1",
+            },
+        },
+        TargetNodeCommunicationMode = AzureNative.Batch.NodeCommunicationMode.Default,
+        VmSize = "STANDARD_D4",
+    });
+
+});
+

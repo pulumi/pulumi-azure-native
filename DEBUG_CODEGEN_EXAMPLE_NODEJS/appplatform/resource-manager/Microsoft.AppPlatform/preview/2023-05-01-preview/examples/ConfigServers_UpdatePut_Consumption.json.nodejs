@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const configServer = new azure_native.appplatform.ConfigServer("configServer", {
+    properties: {
+        configServer: {
+            gitProperty: {
+                label: "master",
+                searchPaths: ["/"],
+                uri: "https://github.com/fake-user/fake-repository.git",
+            },
+        },
+        enabledState: "Enabled",
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

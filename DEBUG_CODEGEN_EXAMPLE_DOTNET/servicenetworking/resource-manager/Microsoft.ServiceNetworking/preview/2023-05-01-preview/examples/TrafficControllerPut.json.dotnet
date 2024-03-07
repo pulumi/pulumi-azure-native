@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var trafficControllerInterface = new AzureNative.ServiceNetworking.TrafficControllerInterface("trafficControllerInterface", new()
+    {
+        Location = "NorthCentralUS",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+        TrafficControllerName = "tc1",
+    });
+
+});
+

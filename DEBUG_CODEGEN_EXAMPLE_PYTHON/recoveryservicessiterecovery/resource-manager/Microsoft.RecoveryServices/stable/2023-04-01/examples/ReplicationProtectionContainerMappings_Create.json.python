@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 replication_protection_container_mapping = azure_native.recoveryservices.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping",
     fabric_name="cloud1",
     mapping_name="cloud1protectionprofile1",
-    properties=azure_native.recoveryservices.CreateProtectionContainerMappingInputPropertiesArgs(
+    properties=azure_native.recoveryservices.ProtectionContainerMappingPropertiesResponseArgs(
         policy_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
         provider_specific_input={
             "instanceType": "ReplicationProviderSpecificContainerMappingInput",

@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var restorePoint = new AzureNative.Compute.RestorePoint("restorePoint", new()
+    {
+        ExcludeDisks = new[]
+        {
+            new AzureNative.Compute.Inputs.ApiEntityReferenceArgs
+            {
+                Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        RestorePointCollectionName = "rpcName",
+        RestorePointName = "rpName",
+    });
+
+});
+

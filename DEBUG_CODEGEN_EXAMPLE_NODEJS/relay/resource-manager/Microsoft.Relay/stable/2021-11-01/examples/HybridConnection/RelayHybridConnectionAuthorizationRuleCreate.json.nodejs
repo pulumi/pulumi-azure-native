@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hybridConnectionAuthorizationRule = new azure_native.relay.HybridConnectionAuthorizationRule("hybridConnectionAuthorizationRule", {
+    authorizationRuleName: "example-RelayAuthRules-01",
+    hybridConnectionName: "example-Relay-Hybrid-01",
+    namespaceName: "example-RelayNamespace-01",
+    resourceGroupName: "resourcegroup",
+    rights: [
+        "Listen",
+        "Send",
+    ],
+});

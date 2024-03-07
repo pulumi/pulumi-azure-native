@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var huntComment = new AzureNative.SecurityInsights.HuntComment("huntComment", new()
+    {
+        HuntCommentId = "2216d0e1-91e3-4902-89fd-d2df8c535096",
+        HuntId = "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+        Message = "This is a test comment.",
+        ResourceGroupName = "myRg",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

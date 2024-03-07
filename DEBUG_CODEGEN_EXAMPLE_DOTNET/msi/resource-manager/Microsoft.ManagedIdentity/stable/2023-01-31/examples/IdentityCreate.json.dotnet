@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var userAssignedIdentity = new AzureNative.ManagedIdentity.UserAssignedIdentity("userAssignedIdentity", new()
+    {
+        Location = "eastus",
+        ResourceGroupName = "rgName",
+        ResourceName = "resourceName",
+        Tags = 
+        {
+            { "key1", "value1" },
+            { "key2", "value2" },
+        },
+    });
+
+});
+

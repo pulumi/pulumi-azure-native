@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var commitmentPlanAssociation = new AzureNative.CognitiveServices.CommitmentPlanAssociation("commitmentPlanAssociation", new()
+    {
+        AccountId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName",
+        CommitmentPlanAssociationName = "commitmentPlanAssociationName",
+        CommitmentPlanName = "commitmentPlanName",
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

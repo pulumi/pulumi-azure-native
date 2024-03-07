@@ -1,0 +1,187 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var acssBackupConnection = new AzureNative.Workloads.ACSSBackupConnection("acssBackupConnection", new()
+    {
+        BackupData = new AzureNative.Workloads.Inputs.SqlBackupDataArgs
+        {
+            BackupPolicy = new AzureNative.Workloads.Inputs.DBBackupPolicyPropertiesArgs
+            {
+                BackupManagementType = "AzureWorkload",
+                Name = "defaultSqlPolicy",
+                ProtectedItemsCount = 0,
+                Settings = new AzureNative.Workloads.Inputs.SettingsArgs
+                {
+                    IsCompression = true,
+                    Issqlcompression = true,
+                    TimeZone = "UTC",
+                },
+                SubProtectionPolicy = new[]
+                {
+                    new AzureNative.Workloads.Inputs.SubProtectionPolicyArgs
+                    {
+                        PolicyType = "Full",
+                        RetentionPolicy = new AzureNative.Workloads.Inputs.LongTermRetentionPolicyArgs
+                        {
+                            MonthlySchedule = new AzureNative.Workloads.Inputs.MonthlyRetentionScheduleArgs
+                            {
+                                RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                                {
+                                    Count = 60,
+                                    DurationType = "Months",
+                                },
+                                RetentionScheduleFormatType = "Weekly",
+                                RetentionScheduleWeekly = new AzureNative.Workloads.Inputs.WeeklyRetentionFormatArgs
+                                {
+                                    DaysOfTheWeek = new[]
+                                    {
+                                        AzureNative.Workloads.DayOfWeek.Sunday,
+                                    },
+                                    WeeksOfTheMonth = new[]
+                                    {
+                                        AzureNative.Workloads.WeekOfMonth.First,
+                                    },
+                                },
+                                RetentionTimes = new[]
+                                {
+                                    "2022-11-29T19:30:00.000Z",
+                                },
+                            },
+                            RetentionPolicyType = "LongTermRetentionPolicy",
+                            WeeklySchedule = new AzureNative.Workloads.Inputs.WeeklyRetentionScheduleArgs
+                            {
+                                DaysOfTheWeek = new[]
+                                {
+                                    AzureNative.Workloads.DayOfWeek.Sunday,
+                                },
+                                RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                                {
+                                    Count = 104,
+                                    DurationType = "Weeks",
+                                },
+                                RetentionTimes = new[]
+                                {
+                                    "2022-11-29T19:30:00.000Z",
+                                },
+                            },
+                            YearlySchedule = new AzureNative.Workloads.Inputs.YearlyRetentionScheduleArgs
+                            {
+                                MonthsOfYear = new[]
+                                {
+                                    AzureNative.Workloads.MonthOfYear.January,
+                                },
+                                RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                                {
+                                    Count = 10,
+                                    DurationType = "Years",
+                                },
+                                RetentionScheduleFormatType = "Weekly",
+                                RetentionScheduleWeekly = new AzureNative.Workloads.Inputs.WeeklyRetentionFormatArgs
+                                {
+                                    DaysOfTheWeek = new[]
+                                    {
+                                        AzureNative.Workloads.DayOfWeek.Sunday,
+                                    },
+                                    WeeksOfTheMonth = new[]
+                                    {
+                                        AzureNative.Workloads.WeekOfMonth.First,
+                                    },
+                                },
+                                RetentionTimes = new[]
+                                {
+                                    "2022-11-29T19:30:00.000Z",
+                                },
+                            },
+                        },
+                        SchedulePolicy = new AzureNative.Workloads.Inputs.SimpleSchedulePolicyArgs
+                        {
+                            SchedulePolicyType = "SimpleSchedulePolicy",
+                            ScheduleRunDays = new[]
+                            {
+                                AzureNative.Workloads.DayOfWeek.Sunday,
+                            },
+                            ScheduleRunFrequency = "Weekly",
+                            ScheduleRunTimes = new[]
+                            {
+                                "2022-11-29T19:30:00.000Z",
+                            },
+                        },
+                        TieringPolicy = 
+                        {
+                            { "ArchivedRP", new AzureNative.Workloads.Inputs.TieringPolicyArgs
+                            {
+                                Duration = 45,
+                                DurationType = "Days",
+                                TieringMode = "TierAfter",
+                            } },
+                        },
+                    },
+                    new AzureNative.Workloads.Inputs.SubProtectionPolicyArgs
+                    {
+                        PolicyType = "Differential",
+                        RetentionPolicy = new AzureNative.Workloads.Inputs.SimpleRetentionPolicyArgs
+                        {
+                            RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                            {
+                                Count = 30,
+                                DurationType = "Days",
+                            },
+                            RetentionPolicyType = "SimpleRetentionPolicy",
+                        },
+                        SchedulePolicy = new AzureNative.Workloads.Inputs.SimpleSchedulePolicyArgs
+                        {
+                            SchedulePolicyType = "SimpleSchedulePolicy",
+                            ScheduleRunDays = new[]
+                            {
+                                AzureNative.Workloads.DayOfWeek.Monday,
+                            },
+                            ScheduleRunFrequency = "Weekly",
+                            ScheduleRunTimes = new[]
+                            {
+                                "2022-09-29T02:00:00Z",
+                            },
+                            ScheduleWeeklyFrequency = 0,
+                        },
+                    },
+                    new AzureNative.Workloads.Inputs.SubProtectionPolicyArgs
+                    {
+                        PolicyType = "Log",
+                        RetentionPolicy = new AzureNative.Workloads.Inputs.SimpleRetentionPolicyArgs
+                        {
+                            RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                            {
+                                Count = 20,
+                                DurationType = "Days",
+                            },
+                            RetentionPolicyType = "SimpleRetentionPolicy",
+                        },
+                        SchedulePolicy = new AzureNative.Workloads.Inputs.LogSchedulePolicyArgs
+                        {
+                            ScheduleFrequencyInMins = 120,
+                            SchedulePolicyType = "LogSchedulePolicy",
+                        },
+                    },
+                },
+                WorkLoadType = "SQLDataBase",
+            },
+            BackupType = "SQL",
+            RecoveryServicesVault = new AzureNative.Workloads.Inputs.NewRecoveryServicesVaultArgs
+            {
+                Name = "test-vault",
+                ResourceGroup = "test-rg",
+                VaultType = "New",
+            },
+        },
+        BackupName = "dbBackup",
+        ConnectorName = "C1",
+        Location = "westcentralus",
+        ResourceGroupName = "test-rg",
+        Tags = null,
+    });
+
+});
+

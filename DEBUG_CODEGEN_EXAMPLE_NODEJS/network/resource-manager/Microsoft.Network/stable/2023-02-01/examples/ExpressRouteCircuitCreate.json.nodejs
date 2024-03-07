@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const expressRouteCircuit = new azure_native.network.ExpressRouteCircuit("expressRouteCircuit", {
+    allowClassicOperations: false,
+    authorizations: [],
+    circuitName: "circuitName",
+    location: "Brazil South",
+    peerings: [],
+    resourceGroupName: "rg1",
+    serviceProviderProperties: {
+        bandwidthInMbps: 200,
+        peeringLocation: "Silicon Valley",
+        serviceProviderName: "Equinix",
+    },
+    sku: {
+        family: "MeteredData",
+        name: "Standard_MeteredData",
+        tier: "Standard",
+    },
+});

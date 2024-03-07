@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var notificationHub = new AzureNative.NotificationHubs.NotificationHub("notificationHub", new()
+    {
+        Location = "eastus",
+        NamespaceName = "nh-sdk-ns",
+        NotificationHubName = "nh-sdk-hub",
+        Properties = null,
+        ResourceGroupName = "5ktrial",
+    });
+
+});
+

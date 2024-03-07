@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var readWriteDatabase = new AzureNative.Kusto.ReadWriteDatabase("readWriteDatabase", new()
+    {
+        CallerRole = "Admin",
+        ClusterName = "kustoCluster",
+        DatabaseName = "KustoDatabase8",
+        Kind = "ReadWrite",
+        Location = "westus",
+        ResourceGroupName = "kustorptest",
+        SoftDeletePeriod = "P1D",
+    });
+
+});
+

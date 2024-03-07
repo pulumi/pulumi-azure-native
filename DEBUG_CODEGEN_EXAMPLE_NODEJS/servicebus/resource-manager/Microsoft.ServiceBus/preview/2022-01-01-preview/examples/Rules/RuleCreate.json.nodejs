@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const rule = new azure_native.servicebus.Rule("rule", {
+    namespaceName: "sdk-Namespace-1319",
+    resourceGroupName: "resourceGroupName",
+    ruleName: "sdk-Rules-6571",
+    subscriptionName: "sdk-Subscriptions-8691",
+    topicName: "sdk-Topics-2081",
+});

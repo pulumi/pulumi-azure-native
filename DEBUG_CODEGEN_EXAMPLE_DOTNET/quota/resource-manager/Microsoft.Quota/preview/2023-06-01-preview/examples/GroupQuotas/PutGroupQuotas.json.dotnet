@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var groupQuota = new AzureNative.Quota.GroupQuota("groupQuota", new()
+    {
+        GroupQuotaName = "groupquota1",
+        MgId = "E7EC67B3-7657-4966-BFFC-41EFD36BAA09",
+        Properties = new AzureNative.Quota.Inputs.GroupQuotasEntityBaseArgs
+        {
+            AdditionalAttributes = new AzureNative.Quota.Inputs.AdditionalAttributesArgs
+            {
+                Environment = "Production",
+                GroupId = new AzureNative.Quota.Inputs.GroupingIdArgs
+                {
+                    GroupingIdType = "ServiceTreeId",
+                    Value = "yourServiceTreeIdHere",
+                },
+            },
+            DisplayName = "GroupQuota1",
+        },
+    });
+
+});
+

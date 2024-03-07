@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dataManagerForAgricultureResource = new azure_native.agfoodplatform.DataManagerForAgricultureResource("dataManagerForAgricultureResource", {
+    dataManagerForAgricultureResourceName: "examples-farmbeatsResourceName",
+    location: "eastus2",
+    resourceGroupName: "examples-rg",
+    tags: {
+        key1: "value1",
+        key2: "value2",
+    },
+});

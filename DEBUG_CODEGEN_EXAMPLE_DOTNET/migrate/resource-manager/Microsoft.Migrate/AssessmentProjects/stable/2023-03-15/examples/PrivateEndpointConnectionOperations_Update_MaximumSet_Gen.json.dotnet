@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnectionOperation = new AzureNative.Migrate.PrivateEndpointConnectionOperation("privateEndpointConnectionOperation", new()
+    {
+        PrivateEndpointConnectionName = "sakanwar1204project1634pe.bf42f8a1-09f5-4ee4-aea6-a019cc60f9d7",
+        PrivateLinkServiceConnectionState = new AzureNative.Migrate.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "",
+            Status = "Approved",
+        },
+        ProjectName = "sakanwar1204project",
+        ResourceGroupName = "sakanwar",
+    });
+
+});
+

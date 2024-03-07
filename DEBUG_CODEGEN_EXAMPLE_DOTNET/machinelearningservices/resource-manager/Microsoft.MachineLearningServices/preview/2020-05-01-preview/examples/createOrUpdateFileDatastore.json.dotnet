@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineLearningDatastore = new AzureNative.MachineLearningServices.MachineLearningDatastore("machineLearningDatastore", new()
+    {
+        AccountKey = "wddrfewfewsgewgrrwegwreg",
+        AccountName = "acjainmleastus9484093746",
+        DataStoreType = "file",
+        DatastoreName = "fileDatastore",
+        ResourceGroupName = "acjain-mleastUS2",
+        ShareName = "azureml-filestore-5da947c5-53aa-41a5-bb2b-074074e73b76",
+        WorkspaceName = "acjain-mleastUS2",
+    });
+
+});
+

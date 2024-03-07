@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var application = new AzureNative.Solutions.Application("application", new()
+    {
+        ApplicationDefinitionId = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
+        ApplicationName = "myManagedApplication",
+        Kind = "ServiceCatalog",
+        ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+        ResourceGroupName = "rg",
+    });
+
+});
+

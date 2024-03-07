@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.purview.PrivateEndpointConnection("privateEndpointConnection", {
+    accountName: "account1",
+    privateEndpointConnectionName: "privateEndpointConnection1",
+    privateLinkServiceConnectionState: {
+        description: "Approved by johndoe@company.com",
+        status: "Approved",
+    },
+    resourceGroupName: "SampleResourceGroup",
+});

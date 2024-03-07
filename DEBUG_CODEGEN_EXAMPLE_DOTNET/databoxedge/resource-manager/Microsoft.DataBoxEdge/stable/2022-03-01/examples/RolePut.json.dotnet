@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mecRole = new AzureNative.DataBoxEdge.MECRole("mecRole", new()
+    {
+        DeviceName = "testedgedevice",
+        Name = "IoTRole1",
+        ResourceGroupName = "GroupForEdgeAutomation",
+    });
+
+});
+

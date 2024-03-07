@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fileServiceProperties = new AzureNative.Storage.FileServiceProperties("fileServiceProperties", new()
+    {
+        AccountName = "sto8607",
+        FileServicesName = "default",
+        ProtocolSettings = new AzureNative.Storage.Inputs.ProtocolSettingsArgs
+        {
+            Smb = new AzureNative.Storage.Inputs.SmbSettingArgs
+            {
+                AuthenticationMethods = "NTLMv2;Kerberos",
+                ChannelEncryption = "AES-128-CCM;AES-128-GCM;AES-256-GCM",
+                KerberosTicketEncryption = "RC4-HMAC;AES-256",
+                Versions = "SMB2.1;SMB3.0;SMB3.1.1",
+            },
+        },
+        ResourceGroupName = "res4410",
+    });
+
+});
+

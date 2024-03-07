@@ -1,0 +1,108 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    {
+        ClusterName = "cluster1",
+        Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+        {
+            ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+            {
+                Configurations = 
+                {
+                    { "gateway", 
+                    {
+                        { "restAuthCredential.isEnabled", true },
+                        { "restAuthCredential.password", "**********" },
+                        { "restAuthCredential.username", "admin" },
+                    } },
+                },
+                Kind = "Hadoop",
+            },
+            ClusterVersion = "3.6",
+            ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+            {
+                Roles = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "Standard_DS14_v2",
+                        },
+                        Name = "headnode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                Username = "sshuser",
+                            },
+                        },
+                        TargetInstanceCount = 2,
+                    },
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "Standard_DS14_v2",
+                        },
+                        Name = "workernode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                Username = "sshuser",
+                            },
+                        },
+                        TargetInstanceCount = 3,
+                    },
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "Standard_DS14_v2",
+                        },
+                        Name = "zookeepernode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                Username = "sshuser",
+                            },
+                        },
+                        TargetInstanceCount = 3,
+                    },
+                },
+            },
+            DiskEncryptionProperties = new AzureNative.HDInsight.Inputs.DiskEncryptionPropertiesArgs
+            {
+                EncryptionAtHost = true,
+            },
+            OsType = "Linux",
+            StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+            {
+                Storageaccounts = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.StorageAccountArgs
+                    {
+                        Container = "default8525",
+                        IsDefault = true,
+                        Key = "storagekey",
+                        Name = "mystorage.blob.core.windows.net",
+                    },
+                },
+            },
+            Tier = "Standard",
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

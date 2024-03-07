@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var loadBalancerBackendAddressPool = new AzureNative.Network.LoadBalancerBackendAddressPool("loadBalancerBackendAddressPool", new()
+    {
+        BackendAddressPoolName = "backend",
+        LoadBalancerBackendAddresses = new[]
+        {
+            new AzureNative.Network.Inputs.LoadBalancerBackendAddressArgs
+            {
+                IpAddress = "10.0.0.4",
+                Name = "address1",
+                VirtualNetwork = new AzureNative.Network.Inputs.SubResourceArgs
+                {
+                    Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb",
+                },
+            },
+            new AzureNative.Network.Inputs.LoadBalancerBackendAddressArgs
+            {
+                IpAddress = "10.0.0.5",
+                Name = "address2",
+                VirtualNetwork = new AzureNative.Network.Inputs.SubResourceArgs
+                {
+                    Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb",
+                },
+            },
+        },
+        LoadBalancerName = "lb",
+        ResourceGroupName = "testrg",
+    });
+
+});
+

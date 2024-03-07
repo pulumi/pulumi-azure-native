@@ -1,0 +1,44 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var raiPolicy = new AzureNative.CognitiveServices.RaiPolicy("raiPolicy", new()
+    {
+        AccountName = "accountName",
+        Properties = new AzureNative.CognitiveServices.Inputs.RaiPolicyPropertiesArgs
+        {
+            BasePolicyName = "112",
+            ContentFilters = new[]
+            {
+                new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+                {
+                    AllowedContentLevel = "Low",
+                    Blocking = true,
+                    Name = "hate",
+                },
+                new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+                {
+                    AllowedContentLevel = "Low",
+                    Name = "sexual",
+                },
+                new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+                {
+                    Enabled = false,
+                    Name = "violence",
+                },
+                new AzureNative.CognitiveServices.Inputs.RaiPolicyContentFilterArgs
+                {
+                    Enabled = false,
+                    Name = "DefaultHateSpeechBlockList",
+                },
+            },
+        },
+        RaiPolicyName = "raiPolicyName",
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

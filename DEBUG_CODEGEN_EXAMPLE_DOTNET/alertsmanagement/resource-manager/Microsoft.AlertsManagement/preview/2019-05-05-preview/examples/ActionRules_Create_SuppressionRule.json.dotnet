@@ -1,0 +1,79 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var actionRuleByName = new AzureNative.AlertsManagement.ActionRuleByName("actionRuleByName", new()
+    {
+        ActionRuleName = "DailySuppression",
+        Location = "Global",
+        Properties = new AzureNative.AlertsManagement.Inputs.SuppressionArgs
+        {
+            Conditions = new AzureNative.AlertsManagement.Inputs.ConditionsArgs
+            {
+                MonitorCondition = new AzureNative.AlertsManagement.Inputs.ConditionArgs
+                {
+                    Operator = "Equals",
+                    Values = new[]
+                    {
+                        "Fired",
+                    },
+                },
+                MonitorService = new AzureNative.AlertsManagement.Inputs.ConditionArgs
+                {
+                    Operator = "Equals",
+                    Values = new[]
+                    {
+                        "Platform",
+                        "Application Insights",
+                    },
+                },
+                Severity = new AzureNative.AlertsManagement.Inputs.ConditionArgs
+                {
+                    Operator = "Equals",
+                    Values = new[]
+                    {
+                        "Sev0",
+                        "Sev2",
+                    },
+                },
+                TargetResourceType = new AzureNative.AlertsManagement.Inputs.ConditionArgs
+                {
+                    Operator = "NotEquals",
+                    Values = new[]
+                    {
+                        "Microsoft.Compute/VirtualMachines",
+                    },
+                },
+            },
+            Description = "Action rule on resource group for daily suppression",
+            Scope = new AzureNative.AlertsManagement.Inputs.ScopeArgs
+            {
+                ScopeType = "ResourceGroup",
+                Values = new[]
+                {
+                    "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/alertscorrelationrg",
+                },
+            },
+            Status = "Enabled",
+            SuppressionConfig = new AzureNative.AlertsManagement.Inputs.SuppressionConfigArgs
+            {
+                RecurrenceType = "Daily",
+                Schedule = new AzureNative.AlertsManagement.Inputs.SuppressionScheduleArgs
+                {
+                    EndDate = "12/18/2018",
+                    EndTime = "14:00:00",
+                    StartDate = "12/09/2018",
+                    StartTime = "06:00:00",
+                },
+            },
+            Type = "Suppression",
+        },
+        ResourceGroupName = "alertscorrelationrg",
+        Tags = null,
+    });
+
+});
+

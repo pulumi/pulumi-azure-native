@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var staticSiteLinkedBackend = new AzureNative.Web.StaticSiteLinkedBackend("staticSiteLinkedBackend", new()
+    {
+        BackendResourceId = "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/backendRg/providers/Microsoft.Web/sites/testBackend",
+        LinkedBackendName = "testBackend",
+        Name = "testStaticSite0",
+        Region = "West US 2",
+        ResourceGroupName = "rg",
+    });
+
+});
+

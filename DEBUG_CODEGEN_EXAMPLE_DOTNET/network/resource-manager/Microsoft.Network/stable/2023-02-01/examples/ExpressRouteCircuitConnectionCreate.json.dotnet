@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var expressRouteCircuitConnection = new AzureNative.Network.ExpressRouteCircuitConnection("expressRouteCircuitConnection", new()
+    {
+        AddressPrefix = "10.0.0.0/29",
+        AuthorizationKey = "946a1918-b7a2-4917-b43c-8c4cdaee006a",
+        CircuitName = "ExpressRouteARMCircuitA",
+        ConnectionName = "circuitConnectionUSAUS",
+        ExpressRouteCircuitPeering = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/dedharcktlocal/peerings/AzurePrivatePeering",
+        },
+        Ipv6CircuitConnectionConfig = new AzureNative.Network.Inputs.Ipv6CircuitConnectionConfigArgs
+        {
+            AddressPrefix = "aa:bb::/125",
+        },
+        PeerExpressRouteCircuitPeering = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subid2/resourceGroups/dedharcktpeer/providers/Microsoft.Network/expressRouteCircuits/dedharcktremote/peerings/AzurePrivatePeering",
+        },
+        PeeringName = "AzurePrivatePeering",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

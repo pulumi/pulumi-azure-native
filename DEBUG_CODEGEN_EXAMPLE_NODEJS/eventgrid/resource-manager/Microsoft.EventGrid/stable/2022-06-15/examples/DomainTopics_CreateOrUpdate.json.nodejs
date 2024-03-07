@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const domainTopic = new azure_native.eventgrid.DomainTopic("domainTopic", {
+    domainName: "exampledomain1",
+    domainTopicName: "exampledomaintopic1",
+    resourceGroupName: "examplerg",
+});

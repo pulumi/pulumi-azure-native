@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var watcher = new AzureNative.DatabaseWatcher.Watcher("watcher", new()
+    {
+        Location = "westus",
+        ResourceGroupName = "apiTest-ddat4p",
+        WatcherName = "databasemo3ej9ih",
+    });
+
+});
+

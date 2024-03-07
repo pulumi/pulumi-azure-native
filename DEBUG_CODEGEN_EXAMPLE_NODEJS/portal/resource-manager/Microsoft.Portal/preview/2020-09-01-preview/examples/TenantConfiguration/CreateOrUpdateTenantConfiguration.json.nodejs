@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const tenantConfiguration = new azure_native.portal.TenantConfiguration("tenantConfiguration", {
+    configurationName: "default",
+    enforcePrivateMarkdownStorage: true,
+});

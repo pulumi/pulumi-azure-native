@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const azureBareMetalStorageInstance = new azure_native.baremetalinfrastructure.AzureBareMetalStorageInstance("azureBareMetalStorageInstance", {
+    azureBareMetalStorageInstanceName: "myAzureBareMetalStorageInstance",
+    azureBareMetalStorageInstanceUniqueIdentifier: "23415635-4d7e-41dc-9598-8194f22c24e9",
+    location: "westus2",
+    resourceGroupName: "myResourceGroup",
+    storageProperties: {
+        generation: "Gen4",
+        hardwareType: "NetApp",
+        offeringType: "EPIC",
+        provisioningState: "Succeeded",
+        storageBillingProperties: {
+            azureBareMetalStorageInstanceSize: "",
+            billingMode: "PAYG",
+        },
+        storageType: "FC",
+        workloadType: "ODB",
+    },
+    tags: {
+        key: "value",
+    },
+});

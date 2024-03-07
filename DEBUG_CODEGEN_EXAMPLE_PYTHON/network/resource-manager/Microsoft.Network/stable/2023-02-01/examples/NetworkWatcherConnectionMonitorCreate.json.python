@@ -16,14 +16,14 @@ connection_monitor = azure_native.network.ConnectionMonitor("connectionMonitor",
     location="eastus",
     network_watcher_name="nw1",
     resource_group_name="rg1",
-    test_configurations=[azure_native.network.ConnectionMonitorTestConfigurationArgs(
-        name="tcp",
-        protocol="Tcp",
-        tcp_configuration=azure_native.network.ConnectionMonitorTcpConfigurationArgs(
+    test_configurations=[{
+        "name": "tcp",
+        "protocol": "Tcp",
+        "tcpConfiguration": azure_native.network.ConnectionMonitorTcpConfigurationArgs(
             port=80,
         ),
-        test_frequency_sec=60,
-    )],
+        "testFrequencySec": 60,
+    }],
     test_groups=[azure_native.network.ConnectionMonitorTestGroupArgs(
         destinations=["destination"],
         name="tg",

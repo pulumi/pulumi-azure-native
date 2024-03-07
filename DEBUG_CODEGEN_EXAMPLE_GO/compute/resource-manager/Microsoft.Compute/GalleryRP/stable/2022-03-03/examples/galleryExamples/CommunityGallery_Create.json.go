@@ -1,0 +1,30 @@
+package main
+
+import (
+	"github.com/pulumi/pulumi-azure-native-sdk/compute/v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := compute.NewGallery(ctx, "gallery", &compute.GalleryArgs{
+			Description:       pulumi.String("This is the gallery description."),
+			GalleryName:       pulumi.String("myGalleryName"),
+			Location:          pulumi.String("West US"),
+			ResourceGroupName: pulumi.String("myResourceGroup"),
+			SharingProfile: compute.SharingProfileResponse{
+				CommunityGalleryInfo: &compute.CommunityGalleryInfoArgs{
+					Eula:             pulumi.String("eula"),
+					PublicNamePrefix: pulumi.String("PirPublic"),
+					PublisherContact: pulumi.String("pir@microsoft.com"),
+					PublisherUri:     pulumi.String("uri"),
+				},
+				Permissions: pulumi.String("Community"),
+			},
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}

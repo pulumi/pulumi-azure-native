@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlSitesController = new azure_native.offazure.SqlSitesController("sqlSitesController", {
+    resourceGroupName: "rgmigrate",
+    siteName: "Ag5-Ex4n7G5Qn-5-yHL5",
+    sqlSiteName: "-03--VkVPfDq5",
+});

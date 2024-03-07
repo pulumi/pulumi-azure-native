@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.Compute.Disk("disk", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "Empty",
+            LogicalSectorSize = 512,
+        },
+        DiskName = "myDisk",
+        DiskSizeGB = 200,
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Compute.Inputs.DiskSkuArgs
+        {
+            Name = "UltraSSD_LRS",
+        },
+    });
+
+});
+

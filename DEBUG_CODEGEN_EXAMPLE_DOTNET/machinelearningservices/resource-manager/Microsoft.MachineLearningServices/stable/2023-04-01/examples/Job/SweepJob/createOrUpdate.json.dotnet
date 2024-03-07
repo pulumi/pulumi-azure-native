@@ -1,0 +1,98 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.MachineLearningServices.Job("job", new()
+    {
+        Id = "string",
+        JobBaseProperties = new AzureNative.MachineLearningServices.Inputs.SweepJobArgs
+        {
+            ComputeId = "string",
+            Description = "string",
+            DisplayName = "string",
+            EarlyTermination = new AzureNative.MachineLearningServices.Inputs.MedianStoppingPolicyArgs
+            {
+                DelayEvaluation = 1,
+                EvaluationInterval = 1,
+                PolicyType = "MedianStopping",
+            },
+            ExperimentName = "string",
+            JobType = "Sweep",
+            Limits = new AzureNative.MachineLearningServices.Inputs.SweepJobLimitsArgs
+            {
+                JobLimitsType = "Sweep",
+                MaxConcurrentTrials = 1,
+                MaxTotalTrials = 1,
+                TrialTimeout = "PT1S",
+            },
+            Objective = new AzureNative.MachineLearningServices.Inputs.ObjectiveArgs
+            {
+                Goal = "Minimize",
+                PrimaryMetric = "string",
+            },
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            SamplingAlgorithm = new AzureNative.MachineLearningServices.Inputs.GridSamplingAlgorithmArgs
+            {
+                SamplingAlgorithmType = "Grid",
+            },
+            SearchSpace = 
+            {
+                { "string", null },
+            },
+            Services = 
+            {
+                { "string", new AzureNative.MachineLearningServices.Inputs.JobServiceArgs
+                {
+                    Endpoint = "string",
+                    JobServiceType = "string",
+                    Port = 1,
+                    Properties = 
+                    {
+                        { "string", "string" },
+                    },
+                } },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+            Trial = new AzureNative.MachineLearningServices.Inputs.TrialComponentArgs
+            {
+                CodeId = "string",
+                Command = "string",
+                Distribution = new AzureNative.MachineLearningServices.Inputs.MpiArgs
+                {
+                    DistributionType = "Mpi",
+                    ProcessCountPerInstance = 1,
+                },
+                EnvironmentId = "string",
+                EnvironmentVariables = 
+                {
+                    { "string", "string" },
+                },
+                Resources = new AzureNative.MachineLearningServices.Inputs.JobResourceConfigurationArgs
+                {
+                    InstanceCount = 1,
+                    InstanceType = "string",
+                    Properties = 
+                    {
+                        { "string", 
+                        {
+                            { "e6b6493e-7d5e-4db3-be1e-306ec641327e", null },
+                        } },
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "test-rg",
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

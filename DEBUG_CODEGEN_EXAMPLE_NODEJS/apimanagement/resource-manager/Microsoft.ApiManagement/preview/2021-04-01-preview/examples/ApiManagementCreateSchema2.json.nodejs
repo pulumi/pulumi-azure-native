@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const schema = new azure_native.apimanagement.Schema("schema", {
+    description: "sample schema description",
+    resourceGroupName: "rg1",
+    schemaId: "schema1",
+    schemaType: "json",
+    serviceName: "apimService1",
+});

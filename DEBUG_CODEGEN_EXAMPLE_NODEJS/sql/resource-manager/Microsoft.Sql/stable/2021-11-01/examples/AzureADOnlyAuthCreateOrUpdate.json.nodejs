@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serverAzureADOnlyAuthentication = new azure_native.sql.ServerAzureADOnlyAuthentication("serverAzureADOnlyAuthentication", {
+    authenticationName: "Default",
+    azureADOnlyAuthentication: false,
+    resourceGroupName: "sqlcrudtest-4799",
+    serverName: "sqlcrudtest-6440",
+});

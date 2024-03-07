@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualNetworkRule = new azure_native.dbformariadb.VirtualNetworkRule("virtualNetworkRule", {
+    ignoreMissingVnetServiceEndpoint: false,
+    resourceGroupName: "TestGroup",
+    serverName: "vnet-test-svr",
+    virtualNetworkRuleName: "vnet-firewall-rule",
+    virtualNetworkSubnetId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+});

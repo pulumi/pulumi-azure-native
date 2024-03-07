@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachineInstance = new AzureNative.ScVmm.VirtualMachineInstance("virtualMachineInstance", new()
+    {
+        ExtendedLocation = new AzureNative.ScVmm.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+            Type = "customLocation",
+        },
+        HardwareProfile = new AzureNative.ScVmm.Inputs.HardwareProfileArgs
+        {
+            CpuCount = 4,
+            MemoryMB = 4196,
+        },
+        InfrastructureProfile = new AzureNative.ScVmm.Inputs.InfrastructureProfileArgs
+        {
+            CloudId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/Clouds/HRCloud",
+            TemplateId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachineTemplates/HRVirtualMachineTemplate",
+            VmmServerId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer",
+        },
+        ResourceUri = "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+    });
+
+});
+

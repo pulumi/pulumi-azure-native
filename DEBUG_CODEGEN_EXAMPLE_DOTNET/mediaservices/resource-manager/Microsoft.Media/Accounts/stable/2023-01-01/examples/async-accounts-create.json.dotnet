@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mediaService = new AzureNative.Media.MediaService("mediaService", new()
+    {
+        AccountName = "contososports",
+        Location = "South Central US",
+        ResourceGroupName = "contosorg",
+        StorageAccounts = new[]
+        {
+            new AzureNative.Media.Inputs.StorageAccountArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+                Type = "Primary",
+            },
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+            { "key2", "value2" },
+        },
+    });
+
+});
+

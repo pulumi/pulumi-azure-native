@@ -1,0 +1,60 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const deployment = new azure_native.appplatform.Deployment("deployment", {
+    appName: "myapp",
+    deploymentName: "mydeployment",
+    properties: {
+        deploymentSettings: {
+            environmentVariables: {
+                env: "test",
+            },
+            livenessProbe: {
+                disableProbe: false,
+                failureThreshold: 3,
+                initialDelaySeconds: 30,
+                periodSeconds: 10,
+                probeAction: {
+                    path: "/health",
+                    scheme: "HTTP",
+                    type: "HTTPGetAction",
+                },
+            },
+            readinessProbe: {
+                disableProbe: false,
+                failureThreshold: 3,
+                initialDelaySeconds: 30,
+                periodSeconds: 10,
+                probeAction: {
+                    path: "/health",
+                    scheme: "HTTP",
+                    type: "HTTPGetAction",
+                },
+            },
+            resourceRequests: {
+                cpu: "1000m",
+                memory: "3Gi",
+            },
+            terminationGracePeriodSeconds: 30,
+        },
+        source: {
+            customContainer: {
+                args: [
+                    "-c",
+                    "while true; do echo hello; sleep 10;done",
+                ],
+                command: ["/bin/sh"],
+                containerImage: "myContainerImage:v1",
+                imageRegistryCredential: {
+                    password: "myPassword",
+                    username: "myUsername",
+                },
+                languageFramework: "springboot",
+                server: "myacr.azurecr.io",
+            },
+            type: "Container",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

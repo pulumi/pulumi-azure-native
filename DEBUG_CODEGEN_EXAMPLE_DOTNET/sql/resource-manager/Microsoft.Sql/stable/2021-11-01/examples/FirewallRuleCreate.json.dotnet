@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var firewallRule = new AzureNative.Sql.FirewallRule("firewallRule", new()
+    {
+        EndIpAddress = "0.0.0.3",
+        FirewallRuleName = "firewallrulecrudtest-5370",
+        ResourceGroupName = "firewallrulecrudtest-12",
+        ServerName = "firewallrulecrudtest-6285",
+        StartIpAddress = "0.0.0.3",
+    });
+
+});
+

@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadInstance = new azure_native.migrate.WorkloadInstance("workloadInstance", {
+    modernizeProjectName: "tv39",
+    resourceGroupName: "rgmigrateEngine",
+    workloadInstanceName: "io",
+});

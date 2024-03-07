@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dnsForwardingRuleset = new AzureNative.Network.DnsForwardingRuleset("dnsForwardingRuleset", new()
+    {
+        DnsForwardingRulesetName = "samplednsForwardingRuleset",
+        DnsResolverOutboundEndpoints = new[]
+        {
+            new AzureNative.Network.Inputs.SubResourceArgs
+            {
+                Id = "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint0",
+            },
+            new AzureNative.Network.Inputs.SubResourceArgs
+            {
+                Id = "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint1",
+            },
+        },
+        Location = "westus2",
+        ResourceGroupName = "sampleResourceGroup",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

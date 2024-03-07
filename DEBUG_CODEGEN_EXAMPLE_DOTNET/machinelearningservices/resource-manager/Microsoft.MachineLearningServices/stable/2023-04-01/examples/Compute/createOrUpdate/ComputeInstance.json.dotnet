@@ -1,0 +1,87 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var compute = new AzureNative.MachineLearningServices.Compute("compute", new()
+    {
+        ComputeName = "compute123",
+        Location = "eastus",
+        Properties = new AzureNative.MachineLearningServices.Inputs.ComputeInstanceArgs
+        {
+            ComputeType = "ComputeInstance",
+            Properties = new AzureNative.MachineLearningServices.Inputs.ComputeInstancePropertiesArgs
+            {
+                ApplicationSharingPolicy = "Personal",
+                ComputeInstanceAuthorizationType = "personal",
+                CustomServices = new[]
+                {
+                    new AzureNative.MachineLearningServices.Inputs.CustomServiceArgs
+                    {
+                        Docker = new AzureNative.MachineLearningServices.Inputs.DockerArgs
+                        {
+                            Privileged = true,
+                        },
+                        Endpoints = new[]
+                        {
+                            new AzureNative.MachineLearningServices.Inputs.EndpointArgs
+                            {
+                                Name = "connect",
+                                Protocol = "http",
+                                Published = 8787,
+                                Target = 8787,
+                            },
+                        },
+                        EnvironmentVariables = 
+                        {
+                            { "test_variable", new AzureNative.MachineLearningServices.Inputs.EnvironmentVariableArgs
+                            {
+                                Type = "local",
+                                Value = "test_value",
+                            } },
+                        },
+                        Image = new AzureNative.MachineLearningServices.Inputs.ImageArgs
+                        {
+                            Reference = "ghcr.io/azure/rocker-rstudio-ml-verse:latest",
+                            Type = "docker",
+                        },
+                        Name = "rstudio",
+                        Volumes = new[]
+                        {
+                            new AzureNative.MachineLearningServices.Inputs.VolumeDefinitionArgs
+                            {
+                                ReadOnly = false,
+                                Source = "/home/azureuser/cloudfiles",
+                                Target = "/home/azureuser/cloudfiles",
+                                Type = "bind",
+                            },
+                        },
+                    },
+                },
+                PersonalComputeInstanceSettings = new AzureNative.MachineLearningServices.Inputs.PersonalComputeInstanceSettingsArgs
+                {
+                    AssignedUser = new AzureNative.MachineLearningServices.Inputs.AssignedUserArgs
+                    {
+                        ObjectId = "00000000-0000-0000-0000-000000000000",
+                        TenantId = "00000000-0000-0000-0000-000000000000",
+                    },
+                },
+                SshSettings = new AzureNative.MachineLearningServices.Inputs.ComputeInstanceSshSettingsArgs
+                {
+                    SshPublicAccess = "Disabled",
+                },
+                Subnet = new AzureNative.MachineLearningServices.Inputs.ResourceIdArgs
+                {
+                    Id = "test-subnet-resource-id",
+                },
+                VmSize = "STANDARD_NC6",
+            },
+        },
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspaces123",
+    });
+
+});
+

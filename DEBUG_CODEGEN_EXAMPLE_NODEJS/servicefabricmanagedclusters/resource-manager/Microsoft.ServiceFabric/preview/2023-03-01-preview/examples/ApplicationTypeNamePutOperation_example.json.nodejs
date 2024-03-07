@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedClusterApplicationType = new azure_native.servicefabric.ManagedClusterApplicationType("managedClusterApplicationType", {
+    applicationTypeName: "myAppType",
+    clusterName: "myCluster",
+    location: "eastus",
+    resourceGroupName: "resRg",
+});

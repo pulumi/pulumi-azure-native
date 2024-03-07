@@ -1,0 +1,73 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const job = new azure_native.machinelearningservices.Job("job", {
+    id: "string",
+    jobBaseProperties: {
+        computeId: "string",
+        description: "string",
+        displayName: "string",
+        earlyTermination: {
+            delayEvaluation: 1,
+            evaluationInterval: 1,
+            policyType: "MedianStopping",
+        },
+        experimentName: "string",
+        jobType: "Sweep",
+        limits: {
+            jobLimitsType: "Sweep",
+            maxConcurrentTrials: 1,
+            maxTotalTrials: 1,
+            trialTimeout: "PT1S",
+        },
+        objective: {
+            goal: "Minimize",
+            primaryMetric: "string",
+        },
+        properties: {
+            string: "string",
+        },
+        samplingAlgorithm: {
+            samplingAlgorithmType: "Grid",
+        },
+        searchSpace: {
+            string: {},
+        },
+        services: {
+            string: {
+                endpoint: "string",
+                jobServiceType: "string",
+                port: 1,
+                properties: {
+                    string: "string",
+                },
+            },
+        },
+        tags: {
+            string: "string",
+        },
+        trial: {
+            codeId: "string",
+            command: "string",
+            distribution: {
+                distributionType: "Mpi",
+                processCountPerInstance: 1,
+            },
+            environmentId: "string",
+            environmentVariables: {
+                string: "string",
+            },
+            resources: {
+                instanceCount: 1,
+                instanceType: "string",
+                properties: {
+                    string: {
+                        "e6b6493e-7d5e-4db3-be1e-306ec641327e": undefined,
+                    },
+                },
+            },
+        },
+    },
+    resourceGroupName: "test-rg",
+    workspaceName: "my-aml-workspace",
+});

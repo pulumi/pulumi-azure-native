@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webhook = new AzureNative.Automation.Webhook("webhook", new()
+    {
+        AutomationAccountName = "myAutomationAccount33",
+        ExpiryTime = "2018-03-29T22:18:13.7002872Z",
+        IsEnabled = true,
+        Name = "TestWebhook",
+        ResourceGroupName = "rg",
+        Runbook = new AzureNative.Automation.Inputs.RunbookAssociationPropertyArgs
+        {
+            Name = "TestRunbook",
+        },
+        Uri = "<uri>",
+        WebhookName = "TestWebhook",
+    });
+
+});
+

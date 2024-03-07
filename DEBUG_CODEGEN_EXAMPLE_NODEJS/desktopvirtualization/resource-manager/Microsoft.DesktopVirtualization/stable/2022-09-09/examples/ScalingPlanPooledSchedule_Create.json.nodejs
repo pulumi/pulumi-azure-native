@@ -1,0 +1,42 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const scalingPlanPooledSchedule = new azure_native.desktopvirtualization.ScalingPlanPooledSchedule("scalingPlanPooledSchedule", {
+    daysOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+    ],
+    offPeakLoadBalancingAlgorithm: "DepthFirst",
+    offPeakStartTime: {
+        hour: 20,
+        minute: 0,
+    },
+    peakLoadBalancingAlgorithm: "BreadthFirst",
+    peakStartTime: {
+        hour: 8,
+        minute: 0,
+    },
+    rampDownCapacityThresholdPct: 50,
+    rampDownForceLogoffUsers: true,
+    rampDownLoadBalancingAlgorithm: "DepthFirst",
+    rampDownMinimumHostsPct: 20,
+    rampDownNotificationMessage: "message",
+    rampDownStartTime: {
+        hour: 18,
+        minute: 0,
+    },
+    rampDownWaitTimeMinutes: 30,
+    rampUpCapacityThresholdPct: 80,
+    rampUpLoadBalancingAlgorithm: "DepthFirst",
+    rampUpMinimumHostsPct: 20,
+    rampUpStartTime: {
+        hour: 6,
+        minute: 0,
+    },
+    resourceGroupName: "resourceGroup1",
+    scalingPlanName: "scalingPlan1",
+    scalingPlanScheduleName: "scalingPlanScheduleWeekdays1",
+});

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var tiDataConnector = new AzureNative.SecurityInsights.TIDataConnector("tiDataConnector", new()
+    {
+        DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+        DataTypes = new AzureNative.SecurityInsights.Inputs.TIDataConnectorDataTypesArgs
+        {
+            Indicators = new AzureNative.SecurityInsights.Inputs.TIDataConnectorDataTypesIndicatorsArgs
+            {
+                State = "Enabled",
+            },
+        },
+        Kind = "ThreatIntelligence",
+        ResourceGroupName = "myRg",
+        TenantId = "06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+        TipLookbackPeriod = "2020-01-01T13:00:30.123Z",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

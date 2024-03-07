@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const staticSiteBuildDatabaseConnection = new azure_native.web.StaticSiteBuildDatabaseConnection("staticSiteBuildDatabaseConnection", {
+    connectionIdentity: "SystemAssigned",
+    connectionString: "AccountEndpoint=https://exampleDatabaseName.documents.azure.com:443/;Database=mydb;",
+    databaseConnectionName: "default",
+    environmentName: "default",
+    name: "testStaticSite0",
+    region: "West US 2",
+    resourceGroupName: "rg",
+    resourceId: "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/databaseRG/providers/Microsoft.DocumentDB/databaseAccounts/exampleDatabaseName",
+});

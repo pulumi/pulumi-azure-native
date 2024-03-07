@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var modernizeProject = new AzureNative.Migrate.ModernizeProject("modernizeProject", new()
+    {
+        ModernizeProjectName = "j",
+        ResourceGroupName = "rgmigrateEngine",
+    });
+
+});
+

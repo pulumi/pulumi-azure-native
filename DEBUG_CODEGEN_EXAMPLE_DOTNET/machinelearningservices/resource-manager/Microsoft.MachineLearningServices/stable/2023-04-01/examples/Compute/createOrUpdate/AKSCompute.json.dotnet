@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var compute = new AzureNative.MachineLearningServices.Compute("compute", new()
+    {
+        ComputeName = "compute123",
+        Location = "eastus",
+        Properties = new AzureNative.MachineLearningServices.Inputs.AKSArgs
+        {
+            ComputeType = "AKS",
+            Description = "some compute",
+            Properties = new AzureNative.MachineLearningServices.Inputs.AKSSchemaPropertiesArgs
+            {
+                AgentCount = 4,
+            },
+            ResourceId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/Microsoft.ContainerService/managedClusters/compute123-56826-c9b00420020b2",
+        },
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspaces123",
+    });
+
+});
+

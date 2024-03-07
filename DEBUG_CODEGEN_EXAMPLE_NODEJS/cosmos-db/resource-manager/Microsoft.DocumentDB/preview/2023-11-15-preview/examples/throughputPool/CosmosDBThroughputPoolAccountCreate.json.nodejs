@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const throughputPoolAccount = new azure_native.documentdb.ThroughputPoolAccount("throughputPoolAccount", {
+    accountLocation: "West US",
+    accountResourceIdentifier: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/providers/Microsoft.DocumentDB/resourceGroup/rg1/databaseAccounts/db1/",
+    resourceGroupName: "rg1",
+    throughputPoolAccountName: "db1",
+    throughputPoolName: "tp1",
+});

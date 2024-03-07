@@ -1,0 +1,83 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deployment = new AzureNative.AppPlatform.Deployment("deployment", new()
+    {
+        AppName = "myapp",
+        DeploymentName = "mydeployment",
+        Properties = new AzureNative.AppPlatform.Inputs.DeploymentResourcePropertiesArgs
+        {
+            DeploymentSettings = new AzureNative.AppPlatform.Inputs.DeploymentSettingsArgs
+            {
+                EnvironmentVariables = 
+                {
+                    { "env", "test" },
+                },
+                LivenessProbe = new AzureNative.AppPlatform.Inputs.ProbeArgs
+                {
+                    DisableProbe = false,
+                    FailureThreshold = 3,
+                    InitialDelaySeconds = 30,
+                    PeriodSeconds = 10,
+                    ProbeAction = new AzureNative.AppPlatform.Inputs.HTTPGetActionArgs
+                    {
+                        Path = "/health",
+                        Scheme = "HTTP",
+                        Type = "HTTPGetAction",
+                    },
+                },
+                ReadinessProbe = new AzureNative.AppPlatform.Inputs.ProbeArgs
+                {
+                    DisableProbe = false,
+                    FailureThreshold = 3,
+                    InitialDelaySeconds = 30,
+                    PeriodSeconds = 10,
+                    ProbeAction = new AzureNative.AppPlatform.Inputs.HTTPGetActionArgs
+                    {
+                        Path = "/health",
+                        Scheme = "HTTP",
+                        Type = "HTTPGetAction",
+                    },
+                },
+                ResourceRequests = new AzureNative.AppPlatform.Inputs.ResourceRequestsArgs
+                {
+                    Cpu = "1000m",
+                    Memory = "3Gi",
+                },
+                TerminationGracePeriodSeconds = 30,
+            },
+            Source = new AzureNative.AppPlatform.Inputs.CustomContainerUserSourceInfoArgs
+            {
+                CustomContainer = new AzureNative.AppPlatform.Inputs.CustomContainerArgs
+                {
+                    Args = new[]
+                    {
+                        "-c",
+                        "while true; do echo hello; sleep 10;done",
+                    },
+                    Command = new[]
+                    {
+                        "/bin/sh",
+                    },
+                    ContainerImage = "myContainerImage:v1",
+                    ImageRegistryCredential = new AzureNative.AppPlatform.Inputs.ImageRegistryCredentialArgs
+                    {
+                        Password = "myPassword",
+                        Username = "myUsername",
+                    },
+                    LanguageFramework = "springboot",
+                    Server = "myacr.azurecr.io",
+                },
+                Type = "Container",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

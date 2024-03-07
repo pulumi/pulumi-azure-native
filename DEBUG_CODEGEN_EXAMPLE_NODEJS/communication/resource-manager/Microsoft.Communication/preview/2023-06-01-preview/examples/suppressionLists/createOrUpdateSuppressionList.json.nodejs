@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const suppressionList = new azure_native.communication.SuppressionList("suppressionList", {
+    domainName: "contoso.com",
+    emailServiceName: "contosoEmailService",
+    listName: "contosoNewsAlerts",
+    resourceGroupName: "contosoResourceGroup",
+    suppressionListName: "aaaa1111-bbbb-2222-3333-aaaa11112222",
+});

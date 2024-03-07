@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var profile = new AzureNative.Cdn.Profile("profile", new()
+    {
+        Location = "global",
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+        Sku = new AzureNative.Cdn.Inputs.SkuArgs
+        {
+            Name = "Premium_AzureFrontDoor",
+        },
+    });
+
+});
+

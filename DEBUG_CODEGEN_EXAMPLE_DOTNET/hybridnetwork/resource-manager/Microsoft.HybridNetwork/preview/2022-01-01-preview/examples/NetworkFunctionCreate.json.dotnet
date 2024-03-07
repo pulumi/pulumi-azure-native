@@ -1,0 +1,68 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkFunction = new AzureNative.HybridNetwork.NetworkFunction("networkFunction", new()
+    {
+        Device = new AzureNative.HybridNetwork.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
+        },
+        Location = "eastus",
+        ManagedApplicationParameters = null,
+        NetworkFunctionName = "testNf",
+        NetworkFunctionUserConfigurations = new[]
+        {
+            new AzureNative.HybridNetwork.Inputs.NetworkFunctionUserConfigurationArgs
+            {
+                NetworkInterfaces = new[]
+                {
+                    new AzureNative.HybridNetwork.Inputs.NetworkInterfaceArgs
+                    {
+                        IpConfigurations = new[]
+                        {
+                            new AzureNative.HybridNetwork.Inputs.NetworkInterfaceIPConfigurationArgs
+                            {
+                                Gateway = "",
+                                IpAddress = "",
+                                IpAllocationMethod = "Dynamic",
+                                IpVersion = "IPv4",
+                                Subnet = "",
+                            },
+                        },
+                        MacAddress = "",
+                        NetworkInterfaceName = "nic1",
+                        VmSwitchType = "Management",
+                    },
+                    new AzureNative.HybridNetwork.Inputs.NetworkInterfaceArgs
+                    {
+                        IpConfigurations = new[]
+                        {
+                            new AzureNative.HybridNetwork.Inputs.NetworkInterfaceIPConfigurationArgs
+                            {
+                                Gateway = "",
+                                IpAddress = "",
+                                IpAllocationMethod = "Dynamic",
+                                IpVersion = "IPv4",
+                                Subnet = "",
+                            },
+                        },
+                        MacAddress = "DC-97-F8-79-16-7D",
+                        NetworkInterfaceName = "nic2",
+                        VmSwitchType = "Wan",
+                    },
+                },
+                RoleName = "testRole",
+                UserDataParameters = null,
+            },
+        },
+        ResourceGroupName = "rg",
+        SkuName = "testSku",
+        VendorName = "testVendor",
+    });
+
+});
+

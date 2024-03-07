@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceApiVersionSet = new azure_native.apimanagement.WorkspaceApiVersionSet("workspaceApiVersionSet", {
+    description: "Version configuration",
+    displayName: "api set 1",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    versionSetId: "api1",
+    versioningScheme: "Segment",
+    workspaceId: "wks1",
+});

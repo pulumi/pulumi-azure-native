@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const encryptionProtector = new azure_native.sql.EncryptionProtector("encryptionProtector", {
+    encryptionProtectorName: "current",
+    resourceGroupName: "sqlcrudtest-7398",
+    serverKeyName: "ServiceManaged",
+    serverKeyType: "ServiceManaged",
+    serverName: "sqlcrudtest-4645",
+});

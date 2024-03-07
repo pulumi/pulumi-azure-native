@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const artifactSource = new azure_native.devtestlab.ArtifactSource("artifactSource", {
+    armTemplateFolderPath: "{armTemplateFolderPath}",
+    branchRef: "{branchRef}",
+    displayName: "{displayName}",
+    folderPath: "{folderPath}",
+    labName: "{labName}",
+    name: "{artifactSourceName}",
+    resourceGroupName: "resourceGroupName",
+    securityToken: "{securityToken}",
+    sourceType: "{VsoGit|GitHub|StorageAccount}",
+    status: "{Enabled|Disabled}",
+    tags: {
+        tagName1: "tagValue1",
+    },
+    uri: "{artifactSourceUri}",
+});

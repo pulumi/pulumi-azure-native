@@ -7,7 +7,7 @@ vpn_site = azure_native.network.VpnSite("vpnSite",
     ),
     is_security_site=False,
     location="West US",
-    o365_policy=azure_native.network.O365PolicyPropertiesArgs(
+    o365_policy=azure_native.network.O365PolicyPropertiesResponseArgs(
         break_out_categories=azure_native.network.O365BreakOutCategoryPoliciesArgs(
             allow=True,
             default=False,
@@ -21,17 +21,17 @@ vpn_site = azure_native.network.VpnSite("vpnSite",
     virtual_wan=azure_native.network.SubResourceArgs(
         id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1",
     ),
-    vpn_site_links=[azure_native.network.VpnSiteLinkArgs(
-        bgp_properties=azure_native.network.VpnLinkBgpSettingsArgs(
+    vpn_site_links=[{
+        "bgpProperties": azure_native.network.VpnLinkBgpSettingsArgs(
             asn=1234,
             bgp_peering_address="192.168.0.0",
         ),
-        fqdn="link1.vpnsite1.contoso.com",
-        ip_address="50.50.50.56",
-        link_properties=azure_native.network.VpnLinkProviderPropertiesArgs(
+        "fqdn": "link1.vpnsite1.contoso.com",
+        "ipAddress": "50.50.50.56",
+        "linkProperties": azure_native.network.VpnLinkProviderPropertiesArgs(
             link_provider_name="vendor1",
             link_speed_in_mbps=0,
         ),
-        name="vpnSiteLink1",
-    )],
+        "name": "vpnSiteLink1",
+    }],
     vpn_site_name="vpnSite1")

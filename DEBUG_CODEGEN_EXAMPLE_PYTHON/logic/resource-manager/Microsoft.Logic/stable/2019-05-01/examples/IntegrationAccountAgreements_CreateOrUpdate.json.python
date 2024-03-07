@@ -4,28 +4,28 @@ import pulumi_azure_native as azure_native
 integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("integrationAccountAgreement",
     agreement_name="testAgreement",
     agreement_type=azure_native.logic.AgreementType.AS2,
-    content=azure_native.logic.AgreementContentArgs(
-        a_s2=azure_native.logic.AS2AgreementContentArgs(
-            receive_agreement=azure_native.logic.AS2OneWayAgreementArgs(
-                protocol_settings=azure_native.logic.AS2ProtocolSettingsArgs(
-                    acknowledgement_connection_settings=azure_native.logic.AS2AcknowledgementConnectionSettingsArgs(
+    content=azure_native.logic.AgreementContentResponseArgs(
+        a_s2={
+            "receiveAgreement": {
+                "protocolSettings": {
+                    "acknowledgementConnectionSettings": azure_native.logic.AS2AcknowledgementConnectionSettingsArgs(
                         ignore_certificate_name_mismatch=True,
                         keep_http_connection_alive=True,
                         support_http_status_code_continue=True,
                         unfold_http_headers=True,
                     ),
-                    envelope_settings=azure_native.logic.AS2EnvelopeSettingsArgs(
+                    "envelopeSettings": azure_native.logic.AS2EnvelopeSettingsArgs(
                         autogenerate_file_name=True,
                         file_name_template="Test",
                         message_content_type="text/plain",
                         suspend_message_on_file_name_generation_error=True,
                         transmit_file_name_in_mime_header=True,
                     ),
-                    error_settings=azure_native.logic.AS2ErrorSettingsArgs(
+                    "errorSettings": azure_native.logic.AS2ErrorSettingsArgs(
                         resend_if_mdn_not_received=True,
                         suspend_duplicate_message=True,
                     ),
-                    mdn_settings=azure_native.logic.AS2MdnSettingsArgs(
+                    "mdnSettings": azure_native.logic.AS2MdnSettingsArgs(
                         disposition_notification_to="http://tempuri.org",
                         mdn_text="Sample",
                         mic_hashing_algorithm="SHA1",
@@ -36,13 +36,13 @@ integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("
                         sign_mdn=True,
                         sign_outbound_mdn_if_optional=True,
                     ),
-                    message_connection_settings=azure_native.logic.AS2MessageConnectionSettingsArgs(
+                    "messageConnectionSettings": azure_native.logic.AS2MessageConnectionSettingsArgs(
                         ignore_certificate_name_mismatch=True,
                         keep_http_connection_alive=True,
                         support_http_status_code_continue=True,
                         unfold_http_headers=True,
                     ),
-                    security_settings=azure_native.logic.AS2SecuritySettingsArgs(
+                    "securitySettings": azure_native.logic.AS2SecuritySettingsArgs(
                         enable_nrr_for_inbound_decoded_messages=True,
                         enable_nrr_for_inbound_encoded_messages=True,
                         enable_nrr_for_inbound_mdn=True,
@@ -51,7 +51,7 @@ integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("
                         enable_nrr_for_outbound_mdn=True,
                         override_group_signing_certificate=False,
                     ),
-                    validation_settings=azure_native.logic.AS2ValidationSettingsArgs(
+                    "validationSettings": azure_native.logic.AS2ValidationSettingsArgs(
                         check_certificate_revocation_list_on_receive=True,
                         check_certificate_revocation_list_on_send=True,
                         check_duplicate_message=True,
@@ -62,36 +62,36 @@ integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("
                         override_message_properties=True,
                         sign_message=False,
                     ),
-                ),
-                receiver_business_identity=azure_native.logic.BusinessIdentityArgs(
+                },
+                "receiverBusinessIdentity": azure_native.logic.BusinessIdentityArgs(
                     qualifier="ZZ",
                     value="ZZ",
                 ),
-                sender_business_identity=azure_native.logic.BusinessIdentityArgs(
+                "senderBusinessIdentity": azure_native.logic.BusinessIdentityArgs(
                     qualifier="AA",
                     value="AA",
                 ),
-            ),
-            send_agreement=azure_native.logic.AS2OneWayAgreementArgs(
-                protocol_settings=azure_native.logic.AS2ProtocolSettingsArgs(
-                    acknowledgement_connection_settings=azure_native.logic.AS2AcknowledgementConnectionSettingsArgs(
+            },
+            "sendAgreement": {
+                "protocolSettings": {
+                    "acknowledgementConnectionSettings": azure_native.logic.AS2AcknowledgementConnectionSettingsArgs(
                         ignore_certificate_name_mismatch=True,
                         keep_http_connection_alive=True,
                         support_http_status_code_continue=True,
                         unfold_http_headers=True,
                     ),
-                    envelope_settings=azure_native.logic.AS2EnvelopeSettingsArgs(
+                    "envelopeSettings": azure_native.logic.AS2EnvelopeSettingsArgs(
                         autogenerate_file_name=True,
                         file_name_template="Test",
                         message_content_type="text/plain",
                         suspend_message_on_file_name_generation_error=True,
                         transmit_file_name_in_mime_header=True,
                     ),
-                    error_settings=azure_native.logic.AS2ErrorSettingsArgs(
+                    "errorSettings": azure_native.logic.AS2ErrorSettingsArgs(
                         resend_if_mdn_not_received=True,
                         suspend_duplicate_message=True,
                     ),
-                    mdn_settings=azure_native.logic.AS2MdnSettingsArgs(
+                    "mdnSettings": azure_native.logic.AS2MdnSettingsArgs(
                         disposition_notification_to="http://tempuri.org",
                         mdn_text="Sample",
                         mic_hashing_algorithm="SHA1",
@@ -102,13 +102,13 @@ integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("
                         sign_mdn=True,
                         sign_outbound_mdn_if_optional=True,
                     ),
-                    message_connection_settings=azure_native.logic.AS2MessageConnectionSettingsArgs(
+                    "messageConnectionSettings": azure_native.logic.AS2MessageConnectionSettingsArgs(
                         ignore_certificate_name_mismatch=True,
                         keep_http_connection_alive=True,
                         support_http_status_code_continue=True,
                         unfold_http_headers=True,
                     ),
-                    security_settings=azure_native.logic.AS2SecuritySettingsArgs(
+                    "securitySettings": azure_native.logic.AS2SecuritySettingsArgs(
                         enable_nrr_for_inbound_decoded_messages=True,
                         enable_nrr_for_inbound_encoded_messages=True,
                         enable_nrr_for_inbound_mdn=True,
@@ -117,7 +117,7 @@ integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("
                         enable_nrr_for_outbound_mdn=True,
                         override_group_signing_certificate=False,
                     ),
-                    validation_settings=azure_native.logic.AS2ValidationSettingsArgs(
+                    "validationSettings": azure_native.logic.AS2ValidationSettingsArgs(
                         check_certificate_revocation_list_on_receive=True,
                         check_certificate_revocation_list_on_send=True,
                         check_duplicate_message=True,
@@ -128,17 +128,17 @@ integration_account_agreement = azure_native.logic.IntegrationAccountAgreement("
                         override_message_properties=True,
                         sign_message=False,
                     ),
-                ),
-                receiver_business_identity=azure_native.logic.BusinessIdentityArgs(
+                },
+                "receiverBusinessIdentity": azure_native.logic.BusinessIdentityArgs(
                     qualifier="AA",
                     value="AA",
                 ),
-                sender_business_identity=azure_native.logic.BusinessIdentityArgs(
+                "senderBusinessIdentity": azure_native.logic.BusinessIdentityArgs(
                     qualifier="ZZ",
                     value="ZZ",
                 ),
-            ),
-        ),
+            },
+        },
     ),
     guest_identity=azure_native.logic.BusinessIdentityArgs(
         qualifier="AA",

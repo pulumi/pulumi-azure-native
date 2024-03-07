@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var recordSet = new AzureNative.Network.RecordSet("recordSet", new()
+    {
+        Metadata = 
+        {
+            { "key1", "value1" },
+        },
+        RecordType = "SOA",
+        RelativeRecordSetName = "@",
+        ResourceGroupName = "rg1",
+        SoaRecord = new AzureNative.Network.Inputs.SoaRecordArgs
+        {
+            Email = "hostmaster.contoso.com",
+            ExpireTime = 2419200,
+            Host = "ns1.contoso.com",
+            MinimumTtl = 300,
+            RefreshTime = 3600,
+            RetryTime = 300,
+            SerialNumber = 1,
+        },
+        Ttl = 3600,
+        ZoneName = "zone1",
+    });
+
+});
+

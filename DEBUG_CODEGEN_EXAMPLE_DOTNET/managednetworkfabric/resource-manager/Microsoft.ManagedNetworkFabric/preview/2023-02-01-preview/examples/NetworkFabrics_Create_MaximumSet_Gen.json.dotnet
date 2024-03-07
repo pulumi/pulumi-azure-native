@@ -1,0 +1,91 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkFabric = new AzureNative.ManagedNetworkFabric.NetworkFabric("networkFabric", new()
+    {
+        Annotation = "annotationValue",
+        FabricASN = 29249,
+        Ipv4Prefix = "10.18.0.0/19",
+        Ipv6Prefix = "3FFE:FFFF:0:CD40::/59",
+        Location = "eastuseuap",
+        ManagementNetworkConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.ManagementNetworkConfigurationArgs
+        {
+            InfrastructureVpnConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.VpnConfigurationPropertiesArgs
+            {
+                OptionAProperties = new AzureNative.ManagedNetworkFabric.Inputs.OptionAPropertiesArgs
+                {
+                    Mtu = 5892,
+                    PeerASN = 42666,
+                    PrimaryIpv4Prefix = "20.0.0.12/30",
+                    PrimaryIpv6Prefix = "3FFE:FFFF:0:CD30::a8/126",
+                    SecondaryIpv4Prefix = "20.0.0.13/30",
+                    SecondaryIpv6Prefix = "3FFE:FFFF:0:CD30::ac/126",
+                    VlanId = 2724,
+                },
+                OptionBProperties = new AzureNative.ManagedNetworkFabric.Inputs.FabricOptionBPropertiesArgs
+                {
+                    ExportRouteTargets = new[]
+                    {
+                        "65046:10039",
+                    },
+                    ImportRouteTargets = new[]
+                    {
+                        "65046:10039",
+                    },
+                },
+                PeeringOption = "OptionA",
+            },
+            WorkloadVpnConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.VpnConfigurationPropertiesArgs
+            {
+                OptionAProperties = new AzureNative.ManagedNetworkFabric.Inputs.OptionAPropertiesArgs
+                {
+                    Mtu = 5892,
+                    PeerASN = 42666,
+                    PrimaryIpv4Prefix = "10.0.0.14/30",
+                    PrimaryIpv6Prefix = "2FFE:FFFF:0:CD30::a7/126",
+                    SecondaryIpv4Prefix = "10.0.0.15/30",
+                    SecondaryIpv6Prefix = "2FFE:FFFF:0:CD30::ac/126",
+                    VlanId = 2724,
+                },
+                OptionBProperties = new AzureNative.ManagedNetworkFabric.Inputs.FabricOptionBPropertiesArgs
+                {
+                    ExportRouteTargets = new[]
+                    {
+                        "65046:10050",
+                    },
+                    ImportRouteTargets = new[]
+                    {
+                        "65046:10050",
+                    },
+                },
+                PeeringOption = "OptionA",
+            },
+        },
+        NetworkFabricControllerId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+        NetworkFabricName = "FabricName",
+        NetworkFabricSku = "M4-A400-A100-C16-aa",
+        RackCount = 4,
+        ResourceGroupName = "resourceGroupName",
+        ServerCountPerRack = 8,
+        Tags = 
+        {
+            { "key6468", "" },
+        },
+        TerminalServerConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.TerminalServerConfigurationArgs
+        {
+            Password = "xxxx",
+            PrimaryIpv4Prefix = "20.0.0.12/30",
+            PrimaryIpv6Prefix = "3FFE:FFFF:0:CD30::a8/126",
+            SecondaryIpv4Prefix = "20.0.0.13/30",
+            SecondaryIpv6Prefix = "3FFE:FFFF:0:CD30::ac/126",
+            SerialNumber = "123456",
+            Username = "username",
+        },
+    });
+
+});
+

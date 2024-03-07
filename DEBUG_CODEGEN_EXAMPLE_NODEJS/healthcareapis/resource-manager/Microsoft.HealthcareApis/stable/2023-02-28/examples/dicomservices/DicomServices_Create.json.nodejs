@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dicomService = new azure_native.healthcareapis.DicomService("dicomService", {
+    dicomServiceName: "blue",
+    location: "westus",
+    resourceGroupName: "testRG",
+    workspaceName: "workspace1",
+});

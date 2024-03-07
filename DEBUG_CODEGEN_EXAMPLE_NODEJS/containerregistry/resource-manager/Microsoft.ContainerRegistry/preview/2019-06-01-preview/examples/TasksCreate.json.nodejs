@@ -1,0 +1,70 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const task = new azure_native.containerregistry.Task("task", {
+    agentConfiguration: {
+        cpu: 2,
+    },
+    identity: {
+        type: azure_native.containerregistry.ResourceIdentityType.SystemAssigned,
+    },
+    isSystemTask: false,
+    location: "eastus",
+    logTemplate: "acr/tasks:{{.Run.OS}}",
+    platform: {
+        architecture: "amd64",
+        os: "Linux",
+    },
+    registryName: "myRegistry",
+    resourceGroupName: "myResourceGroup",
+    status: "Enabled",
+    step: {
+        arguments: [
+            {
+                isSecret: false,
+                name: "mytestargument",
+                value: "mytestvalue",
+            },
+            {
+                isSecret: true,
+                name: "mysecrettestargument",
+                value: "mysecrettestvalue",
+            },
+        ],
+        contextPath: "src",
+        dockerFilePath: "src/DockerFile",
+        imageNames: ["azurerest:testtag"],
+        isPushEnabled: true,
+        noCache: false,
+        type: "Docker",
+    },
+    tags: {
+        testkey: "value",
+    },
+    taskName: "mytTask",
+    trigger: {
+        baseImageTrigger: {
+            baseImageTriggerType: "Runtime",
+            name: "myBaseImageTrigger",
+            updateTriggerEndpoint: "https://user:pass@mycicd.webhook.com?token=foo",
+            updateTriggerPayloadType: "Token",
+        },
+        sourceTriggers: [{
+            name: "mySourceTrigger",
+            sourceRepository: {
+                branch: "master",
+                repositoryUrl: "https://github.com/Azure/azure-rest-api-specs",
+                sourceControlAuthProperties: {
+                    token: "xxxxx",
+                    tokenType: "PAT",
+                },
+                sourceControlType: "Github",
+            },
+            sourceTriggerEvents: ["commit"],
+        }],
+        timerTriggers: [{
+            name: "myTimerTrigger",
+            schedule: "30 9 * * 1-5",
+        }],
+    },
+});

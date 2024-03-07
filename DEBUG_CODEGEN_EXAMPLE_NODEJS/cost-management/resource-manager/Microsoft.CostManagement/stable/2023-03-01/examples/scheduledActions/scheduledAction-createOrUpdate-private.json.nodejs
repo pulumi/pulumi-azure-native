@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const scheduledAction = new azure_native.costmanagement.ScheduledAction("scheduledAction", {
+    displayName: "Monthly Cost By Resource",
+    kind: "Email",
+    name: "monthlyCostByResource",
+    notification: {
+        subject: "Cost by resource this month",
+        to: [
+            "user@gmail.com",
+            "team@gmail.com",
+        ],
+    },
+    schedule: {
+        daysOfWeek: ["Monday"],
+        endDate: "2021-06-19T22:21:51.1287144Z",
+        frequency: "Monthly",
+        hourOfDay: 10,
+        startDate: "2020-06-19T22:21:51.1287144Z",
+        weeksOfMonth: [
+            "First",
+            "Third",
+        ],
+    },
+    status: "Enabled",
+    viewId: "/providers/Microsoft.CostManagement/views/swaggerExample",
+});

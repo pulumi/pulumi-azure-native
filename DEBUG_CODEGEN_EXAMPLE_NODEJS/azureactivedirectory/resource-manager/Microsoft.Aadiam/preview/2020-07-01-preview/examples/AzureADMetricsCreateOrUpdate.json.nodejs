@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const azureADMetric = new azure_native.aadiam.AzureADMetric("azureADMetric", {
+    azureADMetricsName: "ddb1",
+    location: "West US",
+    resourceGroupName: "rg1",
+    tags: {},
+});

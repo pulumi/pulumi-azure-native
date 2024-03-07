@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const staticMember = new azure_native.network.StaticMember("staticMember", {
+    networkGroupName: "testNetworkGroup",
+    networkManagerName: "testNetworkManager",
+    resourceGroupName: "rg1",
+    resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/virtualnetworks/vnet1",
+    staticMemberName: "testStaticMember",
+});

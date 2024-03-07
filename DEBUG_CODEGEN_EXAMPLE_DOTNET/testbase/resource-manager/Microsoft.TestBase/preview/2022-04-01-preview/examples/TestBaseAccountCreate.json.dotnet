@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var testBaseAccount = new AzureNative.TestBase.TestBaseAccount("testBaseAccount", new()
+    {
+        Location = "westus",
+        ResourceGroupName = "contoso-rg1",
+        Sku = new AzureNative.TestBase.Inputs.TestBaseAccountSKUArgs
+        {
+            Name = "S0",
+            Tier = "Standard",
+        },
+        TestBaseAccountName = "contoso-testBaseAccount1",
+    });
+
+});
+

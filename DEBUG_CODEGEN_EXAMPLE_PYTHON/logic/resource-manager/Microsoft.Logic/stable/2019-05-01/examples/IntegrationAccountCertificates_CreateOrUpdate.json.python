@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 integration_account_certificate = azure_native.logic.IntegrationAccountCertificate("integrationAccountCertificate",
     certificate_name="testCertificate",
     integration_account_name="testIntegrationAccount",
-    key=azure_native.logic.KeyVaultKeyReferenceArgs(
+    key=azure_native.logic.KeyVaultKeyReferenceResponseArgs(
         key_name="<keyName>",
         key_vault=azure_native.logic.KeyVaultKeyReferenceKeyVaultArgs(
             id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>",

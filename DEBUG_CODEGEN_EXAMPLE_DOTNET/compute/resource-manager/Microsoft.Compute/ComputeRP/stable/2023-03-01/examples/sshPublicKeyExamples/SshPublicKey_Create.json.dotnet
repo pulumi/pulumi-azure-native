@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sshPublicKey = new AzureNative.Compute.SshPublicKey("sshPublicKey", new()
+    {
+        Location = "westus",
+        PublicKey = "{ssh-rsa public key}",
+        ResourceGroupName = "myResourceGroup",
+        SshPublicKeyName = "mySshPublicKeyName",
+    });
+
+});
+

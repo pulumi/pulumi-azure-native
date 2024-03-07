@@ -1,0 +1,22 @@
+package main
+
+import (
+	"github.com/pulumi/pulumi-azure-native-sdk/dbformariadb/v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := dbformariadb.NewConfiguration(ctx, "configuration", &dbformariadb.ConfigurationArgs{
+			ConfigurationName: pulumi.String("event_scheduler"),
+			ResourceGroupName: pulumi.String("TestGroup"),
+			ServerName:        pulumi.String("testserver"),
+			Source:            pulumi.String("user-override"),
+			Value:             pulumi.String("off"),
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}

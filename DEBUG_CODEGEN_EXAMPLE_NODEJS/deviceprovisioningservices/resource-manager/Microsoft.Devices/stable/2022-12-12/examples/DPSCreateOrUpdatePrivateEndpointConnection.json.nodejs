@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const iotDpsResourcePrivateEndpointConnection = new azure_native.devices.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection", {
+    privateEndpointConnectionName: "myPrivateEndpointConnection",
+    properties: {
+        privateLinkServiceConnectionState: {
+            description: "Approved by johndoe@contoso.com",
+            status: "Approved",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    resourceName: "myFirstProvisioningService",
+});

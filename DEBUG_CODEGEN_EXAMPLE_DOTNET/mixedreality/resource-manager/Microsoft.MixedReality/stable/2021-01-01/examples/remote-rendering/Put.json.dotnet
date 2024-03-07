@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var remoteRenderingAccount = new AzureNative.MixedReality.RemoteRenderingAccount("remoteRenderingAccount", new()
+    {
+        AccountName = "MyAccount",
+        Identity = new AzureNative.MixedReality.Inputs.IdentityArgs
+        {
+            Type = AzureNative.MixedReality.ResourceIdentityType.SystemAssigned,
+        },
+        Location = "eastus2euap",
+        ResourceGroupName = "MyResourceGroup",
+    });
+
+});
+

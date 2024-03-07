@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var transparentDataEncryption = new AzureNative.Sql.TransparentDataEncryption("transparentDataEncryption", new()
+    {
+        DatabaseName = "testdb",
+        ResourceGroupName = "securitytde-42-rg",
+        ServerName = "securitytde-42",
+        State = AzureNative.Sql.TransparentDataEncryptionState.Enabled,
+        TdeName = "current",
+    });
+
+});
+

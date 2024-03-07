@@ -1,0 +1,14 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vendor = new AzureNative.HybridNetwork.Vendor("vendor", new()
+    {
+        VendorName = "TestVendor",
+    });
+
+});
+

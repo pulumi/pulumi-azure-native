@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var applicationSecurityGroup = new AzureNative.Network.ApplicationSecurityGroup("applicationSecurityGroup", new()
+    {
+        ApplicationSecurityGroupName = "test-asg",
+        Location = "westus",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

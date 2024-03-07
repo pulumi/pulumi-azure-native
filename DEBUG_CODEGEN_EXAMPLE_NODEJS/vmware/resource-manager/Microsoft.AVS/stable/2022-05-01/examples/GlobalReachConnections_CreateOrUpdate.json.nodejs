@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const globalReachConnection = new azure_native.avs.GlobalReachConnection("globalReachConnection", {
+    authorizationKey: "01010101-0101-0101-0101-010101010101",
+    globalReachConnectionName: "connection1",
+    peerExpressRouteCircuit: "/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.Network/expressRouteCircuits/mypeer",
+    privateCloudName: "cloud1",
+    resourceGroupName: "group1",
+});

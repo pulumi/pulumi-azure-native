@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cache = new AzureNative.StorageCache.Cache("cache", new()
+    {
+        CacheName = "sc1",
+        CacheSizeGB = 3072,
+        DirectoryServicesSettings = new AzureNative.StorageCache.Inputs.CacheDirectorySettingsArgs
+        {
+            UsernameDownload = new AzureNative.StorageCache.Inputs.CacheUsernameDownloadSettingsArgs
+            {
+                Credentials = new AzureNative.StorageCache.Inputs.CacheUsernameDownloadSettingsCredentialsArgs
+                {
+                    BindDn = "cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+                    BindPassword = "<bindPassword>",
+                },
+                ExtendedGroups = true,
+                LdapBaseDN = "dc=contosoad,dc=contoso,dc=local",
+                LdapServer = "192.0.2.12",
+                UsernameSource = "LDAP",
+            },
+        },
+        EncryptionSettings = new AzureNative.StorageCache.Inputs.CacheEncryptionSettingsArgs
+        {
+            KeyEncryptionKey = new AzureNative.StorageCache.Inputs.KeyVaultKeyReferenceArgs
+            {
+                KeyUrl = "https://keyvault-cmk.vault.azure.net/keys/key2048/test",
+                SourceVault = new AzureNative.StorageCache.Inputs.KeyVaultKeyReferenceSourceVaultArgs
+                {
+                    Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+                },
+            },
+        },
+        Location = "westus",
+        ResourceGroupName = "scgroup",
+        SecuritySettings = new AzureNative.StorageCache.Inputs.CacheSecuritySettingsArgs
+        {
+            AccessPolicies = new[]
+            {
+                new AzureNative.StorageCache.Inputs.NfsAccessPolicyArgs
+                {
+                    AccessRules = new[]
+                    {
+                        new AzureNative.StorageCache.Inputs.NfsAccessRuleArgs
+                        {
+                            Access = "rw",
+                            RootSquash = false,
+                            Scope = "default",
+                            SubmountAccess = true,
+                            Suid = false,
+                        },
+                    },
+                    Name = "default",
+                },
+            },
+        },
+        Sku = new AzureNative.StorageCache.Inputs.CacheSkuArgs
+        {
+            Name = "Standard_2G",
+        },
+        Subnet = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+        Tags = 
+        {
+            { "Dept", "Contoso" },
+        },
+        UpgradeSettings = new AzureNative.StorageCache.Inputs.CacheUpgradeSettingsArgs
+        {
+            ScheduledTime = "2022-04-26T18:25:43.511Z",
+            UpgradeScheduleEnabled = true,
+        },
+    });
+
+});
+

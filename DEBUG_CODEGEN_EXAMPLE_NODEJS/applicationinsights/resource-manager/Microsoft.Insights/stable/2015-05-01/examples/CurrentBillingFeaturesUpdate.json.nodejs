@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const componentCurrentBillingFeature = new azure_native.insights.ComponentCurrentBillingFeature("componentCurrentBillingFeature", {
+    currentBillingFeatures: [
+        "Basic",
+        "Application Insights Enterprise",
+    ],
+    dataVolumeCap: {
+        cap: 100,
+        stopSendNotificationWhenHitCap: true,
+    },
+    resourceGroupName: "my-resource-group",
+    resourceName: "my-component",
+});

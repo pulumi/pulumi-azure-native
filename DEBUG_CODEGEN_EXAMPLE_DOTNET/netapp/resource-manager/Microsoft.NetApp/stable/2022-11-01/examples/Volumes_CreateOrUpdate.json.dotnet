@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var volume = new AzureNative.NetApp.Volume("volume", new()
+    {
+        AccountName = "account1",
+        CreationToken = "my-unique-file-path",
+        Location = "eastus",
+        PoolName = "pool1",
+        ResourceGroupName = "myRG",
+        ServiceLevel = "Premium",
+        SubnetId = "/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+        UsageThreshold = 107374182400,
+        VolumeName = "volume1",
+    });
+
+});
+

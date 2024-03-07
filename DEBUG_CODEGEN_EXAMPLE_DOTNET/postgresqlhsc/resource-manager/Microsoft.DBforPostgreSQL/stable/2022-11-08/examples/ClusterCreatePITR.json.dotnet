@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.DBforPostgreSQL.Cluster("cluster", new()
+    {
+        ClusterName = "testcluster",
+        Location = "westus",
+        PointInTimeUTC = "2017-12-14T00:00:37.467Z",
+        ResourceGroupName = "TestGroup",
+        SourceLocation = "westus",
+        SourceResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/source-cluster",
+    });
+
+});
+

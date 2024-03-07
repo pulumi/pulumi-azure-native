@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var diskEncryptionSet = new AzureNative.Compute.DiskEncryptionSet("diskEncryptionSet", new()
+    {
+        ActiveKey = new AzureNative.Compute.Inputs.KeyForDiskEncryptionSetArgs
+        {
+            KeyUrl = "https://myvaultdifferentsub.vault-int.azure-int.net/keys/{key}",
+        },
+        DiskEncryptionSetName = "myDiskEncryptionSet",
+        EncryptionType = "EncryptionAtRestWithCustomerKey",
+        Identity = new AzureNative.Compute.Inputs.EncryptionSetIdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

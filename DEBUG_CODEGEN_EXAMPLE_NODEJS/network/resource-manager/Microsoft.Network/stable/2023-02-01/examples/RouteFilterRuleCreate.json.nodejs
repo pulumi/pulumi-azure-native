@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const routeFilterRule = new azure_native.network.RouteFilterRule("routeFilterRule", {
+    access: "Allow",
+    communities: [
+        "12076:5030",
+        "12076:5040",
+    ],
+    resourceGroupName: "rg1",
+    routeFilterName: "filterName",
+    routeFilterRuleType: "Community",
+    ruleName: "ruleName",
+});

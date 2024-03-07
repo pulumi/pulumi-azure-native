@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var server = new AzureNative.DBforMariaDB.Server("server", new()
+    {
+        Location = "westus",
+        Properties = new AzureNative.DBforMariaDB.Inputs.ServerPropertiesForReplicaArgs
+        {
+            CreateMode = "Replica",
+            SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/MasterResourceGroup/providers/Microsoft.DBforMariaDB/servers/masterserver",
+        },
+        ResourceGroupName = "TargetResourceGroup",
+        ServerName = "targetserver",
+    });
+
+});
+

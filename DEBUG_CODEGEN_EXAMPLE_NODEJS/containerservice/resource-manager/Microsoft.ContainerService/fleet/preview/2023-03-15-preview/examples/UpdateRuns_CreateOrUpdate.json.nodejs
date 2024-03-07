@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const updateRun = new azure_native.containerservice.UpdateRun("updateRun", {
+    fleetName: "fleet1",
+    managedClusterUpdate: {
+        upgrade: {
+            kubernetesVersion: "1.26.1",
+            type: "Full",
+        },
+    },
+    resourceGroupName: "rg1",
+    strategy: {
+        stages: [{
+            afterStageWaitInSeconds: 3600,
+            groups: [{
+                name: "group-a",
+            }],
+            name: "stage1",
+        }],
+    },
+    updateRunName: "run1",
+});

@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var resourceManagementPrivateLink = new AzureNative.Authorization.ResourceManagementPrivateLink("resourceManagementPrivateLink", new()
+    {
+        Location = "eastus",
+        ResourceGroupName = "my-resource-group",
+        RmplName = "my-rmplName",
+    });
+
+});
+

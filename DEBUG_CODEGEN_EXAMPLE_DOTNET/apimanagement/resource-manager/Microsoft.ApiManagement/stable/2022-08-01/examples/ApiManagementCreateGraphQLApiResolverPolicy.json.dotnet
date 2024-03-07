@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var graphQLApiResolverPolicy = new AzureNative.ApiManagement.GraphQLApiResolverPolicy("graphQLApiResolverPolicy", new()
+    {
+        ApiId = "5600b57e7e8880006a040001",
+        Format = "xml",
+        PolicyId = "policy",
+        ResolverId = "5600b57e7e8880006a080001",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Value = "<http-data-source><http-request><set-method>GET</set-method><set-backend-service base-url=\"https://some.service.com\" /><set-url>/api/users</set-url></http-request></http-data-source>",
+    });
+
+});
+

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const blobContainer = new azure_native.storage.BlobContainer("blobContainer", {
+    accountName: "sto328",
+    containerName: "container6185",
+    defaultEncryptionScope: "encryptionscope185",
+    denyEncryptionScopeOverride: true,
+    resourceGroupName: "res3376",
+});

@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var modernizeProject = new AzureNative.Migrate.ModernizeProject("modernizeProject", new()
+    {
+        Identity = new AzureNative.Migrate.Inputs.ResourceIdentityArgs
+        {
+            PrincipalId = "ins",
+            TenantId = "fjnu",
+            Type = "None",
+            UserAssignedIdentities = 
+            {
+                { "key6848", new AzureNative.Migrate.Inputs.UserAssignedIdentityArgs
+                {
+                    ClientId = "lvlngepacjdjryqmxuvfdxwtkc",
+                    PrincipalId = "lumkynazsspljxiiwvz",
+                } },
+            },
+        },
+        Location = "nbqyuxrgrlhx",
+        ModernizeProjectName = "b",
+        Properties = new AzureNative.Migrate.Inputs.ModernizeProjectModelPropertiesArgs
+        {
+            MigrationConfiguration = new AzureNative.Migrate.Inputs.MigrationConfigurationArgs
+            {
+                KeyVaultResourceId = "vekhittkyogvwnqmggknv",
+                MigrationSolutionResourceId = "bglfkwtzvqmhwpddwpvtdzaleaioxo",
+                StorageAccountResourceId = "dgcoticysafrpynyoxkgrspooiia",
+            },
+        },
+        ResourceGroupName = "rgmigrateEngine",
+        Tags = 
+        {
+            { "key8644", "wfyi" },
+        },
+    });
+
+});
+

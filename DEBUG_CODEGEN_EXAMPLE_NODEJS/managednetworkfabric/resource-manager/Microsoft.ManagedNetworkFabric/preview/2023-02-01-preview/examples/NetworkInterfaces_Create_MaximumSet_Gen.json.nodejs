@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkInterface = new azure_native.managednetworkfabric.NetworkInterface("networkInterface", {
+    annotation: "null",
+    networkDeviceName: "networkDeviceName",
+    networkInterfaceName: "networkInterfaceName",
+    resourceGroupName: "resourceGroupName",
+});

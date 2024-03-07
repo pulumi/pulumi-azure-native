@@ -3,21 +3,21 @@ import pulumi_azure_native as azure_native
 
 container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
     container_group_name="demo1",
-    containers=[azure_native.containerinstance.ContainerArgs(
-        command=[
+    containers=[{
+        "command": [
             "/bin/sh",
             "-c",
             "sleep 10",
         ],
-        image="alpine:latest",
-        name="test-container-001",
-        resources=azure_native.containerinstance.ResourceRequirementsArgs(
-            requests=azure_native.containerinstance.ResourceRequestsArgs(
+        "image": "alpine:latest",
+        "name": "test-container-001",
+        "resources": {
+            "requests": azure_native.containerinstance.ResourceRequestsArgs(
                 cpu=1,
                 memory_in_gb=1,
             ),
-        ),
-    )],
+        },
+    }],
     location="eastus",
     os_type="Linux",
     priority="Spot",

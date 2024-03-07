@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var encryptionProtector = new AzureNative.Sql.EncryptionProtector("encryptionProtector", new()
+    {
+        AutoRotationEnabled = false,
+        EncryptionProtectorName = "current",
+        ResourceGroupName = "sqlcrudtest-7398",
+        ServerKeyName = "someVault_someKey_01234567890123456789012345678901",
+        ServerKeyType = "AzureKeyVault",
+        ServerName = "sqlcrudtest-4645",
+    });
+
+});
+

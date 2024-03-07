@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualMachineExtension = new azure_native.compute.VirtualMachineExtension("virtualMachineExtension", {
+    location: "westus",
+    resourceGroupName: "rgcompute",
+    vmExtensionName: "myVMExtension",
+    vmName: "myVM",
+});

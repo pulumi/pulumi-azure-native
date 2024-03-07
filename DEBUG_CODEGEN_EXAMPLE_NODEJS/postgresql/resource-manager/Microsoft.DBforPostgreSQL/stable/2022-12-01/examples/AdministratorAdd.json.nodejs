@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const administrator = new azure_native.dbforpostgresql.Administrator("administrator", {
+    objectId: "oooooooo-oooo-oooo-oooo-oooooooooooo",
+    principalName: "testuser1@microsoft.com",
+    principalType: "User",
+    resourceGroupName: "testrg",
+    serverName: "testserver",
+    tenantId: "tttttttt-tttt-tttt-tttt-tttttttttttt",
+});

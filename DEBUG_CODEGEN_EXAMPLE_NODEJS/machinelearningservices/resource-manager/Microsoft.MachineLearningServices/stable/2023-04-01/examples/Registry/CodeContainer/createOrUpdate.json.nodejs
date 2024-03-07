@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const registryCodeContainer = new azure_native.machinelearningservices.RegistryCodeContainer("registryCodeContainer", {
+    codeContainerProperties: {
+        description: "string",
+        tags: {
+            tag1: "value1",
+            tag2: "value2",
+        },
+    },
+    codeName: "testContainer",
+    registryName: "testregistry",
+    resourceGroupName: "testrg123",
+});

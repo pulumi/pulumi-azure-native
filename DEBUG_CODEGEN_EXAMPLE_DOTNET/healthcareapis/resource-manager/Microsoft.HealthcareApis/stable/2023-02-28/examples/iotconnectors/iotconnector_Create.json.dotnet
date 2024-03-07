@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var iotConnector = new AzureNative.HealthcareApis.IotConnector("iotConnector", new()
+    {
+        DeviceMapping = new AzureNative.HealthcareApis.Inputs.IotMappingPropertiesArgs
+        {
+            Content = 
+            {
+                { "template", new[]
+                {
+                    
+                    {
+                        { "template", 
+                        {
+                            { "deviceIdExpression", "$.deviceid" },
+                            { "timestampExpression", "$.measurementdatetime" },
+                            { "typeMatchExpression", "$..[?(@heartrate)]" },
+                            { "typeName", "heartrate" },
+                            { "values", new[]
+                            {
+                                
+                                {
+                                    { "required", "true" },
+                                    { "valueExpression", "$.heartrate" },
+                                    { "valueName", "hr" },
+                                },
+                            } },
+                        } },
+                        { "templateType", "JsonPathContent" },
+                    },
+                } },
+                { "templateType", "CollectionContent" },
+            },
+        },
+        Identity = new AzureNative.HealthcareApis.Inputs.ServiceManagedIdentityIdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        IngestionEndpointConfiguration = new AzureNative.HealthcareApis.Inputs.IotEventHubIngestionEndpointConfigurationArgs
+        {
+            ConsumerGroup = "ConsumerGroupA",
+            EventHubName = "MyEventHubName",
+            FullyQualifiedEventHubNamespace = "myeventhub.servicesbus.windows.net",
+        },
+        IotConnectorName = "blue",
+        Location = "westus",
+        ResourceGroupName = "testRG",
+        Tags = 
+        {
+            { "additionalProp1", "string" },
+            { "additionalProp2", "string" },
+            { "additionalProp3", "string" },
+        },
+        WorkspaceName = "workspace1",
+    });
+
+});
+

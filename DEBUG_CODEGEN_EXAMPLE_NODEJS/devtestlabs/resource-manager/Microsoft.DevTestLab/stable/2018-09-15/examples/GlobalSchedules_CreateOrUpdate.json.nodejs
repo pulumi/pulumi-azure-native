@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const globalSchedule = new azure_native.devtestlab.GlobalSchedule("globalSchedule", {
+    name: "labvmautostart",
+    resourceGroupName: "resourceGroupName",
+    status: "Enabled",
+    taskType: "LabVmsStartupTask",
+    timeZoneId: "Hawaiian Standard Time",
+    weeklyRecurrence: {
+        time: "0700",
+        weekdays: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+        ],
+    },
+});

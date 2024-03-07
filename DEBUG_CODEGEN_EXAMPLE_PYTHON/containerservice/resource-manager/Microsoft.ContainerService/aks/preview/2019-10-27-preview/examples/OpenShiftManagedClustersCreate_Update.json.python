@@ -20,20 +20,20 @@ open_shift_managed_cluster = azure_native.containerservice.OpenShiftManagedClust
             vm_size="Standard_D4s_v3",
         ),
     ],
-    auth_profile=azure_native.containerservice.OpenShiftManagedClusterAuthProfileArgs(
-        identity_providers=[azure_native.containerservice.OpenShiftManagedClusterIdentityProviderArgs(
-            name="Azure AD",
-            provider=azure_native.containerservice.OpenShiftManagedClusterAADIdentityProviderArgs(
+    auth_profile=azure_native.containerservice.OpenShiftManagedClusterAuthProfileResponseArgs(
+        identity_providers=[{
+            "name": "Azure AD",
+            "provider": azure_native.containerservice.OpenShiftManagedClusterAADIdentityProviderResponseArgs(
                 client_id="clientId",
                 customer_admin_group_id="customerAdminGroupId",
                 kind="AADIdentityProvider",
                 secret="secret",
                 tenant_id="tenantId",
             ),
-        )],
+        }],
     ),
     location="location1",
-    master_pool_profile=azure_native.containerservice.OpenShiftManagedClusterMasterPoolProfileArgs(
+    master_pool_profile=azure_native.containerservice.OpenShiftManagedClusterMasterPoolProfileResponseArgs(
         api_properties=azure_native.containerservice.OpenShiftAPIPropertiesArgs(
             private_api_server=False,
         ),

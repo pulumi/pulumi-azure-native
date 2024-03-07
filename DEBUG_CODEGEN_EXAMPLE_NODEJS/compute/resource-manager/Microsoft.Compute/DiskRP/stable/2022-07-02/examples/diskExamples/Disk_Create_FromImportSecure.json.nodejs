@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disk = new azure_native.compute.Disk("disk", {
+    creationData: {
+        createOption: "ImportSecure",
+        securityDataUri: "https://mystorageaccount.blob.core.windows.net/osimages/vmgs.vhd",
+        sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+        storageAccountId: "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+    },
+    diskName: "myDisk",
+    location: "West US",
+    osType: azure_native.compute.OperatingSystemTypes.Windows,
+    resourceGroupName: "myResourceGroup",
+    securityProfile: {
+        securityType: "ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey",
+    },
+});

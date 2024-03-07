@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const maintenanceConfiguration = new azure_native.containerservice.MaintenanceConfiguration("maintenanceConfiguration", {
+    configName: "default",
+    notAllowedTime: [{
+        end: "2020-11-30T12:00:00Z",
+        start: "2020-11-26T03:00:00Z",
+    }],
+    resourceGroupName: "rg1",
+    resourceName: "clustername1",
+    timeInWeek: [{
+        day: "Monday",
+        hourSlots: [
+            1,
+            2,
+        ],
+    }],
+});

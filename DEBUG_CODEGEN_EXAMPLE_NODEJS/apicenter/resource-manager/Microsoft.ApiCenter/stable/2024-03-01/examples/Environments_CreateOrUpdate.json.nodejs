@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const environment = new azure_native.apicenter.Environment("environment", {
+    description: "The primary Azure API Management service for the European division of Contoso.",
+    environmentName: "public",
+    kind: "production",
+    onboarding: {
+        developerPortalUri: ["https://developer.contoso.com"],
+        instructions: "Sign in or sign up in the specified developer portal to request API access. You must complete the internal privacy training for your account to be approved.",
+    },
+    resourceGroupName: "contoso-resources",
+    server: {
+        managementPortalUri: ["https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso"],
+        type: "Azure API Management",
+    },
+    serviceName: "contoso",
+    title: "Contoso Europe Azure API Management",
+    workspaceName: "default",
+});

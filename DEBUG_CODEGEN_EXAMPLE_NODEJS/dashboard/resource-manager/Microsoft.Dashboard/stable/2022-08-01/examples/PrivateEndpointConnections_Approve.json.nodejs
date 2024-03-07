@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.dashboard.PrivateEndpointConnection("privateEndpointConnection", {
+    privateEndpointConnectionName: "myConnection",
+    resourceGroupName: "myResourceGroup",
+    workspaceName: "myWorkspace",
+});

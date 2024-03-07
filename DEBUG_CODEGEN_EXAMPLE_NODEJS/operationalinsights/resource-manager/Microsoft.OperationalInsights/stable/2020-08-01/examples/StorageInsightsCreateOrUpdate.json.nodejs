@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageInsightConfig = new azure_native.operationalinsights.StorageInsightConfig("storageInsightConfig", {
+    containers: ["wad-iis-logfiles"],
+    resourceGroupName: "OIAutoRest5123",
+    storageAccount: {
+        id: "/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
+        key: "1234",
+    },
+    storageInsightName: "AzTestSI1110",
+    tables: [
+        "WADWindowsEventLogsTable",
+        "LinuxSyslogVer2v0",
+    ],
+    workspaceName: "aztest5048",
+});

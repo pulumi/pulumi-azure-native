@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var project = new AzureNative.Migrate.Project("project", new()
+    {
+        ETag = "",
+        Location = "West Europe",
+        ProjectName = "abGoyalProject2",
+        Properties = new AzureNative.Migrate.Inputs.ProjectPropertiesArgs
+        {
+            AssessmentSolutionId = "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourcegroups/abgoyal-westeurope/providers/microsoft.migrate/migrateprojects/abgoyalweselfhost/Solutions/Servers-Assessment-ServerAssessment",
+            ProjectStatus = "Active",
+        },
+        ResourceGroupName = "abgoyal-westEurope",
+        Tags = null,
+    });
+
+});
+

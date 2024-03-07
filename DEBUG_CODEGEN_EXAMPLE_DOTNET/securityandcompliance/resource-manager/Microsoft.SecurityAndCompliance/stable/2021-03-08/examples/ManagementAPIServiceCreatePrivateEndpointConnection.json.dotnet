@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnectionsAdtAPI = new AzureNative.SecurityAndCompliance.PrivateEndpointConnectionsAdtAPI("privateEndpointConnectionsAdtAPI", new()
+    {
+        PrivateEndpointConnectionName = "myConnection",
+        PrivateLinkServiceConnectionState = new AzureNative.SecurityAndCompliance.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Auto-Approved",
+            Status = "Approved",
+        },
+        ResourceGroupName = "rgname",
+        ResourceName = "service1",
+    });
+
+});
+

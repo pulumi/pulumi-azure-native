@@ -1,0 +1,54 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkServiceDesignVersion = new AzureNative.HybridNetwork.NetworkServiceDesignVersion("networkServiceDesignVersion", new()
+    {
+        Location = "eastus",
+        NetworkServiceDesignGroupName = "TestNetworkServiceDesignGroupName",
+        NetworkServiceDesignVersionName = "1.0.0",
+        Properties = new AzureNative.HybridNetwork.Inputs.NetworkServiceDesignVersionPropertiesFormatArgs
+        {
+            ConfigurationGroupSchemaReferences = 
+            {
+                { "MyVM_Configuration", new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+                {
+                    Id = "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/publishers/contosoGroup/networkServiceDesignGroups/NSD_contoso/configurationGroupSchemas/MyVM_Configuration_Schema",
+                } },
+            },
+            ResourceElementTemplates = new[]
+            {
+                new AzureNative.HybridNetwork.Inputs.ArmResourceDefinitionResourceElementTemplateDetailsArgs
+                {
+                    Configuration = new AzureNative.HybridNetwork.Inputs.ArmResourceDefinitionResourceElementTemplateArgs
+                    {
+                        ArtifactProfile = new AzureNative.HybridNetwork.Inputs.NSDArtifactProfileArgs
+                        {
+                            ArtifactName = "MyVMArmTemplate",
+                            ArtifactStoreReference = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+                            {
+                                Id = "/subscriptions/subid/providers/Microsoft.HybridNetwork/publishers/contosoGroup/artifactStoreReference/store1",
+                            },
+                            ArtifactVersion = "1.0.0",
+                        },
+                        ParameterValues = "{\"publisherName\":\"{configurationparameters('MyVM_Configuration').publisherName}\",\"skuGroupName\":\"{configurationparameters('MyVM_Configuration').skuGroupName}\",\"skuVersion\":\"{configurationparameters('MyVM_Configuration').skuVersion}\",\"skuOfferingLocation\":\"{configurationparameters('MyVM_Configuration').skuOfferingLocation}\",\"nfviType\":\"{nfvis().nfvisFromSitePerNfviType.AzureCore.nfviAlias1.nfviType}\",\"nfviId\":\"{nfvis().nfvisFromSitePerNfviType.AzureCore.nfviAlias1.nfviId}\",\"allowSoftwareUpdates\":\"{configurationparameters('MyVM_Configuration').allowSoftwareUpdates}\",\"virtualNetworkName\":\"{configurationparameters('MyVM_Configuration').vnetName}\",\"subnetName\":\"{configurationparameters('MyVM_Configuration').subnetName}\",\"subnetAddressPrefix\":\"{configurationparameters('MyVM_Configuration').subnetAddressPrefix}\",\"managedResourceGroup\":\"{configurationparameters('SNSSelf').managedResourceGroupName}\",\"adminPassword\":\"{secretparameters('MyVM_Configuration').adminPassword}\"}",
+                        TemplateType = "ArmTemplate",
+                    },
+                    DependsOnProfile = new AzureNative.HybridNetwork.Inputs.DependsOnProfileArgs
+                    {
+                        InstallDependsOn = new() { },
+                    },
+                    Name = "MyVM",
+                    ResourceElementType = "ArmResourceDefinition",
+                },
+            },
+        },
+        PublisherName = "TestPublisher",
+        ResourceGroupName = "rg",
+    });
+
+});
+

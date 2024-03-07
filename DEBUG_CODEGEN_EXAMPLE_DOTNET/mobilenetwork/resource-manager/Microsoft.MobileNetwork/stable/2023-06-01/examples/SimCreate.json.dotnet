@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sim = new AzureNative.MobileNetwork.Sim("sim", new()
+    {
+        AuthenticationKey = "00000000000000000000000000000000",
+        DeviceType = "Video camera",
+        IntegratedCircuitCardIdentifier = "8900000000000000000",
+        InternationalMobileSubscriberIdentity = "00000",
+        OperatorKeyCode = "00000000000000000000000000000000",
+        ResourceGroupName = "rg1",
+        SimGroupName = "testSimGroup",
+        SimName = "testSim",
+        SimPolicy = new AzureNative.MobileNetwork.Inputs.SimPolicyResourceIdArgs
+        {
+            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy",
+        },
+        StaticIpConfiguration = new[]
+        {
+            new AzureNative.MobileNetwork.Inputs.SimStaticIpPropertiesArgs
+            {
+                AttachedDataNetwork = new AzureNative.MobileNetwork.Inputs.AttachedDataNetworkResourceIdArgs
+                {
+                    Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
+                },
+                Slice = new AzureNative.MobileNetwork.Inputs.SliceResourceIdArgs
+                {
+                    Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+                },
+                StaticIp = new AzureNative.MobileNetwork.Inputs.SimStaticIpPropertiesStaticIpArgs
+                {
+                    Ipv4Address = "2.4.0.1",
+                },
+            },
+        },
+    });
+
+});
+

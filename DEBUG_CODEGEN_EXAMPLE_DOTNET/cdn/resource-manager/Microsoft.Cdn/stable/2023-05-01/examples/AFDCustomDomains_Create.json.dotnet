@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var afdCustomDomain = new AzureNative.Cdn.AFDCustomDomain("afdCustomDomain", new()
+    {
+        AzureDnsZone = new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+        {
+            Id = "",
+        },
+        CustomDomainName = "domain1",
+        HostName = "www.someDomain.net",
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+        TlsSettings = new AzureNative.Cdn.Inputs.AFDDomainHttpsParametersArgs
+        {
+            CertificateType = "ManagedCertificate",
+            MinimumTlsVersion = AzureNative.Cdn.AfdMinimumTlsVersion.TLS12,
+        },
+    });
+
+});
+

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnectionByWorkspace = new AzureNative.DesktopVirtualization.PrivateEndpointConnectionByWorkspace("privateEndpointConnectionByWorkspace", new()
+    {
+        PrivateEndpointConnectionName = "workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+        PrivateLinkServiceConnectionState = new AzureNative.DesktopVirtualization.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "None",
+            Description = "Approved by admin@consoto.com",
+            Status = "Approved",
+        },
+        ResourceGroupName = "resourceGroup1",
+        WorkspaceName = "workspace1",
+    });
+
+});
+

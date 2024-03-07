@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const attestationProvider = new azure_native.attestation.AttestationProvider("attestationProvider", {
+    location: "East US",
+    properties: {
+        publicNetworkAccess: "Enabled",
+        tpmAttestationAuthentication: "Enabled",
+    },
+    providerName: "myattestationprovider",
+    resourceGroupName: "MyResourceGroup",
+    tags: {
+        Property1: "Value1",
+        Property2: "Value2",
+        Property3: "Value3",
+    },
+});

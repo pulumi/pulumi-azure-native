@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const scopeAccessReviewHistoryDefinitionById = new azure_native.authorization.ScopeAccessReviewHistoryDefinitionById("scopeAccessReviewHistoryDefinitionById", {
+    historyDefinitionId: "44724910-d7a5-4c29-b28f-db73e717165a",
+    scope: "subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a",
+});

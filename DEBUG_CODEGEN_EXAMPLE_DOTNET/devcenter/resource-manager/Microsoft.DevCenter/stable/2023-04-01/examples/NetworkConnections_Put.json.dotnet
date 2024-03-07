@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkConnection = new AzureNative.DevCenter.NetworkConnection("networkConnection", new()
+    {
+        DomainJoinType = "HybridAzureADJoin",
+        DomainName = "mydomaincontroller.local",
+        DomainPassword = "Password value for user",
+        DomainUsername = "testuser@mydomaincontroller.local",
+        Location = "centralus",
+        NetworkConnectionName = "uswest3network",
+        NetworkingResourceGroupName = "NetworkInterfaces",
+        ResourceGroupName = "rg1",
+        SubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default",
+    });
+
+});
+

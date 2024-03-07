@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var staticSite = new AzureNative.Web.StaticSite("staticSite", new()
+    {
+        Branch = "master",
+        BuildProperties = new AzureNative.Web.Inputs.StaticSiteBuildPropertiesArgs
+        {
+            ApiLocation = "api",
+            AppArtifactLocation = "build",
+            AppLocation = "app",
+        },
+        Location = "West US 2",
+        Name = "testStaticSite0",
+        RepositoryToken = "repoToken123",
+        RepositoryUrl = "https://github.com/username/RepoName",
+        ResourceGroupName = "rg",
+        Sku = new AzureNative.Web.Inputs.SkuDescriptionArgs
+        {
+            Name = "Basic",
+            Tier = "Basic",
+        },
+    });
+
+});
+

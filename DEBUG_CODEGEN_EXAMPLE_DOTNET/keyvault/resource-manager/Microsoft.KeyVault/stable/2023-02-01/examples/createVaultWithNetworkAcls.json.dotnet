@@ -1,0 +1,51 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vault = new AzureNative.KeyVault.Vault("vault", new()
+    {
+        Location = "westus",
+        Properties = new AzureNative.KeyVault.Inputs.VaultPropertiesArgs
+        {
+            EnabledForDeployment = true,
+            EnabledForDiskEncryption = true,
+            EnabledForTemplateDeployment = true,
+            NetworkAcls = new AzureNative.KeyVault.Inputs.NetworkRuleSetArgs
+            {
+                Bypass = "AzureServices",
+                DefaultAction = "Deny",
+                IpRules = new[]
+                {
+                    new AzureNative.KeyVault.Inputs.IPRuleArgs
+                    {
+                        Value = "124.56.78.91",
+                    },
+                    new AzureNative.KeyVault.Inputs.IPRuleArgs
+                    {
+                        Value = "'10.91.4.0/24'",
+                    },
+                },
+                VirtualNetworkRules = new[]
+                {
+                    new AzureNative.KeyVault.Inputs.VirtualNetworkRuleArgs
+                    {
+                        Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+                    },
+                },
+            },
+            Sku = new AzureNative.KeyVault.Inputs.SkuArgs
+            {
+                Family = "A",
+                Name = AzureNative.KeyVault.SkuName.Standard,
+            },
+            TenantId = "00000000-0000-0000-0000-000000000000",
+        },
+        ResourceGroupName = "sample-resource-group",
+        VaultName = "sample-vault",
+    });
+
+});
+

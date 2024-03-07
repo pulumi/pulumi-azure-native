@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var replicationExtension = new AzureNative.DataReplication.ReplicationExtension("replicationExtension", new()
+    {
+        Properties = new AzureNative.DataReplication.Inputs.ReplicationExtensionModelPropertiesArgs
+        {
+            CustomProperties = 
+            {
+                { "instanceType", "ReplicationExtensionModelCustomProperties" },
+            },
+        },
+        ReplicationExtensionName = "g16yjJ",
+        ResourceGroupName = "rgrecoveryservicesdatareplication",
+        VaultName = "4",
+    });
+
+});
+

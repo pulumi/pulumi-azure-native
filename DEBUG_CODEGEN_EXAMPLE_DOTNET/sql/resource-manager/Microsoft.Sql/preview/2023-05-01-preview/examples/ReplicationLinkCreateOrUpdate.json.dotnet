@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var replicationLink = new AzureNative.Sql.ReplicationLink("replicationLink", new()
+    {
+        DatabaseName = "gamma-db",
+        LinkId = "00000000-1111-2222-3333-666666666666",
+        LinkType = "STANDBY",
+        ResourceGroupName = "Default",
+        ServerName = "sourcesvr",
+    });
+
+});
+

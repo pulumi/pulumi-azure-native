@@ -1,0 +1,91 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var monitoredSubscription = new AzureNative.Datadog.MonitoredSubscription("monitoredSubscription", new()
+    {
+        ConfigurationName = "default",
+        MonitorName = "myMonitor",
+        Properties = new AzureNative.Datadog.Inputs.SubscriptionListArgs
+        {
+            MonitoredSubscriptionList = new[]
+            {
+                new AzureNative.Datadog.Inputs.MonitoredSubscriptionArgs
+                {
+                    Status = "Active",
+                    SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000",
+                    TagRules = new AzureNative.Datadog.Inputs.MonitoringTagRulesPropertiesArgs
+                    {
+                        Automuting = true,
+                        LogRules = new AzureNative.Datadog.Inputs.LogRulesArgs
+                        {
+                            FilteringTags = new[]
+                            {
+                                new AzureNative.Datadog.Inputs.FilteringTagArgs
+                                {
+                                    Action = "Include",
+                                    Name = "Environment",
+                                    Value = "Prod",
+                                },
+                                new AzureNative.Datadog.Inputs.FilteringTagArgs
+                                {
+                                    Action = "Exclude",
+                                    Name = "Environment",
+                                    Value = "Dev",
+                                },
+                            },
+                            SendAadLogs = false,
+                            SendResourceLogs = true,
+                            SendSubscriptionLogs = true,
+                        },
+                        MetricRules = new AzureNative.Datadog.Inputs.MetricRulesArgs
+                        {
+                            FilteringTags = new[] {},
+                        },
+                    },
+                },
+                new AzureNative.Datadog.Inputs.MonitoredSubscriptionArgs
+                {
+                    Status = "Failed",
+                    SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000001",
+                    TagRules = new AzureNative.Datadog.Inputs.MonitoringTagRulesPropertiesArgs
+                    {
+                        Automuting = true,
+                        LogRules = new AzureNative.Datadog.Inputs.LogRulesArgs
+                        {
+                            FilteringTags = new[]
+                            {
+                                new AzureNative.Datadog.Inputs.FilteringTagArgs
+                                {
+                                    Action = "Include",
+                                    Name = "Environment",
+                                    Value = "Prod",
+                                },
+                                new AzureNative.Datadog.Inputs.FilteringTagArgs
+                                {
+                                    Action = "Exclude",
+                                    Name = "Environment",
+                                    Value = "Dev",
+                                },
+                            },
+                            SendAadLogs = false,
+                            SendResourceLogs = true,
+                            SendSubscriptionLogs = true,
+                        },
+                        MetricRules = new AzureNative.Datadog.Inputs.MetricRulesArgs
+                        {
+                            FilteringTags = new[] {},
+                        },
+                    },
+                },
+            },
+            Operation = "AddBegin",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

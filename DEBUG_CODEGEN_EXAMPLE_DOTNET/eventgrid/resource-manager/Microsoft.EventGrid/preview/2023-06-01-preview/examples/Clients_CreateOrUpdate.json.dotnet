@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var client = new AzureNative.EventGrid.Client("client", new()
+    {
+        Attributes = 
+        {
+            { "deviceTypes", new[]
+            {
+                "Fan",
+                "Light",
+                "AC",
+            } },
+            { "floor", 3 },
+            { "room", "345" },
+        },
+        ClientCertificateAuthentication = new AzureNative.EventGrid.Inputs.ClientCertificateAuthenticationArgs
+        {
+            ValidationScheme = "SubjectMatchesAuthenticationName",
+        },
+        ClientName = "exampleClientName1",
+        Description = "This is a test client",
+        NamespaceName = "exampleNamespaceName1",
+        ResourceGroupName = "examplerg",
+        State = "Enabled",
+    });
+
+});
+

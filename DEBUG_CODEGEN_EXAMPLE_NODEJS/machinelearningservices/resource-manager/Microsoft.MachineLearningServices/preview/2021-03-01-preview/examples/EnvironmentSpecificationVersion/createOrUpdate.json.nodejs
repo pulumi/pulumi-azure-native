@@ -1,0 +1,31 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const environmentSpecificationVersion = new azure_native.machinelearningservices.EnvironmentSpecificationVersion("environmentSpecificationVersion", {
+    name: "testEnvironment",
+    properties: {
+        condaFile: `channels:
+- defaults
+dependencies:
+- python=3.7.7
+name: my-env`,
+        description: "string",
+        docker: {
+            dockerSpecificationType: "Build",
+            dockerfile: "FROM myimage",
+        },
+        properties: {
+            additionalProp1: "string",
+            additionalProp2: "string",
+            additionalProp3: "string",
+        },
+        tags: {
+            additionalProp1: "string",
+            additionalProp2: "string",
+            additionalProp3: "string",
+        },
+    },
+    resourceGroupName: "testrg123",
+    version: "1",
+    workspaceName: "testworkspace",
+});

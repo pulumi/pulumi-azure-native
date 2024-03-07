@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const capacityDetails = new azure_native.powerbidedicated.CapacityDetails("capacityDetails", {
+    administration: {
+        members: [
+            "azsdktest@microsoft.com",
+            "azsdktest2@microsoft.com",
+        ],
+    },
+    dedicatedCapacityName: "azsdktest",
+    location: "West US",
+    resourceGroupName: "TestRG",
+    sku: {
+        name: "A1",
+        tier: "PBIE_Azure",
+    },
+    tags: {
+        testKey: "testValue",
+    },
+});

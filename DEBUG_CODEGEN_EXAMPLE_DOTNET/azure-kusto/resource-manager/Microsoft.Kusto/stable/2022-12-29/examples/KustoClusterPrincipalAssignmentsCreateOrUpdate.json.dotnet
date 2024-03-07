@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var clusterPrincipalAssignment = new AzureNative.Kusto.ClusterPrincipalAssignment("clusterPrincipalAssignment", new()
+    {
+        ClusterName = "kustoCluster",
+        PrincipalAssignmentName = "kustoprincipal1",
+        PrincipalId = "87654321-1234-1234-1234-123456789123",
+        PrincipalType = "App",
+        ResourceGroupName = "kustorptest",
+        Role = "AllDatabasesAdmin",
+        TenantId = "12345678-1234-1234-1234-123456789123",
+    });
+
+});
+

@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ciamTenant = new AzureNative.AzureActiveDirectory.CIAMTenant("ciamTenant", new()
+    {
+        CreateTenantProperties = new AzureNative.AzureActiveDirectory.Inputs.CreateCIAMTenantPropertiesArgs
+        {
+            CountryCode = "US",
+            DisplayName = "Contoso",
+        },
+        Location = "United States",
+        ResourceGroupName = "contosoResourceGroup",
+        ResourceName = "contoso",
+        Sku = new AzureNative.AzureActiveDirectory.Inputs.CIAMResourceSKUArgs
+        {
+            Name = "Standard",
+        },
+    });
+
+});
+

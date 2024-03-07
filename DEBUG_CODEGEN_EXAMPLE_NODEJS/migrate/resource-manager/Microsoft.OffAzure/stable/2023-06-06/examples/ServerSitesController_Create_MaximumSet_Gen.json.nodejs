@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serverSitesController = new azure_native.offazure.ServerSitesController("serverSitesController", {
+    agentDetails: {
+        keyVaultId: "awxurtbjmofxuciewsqfgpkccpzw",
+        keyVaultUri: "qizphgqwage",
+    },
+    applianceName: "zkzibwptff",
+    discoverySolutionId: "lvskpghpphpfumbzxroakznqplomiy",
+    location: "iipybgplhzhpcfv",
+    resourceGroupName: "rgmigrate",
+    servicePrincipalIdentityDetails: {
+        aadAuthority: "yanzipdww",
+        applicationId: "tspgrujepxyxuprkqvfuqbbjrweeqa",
+        audience: "oepwfaozztzvegmzvswafvotj",
+        objectId: "tqrjngpgxnnto",
+        rawCertData: "dotvgkslkmsgvtekgojnhcdrryk",
+        tenantId: "vesmyhu",
+    },
+    siteName: "XD1X78SG23",
+    tags: {
+        key4244: "yryvgpkoefkjkhlcahntgfz",
+    },
+});

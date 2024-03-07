@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var assessmentProjectsOperation = new AzureNative.Migrate.AssessmentProjectsOperation("assessmentProjectsOperation", new()
+    {
+        AssessmentSolutionId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
+        CustomerStorageAccountArmId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
+        Location = "southeastasia",
+        ProjectName = "sakanwar1204project",
+        ProjectStatus = "Active",
+        ProvisioningState = "Succeeded",
+        PublicNetworkAccess = "Disabled",
+        ResourceGroupName = "sakanwar",
+        Tags = 
+        {
+            { "Migrate Project", "sakanwar-PE-SEA" },
+        },
+    });
+
+});
+

@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const digitalTwinsEndpoint = new azure_native.digitaltwins.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
+    endpointName: "myServiceBus",
+    properties: {
+        authenticationType: "IdentityBased",
+        endpointType: "ServiceBus",
+        endpointUri: "sb://mysb.servicebus.windows.net/",
+        entityPath: "mysbtopic",
+        identity: {
+            type: "UserAssigned",
+            userAssignedIdentity: "/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity",
+        },
+    },
+    resourceGroupName: "resRg",
+    resourceName: "myDigitalTwinsService",
+});

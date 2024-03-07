@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const masterSitesController = new azure_native.offazure.MasterSitesController("masterSitesController", {
+    allowMultipleSites: true,
+    customerStorageAccountArmId: "cdxrihtiskkn",
+    location: "plyak",
+    publicNetworkAccess: "NotSpecified",
+    resourceGroupName: "rgmigrate",
+    siteName: "74c1J1m56557t52H-75",
+    sites: ["zxupfq"],
+    tags: {
+        key7125: "jbhnzfuxjovyamasouyfhhzhevagvw",
+    },
+});

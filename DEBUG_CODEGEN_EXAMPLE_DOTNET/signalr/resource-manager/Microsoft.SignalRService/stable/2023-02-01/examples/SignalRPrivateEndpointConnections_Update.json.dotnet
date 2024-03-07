@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var signalRPrivateEndpointConnection = new AzureNative.SignalRService.SignalRPrivateEndpointConnection("signalRPrivateEndpointConnection", new()
+    {
+        PrivateEndpoint = new AzureNative.SignalRService.Inputs.PrivateEndpointArgs
+        {
+            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+        },
+        PrivateEndpointConnectionName = "mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+        PrivateLinkServiceConnectionState = new AzureNative.SignalRService.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "None",
+            Status = "Approved",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "mySignalRService",
+    });
+
+});
+

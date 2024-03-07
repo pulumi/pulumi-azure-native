@@ -2,21 +2,21 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 peering = azure_native.peering.Peering("peering",
-    direct=azure_native.peering.PeeringPropertiesDirectArgs(
-        connections=[azure_native.peering.DirectConnectionArgs(
-            bandwidth_in_mbps=10000,
-            bgp_session=azure_native.peering.BgpSessionArgs(
+    direct=azure_native.peering.PeeringPropertiesDirectResponseArgs(
+        connections=[{
+            "bandwidthInMbps": 10000,
+            "bgpSession": azure_native.peering.BgpSessionArgs(
                 max_prefixes_advertised_v4=1000,
                 max_prefixes_advertised_v6=100,
                 microsoft_session_i_pv4_address="192.168.0.123",
                 peer_session_i_pv4_address="192.168.0.234",
                 session_prefix_v4="192.168.0.0/24",
             ),
-            connection_identifier="5F4CB5C7-6B43-4444-9338-9ABC72606C16",
-            peering_db_facility_id=99999,
-            session_address_provider="Peer",
-            use_for_peering_service=True,
-        )],
+            "connectionIdentifier": "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+            "peeringDBFacilityId": 99999,
+            "sessionAddressProvider": "Peer",
+            "useForPeeringService": True,
+        }],
         direct_peering_type="IxRs",
         peer_asn=azure_native.peering.SubResourceArgs(
             id="/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",

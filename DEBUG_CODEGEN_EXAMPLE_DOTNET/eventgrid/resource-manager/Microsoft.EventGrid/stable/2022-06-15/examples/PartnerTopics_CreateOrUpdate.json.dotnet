@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var partnerTopic = new AzureNative.EventGrid.PartnerTopic("partnerTopic", new()
+    {
+        ExpirationTimeIfNotActivatedUtc = "2022-03-23T23:06:13.109Z",
+        Location = "westus2",
+        MessageForActivation = "Example message for activation",
+        PartnerRegistrationImmutableId = "6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
+        PartnerTopicFriendlyDescription = "Example description",
+        PartnerTopicName = "examplePartnerTopicName1",
+        ResourceGroupName = "examplerg",
+        Source = "ContosoCorp.Accounts.User1",
+    });
+
+});
+

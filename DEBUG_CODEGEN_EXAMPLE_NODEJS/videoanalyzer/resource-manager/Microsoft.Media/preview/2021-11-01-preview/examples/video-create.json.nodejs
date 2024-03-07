@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const video = new azure_native.videoanalyzer.Video("video", {
+    accountName: "testaccount2",
+    description: "Sample Description 1",
+    resourceGroupName: "testrg",
+    title: "Sample Title 1",
+    videoName: "video1",
+});

@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var collectorPolicy = new AzureNative.NetworkFunction.CollectorPolicy("collectorPolicy", new()
+    {
+        AzureTrafficCollectorName = "atc",
+        CollectorPolicyName = "cp1",
+        EmissionPolicies = new[]
+        {
+            new AzureNative.NetworkFunction.Inputs.EmissionPoliciesPropertiesFormatArgs
+            {
+                EmissionDestinations = new[]
+                {
+                    new AzureNative.NetworkFunction.Inputs.EmissionPolicyDestinationArgs
+                    {
+                        DestinationType = "AzureMonitor",
+                    },
+                },
+                EmissionType = "IPFIX",
+            },
+        },
+        IngestionPolicy = new AzureNative.NetworkFunction.Inputs.IngestionPolicyPropertiesFormatArgs
+        {
+            IngestionSources = new[]
+            {
+                new AzureNative.NetworkFunction.Inputs.IngestionSourcesPropertiesFormatArgs
+                {
+                    ResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName",
+                    SourceType = "Resource",
+                },
+            },
+            IngestionType = "IPFIX",
+        },
+        Location = "West US",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cloudLink = new AzureNative.AVS.CloudLink("cloudLink", new()
+    {
+        CloudLinkName = "cloudLink1",
+        LinkedCloud = "/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.AVS/privateClouds/cloud2",
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+    });
+
+});
+

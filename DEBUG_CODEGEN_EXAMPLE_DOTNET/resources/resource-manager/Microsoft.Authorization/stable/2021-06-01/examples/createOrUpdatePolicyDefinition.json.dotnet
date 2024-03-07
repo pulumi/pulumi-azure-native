@@ -1,0 +1,57 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policyDefinition = new AzureNative.Authorization.PolicyDefinition("policyDefinition", new()
+    {
+        Description = "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+        DisplayName = "Enforce resource naming convention",
+        Metadata = 
+        {
+            { "category", "Naming" },
+        },
+        Mode = "All",
+        Parameters = 
+        {
+            { "prefix", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+            {
+                Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+                {
+                    Description = "Resource name prefix",
+                    DisplayName = "Prefix",
+                },
+                Type = "String",
+            } },
+            { "suffix", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+            {
+                Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+                {
+                    Description = "Resource name suffix",
+                    DisplayName = "Suffix",
+                },
+                Type = "String",
+            } },
+        },
+        PolicyDefinitionName = "ResourceNaming",
+        PolicyRule = 
+        {
+            { "if", 
+            {
+                { "not", 
+                {
+                    { "field", "name" },
+                    { "like", "[concat(parameters('prefix'), '*', parameters('suffix'))]" },
+                } },
+            } },
+            { "then", 
+            {
+                { "effect", "deny" },
+            } },
+        },
+    });
+
+});
+

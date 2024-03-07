@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cloudHsmCluster = new AzureNative.HardwareSecurityModules.CloudHsmCluster("cloudHsmCluster", new()
+    {
+        CloudHsmClusterName = "chsm1",
+        Location = "eastus2",
+        ResourceGroupName = "rgcloudhsm",
+        SecurityDomain = new AzureNative.HardwareSecurityModules.Inputs.CloudHsmClusterSecurityDomainPropertiesArgs
+        {
+            FipsState = 2,
+        },
+        Sku = new AzureNative.HardwareSecurityModules.Inputs.CloudHsmClusterSkuArgs
+        {
+            Family = "B",
+            Name = AzureNative.HardwareSecurityModules.CloudHsmClusterSkuName.Standard_B1,
+        },
+        Tags = 
+        {
+            { "Dept", "hsm" },
+            { "Environment", "dogfood" },
+        },
+    });
+
+});
+

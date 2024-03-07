@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.NetApp.Pool("pool", new()
+    {
+        AccountName = "account1",
+        Location = "eastus",
+        PoolName = "pool1",
+        QosType = "Auto",
+        ResourceGroupName = "myRG",
+        ServiceLevel = "Premium",
+        Size = 4398046511104,
+    });
+
+});
+

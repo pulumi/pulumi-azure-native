@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var link = new AzureNative.CustomerInsights.Link("link", new()
+    {
+        Description = 
+        {
+            { "en-us", "Link Description" },
+        },
+        DisplayName = 
+        {
+            { "en-us", "Link DisplayName" },
+        },
+        HubName = "sdkTestHub",
+        LinkName = "linkTest4806",
+        Mappings = new[]
+        {
+            new AzureNative.CustomerInsights.Inputs.TypePropertiesMappingArgs
+            {
+                LinkType = AzureNative.CustomerInsights.LinkTypes.UpdateAlways,
+                SourcePropertyName = "testInteraction1949",
+                TargetPropertyName = "testProfile1446",
+            },
+        },
+        ParticipantPropertyReferences = new[]
+        {
+            new AzureNative.CustomerInsights.Inputs.ParticipantPropertyReferenceArgs
+            {
+                SourcePropertyName = "testInteraction1949",
+                TargetPropertyName = "ProfileId",
+            },
+        },
+        ResourceGroupName = "TestHubRG",
+        SourceEntityType = AzureNative.CustomerInsights.EntityType.Interaction,
+        SourceEntityTypeName = "testInteraction1949",
+        TargetEntityType = AzureNative.CustomerInsights.EntityType.Profile,
+        TargetEntityTypeName = "testProfile1446",
+    });
+
+});
+

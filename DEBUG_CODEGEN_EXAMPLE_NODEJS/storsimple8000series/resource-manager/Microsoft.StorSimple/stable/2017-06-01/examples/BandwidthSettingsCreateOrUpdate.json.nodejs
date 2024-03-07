@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const bandwidthSetting = new azure_native.storsimple.BandwidthSetting("bandwidthSetting", {
+    bandwidthSettingName: "BWSForTest",
+    managerName: "ManagerForSDKTest1",
+    resourceGroupName: "ResourceGroupForSDKTest",
+    schedules: [{
+        days: [
+            azure_native.storsimple.DayOfWeek.Saturday,
+            azure_native.storsimple.DayOfWeek.Sunday,
+        ],
+        rateInMbps: 10,
+        start: {
+            hours: 10,
+            minutes: 0,
+            seconds: 0,
+        },
+        stop: {
+            hours: 20,
+            minutes: 0,
+            seconds: 0,
+        },
+    }],
+});

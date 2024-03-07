@@ -10,18 +10,18 @@ scheduled_query_rule = azure_native.insights.ScheduledQueryRule("scheduledQueryR
         },
     ),
     check_workspace_alerts_storage_configured=True,
-    criteria=azure_native.insights.ScheduledQueryRuleCriteriaArgs(
-        all_of=[azure_native.insights.ConditionArgs(
-            dimensions=[],
-            failing_periods=azure_native.insights.ConditionFailingPeriodsArgs(
+    criteria=azure_native.insights.ScheduledQueryRuleCriteriaResponseArgs(
+        all_of=[{
+            "dimensions": [],
+            "failingPeriods": azure_native.insights.ConditionFailingPeriodsArgs(
                 min_failing_periods_to_alert=1,
                 number_of_evaluation_periods=1,
             ),
-            operator="GreaterThan",
-            query="Heartbeat",
-            threshold=360,
-            time_aggregation="Count",
-        )],
+            "operator": "GreaterThan",
+            "query": "Heartbeat",
+            "threshold": 360,
+            "timeAggregation": "Count",
+        }],
     ),
     description="Health check rule",
     enabled=True,

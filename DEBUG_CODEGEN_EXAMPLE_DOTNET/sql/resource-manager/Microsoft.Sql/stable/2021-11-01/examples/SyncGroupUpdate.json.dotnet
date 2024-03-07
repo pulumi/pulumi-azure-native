@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var syncGroup = new AzureNative.Sql.SyncGroup("syncGroup", new()
+    {
+        ConflictResolutionPolicy = "HubWin",
+        DatabaseName = "syncgroupcrud-4328",
+        HubDatabaseUserName = "hubUser",
+        Interval = -1,
+        ResourceGroupName = "syncgroupcrud-65440",
+        ServerName = "syncgroupcrud-8475",
+        SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+        SyncGroupName = "syncgroupcrud-3187",
+        UsePrivateLinkConnection = true,
+    });
+
+});
+

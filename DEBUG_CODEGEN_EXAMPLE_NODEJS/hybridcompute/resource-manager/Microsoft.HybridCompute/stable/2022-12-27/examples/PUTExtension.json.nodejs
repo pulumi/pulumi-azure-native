@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const machineExtension = new azure_native.hybridcompute.MachineExtension("machineExtension", {
+    extensionName: "CustomScriptExtension",
+    location: "eastus2euap",
+    machineName: "myMachine",
+    properties: {
+        publisher: "Microsoft.Compute",
+        settings: {
+            commandToExecute: "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"",
+        },
+        type: "CustomScriptExtension",
+        typeHandlerVersion: "1.10",
+    },
+    resourceGroupName: "myResourceGroup",
+});

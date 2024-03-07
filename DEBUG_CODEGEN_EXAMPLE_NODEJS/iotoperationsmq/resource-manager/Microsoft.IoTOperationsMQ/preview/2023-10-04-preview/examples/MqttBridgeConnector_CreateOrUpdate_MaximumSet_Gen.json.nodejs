@@ -1,0 +1,77 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mqttBridgeConnector = new azure_native.iotoperationsmq.MqttBridgeConnector("mqttBridgeConnector", {
+    bridgeInstances: 4528,
+    clientIdPrefix: "yqipejvabahsexbnttiegjnh",
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    image: {
+        pullPolicy: "imfuzvqxgbdwliqnn",
+        pullSecrets: "klnqimxqsrdwhcqldjvdtsrs",
+        repository: "m",
+        tag: "jygfdiamhhm",
+    },
+    localBrokerConnection: {
+        authentication: {
+            kubernetes: {
+                secretPath: "soukzfkouir",
+                serviceAccountTokenName: "suwetviuhmhorhvsidlznnufe",
+            },
+        },
+        endpoint: "xc",
+        tls: {
+            tlsEnabled: true,
+            trustedCaCertificateConfigMap: "rinkomfeznsfedbmllxlbmmhc",
+        },
+    },
+    location: "frztvxzhskx",
+    logLevel: "gpgijsotipdtvvkpnckuziqqv",
+    mqName: "R8-6x-Y-L-F-21RP5-XVv",
+    mqttBridgeConnectorName: "k1v-U4P2440C1b7T8y-G",
+    nodeTolerations: {
+        effect: "eeswvciblqmmaeesjoflyvxqbz",
+        key: "wbrstdwxgm",
+        operator: "lbegegneekwnyodtzraarivtwhmzep",
+        value: "sfafsjdcezdmkwibxeluukxgl",
+    },
+    protocol: "v3",
+    remoteBrokerConnection: {
+        authentication: {
+            systemAssignedManagedIdentity: {
+                audience: "kjderojhpehosgfcrxxbh",
+                extensionName: "cyckjqqzspleajbtkniwrfsqygjfhe",
+            },
+            x509: {
+                keyVault: {
+                    vault: {
+                        credentials: {
+                            servicePrincipalLocalSecretName: "wuimjwpbhoglbsxxa",
+                        },
+                        directoryId: "eyjniptiykzcgbzok",
+                        name: "lxmwfan",
+                    },
+                    vaultCaChainSecret: {
+                        name: "bmectskddmpjxnsogwooexj",
+                        version: "unjfbf",
+                    },
+                    vaultCert: {
+                        name: "bmectskddmpjxnsogwooexj",
+                        version: "unjfbf",
+                    },
+                },
+                secretName: "x",
+            },
+        },
+        endpoint: "bshzrukafmxjgnrlhzlxbbzjdbqh",
+        protocol: "mqtt",
+        tls: {
+            tlsEnabled: true,
+            trustedCaCertificateConfigMap: "ivtebqmclgfjx",
+        },
+    },
+    resourceGroupName: "rgiotoperationsmq",
+    tags: {},
+});

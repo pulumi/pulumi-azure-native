@@ -4,12 +4,12 @@ import pulumi_azure_native as azure_native
 blob_inventory_policy = azure_native.storage.BlobInventoryPolicy("blobInventoryPolicy",
     account_name="sto9699",
     blob_inventory_policy_name="default",
-    policy=azure_native.storage.BlobInventoryPolicySchemaArgs(
+    policy=azure_native.storage.BlobInventoryPolicySchemaResponseArgs(
         enabled=True,
         rules=[
-            azure_native.storage.BlobInventoryPolicyRuleArgs(
-                definition=azure_native.storage.BlobInventoryPolicyDefinitionArgs(
-                    filters=azure_native.storage.BlobInventoryPolicyFilterArgs(
+            {
+                "definition": {
+                    "filters": azure_native.storage.BlobInventoryPolicyFilterArgs(
                         blob_types=[
                             "blockBlob",
                             "appendBlob",
@@ -26,10 +26,10 @@ blob_inventory_policy = azure_native.storage.BlobInventoryPolicy("blobInventoryP
                             "inventoryprefix2",
                         ],
                     ),
-                    format="Csv",
-                    object_type="Blob",
-                    schedule="Daily",
-                    schema_fields=[
+                    "format": "Csv",
+                    "objectType": "Blob",
+                    "schedule": "Daily",
+                    "schemaFields": [
                         "Name",
                         "Creation-Time",
                         "Last-Modified",
@@ -43,13 +43,13 @@ blob_inventory_policy = azure_native.storage.BlobInventoryPolicy("blobInventoryP
                         "IsCurrentVersion",
                         "Metadata",
                     ],
-                ),
-                destination="container1",
-                enabled=True,
-                name="inventoryPolicyRule1",
-            ),
-            azure_native.storage.BlobInventoryPolicyRuleArgs(
-                definition=azure_native.storage.BlobInventoryPolicyDefinitionArgs(
+                },
+                "destination": "container1",
+                "enabled": True,
+                "name": "inventoryPolicyRule1",
+            },
+            {
+                "definition": azure_native.storage.BlobInventoryPolicyDefinitionArgs(
                     format="Parquet",
                     object_type="Container",
                     schedule="Weekly",
@@ -65,10 +65,10 @@ blob_inventory_policy = azure_native.storage.BlobInventoryPolicy("blobInventoryP
                         "HasLegalHold",
                     ],
                 ),
-                destination="container2",
-                enabled=True,
-                name="inventoryPolicyRule2",
-            ),
+                "destination": "container2",
+                "enabled": True,
+                "name": "inventoryPolicyRule2",
+            },
         ],
         type="Inventory",
     ),

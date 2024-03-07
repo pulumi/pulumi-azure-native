@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualHardDisk = new AzureNative.AzureStackHCI.VirtualHardDisk("virtualHardDisk", new()
+    {
+        DiskSizeGB = 32,
+        ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+            Type = "CustomLocation",
+        },
+        Location = "West US2",
+        ResourceGroupName = "test-rg",
+        VirtualHardDiskName = "test-vhd",
+    });
+
+});
+

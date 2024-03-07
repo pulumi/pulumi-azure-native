@@ -9,8 +9,8 @@ policy_set_definition_at_management_group = azure_native.authorization.PolicySet
         "category": "Cost Management",
     },
     policy_definitions=[
-        azure_native.authorization.PolicyDefinitionReferenceArgs(
-            parameters={
+        {
+            "parameters": {
                 "listOfAllowedSKUs": azure_native.authorization.ParameterValuesValueArgs(
                     value=[
                         "Standard_GRS",
@@ -18,11 +18,11 @@ policy_set_definition_at_management_group = azure_native.authorization.PolicySet
                     ],
                 ),
             },
-            policy_definition_id="/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
-            policy_definition_reference_id="Limit_Skus",
-        ),
-        azure_native.authorization.PolicyDefinitionReferenceArgs(
-            parameters={
+            "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+            "policyDefinitionReferenceId": "Limit_Skus",
+        },
+        {
+            "parameters": {
                 "prefix": azure_native.authorization.ParameterValuesValueArgs(
                     value="DeptA",
                 ),
@@ -30,8 +30,8 @@ policy_set_definition_at_management_group = azure_native.authorization.PolicySet
                     value="-LC",
                 ),
             },
-            policy_definition_id="/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
-            policy_definition_reference_id="Resource_Naming",
-        ),
+            "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            "policyDefinitionReferenceId": "Resource_Naming",
+        },
     ],
     policy_set_definition_name="CostManagement")

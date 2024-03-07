@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlPoolWorkloadGroup = new azure_native.synapse.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup", {
+    importance: "normal",
+    maxResourcePercent: 100,
+    maxResourcePercentPerRequest: 3,
+    minResourcePercent: 0,
+    minResourcePercentPerRequest: 3,
+    queryExecutionTimeout: 0,
+    resourceGroupName: "sqlcrudtest-6852",
+    sqlPoolName: "sqlcrudtest-9187",
+    workloadGroupName: "smallrc",
+    workspaceName: "sqlcrudtest-2080",
+});

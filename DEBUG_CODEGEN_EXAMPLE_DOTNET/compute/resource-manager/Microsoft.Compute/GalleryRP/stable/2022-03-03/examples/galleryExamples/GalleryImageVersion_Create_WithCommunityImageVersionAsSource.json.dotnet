@@ -1,0 +1,88 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var galleryImageVersion = new AzureNative.Compute.GalleryImageVersion("galleryImageVersion", new()
+    {
+        GalleryImageName = "myGalleryImageName",
+        GalleryImageVersionName = "1.0.0",
+        GalleryName = "myGalleryName",
+        Location = "West US",
+        PublishingProfile = new AzureNative.Compute.Inputs.GalleryImageVersionPublishingProfileArgs
+        {
+            TargetRegions = new[]
+            {
+                new AzureNative.Compute.Inputs.TargetRegionArgs
+                {
+                    Encryption = new AzureNative.Compute.Inputs.EncryptionImagesArgs
+                    {
+                        DataDiskImages = new[]
+                        {
+                            new AzureNative.Compute.Inputs.DataDiskImageEncryptionArgs
+                            {
+                                DiskEncryptionSetId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                Lun = 0,
+                            },
+                            new AzureNative.Compute.Inputs.DataDiskImageEncryptionArgs
+                            {
+                                DiskEncryptionSetId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                Lun = 1,
+                            },
+                        },
+                        OsDiskImage = new AzureNative.Compute.Inputs.OSDiskImageEncryptionArgs
+                        {
+                            DiskEncryptionSetId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                        },
+                    },
+                    ExcludeFromLatest = false,
+                    Name = "West US",
+                    RegionalReplicaCount = 1,
+                },
+                new AzureNative.Compute.Inputs.TargetRegionArgs
+                {
+                    Encryption = new AzureNative.Compute.Inputs.EncryptionImagesArgs
+                    {
+                        DataDiskImages = new[]
+                        {
+                            new AzureNative.Compute.Inputs.DataDiskImageEncryptionArgs
+                            {
+                                DiskEncryptionSetId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                Lun = 0,
+                            },
+                            new AzureNative.Compute.Inputs.DataDiskImageEncryptionArgs
+                            {
+                                DiskEncryptionSetId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                Lun = 1,
+                            },
+                        },
+                        OsDiskImage = new AzureNative.Compute.Inputs.OSDiskImageEncryptionArgs
+                        {
+                            DiskEncryptionSetId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                        },
+                    },
+                    ExcludeFromLatest = false,
+                    Name = "East US",
+                    RegionalReplicaCount = 2,
+                    StorageAccountType = "Standard_ZRS",
+                },
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        SafetyProfile = new AzureNative.Compute.Inputs.GalleryImageVersionSafetyProfileArgs
+        {
+            AllowDeletionOfReplicatedLocations = false,
+        },
+        StorageProfile = new AzureNative.Compute.Inputs.GalleryImageVersionStorageProfileArgs
+        {
+            Source = new AzureNative.Compute.Inputs.GalleryArtifactVersionFullSourceArgs
+            {
+                CommunityGalleryImageId = "/communityGalleries/{communityGalleryName}/images/{communityGalleryImageName}",
+            },
+        },
+    });
+
+});
+

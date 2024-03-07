@@ -26,7 +26,7 @@ api_management_service = azure_native.apimanagement.ApiManagementService("apiMan
             type="Portal",
         ),
     ],
-    identity=azure_native.apimanagement.ApiManagementServiceIdentityArgs(
+    identity=azure_native.apimanagement.ApiManagementServiceIdentityResponseArgs(
         type="UserAssigned",
         user_assigned_identities={
             "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": azure_native.apimanagement.UserIdentityPropertiesArgs(),

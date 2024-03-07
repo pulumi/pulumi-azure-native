@@ -7,7 +7,7 @@ storage_account = azure_native.storage.StorageAccount("storageAccount",
         name="losangeles001",
         type="EdgeZone",
     ),
-    immutable_storage_with_versioning=azure_native.storage.ImmutableStorageAccountArgs(
+    immutable_storage_with_versioning=azure_native.storage.ImmutableStorageAccountResponseArgs(
         enabled=True,
         immutability_policy=azure_native.storage.AccountImmutabilityPolicyPropertiesArgs(
             allow_protected_append_writes=True,

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const nspAccessRule = new azure_native.network.NspAccessRule("nspAccessRule", {
+    accessRuleName: "accessRule1",
+    addressPrefixes: [
+        "10.11.0.0/16",
+        "10.10.1.0/24",
+    ],
+    direction: "Inbound",
+    networkSecurityPerimeterName: "nsp1",
+    profileName: "profile1",
+    resourceGroupName: "rg1",
+});

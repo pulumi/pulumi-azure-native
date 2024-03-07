@@ -1,0 +1,54 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+    galleryImageName: "myGalleryImageName",
+    galleryImageVersionName: "1.0.0",
+    galleryName: "myGalleryName",
+    location: "West US",
+    publishingProfile: {
+        targetRegions: [
+            {
+                encryption: {
+                    dataDiskImages: [{
+                        diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
+                        lun: 1,
+                    }],
+                    osDiskImage: {
+                        diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+                    },
+                },
+                excludeFromLatest: false,
+                name: "West US",
+                regionalReplicaCount: 1,
+            },
+            {
+                excludeFromLatest: false,
+                name: "East US",
+                regionalReplicaCount: 2,
+                storageAccountType: "Standard_ZRS",
+            },
+        ],
+    },
+    resourceGroupName: "myResourceGroup",
+    safetyProfile: {
+        allowDeletionOfReplicatedLocations: false,
+    },
+    storageProfile: {
+        dataDiskImages: [{
+            hostCaching: azure_native.compute.HostCaching.None,
+            lun: 1,
+            source: {
+                id: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+                uri: "https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+            },
+        }],
+        osDiskImage: {
+            hostCaching: azure_native.compute.HostCaching.ReadOnly,
+            source: {
+                id: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+                uri: "https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+            },
+        },
+    },
+});

@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var protectedItem = new AzureNative.RecoveryServices.ProtectedItem("protectedItem", new()
+    {
+        ContainerName = "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+        FabricName = "Azure",
+        Properties = new AzureNative.RecoveryServices.Inputs.AzureIaaSComputeVMProtectedItemArgs
+        {
+            PolicyId = "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/NetSDKTestRsVault/backupPolicies/DefaultPolicy",
+            ProtectedItemType = "Microsoft.Compute/virtualMachines",
+            SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
+        },
+        ProtectedItemName = "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+        ResourceGroupName = "SwaggerTestRg",
+        VaultName = "NetSDKTestRsVault",
+    });
+
+});
+

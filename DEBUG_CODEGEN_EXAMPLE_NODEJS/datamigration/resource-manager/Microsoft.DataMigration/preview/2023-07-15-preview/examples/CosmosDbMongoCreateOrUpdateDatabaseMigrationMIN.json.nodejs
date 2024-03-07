@@ -1,0 +1,33 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const databaseMigrationsMongoToCosmosDbvCoreMongo = new azure_native.datamigration.DatabaseMigrationsMongoToCosmosDbvCoreMongo("databaseMigrationsMongoToCosmosDbvCoreMongo", {
+    collectionList: [
+        {
+            sourceCollection: "sourceCol1",
+            sourceDatabase: "sourceDb1",
+            targetCollection: "targetCol1",
+            targetDatabase: "targetDb1",
+        },
+        {
+            sourceCollection: "sourceCol2",
+            sourceDatabase: "sourceDb2",
+        },
+    ],
+    kind: "MongoToCosmosDbMongo",
+    migrationName: "migrationRequest",
+    migrationService: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/MigrationServices/testMigrationService",
+    resourceGroupName: "testrg",
+    scope: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DocumentDB/mongoClusters/targetCosmosDbClusterName",
+    sourceMongoConnection: {
+        host: "abc.mongodb.com",
+        password: "placeholder",
+        port: 88,
+        useSsl: true,
+        userName: "abc",
+    },
+    targetMongoConnection: {
+        connectionString: "placeholder",
+    },
+    targetResourceName: "targetCosmosDbClusterName",
+});

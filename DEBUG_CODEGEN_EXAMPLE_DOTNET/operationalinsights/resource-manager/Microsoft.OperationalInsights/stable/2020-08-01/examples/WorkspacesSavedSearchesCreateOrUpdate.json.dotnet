@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var savedSearch = new AzureNative.OperationalInsights.SavedSearch("savedSearch", new()
+    {
+        Category = "Saved Search Test Category",
+        DisplayName = "Create or Update Saved Search Test",
+        FunctionAlias = "heartbeat_func",
+        FunctionParameters = "a:int=1",
+        Query = "Heartbeat | summarize Count() by Computer | take a",
+        ResourceGroupName = "TestRG",
+        SavedSearchId = "00000000-0000-0000-0000-00000000000",
+        Tags = new[]
+        {
+            new AzureNative.OperationalInsights.Inputs.TagArgs
+            {
+                Name = "Group",
+                Value = "Computer",
+            },
+        },
+        Version = 2,
+        WorkspaceName = "TestWS",
+    });
+
+});
+

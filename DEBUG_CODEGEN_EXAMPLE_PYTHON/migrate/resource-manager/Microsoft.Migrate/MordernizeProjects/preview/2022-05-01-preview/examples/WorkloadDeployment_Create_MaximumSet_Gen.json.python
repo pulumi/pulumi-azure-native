@@ -3,25 +3,25 @@ import pulumi_azure_native as azure_native
 
 workload_deployment = azure_native.migrate.WorkloadDeployment("workloadDeployment",
     modernize_project_name="l6r8",
-    properties=azure_native.migrate.WorkloadDeploymentModelPropertiesArgs(
+    properties=azure_native.migrate.WorkloadDeploymentModelPropertiesResponseArgs(
         custom_properties={
             "instanceType": "IISAKSWorkloadDeployment",
         },
         display_name="wqe",
         target_platform="AzureKubernetesService",
-        workload_instance_properties=azure_native.migrate.WorkloadInstanceModelPropertiesArgs(
-            custom_properties={
+        workload_instance_properties={
+            "customProperties": {
                 "instanceType": "IISWorkload",
                 "webAppArmId": "xseseqsrzdiga",
                 "webAppSiteName": "mirgzmy",
             },
-            display_name="juoorbubchvk",
-            master_site_name="ubks",
-            migrate_agent_id="aqgzsxqbk",
-            name="wonkuhgsafzviuwqerzdmme",
-            source_name="weuxcqzwpeyzsjhdgqflhxlwjhbz",
-            source_platform="eh",
-        ),
+            "displayName": "juoorbubchvk",
+            "masterSiteName": "ubks",
+            "migrateAgentId": "aqgzsxqbk",
+            "name": "wonkuhgsafzviuwqerzdmme",
+            "sourceName": "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+            "sourcePlatform": "eh",
+        },
     ),
     resource_group_name="rgmigrateEngine",
     tags={

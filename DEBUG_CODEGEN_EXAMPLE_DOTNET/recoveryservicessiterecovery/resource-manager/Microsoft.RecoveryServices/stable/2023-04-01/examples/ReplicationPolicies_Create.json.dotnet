@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var replicationPolicy = new AzureNative.RecoveryServices.ReplicationPolicy("replicationPolicy", new()
+    {
+        PolicyName = "protectionprofile1",
+        Properties = new AzureNative.RecoveryServices.Inputs.CreatePolicyInputPropertiesArgs
+        {
+            ProviderSpecificInput = new AzureNative.RecoveryServices.Inputs.HyperVReplicaAzurePolicyInputArgs
+            {
+                InstanceType = "HyperVReplicaAzure",
+            },
+        },
+        ResourceGroupName = "resourceGroupPS1",
+        ResourceName = "vault1",
+    });
+
+});
+

@@ -1,0 +1,56 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mongoDBResourceMongoDBCollection = new AzureNative.DocumentDB.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", new()
+    {
+        AccountName = "ddb1",
+        CollectionName = "collectionName",
+        DatabaseName = "databaseName",
+        Location = "West US",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.MongoDBCollectionResourceArgs
+        {
+            Id = "collectionName",
+            Indexes = new[]
+            {
+                new AzureNative.DocumentDB.Inputs.MongoIndexArgs
+                {
+                    Key = new AzureNative.DocumentDB.Inputs.MongoIndexKeysArgs
+                    {
+                        Keys = new[]
+                        {
+                            "_ts",
+                        },
+                    },
+                    Options = new AzureNative.DocumentDB.Inputs.MongoIndexOptionsArgs
+                    {
+                        ExpireAfterSeconds = 100,
+                        Unique = true,
+                    },
+                },
+                new AzureNative.DocumentDB.Inputs.MongoIndexArgs
+                {
+                    Key = new AzureNative.DocumentDB.Inputs.MongoIndexKeysArgs
+                    {
+                        Keys = new[]
+                        {
+                            "_id",
+                        },
+                    },
+                },
+            },
+            ShardKey = 
+            {
+                { "testKey", "Hash" },
+            },
+        },
+        ResourceGroupName = "rg1",
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const runtimeEnvironment = new azure_native.automation.RuntimeEnvironment("runtimeEnvironment", {
+    automationAccountName: "myAutomationAccount9",
+    defaultPackages: {
+        Az: "8.3.0",
+    },
+    language: "PowerShell",
+    location: "East US 2",
+    resourceGroupName: "rg",
+    runtimeEnvironmentName: "myRuntimeEnvironmentName",
+    version: "7.1",
+});

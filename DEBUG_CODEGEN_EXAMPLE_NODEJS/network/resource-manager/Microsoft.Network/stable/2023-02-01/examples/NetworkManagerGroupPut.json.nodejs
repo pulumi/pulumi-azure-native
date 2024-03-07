@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkGroup = new azure_native.network.NetworkGroup("networkGroup", {
+    description: "A sample group",
+    networkGroupName: "testNetworkGroup",
+    networkManagerName: "testNetworkManager",
+    resourceGroupName: "rg1",
+});

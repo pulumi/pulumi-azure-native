@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var bookmark = new AzureNative.SecurityInsights.Bookmark("bookmark", new()
+    {
+        BookmarkId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+        Created = "2019-01-01T13:15:30Z",
+        CreatedBy = new AzureNative.SecurityInsights.Inputs.UserInfoArgs
+        {
+            ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+        },
+        DisplayName = "My bookmark",
+        Labels = new[]
+        {
+            "Tag1",
+            "Tag2",
+        },
+        Notes = "Found a suspicious activity",
+        Query = "SecurityEvent | where TimeGenerated > ago(1d) and TimeGenerated < ago(2d)",
+        QueryResult = "Security Event query result",
+        ResourceGroupName = "myRg",
+        Updated = "2019-01-01T13:15:30Z",
+        UpdatedBy = new AzureNative.SecurityInsights.Inputs.UserInfoArgs
+        {
+            ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+        },
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var azureADAdministrator = new AzureNative.DBforMySQL.AzureADAdministrator("azureADAdministrator", new()
+    {
+        AdministratorName = "ActiveDirectory",
+        AdministratorType = "ActiveDirectory",
+        IdentityResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/test-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-umi",
+        Login = "bob@contoso.com",
+        ResourceGroupName = "testrg",
+        ServerName = "mysqltestsvc4",
+        Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+        TenantId = "c12b7025-bfe2-46c1-b463-993b5e4cd467",
+    });
+
+});
+

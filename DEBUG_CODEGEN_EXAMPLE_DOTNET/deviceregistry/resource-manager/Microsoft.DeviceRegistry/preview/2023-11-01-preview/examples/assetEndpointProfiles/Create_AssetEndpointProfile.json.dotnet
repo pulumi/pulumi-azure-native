@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var assetEndpointProfile = new AzureNative.DeviceRegistry.AssetEndpointProfile("assetEndpointProfile", new()
+    {
+        AssetEndpointProfileName = "my-assetendpointprofile",
+        ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+            Type = "CustomLocation",
+        },
+        Location = "West Europe",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "site", "building-1" },
+        },
+        TargetAddress = "https://www.example.com/myTargetAddress",
+        UserAuthentication = new AzureNative.DeviceRegistry.Inputs.UserAuthenticationArgs
+        {
+            Mode = "Anonymous",
+        },
+    });
+
+});
+

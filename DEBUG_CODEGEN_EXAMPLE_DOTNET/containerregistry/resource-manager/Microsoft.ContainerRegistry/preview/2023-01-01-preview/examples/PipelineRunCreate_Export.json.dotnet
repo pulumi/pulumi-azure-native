@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pipelineRun = new AzureNative.ContainerRegistry.PipelineRun("pipelineRun", new()
+    {
+        PipelineRunName = "myPipelineRun",
+        RegistryName = "myRegistry",
+        Request = new AzureNative.ContainerRegistry.Inputs.PipelineRunRequestArgs
+        {
+            Artifacts = new[]
+            {
+                "sourceRepository/hello-world",
+                "sourceRepository2@sha256:00000000000000000000000000000000000",
+            },
+            PipelineResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline",
+            Target = new AzureNative.ContainerRegistry.Inputs.PipelineRunTargetPropertiesArgs
+            {
+                Name = "myblob.tar.gz",
+                Type = "AzureStorageBlob",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

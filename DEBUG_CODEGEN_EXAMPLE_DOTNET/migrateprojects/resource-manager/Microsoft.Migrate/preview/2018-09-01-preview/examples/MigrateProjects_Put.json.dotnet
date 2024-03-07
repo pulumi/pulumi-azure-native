@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var migrateProject = new AzureNative.Migrate.MigrateProject("migrateProject", new()
+    {
+        ETag = "\"b701c73a-0000-0000-0000-59c12ff00000\"",
+        Location = "Southeast Asia",
+        MigrateProjectName = "project01",
+        Properties = null,
+        ResourceGroupName = "myResourceGroup",
+        Tags = null,
+    });
+
+});
+

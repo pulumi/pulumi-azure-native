@@ -8,7 +8,7 @@ vpn_connection = azure_native.network.VpnConnection("vpnConnection",
         id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
     ),
     resource_group_name="rg1",
-    routing_configuration=azure_native.network.RoutingConfigurationArgs(
+    routing_configuration=azure_native.network.RoutingConfigurationResponseArgs(
         associated_route_table=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
         ),
@@ -18,8 +18,8 @@ vpn_connection = azure_native.network.VpnConnection("vpnConnection",
         outbound_route_map=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
         ),
-        propagated_route_tables=azure_native.network.PropagatedRouteTableArgs(
-            ids=[
+        propagated_route_tables={
+            "ids": [
                 azure_native.network.SubResourceArgs(
                     id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
                 ),
@@ -30,21 +30,21 @@ vpn_connection = azure_native.network.VpnConnection("vpnConnection",
                     id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
                 ),
             ],
-            labels=[
+            "labels": [
                 "label1",
                 "label2",
             ],
-        ),
+        },
     ),
     traffic_selector_policies=[],
-    vpn_link_connections=[azure_native.network.VpnSiteLinkConnectionArgs(
-        connection_bandwidth=200,
-        name="Connection-Link1",
-        shared_key="key",
-        use_policy_based_traffic_selectors=False,
-        vpn_connection_protocol_type="IKEv2",
-        vpn_link_connection_mode="Default",
-        vpn_site_link=azure_native.network.SubResourceArgs(
+    vpn_link_connections=[{
+        "connectionBandwidth": 200,
+        "name": "Connection-Link1",
+        "sharedKey": "key",
+        "usePolicyBasedTrafficSelectors": False,
+        "vpnConnectionProtocolType": "IKEv2",
+        "vpnLinkConnectionMode": "Default",
+        "vpnSiteLink": azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
         ),
-    )])
+    }])

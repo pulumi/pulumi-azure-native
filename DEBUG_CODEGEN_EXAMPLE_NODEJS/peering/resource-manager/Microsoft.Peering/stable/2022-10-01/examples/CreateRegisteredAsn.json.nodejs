@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const registeredAsn = new azure_native.peering.RegisteredAsn("registeredAsn", {
+    asn: 65000,
+    peeringName: "peeringName",
+    registeredAsnName: "registeredAsnName",
+    resourceGroupName: "rgName",
+});

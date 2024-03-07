@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var analyticsConnector = new AzureNative.HealthcareApis.AnalyticsConnector("analyticsConnector", new()
+    {
+        AnalyticsConnectorName = "exampleconnector",
+        DataDestinationConfiguration = new AzureNative.HealthcareApis.Inputs.AnalyticsConnectorDataLakeDataDestinationArgs
+        {
+            DataLakeName = "exampledatalake",
+            Type = "datalake",
+        },
+        DataMappingConfiguration = new AzureNative.HealthcareApis.Inputs.AnalyticsConnectorFhirToParquetMappingArgs
+        {
+            ExtensionSchemaReference = "acrexample.azurecr.io/blah@sha256aaa/Extension",
+            FilterConfigurationReference = "acrexample.azurecr.io/blah@sha256xxx",
+            Type = "fhirToParquet",
+        },
+        DataSourceConfiguration = new AzureNative.HealthcareApis.Inputs.AnalyticsConnectorFhirServiceDataSourceArgs
+        {
+            Kind = "R4",
+            Type = "fhirservice",
+            Url = "https://workspace-examplefhir.fhir.azurehealthcareapis.com",
+        },
+        Location = "westus",
+        ResourceGroupName = "testRG",
+        WorkspaceName = "workspace1",
+    });
+
+});
+

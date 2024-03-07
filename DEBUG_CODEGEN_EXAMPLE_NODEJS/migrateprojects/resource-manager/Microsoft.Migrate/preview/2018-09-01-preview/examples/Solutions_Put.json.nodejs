@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const solution = new azure_native.migrate.Solution("solution", {
+    migrateProjectName: "project01",
+    properties: {
+        goal: "Databases",
+        purpose: "Assessment",
+        tool: "DataMigrationAssistant",
+    },
+    resourceGroupName: "myResourceGroup",
+    solutionName: "dbsolution",
+});

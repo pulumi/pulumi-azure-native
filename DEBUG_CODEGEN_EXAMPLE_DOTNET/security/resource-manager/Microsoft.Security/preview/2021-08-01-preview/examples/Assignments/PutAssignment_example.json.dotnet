@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var assignment = new AzureNative.Security.Assignment("assignment", new()
+    {
+        AdditionalData = new AzureNative.Security.Inputs.AssignmentPropertiesAdditionalDataArgs
+        {
+            ExemptionCategory = "waiver",
+        },
+        AssignedComponent = new AzureNative.Security.Inputs.AssignedComponentItemArgs
+        {
+            Key = "1195afff-c881-495e-9bc5-1486211ae03f",
+        },
+        AssignedStandard = new AzureNative.Security.Inputs.AssignedStandardItemArgs
+        {
+            Id = "/providers/Microsoft.Security/Standards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+        },
+        AssignmentId = "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+        Description = "Set of policies monitored by Azure Security Center for cross cloud",
+        DisplayName = "ASC Default",
+        Effect = "Exempt",
+        ExpiresOn = "2022-05-01T19:50:47.083633Z",
+        Metadata = 
+        {
+            { "ticketId", 12345 },
+        },
+        ResourceGroupName = "myResourceGroup",
+        Scope = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/ResourceGroup/rg",
+    });
+
+});
+

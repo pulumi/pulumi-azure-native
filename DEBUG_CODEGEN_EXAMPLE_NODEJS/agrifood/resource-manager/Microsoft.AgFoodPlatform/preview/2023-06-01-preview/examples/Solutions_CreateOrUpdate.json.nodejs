@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const solution = new azure_native.agfoodplatform.Solution("solution", {
+    dataManagerForAgricultureResourceName: "examples-farmbeatsResourceName",
+    resourceGroupName: "examples-rg",
+    solutionId: "abc.partner",
+});

@@ -1,0 +1,37 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webTest = new azure_native.insights.WebTest("webTest", {
+    description: "Ping web test alert for mytestwebapp",
+    enabled: true,
+    frequency: 900,
+    location: "South Central US",
+    locations: [{
+        location: "us-fl-mia-edge",
+    }],
+    request: {
+        headers: [
+            {
+                headerFieldName: "Content-Language",
+                headerFieldValue: "de-DE",
+            },
+            {
+                headerFieldName: "Accept-Language",
+                headerFieldValue: "de-DE",
+            },
+        ],
+        httpVerb: "POST",
+        requestBody: "SGVsbG8gd29ybGQ=",
+        requestUrl: "https://bing.com",
+    },
+    resourceGroupName: "my-resource-group",
+    retryEnabled: true,
+    syntheticMonitorId: "my-webtest-my-component",
+    timeout: 120,
+    validationRules: {
+        sSLCertRemainingLifetimeCheck: 100,
+        sSLCheck: true,
+    },
+    webTestKind: azure_native.insights.WebTestKind.Standard,
+    webTestName: "my-webtest-my-component",
+});

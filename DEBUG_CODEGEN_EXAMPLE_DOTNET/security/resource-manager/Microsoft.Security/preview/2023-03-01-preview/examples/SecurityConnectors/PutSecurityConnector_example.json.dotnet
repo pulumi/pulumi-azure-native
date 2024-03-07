@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var securityConnector = new AzureNative.Security.SecurityConnector("securityConnector", new()
+    {
+        EnvironmentData = new AzureNative.Security.Inputs.AwsEnvironmentDataArgs
+        {
+            EnvironmentType = "AwsAccount",
+        },
+        EnvironmentName = "AWS",
+        HierarchyIdentifier = "exampleHierarchyId",
+        Location = "Central US",
+        Offerings = new[]
+        {
+            new AzureNative.Security.Inputs.CspmMonitorAwsOfferingArgs
+            {
+                NativeCloudConnection = new AzureNative.Security.Inputs.CspmMonitorAwsOfferingNativeCloudConnectionArgs
+                {
+                    CloudRoleArn = "arn:aws:iam::00000000:role/ASCMonitor",
+                },
+                OfferingType = "CspmMonitorAws",
+            },
+        },
+        ResourceGroupName = "exampleResourceGroup",
+        SecurityConnectorName = "exampleSecurityConnectorName",
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hybridUseBenefit = new AzureNative.SoftwarePlan.HybridUseBenefit("hybridUseBenefit", new()
+    {
+        PlanId = "94f46eda-45f8-493a-8425-251921463a89",
+        Scope = "subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
+        Sku = new AzureNative.SoftwarePlan.Inputs.SkuArgs
+        {
+            Name = "SQL_Server_Perpetual",
+        },
+    });
+
+});
+

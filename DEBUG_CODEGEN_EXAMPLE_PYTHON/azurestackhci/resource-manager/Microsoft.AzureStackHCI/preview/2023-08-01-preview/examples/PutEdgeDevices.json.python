@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 edge_device = azure_native.azurestackhci.EdgeDevice("edgeDevice",
-    device_configuration=azure_native.azurestackhci.DeviceConfigurationArgs(
+    device_configuration=azure_native.azurestackhci.DeviceConfigurationResponseArgs(
         device_metadata="",
         nic_details=[azure_native.azurestackhci.NicDetailArgs(
             adapter_name="ethernet",

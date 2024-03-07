@@ -6,7 +6,7 @@ gallery_image_version = azure_native.compute.GalleryImageVersion("galleryImageVe
     gallery_image_version_name="1.0.0",
     gallery_name="myGalleryName",
     location="West US",
-    publishing_profile=azure_native.compute.GalleryImageVersionPublishingProfileArgs(
+    publishing_profile=azure_native.compute.GalleryImageVersionPublishingProfileResponseArgs(
         replication_mode="Shallow",
         target_regions=[azure_native.compute.TargetRegionArgs(
             exclude_from_latest=False,
@@ -18,7 +18,7 @@ gallery_image_version = azure_native.compute.GalleryImageVersion("galleryImageVe
     safety_profile=azure_native.compute.GalleryImageVersionSafetyProfileArgs(
         allow_deletion_of_replicated_locations=False,
     ),
-    storage_profile=azure_native.compute.GalleryImageVersionStorageProfileArgs(
+    storage_profile=azure_native.compute.GalleryImageVersionStorageProfileResponseArgs(
         source=azure_native.compute.GalleryArtifactVersionFullSourceArgs(
             id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
         ),

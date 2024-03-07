@@ -1,0 +1,44 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pipeline = new AzureNative.IoTOperationsDataProcessor.Pipeline("pipeline", new()
+    {
+        Description = "vayzklhg",
+        Enabled = true,
+        ExtendedLocation = new AzureNative.IoTOperationsDataProcessor.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/e0aaa3df-e9a4-456a-9824-3c3b5c438110/resourceGroups/IoTOperationsDataProcessor-rg/providers/Microsoft.ExtendedLocation/customLocations/dev-space",
+            Type = "CustomLocation",
+        },
+        Input = new AzureNative.IoTOperationsDataProcessor.Inputs.PipelineInputArgs
+        {
+            Next = new[]
+            {
+                "umnuwjk",
+            },
+            Type = "xrnubjkvzajxjzb",
+        },
+        InstanceName = "056k5pl8t7761-2--ej25u2l28ttb-22mh79-75-2ch-t8",
+        Location = "westus",
+        PipelineName = "j8-8--3",
+        ResourceGroupName = "rgopenapi",
+        Stages = 
+        {
+            { "stageId", new AzureNative.IoTOperationsDataProcessor.Inputs.PipelineStageArgs
+            {
+                Next = new[]
+                {
+                    "gxqgqh",
+                },
+                Type = "cxqgblrzqniowabexbztempdpkuib",
+            } },
+        },
+        Tags = null,
+    });
+
+});
+

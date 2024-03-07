@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 dra = azure_native.datareplication.Dra("dra",
     fabric_agent_name="M",
     fabric_name="wPR",
-    properties=azure_native.datareplication.DraModelPropertiesArgs(
+    properties=azure_native.datareplication.DraModelPropertiesResponseArgs(
         authentication_identity=azure_native.datareplication.IdentityModelArgs(
             aad_authority="bubwwbowfhdmujrt",
             application_id="cwktzrwajuvfyyymfstpey",

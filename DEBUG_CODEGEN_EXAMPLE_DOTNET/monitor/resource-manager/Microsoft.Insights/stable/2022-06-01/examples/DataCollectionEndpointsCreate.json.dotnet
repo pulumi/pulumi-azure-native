@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataCollectionEndpoint = new AzureNative.Insights.DataCollectionEndpoint("dataCollectionEndpoint", new()
+    {
+        DataCollectionEndpointName = "myCollectionEndpoint",
+        Location = "eastus",
+        NetworkAcls = new AzureNative.Insights.Inputs.DataCollectionEndpointNetworkAclsArgs
+        {
+            PublicNetworkAccess = "Enabled",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

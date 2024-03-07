@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const streamingPolicy = new azure_native.media.StreamingPolicy("streamingPolicy", {
+    accountName: "contosomedia",
+    defaultContentKeyPolicyName: "PolicyWithClearKeyOptionAndTokenRestriction",
+    envelopeEncryption: {
+        contentKeys: {
+            defaultKey: {
+                label: "aesDefaultKey",
+            },
+        },
+        customKeyAcquisitionUrlTemplate: "https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+        enabledProtocols: {
+            dash: true,
+            download: false,
+            hls: true,
+            smoothStreaming: true,
+        },
+    },
+    resourceGroupName: "contosorg",
+    streamingPolicyName: "UserCreatedSecureStreamingPolicyWithEnvelopeEncryptionOnly",
+});

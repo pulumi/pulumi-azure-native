@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var streamingPolicy = new AzureNative.Media.StreamingPolicy("streamingPolicy", new()
+    {
+        AccountName = "contosomedia",
+        CommonEncryptionCbcs = new AzureNative.Media.Inputs.CommonEncryptionCbcsArgs
+        {
+            ClearKeyEncryptionConfiguration = new AzureNative.Media.Inputs.ClearKeyEncryptionConfigurationArgs
+            {
+                CustomKeysAcquisitionUrlTemplate = "https://contoso.com/{AlternativeMediaId}/clearkey/",
+            },
+            ContentKeys = new AzureNative.Media.Inputs.StreamingPolicyContentKeysArgs
+            {
+                DefaultKey = new AzureNative.Media.Inputs.DefaultKeyArgs
+                {
+                    Label = "cbcsDefaultKey",
+                },
+            },
+            EnabledProtocols = new AzureNative.Media.Inputs.EnabledProtocolsArgs
+            {
+                Dash = false,
+                Download = false,
+                Hls = true,
+                SmoothStreaming = false,
+            },
+        },
+        DefaultContentKeyPolicyName = "PolicyWithMultipleOptions",
+        ResourceGroupName = "contosorg",
+        StreamingPolicyName = "UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly",
+    });
+
+});
+

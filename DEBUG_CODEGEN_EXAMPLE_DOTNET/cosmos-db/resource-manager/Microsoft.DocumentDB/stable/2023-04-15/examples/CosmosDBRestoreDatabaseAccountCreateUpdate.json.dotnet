@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var databaseAccount = new AzureNative.DocumentDB.DatabaseAccount("databaseAccount", new()
+    {
+        AccountName = "ddb1",
+        ApiProperties = new AzureNative.DocumentDB.Inputs.ApiPropertiesArgs
+        {
+            ServerVersion = "3.2",
+        },
+        BackupPolicy = new AzureNative.DocumentDB.Inputs.ContinuousModeBackupPolicyArgs
+        {
+            ContinuousModeProperties = new AzureNative.DocumentDB.Inputs.ContinuousModePropertiesArgs
+            {
+                Tier = "Continuous30Days",
+            },
+            Type = "Continuous",
+        },
+        ConsistencyPolicy = new AzureNative.DocumentDB.Inputs.ConsistencyPolicyArgs
+        {
+            DefaultConsistencyLevel = AzureNative.DocumentDB.DefaultConsistencyLevel.BoundedStaleness,
+            MaxIntervalInSeconds = 10,
+            MaxStalenessPrefix = 200,
+        },
+        CreateMode = "Restore",
+        DatabaseAccountOfferType = AzureNative.DocumentDB.DatabaseAccountOfferType.Standard,
+        EnableAnalyticalStorage = true,
+        EnableFreeTier = false,
+        KeyVaultKeyUri = "https://myKeyVault.vault.azure.net",
+        Kind = "GlobalDocumentDB",
+        Location = "westus",
+        Locations = new[]
+        {
+            new AzureNative.DocumentDB.Inputs.LocationArgs
+            {
+                FailoverPriority = 0,
+                IsZoneRedundant = false,
+                LocationName = "southcentralus",
+            },
+        },
+        MinimalTlsVersion = "Tls",
+        ResourceGroupName = "rg1",
+        RestoreParameters = new AzureNative.DocumentDB.Inputs.RestoreParametersArgs
+        {
+            DatabasesToRestore = new[]
+            {
+                new AzureNative.DocumentDB.Inputs.DatabaseRestoreResourceArgs
+                {
+                    CollectionNames = new[]
+                    {
+                        "collection1",
+                        "collection2",
+                    },
+                    DatabaseName = "db1",
+                },
+                new AzureNative.DocumentDB.Inputs.DatabaseRestoreResourceArgs
+                {
+                    CollectionNames = new[]
+                    {
+                        "collection3",
+                        "collection4",
+                    },
+                    DatabaseName = "db2",
+                },
+            },
+            RestoreMode = "PointInTime",
+            RestoreSource = "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/1a97b4bb-f6a0-430e-ade1-638d781830cc",
+            RestoreTimestampInUtc = "2021-03-11T22:05:09Z",
+        },
+        Tags = null,
+    });
+
+});
+

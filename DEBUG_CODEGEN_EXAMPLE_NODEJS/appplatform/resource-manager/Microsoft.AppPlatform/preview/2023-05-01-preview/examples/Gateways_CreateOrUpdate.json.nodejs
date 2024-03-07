@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const gateway = new azure_native.appplatform.Gateway("gateway", {
+    gatewayName: "default",
+    properties: {
+        "public": true,
+        resourceRequests: {
+            cpu: "1",
+            memory: "1G",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+    sku: {
+        capacity: 2,
+        name: "E0",
+        tier: "Enterprise",
+    },
+});

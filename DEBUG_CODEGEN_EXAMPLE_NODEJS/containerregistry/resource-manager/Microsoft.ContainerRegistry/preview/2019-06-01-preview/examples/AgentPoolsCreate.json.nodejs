@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const agentPool = new azure_native.containerregistry.AgentPool("agentPool", {
+    agentPoolName: "myAgentPool",
+    count: 1,
+    location: "WESTUS",
+    os: "Linux",
+    registryName: "myRegistry",
+    resourceGroupName: "myResourceGroup",
+    tags: {
+        key: "value",
+    },
+    tier: "S1",
+});

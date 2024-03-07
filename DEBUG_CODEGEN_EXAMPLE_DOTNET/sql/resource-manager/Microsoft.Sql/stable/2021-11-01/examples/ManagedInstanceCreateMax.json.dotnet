@@ -1,0 +1,52 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedInstance = new AzureNative.Sql.ManagedInstance("managedInstance", new()
+    {
+        AdministratorLogin = "dummylogin",
+        AdministratorLoginPassword = "PLACEHOLDER",
+        Administrators = new AzureNative.Sql.Inputs.ManagedInstanceExternalAdministratorArgs
+        {
+            AzureADOnlyAuthentication = true,
+            Login = "bob@contoso.com",
+            PrincipalType = "User",
+            Sid = "00000011-1111-2222-2222-123456789111",
+            TenantId = "00000011-1111-2222-2222-123456789111",
+        },
+        Collation = "SQL_Latin1_General_CP1_CI_AS",
+        DnsZonePartner = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+        InstancePoolId = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+        LicenseType = "LicenseIncluded",
+        Location = "Japan East",
+        MaintenanceConfigurationId = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+        ManagedInstanceName = "testinstance",
+        MinimalTlsVersion = "1.2",
+        ProxyOverride = "Redirect",
+        PublicDataEndpointEnabled = false,
+        RequestedBackupStorageRedundancy = "Geo",
+        ResourceGroupName = "testrg",
+        ServicePrincipal = new AzureNative.Sql.Inputs.ServicePrincipalArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Sku = new AzureNative.Sql.Inputs.SkuArgs
+        {
+            Name = "GP_Gen5",
+            Tier = "GeneralPurpose",
+        },
+        StorageSizeInGB = 1024,
+        SubnetId = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+        Tags = 
+        {
+            { "tagKey1", "TagValue1" },
+        },
+        TimezoneId = "UTC",
+        VCores = 8,
+    });
+
+});
+

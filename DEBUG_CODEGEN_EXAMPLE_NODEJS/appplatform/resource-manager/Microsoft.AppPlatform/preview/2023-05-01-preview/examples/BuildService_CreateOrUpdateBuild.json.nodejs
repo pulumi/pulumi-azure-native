@@ -1,0 +1,32 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const buildServiceBuild = new azure_native.appplatform.BuildServiceBuild("buildServiceBuild", {
+    buildName: "mybuild",
+    buildServiceName: "default",
+    properties: {
+        agentPool: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default",
+        apms: [{
+            resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",
+        }],
+        builder: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default",
+        certificates: [
+            {
+                resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+            },
+            {
+                resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+            },
+        ],
+        env: {
+            environmentVariable: "test",
+        },
+        relativePath: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855-20210601-3ed9f4a2-986b-4bbd-b833-a42dccb2f777",
+        resourceRequests: {
+            cpu: "1",
+            memory: "2Gi",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

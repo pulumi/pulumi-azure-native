@@ -1,0 +1,37 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const job = new azure_native.databox.Job("job", {
+    details: {
+        contactDetails: {
+            contactName: "XXXX XXXX",
+            emailList: ["xxxx@xxxx.xxx"],
+            phone: "0000000000",
+            phoneExtension: "",
+        },
+        dataImportDetails: [{
+            accountDetails: {
+                dataAccountType: "StorageAccount",
+                storageAccountId: "/subscriptions/YourSubscriptionId/resourcegroups/YourResourceGroupName/providers/Microsoft.Storage/storageAccounts/YourStorageAccountName",
+            },
+        }],
+        jobDetailsType: "DataBox",
+        shippingAddress: {
+            addressType: "Commercial",
+            city: "XXXX XXXX",
+            companyName: "XXXX XXXX",
+            country: "XX",
+            postalCode: "00000",
+            stateOrProvince: "XX",
+            streetAddress1: "XXXX XXXX",
+            streetAddress2: "XXXX XXXX",
+        },
+    },
+    jobName: "TestJobName1",
+    location: "westus",
+    resourceGroupName: "YourResourceGroupName",
+    sku: {
+        name: "DataBox",
+    },
+    transferType: "ImportToAzure",
+});

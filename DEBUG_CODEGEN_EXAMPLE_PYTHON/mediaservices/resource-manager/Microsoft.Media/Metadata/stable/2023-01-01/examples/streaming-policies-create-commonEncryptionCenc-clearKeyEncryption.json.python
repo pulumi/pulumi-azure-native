@@ -3,22 +3,22 @@ import pulumi_azure_native as azure_native
 
 streaming_policy = azure_native.media.StreamingPolicy("streamingPolicy",
     account_name="contosomedia",
-    common_encryption_cenc=azure_native.media.CommonEncryptionCencArgs(
+    common_encryption_cenc=azure_native.media.CommonEncryptionCencResponseArgs(
         clear_key_encryption_configuration=azure_native.media.ClearKeyEncryptionConfigurationArgs(
             custom_keys_acquisition_url_template="https://contoso.com/{AlternativeMediaId}/clearkey/",
         ),
-        clear_tracks=[azure_native.media.TrackSelectionArgs(
-            track_selections=[azure_native.media.TrackPropertyConditionArgs(
+        clear_tracks=[{
+            "trackSelections": [azure_native.media.TrackPropertyConditionArgs(
                 operation="Equal",
                 property="FourCC",
                 value="hev1",
             )],
-        )],
-        content_keys=azure_native.media.StreamingPolicyContentKeysArgs(
-            default_key=azure_native.media.DefaultKeyArgs(
+        }],
+        content_keys={
+            "defaultKey": azure_native.media.DefaultKeyArgs(
                 label="cencDefaultKey",
             ),
-        ),
+        },
         enabled_protocols=azure_native.media.EnabledProtocolsArgs(
             dash=True,
             download=False,

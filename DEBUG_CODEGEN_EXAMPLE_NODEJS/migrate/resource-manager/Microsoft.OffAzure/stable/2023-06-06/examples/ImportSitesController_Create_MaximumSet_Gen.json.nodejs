@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const importSitesController = new azure_native.offazure.ImportSitesController("importSitesController", {
+    discoverySolutionId: "lfaswhiwdttdpkrvnrpriauexdjs",
+    location: "woctgvdufvkzvjcirjpf",
+    provisioningState: "Created",
+    resourceGroupName: "rgmigrate",
+    siteName: "O-K1FS",
+    tags: {
+        key2067: "taqzca",
+    },
+});

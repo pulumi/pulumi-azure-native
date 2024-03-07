@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var snapshot = new AzureNative.NetApp.Snapshot("snapshot", new()
+    {
+        AccountName = "account1",
+        Location = "eastus",
+        PoolName = "pool1",
+        ResourceGroupName = "myRG",
+        SnapshotName = "snapshot1",
+        VolumeName = "volume1",
+    });
+
+});
+

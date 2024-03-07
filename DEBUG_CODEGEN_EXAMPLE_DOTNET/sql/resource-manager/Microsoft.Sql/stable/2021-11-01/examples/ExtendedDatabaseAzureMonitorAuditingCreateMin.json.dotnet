@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var extendedDatabaseBlobAuditingPolicy = new AzureNative.Sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy", new()
+    {
+        BlobAuditingPolicyName = "default",
+        DatabaseName = "testdb",
+        IsAzureMonitorTargetEnabled = true,
+        ResourceGroupName = "blobauditingtest-4799",
+        ServerName = "blobauditingtest-6440",
+        State = AzureNative.Sql.BlobAuditingPolicyState.Enabled,
+    });
+
+});
+

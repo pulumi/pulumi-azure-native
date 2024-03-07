@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.AgFoodPlatform.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        DataManagerForAgricultureResourceName = "examples-farmbeatsResourceName",
+        PrivateEndpointConnectionName = "privateEndpointConnectionName",
+        PrivateLinkServiceConnectionState = new AzureNative.AgFoodPlatform.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Approved by johndoe@contoso.com",
+            Status = "Approved",
+        },
+        ResourceGroupName = "examples-rg",
+    });
+
+});
+

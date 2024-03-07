@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlResourceSqlUserDefinedFunction = new AzureNative.DocumentDB.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction", new()
+    {
+        AccountName = "ddb1",
+        ContainerName = "containerName",
+        DatabaseName = "databaseName",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.SqlUserDefinedFunctionResourceArgs
+        {
+            Body = "body",
+            Id = "userDefinedFunctionName",
+        },
+        ResourceGroupName = "rg1",
+        UserDefinedFunctionName = "userDefinedFunctionName",
+    });
+
+});
+

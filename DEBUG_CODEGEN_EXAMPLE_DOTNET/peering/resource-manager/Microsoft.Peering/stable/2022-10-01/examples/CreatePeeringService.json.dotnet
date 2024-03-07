@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var peeringService = new AzureNative.Peering.PeeringService("peeringService", new()
+    {
+        Location = "eastus",
+        PeeringServiceLocation = "state1",
+        PeeringServiceName = "peeringServiceName",
+        PeeringServiceProvider = "serviceProvider1",
+        ProviderBackupPeeringLocation = "peeringLocation2",
+        ProviderPrimaryPeeringLocation = "peeringLocation1",
+        ResourceGroupName = "rgName",
+    });
+
+});
+

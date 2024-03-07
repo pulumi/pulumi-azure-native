@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const datastore = new azure_native.machinelearningservices.Datastore("datastore", {
+    datastoreProperties: {
+        accountName: "string",
+        containerName: "string",
+        credentials: {
+            credentialsType: "AccountKey",
+            secrets: {
+                key: "string",
+                secretsType: "AccountKey",
+            },
+        },
+        datastoreType: "AzureBlob",
+        description: "string",
+        endpoint: "core.windows.net",
+        protocol: "https",
+        tags: {
+            string: "string",
+        },
+    },
+    name: "string",
+    resourceGroupName: "test-rg",
+    skipValidation: false,
+    workspaceName: "my-aml-workspace",
+});

@@ -1,0 +1,38 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateLinkService = new azure_native.network.PrivateLinkService("privateLinkService", {
+    autoApproval: {
+        subscriptions: [
+            "subscription1",
+            "subscription2",
+        ],
+    },
+    fqdns: [
+        "fqdn1",
+        "fqdn2",
+        "fqdn3",
+    ],
+    ipConfigurations: [{
+        name: "fe-lb",
+        privateIPAddress: "10.0.1.4",
+        privateIPAddressVersion: "IPv4",
+        privateIPAllocationMethod: "Static",
+        subnet: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+        },
+    }],
+    loadBalancerFrontendIpConfigurations: [{
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    }],
+    location: "eastus",
+    resourceGroupName: "rg1",
+    serviceName: "testPls",
+    visibility: {
+        subscriptions: [
+            "subscription1",
+            "subscription2",
+            "subscription3",
+        ],
+    },
+});

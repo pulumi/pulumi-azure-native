@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var skusNestedResourceTypeFirst = new AzureNative.ProviderHub.SkusNestedResourceTypeFirst("skusNestedResourceTypeFirst", new()
+    {
+        NestedResourceTypeFirst = "nestedResourceTypeFirst",
+        Properties = new AzureNative.ProviderHub.Inputs.SkuResourcePropertiesArgs
+        {
+            SkuSettings = new[]
+            {
+                new AzureNative.ProviderHub.Inputs.SkuSettingArgs
+                {
+                    Kind = "Standard",
+                    Name = "freeSku",
+                    Tier = "Tier1",
+                },
+                new AzureNative.ProviderHub.Inputs.SkuSettingArgs
+                {
+                    Costs = new[]
+                    {
+                        new AzureNative.ProviderHub.Inputs.SkuCostArgs
+                        {
+                            MeterId = "xxx",
+                        },
+                    },
+                    Kind = "Premium",
+                    Name = "premiumSku",
+                    Tier = "Tier2",
+                },
+            },
+        },
+        ProviderNamespace = "Microsoft.Contoso",
+        ResourceType = "testResourceType",
+        Sku = "testSku",
+    });
+
+});
+

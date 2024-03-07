@@ -7,11 +7,11 @@ virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
     ),
     location="eastus",
     resource_group_name="vnetTest",
-    subnets=[azure_native.network.SubnetArgs(
-        address_prefix="10.0.0.0/16",
-        name="test-1",
-        service_endpoints=[azure_native.network.ServiceEndpointPropertiesFormatArgs(
+    subnets=[{
+        "addressPrefix": "10.0.0.0/16",
+        "name": "test-1",
+        "serviceEndpoints": [azure_native.network.ServiceEndpointPropertiesFormatArgs(
             service="Microsoft.Storage",
         )],
-    )],
+    }],
     virtual_network_name="vnet1")

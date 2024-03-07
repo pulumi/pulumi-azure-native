@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const iscsiTarget = new azure_native.storagepool.IscsiTarget("iscsiTarget", {
+    aclMode: "Dynamic",
+    diskPoolName: "myDiskPool",
+    iscsiTargetName: "myIscsiTarget",
+    luns: [{
+        managedDiskAzureResourceId: "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+        name: "lun0",
+    }],
+    resourceGroupName: "myResourceGroup",
+    targetIqn: "iqn.2005-03.org.iscsi:server1",
+});

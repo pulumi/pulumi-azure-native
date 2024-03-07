@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualNetworkTap = new AzureNative.Network.VirtualNetworkTap("virtualNetworkTap", new()
+    {
+        DestinationNetworkInterfaceIPConfiguration = new AzureNative.Network.Inputs.NetworkInterfaceIPConfigurationArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/testNetworkInterface/ipConfigurations/ipconfig1",
+        },
+        Location = "centraluseuap",
+        ResourceGroupName = "rg1",
+        TapName = "test-vtap",
+    });
+
+});
+

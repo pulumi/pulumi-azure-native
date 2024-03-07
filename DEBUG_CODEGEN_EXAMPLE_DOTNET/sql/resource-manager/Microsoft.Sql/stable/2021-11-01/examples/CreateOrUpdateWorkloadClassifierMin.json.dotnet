@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadClassifier = new AzureNative.Sql.WorkloadClassifier("workloadClassifier", new()
+    {
+        DatabaseName = "testdb",
+        MemberName = "dbo",
+        ResourceGroupName = "Default-SQL-SouthEastAsia",
+        ServerName = "testsvr",
+        WorkloadClassifierName = "wlm_workloadclassifier",
+        WorkloadGroupName = "wlm_workloadgroup",
+    });
+
+});
+

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.MachineLearningExperimentation.Workspace("workspace", new()
+    {
+        AccountName = "testaccount",
+        FriendlyName = "testName",
+        Location = "East US",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "tagKey1", "TagValue1" },
+        },
+        WorkspaceName = "testworkspace",
+    });
+
+});
+

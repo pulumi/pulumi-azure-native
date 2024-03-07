@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const backupShortTermRetentionPolicy = new azure_native.sql.BackupShortTermRetentionPolicy("backupShortTermRetentionPolicy", {
+    databaseName: "testdb",
+    diffBackupIntervalInHours: 24,
+    policyName: "default",
+    resourceGroupName: "resourceGroup",
+    retentionDays: 7,
+    serverName: "testsvr",
+});

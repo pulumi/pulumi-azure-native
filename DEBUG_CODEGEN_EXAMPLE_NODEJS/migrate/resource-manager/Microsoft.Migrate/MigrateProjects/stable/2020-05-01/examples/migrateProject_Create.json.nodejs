@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const migrateProjectsControllerMigrateProject = new azure_native.migrate.MigrateProjectsControllerMigrateProject("migrateProjectsControllerMigrateProject", {
+    location: "eastus",
+    migrateProjectName: "projTest1",
+    properties: {
+        publicNetworkAccess: "Enabled",
+    },
+    resourceGroupName: "pajindTest1",
+});

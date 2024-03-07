@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agent = new AzureNative.StorageMover.Agent("agent", new()
+    {
+        AgentName = "examples-agentName",
+        ArcResourceId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+        ArcVmUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+        Description = "Example Agent Description",
+        ResourceGroupName = "examples-rg",
+        StorageMoverName = "examples-storageMoverName",
+    });
+
+});
+

@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const streamingPolicy = new azure_native.media.StreamingPolicy("streamingPolicy", {
+    accountName: "contosomedia",
+    commonEncryptionCbcs: {
+        contentKeys: {
+            defaultKey: {
+                label: "cbcsDefaultKey",
+            },
+        },
+        drm: {
+            fairPlay: {
+                allowPersistentLicense: true,
+                customLicenseAcquisitionUrlTemplate: "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+            },
+        },
+        enabledProtocols: {
+            dash: false,
+            download: false,
+            hls: true,
+            smoothStreaming: false,
+        },
+    },
+    defaultContentKeyPolicyName: "PolicyWithMultipleOptions",
+    resourceGroupName: "contosorg",
+    streamingPolicyName: "UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly",
+});

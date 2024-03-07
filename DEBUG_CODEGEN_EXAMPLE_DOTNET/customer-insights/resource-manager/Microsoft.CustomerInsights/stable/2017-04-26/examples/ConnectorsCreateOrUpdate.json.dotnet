@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connector = new AzureNative.CustomerInsights.Connector("connector", new()
+    {
+        ConnectorName = "testConnector",
+        ConnectorProperties = 
+        {
+            { "connectionKeyVaultUrl", 
+            {
+                { "organizationId", "XXX" },
+                { "organizationUrl", "https://XXX.crmlivetie.com/" },
+            } },
+        },
+        ConnectorType = "AzureBlob",
+        Description = "Test connector",
+        DisplayName = "testConnector",
+        HubName = "sdkTestHub",
+        ResourceGroupName = "TestHubRG",
+    });
+
+});
+

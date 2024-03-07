@@ -7,19 +7,19 @@ application_group = azure_native.eventhub.ApplicationGroup("applicationGroup",
     is_enabled=True,
     namespace_name="contoso-ua-test-eh-system-1",
     policies=[
-        azure_native.eventhub.ThrottlingPolicyArgs(
+        azure_native.eventhub.ThrottlingPolicyResponseArgs(
             metric_id="IncomingMessages",
             name="ThrottlingPolicy1",
             rate_limit_threshold=7912,
             type="ThrottlingPolicy",
         ),
-        azure_native.eventhub.ThrottlingPolicyArgs(
+        azure_native.eventhub.ThrottlingPolicyResponseArgs(
             metric_id="IncomingBytes",
             name="ThrottlingPolicy2",
             rate_limit_threshold=3951729,
             type="ThrottlingPolicy",
         ),
-        azure_native.eventhub.ThrottlingPolicyArgs(
+        azure_native.eventhub.ThrottlingPolicyResponseArgs(
             metric_id="OutgoingBytes",
             name="ThrottlingPolicy3",
             rate_limit_threshold=245175,

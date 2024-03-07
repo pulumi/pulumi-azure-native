@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var table = new AzureNative.Storage.Table("table", new()
+    {
+        AccountName = "sto328",
+        ResourceGroupName = "res3376",
+        SignedIdentifiers = new[]
+        {
+            new AzureNative.Storage.Inputs.TableSignedIdentifierArgs
+            {
+                AccessPolicy = new AzureNative.Storage.Inputs.TableAccessPolicyArgs
+                {
+                    ExpiryTime = "2022-03-20T08:49:37.0000000Z",
+                    Permission = "raud",
+                    StartTime = "2022-03-17T08:49:37.0000000Z",
+                },
+                Id = "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+            },
+            new AzureNative.Storage.Inputs.TableSignedIdentifierArgs
+            {
+                AccessPolicy = new AzureNative.Storage.Inputs.TableAccessPolicyArgs
+                {
+                    ExpiryTime = "2022-03-20T08:49:37.0000000Z",
+                    Permission = "rad",
+                    StartTime = "2022-03-17T08:49:37.0000000Z",
+                },
+                Id = "PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
+            },
+        },
+        TableName = "table6185",
+    });
+
+});
+

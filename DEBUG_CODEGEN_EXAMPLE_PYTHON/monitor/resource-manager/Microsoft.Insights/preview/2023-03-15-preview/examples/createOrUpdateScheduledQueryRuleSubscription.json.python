@@ -10,9 +10,9 @@ scheduled_query_rule = azure_native.insights.ScheduledQueryRule("scheduledQueryR
         },
     ),
     check_workspace_alerts_storage_configured=True,
-    criteria=azure_native.insights.ScheduledQueryRuleCriteriaArgs(
-        all_of=[azure_native.insights.ConditionArgs(
-            dimensions=[
+    criteria=azure_native.insights.ScheduledQueryRuleCriteriaResponseArgs(
+        all_of=[{
+            "dimensions": [
                 azure_native.insights.DimensionArgs(
                     name="ComputerIp",
                     operator="Exclude",
@@ -24,17 +24,17 @@ scheduled_query_rule = azure_native.insights.ScheduledQueryRule("scheduledQueryR
                     values=["*"],
                 ),
             ],
-            failing_periods=azure_native.insights.ConditionFailingPeriodsArgs(
+            "failingPeriods": azure_native.insights.ConditionFailingPeriodsArgs(
                 min_failing_periods_to_alert=1,
                 number_of_evaluation_periods=1,
             ),
-            metric_measure_column="% Processor Time",
-            operator="GreaterThan",
-            query="Perf | where ObjectName == \"Processor\"",
-            resource_id_column="resourceId",
-            threshold=70,
-            time_aggregation="Average",
-        )],
+            "metricMeasureColumn": "% Processor Time",
+            "operator": "GreaterThan",
+            "query": "Perf | where ObjectName == \"Processor\"",
+            "resourceIdColumn": "resourceId",
+            "threshold": 70,
+            "timeAggregation": "Average",
+        }],
     ),
     description="Performance rule",
     enabled=True,

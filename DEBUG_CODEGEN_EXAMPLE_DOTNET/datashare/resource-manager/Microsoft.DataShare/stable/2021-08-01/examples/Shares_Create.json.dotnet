@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var share = new AzureNative.DataShare.Share("share", new()
+    {
+        AccountName = "Account1",
+        Description = "share description",
+        ResourceGroupName = "SampleResourceGroup",
+        ShareKind = "CopyBased",
+        ShareName = "Share1",
+        Terms = "Confidential",
+    });
+
+});
+

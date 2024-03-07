@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const linkedService = new azure_native.datafactory.LinkedService("linkedService", {
+    factoryName: "exampleFactoryName",
+    linkedServiceName: "exampleLinkedService",
+    properties: {
+        connectionString: {
+            type: "SecureString",
+            value: "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+        },
+        description: "Example description",
+        type: "AzureStorage",
+    },
+    resourceGroupName: "exampleResourceGroup",
+});

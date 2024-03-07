@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var gallery = new AzureNative.DevCenter.Gallery("gallery", new()
+    {
+        DevCenterName = "Contoso",
+        GalleryName = "StandardGallery",
+        GalleryResourceId = "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.Compute/galleries/StandardGallery",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

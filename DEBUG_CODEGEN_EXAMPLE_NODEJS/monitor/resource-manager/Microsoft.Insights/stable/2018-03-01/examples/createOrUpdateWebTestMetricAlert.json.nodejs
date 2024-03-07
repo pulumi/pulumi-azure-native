@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const metricAlert = new azure_native.insights.MetricAlert("metricAlert", {
+    actions: [],
+    criteria: {
+        componentId: "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+        failedLocationCount: 2,
+        odataType: "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+        webTestId: "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+    },
+    description: "Automatically created alert rule for availability test \"component-example\" a",
+    enabled: true,
+    evaluationFrequency: "PT1M",
+    location: "global",
+    resourceGroupName: "rg-example",
+    ruleName: "webtest-name-example",
+    scopes: [
+        "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+        "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+    ],
+    severity: 4,
+    tags: {
+        "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example": "Resource",
+        "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example": "Resource",
+    },
+    windowSize: "PT15M",
+});

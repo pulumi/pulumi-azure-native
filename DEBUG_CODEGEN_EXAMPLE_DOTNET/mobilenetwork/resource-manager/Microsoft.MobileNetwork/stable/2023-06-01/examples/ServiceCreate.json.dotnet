@@ -1,0 +1,68 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.MobileNetwork.Service("service", new()
+    {
+        Location = "eastus",
+        MobileNetworkName = "testMobileNetwork",
+        PccRules = new[]
+        {
+            new AzureNative.MobileNetwork.Inputs.PccRuleConfigurationArgs
+            {
+                RuleName = "default-rule",
+                RulePrecedence = 255,
+                RuleQosPolicy = new AzureNative.MobileNetwork.Inputs.PccRuleQosPolicyArgs
+                {
+                    AllocationAndRetentionPriorityLevel = 9,
+                    FiveQi = 9,
+                    MaximumBitRate = new AzureNative.MobileNetwork.Inputs.AmbrArgs
+                    {
+                        Downlink = "1 Gbps",
+                        Uplink = "500 Mbps",
+                    },
+                    PreemptionCapability = "NotPreempt",
+                    PreemptionVulnerability = "Preemptable",
+                },
+                ServiceDataFlowTemplates = new[]
+                {
+                    new AzureNative.MobileNetwork.Inputs.ServiceDataFlowTemplateArgs
+                    {
+                        Direction = "Uplink",
+                        Ports = new() { },
+                        Protocol = new[]
+                        {
+                            "ip",
+                        },
+                        RemoteIpList = new[]
+                        {
+                            "10.3.4.0/24",
+                        },
+                        TemplateName = "IP-to-server",
+                    },
+                },
+                TrafficControl = "Enabled",
+            },
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "TestService",
+        ServicePrecedence = 255,
+        ServiceQosPolicy = new AzureNative.MobileNetwork.Inputs.QosPolicyArgs
+        {
+            AllocationAndRetentionPriorityLevel = 9,
+            FiveQi = 9,
+            MaximumBitRate = new AzureNative.MobileNetwork.Inputs.AmbrArgs
+            {
+                Downlink = "1 Gbps",
+                Uplink = "500 Mbps",
+            },
+            PreemptionCapability = "NotPreempt",
+            PreemptionVulnerability = "Preemptable",
+        },
+    });
+
+});
+

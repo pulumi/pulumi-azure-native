@@ -1,0 +1,100 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var guestDiagnosticsSetting = new AzureNative.Insights.GuestDiagnosticsSetting("guestDiagnosticsSetting", new()
+    {
+        DataSources = new[]
+        {
+            new AzureNative.Insights.Inputs.DataSourceArgs
+            {
+                Configuration = new AzureNative.Insights.Inputs.DataSourceConfigurationArgs
+                {
+                    PerfCounters = new[]
+                    {
+                        new AzureNative.Insights.Inputs.PerformanceCounterConfigurationArgs
+                        {
+                            Name = "\\Process(_Total)\\%Processor Time",
+                            SamplingPeriod = "PT1M",
+                        },
+                        new AzureNative.Insights.Inputs.PerformanceCounterConfigurationArgs
+                        {
+                            Name = "\\Process(_Total)\\Working Set",
+                            SamplingPeriod = "PT1M",
+                        },
+                    },
+                },
+                Kind = "PerformanceCounter",
+                Sinks = new[]
+                {
+                    new AzureNative.Insights.Inputs.SinkConfigurationArgs
+                    {
+                        Kind = "LogAnalytics",
+                    },
+                },
+            },
+            new AzureNative.Insights.Inputs.DataSourceArgs
+            {
+                Configuration = new AzureNative.Insights.Inputs.DataSourceConfigurationArgs
+                {
+                    Providers = new[]
+                    {
+                        new AzureNative.Insights.Inputs.EtwProviderConfigurationArgs
+                        {
+                            Id = "1",
+                        },
+                        new AzureNative.Insights.Inputs.EtwProviderConfigurationArgs
+                        {
+                            Id = "2",
+                        },
+                    },
+                },
+                Kind = "ETWProviders",
+                Sinks = new[]
+                {
+                    new AzureNative.Insights.Inputs.SinkConfigurationArgs
+                    {
+                        Kind = "LogAnalytics",
+                    },
+                },
+            },
+            new AzureNative.Insights.Inputs.DataSourceArgs
+            {
+                Configuration = new AzureNative.Insights.Inputs.DataSourceConfigurationArgs
+                {
+                    EventLogs = new[]
+                    {
+                        new AzureNative.Insights.Inputs.EventLogConfigurationArgs
+                        {
+                            Filter = "SourceName == Xyz AND EventId = \"100\" AND  $Xpath/Column=\"DCName\" = \"CatWoman\"",
+                            LogName = "Application",
+                        },
+                        new AzureNative.Insights.Inputs.EventLogConfigurationArgs
+                        {
+                            Filter = "SourceName == Xyz AND EventId = \"100\" AND  $Xpath/Column=\"DCName\" = \"BatMan\"",
+                            LogName = "Application",
+                        },
+                    },
+                },
+                Kind = "WindowsEventLogs",
+                Sinks = new[]
+                {
+                    new AzureNative.Insights.Inputs.SinkConfigurationArgs
+                    {
+                        Kind = "LogAnalytics",
+                    },
+                },
+            },
+        },
+        DiagnosticSettingsName = "SampleDiagSetting",
+        Location = "Global",
+        OsType = "Windows",
+        ResourceGroupName = "Default-ResourceGroup",
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const importCollector = new azure_native.migrate.ImportCollector("importCollector", {
+    importCollectorName: "importCollector2952",
+    projectName: "rajoshCCY9671project",
+    resourceGroupName: "markusavstestrg",
+});

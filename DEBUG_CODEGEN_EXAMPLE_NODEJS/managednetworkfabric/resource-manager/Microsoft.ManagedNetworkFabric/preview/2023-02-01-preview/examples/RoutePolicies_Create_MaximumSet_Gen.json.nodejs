@@ -1,0 +1,47 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const routePolicy = new azure_native.managednetworkfabric.RoutePolicy("routePolicy", {
+    annotation: "annotationValue",
+    location: "EastUS",
+    resourceGroupName: "rgRoutePolicies",
+    routePolicyName: "routePolicyName",
+    statements: [{
+        action: {
+            actionType: "Permit",
+            ipCommunityProperties: {
+                add: {
+                    ipCommunityIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"],
+                },
+                "delete": {
+                    ipCommunityIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"],
+                },
+                set: {
+                    ipCommunityIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"],
+                },
+            },
+            ipExtendedCommunityProperties: {
+                add: {
+                    ipExtendedCommunityIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"],
+                },
+                "delete": {
+                    ipExtendedCommunityIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"],
+                },
+                set: {
+                    ipExtendedCommunityIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"],
+                },
+            },
+            localPreference: 20,
+        },
+        annotation: "annotationValue",
+        condition: {
+            ipCommunityIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"],
+            ipExtendedCommunityIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"],
+            ipPrefixId: "subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/example-ipPrefix",
+        },
+        sequenceNumber: 7,
+    }],
+    tags: {
+        key8254: "",
+    },
+});

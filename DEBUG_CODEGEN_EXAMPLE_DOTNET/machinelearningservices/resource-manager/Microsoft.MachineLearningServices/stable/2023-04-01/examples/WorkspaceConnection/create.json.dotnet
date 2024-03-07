@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceConnection = new AzureNative.MachineLearningServices.WorkspaceConnection("workspaceConnection", new()
+    {
+        ConnectionName = "connection-1",
+        Properties = new AzureNative.MachineLearningServices.Inputs.NoneAuthTypeWorkspaceConnectionPropertiesArgs
+        {
+            AuthType = "None",
+            Category = "ContainerRegistry",
+            Target = "www.facebook.com",
+        },
+        ResourceGroupName = "resourceGroup-1",
+        WorkspaceName = "workspace-1",
+    });
+
+});
+

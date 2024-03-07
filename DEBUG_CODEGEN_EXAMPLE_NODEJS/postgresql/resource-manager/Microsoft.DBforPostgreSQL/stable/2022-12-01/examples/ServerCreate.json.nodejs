@@ -1,0 +1,34 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const server = new azure_native.dbforpostgresql.Server("server", {
+    administratorLogin: "cloudsa",
+    administratorLoginPassword: "password",
+    availabilityZone: "1",
+    backup: {
+        backupRetentionDays: 7,
+        geoRedundantBackup: "Disabled",
+    },
+    createMode: "Create",
+    highAvailability: {
+        mode: "ZoneRedundant",
+    },
+    location: "westus",
+    network: {
+        delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+        privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+    },
+    resourceGroupName: "testrg",
+    serverName: "pgtestsvc4",
+    sku: {
+        name: "Standard_D4s_v3",
+        tier: "GeneralPurpose",
+    },
+    storage: {
+        storageSizeGB: 512,
+    },
+    tags: {
+        ElasticServer: "1",
+    },
+    version: "12",
+});

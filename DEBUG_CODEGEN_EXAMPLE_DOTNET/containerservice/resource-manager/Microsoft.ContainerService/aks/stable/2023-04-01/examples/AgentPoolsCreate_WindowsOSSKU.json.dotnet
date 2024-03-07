@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agentPool = new AzureNative.ContainerService.AgentPool("agentPool", new()
+    {
+        AgentPoolName = "wnp2",
+        Count = 3,
+        OrchestratorVersion = "1.23.3",
+        OsSKU = "Windows2022",
+        OsType = "Windows",
+        ResourceGroupName = "rg1",
+        ResourceName = "clustername1",
+        VmSize = "Standard_D4s_v3",
+    });
+
+});
+

@@ -1,0 +1,84 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const iotHubResource = new azure_native.devices.IotHubResource("iotHubResource", {
+    location: "centraluseuap",
+    properties: {
+        cloudToDevice: {
+            defaultTtlAsIso8601: "PT1H",
+            feedback: {
+                lockDurationAsIso8601: "PT1M",
+                maxDeliveryCount: 10,
+                ttlAsIso8601: "PT1H",
+            },
+            maxDeliveryCount: 10,
+        },
+        enableDataResidency: true,
+        enableFileUploadNotifications: false,
+        eventHubEndpoints: {
+            events: {
+                partitionCount: 2,
+                retentionTimeInDays: 1,
+            },
+        },
+        features: "None",
+        ipFilterRules: [],
+        messagingEndpoints: {
+            fileNotifications: {
+                lockDurationAsIso8601: "PT1M",
+                maxDeliveryCount: 10,
+                ttlAsIso8601: "PT1H",
+            },
+        },
+        minTlsVersion: "1.2",
+        networkRuleSets: {
+            applyToBuiltInEventHubEndpoint: true,
+            defaultAction: "Deny",
+            ipRules: [
+                {
+                    action: "Allow",
+                    filterName: "rule1",
+                    ipMask: "131.117.159.53",
+                },
+                {
+                    action: "Allow",
+                    filterName: "rule2",
+                    ipMask: "157.55.59.128/25",
+                },
+            ],
+        },
+        rootCertificate: {
+            enableRootCertificateV2: true,
+        },
+        routing: {
+            endpoints: {
+                eventHubs: [],
+                serviceBusQueues: [],
+                serviceBusTopics: [],
+                storageContainers: [],
+            },
+            fallbackRoute: {
+                condition: "true",
+                endpointNames: ["events"],
+                isEnabled: true,
+                name: "$fallback",
+                source: "DeviceMessages",
+            },
+            routes: [],
+        },
+        storageEndpoints: {
+            $default: {
+                connectionString: "",
+                containerName: "",
+                sasTtlAsIso8601: "PT1H",
+            },
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    resourceName: "testHub",
+    sku: {
+        capacity: 1,
+        name: "S1",
+    },
+    tags: {},
+});

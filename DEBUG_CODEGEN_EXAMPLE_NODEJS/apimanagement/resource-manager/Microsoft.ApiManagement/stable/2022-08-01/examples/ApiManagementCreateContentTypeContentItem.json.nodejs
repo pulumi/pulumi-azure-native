@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const contentItem = new azure_native.apimanagement.ContentItem("contentItem", {
+    contentItemId: "4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+    contentTypeId: "page",
+    properties: {
+        en_us: {
+            description: "Short story about the company.",
+            documentId: "contentTypes/document/contentItems/4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+            keywords: "company, about",
+            permalink: "/about",
+            title: "About",
+        },
+    },
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

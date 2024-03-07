@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const globalParameter = new azure_native.datafactory.GlobalParameter("globalParameter", {
+    factoryName: "exampleFactoryName",
+    globalParameterName: "default",
+    properties: {
+        waitTime: {
+            type: "Int",
+            value: 5,
+        },
+    },
+    resourceGroupName: "exampleResourceGroup",
+});

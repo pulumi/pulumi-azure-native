@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var channel = new AzureNative.EngagementFabric.Channel("channel", new()
+    {
+        AccountName = "ExampleAccount",
+        ChannelFunctions = new[]
+        {
+            "MockFunction1",
+            "MockFunction2",
+        },
+        ChannelName = "ExampleChannel",
+        ChannelType = "MockChannel",
+        Credentials = 
+        {
+            { "AppId", "exampleApp" },
+            { "AppKey", "exampleAppKey" },
+        },
+        ResourceGroupName = "ExampleRg",
+    });
+
+});
+

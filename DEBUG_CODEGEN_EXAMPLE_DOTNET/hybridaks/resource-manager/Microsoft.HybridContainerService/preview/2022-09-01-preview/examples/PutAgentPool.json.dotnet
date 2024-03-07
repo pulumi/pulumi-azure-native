@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agentPool = new AzureNative.HybridContainerService.AgentPool("agentPool", new()
+    {
+        AgentPoolName = "test-hybridaksnodepool",
+        Count = 1,
+        Location = "westus",
+        OsType = "Linux",
+        ResourceGroupName = "test-arcappliance-resgrp",
+        ResourceName = "test-hybridakscluster",
+        VmSize = "Standard_A4_v2",
+    });
+
+});
+

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlDiscoverySiteDataSourceController = new azure_native.offazure.SqlDiscoverySiteDataSourceController("sqlDiscoverySiteDataSourceController", {
+    discoverySiteDataSourceName: "q3--4O9O5vc-2",
+    discoverySiteId: "xvtylcidvhdspuw",
+    resourceGroupName: "rgmigrate",
+    siteName: "qU5b-1JBE45EC6Z-IF",
+    sqlSiteName: "I5-O3912-L3y2Q57",
+});

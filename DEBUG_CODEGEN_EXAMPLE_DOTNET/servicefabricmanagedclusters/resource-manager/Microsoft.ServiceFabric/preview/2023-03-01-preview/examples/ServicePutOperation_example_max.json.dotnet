@@ -1,0 +1,83 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedClusterService = new AzureNative.ServiceFabric.ManagedClusterService("managedClusterService", new()
+    {
+        ApplicationName = "myApp",
+        ClusterName = "myCluster",
+        Location = "eastus",
+        Properties = new AzureNative.ServiceFabric.Inputs.StatelessServicePropertiesArgs
+        {
+            CorrelationScheme = new[]
+            {
+                new AzureNative.ServiceFabric.Inputs.ServiceCorrelationArgs
+                {
+                    Scheme = "AlignedAffinity",
+                    ServiceName = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService1",
+                },
+            },
+            DefaultMoveCost = "Medium",
+            InstanceCount = 5,
+            MinInstanceCount = 3,
+            MinInstancePercentage = 30,
+            PartitionDescription = new AzureNative.ServiceFabric.Inputs.SingletonPartitionSchemeArgs
+            {
+                PartitionScheme = "Singleton",
+            },
+            PlacementConstraints = "NodeType==frontend",
+            ScalingPolicies = new[]
+            {
+                new AzureNative.ServiceFabric.Inputs.ScalingPolicyArgs
+                {
+                    ScalingMechanism = new AzureNative.ServiceFabric.Inputs.PartitionInstanceCountScaleMechanismArgs
+                    {
+                        Kind = "ScalePartitionInstanceCount",
+                        MaxInstanceCount = 9,
+                        MinInstanceCount = 3,
+                        ScaleIncrement = 2,
+                    },
+                    ScalingTrigger = new AzureNative.ServiceFabric.Inputs.AveragePartitionLoadScalingTriggerArgs
+                    {
+                        Kind = "AveragePartitionLoadTrigger",
+                        LowerLoadThreshold = 2,
+                        MetricName = "metricName",
+                        ScaleInterval = "00:01:00",
+                        UpperLoadThreshold = 8,
+                    },
+                },
+            },
+            ServiceDnsName = "myservicednsname.myApp",
+            ServiceKind = "Stateless",
+            ServiceLoadMetrics = new[]
+            {
+                new AzureNative.ServiceFabric.Inputs.ServiceLoadMetricArgs
+                {
+                    DefaultLoad = 3,
+                    Name = "metric1",
+                    Weight = "Low",
+                },
+            },
+            ServicePackageActivationMode = "SharedProcess",
+            ServicePlacementPolicies = new[]
+            {
+                new AzureNative.ServiceFabric.Inputs.ServicePlacementNonPartiallyPlaceServicePolicyArgs
+                {
+                    Type = "NonPartiallyPlaceService",
+                },
+            },
+            ServiceTypeName = "myServiceType",
+        },
+        ResourceGroupName = "resRg",
+        ServiceName = "myService",
+        Tags = 
+        {
+            { "a", "b" },
+        },
+    });
+
+});
+

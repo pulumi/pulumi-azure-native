@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.storagesync.PrivateEndpointConnection("privateEndpointConnection", {
+    privateEndpointConnectionName: "{privateEndpointConnectionName}",
+    privateLinkServiceConnectionState: {
+        description: "Auto-Approved",
+        status: "Approved",
+    },
+    resourceGroupName: "res7687",
+    storageSyncServiceName: "sss2527",
+});

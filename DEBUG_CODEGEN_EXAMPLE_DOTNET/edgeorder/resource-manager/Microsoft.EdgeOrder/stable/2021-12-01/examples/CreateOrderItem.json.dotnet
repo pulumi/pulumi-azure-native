@@ -1,0 +1,65 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var orderItemByName = new AzureNative.EdgeOrder.OrderItemByName("orderItemByName", new()
+    {
+        AddressDetails = new AzureNative.EdgeOrder.Inputs.AddressDetailsArgs
+        {
+            ForwardAddress = new AzureNative.EdgeOrder.Inputs.AddressPropertiesArgs
+            {
+                ContactDetails = new AzureNative.EdgeOrder.Inputs.ContactDetailsArgs
+                {
+                    ContactName = "XXXX XXXX",
+                    EmailList = new[]
+                    {
+                        "xxxx@xxxx.xxx",
+                    },
+                    Phone = "0000000000",
+                    PhoneExtension = "",
+                },
+                ShippingAddress = new AzureNative.EdgeOrder.Inputs.ShippingAddressArgs
+                {
+                    AddressType = "None",
+                    City = "San Francisco",
+                    CompanyName = "Microsoft",
+                    Country = "US",
+                    PostalCode = "94107",
+                    StateOrProvince = "CA",
+                    StreetAddress1 = "16 TOWNSEND ST",
+                    StreetAddress2 = "UNIT 1",
+                },
+            },
+        },
+        Location = "eastus",
+        OrderId = "/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/locations/eastus/orders/TestOrderName2",
+        OrderItemDetails = new AzureNative.EdgeOrder.Inputs.OrderItemDetailsArgs
+        {
+            OrderItemType = "Purchase",
+            Preferences = new AzureNative.EdgeOrder.Inputs.PreferencesArgs
+            {
+                TransportPreferences = new AzureNative.EdgeOrder.Inputs.TransportPreferencesArgs
+                {
+                    PreferredShipmentType = "MicrosoftManaged",
+                },
+            },
+            ProductDetails = new AzureNative.EdgeOrder.Inputs.ProductDetailsArgs
+            {
+                HierarchyInformation = new AzureNative.EdgeOrder.Inputs.HierarchyInformationArgs
+                {
+                    ConfigurationName = "edgep_base",
+                    ProductFamilyName = "azurestackedge",
+                    ProductLineName = "azurestackedge",
+                    ProductName = "azurestackedgegpu",
+                },
+            },
+        },
+        OrderItemName = "TestOrderItemName2",
+        ResourceGroupName = "YourResourceGroupName",
+    });
+
+});
+

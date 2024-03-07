@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const topic = new azure_native.eventgrid.Topic("topic", {
+    inboundIpRules: [
+        {
+            action: "Allow",
+            ipMask: "12.18.30.15",
+        },
+        {
+            action: "Allow",
+            ipMask: "12.18.176.1",
+        },
+    ],
+    location: "westus2",
+    publicNetworkAccess: "Enabled",
+    resourceGroupName: "examplerg",
+    tags: {
+        tag1: "value1",
+        tag2: "value2",
+    },
+    topicName: "exampletopic1",
+});

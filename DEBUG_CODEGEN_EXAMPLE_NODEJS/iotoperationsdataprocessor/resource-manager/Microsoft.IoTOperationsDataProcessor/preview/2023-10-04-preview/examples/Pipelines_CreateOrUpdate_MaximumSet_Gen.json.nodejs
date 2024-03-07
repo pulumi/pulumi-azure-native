@@ -1,0 +1,26 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pipeline = new azure_native.iotoperationsdataprocessor.Pipeline("pipeline", {
+    description: "vayzklhg",
+    enabled: true,
+    extendedLocation: {
+        name: "/subscriptions/e0aaa3df-e9a4-456a-9824-3c3b5c438110/resourceGroups/IoTOperationsDataProcessor-rg/providers/Microsoft.ExtendedLocation/customLocations/dev-space",
+        type: "CustomLocation",
+    },
+    input: {
+        next: ["umnuwjk"],
+        type: "xrnubjkvzajxjzb",
+    },
+    instanceName: "056k5pl8t7761-2--ej25u2l28ttb-22mh79-75-2ch-t8",
+    location: "westus",
+    pipelineName: "j8-8--3",
+    resourceGroupName: "rgopenapi",
+    stages: {
+        stageId: {
+            next: ["gxqgqh"],
+            type: "cxqgblrzqniowabexbztempdpkuib",
+        },
+    },
+    tags: {},
+});

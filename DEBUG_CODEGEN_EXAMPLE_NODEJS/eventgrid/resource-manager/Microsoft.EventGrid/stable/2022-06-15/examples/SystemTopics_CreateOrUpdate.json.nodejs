@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const systemTopic = new azure_native.eventgrid.SystemTopic("systemTopic", {
+    location: "westus2",
+    resourceGroupName: "examplerg",
+    source: "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/azureeventgridrunnerrgcentraluseuap/providers/microsoft.storage/storageaccounts/pubstgrunnerb71cd29e",
+    systemTopicName: "exampleSystemTopic1",
+    tags: {
+        tag1: "value1",
+        tag2: "value2",
+    },
+    topicType: "microsoft.storage.storageaccounts",
+});

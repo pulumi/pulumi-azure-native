@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const buildServiceBuilder = new azure_native.appplatform.BuildServiceBuilder("buildServiceBuilder", {
+    buildServiceName: "default",
+    builderName: "mybuilder",
+    properties: {
+        buildpackGroups: [{
+            buildpacks: [{
+                id: "tanzu-buildpacks/java-azure",
+            }],
+            name: "mix",
+        }],
+        stack: {
+            id: "io.buildpacks.stacks.bionic",
+            version: "base",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

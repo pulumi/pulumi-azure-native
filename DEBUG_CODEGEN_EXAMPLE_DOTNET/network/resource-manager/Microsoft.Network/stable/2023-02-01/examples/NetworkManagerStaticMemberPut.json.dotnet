@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var staticMember = new AzureNative.Network.StaticMember("staticMember", new()
+    {
+        NetworkGroupName = "testNetworkGroup",
+        NetworkManagerName = "testNetworkManager",
+        ResourceGroupName = "rg1",
+        ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/virtualnetworks/vnet1",
+        StaticMemberName = "testStaticMember",
+    });
+
+});
+

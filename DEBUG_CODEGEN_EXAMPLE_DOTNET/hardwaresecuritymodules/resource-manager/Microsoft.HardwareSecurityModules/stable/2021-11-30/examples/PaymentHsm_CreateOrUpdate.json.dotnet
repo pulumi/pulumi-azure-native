@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dedicatedHsm = new AzureNative.HardwareSecurityModules.DedicatedHsm("dedicatedHsm", new()
+    {
+        Location = "westus",
+        Name = "hsm1",
+        NetworkProfile = new AzureNative.HardwareSecurityModules.Inputs.NetworkProfileArgs
+        {
+            NetworkInterfaces = new[]
+            {
+                new AzureNative.HardwareSecurityModules.Inputs.NetworkInterfaceArgs
+                {
+                    PrivateIpAddress = "1.0.0.1",
+                },
+            },
+            Subnet = new AzureNative.HardwareSecurityModules.Inputs.ApiEntityReferenceArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+            },
+        },
+        ResourceGroupName = "hsm-group",
+        Sku = new AzureNative.HardwareSecurityModules.Inputs.SkuArgs
+        {
+            Name = "payShield10K_LMK1_CPS60",
+        },
+        StampId = "stamp01",
+        Tags = 
+        {
+            { "Dept", "hsm" },
+            { "Environment", "dogfood" },
+        },
+    });
+
+});
+

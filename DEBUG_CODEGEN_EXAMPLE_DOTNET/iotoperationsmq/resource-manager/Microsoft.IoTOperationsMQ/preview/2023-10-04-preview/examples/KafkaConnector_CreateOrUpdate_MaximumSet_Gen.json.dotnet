@@ -1,0 +1,130 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var kafkaConnector = new AzureNative.IoTOperationsMQ.KafkaConnector("kafkaConnector", new()
+    {
+        ClientIdPrefix = "yybbbeowkw",
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        Image = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+        {
+            PullPolicy = "imfuzvqxgbdwliqnn",
+            PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+            Repository = "m",
+            Tag = "jygfdiamhhm",
+        },
+        Instances = 55252,
+        KafkaConnection = new AzureNative.IoTOperationsMQ.Inputs.KafkaRemoteBrokerConnectionSpecArgs
+        {
+            Authentication = new AzureNative.IoTOperationsMQ.Inputs.KafkaRemoteBrokerAuthenticationPropertiesArgs
+            {
+                AuthType = new AzureNative.IoTOperationsMQ.Inputs.KafkaRemoteBrokerAuthenticationTypesArgs
+                {
+                    Sasl = new AzureNative.IoTOperationsMQ.Inputs.SaslRemoteBrokerBasicAuthenticationArgs
+                    {
+                        SaslType = "plain",
+                        Token = new AzureNative.IoTOperationsMQ.Inputs.SaslRemoteBrokerBasicAuthenticationTokenArgs
+                        {
+                            KeyVault = new AzureNative.IoTOperationsMQ.Inputs.KafkaTokenKeyVaultPropertiesArgs
+                            {
+                                Username = "fb",
+                                Vault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultConnectionPropertiesArgs
+                                {
+                                    Credentials = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCredentialsPropertiesArgs
+                                    {
+                                        ServicePrincipalLocalSecretName = "wuimjwpbhoglbsxxa",
+                                    },
+                                    DirectoryId = "eyjniptiykzcgbzok",
+                                    Name = "lxmwfan",
+                                },
+                                VaultSecret = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+                                {
+                                    Name = "bmectskddmpjxnsogwooexj",
+                                    Version = "unjfbf",
+                                },
+                            },
+                            SecretName = "hxmqokubwldgjdtjv",
+                        },
+                    },
+                    SystemAssignedManagedIdentity = new AzureNative.IoTOperationsMQ.Inputs.ManagedIdentityAuthenticationArgs
+                    {
+                        Audience = "kjderojhpehosgfcrxxbh",
+                        ExtensionName = "cyckjqqzspleajbtkniwrfsqygjfhe",
+                    },
+                    X509 = new AzureNative.IoTOperationsMQ.Inputs.KafkaX509AuthenticationArgs
+                    {
+                        KeyVault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCertificatePropertiesArgs
+                        {
+                            Vault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultConnectionPropertiesArgs
+                            {
+                                Credentials = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCredentialsPropertiesArgs
+                                {
+                                    ServicePrincipalLocalSecretName = "wuimjwpbhoglbsxxa",
+                                },
+                                DirectoryId = "eyjniptiykzcgbzok",
+                                Name = "lxmwfan",
+                            },
+                            VaultCaChainSecret = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+                            {
+                                Name = "bmectskddmpjxnsogwooexj",
+                                Version = "unjfbf",
+                            },
+                            VaultCert = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+                            {
+                                Name = "bmectskddmpjxnsogwooexj",
+                                Version = "unjfbf",
+                            },
+                        },
+                        SecretName = "jlrjvqyoygynlpsekfbvyrpu",
+                    },
+                },
+                Enabled = true,
+            },
+            Endpoint = "odxpssuhjkbonjmbhbebfjcah",
+            Tls = new AzureNative.IoTOperationsMQ.Inputs.KafkaRemoteBrokerConnectionTlsArgs
+            {
+                TlsEnabled = true,
+                TrustedCaCertificateConfigMap = "kndjozglnxsgnzxq",
+            },
+        },
+        KafkaConnectorName = "V5--OL8-R",
+        LocalBrokerConnection = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerConnectionSpecArgs
+        {
+            Authentication = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerAuthenticationMethodsArgs
+            {
+                Kubernetes = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerKubernetesAuthenticationArgs
+                {
+                    SecretPath = "soukzfkouir",
+                    ServiceAccountTokenName = "suwetviuhmhorhvsidlznnufe",
+                },
+            },
+            Endpoint = "xc",
+            Tls = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerConnectionTlsArgs
+            {
+                TlsEnabled = true,
+                TrustedCaCertificateConfigMap = "rinkomfeznsfedbmllxlbmmhc",
+            },
+        },
+        Location = "mpbupgmqssnb",
+        LogLevel = "g",
+        MqName = "s47Lj-S2S-Q-XY",
+        NodeTolerations = new AzureNative.IoTOperationsMQ.Inputs.NodeTolerationsArgs
+        {
+            Effect = "eeswvciblqmmaeesjoflyvxqbz",
+            Key = "wbrstdwxgm",
+            Operator = "lbegegneekwnyodtzraarivtwhmzep",
+            Value = "sfafsjdcezdmkwibxeluukxgl",
+        },
+        ResourceGroupName = "rgiotoperationsmq",
+        Tags = null,
+    });
+
+});
+

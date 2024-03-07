@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var licenseProfile = new AzureNative.HybridCompute.LicenseProfile("licenseProfile", new()
+    {
+        AssignedLicense = "{LicenseResourceId}",
+        LicenseProfileName = "default",
+        Location = "eastus2euap",
+        MachineName = "myMachine",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

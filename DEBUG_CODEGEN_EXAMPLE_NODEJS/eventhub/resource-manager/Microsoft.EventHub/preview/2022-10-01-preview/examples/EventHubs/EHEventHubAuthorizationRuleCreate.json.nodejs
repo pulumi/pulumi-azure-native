@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const eventHubAuthorizationRule = new azure_native.eventhub.EventHubAuthorizationRule("eventHubAuthorizationRule", {
+    authorizationRuleName: "sdk-Authrules-2513",
+    eventHubName: "sdk-EventHub-532",
+    namespaceName: "sdk-Namespace-960",
+    resourceGroupName: "ArunMonocle",
+    rights: [
+        "Listen",
+        "Send",
+    ],
+});

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiIssueAttachment = new AzureNative.ApiManagement.ApiIssueAttachment("apiIssueAttachment", new()
+    {
+        ApiId = "57d1f7558aa04f15146d9d8a",
+        AttachmentId = "57d2ef278aa04f0888cba3f3",
+        Content = "IEJhc2U2NA==",
+        ContentFormat = "image/jpeg",
+        IssueId = "57d2ef278aa04f0ad01d6cdc",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Title = "Issue attachment.",
+    });
+
+});
+

@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var defaultRollout = new AzureNative.ProviderHub.DefaultRollout("defaultRollout", new()
+    {
+        Properties = new AzureNative.ProviderHub.Inputs.DefaultRolloutPropertiesArgs
+        {
+            Specification = new AzureNative.ProviderHub.Inputs.DefaultRolloutPropertiesSpecificationArgs
+            {
+                Canary = new AzureNative.ProviderHub.Inputs.DefaultRolloutSpecificationCanaryArgs
+                {
+                    SkipRegions = new[]
+                    {
+                        "eastus2euap",
+                    },
+                },
+                ExpeditedRollout = new AzureNative.ProviderHub.Inputs.DefaultRolloutSpecificationExpeditedRolloutArgs
+                {
+                    Enabled = true,
+                },
+                RestOfTheWorldGroupTwo = new AzureNative.ProviderHub.Inputs.DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs
+                {
+                    WaitDuration = "PT4H",
+                },
+            },
+        },
+        ProviderNamespace = "Microsoft.Contoso",
+        RolloutName = "2020week10",
+    });
+
+});
+

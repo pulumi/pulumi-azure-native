@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const assessmentProjectsOperation = new azure_native.migrate.AssessmentProjectsOperation("assessmentProjectsOperation", {
+    assessmentSolutionId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
+    customerStorageAccountArmId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/sakanwar/providers/Microsoft.Storage/storageAccounts/sakanwar1204usa",
+    location: "southeastasia",
+    projectName: "sakanwar1204project",
+    projectStatus: "Active",
+    provisioningState: "Succeeded",
+    publicNetworkAccess: "Disabled",
+    resourceGroupName: "sakanwar",
+    tags: {
+        "Migrate Project": "sakanwar-PE-SEA",
+    },
+});

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pricing = new azure_native.security.Pricing("pricing", {
+    pricingName: "virtualMachines",
+    pricingTier: "Standard",
+    scopeId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/DEMO/providers/Microsoft.Compute/virtualMachines/VM-1",
+    subPlan: "P1",
+});

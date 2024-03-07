@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var changeDataCapture = new AzureNative.DataFactory.ChangeDataCapture("changeDataCapture", new()
+    {
+        AllowVNetOverride = false,
+        ChangeDataCaptureName = "exampleChangeDataCapture",
+        Description = "Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database. Updating table mappings.",
+        FactoryName = "exampleFactoryName",
+        ResourceGroupName = "exampleResourceGroup",
+        Status = "Stopped",
+    });
+
+});
+

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedDatabase = new azure_native.sql.ManagedDatabase("managedDatabase", {
+    databaseName: "managedDatabase",
+    location: "southeastasia",
+    managedInstanceName: "managedInstance",
+    resourceGroupName: "Default-SQL-SouthEastAsia",
+    tags: {
+        tagKey1: "TagValue1",
+    },
+});

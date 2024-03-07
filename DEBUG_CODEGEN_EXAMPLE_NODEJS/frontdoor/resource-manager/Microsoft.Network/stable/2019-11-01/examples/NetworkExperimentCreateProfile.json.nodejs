@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkExperimentProfile = new azure_native.network.NetworkExperimentProfile("networkExperimentProfile", {
+    enabledState: "Enabled",
+    location: "WestUs",
+    profileName: "MyProfile",
+    resourceGroupName: "MyResourceGroup",
+});

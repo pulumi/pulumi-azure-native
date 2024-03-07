@@ -1,0 +1,87 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkFunctionDefinitionVersion = new AzureNative.HybridNetwork.NetworkFunctionDefinitionVersion("networkFunctionDefinitionVersion", new()
+    {
+        Location = "eastus",
+        NetworkFunctionDefinitionGroupName = "TestNetworkFunctionDefinitionGroupName",
+        NetworkFunctionDefinitionVersionName = "1.0.0",
+        Properties = new AzureNative.HybridNetwork.Inputs.ContainerizedNetworkFunctionDefinitionVersionArgs
+        {
+            DeployParameters = "{\"type\":\"object\",\"properties\":{\"releaseName\":{\"type\":\"string\"},\"namespace\":{\"type\":\"string\"}}}",
+            NetworkFunctionTemplate = new AzureNative.HybridNetwork.Inputs.AzureArcKubernetesNetworkFunctionTemplateArgs
+            {
+                NetworkFunctionApplications = new[]
+                {
+                    new AzureNative.HybridNetwork.Inputs.AzureArcKubernetesHelmApplicationArgs
+                    {
+                        ArtifactProfile = new AzureNative.HybridNetwork.Inputs.AzureArcKubernetesArtifactProfileArgs
+                        {
+                            ArtifactStore = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+                            {
+                                Id = "/subscriptions/subid/resourcegroups/rg/providers/microsoft.hybridnetwork/publishers/TestPublisher/artifactStores/testArtifactStore",
+                            },
+                            HelmArtifactProfile = new AzureNative.HybridNetwork.Inputs.HelmArtifactProfileArgs
+                            {
+                                HelmPackageName = "fed-rbac",
+                                HelmPackageVersionRange = "~2.1.3",
+                                ImagePullSecretsValuesPaths = new[]
+                                {
+                                    "global.imagePullSecrets",
+                                },
+                                RegistryValuesPaths = new[]
+                                {
+                                    "global.registry.docker.repoPath",
+                                },
+                            },
+                        },
+                        ArtifactType = "HelmPackage",
+                        DependsOnProfile = new AzureNative.HybridNetwork.Inputs.DependsOnProfileArgs
+                        {
+                            InstallDependsOn = new() { },
+                            UninstallDependsOn = new() { },
+                            UpdateDependsOn = new() { },
+                        },
+                        DeployParametersMappingRuleProfile = new AzureNative.HybridNetwork.Inputs.AzureArcKubernetesDeployMappingRuleProfileArgs
+                        {
+                            ApplicationEnablement = "Enabled",
+                            HelmMappingRuleProfile = new AzureNative.HybridNetwork.Inputs.HelmMappingRuleProfileArgs
+                            {
+                                HelmPackageVersion = "2.1.3",
+                                Options = new AzureNative.HybridNetwork.Inputs.HelmMappingRuleProfileOptionsArgs
+                                {
+                                    InstallOptions = new AzureNative.HybridNetwork.Inputs.HelmInstallOptionsArgs
+                                    {
+                                        Atomic = "true",
+                                        Timeout = "30",
+                                        Wait = "waitValue",
+                                    },
+                                    UpgradeOptions = new AzureNative.HybridNetwork.Inputs.HelmUpgradeOptionsArgs
+                                    {
+                                        Atomic = "true",
+                                        Timeout = "30",
+                                        Wait = "waitValue",
+                                    },
+                                },
+                                ReleaseName = "{deployParameters.releaseName}",
+                                ReleaseNamespace = "{deployParameters.namesapce}",
+                                Values = "",
+                            },
+                        },
+                        Name = "fedrbac",
+                    },
+                },
+                NfviType = "AzureArcKubernetes",
+            },
+            NetworkFunctionType = "ContainerizedNetworkFunction",
+        },
+        PublisherName = "TestPublisher",
+        ResourceGroupName = "rg",
+    });
+
+});
+

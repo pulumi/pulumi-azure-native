@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualNetwork = new azure_native.devtestlab.VirtualNetwork("virtualNetwork", {
+    labName: "{labName}",
+    location: "{location}",
+    name: "{virtualNetworkName}",
+    resourceGroupName: "resourceGroupName",
+    tags: {
+        tagName1: "tagValue1",
+    },
+});

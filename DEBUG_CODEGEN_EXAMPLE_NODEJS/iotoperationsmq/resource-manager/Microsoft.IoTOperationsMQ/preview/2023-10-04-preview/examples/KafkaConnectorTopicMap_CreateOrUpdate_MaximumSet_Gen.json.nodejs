@@ -1,0 +1,46 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const kafkaConnectorTopicMap = new azure_native.iotoperationsmq.KafkaConnectorTopicMap("kafkaConnectorTopicMap", {
+    batching: {
+        enabled: true,
+        latencyMs: 9110,
+        maxBytes: 732052221,
+        maxMessages: 373078076,
+    },
+    compression: "none",
+    copyMqttProperties: "efpqgkycuawnzyubdyt",
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    kafkaConnectorName: "216VN",
+    kafkaConnectorRef: "icivjwerdspx",
+    location: "pavphpzfsgdudpyvufyebqh",
+    mqName: "-1-eD-7-J",
+    partitionKeyProperty: "c",
+    partitionStrategy: "default",
+    resourceGroupName: "rgiotoperationsmq",
+    routes: [{
+        kafkaToMqtt: {
+            consumerGroupId: "usork",
+            kafkaTopic: "ggwhwbsr",
+            mqttTopic: "jwvmmhfqqkkmqrpslbdfmpbdetfu",
+            name: "lrnvudysggscnqvmnlkrk",
+            qos: 1,
+        },
+        mqttToKafka: {
+            kafkaAcks: "zero",
+            kafkaTopic: "tellycttwulueqcpqf",
+            mqttTopic: "raipkrcwvdnnflywhgjwnquarf",
+            name: "qpshqcaxvxnyjzimvchngupzezdei",
+            qos: 1,
+            sharedSubscription: {
+                groupMinimumShareNumber: 216,
+                groupName: "nwdyccsditzhchuksmi",
+            },
+        },
+    }],
+    tags: {},
+    topicMapName: "q582ViEY-b7wF1OO2A",
+});

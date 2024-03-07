@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var replication = new AzureNative.ContainerRegistry.Replication("replication", new()
+    {
+        Location = "eastus",
+        RegistryName = "myRegistry",
+        ReplicationName = "myReplication",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "key", "value" },
+        },
+    });
+
+});
+

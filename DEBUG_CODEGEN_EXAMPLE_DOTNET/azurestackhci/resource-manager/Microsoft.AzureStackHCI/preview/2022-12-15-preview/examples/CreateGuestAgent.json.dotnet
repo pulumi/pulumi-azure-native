@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var guestAgent = new AzureNative.AzureStackHCI.GuestAgent("guestAgent", new()
+    {
+        Credentials = new AzureNative.AzureStackHCI.Inputs.GuestCredentialArgs
+        {
+            Password = "<password>",
+            Username = "tempuser",
+        },
+        Name = "default",
+        ProvisioningAction = "install",
+        ResourceGroupName = "testrg",
+        VirtualMachineName = "ContosoVm",
+    });
+
+});
+

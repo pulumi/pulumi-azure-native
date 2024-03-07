@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 database_migrations_sql_db = azure_native.datamigration.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb",
-    properties=azure_native.datamigration.DatabaseMigrationPropertiesSqlDbArgs(
+    properties=azure_native.datamigration.DatabaseMigrationPropertiesSqlDbResponseArgs(
         kind="SqlDb",
         migration_service="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
         scope="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",

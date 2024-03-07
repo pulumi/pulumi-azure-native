@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dataProduct = new azure_native.networkanalytics.DataProduct("dataProduct", {
+    dataProductName: "dataproduct01",
+    location: "eastus",
+    majorVersion: "1.0.0",
+    product: "MCC",
+    publisher: "Microsoft",
+    resourceGroupName: "aoiresourceGroupName",
+    tags: {
+        userSpecifiedKeyName: "userSpecifiedKeyValue",
+    },
+});

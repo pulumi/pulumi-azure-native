@@ -1,0 +1,45 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const openShiftCluster = new azure_native.redhatopenshift.OpenShiftCluster("openShiftCluster", {
+    apiserverProfile: {
+        visibility: "Public",
+    },
+    clusterProfile: {
+        domain: "cluster.location.aroapp.io",
+        fipsValidatedModules: "Enabled",
+        pullSecret: "{\"auths\":{\"registry.connect.redhat.com\":{\"auth\":\"\"},\"registry.redhat.io\":{\"auth\":\"\"}}}",
+        resourceGroupId: "/subscriptions/subscriptionId/resourceGroups/clusterResourceGroup",
+    },
+    consoleProfile: {},
+    ingressProfiles: [{
+        name: "default",
+        visibility: "Public",
+    }],
+    location: "location",
+    masterProfile: {
+        encryptionAtHost: "Enabled",
+        subnetId: "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/master",
+        vmSize: "Standard_D8s_v3",
+    },
+    networkProfile: {
+        podCidr: "10.128.0.0/14",
+        serviceCidr: "172.30.0.0/16",
+    },
+    resourceGroupName: "resourceGroup",
+    resourceName: "resourceName",
+    servicePrincipalProfile: {
+        clientId: "clientId",
+        clientSecret: "clientSecret",
+    },
+    tags: {
+        key: "value",
+    },
+    workerProfiles: [{
+        count: 3,
+        diskSizeGB: 128,
+        name: "worker",
+        subnetId: "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/worker",
+        vmSize: "Standard_D2s_v3",
+    }],
+});

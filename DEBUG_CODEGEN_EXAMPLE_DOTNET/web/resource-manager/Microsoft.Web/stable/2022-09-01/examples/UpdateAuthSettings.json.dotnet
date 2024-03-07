@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppAuthSettings = new AzureNative.Web.WebAppAuthSettings("webAppAuthSettings", new()
+    {
+        AllowedExternalRedirectUrls = new[]
+        {
+            "sitef6141.customdomain.net",
+            "sitef6141.customdomain.info",
+        },
+        ClientId = "42d795a9-8abb-4d06-8534-39528af40f8e.apps.googleusercontent.com",
+        DefaultProvider = AzureNative.Web.BuiltInAuthenticationProvider.Google,
+        Enabled = true,
+        Name = "sitef6141",
+        ResourceGroupName = "testrg123",
+        RuntimeVersion = "~1",
+        TokenRefreshExtensionHours = 120,
+        TokenStoreEnabled = true,
+        UnauthenticatedClientAction = AzureNative.Web.UnauthenticatedClientAction.RedirectToLoginPage,
+    });
+
+});
+

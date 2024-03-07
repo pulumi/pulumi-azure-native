@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const extendedDatabaseBlobAuditingPolicy = new azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy", {
+    blobAuditingPolicyName: "default",
+    databaseName: "testdb",
+    isAzureMonitorTargetEnabled: true,
+    resourceGroupName: "blobauditingtest-4799",
+    serverName: "blobauditingtest-6440",
+    state: azure_native.sql.BlobAuditingPolicyState.Enabled,
+});

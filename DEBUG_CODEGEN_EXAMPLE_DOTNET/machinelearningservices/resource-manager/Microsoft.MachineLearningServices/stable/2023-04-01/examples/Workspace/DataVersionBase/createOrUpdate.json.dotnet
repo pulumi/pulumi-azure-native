@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataVersion = new AzureNative.MachineLearningServices.DataVersion("dataVersion", new()
+    {
+        DataVersionBaseProperties = new AzureNative.MachineLearningServices.Inputs.UriFileDataVersionArgs
+        {
+            DataType = "uri_file",
+            DataUri = "string",
+            Description = "string",
+            IsAnonymous = false,
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        Name = "string",
+        ResourceGroupName = "test-rg",
+        Version = "string",
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var alertProcessingRuleByName = new AzureNative.AlertsManagement.AlertProcessingRuleByName("alertProcessingRuleByName", new()
+    {
+        AlertProcessingRuleName = "RemoveActionGroupsOutsideBusinessHours",
+        Location = "Global",
+        Properties = new AzureNative.AlertsManagement.Inputs.AlertProcessingRulePropertiesArgs
+        {
+            Actions = new[]
+            {
+                new AzureNative.AlertsManagement.Inputs.RemoveAllActionGroupsArgs
+                {
+                    ActionType = "RemoveAllActionGroups",
+                },
+            },
+            Description = "Remove all ActionGroups outside business hours",
+            Enabled = true,
+            Schedule = new AzureNative.AlertsManagement.Inputs.ScheduleArgs
+            {
+                Recurrences = 
+                {
+                    new AzureNative.AlertsManagement.Inputs.DailyRecurrenceArgs
+                    {
+                        EndTime = "09:00:00",
+                        RecurrenceType = "Daily",
+                        StartTime = "17:00:00",
+                    },
+                    new AzureNative.AlertsManagement.Inputs.WeeklyRecurrenceArgs
+                    {
+                        DaysOfWeek = new[]
+                        {
+                            "Saturday",
+                            "Sunday",
+                        },
+                        RecurrenceType = "Weekly",
+                    },
+                },
+                TimeZone = "Eastern Standard Time",
+            },
+            Scopes = new[]
+            {
+                "/subscriptions/subId1",
+            },
+        },
+        ResourceGroupName = "alertscorrelationrg",
+        Tags = null,
+    });
+
+});
+

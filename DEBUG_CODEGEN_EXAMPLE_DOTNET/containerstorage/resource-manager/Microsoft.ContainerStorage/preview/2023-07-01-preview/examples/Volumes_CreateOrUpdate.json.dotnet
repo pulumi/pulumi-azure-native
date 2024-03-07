@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var volume = new AzureNative.ContainerStorage.Volume("volume", new()
+    {
+        CapacityGiB = 25838,
+        Labels = 
+        {
+            { "key2039", "value2039" },
+        },
+        PoolName = "test-pool",
+        ResourceGroupName = "test-rg",
+        VolumeName = "test-volume",
+    });
+
+});
+

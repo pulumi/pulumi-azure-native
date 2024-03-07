@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mqttBridgeTopicMap = new azure_native.iotoperationsmq.MqttBridgeTopicMap("mqttBridgeTopicMap", {
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    location: "icfdftifk",
+    mqName: "52A1-D1-t--Q7O9-C-2S",
+    mqttBridgeConnectorName: "5sKfh6461-KDI8h-5",
+    mqttBridgeConnectorRef: "aemmhvfdzmdtxwgimpaqephgo",
+    resourceGroupName: "rgiotoperationsmq",
+    routes: [{
+        direction: "remote-to-local",
+        name: "u",
+        qos: 2,
+        sharedSubscription: {
+            groupMinimumShareNumber: 129,
+            groupName: "exnfgkdccpuvzqhxrg",
+        },
+        source: "xwnfgkkfezlgh",
+        target: "mgwem",
+    }],
+    tags: {},
+    topicMapName: "5--CR4S47--UaxB4-",
+});

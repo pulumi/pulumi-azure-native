@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var externalNetwork = new AzureNative.ManagedNetworkFabric.ExternalNetwork("externalNetwork", new()
+    {
+        ExportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+        ExternalNetworkName = "example-externalnetwork",
+        ImportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+        L3IsolationDomainName = "example-l3domain",
+        OptionAProperties = new AzureNative.ManagedNetworkFabric.Inputs.ExternalNetworkPropertiesOptionAPropertiesArgs
+        {
+            Mtu = 1500,
+            PeerASN = 65047,
+            PrimaryIpv4Prefix = "10.1.1.0/30",
+            PrimaryIpv6Prefix = "3FFE:FFFF:0:CD30::a0/126",
+            SecondaryIpv4Prefix = "10.1.1.4/30",
+            SecondaryIpv6Prefix = "3FFE:FFFF:0:CD30::a4/126",
+            VlanId = 1001,
+        },
+        OptionBProperties = new AzureNative.ManagedNetworkFabric.Inputs.OptionBPropertiesArgs
+        {
+            ExportRouteTargets = new[]
+            {
+                "65046:10039",
+            },
+            ImportRouteTargets = new[]
+            {
+                "65046:10039",
+            },
+        },
+        PeeringOption = "OptionA",
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

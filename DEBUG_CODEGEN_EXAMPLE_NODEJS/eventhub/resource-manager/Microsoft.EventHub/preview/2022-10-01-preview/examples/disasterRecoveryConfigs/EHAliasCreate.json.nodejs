@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disasterRecoveryConfig = new azure_native.eventhub.DisasterRecoveryConfig("disasterRecoveryConfig", {
+    alias: "sdk-DisasterRecovery-3814",
+    namespaceName: "sdk-Namespace-8859",
+    partnerNamespace: "sdk-Namespace-37",
+    resourceGroupName: "exampleResourceGroup",
+});

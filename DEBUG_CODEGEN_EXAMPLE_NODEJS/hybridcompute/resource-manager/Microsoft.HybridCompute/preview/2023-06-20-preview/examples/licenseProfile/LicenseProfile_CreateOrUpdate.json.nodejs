@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const licenseProfile = new azure_native.hybridcompute.LicenseProfile("licenseProfile", {
+    assignedLicense: "{LicenseResourceId}",
+    licenseProfileName: "default",
+    location: "eastus2euap",
+    machineName: "myMachine",
+    resourceGroupName: "myResourceGroup",
+});

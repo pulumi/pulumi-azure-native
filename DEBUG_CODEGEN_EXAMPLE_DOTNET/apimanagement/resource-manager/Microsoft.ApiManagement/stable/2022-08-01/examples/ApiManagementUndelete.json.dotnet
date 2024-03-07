@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiManagementService = new AzureNative.ApiManagement.ApiManagementService("apiManagementService", new()
+    {
+        Location = "South Central US",
+        PublisherEmail = "foo@contoso.com",
+        PublisherName = "foo",
+        ResourceGroupName = "rg1",
+        Restore = true,
+        ServiceName = "apimService1",
+        Sku = new AzureNative.ApiManagement.Inputs.ApiManagementServiceSkuPropertiesArgs
+        {
+            Capacity = 1,
+            Name = "Developer",
+        },
+    });
+
+});
+

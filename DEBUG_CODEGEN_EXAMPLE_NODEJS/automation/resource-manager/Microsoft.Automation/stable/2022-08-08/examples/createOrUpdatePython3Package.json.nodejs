@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const python3Package = new azure_native.automation.Python3Package("python3Package", {
+    automationAccountName: "myAutomationAccount33",
+    contentLink: {
+        contentHash: {
+            algorithm: "sha265",
+            value: "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+        },
+        uri: "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+        version: "1.0.0.0",
+    },
+    packageName: "OmsCompositeResources",
+    resourceGroupName: "rg",
+    tags: {},
+});

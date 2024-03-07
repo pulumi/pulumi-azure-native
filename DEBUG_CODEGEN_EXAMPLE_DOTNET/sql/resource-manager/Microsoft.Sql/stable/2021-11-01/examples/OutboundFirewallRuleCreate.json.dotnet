@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var outboundFirewallRule = new AzureNative.Sql.OutboundFirewallRule("outboundFirewallRule", new()
+    {
+        OutboundRuleFqdn = "server.database.windows.net",
+        ResourceGroupName = "sqlcrudtest-7398",
+        ServerName = "sqlcrudtest-4645",
+    });
+
+});
+

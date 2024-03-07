@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managementLockAtResourceLevel = new AzureNative.Authorization.ManagementLockAtResourceLevel("managementLockAtResourceLevel", new()
+    {
+        Level = "ReadOnly",
+        LockName = "testlock",
+        ParentResourcePath = "parentResourcePath",
+        ResourceGroupName = "resourcegroupname",
+        ResourceName = "teststorageaccount",
+        ResourceProviderNamespace = "Microsoft.Storage",
+        ResourceType = "storageAccounts",
+    });
+
+});
+

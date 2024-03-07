@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const input = new azure_native.streamanalytics.Input("input", {
+    inputName: "input7425",
+    jobName: "sj197",
+    properties: {
+        datasource: {
+            consumerGroupName: "sdkconsumergroup",
+            eventHubName: "sdkeventhub",
+            serviceBusNamespace: "sdktest",
+            sharedAccessPolicyKey: "someSharedAccessPolicyKey==",
+            sharedAccessPolicyName: "RootManageSharedAccessKey",
+            type: "Microsoft.ServiceBus/EventHub",
+        },
+        serialization: {
+            encoding: "UTF8",
+            type: "Json",
+        },
+        type: "Stream",
+    },
+    resourceGroupName: "sjrg3139",
+});

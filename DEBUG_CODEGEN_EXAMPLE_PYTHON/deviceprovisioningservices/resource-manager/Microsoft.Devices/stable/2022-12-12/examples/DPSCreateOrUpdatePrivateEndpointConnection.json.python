@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 iot_dps_resource_private_endpoint_connection = azure_native.devices.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection",
     private_endpoint_connection_name="myPrivateEndpointConnection",
-    properties=azure_native.devices.PrivateEndpointConnectionPropertiesArgs(
+    properties=azure_native.devices.PrivateEndpointConnectionPropertiesResponseArgs(
         private_link_service_connection_state=azure_native.devices.PrivateLinkServiceConnectionStateArgs(
             description="Approved by johndoe@contoso.com",
             status="Approved",

@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var gatewayHostnameConfiguration = new AzureNative.ApiManagement.GatewayHostnameConfiguration("gatewayHostnameConfiguration", new()
+    {
+        CertificateId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+        GatewayId = "gw1",
+        HcId = "default",
+        Hostname = "*",
+        Http2Enabled = true,
+        NegotiateClientCertificate = false,
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Tls10Enabled = false,
+        Tls11Enabled = false,
+    });
+
+});
+

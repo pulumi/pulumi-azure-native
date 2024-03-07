@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serverDetails = new AzureNative.AnalysisServices.ServerDetails("serverDetails", new()
+    {
+        AsAdministrators = new AzureNative.AnalysisServices.Inputs.ServerAdministratorsArgs
+        {
+            Members = new[]
+            {
+                "azsdktest@microsoft.com",
+                "azsdktest2@microsoft.com",
+            },
+        },
+        Location = "West US",
+        ResourceGroupName = "TestRG",
+        ServerName = "azsdktest",
+        Sku = new AzureNative.AnalysisServices.Inputs.ResourceSkuArgs
+        {
+            Capacity = 1,
+            Name = "S1",
+            Tier = "Standard",
+        },
+        Tags = 
+        {
+            { "testKey", "testValue" },
+        },
+    });
+
+});
+

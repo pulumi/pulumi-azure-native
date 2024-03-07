@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var advancedThreatProtection = new AzureNative.Security.AdvancedThreatProtection("advancedThreatProtection", new()
+    {
+        IsEnabled = true,
+        ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount",
+        SettingName = "current",
+    });
+
+});
+

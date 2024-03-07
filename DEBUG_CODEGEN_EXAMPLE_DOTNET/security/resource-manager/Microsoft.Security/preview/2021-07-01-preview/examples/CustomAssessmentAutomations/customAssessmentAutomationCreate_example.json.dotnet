@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customAssessmentAutomation = new AzureNative.Security.CustomAssessmentAutomation("customAssessmentAutomation", new()
+    {
+        CompressedQuery = "DQAKAEkAYQBtAF8ARwByAG8AdQBwAA0ACgB8ACAAZQB4AHQAZQBuAGQAIABIAGUAYQBsAHQAaABTAHQAYQB0AHUAcwAgAD0AIABpAGYAZgAoAHQAbwBzAHQAcgBpAG4AZwAoAFIAZQBjAG8AcgBkAC4AVQBzAGUAcgBOAGEAbQBlACkAIABjAG8AbgB0AGEAaQBuAHMAIAAnAHUAcwBlAHIAJwAsACAAJwBVAE4ASABFAEEATABUAEgAWQAnACwAIAAnAEgARQBBAEwAVABIAFkAJwApAA0ACgA=",
+        CustomAssessmentAutomationName = "MyCustomAssessmentAutomation",
+        Description = "Data should be encrypted",
+        DisplayName = "Password Policy",
+        RemediationDescription = "Encrypt store by...",
+        ResourceGroupName = "TestResourceGroup",
+        Severity = "Medium",
+        SupportedCloud = "AWS",
+    });
+
+});
+

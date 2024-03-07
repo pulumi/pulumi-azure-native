@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const diskAccessAPrivateEndpointConnection = new azure_native.compute.DiskAccessAPrivateEndpointConnection("diskAccessAPrivateEndpointConnection", {
+    diskAccessName: "myDiskAccess",
+    privateEndpointConnectionName: "myPrivateEndpointConnection",
+    privateLinkServiceConnectionState: {
+        description: "Approving myPrivateEndpointConnection",
+        status: "Approved",
+    },
+    resourceGroupName: "myResourceGroup",
+});

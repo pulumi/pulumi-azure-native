@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var registeredPrefix = new AzureNative.Peering.RegisteredPrefix("registeredPrefix", new()
+    {
+        PeeringName = "peeringName",
+        Prefix = "10.22.20.0/24",
+        RegisteredPrefixName = "registeredPrefixName",
+        ResourceGroupName = "rgName",
+    });
+
+});
+

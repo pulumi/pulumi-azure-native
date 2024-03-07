@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const apiVersionSet = new azure_native.apimanagement.ApiVersionSet("apiVersionSet", {
+    description: "Version configuration",
+    displayName: "api set 1",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    versionSetId: "api1",
+    versioningScheme: "Segment",
+});

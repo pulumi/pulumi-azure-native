@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateLinkHub = new AzureNative.Synapse.PrivateLinkHub("privateLinkHub", new()
+    {
+        Location = "East US",
+        PrivateLinkHubName = "privateLinkHub1",
+        ResourceGroupName = "resourceGroup1",
+        Tags = 
+        {
+            { "key", "value" },
+        },
+    });
+
+});
+

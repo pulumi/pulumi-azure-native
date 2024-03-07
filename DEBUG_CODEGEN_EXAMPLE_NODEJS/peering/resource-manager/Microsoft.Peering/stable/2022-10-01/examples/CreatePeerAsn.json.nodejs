@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const peerAsn = new azure_native.peering.PeerAsn("peerAsn", {
+    peerAsn: 65000,
+    peerAsnName: "peerAsnName",
+    peerContactDetail: [
+        {
+            email: "noc@contoso.com",
+            phone: "+1 (234) 567-8999",
+            role: "Noc",
+        },
+        {
+            email: "abc@contoso.com",
+            phone: "+1 (234) 567-8900",
+            role: "Policy",
+        },
+        {
+            email: "xyz@contoso.com",
+            phone: "+1 (234) 567-8900",
+            role: "Technical",
+        },
+    ],
+    peerName: "Contoso",
+});

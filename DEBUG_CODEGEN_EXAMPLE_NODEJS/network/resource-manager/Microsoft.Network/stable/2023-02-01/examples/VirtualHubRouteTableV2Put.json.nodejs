@@ -1,0 +1,26 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualHubRouteTableV2 = new azure_native.network.VirtualHubRouteTableV2("virtualHubRouteTableV2", {
+    attachedConnections: ["All_Vnets"],
+    resourceGroupName: "rg1",
+    routeTableName: "virtualHubRouteTable1a",
+    routes: [
+        {
+            destinationType: "CIDR",
+            destinations: [
+                "20.10.0.0/16",
+                "20.20.0.0/16",
+            ],
+            nextHopType: "IPAddress",
+            nextHops: ["10.0.0.68"],
+        },
+        {
+            destinationType: "CIDR",
+            destinations: ["0.0.0.0/0"],
+            nextHopType: "IPAddress",
+            nextHops: ["10.0.0.68"],
+        },
+    ],
+    virtualHubName: "virtualHub1",
+});

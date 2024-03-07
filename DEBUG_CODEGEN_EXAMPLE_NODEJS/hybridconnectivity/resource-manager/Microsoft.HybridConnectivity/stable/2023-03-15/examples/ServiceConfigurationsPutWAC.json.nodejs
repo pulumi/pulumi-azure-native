@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serviceConfiguration = new azure_native.hybridconnectivity.ServiceConfiguration("serviceConfiguration", {
+    endpointName: "default",
+    port: 6516,
+    resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
+    serviceConfigurationName: "WAC",
+    serviceName: "WAC",
+});

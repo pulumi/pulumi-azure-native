@@ -1,0 +1,31 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const contentKeyPolicy = new azure_native.media.ContentKeyPolicy("contentKeyPolicy", {
+    accountName: "contosomedia",
+    contentKeyPolicyName: "PolicyWithWidevineOptionAndJwtTokenRestriction",
+    description: "ArmPolicyDescription",
+    options: [{
+        configuration: {
+            odataType: "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+            widevineTemplate: "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
+        },
+        name: "widevineoption",
+        restriction: {
+            alternateVerificationKeys: [{
+                keyValue: "AAAAAAAAAAAAAAAAAAAAAA==",
+                odataType: "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+            }],
+            audience: "urn:audience",
+            issuer: "urn:issuer",
+            odataType: "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+            primaryVerificationKey: {
+                exponent: "AQAB",
+                modulus: "AQAD",
+                odataType: "#Microsoft.Media.ContentKeyPolicyRsaTokenKey",
+            },
+            restrictionTokenType: "Jwt",
+        },
+    }],
+    resourceGroupName: "contosorg",
+});

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hybridConnectionAuthorizationRule = new AzureNative.Relay.HybridConnectionAuthorizationRule("hybridConnectionAuthorizationRule", new()
+    {
+        AuthorizationRuleName = "example-RelayAuthRules-01",
+        HybridConnectionName = "example-Relay-Hybrid-01",
+        NamespaceName = "example-RelayNamespace-01",
+        ResourceGroupName = "resourcegroup",
+        Rights = new[]
+        {
+            "Listen",
+            "Send",
+        },
+    });
+
+});
+

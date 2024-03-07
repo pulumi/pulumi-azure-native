@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const observabilityService = new azure_native.mobilepacketcore.ObservabilityService("observabilityService", {
+    clusterService: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobilePacketCore/clusterServices/byoCluster",
+    componentParameters: [{
+        parameters: "{\"global\": {\"registry\": {\"docker\": []}}}",
+        secrets: "{\"global\": {\"secret\": {\"secretValue\": []}}}",
+        type: "fed-crds",
+    }],
+    location: "eastus",
+    observabilityServiceName: "observabilityService1",
+    resourceGroupName: "rg1",
+});

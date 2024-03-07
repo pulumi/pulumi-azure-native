@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.Migrate.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        ETag = "\"00009300-0000-0300-0000-602b967b0000\"",
+        PrivateEndpointConnectionName = "custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43",
+        ProjectName = "abgoyalWEselfhostb72bproject",
+        Properties = new AzureNative.Migrate.Inputs.PrivateEndpointConnectionPropertiesArgs
+        {
+            PrivateLinkServiceConnectionState = new AzureNative.Migrate.Inputs.PrivateLinkServiceConnectionStateArgs
+            {
+                ActionsRequired = "",
+                Status = "Approved",
+            },
+        },
+        ResourceGroupName = "abgoyal-westEurope",
+    });
+
+});
+

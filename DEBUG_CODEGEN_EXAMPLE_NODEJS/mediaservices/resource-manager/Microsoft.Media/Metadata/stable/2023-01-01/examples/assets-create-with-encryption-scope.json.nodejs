@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const asset = new azure_native.media.Asset("asset", {
+    accountName: "contosomedia",
+    assetName: "ClimbingMountLogan",
+    description: "A documentary showing the ascent of Mount Logan",
+    encryptionScope: "encryptionScope1",
+    resourceGroupName: "contosorg",
+    storageAccountName: "storage0",
+});

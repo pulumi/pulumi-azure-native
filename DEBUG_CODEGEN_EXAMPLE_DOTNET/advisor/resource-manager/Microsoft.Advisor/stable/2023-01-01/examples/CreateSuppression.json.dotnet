@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var suppression = new AzureNative.Advisor.Suppression("suppression", new()
+    {
+        Name = "suppressionName1",
+        RecommendationId = "recommendationId",
+        ResourceUri = "resourceUri",
+        Ttl = "07:00:00:00",
+    });
+
+});
+

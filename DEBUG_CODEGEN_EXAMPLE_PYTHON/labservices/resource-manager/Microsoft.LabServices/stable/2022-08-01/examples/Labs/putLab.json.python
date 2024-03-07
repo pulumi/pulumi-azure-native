@@ -28,7 +28,7 @@ lab = azure_native.labservices.Lab("lab",
         open_access=azure_native.labservices.EnableState.DISABLED,
     ),
     title="Test Lab",
-    virtual_machine_profile=azure_native.labservices.VirtualMachineProfileArgs(
+    virtual_machine_profile=azure_native.labservices.VirtualMachineProfileResponseArgs(
         additional_capabilities=azure_native.labservices.VirtualMachineAdditionalCapabilitiesArgs(
             install_gpu_drivers=azure_native.labservices.EnableState.DISABLED,
         ),

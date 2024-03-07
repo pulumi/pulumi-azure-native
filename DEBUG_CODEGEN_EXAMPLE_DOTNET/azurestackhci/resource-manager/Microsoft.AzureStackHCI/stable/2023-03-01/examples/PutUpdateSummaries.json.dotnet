@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var updateSummary = new AzureNative.AzureStackHCI.UpdateSummary("updateSummary", new()
+    {
+        ClusterName = "testcluster",
+        CurrentVersion = "4.2203.2.32",
+        HardwareModel = "PowerEdge R730xd",
+        LastChecked = "2022-04-07T18:04:07Z",
+        LastUpdated = "2022-04-06T14:08:18.254Z",
+        OemFamily = "DellEMC",
+        ResourceGroupName = "testrg",
+        State = "AppliedSuccessfully",
+    });
+
+});
+

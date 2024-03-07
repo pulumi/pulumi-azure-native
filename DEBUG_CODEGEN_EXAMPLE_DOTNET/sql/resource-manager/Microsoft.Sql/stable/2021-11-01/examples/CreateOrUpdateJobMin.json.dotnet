@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.Sql.Job("job", new()
+    {
+        JobAgentName = "agent1",
+        JobName = "job1",
+        ResourceGroupName = "group1",
+        ServerName = "server1",
+    });
+
+});
+

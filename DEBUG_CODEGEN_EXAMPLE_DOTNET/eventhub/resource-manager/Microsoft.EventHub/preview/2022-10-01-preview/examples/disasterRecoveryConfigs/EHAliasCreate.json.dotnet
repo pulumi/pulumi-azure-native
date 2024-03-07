@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disasterRecoveryConfig = new AzureNative.EventHub.DisasterRecoveryConfig("disasterRecoveryConfig", new()
+    {
+        Alias = "sdk-DisasterRecovery-3814",
+        NamespaceName = "sdk-Namespace-8859",
+        PartnerNamespace = "sdk-Namespace-37",
+        ResourceGroupName = "exampleResourceGroup",
+    });
+
+});
+

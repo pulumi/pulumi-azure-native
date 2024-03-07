@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var user = new AzureNative.DataBoxEdge.User("user", new()
+    {
+        DeviceName = "testedgedevice",
+        EncryptedPassword = new AzureNative.DataBoxEdge.Inputs.AsymmetricEncryptedSecretArgs
+        {
+            EncryptionAlgorithm = "None",
+            EncryptionCertThumbprint = "blah",
+            Value = "<value>",
+        },
+        Name = "user1",
+        ResourceGroupName = "GroupForEdgeAutomation",
+        UserType = "Share",
+    });
+
+});
+

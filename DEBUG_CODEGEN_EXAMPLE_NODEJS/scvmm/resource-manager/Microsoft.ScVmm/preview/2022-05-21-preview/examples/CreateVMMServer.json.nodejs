@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const vmmServer = new azure_native.scvmm.VmmServer("vmmServer", {
+    credentials: {
+        password: "password",
+        username: "testuser",
+    },
+    extendedLocation: {
+        name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+        type: "customLocation",
+    },
+    fqdn: "VMM.contoso.com",
+    location: "East US",
+    port: 1234,
+    resourceGroupName: "testrg",
+    vmmServerName: "ContosoVMMServer",
+});

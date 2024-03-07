@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machine = new AzureNative.HybridCompute.Machine("machine", new()
+    {
+        ClientPublicKey = "string",
+        Identity = new AzureNative.HybridCompute.Inputs.IdentityArgs
+        {
+            Type = AzureNative.HybridCompute.ResourceIdentityType.SystemAssigned,
+        },
+        Location = "eastus2euap",
+        LocationData = new AzureNative.HybridCompute.Inputs.LocationDataArgs
+        {
+            Name = "Redmond",
+        },
+        MachineName = "myMachine",
+        ParentClusterResourceId = "{AzureStackHCIResourceId}",
+        PrivateLinkScopeResourceId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+        ResourceGroupName = "myResourceGroup",
+        VmId = "b7a098cc-b0b8-46e8-a205-62f301a62a8f",
+    });
+
+});
+

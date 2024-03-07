@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sapVirtualInstance = new AzureNative.Workloads.SAPVirtualInstance("sapVirtualInstance", new()
+    {
+        Configuration = new AzureNative.Workloads.Inputs.DiscoveryConfigurationArgs
+        {
+            CentralServerVmId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+            ConfigurationType = "Discovery",
+        },
+        Environment = "NonProd",
+        Location = "northeurope",
+        ResourceGroupName = "test-rg",
+        SapProduct = "S4HANA",
+        SapVirtualInstanceName = "X00",
+        Tags = 
+        {
+            { "createdby", "abc@microsoft.com" },
+            { "test", "abc" },
+        },
+    });
+
+});
+

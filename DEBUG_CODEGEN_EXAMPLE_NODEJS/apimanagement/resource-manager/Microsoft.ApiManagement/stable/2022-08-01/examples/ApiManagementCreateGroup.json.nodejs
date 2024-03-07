@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const group = new azure_native.apimanagement.Group("group", {
+    displayName: "temp group",
+    groupId: "tempgroup",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

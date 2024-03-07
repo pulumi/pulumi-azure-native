@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const migrateAgent = new azure_native.migrate.MigrateAgent("migrateAgent", {
+    agentName: "e85v",
+    modernizeProjectName: "l77ak",
+    resourceGroupName: "rgmigrateEngine",
+});

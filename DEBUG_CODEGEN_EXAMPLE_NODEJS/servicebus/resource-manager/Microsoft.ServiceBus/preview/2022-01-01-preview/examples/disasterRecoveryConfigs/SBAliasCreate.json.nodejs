@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disasterRecoveryConfig = new azure_native.servicebus.DisasterRecoveryConfig("disasterRecoveryConfig", {
+    alias: "sdk-Namespace-8860",
+    alternateName: "alternameforAlias-Namespace-8860",
+    namespaceName: "sdk-Namespace-8860",
+    partnerNamespace: "sdk-Namespace-37",
+    resourceGroupName: "ardsouzatestRG",
+});

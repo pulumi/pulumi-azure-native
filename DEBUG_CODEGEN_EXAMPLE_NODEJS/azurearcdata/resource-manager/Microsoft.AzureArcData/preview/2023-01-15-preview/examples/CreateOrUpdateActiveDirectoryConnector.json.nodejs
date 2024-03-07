@@ -1,0 +1,37 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const activeDirectoryConnector = new azure_native.azurearcdata.ActiveDirectoryConnector("activeDirectoryConnector", {
+    activeDirectoryConnectorName: "testADConnector",
+    dataControllerName: "testdataController",
+    properties: {
+        spec: {
+            activeDirectory: {
+                domainControllers: {
+                    primaryDomainController: {
+                        hostname: "dc1.contoso.local",
+                    },
+                    secondaryDomainControllers: [
+                        {
+                            hostname: "dc2.contoso.local",
+                        },
+                        {
+                            hostname: "dc3.contoso.local",
+                        },
+                    ],
+                },
+                realm: "CONTOSO.LOCAL",
+                serviceAccountProvisioning: "manual",
+            },
+            dns: {
+                nameserverIPAddresses: [
+                    "11.11.111.111",
+                    "22.22.222.222",
+                ],
+                preferK8sDnsForPtrLookups: false,
+                replicas: 1,
+            },
+        },
+    },
+    resourceGroupName: "testrg",
+});

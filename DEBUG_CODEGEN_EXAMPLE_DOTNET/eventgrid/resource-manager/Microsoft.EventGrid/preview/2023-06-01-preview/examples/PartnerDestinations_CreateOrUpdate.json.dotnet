@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var partnerDestination = new AzureNative.EventGrid.PartnerDestination("partnerDestination", new()
+    {
+        EndpointBaseUrl = "https://www.example/endpoint",
+        EndpointServiceContext = "This is an example",
+        ExpirationTimeIfNotActivatedUtc = "2022-03-14T19:33:43.430Z",
+        Location = "westus2",
+        MessageForActivation = "Sample Activation message",
+        PartnerDestinationName = "examplePartnerDestinationName1",
+        PartnerRegistrationImmutableId = "0bd70ee2-7d95-447e-ab1f-c4f320019404",
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

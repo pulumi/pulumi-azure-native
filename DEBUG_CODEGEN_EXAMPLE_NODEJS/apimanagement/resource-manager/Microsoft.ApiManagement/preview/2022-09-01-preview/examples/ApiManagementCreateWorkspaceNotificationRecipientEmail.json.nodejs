@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceNotificationRecipientEmail = new azure_native.apimanagement.WorkspaceNotificationRecipientEmail("workspaceNotificationRecipientEmail", {
+    email: "foobar@live.com",
+    notificationName: "RequestPublisherNotificationMessage",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    workspaceId: "wks1",
+});

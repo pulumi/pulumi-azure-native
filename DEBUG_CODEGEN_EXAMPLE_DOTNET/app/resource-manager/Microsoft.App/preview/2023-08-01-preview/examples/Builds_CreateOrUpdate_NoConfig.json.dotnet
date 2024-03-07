@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var build = new AzureNative.App.Build("build", new()
+    {
+        BuildName = "testBuild",
+        BuilderName = "testBuilder",
+        ResourceGroupName = "rg",
+    });
+
+});
+

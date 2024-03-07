@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateDnsZoneGroup = new azure_native.network.PrivateDnsZoneGroup("privateDnsZoneGroup", {
+    privateDnsZoneConfigs: [{
+        privateDnsZoneId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateDnsZones/zone1.com",
+    }],
+    privateDnsZoneGroupName: "testPdnsgroup",
+    privateEndpointName: "testPe",
+    resourceGroupName: "rg1",
+});

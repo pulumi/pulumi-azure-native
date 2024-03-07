@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sentinelOnboardingState = new AzureNative.SecurityInsights.SentinelOnboardingState("sentinelOnboardingState", new()
+    {
+        CustomerManagedKey = false,
+        ResourceGroupName = "myRg",
+        SentinelOnboardingStateName = "default",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

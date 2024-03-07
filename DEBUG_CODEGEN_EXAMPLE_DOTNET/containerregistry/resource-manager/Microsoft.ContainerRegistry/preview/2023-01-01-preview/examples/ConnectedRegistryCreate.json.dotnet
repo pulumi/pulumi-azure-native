@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectedRegistry = new AzureNative.ContainerRegistry.ConnectedRegistry("connectedRegistry", new()
+    {
+        ClientTokenIds = new[]
+        {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/client1Token",
+        },
+        ConnectedRegistryName = "myConnectedRegistry",
+        Mode = "ReadWrite",
+        NotificationsList = new[]
+        {
+            "hello-world:*:*",
+            "sample/repo/*:1.0:*",
+        },
+        Parent = new AzureNative.ContainerRegistry.Inputs.ParentPropertiesArgs
+        {
+            SyncProperties = new AzureNative.ContainerRegistry.Inputs.SyncPropertiesArgs
+            {
+                MessageTtl = "P2D",
+                Schedule = "0 9 * * *",
+                SyncWindow = "PT3H",
+                TokenId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/syncToken",
+            },
+        },
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

@@ -1,0 +1,33 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const peering = new azure_native.peering.Peering("peering", {
+    direct: {
+        connections: [{
+            bandwidthInMbps: 10000,
+            bgpSession: {
+                maxPrefixesAdvertisedV4: 1000,
+                maxPrefixesAdvertisedV6: 100,
+                microsoftSessionIPv4Address: "192.168.0.123",
+                peerSessionIPv4Address: "192.168.0.234",
+                sessionPrefixV4: "192.168.0.0/24",
+            },
+            connectionIdentifier: "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+            peeringDBFacilityId: 99999,
+            sessionAddressProvider: "Peer",
+            useForPeeringService: true,
+        }],
+        directPeeringType: "IxRs",
+        peerAsn: {
+            id: "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+        },
+    },
+    kind: "Direct",
+    location: "eastus",
+    peeringLocation: "peeringLocation0",
+    peeringName: "peeringName",
+    resourceGroupName: "rgName",
+    sku: {
+        name: "Premium_Direct_Free",
+    },
+});

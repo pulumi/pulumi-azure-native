@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const inboundEndpoint = new azure_native.network.InboundEndpoint("inboundEndpoint", {
+    dnsResolverName: "sampleDnsResolver",
+    inboundEndpointName: "sampleInboundEndpoint",
+    ipConfigurations: [{
+        privateIpAllocationMethod: "Dynamic",
+        subnet: {
+            id: "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
+        },
+    }],
+    location: "westus2",
+    resourceGroupName: "sampleResourceGroup",
+    tags: {
+        key1: "value1",
+    },
+});

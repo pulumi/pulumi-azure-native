@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 dedicated_hsm = azure_native.hardwaresecuritymodules.DedicatedHsm("dedicatedHsm",
     location="westus",
-    management_network_profile=azure_native.hardwaresecuritymodules.NetworkProfileArgs(
+    management_network_profile=azure_native.hardwaresecuritymodules.NetworkProfileResponseArgs(
         network_interfaces=[azure_native.hardwaresecuritymodules.NetworkInterfaceArgs(
             private_ip_address="1.0.0.2",
         )],
@@ -12,7 +12,7 @@ dedicated_hsm = azure_native.hardwaresecuritymodules.DedicatedHsm("dedicatedHsm"
         ),
     ),
     name="hsm1",
-    network_profile=azure_native.hardwaresecuritymodules.NetworkProfileArgs(
+    network_profile=azure_native.hardwaresecuritymodules.NetworkProfileResponseArgs(
         network_interfaces=[azure_native.hardwaresecuritymodules.NetworkInterfaceArgs(
             private_ip_address="1.0.0.1",
         )],

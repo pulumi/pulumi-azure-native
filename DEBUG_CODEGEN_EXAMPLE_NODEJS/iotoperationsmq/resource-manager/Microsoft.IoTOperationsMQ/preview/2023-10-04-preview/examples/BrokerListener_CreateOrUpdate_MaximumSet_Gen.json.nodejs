@@ -1,0 +1,65 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const brokerListener = new azure_native.iotoperationsmq.BrokerListener("brokerListener", {
+    authenticationEnabled: true,
+    authorizationEnabled: true,
+    brokerName: "HGF6WIy6oHv756MjW0JRLILF",
+    brokerRef: "ikuszpfycikq",
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    listenerName: "XGEP",
+    location: "dppbdcpstouifyko",
+    mqName: "Z1-2BCdNY4JO--84",
+    nodePort: 34375,
+    port: 19791,
+    resourceGroupName: "rgiotoperationsmq",
+    serviceName: "euxa",
+    serviceType: "clusterIp",
+    tags: {},
+    tls: {
+        automatic: {
+            duration: "rv",
+            issuerRef: {
+                group: "wxydv",
+                kind: "birgjwuxfjcvyqe",
+                name: "krmdlovyynymtvgffaveker",
+            },
+            privateKey: {
+                algorithm: "wwewfsddymjefuhxzqybwvay",
+                rotationPolicy: "jxmpyvfneckopjiakjtous",
+                size: 63427,
+            },
+            renewBefore: "dexxoqqkgyofhkbk",
+            san: {
+                dns: ["nknzptgqgjvbkgzv"],
+                ip: ["jpdkemham"],
+            },
+            secretName: "hquvygbuueerkspqqktviya",
+            secretNamespace: "aevwndhcnfxitdjykp",
+        },
+        keyVault: {
+            vault: {
+                credentials: {
+                    servicePrincipalLocalSecretName: "wuimjwpbhoglbsxxa",
+                },
+                directoryId: "eyjniptiykzcgbzok",
+                name: "lxmwfan",
+            },
+            vaultCaChainSecret: {
+                name: "bmectskddmpjxnsogwooexj",
+                version: "unjfbf",
+            },
+            vaultCert: {
+                name: "bmectskddmpjxnsogwooexj",
+                version: "unjfbf",
+            },
+        },
+        manual: {
+            secretName: "fezcl",
+            secretNamespace: "ozhayajoooingoczovfusqyilin",
+        },
+    },
+});

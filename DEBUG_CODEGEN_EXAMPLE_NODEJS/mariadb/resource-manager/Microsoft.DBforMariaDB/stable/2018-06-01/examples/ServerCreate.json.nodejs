@@ -1,0 +1,29 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const server = new azure_native.dbformariadb.Server("server", {
+    location: "westus",
+    properties: {
+        administratorLogin: "cloudsa",
+        administratorLoginPassword: "<administratorLoginPassword>",
+        createMode: "Default",
+        minimalTlsVersion: "TLS1_2",
+        sslEnforcement: azure_native.dbformariadb.SslEnforcementEnum.Enabled,
+        storageProfile: {
+            backupRetentionDays: 7,
+            geoRedundantBackup: "Enabled",
+            storageMB: 128000,
+        },
+    },
+    resourceGroupName: "testrg",
+    serverName: "mariadbtestsvc4",
+    sku: {
+        capacity: 2,
+        family: "Gen5",
+        name: "GP_Gen5_2",
+        tier: "GeneralPurpose",
+    },
+    tags: {
+        ElasticServer: "1",
+    },
+});

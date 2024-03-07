@@ -1,0 +1,47 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const job = new azure_native.machinelearningservices.Job("job", {
+    id: "string",
+    jobBaseProperties: {
+        computeId: "string",
+        description: "string",
+        displayName: "string",
+        experimentName: "string",
+        inputs: {
+            string: {
+                description: "string",
+                jobInputType: "literal",
+                value: "string",
+            },
+        },
+        jobType: "Pipeline",
+        outputs: {
+            string: {
+                description: "string",
+                jobOutputType: "uri_file",
+                mode: "Upload",
+                uri: "string",
+            },
+        },
+        properties: {
+            string: "string",
+        },
+        services: {
+            string: {
+                endpoint: "string",
+                jobServiceType: "string",
+                port: 1,
+                properties: {
+                    string: "string",
+                },
+            },
+        },
+        settings: {},
+        tags: {
+            string: "string",
+        },
+    },
+    resourceGroupName: "test-rg",
+    workspaceName: "my-aml-workspace",
+});

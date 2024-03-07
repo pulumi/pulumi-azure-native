@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var blueprint = new AzureNative.Blueprint.Blueprint("blueprint", new()
+    {
+        BlueprintName = "simpleBlueprint",
+        Description = "An example blueprint containing an RG with two tags.",
+        ResourceGroups = 
+        {
+            { "myRGName", new AzureNative.Blueprint.Inputs.ResourceGroupDefinitionArgs
+            {
+                DisplayName = "My Resource Group",
+                Location = "westus",
+                Name = "myRGName",
+                Tags = 
+                {
+                    { "costcenter", "123456" },
+                    { "nameOnlyTag", "" },
+                },
+            } },
+        },
+        ResourceScope = "providers/Microsoft.Management/managementGroups/{ManagementGroupId}",
+        TargetScope = "subscription",
+    });
+
+});
+

@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualNetworkPeering = new azure_native.network.VirtualNetworkPeering("virtualNetworkPeering", {
+    allowForwardedTraffic: true,
+    allowGatewayTransit: false,
+    allowVirtualNetworkAccess: true,
+    remoteVirtualNetwork: {
+        id: "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+    },
+    resourceGroupName: "peerTest",
+    useRemoteGateways: false,
+    virtualNetworkName: "vnet1",
+    virtualNetworkPeeringName: "peer",
+});

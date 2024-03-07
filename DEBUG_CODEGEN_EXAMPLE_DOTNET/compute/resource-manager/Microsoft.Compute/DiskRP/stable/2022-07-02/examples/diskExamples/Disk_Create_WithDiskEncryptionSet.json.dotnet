@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.Compute.Disk("disk", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "Empty",
+        },
+        DiskName = "myDisk",
+        DiskSizeGB = 200,
+        Encryption = new AzureNative.Compute.Inputs.EncryptionArgs
+        {
+            DiskEncryptionSetId = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+        },
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

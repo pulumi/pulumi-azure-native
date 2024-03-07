@@ -1,0 +1,38 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const streamingPolicy = new azure_native.media.StreamingPolicy("streamingPolicy", {
+    accountName: "contosomedia",
+    commonEncryptionCenc: {
+        clearTracks: [{
+            trackSelections: [{
+                operation: "Equal",
+                property: "FourCC",
+                value: "hev1",
+            }],
+        }],
+        contentKeys: {
+            defaultKey: {
+                label: "cencDefaultKey",
+            },
+        },
+        drm: {
+            playReady: {
+                customLicenseAcquisitionUrlTemplate: "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+                playReadyCustomAttributes: "PlayReady CustomAttributes",
+            },
+            widevine: {
+                customLicenseAcquisitionUrlTemplate: "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+            },
+        },
+        enabledProtocols: {
+            dash: true,
+            download: false,
+            hls: false,
+            smoothStreaming: true,
+        },
+    },
+    defaultContentKeyPolicyName: "PolicyWithPlayReadyOptionAndOpenRestriction",
+    resourceGroupName: "contosorg",
+    streamingPolicyName: "UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly",
+});

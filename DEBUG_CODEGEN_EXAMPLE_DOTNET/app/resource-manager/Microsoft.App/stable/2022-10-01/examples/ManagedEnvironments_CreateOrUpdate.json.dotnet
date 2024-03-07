@@ -1,0 +1,66 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedEnvironment = new AzureNative.App.ManagedEnvironment("managedEnvironment", new()
+    {
+        AppLogsConfiguration = new AzureNative.App.Inputs.AppLogsConfigurationArgs
+        {
+            LogAnalyticsConfiguration = new AzureNative.App.Inputs.LogAnalyticsConfigurationArgs
+            {
+                CustomerId = "string",
+                SharedKey = "string",
+            },
+        },
+        CustomDomainConfiguration = new AzureNative.App.Inputs.CustomDomainConfigurationArgs
+        {
+            CertificatePassword = "private key password",
+            CertificateValue = "Y2VydA==",
+            DnsSuffix = "www.my-name.com",
+        },
+        DaprAIConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+        EnvironmentName = "testcontainerenv",
+        Kind = "serverless",
+        Location = "East US",
+        ResourceGroupName = "examplerg",
+        Sku = new AzureNative.App.Inputs.EnvironmentSkuPropertiesArgs
+        {
+            Name = "Premium",
+        },
+        VnetConfiguration = new AzureNative.App.Inputs.VnetConfigurationArgs
+        {
+            OutboundSettings = new AzureNative.App.Inputs.ManagedEnvironmentOutboundSettingsArgs
+            {
+                OutBoundType = "UserDefinedRouting",
+                VirtualNetworkApplianceIp = "192.168.1.20",
+            },
+        },
+        WorkloadProfiles = new[]
+        {
+            new AzureNative.App.Inputs.WorkloadProfileArgs
+            {
+                MaximumCount = 12,
+                MinimumCount = 3,
+                WorkloadProfileType = "GeneralPurpose",
+            },
+            new AzureNative.App.Inputs.WorkloadProfileArgs
+            {
+                MaximumCount = 6,
+                MinimumCount = 3,
+                WorkloadProfileType = "MemoryOptimized",
+            },
+            new AzureNative.App.Inputs.WorkloadProfileArgs
+            {
+                MaximumCount = 6,
+                MinimumCount = 3,
+                WorkloadProfileType = "ComputeOptimized",
+            },
+        },
+        ZoneRedundant = true,
+    });
+
+});
+

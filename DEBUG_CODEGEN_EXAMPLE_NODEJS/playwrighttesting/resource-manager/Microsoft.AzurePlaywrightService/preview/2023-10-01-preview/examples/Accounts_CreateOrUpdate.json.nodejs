@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const account = new azure_native.azureplaywrightservice.Account("account", {
+    location: "westus",
+    name: "myPlaywrightAccount",
+    regionalAffinity: "Enabled",
+    resourceGroupName: "dummyrg",
+    tags: {
+        Team: "Dev Exp",
+    },
+});

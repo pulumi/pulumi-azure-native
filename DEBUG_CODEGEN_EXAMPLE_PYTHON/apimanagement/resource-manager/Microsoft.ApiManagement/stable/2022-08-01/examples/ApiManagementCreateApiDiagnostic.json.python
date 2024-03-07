@@ -4,34 +4,34 @@ import pulumi_azure_native as azure_native
 api_diagnostic = azure_native.apimanagement.ApiDiagnostic("apiDiagnostic",
     always_log="allErrors",
     api_id="57d1f7558aa04f15146d9d8a",
-    backend=azure_native.apimanagement.PipelineDiagnosticSettingsArgs(
-        request=azure_native.apimanagement.HttpMessageDiagnosticArgs(
-            body=azure_native.apimanagement.BodyDiagnosticSettingsArgs(
+    backend=azure_native.apimanagement.PipelineDiagnosticSettingsResponseArgs(
+        request={
+            "body": azure_native.apimanagement.BodyDiagnosticSettingsArgs(
                 bytes=512,
             ),
-            headers=["Content-type"],
-        ),
-        response=azure_native.apimanagement.HttpMessageDiagnosticArgs(
-            body=azure_native.apimanagement.BodyDiagnosticSettingsArgs(
+            "headers": ["Content-type"],
+        },
+        response={
+            "body": azure_native.apimanagement.BodyDiagnosticSettingsArgs(
                 bytes=512,
             ),
-            headers=["Content-type"],
-        ),
+            "headers": ["Content-type"],
+        },
     ),
     diagnostic_id="applicationinsights",
-    frontend=azure_native.apimanagement.PipelineDiagnosticSettingsArgs(
-        request=azure_native.apimanagement.HttpMessageDiagnosticArgs(
-            body=azure_native.apimanagement.BodyDiagnosticSettingsArgs(
+    frontend=azure_native.apimanagement.PipelineDiagnosticSettingsResponseArgs(
+        request={
+            "body": azure_native.apimanagement.BodyDiagnosticSettingsArgs(
                 bytes=512,
             ),
-            headers=["Content-type"],
-        ),
-        response=azure_native.apimanagement.HttpMessageDiagnosticArgs(
-            body=azure_native.apimanagement.BodyDiagnosticSettingsArgs(
+            "headers": ["Content-type"],
+        },
+        response={
+            "body": azure_native.apimanagement.BodyDiagnosticSettingsArgs(
                 bytes=512,
             ),
-            headers=["Content-type"],
-        ),
+            "headers": ["Content-type"],
+        },
     ),
     logger_id="/loggers/applicationinsights",
     resource_group_name="rg1",

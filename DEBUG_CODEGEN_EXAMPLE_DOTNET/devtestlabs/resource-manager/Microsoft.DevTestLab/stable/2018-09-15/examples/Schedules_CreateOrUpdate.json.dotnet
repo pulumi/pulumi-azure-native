@@ -1,0 +1,51 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var schedule = new AzureNative.DevTestLab.Schedule("schedule", new()
+    {
+        DailyRecurrence = new AzureNative.DevTestLab.Inputs.DayDetailsArgs
+        {
+            Time = "{timeOfTheDayTheScheduleWillOccurEveryDay}",
+        },
+        HourlyRecurrence = new AzureNative.DevTestLab.Inputs.HourDetailsArgs
+        {
+            Minute = 30,
+        },
+        LabName = "{labName}",
+        Location = "{location}",
+        Name = "{scheduleName}",
+        NotificationSettings = new AzureNative.DevTestLab.Inputs.NotificationSettingsArgs
+        {
+            EmailRecipient = "{email}",
+            NotificationLocale = "EN",
+            Status = "{Enabled|Disabled}",
+            TimeInMinutes = 15,
+            WebhookUrl = "{webhookUrl}",
+        },
+        ResourceGroupName = "resourceGroupName",
+        Status = "{Enabled|Disabled}",
+        Tags = 
+        {
+            { "tagName1", "tagValue1" },
+        },
+        TargetResourceId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
+        TaskType = "{myLabVmTaskType}",
+        TimeZoneId = "Pacific Standard Time",
+        WeeklyRecurrence = new AzureNative.DevTestLab.Inputs.WeekDetailsArgs
+        {
+            Time = "{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
+            Weekdays = new[]
+            {
+                "Monday",
+                "Wednesday",
+                "Friday",
+            },
+        },
+    });
+
+});
+

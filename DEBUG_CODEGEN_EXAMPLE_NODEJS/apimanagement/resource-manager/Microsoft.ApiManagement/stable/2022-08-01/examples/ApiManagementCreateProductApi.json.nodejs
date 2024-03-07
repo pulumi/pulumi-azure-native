@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const productApi = new azure_native.apimanagement.ProductApi("productApi", {
+    apiId: "echo-api",
+    productId: "testproduct",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var metricsSourceTagRule = new AzureNative.Logz.MetricsSourceTagRule("metricsSourceTagRule", new()
+    {
+        MetricsSourceName = "MetricsSource1",
+        MonitorName = "myMonitor",
+        ResourceGroupName = "myResourceGroup",
+        RuleSetName = "default",
+    });
+
+});
+

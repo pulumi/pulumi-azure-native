@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vmInstanceGuestAgent = new AzureNative.ConnectedVMwarevSphere.VMInstanceGuestAgent("vmInstanceGuestAgent", new()
+    {
+        Credentials = new AzureNative.ConnectedVMwarevSphere.Inputs.GuestCredentialArgs
+        {
+            Password = "<password>",
+            Username = "tempuser",
+        },
+        HttpProxyConfig = new AzureNative.ConnectedVMwarevSphere.Inputs.HttpProxyConfigurationArgs
+        {
+            HttpsProxy = "http://192.1.2.3:8080",
+        },
+        PrivateLinkScopeResourceId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+        ProvisioningAction = "install",
+        ResourceUri = "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridCompute/machines/DemoVM",
+    });
+
+});
+

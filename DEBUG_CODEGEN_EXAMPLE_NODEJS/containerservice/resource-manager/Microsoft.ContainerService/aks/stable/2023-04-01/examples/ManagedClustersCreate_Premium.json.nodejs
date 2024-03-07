@@ -1,0 +1,64 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedCluster = new azure_native.containerservice.ManagedCluster("managedCluster", {
+    addonProfiles: {},
+    agentPoolProfiles: [{
+        count: 3,
+        enableEncryptionAtHost: true,
+        enableNodePublicIP: true,
+        mode: "System",
+        name: "nodepool1",
+        osType: "Linux",
+        type: "VirtualMachineScaleSets",
+        vmSize: "Standard_DS2_v2",
+    }],
+    apiServerAccessProfile: {
+        disableRunCommand: true,
+    },
+    autoScalerProfile: {
+        scaleDownDelayAfterAdd: "15m",
+        scanInterval: "20s",
+    },
+    dnsPrefix: "dnsprefix1",
+    enablePodSecurityPolicy: true,
+    enableRBAC: true,
+    kubernetesVersion: "",
+    linuxProfile: {
+        adminUsername: "azureuser",
+        ssh: {
+            publicKeys: [{
+                keyData: "keydata",
+            }],
+        },
+    },
+    location: "location1",
+    networkProfile: {
+        loadBalancerProfile: {
+            managedOutboundIPs: {
+                count: 2,
+            },
+        },
+        loadBalancerSku: "standard",
+        outboundType: "loadBalancer",
+    },
+    resourceGroupName: "rg1",
+    resourceName: "clustername1",
+    servicePrincipalProfile: {
+        clientId: "clientid",
+        secret: "secret",
+    },
+    sku: {
+        name: "Base",
+        tier: "Premium",
+    },
+    supportPlan: "AKSLongTermSupport",
+    tags: {
+        archv2: "",
+        tier: "production",
+    },
+    windowsProfile: {
+        adminPassword: "replacePassword1234$",
+        adminUsername: "azureuser",
+    },
+});

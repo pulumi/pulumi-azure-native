@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateLinkScope = new azure_native.insights.PrivateLinkScope("privateLinkScope", {
+    accessModeSettings: {
+        exclusions: [],
+        ingestionAccessMode: "Open",
+        queryAccessMode: "Open",
+    },
+    location: "Global",
+    resourceGroupName: "my-resource-group",
+    scopeName: "my-privatelinkscope",
+    tags: {
+        Tag1: "Value1",
+    },
+});

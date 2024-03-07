@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.DesktopVirtualization.Workspace("workspace", new()
+    {
+        Description = "des1",
+        FriendlyName = "friendly",
+        Location = "centralus",
+        ResourceGroupName = "resourceGroup1",
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+        WorkspaceName = "workspace1",
+    });
+
+});
+

@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var user = new AzureNative.DevTestLab.User("user", new()
+    {
+        Identity = new AzureNative.DevTestLab.Inputs.UserIdentityArgs
+        {
+            AppId = "{appId}",
+            ObjectId = "{objectId}",
+            PrincipalId = "{principalId}",
+            PrincipalName = "{principalName}",
+            TenantId = "{tenantId}",
+        },
+        LabName = "{devtestlabName}",
+        Location = "{location}",
+        Name = "{userName}",
+        ResourceGroupName = "resourceGroupName",
+        SecretStore = new AzureNative.DevTestLab.Inputs.UserSecretStoreArgs
+        {
+            KeyVaultId = "{keyVaultId}",
+            KeyVaultUri = "{keyVaultUri}",
+        },
+        Tags = 
+        {
+            { "tagName1", "tagValue1" },
+        },
+    });
+
+});
+

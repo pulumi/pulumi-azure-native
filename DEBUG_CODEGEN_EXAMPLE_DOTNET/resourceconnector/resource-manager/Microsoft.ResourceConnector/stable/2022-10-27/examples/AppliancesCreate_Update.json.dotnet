@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var appliance = new AzureNative.ResourceConnector.Appliance("appliance", new()
+    {
+        Distro = "AKSEdge",
+        InfrastructureConfig = new AzureNative.ResourceConnector.Inputs.AppliancePropertiesInfrastructureConfigArgs
+        {
+            Provider = "VMWare",
+        },
+        Location = "West US",
+        ResourceGroupName = "testresourcegroup",
+        ResourceName = "appliance01",
+    });
+
+});
+

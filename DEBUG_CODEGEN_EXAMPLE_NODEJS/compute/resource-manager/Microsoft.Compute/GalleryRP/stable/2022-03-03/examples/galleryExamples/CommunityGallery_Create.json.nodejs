@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const gallery = new azure_native.compute.Gallery("gallery", {
+    description: "This is the gallery description.",
+    galleryName: "myGalleryName",
+    location: "West US",
+    resourceGroupName: "myResourceGroup",
+    sharingProfile: {
+        communityGalleryInfo: {
+            eula: "eula",
+            publicNamePrefix: "PirPublic",
+            publisherContact: "pir@microsoft.com",
+            publisherUri: "uri",
+        },
+        permissions: "Community",
+    },
+});

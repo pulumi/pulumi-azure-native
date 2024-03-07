@@ -1,0 +1,83 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const backupPolicy = new azure_native.dataprotection.BackupPolicy("backupPolicy", {
+    backupPolicyName: "OSSDBPolicy",
+    properties: {
+        datasourceTypes: ["OssDB"],
+        objectType: "BackupPolicy",
+        policyRules: [
+            {
+                backupParameters: {
+                    backupType: "Full",
+                    objectType: "AzureBackupParams",
+                },
+                dataStore: {
+                    dataStoreType: "VaultStore",
+                    objectType: "DataStoreInfoBase",
+                },
+                name: "BackupWeekly",
+                objectType: "AzureBackupRule",
+                trigger: {
+                    objectType: "ScheduleBasedTriggerContext",
+                    schedule: {
+                        repeatingTimeIntervals: ["R/2019-11-20T08:00:00-08:00/P1W"],
+                    },
+                    taggingCriteria: [
+                        {
+                            isDefault: true,
+                            tagInfo: {
+                                tagName: "Default",
+                            },
+                            taggingPriority: 99,
+                        },
+                        {
+                            criteria: [{
+                                daysOfTheWeek: ["Sunday"],
+                                objectType: "ScheduleBasedBackupCriteria",
+                                scheduleTimes: ["2019-03-01T13:00:00Z"],
+                            }],
+                            isDefault: false,
+                            tagInfo: {
+                                tagName: "Weekly",
+                            },
+                            taggingPriority: 20,
+                        },
+                    ],
+                },
+            },
+            {
+                isDefault: true,
+                lifecycles: [{
+                    deleteAfter: {
+                        duration: "P1W",
+                        objectType: "AbsoluteDeleteOption",
+                    },
+                    sourceDataStore: {
+                        dataStoreType: "VaultStore",
+                        objectType: "DataStoreInfoBase",
+                    },
+                }],
+                name: "Default",
+                objectType: "AzureRetentionRule",
+            },
+            {
+                isDefault: false,
+                lifecycles: [{
+                    deleteAfter: {
+                        duration: "P12W",
+                        objectType: "AbsoluteDeleteOption",
+                    },
+                    sourceDataStore: {
+                        dataStoreType: "VaultStore",
+                        objectType: "DataStoreInfoBase",
+                    },
+                }],
+                name: "Weekly",
+                objectType: "AzureRetentionRule",
+            },
+        ],
+    },
+    resourceGroupName: "000pikumar",
+    vaultName: "PrivatePreviewVault",
+});

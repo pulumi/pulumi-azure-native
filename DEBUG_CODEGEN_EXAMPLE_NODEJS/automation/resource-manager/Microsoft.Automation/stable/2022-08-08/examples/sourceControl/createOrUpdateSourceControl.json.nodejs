@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sourceControl = new azure_native.automation.SourceControl("sourceControl", {
+    autoSync: true,
+    automationAccountName: "sampleAccount9",
+    branch: "master",
+    description: "my description",
+    folderPath: "/folderOne/folderTwo",
+    publishRunbook: true,
+    repoUrl: "https://sampleUser.visualstudio.com/myProject/_git/myRepository",
+    resourceGroupName: "rg",
+    securityToken: {
+        accessToken: "******",
+        tokenType: "PersonalAccessToken",
+    },
+    sourceControlName: "sampleSourceControl",
+    sourceType: "VsoGit",
+});

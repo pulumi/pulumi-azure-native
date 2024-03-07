@@ -5,7 +5,7 @@ authorization_provider = azure_native.apimanagement.AuthorizationProvider("autho
     authorization_provider_id="aadwithclientcred",
     display_name="aadwithclientcred",
     identity_provider="aad",
-    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsArgs(
+    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsResponseArgs(
         grant_types=azure_native.apimanagement.AuthorizationProviderOAuth2GrantTypesArgs(
             authorization_code={
                 "resourceUri": "https://graph.microsoft.com",

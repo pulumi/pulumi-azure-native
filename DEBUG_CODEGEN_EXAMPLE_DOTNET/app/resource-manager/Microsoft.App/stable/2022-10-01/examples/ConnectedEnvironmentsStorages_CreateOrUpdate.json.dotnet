@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectedEnvironmentsStorage = new AzureNative.App.ConnectedEnvironmentsStorage("connectedEnvironmentsStorage", new()
+    {
+        ConnectedEnvironmentName = "env",
+        Properties = new AzureNative.App.Inputs.ConnectedEnvironmentStoragePropertiesArgs
+        {
+            AzureFile = new AzureNative.App.Inputs.AzureFilePropertiesArgs
+            {
+                AccessMode = "ReadOnly",
+                AccountKey = "key",
+                AccountName = "account1",
+                ShareName = "share1",
+            },
+        },
+        ResourceGroupName = "examplerg",
+        StorageName = "jlaw-demo1",
+    });
+
+});
+

@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const protectedItem = new azure_native.recoveryservices.ProtectedItem("protectedItem", {
+    containerName: "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+    fabricName: "Azure",
+    properties: {
+        policyId: "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/NetSDKTestRsVault/backupPolicies/DefaultPolicy",
+        protectedItemType: "Microsoft.Compute/virtualMachines",
+        sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
+    },
+    protectedItemName: "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+    resourceGroupName: "SwaggerTestRg",
+    vaultName: "NetSDKTestRsVault",
+});

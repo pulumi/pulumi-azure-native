@@ -1,0 +1,120 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customizableConnectorDefinition = new AzureNative.SecurityInsights.CustomizableConnectorDefinition("customizableConnectorDefinition", new()
+    {
+        ConnectorUiConfig = new AzureNative.SecurityInsights.Inputs.CustomizableConnectorUiConfigArgs
+        {
+            Availability = new AzureNative.SecurityInsights.Inputs.ConnectorDefinitionsAvailabilityArgs
+            {
+                IsPreview = false,
+                Status = 1,
+            },
+            ConnectivityCriteria = new[]
+            {
+                new AzureNative.SecurityInsights.Inputs.ConnectivityCriterionArgs
+                {
+                    Type = "IsConnectedQuery",
+                    Value = new[]
+                    {
+                        @"GitHubAuditLogPolling_CL 
+ | summarize LastLogReceived = max(TimeGenerated)
+ | project IsConnected = LastLogReceived > ago(30d)",
+                    },
+                },
+            },
+            DataTypes = new[]
+            {
+                new AzureNative.SecurityInsights.Inputs.ConnectorDataTypeArgs
+                {
+                    LastDataReceivedQuery = @"GitHubAuditLogPolling_CL 
+            | summarize Time = max(TimeGenerated)
+            | where isnotempty(Time)",
+                    Name = "GitHubAuditLogPolling_CL",
+                },
+            },
+            DescriptionMarkdown = "The GitHub audit log connector provides the capability to ingest GitHub logs into Azure Sentinel. By connecting GitHub audit logs into Azure Sentinel, you can view this data in workbooks, use it to create custom alerts, and improve your investigation process.",
+            GraphQueries = new[]
+            {
+                new AzureNative.SecurityInsights.Inputs.GraphQueryArgs
+                {
+                    BaseQuery = "GitHubAuditLogPolling_CL",
+                    Legend = "GitHub audit log events",
+                    MetricName = "Total events received",
+                },
+            },
+            InstructionSteps = new[]
+            {
+                new AzureNative.SecurityInsights.Inputs.InstructionStepArgs
+                {
+                    Description = @"Enable GitHub audit Logs. 
+ Follow [this](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create or find your personal key",
+                    Instructions = new[]
+                    {
+                        new AzureNative.SecurityInsights.Inputs.InstructionStepDetailsArgs
+                        {
+                            Parameters = 
+                            {
+                                { "clientIdLabel", "Client ID" },
+                                { "clientSecretLabel", "Client Secret" },
+                                { "connectButtonLabel", "Connect" },
+                                { "disconnectButtonLabel", "Disconnect" },
+                            },
+                            Type = "OAuthForm",
+                        },
+                    },
+                    Title = "Connect GitHub Enterprise Audit Log to Azure Sentinel",
+                },
+            },
+            Permissions = new AzureNative.SecurityInsights.Inputs.ConnectorDefinitionsPermissionsArgs
+            {
+                Customs = new[]
+                {
+                    new AzureNative.SecurityInsights.Inputs.CustomPermissionDetailsArgs
+                    {
+                        Description = "You need access to GitHub personal token, the key should have 'admin:org' scope",
+                        Name = "GitHub API personal token Key",
+                    },
+                },
+                ResourceProvider = new[]
+                {
+                    new AzureNative.SecurityInsights.Inputs.ConnectorDefinitionsResourceProviderArgs
+                    {
+                        PermissionsDisplayText = "read and write permissions are required.",
+                        Provider = "Microsoft.OperationalInsights/workspaces",
+                        ProviderDisplayName = "Workspace",
+                        RequiredPermissions = new AzureNative.SecurityInsights.Inputs.ResourceProviderRequiredPermissionsArgs
+                        {
+                            Action = false,
+                            Delete = false,
+                            Read = false,
+                            Write = true,
+                        },
+                        Scope = "Workspace",
+                    },
+                },
+            },
+            Publisher = "GitHub",
+            SampleQueries = new[]
+            {
+                new AzureNative.SecurityInsights.Inputs.SampleQueryArgs
+                {
+                    Description = "All logs",
+                    Query = @"GitHubAuditLogPolling_CL 
+ | take 10",
+                },
+            },
+            Title = "GitHub Enterprise Audit Log",
+        },
+        DataConnectorDefinitionName = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+        Kind = "Customizable",
+        ResourceGroupName = "myRg",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

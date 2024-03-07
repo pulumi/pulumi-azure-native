@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managementGroup = new azure_native.management.ManagementGroup("managementGroup", {
+    details: {
+        parent: {
+            id: "/providers/Microsoft.Management/managementGroups/RootGroup",
+        },
+    },
+    displayName: "ChildGroup",
+    groupId: "ChildGroup",
+});

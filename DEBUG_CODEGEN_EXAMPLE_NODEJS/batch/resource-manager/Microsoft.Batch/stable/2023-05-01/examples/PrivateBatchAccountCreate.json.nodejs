@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+    accountName: "sampleacct",
+    autoStorage: {
+        storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    },
+    keyVaultReference: {
+        id: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+        url: "http://sample.vault.azure.net/",
+    },
+    location: "japaneast",
+    publicNetworkAccess: azure_native.batch.PublicNetworkAccessType.Disabled,
+    resourceGroupName: "default-azurebatch-japaneast",
+});

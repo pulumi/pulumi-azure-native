@@ -1,0 +1,48 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedEnvironment = new azure_native.app.ManagedEnvironment("managedEnvironment", {
+    appLogsConfiguration: {
+        logAnalyticsConfiguration: {
+            customerId: "string",
+            sharedKey: "string",
+        },
+    },
+    customDomainConfiguration: {
+        certificatePassword: "private key password",
+        certificateValue: "Y2VydA==",
+        dnsSuffix: "www.my-name.com",
+    },
+    daprAIConnectionString: "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+    environmentName: "testcontainerenv",
+    kind: "serverless",
+    location: "East US",
+    resourceGroupName: "examplerg",
+    sku: {
+        name: "Premium",
+    },
+    vnetConfiguration: {
+        outboundSettings: {
+            outBoundType: "UserDefinedRouting",
+            virtualNetworkApplianceIp: "192.168.1.20",
+        },
+    },
+    workloadProfiles: [
+        {
+            maximumCount: 12,
+            minimumCount: 3,
+            workloadProfileType: "GeneralPurpose",
+        },
+        {
+            maximumCount: 6,
+            minimumCount: 3,
+            workloadProfileType: "MemoryOptimized",
+        },
+        {
+            maximumCount: 6,
+            minimumCount: 3,
+            workloadProfileType: "ComputeOptimized",
+        },
+    ],
+    zoneRedundant: true,
+});

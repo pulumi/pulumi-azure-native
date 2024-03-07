@@ -1,0 +1,98 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var resourceTypeRegistration = new AzureNative.ProviderHub.ResourceTypeRegistration("resourceTypeRegistration", new()
+    {
+        Properties = new AzureNative.ProviderHub.Inputs.ResourceTypeRegistrationPropertiesArgs
+        {
+            Endpoints = new[]
+            {
+                new AzureNative.ProviderHub.Inputs.ResourceTypeEndpointArgs
+                {
+                    ApiVersions = new[]
+                    {
+                        "2020-06-01-preview",
+                    },
+                    Locations = new[]
+                    {
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    },
+                    RequiredFeatures = new[]
+                    {
+                        "<feature flag>",
+                    },
+                },
+            },
+            Management = new AzureNative.ProviderHub.Inputs.ResourceTypeRegistrationPropertiesManagementArgs
+            {
+                IncidentContactEmail = "helpme@contoso.com",
+                IncidentRoutingService = "",
+                IncidentRoutingTeam = "",
+                ManifestOwners = new[]
+                {
+                    "SPARTA-PlatformServiceAdministrator",
+                },
+                ResourceAccessPolicy = "NotSpecified",
+                ServiceTreeInfos = new[]
+                {
+                    new AzureNative.ProviderHub.Inputs.ServiceTreeInfoArgs
+                    {
+                        ComponentId = "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        Readiness = "InDevelopment",
+                        ServiceId = "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    },
+                },
+            },
+            OpenApiConfiguration = new AzureNative.ProviderHub.Inputs.OpenApiConfigurationArgs
+            {
+                Validation = new AzureNative.ProviderHub.Inputs.OpenApiValidationArgs
+                {
+                    AllowNoncompliantCollectionResponse = true,
+                },
+            },
+            Regionality = "Regional",
+            ResourceConcurrencyControlOptions = 
+            {
+                { "patch", new AzureNative.ProviderHub.Inputs.ResourceConcurrencyControlOptionArgs
+                {
+                    Policy = "SynchronizeBeginExtension",
+                } },
+                { "post", new AzureNative.ProviderHub.Inputs.ResourceConcurrencyControlOptionArgs
+                {
+                    Policy = "SynchronizeBeginExtension",
+                } },
+                { "put", new AzureNative.ProviderHub.Inputs.ResourceConcurrencyControlOptionArgs
+                {
+                    Policy = "SynchronizeBeginExtension",
+                } },
+            },
+            ResourceGraphConfiguration = new AzureNative.ProviderHub.Inputs.ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs
+            {
+                ApiVersion = "2019-01-01",
+                Enabled = true,
+            },
+            RoutingType = "Default",
+            SwaggerSpecifications = new[]
+            {
+                new AzureNative.ProviderHub.Inputs.SwaggerSpecificationArgs
+                {
+                    ApiVersions = new[]
+                    {
+                        "2020-06-01-preview",
+                    },
+                    SwaggerSpecFolderUri = "https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                },
+            },
+        },
+        ProviderNamespace = "Microsoft.Contoso",
+        ResourceType = "employees",
+    });
+
+});
+

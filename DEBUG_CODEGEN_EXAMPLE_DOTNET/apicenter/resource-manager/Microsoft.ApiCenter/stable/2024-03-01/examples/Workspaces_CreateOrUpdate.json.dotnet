@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.ApiCenter.Workspace("workspace", new()
+    {
+        ResourceGroupName = "contoso-resources",
+        ServiceName = "contoso",
+        Title = "default",
+        WorkspaceName = "default",
+    });
+
+});
+

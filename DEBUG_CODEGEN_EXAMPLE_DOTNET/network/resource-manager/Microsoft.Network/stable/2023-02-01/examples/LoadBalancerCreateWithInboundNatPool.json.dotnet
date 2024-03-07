@@ -1,0 +1,58 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var loadBalancer = new AzureNative.Network.LoadBalancer("loadBalancer", new()
+    {
+        BackendAddressPools = new[] {},
+        FrontendIPConfigurations = new[]
+        {
+            new AzureNative.Network.Inputs.FrontendIPConfigurationArgs
+            {
+                Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+                Name = "test",
+                PrivateIPAllocationMethod = "Dynamic",
+                Subnet = new AzureNative.Network.Inputs.SubnetArgs
+                {
+                    Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/lbvnet/subnets/lbsubnet",
+                },
+                Zones = new() { },
+            },
+        },
+        InboundNatPools = new[]
+        {
+            new AzureNative.Network.Inputs.InboundNatPoolArgs
+            {
+                BackendPort = 8888,
+                EnableFloatingIP = true,
+                EnableTcpReset = true,
+                FrontendIPConfiguration = new AzureNative.Network.Inputs.SubResourceArgs
+                {
+                    Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+                },
+                FrontendPortRangeEnd = 8085,
+                FrontendPortRangeStart = 8080,
+                Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatPools/test",
+                IdleTimeoutInMinutes = 10,
+                Name = "test",
+                Protocol = "Tcp",
+            },
+        },
+        InboundNatRules = new[] {},
+        LoadBalancerName = "lb",
+        LoadBalancingRules = new[] {},
+        Location = "eastus",
+        OutboundRules = new[] {},
+        Probes = new[] {},
+        ResourceGroupName = "rg1",
+        Sku = new AzureNative.Network.Inputs.LoadBalancerSkuArgs
+        {
+            Name = "Standard",
+        },
+    });
+
+});
+

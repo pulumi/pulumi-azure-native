@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var registryEnvironmentVersion = new AzureNative.MachineLearningServices.RegistryEnvironmentVersion("registryEnvironmentVersion", new()
+    {
+        EnvironmentName = "string",
+        EnvironmentVersionProperties = new AzureNative.MachineLearningServices.Inputs.EnvironmentVersionArgs
+        {
+            Build = new AzureNative.MachineLearningServices.Inputs.BuildContextArgs
+            {
+                ContextUri = "https://storage-account.blob.core.windows.net/azureml/DockerBuildContext/95ddede6b9b8c4e90472db3acd0a8d28/",
+                DockerfilePath = "prod/Dockerfile",
+            },
+            CondaFile = "string",
+            Description = "string",
+            Image = "docker.io/tensorflow/serving:latest",
+            InferenceConfig = new AzureNative.MachineLearningServices.Inputs.InferenceContainerPropertiesArgs
+            {
+                LivenessRoute = new AzureNative.MachineLearningServices.Inputs.RouteArgs
+                {
+                    Path = "string",
+                    Port = 1,
+                },
+                ReadinessRoute = new AzureNative.MachineLearningServices.Inputs.RouteArgs
+                {
+                    Path = "string",
+                    Port = 1,
+                },
+                ScoringRoute = new AzureNative.MachineLearningServices.Inputs.RouteArgs
+                {
+                    Path = "string",
+                    Port = 1,
+                },
+            },
+            IsAnonymous = false,
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        RegistryName = "my-aml-registry",
+        ResourceGroupName = "test-rg",
+        Version = "string",
+    });
+
+});
+

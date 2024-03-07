@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlSitesController = new AzureNative.OffAzure.SqlSitesController("sqlSitesController", new()
+    {
+        ResourceGroupName = "rgmigrate",
+        SiteName = "Ag5-Ex4n7G5Qn-5-yHL5",
+        SqlSiteName = "-03--VkVPfDq5",
+    });
+
+});
+

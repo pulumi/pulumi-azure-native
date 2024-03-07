@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceConnection = new azure_native.machinelearningservices.WorkspaceConnection("workspaceConnection", {
+    connectionName: "connection-1",
+    properties: {
+        authType: "None",
+        category: "ContainerRegistry",
+        target: "www.facebook.com",
+    },
+    resourceGroupName: "resourceGroup-1",
+    workspaceName: "workspace-1",
+});

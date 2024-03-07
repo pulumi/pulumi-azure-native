@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var application = new AzureNative.Security.Application("application", new()
+    {
+        ApplicationId = "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+        Description = "An application on critical recommendations",
+        DisplayName = "Admin's application",
+        SourceResourceType = "Assessments",
+    });
+
+});
+

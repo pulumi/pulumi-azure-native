@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const volume = new azure_native.networkcloud.Volume("volume", {
+    extendedLocation: {
+        name: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+        type: "CustomLocation",
+    },
+    location: "location",
+    resourceGroupName: "resourceGroupName",
+    sizeMiB: 10000,
+    tags: {
+        key1: "myvalue1",
+        key2: "myvalue2",
+    },
+    volumeName: "volumeName",
+});

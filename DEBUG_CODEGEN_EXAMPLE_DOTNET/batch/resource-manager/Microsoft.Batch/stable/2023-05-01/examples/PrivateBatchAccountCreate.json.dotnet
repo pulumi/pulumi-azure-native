@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var batchAccount = new AzureNative.Batch.BatchAccount("batchAccount", new()
+    {
+        AccountName = "sampleacct",
+        AutoStorage = new AzureNative.Batch.Inputs.AutoStorageBasePropertiesArgs
+        {
+            StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+        },
+        KeyVaultReference = new AzureNative.Batch.Inputs.KeyVaultReferenceArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+            Url = "http://sample.vault.azure.net/",
+        },
+        Location = "japaneast",
+        PublicNetworkAccess = AzureNative.Batch.PublicNetworkAccessType.Disabled,
+        ResourceGroupName = "default-azurebatch-japaneast",
+    });
+
+});
+

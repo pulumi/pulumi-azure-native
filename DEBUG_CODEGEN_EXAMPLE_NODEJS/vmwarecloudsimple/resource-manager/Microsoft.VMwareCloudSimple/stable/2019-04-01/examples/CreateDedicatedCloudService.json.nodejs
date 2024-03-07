@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dedicatedCloudService = new azure_native.vmwarecloudsimple.DedicatedCloudService("dedicatedCloudService", {
+    dedicatedCloudServiceName: "myService",
+    gatewaySubnet: "10.0.0.0",
+    location: "westus",
+    resourceGroupName: "myResourceGroup",
+});

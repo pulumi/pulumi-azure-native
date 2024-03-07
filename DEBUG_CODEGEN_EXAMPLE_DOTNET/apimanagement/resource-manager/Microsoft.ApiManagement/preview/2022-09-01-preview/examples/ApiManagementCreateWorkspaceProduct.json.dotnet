@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceProduct = new AzureNative.ApiManagement.WorkspaceProduct("workspaceProduct", new()
+    {
+        DisplayName = "Test Template ProductName 4",
+        ProductId = "testproduct",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        WorkspaceId = "wks1",
+    });
+
+});
+

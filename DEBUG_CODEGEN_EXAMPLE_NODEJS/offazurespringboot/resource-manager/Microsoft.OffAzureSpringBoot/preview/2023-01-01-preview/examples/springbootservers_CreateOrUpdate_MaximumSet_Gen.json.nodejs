@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const springbootserver = new azure_native.offazurespringboot.Springbootserver("springbootserver", {
+    properties: {
+        errors: [],
+        fqdnAndIpAddressList: [],
+        machineArmId: "fvfkiapbqsprnbzczdfmuryknrna",
+        port: 10,
+        server: "thhuxocfyqpeluqcgnypi",
+        springBootApps: 17,
+        totalApps: 5,
+    },
+    resourceGroupName: "rgspringbootservers",
+    siteName: "hlkrzldhyobavtabgpubtjbhlslnjmsvkthwcfboriwyxndacjypzbj",
+    springbootserversName: "zkarbqnwnxeozvjrkpdqmgnwedwgtwcmmyqwaijkn",
+});

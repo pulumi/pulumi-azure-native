@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var queueAuthorizationRule = new AzureNative.ServiceBus.QueueAuthorizationRule("queueAuthorizationRule", new()
+    {
+        AuthorizationRuleName = "sdk-AuthRules-5800",
+        NamespaceName = "sdk-Namespace-7982",
+        QueueName = "sdk-Queues-2317",
+        ResourceGroupName = "ArunMonocle",
+        Rights = new[]
+        {
+            "Listen",
+            "Send",
+        },
+    });
+
+});
+

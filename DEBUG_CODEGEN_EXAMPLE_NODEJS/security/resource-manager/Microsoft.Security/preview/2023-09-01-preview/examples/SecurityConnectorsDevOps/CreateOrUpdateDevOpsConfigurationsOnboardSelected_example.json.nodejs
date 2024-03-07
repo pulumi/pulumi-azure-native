@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const devOpsConfiguration = new azure_native.security.DevOpsConfiguration("devOpsConfiguration", {
+    properties: {
+        authorization: {
+            code: "00000000000000000000",
+        },
+        autoDiscovery: "Disabled",
+        topLevelInventoryList: [
+            "org1",
+            "org2",
+        ],
+    },
+    resourceGroupName: "myRg",
+    securityConnectorName: "mySecurityConnectorName",
+});

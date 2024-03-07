@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlPoolWorkloadClassifier = new azure_native.synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier", {
+    memberName: "dbo",
+    resourceGroupName: "sqlcrudtest-6852",
+    sqlPoolName: "sqlcrudtest-9187",
+    workloadClassifierName: "wlm_workloadclassifier",
+    workloadGroupName: "wlm_workloadgroup",
+    workspaceName: "sqlcrudtest-2080",
+});

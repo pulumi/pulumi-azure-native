@@ -1,0 +1,84 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cloudService = new AzureNative.Compute.CloudService("cloudService", new()
+    {
+        CloudServiceName = "{cs-name}",
+        Location = "westus",
+        Properties = new AzureNative.Compute.Inputs.CloudServicePropertiesArgs
+        {
+            Configuration = "{ServiceConfiguration}",
+            ExtensionProfile = new AzureNative.Compute.Inputs.CloudServiceExtensionProfileArgs
+            {
+                Extensions = new[]
+                {
+                    new AzureNative.Compute.Inputs.ExtensionArgs
+                    {
+                        Name = "RDPExtension",
+                        Properties = new AzureNative.Compute.Inputs.CloudServiceExtensionPropertiesArgs
+                        {
+                            AutoUpgradeMinorVersion = false,
+                            ProtectedSettings = "<PrivateConfig><Password>{password}</Password></PrivateConfig>",
+                            Publisher = "Microsoft.Windows.Azure.Extensions",
+                            Settings = "<PublicConfig><UserName>UserAzure</UserName><Expiration>10/22/2021 15:05:45</Expiration></PublicConfig>",
+                            Type = "RDP",
+                            TypeHandlerVersion = "1.2",
+                        },
+                    },
+                },
+            },
+            NetworkProfile = new AzureNative.Compute.Inputs.CloudServiceNetworkProfileArgs
+            {
+                LoadBalancerConfigurations = new[]
+                {
+                    new AzureNative.Compute.Inputs.LoadBalancerConfigurationArgs
+                    {
+                        Name = "contosolb",
+                        Properties = new AzureNative.Compute.Inputs.LoadBalancerConfigurationPropertiesArgs
+                        {
+                            FrontendIpConfigurations = new[]
+                            {
+                                new AzureNative.Compute.Inputs.LoadBalancerFrontendIpConfigurationArgs
+                                {
+                                    Name = "contosofe",
+                                    Properties = new AzureNative.Compute.Inputs.LoadBalancerFrontendIpConfigurationPropertiesArgs
+                                    {
+                                        PublicIPAddress = new AzureNative.Compute.Inputs.SubResourceArgs
+                                        {
+                                            Id = "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/contosopublicip",
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            PackageUrl = "{PackageUrl}",
+            RoleProfile = new AzureNative.Compute.Inputs.CloudServiceRoleProfileArgs
+            {
+                Roles = new[]
+                {
+                    new AzureNative.Compute.Inputs.CloudServiceRoleProfilePropertiesArgs
+                    {
+                        Name = "ContosoFrontend",
+                        Sku = new AzureNative.Compute.Inputs.CloudServiceRoleSkuArgs
+                        {
+                            Capacity = 1,
+                            Name = "Standard_D1_v2",
+                            Tier = "Standard",
+                        },
+                    },
+                },
+            },
+            UpgradeMode = "Auto",
+        },
+        ResourceGroupName = "ConstosoRG",
+    });
+
+});
+

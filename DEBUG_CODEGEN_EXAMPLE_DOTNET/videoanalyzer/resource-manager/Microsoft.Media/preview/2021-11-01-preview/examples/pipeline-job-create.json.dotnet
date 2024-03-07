@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pipelineJob = new AzureNative.VideoAnalyzer.PipelineJob("pipelineJob", new()
+    {
+        AccountName = "testaccount2",
+        Description = "Pipeline Job 1 Dsecription",
+        Parameters = new[]
+        {
+            new AzureNative.VideoAnalyzer.Inputs.ParameterDefinitionArgs
+            {
+                Name = "timesequences",
+                Value = "[[\"2020-10-05T03:30:00Z\", \"2020-10-05T04:30:00Z\"]]",
+            },
+            new AzureNative.VideoAnalyzer.Inputs.ParameterDefinitionArgs
+            {
+                Name = "videoSourceName",
+                Value = "camera001",
+            },
+        },
+        PipelineJobName = "pipelineJob1",
+        ResourceGroupName = "testrg",
+        TopologyName = "pipelinetopology1",
+    });
+
+});
+

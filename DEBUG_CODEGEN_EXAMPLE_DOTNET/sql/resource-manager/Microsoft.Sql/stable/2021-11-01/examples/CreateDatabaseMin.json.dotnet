@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var database = new AzureNative.Sql.Database("database", new()
+    {
+        DatabaseName = "testdb",
+        Location = "southeastasia",
+        ResourceGroupName = "Default-SQL-SouthEastAsia",
+        ServerName = "testsvr",
+    });
+
+});
+

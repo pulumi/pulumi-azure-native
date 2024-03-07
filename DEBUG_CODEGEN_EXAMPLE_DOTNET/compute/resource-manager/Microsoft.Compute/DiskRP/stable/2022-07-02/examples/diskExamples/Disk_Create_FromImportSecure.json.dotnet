@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.Compute.Disk("disk", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "ImportSecure",
+            SecurityDataUri = "https://mystorageaccount.blob.core.windows.net/osimages/vmgs.vhd",
+            SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            StorageAccountId = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+        },
+        DiskName = "myDisk",
+        Location = "West US",
+        OsType = AzureNative.Compute.OperatingSystemTypes.Windows,
+        ResourceGroupName = "myResourceGroup",
+        SecurityProfile = new AzureNative.Compute.Inputs.DiskSecurityProfileArgs
+        {
+            SecurityType = "ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey",
+        },
+    });
+
+});
+

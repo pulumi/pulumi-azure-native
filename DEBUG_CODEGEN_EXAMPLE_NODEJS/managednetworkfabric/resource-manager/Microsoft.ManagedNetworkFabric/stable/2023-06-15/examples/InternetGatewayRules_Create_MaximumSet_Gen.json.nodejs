@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const internetGatewayRule = new azure_native.managednetworkfabric.InternetGatewayRule("internetGatewayRule", {
+    annotation: "annotationValue",
+    internetGatewayRuleName: "example-internetGatewayRule",
+    location: "eastus",
+    resourceGroupName: "example-rg",
+    ruleProperties: {
+        action: "Allow",
+        addressList: ["10.10.10.10"],
+    },
+    tags: {
+        keyID: "keyValue",
+    },
+});

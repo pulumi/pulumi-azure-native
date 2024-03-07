@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var codeContainer = new AzureNative.MachineLearningServices.CodeContainer("codeContainer", new()
+    {
+        CodeContainerProperties = new AzureNative.MachineLearningServices.Inputs.CodeContainerArgs
+        {
+            Description = "string",
+            Tags = 
+            {
+                { "tag1", "value1" },
+                { "tag2", "value2" },
+            },
+        },
+        Name = "testContainer",
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "testworkspace",
+    });
+
+});
+

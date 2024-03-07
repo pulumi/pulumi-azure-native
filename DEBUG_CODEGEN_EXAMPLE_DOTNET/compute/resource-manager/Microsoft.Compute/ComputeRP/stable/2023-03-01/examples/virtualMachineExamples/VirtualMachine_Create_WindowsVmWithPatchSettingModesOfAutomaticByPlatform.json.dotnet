@@ -1,0 +1,67 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    {
+        HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+        {
+            VmSize = "Standard_D1_v2",
+        },
+        Location = "westus",
+        NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+        {
+            NetworkInterfaces = new[]
+            {
+                new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+                {
+                    Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    Primary = true,
+                },
+            },
+        },
+        OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+        {
+            AdminPassword = "{your-password}",
+            AdminUsername = "{your-username}",
+            ComputerName = "myVM",
+            WindowsConfiguration = new AzureNative.Compute.Inputs.WindowsConfigurationArgs
+            {
+                EnableAutomaticUpdates = true,
+                PatchSettings = new AzureNative.Compute.Inputs.PatchSettingsArgs
+                {
+                    AssessmentMode = "AutomaticByPlatform",
+                    PatchMode = "AutomaticByPlatform",
+                },
+                ProvisionVMAgent = true,
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+        {
+            ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+            {
+                Offer = "WindowsServer",
+                Publisher = "MicrosoftWindowsServer",
+                Sku = "2016-Datacenter",
+                Version = "latest",
+            },
+            OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+            {
+                Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+                CreateOption = "FromImage",
+                ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+                {
+                    StorageAccountType = "Premium_LRS",
+                },
+                Name = "myVMosdisk",
+            },
+        },
+        VmName = "myVM",
+    });
+
+});
+

@@ -1,0 +1,46 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const connectorMapping = new azure_native.customerinsights.ConnectorMapping("connectorMapping", {
+    connectorName: "testConnector8858",
+    description: "Test mapping",
+    displayName: "testMapping12491",
+    entityType: azure_native.customerinsights.EntityTypes.Interaction,
+    entityTypeName: "TestInteractionType2967",
+    hubName: "sdkTestHub",
+    mappingName: "testMapping12491",
+    mappingProperties: {
+        availability: {
+            frequency: azure_native.customerinsights.FrequencyTypes.Hour,
+            interval: 5,
+        },
+        completeOperation: {
+            completionOperationType: azure_native.customerinsights.CompletionOperationTypes.DeleteFile,
+            destinationFolder: "fakePath",
+        },
+        errorManagement: {
+            errorLimit: 10,
+            errorManagementType: azure_native.customerinsights.ErrorManagementTypes.StopImport,
+        },
+        fileFilter: "unknown",
+        folderPath: "http://sample.dne/file",
+        format: {
+            columnDelimiter: "|",
+            formatType: azure_native.customerinsights.FormatTypes.TextFormat,
+        },
+        hasHeader: false,
+        structure: [
+            {
+                columnName: "unknown1",
+                isEncrypted: false,
+                propertyName: "unknwon1",
+            },
+            {
+                columnName: "unknown2",
+                isEncrypted: true,
+                propertyName: "unknwon2",
+            },
+        ],
+    },
+    resourceGroupName: "TestHubRG",
+});

@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hierarchySetting = new AzureNative.Management.HierarchySetting("hierarchySetting", new()
+    {
+        DefaultManagementGroup = "/providers/Microsoft.Management/managementGroups/DefaultGroup",
+        GroupId = "root",
+        RequireAuthorizationForGroupCreation = true,
+    });
+
+});
+

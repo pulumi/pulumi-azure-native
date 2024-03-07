@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var database = new AzureNative.Sql.Database("database", new()
+    {
+        Collation = "SQL_Latin1_General_CP1_CI_AS",
+        CreateMode = "Default",
+        DatabaseName = "testdb",
+        Location = "southeastasia",
+        MaxSizeBytes = 1073741824,
+        ResourceGroupName = "Default-SQL-SouthEastAsia",
+        ServerName = "testsvr",
+        Sku = new AzureNative.Sql.Inputs.SkuArgs
+        {
+            Name = "S0",
+            Tier = "Standard",
+        },
+    });
+
+});
+

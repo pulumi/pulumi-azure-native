@@ -14,56 +14,56 @@ kafka_connector = azure_native.iotoperationsmq.KafkaConnector("kafkaConnector",
         tag="jygfdiamhhm",
     ),
     instances=55252,
-    kafka_connection=azure_native.iotoperationsmq.KafkaRemoteBrokerConnectionSpecArgs(
-        authentication=azure_native.iotoperationsmq.KafkaRemoteBrokerAuthenticationPropertiesArgs(
-            auth_type=azure_native.iotoperationsmq.KafkaRemoteBrokerAuthenticationTypesArgs(
-                sasl=azure_native.iotoperationsmq.SaslRemoteBrokerBasicAuthenticationArgs(
-                    sasl_type="plain",
-                    token=azure_native.iotoperationsmq.SaslRemoteBrokerBasicAuthenticationTokenArgs(
-                        key_vault=azure_native.iotoperationsmq.KafkaTokenKeyVaultPropertiesArgs(
-                            username="fb",
-                            vault=azure_native.iotoperationsmq.KeyVaultConnectionPropertiesArgs(
-                                credentials=azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
+    kafka_connection=azure_native.iotoperationsmq.KafkaRemoteBrokerConnectionSpecResponseArgs(
+        authentication={
+            "authType": {
+                "sasl": {
+                    "saslType": "plain",
+                    "token": {
+                        "keyVault": {
+                            "username": "fb",
+                            "vault": {
+                                "credentials": azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
                                     service_principal_local_secret_name="wuimjwpbhoglbsxxa",
                                 ),
-                                directory_id="eyjniptiykzcgbzok",
-                                name="lxmwfan",
-                            ),
-                            vault_secret=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                                "directoryId": "eyjniptiykzcgbzok",
+                                "name": "lxmwfan",
+                            },
+                            "vaultSecret": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                                 name="bmectskddmpjxnsogwooexj",
                                 version="unjfbf",
                             ),
-                        ),
-                        secret_name="hxmqokubwldgjdtjv",
-                    ),
-                ),
-                system_assigned_managed_identity=azure_native.iotoperationsmq.ManagedIdentityAuthenticationArgs(
+                        },
+                        "secretName": "hxmqokubwldgjdtjv",
+                    },
+                },
+                "systemAssignedManagedIdentity": azure_native.iotoperationsmq.ManagedIdentityAuthenticationArgs(
                     audience="kjderojhpehosgfcrxxbh",
                     extension_name="cyckjqqzspleajbtkniwrfsqygjfhe",
                 ),
-                x509=azure_native.iotoperationsmq.KafkaX509AuthenticationArgs(
-                    key_vault=azure_native.iotoperationsmq.KeyVaultCertificatePropertiesArgs(
-                        vault=azure_native.iotoperationsmq.KeyVaultConnectionPropertiesArgs(
-                            credentials=azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
+                "x509": {
+                    "keyVault": {
+                        "vault": {
+                            "credentials": azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
                                 service_principal_local_secret_name="wuimjwpbhoglbsxxa",
                             ),
-                            directory_id="eyjniptiykzcgbzok",
-                            name="lxmwfan",
-                        ),
-                        vault_ca_chain_secret=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                            "directoryId": "eyjniptiykzcgbzok",
+                            "name": "lxmwfan",
+                        },
+                        "vaultCaChainSecret": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                             name="bmectskddmpjxnsogwooexj",
                             version="unjfbf",
                         ),
-                        vault_cert=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                        "vaultCert": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                             name="bmectskddmpjxnsogwooexj",
                             version="unjfbf",
                         ),
-                    ),
-                    secret_name="jlrjvqyoygynlpsekfbvyrpu",
-                ),
-            ),
-            enabled=True,
-        ),
+                    },
+                    "secretName": "jlrjvqyoygynlpsekfbvyrpu",
+                },
+            },
+            "enabled": True,
+        },
         endpoint="odxpssuhjkbonjmbhbebfjcah",
         tls=azure_native.iotoperationsmq.KafkaRemoteBrokerConnectionTlsArgs(
             tls_enabled=True,
@@ -71,13 +71,13 @@ kafka_connector = azure_native.iotoperationsmq.KafkaConnector("kafkaConnector",
         ),
     ),
     kafka_connector_name="V5--OL8-R",
-    local_broker_connection=azure_native.iotoperationsmq.LocalBrokerConnectionSpecArgs(
-        authentication=azure_native.iotoperationsmq.LocalBrokerAuthenticationMethodsArgs(
-            kubernetes=azure_native.iotoperationsmq.LocalBrokerKubernetesAuthenticationArgs(
+    local_broker_connection=azure_native.iotoperationsmq.LocalBrokerConnectionSpecResponseArgs(
+        authentication={
+            "kubernetes": azure_native.iotoperationsmq.LocalBrokerKubernetesAuthenticationArgs(
                 secret_path="soukzfkouir",
                 service_account_token_name="suwetviuhmhorhvsidlznnufe",
             ),
-        ),
+        },
         endpoint="xc",
         tls=azure_native.iotoperationsmq.LocalBrokerConnectionTlsArgs(
             tls_enabled=True,

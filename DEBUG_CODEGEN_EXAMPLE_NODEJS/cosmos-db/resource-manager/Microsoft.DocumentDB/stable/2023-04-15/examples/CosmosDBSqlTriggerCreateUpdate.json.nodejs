@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlResourceSqlTrigger = new azure_native.documentdb.SqlResourceSqlTrigger("sqlResourceSqlTrigger", {
+    accountName: "ddb1",
+    containerName: "containerName",
+    databaseName: "databaseName",
+    options: {},
+    resource: {
+        body: "body",
+        id: "triggerName",
+        triggerOperation: "triggerOperation",
+        triggerType: "triggerType",
+    },
+    resourceGroupName: "rg1",
+    triggerName: "triggerName",
+});

@@ -1,0 +1,149 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var acssBackupConnection = new AzureNative.Workloads.ACSSBackupConnection("acssBackupConnection", new()
+    {
+        BackupData = new AzureNative.Workloads.Inputs.VMBackupDataArgs
+        {
+            BackupPolicy = new AzureNative.Workloads.Inputs.VMBackupPolicyPropertiesArgs
+            {
+                BackupManagementType = "AzureIaasVM",
+                InstantRPDetails = new AzureNative.Workloads.Inputs.InstantRPAdditionalDetailsArgs
+                {
+                    AzureBackupRGNamePrefix = "dasas",
+                    AzureBackupRGNameSuffix = "a",
+                },
+                InstantRpRetentionRangeInDays = 2,
+                Name = "defaultVmPolicy",
+                PolicyType = "V1",
+                ProtectedItemsCount = 0,
+                RetentionPolicy = new AzureNative.Workloads.Inputs.LongTermRetentionPolicyArgs
+                {
+                    DailySchedule = new AzureNative.Workloads.Inputs.DailyRetentionScheduleArgs
+                    {
+                        RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                        {
+                            Count = 30,
+                            DurationType = "Days",
+                        },
+                        RetentionTimes = new[]
+                        {
+                            "2022-11-29T19:30:00.000Z",
+                        },
+                    },
+                    MonthlySchedule = new AzureNative.Workloads.Inputs.MonthlyRetentionScheduleArgs
+                    {
+                        RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                        {
+                            Count = 60,
+                            DurationType = "Months",
+                        },
+                        RetentionScheduleFormatType = "Weekly",
+                        RetentionScheduleWeekly = new AzureNative.Workloads.Inputs.WeeklyRetentionFormatArgs
+                        {
+                            DaysOfTheWeek = new[]
+                            {
+                                AzureNative.Workloads.DayOfWeek.Sunday,
+                            },
+                            WeeksOfTheMonth = new[]
+                            {
+                                AzureNative.Workloads.WeekOfMonth.First,
+                            },
+                        },
+                        RetentionTimes = new[]
+                        {
+                            "2022-11-29T19:30:00.000Z",
+                        },
+                    },
+                    RetentionPolicyType = "LongTermRetentionPolicy",
+                    WeeklySchedule = new AzureNative.Workloads.Inputs.WeeklyRetentionScheduleArgs
+                    {
+                        DaysOfTheWeek = new[]
+                        {
+                            AzureNative.Workloads.DayOfWeek.Sunday,
+                        },
+                        RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                        {
+                            Count = 12,
+                            DurationType = "Weeks",
+                        },
+                        RetentionTimes = new[]
+                        {
+                            "2022-11-29T19:30:00.000Z",
+                        },
+                    },
+                    YearlySchedule = new AzureNative.Workloads.Inputs.YearlyRetentionScheduleArgs
+                    {
+                        MonthsOfYear = new[]
+                        {
+                            AzureNative.Workloads.MonthOfYear.January,
+                        },
+                        RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                        {
+                            Count = 10,
+                            DurationType = "Years",
+                        },
+                        RetentionScheduleFormatType = "Weekly",
+                        RetentionScheduleWeekly = new AzureNative.Workloads.Inputs.WeeklyRetentionFormatArgs
+                        {
+                            DaysOfTheWeek = new[]
+                            {
+                                AzureNative.Workloads.DayOfWeek.Sunday,
+                            },
+                            WeeksOfTheMonth = new[]
+                            {
+                                AzureNative.Workloads.WeekOfMonth.First,
+                            },
+                        },
+                        RetentionTimes = new[]
+                        {
+                            "2022-11-29T19:30:00.000Z",
+                        },
+                    },
+                },
+                SchedulePolicy = new AzureNative.Workloads.Inputs.SimpleSchedulePolicyArgs
+                {
+                    SchedulePolicyType = "SimpleSchedulePolicy",
+                    ScheduleRunFrequency = "Daily",
+                    ScheduleRunTimes = new[]
+                    {
+                        "2022-11-29T19:30:00.000Z",
+                    },
+                },
+                TieringPolicy = 
+                {
+                    { "ArchivedRP", new AzureNative.Workloads.Inputs.TieringPolicyArgs
+                    {
+                        Duration = 3,
+                        DurationType = "Months",
+                        TieringMode = "TierAfter",
+                    } },
+                },
+                TimeZone = "UTC",
+            },
+            BackupType = "VM",
+            DiskExclusionProperties = new AzureNative.Workloads.Inputs.DiskExclusionPropertiesArgs
+            {
+                DiskLunList = new() { },
+                IsInclusionList = true,
+            },
+            RecoveryServicesVault = new AzureNative.Workloads.Inputs.NewRecoveryServicesVaultArgs
+            {
+                Name = "test-vault",
+                ResourceGroup = "test-rg",
+                VaultType = "New",
+            },
+        },
+        BackupName = "vmBackup",
+        ConnectorName = "C1",
+        Location = "westcentralus",
+        ResourceGroupName = "test-rg",
+        Tags = null,
+    });
+
+});
+

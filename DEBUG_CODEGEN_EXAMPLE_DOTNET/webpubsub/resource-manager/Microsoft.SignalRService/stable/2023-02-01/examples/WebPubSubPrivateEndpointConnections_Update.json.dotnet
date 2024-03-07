@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webPubSubPrivateEndpointConnection = new AzureNative.WebPubSub.WebPubSubPrivateEndpointConnection("webPubSubPrivateEndpointConnection", new()
+    {
+        PrivateEndpoint = new AzureNative.WebPubSub.Inputs.PrivateEndpointArgs
+        {
+            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+        },
+        PrivateEndpointConnectionName = "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+        PrivateLinkServiceConnectionState = new AzureNative.WebPubSub.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "None",
+            Status = "Approved",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "myWebPubSubService",
+    });
+
+});
+

@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 table = azure_native.operationalinsights.Table("table",
     resource_group_name="oiautorest6685",
     retention_in_days=45,
-    schema=azure_native.operationalinsights.SchemaArgs(
+    schema=azure_native.operationalinsights.SchemaResponseArgs(
         columns=[azure_native.operationalinsights.ColumnArgs(
             name="MyNewColumn",
             type="guid",

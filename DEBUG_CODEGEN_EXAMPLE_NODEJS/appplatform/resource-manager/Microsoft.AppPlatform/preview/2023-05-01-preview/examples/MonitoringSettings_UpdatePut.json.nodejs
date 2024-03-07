@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const monitoringSetting = new azure_native.appplatform.MonitoringSetting("monitoringSetting", {
+    properties: {
+        appInsightsInstrumentationKey: "00000000-0000-0000-0000-000000000000",
+        appInsightsSamplingRate: 10,
+        traceEnabled: true,
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

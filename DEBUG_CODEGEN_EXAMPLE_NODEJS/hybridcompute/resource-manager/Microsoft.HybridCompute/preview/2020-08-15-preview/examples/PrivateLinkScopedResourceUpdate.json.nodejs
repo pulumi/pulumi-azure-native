@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateLinkScopedResource = new azure_native.hybridcompute.PrivateLinkScopedResource("privateLinkScopedResource", {
+    linkedResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/machineName1",
+    name: "scoped-resource-name",
+    resourceGroupName: "myResourceGroup",
+    scopeName: "myPrivateLinkScope",
+});

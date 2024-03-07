@@ -1,0 +1,147 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    {
+        ClusterName = "cluster1",
+        Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+        {
+            ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+            {
+                ComponentVersion = 
+                {
+                    { "Hadoop", "2.7" },
+                },
+                Configurations = 
+                {
+                    { "gateway", 
+                    {
+                        { "restAuthCredential.isEnabled", true },
+                        { "restAuthCredential.password", "**********" },
+                        { "restAuthCredential.username", "admin" },
+                    } },
+                },
+                Kind = "hadoop",
+            },
+            ClusterVersion = "3.6",
+            ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+            {
+                Roles = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        AutoscaleConfiguration = new AzureNative.HDInsight.Inputs.AutoscaleArgs
+                        {
+                            Recurrence = new AzureNative.HDInsight.Inputs.AutoscaleRecurrenceArgs
+                            {
+                                Schedule = new[]
+                                {
+                                    new AzureNative.HDInsight.Inputs.AutoscaleScheduleArgs
+                                    {
+                                        Days = new[]
+                                        {
+                                            "Monday",
+                                            "Tuesday",
+                                            "Wednesday",
+                                            "Thursday",
+                                            "Friday",
+                                        },
+                                        TimeAndCapacity = new AzureNative.HDInsight.Inputs.AutoscaleTimeAndCapacityArgs
+                                        {
+                                            MaxInstanceCount = 3,
+                                            MinInstanceCount = 3,
+                                            Time = "09:00",
+                                        },
+                                    },
+                                    new AzureNative.HDInsight.Inputs.AutoscaleScheduleArgs
+                                    {
+                                        Days = new[]
+                                        {
+                                            "Monday",
+                                            "Tuesday",
+                                            "Wednesday",
+                                            "Thursday",
+                                            "Friday",
+                                        },
+                                        TimeAndCapacity = new AzureNative.HDInsight.Inputs.AutoscaleTimeAndCapacityArgs
+                                        {
+                                            MaxInstanceCount = 6,
+                                            MinInstanceCount = 6,
+                                            Time = "18:00",
+                                        },
+                                    },
+                                    new AzureNative.HDInsight.Inputs.AutoscaleScheduleArgs
+                                    {
+                                        Days = new[]
+                                        {
+                                            "Saturday",
+                                            "Sunday",
+                                        },
+                                        TimeAndCapacity = new AzureNative.HDInsight.Inputs.AutoscaleTimeAndCapacityArgs
+                                        {
+                                            MaxInstanceCount = 2,
+                                            MinInstanceCount = 2,
+                                            Time = "09:00",
+                                        },
+                                    },
+                                    new AzureNative.HDInsight.Inputs.AutoscaleScheduleArgs
+                                    {
+                                        Days = new[]
+                                        {
+                                            "Saturday",
+                                            "Sunday",
+                                        },
+                                        TimeAndCapacity = new AzureNative.HDInsight.Inputs.AutoscaleTimeAndCapacityArgs
+                                        {
+                                            MaxInstanceCount = 4,
+                                            MinInstanceCount = 4,
+                                            Time = "18:00",
+                                        },
+                                    },
+                                },
+                                TimeZone = "China Standard Time",
+                            },
+                        },
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "Standard_D4_V2",
+                        },
+                        Name = "workernode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                Username = "sshuser",
+                            },
+                        },
+                        ScriptActions = new[] {},
+                        TargetInstanceCount = 4,
+                    },
+                },
+            },
+            OsType = "Linux",
+            StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+            {
+                Storageaccounts = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.StorageAccountArgs
+                    {
+                        Container = "hdinsight-autoscale-tes-2019-06-18t05-49-16-591z",
+                        IsDefault = true,
+                        Key = "storagekey",
+                        Name = "mystorage.blob.core.windows.net",
+                    },
+                },
+            },
+            Tier = "Standard",
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

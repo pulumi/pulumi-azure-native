@@ -21,22 +21,22 @@ managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
     enable_pod_security_policy=True,
     enable_rbac=True,
     kubernetes_version="",
-    linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileArgs(
+    linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
         admin_username="azureuser",
-        ssh=azure_native.containerservice.ContainerServiceSshConfigurationArgs(
-            public_keys=[azure_native.containerservice.ContainerServiceSshPublicKeyArgs(
+        ssh={
+            "publicKeys": [azure_native.containerservice.ContainerServiceSshPublicKeyArgs(
                 key_data="keydata",
             )],
-        ),
+        },
     ),
     location="location1",
-    network_profile=azure_native.containerservice.ContainerServiceNetworkProfileArgs(
+    network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
         load_balancer_sku="standard",
-        nat_gateway_profile=azure_native.containerservice.ManagedClusterNATGatewayProfileArgs(
-            managed_outbound_ip_profile=azure_native.containerservice.ManagedClusterManagedOutboundIPProfileArgs(
+        nat_gateway_profile={
+            "managedOutboundIPProfile": azure_native.containerservice.ManagedClusterManagedOutboundIPProfileArgs(
                 count=2,
             ),
-        ),
+        },
         outbound_type="managedNATGateway",
     ),
     resource_group_name="rg1",

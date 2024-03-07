@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var app = new AzureNative.IoTCentral.App("app", new()
+    {
+        DisplayName = "My IoT Central App",
+        Identity = new AzureNative.IoTCentral.Inputs.SystemAssignedServiceIdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Location = "westus",
+        ResourceGroupName = "resRg",
+        ResourceName = "myIoTCentralApp",
+        Sku = new AzureNative.IoTCentral.Inputs.AppSkuInfoArgs
+        {
+            Name = "ST2",
+        },
+        Subdomain = "my-iot-central-app",
+        Template = "iotc-pnp-preview@1.0.0",
+    });
+
+});
+

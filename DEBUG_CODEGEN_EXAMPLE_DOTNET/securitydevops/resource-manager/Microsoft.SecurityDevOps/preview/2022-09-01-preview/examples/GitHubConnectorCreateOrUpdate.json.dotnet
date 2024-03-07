@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var gitHubConnector = new AzureNative.SecurityDevOps.GitHubConnector("gitHubConnector", new()
+    {
+        GitHubConnectorName = "testconnector",
+        Location = "West US",
+        Properties = new AzureNative.SecurityDevOps.Inputs.GitHubConnectorPropertiesArgs
+        {
+            Code = "00000000000000000000",
+        },
+        ResourceGroupName = "westusrg",
+    });
+
+});
+

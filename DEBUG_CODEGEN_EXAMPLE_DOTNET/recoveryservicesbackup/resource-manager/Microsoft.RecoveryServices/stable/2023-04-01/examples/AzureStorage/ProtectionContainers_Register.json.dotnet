@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var protectionContainer = new AzureNative.RecoveryServices.ProtectionContainer("protectionContainer", new()
+    {
+        ContainerName = "StorageContainer;Storage;SwaggerTestRg;swaggertestsa",
+        FabricName = "Azure",
+        Properties = new AzureNative.RecoveryServices.Inputs.AzureStorageContainerArgs
+        {
+            AcquireStorageAccountLock = "Acquire",
+            BackupManagementType = "AzureStorage",
+            ContainerType = "StorageContainer",
+            FriendlyName = "swaggertestsa",
+            SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/SwaggerTestRg/providers/Microsoft.Storage/storageAccounts/swaggertestsa",
+        },
+        ResourceGroupName = "SwaggerTestRg",
+        VaultName = "swaggertestvault",
+    });
+
+});
+

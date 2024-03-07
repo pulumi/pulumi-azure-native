@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkRack = new azure_native.managednetworkfabric.NetworkRack("networkRack", {
+    annotation: "null",
+    location: "eastus",
+    networkFabricId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/networkFabricName",
+    networkRackName: "networkRackName",
+    networkRackSku: "RackSKU",
+    resourceGroupName: "resourceGroupName",
+    tags: {
+        keyID: "keyValue",
+    },
+});

@@ -6,22 +6,22 @@ cassandra_resource_cassandra_table = azure_native.documentdb.CassandraResourceCa
     keyspace_name="keyspaceName",
     location="West US",
     options=azure_native.documentdb.CreateUpdateOptionsArgs(),
-    resource=azure_native.documentdb.CassandraTableResourceArgs(
+    resource=azure_native.documentdb.CassandraTableGetPropertiesResponseResourceArgs(
         default_ttl=100,
         id="tableName",
-        schema=azure_native.documentdb.CassandraSchemaArgs(
-            cluster_keys=[azure_native.documentdb.ClusterKeyArgs(
+        schema={
+            "clusterKeys": [azure_native.documentdb.ClusterKeyArgs(
                 name="columnA",
                 order_by="Asc",
             )],
-            columns=[azure_native.documentdb.ColumnArgs(
+            "columns": [azure_native.documentdb.ColumnArgs(
                 name="columnA",
                 type="Ascii",
             )],
-            partition_keys=[azure_native.documentdb.CassandraPartitionKeyArgs(
+            "partitionKeys": [azure_native.documentdb.CassandraPartitionKeyArgs(
                 name="columnA",
             )],
-        ),
+        },
     ),
     resource_group_name="rg1",
     table_name="tableName",

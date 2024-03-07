@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const wcfRelayAuthorizationRule = new azure_native.relay.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule", {
+    authorizationRuleName: "example-RelayAuthRules-01",
+    namespaceName: "example-RelayNamespace-01",
+    relayName: "example-Relay-wcf-01",
+    resourceGroupName: "resourcegroup",
+    rights: [
+        "Listen",
+        "Send",
+    ],
+});

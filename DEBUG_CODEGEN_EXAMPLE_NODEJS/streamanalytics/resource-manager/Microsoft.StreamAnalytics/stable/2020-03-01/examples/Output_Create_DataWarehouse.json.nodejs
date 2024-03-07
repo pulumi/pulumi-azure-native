@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const output = new azure_native.streamanalytics.Output("output", {
+    datasource: {
+        database: "zhayaSQLpool",
+        password: "password123",
+        server: "asatestserver",
+        table: "test2",
+        type: "Microsoft.Sql/Server/DataWarehouse",
+        user: "tolladmin",
+    },
+    jobName: "sjName",
+    outputName: "dwOutput",
+    resourceGroupName: "sjrg",
+});

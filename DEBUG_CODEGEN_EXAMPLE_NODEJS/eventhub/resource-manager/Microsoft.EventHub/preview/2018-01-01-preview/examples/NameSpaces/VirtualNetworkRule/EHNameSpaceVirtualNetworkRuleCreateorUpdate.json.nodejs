@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const namespaceVirtualNetworkRule = new azure_native.eventhub.NamespaceVirtualNetworkRule("namespaceVirtualNetworkRule", {
+    namespaceName: "sdk-Namespace-6019",
+    resourceGroupName: "ResourceGroup",
+    virtualNetworkRuleName: "sdk-VirtualNetworkRules-9191",
+    virtualNetworkSubnetId: "/subscriptions/Subscription/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default",
+});

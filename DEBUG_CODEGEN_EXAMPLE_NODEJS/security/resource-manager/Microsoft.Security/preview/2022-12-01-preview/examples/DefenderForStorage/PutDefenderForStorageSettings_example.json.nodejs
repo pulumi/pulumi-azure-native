@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const defenderForStorage = new azure_native.security.DefenderForStorage("defenderForStorage", {
+    isEnabled: true,
+    malwareScanning: {
+        capGBPerMonth: -1,
+        isEnabled: true,
+        scanResultsEventGridTopicResourceId: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.EventGrid/topics/sampletopic",
+    },
+    overrideSubscriptionLevelSettings: true,
+    resourceId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount",
+    sensitiveDataDiscovery: {
+        isEnabled: true,
+    },
+    settingName: "current",
+});

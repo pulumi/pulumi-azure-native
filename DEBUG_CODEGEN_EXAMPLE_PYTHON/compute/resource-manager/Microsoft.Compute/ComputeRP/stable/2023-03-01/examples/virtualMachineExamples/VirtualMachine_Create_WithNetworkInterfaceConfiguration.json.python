@@ -6,26 +6,26 @@ virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
         vm_size="Standard_D1_v2",
     ),
     location="westus",
-    network_profile=azure_native.compute.NetworkProfileArgs(
+    network_profile=azure_native.compute.NetworkProfileResponseArgs(
         network_api_version="2020-11-01",
-        network_interface_configurations=[azure_native.compute.VirtualMachineNetworkInterfaceConfigurationArgs(
-            delete_option="Delete",
-            ip_configurations=[azure_native.compute.VirtualMachineNetworkInterfaceIPConfigurationArgs(
-                name="{ip-config-name}",
-                primary=True,
-                public_ip_address_configuration=azure_native.compute.VirtualMachinePublicIPAddressConfigurationArgs(
-                    delete_option="Detach",
-                    name="{publicIP-config-name}",
-                    public_ip_allocation_method="Static",
-                    sku=azure_native.compute.PublicIPAddressSkuArgs(
+        network_interface_configurations=[{
+            "deleteOption": "Delete",
+            "ipConfigurations": [{
+                "name": "{ip-config-name}",
+                "primary": True,
+                "publicIPAddressConfiguration": {
+                    "deleteOption": "Detach",
+                    "name": "{publicIP-config-name}",
+                    "publicIPAllocationMethod": "Static",
+                    "sku": azure_native.compute.PublicIPAddressSkuArgs(
                         name="Basic",
                         tier="Global",
                     ),
-                ),
-            )],
-            name="{nic-config-name}",
-            primary=True,
-        )],
+                },
+            }],
+            "name": "{nic-config-name}",
+            "primary": True,
+        }],
     ),
     os_profile=azure_native.compute.OSProfileArgs(
         admin_password="{your-password}",
@@ -33,20 +33,20 @@ virtual_machine = azure_native.compute.VirtualMachine("virtualMachine",
         computer_name="myVM",
     ),
     resource_group_name="myResourceGroup",
-    storage_profile=azure_native.compute.StorageProfileArgs(
+    storage_profile=azure_native.compute.StorageProfileResponseArgs(
         image_reference=azure_native.compute.ImageReferenceArgs(
             offer="WindowsServer",
             publisher="MicrosoftWindowsServer",
             sku="2016-Datacenter",
             version="latest",
         ),
-        os_disk=azure_native.compute.OSDiskArgs(
-            caching=azure_native.compute.CachingTypes.READ_WRITE,
-            create_option="FromImage",
-            managed_disk=azure_native.compute.ManagedDiskParametersArgs(
+        os_disk={
+            "caching": azure_native.compute.CachingTypes.READ_WRITE,
+            "createOption": "FromImage",
+            "managedDisk": azure_native.compute.ManagedDiskParametersArgs(
                 storage_account_type="Standard_LRS",
             ),
-            name="myVMosdisk",
-        ),
+            "name": "myVMosdisk",
+        },
     ),
     vm_name="myVM")

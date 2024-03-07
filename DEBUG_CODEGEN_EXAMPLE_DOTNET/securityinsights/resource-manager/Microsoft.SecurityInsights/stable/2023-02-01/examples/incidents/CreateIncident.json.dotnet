@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var incident = new AzureNative.SecurityInsights.Incident("incident", new()
+    {
+        Classification = "FalsePositive",
+        ClassificationComment = "Not a malicious activity",
+        ClassificationReason = "IncorrectAlertLogic",
+        Description = "This is a demo incident",
+        FirstActivityTimeUtc = "2019-01-01T13:00:30Z",
+        IncidentId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+        LastActivityTimeUtc = "2019-01-01T13:05:30Z",
+        Owner = new AzureNative.SecurityInsights.Inputs.IncidentOwnerInfoArgs
+        {
+            ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+        },
+        ResourceGroupName = "myRg",
+        Severity = "High",
+        Status = "Closed",
+        Title = "My incident",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

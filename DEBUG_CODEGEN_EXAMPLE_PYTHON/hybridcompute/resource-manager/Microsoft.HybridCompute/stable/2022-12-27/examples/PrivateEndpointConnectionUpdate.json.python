@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 private_endpoint_connection = azure_native.hybridcompute.PrivateEndpointConnection("privateEndpointConnection",
     private_endpoint_connection_name="private-endpoint-connection-name",
-    properties=azure_native.hybridcompute.PrivateEndpointConnectionPropertiesArgs(
+    properties=azure_native.hybridcompute.PrivateEndpointConnectionPropertiesResponseArgs(
         private_link_service_connection_state=azure_native.hybridcompute.PrivateLinkServiceConnectionStatePropertyArgs(
             description="Approved by johndoe@contoso.com",
             status="Approved",

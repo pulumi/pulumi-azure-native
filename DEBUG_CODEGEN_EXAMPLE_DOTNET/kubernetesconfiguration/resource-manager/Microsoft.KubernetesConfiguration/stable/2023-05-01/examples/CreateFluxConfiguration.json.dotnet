@@ -1,0 +1,94 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fluxConfiguration = new AzureNative.KubernetesConfiguration.FluxConfiguration("fluxConfiguration", new()
+    {
+        ClusterName = "clusterName1",
+        ClusterResourceName = "connectedClusters",
+        ClusterRp = "Microsoft.Kubernetes",
+        FluxConfigurationName = "srs-fluxconfig",
+        GitRepository = new AzureNative.KubernetesConfiguration.Inputs.GitRepositoryDefinitionArgs
+        {
+            HttpsCACert = "ZXhhbXBsZWNlcnRpZmljYXRl",
+            RepositoryRef = new AzureNative.KubernetesConfiguration.Inputs.RepositoryRefDefinitionArgs
+            {
+                Branch = "master",
+            },
+            SyncIntervalInSeconds = 600,
+            TimeoutInSeconds = 600,
+            Url = "https://github.com/Azure/arc-k8s-demo",
+        },
+        Kustomizations = 
+        {
+            { "srs-kustomization1", new AzureNative.KubernetesConfiguration.Inputs.KustomizationDefinitionArgs
+            {
+                DependsOn = new() { },
+                Path = "./test/path",
+                PostBuild = new AzureNative.KubernetesConfiguration.Inputs.PostBuildDefinitionArgs
+                {
+                    Substitute = 
+                    {
+                        { "cluster_env", "prod" },
+                        { "replica_count", "2" },
+                    },
+                    SubstituteFrom = new[]
+                    {
+                        new AzureNative.KubernetesConfiguration.Inputs.SubstituteFromDefinitionArgs
+                        {
+                            Kind = "ConfigMap",
+                            Name = "cluster-test",
+                            Optional = true,
+                        },
+                    },
+                },
+                SyncIntervalInSeconds = 600,
+                TimeoutInSeconds = 600,
+                Wait = true,
+            } },
+            { "srs-kustomization2", new AzureNative.KubernetesConfiguration.Inputs.KustomizationDefinitionArgs
+            {
+                DependsOn = new[]
+                {
+                    "srs-kustomization1",
+                },
+                Path = "./other/test/path",
+                PostBuild = new AzureNative.KubernetesConfiguration.Inputs.PostBuildDefinitionArgs
+                {
+                    SubstituteFrom = new[]
+                    {
+                        new AzureNative.KubernetesConfiguration.Inputs.SubstituteFromDefinitionArgs
+                        {
+                            Kind = "ConfigMap",
+                            Name = "cluster-values",
+                            Optional = true,
+                        },
+                        new AzureNative.KubernetesConfiguration.Inputs.SubstituteFromDefinitionArgs
+                        {
+                            Kind = "Secret",
+                            Name = "secret-name",
+                            Optional = false,
+                        },
+                    },
+                },
+                Prune = false,
+                RetryIntervalInSeconds = 600,
+                SyncIntervalInSeconds = 600,
+                TimeoutInSeconds = 600,
+                Wait = false,
+            } },
+        },
+        Namespace = "srs-namespace",
+        ReconciliationWaitDuration = "PT30M",
+        ResourceGroupName = "rg1",
+        Scope = "cluster",
+        SourceKind = "GitRepository",
+        Suspend = false,
+        WaitForReconciliation = true,
+    });
+
+});
+

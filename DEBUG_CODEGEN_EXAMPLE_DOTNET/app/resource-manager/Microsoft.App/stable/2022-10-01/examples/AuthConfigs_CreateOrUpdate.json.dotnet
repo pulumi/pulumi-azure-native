@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var containerAppsAuthConfig = new AzureNative.App.ContainerAppsAuthConfig("containerAppsAuthConfig", new()
+    {
+        AuthConfigName = "current",
+        ContainerAppName = "testcanadacentral",
+        GlobalValidation = new AzureNative.App.Inputs.GlobalValidationArgs
+        {
+            UnauthenticatedClientAction = AzureNative.App.UnauthenticatedClientActionV2.AllowAnonymous,
+        },
+        IdentityProviders = new AzureNative.App.Inputs.IdentityProvidersArgs
+        {
+            Facebook = new AzureNative.App.Inputs.FacebookArgs
+            {
+                Registration = new AzureNative.App.Inputs.AppRegistrationArgs
+                {
+                    AppId = "123",
+                    AppSecretSettingName = "facebook-secret",
+                },
+            },
+        },
+        Platform = new AzureNative.App.Inputs.AuthPlatformArgs
+        {
+            Enabled = true,
+        },
+        ResourceGroupName = "workerapps-rg-xj",
+    });
+
+});
+

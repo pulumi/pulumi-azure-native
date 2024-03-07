@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var administrator = new AzureNative.DBforPostgreSQL.Administrator("administrator", new()
+    {
+        ObjectId = "oooooooo-oooo-oooo-oooo-oooooooooooo",
+        PrincipalName = "testuser1@microsoft.com",
+        PrincipalType = "User",
+        ResourceGroupName = "testrg",
+        ServerName = "testserver",
+        TenantId = "tttttttt-tttt-tttt-tttt-tttttttttttt",
+    });
+
+});
+

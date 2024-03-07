@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var updateRun = new AzureNative.AzureStackHCI.UpdateRun("updateRun", new()
+    {
+        ClusterName = "testcluster",
+        Description = "Update Azure Stack.",
+        EndTimeUtc = "2022-04-06T13:58:42.969006+00:00",
+        ErrorMessage = "",
+        LastUpdatedTimeUtc = "2022-04-06T13:58:42.969006+00:00",
+        Name = "Unnamed step",
+        ResourceGroupName = "testrg",
+        StartTimeUtc = "2022-04-06T01:36:33.3876751+00:00",
+        Status = "Success",
+        Steps = new[]
+        {
+            new AzureNative.AzureStackHCI.Inputs.StepArgs
+            {
+                Description = "Prepare for SSU update",
+                EndTimeUtc = "2022-04-06T01:37:16.8728314+00:00",
+                ErrorMessage = "",
+                LastUpdatedTimeUtc = "2022-04-06T01:37:16.8728314+00:00",
+                Name = "PreUpdate Cloud",
+                StartTimeUtc = "2022-04-06T01:36:33.3876751+00:00",
+                Status = "Success",
+                Steps = new[] {},
+            },
+        },
+        UpdateName = "Microsoft4.2203.2.32",
+        UpdateRunName = "23b779ba-0d52-4a80-8571-45ca74664ec3",
+    });
+
+});
+

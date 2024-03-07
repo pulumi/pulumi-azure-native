@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var taskRun = new AzureNative.ContainerRegistry.TaskRun("taskRun", new()
+    {
+        ForceUpdateTag = "test",
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+        RunRequest = new AzureNative.ContainerRegistry.Inputs.EncodedTaskRunRequestArgs
+        {
+            Credentials = null,
+            EncodedTaskContent = "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+            EncodedValuesContent = "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+            Platform = new AzureNative.ContainerRegistry.Inputs.PlatformPropertiesArgs
+            {
+                Architecture = "amd64",
+                Os = "Linux",
+            },
+            Type = "EncodedTaskRunRequest",
+            Values = new() { },
+        },
+        TaskRunName = "myRun",
+    });
+
+});
+

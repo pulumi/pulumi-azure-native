@@ -1,0 +1,47 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const metricAlert = new azure_native.insights.MetricAlert("metricAlert", {
+    actions: [{
+        actionGroupId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+        webHookProperties: {
+            key11: "value11",
+            key12: "value12",
+        },
+    }],
+    autoMitigate: true,
+    criteria: {
+        allOf: [{
+            criterionType: "StaticThresholdCriterion",
+            dimensions: [
+                {
+                    name: "ActivityName",
+                    operator: "Include",
+                    values: ["*"],
+                },
+                {
+                    name: "StatusCode",
+                    operator: "Include",
+                    values: ["200"],
+                },
+            ],
+            metricName: "Availability",
+            metricNamespace: "Microsoft.KeyVault/vaults",
+            name: "Metric1",
+            operator: "GreaterThan",
+            threshold: 55,
+            timeAggregation: "Average",
+        }],
+        odataType: "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+    },
+    description: "This is the description of the rule1",
+    enabled: true,
+    evaluationFrequency: "PT1H",
+    location: "global",
+    resourceGroupName: "gigtest",
+    ruleName: "MetricAlertOnMultipleDimensions",
+    scopes: ["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.KeyVault/vaults/keyVaultResource"],
+    severity: 3,
+    tags: {},
+    windowSize: "P1D",
+});

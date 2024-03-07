@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.automation.PrivateEndpointConnection("privateEndpointConnection", {
+    automationAccountName: "ddb1",
+    privateEndpointConnectionName: "privateEndpointConnectionName",
+    privateLinkServiceConnectionState: {
+        description: "Approved by johndoe@contoso.com",
+        status: "Approved",
+    },
+    resourceGroupName: "rg1",
+});

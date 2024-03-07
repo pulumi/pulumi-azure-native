@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var tableResourceTable = new AzureNative.DocumentDB.TableResourceTable("tableResourceTable", new()
+    {
+        AccountName = "ddb1",
+        Location = "West US",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.TableResourceArgs
+        {
+            Id = "tableName",
+        },
+        ResourceGroupName = "rg1",
+        TableName = "tableName",
+        Tags = null,
+    });
+
+});
+

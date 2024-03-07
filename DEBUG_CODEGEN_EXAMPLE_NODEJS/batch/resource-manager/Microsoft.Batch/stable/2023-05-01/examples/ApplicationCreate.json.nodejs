@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const application = new azure_native.batch.Application("application", {
+    accountName: "sampleacct",
+    allowUpdates: false,
+    applicationName: "app1",
+    displayName: "myAppName",
+    resourceGroupName: "default-azurebatch-japaneast",
+});

@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hypervClusterControllerCluster = new AzureNative.OffAzure.HypervClusterControllerCluster("hypervClusterControllerCluster", new()
+    {
+        ClusterName = "-18--O4iS57-729MV9PCErt",
+        ResourceGroupName = "rgmigrate",
+        SiteName = "--xY37--V518",
+    });
+
+});
+

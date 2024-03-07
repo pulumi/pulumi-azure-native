@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const authorization = new azure_native.apimanagement.Authorization("authorization", {
+    authorizationId: "authz1",
+    authorizationProviderId: "aadwithclientcred",
+    authorizationType: "OAuth2",
+    oAuth2GrantType: "AuthorizationCode",
+    parameters: {
+        clientId: "53790925-fdd3-4b80-bc7a-4c3aaf25801d",
+        clientSecret: "FcJkQ3iPSaKAQRA7Ft8Q~fZ1X5vKmqzUAfJagcJ8",
+    },
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

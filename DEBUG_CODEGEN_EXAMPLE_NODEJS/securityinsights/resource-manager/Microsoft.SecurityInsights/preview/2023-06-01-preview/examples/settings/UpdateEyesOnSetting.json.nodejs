@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const ueba = new azure_native.securityinsights.Ueba("ueba", {
+    resourceGroupName: "myRg",
+    settingsName: "EyesOn",
+    workspaceName: "myWorkspace",
+});

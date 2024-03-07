@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspace = new azure_native.operationalinsights.Workspace("workspace", {
+    location: "australiasoutheast",
+    resourceGroupName: "oiautorest6685",
+    retentionInDays: 30,
+    sku: {
+        name: "PerGB2018",
+    },
+    tags: {
+        tag1: "val1",
+    },
+    workspaceName: "oiautorest6685",
+});

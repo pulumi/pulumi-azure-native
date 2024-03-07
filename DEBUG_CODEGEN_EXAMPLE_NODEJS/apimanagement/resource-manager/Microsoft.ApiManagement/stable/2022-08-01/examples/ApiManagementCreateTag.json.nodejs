@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const tag = new azure_native.apimanagement.Tag("tag", {
+    displayName: "tag1",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    tagId: "tagId1",
+});

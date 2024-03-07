@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var providerInstance = new AzureNative.Workloads.ProviderInstance("providerInstance", new()
+    {
+        MonitorName = "mySapMonitor",
+        ProviderInstanceName = "myProviderInstance",
+        ProviderSettings = new AzureNative.Workloads.Inputs.DB2ProviderInstancePropertiesArgs
+        {
+            DbName = "dbName",
+            DbPassword = "password",
+            DbPasswordUri = "",
+            DbPort = "dbPort",
+            DbUsername = "username",
+            Hostname = "hostname",
+            ProviderType = "Db2",
+            SapSid = "SID",
+            SslPreference = "RootCertificate",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

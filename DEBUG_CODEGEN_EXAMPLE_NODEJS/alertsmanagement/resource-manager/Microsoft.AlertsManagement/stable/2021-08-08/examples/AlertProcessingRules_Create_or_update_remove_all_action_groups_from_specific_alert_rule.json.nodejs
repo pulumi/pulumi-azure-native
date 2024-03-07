@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+    alertProcessingRuleName: "RemoveActionGroupsSpecificAlertRule",
+    location: "Global",
+    properties: {
+        actions: [{
+            actionType: "RemoveAllActionGroups",
+        }],
+        conditions: [{
+            field: "AlertRuleId",
+            operator: "Equals",
+            values: ["/subscriptions/suubId1/resourceGroups/Rgid2/providers/microsoft.insights/activityLogAlerts/RuleName"],
+        }],
+        description: "Removes all ActionGroups from all Alerts that fire on above AlertRule",
+        enabled: true,
+        scopes: ["/subscriptions/subId1"],
+    },
+    resourceGroupName: "alertscorrelationrg",
+    tags: {},
+});

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const inventoryItem = new azure_native.connectedvmwarevsphere.InventoryItem("inventoryItem", {
+    inventoryItemName: "testItem",
+    inventoryType: "ResourcePool",
+    resourceGroupName: "testrg",
+    vcenterName: "ContosoVCenter",
+});

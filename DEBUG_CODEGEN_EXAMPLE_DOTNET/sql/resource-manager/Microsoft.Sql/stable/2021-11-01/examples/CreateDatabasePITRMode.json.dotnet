@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var database = new AzureNative.Sql.Database("database", new()
+    {
+        CreateMode = "PointInTimeRestore",
+        DatabaseName = "dbpitr",
+        Location = "southeastasia",
+        ResourceGroupName = "Default-SQL-SouthEastAsia",
+        RestorePointInTime = "2020-10-22T05:35:31.503Z",
+        ServerName = "testsvr",
+        SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SoutheastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    });
+
+});
+

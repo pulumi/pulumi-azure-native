@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const integrationAccountPartner = new azure_native.logic.IntegrationAccountPartner("integrationAccountPartner", {
+    content: {
+        b2b: {
+            businessIdentities: [{
+                qualifier: "AA",
+                value: "ZZ",
+            }],
+        },
+    },
+    integrationAccountName: "testIntegrationAccount",
+    location: "westus",
+    metadata: {},
+    partnerName: "testPartner",
+    partnerType: "B2B",
+    resourceGroupName: "testResourceGroup",
+    tags: {},
+});

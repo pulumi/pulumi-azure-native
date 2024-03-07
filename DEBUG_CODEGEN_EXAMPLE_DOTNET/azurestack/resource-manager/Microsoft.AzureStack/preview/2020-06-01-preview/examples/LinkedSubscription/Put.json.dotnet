@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var linkedSubscription = new AzureNative.AzureStack.LinkedSubscription("linkedSubscription", new()
+    {
+        LinkedSubscriptionId = "104fbb77-2b0e-476a-83de-65ad8acd1f0b",
+        LinkedSubscriptionName = "testLinkedSubscription",
+        Location = "eastus",
+        RegistrationResourceId = "/subscriptions/dd8597b4-8739-4467-8b10-f8679f62bfbf/resourceGroups/azurestack/providers/Microsoft.AzureStack/registrations/testRegistration",
+        ResourceGroup = "azurestack",
+    });
+
+});
+

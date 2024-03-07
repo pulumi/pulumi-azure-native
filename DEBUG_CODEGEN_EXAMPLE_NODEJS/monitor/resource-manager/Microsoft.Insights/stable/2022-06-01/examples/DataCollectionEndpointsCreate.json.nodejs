@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dataCollectionEndpoint = new azure_native.insights.DataCollectionEndpoint("dataCollectionEndpoint", {
+    dataCollectionEndpointName: "myCollectionEndpoint",
+    location: "eastus",
+    networkAcls: {
+        publicNetworkAccess: "Enabled",
+    },
+    resourceGroupName: "myResourceGroup",
+});

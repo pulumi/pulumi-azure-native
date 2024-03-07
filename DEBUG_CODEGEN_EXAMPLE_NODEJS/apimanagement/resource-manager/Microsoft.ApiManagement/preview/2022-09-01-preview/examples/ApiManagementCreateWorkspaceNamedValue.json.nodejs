@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceNamedValue = new azure_native.apimanagement.WorkspaceNamedValue("workspaceNamedValue", {
+    displayName: "prop3name",
+    namedValueId: "testprop2",
+    resourceGroupName: "rg1",
+    secret: false,
+    serviceName: "apimService1",
+    tags: [
+        "foo",
+        "bar",
+    ],
+    value: "propValue",
+    workspaceId: "wks1",
+});

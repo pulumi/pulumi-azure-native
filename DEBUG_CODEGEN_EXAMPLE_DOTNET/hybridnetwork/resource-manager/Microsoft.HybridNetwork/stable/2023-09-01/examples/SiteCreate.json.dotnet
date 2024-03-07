@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var site = new AzureNative.HybridNetwork.Site("site", new()
+    {
+        Location = "westUs2",
+        Properties = new AzureNative.HybridNetwork.Inputs.SitePropertiesFormatArgs
+        {
+            Nfvis = 
+            {
+                new AzureNative.HybridNetwork.Inputs.AzureCoreNFVIDetailsArgs
+                {
+                    Location = "westUs2",
+                    Name = "nfvi1",
+                    NfviType = "AzureCore",
+                },
+                new AzureNative.HybridNetwork.Inputs.AzureArcK8sClusterNFVIDetailsArgs
+                {
+                    CustomLocationReference = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+                    {
+                        Id = "/subscriptions/subid/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation1",
+                    },
+                    Name = "nfvi2",
+                    NfviType = "AzureArcKubernetes",
+                },
+                new AzureNative.HybridNetwork.Inputs.AzureOperatorNexusClusterNFVIDetailsArgs
+                {
+                    CustomLocationReference = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+                    {
+                        Id = "/subscriptions/subid/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation2",
+                    },
+                    Name = "nfvi3",
+                    NfviType = "AzureOperatorNexus",
+                },
+            },
+        },
+        ResourceGroupName = "rg1",
+        SiteName = "testSite",
+    });
+
+});
+

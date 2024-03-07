@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var asset = new AzureNative.Media.Asset("asset", new()
+    {
+        AccountName = "contosomedia",
+        AssetName = "ClimbingMountLogan",
+        Description = "A documentary showing the ascent of Mount Logan",
+        ResourceGroupName = "contosorg",
+        StorageAccountName = "storage0",
+    });
+
+});
+

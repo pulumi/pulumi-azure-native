@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.streamanalytics.Cluster("cluster", {
+    clusterName: "An Example Cluster",
+    location: "North US",
+    resourceGroupName: "sjrg",
+    sku: {
+        capacity: 48,
+        name: "Default",
+    },
+    tags: {
+        key: "value",
+    },
+});

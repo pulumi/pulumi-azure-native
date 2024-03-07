@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const capacityReservationGroup = new azure_native.compute.CapacityReservationGroup("capacityReservationGroup", {
+    capacityReservationGroupName: "myCapacityReservationGroup",
+    location: "westus",
+    resourceGroupName: "myResourceGroup",
+    tags: {
+        department: "finance",
+    },
+    zones: [
+        "1",
+        "2",
+    ],
+});

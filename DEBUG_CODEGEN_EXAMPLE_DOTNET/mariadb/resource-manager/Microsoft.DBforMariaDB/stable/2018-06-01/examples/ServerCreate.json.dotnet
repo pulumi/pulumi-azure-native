@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var server = new AzureNative.DBforMariaDB.Server("server", new()
+    {
+        Location = "westus",
+        Properties = new AzureNative.DBforMariaDB.Inputs.ServerPropertiesForDefaultCreateArgs
+        {
+            AdministratorLogin = "cloudsa",
+            AdministratorLoginPassword = "<administratorLoginPassword>",
+            CreateMode = "Default",
+            MinimalTlsVersion = "TLS1_2",
+            SslEnforcement = AzureNative.DBforMariaDB.SslEnforcementEnum.Enabled,
+            StorageProfile = new AzureNative.DBforMariaDB.Inputs.StorageProfileArgs
+            {
+                BackupRetentionDays = 7,
+                GeoRedundantBackup = "Enabled",
+                StorageMB = 128000,
+            },
+        },
+        ResourceGroupName = "testrg",
+        ServerName = "mariadbtestsvc4",
+        Sku = new AzureNative.DBforMariaDB.Inputs.SkuArgs
+        {
+            Capacity = 2,
+            Family = "Gen5",
+            Name = "GP_Gen5_2",
+            Tier = "GeneralPurpose",
+        },
+        Tags = 
+        {
+            { "ElasticServer", "1" },
+        },
+    });
+
+});
+

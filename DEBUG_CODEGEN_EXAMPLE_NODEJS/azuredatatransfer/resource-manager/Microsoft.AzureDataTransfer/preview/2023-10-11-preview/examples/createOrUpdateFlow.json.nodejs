@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const flow = new azure_native.azuredatatransfer.Flow("flow", {
+    connectionName: "testConnection",
+    flowName: "testFlow",
+    location: "East US",
+    properties: {
+        connection: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.AzureDataTransfer/connections/testConnection",
+        },
+        flowType: "Blob",
+        storageAccountName: "testsa",
+        storageContainerName: "testcontainer",
+    },
+    resourceGroupName: "testRG",
+});

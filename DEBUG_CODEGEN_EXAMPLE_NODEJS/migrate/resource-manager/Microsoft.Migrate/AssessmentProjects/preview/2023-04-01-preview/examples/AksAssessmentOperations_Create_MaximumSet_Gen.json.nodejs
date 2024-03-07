@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const aksAssessmentOperation = new azure_native.migrate.AksAssessmentOperation("aksAssessmentOperation", {
+    assessmentName: "testaksassessment",
+    projectName: "testproject",
+    resourceGroupName: "rgaksswagger",
+    scope: {
+        serverGroupId: "/subscriptions/D6F60DF4-CE70-4E39-8217-B8FBE7CA85AA/resourceGroups/rgaksswagger/providers/Microsoft.Migrate/assessmentProjects/testproject/groups/testgrp",
+    },
+    settings: {
+        azureLocation: "Unknown",
+        category: "All",
+        consolidation: "Full",
+        currency: "Unknown",
+        discountPercentage: 15,
+        environmentType: "Unknown",
+        licensingProgram: "Default",
+        performanceData: {
+            percentile: "Percentile50",
+            perfDataEndTime: "2023-11-07T06:51:24.320Z",
+            perfDataStartTime: "2023-11-07T06:51:24.320Z",
+            timeRange: "Day",
+        },
+        pricingTier: "Standard",
+        savingsOptions: "None",
+        scalingFactor: 3,
+        sizingCriteria: "PerformanceBased",
+    },
+});

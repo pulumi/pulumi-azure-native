@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var extension = new AzureNative.AzureStackHCI.Extension("extension", new()
+    {
+        ArcSettingName = "default",
+        ClusterName = "myCluster",
+        EnableAutomaticUpgrade = false,
+        ExtensionName = "MicrosoftMonitoringAgent",
+        ProtectedSettings = 
+        {
+            { "workspaceKey", "xx" },
+        },
+        Publisher = "Microsoft.Compute",
+        ResourceGroupName = "test-rg",
+        Settings = 
+        {
+            { "workspaceId", "xx" },
+        },
+        Type = "MicrosoftMonitoringAgent",
+        TypeHandlerVersion = "1.10",
+    });
+
+});
+

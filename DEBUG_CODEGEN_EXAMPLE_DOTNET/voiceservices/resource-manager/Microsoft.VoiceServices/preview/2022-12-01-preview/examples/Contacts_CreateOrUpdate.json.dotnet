@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var contact = new AzureNative.VoiceServices.Contact("contact", new()
+    {
+        CommunicationsGatewayName = "myname",
+        ContactName = "John Smith",
+        Email = "johnsmith@example.com",
+        Location = "useast",
+        PhoneNumber = "+1-555-1234",
+        ResourceGroupName = "testrg",
+        Role = "Network Manager",
+    });
+
+});
+

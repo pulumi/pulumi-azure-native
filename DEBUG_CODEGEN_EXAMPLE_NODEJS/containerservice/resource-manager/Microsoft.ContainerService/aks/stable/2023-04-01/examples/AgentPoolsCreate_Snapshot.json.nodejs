@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const agentPool = new azure_native.containerservice.AgentPool("agentPool", {
+    agentPoolName: "agentpool1",
+    count: 3,
+    creationData: {
+        sourceResourceId: "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1",
+    },
+    enableFIPS: true,
+    orchestratorVersion: "",
+    osType: "Linux",
+    resourceGroupName: "rg1",
+    resourceName: "clustername1",
+    vmSize: "Standard_DS2_v2",
+});

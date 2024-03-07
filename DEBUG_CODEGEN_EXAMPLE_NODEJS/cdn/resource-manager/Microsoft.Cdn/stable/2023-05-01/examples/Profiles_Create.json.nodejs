@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const profile = new azure_native.cdn.Profile("profile", {
+    location: "global",
+    profileName: "profile1",
+    resourceGroupName: "RG",
+    sku: {
+        name: "Premium_AzureFrontDoor",
+    },
+});

@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var forwardingRule = new AzureNative.Network.ForwardingRule("forwardingRule", new()
+    {
+        DnsForwardingRulesetName = "sampleDnsForwardingRuleset",
+        DomainName = "contoso.com.",
+        ForwardingRuleName = "sampleForwardingRule",
+        ForwardingRuleState = "Enabled",
+        Metadata = 
+        {
+            { "additionalProp1", "value1" },
+        },
+        ResourceGroupName = "sampleResourceGroup",
+        TargetDnsServers = new[]
+        {
+            new AzureNative.Network.Inputs.TargetDnsServerArgs
+            {
+                IpAddress = "10.0.0.1",
+                Port = 53,
+            },
+            new AzureNative.Network.Inputs.TargetDnsServerArgs
+            {
+                IpAddress = "10.0.0.2",
+                Port = 53,
+            },
+        },
+    });
+
+});
+

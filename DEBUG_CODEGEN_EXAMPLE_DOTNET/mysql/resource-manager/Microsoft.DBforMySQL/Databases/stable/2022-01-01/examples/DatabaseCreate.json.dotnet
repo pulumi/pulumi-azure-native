@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var database = new AzureNative.DBforMySQL.Database("database", new()
+    {
+        Charset = "utf8",
+        Collation = "utf8_general_ci",
+        DatabaseName = "db1",
+        ResourceGroupName = "TestGroup",
+        ServerName = "testserver",
+    });
+
+});
+

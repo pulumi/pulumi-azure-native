@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var channel = new AzureNative.BotService.Channel("channel", new()
+    {
+        ChannelName = "EmailChannel",
+        Location = "global",
+        Properties = new AzureNative.BotService.Inputs.EmailChannelArgs
+        {
+            ChannelName = "EmailChannel",
+            Properties = new AzureNative.BotService.Inputs.EmailChannelPropertiesArgs
+            {
+                EmailAddress = "a@b.com",
+                IsEnabled = true,
+                Password = "pwd",
+            },
+        },
+        ResourceGroupName = "OneResourceGroupName",
+        ResourceName = "samplebotname",
+    });
+
+});
+

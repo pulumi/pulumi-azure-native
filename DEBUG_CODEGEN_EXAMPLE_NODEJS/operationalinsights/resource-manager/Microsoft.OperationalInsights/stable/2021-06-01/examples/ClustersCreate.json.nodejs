@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.operationalinsights.Cluster("cluster", {
+    clusterName: "oiautorest6685",
+    location: "australiasoutheast",
+    resourceGroupName: "oiautorest6685",
+    sku: {
+        capacity: 1000,
+        name: "CapacityReservation",
+    },
+    tags: {
+        tag1: "val1",
+    },
+});

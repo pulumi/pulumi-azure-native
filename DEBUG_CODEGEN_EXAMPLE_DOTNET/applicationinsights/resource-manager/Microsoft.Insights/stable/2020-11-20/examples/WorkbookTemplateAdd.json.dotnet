@@ -1,0 +1,69 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workbookTemplate = new AzureNative.Insights.WorkbookTemplate("workbookTemplate", new()
+    {
+        Author = "Contoso",
+        Galleries = new[]
+        {
+            new AzureNative.Insights.Inputs.WorkbookTemplateGalleryArgs
+            {
+                Category = "Failures",
+                Name = "Simple Template",
+                Order = 100,
+                ResourceType = "microsoft.insights/components",
+                Type = "tsg",
+            },
+        },
+        Location = "west us",
+        Priority = 1,
+        ResourceGroupName = "my-resource-group",
+        ResourceName = "testtemplate2",
+        TemplateData = 
+        {
+            { "$schema", "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json" },
+            { "items", new[]
+            {
+                
+                {
+                    { "content", 
+                    {
+                        { "json", @"## New workbook
+---
+
+Welcome to your new workbook.  This area will display text formatted as markdown.
+
+
+We've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections." },
+                    } },
+                    { "name", "text - 2" },
+                    { "type", 1 },
+                },
+                
+                {
+                    { "content", 
+                    {
+                        { "exportToExcelOptions", "visible" },
+                        { "query", @"union withsource=TableName *
+| summarize Count=count() by TableName
+| render barchart" },
+                        { "queryType", 0 },
+                        { "resourceType", "microsoft.operationalinsights/workspaces" },
+                        { "size", 1 },
+                        { "version", "KqlItem/1.0" },
+                    } },
+                    { "name", "query - 2" },
+                    { "type", 3 },
+                },
+            } },
+            { "styleSettings", null },
+            { "version", "Notebook/1.0" },
+        },
+    });
+
+});
+

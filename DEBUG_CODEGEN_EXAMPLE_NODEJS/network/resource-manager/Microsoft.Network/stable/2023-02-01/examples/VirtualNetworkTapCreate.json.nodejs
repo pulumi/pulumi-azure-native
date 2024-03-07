@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualNetworkTap = new azure_native.network.VirtualNetworkTap("virtualNetworkTap", {
+    destinationNetworkInterfaceIPConfiguration: {
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/testNetworkInterface/ipConfigurations/ipconfig1",
+    },
+    location: "centraluseuap",
+    resourceGroupName: "rg1",
+    tapName: "test-vtap",
+});

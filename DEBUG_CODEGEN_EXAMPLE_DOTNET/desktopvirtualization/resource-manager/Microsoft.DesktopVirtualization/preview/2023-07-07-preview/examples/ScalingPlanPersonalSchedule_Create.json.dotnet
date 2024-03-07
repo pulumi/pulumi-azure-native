@@ -1,0 +1,65 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var scalingPlanPersonalSchedule = new AzureNative.DesktopVirtualization.ScalingPlanPersonalSchedule("scalingPlanPersonalSchedule", new()
+    {
+        DaysOfWeek = new[]
+        {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+        },
+        OffPeakActionOnDisconnect = "None",
+        OffPeakActionOnLogoff = "Deallocate",
+        OffPeakMinutesToWaitOnDisconnect = 10,
+        OffPeakMinutesToWaitOnLogoff = 10,
+        OffPeakStartTime = new AzureNative.DesktopVirtualization.Inputs.TimeArgs
+        {
+            Hour = 20,
+            Minute = 0,
+        },
+        OffPeakStartVMOnConnect = "Enable",
+        PeakActionOnDisconnect = "None",
+        PeakActionOnLogoff = "Deallocate",
+        PeakMinutesToWaitOnDisconnect = 10,
+        PeakMinutesToWaitOnLogoff = 10,
+        PeakStartTime = new AzureNative.DesktopVirtualization.Inputs.TimeArgs
+        {
+            Hour = 8,
+            Minute = 0,
+        },
+        PeakStartVMOnConnect = "Enable",
+        RampDownActionOnDisconnect = "None",
+        RampDownActionOnLogoff = "Deallocate",
+        RampDownMinutesToWaitOnDisconnect = 10,
+        RampDownMinutesToWaitOnLogoff = 10,
+        RampDownStartTime = new AzureNative.DesktopVirtualization.Inputs.TimeArgs
+        {
+            Hour = 18,
+            Minute = 0,
+        },
+        RampDownStartVMOnConnect = "Enable",
+        RampUpActionOnDisconnect = "None",
+        RampUpActionOnLogoff = "None",
+        RampUpAutoStartHosts = "All",
+        RampUpMinutesToWaitOnDisconnect = 10,
+        RampUpMinutesToWaitOnLogoff = 10,
+        RampUpStartTime = new AzureNative.DesktopVirtualization.Inputs.TimeArgs
+        {
+            Hour = 6,
+            Minute = 0,
+        },
+        RampUpStartVMOnConnect = "Enable",
+        ResourceGroupName = "resourceGroup1",
+        ScalingPlanName = "scalingPlan1",
+        ScalingPlanScheduleName = "scalingPlanScheduleWeekdays1",
+    });
+
+});
+

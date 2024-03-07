@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var volume = new AzureNative.NetworkCloud.Volume("volume", new()
+    {
+        ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+            Type = "CustomLocation",
+        },
+        Location = "location",
+        ResourceGroupName = "resourceGroupName",
+        SizeMiB = 10000,
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+        VolumeName = "volumeName",
+    });
+
+});
+

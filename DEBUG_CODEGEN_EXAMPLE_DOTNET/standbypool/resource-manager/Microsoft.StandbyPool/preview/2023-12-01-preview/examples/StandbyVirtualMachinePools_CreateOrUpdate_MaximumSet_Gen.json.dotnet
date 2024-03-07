@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var standbyVirtualMachinePool = new AzureNative.StandbyPool.StandbyVirtualMachinePool("standbyVirtualMachinePool", new()
+    {
+        AttachedVirtualMachineScaleSetId = "/subscriptions/8CC31D61-82D7-4B2B-B9DC-6B924DE7D229/resourceGroups/vmssRg/providers/Microsoft.Compute/virtualMachineScaleSets/myVmss",
+        ElasticityProfile = new AzureNative.StandbyPool.Inputs.StandbyVirtualMachinePoolElasticityProfileArgs
+        {
+            MaxReadyCapacity = 304,
+        },
+        Location = "West US",
+        ResourceGroupName = "rgstandbypool",
+        StandbyVirtualMachinePoolName = "pool",
+        Tags = null,
+        VirtualMachineState = "Running",
+    });
+
+});
+

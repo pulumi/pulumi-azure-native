@@ -1,0 +1,58 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachineExtension = new AzureNative.Compute.VirtualMachineExtension("virtualMachineExtension", new()
+    {
+        AutoUpgradeMinorVersion = true,
+        EnableAutomaticUpgrade = true,
+        ForceUpdateTag = "a",
+        InstanceView = new AzureNative.Compute.Inputs.VirtualMachineExtensionInstanceViewArgs
+        {
+            Name = "aaaaaaaaaaaaaaaaa",
+            Statuses = new[]
+            {
+                new AzureNative.Compute.Inputs.InstanceViewStatusArgs
+                {
+                    Code = "aaaaaaaaaaaaaaaaaaaaaaa",
+                    DisplayStatus = "aaaaaa",
+                    Level = AzureNative.Compute.StatusLevelTypes.Info,
+                    Message = "a",
+                    Time = "2021-11-30T12:58:26.522Z",
+                },
+            },
+            Substatuses = new[]
+            {
+                new AzureNative.Compute.Inputs.InstanceViewStatusArgs
+                {
+                    Code = "aaaaaaaaaaaaaaaaaaaaaaa",
+                    DisplayStatus = "aaaaaa",
+                    Level = AzureNative.Compute.StatusLevelTypes.Info,
+                    Message = "a",
+                    Time = "2021-11-30T12:58:26.522Z",
+                },
+            },
+            Type = "aaaaaaaaa",
+            TypeHandlerVersion = "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+        },
+        Location = "westus",
+        ProtectedSettings = null,
+        Publisher = "extPublisher",
+        ResourceGroupName = "rgcompute",
+        Settings = null,
+        SuppressFailures = true,
+        Tags = 
+        {
+            { "key9183", "aa" },
+        },
+        Type = "extType",
+        TypeHandlerVersion = "1.2",
+        VmExtensionName = "aaaaaaaaaaaaa",
+        VmName = "aaaaaaaaaaaaaaaaaaaaaaaa",
+    });
+
+});
+

@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const api = new azure_native.apimanagement.Api("api", {
+    apiId: "petstore",
+    format: "wadl-link-json",
+    path: "collector",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    value: "https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl",
+});

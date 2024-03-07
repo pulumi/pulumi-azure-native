@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var blueprint = new AzureNative.Blueprint.Blueprint("blueprint", new()
+    {
+        BlueprintName = "simpleBlueprint",
+        Description = "blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+        Parameters = 
+        {
+            { "costCenter", new AzureNative.Blueprint.Inputs.ParameterDefinitionArgs
+            {
+                DisplayName = "force cost center tag for all resources under given subscription.",
+                Type = "string",
+            } },
+            { "owners", new AzureNative.Blueprint.Inputs.ParameterDefinitionArgs
+            {
+                DisplayName = "assign owners to subscription along with blueprint assignment.",
+                Type = "array",
+            } },
+            { "storageAccountType", new AzureNative.Blueprint.Inputs.ParameterDefinitionArgs
+            {
+                DisplayName = "storage account type.",
+                Type = "string",
+            } },
+        },
+        ResourceGroups = 
+        {
+            { "storageRG", new AzureNative.Blueprint.Inputs.ResourceGroupDefinitionArgs
+            {
+                Description = "Contains storageAccounts that collect all shoebox logs.",
+                DisplayName = "storage resource group",
+            } },
+        },
+        ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+        TargetScope = "subscription",
+    });
+
+});
+

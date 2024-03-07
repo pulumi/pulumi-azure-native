@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlDiscoverySiteDataSourceController = new AzureNative.OffAzure.SqlDiscoverySiteDataSourceController("sqlDiscoverySiteDataSourceController", new()
+    {
+        DiscoverySiteDataSourceName = "Sw-cch",
+        ResourceGroupName = "rgmigrate",
+        SiteName = "-2n-j-5O",
+        SqlSiteName = "32F0K64",
+    });
+
+});
+

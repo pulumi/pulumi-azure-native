@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const relationship = new azure_native.customerinsights.Relationship("relationship", {
+    cardinality: azure_native.customerinsights.CardinalityTypes.OneToOne,
+    description: {
+        "en-us": "Relationship Description",
+    },
+    displayName: {
+        "en-us": "Relationship DisplayName",
+    },
+    fields: [],
+    hubName: "sdkTestHub",
+    profileType: "testProfile2326994",
+    relatedProfileType: "testProfile2326994",
+    relationshipName: "SomeRelationship",
+    resourceGroupName: "TestHubRG",
+});

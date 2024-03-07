@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadNetworkDhcp = new AzureNative.AVS.WorkloadNetworkDhcp("workloadNetworkDhcp", new()
+    {
+        DhcpId = "dhcp1",
+        PrivateCloudName = "cloud1",
+        Properties = new AzureNative.AVS.Inputs.WorkloadNetworkDhcpServerArgs
+        {
+            DhcpType = "SERVER",
+            DisplayName = "dhcpConfigurations1",
+            LeaseTime = 86400,
+            Revision = 1,
+            ServerAddress = "40.1.5.1/24",
+        },
+        ResourceGroupName = "group1",
+    });
+
+});
+

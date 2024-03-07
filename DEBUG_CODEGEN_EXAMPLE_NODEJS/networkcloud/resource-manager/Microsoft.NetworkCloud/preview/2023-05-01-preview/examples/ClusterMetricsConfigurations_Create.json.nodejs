@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const metricsConfiguration = new azure_native.networkcloud.MetricsConfiguration("metricsConfiguration", {
+    clusterName: "clusterName",
+    collectionInterval: 15,
+    enabledMetrics: [
+        "metric1",
+        "metric2",
+    ],
+    extendedLocation: {
+        name: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+        type: "CustomLocation",
+    },
+    location: "location",
+    metricsConfigurationName: "default",
+    resourceGroupName: "resourceGroupName",
+    tags: {
+        key1: "myvalue1",
+        key2: "myvalue2",
+    },
+});

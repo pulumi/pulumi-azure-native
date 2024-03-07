@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.AadIam.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        PolicyName = "example-policy-5849",
+        PrivateEndpoint = new AzureNative.AadIam.Inputs.PrivateEndpointArgs
+        {
+            Id = "subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/microsoft.aadiam/privateLinkForAzureAD/ddb1/privateLinkConnections/{privateEndpointConnection name}",
+        },
+        PrivateEndpointConnectionName = "{privateEndpointConnection name}",
+        PrivateLinkServiceConnectionState = new AzureNative.AadIam.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "None",
+            Description = "You may pass",
+            Status = "Approved",
+        },
+        ResourceGroupName = "resourcegroup",
+    });
+
+});
+

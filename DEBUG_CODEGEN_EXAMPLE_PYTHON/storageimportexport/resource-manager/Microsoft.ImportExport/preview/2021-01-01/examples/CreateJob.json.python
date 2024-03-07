@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 job = azure_native.importexport.Job("job",
     job_name="myJob",
     location="West US",
-    properties=azure_native.importexport.JobDetailsArgs(
+    properties=azure_native.importexport.JobDetailsResponseArgs(
         backup_drive_manifest=True,
         diagnostics_path="waimportexport",
         drive_list=[azure_native.importexport.DriveStatusArgs(

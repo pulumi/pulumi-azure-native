@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dedicatedHsm = new azure_native.hardwaresecuritymodules.DedicatedHsm("dedicatedHsm", {
+    location: "westus",
+    name: "hsm1",
+    networkProfile: {
+        networkInterfaces: [{
+            privateIpAddress: "1.0.0.1",
+        }],
+        subnet: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+        },
+    },
+    resourceGroupName: "hsm-group",
+    sku: {
+        name: "payShield10K_LMK1_CPS60",
+    },
+    stampId: "stamp01",
+    tags: {
+        Dept: "hsm",
+        Environment: "dogfood",
+    },
+});

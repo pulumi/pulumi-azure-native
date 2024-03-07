@@ -1,0 +1,66 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dashboard = new AzureNative.Portal.Dashboard("dashboard", new()
+    {
+        DashboardName = "testDashboard",
+        Lenses = new[]
+        {
+            new AzureNative.Portal.Inputs.DashboardLensArgs
+            {
+                Order = 1,
+                Parts = new[]
+                {
+                    new AzureNative.Portal.Inputs.DashboardPartsArgs
+                    {
+                        Position = new AzureNative.Portal.Inputs.DashboardPartsPositionArgs
+                        {
+                            ColSpan = 3,
+                            RowSpan = 4,
+                            X = 1,
+                            Y = 2,
+                        },
+                    },
+                    new AzureNative.Portal.Inputs.DashboardPartsArgs
+                    {
+                        Position = new AzureNative.Portal.Inputs.DashboardPartsPositionArgs
+                        {
+                            ColSpan = 6,
+                            RowSpan = 6,
+                            X = 5,
+                            Y = 5,
+                        },
+                    },
+                },
+            },
+            new AzureNative.Portal.Inputs.DashboardLensArgs
+            {
+                Order = 2,
+                Parts = new[] {},
+            },
+        },
+        Location = "eastus",
+        Metadata = 
+        {
+            { "metadata", 
+            {
+                { "ColSpan", 2 },
+                { "RowSpan", 1 },
+                { "X", 4 },
+                { "Y", 3 },
+            } },
+        },
+        ResourceGroupName = "testRG",
+        Tags = 
+        {
+            { "aKey", "aValue" },
+            { "anotherKey", "anotherValue" },
+        },
+    });
+
+});
+

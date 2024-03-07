@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var certificate = new AzureNative.AppPlatform.Certificate("certificate", new()
+    {
+        CertificateName = "mycertificate",
+        Properties = new AzureNative.AppPlatform.Inputs.KeyVaultCertificatePropertiesArgs
+        {
+            CertVersion = "08a219d06d874795a96db47e06fbb01e",
+            KeyVaultCertName = "mycert",
+            Type = "KeyVaultCertificate",
+            VaultUri = "https://myvault.vault.azure.net",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

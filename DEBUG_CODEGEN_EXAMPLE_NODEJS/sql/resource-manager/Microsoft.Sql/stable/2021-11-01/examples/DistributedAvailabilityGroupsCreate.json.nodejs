@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const distributedAvailabilityGroup = new azure_native.sql.DistributedAvailabilityGroup("distributedAvailabilityGroup", {
+    distributedAvailabilityGroupName: "dag",
+    managedInstanceName: "testcl",
+    primaryAvailabilityGroupName: "BoxLocalAg1",
+    resourceGroupName: "testrg",
+    secondaryAvailabilityGroupName: "testcl",
+    sourceEndpoint: "TCP://SERVER:7022",
+    targetDatabase: "testdb",
+});

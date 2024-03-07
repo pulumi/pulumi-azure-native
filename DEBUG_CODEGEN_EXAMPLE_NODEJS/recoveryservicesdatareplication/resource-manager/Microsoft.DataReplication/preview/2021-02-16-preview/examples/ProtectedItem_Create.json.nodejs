@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const protectedItem = new azure_native.datareplication.ProtectedItem("protectedItem", {
+    properties: {
+        customProperties: {
+            instanceType: "ProtectedItemModelCustomProperties",
+        },
+        policyName: "tjoeiynplt",
+        replicationExtensionName: "jwxdo",
+    },
+    protectedItemName: "d",
+    resourceGroupName: "rgrecoveryservicesdatareplication",
+    vaultName: "4",
+});

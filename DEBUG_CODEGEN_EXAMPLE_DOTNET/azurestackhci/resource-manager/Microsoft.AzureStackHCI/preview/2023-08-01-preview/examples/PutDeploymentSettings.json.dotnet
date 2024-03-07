@@ -1,0 +1,156 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deploymentSetting = new AzureNative.AzureStackHCI.DeploymentSetting("deploymentSetting", new()
+    {
+        ArcNodeResourceIds = new[]
+        {
+            "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+            "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-2",
+        },
+        ClusterName = "myCluster",
+        DeploymentConfiguration = new AzureNative.AzureStackHCI.Inputs.DeploymentConfigurationArgs
+        {
+            ScaleUnits = new[]
+            {
+                new AzureNative.AzureStackHCI.Inputs.ScaleUnitsArgs
+                {
+                    DeploymentData = new AzureNative.AzureStackHCI.Inputs.DeploymentDataArgs
+                    {
+                        AdouPath = "OU=ms169,DC=ASZ1PLab8,DC=nttest,DC=microsoft,DC=com",
+                        Cluster = new AzureNative.AzureStackHCI.Inputs.ClusterArgs
+                        {
+                            AzureServiceEndpoint = "core.windows.net",
+                            CloudAccountName = "myasestoragacct",
+                            Name = "testHCICluster",
+                            WitnessPath = "Cloud",
+                            WitnessType = "Cloud",
+                        },
+                        DomainFqdn = "ASZ1PLab8.nttest.microsoft.com",
+                        HostNetwork = new AzureNative.AzureStackHCI.Inputs.HostNetworkArgs
+                        {
+                            Intents = new[]
+                            {
+                                new AzureNative.AzureStackHCI.Inputs.IntentsArgs
+                                {
+                                    Adapter = new[]
+                                    {
+                                        "Port2",
+                                    },
+                                    AdapterPropertyOverrides = new AzureNative.AzureStackHCI.Inputs.AdapterPropertyOverridesArgs
+                                    {
+                                        JumboPacket = "1514",
+                                        NetworkDirect = "Enabled",
+                                        NetworkDirectTechnology = "iWARP",
+                                    },
+                                    Name = "Compute_Management",
+                                    OverrideAdapterProperty = false,
+                                    OverrideQosPolicy = false,
+                                    OverrideVirtualSwitchConfiguration = false,
+                                    QosPolicyOverrides = new AzureNative.AzureStackHCI.Inputs.QosPolicyOverridesArgs
+                                    {
+                                        BandwidthPercentageSMB = "50",
+                                        PriorityValue8021ActionCluster = "7",
+                                        PriorityValue8021ActionSMB = "3",
+                                    },
+                                    TrafficType = new[]
+                                    {
+                                        "Compute",
+                                        "Management",
+                                    },
+                                    VirtualSwitchConfigurationOverrides = new AzureNative.AzureStackHCI.Inputs.VirtualSwitchConfigurationOverridesArgs
+                                    {
+                                        EnableIov = "True",
+                                        LoadBalancingAlgorithm = "HyperVPort",
+                                    },
+                                },
+                            },
+                            StorageConnectivitySwitchless = true,
+                            StorageNetworks = new[]
+                            {
+                                new AzureNative.AzureStackHCI.Inputs.StorageNetworksArgs
+                                {
+                                    Name = "Storage1Network",
+                                    NetworkAdapterName = "Port3",
+                                    VlanId = "5",
+                                },
+                            },
+                        },
+                        InfrastructureNetwork = new[]
+                        {
+                            new AzureNative.AzureStackHCI.Inputs.InfrastructureNetworkArgs
+                            {
+                                DnsServers = new[]
+                                {
+                                    "10.57.50.90",
+                                },
+                                Gateway = "255.255.248.0",
+                                IpPools = new[]
+                                {
+                                    new AzureNative.AzureStackHCI.Inputs.IpPoolsArgs
+                                    {
+                                        EndingAddress = "10.57.48.66",
+                                        StartingAddress = "10.57.48.60",
+                                    },
+                                },
+                                SubnetMask = "255.255.248.0",
+                            },
+                        },
+                        NamingPrefix = "ms169",
+                        Observability = new AzureNative.AzureStackHCI.Inputs.ObservabilityArgs
+                        {
+                            EpisodicDataUpload = true,
+                            EuLocation = false,
+                            StreamingDataClient = true,
+                        },
+                        OptionalServices = new AzureNative.AzureStackHCI.Inputs.OptionalServicesArgs
+                        {
+                            CustomLocation = "customLocationName",
+                        },
+                        PhysicalNodes = new[]
+                        {
+                            new AzureNative.AzureStackHCI.Inputs.PhysicalNodesArgs
+                            {
+                                Ipv4Address = "10.57.51.224",
+                                Name = "ms169host",
+                            },
+                            new AzureNative.AzureStackHCI.Inputs.PhysicalNodesArgs
+                            {
+                                Ipv4Address = "10.57.53.236",
+                                Name = "ms154host",
+                            },
+                        },
+                        SecretsLocation = "/subscriptions/db4e2fdb-6d80-4e6e-b7cd-xxxxxxx/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/abcd123",
+                        SecuritySettings = new AzureNative.AzureStackHCI.Inputs.SecuritySettingsArgs
+                        {
+                            BitlockerBootVolume = true,
+                            BitlockerDataVolumes = true,
+                            CredentialGuardEnforced = false,
+                            DriftControlEnforced = true,
+                            DrtmProtection = true,
+                            HvciProtection = true,
+                            SideChannelMitigationEnforced = true,
+                            SmbClusterEncryption = false,
+                            SmbSigningEnforced = true,
+                            WdacEnforced = true,
+                        },
+                        Storage = new AzureNative.AzureStackHCI.Inputs.StorageArgs
+                        {
+                            ConfigurationMode = "Express",
+                        },
+                    },
+                },
+            },
+            Version = "string",
+        },
+        DeploymentMode = "Deploy",
+        DeploymentSettingsName = "default",
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var flowLog = new AzureNative.Network.FlowLog("flowLog", new()
+    {
+        Enabled = true,
+        FlowLogName = "fl",
+        Format = new AzureNative.Network.Inputs.FlowLogFormatParametersArgs
+        {
+            Type = "JSON",
+            Version = 1,
+        },
+        Location = "centraluseuap",
+        NetworkWatcherName = "nw1",
+        ResourceGroupName = "rg1",
+        StorageId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
+        TargetResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg",
+    });
+
+});
+

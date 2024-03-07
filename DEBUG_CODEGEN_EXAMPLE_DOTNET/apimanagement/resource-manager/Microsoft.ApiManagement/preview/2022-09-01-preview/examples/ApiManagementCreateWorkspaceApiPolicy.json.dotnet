@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceApiPolicy = new AzureNative.ApiManagement.WorkspaceApiPolicy("workspaceApiPolicy", new()
+    {
+        ApiId = "5600b57e7e8880006a040001",
+        Format = "xml",
+        PolicyId = "policy",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Value = "<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+        WorkspaceId = "wks1",
+    });
+
+});
+

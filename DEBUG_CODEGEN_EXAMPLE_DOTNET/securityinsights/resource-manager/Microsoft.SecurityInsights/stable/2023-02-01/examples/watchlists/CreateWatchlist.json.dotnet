@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var watchlist = new AzureNative.SecurityInsights.Watchlist("watchlist", new()
+    {
+        Description = "Watchlist from CSV content",
+        DisplayName = "High Value Assets Watchlist",
+        ItemsSearchKey = "header1",
+        Provider = "Microsoft",
+        ResourceGroupName = "myRg",
+        Source = "Local file",
+        WatchlistAlias = "highValueAsset",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

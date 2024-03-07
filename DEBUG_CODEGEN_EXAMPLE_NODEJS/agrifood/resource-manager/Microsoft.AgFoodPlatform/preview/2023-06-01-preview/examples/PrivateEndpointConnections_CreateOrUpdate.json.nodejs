@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.agfoodplatform.PrivateEndpointConnection("privateEndpointConnection", {
+    dataManagerForAgricultureResourceName: "examples-farmbeatsResourceName",
+    privateEndpointConnectionName: "privateEndpointConnectionName",
+    privateLinkServiceConnectionState: {
+        description: "Approved by johndoe@contoso.com",
+        status: "Approved",
+    },
+    resourceGroupName: "examples-rg",
+});

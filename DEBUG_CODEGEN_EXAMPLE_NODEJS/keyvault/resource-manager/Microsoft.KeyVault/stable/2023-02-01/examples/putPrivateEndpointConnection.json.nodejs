@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.keyvault.PrivateEndpointConnection("privateEndpointConnection", {
+    privateEndpointConnectionName: "sample-pec",
+    privateLinkServiceConnectionState: {
+        description: "My name is Joe and I'm approving this.",
+        status: "Approved",
+    },
+    resourceGroupName: "sample-group",
+    vaultName: "sample-vault",
+});

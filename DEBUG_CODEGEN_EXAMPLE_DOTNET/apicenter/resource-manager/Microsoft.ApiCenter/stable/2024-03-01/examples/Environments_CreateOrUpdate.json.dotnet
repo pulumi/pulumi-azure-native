@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var environment = new AzureNative.ApiCenter.Environment("environment", new()
+    {
+        Description = "The primary Azure API Management service for the European division of Contoso.",
+        EnvironmentName = "public",
+        Kind = "production",
+        Onboarding = new AzureNative.ApiCenter.Inputs.OnboardingArgs
+        {
+            DeveloperPortalUri = new[]
+            {
+                "https://developer.contoso.com",
+            },
+            Instructions = "Sign in or sign up in the specified developer portal to request API access. You must complete the internal privacy training for your account to be approved.",
+        },
+        ResourceGroupName = "contoso-resources",
+        Server = new AzureNative.ApiCenter.Inputs.EnvironmentServerArgs
+        {
+            ManagementPortalUri = new[]
+            {
+                "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resources/providers/Microsoft.ApiManagement/service/contoso",
+            },
+            Type = "Azure API Management",
+        },
+        ServiceName = "contoso",
+        Title = "Contoso Europe Azure API Management",
+        WorkspaceName = "default",
+    });
+
+});
+

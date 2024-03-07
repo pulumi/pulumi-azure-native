@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const securitySetting = new azure_native.azurestackhci.SecuritySetting("securitySetting", {
+    clusterName: "myCluster",
+    resourceGroupName: "test-rg",
+    securedCoreComplianceAssignment: "Audit",
+    securitySettingsName: "default",
+});

@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.Search.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+        Properties = new AzureNative.Search.Inputs.PrivateEndpointConnectionPropertiesArgs
+        {
+            PrivateLinkServiceConnectionState = new AzureNative.Search.Inputs.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs
+            {
+                Description = "Rejected for some reason",
+                Status = AzureNative.Search.PrivateLinkServiceConnectionStatus.Rejected,
+            },
+        },
+        ResourceGroupName = "rg1",
+        SearchServiceName = "mysearchservice",
+    });
+
+});
+

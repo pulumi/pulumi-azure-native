@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webPubSubReplica = new AzureNative.WebPubSub.WebPubSubReplica("webPubSubReplica", new()
+    {
+        Location = "eastus",
+        ReplicaName = "myWebPubSubService-eastus",
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "myWebPubSubService",
+        Sku = new AzureNative.WebPubSub.Inputs.ResourceSkuArgs
+        {
+            Capacity = 1,
+            Name = "Premium_P1",
+            Tier = "Premium",
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

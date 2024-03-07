@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var consumerGroup = new AzureNative.EventHub.ConsumerGroup("consumerGroup", new()
+    {
+        ConsumerGroupName = "sdk-ConsumerGroup-5563",
+        EventHubName = "sdk-EventHub-6681",
+        NamespaceName = "sdk-Namespace-2661",
+        ResourceGroupName = "ArunMonocle",
+        UserMetadata = "New consumergroup",
+    });
+
+});
+

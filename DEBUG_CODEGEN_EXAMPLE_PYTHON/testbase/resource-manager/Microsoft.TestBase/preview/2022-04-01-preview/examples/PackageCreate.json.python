@@ -17,8 +17,8 @@ package = azure_native.testbase.Package("package",
         ],
     )],
     test_base_account_name="contoso-testBaseAccount1",
-    tests=[azure_native.testbase.TestArgs(
-        commands=[
+    tests=[{
+        "commands": [
             azure_native.testbase.CommandArgs(
                 action="Install",
                 always_run=True,
@@ -68,7 +68,7 @@ package = azure_native.testbase.Package("package",
                 run_elevated=True,
             ),
         ],
-        is_active=True,
-        test_type="OutOfBoxTest",
-    )],
+        "isActive": True,
+        "testType": "OutOfBoxTest",
+    }],
     version="1.0.0")

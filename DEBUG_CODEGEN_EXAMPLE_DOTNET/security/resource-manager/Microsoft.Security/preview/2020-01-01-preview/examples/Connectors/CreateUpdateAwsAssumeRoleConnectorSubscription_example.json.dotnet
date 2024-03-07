@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connector = new AzureNative.Security.Connector("connector", new()
+    {
+        AuthenticationDetails = new AzureNative.Security.Inputs.AwAssumeRoleAuthenticationDetailsPropertiesArgs
+        {
+            AuthenticationType = "awsAssumeRole",
+            AwsAssumeRoleArn = "arn:aws:iam::81231569658:role/AscConnector",
+            AwsExternalId = "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+        },
+        ConnectorName = "aws_dev2",
+        HybridComputeSettings = new AzureNative.Security.Inputs.HybridComputeSettingsPropertiesArgs
+        {
+            AutoProvision = "On",
+            ProxyServer = new AzureNative.Security.Inputs.ProxyServerPropertiesArgs
+            {
+                Ip = "167.220.197.140",
+                Port = "34",
+            },
+            Region = "West US 2",
+            ResourceGroupName = "AwsConnectorRG",
+            ServicePrincipal = new AzureNative.Security.Inputs.ServicePrincipalPropertiesArgs
+            {
+                ApplicationId = "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+                Secret = "<secret>",
+            },
+        },
+    });
+
+});
+

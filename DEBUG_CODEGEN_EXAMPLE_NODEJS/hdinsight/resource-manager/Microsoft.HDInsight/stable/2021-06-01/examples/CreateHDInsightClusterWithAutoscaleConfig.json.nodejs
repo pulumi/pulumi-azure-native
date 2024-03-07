@@ -1,0 +1,106 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.hdinsight.Cluster("cluster", {
+    clusterName: "cluster1",
+    properties: {
+        clusterDefinition: {
+            componentVersion: {
+                Hadoop: "2.7",
+            },
+            configurations: {
+                gateway: {
+                    "restAuthCredential.isEnabled": true,
+                    "restAuthCredential.password": "**********",
+                    "restAuthCredential.username": "admin",
+                },
+            },
+            kind: "hadoop",
+        },
+        clusterVersion: "3.6",
+        computeProfile: {
+            roles: [{
+                autoscaleConfiguration: {
+                    recurrence: {
+                        schedule: [
+                            {
+                                days: [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                ],
+                                timeAndCapacity: {
+                                    maxInstanceCount: 3,
+                                    minInstanceCount: 3,
+                                    time: "09:00",
+                                },
+                            },
+                            {
+                                days: [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                ],
+                                timeAndCapacity: {
+                                    maxInstanceCount: 6,
+                                    minInstanceCount: 6,
+                                    time: "18:00",
+                                },
+                            },
+                            {
+                                days: [
+                                    "Saturday",
+                                    "Sunday",
+                                ],
+                                timeAndCapacity: {
+                                    maxInstanceCount: 2,
+                                    minInstanceCount: 2,
+                                    time: "09:00",
+                                },
+                            },
+                            {
+                                days: [
+                                    "Saturday",
+                                    "Sunday",
+                                ],
+                                timeAndCapacity: {
+                                    maxInstanceCount: 4,
+                                    minInstanceCount: 4,
+                                    time: "18:00",
+                                },
+                            },
+                        ],
+                        timeZone: "China Standard Time",
+                    },
+                },
+                hardwareProfile: {
+                    vmSize: "Standard_D4_V2",
+                },
+                name: "workernode",
+                osProfile: {
+                    linuxOperatingSystemProfile: {
+                        password: "**********",
+                        username: "sshuser",
+                    },
+                },
+                scriptActions: [],
+                targetInstanceCount: 4,
+            }],
+        },
+        osType: "Linux",
+        storageProfile: {
+            storageaccounts: [{
+                container: "hdinsight-autoscale-tes-2019-06-18t05-49-16-591z",
+                isDefault: true,
+                key: "storagekey",
+                name: "mystorage.blob.core.windows.net",
+            }],
+        },
+        tier: "Standard",
+    },
+    resourceGroupName: "rg1",
+});

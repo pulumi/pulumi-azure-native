@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.Sql.Job("job", new()
+    {
+        Description = "my favourite job",
+        JobAgentName = "agent1",
+        JobName = "job1",
+        ResourceGroupName = "group1",
+        Schedule = new AzureNative.Sql.Inputs.JobScheduleArgs
+        {
+            Enabled = true,
+            EndTime = "2015-09-24T23:59:59Z",
+            Interval = "PT5M",
+            StartTime = "2015-09-24T18:30:01Z",
+            Type = AzureNative.Sql.JobScheduleType.Recurring,
+        },
+        ServerName = "server1",
+    });
+
+});
+

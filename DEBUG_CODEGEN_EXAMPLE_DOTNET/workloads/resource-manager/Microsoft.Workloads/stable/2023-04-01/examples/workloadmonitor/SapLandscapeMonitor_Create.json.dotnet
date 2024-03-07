@@ -1,0 +1,52 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sapLandscapeMonitor = new AzureNative.Workloads.SapLandscapeMonitor("sapLandscapeMonitor", new()
+    {
+        Grouping = new AzureNative.Workloads.Inputs.SapLandscapeMonitorPropertiesGroupingArgs
+        {
+            Landscape = new[]
+            {
+                new AzureNative.Workloads.Inputs.SapLandscapeMonitorSidMappingArgs
+                {
+                    Name = "Prod",
+                    TopSid = new[]
+                    {
+                        "SID1",
+                        "SID2",
+                    },
+                },
+            },
+            SapApplication = new[]
+            {
+                new AzureNative.Workloads.Inputs.SapLandscapeMonitorSidMappingArgs
+                {
+                    Name = "ERP1",
+                    TopSid = new[]
+                    {
+                        "SID1",
+                        "SID2",
+                    },
+                },
+            },
+        },
+        MonitorName = "mySapMonitor",
+        ResourceGroupName = "myResourceGroup",
+        TopMetricsThresholds = new[]
+        {
+            new AzureNative.Workloads.Inputs.SapLandscapeMonitorMetricThresholdsArgs
+            {
+                Green = 90,
+                Name = "Instance Availability",
+                Red = 50,
+                Yellow = 75,
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var graphQuery = new AzureNative.ResourceGraph.GraphQuery("graphQuery", new()
+    {
+        Description = "Docker VMs in PROD",
+        Query = "where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+        ResourceGroupName = "my-resource-group",
+        ResourceName = "MyDockerVMs",
+        Tags = null,
+    });
+
+});
+

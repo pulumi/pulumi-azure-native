@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var volume = new AzureNative.ServiceFabricMesh.Volume("volume", new()
+    {
+        AzureFileParameters = new AzureNative.ServiceFabricMesh.Inputs.VolumeProviderParametersAzureFileArgs
+        {
+            AccountKey = "provide-account-key-here",
+            AccountName = "sbzdemoaccount",
+            ShareName = "sharel",
+        },
+        Description = "Service Fabric Mesh sample volume.",
+        Location = "EastUS",
+        Provider = "SFAzureFile",
+        ResourceGroupName = "sbz_demo",
+        Tags = null,
+        VolumeResourceName = "sampleVolume",
+    });
+
+});
+

@@ -1,0 +1,62 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var application = new AzureNative.HDInsight.Application("application", new()
+    {
+        ApplicationName = "hue",
+        ClusterName = "cluster1",
+        Properties = new AzureNative.HDInsight.Inputs.ApplicationPropertiesArgs
+        {
+            ApplicationType = "CustomApplication",
+            ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+            {
+                Roles = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "Standard_D12_v2",
+                        },
+                        Name = "edgenode",
+                        TargetInstanceCount = 1,
+                    },
+                },
+            },
+            Errors = new() { },
+            HttpsEndpoints = new[]
+            {
+                new AzureNative.HDInsight.Inputs.ApplicationGetHttpsEndpointArgs
+                {
+                    AccessModes = new[]
+                    {
+                        "WebPage",
+                    },
+                    DestinationPort = 20000,
+                    SubDomainSuffix = "dss",
+                },
+            },
+            InstallScriptActions = new[]
+            {
+                new AzureNative.HDInsight.Inputs.RuntimeScriptActionArgs
+                {
+                    Name = "app-install-app1",
+                    Parameters = "-version latest -port 20000",
+                    Roles = new[]
+                    {
+                        "edgenode",
+                    },
+                    Uri = "https://.../install.sh",
+                },
+            },
+            UninstallScriptActions = new() { },
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var view = new AzureNative.CustomerInsights.View("view", new()
+    {
+        Definition = "{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
+        DisplayName = 
+        {
+            { "en", "some name" },
+        },
+        HubName = "sdkTestHub",
+        ResourceGroupName = "TestHubRG",
+        UserId = "testUser",
+        ViewName = "testView",
+    });
+
+});
+

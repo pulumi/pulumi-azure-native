@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 build_service_build = azure_native.appplatform.BuildServiceBuild("buildServiceBuild",
     build_name="mybuild",
     build_service_name="default",
-    properties=azure_native.appplatform.BuildPropertiesArgs(
+    properties=azure_native.appplatform.BuildPropertiesResponseArgs(
         agent_pool="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default",
         apms=[azure_native.appplatform.ApmReferenceArgs(
             resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",

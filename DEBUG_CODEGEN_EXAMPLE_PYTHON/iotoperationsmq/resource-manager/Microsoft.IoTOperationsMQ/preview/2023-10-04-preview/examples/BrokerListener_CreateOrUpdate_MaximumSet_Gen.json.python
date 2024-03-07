@@ -19,44 +19,44 @@ broker_listener = azure_native.iotoperationsmq.BrokerListener("brokerListener",
     service_name="euxa",
     service_type="clusterIp",
     tags={},
-    tls=azure_native.iotoperationsmq.TlsCertMethodArgs(
-        automatic=azure_native.iotoperationsmq.AutomaticCertMethodArgs(
-            duration="rv",
-            issuer_ref=azure_native.iotoperationsmq.CertManagerIssuerRefArgs(
+    tls=azure_native.iotoperationsmq.TlsCertMethodResponseArgs(
+        automatic={
+            "duration": "rv",
+            "issuerRef": azure_native.iotoperationsmq.CertManagerIssuerRefArgs(
                 group="wxydv",
                 kind="birgjwuxfjcvyqe",
                 name="krmdlovyynymtvgffaveker",
             ),
-            private_key=azure_native.iotoperationsmq.CertManagerPrivateKeyArgs(
+            "privateKey": azure_native.iotoperationsmq.CertManagerPrivateKeyArgs(
                 algorithm="wwewfsddymjefuhxzqybwvay",
                 rotation_policy="jxmpyvfneckopjiakjtous",
                 size=63427,
             ),
-            renew_before="dexxoqqkgyofhkbk",
-            san=azure_native.iotoperationsmq.SanForCertArgs(
+            "renewBefore": "dexxoqqkgyofhkbk",
+            "san": azure_native.iotoperationsmq.SanForCertArgs(
                 dns=["nknzptgqgjvbkgzv"],
                 ip=["jpdkemham"],
             ),
-            secret_name="hquvygbuueerkspqqktviya",
-            secret_namespace="aevwndhcnfxitdjykp",
-        ),
-        key_vault=azure_native.iotoperationsmq.KeyVaultCertificatePropertiesArgs(
-            vault=azure_native.iotoperationsmq.KeyVaultConnectionPropertiesArgs(
-                credentials=azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
+            "secretName": "hquvygbuueerkspqqktviya",
+            "secretNamespace": "aevwndhcnfxitdjykp",
+        },
+        key_vault={
+            "vault": {
+                "credentials": azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
                     service_principal_local_secret_name="wuimjwpbhoglbsxxa",
                 ),
-                directory_id="eyjniptiykzcgbzok",
-                name="lxmwfan",
-            ),
-            vault_ca_chain_secret=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                "directoryId": "eyjniptiykzcgbzok",
+                "name": "lxmwfan",
+            },
+            "vaultCaChainSecret": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                 name="bmectskddmpjxnsogwooexj",
                 version="unjfbf",
             ),
-            vault_cert=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+            "vaultCert": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                 name="bmectskddmpjxnsogwooexj",
                 version="unjfbf",
             ),
-        ),
+        },
         manual=azure_native.iotoperationsmq.ManualCertMethodArgs(
             secret_name="fezcl",
             secret_namespace="ozhayajoooingoczovfusqyilin",

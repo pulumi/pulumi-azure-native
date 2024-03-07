@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ipPrefix = new AzureNative.ManagedNetworkFabric.IpPrefix("ipPrefix", new()
+    {
+        Annotation = "annotationValue",
+        IpPrefixName = "example-ipPrefix",
+        IpPrefixRules = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.IpPrefixPropertiesIpPrefixRulesArgs
+            {
+                Action = "Permit",
+                Condition = "EqualTo",
+                NetworkPrefix = "1.1.1.0/24",
+                SequenceNumber = 12,
+                SubnetMaskLength = 28,
+            },
+        },
+        Location = "EastUS",
+        ResourceGroupName = "resourcegroupname",
+        Tags = 
+        {
+            { "key6404", "" },
+        },
+    });
+
+});
+

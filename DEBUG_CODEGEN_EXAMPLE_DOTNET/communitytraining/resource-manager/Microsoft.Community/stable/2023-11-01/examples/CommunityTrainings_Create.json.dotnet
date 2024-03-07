@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var communityTraining = new AzureNative.Community.CommunityTraining("communityTraining", new()
+    {
+        CommunityTrainingName = "ctApplication",
+        DisasterRecoveryEnabled = true,
+        IdentityConfiguration = new AzureNative.Community.Inputs.IdentityConfigurationPropertiesArgs
+        {
+            B2cAuthenticationPolicy = "B2C_1_signup_signin",
+            B2cPasswordResetPolicy = "B2C_1_pwd_reset",
+            ClientId = "8c92390f-2f30-493d-bd13-d3c3eba3709d",
+            ClientSecret = "idenityConfigurationClientSecret",
+            CustomLoginParameters = "custom_hint",
+            DomainName = "cttenant",
+            IdentityType = "ADB2C",
+            TeamsEnabled = false,
+            TenantId = "c1ffbb60-88cf-4b83-b54f-c47ae6220c19",
+        },
+        Location = "southeastasia",
+        PortalAdminEmailAddress = "ctadmin@ct.com",
+        PortalName = "ctwebsite",
+        PortalOwnerEmailAddress = "ctcontact@ct.com",
+        PortalOwnerOrganizationName = "CT Portal Owner Organization",
+        ResourceGroupName = "rgCommunityTaining",
+        Sku = new AzureNative.Community.Inputs.SkuArgs
+        {
+            Name = "Commercial",
+            Tier = AzureNative.Community.SkuTier.Standard,
+        },
+        ZoneRedundancyEnabled = true,
+    });
+
+});
+

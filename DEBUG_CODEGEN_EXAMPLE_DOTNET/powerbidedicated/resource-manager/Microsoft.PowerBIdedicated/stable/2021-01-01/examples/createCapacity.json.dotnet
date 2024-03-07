@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var capacityDetails = new AzureNative.PowerBIDedicated.CapacityDetails("capacityDetails", new()
+    {
+        Administration = new AzureNative.PowerBIDedicated.Inputs.DedicatedCapacityAdministratorsArgs
+        {
+            Members = new[]
+            {
+                "azsdktest@microsoft.com",
+                "azsdktest2@microsoft.com",
+            },
+        },
+        DedicatedCapacityName = "azsdktest",
+        Location = "West US",
+        ResourceGroupName = "TestRG",
+        Sku = new AzureNative.PowerBIDedicated.Inputs.CapacitySkuArgs
+        {
+            Name = "A1",
+            Tier = "PBIE_Azure",
+        },
+        Tags = 
+        {
+            { "testKey", "testValue" },
+        },
+    });
+
+});
+

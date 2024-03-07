@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vCenter = new AzureNative.ConnectedVMwarevSphere.VCenter("vCenter", new()
+    {
+        Credentials = new AzureNative.ConnectedVMwarevSphere.Inputs.VICredentialArgs
+        {
+            Password = "<password>",
+            Username = "tempuser",
+        },
+        ExtendedLocation = new AzureNative.ConnectedVMwarevSphere.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+            Type = "customLocation",
+        },
+        Fqdn = "ContosoVMware.contoso.com",
+        Location = "East US",
+        Port = 1234,
+        ResourceGroupName = "testrg",
+        VcenterName = "ContosoVCenter",
+    });
+
+});
+

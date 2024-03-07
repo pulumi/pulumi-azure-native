@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var server = new AzureNative.DBforMySQL.Server("server", new()
+    {
+        AdministratorLogin = "cloudsa",
+        AdministratorLoginPassword = "your_password",
+        AvailabilityZone = "1",
+        Backup = new AzureNative.DBforMySQL.Inputs.BackupArgs
+        {
+            BackupRetentionDays = 7,
+            GeoRedundantBackup = "Disabled",
+        },
+        CreateMode = "Default",
+        HighAvailability = new AzureNative.DBforMySQL.Inputs.HighAvailabilityArgs
+        {
+            Mode = "ZoneRedundant",
+            StandbyAvailabilityZone = "3",
+        },
+        Location = "southeastasia",
+        ResourceGroupName = "testrg",
+        ServerName = "mysqltestserver",
+        Sku = new AzureNative.DBforMySQL.Inputs.SkuArgs
+        {
+            Name = "Standard_D2ds_v4",
+            Tier = "GeneralPurpose",
+        },
+        Storage = new AzureNative.DBforMySQL.Inputs.StorageArgs
+        {
+            AutoGrow = "Disabled",
+            Iops = 600,
+            StorageSizeGB = 100,
+        },
+        Tags = 
+        {
+            { "num", "1" },
+        },
+        Version = "5.7",
+    });
+
+});
+

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const apiPortalCustomDomain = new azure_native.appplatform.ApiPortalCustomDomain("apiPortalCustomDomain", {
+    apiPortalName: "default",
+    domainName: "myDomainName",
+    properties: {
+        thumbprint: "*",
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

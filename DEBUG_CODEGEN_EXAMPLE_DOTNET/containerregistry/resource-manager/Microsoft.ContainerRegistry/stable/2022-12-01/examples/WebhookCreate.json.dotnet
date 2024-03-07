@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webhook = new AzureNative.ContainerRegistry.Webhook("webhook", new()
+    {
+        Actions = new[]
+        {
+            "push",
+        },
+        CustomHeaders = 
+        {
+            { "Authorization", "******" },
+        },
+        Location = "westus",
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+        Scope = "myRepository",
+        ServiceUri = "http://myservice.com",
+        Status = "enabled",
+        Tags = 
+        {
+            { "key", "value" },
+        },
+        WebhookName = "myWebhook",
+    });
+
+});
+

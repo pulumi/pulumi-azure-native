@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const snapshot = new azure_native.compute.Snapshot("snapshot", {
+    creationData: {
+        createOption: "Copy",
+        sourceResourceId: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+    },
+    location: "West US",
+    resourceGroupName: "myResourceGroup",
+    snapshotName: "mySnapshot2",
+});

@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const namespaceIpFilterRule = new azure_native.servicebus.NamespaceIpFilterRule("namespaceIpFilterRule", {
+    action: "Accept",
+    filterName: "sdk-IPFilterRules-7337",
+    ipFilterRuleName: "sdk-IPFilterRules-7337",
+    ipMask: "13.78.143.246/32",
+    namespaceName: "sdk-Namespace-5232",
+    resourceGroupName: "ResourceGroup",
+});

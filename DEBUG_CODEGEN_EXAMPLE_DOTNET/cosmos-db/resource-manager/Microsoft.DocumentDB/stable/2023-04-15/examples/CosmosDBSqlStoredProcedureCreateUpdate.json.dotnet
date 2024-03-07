@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlResourceSqlStoredProcedure = new AzureNative.DocumentDB.SqlResourceSqlStoredProcedure("sqlResourceSqlStoredProcedure", new()
+    {
+        AccountName = "ddb1",
+        ContainerName = "containerName",
+        DatabaseName = "databaseName",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.SqlStoredProcedureResourceArgs
+        {
+            Body = "body",
+            Id = "storedProcedureName",
+        },
+        ResourceGroupName = "rg1",
+        StoredProcedureName = "storedProcedureName",
+    });
+
+});
+

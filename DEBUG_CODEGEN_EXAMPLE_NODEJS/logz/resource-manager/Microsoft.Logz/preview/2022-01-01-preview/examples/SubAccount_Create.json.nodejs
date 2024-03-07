@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const subAccount = new azure_native.logz.SubAccount("subAccount", {
+    monitorName: "myMonitor",
+    resourceGroupName: "myResourceGroup",
+    subAccountName: "SubAccount1",
+});

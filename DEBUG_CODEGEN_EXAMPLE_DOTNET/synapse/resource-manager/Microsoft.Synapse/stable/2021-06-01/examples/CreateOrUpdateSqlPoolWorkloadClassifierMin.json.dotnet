@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlPoolWorkloadClassifier = new AzureNative.Synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier", new()
+    {
+        MemberName = "dbo",
+        ResourceGroupName = "sqlcrudtest-6852",
+        SqlPoolName = "sqlcrudtest-9187",
+        WorkloadClassifierName = "wlm_workloadclassifier",
+        WorkloadGroupName = "wlm_workloadgroup",
+        WorkspaceName = "sqlcrudtest-2080",
+    });
+
+});
+

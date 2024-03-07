@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const trustedAccessRoleBinding = new azure_native.containerservice.TrustedAccessRoleBinding("trustedAccessRoleBinding", {
+    resourceGroupName: "rg1",
+    resourceName: "clustername1",
+    roles: [
+        "Microsoft.MachineLearningServices/workspaces/reader",
+        "Microsoft.MachineLearningServices/workspaces/writer",
+    ],
+    sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/b/providers/Microsoft.MachineLearningServices/workspaces/c",
+    trustedAccessRoleBindingName: "binding1",
+});

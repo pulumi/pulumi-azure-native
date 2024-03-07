@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const afdOriginGroup = new azure_native.cdn.AFDOriginGroup("afdOriginGroup", {
+    healthProbeSettings: {
+        probeIntervalInSeconds: 10,
+        probePath: "/path2",
+        probeProtocol: azure_native.cdn.ProbeProtocol.NotSet,
+        probeRequestType: azure_native.cdn.HealthProbeRequestType.NotSet,
+    },
+    loadBalancingSettings: {
+        additionalLatencyInMilliseconds: 1000,
+        sampleSize: 3,
+        successfulSamplesRequired: 3,
+    },
+    originGroupName: "origingroup1",
+    profileName: "profile1",
+    resourceGroupName: "RG",
+    trafficRestorationTimeToHealedOrNewEndpointsInMinutes: 5,
+});

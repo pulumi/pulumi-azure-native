@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const transactionNode = new azure_native.blockchain.TransactionNode("transactionNode", {
+    blockchainMemberName: "contosemember1",
+    location: "southeastasia",
+    password: "<password>",
+    resourceGroupName: "mygroup",
+    transactionNodeName: "txnode2",
+});

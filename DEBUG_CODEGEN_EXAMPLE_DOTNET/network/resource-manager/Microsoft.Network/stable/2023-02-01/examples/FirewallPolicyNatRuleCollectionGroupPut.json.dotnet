@@ -1,0 +1,58 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var firewallPolicyRuleCollectionGroup = new AzureNative.Network.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", new()
+    {
+        FirewallPolicyName = "firewallPolicy",
+        Priority = 100,
+        ResourceGroupName = "rg1",
+        RuleCollectionGroupName = "ruleCollectionGroup1",
+        RuleCollections = new[]
+        {
+            new AzureNative.Network.Inputs.FirewallPolicyNatRuleCollectionArgs
+            {
+                Action = new AzureNative.Network.Inputs.FirewallPolicyNatRuleCollectionActionArgs
+                {
+                    Type = "DNAT",
+                },
+                Name = "Example-Nat-Rule-Collection",
+                Priority = 100,
+                RuleCollectionType = "FirewallPolicyNatRuleCollection",
+                Rules = new[]
+                {
+                    new AzureNative.Network.Inputs.NatRuleArgs
+                    {
+                        DestinationAddresses = new[]
+                        {
+                            "152.23.32.23",
+                        },
+                        DestinationPorts = new[]
+                        {
+                            "8080",
+                        },
+                        IpProtocols = new[]
+                        {
+                            "TCP",
+                            "UDP",
+                        },
+                        Name = "nat-rule1",
+                        RuleType = "NatRule",
+                        SourceAddresses = new[]
+                        {
+                            "2.2.2.2",
+                        },
+                        SourceIpGroups = new() { },
+                        TranslatedFqdn = "internalhttp.server.net",
+                        TranslatedPort = "8080",
+                    },
+                },
+            },
+        },
+    });
+
+});
+

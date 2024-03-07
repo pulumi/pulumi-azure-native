@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpoint = new azure_native.network.PrivateEndpoint("privateEndpoint", {
+    customNetworkInterfaceName: "testPeNic",
+    ipConfigurations: [{
+        groupId: "file",
+        memberName: "file",
+        name: "pestaticconfig",
+        privateIPAddress: "192.168.0.5",
+    }],
+    location: "eastus",
+    manualPrivateLinkServiceConnections: [{
+        groupIds: ["groupIdFromResource"],
+        privateLinkServiceId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+        requestMessage: "Please manually approve my connection.",
+    }],
+    privateEndpointName: "testPe",
+    resourceGroupName: "rg1",
+    subnet: {
+        id: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    },
+});

@@ -1,0 +1,38 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const liveEvent = new azure_native.media.LiveEvent("liveEvent", {
+    accountName: "slitestmedia10",
+    description: "test event 1",
+    input: {
+        accessControl: {
+            ip: {
+                allow: [{
+                    address: "0.0.0.0",
+                    name: "AllowAll",
+                    subnetPrefixLength: 0,
+                }],
+            },
+        },
+        keyFrameIntervalDuration: "PT6S",
+        streamingProtocol: "RTMP",
+    },
+    liveEventName: "myLiveEvent1",
+    location: "West US",
+    preview: {
+        accessControl: {
+            ip: {
+                allow: [{
+                    address: "0.0.0.0",
+                    name: "AllowAll",
+                    subnetPrefixLength: 0,
+                }],
+            },
+        },
+    },
+    resourceGroupName: "mediaresources",
+    tags: {
+        tag1: "value1",
+        tag2: "value2",
+    },
+});

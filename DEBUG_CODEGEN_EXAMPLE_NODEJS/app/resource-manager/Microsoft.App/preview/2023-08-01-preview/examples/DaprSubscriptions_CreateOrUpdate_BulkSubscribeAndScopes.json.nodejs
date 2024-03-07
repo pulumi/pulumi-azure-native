@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const daprSubscription = new azure_native.app.DaprSubscription("daprSubscription", {
+    bulkSubscribe: {
+        enabled: true,
+        maxAwaitDurationMs: 500,
+        maxMessagesCount: 123,
+    },
+    environmentName: "myenvironment",
+    name: "mysubscription",
+    pubsubName: "mypubsubcomponent",
+    resourceGroupName: "examplerg",
+    routes: {
+        "default": "/products",
+    },
+    scopes: [
+        "warehouseapp",
+        "customersupportapp",
+    ],
+    topic: "inventory",
+});

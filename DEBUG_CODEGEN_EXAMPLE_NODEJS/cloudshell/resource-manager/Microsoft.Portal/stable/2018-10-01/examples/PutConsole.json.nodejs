@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const console = new azure_native.portal.Console("console", {
+    consoleName: "default",
+    properties: {
+        osType: "Linux",
+    },
+});

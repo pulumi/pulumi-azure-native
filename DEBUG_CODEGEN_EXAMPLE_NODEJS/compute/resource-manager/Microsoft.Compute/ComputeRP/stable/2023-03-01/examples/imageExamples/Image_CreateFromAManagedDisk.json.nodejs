@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const image = new azure_native.compute.Image("image", {
+    imageName: "myImage",
+    location: "West US",
+    resourceGroupName: "myResourceGroup",
+    storageProfile: {
+        osDisk: {
+            managedDisk: {
+                id: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+            },
+            osState: azure_native.compute.OperatingSystemStateTypes.Generalized,
+            osType: azure_native.compute.OperatingSystemTypes.Linux,
+        },
+        zoneResilient: true,
+    },
+});

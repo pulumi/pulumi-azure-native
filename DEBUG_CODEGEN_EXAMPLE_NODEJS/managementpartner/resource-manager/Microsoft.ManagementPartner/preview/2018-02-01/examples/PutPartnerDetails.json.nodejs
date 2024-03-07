@@ -1,0 +1,4 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const partner = new azure_native.managementpartner.Partner("partner", {partnerId: "123456"});

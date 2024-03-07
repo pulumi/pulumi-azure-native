@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var javaComponent = new AzureNative.App.JavaComponent("javaComponent", new()
+    {
+        ComponentType = "SpringBootAdmin",
+        Configurations = new[]
+        {
+            new AzureNative.App.Inputs.JavaComponentConfigurationPropertyArgs
+            {
+                PropertyName = "spring.boot.admin.ui.enable-toasts",
+                Value = "true",
+            },
+            new AzureNative.App.Inputs.JavaComponentConfigurationPropertyArgs
+            {
+                PropertyName = "spring.boot.admin.monitor.status-interval",
+                Value = "10000ms",
+            },
+        },
+        EnvironmentName = "myenvironment",
+        Name = "myjavacomponent",
+        ResourceGroupName = "examplerg",
+        ServiceBinds = new[]
+        {
+            new AzureNative.App.Inputs.JavaComponentServiceBindArgs
+            {
+                Name = "yellowcat",
+                ServiceId = "/subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/myenvironment/javaComponents/yellowcat",
+            },
+        },
+    });
+
+});
+

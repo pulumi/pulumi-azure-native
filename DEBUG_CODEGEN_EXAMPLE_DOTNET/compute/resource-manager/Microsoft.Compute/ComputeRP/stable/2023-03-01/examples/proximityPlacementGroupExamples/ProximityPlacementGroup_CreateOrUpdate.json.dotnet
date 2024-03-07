@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var proximityPlacementGroup = new AzureNative.Compute.ProximityPlacementGroup("proximityPlacementGroup", new()
+    {
+        Intent = new AzureNative.Compute.Inputs.ProximityPlacementGroupPropertiesIntentArgs
+        {
+            VmSizes = new[]
+            {
+                "Basic_A0",
+                "Basic_A2",
+            },
+        },
+        Location = "westus",
+        ProximityPlacementGroupName = "myProximityPlacementGroup",
+        ProximityPlacementGroupType = "Standard",
+        ResourceGroupName = "myResourceGroup",
+        Zones = new[]
+        {
+            "1",
+        },
+    });
+
+});
+

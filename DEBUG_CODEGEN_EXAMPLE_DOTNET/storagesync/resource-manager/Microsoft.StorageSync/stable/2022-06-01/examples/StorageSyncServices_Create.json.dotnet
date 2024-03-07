@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageSyncService = new AzureNative.StorageSync.StorageSyncService("storageSyncService", new()
+    {
+        IncomingTrafficPolicy = "AllowAllTraffic",
+        Location = "WestUS",
+        ResourceGroupName = "SampleResourceGroup_1",
+        StorageSyncServiceName = "SampleStorageSyncService_1",
+        Tags = null,
+    });
+
+});
+

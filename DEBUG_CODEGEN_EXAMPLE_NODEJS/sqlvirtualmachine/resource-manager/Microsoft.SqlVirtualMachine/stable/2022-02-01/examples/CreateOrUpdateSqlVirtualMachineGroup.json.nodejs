@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlVirtualMachineGroup = new azure_native.sqlvirtualmachine.SqlVirtualMachineGroup("sqlVirtualMachineGroup", {
+    location: "northeurope",
+    resourceGroupName: "testrg",
+    sqlImageOffer: "SQL2016-WS2016",
+    sqlImageSku: "Enterprise",
+    sqlVirtualMachineGroupName: "testvmgroup",
+    tags: {
+        mytag: "myval",
+    },
+    wsfcDomainProfile: {
+        clusterBootstrapAccount: "testrpadmin",
+        clusterOperatorAccount: "testrp@testdomain.com",
+        clusterSubnetType: "MultiSubnet",
+        domainFqdn: "testdomain.com",
+        ouPath: "OU=WSCluster,DC=testdomain,DC=com",
+        sqlServiceAccount: "sqlservice@testdomain.com",
+        storageAccountPrimaryKey: "<primary storage access key>",
+        storageAccountUrl: "https://storgact.blob.core.windows.net/",
+    },
+});

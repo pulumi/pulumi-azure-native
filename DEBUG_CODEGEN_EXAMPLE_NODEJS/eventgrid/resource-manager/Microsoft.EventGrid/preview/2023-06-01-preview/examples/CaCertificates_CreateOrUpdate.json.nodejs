@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const caCertificate = new azure_native.eventgrid.CaCertificate("caCertificate", {
+    caCertificateName: "exampleCACertificateName1",
+    description: "This is a test certificate",
+    encodedCertificate: "base64EncodePemFormattedCertificateString",
+    namespaceName: "exampleNamespaceName1",
+    resourceGroupName: "examplerg",
+});

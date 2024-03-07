@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var edgeModule = new AzureNative.VideoAnalyzer.EdgeModule("edgeModule", new()
+    {
+        AccountName = "testaccount2",
+        EdgeModuleName = "edgeModule1",
+        ResourceGroupName = "testrg",
+    });
+
+});
+

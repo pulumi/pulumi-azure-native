@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var localUser = new AzureNative.Storage.LocalUser("localUser", new()
+    {
+        AccountName = "sto2527",
+        HasSshPassword = true,
+        HomeDirectory = "homedirectory",
+        PermissionScopes = new[]
+        {
+            new AzureNative.Storage.Inputs.PermissionScopeArgs
+            {
+                Permissions = "rwd",
+                ResourceName = "share1",
+                Service = "file",
+            },
+            new AzureNative.Storage.Inputs.PermissionScopeArgs
+            {
+                Permissions = "rw",
+                ResourceName = "share2",
+                Service = "file",
+            },
+        },
+        ResourceGroupName = "res6977",
+        SshAuthorizedKeys = new[]
+        {
+            new AzureNative.Storage.Inputs.SshPublicKeyArgs
+            {
+                Description = "key name",
+                Key = "ssh-rsa keykeykeykeykey=",
+            },
+        },
+        Username = "user1",
+    });
+
+});
+

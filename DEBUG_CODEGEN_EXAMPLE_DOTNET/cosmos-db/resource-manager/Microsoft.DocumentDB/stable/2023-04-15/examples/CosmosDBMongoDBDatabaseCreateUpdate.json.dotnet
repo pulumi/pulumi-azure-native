@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mongoDBResourceMongoDBDatabase = new AzureNative.DocumentDB.MongoDBResourceMongoDBDatabase("mongoDBResourceMongoDBDatabase", new()
+    {
+        AccountName = "ddb1",
+        DatabaseName = "databaseName",
+        Location = "West US",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.MongoDBDatabaseResourceArgs
+        {
+            Id = "databaseName",
+        },
+        ResourceGroupName = "rg1",
+        Tags = null,
+    });
+
+});
+

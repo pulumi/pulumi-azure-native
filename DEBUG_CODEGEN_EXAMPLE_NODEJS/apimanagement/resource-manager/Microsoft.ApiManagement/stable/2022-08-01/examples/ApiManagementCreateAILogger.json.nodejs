@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const logger = new azure_native.apimanagement.Logger("logger", {
+    credentials: {
+        instrumentationKey: "11................a1",
+    },
+    description: "adding a new logger",
+    loggerId: "loggerId",
+    loggerType: "applicationInsights",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

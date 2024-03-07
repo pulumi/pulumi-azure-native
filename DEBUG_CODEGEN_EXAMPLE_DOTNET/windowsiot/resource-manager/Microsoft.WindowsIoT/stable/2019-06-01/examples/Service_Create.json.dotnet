@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.WindowsIoT.Service("service", new()
+    {
+        AdminDomainName = "d.e.f",
+        BillingDomainName = "a.b.c",
+        DeviceName = "service4445",
+        Location = "East US",
+        Notes = "blah",
+        Quantity = 1000000,
+        ResourceGroupName = "res9101",
+    });
+
+});
+

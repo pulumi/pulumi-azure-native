@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+    accountName: "sampleacct",
+    autoStorage: {
+        storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    },
+    location: "japaneast",
+    resourceGroupName: "default-azurebatch-japaneast",
+});

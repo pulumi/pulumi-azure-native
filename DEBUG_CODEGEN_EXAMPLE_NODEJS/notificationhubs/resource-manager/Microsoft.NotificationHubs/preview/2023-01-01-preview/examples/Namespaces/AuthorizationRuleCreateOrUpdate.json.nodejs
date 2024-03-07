@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const namespaceAuthorizationRule = new azure_native.notificationhubs.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
+    authorizationRuleName: "sdk-AuthRules-1788",
+    namespaceName: "nh-sdk-ns",
+    properties: {
+        rights: [
+            "Listen",
+            "Send",
+        ],
+    },
+    resourceGroupName: "5ktrial",
+});

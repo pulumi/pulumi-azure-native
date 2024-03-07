@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var spatialAnchorsAccount = new AzureNative.MixedReality.SpatialAnchorsAccount("spatialAnchorsAccount", new()
+    {
+        AccountName = "MyAccount",
+        Location = "eastus2euap",
+        ResourceGroupName = "MyResourceGroup",
+    });
+
+});
+

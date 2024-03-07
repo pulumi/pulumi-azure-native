@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataset = new AzureNative.IoTOperationsDataProcessor.Dataset("dataset", new()
+    {
+        DatasetName = "709v7-95-5-t-52oc5--s-5-5876j45wp6mf6--n-8bh--l55-r477",
+        Description = "pakdvhh",
+        ExtendedLocation = new AzureNative.IoTOperationsDataProcessor.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/e0aaa3df-e9a4-456a-9824-3c3b5c438110/resourceGroups/IoTOperationsDataProcessor-rg/providers/Microsoft.ExtendedLocation/customLocations/dev-space",
+            Type = "CustomLocation",
+        },
+        InstanceName = "xh--6h732-2-6-21-4513-2-597q-5412971q",
+        Keys = null,
+        Location = "westus",
+        Payload = ".value",
+        ResourceGroupName = "rgopenapi",
+        Tags = null,
+        Timestamp = ".timestamp",
+        Ttl = "72h",
+    });
+
+});
+

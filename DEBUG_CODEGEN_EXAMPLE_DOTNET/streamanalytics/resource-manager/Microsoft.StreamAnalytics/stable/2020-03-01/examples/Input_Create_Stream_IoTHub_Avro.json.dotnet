@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var input = new AzureNative.StreamAnalytics.Input("input", new()
+    {
+        InputName = "input7970",
+        JobName = "sj9742",
+        Properties = new AzureNative.StreamAnalytics.Inputs.StreamInputPropertiesArgs
+        {
+            Datasource = new AzureNative.StreamAnalytics.Inputs.IoTHubStreamInputDataSourceArgs
+            {
+                ConsumerGroupName = "sdkconsumergroup",
+                Endpoint = "messages/events",
+                IotHubNamespace = "iothub",
+                SharedAccessPolicyKey = "sharedAccessPolicyKey=",
+                SharedAccessPolicyName = "owner",
+                Type = "Microsoft.Devices/IotHubs",
+            },
+            Serialization = new AzureNative.StreamAnalytics.Inputs.AvroSerializationArgs
+            {
+                Type = "Avro",
+            },
+            Type = "Stream",
+        },
+        ResourceGroupName = "sjrg3467",
+    });
+
+});
+

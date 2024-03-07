@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const routeTable = new azure_native.network.RouteTable("routeTable", {
+    disableBgpRoutePropagation: true,
+    location: "westus",
+    resourceGroupName: "rg1",
+    routeTableName: "testrt",
+    routes: [{
+        addressPrefix: "10.0.3.0/24",
+        name: "route1",
+        nextHopType: "VirtualNetworkGateway",
+    }],
+});

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serviceTask = new azure_native.datamigration.ServiceTask("serviceTask", {
+    groupName: "DmsSdkRg",
+    properties: {
+        input: {
+            serverVersion: "NA",
+        },
+        taskType: "Service.Check.OCI",
+    },
+    serviceName: "DmsSdkService",
+    taskName: "DmsSdkTask",
+});

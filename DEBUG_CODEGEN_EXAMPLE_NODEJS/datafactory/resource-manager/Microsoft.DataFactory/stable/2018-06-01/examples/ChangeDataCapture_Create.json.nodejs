@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const changeDataCapture = new azure_native.datafactory.ChangeDataCapture("changeDataCapture", {
+    allowVNetOverride: false,
+    changeDataCaptureName: "exampleChangeDataCapture",
+    description: "Sample demo change data capture to transfer data from delimited (csv) to Azure SQL Database with automapped and non-automapped mappings.",
+    factoryName: "exampleFactoryName",
+    resourceGroupName: "exampleResourceGroup",
+});

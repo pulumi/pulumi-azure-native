@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var solutionsControllerSolution = new AzureNative.Migrate.SolutionsControllerSolution("solutionsControllerSolution", new()
+    {
+        MigrateProjectName = "1GQwlI-",
+        Properties = new AzureNative.Migrate.Inputs.SolutionPropertiesArgs
+        {
+            CleanupState = "None",
+            Details = new AzureNative.Migrate.Inputs.SolutionDetailsArgs
+            {
+                AssessmentCount = 7,
+                ExtendedDetails = 
+                {
+                    { "key9031", "ombnjq" },
+                },
+                GroupCount = 30,
+            },
+            Goal = "Servers",
+            Purpose = "Discovery",
+            Status = "Inactive",
+            Tool = "ServerDiscovery",
+        },
+        ResourceGroupName = "rghubmigrate",
+        SolutionName = "1zJY9v3KFENX698GSOl",
+    });
+
+});
+

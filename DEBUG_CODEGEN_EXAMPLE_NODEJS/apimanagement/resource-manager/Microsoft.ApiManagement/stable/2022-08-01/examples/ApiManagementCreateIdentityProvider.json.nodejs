@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const identityProvider = new azure_native.apimanagement.IdentityProvider("identityProvider", {
+    clientId: "facebookid",
+    clientSecret: "facebookapplicationsecret",
+    identityProviderName: "facebook",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

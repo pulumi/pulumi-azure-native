@@ -9,7 +9,7 @@ connected_registry = azure_native.containerregistry.ConnectedRegistry("connected
         "hello-world:*:*",
         "sample/repo/*:1.0:*",
     ],
-    parent=azure_native.containerregistry.ParentPropertiesArgs(
+    parent=azure_native.containerregistry.ParentPropertiesResponseArgs(
         sync_properties=azure_native.containerregistry.SyncPropertiesArgs(
             message_ttl="P2D",
             schedule="0 9 * * *",

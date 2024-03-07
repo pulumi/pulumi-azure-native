@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dotNetComponent = new azure_native.app.DotNetComponent("dotNetComponent", {
+    componentType: "AspireDashboard",
+    configurations: [{
+        propertyName: "dashboard-theme",
+        value: "dark",
+    }],
+    environmentName: "myenvironment",
+    name: "mydotnetcomponent",
+    resourceGroupName: "examplerg",
+    serviceBinds: [{
+        name: "yellowcat",
+        serviceId: "/subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/myenvironment/dotNetComponents/yellowcat",
+    }],
+});

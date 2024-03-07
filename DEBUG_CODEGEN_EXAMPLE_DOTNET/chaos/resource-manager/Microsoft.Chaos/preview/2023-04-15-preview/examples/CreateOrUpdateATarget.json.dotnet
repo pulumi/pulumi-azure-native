@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var target = new AzureNative.Chaos.Target("target", new()
+    {
+        ParentProviderNamespace = "Microsoft.Compute",
+        ParentResourceName = "exampleVM",
+        ParentResourceType = "virtualMachines",
+        Properties = 
+        {
+            { "identities", new[]
+            {
+                
+                {
+                    { "subject", "CN=example.subject" },
+                    { "type", "CertificateSubjectIssuer" },
+                },
+            } },
+        },
+        ResourceGroupName = "exampleRG",
+        TargetName = "Microsoft-Agent",
+    });
+
+});
+

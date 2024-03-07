@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const expressRoutePort = new azure_native.network.ExpressRoutePort("expressRoutePort", {
+    bandwidthInGbps: 100,
+    billingType: "UnlimitedData",
+    encapsulation: "QinQ",
+    expressRoutePortName: "portName",
+    location: "westus",
+    peeringLocation: "peeringLocationName",
+    resourceGroupName: "rg1",
+});

@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const migration = new azure_native.dbforpostgresql.Migration("migration", {
+    dbsToMigrate: [
+        "db1",
+        "db2",
+        "db3",
+        "db4",
+    ],
+    location: "westus",
+    migrationMode: "Offline",
+    migrationName: "testmigration",
+    overwriteDbsInTarget: "True",
+    resourceGroupName: "testrg",
+    secretParameters: {
+        adminCredentials: {
+            sourceServerPassword: "xxxxxxxx",
+            targetServerPassword: "xxxxxxxx",
+        },
+    },
+    sourceDbServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+    targetDbServerName: "testtarget",
+});

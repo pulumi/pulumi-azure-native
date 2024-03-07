@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const apiPolicy = new azure_native.apimanagement.ApiPolicy("apiPolicy", {
+    apiId: "5600b57e7e8880006a040001",
+    format: "xml",
+    policyId: "policy",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    value: "<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+});

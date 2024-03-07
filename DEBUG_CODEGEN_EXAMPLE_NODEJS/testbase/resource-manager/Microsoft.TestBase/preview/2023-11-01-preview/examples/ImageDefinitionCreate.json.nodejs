@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const imageDefinition = new azure_native.testbase.ImageDefinition("imageDefinition", {
+    architecture: "x64",
+    imageDefinitionName: "contoso-image-def",
+    osState: "Generalized",
+    resourceGroupName: "contoso-rg1",
+    securityType: "Standard",
+    testBaseAccountName: "contoso-testBaseAccount1",
+});

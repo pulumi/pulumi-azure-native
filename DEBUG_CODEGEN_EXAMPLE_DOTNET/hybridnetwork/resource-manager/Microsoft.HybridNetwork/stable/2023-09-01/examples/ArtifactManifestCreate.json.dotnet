@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var artifactManifest = new AzureNative.HybridNetwork.ArtifactManifest("artifactManifest", new()
+    {
+        ArtifactManifestName = "TestManifest",
+        ArtifactStoreName = "TestArtifactStore",
+        Location = "eastus",
+        Properties = new AzureNative.HybridNetwork.Inputs.ArtifactManifestPropertiesFormatArgs
+        {
+            Artifacts = new[]
+            {
+                new AzureNative.HybridNetwork.Inputs.ManifestArtifactFormatArgs
+                {
+                    ArtifactName = "fed-rbac",
+                    ArtifactType = "OCIArtifact",
+                    ArtifactVersion = "1.0.0",
+                },
+                new AzureNative.HybridNetwork.Inputs.ManifestArtifactFormatArgs
+                {
+                    ArtifactName = "nginx",
+                    ArtifactType = "OCIArtifact",
+                    ArtifactVersion = "v1",
+                },
+            },
+        },
+        PublisherName = "TestPublisher",
+        ResourceGroupName = "rg",
+    });
+
+});
+

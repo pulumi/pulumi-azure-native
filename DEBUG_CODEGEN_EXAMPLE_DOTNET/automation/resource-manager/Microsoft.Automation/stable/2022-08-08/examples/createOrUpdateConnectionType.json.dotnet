@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectionType = new AzureNative.Automation.ConnectionType("connectionType", new()
+    {
+        AutomationAccountName = "myAutomationAccount22",
+        ConnectionTypeName = "myCT",
+        FieldDefinitions = 
+        {
+            { "myBoolField", new AzureNative.Automation.Inputs.FieldDefinitionArgs
+            {
+                IsEncrypted = false,
+                IsOptional = false,
+                Type = "bool",
+            } },
+            { "myStringField", new AzureNative.Automation.Inputs.FieldDefinitionArgs
+            {
+                IsEncrypted = false,
+                IsOptional = false,
+                Type = "string",
+            } },
+            { "myStringFieldEncrypted", new AzureNative.Automation.Inputs.FieldDefinitionArgs
+            {
+                IsEncrypted = true,
+                IsOptional = false,
+                Type = "string",
+            } },
+        },
+        IsGlobal = false,
+        Name = "myCT",
+        ResourceGroupName = "rg",
+    });
+
+});
+

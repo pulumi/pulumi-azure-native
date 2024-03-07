@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var gen2Environment = new AzureNative.TimeSeriesInsights.Gen2Environment("gen2Environment", new()
+    {
+        EnvironmentName = "env1",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadNetworkSegment = new AzureNative.AVS.WorkloadNetworkSegment("workloadNetworkSegment", new()
+    {
+        ConnectedGateway = "/infra/tier-1s/gateway",
+        DisplayName = "segment1",
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+        Revision = 1,
+        SegmentId = "segment1",
+        Subnet = new AzureNative.AVS.Inputs.WorkloadNetworkSegmentSubnetArgs
+        {
+            DhcpRanges = new[]
+            {
+                "40.20.0.0-40.20.0.1",
+            },
+            GatewayAddress = "40.20.20.20/16",
+        },
+    });
+
+});
+

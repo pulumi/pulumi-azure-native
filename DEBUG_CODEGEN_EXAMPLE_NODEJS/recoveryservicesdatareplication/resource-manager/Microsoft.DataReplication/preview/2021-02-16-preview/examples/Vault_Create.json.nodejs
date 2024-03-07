@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const vault = new azure_native.datareplication.Vault("vault", {
+    location: "eck",
+    properties: {
+        vaultType: "DisasterRecovery",
+    },
+    resourceGroupName: "rgrecoveryservicesdatareplication",
+    tags: {
+        key5359: "ljfilxolxzuxrauopwtyxghrp",
+    },
+    vaultName: "4",
+});

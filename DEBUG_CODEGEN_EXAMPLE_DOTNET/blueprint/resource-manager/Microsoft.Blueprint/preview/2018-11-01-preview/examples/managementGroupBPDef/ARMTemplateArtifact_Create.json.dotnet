@@ -1,0 +1,76 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var templateArtifact = new AzureNative.Blueprint.TemplateArtifact("templateArtifact", new()
+    {
+        ArtifactName = "storageTemplate",
+        BlueprintName = "simpleBlueprint",
+        Kind = "template",
+        Parameters = 
+        {
+            { "storageAccountType", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+            {
+                Value = "[parameters('storageAccountType')]",
+            } },
+        },
+        ResourceGroup = "storageRG",
+        ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+        Template = 
+        {
+            { "contentVersion", "1.0.0.0" },
+            { "outputs", 
+            {
+                { "storageAccountName", 
+                {
+                    { "type", "string" },
+                    { "value", "[variables('storageAccountName')]" },
+                } },
+            } },
+            { "parameters", 
+            {
+                { "storageAccountType", 
+                {
+                    { "allowedValues", new[]
+                    {
+                        "Standard_LRS",
+                        "Standard_GRS",
+                        "Standard_ZRS",
+                        "Premium_LRS",
+                    } },
+                    { "defaultValue", "Standard_LRS" },
+                    { "metadata", 
+                    {
+                        { "description", "Storage Account type" },
+                    } },
+                    { "type", "string" },
+                } },
+            } },
+            { "resources", new[]
+            {
+                
+                {
+                    { "apiVersion", "2016-01-01" },
+                    { "kind", "Storage" },
+                    { "location", "[resourceGroup().location]" },
+                    { "name", "[variables('storageAccountName')]" },
+                    { "properties", null },
+                    { "sku", 
+                    {
+                        { "name", "[parameters('storageAccountType')]" },
+                    } },
+                    { "type", "Microsoft.Storage/storageAccounts" },
+                },
+            } },
+            { "variables", 
+            {
+                { "storageAccountName", "[concat(uniquestring(resourceGroup().id), 'standardsa')]" },
+            } },
+        },
+    });
+
+});
+

@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const proximityPlacementGroup = new azure_native.compute.ProximityPlacementGroup("proximityPlacementGroup", {
+    intent: {
+        vmSizes: [
+            "Basic_A0",
+            "Basic_A2",
+        ],
+    },
+    location: "westus",
+    proximityPlacementGroupName: "myProximityPlacementGroup",
+    proximityPlacementGroupType: "Standard",
+    resourceGroupName: "myResourceGroup",
+    zones: ["1"],
+});

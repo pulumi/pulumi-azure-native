@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const slice = new azure_native.mobilenetwork.Slice("slice", {
+    description: "myFavouriteSlice",
+    location: "eastus",
+    mobileNetworkName: "testMobileNetwork",
+    resourceGroupName: "rg1",
+    sliceName: "testSlice",
+    snssai: {
+        sd: "1abcde",
+        sst: 1,
+    },
+});

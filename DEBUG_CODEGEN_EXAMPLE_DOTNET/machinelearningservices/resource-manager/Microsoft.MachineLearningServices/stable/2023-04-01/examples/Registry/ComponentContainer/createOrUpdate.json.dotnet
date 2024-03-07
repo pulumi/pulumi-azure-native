@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var registryComponentContainer = new AzureNative.MachineLearningServices.RegistryComponentContainer("registryComponentContainer", new()
+    {
+        ComponentContainerProperties = new AzureNative.MachineLearningServices.Inputs.ComponentContainerArgs
+        {
+            Description = "string",
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        ComponentName = "string",
+        RegistryName = "my-aml-registry",
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

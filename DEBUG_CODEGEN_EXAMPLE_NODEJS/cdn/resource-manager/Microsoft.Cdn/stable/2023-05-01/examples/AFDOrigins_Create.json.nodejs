@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const afdOrigin = new azure_native.cdn.AFDOrigin("afdOrigin", {
+    enabledState: "Enabled",
+    hostName: "host1.blob.core.windows.net",
+    httpPort: 80,
+    httpsPort: 443,
+    originGroupName: "origingroup1",
+    originHostHeader: "host1.foo.com",
+    originName: "origin1",
+    profileName: "profile1",
+    resourceGroupName: "RG",
+});

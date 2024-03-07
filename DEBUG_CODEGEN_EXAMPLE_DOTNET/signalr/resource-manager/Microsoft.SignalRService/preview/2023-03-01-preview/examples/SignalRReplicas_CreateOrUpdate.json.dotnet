@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var signalRReplica = new AzureNative.SignalRService.SignalRReplica("signalRReplica", new()
+    {
+        Location = "eastus",
+        ReplicaName = "mySignalRService-eastus",
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "mySignalRService",
+        Sku = new AzureNative.SignalRService.Inputs.ResourceSkuArgs
+        {
+            Capacity = 1,
+            Name = "Premium_P1",
+            Tier = "Premium",
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

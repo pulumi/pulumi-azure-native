@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var daprComponentResiliencyPolicy = new AzureNative.App.DaprComponentResiliencyPolicy("daprComponentResiliencyPolicy", new()
+    {
+        ComponentName = "mydaprcomponent",
+        EnvironmentName = "myenvironment",
+        InboundPolicy = new AzureNative.App.Inputs.DaprComponentResiliencyPolicyConfigurationArgs
+        {
+            HttpRetryPolicy = new AzureNative.App.Inputs.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs
+            {
+                MaxRetries = 5,
+                RetryBackOff = new AzureNative.App.Inputs.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs
+                {
+                    InitialDelayInMilliseconds = 2000,
+                    MaxIntervalInMilliseconds = 5500,
+                },
+            },
+        },
+        Name = "myresiliencypolicy",
+        OutboundPolicy = new AzureNative.App.Inputs.DaprComponentResiliencyPolicyConfigurationArgs
+        {
+            TimeoutPolicy = new AzureNative.App.Inputs.DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs
+            {
+                ResponseTimeoutInSeconds = 12,
+            },
+        },
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

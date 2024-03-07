@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var packetCoreDataPlane = new AzureNative.MobileNetwork.PacketCoreDataPlane("packetCoreDataPlane", new()
+    {
+        Location = "eastus",
+        PacketCoreControlPlaneName = "testPacketCoreCP",
+        PacketCoreDataPlaneName = "testPacketCoreDP",
+        ResourceGroupName = "rg1",
+        UserPlaneAccessInterface = new AzureNative.MobileNetwork.Inputs.InterfacePropertiesArgs
+        {
+            Name = "N3",
+        },
+    });
+
+});
+

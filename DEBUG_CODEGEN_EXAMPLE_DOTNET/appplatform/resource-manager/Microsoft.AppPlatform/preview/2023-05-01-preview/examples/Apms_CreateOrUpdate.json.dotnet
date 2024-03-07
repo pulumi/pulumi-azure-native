@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apm = new AzureNative.AppPlatform.Apm("apm", new()
+    {
+        ApmName = "myappinsights",
+        Properties = new AzureNative.AppPlatform.Inputs.ApmPropertiesArgs
+        {
+            Properties = 
+            {
+                { "any-string", "any-string" },
+                { "sampling-rate", "12.0" },
+            },
+            Secrets = 
+            {
+                { "connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX" },
+            },
+            Type = "ApplicationInsights",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

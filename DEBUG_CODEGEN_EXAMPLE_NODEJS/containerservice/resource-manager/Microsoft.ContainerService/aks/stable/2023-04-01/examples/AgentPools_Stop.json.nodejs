@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const agentPool = new azure_native.containerservice.AgentPool("agentPool", {
+    agentPoolName: "agentpool1",
+    powerState: {
+        code: "Stopped",
+    },
+    resourceGroupName: "rg1",
+    resourceName: "clustername1",
+});

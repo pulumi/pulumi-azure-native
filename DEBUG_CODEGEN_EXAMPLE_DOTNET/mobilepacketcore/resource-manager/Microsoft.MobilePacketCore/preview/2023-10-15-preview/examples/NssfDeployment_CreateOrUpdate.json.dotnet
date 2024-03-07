@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nssfDeployment = new AzureNative.MobilePacketCore.NssfDeployment("nssfDeployment", new()
+    {
+        ClusterService = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobilePacketCore/clusterServices/byoCluster",
+        ComponentParameters = "{\"global\": {\"registry\": {\"docker\": []}}}",
+        Location = "eastus",
+        NssfDeploymentName = "nssfDeployment1",
+        ResourceGroupName = "rg1",
+        SecretsParameters = "{\"global\": {\"secret\": {\"secretValue\": []}}}",
+    });
+
+});
+

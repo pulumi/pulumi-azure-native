@@ -1,0 +1,245 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var kubernetesCluster = new AzureNative.NetworkCloud.KubernetesCluster("kubernetesCluster", new()
+    {
+        AadConfiguration = new AzureNative.NetworkCloud.Inputs.AadConfigurationArgs
+        {
+            AdminGroupObjectIds = new[]
+            {
+                "ffffffff-ffff-ffff-ffff-ffffffffffff",
+            },
+        },
+        AdministratorConfiguration = new AzureNative.NetworkCloud.Inputs.AdministratorConfigurationArgs
+        {
+            AdminUsername = "azure",
+            SshPublicKeys = new[]
+            {
+                new AzureNative.NetworkCloud.Inputs.SshPublicKeyArgs
+                {
+                    KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                },
+            },
+        },
+        ControlPlaneNodeConfiguration = new AzureNative.NetworkCloud.Inputs.ControlPlaneNodeConfigurationArgs
+        {
+            AdministratorConfiguration = new AzureNative.NetworkCloud.Inputs.AdministratorConfigurationArgs
+            {
+                AdminUsername = "azure",
+                SshPublicKeys = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.SshPublicKeyArgs
+                    {
+                        KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    },
+                },
+            },
+            AvailabilityZones = new[]
+            {
+                "1",
+                "2",
+                "3",
+            },
+            Count = 3,
+            VmSkuName = "NC_G4_v1",
+        },
+        ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+            Type = "CustomLocation",
+        },
+        InitialAgentPoolConfigurations = new[]
+        {
+            new AzureNative.NetworkCloud.Inputs.InitialAgentPoolConfigurationArgs
+            {
+                AdministratorConfiguration = new AzureNative.NetworkCloud.Inputs.AdministratorConfigurationArgs
+                {
+                    AdminUsername = "azure",
+                    SshPublicKeys = new[]
+                    {
+                        new AzureNative.NetworkCloud.Inputs.SshPublicKeyArgs
+                        {
+                            KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                        },
+                    },
+                },
+                AgentOptions = new AzureNative.NetworkCloud.Inputs.AgentOptionsArgs
+                {
+                    HugepagesCount = 96,
+                    HugepagesSize = "1G",
+                },
+                AttachedNetworkConfiguration = new AzureNative.NetworkCloud.Inputs.AttachedNetworkConfigurationArgs
+                {
+                    L2Networks = new[]
+                    {
+                        new AzureNative.NetworkCloud.Inputs.L2NetworkAttachmentConfigurationArgs
+                        {
+                            NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName",
+                            PluginType = "DPDK",
+                        },
+                    },
+                    L3Networks = new[]
+                    {
+                        new AzureNative.NetworkCloud.Inputs.L3NetworkAttachmentConfigurationArgs
+                        {
+                            IpamEnabled = "False",
+                            NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+                            PluginType = "SRIOV",
+                        },
+                    },
+                    TrunkedNetworks = new[]
+                    {
+                        new AzureNative.NetworkCloud.Inputs.TrunkedNetworkAttachmentConfigurationArgs
+                        {
+                            NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName",
+                            PluginType = "MACVLAN",
+                        },
+                    },
+                },
+                AvailabilityZones = new[]
+                {
+                    "1",
+                    "2",
+                    "3",
+                },
+                Count = 3,
+                Labels = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.KubernetesLabelArgs
+                    {
+                        Key = "kubernetes.label",
+                        Value = "true",
+                    },
+                },
+                Mode = "System",
+                Name = "SystemPool-1",
+                Taints = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.KubernetesLabelArgs
+                    {
+                        Key = "kubernetes.taint",
+                        Value = "true",
+                    },
+                },
+                UpgradeSettings = new AzureNative.NetworkCloud.Inputs.AgentPoolUpgradeSettingsArgs
+                {
+                    MaxSurge = "1",
+                },
+                VmSkuName = "NC_M16_v1",
+            },
+        },
+        KubernetesClusterName = "kubernetesClusterName",
+        KubernetesVersion = "1.24.12-1",
+        Location = "location",
+        ManagedResourceGroupConfiguration = new AzureNative.NetworkCloud.Inputs.ManagedResourceGroupConfigurationArgs
+        {
+            Location = "East US",
+            Name = "my-managed-rg",
+        },
+        NetworkConfiguration = new AzureNative.NetworkCloud.Inputs.NetworkConfigurationArgs
+        {
+            AttachedNetworkConfiguration = new AzureNative.NetworkCloud.Inputs.AttachedNetworkConfigurationArgs
+            {
+                L2Networks = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.L2NetworkAttachmentConfigurationArgs
+                    {
+                        NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName",
+                        PluginType = "DPDK",
+                    },
+                },
+                L3Networks = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.L3NetworkAttachmentConfigurationArgs
+                    {
+                        IpamEnabled = "False",
+                        NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+                        PluginType = "SRIOV",
+                    },
+                },
+                TrunkedNetworks = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.TrunkedNetworkAttachmentConfigurationArgs
+                    {
+                        NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName",
+                        PluginType = "MACVLAN",
+                    },
+                },
+            },
+            BgpServiceLoadBalancerConfiguration = new AzureNative.NetworkCloud.Inputs.BgpServiceLoadBalancerConfigurationArgs
+            {
+                BgpAdvertisements = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.BgpAdvertisementArgs
+                    {
+                        AdvertiseToFabric = "True",
+                        Communities = new[]
+                        {
+                            "64512:100",
+                        },
+                        IpAddressPools = new[]
+                        {
+                            "pool1",
+                        },
+                        Peers = new[]
+                        {
+                            "peer1",
+                        },
+                    },
+                },
+                BgpPeers = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.ServiceLoadBalancerBgpPeerArgs
+                    {
+                        BfdEnabled = "False",
+                        BgpMultiHop = "False",
+                        HoldTime = "P300s",
+                        KeepAliveTime = "P300s",
+                        MyAsn = 64512,
+                        Name = "peer1",
+                        PeerAddress = "203.0.113.254",
+                        PeerAsn = 64497,
+                        PeerPort = 179,
+                    },
+                },
+                FabricPeeringEnabled = "True",
+                IpAddressPools = new[]
+                {
+                    new AzureNative.NetworkCloud.Inputs.IpAddressPoolArgs
+                    {
+                        Addresses = new[]
+                        {
+                            "198.51.102.0/24",
+                        },
+                        AutoAssign = "True",
+                        Name = "pool1",
+                        OnlyUseHostIps = "True",
+                    },
+                },
+            },
+            CloudServicesNetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName",
+            CniNetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+            DnsServiceIp = "198.51.101.2",
+            PodCidrs = new[]
+            {
+                "198.51.100.0/24",
+            },
+            ServiceCidrs = new[]
+            {
+                "198.51.101.0/24",
+            },
+        },
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+    });
+
+});
+

@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const endpointDeployment = new azure_native.machinelearningservices.EndpointDeployment("endpointDeployment", {
+    deploymentName: "text-davinci-003",
+    endpointName: "Azure.OpenAI",
+    properties: {
+        model: {
+            format: "OpenAI",
+            name: "text-davinci-003",
+            version: "1",
+        },
+        type: "Azure.OpenAI",
+        versionUpgradeOption: "OnceNewDefaultVersionAvailable",
+    },
+    resourceGroupName: "resourceGroup-1",
+    workspaceName: "testworkspace",
+});

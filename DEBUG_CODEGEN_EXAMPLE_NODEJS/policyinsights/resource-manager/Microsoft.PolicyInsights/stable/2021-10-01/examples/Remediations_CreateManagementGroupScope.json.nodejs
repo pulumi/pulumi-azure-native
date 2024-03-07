@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const remediationAtManagementGroup = new azure_native.policyinsights.RemediationAtManagementGroup("remediationAtManagementGroup", {
+    managementGroupId: "financeMg",
+    managementGroupsNamespace: "Microsoft.Management",
+    policyAssignmentId: "/providers/microsoft.management/managementGroups/financeMg/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    remediationName: "storageRemediation",
+});

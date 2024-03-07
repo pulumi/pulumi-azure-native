@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceGroup = new azure_native.apimanagement.WorkspaceGroup("workspaceGroup", {
+    displayName: "temp group",
+    groupId: "tempgroup",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    workspaceId: "wks1",
+});

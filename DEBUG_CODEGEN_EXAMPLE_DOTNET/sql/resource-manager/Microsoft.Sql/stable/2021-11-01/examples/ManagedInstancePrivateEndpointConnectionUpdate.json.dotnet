@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedInstancePrivateEndpointConnection = new AzureNative.Sql.ManagedInstancePrivateEndpointConnection("managedInstancePrivateEndpointConnection", new()
+    {
+        ManagedInstanceName = "test-cl",
+        PrivateEndpointConnectionName = "private-endpoint-connection-name",
+        PrivateLinkServiceConnectionState = new AzureNative.Sql.Inputs.ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs
+        {
+            Description = "Approved by johndoe@contoso.com",
+            Status = "Approved",
+        },
+        ResourceGroupName = "Default",
+    });
+
+});
+

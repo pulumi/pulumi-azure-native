@@ -1,0 +1,70 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var simPolicy = new AzureNative.MobileNetwork.SimPolicy("simPolicy", new()
+    {
+        DefaultSlice = new AzureNative.MobileNetwork.Inputs.SliceResourceIdArgs
+        {
+            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+        },
+        Location = "eastus",
+        MobileNetworkName = "testMobileNetwork",
+        RegistrationTimer = 3240,
+        ResourceGroupName = "rg1",
+        SimPolicyName = "testPolicy",
+        SliceConfigurations = new[]
+        {
+            new AzureNative.MobileNetwork.Inputs.SliceConfigurationArgs
+            {
+                DataNetworkConfigurations = new[]
+                {
+                    new AzureNative.MobileNetwork.Inputs.DataNetworkConfigurationArgs
+                    {
+                        AdditionalAllowedSessionTypes = new() { },
+                        AllocationAndRetentionPriorityLevel = 9,
+                        AllowedServices = new[]
+                        {
+                            new AzureNative.MobileNetwork.Inputs.ServiceResourceIdArgs
+                            {
+                                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/testService",
+                            },
+                        },
+                        DataNetwork = new AzureNative.MobileNetwork.Inputs.DataNetworkResourceIdArgs
+                        {
+                            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+                        },
+                        DefaultSessionType = "IPv4",
+                        FiveQi = 9,
+                        MaximumNumberOfBufferedPackets = 200,
+                        PreemptionCapability = "NotPreempt",
+                        PreemptionVulnerability = "Preemptable",
+                        SessionAmbr = new AzureNative.MobileNetwork.Inputs.AmbrArgs
+                        {
+                            Downlink = "1 Gbps",
+                            Uplink = "500 Mbps",
+                        },
+                    },
+                },
+                DefaultDataNetwork = new AzureNative.MobileNetwork.Inputs.DataNetworkResourceIdArgs
+                {
+                    Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+                },
+                Slice = new AzureNative.MobileNetwork.Inputs.SliceResourceIdArgs
+                {
+                    Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+                },
+            },
+        },
+        UeAmbr = new AzureNative.MobileNetwork.Inputs.AmbrArgs
+        {
+            Downlink = "1 Gbps",
+            Uplink = "500 Mbps",
+        },
+    });
+
+});
+

@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var streamingJob = new AzureNative.StreamAnalytics.StreamingJob("streamingJob", new()
+    {
+        CompatibilityLevel = "1.0",
+        DataLocale = "en-US",
+        EventsLateArrivalMaxDelayInSeconds = 16,
+        EventsOutOfOrderMaxDelayInSeconds = 5,
+        EventsOutOfOrderPolicy = "Drop",
+        Functions = new[] {},
+        Inputs = new[] {},
+        JobName = "sj59",
+        Location = "West US",
+        OutputErrorPolicy = "Drop",
+        Outputs = new[] {},
+        ResourceGroupName = "sjrg6936",
+        Sku = new AzureNative.StreamAnalytics.Inputs.SkuArgs
+        {
+            Name = "Standard",
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+            { "key3", "value3" },
+            { "randomKey", "randomValue" },
+        },
+    });
+
+});
+

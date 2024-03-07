@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateDnsZoneGroup = new AzureNative.Network.PrivateDnsZoneGroup("privateDnsZoneGroup", new()
+    {
+        PrivateDnsZoneConfigs = new[]
+        {
+            new AzureNative.Network.Inputs.PrivateDnsZoneConfigArgs
+            {
+                PrivateDnsZoneId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateDnsZones/zone1.com",
+            },
+        },
+        PrivateDnsZoneGroupName = "testPdnsgroup",
+        PrivateEndpointName = "testPe",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

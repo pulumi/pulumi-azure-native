@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var blobContainer = new AzureNative.Storage.BlobContainer("blobContainer", new()
+    {
+        AccountName = "sto328",
+        ContainerName = "container6185",
+        ImmutableStorageWithVersioning = new AzureNative.Storage.Inputs.ImmutableStorageWithVersioningArgs
+        {
+            Enabled = true,
+        },
+        ResourceGroupName = "res3376",
+    });
+
+});
+

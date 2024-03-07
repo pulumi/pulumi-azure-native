@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var securityConnectorApplication = new AzureNative.Security.SecurityConnectorApplication("securityConnectorApplication", new()
+    {
+        ApplicationId = "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+        Description = "An application on critical GCP recommendations",
+        DisplayName = "GCP Admin's application",
+        ResourceGroupName = "gcpResourceGroup",
+        SecurityConnectorName = "gcpconnector",
+        SourceResourceType = "Assessments",
+    });
+
+});
+

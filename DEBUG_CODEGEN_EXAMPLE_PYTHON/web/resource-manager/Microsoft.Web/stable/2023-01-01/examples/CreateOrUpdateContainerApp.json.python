@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 container_app = azure_native.web.ContainerApp("containerApp",
-    configuration=azure_native.web.ConfigurationArgs(
+    configuration=azure_native.web.ConfigurationResponseArgs(
         ingress=azure_native.web.IngressArgs(
             external=True,
             target_port=3000,
@@ -13,7 +13,7 @@ container_app = azure_native.web.ContainerApp("containerApp",
     location="East US",
     name="testcontainerApp0",
     resource_group_name="rg",
-    template=azure_native.web.TemplateArgs(
+    template=azure_native.web.TemplateResponseArgs(
         containers=[azure_native.web.ContainerArgs(
             image="repo/testcontainerApp0:v1",
             name="testcontainerApp0",
@@ -22,17 +22,17 @@ container_app = azure_native.web.ContainerApp("containerApp",
             app_port=3000,
             enabled=True,
         ),
-        scale=azure_native.web.ScaleArgs(
-            max_replicas=5,
-            min_replicas=1,
-            rules=[azure_native.web.ScaleRuleArgs(
-                custom=azure_native.web.CustomScaleRuleArgs(
+        scale={
+            "maxReplicas": 5,
+            "minReplicas": 1,
+            "rules": [{
+                "custom": azure_native.web.CustomScaleRuleArgs(
                     metadata={
                         "concurrentRequests": "50",
                     },
                     type="http",
                 ),
-                name="httpscalingrule",
-            )],
-        ),
+                "name": "httpscalingrule",
+            }],
+        },
     ))

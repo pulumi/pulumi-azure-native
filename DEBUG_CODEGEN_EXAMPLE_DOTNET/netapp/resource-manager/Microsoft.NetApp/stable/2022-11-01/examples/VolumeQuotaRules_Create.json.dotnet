@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var volumeQuotaRule = new AzureNative.NetApp.VolumeQuotaRule("volumeQuotaRule", new()
+    {
+        AccountName = "account-9957",
+        Location = "westus",
+        PoolName = "pool-5210",
+        QuotaSizeInKiBs = 100005,
+        QuotaTarget = "1821",
+        QuotaType = "IndividualUserQuota",
+        ResourceGroupName = "myRG",
+        VolumeName = "volume-6387",
+        VolumeQuotaRuleName = "rule-0004",
+    });
+
+});
+

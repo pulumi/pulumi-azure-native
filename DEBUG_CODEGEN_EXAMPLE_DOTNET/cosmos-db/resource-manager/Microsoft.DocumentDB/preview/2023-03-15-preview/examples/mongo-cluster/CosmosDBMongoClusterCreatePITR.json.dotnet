@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mongoCluster = new AzureNative.DocumentDB.MongoCluster("mongoCluster", new()
+    {
+        CreateMode = "PointInTimeRestore",
+        Location = "westus2",
+        MongoClusterName = "myMongoCluster",
+        ResourceGroupName = "TestResourceGroup",
+        RestoreParameters = new AzureNative.DocumentDB.Inputs.MongoClusterRestoreParametersArgs
+        {
+            PointInTimeUTC = "2023-01-13T20:07:35Z",
+            SourceResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+        },
+    });
+
+});
+

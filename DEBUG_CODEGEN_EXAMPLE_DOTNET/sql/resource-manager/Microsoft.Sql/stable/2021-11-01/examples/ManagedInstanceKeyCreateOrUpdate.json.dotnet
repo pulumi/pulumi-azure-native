@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedInstanceKey = new AzureNative.Sql.ManagedInstanceKey("managedInstanceKey", new()
+    {
+        KeyName = "someVault_someKey_01234567890123456789012345678901",
+        ManagedInstanceName = "sqlcrudtest-4645",
+        ResourceGroupName = "sqlcrudtest-7398",
+        ServerKeyType = "AzureKeyVault",
+        Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+    });
+
+});
+

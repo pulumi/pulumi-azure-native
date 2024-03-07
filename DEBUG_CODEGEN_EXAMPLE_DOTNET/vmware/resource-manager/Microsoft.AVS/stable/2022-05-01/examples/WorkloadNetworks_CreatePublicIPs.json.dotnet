@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadNetworkPublicIP = new AzureNative.AVS.WorkloadNetworkPublicIP("workloadNetworkPublicIP", new()
+    {
+        DisplayName = "publicIP1",
+        NumberOfPublicIPs = 32,
+        PrivateCloudName = "cloud1",
+        PublicIPId = "publicIP1",
+        ResourceGroupName = "group1",
+    });
+
+});
+

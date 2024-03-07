@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var jobStep = new AzureNative.Sql.JobStep("jobStep", new()
+    {
+        Action = new AzureNative.Sql.Inputs.JobStepActionArgs
+        {
+            Value = "select 1",
+        },
+        Credential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
+        JobAgentName = "agent1",
+        JobName = "job1",
+        ResourceGroupName = "group1",
+        ServerName = "server1",
+        StepName = "step1",
+        TargetGroup = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup0",
+    });
+
+});
+

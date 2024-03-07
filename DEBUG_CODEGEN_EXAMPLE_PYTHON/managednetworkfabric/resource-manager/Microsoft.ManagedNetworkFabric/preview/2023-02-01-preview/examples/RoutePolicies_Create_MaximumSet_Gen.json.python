@@ -6,41 +6,41 @@ route_policy = azure_native.managednetworkfabric.RoutePolicy("routePolicy",
     location="EastUS",
     resource_group_name="rgRoutePolicies",
     route_policy_name="routePolicyName",
-    statements=[azure_native.managednetworkfabric.RoutePolicyStatementPropertiesArgs(
-        action=azure_native.managednetworkfabric.StatementActionPropertiesArgs(
-            action_type="Permit",
-            ip_community_properties=azure_native.managednetworkfabric.ActionIpCommunityPropertiesArgs(
-                add=azure_native.managednetworkfabric.IpCommunityIdListArgs(
+    statements=[{
+        "action": {
+            "actionType": "Permit",
+            "ipCommunityProperties": {
+                "add": azure_native.managednetworkfabric.IpCommunityIdListArgs(
                     ip_community_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"],
                 ),
-                delete=azure_native.managednetworkfabric.IpCommunityIdListArgs(
+                "delete": azure_native.managednetworkfabric.IpCommunityIdListArgs(
                     ip_community_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"],
                 ),
-                set=azure_native.managednetworkfabric.IpCommunityIdListArgs(
+                "set": azure_native.managednetworkfabric.IpCommunityIdListArgs(
                     ip_community_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"],
                 ),
-            ),
-            ip_extended_community_properties=azure_native.managednetworkfabric.ActionIpExtendedCommunityPropertiesArgs(
-                add=azure_native.managednetworkfabric.IpExtendedCommunityIdListArgs(
+            },
+            "ipExtendedCommunityProperties": {
+                "add": azure_native.managednetworkfabric.IpExtendedCommunityIdListArgs(
                     ip_extended_community_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"],
                 ),
-                delete=azure_native.managednetworkfabric.IpExtendedCommunityIdListArgs(
+                "delete": azure_native.managednetworkfabric.IpExtendedCommunityIdListArgs(
                     ip_extended_community_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"],
                 ),
-                set=azure_native.managednetworkfabric.IpExtendedCommunityIdListArgs(
+                "set": azure_native.managednetworkfabric.IpExtendedCommunityIdListArgs(
                     ip_extended_community_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"],
                 ),
-            ),
-            local_preference=20,
-        ),
-        annotation="annotationValue",
-        condition=azure_native.managednetworkfabric.StatementConditionPropertiesArgs(
+            },
+            "localPreference": 20,
+        },
+        "annotation": "annotationValue",
+        "condition": azure_native.managednetworkfabric.StatementConditionPropertiesArgs(
             ip_community_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName"],
             ip_extended_community_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName"],
             ip_prefix_id="subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/example-ipPrefix",
         ),
-        sequence_number=7,
-    )],
+        "sequenceNumber": 7,
+    }],
     tags={
         "key8254": "",
     })

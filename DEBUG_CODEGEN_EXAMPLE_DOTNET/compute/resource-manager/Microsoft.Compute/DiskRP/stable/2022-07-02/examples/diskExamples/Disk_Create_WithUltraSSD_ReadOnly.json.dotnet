@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.Compute.Disk("disk", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "Empty",
+            LogicalSectorSize = 4096,
+        },
+        DiskIOPSReadWrite = 125,
+        DiskMBpsReadWrite = 3000,
+        DiskName = "myUltraReadOnlyDisk",
+        DiskSizeGB = 200,
+        Encryption = new AzureNative.Compute.Inputs.EncryptionArgs
+        {
+            Type = "EncryptionAtRestWithPlatformKey",
+        },
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Compute.Inputs.DiskSkuArgs
+        {
+            Name = "UltraSSD_LRS",
+        },
+    });
+
+});
+

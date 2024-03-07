@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var providerInstance = new AzureNative.Workloads.ProviderInstance("providerInstance", new()
+    {
+        MonitorName = "mySapMonitor",
+        ProviderInstanceName = "myProviderInstance",
+        ProviderSettings = new AzureNative.Workloads.Inputs.HanaDbProviderInstancePropertiesArgs
+        {
+            DbName = "db",
+            DbPassword = "****",
+            DbPasswordUri = "",
+            DbUsername = "user",
+            Hostname = "name",
+            InstanceNumber = "00",
+            ProviderType = "SapHana",
+            SapSid = "SID",
+            SqlPort = "0000",
+            SslHostNameInCertificate = "xyz.domain.com",
+            SslPreference = "RootCertificate",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

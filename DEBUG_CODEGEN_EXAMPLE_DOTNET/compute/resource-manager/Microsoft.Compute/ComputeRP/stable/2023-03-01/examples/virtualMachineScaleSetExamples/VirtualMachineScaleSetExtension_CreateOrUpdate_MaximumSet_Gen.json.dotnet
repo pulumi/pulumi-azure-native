@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachineScaleSetExtension = new AzureNative.Compute.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension", new()
+    {
+        AutoUpgradeMinorVersion = true,
+        EnableAutomaticUpgrade = true,
+        ForceUpdateTag = "aaaaaaaaa",
+        Name = "{extension-name}",
+        ProtectedSettings = null,
+        ProvisionAfterExtensions = new[]
+        {
+            "aa",
+        },
+        Publisher = "{extension-Publisher}",
+        ResourceGroupName = "rgcompute",
+        Settings = null,
+        SuppressFailures = true,
+        Type = "{extension-Type}",
+        TypeHandlerVersion = "{handler-version}",
+        VmScaleSetName = "aaaaaaa",
+        VmssExtensionName = "aaaaaaaaaaaaaaaaaaaaa",
+    });
+
+});
+

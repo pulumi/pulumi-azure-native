@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var timeSeriesDatabaseConnection = new AzureNative.DigitalTwins.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection", new()
+    {
+        Properties = new AzureNative.DigitalTwins.Inputs.AzureDataExplorerConnectionPropertiesArgs
+        {
+            AdxDatabaseName = "myDatabase",
+            AdxEndpointUri = "https://mycluster.kusto.windows.net",
+            AdxResourceId = "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+            AdxTableName = "myTable",
+            ConnectionType = "AzureDataExplorer",
+            EventHubEndpointUri = "sb://myeh.servicebus.windows.net/",
+            EventHubEntityPath = "myeh",
+            EventHubNamespaceResourceId = "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+            Identity = new AzureNative.DigitalTwins.Inputs.ManagedIdentityReferenceArgs
+            {
+                Type = "UserAssigned",
+                UserAssignedIdentity = "/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity",
+            },
+        },
+        ResourceGroupName = "resRg",
+        ResourceName = "myDigitalTwinsService",
+        TimeSeriesDatabaseConnectionName = "myConnection",
+    });
+
+});
+

@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const ruleSet = new azure_native.cdn.RuleSet("ruleSet", {
+    profileName: "profile1",
+    resourceGroupName: "RG",
+    ruleSetName: "ruleSet1",
+});

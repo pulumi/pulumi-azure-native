@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const input = new azure_native.streamanalytics.Input("input", {
+    inputName: "input7225",
+    jobName: "sj9597",
+    properties: {
+        datasource: {
+            path: "my/path",
+            type: "File",
+        },
+        type: "Reference",
+    },
+    resourceGroupName: "sjrg8440",
+});

@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var encryptionScope = new AzureNative.CognitiveServices.EncryptionScope("encryptionScope", new()
+    {
+        AccountName = "accountName",
+        EncryptionScopeName = "encryptionScopeName",
+        Properties = new AzureNative.CognitiveServices.Inputs.EncryptionScopePropertiesArgs
+        {
+            KeySource = "Microsoft.KeyVault",
+            KeyVaultProperties = new AzureNative.CognitiveServices.Inputs.KeyVaultPropertiesArgs
+            {
+                IdentityClientId = "00000000-0000-0000-0000-000000000000",
+                KeyName = "DevKeyWestUS2",
+                KeyVaultUri = "https://devkvwestus2.vault.azure.net/",
+                KeyVersion = "9f85549d7bf14ff4bf178c10d3bdca95",
+            },
+            State = "Enabled",
+        },
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

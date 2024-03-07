@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var clientGroup = new AzureNative.EventGrid.ClientGroup("clientGroup", new()
+    {
+        ClientGroupName = "exampleClientGroupName1",
+        Description = "This is a test client group",
+        NamespaceName = "exampleNamespaceName1",
+        Query = "attributes.b IN ['a', 'b', 'c']",
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

@@ -1,0 +1,64 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var alertProcessingRuleByName = new AzureNative.AlertsManagement.AlertProcessingRuleByName("alertProcessingRuleByName", new()
+    {
+        AlertProcessingRuleName = "RemoveActionGroupsRecurringMaintenance",
+        Location = "Global",
+        Properties = new AzureNative.AlertsManagement.Inputs.AlertProcessingRulePropertiesArgs
+        {
+            Actions = new[]
+            {
+                new AzureNative.AlertsManagement.Inputs.RemoveAllActionGroupsArgs
+                {
+                    ActionType = "RemoveAllActionGroups",
+                },
+            },
+            Conditions = new[]
+            {
+                new AzureNative.AlertsManagement.Inputs.ConditionArgs
+                {
+                    Field = "TargetResourceType",
+                    Operator = "Equals",
+                    Values = new[]
+                    {
+                        "microsoft.compute/virtualmachines",
+                    },
+                },
+            },
+            Description = "Remove all ActionGroups from all Vitual machine Alerts during the recurring maintenance",
+            Enabled = true,
+            Schedule = new AzureNative.AlertsManagement.Inputs.ScheduleArgs
+            {
+                Recurrences = new[]
+                {
+                    new AzureNative.AlertsManagement.Inputs.WeeklyRecurrenceArgs
+                    {
+                        DaysOfWeek = new[]
+                        {
+                            "Saturday",
+                            "Sunday",
+                        },
+                        EndTime = "04:00:00",
+                        RecurrenceType = "Weekly",
+                        StartTime = "22:00:00",
+                    },
+                },
+                TimeZone = "India Standard Time",
+            },
+            Scopes = new[]
+            {
+                "/subscriptions/subId1/resourceGroups/RGId1",
+                "/subscriptions/subId1/resourceGroups/RGId2",
+            },
+        },
+        ResourceGroupName = "alertscorrelationrg",
+        Tags = null,
+    });
+
+});
+

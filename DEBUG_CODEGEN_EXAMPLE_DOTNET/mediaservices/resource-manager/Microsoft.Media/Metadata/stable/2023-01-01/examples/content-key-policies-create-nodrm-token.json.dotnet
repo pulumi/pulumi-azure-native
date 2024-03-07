@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var contentKeyPolicy = new AzureNative.Media.ContentKeyPolicy("contentKeyPolicy", new()
+    {
+        AccountName = "contosomedia",
+        ContentKeyPolicyName = "PolicyWithClearKeyOptionAndSwtTokenRestriction",
+        Description = "ArmPolicyDescription",
+        Options = new[]
+        {
+            new AzureNative.Media.Inputs.ContentKeyPolicyOptionArgs
+            {
+                Configuration = new AzureNative.Media.Inputs.ContentKeyPolicyClearKeyConfigurationArgs
+                {
+                    OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+                },
+                Name = "ClearKeyOption",
+                Restriction = new AzureNative.Media.Inputs.ContentKeyPolicyTokenRestrictionArgs
+                {
+                    Audience = "urn:audience",
+                    Issuer = "urn:issuer",
+                    OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                    PrimaryVerificationKey = new AzureNative.Media.Inputs.ContentKeyPolicySymmetricTokenKeyArgs
+                    {
+                        KeyValue = "AAAAAAAAAAAAAAAAAAAAAA==",
+                        OdataType = "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                    },
+                    RestrictionTokenType = "Swt",
+                },
+            },
+        },
+        ResourceGroupName = "contosorg",
+    });
+
+});
+

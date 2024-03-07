@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customResourceProvider = new AzureNative.CustomProviders.CustomResourceProvider("customResourceProvider", new()
+    {
+        Actions = new[]
+        {
+            new AzureNative.CustomProviders.Inputs.CustomRPActionRouteDefinitionArgs
+            {
+                Endpoint = "https://mytestendpoint/",
+                Name = "TestAction",
+                RoutingType = "Proxy",
+            },
+        },
+        Location = "eastus",
+        ResourceGroupName = "testRG",
+        ResourceProviderName = "newrp",
+        ResourceTypes = new[]
+        {
+            new AzureNative.CustomProviders.Inputs.CustomRPResourceTypeRouteDefinitionArgs
+            {
+                Endpoint = "https://mytestendpoint2/",
+                Name = "TestResource",
+                RoutingType = "Proxy,Cache",
+            },
+        },
+    });
+
+});
+

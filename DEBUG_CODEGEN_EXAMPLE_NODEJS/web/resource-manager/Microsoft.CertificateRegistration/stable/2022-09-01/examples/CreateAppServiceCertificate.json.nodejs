@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const appServiceCertificateOrderCertificate = new azure_native.certificateregistration.AppServiceCertificateOrderCertificate("appServiceCertificateOrderCertificate", {
+    certificateOrderName: "SampleCertificateOrderName",
+    keyVaultId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+    keyVaultSecretName: "SampleSecretName1",
+    location: "Global",
+    name: "SampleCertName1",
+    resourceGroupName: "testrg123",
+});

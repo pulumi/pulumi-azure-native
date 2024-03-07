@@ -18,8 +18,8 @@ asset_filter = azure_native.media.AssetFilter("assetFilter",
     ),
     resource_group_name="contosorg",
     tracks=[
-        azure_native.media.FilterTrackSelectionArgs(
-            track_selections=[
+        {
+            "trackSelections": [
                 azure_native.media.FilterTrackPropertyConditionArgs(
                     operation="Equal",
                     property="Type",
@@ -36,9 +36,9 @@ asset_filter = azure_native.media.AssetFilter("assetFilter",
                     value="EC-3",
                 ),
             ],
-        ),
-        azure_native.media.FilterTrackSelectionArgs(
-            track_selections=[
+        },
+        {
+            "trackSelections": [
                 azure_native.media.FilterTrackPropertyConditionArgs(
                     operation="Equal",
                     property="Type",
@@ -50,5 +50,5 @@ asset_filter = azure_native.media.AssetFilter("assetFilter",
                     value="3000000-5000000",
                 ),
             ],
-        ),
+        },
     ])

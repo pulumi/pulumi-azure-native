@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var devToolPortal = new AzureNative.AppPlatform.DevToolPortal("devToolPortal", new()
+    {
+        DevToolPortalName = "default",
+        Properties = new AzureNative.AppPlatform.Inputs.DevToolPortalPropertiesArgs
+        {
+            Features = new AzureNative.AppPlatform.Inputs.DevToolPortalFeatureSettingsArgs
+            {
+                ApplicationAccelerator = new AzureNative.AppPlatform.Inputs.DevToolPortalFeatureDetailArgs
+                {
+                    State = "Enabled",
+                },
+                ApplicationLiveView = new AzureNative.AppPlatform.Inputs.DevToolPortalFeatureDetailArgs
+                {
+                    State = "Enabled",
+                },
+            },
+            Public = true,
+            SsoProperties = new AzureNative.AppPlatform.Inputs.DevToolPortalSsoPropertiesArgs
+            {
+                ClientId = "00000000-0000-0000-0000-000000000000",
+                ClientSecret = "xxxxx",
+                MetadataUrl = "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/.well-known/openid-configuration",
+                Scopes = new[]
+                {
+                    "openid",
+                },
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

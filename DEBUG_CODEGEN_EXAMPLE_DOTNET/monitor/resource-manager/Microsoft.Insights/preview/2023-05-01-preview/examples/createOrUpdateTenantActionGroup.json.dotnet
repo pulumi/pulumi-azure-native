@@ -1,0 +1,85 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var tenantActionGroup = new AzureNative.Insights.TenantActionGroup("tenantActionGroup", new()
+    {
+        AzureAppPushReceivers = new[]
+        {
+            new AzureNative.Insights.Inputs.AzureAppPushReceiverArgs
+            {
+                EmailAddress = "johndoe@email.com",
+                Name = "Sample azureAppPush",
+            },
+        },
+        EmailReceivers = new[]
+        {
+            new AzureNative.Insights.Inputs.EmailReceiverArgs
+            {
+                EmailAddress = "johndoe@email.com",
+                Name = "John Doe's email",
+                UseCommonAlertSchema = false,
+            },
+            new AzureNative.Insights.Inputs.EmailReceiverArgs
+            {
+                EmailAddress = "janesmith@email.com",
+                Name = "Jane Smith's email",
+                UseCommonAlertSchema = true,
+            },
+        },
+        Enabled = true,
+        GroupShortName = "sample",
+        Location = "Global",
+        ManagementGroupId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        SmsReceivers = new[]
+        {
+            new AzureNative.Insights.Inputs.SmsReceiverArgs
+            {
+                CountryCode = "1",
+                Name = "John Doe's mobile",
+                PhoneNumber = "2062022299",
+            },
+            new AzureNative.Insights.Inputs.SmsReceiverArgs
+            {
+                CountryCode = "1",
+                Name = "Jane Smith's mobile",
+                PhoneNumber = "0987654321",
+            },
+        },
+        Tags = null,
+        TenantActionGroupName = "testTenantActionGroup",
+        VoiceReceivers = new[]
+        {
+            new AzureNative.Insights.Inputs.VoiceReceiverArgs
+            {
+                CountryCode = "1",
+                Name = "Sample voice",
+                PhoneNumber = "2062022299",
+            },
+        },
+        WebhookReceivers = new[]
+        {
+            new AzureNative.Insights.Inputs.WebhookReceiverArgs
+            {
+                Name = "Sample webhook 1",
+                ServiceUri = "http://www.example.com/webhook1",
+                UseCommonAlertSchema = true,
+            },
+            new AzureNative.Insights.Inputs.WebhookReceiverArgs
+            {
+                IdentifierUri = "http://someidentifier/d7811ba3-7996-4a93-99b6-6b2f3f355f8a",
+                Name = "Sample webhook 2",
+                ObjectId = "d3bb868c-fe44-452c-aa26-769a6538c808",
+                ServiceUri = "http://www.example.com/webhook2",
+                TenantId = "68a4459a-ccb8-493c-b9da-dd30457d1b84",
+                UseAadAuth = true,
+                UseCommonAlertSchema = true,
+            },
+        },
+    });
+
+});
+

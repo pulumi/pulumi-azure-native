@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.Compute.Disk("disk", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "UploadPreparedSecure",
+            UploadSizeBytes = 10737418752,
+        },
+        DiskName = "myDisk",
+        Location = "West US",
+        OsType = AzureNative.Compute.OperatingSystemTypes.Windows,
+        ResourceGroupName = "myResourceGroup",
+        SecurityProfile = new AzureNative.Compute.Inputs.DiskSecurityProfileArgs
+        {
+            SecurityType = "TrustedLaunch",
+        },
+    });
+
+});
+

@@ -3,13 +3,13 @@ import pulumi_azure_native as azure_native
 
 bastion_host = azure_native.network.BastionHost("bastionHost",
     bastion_host_name="bastionhosttenant",
-    ip_configurations=[azure_native.network.BastionHostIPConfigurationArgs(
-        name="bastionHostIpConfiguration",
-        public_ip_address=azure_native.network.SubResourceArgs(
+    ip_configurations=[{
+        "name": "bastionHostIpConfiguration",
+        "publicIPAddress": azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
         ),
-        subnet=azure_native.network.SubResourceArgs(
+        "subnet": azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/BastionHostSubnet",
         ),
-    )],
+    }],
     resource_group_name="rg1")

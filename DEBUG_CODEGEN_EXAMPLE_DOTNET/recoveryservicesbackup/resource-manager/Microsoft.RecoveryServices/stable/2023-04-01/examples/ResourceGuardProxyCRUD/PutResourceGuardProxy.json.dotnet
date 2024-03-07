@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var resourceGuardProxy = new AzureNative.RecoveryServices.ResourceGuardProxy("resourceGuardProxy", new()
+    {
+        Properties = new AzureNative.RecoveryServices.Inputs.ResourceGuardProxyBaseArgs
+        {
+            ResourceGuardResourceId = "/subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew",
+        },
+        ResourceGroupName = "SampleResourceGroup",
+        ResourceGuardProxyName = "swaggerExample",
+        VaultName = "sampleVault",
+    });
+
+});
+

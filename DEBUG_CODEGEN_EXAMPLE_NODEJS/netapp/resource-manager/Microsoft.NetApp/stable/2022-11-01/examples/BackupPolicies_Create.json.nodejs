@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const backupPolicy = new azure_native.netapp.BackupPolicy("backupPolicy", {
+    accountName: "account1",
+    backupPolicyName: "backupPolicyName",
+    dailyBackupsToKeep: 10,
+    enabled: true,
+    location: "westus",
+    monthlyBackupsToKeep: 10,
+    resourceGroupName: "myRG",
+    weeklyBackupsToKeep: 10,
+});

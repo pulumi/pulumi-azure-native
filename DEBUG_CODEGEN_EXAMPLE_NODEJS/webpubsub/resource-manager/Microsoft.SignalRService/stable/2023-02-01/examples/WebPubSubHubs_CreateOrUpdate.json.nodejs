@@ -1,0 +1,40 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webPubSubHub = new azure_native.webpubsub.WebPubSubHub("webPubSubHub", {
+    hubName: "exampleHub",
+    properties: {
+        anonymousConnectPolicy: "allow",
+        eventHandlers: [{
+            auth: {
+                managedIdentity: {
+                    resource: "abc",
+                },
+                type: "ManagedIdentity",
+            },
+            systemEvents: [
+                "connect",
+                "connected",
+            ],
+            urlTemplate: "http://host.com",
+            userEventPattern: "*",
+        }],
+        eventListeners: [{
+            endpoint: {
+                eventHubName: "eventHubName1",
+                fullyQualifiedNamespace: "example.servicebus.windows.net",
+                type: "EventHub",
+            },
+            filter: {
+                systemEvents: [
+                    "connected",
+                    "disconnected",
+                ],
+                type: "EventName",
+                userEventPattern: "*",
+            },
+        }],
+    },
+    resourceGroupName: "myResourceGroup",
+    resourceName: "myWebPubSubService",
+});

@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const registryModelVersion = new azure_native.machinelearningservices.RegistryModelVersion("registryModelVersion", {
+    modelName: "string",
+    modelVersionProperties: {
+        description: "string",
+        flavors: {
+            string: {
+                data: {
+                    string: "string",
+                },
+            },
+        },
+        isAnonymous: false,
+        modelType: "CustomModel",
+        modelUri: "string",
+        properties: {
+            string: "string",
+        },
+        tags: {
+            string: "string",
+        },
+    },
+    registryName: "my-aml-registry",
+    resourceGroupName: "test-rg",
+    version: "string",
+});

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadGroup = new AzureNative.Sql.WorkloadGroup("workloadGroup", new()
+    {
+        DatabaseName = "testdb",
+        MaxResourcePercent = 100,
+        MinResourcePercent = 0,
+        MinResourcePercentPerRequest = 3,
+        ResourceGroupName = "Default-SQL-SouthEastAsia",
+        ServerName = "testsvr",
+        WorkloadGroupName = "smallrc",
+    });
+
+});
+

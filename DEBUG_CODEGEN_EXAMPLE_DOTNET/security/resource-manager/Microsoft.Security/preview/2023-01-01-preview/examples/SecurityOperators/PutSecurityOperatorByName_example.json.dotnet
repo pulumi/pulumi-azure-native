@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var securityOperator = new AzureNative.Security.SecurityOperator("securityOperator", new()
+    {
+        PricingName = "CloudPosture",
+        SecurityOperatorName = "DefenderCSPMSecurityOperator",
+    });
+
+});
+

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceManagerConfiguration = new azure_native.securityinsights.WorkspaceManagerConfiguration("workspaceManagerConfiguration", {
+    mode: "Enabled",
+    resourceGroupName: "myRg",
+    workspaceManagerConfigurationName: "default",
+    workspaceName: "myWorkspace",
+});

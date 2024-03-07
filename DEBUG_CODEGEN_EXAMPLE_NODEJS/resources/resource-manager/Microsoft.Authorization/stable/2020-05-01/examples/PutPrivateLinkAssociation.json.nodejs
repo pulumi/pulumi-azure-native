@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateLinkAssociation = new azure_native.authorization.PrivateLinkAssociation("privateLinkAssociation", {
+    groupId: "my-management-group",
+    plaId: "00000000-0000-0000-0000-000000000000",
+    properties: {
+        privateLink: "00000000-0000-0000-0000-000000000000",
+        publicNetworkAccess: "Enabled",
+    },
+});

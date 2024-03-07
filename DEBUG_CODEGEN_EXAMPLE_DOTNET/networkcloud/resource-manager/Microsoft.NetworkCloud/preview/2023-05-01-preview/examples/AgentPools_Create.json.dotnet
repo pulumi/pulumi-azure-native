@@ -1,0 +1,100 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agentPool = new AzureNative.NetworkCloud.AgentPool("agentPool", new()
+    {
+        AdministratorConfiguration = new AzureNative.NetworkCloud.Inputs.AdministratorConfigurationArgs
+        {
+            AdminUsername = "azure",
+            SshPublicKeys = new[]
+            {
+                new AzureNative.NetworkCloud.Inputs.SshPublicKeyArgs
+                {
+                    KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                },
+            },
+        },
+        AgentOptions = new AzureNative.NetworkCloud.Inputs.AgentOptionsArgs
+        {
+            HugepagesCount = 96,
+            HugepagesSize = "1G",
+        },
+        AgentPoolName = "agentPoolName",
+        AttachedNetworkConfiguration = new AzureNative.NetworkCloud.Inputs.AttachedNetworkConfigurationArgs
+        {
+            L2Networks = new[]
+            {
+                new AzureNative.NetworkCloud.Inputs.L2NetworkAttachmentConfigurationArgs
+                {
+                    NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName",
+                    PluginType = "DPDK",
+                },
+            },
+            L3Networks = new[]
+            {
+                new AzureNative.NetworkCloud.Inputs.L3NetworkAttachmentConfigurationArgs
+                {
+                    IpamEnabled = "False",
+                    NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+                    PluginType = "SRIOV",
+                },
+            },
+            TrunkedNetworks = new[]
+            {
+                new AzureNative.NetworkCloud.Inputs.TrunkedNetworkAttachmentConfigurationArgs
+                {
+                    NetworkId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName",
+                    PluginType = "MACVLAN",
+                },
+            },
+        },
+        AvailabilityZones = new[]
+        {
+            "1",
+            "2",
+            "3",
+        },
+        Count = 3,
+        ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+            Type = "CustomLocation",
+        },
+        KubernetesClusterName = "kubernetesClusterName",
+        Labels = new[]
+        {
+            new AzureNative.NetworkCloud.Inputs.KubernetesLabelArgs
+            {
+                Key = "kubernetes.label",
+                Value = "true",
+            },
+        },
+        Location = "location",
+        Mode = "System",
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+        Taints = new[]
+        {
+            new AzureNative.NetworkCloud.Inputs.KubernetesLabelArgs
+            {
+                Key = "kubernetes.taint",
+                Value = "true",
+            },
+        },
+        UpgradeSettings = new AzureNative.NetworkCloud.Inputs.AgentPoolUpgradeSettingsArgs
+        {
+            MaxSurge = "1",
+        },
+        VmSkuName = "NC_M16_v1",
+    });
+
+});
+

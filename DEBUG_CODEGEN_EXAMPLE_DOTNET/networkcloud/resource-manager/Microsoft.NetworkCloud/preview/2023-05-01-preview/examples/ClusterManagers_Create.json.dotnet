@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var clusterManager = new AzureNative.NetworkCloud.ClusterManager("clusterManager", new()
+    {
+        AnalyticsWorkspaceId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+        ClusterManagerName = "clusterManagerName",
+        FabricControllerId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+        Location = "location",
+        ManagedResourceGroupConfiguration = new AzureNative.NetworkCloud.Inputs.ManagedResourceGroupConfigurationArgs
+        {
+            Location = "East US",
+            Name = "my-managed-rg",
+        },
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+    });
+
+});
+

@@ -3,15 +3,15 @@ import pulumi_azure_native as azure_native
 
 monitoring_config = azure_native.databoxedge.MonitoringConfig("monitoringConfig",
     device_name="testedgedevice",
-    metric_configurations=[azure_native.databoxedge.MetricConfigurationArgs(
-        counter_sets=[azure_native.databoxedge.MetricCounterSetArgs(
-            counters=[azure_native.databoxedge.MetricCounterArgs(
+    metric_configurations=[{
+        "counterSets": [{
+            "counters": [azure_native.databoxedge.MetricCounterArgs(
                 name="test",
             )],
-        )],
-        mdm_account="test",
-        metric_name_space="test",
-        resource_id="test",
-    )],
+        }],
+        "mdmAccount": "test",
+        "metricNameSpace": "test",
+        "resourceId": "test",
+    }],
     resource_group_name="GroupForEdgeAutomation",
     role_name="testrole")

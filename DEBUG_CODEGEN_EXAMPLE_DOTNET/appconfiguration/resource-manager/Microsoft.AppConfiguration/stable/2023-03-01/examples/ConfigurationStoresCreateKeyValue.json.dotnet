@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var keyValue = new AzureNative.AppConfiguration.KeyValue("keyValue", new()
+    {
+        ConfigStoreName = "contoso",
+        KeyValueName = "myKey$myLabel",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "tag1", "tagValue1" },
+            { "tag2", "tagValue2" },
+        },
+        Value = "myValue",
+    });
+
+});
+

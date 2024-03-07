@@ -1,0 +1,56 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dscpConfiguration = new azure_native.network.DscpConfiguration("dscpConfiguration", {
+    dscpConfigurationName: "mydscpconfig",
+    location: "eastus",
+    qosDefinitionCollection: [
+        {
+            destinationIpRanges: [{
+                endIP: "127.0.10.2",
+                startIP: "127.0.10.1",
+            }],
+            destinationPortRanges: [{
+                end: 15,
+                start: 15,
+            }],
+            markings: [1],
+            protocol: "Tcp",
+            sourceIpRanges: [{
+                endIP: "127.0.0.2",
+                startIP: "127.0.0.1",
+            }],
+            sourcePortRanges: [
+                {
+                    end: 11,
+                    start: 10,
+                },
+                {
+                    end: 21,
+                    start: 20,
+                },
+            ],
+        },
+        {
+            destinationIpRanges: [{
+                endIP: "12.0.10.2",
+                startIP: "12.0.10.1",
+            }],
+            destinationPortRanges: [{
+                end: 52,
+                start: 51,
+            }],
+            markings: [2],
+            protocol: "Udp",
+            sourceIpRanges: [{
+                endIP: "12.0.0.2",
+                startIP: "12.0.0.1",
+            }],
+            sourcePortRanges: [{
+                end: 12,
+                start: 11,
+            }],
+        },
+    ],
+    resourceGroupName: "rg1",
+});

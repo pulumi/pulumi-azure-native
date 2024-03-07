@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const recordSet = new azure_native.network.RecordSet("recordSet", {
+    metadata: {
+        key1: "value1",
+    },
+    recordType: "A",
+    relativeRecordSetName: "record1",
+    resourceGroupName: "rg1",
+    targetResource: {
+        id: "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2",
+    },
+    ttl: 3600,
+    zoneName: "zone1",
+});

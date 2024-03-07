@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const alertProcessingRuleByName = new azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName", {
+    alertProcessingRuleName: "RemoveActionGroupsMaintenanceWindow",
+    location: "Global",
+    properties: {
+        actions: [{
+            actionType: "RemoveAllActionGroups",
+        }],
+        description: "Removes all ActionGroups from all Alerts on VMName during the maintenance window",
+        enabled: true,
+        schedule: {
+            effectiveFrom: "2021-04-15T18:00:00",
+            effectiveUntil: "2021-04-15T20:00:00",
+            timeZone: "Pacific Standard Time",
+        },
+        scopes: ["/subscriptions/subId1/resourceGroups/RGId1/providers/Microsoft.Compute/virtualMachines/VMName"],
+    },
+    resourceGroupName: "alertscorrelationrg",
+    tags: {},
+});

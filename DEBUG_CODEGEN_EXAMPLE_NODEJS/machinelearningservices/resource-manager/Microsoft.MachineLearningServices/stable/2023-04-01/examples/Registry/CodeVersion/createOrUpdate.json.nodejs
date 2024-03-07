@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const registryCodeVersion = new azure_native.machinelearningservices.RegistryCodeVersion("registryCodeVersion", {
+    codeName: "string",
+    codeVersionProperties: {
+        codeUri: "https://blobStorage/folderName",
+        description: "string",
+        isAnonymous: false,
+        properties: {
+            string: "string",
+        },
+        tags: {
+            string: "string",
+        },
+    },
+    registryName: "my-aml-registry",
+    resourceGroupName: "test-rg",
+    version: "string",
+});

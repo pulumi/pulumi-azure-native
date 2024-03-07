@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const link = new azure_native.customerinsights.Link("link", {
+    description: {
+        "en-us": "Link Description",
+    },
+    displayName: {
+        "en-us": "Link DisplayName",
+    },
+    hubName: "sdkTestHub",
+    linkName: "linkTest4806",
+    mappings: [{
+        linkType: azure_native.customerinsights.LinkTypes.UpdateAlways,
+        sourcePropertyName: "testInteraction1949",
+        targetPropertyName: "testProfile1446",
+    }],
+    participantPropertyReferences: [{
+        sourcePropertyName: "testInteraction1949",
+        targetPropertyName: "ProfileId",
+    }],
+    resourceGroupName: "TestHubRG",
+    sourceEntityType: azure_native.customerinsights.EntityType.Interaction,
+    sourceEntityTypeName: "testInteraction1949",
+    targetEntityType: azure_native.customerinsights.EntityType.Profile,
+    targetEntityTypeName: "testProfile1446",
+});

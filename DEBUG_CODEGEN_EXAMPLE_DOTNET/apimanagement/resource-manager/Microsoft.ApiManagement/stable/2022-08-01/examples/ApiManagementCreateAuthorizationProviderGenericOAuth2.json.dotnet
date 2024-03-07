@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var authorizationProvider = new AzureNative.ApiManagement.AuthorizationProvider("authorizationProvider", new()
+    {
+        AuthorizationProviderId = "eventbrite",
+        DisplayName = "eventbrite",
+        IdentityProvider = "oauth2",
+        Oauth2 = new AzureNative.ApiManagement.Inputs.AuthorizationProviderOAuth2SettingsArgs
+        {
+            GrantTypes = new AzureNative.ApiManagement.Inputs.AuthorizationProviderOAuth2GrantTypesArgs
+            {
+                AuthorizationCode = 
+                {
+                    { "authorizationUrl", "https://www.eventbrite.com/oauth/authorize" },
+                    { "clientId", "ZYIJTBTABHOUQQDLZY" },
+                    { "clientSecret", "Q3iPSaKQ~fZFcJk5vKmqzUAfJagcJ8" },
+                    { "refreshUrl", "https://www.eventbrite.com/oauth/token" },
+                    { "scopes", "" },
+                    { "tokenUrl", "https://www.eventbrite.com/oauth/token" },
+                },
+            },
+            RedirectUrl = "https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vNetPeering = new AzureNative.Databricks.VNetPeering("vNetPeering", new()
+    {
+        AllowForwardedTraffic = false,
+        AllowGatewayTransit = false,
+        AllowVirtualNetworkAccess = true,
+        PeeringName = "vNetPeeringTest",
+        RemoteVirtualNetwork = new AzureNative.Databricks.Inputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs
+        {
+            Id = "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+        },
+        ResourceGroupName = "rg",
+        UseRemoteGateways = false,
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

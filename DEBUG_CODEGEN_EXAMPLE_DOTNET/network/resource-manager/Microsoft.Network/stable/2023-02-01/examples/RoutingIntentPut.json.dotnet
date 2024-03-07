@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var routingIntent = new AzureNative.Network.RoutingIntent("routingIntent", new()
+    {
+        ResourceGroupName = "rg1",
+        RoutingIntentName = "Intent1",
+        RoutingPolicies = new[]
+        {
+            new AzureNative.Network.Inputs.RoutingPolicyArgs
+            {
+                Destinations = new[]
+                {
+                    "Internet",
+                },
+                Name = "InternetTraffic",
+                NextHop = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+            },
+            new AzureNative.Network.Inputs.RoutingPolicyArgs
+            {
+                Destinations = new[]
+                {
+                    "PrivateTraffic",
+                },
+                Name = "PrivateTrafficPolicy",
+                NextHop = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+            },
+        },
+        VirtualHubName = "virtualHub1",
+    });
+
+});
+

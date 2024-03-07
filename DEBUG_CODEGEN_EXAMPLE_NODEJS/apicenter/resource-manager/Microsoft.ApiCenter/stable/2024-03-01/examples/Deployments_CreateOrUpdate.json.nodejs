@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const deployment = new azure_native.apicenter.Deployment("deployment", {
+    apiName: "echo-api",
+    definitionId: "/workspaces/default/apis/echo-api/versions/2023-01-01/definitions/openapi",
+    deploymentName: "production",
+    description: "Public cloud production deployment.",
+    environmentId: "/workspaces/default/environments/production",
+    resourceGroupName: "contoso-resources",
+    server: {
+        runtimeUri: ["https://api.contoso.com"],
+    },
+    serviceName: "contoso",
+    state: "active",
+    title: "Production deployment",
+    workspaceName: "default",
+});

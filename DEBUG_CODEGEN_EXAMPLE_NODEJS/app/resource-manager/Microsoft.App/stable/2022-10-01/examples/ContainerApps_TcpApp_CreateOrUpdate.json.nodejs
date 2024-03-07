@@ -1,0 +1,47 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const containerApp = new azure_native.app.ContainerApp("containerApp", {
+    configuration: {
+        ingress: {
+            exposedPort: 4000,
+            external: true,
+            targetPort: 3000,
+            traffic: [{
+                revisionName: "testcontainerapptcp-ab1234",
+                weight: 100,
+            }],
+            transport: "tcp",
+        },
+    },
+    containerAppName: "testcontainerapptcp",
+    environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    location: "East US",
+    resourceGroupName: "rg",
+    template: {
+        containers: [{
+            image: "repo/testcontainerapptcp:v1",
+            name: "testcontainerapptcp",
+            probes: [{
+                initialDelaySeconds: 3,
+                periodSeconds: 3,
+                tcpSocket: {
+                    port: 8080,
+                },
+                type: "Liveness",
+            }],
+        }],
+        scale: {
+            maxReplicas: 5,
+            minReplicas: 1,
+            rules: [{
+                name: "tcpscalingrule",
+                tcp: {
+                    metadata: {
+                        concurrentConnections: "50",
+                    },
+                },
+            }],
+        },
+    },
+});

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cloudLink = new azure_native.avs.CloudLink("cloudLink", {
+    cloudLinkName: "cloudLink1",
+    linkedCloud: "/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.AVS/privateClouds/cloud2",
+    privateCloudName: "cloud1",
+    resourceGroupName: "group1",
+});

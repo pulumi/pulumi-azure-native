@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const group = new azure_native.apimanagement.Group("group", {
+    description: "new group to test",
+    displayName: "NewGroup (samiraad.onmicrosoft.com)",
+    externalId: "aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
+    groupId: "aadGroup",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    type: azure_native.apimanagement.GroupType.External,
+});

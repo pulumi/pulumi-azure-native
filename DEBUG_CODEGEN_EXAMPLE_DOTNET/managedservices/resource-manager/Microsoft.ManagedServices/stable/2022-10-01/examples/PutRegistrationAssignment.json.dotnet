@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var registrationAssignment = new AzureNative.ManagedServices.RegistrationAssignment("registrationAssignment", new()
+    {
+        Properties = new AzureNative.ManagedServices.Inputs.RegistrationAssignmentPropertiesArgs
+        {
+            RegistrationDefinitionId = "/subscriptions/0afefe50-734e-4610-8a82-a144ahf49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-6e081c90ada2",
+        },
+        RegistrationAssignmentId = "26c128c2-fefa-4340-9bb1-6e081c90ada2",
+        Scope = "subscription/0afefe50-734e-4610-8a82-a144ahf49dea",
+    });
+
+});
+

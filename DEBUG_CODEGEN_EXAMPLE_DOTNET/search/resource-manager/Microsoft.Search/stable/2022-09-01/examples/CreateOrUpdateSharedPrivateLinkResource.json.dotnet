@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sharedPrivateLinkResource = new AzureNative.Search.SharedPrivateLinkResource("sharedPrivateLinkResource", new()
+    {
+        Properties = new AzureNative.Search.Inputs.SharedPrivateLinkResourcePropertiesArgs
+        {
+            GroupId = "blob",
+            PrivateLinkResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/storageAccountName",
+            RequestMessage = "please approve",
+        },
+        ResourceGroupName = "rg1",
+        SearchServiceName = "mysearchservice",
+        SharedPrivateLinkResourceName = "testResource",
+    });
+
+});
+

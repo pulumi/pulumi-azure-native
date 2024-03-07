@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var alertProcessingRuleByName = new AzureNative.AlertsManagement.AlertProcessingRuleByName("alertProcessingRuleByName", new()
+    {
+        AlertProcessingRuleName = "RemoveActionGroupsMaintenanceWindow",
+        Location = "Global",
+        Properties = new AzureNative.AlertsManagement.Inputs.AlertProcessingRulePropertiesArgs
+        {
+            Actions = new[]
+            {
+                new AzureNative.AlertsManagement.Inputs.RemoveAllActionGroupsArgs
+                {
+                    ActionType = "RemoveAllActionGroups",
+                },
+            },
+            Description = "Removes all ActionGroups from all Alerts on VMName during the maintenance window",
+            Enabled = true,
+            Schedule = new AzureNative.AlertsManagement.Inputs.ScheduleArgs
+            {
+                EffectiveFrom = "2021-04-15T18:00:00",
+                EffectiveUntil = "2021-04-15T20:00:00",
+                TimeZone = "Pacific Standard Time",
+            },
+            Scopes = new[]
+            {
+                "/subscriptions/subId1/resourceGroups/RGId1/providers/Microsoft.Compute/virtualMachines/VMName",
+            },
+        },
+        ResourceGroupName = "alertscorrelationrg",
+        Tags = null,
+    });
+
+});
+

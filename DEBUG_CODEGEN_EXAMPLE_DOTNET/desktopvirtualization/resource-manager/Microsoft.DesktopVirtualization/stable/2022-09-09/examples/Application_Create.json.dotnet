@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var application = new AzureNative.DesktopVirtualization.Application("application", new()
+    {
+        ApplicationGroupName = "applicationGroup1",
+        ApplicationName = "application1",
+        CommandLineArguments = "arguments",
+        CommandLineSetting = "Allow",
+        Description = "des1",
+        FilePath = "path",
+        FriendlyName = "friendly",
+        IconIndex = 1,
+        IconPath = "icon",
+        ResourceGroupName = "resourceGroup1",
+        ShowInPortal = true,
+    });
+
+});
+

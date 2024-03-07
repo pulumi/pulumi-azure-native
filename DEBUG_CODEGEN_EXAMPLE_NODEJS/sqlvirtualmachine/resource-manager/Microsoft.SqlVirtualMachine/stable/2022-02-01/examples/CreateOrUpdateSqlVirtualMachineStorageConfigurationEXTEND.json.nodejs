@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlVirtualMachine = new azure_native.sqlvirtualmachine.SqlVirtualMachine("sqlVirtualMachine", {
+    location: "northeurope",
+    resourceGroupName: "testrg",
+    sqlVirtualMachineName: "testvm",
+    storageConfigurationSettings: {
+        diskConfigurationType: "EXTEND",
+        sqlDataSettings: {
+            luns: [2],
+        },
+    },
+    virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+});

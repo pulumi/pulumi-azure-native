@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedClusterApplicationTypeVersion = new azure_native.servicefabric.ManagedClusterApplicationTypeVersion("managedClusterApplicationTypeVersion", {
+    appPackageUrl: "http://fakelink.test.com/MyAppType",
+    applicationTypeName: "myAppType",
+    clusterName: "myCluster",
+    location: "eastus",
+    resourceGroupName: "resRg",
+    version: "1.0",
+});

@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var database = new AzureNative.Cache.Database("database", new()
+    {
+        ClientProtocol = "Encrypted",
+        ClusterName = "cache1",
+        ClusteringPolicy = "EnterpriseCluster",
+        DatabaseName = "default",
+        EvictionPolicy = "AllKeysLRU",
+        Modules = new[]
+        {
+            new AzureNative.Cache.Inputs.ModuleArgs
+            {
+                Args = "ERROR_RATE 0.00 INITIAL_SIZE 400",
+                Name = "RedisBloom",
+            },
+            new AzureNative.Cache.Inputs.ModuleArgs
+            {
+                Args = "RETENTION_POLICY 20",
+                Name = "RedisTimeSeries",
+            },
+            new AzureNative.Cache.Inputs.ModuleArgs
+            {
+                Name = "RediSearch",
+            },
+        },
+        Persistence = new AzureNative.Cache.Inputs.PersistenceArgs
+        {
+            AofEnabled = true,
+            AofFrequency = "1s",
+        },
+        Port = 10000,
+        ResourceGroupName = "rg1",
+    });
+
+});
+

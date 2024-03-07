@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var elasticPool = new AzureNative.Sql.ElasticPool("elasticPool", new()
+    {
+        ElasticPoolName = "sqlcrudtest-8102",
+        HighAvailabilityReplicaCount = 2,
+        Location = "Japan East",
+        ResourceGroupName = "sqlcrudtest-2369",
+        ServerName = "sqlcrudtest-8069",
+        Sku = new AzureNative.Sql.Inputs.SkuArgs
+        {
+            Name = "HS_Gen5_4",
+        },
+    });
+
+});
+

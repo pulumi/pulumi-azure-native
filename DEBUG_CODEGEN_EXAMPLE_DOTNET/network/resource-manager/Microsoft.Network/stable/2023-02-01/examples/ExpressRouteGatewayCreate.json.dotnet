@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var expressRouteGateway = new AzureNative.Network.ExpressRouteGateway("expressRouteGateway", new()
+    {
+        AllowNonVirtualWanTraffic = false,
+        AutoScaleConfiguration = new AzureNative.Network.Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs
+        {
+            Bounds = new AzureNative.Network.Inputs.ExpressRouteGatewayPropertiesBoundsArgs
+            {
+                Min = 3,
+            },
+        },
+        ExpressRouteGatewayName = "gateway-2",
+        Location = "westus",
+        ResourceGroupName = "resourceGroupName",
+        VirtualHub = new AzureNative.Network.Inputs.VirtualHubIdArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+        },
+    });
+
+});
+

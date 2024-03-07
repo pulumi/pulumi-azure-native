@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiVersionSet = new AzureNative.ApiManagement.ApiVersionSet("apiVersionSet", new()
+    {
+        Description = "Version configuration",
+        DisplayName = "api set 1",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        VersionSetId = "api1",
+        VersioningScheme = "Segment",
+    });
+
+});
+

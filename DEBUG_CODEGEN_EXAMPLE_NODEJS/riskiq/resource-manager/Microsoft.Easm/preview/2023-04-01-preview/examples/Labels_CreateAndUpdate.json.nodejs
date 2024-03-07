@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const labelByWorkspace = new azure_native.easm.LabelByWorkspace("labelByWorkspace", {
+    labelName: "ThisisaLabel",
+    resourceGroupName: "dummyrg",
+    workspaceName: "ThisisaWorkspace",
+});

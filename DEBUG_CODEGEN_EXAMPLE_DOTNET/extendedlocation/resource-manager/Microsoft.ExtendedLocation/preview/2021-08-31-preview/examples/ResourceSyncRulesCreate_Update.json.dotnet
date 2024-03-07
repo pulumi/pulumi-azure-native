@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var resourceSyncRule = new AzureNative.ExtendedLocation.ResourceSyncRule("resourceSyncRule", new()
+    {
+        ChildResourceName = "resourceSyncRule01",
+        Location = "West US",
+        Priority = 999,
+        ResourceGroupName = "testresourcegroup",
+        ResourceName = "customLocation01",
+        Selector = new AzureNative.ExtendedLocation.Inputs.ResourceSyncRulePropertiesSelectorArgs
+        {
+            MatchLabels = 
+            {
+                { "key1", "value1" },
+            },
+        },
+        TargetResourceGroup = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup",
+    });
+
+});
+

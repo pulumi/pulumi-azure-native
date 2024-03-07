@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.DevCenter.Pool("pool", new()
+    {
+        DevBoxDefinitionName = "WebDevBox",
+        LicenseType = "Windows_Client",
+        LocalAdministrator = "Enabled",
+        Location = "centralus",
+        NetworkConnectionName = "Network1-westus2",
+        PoolName = "DevPool",
+        ProjectName = "DevProject",
+        ResourceGroupName = "rg1",
+        StopOnDisconnect = new AzureNative.DevCenter.Inputs.StopOnDisconnectConfigurationArgs
+        {
+            GracePeriodMinutes = 60,
+            Status = "Enabled",
+        },
+    });
+
+});
+

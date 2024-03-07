@@ -1,0 +1,106 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const deploymentSetting = new azure_native.azurestackhci.DeploymentSetting("deploymentSetting", {
+    arcNodeResourceIds: [
+        "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+        "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-2",
+    ],
+    clusterName: "myCluster",
+    deploymentConfiguration: {
+        scaleUnits: [{
+            deploymentData: {
+                adouPath: "OU=ms169,DC=ASZ1PLab8,DC=nttest,DC=microsoft,DC=com",
+                cluster: {
+                    azureServiceEndpoint: "core.windows.net",
+                    cloudAccountName: "myasestoragacct",
+                    name: "testHCICluster",
+                    witnessPath: "Cloud",
+                    witnessType: "Cloud",
+                },
+                domainFqdn: "ASZ1PLab8.nttest.microsoft.com",
+                hostNetwork: {
+                    intents: [{
+                        adapter: ["Port2"],
+                        adapterPropertyOverrides: {
+                            jumboPacket: "1514",
+                            networkDirect: "Enabled",
+                            networkDirectTechnology: "iWARP",
+                        },
+                        name: "Compute_Management",
+                        overrideAdapterProperty: false,
+                        overrideQosPolicy: false,
+                        overrideVirtualSwitchConfiguration: false,
+                        qosPolicyOverrides: {
+                            bandwidthPercentageSMB: "50",
+                            priorityValue8021ActionCluster: "7",
+                            priorityValue8021ActionSMB: "3",
+                        },
+                        trafficType: [
+                            "Compute",
+                            "Management",
+                        ],
+                        virtualSwitchConfigurationOverrides: {
+                            enableIov: "True",
+                            loadBalancingAlgorithm: "HyperVPort",
+                        },
+                    }],
+                    storageConnectivitySwitchless: true,
+                    storageNetworks: [{
+                        name: "Storage1Network",
+                        networkAdapterName: "Port3",
+                        vlanId: "5",
+                    }],
+                },
+                infrastructureNetwork: [{
+                    dnsServers: ["10.57.50.90"],
+                    gateway: "255.255.248.0",
+                    ipPools: [{
+                        endingAddress: "10.57.48.66",
+                        startingAddress: "10.57.48.60",
+                    }],
+                    subnetMask: "255.255.248.0",
+                }],
+                namingPrefix: "ms169",
+                observability: {
+                    episodicDataUpload: true,
+                    euLocation: false,
+                    streamingDataClient: true,
+                },
+                optionalServices: {
+                    customLocation: "customLocationName",
+                },
+                physicalNodes: [
+                    {
+                        ipv4Address: "10.57.51.224",
+                        name: "ms169host",
+                    },
+                    {
+                        ipv4Address: "10.57.53.236",
+                        name: "ms154host",
+                    },
+                ],
+                secretsLocation: "/subscriptions/db4e2fdb-6d80-4e6e-b7cd-xxxxxxx/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/abcd123",
+                securitySettings: {
+                    bitlockerBootVolume: true,
+                    bitlockerDataVolumes: true,
+                    credentialGuardEnforced: false,
+                    driftControlEnforced: true,
+                    drtmProtection: true,
+                    hvciProtection: true,
+                    sideChannelMitigationEnforced: true,
+                    smbClusterEncryption: false,
+                    smbSigningEnforced: true,
+                    wdacEnforced: true,
+                },
+                storage: {
+                    configurationMode: "Express",
+                },
+            },
+        }],
+        version: "string",
+    },
+    deploymentMode: "Deploy",
+    deploymentSettingsName: "default",
+    resourceGroupName: "test-rg",
+});

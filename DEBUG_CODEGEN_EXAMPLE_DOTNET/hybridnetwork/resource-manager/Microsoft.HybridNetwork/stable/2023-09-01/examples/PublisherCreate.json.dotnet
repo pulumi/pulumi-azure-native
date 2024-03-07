@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var publisher = new AzureNative.HybridNetwork.Publisher("publisher", new()
+    {
+        Location = "eastus",
+        Properties = new AzureNative.HybridNetwork.Inputs.PublisherPropertiesFormatArgs
+        {
+            Scope = "Public",
+        },
+        PublisherName = "TestPublisher",
+        ResourceGroupName = "rg",
+    });
+
+});
+

@@ -1,0 +1,39 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+    backendAddressPools: [],
+    frontendIPConfigurations: [{
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+        name: "test",
+        privateIPAllocationMethod: "Dynamic",
+        subnet: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/lbvnet/subnets/lbsubnet",
+        },
+        zones: [],
+    }],
+    inboundNatPools: [{
+        backendPort: 8888,
+        enableFloatingIP: true,
+        enableTcpReset: true,
+        frontendIPConfiguration: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+        },
+        frontendPortRangeEnd: 8085,
+        frontendPortRangeStart: 8080,
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatPools/test",
+        idleTimeoutInMinutes: 10,
+        name: "test",
+        protocol: "Tcp",
+    }],
+    inboundNatRules: [],
+    loadBalancerName: "lb",
+    loadBalancingRules: [],
+    location: "eastus",
+    outboundRules: [],
+    probes: [],
+    resourceGroupName: "rg1",
+    sku: {
+        name: "Standard",
+    },
+});

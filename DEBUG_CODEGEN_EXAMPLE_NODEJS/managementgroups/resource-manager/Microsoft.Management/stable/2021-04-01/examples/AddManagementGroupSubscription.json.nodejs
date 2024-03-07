@@ -1,0 +1,4 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managementGroupSubscription = new azure_native.management.ManagementGroupSubscription("managementGroupSubscription", {groupId: "Group"});

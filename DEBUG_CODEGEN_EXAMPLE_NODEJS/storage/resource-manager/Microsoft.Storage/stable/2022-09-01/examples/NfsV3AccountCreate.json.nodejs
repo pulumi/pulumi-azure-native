@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+    accountName: "sto4445",
+    enableHttpsTrafficOnly: false,
+    enableNfsV3: true,
+    isHnsEnabled: true,
+    kind: "BlockBlobStorage",
+    location: "eastus",
+    networkRuleSet: {
+        bypass: "AzureServices",
+        defaultAction: azure_native.storage.DefaultAction.Allow,
+        ipRules: [],
+        virtualNetworkRules: [{
+            virtualNetworkResourceId: "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Network/virtualNetworks/net123/subnets/subnet12",
+        }],
+    },
+    resourceGroupName: "res9101",
+    sku: {
+        name: "Premium_LRS",
+    },
+});

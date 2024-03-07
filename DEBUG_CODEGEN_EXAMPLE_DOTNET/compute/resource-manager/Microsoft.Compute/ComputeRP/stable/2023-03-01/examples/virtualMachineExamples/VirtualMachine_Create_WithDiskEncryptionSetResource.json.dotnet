@@ -1,0 +1,92 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    {
+        HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+        {
+            VmSize = "Standard_D1_v2",
+        },
+        Location = "westus",
+        NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+        {
+            NetworkInterfaces = new[]
+            {
+                new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+                {
+                    Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    Primary = true,
+                },
+            },
+        },
+        OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+        {
+            AdminPassword = "{your-password}",
+            AdminUsername = "{your-username}",
+            ComputerName = "myVM",
+        },
+        ResourceGroupName = "myResourceGroup",
+        StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+        {
+            DataDisks = new[]
+            {
+                new AzureNative.Compute.Inputs.DataDiskArgs
+                {
+                    Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+                    CreateOption = "Empty",
+                    DiskSizeGB = 1023,
+                    Lun = 0,
+                    ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+                    {
+                        DiskEncryptionSet = new AzureNative.Compute.Inputs.DiskEncryptionSetParametersArgs
+                        {
+                            Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                        },
+                        StorageAccountType = "Standard_LRS",
+                    },
+                },
+                new AzureNative.Compute.Inputs.DataDiskArgs
+                {
+                    Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+                    CreateOption = "Attach",
+                    DiskSizeGB = 1023,
+                    Lun = 1,
+                    ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+                    {
+                        DiskEncryptionSet = new AzureNative.Compute.Inputs.DiskEncryptionSetParametersArgs
+                        {
+                            Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                        },
+                        Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/{existing-managed-disk-name}",
+                        StorageAccountType = "Standard_LRS",
+                    },
+                },
+            },
+            ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+            {
+                Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+            },
+            OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+            {
+                Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+                CreateOption = "FromImage",
+                ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+                {
+                    DiskEncryptionSet = new AzureNative.Compute.Inputs.DiskEncryptionSetParametersArgs
+                    {
+                        Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+                    },
+                    StorageAccountType = "Standard_LRS",
+                },
+                Name = "myVMosdisk",
+            },
+        },
+        VmName = "myVM",
+    });
+
+});
+

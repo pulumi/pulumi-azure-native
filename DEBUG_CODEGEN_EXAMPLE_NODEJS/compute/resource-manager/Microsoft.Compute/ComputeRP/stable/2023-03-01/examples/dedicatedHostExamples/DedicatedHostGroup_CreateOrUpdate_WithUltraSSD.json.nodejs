@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dedicatedHostGroup = new azure_native.compute.DedicatedHostGroup("dedicatedHostGroup", {
+    additionalCapabilities: {
+        ultraSSDEnabled: true,
+    },
+    hostGroupName: "myDedicatedHostGroup",
+    location: "westus",
+    platformFaultDomainCount: 3,
+    resourceGroupName: "myResourceGroup",
+    supportAutomaticPlacement: true,
+    tags: {
+        department: "finance",
+    },
+    zones: ["1"],
+});

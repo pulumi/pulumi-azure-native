@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const databaseThreatDetectionPolicy = new azure_native.sql.DatabaseThreatDetectionPolicy("databaseThreatDetectionPolicy", {
+    databaseName: "testdb",
+    resourceGroupName: "securityalert-4799",
+    securityAlertPolicyName: "default",
+    serverName: "securityalert-6440",
+    state: "Enabled",
+    storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    storageEndpoint: "https://mystorage.blob.core.windows.net",
+});

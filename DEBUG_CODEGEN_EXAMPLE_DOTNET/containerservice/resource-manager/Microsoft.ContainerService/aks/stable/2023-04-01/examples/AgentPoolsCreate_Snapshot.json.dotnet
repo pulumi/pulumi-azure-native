@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agentPool = new AzureNative.ContainerService.AgentPool("agentPool", new()
+    {
+        AgentPoolName = "agentpool1",
+        Count = 3,
+        CreationData = new AzureNative.ContainerService.Inputs.CreationDataArgs
+        {
+            SourceResourceId = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1",
+        },
+        EnableFIPS = true,
+        OrchestratorVersion = "",
+        OsType = "Linux",
+        ResourceGroupName = "rg1",
+        ResourceName = "clustername1",
+        VmSize = "Standard_DS2_v2",
+    });
+
+});
+

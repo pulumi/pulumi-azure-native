@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 agent_pool = azure_native.networkcloud.AgentPool("agentPool",
-    administrator_configuration=azure_native.networkcloud.AdministratorConfigurationArgs(
+    administrator_configuration=azure_native.networkcloud.AdministratorConfigurationResponseArgs(
         admin_username="azure",
         ssh_public_keys=[azure_native.networkcloud.SshPublicKeyArgs(
             key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
@@ -13,7 +13,7 @@ agent_pool = azure_native.networkcloud.AgentPool("agentPool",
         hugepages_size="1G",
     ),
     agent_pool_name="agentPoolName",
-    attached_network_configuration=azure_native.networkcloud.AttachedNetworkConfigurationArgs(
+    attached_network_configuration=azure_native.networkcloud.AttachedNetworkConfigurationResponseArgs(
         l2_networks=[azure_native.networkcloud.L2NetworkAttachmentConfigurationArgs(
             network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName",
             plugin_type="DPDK",

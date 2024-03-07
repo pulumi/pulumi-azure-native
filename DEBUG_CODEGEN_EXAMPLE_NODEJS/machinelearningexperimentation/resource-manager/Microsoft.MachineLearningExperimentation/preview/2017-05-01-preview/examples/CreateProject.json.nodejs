@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const project = new azure_native.machinelearningexperimentation.Project("project", {
+    accountName: "testaccount",
+    friendlyName: "testName",
+    gitrepo: "https://github/abc",
+    location: "East US",
+    projectName: "testProject",
+    resourceGroupName: "myResourceGroup",
+    tags: {
+        tagKey1: "TagValue1",
+    },
+    workspaceName: "testworkspace",
+});

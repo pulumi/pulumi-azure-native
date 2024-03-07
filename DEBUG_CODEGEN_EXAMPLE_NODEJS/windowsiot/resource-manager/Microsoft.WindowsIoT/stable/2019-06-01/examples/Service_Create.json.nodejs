@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const service = new azure_native.windowsiot.Service("service", {
+    adminDomainName: "d.e.f",
+    billingDomainName: "a.b.c",
+    deviceName: "service4445",
+    location: "East US",
+    notes: "blah",
+    quantity: 1000000,
+    resourceGroupName: "res9101",
+});

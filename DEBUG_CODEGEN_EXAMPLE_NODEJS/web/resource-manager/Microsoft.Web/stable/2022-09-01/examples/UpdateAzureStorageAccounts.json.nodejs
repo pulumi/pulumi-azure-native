@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webAppAzureStorageAccounts = new azure_native.web.WebAppAzureStorageAccounts("webAppAzureStorageAccounts", {
+    name: "sitef6141",
+    properties: {
+        account1: {
+            accessKey: "26515^%@#*",
+            accountName: "testsa",
+            mountPath: "/mounts/a/files",
+            shareName: "web",
+            type: azure_native.web.AzureStorageType.AzureFiles,
+        },
+    },
+    resourceGroupName: "testrg123",
+});

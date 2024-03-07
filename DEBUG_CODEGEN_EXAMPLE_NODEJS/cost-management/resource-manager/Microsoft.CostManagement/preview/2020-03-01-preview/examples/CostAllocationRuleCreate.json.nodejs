@@ -1,0 +1,36 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const costAllocationRule = new azure_native.costmanagement.CostAllocationRule("costAllocationRule", {
+    billingAccountId: "100",
+    properties: {
+        description: "This is a testRule",
+        details: {
+            sourceResources: [{
+                name: "ResourceGroupName",
+                resourceType: "Dimension",
+                values: [
+                    "sampleRG",
+                    "secondRG",
+                ],
+            }],
+            targetResources: [{
+                name: "ResourceGroupName",
+                policyType: "FixedProportion",
+                resourceType: "Dimension",
+                values: [
+                    {
+                        name: "destinationRG",
+                        percentage: 45,
+                    },
+                    {
+                        name: "destinationRG2",
+                        percentage: 54,
+                    },
+                ],
+            }],
+        },
+        status: "Active",
+    },
+    ruleName: "testRule",
+});

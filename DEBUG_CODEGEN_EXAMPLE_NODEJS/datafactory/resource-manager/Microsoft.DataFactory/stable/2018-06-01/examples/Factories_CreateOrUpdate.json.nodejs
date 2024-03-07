@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const factory = new azure_native.datafactory.Factory("factory", {
+    factoryName: "exampleFactoryName",
+    location: "East US",
+    resourceGroupName: "exampleResourceGroup",
+});

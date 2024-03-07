@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const gitHubConnector = new azure_native.securitydevops.GitHubConnector("gitHubConnector", {
+    gitHubConnectorName: "testconnector",
+    location: "West US",
+    properties: {
+        code: "00000000000000000000",
+    },
+    resourceGroupName: "westusrg",
+});

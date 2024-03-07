@@ -1,0 +1,38 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managementPolicy = new azure_native.storage.ManagementPolicy("managementPolicy", {
+    accountName: "sto9699",
+    managementPolicyName: "default",
+    policy: {
+        rules: [{
+            definition: {
+                actions: {
+                    baseBlob: {
+                        tierToHot: {
+                            daysAfterModificationGreaterThan: 30,
+                        },
+                    },
+                    snapshot: {
+                        tierToHot: {
+                            daysAfterCreationGreaterThan: 30,
+                        },
+                    },
+                    version: {
+                        tierToHot: {
+                            daysAfterCreationGreaterThan: 30,
+                        },
+                    },
+                },
+                filters: {
+                    blobTypes: ["blockBlob"],
+                    prefixMatch: ["olcmtestcontainer1"],
+                },
+            },
+            enabled: true,
+            name: "olcmtest1",
+            type: "Lifecycle",
+        }],
+    },
+    resourceGroupName: "res7687",
+});

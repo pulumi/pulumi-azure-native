@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const adminRuleCollection = new azure_native.network.AdminRuleCollection("adminRuleCollection", {
+    appliesToGroups: [{
+        networkGroupId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+    }],
+    configurationName: "myTestSecurityConfig",
+    description: "A sample policy",
+    networkManagerName: "testNetworkManager",
+    resourceGroupName: "rg1",
+    ruleCollectionName: "testRuleCollection",
+});

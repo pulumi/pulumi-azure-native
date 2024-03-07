@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var observabilityService = new AzureNative.MobilePacketCore.ObservabilityService("observabilityService", new()
+    {
+        ClusterService = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobilePacketCore/clusterServices/byoCluster",
+        ComponentParameters = new[]
+        {
+            new AzureNative.MobilePacketCore.Inputs.QualifiedComponentDeploymentParametersArgs
+            {
+                Parameters = "{\"global\": {\"registry\": {\"docker\": []}}}",
+                Secrets = "{\"global\": {\"secret\": {\"secretValue\": []}}}",
+                Type = "fed-crds",
+            },
+        },
+        Location = "eastus",
+        ObservabilityServiceName = "observabilityService1",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

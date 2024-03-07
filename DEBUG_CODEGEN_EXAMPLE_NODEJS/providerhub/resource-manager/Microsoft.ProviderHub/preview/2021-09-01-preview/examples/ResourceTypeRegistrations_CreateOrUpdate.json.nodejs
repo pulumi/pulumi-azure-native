@@ -1,0 +1,56 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const resourceTypeRegistration = new azure_native.providerhub.ResourceTypeRegistration("resourceTypeRegistration", {
+    properties: {
+        endpoints: [{
+            apiVersions: ["2020-06-01-preview"],
+            locations: [
+                "West US",
+                "East US",
+                "North Europe",
+            ],
+            requiredFeatures: ["<feature flag>"],
+        }],
+        management: {
+            incidentContactEmail: "helpme@contoso.com",
+            incidentRoutingService: "",
+            incidentRoutingTeam: "",
+            manifestOwners: ["SPARTA-PlatformServiceAdministrator"],
+            resourceAccessPolicy: "NotSpecified",
+            serviceTreeInfos: [{
+                componentId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                readiness: "InDevelopment",
+                serviceId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+            }],
+        },
+        openApiConfiguration: {
+            validation: {
+                allowNoncompliantCollectionResponse: true,
+            },
+        },
+        regionality: "Regional",
+        resourceConcurrencyControlOptions: {
+            patch: {
+                policy: "SynchronizeBeginExtension",
+            },
+            post: {
+                policy: "SynchronizeBeginExtension",
+            },
+            put: {
+                policy: "SynchronizeBeginExtension",
+            },
+        },
+        resourceGraphConfiguration: {
+            apiVersion: "2019-01-01",
+            enabled: true,
+        },
+        routingType: "Default",
+        swaggerSpecifications: [{
+            apiVersions: ["2020-06-01-preview"],
+            swaggerSpecFolderUri: "https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+        }],
+    },
+    providerNamespace: "Microsoft.Contoso",
+    resourceType: "employees",
+});

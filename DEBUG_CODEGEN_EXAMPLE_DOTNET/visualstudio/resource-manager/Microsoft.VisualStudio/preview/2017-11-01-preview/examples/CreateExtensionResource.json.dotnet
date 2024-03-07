@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var extension = new AzureNative.VisualStudio.Extension("extension", new()
+    {
+        AccountResourceName = "ExampleAccount",
+        ExtensionResourceName = "ms.example",
+        Location = "Central US",
+        Plan = new AzureNative.VisualStudio.Inputs.ExtensionResourcePlanArgs
+        {
+            Name = "ExamplePlan",
+            Product = "ExampleExtensionName",
+            PromotionCode = "",
+            Publisher = "ExampleExtensionPublisher",
+            Version = "1.0",
+        },
+        Properties = null,
+        ResourceGroupName = "VS-Example-Group",
+        Tags = null,
+    });
+
+});
+

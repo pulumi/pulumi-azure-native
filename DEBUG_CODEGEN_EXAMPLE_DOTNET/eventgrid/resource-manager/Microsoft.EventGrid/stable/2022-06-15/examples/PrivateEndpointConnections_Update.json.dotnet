@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.EventGrid.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        ParentName = "exampletopic1",
+        ParentType = "topics",
+        PrivateEndpointConnectionName = "BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B",
+        PrivateLinkServiceConnectionState = new AzureNative.EventGrid.Inputs.ConnectionStateArgs
+        {
+            ActionsRequired = "None",
+            Description = "approving connection",
+            Status = "Approved",
+        },
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

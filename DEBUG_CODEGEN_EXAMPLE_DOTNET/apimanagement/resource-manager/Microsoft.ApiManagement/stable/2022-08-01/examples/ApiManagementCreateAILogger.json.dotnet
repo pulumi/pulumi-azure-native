@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var logger = new AzureNative.ApiManagement.Logger("logger", new()
+    {
+        Credentials = 
+        {
+            { "instrumentationKey", "11................a1" },
+        },
+        Description = "adding a new logger",
+        LoggerId = "loggerId",
+        LoggerType = "applicationInsights",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

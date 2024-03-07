@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var monitoringSetting = new AzureNative.AppPlatform.MonitoringSetting("monitoringSetting", new()
+    {
+        Properties = new AzureNative.AppPlatform.Inputs.MonitoringSettingPropertiesArgs
+        {
+            AppInsightsInstrumentationKey = "00000000-0000-0000-0000-000000000000",
+            AppInsightsSamplingRate = 10,
+            TraceEnabled = true,
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

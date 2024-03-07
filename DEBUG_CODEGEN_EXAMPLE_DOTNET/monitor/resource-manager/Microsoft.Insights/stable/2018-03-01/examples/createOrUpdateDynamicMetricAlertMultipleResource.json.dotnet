@@ -1,0 +1,65 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var metricAlert = new AzureNative.Insights.MetricAlert("metricAlert", new()
+    {
+        Actions = new[]
+        {
+            new AzureNative.Insights.Inputs.MetricAlertActionArgs
+            {
+                ActionGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                WebHookProperties = 
+                {
+                    { "key11", "value11" },
+                    { "key12", "value12" },
+                },
+            },
+        },
+        AutoMitigate = true,
+        Criteria = new AzureNative.Insights.Inputs.MetricAlertMultipleResourceMultipleMetricCriteriaArgs
+        {
+            AllOf = new[]
+            {
+                new AzureNative.Insights.Inputs.DynamicMetricCriteriaArgs
+                {
+                    AlertSensitivity = "Medium",
+                    CriterionType = "DynamicThresholdCriterion",
+                    Dimensions = new() { },
+                    FailingPeriods = new AzureNative.Insights.Inputs.DynamicThresholdFailingPeriodsArgs
+                    {
+                        MinFailingPeriodsToAlert = 4,
+                        NumberOfEvaluationPeriods = 4,
+                    },
+                    MetricName = "Percentage CPU",
+                    MetricNamespace = "microsoft.compute/virtualmachines",
+                    Name = "High_CPU_80",
+                    Operator = "GreaterOrLessThan",
+                    TimeAggregation = "Average",
+                },
+            },
+            OdataType = "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+        },
+        Description = "This is the description of the rule1",
+        Enabled = true,
+        EvaluationFrequency = "PT1M",
+        Location = "global",
+        ResourceGroupName = "gigtest",
+        RuleName = "MetricAlertOnMultipleResources",
+        Scopes = new[]
+        {
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+        },
+        Severity = 3,
+        Tags = null,
+        TargetResourceRegion = "southcentralus",
+        TargetResourceType = "Microsoft.Compute/virtualMachines",
+        WindowSize = "PT15M",
+    });
+
+});
+

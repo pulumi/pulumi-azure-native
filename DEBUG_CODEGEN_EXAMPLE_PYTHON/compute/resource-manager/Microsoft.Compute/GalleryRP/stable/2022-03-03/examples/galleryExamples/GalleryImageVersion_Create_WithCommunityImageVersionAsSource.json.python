@@ -6,11 +6,11 @@ gallery_image_version = azure_native.compute.GalleryImageVersion("galleryImageVe
     gallery_image_version_name="1.0.0",
     gallery_name="myGalleryName",
     location="West US",
-    publishing_profile=azure_native.compute.GalleryImageVersionPublishingProfileArgs(
+    publishing_profile=azure_native.compute.GalleryImageVersionPublishingProfileResponseArgs(
         target_regions=[
-            azure_native.compute.TargetRegionArgs(
-                encryption=azure_native.compute.EncryptionImagesArgs(
-                    data_disk_images=[
+            {
+                "encryption": {
+                    "dataDiskImages": [
                         azure_native.compute.DataDiskImageEncryptionArgs(
                             disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
                             lun=0,
@@ -20,17 +20,17 @@ gallery_image_version = azure_native.compute.GalleryImageVersion("galleryImageVe
                             lun=1,
                         ),
                     ],
-                    os_disk_image=azure_native.compute.OSDiskImageEncryptionArgs(
+                    "osDiskImage": azure_native.compute.OSDiskImageEncryptionArgs(
                         disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
                     ),
-                ),
-                exclude_from_latest=False,
-                name="West US",
-                regional_replica_count=1,
-            ),
-            azure_native.compute.TargetRegionArgs(
-                encryption=azure_native.compute.EncryptionImagesArgs(
-                    data_disk_images=[
+                },
+                "excludeFromLatest": False,
+                "name": "West US",
+                "regionalReplicaCount": 1,
+            },
+            {
+                "encryption": {
+                    "dataDiskImages": [
                         azure_native.compute.DataDiskImageEncryptionArgs(
                             disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
                             lun=0,
@@ -40,22 +40,22 @@ gallery_image_version = azure_native.compute.GalleryImageVersion("galleryImageVe
                             lun=1,
                         ),
                     ],
-                    os_disk_image=azure_native.compute.OSDiskImageEncryptionArgs(
+                    "osDiskImage": azure_native.compute.OSDiskImageEncryptionArgs(
                         disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
                     ),
-                ),
-                exclude_from_latest=False,
-                name="East US",
-                regional_replica_count=2,
-                storage_account_type="Standard_ZRS",
-            ),
+                },
+                "excludeFromLatest": False,
+                "name": "East US",
+                "regionalReplicaCount": 2,
+                "storageAccountType": "Standard_ZRS",
+            },
         ],
     ),
     resource_group_name="myResourceGroup",
     safety_profile=azure_native.compute.GalleryImageVersionSafetyProfileArgs(
         allow_deletion_of_replicated_locations=False,
     ),
-    storage_profile=azure_native.compute.GalleryImageVersionStorageProfileArgs(
+    storage_profile=azure_native.compute.GalleryImageVersionStorageProfileResponseArgs(
         source=azure_native.compute.GalleryArtifactVersionFullSourceArgs(
             community_gallery_image_id="/communityGalleries/{communityGalleryName}/images/{communityGalleryImageName}",
         ),

@@ -1,0 +1,32 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const activityLogAlert = new azure_native.insights.ActivityLogAlert("activityLogAlert", {
+    actions: {
+        actionGroups: [{
+            actionGroupId: "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+            webhookProperties: {
+                sampleWebhookProperty: "SamplePropertyValue",
+            },
+        }],
+    },
+    activityLogAlertName: "SampleActivityLogAlertRule",
+    condition: {
+        allOf: [
+            {
+                equals: "Administrative",
+                field: "category",
+            },
+            {
+                equals: "Error",
+                field: "level",
+            },
+        ],
+    },
+    description: "Description of sample Activity Log Alert rule.",
+    enabled: true,
+    location: "Global",
+    resourceGroupName: "MyResourceGroup",
+    scopes: ["/subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
+    tags: {},
+});

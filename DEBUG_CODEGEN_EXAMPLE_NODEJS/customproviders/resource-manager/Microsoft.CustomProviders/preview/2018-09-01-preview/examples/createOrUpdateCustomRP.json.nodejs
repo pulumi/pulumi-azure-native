@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customResourceProvider = new azure_native.customproviders.CustomResourceProvider("customResourceProvider", {
+    actions: [{
+        endpoint: "https://mytestendpoint/",
+        name: "TestAction",
+        routingType: "Proxy",
+    }],
+    location: "eastus",
+    resourceGroupName: "testRG",
+    resourceProviderName: "newrp",
+    resourceTypes: [{
+        endpoint: "https://mytestendpoint2/",
+        name: "TestResource",
+        routingType: "Proxy,Cache",
+    }],
+});

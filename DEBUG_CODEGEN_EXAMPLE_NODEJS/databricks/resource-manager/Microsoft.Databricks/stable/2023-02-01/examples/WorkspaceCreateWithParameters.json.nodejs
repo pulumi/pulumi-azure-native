@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspace = new azure_native.databricks.Workspace("workspace", {
+    location: "westus",
+    managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+    parameters: {
+        customPrivateSubnetName: {
+            value: "myPrivateSubnet",
+        },
+        customPublicSubnetName: {
+            value: "myPublicSubnet",
+        },
+        customVirtualNetworkId: {
+            value: "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork",
+        },
+    },
+    resourceGroupName: "rg",
+    workspaceName: "myWorkspace",
+});

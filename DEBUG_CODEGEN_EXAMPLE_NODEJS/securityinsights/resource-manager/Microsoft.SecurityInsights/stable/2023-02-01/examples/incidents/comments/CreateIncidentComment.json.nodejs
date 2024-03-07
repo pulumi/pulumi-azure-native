@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const incidentComment = new azure_native.securityinsights.IncidentComment("incidentComment", {
+    incidentCommentId: "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+    incidentId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    message: "Some message",
+    resourceGroupName: "myRg",
+    workspaceName: "myWorkspace",
+});

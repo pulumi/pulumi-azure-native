@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const modernizeProject = new azure_native.migrate.ModernizeProject("modernizeProject", {
+    modernizeProjectName: "j",
+    resourceGroupName: "rgmigrateEngine",
+});

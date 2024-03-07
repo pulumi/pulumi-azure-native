@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serialPort = new AzureNative.SerialConsole.SerialPort("serialPort", new()
+    {
+        ParentResource = "myVM",
+        ParentResourceType = "virtualMachines",
+        ResourceGroupName = "myResourceGroup",
+        ResourceProviderNamespace = "Microsoft.Compute",
+        SerialPort = "0",
+        State = AzureNative.SerialConsole.SerialPortState.Enabled,
+    });
+
+});
+

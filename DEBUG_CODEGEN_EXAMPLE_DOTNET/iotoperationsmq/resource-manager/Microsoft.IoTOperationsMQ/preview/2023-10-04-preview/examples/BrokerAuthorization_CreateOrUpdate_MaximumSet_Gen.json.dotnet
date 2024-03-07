@@ -1,0 +1,64 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var brokerAuthorization = new AzureNative.IoTOperationsMQ.BrokerAuthorization("brokerAuthorization", new()
+    {
+        AuthorizationName = "C15G",
+        AuthorizationPolicies = new AzureNative.IoTOperationsMQ.Inputs.AuthorizationConfigArgs
+        {
+            EnableCache = true,
+            Rules = new[]
+            {
+                new AzureNative.IoTOperationsMQ.Inputs.AuthorizationBasicRuleArgs
+                {
+                    BrokerResources = new[]
+                    {
+                        new AzureNative.IoTOperationsMQ.Inputs.ResourceInfoDefinitionArgs
+                        {
+                            Method = "Connect",
+                            Topics = new[]
+                            {
+                                "v",
+                            },
+                        },
+                    },
+                    Principals = new AzureNative.IoTOperationsMQ.Inputs.PrincipalDefinitionArgs
+                    {
+                        Attributes = new[]
+                        {
+                            null,
+                        },
+                        Clientids = new[]
+                        {
+                            "smrfzvniq",
+                        },
+                        Usernames = new[]
+                        {
+                            "jtwwmsrzriat",
+                        },
+                    },
+                },
+            },
+        },
+        BrokerName = "7E0-tXS-6u1h-Vx396----",
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        ListenerRef = new[]
+        {
+            "mxgpbyb",
+        },
+        Location = "bvgohixie",
+        MqName = "Zz22-b2VC-9",
+        ResourceGroupName = "rgiotoperationsmq",
+        Tags = null,
+    });
+
+});
+

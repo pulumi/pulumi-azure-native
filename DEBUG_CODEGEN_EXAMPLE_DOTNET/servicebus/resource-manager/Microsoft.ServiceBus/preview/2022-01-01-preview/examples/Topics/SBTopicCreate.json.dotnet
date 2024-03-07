@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var topic = new AzureNative.ServiceBus.Topic("topic", new()
+    {
+        EnableExpress = true,
+        NamespaceName = "sdk-Namespace-1617",
+        ResourceGroupName = "ArunMonocle",
+        TopicName = "sdk-Topics-5488",
+    });
+
+});
+

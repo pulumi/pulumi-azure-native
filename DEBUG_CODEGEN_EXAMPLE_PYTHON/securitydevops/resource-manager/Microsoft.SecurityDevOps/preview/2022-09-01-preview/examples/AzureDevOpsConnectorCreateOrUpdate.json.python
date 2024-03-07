@@ -4,16 +4,16 @@ import pulumi_azure_native as azure_native
 azure_dev_ops_connector = azure_native.securitydevops.AzureDevOpsConnector("azureDevOpsConnector",
     azure_dev_ops_connector_name="testconnector",
     location="West US",
-    properties=azure_native.securitydevops.AzureDevOpsConnectorPropertiesArgs(
+    properties=azure_native.securitydevops.AzureDevOpsConnectorPropertiesResponseArgs(
         authorization=azure_native.securitydevops.AuthorizationInfoArgs(
             code="00000000000000000000",
         ),
-        orgs=[azure_native.securitydevops.AzureDevOpsOrgMetadataArgs(
-            name="testOrg",
-            projects=[azure_native.securitydevops.AzureDevOpsProjectMetadataArgs(
+        orgs=[{
+            "name": "testOrg",
+            "projects": [azure_native.securitydevops.AzureDevOpsProjectMetadataArgs(
                 name="testProject",
                 repos=["testRepo"],
             )],
-        )],
+        }],
     ),
     resource_group_name="westusrg")

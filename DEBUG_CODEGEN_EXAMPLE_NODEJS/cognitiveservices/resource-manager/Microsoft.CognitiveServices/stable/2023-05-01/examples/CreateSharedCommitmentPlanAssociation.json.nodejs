@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const commitmentPlanAssociation = new azure_native.cognitiveservices.CommitmentPlanAssociation("commitmentPlanAssociation", {
+    accountId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName",
+    commitmentPlanAssociationName: "commitmentPlanAssociationName",
+    commitmentPlanName: "commitmentPlanName",
+    resourceGroupName: "resourceGroupName",
+});

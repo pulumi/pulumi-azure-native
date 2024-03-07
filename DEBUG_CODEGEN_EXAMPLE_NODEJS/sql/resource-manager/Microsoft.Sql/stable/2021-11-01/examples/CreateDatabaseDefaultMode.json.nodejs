@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const database = new azure_native.sql.Database("database", {
+    collation: "SQL_Latin1_General_CP1_CI_AS",
+    createMode: "Default",
+    databaseName: "testdb",
+    location: "southeastasia",
+    maxSizeBytes: 1073741824,
+    resourceGroupName: "Default-SQL-SouthEastAsia",
+    serverName: "testsvr",
+    sku: {
+        name: "S0",
+        tier: "Standard",
+    },
+});

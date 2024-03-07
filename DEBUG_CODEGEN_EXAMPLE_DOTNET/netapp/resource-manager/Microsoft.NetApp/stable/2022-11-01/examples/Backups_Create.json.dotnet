@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var backup = new AzureNative.NetApp.Backup("backup", new()
+    {
+        AccountName = "account1",
+        BackupName = "backup1",
+        Label = "myLabel",
+        Location = "eastus",
+        PoolName = "pool1",
+        ResourceGroupName = "myRG",
+        VolumeName = "volume1",
+    });
+
+});
+

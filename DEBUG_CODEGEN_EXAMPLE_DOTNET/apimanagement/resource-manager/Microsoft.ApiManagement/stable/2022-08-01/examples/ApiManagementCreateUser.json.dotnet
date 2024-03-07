@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var user = new AzureNative.ApiManagement.User("user", new()
+    {
+        Confirmation = "signup",
+        Email = "foobar@outlook.com",
+        FirstName = "foo",
+        LastName = "bar",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        UserId = "5931a75ae4bbd512288c680b",
+    });
+
+});
+

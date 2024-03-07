@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 managed_environments_storage = azure_native.app.ManagedEnvironmentsStorage("managedEnvironmentsStorage",
     environment_name="managedEnv",
-    properties=azure_native.app.ManagedEnvironmentStoragePropertiesArgs(
+    properties=azure_native.app.ManagedEnvironmentStorageResponsePropertiesArgs(
         azure_file=azure_native.app.AzureFilePropertiesArgs(
             access_mode="ReadOnly",
             account_key="key",

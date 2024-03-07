@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configurationAssignmentsForResourceGroup = new AzureNative.Maintenance.ConfigurationAssignmentsForResourceGroup("configurationAssignmentsForResourceGroup", new()
+    {
+        ConfigurationAssignmentName = "workervmConfiguration",
+        Filter = new AzureNative.Maintenance.Inputs.ConfigurationAssignmentFilterPropertiesArgs
+        {
+            Locations = new[]
+            {
+                "Japan East",
+                "UK South",
+            },
+            ResourceTypes = new[]
+            {
+                "Microsoft.HybridCompute/machines",
+                "Microsoft.Compute/virtualMachines",
+            },
+            TagSettings = new AzureNative.Maintenance.Inputs.TagSettingsPropertiesArgs
+            {
+                FilterOperator = AzureNative.Maintenance.TagOperators.Any,
+                Tags = 
+                {
+                    { "tag1", new[]
+                    {
+                        "tag1Value1",
+                        "tag1Value2",
+                        "tag1Value3",
+                    } },
+                    { "tag2", new[]
+                    {
+                        "tag2Value1",
+                        "tag2Value2",
+                        "tag2Value3",
+                    } },
+                },
+            },
+        },
+        MaintenanceConfigurationId = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1",
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

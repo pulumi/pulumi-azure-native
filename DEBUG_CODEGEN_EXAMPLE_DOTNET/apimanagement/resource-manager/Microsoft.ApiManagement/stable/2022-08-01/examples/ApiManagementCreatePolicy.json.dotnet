@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policy = new AzureNative.ApiManagement.Policy("policy", new()
+    {
+        Format = "xml",
+        PolicyId = "policy",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Value = @"<policies>
+  <inbound />
+  <backend>
+    <forward-request />
+  </backend>
+  <outbound />
+</policies>",
+    });
+
+});
+

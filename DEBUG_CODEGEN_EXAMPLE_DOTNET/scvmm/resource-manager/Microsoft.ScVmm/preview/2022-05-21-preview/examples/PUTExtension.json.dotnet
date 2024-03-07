@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineExtension = new AzureNative.ScVmm.MachineExtension("machineExtension", new()
+    {
+        ExtensionName = "CustomScriptExtension",
+        Location = "eastus2euap",
+        Publisher = "Microsoft.Compute",
+        ResourceGroupName = "myResourceGroup",
+        Settings = 
+        {
+            { "commandToExecute", "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"" },
+        },
+        Type = "CustomScriptExtension",
+        TypeHandlerVersion = "1.10",
+        VirtualMachineName = "myMachine",
+    });
+
+});
+

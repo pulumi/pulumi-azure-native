@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var capacityReservationGroup = new AzureNative.Compute.CapacityReservationGroup("capacityReservationGroup", new()
+    {
+        CapacityReservationGroupName = "myCapacityReservationGroup",
+        Location = "westus",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "department", "finance" },
+        },
+        Zones = new[]
+        {
+            "1",
+            "2",
+        },
+    });
+
+});
+

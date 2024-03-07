@@ -5,7 +5,7 @@ authorization_provider = azure_native.apimanagement.AuthorizationProvider("autho
     authorization_provider_id="aadwithauthcode",
     display_name="aadwithauthcode",
     identity_provider="aad",
-    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsArgs(
+    oauth2=azure_native.apimanagement.AuthorizationProviderOAuth2SettingsResponseArgs(
         grant_types=azure_native.apimanagement.AuthorizationProviderOAuth2GrantTypesArgs(
             authorization_code={
                 "clientId": "59790825-fdd3-4b10-bc7a-4c3aaf25801d",

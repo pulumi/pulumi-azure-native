@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var bastionHost = new AzureNative.Network.BastionHost("bastionHost", new()
+    {
+        BastionHostName = "bastionhosttenant",
+        IpConfigurations = new[]
+        {
+            new AzureNative.Network.Inputs.BastionHostIPConfigurationArgs
+            {
+                Name = "bastionHostIpConfiguration",
+                PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+                {
+                    Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                },
+                Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+                {
+                    Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/BastionHostSubnet",
+                },
+            },
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

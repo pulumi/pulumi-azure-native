@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.Media.Job("job", new()
+    {
+        AccountName = "contosomedia",
+        CorrelationData = 
+        {
+            { "Key 2", "Value 2" },
+            { "key1", "value1" },
+        },
+        Input = new AzureNative.Media.Inputs.JobInputAssetArgs
+        {
+            AssetName = "job1-InputAsset",
+            OdataType = "#Microsoft.Media.JobInputAsset",
+        },
+        JobName = "job1",
+        Outputs = new[]
+        {
+            
+            {
+                { "assetName", "job1-OutputAsset" },
+                { "odataType", "#Microsoft.Media.JobOutputAsset" },
+            },
+        },
+        ResourceGroupName = "contosoresources",
+        TransformName = "exampleTransform",
+    });
+
+});
+

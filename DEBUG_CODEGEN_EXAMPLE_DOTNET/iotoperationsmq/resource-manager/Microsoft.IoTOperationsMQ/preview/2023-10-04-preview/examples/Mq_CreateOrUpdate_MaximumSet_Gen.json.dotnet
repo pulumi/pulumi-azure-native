@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mq = new AzureNative.IoTOperationsMQ.Mq("mq", new()
+    {
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        Location = "qayqiarqxjennoyvglovxrdiccscq",
+        MqName = "-MK0Vqe3K7Ji",
+        ResourceGroupName = "rgiotoperationsmq",
+        Tags = null,
+    });
+
+});
+

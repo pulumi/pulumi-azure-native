@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadNetworkVMGroup = new AzureNative.AVS.WorkloadNetworkVMGroup("workloadNetworkVMGroup", new()
+    {
+        DisplayName = "vmGroup1",
+        Members = new[]
+        {
+            "564d43da-fefc-2a3b-1d92-42855622fa50",
+        },
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+        Revision = 1,
+        VmGroupId = "vmGroup1",
+    });
+
+});
+

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connection = new AzureNative.Automation.Connection("connection", new()
+    {
+        AutomationAccountName = "myAutomationAccount28",
+        ConnectionName = "mysConnection",
+        ConnectionType = new AzureNative.Automation.Inputs.ConnectionTypeAssociationPropertyArgs
+        {
+            Name = "Azure",
+        },
+        Description = "my description goes here",
+        FieldDefinitionValues = 
+        {
+            { "AutomationCertificateName", "mysCertificateName" },
+            { "SubscriptionID", "subid" },
+        },
+        Name = "mysConnection",
+        ResourceGroupName = "rg",
+    });
+
+});
+

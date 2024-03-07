@@ -1,0 +1,86 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pool = new azure_native.batch.Pool("pool", {
+    accountName: "sampleacct",
+    deploymentConfiguration: {
+        virtualMachineConfiguration: {
+            dataDisks: [
+                {
+                    caching: azure_native.batch.CachingType.ReadWrite,
+                    diskSizeGB: 30,
+                    lun: 0,
+                    storageAccountType: azure_native.batch.StorageAccountType.Premium_LRS,
+                },
+                {
+                    caching: azure_native.batch.CachingType.None,
+                    diskSizeGB: 200,
+                    lun: 1,
+                    storageAccountType: azure_native.batch.StorageAccountType.Standard_LRS,
+                },
+            ],
+            diskEncryptionConfiguration: {
+                targets: [
+                    azure_native.batch.DiskEncryptionTarget.OsDisk,
+                    azure_native.batch.DiskEncryptionTarget.TemporaryDisk,
+                ],
+            },
+            imageReference: {
+                offer: "WindowsServer",
+                publisher: "MicrosoftWindowsServer",
+                sku: "2016-Datacenter-SmallDisk",
+                version: "latest",
+            },
+            licenseType: "Windows_Server",
+            nodeAgentSkuId: "batch.node.windows amd64",
+            nodePlacementConfiguration: {
+                policy: azure_native.batch.NodePlacementPolicyType.Zonal,
+            },
+            osDisk: {
+                ephemeralOSDiskSettings: {
+                    placement: azure_native.batch.DiffDiskPlacement.CacheDisk,
+                },
+            },
+            windowsConfiguration: {
+                enableAutomaticUpdates: false,
+            },
+        },
+    },
+    networkConfiguration: {
+        endpointConfiguration: {
+            inboundNatPools: [{
+                backendPort: 12001,
+                frontendPortRangeEnd: 15100,
+                frontendPortRangeStart: 15000,
+                name: "testnat",
+                networkSecurityGroupRules: [
+                    {
+                        access: azure_native.batch.NetworkSecurityGroupRuleAccess.Allow,
+                        priority: 150,
+                        sourceAddressPrefix: "192.100.12.45",
+                        sourcePortRanges: [
+                            "1",
+                            "2",
+                        ],
+                    },
+                    {
+                        access: azure_native.batch.NetworkSecurityGroupRuleAccess.Deny,
+                        priority: 3500,
+                        sourceAddressPrefix: "*",
+                        sourcePortRanges: ["*"],
+                    },
+                ],
+                protocol: azure_native.batch.InboundEndpointProtocol.TCP,
+            }],
+        },
+    },
+    poolName: "testpool",
+    resourceGroupName: "default-azurebatch-japaneast",
+    scaleSettings: {
+        autoScale: {
+            evaluationInterval: "PT5M",
+            formula: "$TargetDedicatedNodes=1",
+        },
+    },
+    vmSize: "STANDARD_D4",
+});

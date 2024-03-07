@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var enterprisePolicy = new AzureNative.PowerPlatform.EnterprisePolicy("enterprisePolicy", new()
+    {
+        EnterprisePolicyName = "enterprisePolicy",
+        Identity = new AzureNative.PowerPlatform.Inputs.EnterprisePolicyIdentityArgs
+        {
+            Type = AzureNative.PowerPlatform.ResourceIdentityType.SystemAssigned,
+        },
+        Kind = "Lockbox",
+        Location = "East US",
+        ResourceGroupName = "resourceGroup",
+        Tags = 
+        {
+            { "Organization", "Administration" },
+        },
+    });
+
+});
+

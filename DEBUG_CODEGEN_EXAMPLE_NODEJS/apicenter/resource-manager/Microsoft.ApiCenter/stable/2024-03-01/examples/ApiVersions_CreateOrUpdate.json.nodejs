@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const apiVersion = new azure_native.apicenter.ApiVersion("apiVersion", {
+    apiName: "echo-api",
+    lifecycleStage: "production",
+    resourceGroupName: "contoso-resources",
+    serviceName: "contoso",
+    title: "2023-01-01",
+    versionName: "2023-01-01",
+    workspaceName: "default",
+});

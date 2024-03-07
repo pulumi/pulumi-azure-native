@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateAtlase = new AzureNative.Maps.PrivateAtlase("privateAtlase", new()
+    {
+        AccountName = "myMapsAccount",
+        Location = "unitedstates",
+        PrivateAtlasName = "myPrivateAtlas",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "test", "true" },
+        },
+    });
+
+});
+

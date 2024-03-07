@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var report = new AzureNative.AppComplianceAutomation.Report("report", new()
+    {
+        Properties = new AzureNative.AppComplianceAutomation.Inputs.ReportPropertiesArgs
+        {
+            OfferGuid = "0000",
+            Resources = new[]
+            {
+                new AzureNative.AppComplianceAutomation.Inputs.ResourceMetadataArgs
+                {
+                    ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+                    Tags = 
+                    {
+                        { "key1", "value1" },
+                    },
+                },
+            },
+            TimeZone = "GMT Standard Time",
+            TriggerTime = "2022-03-04T05:11:56.197Z",
+        },
+        ReportName = "testReportName",
+    });
+
+});
+

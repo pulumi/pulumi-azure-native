@@ -1,0 +1,29 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const database = new azure_native.cache.Database("database", {
+    clientProtocol: "Encrypted",
+    clusterName: "cache1",
+    clusteringPolicy: "EnterpriseCluster",
+    databaseName: "default",
+    evictionPolicy: "AllKeysLRU",
+    modules: [
+        {
+            args: "ERROR_RATE 0.00 INITIAL_SIZE 400",
+            name: "RedisBloom",
+        },
+        {
+            args: "RETENTION_POLICY 20",
+            name: "RedisTimeSeries",
+        },
+        {
+            name: "RediSearch",
+        },
+    ],
+    persistence: {
+        aofEnabled: true,
+        aofFrequency: "1s",
+    },
+    port: 10000,
+    resourceGroupName: "rg1",
+});

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const throughputPool = new azure_native.documentdb.ThroughputPool("throughputPool", {
+    location: "westus2",
+    maxThroughput: 10000,
+    resourceGroupName: "rg1",
+    tags: {},
+    throughputPoolName: "tp1",
+});

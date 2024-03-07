@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const publisher = new azure_native.hybridnetwork.Publisher("publisher", {
+    location: "eastus",
+    properties: {
+        scope: "Public",
+    },
+    publisherName: "TestPublisher",
+    resourceGroupName: "rg",
+});

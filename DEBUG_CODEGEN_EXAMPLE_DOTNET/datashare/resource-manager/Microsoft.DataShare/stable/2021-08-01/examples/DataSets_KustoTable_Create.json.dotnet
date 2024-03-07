@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var synapseWorkspaceSqlPoolTableDataSet = new AzureNative.DataShare.SynapseWorkspaceSqlPoolTableDataSet("synapseWorkspaceSqlPoolTableDataSet", new()
+    {
+        AccountName = "Account1",
+        DataSetName = "Dataset1",
+        ResourceGroupName = "SampleResourceGroup",
+        ShareName = "Share1",
+    });
+
+});
+

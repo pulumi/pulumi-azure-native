@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+    metadata: {
+        key1: "value1",
+    },
+    mxRecords: [{
+        exchange: "mail.privatezone1.com",
+        preference: 0,
+    }],
+    privateZoneName: "privatezone1.com",
+    recordType: "MX",
+    relativeRecordSetName: "recordMX",
+    resourceGroupName: "resourceGroup1",
+    ttl: 3600,
+});

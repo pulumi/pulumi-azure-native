@@ -1,0 +1,140 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.Batch.Pool("pool", new()
+    {
+        AccountName = "sampleacct",
+        ApplicationLicenses = new[]
+        {
+            "app-license0",
+            "app-license1",
+        },
+        ApplicationPackages = new[]
+        {
+            new AzureNative.Batch.Inputs.ApplicationPackageReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/pools/testpool/applications/app_1234",
+                Version = "asdf",
+            },
+        },
+        Certificates = new[]
+        {
+            new AzureNative.Batch.Inputs.CertificateReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/pools/testpool/certificates/sha1-1234567",
+                StoreLocation = AzureNative.Batch.CertificateStoreLocation.LocalMachine,
+                StoreName = "MY",
+                Visibility = new[]
+                {
+                    AzureNative.Batch.CertificateVisibility.RemoteUser,
+                },
+            },
+        },
+        DeploymentConfiguration = new AzureNative.Batch.Inputs.DeploymentConfigurationArgs
+        {
+            CloudServiceConfiguration = new AzureNative.Batch.Inputs.CloudServiceConfigurationArgs
+            {
+                OsFamily = "4",
+                OsVersion = "WA-GUEST-OS-4.45_201708-01",
+            },
+        },
+        DisplayName = "my-pool-name",
+        InterNodeCommunication = AzureNative.Batch.InterNodeCommunicationState.Enabled,
+        Metadata = new[]
+        {
+            new AzureNative.Batch.Inputs.MetadataItemArgs
+            {
+                Name = "metadata-1",
+                Value = "value-1",
+            },
+            new AzureNative.Batch.Inputs.MetadataItemArgs
+            {
+                Name = "metadata-2",
+                Value = "value-2",
+            },
+        },
+        NetworkConfiguration = new AzureNative.Batch.Inputs.NetworkConfigurationArgs
+        {
+            PublicIPAddressConfiguration = new AzureNative.Batch.Inputs.PublicIPAddressConfigurationArgs
+            {
+                IpAddressIds = new[]
+                {
+                    "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135",
+                    "/subscriptions/subid2/resourceGroups/rg24/providers/Microsoft.Network/publicIPAddresses/ip268",
+                },
+                Provision = AzureNative.Batch.IPAddressProvisioningType.UserManaged,
+            },
+            SubnetId = "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+        },
+        PoolName = "testpool",
+        ResourceGroupName = "default-azurebatch-japaneast",
+        ScaleSettings = new AzureNative.Batch.Inputs.ScaleSettingsArgs
+        {
+            FixedScale = new AzureNative.Batch.Inputs.FixedScaleSettingsArgs
+            {
+                NodeDeallocationOption = AzureNative.Batch.ComputeNodeDeallocationOption.TaskCompletion,
+                ResizeTimeout = "PT8M",
+                TargetDedicatedNodes = 6,
+                TargetLowPriorityNodes = 28,
+            },
+        },
+        StartTask = new AzureNative.Batch.Inputs.StartTaskArgs
+        {
+            CommandLine = "cmd /c SET",
+            EnvironmentSettings = new[]
+            {
+                new AzureNative.Batch.Inputs.EnvironmentSettingArgs
+                {
+                    Name = "MYSET",
+                    Value = "1234",
+                },
+            },
+            MaxTaskRetryCount = 6,
+            ResourceFiles = new[]
+            {
+                new AzureNative.Batch.Inputs.ResourceFileArgs
+                {
+                    FileMode = "777",
+                    FilePath = "c:\\temp\\gohere",
+                    HttpUrl = "https://testaccount.blob.core.windows.net/example-blob-file",
+                },
+            },
+            UserIdentity = new AzureNative.Batch.Inputs.UserIdentityArgs
+            {
+                AutoUser = new AzureNative.Batch.Inputs.AutoUserSpecificationArgs
+                {
+                    ElevationLevel = AzureNative.Batch.ElevationLevel.Admin,
+                    Scope = AzureNative.Batch.AutoUserScope.Pool,
+                },
+            },
+            WaitForSuccess = true,
+        },
+        TaskSchedulingPolicy = new AzureNative.Batch.Inputs.TaskSchedulingPolicyArgs
+        {
+            NodeFillType = AzureNative.Batch.ComputeNodeFillType.Pack,
+        },
+        TaskSlotsPerNode = 13,
+        UserAccounts = new[]
+        {
+            new AzureNative.Batch.Inputs.UserAccountArgs
+            {
+                ElevationLevel = AzureNative.Batch.ElevationLevel.Admin,
+                LinuxUserConfiguration = new AzureNative.Batch.Inputs.LinuxUserConfigurationArgs
+                {
+                    Gid = 4567,
+                    SshPrivateKey = "sshprivatekeyvalue",
+                    Uid = 1234,
+                },
+                Name = "username1",
+                Password = "<ExamplePassword>",
+            },
+        },
+        VmSize = "STANDARD_D4",
+    });
+
+});
+

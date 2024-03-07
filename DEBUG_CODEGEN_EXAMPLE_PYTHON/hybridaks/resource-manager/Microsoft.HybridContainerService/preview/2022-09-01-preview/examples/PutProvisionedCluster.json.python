@@ -7,58 +7,58 @@ provisioned_cluster = azure_native.hybridcontainerservice.ProvisionedCluster("pr
         type="CustomLocation",
     ),
     location="westus",
-    properties=azure_native.hybridcontainerservice.ProvisionedClustersAllPropertiesArgs(
+    properties=azure_native.hybridcontainerservice.ProvisionedClustersResponsePropertiesResponseArgs(
         agent_pool_profiles=[azure_native.hybridcontainerservice.NamedAgentPoolProfileArgs(
             count=1,
             name="default-nodepool-1",
             os_type="Linux",
             vm_size="Standard_A4_v2",
         )],
-        cloud_provider_profile=azure_native.hybridcontainerservice.CloudProviderProfileArgs(
-            infra_network_profile=azure_native.hybridcontainerservice.CloudProviderProfileInfraNetworkProfileArgs(
+        cloud_provider_profile={
+            "infraNetworkProfile": azure_native.hybridcontainerservice.CloudProviderProfileInfraNetworkProfileArgs(
                 vnet_subnet_ids=["/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/virtualNetworks/test-vnet-static"],
             ),
-            infra_storage_profile=azure_native.hybridcontainerservice.CloudProviderProfileInfraStorageProfileArgs(
+            "infraStorageProfile": azure_native.hybridcontainerservice.CloudProviderProfileInfraStorageProfileArgs(
                 storage_space_ids=["/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/storageSpaces/test-storage"],
             ),
-        ),
-        control_plane=azure_native.hybridcontainerservice.ControlPlaneProfileArgs(
-            count=1,
-            linux_profile=azure_native.hybridcontainerservice.LinuxProfilePropertiesArgs(
-                ssh=azure_native.hybridcontainerservice.LinuxProfilePropertiesSshArgs(
-                    public_keys=[azure_native.hybridcontainerservice.LinuxProfilePropertiesPublicKeysArgs(
+        },
+        control_plane={
+            "count": 1,
+            "linuxProfile": {
+                "ssh": {
+                    "publicKeys": [azure_native.hybridcontainerservice.LinuxProfilePropertiesPublicKeysArgs(
                         key_data="ssh-rsa AAAAB1NzaC1yc2EAAAADAQABAAACAQCY......",
                     )],
-                ),
-            ),
-            os_type="Linux",
-            vm_size="Standard_A4_v2",
-        ),
+                },
+            },
+            "osType": "Linux",
+            "vmSize": "Standard_A4_v2",
+        },
         kubernetes_version="v1.20.5",
-        linux_profile=azure_native.hybridcontainerservice.LinuxProfilePropertiesArgs(
-            ssh=azure_native.hybridcontainerservice.LinuxProfilePropertiesSshArgs(
-                public_keys=[azure_native.hybridcontainerservice.LinuxProfilePropertiesPublicKeysArgs(
+        linux_profile={
+            "ssh": {
+                "publicKeys": [azure_native.hybridcontainerservice.LinuxProfilePropertiesPublicKeysArgs(
                     key_data="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCY.......",
                 )],
-            ),
-        ),
-        network_profile=azure_native.hybridcontainerservice.NetworkProfileArgs(
-            load_balancer_profile=azure_native.hybridcontainerservice.LoadBalancerProfileArgs(
-                count=1,
-                linux_profile=azure_native.hybridcontainerservice.LinuxProfilePropertiesArgs(
-                    ssh=azure_native.hybridcontainerservice.LinuxProfilePropertiesSshArgs(
-                        public_keys=[azure_native.hybridcontainerservice.LinuxProfilePropertiesPublicKeysArgs(
+            },
+        },
+        network_profile={
+            "loadBalancerProfile": {
+                "count": 1,
+                "linuxProfile": {
+                    "ssh": {
+                        "publicKeys": [azure_native.hybridcontainerservice.LinuxProfilePropertiesPublicKeysArgs(
                             key_data="ssh-rsa AAAAB2NzaC1yc2EAAAADAQABAAACAQCY......",
                         )],
-                    ),
-                ),
-                os_type="Linux",
-                vm_size="Standard_K8S3_v1",
-            ),
-            load_balancer_sku="unstacked-haproxy",
-            network_policy="calico",
-            pod_cidr="10.244.0.0/16",
-        ),
+                    },
+                },
+                "osType": "Linux",
+                "vmSize": "Standard_K8S3_v1",
+            },
+            "loadBalancerSku": "unstacked-haproxy",
+            "networkPolicy": "calico",
+            "podCidr": "10.244.0.0/16",
+        },
     ),
     resource_group_name="test-arcappliance-resgrp",
     resource_name_="test-hybridakscluster")

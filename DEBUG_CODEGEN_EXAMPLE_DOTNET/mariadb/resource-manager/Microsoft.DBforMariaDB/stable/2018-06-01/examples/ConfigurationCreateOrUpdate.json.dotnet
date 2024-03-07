@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configuration = new AzureNative.DBforMariaDB.Configuration("configuration", new()
+    {
+        ConfigurationName = "event_scheduler",
+        ResourceGroupName = "TestGroup",
+        ServerName = "testserver",
+        Source = "user-override",
+        Value = "off",
+    });
+
+});
+

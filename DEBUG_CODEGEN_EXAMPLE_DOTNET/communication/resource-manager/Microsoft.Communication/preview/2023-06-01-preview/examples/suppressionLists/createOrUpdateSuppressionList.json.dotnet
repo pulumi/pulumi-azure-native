@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var suppressionList = new AzureNative.Communication.SuppressionList("suppressionList", new()
+    {
+        DomainName = "contoso.com",
+        EmailServiceName = "contosoEmailService",
+        ListName = "contosoNewsAlerts",
+        ResourceGroupName = "contosoResourceGroup",
+        SuppressionListName = "aaaa1111-bbbb-2222-3333-aaaa11112222",
+    });
+
+});
+

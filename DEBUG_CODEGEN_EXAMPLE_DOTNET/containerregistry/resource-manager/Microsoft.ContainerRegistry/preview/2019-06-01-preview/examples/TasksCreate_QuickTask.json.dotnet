@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var task = new AzureNative.ContainerRegistry.Task("task", new()
+    {
+        IsSystemTask = true,
+        Location = "eastus",
+        LogTemplate = "acr/tasks:{{.Run.OS}}",
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+        Status = "Enabled",
+        Tags = 
+        {
+            { "testkey", "value" },
+        },
+        TaskName = "quicktask",
+    });
+
+});
+

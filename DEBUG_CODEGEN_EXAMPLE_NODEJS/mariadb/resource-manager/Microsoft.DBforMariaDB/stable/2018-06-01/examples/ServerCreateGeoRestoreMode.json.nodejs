@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const server = new azure_native.dbformariadb.Server("server", {
+    location: "westus",
+    properties: {
+        createMode: "GeoRestore",
+        sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMariaDB/servers/sourceserver",
+    },
+    resourceGroupName: "TargetResourceGroup",
+    serverName: "targetserver",
+    sku: {
+        capacity: 2,
+        family: "Gen5",
+        name: "GP_Gen5_2",
+        tier: "GeneralPurpose",
+    },
+    tags: {
+        ElasticServer: "1",
+    },
+});

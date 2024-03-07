@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualNetworkLink = new azure_native.network.VirtualNetworkLink("virtualNetworkLink", {
+    location: "Global",
+    privateZoneName: "privatezone1.com",
+    registrationEnabled: false,
+    resourceGroupName: "resourceGroup1",
+    tags: {
+        key1: "value1",
+    },
+    virtualNetwork: {
+        id: "/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+    },
+    virtualNetworkLinkName: "virtualNetworkLink1",
+});

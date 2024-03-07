@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var database = new AzureNative.Sql.Database("database", new()
+    {
+        CreateMode = "Secondary",
+        DatabaseName = "testdb",
+        Location = "southeastasia",
+        ResourceGroupName = "Default-SQL-SouthEastAsia",
+        SecondaryType = "Named",
+        ServerName = "testsvr",
+        Sku = new AzureNative.Sql.Inputs.SkuArgs
+        {
+            Capacity = 2,
+            Name = "HS_Gen4",
+            Tier = "Hyperscale",
+        },
+        SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/primarydb",
+    });
+
+});
+

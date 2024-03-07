@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.CognitiveServices.Account("account", new()
+    {
+        AccountName = "testCreate1",
+        Identity = new AzureNative.CognitiveServices.Inputs.IdentityArgs
+        {
+            Type = AzureNative.CognitiveServices.ResourceIdentityType.SystemAssigned,
+        },
+        Kind = "Emotion",
+        Location = "West US",
+        Properties = new AzureNative.CognitiveServices.Inputs.AccountPropertiesArgs
+        {
+            Encryption = new AzureNative.CognitiveServices.Inputs.EncryptionArgs
+            {
+                KeySource = "Microsoft.KeyVault",
+                KeyVaultProperties = new AzureNative.CognitiveServices.Inputs.KeyVaultPropertiesArgs
+                {
+                    KeyName = "KeyName",
+                    KeyVaultUri = "https://pltfrmscrts-use-pc-dev.vault.azure.net/",
+                    KeyVersion = "891CF236-D241-4738-9462-D506AF493DFA",
+                },
+            },
+            UserOwnedStorage = new[]
+            {
+                new AzureNative.CognitiveServices.Inputs.UserOwnedStorageArgs
+                {
+                    ResourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+                },
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.CognitiveServices.Inputs.SkuArgs
+        {
+            Name = "S0",
+        },
+    });
+
+});
+

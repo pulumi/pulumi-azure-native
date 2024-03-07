@@ -1,0 +1,124 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var softwareUpdateConfigurationByName = new AzureNative.Automation.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName", new()
+    {
+        AutomationAccountName = "myaccount",
+        ResourceGroupName = "mygroup",
+        ScheduleInfo = new AzureNative.Automation.Inputs.SUCSchedulePropertiesArgs
+        {
+            AdvancedSchedule = new AzureNative.Automation.Inputs.AdvancedScheduleArgs
+            {
+                WeekDays = new[]
+                {
+                    "Monday",
+                    "Thursday",
+                },
+            },
+            ExpiryTime = "2018-11-09T11:22:57+00:00",
+            Frequency = "Hour",
+            Interval = 1,
+            StartTime = "2017-10-19T12:22:57+00:00",
+            TimeZone = "America/Los_Angeles",
+        },
+        SoftwareUpdateConfigurationName = "testpatch",
+        Tasks = new AzureNative.Automation.Inputs.SoftwareUpdateConfigurationTasksArgs
+        {
+            PostTask = new AzureNative.Automation.Inputs.TaskPropertiesArgs
+            {
+                Source = "GetCache",
+            },
+            PreTask = new AzureNative.Automation.Inputs.TaskPropertiesArgs
+            {
+                Parameters = 
+                {
+                    { "COMPUTERNAME", "Computer1" },
+                },
+                Source = "HelloWorld",
+            },
+        },
+        UpdateConfiguration = new AzureNative.Automation.Inputs.UpdateConfigurationArgs
+        {
+            AzureVirtualMachines = new[]
+            {
+                "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+                "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+                "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+            },
+            Duration = "PT2H0M",
+            NonAzureComputerNames = new[]
+            {
+                "box1.contoso.com",
+                "box2.contoso.com",
+            },
+            OperatingSystem = AzureNative.Automation.OperatingSystemType.Windows,
+            Targets = new AzureNative.Automation.Inputs.TargetPropertiesArgs
+            {
+                AzureQueries = new[]
+                {
+                    new AzureNative.Automation.Inputs.AzureQueryPropertiesArgs
+                    {
+                        Locations = new[]
+                        {
+                            "Japan East",
+                            "UK South",
+                        },
+                        Scope = new[]
+                        {
+                            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+                            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+                        },
+                        TagSettings = new AzureNative.Automation.Inputs.TagSettingsPropertiesArgs
+                        {
+                            FilterOperator = AzureNative.Automation.TagOperators.All,
+                            Tags = 
+                            {
+                                { "tag1", new[]
+                                {
+                                    "tag1Value1",
+                                    "tag1Value2",
+                                    "tag1Value3",
+                                } },
+                                { "tag2", new[]
+                                {
+                                    "tag2Value1",
+                                    "tag2Value2",
+                                    "tag2Value3",
+                                } },
+                            },
+                        },
+                    },
+                },
+                NonAzureQueries = new[]
+                {
+                    new AzureNative.Automation.Inputs.NonAzureQueryPropertiesArgs
+                    {
+                        FunctionAlias = "SavedSearch1",
+                        WorkspaceId = "WorkspaceId1",
+                    },
+                    new AzureNative.Automation.Inputs.NonAzureQueryPropertiesArgs
+                    {
+                        FunctionAlias = "SavedSearch2",
+                        WorkspaceId = "WorkspaceId2",
+                    },
+                },
+            },
+            Windows = new AzureNative.Automation.Inputs.WindowsPropertiesArgs
+            {
+                ExcludedKbNumbers = new[]
+                {
+                    "168934",
+                    "168973",
+                },
+                IncludedUpdateClassifications = "Critical",
+                RebootSetting = "IfRequired",
+            },
+        },
+    });
+
+});
+

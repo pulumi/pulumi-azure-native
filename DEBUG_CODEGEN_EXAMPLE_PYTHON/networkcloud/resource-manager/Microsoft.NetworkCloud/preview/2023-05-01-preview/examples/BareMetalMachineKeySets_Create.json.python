@@ -23,18 +23,18 @@ bare_metal_machine_key_set = azure_native.networkcloud.BareMetalMachineKeySet("b
         "key2": "myvalue2",
     },
     user_list=[
-        azure_native.networkcloud.KeySetUserArgs(
-            azure_user_name="userABC",
-            description="Needs access for troubleshooting as a part of the support team",
-            ssh_public_key=azure_native.networkcloud.SshPublicKeyArgs(
+        {
+            "azureUserName": "userABC",
+            "description": "Needs access for troubleshooting as a part of the support team",
+            "sshPublicKey": azure_native.networkcloud.SshPublicKeyArgs(
                 key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
             ),
-        ),
-        azure_native.networkcloud.KeySetUserArgs(
-            azure_user_name="userXYZ",
-            description="Needs access for troubleshooting as a part of the support team",
-            ssh_public_key=azure_native.networkcloud.SshPublicKeyArgs(
+        },
+        {
+            "azureUserName": "userXYZ",
+            "description": "Needs access for troubleshooting as a part of the support team",
+            "sshPublicKey": azure_native.networkcloud.SshPublicKeyArgs(
                 key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
             ),
-        ),
+        },
     ])

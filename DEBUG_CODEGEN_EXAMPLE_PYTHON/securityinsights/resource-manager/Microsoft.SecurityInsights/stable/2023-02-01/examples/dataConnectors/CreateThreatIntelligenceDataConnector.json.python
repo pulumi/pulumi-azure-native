@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 ti_data_connector = azure_native.securityinsights.TIDataConnector("tiDataConnector",
     data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
-    data_types=azure_native.securityinsights.TIDataConnectorDataTypesArgs(
+    data_types=azure_native.securityinsights.TIDataConnectorDataTypesResponseArgs(
         indicators=azure_native.securityinsights.TIDataConnectorDataTypesIndicatorsArgs(
             state="Enabled",
         ),

@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const database = new azure_native.sql.Database("database", {
+    createMode: "Secondary",
+    databaseName: "testdb",
+    location: "southeastasia",
+    resourceGroupName: "Default-SQL-SouthEastAsia",
+    secondaryType: "Named",
+    serverName: "testsvr",
+    sku: {
+        capacity: 2,
+        name: "HS_Gen4",
+        tier: "Hyperscale",
+    },
+    sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/primarydb",
+});

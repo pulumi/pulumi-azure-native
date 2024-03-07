@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deployment = new AzureNative.Resources.Deployment("deployment", new()
+    {
+        DeploymentName = "my-deployment",
+        Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+        {
+            Mode = AzureNative.Resources.DeploymentMode.Complete,
+            OnErrorDeployment = new AzureNative.Resources.Inputs.OnErrorDeploymentArgs
+            {
+                DeploymentName = "name-of-deployment-to-use",
+                Type = AzureNative.Resources.OnErrorDeploymentType.SpecificDeployment,
+            },
+            Parameters = null,
+            TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+            {
+                Uri = "https://example.com/exampleTemplate.json",
+            },
+        },
+        ResourceGroupName = "my-resource-group",
+    });
+
+});
+

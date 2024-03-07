@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const nodeType = new azure_native.servicefabric.NodeType("nodeType", {
+    clusterName: "myCluster",
+    enableEncryptionAtHost: true,
+    isPrimary: false,
+    isStateless: true,
+    multiplePlacementGroups: true,
+    nodeTypeName: "BE",
+    resourceGroupName: "resRg",
+    useTempDataDisk: true,
+    vmExtensions: [{
+        autoUpgradeMinorVersion: true,
+        name: "Microsoft.Azure.Geneva.GenevaMonitoring",
+        publisher: "Microsoft.Azure.Geneva",
+        settings: {},
+        type: "GenevaMonitoring",
+        typeHandlerVersion: "2.0",
+    }],
+    vmImageOffer: "WindowsServer",
+    vmImagePublisher: "MicrosoftWindowsServer",
+    vmImageSku: "2016-Datacenter-Server-Core",
+    vmImageVersion: "latest",
+    vmInstanceCount: 10,
+    vmSize: "Standard_DS3",
+});

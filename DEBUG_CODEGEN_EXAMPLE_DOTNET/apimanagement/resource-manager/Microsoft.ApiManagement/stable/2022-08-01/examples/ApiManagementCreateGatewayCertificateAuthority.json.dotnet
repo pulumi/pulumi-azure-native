@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var gatewayCertificateAuthority = new AzureNative.ApiManagement.GatewayCertificateAuthority("gatewayCertificateAuthority", new()
+    {
+        CertificateId = "cert1",
+        GatewayId = "gw1",
+        IsTrusted = false,
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var operationalizationCluster = new AzureNative.MachineLearningCompute.OperationalizationCluster("operationalizationCluster", new()
+    {
+        ClusterName = "myCluster",
+        ClusterType = "ACS",
+        ContainerService = new AzureNative.MachineLearningCompute.Inputs.AcsClusterPropertiesArgs
+        {
+            OrchestratorProperties = new AzureNative.MachineLearningCompute.Inputs.KubernetesClusterPropertiesArgs
+            {
+                ServicePrincipal = new AzureNative.MachineLearningCompute.Inputs.ServicePrincipalPropertiesArgs
+                {
+                    ClientId = "abcdefghijklmnopqrt",
+                    Secret = "<secret>",
+                },
+            },
+            OrchestratorType = "Kubernetes",
+        },
+        Description = "My Operationalization Cluster",
+        GlobalServiceConfiguration = new AzureNative.MachineLearningCompute.Inputs.GlobalServiceConfigurationArgs
+        {
+            Ssl = new AzureNative.MachineLearningCompute.Inputs.SslConfigurationArgs
+            {
+                Cert = "afjdklq2131casfakld=",
+                Cname = "foo.bar.com",
+                Key = "flksdafkldsajf=",
+                Status = "Enabled",
+            },
+        },
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "key1", "alpha" },
+            { "key2", "beta" },
+        },
+    });
+
+});
+

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var tagInheritanceSetting = new AzureNative.CostManagement.TagInheritanceSetting("tagInheritanceSetting", new()
+    {
+        Kind = "taginheritance",
+        Properties = new AzureNative.CostManagement.Inputs.TagInheritancePropertiesArgs
+        {
+            PreferContainerTags = false,
+        },
+        Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
+        Type = "taginheritance",
+    });
+
+});
+

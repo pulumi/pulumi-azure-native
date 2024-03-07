@@ -1,0 +1,89 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deployment = new AzureNative.AppPlatform.Deployment("deployment", new()
+    {
+        AppName = "myapp",
+        DeploymentName = "mydeployment",
+        Properties = new AzureNative.AppPlatform.Inputs.DeploymentResourcePropertiesArgs
+        {
+            DeploymentSettings = new AzureNative.AppPlatform.Inputs.DeploymentSettingsArgs
+            {
+                AddonConfigs = 
+                {
+                    { "ApplicationConfigurationService", 
+                    {
+                        { "patterns", new[]
+                        {
+                            "mypattern",
+                        } },
+                    } },
+                },
+                Apms = new[]
+                {
+                    new AzureNative.AppPlatform.Inputs.ApmReferenceArgs
+                    {
+                        ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apms/myappinsights",
+                    },
+                },
+                EnvironmentVariables = 
+                {
+                    { "env", "test" },
+                },
+                LivenessProbe = new AzureNative.AppPlatform.Inputs.ProbeArgs
+                {
+                    DisableProbe = false,
+                    FailureThreshold = 3,
+                    InitialDelaySeconds = 30,
+                    PeriodSeconds = 10,
+                    ProbeAction = new AzureNative.AppPlatform.Inputs.HTTPGetActionArgs
+                    {
+                        Path = "/health",
+                        Scheme = "HTTP",
+                        Type = "HTTPGetAction",
+                    },
+                },
+                ReadinessProbe = new AzureNative.AppPlatform.Inputs.ProbeArgs
+                {
+                    DisableProbe = false,
+                    FailureThreshold = 3,
+                    InitialDelaySeconds = 30,
+                    PeriodSeconds = 10,
+                    ProbeAction = new AzureNative.AppPlatform.Inputs.HTTPGetActionArgs
+                    {
+                        Path = "/health",
+                        Scheme = "HTTP",
+                        Type = "HTTPGetAction",
+                    },
+                },
+                ResourceRequests = new AzureNative.AppPlatform.Inputs.ResourceRequestsArgs
+                {
+                    Cpu = "1000m",
+                    Memory = "3Gi",
+                },
+                TerminationGracePeriodSeconds = 30,
+            },
+            Source = new AzureNative.AppPlatform.Inputs.SourceUploadedUserSourceInfoArgs
+            {
+                ArtifactSelector = "sub-module-1",
+                RelativePath = "resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+                Type = "Source",
+                Version = "1.0",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+        {
+            Capacity = 1,
+            Name = "S0",
+            Tier = "Standard",
+        },
+    });
+
+});
+

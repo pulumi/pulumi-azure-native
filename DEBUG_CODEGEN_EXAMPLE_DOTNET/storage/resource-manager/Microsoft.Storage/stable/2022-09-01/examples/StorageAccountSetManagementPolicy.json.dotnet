@@ -1,0 +1,120 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managementPolicy = new AzureNative.Storage.ManagementPolicy("managementPolicy", new()
+    {
+        AccountName = "sto9699",
+        ManagementPolicyName = "default",
+        Policy = new AzureNative.Storage.Inputs.ManagementPolicySchemaArgs
+        {
+            Rules = new[]
+            {
+                new AzureNative.Storage.Inputs.ManagementPolicyRuleArgs
+                {
+                    Definition = new AzureNative.Storage.Inputs.ManagementPolicyDefinitionArgs
+                    {
+                        Actions = new AzureNative.Storage.Inputs.ManagementPolicyActionArgs
+                        {
+                            BaseBlob = new AzureNative.Storage.Inputs.ManagementPolicyBaseBlobArgs
+                            {
+                                Delete = new AzureNative.Storage.Inputs.DateAfterModificationArgs
+                                {
+                                    DaysAfterModificationGreaterThan = 1000,
+                                },
+                                TierToArchive = new AzureNative.Storage.Inputs.DateAfterModificationArgs
+                                {
+                                    DaysAfterModificationGreaterThan = 90,
+                                },
+                                TierToCool = new AzureNative.Storage.Inputs.DateAfterModificationArgs
+                                {
+                                    DaysAfterModificationGreaterThan = 30,
+                                },
+                            },
+                            Snapshot = new AzureNative.Storage.Inputs.ManagementPolicySnapShotArgs
+                            {
+                                Delete = new AzureNative.Storage.Inputs.DateAfterCreationArgs
+                                {
+                                    DaysAfterCreationGreaterThan = 30,
+                                },
+                            },
+                        },
+                        Filters = new AzureNative.Storage.Inputs.ManagementPolicyFilterArgs
+                        {
+                            BlobTypes = new[]
+                            {
+                                "blockBlob",
+                            },
+                            PrefixMatch = new[]
+                            {
+                                "olcmtestcontainer1",
+                            },
+                        },
+                    },
+                    Enabled = true,
+                    Name = "olcmtest1",
+                    Type = "Lifecycle",
+                },
+                new AzureNative.Storage.Inputs.ManagementPolicyRuleArgs
+                {
+                    Definition = new AzureNative.Storage.Inputs.ManagementPolicyDefinitionArgs
+                    {
+                        Actions = new AzureNative.Storage.Inputs.ManagementPolicyActionArgs
+                        {
+                            BaseBlob = new AzureNative.Storage.Inputs.ManagementPolicyBaseBlobArgs
+                            {
+                                Delete = new AzureNative.Storage.Inputs.DateAfterModificationArgs
+                                {
+                                    DaysAfterModificationGreaterThan = 1000,
+                                },
+                                TierToArchive = new AzureNative.Storage.Inputs.DateAfterModificationArgs
+                                {
+                                    DaysAfterModificationGreaterThan = 90,
+                                },
+                                TierToCool = new AzureNative.Storage.Inputs.DateAfterModificationArgs
+                                {
+                                    DaysAfterModificationGreaterThan = 30,
+                                },
+                            },
+                        },
+                        Filters = new AzureNative.Storage.Inputs.ManagementPolicyFilterArgs
+                        {
+                            BlobIndexMatch = new[]
+                            {
+                                new AzureNative.Storage.Inputs.TagFilterArgs
+                                {
+                                    Name = "tag1",
+                                    Op = "==",
+                                    Value = "val1",
+                                },
+                                new AzureNative.Storage.Inputs.TagFilterArgs
+                                {
+                                    Name = "tag2",
+                                    Op = "==",
+                                    Value = "val2",
+                                },
+                            },
+                            BlobTypes = new[]
+                            {
+                                "blockBlob",
+                            },
+                            PrefixMatch = new[]
+                            {
+                                "olcmtestcontainer2",
+                            },
+                        },
+                    },
+                    Enabled = true,
+                    Name = "olcmtest2",
+                    Type = "Lifecycle",
+                },
+            },
+        },
+        ResourceGroupName = "res7687",
+    });
+
+});
+

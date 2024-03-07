@@ -1,0 +1,102 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.MachineLearningServices.Job("job", new()
+    {
+        Id = "string",
+        JobBaseProperties = new AzureNative.MachineLearningServices.Inputs.AutoMLJobArgs
+        {
+            ComputeId = "string",
+            Description = "string",
+            DisplayName = "string",
+            EnvironmentId = "string",
+            EnvironmentVariables = 
+            {
+                { "string", "string" },
+            },
+            ExperimentName = "string",
+            Identity = new AzureNative.MachineLearningServices.Inputs.AmlTokenArgs
+            {
+                IdentityType = "AMLToken",
+            },
+            IsArchived = false,
+            JobType = "AutoML",
+            Outputs = 
+            {
+                { "string", new AzureNative.MachineLearningServices.Inputs.UriFileJobOutputArgs
+                {
+                    Description = "string",
+                    JobOutputType = "uri_file",
+                    Mode = "ReadWriteMount",
+                    Uri = "string",
+                } },
+            },
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Resources = new AzureNative.MachineLearningServices.Inputs.JobResourceConfigurationArgs
+            {
+                InstanceCount = 1,
+                InstanceType = "string",
+                Properties = 
+                {
+                    { "string", 
+                    {
+                        { "9bec0ab0-c62f-4fa9-a97c-7b24bbcc90ad", null },
+                    } },
+                },
+            },
+            Services = 
+            {
+                { "string", new AzureNative.MachineLearningServices.Inputs.JobServiceArgs
+                {
+                    Endpoint = "string",
+                    JobServiceType = "string",
+                    Port = 1,
+                    Properties = 
+                    {
+                        { "string", "string" },
+                    },
+                } },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+            TaskDetails = new AzureNative.MachineLearningServices.Inputs.ImageClassificationArgs
+            {
+                LimitSettings = new AzureNative.MachineLearningServices.Inputs.ImageLimitSettingsArgs
+                {
+                    MaxTrials = 2,
+                },
+                ModelSettings = new AzureNative.MachineLearningServices.Inputs.ImageModelSettingsClassificationArgs
+                {
+                    ValidationCropSize = 2,
+                },
+                SearchSpace = new[]
+                {
+                    new AzureNative.MachineLearningServices.Inputs.ImageModelDistributionSettingsClassificationArgs
+                    {
+                        ValidationCropSize = "choice(2, 360)",
+                    },
+                },
+                TargetColumnName = "string",
+                TaskType = "ImageClassification",
+                TrainingData = new AzureNative.MachineLearningServices.Inputs.MLTableJobInputArgs
+                {
+                    JobInputType = "mltable",
+                    Uri = "string",
+                },
+            },
+        },
+        ResourceGroupName = "test-rg",
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

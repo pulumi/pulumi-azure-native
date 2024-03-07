@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var galleryApplication = new AzureNative.Compute.GalleryApplication("galleryApplication", new()
+    {
+        CustomActions = new[]
+        {
+            new AzureNative.Compute.Inputs.GalleryApplicationCustomActionArgs
+            {
+                Description = "This is the custom action description.",
+                Name = "myCustomAction",
+                Parameters = new[]
+                {
+                    new AzureNative.Compute.Inputs.GalleryApplicationCustomActionParameterArgs
+                    {
+                        DefaultValue = "default value of parameter.",
+                        Description = "This is the description of the parameter",
+                        Name = "myCustomActionParameter",
+                        Required = false,
+                        Type = AzureNative.Compute.GalleryApplicationCustomActionParameterType.String,
+                    },
+                },
+                Script = "myCustomActionScript",
+            },
+        },
+        Description = "This is the gallery application description.",
+        Eula = "This is the gallery application EULA.",
+        GalleryApplicationName = "myGalleryApplicationName",
+        GalleryName = "myGalleryName",
+        Location = "West US",
+        PrivacyStatementUri = "myPrivacyStatementUri}",
+        ReleaseNoteUri = "myReleaseNoteUri",
+        ResourceGroupName = "myResourceGroup",
+        SupportedOSType = AzureNative.Compute.OperatingSystemTypes.Windows,
+    });
+
+});
+

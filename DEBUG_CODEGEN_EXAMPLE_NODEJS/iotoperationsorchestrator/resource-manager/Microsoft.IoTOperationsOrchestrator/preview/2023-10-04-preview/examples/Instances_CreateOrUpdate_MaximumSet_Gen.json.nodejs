@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const instance = new azure_native.iotoperationsorchestrator.Instance("instance", {
+    extendedLocation: {
+        name: "bjjhfqsplgzdlbdlddleetyg",
+        type: "sosibrbmmrfbbyp",
+    },
+    location: "uzehbktba",
+    name: "j6-r05-43h--55-q97-9ig--6w44a-2--3g-k53-13263ncl6-2q-h0-q5",
+    reconciliationPolicy: {
+        interval: "wyrrzydmfgzymvzbppscxyfobku",
+        type: "periodic",
+    },
+    resourceGroupName: "rgopenapi",
+    scope: "rkargnjeljnivwjly",
+    solution: "p",
+    tags: {},
+    target: {
+        name: "mqxcv",
+    },
+    version: "nf",
+});

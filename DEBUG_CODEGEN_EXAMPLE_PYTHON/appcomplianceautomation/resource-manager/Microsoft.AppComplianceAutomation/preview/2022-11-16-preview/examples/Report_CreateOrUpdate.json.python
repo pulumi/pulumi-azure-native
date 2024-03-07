@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 report = azure_native.appcomplianceautomation.Report("report",
-    properties=azure_native.appcomplianceautomation.ReportPropertiesArgs(
+    properties=azure_native.appcomplianceautomation.ReportPropertiesResponseArgs(
         offer_guid="0000",
         resources=[azure_native.appcomplianceautomation.ResourceMetadataArgs(
             resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",

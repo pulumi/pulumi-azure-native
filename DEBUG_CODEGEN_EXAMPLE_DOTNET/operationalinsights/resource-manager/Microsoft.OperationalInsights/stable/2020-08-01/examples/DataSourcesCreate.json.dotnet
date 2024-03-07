@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataSource = new AzureNative.OperationalInsights.DataSource("dataSource", new()
+    {
+        DataSourceName = "AzTestDS774",
+        Kind = "AzureActivityLog",
+        Properties = 
+        {
+            { "LinkedResourceId", "/subscriptions/00000000-0000-0000-0000-00000000000/providers/microsoft.insights/eventtypes/management" },
+        },
+        ResourceGroupName = "OIAutoRest5123",
+        WorkspaceName = "AzTest9724",
+    });
+
+});
+

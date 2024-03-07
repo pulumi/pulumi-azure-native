@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.DataMigration.Service("service", new()
+    {
+        GroupName = "DmsSdkRg",
+        Location = "southcentralus",
+        ServiceName = "DmsSdkService",
+        Sku = new AzureNative.DataMigration.Inputs.ServiceSkuArgs
+        {
+            Name = "Basic_1vCore",
+        },
+        VirtualSubnetId = "/subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkTestNetwork/providers/Microsoft.Network/virtualNetworks/DmsSdkTestNetwork/subnets/default",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var groupUser = new AzureNative.ApiManagement.GroupUser("groupUser", new()
+    {
+        GroupId = "tempgroup",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        UserId = "59307d350af58404d8a26300",
+    });
+
+});
+

@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const collectorPolicy = new azure_native.networkfunction.CollectorPolicy("collectorPolicy", {
+    azureTrafficCollectorName: "atc",
+    collectorPolicyName: "cp1",
+    emissionPolicies: [{
+        emissionDestinations: [{
+            destinationType: "AzureMonitor",
+        }],
+        emissionType: "IPFIX",
+    }],
+    ingestionPolicy: {
+        ingestionSources: [{
+            resourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName",
+            sourceType: "Resource",
+        }],
+        ingestionType: "IPFIX",
+    },
+    location: "West US",
+    resourceGroupName: "rg1",
+});

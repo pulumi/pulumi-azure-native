@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.DBforPostgreSQL.Cluster("cluster", new()
+    {
+        AdministratorLoginPassword = "password",
+        CitusVersion = "11.3",
+        ClusterName = "testcluster-singlenode",
+        CoordinatorEnablePublicIpAccess = true,
+        CoordinatorServerEdition = "GeneralPurpose",
+        CoordinatorStorageQuotaInMb = 131072,
+        CoordinatorVCores = 8,
+        EnableHa = true,
+        EnableShardsOnCoordinator = true,
+        Location = "westus",
+        NodeCount = 0,
+        PostgresqlVersion = "15",
+        PreferredPrimaryZone = "1",
+        ResourceGroupName = "TestGroup",
+        Tags = 
+        {
+            { "owner", "JohnDoe" },
+        },
+    });
+
+});
+

@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const volumeGroup = new azure_native.elasticsan.VolumeGroup("volumeGroup", {
+    elasticSanName: "ti7q-k952-1qB3J_5",
+    resourceGroupName: "rgelasticsan",
+    volumeGroupName: "u_5I_1j4t3",
+});

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var component = new AzureNative.Insights.Component("component", new()
+    {
+        ApplicationType = "web",
+        FlowType = "Bluefield",
+        Kind = "web",
+        Location = "South Central US",
+        RequestSource = "rest",
+        ResourceGroupName = "my-resource-group",
+        ResourceName = "my-component",
+        WorkspaceResourceId = "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
+    });
+
+});
+

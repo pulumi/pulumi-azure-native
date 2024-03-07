@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const nodeType = new azure_native.servicefabric.NodeType("nodeType", {
+    clusterName: "myCluster",
+    dataDiskSizeGB: 200,
+    isPrimary: false,
+    nodeTypeName: "BE",
+    resourceGroupName: "resRg",
+    vmInstanceCount: 10,
+    vmSharedGalleryImageId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-custom-image/providers/Microsoft.Compute/sharedGalleries/35349201-a0b3-405e-8a23-9f1450984307-SFSHAREDGALLERY/images/TestNoProdContainerDImage/versions/latest",
+    vmSize: "Standard_D3",
+});

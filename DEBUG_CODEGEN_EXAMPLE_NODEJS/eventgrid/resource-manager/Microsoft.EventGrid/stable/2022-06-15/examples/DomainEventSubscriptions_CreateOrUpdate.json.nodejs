@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const domainEventSubscription = new azure_native.eventgrid.DomainEventSubscription("domainEventSubscription", {
+    destination: {
+        endpointType: "WebHook",
+        endpointUrl: "https://requestb.in/15ksip71",
+    },
+    domainName: "exampleDomain1",
+    eventSubscriptionName: "exampleEventSubscriptionName1",
+    filter: {
+        isSubjectCaseSensitive: false,
+        subjectBeginsWith: "ExamplePrefix",
+        subjectEndsWith: "ExampleSuffix",
+    },
+    resourceGroupName: "examplerg",
+});

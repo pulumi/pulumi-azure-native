@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ipCommunity = new AzureNative.ManagedNetworkFabric.IpCommunity("ipCommunity", new()
+    {
+        Action = "Permit",
+        Annotation = "annotationValue",
+        CommunityMembers = new[]
+        {
+            "1234:5678",
+        },
+        IpCommunityName = "example-ipCommunity",
+        Location = "EastUS",
+        ResourceGroupName = "rgIpCommunityLists",
+        Tags = 
+        {
+            { "key2814", "" },
+        },
+        WellKnownCommunities = new[]
+        {
+            "Internet",
+            "LocalAS",
+            "NoExport",
+            "GShut",
+        },
+    });
+
+});
+

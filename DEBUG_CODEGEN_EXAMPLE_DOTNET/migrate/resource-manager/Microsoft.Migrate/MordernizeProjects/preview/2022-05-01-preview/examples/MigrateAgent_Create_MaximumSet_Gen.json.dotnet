@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var migrateAgent = new AzureNative.Migrate.MigrateAgent("migrateAgent", new()
+    {
+        AgentName = "l",
+        ModernizeProjectName = "rq1yec",
+        Properties = new AzureNative.Migrate.Inputs.MigrateAgentModelPropertiesArgs
+        {
+            AuthenticationIdentity = new AzureNative.Migrate.Inputs.IdentityModelArgs
+            {
+                AadAuthority = "isbicanvfefdaci",
+                ApplicationId = "dibfqwjrnzikktkwe",
+                Audience = "yrfxszjhkczoyfi",
+                ObjectId = "xfhhdosr",
+                TenantId = "uwceuawplakwjswbvllffbsz",
+            },
+            CustomProperties = null,
+            MachineId = "sihoniqzqfz",
+            MachineName = "glhejppirkiamgxxro",
+        },
+        ResourceGroupName = "rgmigrateEngine",
+        Tags = 
+        {
+            { "key5560", "jgffrfcgjrm" },
+        },
+    });
+
+});
+

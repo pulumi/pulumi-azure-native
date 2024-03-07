@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hybridRunbookWorkerGroup = new AzureNative.Automation.HybridRunbookWorkerGroup("hybridRunbookWorkerGroup", new()
+    {
+        AutomationAccountName = "testaccount",
+        Credential = new AzureNative.Automation.Inputs.RunAsCredentialAssociationPropertyArgs
+        {
+            Name = "myRunAsCredentialName",
+        },
+        HybridRunbookWorkerGroupName = "TestHybridGroup",
+        ResourceGroupName = "rg",
+    });
+
+});
+

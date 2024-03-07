@@ -1,0 +1,51 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataset = new AzureNative.DataFactory.Dataset("dataset", new()
+    {
+        DatasetName = "exampleDataset",
+        FactoryName = "exampleFactoryName",
+        Properties = new AzureNative.DataFactory.Inputs.AzureBlobDatasetArgs
+        {
+            Description = "Example description",
+            FileName = 
+            {
+                { "type", "Expression" },
+                { "value", "@dataset().MyFileName" },
+            },
+            FolderPath = 
+            {
+                { "type", "Expression" },
+                { "value", "@dataset().MyFolderPath" },
+            },
+            Format = new AzureNative.DataFactory.Inputs.TextFormatArgs
+            {
+                Type = "TextFormat",
+            },
+            LinkedServiceName = new AzureNative.DataFactory.Inputs.LinkedServiceReferenceArgs
+            {
+                ReferenceName = "exampleLinkedService",
+                Type = "LinkedServiceReference",
+            },
+            Parameters = 
+            {
+                { "MyFileName", new AzureNative.DataFactory.Inputs.ParameterSpecificationArgs
+                {
+                    Type = "String",
+                } },
+                { "MyFolderPath", new AzureNative.DataFactory.Inputs.ParameterSpecificationArgs
+                {
+                    Type = "String",
+                } },
+            },
+            Type = "AzureBlob",
+        },
+        ResourceGroupName = "exampleResourceGroup",
+    });
+
+});
+

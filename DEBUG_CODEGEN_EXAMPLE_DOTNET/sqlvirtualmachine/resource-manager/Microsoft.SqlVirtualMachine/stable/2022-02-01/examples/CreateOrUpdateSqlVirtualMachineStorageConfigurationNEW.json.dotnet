@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlVirtualMachine = new AzureNative.SqlVirtualMachine.SqlVirtualMachine("sqlVirtualMachine", new()
+    {
+        Location = "northeurope",
+        ResourceGroupName = "testrg",
+        SqlVirtualMachineName = "testvm",
+        StorageConfigurationSettings = new AzureNative.SqlVirtualMachine.Inputs.StorageConfigurationSettingsArgs
+        {
+            DiskConfigurationType = "NEW",
+            SqlDataSettings = new AzureNative.SqlVirtualMachine.Inputs.SQLStorageSettingsArgs
+            {
+                DefaultFilePath = "F:\\folderpath\\",
+                Luns = new[]
+                {
+                    0,
+                },
+            },
+            SqlLogSettings = new AzureNative.SqlVirtualMachine.Inputs.SQLStorageSettingsArgs
+            {
+                DefaultFilePath = "G:\\folderpath\\",
+                Luns = new[]
+                {
+                    1,
+                },
+            },
+            SqlSystemDbOnDataDisk = true,
+            SqlTempDbSettings = new AzureNative.SqlVirtualMachine.Inputs.SQLTempDbSettingsArgs
+            {
+                DataFileCount = 8,
+                DataFileSize = 256,
+                DataGrowth = 512,
+                DefaultFilePath = "D:\\TEMP",
+                LogFileSize = 256,
+                LogGrowth = 512,
+            },
+            StorageWorkloadType = "OLTP",
+        },
+        VirtualMachineResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+    });
+
+});
+

@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const view = new azure_native.customerinsights.View("view", {
+    definition: "{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
+    displayName: {
+        en: "some name",
+    },
+    hubName: "sdkTestHub",
+    resourceGroupName: "TestHubRG",
+    userId: "testUser",
+    viewName: "testView",
+});

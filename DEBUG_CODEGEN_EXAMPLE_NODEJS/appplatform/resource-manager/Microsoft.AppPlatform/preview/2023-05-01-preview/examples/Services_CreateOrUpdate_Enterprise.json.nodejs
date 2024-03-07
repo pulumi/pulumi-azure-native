@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const service = new azure_native.appplatform.Service("service", {
+    location: "eastus",
+    properties: {
+        marketplaceResource: {
+            plan: "tanzu-asc-ent-mtr",
+            product: "azure-spring-cloud-vmware-tanzu-2",
+            publisher: "vmware-inc",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+    sku: {
+        name: "E0",
+        tier: "Enterprise",
+    },
+    tags: {
+        key1: "value1",
+    },
+});

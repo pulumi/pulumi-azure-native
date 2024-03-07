@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualMachineScaleSetVM = new azure_native.compute.VirtualMachineScaleSetVM("virtualMachineScaleSetVM", {
+    instanceId: "aaaaaaaaaaaaaaaaaaaa",
+    location: "westus",
+    resourceGroupName: "rgcompute",
+    vmScaleSetName: "aaaaaaaaaaaaaaaaaa",
+});

@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const service = new azure_native.search.Service("service", {
+    encryptionWithCmk: {
+        enforcement: azure_native.search.SearchEncryptionWithCmk.Enabled,
+    },
+    hostingMode: azure_native.search.HostingMode.Default,
+    location: "westus",
+    partitionCount: 1,
+    replicaCount: 3,
+    resourceGroupName: "rg1",
+    searchServiceName: "mysearchservice",
+    sku: {
+        name: azure_native.search.SkuName.Standard,
+    },
+    tags: {
+        "app-name": "My e-commerce app",
+    },
+});

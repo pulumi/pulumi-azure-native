@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const organization = new azure_native.confluent.Organization("organization", {
+    location: "West US",
+    offerDetail: {
+        id: "string",
+        planId: "string",
+        planName: "string",
+        publisherId: "string",
+        termUnit: "string",
+    },
+    organizationName: "myOrganization",
+    resourceGroupName: "myResourceGroup",
+    tags: {
+        Environment: "Dev",
+    },
+    userDetail: {
+        emailAddress: "contoso@microsoft.com",
+        firstName: "string",
+        lastName: "string",
+    },
+});

@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var iotDpsResourcePrivateEndpointConnection = new AzureNative.Devices.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "myPrivateEndpointConnection",
+        Properties = new AzureNative.Devices.Inputs.PrivateEndpointConnectionPropertiesArgs
+        {
+            PrivateLinkServiceConnectionState = new AzureNative.Devices.Inputs.PrivateLinkServiceConnectionStateArgs
+            {
+                Description = "Approved by johndoe@contoso.com",
+                Status = "Approved",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "myFirstProvisioningService",
+    });
+
+});
+

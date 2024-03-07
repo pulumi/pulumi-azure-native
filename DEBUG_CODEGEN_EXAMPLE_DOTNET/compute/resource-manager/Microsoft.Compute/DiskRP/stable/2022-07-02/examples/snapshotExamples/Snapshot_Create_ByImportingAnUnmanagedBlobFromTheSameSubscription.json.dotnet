@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var snapshot = new AzureNative.Compute.Snapshot("snapshot", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "Import",
+            SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+        },
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+        SnapshotName = "mySnapshot1",
+    });
+
+});
+

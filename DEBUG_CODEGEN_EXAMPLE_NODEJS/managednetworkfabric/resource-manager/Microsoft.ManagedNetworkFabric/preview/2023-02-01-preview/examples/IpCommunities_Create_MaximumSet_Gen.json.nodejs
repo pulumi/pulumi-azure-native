@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const ipCommunity = new azure_native.managednetworkfabric.IpCommunity("ipCommunity", {
+    action: "Permit",
+    annotation: "annotationValue",
+    communityMembers: ["1234:5678"],
+    ipCommunityName: "example-ipCommunity",
+    location: "EastUS",
+    resourceGroupName: "rgIpCommunityLists",
+    tags: {
+        key2814: "",
+    },
+    wellKnownCommunities: [
+        "Internet",
+        "LocalAS",
+        "NoExport",
+        "GShut",
+    ],
+});

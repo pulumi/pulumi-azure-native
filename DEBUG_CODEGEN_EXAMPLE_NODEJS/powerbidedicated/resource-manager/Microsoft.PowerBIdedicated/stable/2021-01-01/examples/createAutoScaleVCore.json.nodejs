@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const autoScaleVCore = new azure_native.powerbidedicated.AutoScaleVCore("autoScaleVCore", {
+    capacityLimit: 10,
+    capacityObjectId: "a28f00bd-5330-4572-88f1-fa883e074785",
+    location: "West US",
+    resourceGroupName: "TestRG",
+    sku: {
+        capacity: 0,
+        name: "AutoScale",
+        tier: "AutoScale",
+    },
+    tags: {
+        testKey: "testValue",
+    },
+    vcoreName: "testvcore",
+});

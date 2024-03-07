@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var buildServiceBuilder = new AzureNative.AppPlatform.BuildServiceBuilder("buildServiceBuilder", new()
+    {
+        BuildServiceName = "default",
+        BuilderName = "mybuilder",
+        Properties = new AzureNative.AppPlatform.Inputs.BuilderPropertiesArgs
+        {
+            BuildpackGroups = new[]
+            {
+                new AzureNative.AppPlatform.Inputs.BuildpacksGroupPropertiesArgs
+                {
+                    Buildpacks = new[]
+                    {
+                        new AzureNative.AppPlatform.Inputs.BuildpackPropertiesArgs
+                        {
+                            Id = "tanzu-buildpacks/java-azure",
+                        },
+                    },
+                    Name = "mix",
+                },
+            },
+            Stack = new AzureNative.AppPlatform.Inputs.StackPropertiesArgs
+            {
+                Id = "io.buildpacks.stacks.bionic",
+                Version = "base",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

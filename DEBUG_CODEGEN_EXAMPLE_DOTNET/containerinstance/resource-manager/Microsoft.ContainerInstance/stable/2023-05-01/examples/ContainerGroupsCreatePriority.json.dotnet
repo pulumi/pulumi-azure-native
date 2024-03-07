@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var containerGroup = new AzureNative.ContainerInstance.ContainerGroup("containerGroup", new()
+    {
+        ContainerGroupName = "demo1",
+        Containers = new[]
+        {
+            new AzureNative.ContainerInstance.Inputs.ContainerArgs
+            {
+                Command = new[]
+                {
+                    "/bin/sh",
+                    "-c",
+                    "sleep 10",
+                },
+                Image = "alpine:latest",
+                Name = "test-container-001",
+                Resources = new AzureNative.ContainerInstance.Inputs.ResourceRequirementsArgs
+                {
+                    Requests = new AzureNative.ContainerInstance.Inputs.ResourceRequestsArgs
+                    {
+                        Cpu = 1,
+                        MemoryInGB = 1,
+                    },
+                },
+            },
+        },
+        Location = "eastus",
+        OsType = "Linux",
+        Priority = "Spot",
+        ResourceGroupName = "demo",
+        RestartPolicy = "Never",
+        Sku = "Standard",
+    });
+
+});
+

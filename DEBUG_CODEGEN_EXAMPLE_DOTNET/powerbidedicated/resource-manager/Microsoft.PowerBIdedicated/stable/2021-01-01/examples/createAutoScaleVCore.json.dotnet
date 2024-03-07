@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var autoScaleVCore = new AzureNative.PowerBIDedicated.AutoScaleVCore("autoScaleVCore", new()
+    {
+        CapacityLimit = 10,
+        CapacityObjectId = "a28f00bd-5330-4572-88f1-fa883e074785",
+        Location = "West US",
+        ResourceGroupName = "TestRG",
+        Sku = new AzureNative.PowerBIDedicated.Inputs.AutoScaleVCoreSkuArgs
+        {
+            Capacity = 0,
+            Name = "AutoScale",
+            Tier = "AutoScale",
+        },
+        Tags = 
+        {
+            { "testKey", "testValue" },
+        },
+        VcoreName = "testvcore",
+    });
+
+});
+

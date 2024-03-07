@@ -2,45 +2,45 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 container_app = azure_native.app.ContainerApp("containerApp",
-    configuration=azure_native.app.ConfigurationArgs(
-        ingress=azure_native.app.IngressArgs(
-            exposed_port=4000,
-            external=True,
-            target_port=3000,
-            traffic=[azure_native.app.TrafficWeightArgs(
+    configuration=azure_native.app.ConfigurationResponseArgs(
+        ingress={
+            "exposedPort": 4000,
+            "external": True,
+            "targetPort": 3000,
+            "traffic": [azure_native.app.TrafficWeightArgs(
                 revision_name="testcontainerapptcp-ab1234",
                 weight=100,
             )],
-            transport="tcp",
-        ),
+            "transport": "tcp",
+        },
     ),
     container_app_name="testcontainerapptcp",
     environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
     location="East US",
     resource_group_name="rg",
-    template=azure_native.app.TemplateArgs(
-        containers=[azure_native.app.ContainerArgs(
-            image="repo/testcontainerapptcp:v1",
-            name="testcontainerapptcp",
-            probes=[azure_native.app.ContainerAppProbeArgs(
-                initial_delay_seconds=3,
-                period_seconds=3,
-                tcp_socket=azure_native.app.ContainerAppProbeTcpSocketArgs(
+    template=azure_native.app.TemplateResponseArgs(
+        containers=[{
+            "image": "repo/testcontainerapptcp:v1",
+            "name": "testcontainerapptcp",
+            "probes": [{
+                "initialDelaySeconds": 3,
+                "periodSeconds": 3,
+                "tcpSocket": azure_native.app.ContainerAppProbeTcpSocketArgs(
                     port=8080,
                 ),
-                type="Liveness",
-            )],
-        )],
-        scale=azure_native.app.ScaleArgs(
-            max_replicas=5,
-            min_replicas=1,
-            rules=[azure_native.app.ScaleRuleArgs(
-                name="tcpscalingrule",
-                tcp=azure_native.app.TcpScaleRuleArgs(
+                "type": "Liveness",
+            }],
+        }],
+        scale={
+            "maxReplicas": 5,
+            "minReplicas": 1,
+            "rules": [{
+                "name": "tcpscalingrule",
+                "tcp": azure_native.app.TcpScaleRuleArgs(
                     metadata={
                         "concurrentConnections": "50",
                     },
                 ),
-            )],
-        ),
+            }],
+        },
     ))

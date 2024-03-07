@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const communicationService = new azure_native.communication.CommunicationService("communicationService", {
+    communicationServiceName: "MyCommunicationResource",
+    dataLocation: "United States",
+    location: "Global",
+    resourceGroupName: "MyResourceGroup",
+});

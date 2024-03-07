@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var bandwidthSchedule = new AzureNative.DataBoxEdge.BandwidthSchedule("bandwidthSchedule", new()
+    {
+        Days = new[]
+        {
+            "Sunday",
+            "Monday",
+        },
+        DeviceName = "testedgedevice",
+        Name = "bandwidth-1",
+        RateInMbps = 100,
+        ResourceGroupName = "GroupForEdgeAutomation",
+        Start = "0:0:0",
+        Stop = "13:59:0",
+    });
+
+});
+

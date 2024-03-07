@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateLinkServicePrivateEndpointConnection = new AzureNative.Network.PrivateLinkServicePrivateEndpointConnection("privateLinkServicePrivateEndpointConnection", new()
+    {
+        Name = "testPlePeConnection",
+        PeConnectionName = "testPlePeConnection",
+        PrivateLinkServiceConnectionState = new AzureNative.Network.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "approved it for some reason.",
+            Status = "Approved",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "testPls",
+    });
+
+});
+

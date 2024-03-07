@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    {
+        Metadata = 
+        {
+            { "key1", "value1" },
+        },
+        PrivateZoneName = "privatezone1.com",
+        RecordType = "SOA",
+        RelativeRecordSetName = "@",
+        ResourceGroupName = "resourceGroup1",
+        SoaRecord = new AzureNative.Network.Inputs.SoaRecordArgs
+        {
+            Email = "azureprivatedns-hostmaster.microsoft.com",
+            ExpireTime = 2419200,
+            Host = "azureprivatedns.net",
+            MinimumTtl = 300,
+            RefreshTime = 3600,
+            RetryTime = 300,
+            SerialNumber = 1,
+        },
+        Ttl = 3600,
+    });
+
+});
+

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const encryptionScope = new azure_native.storage.EncryptionScope("encryptionScope", {
+    accountName: "{storage-account-name}",
+    encryptionScopeName: "{encryption-scope-name}",
+    requireInfrastructureEncryption: true,
+    resourceGroupName: "resource-group-name",
+});

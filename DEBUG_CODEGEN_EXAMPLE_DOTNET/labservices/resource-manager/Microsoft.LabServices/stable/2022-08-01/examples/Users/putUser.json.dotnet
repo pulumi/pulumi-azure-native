@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var user = new AzureNative.LabServices.User("user", new()
+    {
+        AdditionalUsageQuota = "PT10H",
+        Email = "testuser@contoso.com",
+        LabName = "testlab",
+        ResourceGroupName = "testrg123",
+        UserName = "testuser",
+    });
+
+});
+

@@ -1,0 +1,47 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var msixPackage = new AzureNative.DesktopVirtualization.MSIXPackage("msixPackage", new()
+    {
+        DisplayName = "displayname",
+        HostPoolName = "hostpool1",
+        ImagePath = "imagepath",
+        IsActive = false,
+        IsRegularRegistration = false,
+        LastUpdated = "2008-09-22T14:01:54.9571247Z",
+        MsixPackageFullName = "msixpackagefullname",
+        PackageApplications = new[]
+        {
+            new AzureNative.DesktopVirtualization.Inputs.MsixPackageApplicationsArgs
+            {
+                AppId = "ApplicationId",
+                AppUserModelID = "AppUserModelId",
+                Description = "application-desc",
+                FriendlyName = "friendlyname",
+                IconImageName = "Apptile",
+                RawIcon = "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+                RawPng = "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+            },
+        },
+        PackageDependencies = new[]
+        {
+            new AzureNative.DesktopVirtualization.Inputs.MsixPackageDependenciesArgs
+            {
+                DependencyName = "MsixTest_Dependency_Name",
+                MinVersion = "version",
+                Publisher = "PublishedName",
+            },
+        },
+        PackageFamilyName = "MsixPackage_FamilyName",
+        PackageName = "MsixPackage_name",
+        PackageRelativePath = "packagerelativepath",
+        ResourceGroupName = "resourceGroup1",
+        Version = "version",
+    });
+
+});
+

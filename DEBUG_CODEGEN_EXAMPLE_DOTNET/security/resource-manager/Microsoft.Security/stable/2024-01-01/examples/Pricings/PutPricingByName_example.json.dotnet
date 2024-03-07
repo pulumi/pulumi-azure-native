@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pricing = new AzureNative.Security.Pricing("pricing", new()
+    {
+        PricingName = "CloudPosture",
+        PricingTier = "Standard",
+        ScopeId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    });
+
+});
+

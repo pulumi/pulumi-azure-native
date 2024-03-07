@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serviceEndpoint = new AzureNative.RecommendationsService.ServiceEndpoint("serviceEndpoint", new()
+    {
+        AccountName = "sampleAccount",
+        Location = "West US",
+        Properties = new AzureNative.RecommendationsService.Inputs.ServiceEndpointResourcePropertiesArgs
+        {
+            PreAllocatedCapacity = 100,
+        },
+        ResourceGroupName = "rg",
+        ServiceEndpointName = "s1",
+        Tags = 
+        {
+            { "Environment", "Prod" },
+        },
+    });
+
+});
+

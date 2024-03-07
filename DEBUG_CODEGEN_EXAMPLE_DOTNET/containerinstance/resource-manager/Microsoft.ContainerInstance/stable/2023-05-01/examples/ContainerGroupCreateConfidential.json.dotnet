@@ -1,0 +1,71 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var containerGroup = new AzureNative.ContainerInstance.ContainerGroup("containerGroup", new()
+    {
+        ConfidentialComputeProperties = new AzureNative.ContainerInstance.Inputs.ConfidentialComputePropertiesArgs
+        {
+            CcePolicy = "eyJhbGxvd19hbGwiOiB0cnVlLCAiY29udGFpbmVycyI6IHsibGVuZ3RoIjogMCwgImVsZW1lbnRzIjogbnVsbH19",
+        },
+        ContainerGroupName = "demo1",
+        Containers = new[]
+        {
+            new AzureNative.ContainerInstance.Inputs.ContainerArgs
+            {
+                Command = new() { },
+                EnvironmentVariables = new[] {},
+                Image = "confiimage",
+                Name = "accdemo",
+                Ports = new[]
+                {
+                    new AzureNative.ContainerInstance.Inputs.ContainerPortArgs
+                    {
+                        Port = 8000,
+                    },
+                },
+                Resources = new AzureNative.ContainerInstance.Inputs.ResourceRequirementsArgs
+                {
+                    Requests = new AzureNative.ContainerInstance.Inputs.ResourceRequestsArgs
+                    {
+                        Cpu = 1,
+                        MemoryInGB = 1.5,
+                    },
+                },
+                SecurityContext = new AzureNative.ContainerInstance.Inputs.SecurityContextDefinitionArgs
+                {
+                    Capabilities = new AzureNative.ContainerInstance.Inputs.SecurityContextCapabilitiesDefinitionArgs
+                    {
+                        Add = new[]
+                        {
+                            "CAP_NET_ADMIN",
+                        },
+                    },
+                    Privileged = false,
+                },
+            },
+        },
+        ImageRegistryCredentials = new[] {},
+        IpAddress = new AzureNative.ContainerInstance.Inputs.IpAddressArgs
+        {
+            Ports = new[]
+            {
+                new AzureNative.ContainerInstance.Inputs.PortArgs
+                {
+                    Port = 8000,
+                    Protocol = "TCP",
+                },
+            },
+            Type = "Public",
+        },
+        Location = "westeurope",
+        OsType = "Linux",
+        ResourceGroupName = "demo",
+        Sku = "Confidential",
+    });
+
+});
+

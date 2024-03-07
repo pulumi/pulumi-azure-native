@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const vault = new azure_native.recoveryservices.Vault("vault", {
+    identity: {
+        type: "SystemAssigned",
+    },
+    location: "West US",
+    properties: {
+        monitoringSettings: {
+            azureMonitorAlertSettings: {
+                alertsForAllJobFailures: "Enabled",
+            },
+            classicAlertSettings: {
+                alertsForCriticalOperations: "Disabled",
+            },
+        },
+        publicNetworkAccess: "Enabled",
+    },
+    resourceGroupName: "Default-RecoveryServices-ResourceGroup",
+    sku: {
+        name: "Standard",
+    },
+    vaultName: "swaggerExample",
+});

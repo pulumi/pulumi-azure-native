@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.ApiCenter.Service("service", new()
+    {
+        ResourceGroupName = "contoso-resources",
+        ServiceName = "contoso",
+    });
+
+});
+

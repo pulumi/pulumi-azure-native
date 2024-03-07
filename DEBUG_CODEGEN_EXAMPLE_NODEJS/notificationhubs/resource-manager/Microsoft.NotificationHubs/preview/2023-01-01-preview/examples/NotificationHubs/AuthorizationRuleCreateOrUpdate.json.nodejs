@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const notificationHubAuthorizationRule = new azure_native.notificationhubs.NotificationHubAuthorizationRule("notificationHubAuthorizationRule", {
+    authorizationRuleName: "MyManageSharedAccessKey",
+    namespaceName: "nh-sdk-ns",
+    notificationHubName: "nh-sdk-hub",
+    properties: {
+        rights: [
+            "Listen",
+            "Send",
+        ],
+    },
+    resourceGroupName: "5ktrial",
+});

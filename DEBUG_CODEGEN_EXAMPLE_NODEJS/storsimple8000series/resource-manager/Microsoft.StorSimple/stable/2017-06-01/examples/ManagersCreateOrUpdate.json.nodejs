@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const manager = new azure_native.storsimple.Manager("manager", {
+    cisIntrinsicSettings: {
+        type: azure_native.storsimple.ManagerType.GardaV1,
+    },
+    location: "westus",
+    managerName: "ManagerForSDKTest2",
+    resourceGroupName: "ResourceGroupForSDKTest",
+    sku: {
+        name: azure_native.storsimple.ManagerSkuType.Standard,
+    },
+});

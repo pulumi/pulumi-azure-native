@@ -1,0 +1,86 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var scheduledQueryRule = new AzureNative.Insights.ScheduledQueryRule("scheduledQueryRule", new()
+    {
+        Actions = new AzureNative.Insights.Inputs.ActionsArgs
+        {
+            ActionGroups = new[]
+            {
+                "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+            },
+            CustomProperties = 
+            {
+                { "key11", "value11" },
+                { "key12", "value12" },
+            },
+        },
+        CheckWorkspaceAlertsStorageConfigured = true,
+        Criteria = new AzureNative.Insights.Inputs.ScheduledQueryRuleCriteriaArgs
+        {
+            AllOf = new[]
+            {
+                new AzureNative.Insights.Inputs.ConditionArgs
+                {
+                    Dimensions = new[]
+                    {
+                        new AzureNative.Insights.Inputs.DimensionArgs
+                        {
+                            Name = "ComputerIp",
+                            Operator = "Exclude",
+                            Values = new[]
+                            {
+                                "192.168.1.1",
+                            },
+                        },
+                        new AzureNative.Insights.Inputs.DimensionArgs
+                        {
+                            Name = "OSType",
+                            Operator = "Include",
+                            Values = new[]
+                            {
+                                "*",
+                            },
+                        },
+                    },
+                    FailingPeriods = new AzureNative.Insights.Inputs.ConditionFailingPeriodsArgs
+                    {
+                        MinFailingPeriodsToAlert = 1,
+                        NumberOfEvaluationPeriods = 1,
+                    },
+                    MetricMeasureColumn = "% Processor Time",
+                    Operator = "GreaterThan",
+                    Query = "Perf | where ObjectName == \"Processor\"",
+                    ResourceIdColumn = "resourceId",
+                    Threshold = 70,
+                    TimeAggregation = "Average",
+                },
+            },
+        },
+        Description = "Performance rule",
+        Enabled = true,
+        EvaluationFrequency = "PT5M",
+        Location = "eastus",
+        MuteActionsDuration = "PT30M",
+        ResourceGroupName = "QueryResourceGroupName",
+        RuleName = "perf",
+        RuleResolveConfiguration = new AzureNative.Insights.Inputs.RuleResolveConfigurationArgs
+        {
+            AutoResolved = true,
+            TimeToResolve = "PT10M",
+        },
+        Scopes = new[]
+        {
+            "/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1/providers/Microsoft.Compute/virtualMachines/vm1",
+        },
+        Severity = 4,
+        SkipQueryValidation = true,
+        WindowSize = "PT10M",
+    });
+
+});
+

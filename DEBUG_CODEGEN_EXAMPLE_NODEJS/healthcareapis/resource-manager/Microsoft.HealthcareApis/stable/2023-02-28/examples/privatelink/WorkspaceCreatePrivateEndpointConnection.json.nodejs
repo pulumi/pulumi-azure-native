@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspacePrivateEndpointConnection = new azure_native.healthcareapis.WorkspacePrivateEndpointConnection("workspacePrivateEndpointConnection", {
+    privateEndpointConnectionName: "myConnection",
+    privateLinkServiceConnectionState: {
+        description: "Auto-Approved",
+        status: "Approved",
+    },
+    resourceGroupName: "testRG",
+    workspaceName: "workspace1",
+});

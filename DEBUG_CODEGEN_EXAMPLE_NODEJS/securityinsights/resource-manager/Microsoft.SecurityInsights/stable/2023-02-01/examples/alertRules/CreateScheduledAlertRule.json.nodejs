@@ -1,0 +1,80 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const scheduledAlertRule = new azure_native.securityinsights.ScheduledAlertRule("scheduledAlertRule", {
+    alertDetailsOverride: {
+        alertDescriptionFormat: "Suspicious activity was made by {{ComputerIP}}",
+        alertDisplayNameFormat: "Alert from {{Computer}}",
+        alertDynamicProperties: [
+            {
+                alertProperty: "ProductComponentName",
+                value: "ProductComponentNameCustomColumn",
+            },
+            {
+                alertProperty: "ProductName",
+                value: "ProductNameCustomColumn",
+            },
+            {
+                alertProperty: "AlertLink",
+                value: "Link",
+            },
+        ],
+    },
+    customDetails: {
+        OperatingSystemName: "OSName",
+        OperatingSystemType: "OSType",
+    },
+    description: "An example for a scheduled rule",
+    displayName: "My scheduled rule",
+    enabled: true,
+    entityMappings: [
+        {
+            entityType: "Host",
+            fieldMappings: [{
+                columnName: "Computer",
+                identifier: "FullName",
+            }],
+        },
+        {
+            entityType: "IP",
+            fieldMappings: [{
+                columnName: "ComputerIP",
+                identifier: "Address",
+            }],
+        },
+    ],
+    eventGroupingSettings: {
+        aggregationKind: "AlertPerResult",
+    },
+    incidentConfiguration: {
+        createIncident: true,
+        groupingConfiguration: {
+            enabled: true,
+            groupByAlertDetails: ["DisplayName"],
+            groupByCustomDetails: [
+                "OperatingSystemType",
+                "OperatingSystemName",
+            ],
+            groupByEntities: ["Host"],
+            lookbackDuration: "PT5H",
+            matchingMethod: "Selected",
+            reopenClosedIncident: false,
+        },
+    },
+    kind: "Scheduled",
+    query: "Heartbeat",
+    queryFrequency: "PT1H",
+    queryPeriod: "P2DT1H30M",
+    resourceGroupName: "myRg",
+    ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    severity: "High",
+    suppressionDuration: "PT1H",
+    suppressionEnabled: false,
+    tactics: [
+        "Persistence",
+        "LateralMovement",
+    ],
+    triggerOperator: azure_native.securityinsights.TriggerOperator.GreaterThan,
+    triggerThreshold: 0,
+    workspaceName: "myWorkspace",
+});

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sapApplicationServerInstance = new AzureNative.Workloads.SAPApplicationServerInstance("sapApplicationServerInstance", new()
+    {
+        ApplicationInstanceName = "app01",
+        Location = "westcentralus",
+        ResourceGroupName = "test-rg",
+        SapVirtualInstanceName = "X00",
+        Tags = null,
+    });
+
+});
+

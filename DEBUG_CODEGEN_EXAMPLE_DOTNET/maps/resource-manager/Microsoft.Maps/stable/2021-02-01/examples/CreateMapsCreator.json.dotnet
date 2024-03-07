@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var creator = new AzureNative.Maps.Creator("creator", new()
+    {
+        AccountName = "myMapsAccount",
+        CreatorName = "myCreator",
+        Location = "eastus2",
+        Properties = new AzureNative.Maps.Inputs.CreatorPropertiesArgs
+        {
+            StorageUnits = 5,
+        },
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "test", "true" },
+        },
+    });
+
+});
+

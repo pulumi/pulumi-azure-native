@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var iotSecuritySolution = new AzureNative.Security.IotSecuritySolution("iotSecuritySolution", new()
+    {
+        DisabledDataSources = new[] {},
+        DisplayName = "Solution Default",
+        Export = new[] {},
+        IotHubs = new[]
+        {
+            "/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub",
+        },
+        Location = "East Us",
+        RecommendationsConfiguration = new[]
+        {
+            new AzureNative.Security.Inputs.RecommendationConfigurationPropertiesArgs
+            {
+                RecommendationType = "IoT_OpenPorts",
+                Status = "Disabled",
+            },
+            new AzureNative.Security.Inputs.RecommendationConfigurationPropertiesArgs
+            {
+                RecommendationType = "IoT_SharedCredentials",
+                Status = "Disabled",
+            },
+        },
+        ResourceGroupName = "MyGroup",
+        SolutionName = "default",
+        Status = "Enabled",
+        Tags = null,
+        UnmaskedIpLoggingStatus = "Enabled",
+        UserDefinedResources = new AzureNative.Security.Inputs.UserDefinedResourcesPropertiesArgs
+        {
+            Query = "where type != \"microsoft.devices/iothubs\" | where name contains \"iot\"",
+            QuerySubscriptions = new[]
+            {
+                "075423e9-7d33-4166-8bdf-3920b04e3735",
+            },
+        },
+        Workspace = "/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1",
+    });
+
+});
+

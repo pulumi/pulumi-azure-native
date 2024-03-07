@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const authorization = new azure_native.avs.Authorization("authorization", {
+    authorizationName: "authorization1",
+    privateCloudName: "cloud1",
+    resourceGroupName: "group1",
+});

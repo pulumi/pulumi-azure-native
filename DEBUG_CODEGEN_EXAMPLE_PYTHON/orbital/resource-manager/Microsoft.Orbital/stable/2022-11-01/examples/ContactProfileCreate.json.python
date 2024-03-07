@@ -6,42 +6,42 @@ contact_profile = azure_native.orbital.ContactProfile("contactProfile",
     contact_profile_name="CONTOSO-CP",
     event_hub_uri="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
     links=[
-        azure_native.orbital.ContactProfileLinkArgs(
-            channels=[azure_native.orbital.ContactProfileLinkChannelArgs(
-                bandwidth_m_hz=2,
-                center_frequency_m_hz=2250,
-                end_point=azure_native.orbital.EndPointArgs(
+        {
+            "channels": [{
+                "bandwidthMHz": 2,
+                "centerFrequencyMHz": 2250,
+                "endPoint": azure_native.orbital.EndPointArgs(
                     end_point_name="ContosoTest_Uplink",
                     ip_address="10.1.0.4",
                     port="50000",
                     protocol="TCP",
                 ),
-                name="contoso-uplink-channel",
-            )],
-            direction="Uplink",
-            eirpd_bw=45,
-            gain_over_temperature=0,
-            name="contoso-uplink",
-            polarization="LHCP",
-        ),
-        azure_native.orbital.ContactProfileLinkArgs(
-            channels=[azure_native.orbital.ContactProfileLinkChannelArgs(
-                bandwidth_m_hz=15,
-                center_frequency_m_hz=8160,
-                end_point=azure_native.orbital.EndPointArgs(
+                "name": "contoso-uplink-channel",
+            }],
+            "direction": "Uplink",
+            "eirpdBW": 45,
+            "gainOverTemperature": 0,
+            "name": "contoso-uplink",
+            "polarization": "LHCP",
+        },
+        {
+            "channels": [{
+                "bandwidthMHz": 15,
+                "centerFrequencyMHz": 8160,
+                "endPoint": azure_native.orbital.EndPointArgs(
                     end_point_name="ContosoTest_Downlink",
                     ip_address="10.1.0.5",
                     port="50001",
                     protocol="UDP",
                 ),
-                name="contoso-downlink-channel",
-            )],
-            direction="Downlink",
-            eirpd_bw=0,
-            gain_over_temperature=25,
-            name="contoso-downlink",
-            polarization="RHCP",
-        ),
+                "name": "contoso-downlink-channel",
+            }],
+            "direction": "Downlink",
+            "eirpdBW": 0,
+            "gainOverTemperature": 25,
+            "name": "contoso-downlink",
+            "polarization": "RHCP",
+        },
     ],
     location="eastus2",
     minimum_elevation_degrees=5,

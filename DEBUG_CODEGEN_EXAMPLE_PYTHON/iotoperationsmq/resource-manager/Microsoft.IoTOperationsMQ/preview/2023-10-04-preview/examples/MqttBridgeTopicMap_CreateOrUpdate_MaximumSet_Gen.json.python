@@ -11,16 +11,16 @@ mqtt_bridge_topic_map = azure_native.iotoperationsmq.MqttBridgeTopicMap("mqttBri
     mqtt_bridge_connector_name="5sKfh6461-KDI8h-5",
     mqtt_bridge_connector_ref="aemmhvfdzmdtxwgimpaqephgo",
     resource_group_name="rgiotoperationsmq",
-    routes=[azure_native.iotoperationsmq.MqttBridgeRoutesArgs(
-        direction="remote-to-local",
-        name="u",
-        qos=2,
-        shared_subscription=azure_native.iotoperationsmq.MqttBridgeRouteSharedSubscriptionArgs(
+    routes=[{
+        "direction": "remote-to-local",
+        "name": "u",
+        "qos": 2,
+        "sharedSubscription": azure_native.iotoperationsmq.MqttBridgeRouteSharedSubscriptionArgs(
             group_minimum_share_number=129,
             group_name="exnfgkdccpuvzqhxrg",
         ),
-        source="xwnfgkkfezlgh",
-        target="mgwem",
-    )],
+        "source": "xwnfgkkfezlgh",
+        "target": "mgwem",
+    }],
     tags={},
     topic_map_name="5--CR4S47--UaxB4-")

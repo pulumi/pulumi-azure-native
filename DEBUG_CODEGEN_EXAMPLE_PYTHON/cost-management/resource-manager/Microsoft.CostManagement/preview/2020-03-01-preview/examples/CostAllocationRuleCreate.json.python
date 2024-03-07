@@ -3,10 +3,10 @@ import pulumi_azure_native as azure_native
 
 cost_allocation_rule = azure_native.costmanagement.CostAllocationRule("costAllocationRule",
     billing_account_id="100",
-    properties=azure_native.costmanagement.CostAllocationRulePropertiesArgs(
+    properties=azure_native.costmanagement.CostAllocationRulePropertiesResponseArgs(
         description="This is a testRule",
-        details=azure_native.costmanagement.CostAllocationRuleDetailsArgs(
-            source_resources=[azure_native.costmanagement.SourceCostAllocationResourceArgs(
+        details={
+            "sourceResources": [azure_native.costmanagement.SourceCostAllocationResourceArgs(
                 name="ResourceGroupName",
                 resource_type="Dimension",
                 values=[
@@ -14,11 +14,11 @@ cost_allocation_rule = azure_native.costmanagement.CostAllocationRule("costAlloc
                     "secondRG",
                 ],
             )],
-            target_resources=[azure_native.costmanagement.TargetCostAllocationResourceArgs(
-                name="ResourceGroupName",
-                policy_type="FixedProportion",
-                resource_type="Dimension",
-                values=[
+            "targetResources": [{
+                "name": "ResourceGroupName",
+                "policyType": "FixedProportion",
+                "resourceType": "Dimension",
+                "values": [
                     azure_native.costmanagement.CostAllocationProportionArgs(
                         name="destinationRG",
                         percentage=45,
@@ -28,8 +28,8 @@ cost_allocation_rule = azure_native.costmanagement.CostAllocationRule("costAlloc
                         percentage=54,
                     ),
                 ],
-            )],
-        ),
+            }],
+        },
         status="Active",
     ),
     rule_name="testRule")

@@ -6,29 +6,29 @@ container_group = azure_native.containerinstance.ContainerGroup("containerGroup"
         cce_policy="eyJhbGxvd19hbGwiOiB0cnVlLCAiY29udGFpbmVycyI6IHsibGVuZ3RoIjogMCwgImVsZW1lbnRzIjogbnVsbH19",
     ),
     container_group_name="demo1",
-    containers=[azure_native.containerinstance.ContainerArgs(
-        command=[],
-        environment_variables=[],
-        image="confiimage",
-        name="accdemo",
-        ports=[azure_native.containerinstance.ContainerPortArgs(
+    containers=[{
+        "command": [],
+        "environmentVariables": [],
+        "image": "confiimage",
+        "name": "accdemo",
+        "ports": [azure_native.containerinstance.ContainerPortArgs(
             port=8000,
         )],
-        resources=azure_native.containerinstance.ResourceRequirementsArgs(
-            requests=azure_native.containerinstance.ResourceRequestsArgs(
+        "resources": {
+            "requests": azure_native.containerinstance.ResourceRequestsArgs(
                 cpu=1,
                 memory_in_gb=1.5,
             ),
-        ),
-        security_context=azure_native.containerinstance.SecurityContextDefinitionArgs(
-            capabilities=azure_native.containerinstance.SecurityContextCapabilitiesDefinitionArgs(
+        },
+        "securityContext": {
+            "capabilities": azure_native.containerinstance.SecurityContextCapabilitiesDefinitionArgs(
                 add=["CAP_NET_ADMIN"],
             ),
-            privileged=False,
-        ),
-    )],
+            "privileged": False,
+        },
+    }],
     image_registry_credentials=[],
-    ip_address=azure_native.containerinstance.IpAddressArgs(
+    ip_address=azure_native.containerinstance.IpAddressResponseArgs(
         ports=[azure_native.containerinstance.PortArgs(
             port=8000,
             protocol="TCP",

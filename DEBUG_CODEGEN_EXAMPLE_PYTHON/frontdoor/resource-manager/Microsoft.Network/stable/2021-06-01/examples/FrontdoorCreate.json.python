@@ -2,8 +2,8 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 front_door = azure_native.network.FrontDoor("frontDoor",
-    backend_pools=[azure_native.network.BackendPoolArgs(
-        backends=[
+    backend_pools=[{
+        "backends": [
             azure_native.network.BackendArgs(
                 address="w3.contoso.com",
                 http_port=80,
@@ -31,14 +31,14 @@ front_door = azure_native.network.FrontDoor("frontDoor",
                 weight=1,
             ),
         ],
-        health_probe_settings=azure_native.network.SubResourceArgs(
+        "healthProbeSettings": azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/healthProbeSettings/healthProbeSettings1",
         ),
-        load_balancing_settings=azure_native.network.SubResourceArgs(
+        "loadBalancingSettings": azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/loadBalancingSettings/loadBalancingSettings1",
         ),
-        name="backendPool1",
-    )],
+        "name": "backendPool1",
+    }],
     backend_pools_settings=azure_native.network.BackendPoolsSettingsArgs(
         enforce_certificate_name_check="Enabled",
         send_recv_timeout_seconds=60,
@@ -46,15 +46,15 @@ front_door = azure_native.network.FrontDoor("frontDoor",
     enabled_state="Enabled",
     front_door_name="frontDoor1",
     frontend_endpoints=[
-        azure_native.network.FrontendEndpointArgs(
-            host_name="www.contoso.com",
-            name="frontendEndpoint1",
-            session_affinity_enabled_state="Enabled",
-            session_affinity_ttl_seconds=60,
-            web_application_firewall_policy_link=azure_native.network.FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs(
+        {
+            "hostName": "www.contoso.com",
+            "name": "frontendEndpoint1",
+            "sessionAffinityEnabledState": "Enabled",
+            "sessionAffinityTtlSeconds": 60,
+            "webApplicationFirewallPolicyLink": azure_native.network.FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs(
                 id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/policy1",
             ),
-        ),
+        },
         azure_native.network.FrontendEndpointArgs(
             host_name="frontDoor1.azurefd.net",
             name="default",
@@ -75,10 +75,10 @@ front_door = azure_native.network.FrontDoor("frontDoor",
     )],
     location="westus",
     resource_group_name="rg1",
-    routing_rules=[azure_native.network.RoutingRuleArgs(
-        accepted_protocols=["Http"],
-        enabled_state="Enabled",
-        frontend_endpoints=[
+    routing_rules=[{
+        "acceptedProtocols": ["Http"],
+        "enabledState": "Enabled",
+        "frontendEndpoints": [
             azure_native.network.SubResourceArgs(
                 id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/frontendEndpoints/frontendEndpoint1",
             ),
@@ -86,21 +86,21 @@ front_door = azure_native.network.FrontDoor("frontDoor",
                 id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/frontendEndpoints/default",
             ),
         ],
-        name="routingRule1",
-        patterns_to_match=["/*"],
-        route_configuration=azure_native.network.ForwardingConfigurationArgs(
+        "name": "routingRule1",
+        "patternsToMatch": ["/*"],
+        "routeConfiguration": azure_native.network.ForwardingConfigurationArgs(
             backend_pool=azure_native.network.SubResourceArgs(
                 id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/backendPools/backendPool1",
             ),
             odata_type="#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
         ),
-        rules_engine=azure_native.network.SubResourceArgs(
+        "rulesEngine": azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/rulesEngines/rulesEngine1",
         ),
-        web_application_firewall_policy_link=azure_native.network.RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs(
+        "webApplicationFirewallPolicyLink": azure_native.network.RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/policy1",
         ),
-    )],
+    }],
     tags={
         "tag1": "value1",
         "tag2": "value2",

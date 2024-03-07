@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var partnerRegistration = new AzureNative.EventGrid.PartnerRegistration("partnerRegistration", new()
+    {
+        Location = "global",
+        PartnerRegistrationName = "examplePartnerRegistrationName1",
+        ResourceGroupName = "examplerg",
+        Tags = 
+        {
+            { "key1", "value1" },
+            { "key2", "Value2" },
+            { "key3", "Value3" },
+        },
+    });
+
+});
+

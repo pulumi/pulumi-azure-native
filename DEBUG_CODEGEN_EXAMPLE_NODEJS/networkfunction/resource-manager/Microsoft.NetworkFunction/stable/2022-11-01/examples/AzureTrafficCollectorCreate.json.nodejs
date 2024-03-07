@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const azureTrafficCollector = new azure_native.networkfunction.AzureTrafficCollector("azureTrafficCollector", {
+    azureTrafficCollectorName: "atc",
+    location: "West US",
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "value1",
+    },
+});

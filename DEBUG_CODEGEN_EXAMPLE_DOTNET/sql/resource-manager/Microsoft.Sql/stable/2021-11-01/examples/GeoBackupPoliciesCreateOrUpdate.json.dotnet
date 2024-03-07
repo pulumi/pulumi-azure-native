@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var geoBackupPolicy = new AzureNative.Sql.GeoBackupPolicy("geoBackupPolicy", new()
+    {
+        DatabaseName = "testdw",
+        GeoBackupPolicyName = "Default",
+        ResourceGroupName = "sqlcrudtest-4799",
+        ServerName = "sqlcrudtest-5961",
+        State = AzureNative.Sql.GeoBackupPolicyState.Enabled,
+    });
+
+});
+

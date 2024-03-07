@@ -13,49 +13,49 @@ virtual_machine_scale_set = azure_native.compute.VirtualMachineScaleSet("virtual
     upgrade_policy=azure_native.compute.UpgradePolicyArgs(
         mode=azure_native.compute.UpgradeMode.MANUAL,
     ),
-    virtual_machine_profile=azure_native.compute.VirtualMachineScaleSetVMProfileArgs(
-        network_profile=azure_native.compute.VirtualMachineScaleSetNetworkProfileArgs(
-            network_interface_configurations=[azure_native.compute.VirtualMachineScaleSetNetworkConfigurationArgs(
-                enable_ip_forwarding=True,
-                ip_configurations=[azure_native.compute.VirtualMachineScaleSetIPConfigurationArgs(
-                    name="{vmss-name}",
-                    subnet=azure_native.compute.ApiEntityReferenceArgs(
+    virtual_machine_profile=azure_native.compute.VirtualMachineScaleSetVMProfileResponseArgs(
+        network_profile={
+            "networkInterfaceConfigurations": [{
+                "enableIPForwarding": True,
+                "ipConfigurations": [{
+                    "name": "{vmss-name}",
+                    "subnet": azure_native.compute.ApiEntityReferenceArgs(
                         id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/{existing-virtual-network-name}/subnets/{existing-subnet-name}",
                     ),
-                )],
-                name="{vmss-name}",
-                primary=True,
-            )],
-        ),
+                }],
+                "name": "{vmss-name}",
+                "primary": True,
+            }],
+        },
         os_profile=azure_native.compute.VirtualMachineScaleSetOSProfileArgs(
             admin_password="{your-password}",
             admin_username="{your-username}",
             computer_name_prefix="{vmss-name}",
         ),
-        security_profile=azure_native.compute.SecurityProfileArgs(
-            security_type="ConfidentialVM",
-            uefi_settings=azure_native.compute.UefiSettingsArgs(
+        security_profile={
+            "securityType": "ConfidentialVM",
+            "uefiSettings": azure_native.compute.UefiSettingsArgs(
                 secure_boot_enabled=True,
                 v_tpm_enabled=True,
             ),
-        ),
-        storage_profile=azure_native.compute.VirtualMachineScaleSetStorageProfileArgs(
-            image_reference=azure_native.compute.ImageReferenceArgs(
+        },
+        storage_profile={
+            "imageReference": azure_native.compute.ImageReferenceArgs(
                 offer="2019-datacenter-cvm",
                 publisher="MicrosoftWindowsServer",
                 sku="windows-cvm",
                 version="17763.2183.2109130127",
             ),
-            os_disk=azure_native.compute.VirtualMachineScaleSetOSDiskArgs(
-                caching=azure_native.compute.CachingTypes.READ_ONLY,
-                create_option="FromImage",
-                managed_disk=azure_native.compute.VirtualMachineScaleSetManagedDiskParametersArgs(
-                    security_profile=azure_native.compute.VMDiskSecurityProfileArgs(
+            "osDisk": {
+                "caching": azure_native.compute.CachingTypes.READ_ONLY,
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "securityProfile": azure_native.compute.VMDiskSecurityProfileArgs(
                         security_encryption_type="VMGuestStateOnly",
                     ),
-                    storage_account_type="StandardSSD_LRS",
-                ),
-            ),
-        ),
+                    "storageAccountType": "StandardSSD_LRS",
+                },
+            },
+        },
     ),
     vm_scale_set_name="{vmss-name}")

@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connection = new AzureNative.Web.Connection("connection", new()
+    {
+        ConnectionName = "testManagedApi",
+        Properties = new AzureNative.Web.Inputs.ApiConnectionDefinitionPropertiesArgs
+        {
+            Api = new AzureNative.Web.Inputs.ApiReferenceArgs
+            {
+                Id = "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+            },
+            CustomParameterValues = null,
+            DisplayName = "testManagedApi",
+            ParameterValues = null,
+        },
+        ResourceGroupName = "testResourceGroup",
+    });
+
+});
+

@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const edgeSite = new azure_native.orbital.EdgeSite("edgeSite", {
+    edgeSiteName: "es1",
+    globalCommunicationsSite: {
+        id: "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/providers/Microsoft.Orbital/globalCommunicationsSites/contoso-Vernon",
+    },
+    location: "westus",
+    resourceGroupName: "rg1",
+    tags: {
+        tag1: "value1",
+        tag2: "value2",
+    },
+});

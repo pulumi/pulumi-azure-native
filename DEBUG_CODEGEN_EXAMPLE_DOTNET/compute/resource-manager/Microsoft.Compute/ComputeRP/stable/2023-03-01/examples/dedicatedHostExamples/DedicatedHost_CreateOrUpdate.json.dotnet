@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dedicatedHost = new AzureNative.Compute.DedicatedHost("dedicatedHost", new()
+    {
+        HostGroupName = "myDedicatedHostGroup",
+        HostName = "myDedicatedHost",
+        Location = "westus",
+        PlatformFaultDomain = 1,
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Compute.Inputs.SkuArgs
+        {
+            Name = "DSv3-Type1",
+        },
+        Tags = 
+        {
+            { "department", "HR" },
+        },
+    });
+
+});
+

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var subscription = new AzureNative.ApiManagement.Subscription("subscription", new()
+    {
+        DisplayName = "testsub",
+        OwnerId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
+        ResourceGroupName = "rg1",
+        Scope = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
+        ServiceName = "apimService1",
+        Sid = "testsub",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customApi = new azure_native.web.CustomApi("customApi", {
+    apiName: "testCustomApi",
+    properties: {
+        apiDefinitions: {
+            originalSwaggerUrl: "https://tempuri.org/swagger.json",
+        },
+        apiType: "Rest",
+        capabilities: [],
+        description: "",
+        displayName: "testCustomApi",
+        iconUri: "/testIcon.svg",
+    },
+    resourceGroupName: "testResourceGroup",
+});

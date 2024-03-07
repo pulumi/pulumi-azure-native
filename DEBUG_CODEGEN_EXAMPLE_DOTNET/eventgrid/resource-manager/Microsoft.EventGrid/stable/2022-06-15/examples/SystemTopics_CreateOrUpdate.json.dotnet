@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var systemTopic = new AzureNative.EventGrid.SystemTopic("systemTopic", new()
+    {
+        Location = "westus2",
+        ResourceGroupName = "examplerg",
+        Source = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/azureeventgridrunnerrgcentraluseuap/providers/microsoft.storage/storageaccounts/pubstgrunnerb71cd29e",
+        SystemTopicName = "exampleSystemTopic1",
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+        TopicType = "microsoft.storage.storageaccounts",
+    });
+
+});
+

@@ -1,0 +1,102 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkFunctionDefinitionVersion = new AzureNative.HybridNetwork.NetworkFunctionDefinitionVersion("networkFunctionDefinitionVersion", new()
+    {
+        Location = "eastus",
+        NetworkFunctionDefinitionGroupName = "TestNetworkFunctionDefinitionGroupName",
+        NetworkFunctionDefinitionVersionName = "1.0.0",
+        Properties = new AzureNative.HybridNetwork.Inputs.VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgs
+        {
+            DeployParameters = "{\"virtualMachineName\":{\"type\":\"string\"},\"cpuCores\":{\"type\":\"int\"},\"memorySizeGB\":{\"type\":\"int\"},\"cloudServicesNetworkAttachment\":{\"type\":\"object\",\"properties\":{\"networkAttachmentName\":{\"type\":\"string\"},\"attachedNetworkId\":{\"type\":\"string\"},\"ipAllocationMethod\":{\"type\":\"string\"},\"ipv4Address\":{\"type\":\"string\"},\"ipv6Address\":{\"type\":\"string\"},\"defaultGateway\":{\"type\":\"string\"}},\"required\":[\"attachedNetworkId\",\"ipAllocationMethod\"]},\"networkAttachments\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"networkAttachmentName\":{\"type\":\"string\"},\"attachedNetworkId\":{\"type\":\"string\"},\"ipAllocationMethod\":{\"type\":\"string\"},\"ipv4Address\":{\"type\":\"string\"},\"ipv6Address\":{\"type\":\"string\"},\"defaultGateway\":{\"type\":\"string\"}},\"required\":[\"attachedNetworkId\",\"ipAllocationMethod\"]}},\"storageProfile\":{\"type\":\"object\",\"properties\":{\"osDisk\":{\"type\":\"object\",\"properties\":{\"createOption\":{\"type\":\"string\"},\"deleteOption\":{\"type\":\"string\"},\"diskSizeGB\":{\"type\":\"integer\"}},\"required\":[\"diskSizeGB\"]}},\"required\":[\"osDisk\"]},\"sshPublicKeys\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"keyData\":{\"type\":\"string\"}},\"required\":[\"keyData\"]}},\"userData\":{\"type\":\"string\"},\"adminUsername\":{\"type\":\"string\"},\"bootMethod\":{\"type\":\"string\",\"default\":\"UEFI\",\"enum\":[\"UEFI\",\"BIOS\"]},\"isolateEmulatorThread\":{\"type\":\"string\"},\"virtioInterface\":{\"type\":\"string\"},\"placementHints\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"hintType\":{\"type\":\"string\",\"enum\":[\"Affinity\",\"AntiAffinity\"]},\"resourceId\":{\"type\":\"string\"},\"schedulingExecution\":{\"type\":\"string\",\"enum\":[\"Soft\",\"Hard\"]},\"scope\":{\"type\":\"string\"}},\"required\":[\"hintType\",\"schedulingExecution\",\"resourceId\",\"scope\"]}}}",
+            Description = "test NFDV for AzureCore",
+            NetworkFunctionTemplate = new AzureNative.HybridNetwork.Inputs.AzureCoreNetworkFunctionTemplateArgs
+            {
+                NetworkFunctionApplications = 
+                {
+                    new AzureNative.HybridNetwork.Inputs.AzureCoreNetworkFunctionVhdApplicationArgs
+                    {
+                        ArtifactProfile = new AzureNative.HybridNetwork.Inputs.AzureCoreVhdImageArtifactProfileArgs
+                        {
+                            ArtifactStore = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+                            {
+                                Id = "/subscriptions/subid/resourceGroups/rg/providers/microsoft.hybridnetwork/publishers/TestPublisher/artifactStores/TestArtifactStore",
+                            },
+                            VhdArtifactProfile = new AzureNative.HybridNetwork.Inputs.VhdImageArtifactProfileArgs
+                            {
+                                VhdName = "test-image",
+                                VhdVersion = "1-0-0",
+                            },
+                        },
+                        ArtifactType = "VhdImageFile",
+                        DependsOnProfile = new AzureNative.HybridNetwork.Inputs.DependsOnProfileArgs
+                        {
+                            InstallDependsOn = new() { },
+                            UninstallDependsOn = new() { },
+                            UpdateDependsOn = new() { },
+                        },
+                        DeployParametersMappingRuleProfile = new AzureNative.HybridNetwork.Inputs.AzureCoreVhdImageDeployMappingRuleProfileArgs
+                        {
+                            ApplicationEnablement = "Unknown",
+                            VhdImageMappingRuleProfile = new AzureNative.HybridNetwork.Inputs.VhdImageMappingRuleProfileArgs
+                            {
+                                UserConfiguration = "",
+                            },
+                        },
+                        Name = "testImageRole",
+                    },
+                    new AzureNative.HybridNetwork.Inputs.AzureCoreNetworkFunctionArmTemplateApplicationArgs
+                    {
+                        ArtifactProfile = new AzureNative.HybridNetwork.Inputs.AzureCoreArmTemplateArtifactProfileArgs
+                        {
+                            ArtifactStore = new AzureNative.HybridNetwork.Inputs.ReferencedResourceArgs
+                            {
+                                Id = "/subscriptions/subid/resourceGroups/rg/providers/microsoft.hybridnetwork/publishers/TestPublisher/artifactStores/TestArtifactStore",
+                            },
+                            TemplateArtifactProfile = new AzureNative.HybridNetwork.Inputs.ArmTemplateArtifactProfileArgs
+                            {
+                                TemplateName = "test-template",
+                                TemplateVersion = "1.0.0",
+                            },
+                        },
+                        ArtifactType = "ArmTemplate",
+                        DependsOnProfile = new AzureNative.HybridNetwork.Inputs.DependsOnProfileArgs
+                        {
+                            InstallDependsOn = new[]
+                            {
+                                "testImageRole",
+                            },
+                            UninstallDependsOn = new[]
+                            {
+                                "testImageRole",
+                            },
+                            UpdateDependsOn = new[]
+                            {
+                                "testImageRole",
+                            },
+                        },
+                        DeployParametersMappingRuleProfile = new AzureNative.HybridNetwork.Inputs.AzureCoreArmTemplateDeployMappingRuleProfileArgs
+                        {
+                            ApplicationEnablement = "Unknown",
+                            TemplateMappingRuleProfile = new AzureNative.HybridNetwork.Inputs.ArmTemplateMappingRuleProfileArgs
+                            {
+                                TemplateParameters = "{\"virtualMachineName\":\"{deployParameters.virtualMachineName}\",\"cpuCores\":\"{deployParameters.cpuCores}\",\"memorySizeGB\":\"{deployParameters.memorySizeGB}\",\"cloudServicesNetworkAttachment\":\"{deployParameters.cloudServicesNetworkAttachment}\",\"networkAttachments\":\"{deployParameters.networkAttachments}\",\"sshPublicKeys\":\"{deployParameters.sshPublicKeys}\",\"storageProfile\":\"{deployParameters.storageProfile}\",\"isolateEmulatorThread\":\"{deployParameters.isolateEmulatorThread}\",\"virtioInterface\":\"{deployParameters.virtioInterface}\",\"userData\":\"{deployParameters.userData}\",\"adminUsername\":\"{deployParameters.adminUsername}\",\"bootMethod\":\"{deployParameters.bootMethod}\",\"placementHints\":\"{deployParameters.placementHints}\"}",
+                            },
+                        },
+                        Name = "testTemplateRole",
+                    },
+                },
+                NfviType = "AzureCore",
+            },
+            NetworkFunctionType = "VirtualNetworkFunction",
+        },
+        PublisherName = "TestPublisher",
+        ResourceGroupName = "rg",
+    });
+
+});
+

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sapDiscoverySite = new azure_native.workloads.SapDiscoverySite("sapDiscoverySite", {
+    location: "eastus",
+    masterSiteId: "MasterSiteIdResourceId",
+    migrateProjectId: "MigrateProjectId",
+    resourceGroupName: "test-rg",
+    sapDiscoverySiteName: "SampleSite",
+    tags: {
+        property1: "value1",
+        property2: "value2",
+    },
+});

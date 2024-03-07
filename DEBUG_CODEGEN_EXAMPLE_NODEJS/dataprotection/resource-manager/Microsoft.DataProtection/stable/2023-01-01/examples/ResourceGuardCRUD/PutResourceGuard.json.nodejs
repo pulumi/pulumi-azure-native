@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const resourceGuard = new azure_native.dataprotection.ResourceGuard("resourceGuard", {
+    location: "WestUS",
+    resourceGroupName: "SampleResourceGroup",
+    resourceGuardsName: "swaggerExample",
+    tags: {
+        key1: "val1",
+    },
+});

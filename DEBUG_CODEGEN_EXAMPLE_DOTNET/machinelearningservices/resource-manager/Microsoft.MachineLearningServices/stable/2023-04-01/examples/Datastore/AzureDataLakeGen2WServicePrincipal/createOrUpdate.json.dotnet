@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var datastore = new AzureNative.MachineLearningServices.Datastore("datastore", new()
+    {
+        DatastoreProperties = new AzureNative.MachineLearningServices.Inputs.AzureDataLakeGen2DatastoreArgs
+        {
+            AccountName = "string",
+            Credentials = new AzureNative.MachineLearningServices.Inputs.ServicePrincipalDatastoreCredentialsArgs
+            {
+                AuthorityUrl = "string",
+                ClientId = "00000000-1111-2222-3333-444444444444",
+                CredentialsType = "ServicePrincipal",
+                ResourceUrl = "string",
+                Secrets = new AzureNative.MachineLearningServices.Inputs.ServicePrincipalDatastoreSecretsArgs
+                {
+                    ClientSecret = "string",
+                    SecretsType = "ServicePrincipal",
+                },
+                TenantId = "00000000-1111-2222-3333-444444444444",
+            },
+            DatastoreType = "AzureDataLakeGen2",
+            Description = "string",
+            Endpoint = "string",
+            Filesystem = "string",
+            Protocol = "string",
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        Name = "string",
+        ResourceGroupName = "test-rg",
+        SkipValidation = false,
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

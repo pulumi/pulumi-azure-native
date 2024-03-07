@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var daprSubscription = new AzureNative.App.DaprSubscription("daprSubscription", new()
+    {
+        EnvironmentName = "myenvironment",
+        Metadata = 
+        {
+            { "foo", "bar" },
+            { "hello", "world" },
+        },
+        Name = "mysubscription",
+        PubsubName = "mypubsubcomponent",
+        ResourceGroupName = "examplerg",
+        Routes = new AzureNative.App.Inputs.DaprSubscriptionRoutesArgs
+        {
+            Default = "/products",
+            Rules = new[]
+            {
+                new AzureNative.App.Inputs.DaprSubscriptionRouteRuleArgs
+                {
+                    Match = "event.type == 'widget'",
+                    Path = "/widgets",
+                },
+                new AzureNative.App.Inputs.DaprSubscriptionRouteRuleArgs
+                {
+                    Match = "event.type == 'gadget'",
+                    Path = "/gadgets",
+                },
+            },
+        },
+        Topic = "inventory",
+    });
+
+});
+

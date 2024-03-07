@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppDiscoverySiteDataSourcesController = new AzureNative.OffAzure.WebAppDiscoverySiteDataSourcesController("webAppDiscoverySiteDataSourcesController", new()
+    {
+        DiscoverySiteDataSourceName = "171iiIY1M39-M--VU2x8uOy",
+        DiscoverySiteId = "fwkwva",
+        ResourceGroupName = "rgmigrate",
+        SiteName = "0M4C6JZc",
+        WebAppSiteName = "QhlGHU7obm",
+    });
+
+});
+

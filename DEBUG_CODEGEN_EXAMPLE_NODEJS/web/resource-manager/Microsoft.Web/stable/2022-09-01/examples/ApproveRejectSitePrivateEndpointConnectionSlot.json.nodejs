@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webAppPrivateEndpointConnectionSlot = new azure_native.web.WebAppPrivateEndpointConnectionSlot("webAppPrivateEndpointConnectionSlot", {
+    name: "testSite",
+    privateEndpointConnectionName: "connection",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "",
+        description: "Approved by admin.",
+        status: "Approved",
+    },
+    resourceGroupName: "rg",
+    slot: "stage",
+});

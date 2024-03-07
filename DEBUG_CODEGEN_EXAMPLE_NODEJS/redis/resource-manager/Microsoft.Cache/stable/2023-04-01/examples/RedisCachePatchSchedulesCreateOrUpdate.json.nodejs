@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const patchSchedule = new azure_native.cache.PatchSchedule("patchSchedule", {
+    "default": "default",
+    name: "cache1",
+    resourceGroupName: "rg1",
+    scheduleEntries: [
+        {
+            dayOfWeek: azure_native.cache.DayOfWeek.Monday,
+            maintenanceWindow: "PT5H",
+            startHourUtc: 12,
+        },
+        {
+            dayOfWeek: azure_native.cache.DayOfWeek.Tuesday,
+            startHourUtc: 12,
+        },
+    ],
+});

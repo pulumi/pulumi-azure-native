@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dnsResolver = new AzureNative.Network.DnsResolver("dnsResolver", new()
+    {
+        DnsResolverName = "sampleDnsResolver",
+        Location = "westus2",
+        ResourceGroupName = "sampleResourceGroup",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+        VirtualNetwork = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/cbb1387e-4b03-44f2-ad41-58d4677b9873/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+        },
+    });
+
+});
+

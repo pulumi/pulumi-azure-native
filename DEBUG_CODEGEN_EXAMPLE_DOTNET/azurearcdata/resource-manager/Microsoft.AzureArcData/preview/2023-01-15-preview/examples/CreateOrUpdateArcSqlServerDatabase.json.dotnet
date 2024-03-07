@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlServerDatabase = new AzureNative.AzureArcData.SqlServerDatabase("sqlServerDatabase", new()
+    {
+        DatabaseName = "testdb",
+        Location = "southeastasia",
+        Properties = new AzureNative.AzureArcData.Inputs.SqlServerDatabaseResourcePropertiesArgs
+        {
+            BackupInformation = new AzureNative.AzureArcData.Inputs.SqlServerDatabaseResourcePropertiesBackupInformationArgs
+            {
+                LastFullBackup = "2022-05-05T16:26:33.883Z",
+                LastLogBackup = "2022-05-10T16:26:33.883Z",
+            },
+            CollationName = "SQL_Latin1_General_CP1_CI_AS",
+            CompatibilityLevel = 150,
+            DatabaseCreationDate = "2022-04-05T16:26:33.883Z",
+            DatabaseOptions = new AzureNative.AzureArcData.Inputs.SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs
+            {
+                IsAutoCloseOn = true,
+                IsAutoCreateStatsOn = true,
+                IsAutoShrinkOn = true,
+                IsAutoUpdateStatsOn = true,
+                IsEncrypted = true,
+                IsMemoryOptimizationEnabled = true,
+                IsRemoteDataArchiveEnabled = true,
+                IsTrustworthyOn = true,
+            },
+            IsReadOnly = true,
+            RecoveryMode = "Full",
+            SizeMB = 150,
+            SpaceAvailableMB = 100,
+            State = "Online",
+        },
+        ResourceGroupName = "testrg",
+        SqlServerInstanceName = "testSqlServerInstance",
+        Tags = 
+        {
+            { "mytag", "myval" },
+        },
+    });
+
+});
+

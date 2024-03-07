@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const agentPool = new azure_native.containerservice.AgentPool("agentPool", {
+    agentPoolName: "wnp2",
+    count: 3,
+    orchestratorVersion: "1.23.3",
+    osSKU: "Windows2022",
+    osType: "Windows",
+    resourceGroupName: "rg1",
+    resourceName: "clustername1",
+    vmSize: "Standard_D4s_v3",
+});

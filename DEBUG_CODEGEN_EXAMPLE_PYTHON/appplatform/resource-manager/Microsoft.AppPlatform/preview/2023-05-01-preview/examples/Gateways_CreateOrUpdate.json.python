@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 gateway = azure_native.appplatform.Gateway("gateway",
     gateway_name="default",
-    properties=azure_native.appplatform.GatewayPropertiesArgs(
+    properties=azure_native.appplatform.GatewayPropertiesResponseArgs(
         public=True,
         resource_requests=azure_native.appplatform.GatewayResourceRequestsArgs(
             cpu="1",

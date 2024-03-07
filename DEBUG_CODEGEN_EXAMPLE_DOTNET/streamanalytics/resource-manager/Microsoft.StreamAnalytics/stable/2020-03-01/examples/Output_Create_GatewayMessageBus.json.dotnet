@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var output = new AzureNative.StreamAnalytics.Output("output", new()
+    {
+        Datasource = new AzureNative.StreamAnalytics.Inputs.GatewayMessageBusOutputDataSourceArgs
+        {
+            Topic = "EdgeTopic1",
+            Type = "GatewayMessageBus",
+        },
+        JobName = "sj2331",
+        OutputName = "output3022",
+        ResourceGroupName = "sjrg7983",
+    });
+
+});
+

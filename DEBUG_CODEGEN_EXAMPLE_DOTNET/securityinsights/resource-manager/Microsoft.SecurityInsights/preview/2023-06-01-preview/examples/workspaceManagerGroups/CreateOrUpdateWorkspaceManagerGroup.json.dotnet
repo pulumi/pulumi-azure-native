@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceManagerGroup = new AzureNative.SecurityInsights.WorkspaceManagerGroup("workspaceManagerGroup", new()
+    {
+        Description = "Group of all financial and banking institutions",
+        DisplayName = "Banks",
+        MemberResourceNames = new[]
+        {
+            "afbd324f-6c48-459c-8710-8d1e1cd03812",
+            "f5fa104e-c0e3-4747-9182-d342dc048a9e",
+        },
+        ResourceGroupName = "myRg",
+        WorkspaceManagerGroupName = "37207a7a-3b8a-438f-a559-c7df400e1b96",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

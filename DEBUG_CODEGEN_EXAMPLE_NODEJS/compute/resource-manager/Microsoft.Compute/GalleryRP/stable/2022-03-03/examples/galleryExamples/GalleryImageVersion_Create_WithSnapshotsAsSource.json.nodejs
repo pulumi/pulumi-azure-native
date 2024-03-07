@@ -1,0 +1,61 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+    galleryImageName: "myGalleryImageName",
+    galleryImageVersionName: "1.0.0",
+    galleryName: "myGalleryName",
+    location: "West US",
+    publishingProfile: {
+        targetRegions: [
+            {
+                encryption: {
+                    dataDiskImages: [{
+                        diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                        lun: 1,
+                    }],
+                    osDiskImage: {
+                        diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                    },
+                },
+                excludeFromLatest: false,
+                name: "West US",
+                regionalReplicaCount: 1,
+            },
+            {
+                encryption: {
+                    dataDiskImages: [{
+                        diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                        lun: 1,
+                    }],
+                    osDiskImage: {
+                        diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                    },
+                },
+                excludeFromLatest: false,
+                name: "East US",
+                regionalReplicaCount: 2,
+                storageAccountType: "Standard_ZRS",
+            },
+        ],
+    },
+    resourceGroupName: "myResourceGroup",
+    safetyProfile: {
+        allowDeletionOfReplicatedLocations: false,
+    },
+    storageProfile: {
+        dataDiskImages: [{
+            hostCaching: azure_native.compute.HostCaching.None,
+            lun: 1,
+            source: {
+                id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/disks/{dataDiskName}",
+            },
+        }],
+        osDiskImage: {
+            hostCaching: azure_native.compute.HostCaching.ReadOnly,
+            source: {
+                id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{osSnapshotName}",
+            },
+        },
+    },
+});

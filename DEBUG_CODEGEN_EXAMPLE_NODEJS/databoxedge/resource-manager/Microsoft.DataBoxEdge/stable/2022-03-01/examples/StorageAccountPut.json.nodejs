@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageAccount = new azure_native.databoxedge.StorageAccount("storageAccount", {
+    dataPolicy: "Cloud",
+    description: "It's an awesome storage account",
+    deviceName: "testedgedevice",
+    resourceGroupName: "GroupForEdgeAutomation",
+    storageAccountCredentialId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/cisbvt",
+    storageAccountName: "blobstorageaccount1",
+    storageAccountStatus: "OK",
+});

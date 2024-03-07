@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 account = azure_native.recommendationsservice.Account("account",
     account_name="sampleAccount",
     location="West US",
-    properties=azure_native.recommendationsservice.AccountResourcePropertiesArgs(
+    properties=azure_native.recommendationsservice.AccountResourceResponsePropertiesArgs(
         configuration="Capacity",
         endpoint_authentications=[azure_native.recommendationsservice.EndpointAuthenticationArgs(
             aad_tenant_id="tenant",

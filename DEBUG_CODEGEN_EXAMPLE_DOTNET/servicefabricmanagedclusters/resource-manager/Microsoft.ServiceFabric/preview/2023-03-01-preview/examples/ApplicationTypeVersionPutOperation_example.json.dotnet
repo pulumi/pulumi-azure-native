@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedClusterApplicationTypeVersion = new AzureNative.ServiceFabric.ManagedClusterApplicationTypeVersion("managedClusterApplicationTypeVersion", new()
+    {
+        AppPackageUrl = "http://fakelink.test.com/MyAppType",
+        ApplicationTypeName = "myAppType",
+        ClusterName = "myCluster",
+        Location = "eastus",
+        ResourceGroupName = "resRg",
+        Version = "1.0",
+    });
+
+});
+

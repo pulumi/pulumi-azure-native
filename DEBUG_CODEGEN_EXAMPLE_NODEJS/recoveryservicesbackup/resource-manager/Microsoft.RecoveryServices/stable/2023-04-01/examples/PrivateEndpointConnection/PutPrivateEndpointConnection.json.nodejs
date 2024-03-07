@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.recoveryservices.PrivateEndpointConnection("privateEndpointConnection", {
+    privateEndpointConnectionName: "gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+    properties: {
+        groupIds: ["AzureBackup_secondary"],
+        privateEndpoint: {
+            id: "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.Network/privateEndpoints/gaallatestpe3",
+        },
+        privateLinkServiceConnectionState: {
+            description: "Approved by johndoe@company.com",
+            status: "Approved",
+        },
+        provisioningState: "Succeeded",
+    },
+    resourceGroupName: "gaallaRG",
+    vaultName: "gaallavaultbvtd2msi",
+});

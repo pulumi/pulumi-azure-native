@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const artifactStore = new azure_native.hybridnetwork.ArtifactStore("artifactStore", {
+    artifactStoreName: "TestArtifactStore",
+    location: "eastus",
+    properties: {
+        managedResourceGroupConfiguration: {
+            location: "eastus",
+            name: "testRg",
+        },
+        replicationStrategy: "SingleReplication",
+        storeType: "AzureContainerRegistry",
+    },
+    publisherName: "TestPublisher",
+    resourceGroupName: "rg",
+});

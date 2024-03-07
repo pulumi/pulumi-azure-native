@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const orchestratorInstanceServiceDetails = new azure_native.delegatednetwork.OrchestratorInstanceServiceDetails("orchestratorInstanceServiceDetails", {
+    apiServerEndpoint: "https://testk8s.cloudapp.net",
+    clusterRootCA: "ddsadsad344mfdsfdl",
+    controllerDetails: {
+        id: "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller",
+    },
+    identity: {
+        type: azure_native.delegatednetwork.ResourceIdentityType.SystemAssigned,
+    },
+    kind: "Kubernetes",
+    location: "West US",
+    orchestratorAppId: "546192d7-503f-477a-9cfe-4efc3ee2b6e1",
+    orchestratorTenantId: "da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
+    privateLinkResourceId: "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/privateLinkServices/plresource1",
+    resourceGroupName: "TestRG",
+    resourceName: "testk8s1",
+});

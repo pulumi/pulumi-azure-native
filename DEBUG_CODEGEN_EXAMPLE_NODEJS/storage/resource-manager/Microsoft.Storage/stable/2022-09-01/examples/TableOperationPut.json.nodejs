@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const table = new azure_native.storage.Table("table", {
+    accountName: "sto328",
+    resourceGroupName: "res3376",
+    tableName: "table6185",
+});

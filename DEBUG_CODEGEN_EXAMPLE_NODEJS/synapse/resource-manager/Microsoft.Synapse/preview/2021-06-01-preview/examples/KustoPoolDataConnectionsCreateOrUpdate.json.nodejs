@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const iotHubDataConnection = new azure_native.synapse.IotHubDataConnection("iotHubDataConnection", {
+    dataConnectionName: "DataConnections8",
+    databaseName: "KustoDatabase8",
+    kustoPoolName: "kustoclusterrptest4",
+    resourceGroupName: "kustorptest",
+    workspaceName: "synapseWorkspaceName",
+});

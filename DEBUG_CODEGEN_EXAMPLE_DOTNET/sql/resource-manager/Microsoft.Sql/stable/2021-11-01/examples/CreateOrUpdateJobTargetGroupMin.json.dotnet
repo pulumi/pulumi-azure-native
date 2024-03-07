@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var jobTargetGroup = new AzureNative.Sql.JobTargetGroup("jobTargetGroup", new()
+    {
+        JobAgentName = "agent1",
+        Members = new[] {},
+        ResourceGroupName = "group1",
+        ServerName = "server1",
+        TargetGroupName = "targetGroup1",
+    });
+
+});
+

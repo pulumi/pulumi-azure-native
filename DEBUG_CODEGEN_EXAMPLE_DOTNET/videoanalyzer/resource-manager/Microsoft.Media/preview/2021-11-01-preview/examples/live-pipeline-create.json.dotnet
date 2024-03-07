@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var livePipeline = new AzureNative.VideoAnalyzer.LivePipeline("livePipeline", new()
+    {
+        AccountName = "testaccount2",
+        BitrateKbps = 500,
+        Description = "Live Pipeline 1 Description",
+        LivePipelineName = "livePipeline1",
+        Parameters = new[]
+        {
+            new AzureNative.VideoAnalyzer.Inputs.ParameterDefinitionArgs
+            {
+                Name = "rtspUrlParameter",
+                Value = "rtsp://contoso.com/stream",
+            },
+        },
+        ResourceGroupName = "testrg",
+        TopologyName = "pipelinetopology1",
+    });
+
+});
+

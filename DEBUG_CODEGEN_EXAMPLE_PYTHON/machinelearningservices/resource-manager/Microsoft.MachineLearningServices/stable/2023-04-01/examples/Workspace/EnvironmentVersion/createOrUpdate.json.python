@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 environment_version = azure_native.machinelearningservices.EnvironmentVersion("environmentVersion",
-    environment_version_properties=azure_native.machinelearningservices.EnvironmentVersionArgs(
+    environment_version_properties=azure_native.machinelearningservices.EnvironmentVersionResponseArgs(
         build=azure_native.machinelearningservices.BuildContextArgs(
             context_uri="https://storage-account.blob.core.windows.net/azureml/DockerBuildContext/95ddede6b9b8c4e90472db3acd0a8d28/",
             dockerfile_path="prod/Dockerfile",
@@ -10,20 +10,20 @@ environment_version = azure_native.machinelearningservices.EnvironmentVersion("e
         conda_file="string",
         description="string",
         image="docker.io/tensorflow/serving:latest",
-        inference_config=azure_native.machinelearningservices.InferenceContainerPropertiesArgs(
-            liveness_route=azure_native.machinelearningservices.RouteArgs(
+        inference_config={
+            "livenessRoute": azure_native.machinelearningservices.RouteArgs(
                 path="string",
                 port=1,
             ),
-            readiness_route=azure_native.machinelearningservices.RouteArgs(
+            "readinessRoute": azure_native.machinelearningservices.RouteArgs(
                 path="string",
                 port=1,
             ),
-            scoring_route=azure_native.machinelearningservices.RouteArgs(
+            "scoringRoute": azure_native.machinelearningservices.RouteArgs(
                 path="string",
                 port=1,
             ),
-        ),
+        },
         is_anonymous=False,
         properties={
             "string": "string",

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const expressRouteCircuitPeering = new azure_native.network.ExpressRouteCircuitPeering("expressRouteCircuitPeering", {
+    circuitName: "circuitName",
+    peerASN: 200,
+    peeringName: "AzurePrivatePeering",
+    primaryPeerAddressPrefix: "192.168.16.252/30",
+    resourceGroupName: "rg1",
+    secondaryPeerAddressPrefix: "192.168.18.252/30",
+    vlanId: 200,
+});

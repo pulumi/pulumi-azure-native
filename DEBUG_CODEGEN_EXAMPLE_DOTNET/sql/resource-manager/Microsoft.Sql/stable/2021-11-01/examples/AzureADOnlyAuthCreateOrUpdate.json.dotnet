@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serverAzureADOnlyAuthentication = new AzureNative.Sql.ServerAzureADOnlyAuthentication("serverAzureADOnlyAuthentication", new()
+    {
+        AuthenticationName = "Default",
+        AzureADOnlyAuthentication = false,
+        ResourceGroupName = "sqlcrudtest-4799",
+        ServerName = "sqlcrudtest-6440",
+    });
+
+});
+

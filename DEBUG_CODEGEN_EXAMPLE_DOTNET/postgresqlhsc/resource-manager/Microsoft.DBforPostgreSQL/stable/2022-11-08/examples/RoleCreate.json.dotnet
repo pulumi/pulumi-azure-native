@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var role = new AzureNative.DBforPostgreSQL.Role("role", new()
+    {
+        ClusterName = "pgtestsvc4",
+        Password = "password",
+        ResourceGroupName = "TestGroup",
+        RoleName = "role1",
+    });
+
+});
+

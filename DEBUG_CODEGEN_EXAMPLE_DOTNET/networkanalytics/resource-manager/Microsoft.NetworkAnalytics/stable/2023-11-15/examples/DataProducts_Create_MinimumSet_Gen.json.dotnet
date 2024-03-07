@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataProduct = new AzureNative.NetworkAnalytics.DataProduct("dataProduct", new()
+    {
+        DataProductName = "dataproduct01",
+        Location = "eastus",
+        MajorVersion = "1.0.0",
+        Product = "MCC",
+        Publisher = "Microsoft",
+        ResourceGroupName = "aoiresourceGroupName",
+        Tags = 
+        {
+            { "userSpecifiedKeyName", "userSpecifiedKeyValue" },
+        },
+    });
+
+});
+

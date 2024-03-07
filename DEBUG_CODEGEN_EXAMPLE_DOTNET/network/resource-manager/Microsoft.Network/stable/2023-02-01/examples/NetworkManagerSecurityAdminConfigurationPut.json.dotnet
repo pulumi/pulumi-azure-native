@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var securityAdminConfiguration = new AzureNative.Network.SecurityAdminConfiguration("securityAdminConfiguration", new()
+    {
+        ApplyOnNetworkIntentPolicyBasedServices = new[]
+        {
+            "None",
+        },
+        ConfigurationName = "myTestSecurityConfig",
+        Description = "A sample policy",
+        NetworkManagerName = "testNetworkManager",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

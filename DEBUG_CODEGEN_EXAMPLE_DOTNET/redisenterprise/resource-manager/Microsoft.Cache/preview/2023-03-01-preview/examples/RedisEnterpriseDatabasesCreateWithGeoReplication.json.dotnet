@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var database = new AzureNative.Cache.Database("database", new()
+    {
+        ClientProtocol = "Encrypted",
+        ClusterName = "cache1",
+        ClusteringPolicy = "EnterpriseCluster",
+        DatabaseName = "default",
+        EvictionPolicy = "NoEviction",
+        GeoReplication = new AzureNative.Cache.Inputs.DatabasePropertiesGeoReplicationArgs
+        {
+            GroupNickname = "groupName",
+            LinkedDatabases = new[]
+            {
+                new AzureNative.Cache.Inputs.LinkedDatabaseArgs
+                {
+                    Id = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default",
+                },
+                new AzureNative.Cache.Inputs.LinkedDatabaseArgs
+                {
+                    Id = "/subscriptions/subid2/resourceGroups/rg2/providers/Microsoft.Cache/redisEnterprise/cache2/databases/default",
+                },
+            },
+        },
+        Port = 10000,
+        ResourceGroupName = "rg1",
+    });
+
+});
+

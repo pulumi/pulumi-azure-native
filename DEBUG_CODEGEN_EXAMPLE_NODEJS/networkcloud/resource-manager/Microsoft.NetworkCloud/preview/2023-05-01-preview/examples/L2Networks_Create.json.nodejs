@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const l2Network = new azure_native.networkcloud.L2Network("l2Network", {
+    extendedLocation: {
+        name: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+        type: "CustomLocation",
+    },
+    hybridAksPluginType: "DPDK",
+    interfaceName: "eth0",
+    l2IsolationDomainId: "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+    l2NetworkName: "l2NetworkName",
+    location: "location",
+    resourceGroupName: "resourceGroupName",
+    tags: {
+        key1: "myvalue1",
+        key2: "myvalue2",
+    },
+});

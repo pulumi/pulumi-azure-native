@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var queryPack = new AzureNative.OperationalInsights.QueryPack("queryPack", new()
+    {
+        Location = "South Central US",
+        QueryPackName = "my-querypack",
+        ResourceGroupName = "my-resource-group",
+        Tags = 
+        {
+            { "Tag1", "Value1" },
+        },
+    });
+
+});
+

@@ -1,0 +1,54 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webTest = new AzureNative.Insights.WebTest("webTest", new()
+    {
+        Description = "Ping web test alert for mytestwebapp",
+        Enabled = true,
+        Frequency = 900,
+        Location = "South Central US",
+        Locations = new[]
+        {
+            new AzureNative.Insights.Inputs.WebTestGeolocationArgs
+            {
+                Location = "us-fl-mia-edge",
+            },
+        },
+        Request = new AzureNative.Insights.Inputs.WebTestPropertiesRequestArgs
+        {
+            Headers = new[]
+            {
+                new AzureNative.Insights.Inputs.HeaderFieldArgs
+                {
+                    HeaderFieldName = "Content-Language",
+                    HeaderFieldValue = "de-DE",
+                },
+                new AzureNative.Insights.Inputs.HeaderFieldArgs
+                {
+                    HeaderFieldName = "Accept-Language",
+                    HeaderFieldValue = "de-DE",
+                },
+            },
+            HttpVerb = "POST",
+            RequestBody = "SGVsbG8gd29ybGQ=",
+            RequestUrl = "https://bing.com",
+        },
+        ResourceGroupName = "my-resource-group",
+        RetryEnabled = true,
+        SyntheticMonitorId = "my-webtest-my-component",
+        Timeout = 120,
+        ValidationRules = new AzureNative.Insights.Inputs.WebTestPropertiesValidationRulesArgs
+        {
+            SSLCertRemainingLifetimeCheck = 100,
+            SSLCheck = true,
+        },
+        WebTestKind = AzureNative.Insights.WebTestKind.Standard,
+        WebTestName = "my-webtest-my-component",
+    });
+
+});
+

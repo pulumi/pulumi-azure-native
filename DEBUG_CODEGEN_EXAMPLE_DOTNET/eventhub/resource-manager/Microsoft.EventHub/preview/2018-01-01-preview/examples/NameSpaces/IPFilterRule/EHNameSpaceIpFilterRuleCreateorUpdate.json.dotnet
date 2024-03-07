@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var namespaceIpFilterRule = new AzureNative.EventHub.NamespaceIpFilterRule("namespaceIpFilterRule", new()
+    {
+        Action = "Accept",
+        FilterName = "sdk-IPFilterRules-7337",
+        IpFilterRuleName = "sdk-IPFilterRules-7337",
+        IpMask = "13.78.143.246/32",
+        NamespaceName = "sdk-Namespace-5232",
+        ResourceGroupName = "ResourceGroup",
+    });
+
+});
+

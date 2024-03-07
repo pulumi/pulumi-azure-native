@@ -1,0 +1,59 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var packetCoreControlPlane = new AzureNative.MobileNetwork.PacketCoreControlPlane("packetCoreControlPlane", new()
+    {
+        ControlPlaneAccessInterface = new AzureNative.MobileNetwork.Inputs.InterfacePropertiesArgs
+        {
+            Name = "N2",
+        },
+        CoreNetworkTechnology = "5GC",
+        Installation = new AzureNative.MobileNetwork.Inputs.InstallationArgs
+        {
+            DesiredState = "Installed",
+        },
+        LocalDiagnosticsAccess = new AzureNative.MobileNetwork.Inputs.LocalDiagnosticsAccessConfigurationArgs
+        {
+            AuthenticationType = "AAD",
+            HttpsServerCertificate = new AzureNative.MobileNetwork.Inputs.HttpsServerCertificateArgs
+            {
+                CertificateUrl = "https://contosovault.vault.azure.net/certificates/ingress",
+            },
+        },
+        Location = "eastus",
+        PacketCoreControlPlaneName = "TestPacketCoreCP",
+        Platform = new AzureNative.MobileNetwork.Inputs.PlatformConfigurationArgs
+        {
+            AzureStackEdgeDevice = new AzureNative.MobileNetwork.Inputs.AzureStackEdgeDeviceResourceIdArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice",
+            },
+            ConnectedCluster = new AzureNative.MobileNetwork.Inputs.ConnectedClusterResourceIdArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/TestConnectedCluster",
+            },
+            CustomLocation = new AzureNative.MobileNetwork.Inputs.CustomLocationResourceIdArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/TestCustomLocation",
+            },
+            Type = "AKS-HCI",
+        },
+        ResourceGroupName = "rg1",
+        Sites = new[]
+        {
+            new AzureNative.MobileNetwork.Inputs.SiteResourceIdArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite",
+            },
+        },
+        Sku = "G0",
+        UeMtu = 1600,
+        Version = "0.2.0",
+    });
+
+});
+

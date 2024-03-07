@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const agentPool = new azure_native.containerservice.AgentPool("agentPool", {
+    agentPoolName: "agentpool1",
+    count: 3,
+    mode: "User",
+    nodeLabels: {
+        key1: "val1",
+    },
+    nodeTaints: ["Key1=Value1:NoSchedule"],
+    orchestratorVersion: "",
+    osType: "Linux",
+    resourceGroupName: "rg1",
+    resourceName: "clustername1",
+    scaleSetEvictionPolicy: "Delete",
+    scaleSetPriority: "Spot",
+    tags: {
+        name1: "val1",
+    },
+    vmSize: "Standard_DS1_v2",
+});

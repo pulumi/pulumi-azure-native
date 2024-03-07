@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const extendedDatabaseBlobAuditingPolicy = new azure_native.sql.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy", {
+    auditActionsAndGroups: [
+        "DATABASE_LOGOUT_GROUP",
+        "DATABASE_ROLE_MEMBER_CHANGE_GROUP",
+        "UPDATE on database::TestDatabaseName by public",
+    ],
+    blobAuditingPolicyName: "default",
+    databaseName: "testdb",
+    isAzureMonitorTargetEnabled: true,
+    isStorageSecondaryKeyInUse: false,
+    predicateExpression: "statement = 'select 1'",
+    queueDelayMs: 4000,
+    resourceGroupName: "blobauditingtest-4799",
+    retentionDays: 6,
+    serverName: "blobauditingtest-6440",
+    state: azure_native.sql.BlobAuditingPolicyState.Enabled,
+    storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    storageAccountSubscriptionId: "00000000-1234-0000-5678-000000000000",
+    storageEndpoint: "https://mystorage.blob.core.windows.net",
+});

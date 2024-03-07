@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const ddosProtectionPlan = new azure_native.network.DdosProtectionPlan("ddosProtectionPlan", {
+    ddosProtectionPlanName: "test-plan",
+    location: "westus",
+    resourceGroupName: "rg1",
+});

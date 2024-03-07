@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mobileNetwork = new azure_native.mobilenetwork.MobileNetwork("mobileNetwork", {
+    location: "eastus",
+    mobileNetworkName: "testMobileNetwork",
+    publicLandMobileNetworkIdentifier: {
+        mcc: "001",
+        mnc: "01",
+    },
+    resourceGroupName: "rg1",
+});

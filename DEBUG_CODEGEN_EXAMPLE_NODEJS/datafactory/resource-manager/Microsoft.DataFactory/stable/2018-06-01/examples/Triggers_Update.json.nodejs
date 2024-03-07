@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const trigger = new azure_native.datafactory.Trigger("trigger", {
+    factoryName: "exampleFactoryName",
+    properties: {
+        description: "Example description",
+        pipelines: [{
+            parameters: {
+                OutputBlobNameList: ["exampleoutput.csv"],
+            },
+            pipelineReference: {
+                referenceName: "examplePipeline",
+                type: "PipelineReference",
+            },
+        }],
+        recurrence: {
+            endTime: "2018-06-16T00:55:14.905167Z",
+            frequency: "Minute",
+            interval: 4,
+            startTime: "2018-06-16T00:39:14.905167Z",
+            timeZone: "UTC",
+        },
+        type: "ScheduleTrigger",
+    },
+    resourceGroupName: "exampleResourceGroup",
+    triggerName: "exampleTrigger",
+});

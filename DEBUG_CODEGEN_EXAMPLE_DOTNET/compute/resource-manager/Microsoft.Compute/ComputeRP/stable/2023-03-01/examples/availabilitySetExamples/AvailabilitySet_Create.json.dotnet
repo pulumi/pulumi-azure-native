@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var availabilitySet = new AzureNative.Compute.AvailabilitySet("availabilitySet", new()
+    {
+        AvailabilitySetName = "myAvailabilitySet",
+        Location = "westus",
+        PlatformFaultDomainCount = 2,
+        PlatformUpdateDomainCount = 20,
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

@@ -1,0 +1,45 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const acssBackupConnection = new azure_native.workloads.ACSSBackupConnection("acssBackupConnection", {
+    backupData: {
+        backupPolicy: {
+            backupManagementType: "AzureIaasVM",
+            instantRPDetails: {},
+            instantRpRetentionRangeInDays: 2,
+            name: "defaultVmPolicy",
+            protectedItemsCount: 0,
+            retentionPolicy: {
+                dailySchedule: {
+                    retentionDuration: {
+                        count: 30,
+                        durationType: "Days",
+                    },
+                    retentionTimes: ["2018-01-10T18:30:00Z"],
+                },
+                retentionPolicyType: "LongTermRetentionPolicy",
+            },
+            schedulePolicy: {
+                schedulePolicyType: "SimpleSchedulePolicy",
+                scheduleRunFrequency: "Daily",
+                scheduleRunTimes: ["2018-01-10T18:30:00Z"],
+                scheduleWeeklyFrequency: 0,
+            },
+        },
+        backupType: "VM",
+        diskExclusionProperties: {
+            diskLunList: [],
+            isInclusionList: true,
+        },
+        recoveryServicesVault: {
+            name: "test-vault",
+            resourceGroup: "test-rg",
+            vaultType: "New",
+        },
+    },
+    backupName: "vmBackup",
+    connectorName: "C1",
+    location: "westcentralus",
+    resourceGroupName: "test-rg",
+    tags: {},
+});

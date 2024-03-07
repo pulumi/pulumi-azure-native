@@ -1,0 +1,62 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectorMapping = new AzureNative.CustomerInsights.ConnectorMapping("connectorMapping", new()
+    {
+        ConnectorName = "testConnector8858",
+        Description = "Test mapping",
+        DisplayName = "testMapping12491",
+        EntityType = AzureNative.CustomerInsights.EntityTypes.Interaction,
+        EntityTypeName = "TestInteractionType2967",
+        HubName = "sdkTestHub",
+        MappingName = "testMapping12491",
+        MappingProperties = new AzureNative.CustomerInsights.Inputs.ConnectorMappingPropertiesArgs
+        {
+            Availability = new AzureNative.CustomerInsights.Inputs.ConnectorMappingAvailabilityArgs
+            {
+                Frequency = AzureNative.CustomerInsights.FrequencyTypes.Hour,
+                Interval = 5,
+            },
+            CompleteOperation = new AzureNative.CustomerInsights.Inputs.ConnectorMappingCompleteOperationArgs
+            {
+                CompletionOperationType = AzureNative.CustomerInsights.CompletionOperationTypes.DeleteFile,
+                DestinationFolder = "fakePath",
+            },
+            ErrorManagement = new AzureNative.CustomerInsights.Inputs.ConnectorMappingErrorManagementArgs
+            {
+                ErrorLimit = 10,
+                ErrorManagementType = AzureNative.CustomerInsights.ErrorManagementTypes.StopImport,
+            },
+            FileFilter = "unknown",
+            FolderPath = "http://sample.dne/file",
+            Format = new AzureNative.CustomerInsights.Inputs.ConnectorMappingFormatArgs
+            {
+                ColumnDelimiter = "|",
+                FormatType = AzureNative.CustomerInsights.FormatTypes.TextFormat,
+            },
+            HasHeader = false,
+            Structure = new[]
+            {
+                new AzureNative.CustomerInsights.Inputs.ConnectorMappingStructureArgs
+                {
+                    ColumnName = "unknown1",
+                    IsEncrypted = false,
+                    PropertyName = "unknwon1",
+                },
+                new AzureNative.CustomerInsights.Inputs.ConnectorMappingStructureArgs
+                {
+                    ColumnName = "unknown2",
+                    IsEncrypted = true,
+                    PropertyName = "unknwon2",
+                },
+            },
+        },
+        ResourceGroupName = "TestHubRG",
+    });
+
+});
+

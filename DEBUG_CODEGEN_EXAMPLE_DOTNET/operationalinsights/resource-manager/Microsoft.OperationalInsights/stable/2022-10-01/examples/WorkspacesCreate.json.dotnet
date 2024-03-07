@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.OperationalInsights.Workspace("workspace", new()
+    {
+        Location = "australiasoutheast",
+        ResourceGroupName = "oiautorest6685",
+        RetentionInDays = 30,
+        Sku = new AzureNative.OperationalInsights.Inputs.WorkspaceSkuArgs
+        {
+            Name = "PerGB2018",
+        },
+        Tags = 
+        {
+            { "tag1", "val1" },
+        },
+        WorkspaceName = "oiautorest6685",
+    });
+
+});
+

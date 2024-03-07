@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 commitment_plan = azure_native.cognitiveservices.CommitmentPlan("commitmentPlan",
     account_name="accountName",
     commitment_plan_name="commitmentPlanName",
-    properties=azure_native.cognitiveservices.CommitmentPlanPropertiesArgs(
+    properties=azure_native.cognitiveservices.CommitmentPlanPropertiesResponseArgs(
         auto_renew=True,
         current=azure_native.cognitiveservices.CommitmentPeriodArgs(
             tier="T1",

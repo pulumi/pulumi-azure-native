@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const api = new azure_native.apimanagement.Api("api", {
+    apiId: "soapApi",
+    format: "wsdl-link",
+    path: "currency",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    soapApiType: "soap",
+    value: "http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+    wsdlSelector: {
+        wsdlEndpointName: "CurrencyConvertorSoap",
+        wsdlServiceName: "CurrencyConvertor",
+    },
+});

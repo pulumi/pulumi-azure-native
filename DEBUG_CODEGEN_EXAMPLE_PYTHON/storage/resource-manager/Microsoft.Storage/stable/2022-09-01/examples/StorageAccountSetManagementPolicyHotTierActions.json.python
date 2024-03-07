@@ -4,34 +4,34 @@ import pulumi_azure_native as azure_native
 management_policy = azure_native.storage.ManagementPolicy("managementPolicy",
     account_name="sto9699",
     management_policy_name="default",
-    policy=azure_native.storage.ManagementPolicySchemaArgs(
-        rules=[azure_native.storage.ManagementPolicyRuleArgs(
-            definition=azure_native.storage.ManagementPolicyDefinitionArgs(
-                actions=azure_native.storage.ManagementPolicyActionArgs(
-                    base_blob=azure_native.storage.ManagementPolicyBaseBlobArgs(
-                        tier_to_hot=azure_native.storage.DateAfterModificationArgs(
+    policy=azure_native.storage.ManagementPolicySchemaResponseArgs(
+        rules=[{
+            "definition": {
+                "actions": {
+                    "baseBlob": {
+                        "tierToHot": azure_native.storage.DateAfterModificationArgs(
                             days_after_modification_greater_than=30,
                         ),
-                    ),
-                    snapshot=azure_native.storage.ManagementPolicySnapShotArgs(
-                        tier_to_hot=azure_native.storage.DateAfterCreationArgs(
+                    },
+                    "snapshot": {
+                        "tierToHot": azure_native.storage.DateAfterCreationArgs(
                             days_after_creation_greater_than=30,
                         ),
-                    ),
-                    version=azure_native.storage.ManagementPolicyVersionArgs(
-                        tier_to_hot=azure_native.storage.DateAfterCreationArgs(
+                    },
+                    "version": {
+                        "tierToHot": azure_native.storage.DateAfterCreationArgs(
                             days_after_creation_greater_than=30,
                         ),
-                    ),
-                ),
-                filters=azure_native.storage.ManagementPolicyFilterArgs(
+                    },
+                },
+                "filters": azure_native.storage.ManagementPolicyFilterArgs(
                     blob_types=["blockBlob"],
                     prefix_match=["olcmtestcontainer1"],
                 ),
-            ),
-            enabled=True,
-            name="olcmtest1",
-            type="Lifecycle",
-        )],
+            },
+            "enabled": True,
+            "name": "olcmtest1",
+            "type": "Lifecycle",
+        }],
     ),
     resource_group_name="res7687")

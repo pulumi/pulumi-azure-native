@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const enterpriseKnowledgeGraph = new azure_native.enterpriseknowledgegraph.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph", {
+    location: "West US",
+    properties: {},
+    resourceGroupName: "OneResourceGroupName",
+    resourceName: "sampleekgname",
+    tags: {
+        tag1: "value1",
+        tag2: "value2",
+    },
+});

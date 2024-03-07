@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deployment = new AzureNative.ApiCenter.Deployment("deployment", new()
+    {
+        ApiName = "echo-api",
+        DefinitionId = "/workspaces/default/apis/echo-api/versions/2023-01-01/definitions/openapi",
+        DeploymentName = "production",
+        Description = "Public cloud production deployment.",
+        EnvironmentId = "/workspaces/default/environments/production",
+        ResourceGroupName = "contoso-resources",
+        Server = new AzureNative.ApiCenter.Inputs.DeploymentServerArgs
+        {
+            RuntimeUri = new[]
+            {
+                "https://api.contoso.com",
+            },
+        },
+        ServiceName = "contoso",
+        State = "active",
+        Title = "Production deployment",
+        WorkspaceName = "default",
+    });
+
+});
+

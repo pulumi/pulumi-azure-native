@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var protectedItem = new AzureNative.DataReplication.ProtectedItem("protectedItem", new()
+    {
+        Properties = new AzureNative.DataReplication.Inputs.ProtectedItemModelPropertiesArgs
+        {
+            CustomProperties = 
+            {
+                { "instanceType", "ProtectedItemModelCustomProperties" },
+            },
+            PolicyName = "tjoeiynplt",
+            ReplicationExtensionName = "jwxdo",
+        },
+        ProtectedItemName = "d",
+        ResourceGroupName = "rgrecoveryservicesdatareplication",
+        VaultName = "4",
+    });
+
+});
+

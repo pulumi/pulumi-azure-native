@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const user = new azure_native.databoxedge.User("user", {
+    deviceName: "testedgedevice",
+    encryptedPassword: {
+        encryptionAlgorithm: "None",
+        encryptionCertThumbprint: "blah",
+        value: "<value>",
+    },
+    name: "user1",
+    resourceGroupName: "GroupForEdgeAutomation",
+    userType: "Share",
+});

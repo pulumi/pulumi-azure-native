@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkInterfaceTapConfiguration = new AzureNative.Network.NetworkInterfaceTapConfiguration("networkInterfaceTapConfiguration", new()
+    {
+        NetworkInterfaceName = "mynic",
+        ResourceGroupName = "testrg",
+        TapConfigurationName = "tapconfiguration1",
+        VirtualNetworkTap = new AzureNative.Network.Inputs.VirtualNetworkTapArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkTaps/testvtap",
+        },
+    });
+
+});
+

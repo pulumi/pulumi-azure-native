@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceTagApiLink = new azure_native.apimanagement.WorkspaceTagApiLink("workspaceTagApiLink", {
+    apiId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/apis/echo-api",
+    apiLinkId: "link1",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    tagId: "tag1",
+    workspaceId: "wks1",
+});

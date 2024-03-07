@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const experiment = new azure_native.network.Experiment("experiment", {
+    description: "this is my first experiment!",
+    enabledState: "Enabled",
+    endpointA: {
+        endpoint: "endpointA.net",
+        name: "endpoint A",
+    },
+    endpointB: {
+        endpoint: "endpointB.net",
+        name: "endpoint B",
+    },
+    experimentName: "MyExperiment",
+    profileName: "MyProfile",
+    resourceGroupName: "MyResourceGroup",
+});

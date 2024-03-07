@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var space = new AzureNative.IntegrationSpaces.Space("space", new()
+    {
+        Description = "This is the user provided description of the space resource.",
+        Location = "CentralUS",
+        ResourceGroupName = "testrg",
+        SpaceName = "Space1",
+        Tags = 
+        {
+            { "key1", "Value1" },
+        },
+    });
+
+});
+

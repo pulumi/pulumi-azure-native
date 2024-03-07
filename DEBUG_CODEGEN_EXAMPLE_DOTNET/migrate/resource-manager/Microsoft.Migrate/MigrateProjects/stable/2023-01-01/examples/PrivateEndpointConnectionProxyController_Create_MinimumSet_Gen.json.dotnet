@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnectionProxyController = new AzureNative.Migrate.PrivateEndpointConnectionProxyController("privateEndpointConnectionProxyController", new()
+    {
+        MigrateProjectName = "1GQwlI-",
+        PecProxyName = "z1LfRIz4-M2-1-V7",
+        ResourceGroupName = "rghubmigrate",
+    });
+
+});
+

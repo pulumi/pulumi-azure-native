@@ -1,0 +1,135 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sapVirtualInstance = new AzureNative.Workloads.SAPVirtualInstance("sapVirtualInstance", new()
+    {
+        Configuration = new AzureNative.Workloads.Inputs.DeploymentWithOSConfigurationArgs
+        {
+            AppLocation = "eastus",
+            ConfigurationType = "DeploymentWithOSConfig",
+            InfrastructureConfiguration = new AzureNative.Workloads.Inputs.ThreeTierConfigurationArgs
+            {
+                AppResourceGroup = "{{resourcegrp}}",
+                ApplicationServer = new AzureNative.Workloads.Inputs.ApplicationServerConfigurationArgs
+                {
+                    InstanceCount = 2,
+                    SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+                    VirtualMachineConfiguration = new AzureNative.Workloads.Inputs.VirtualMachineConfigurationArgs
+                    {
+                        ImageReference = new AzureNative.Workloads.Inputs.ImageReferenceArgs
+                        {
+                            Offer = "RHEL-SAP-HA",
+                            Publisher = "RedHat",
+                            Sku = "84sapha-gen2",
+                            Version = "latest",
+                        },
+                        OsProfile = new AzureNative.Workloads.Inputs.OSProfileArgs
+                        {
+                            AdminUsername = "azureuser",
+                            OsConfiguration = new AzureNative.Workloads.Inputs.LinuxConfigurationArgs
+                            {
+                                DisablePasswordAuthentication = true,
+                                OsType = "Linux",
+                                SshKeyPair = new AzureNative.Workloads.Inputs.SshKeyPairArgs
+                                {
+                                    PrivateKey = "{{privateKey}}",
+                                    PublicKey = "{{sshkey}}",
+                                },
+                            },
+                        },
+                        VmSize = "Standard_E4ds_v4",
+                    },
+                },
+                CentralServer = new AzureNative.Workloads.Inputs.CentralServerConfigurationArgs
+                {
+                    InstanceCount = 1,
+                    SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+                    VirtualMachineConfiguration = new AzureNative.Workloads.Inputs.VirtualMachineConfigurationArgs
+                    {
+                        ImageReference = new AzureNative.Workloads.Inputs.ImageReferenceArgs
+                        {
+                            Offer = "RHEL-SAP-HA",
+                            Publisher = "RedHat",
+                            Sku = "84sapha-gen2",
+                            Version = "latest",
+                        },
+                        OsProfile = new AzureNative.Workloads.Inputs.OSProfileArgs
+                        {
+                            AdminUsername = "azureuser",
+                            OsConfiguration = new AzureNative.Workloads.Inputs.LinuxConfigurationArgs
+                            {
+                                DisablePasswordAuthentication = true,
+                                OsType = "Linux",
+                                SshKeyPair = new AzureNative.Workloads.Inputs.SshKeyPairArgs
+                                {
+                                    PrivateKey = "{{privateKey}}",
+                                    PublicKey = "{{sshkey}}",
+                                },
+                            },
+                        },
+                        VmSize = "Standard_E4ds_v4",
+                    },
+                },
+                DatabaseServer = new AzureNative.Workloads.Inputs.DatabaseConfigurationArgs
+                {
+                    InstanceCount = 1,
+                    SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+                    VirtualMachineConfiguration = new AzureNative.Workloads.Inputs.VirtualMachineConfigurationArgs
+                    {
+                        ImageReference = new AzureNative.Workloads.Inputs.ImageReferenceArgs
+                        {
+                            Offer = "RHEL-SAP-HA",
+                            Publisher = "RedHat",
+                            Sku = "84sapha-gen2",
+                            Version = "latest",
+                        },
+                        OsProfile = new AzureNative.Workloads.Inputs.OSProfileArgs
+                        {
+                            AdminUsername = "azureuser",
+                            OsConfiguration = new AzureNative.Workloads.Inputs.LinuxConfigurationArgs
+                            {
+                                DisablePasswordAuthentication = true,
+                                OsType = "Linux",
+                                SshKeyPair = new AzureNative.Workloads.Inputs.SshKeyPairArgs
+                                {
+                                    PrivateKey = "{{privateKey}}",
+                                    PublicKey = "{{sshkey}}",
+                                },
+                            },
+                        },
+                        VmSize = "Standard_M32ts",
+                    },
+                },
+                DeploymentType = "ThreeTier",
+                NetworkConfiguration = new AzureNative.Workloads.Inputs.NetworkConfigurationArgs
+                {
+                    IsSecondaryIpEnabled = true,
+                },
+            },
+            OsSapConfiguration = new AzureNative.Workloads.Inputs.OsSapConfigurationArgs
+            {
+                SapFqdn = "sap.bpaas.com",
+            },
+            SoftwareConfiguration = new AzureNative.Workloads.Inputs.ExternalInstallationSoftwareConfigurationArgs
+            {
+                CentralServerVmId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+                SoftwareInstallationType = "External",
+            },
+        },
+        Environment = "Prod",
+        Location = "eastus2",
+        ResourceGroupName = "test-rg",
+        SapProduct = "S4HANA",
+        SapVirtualInstanceName = "X00",
+        Tags = 
+        {
+            { "created by", "azureuser" },
+        },
+    });
+
+});
+

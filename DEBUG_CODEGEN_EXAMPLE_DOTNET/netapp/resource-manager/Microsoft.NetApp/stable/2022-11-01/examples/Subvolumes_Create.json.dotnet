@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var subvolume = new AzureNative.NetApp.Subvolume("subvolume", new()
+    {
+        AccountName = "account1",
+        Path = "/subvolumePath",
+        PoolName = "pool1",
+        ResourceGroupName = "myRG",
+        SubvolumeName = "subvolume1",
+        VolumeName = "volume1",
+    });
+
+});
+

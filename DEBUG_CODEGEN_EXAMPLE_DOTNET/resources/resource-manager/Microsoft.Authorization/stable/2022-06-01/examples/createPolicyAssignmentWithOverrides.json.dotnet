@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policyAssignment = new AzureNative.Authorization.PolicyAssignment("policyAssignment", new()
+    {
+        Description = "Limit the resource location and resource SKU",
+        DisplayName = "Limit the resource location and resource SKU",
+        Metadata = 
+        {
+            { "assignedBy", "Special Someone" },
+        },
+        Overrides = new[]
+        {
+            new AzureNative.Authorization.Inputs.OverrideArgs
+            {
+                Kind = "policyEffect",
+                Selectors = new[]
+                {
+                    new AzureNative.Authorization.Inputs.SelectorArgs
+                    {
+                        In = new[]
+                        {
+                            "Limit_Skus",
+                            "Limit_Locations",
+                        },
+                        Kind = "policyDefinitionReferenceId",
+                    },
+                },
+                Value = "Audit",
+            },
+        },
+        PolicyAssignmentName = "CostManagement",
+        PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+        Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    });
+
+});
+

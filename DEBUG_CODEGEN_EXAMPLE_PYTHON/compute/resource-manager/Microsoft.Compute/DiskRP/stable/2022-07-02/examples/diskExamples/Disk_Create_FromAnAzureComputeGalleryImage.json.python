@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 disk = azure_native.compute.Disk("disk",
-    creation_data=azure_native.compute.CreationDataArgs(
+    creation_data=azure_native.compute.CreationDataResponseArgs(
         create_option="FromImage",
         gallery_image_reference=azure_native.compute.ImageDiskReferenceArgs(
             id="/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Providers/Microsoft.Compute/Galleries/{galleryName}/Images/{imageName}/Versions/1.0.0",

@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const actionRequest = new azure_native.testbase.ActionRequest("actionRequest", {
+    actionRequestName: "167184141414254",
+    resourceGroupName: "contoso-rg",
+    testBaseAccountName: "contoso-testBaseAccount",
+});

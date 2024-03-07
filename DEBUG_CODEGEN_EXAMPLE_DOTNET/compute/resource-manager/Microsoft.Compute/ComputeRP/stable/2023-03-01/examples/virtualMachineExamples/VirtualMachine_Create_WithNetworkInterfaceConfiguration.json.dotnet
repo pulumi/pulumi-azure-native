@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    {
+        HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+        {
+            VmSize = "Standard_D1_v2",
+        },
+        Location = "westus",
+        NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+        {
+            NetworkApiVersion = "2020-11-01",
+            NetworkInterfaceConfigurations = new[]
+            {
+                new AzureNative.Compute.Inputs.VirtualMachineNetworkInterfaceConfigurationArgs
+                {
+                    DeleteOption = "Delete",
+                    IpConfigurations = new[]
+                    {
+                        new AzureNative.Compute.Inputs.VirtualMachineNetworkInterfaceIPConfigurationArgs
+                        {
+                            Name = "{ip-config-name}",
+                            Primary = true,
+                            PublicIPAddressConfiguration = new AzureNative.Compute.Inputs.VirtualMachinePublicIPAddressConfigurationArgs
+                            {
+                                DeleteOption = "Detach",
+                                Name = "{publicIP-config-name}",
+                                PublicIPAllocationMethod = "Static",
+                                Sku = new AzureNative.Compute.Inputs.PublicIPAddressSkuArgs
+                                {
+                                    Name = "Basic",
+                                    Tier = "Global",
+                                },
+                            },
+                        },
+                    },
+                    Name = "{nic-config-name}",
+                    Primary = true,
+                },
+            },
+        },
+        OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+        {
+            AdminPassword = "{your-password}",
+            AdminUsername = "{your-username}",
+            ComputerName = "myVM",
+        },
+        ResourceGroupName = "myResourceGroup",
+        StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+        {
+            ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+            {
+                Offer = "WindowsServer",
+                Publisher = "MicrosoftWindowsServer",
+                Sku = "2016-Datacenter",
+                Version = "latest",
+            },
+            OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+            {
+                Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+                CreateOption = "FromImage",
+                ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+                {
+                    StorageAccountType = "Standard_LRS",
+                },
+                Name = "myVMosdisk",
+            },
+        },
+        VmName = "myVM",
+    });
+
+});
+

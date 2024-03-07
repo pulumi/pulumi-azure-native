@@ -1,0 +1,53 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const viewByScope = new azure_native.costmanagement.ViewByScope("viewByScope", {
+    accumulated: "true",
+    chart: "Table",
+    dataSet: {
+        aggregation: {
+            totalCost: {
+                "function": "Sum",
+                name: "PreTaxCost",
+            },
+        },
+        granularity: "Daily",
+        grouping: [],
+        sorting: [{
+            direction: "Ascending",
+            name: "UsageDate",
+        }],
+    },
+    displayName: "swagger Example",
+    eTag: "\"1d4ff9fe66f1d10\"",
+    kpis: [
+        {
+            enabled: true,
+            type: "Forecast",
+        },
+        {
+            enabled: true,
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Consumption/budgets/swaggerDemo",
+            type: "Budget",
+        },
+    ],
+    metric: "ActualCost",
+    pivots: [
+        {
+            name: "ServiceName",
+            type: "Dimension",
+        },
+        {
+            name: "MeterCategory",
+            type: "Dimension",
+        },
+        {
+            name: "swaggerTagKey",
+            type: "TagKey",
+        },
+    ],
+    scope: "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG",
+    timeframe: "MonthToDate",
+    type: "Usage",
+    viewName: "swaggerExample",
+});

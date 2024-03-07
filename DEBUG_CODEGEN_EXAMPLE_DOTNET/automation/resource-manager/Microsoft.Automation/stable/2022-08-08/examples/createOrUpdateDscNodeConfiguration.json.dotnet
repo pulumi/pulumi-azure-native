@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dscNodeConfiguration = new AzureNative.Automation.DscNodeConfiguration("dscNodeConfiguration", new()
+    {
+        AutomationAccountName = "myAutomationAccount20",
+        Configuration = new AzureNative.Automation.Inputs.DscConfigurationAssociationPropertyArgs
+        {
+            Name = "configName",
+        },
+        IncrementNodeConfigurationBuild = true,
+        Name = "configName.nodeConfigName",
+        NodeConfigurationName = "configName.nodeConfigName",
+        ResourceGroupName = "rg",
+        Source = new AzureNative.Automation.Inputs.ContentSourceArgs
+        {
+            Hash = new AzureNative.Automation.Inputs.ContentHashArgs
+            {
+                Algorithm = "sha256",
+                Value = "6DE256A57F01BFA29B88696D5E77A383D6E61484C7686E8DB955FA10ACE9FFE5",
+            },
+            Type = "embeddedContent",
+            Value = @"
+instance of MSFT_RoleResource as $MSFT_RoleResource1ref
+{
+ResourceID = ""[WindowsFeature]IIS"";
+ Ensure = ""Present"";
+ SourceInfo = ""::3::32::WindowsFeature"";
+ Name = ""Web-Server"";
+ ModuleName = ""PsDesiredStateConfiguration"";
+
+ModuleVersion = ""1.0"";
+ ConfigurationName = ""configName"";
+};
+instance of OMI_ConfigurationDocument
+
+                    {
+ Version=""2.0.0"";
+ 
+                        MinimumCompatibleVersion = ""1.0.0"";
+ 
+                        CompatibleVersionAdditionalProperties= {""Omi_BaseResource:ConfigurationName""};
+ 
+                        Author=""weijiel"";
+ 
+                        GenerationDate=""03/30/2017 13:40:25"";
+ 
+                        GenerationHost=""TEST-BACKEND"";
+ 
+                        Name=""configName"";
+
+                    };
+",
+            Version = "1.0",
+        },
+    });
+
+});
+

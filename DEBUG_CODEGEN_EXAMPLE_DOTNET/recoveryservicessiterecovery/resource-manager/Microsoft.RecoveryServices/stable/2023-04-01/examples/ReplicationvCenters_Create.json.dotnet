@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var replicationvCenter = new AzureNative.RecoveryServices.ReplicationvCenter("replicationvCenter", new()
+    {
+        FabricName = "MadhaviFabric",
+        Properties = new AzureNative.RecoveryServices.Inputs.AddVCenterRequestPropertiesArgs
+        {
+            FriendlyName = "esx-78",
+            IpAddress = "inmtest78",
+            Port = "443",
+            ProcessServerId = "5A720CAB-39CB-F445-BD1662B0B33164B5",
+            RunAsAccountId = "2",
+        },
+        ResourceGroupName = "MadhaviVRG",
+        ResourceName = "MadhaviVault",
+        VcenterName = "esx-78",
+    });
+
+});
+

@@ -5,7 +5,7 @@ assignment = azure_native.blueprint.Assignment("assignment",
     assignment_name="assignSimpleBlueprint",
     blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
     description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
-    identity=azure_native.blueprint.ManagedServiceIdentityArgs(
+    identity=azure_native.blueprint.ManagedServiceIdentityResponseArgs(
         type="UserAssigned",
         user_assigned_identities={
             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": azure_native.blueprint.UserAssignedIdentityArgs(),

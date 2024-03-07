@@ -8,15 +8,15 @@ account = azure_native.cognitiveservices.Account("account",
     ),
     kind="Emotion",
     location="West US",
-    properties=azure_native.cognitiveservices.AccountPropertiesArgs(
-        encryption=azure_native.cognitiveservices.EncryptionArgs(
-            key_source="Microsoft.KeyVault",
-            key_vault_properties=azure_native.cognitiveservices.KeyVaultPropertiesArgs(
+    properties=azure_native.cognitiveservices.AccountPropertiesResponseArgs(
+        encryption={
+            "keySource": "Microsoft.KeyVault",
+            "keyVaultProperties": azure_native.cognitiveservices.KeyVaultPropertiesArgs(
                 key_name="KeyName",
                 key_vault_uri="https://pltfrmscrts-use-pc-dev.vault.azure.net/",
                 key_version="891CF236-D241-4738-9462-D506AF493DFA",
             ),
-        ),
+        },
         user_owned_storage=[azure_native.cognitiveservices.UserOwnedStorageArgs(
             resource_id="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
         )],

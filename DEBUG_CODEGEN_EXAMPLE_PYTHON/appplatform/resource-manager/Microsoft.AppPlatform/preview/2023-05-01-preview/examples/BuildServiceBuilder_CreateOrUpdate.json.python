@@ -4,13 +4,13 @@ import pulumi_azure_native as azure_native
 build_service_builder = azure_native.appplatform.BuildServiceBuilder("buildServiceBuilder",
     build_service_name="default",
     builder_name="mybuilder",
-    properties=azure_native.appplatform.BuilderPropertiesArgs(
-        buildpack_groups=[azure_native.appplatform.BuildpacksGroupPropertiesArgs(
-            buildpacks=[azure_native.appplatform.BuildpackPropertiesArgs(
+    properties=azure_native.appplatform.BuilderPropertiesResponseArgs(
+        buildpack_groups=[{
+            "buildpacks": [azure_native.appplatform.BuildpackPropertiesArgs(
                 id="tanzu-buildpacks/java-azure",
             )],
-            name="mix",
-        )],
+            "name": "mix",
+        }],
         stack=azure_native.appplatform.StackPropertiesArgs(
             id="io.buildpacks.stacks.bionic",
             version="base",

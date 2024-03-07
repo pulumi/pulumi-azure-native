@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var instance = new AzureNative.DeviceUpdate.Instance("instance", new()
+    {
+        AccountName = "contoso",
+        DiagnosticStorageProperties = new AzureNative.DeviceUpdate.Inputs.DiagnosticStoragePropertiesArgs
+        {
+            AuthenticationType = "KeyBased",
+            ConnectionString = "string",
+            ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
+        },
+        EnableDiagnostics = false,
+        InstanceName = "blue",
+        IotHubs = new[]
+        {
+            new AzureNative.DeviceUpdate.Inputs.IotHubSettingsArgs
+            {
+                ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
+            },
+        },
+        Location = "westus2",
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

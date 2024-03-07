@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateLinkScope = new AzureNative.Insights.PrivateLinkScope("privateLinkScope", new()
+    {
+        AccessModeSettings = new AzureNative.Insights.Inputs.AccessModeSettingsArgs
+        {
+            Exclusions = new() { },
+            IngestionAccessMode = "Open",
+            QueryAccessMode = "Open",
+        },
+        Location = "Global",
+        ResourceGroupName = "my-resource-group",
+        ScopeName = "my-privatelinkscope",
+    });
+
+});
+

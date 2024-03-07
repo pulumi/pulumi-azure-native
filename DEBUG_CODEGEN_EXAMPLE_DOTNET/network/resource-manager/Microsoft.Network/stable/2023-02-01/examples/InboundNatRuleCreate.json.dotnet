@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var inboundNatRule = new AzureNative.Network.InboundNatRule("inboundNatRule", new()
+    {
+        BackendPort = 3389,
+        EnableFloatingIP = false,
+        EnableTcpReset = false,
+        FrontendIPConfiguration = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/frontendIPConfigurations/ip1",
+        },
+        FrontendPort = 3390,
+        IdleTimeoutInMinutes = 4,
+        InboundNatRuleName = "natRule1.1",
+        LoadBalancerName = "lb1",
+        Protocol = "Tcp",
+        ResourceGroupName = "testrg",
+    });
+
+});
+

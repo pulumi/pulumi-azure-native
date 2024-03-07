@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dscConfiguration = new AzureNative.Automation.DscConfiguration("dscConfiguration", new()
+    {
+        AutomationAccountName = "myAutomationAccount18",
+        ConfigurationName = "SetupServer",
+        Description = "sample configuration",
+        Location = "East US 2",
+        Name = "SetupServer",
+        ResourceGroupName = "rg",
+        Source = new AzureNative.Automation.Inputs.ContentSourceArgs
+        {
+            Hash = new AzureNative.Automation.Inputs.ContentHashArgs
+            {
+                Algorithm = "sha256",
+                Value = "A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
+            },
+            Type = "embeddedContent",
+            Value = @"Configuration SetupServer {
+    Node localhost {
+                               WindowsFeature IIS {
+                               Name = ""Web-Server"";
+            Ensure = ""Present""
+        }
+    }
+}",
+        },
+    });
+
+});
+

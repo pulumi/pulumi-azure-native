@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var update = new AzureNative.AzureStackHCI.Update("update", new()
+    {
+        AdditionalProperties = "additional properties",
+        AvailabilityType = "Local",
+        ClusterName = "testcluster",
+        Description = "AzS Update 4.2203.2.32",
+        DisplayName = "AzS Update - 4.2203.2.32",
+        InstalledDate = "2022-04-06T14:08:18.254Z",
+        NotifyMessage = "Brief message with instructions for updates of AvailabilityType Notify",
+        PackagePath = "\\\\SU1FileServer\\SU1_Infrastructure_2\\Updates\\Packages\\Microsoft4.2203.2.32",
+        PackageSizeInMb = 18858,
+        PackageType = "Infrastructure",
+        Prerequisites = new[]
+        {
+            new AzureNative.AzureStackHCI.Inputs.UpdatePrerequisiteArgs
+            {
+                PackageName = "update package name",
+                UpdateType = "update type",
+                Version = "prerequisite version",
+            },
+        },
+        ProgressPercentage = 0,
+        Publisher = "Microsoft",
+        ReleaseLink = "https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2203",
+        ResourceGroupName = "testrg",
+        State = "Installed",
+        UpdateName = "Microsoft4.2203.2.32",
+        Version = "4.2203.2.32",
+    });
+
+});
+

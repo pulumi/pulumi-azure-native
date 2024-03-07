@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var applicationGroup = new AzureNative.EventHub.ApplicationGroup("applicationGroup", new()
+    {
+        ApplicationGroupName = "appGroup1",
+        ClientAppGroupIdentifier = "SASKeyName=KeyName",
+        IsEnabled = true,
+        NamespaceName = "contoso-ua-test-eh-system-1",
+        Policies = new[]
+        {
+            
+            {
+                { "metricId", "IncomingMessages" },
+                { "name", "ThrottlingPolicy1" },
+                { "rateLimitThreshold", 7912 },
+                { "type", "ThrottlingPolicy" },
+            },
+            
+            {
+                { "metricId", "IncomingBytes" },
+                { "name", "ThrottlingPolicy2" },
+                { "rateLimitThreshold", 3951729 },
+                { "type", "ThrottlingPolicy" },
+            },
+            
+            {
+                { "metricId", "OutgoingBytes" },
+                { "name", "ThrottlingPolicy3" },
+                { "rateLimitThreshold", 245175 },
+                { "type", "ThrottlingPolicy" },
+            },
+        },
+        ResourceGroupName = "contosotest",
+    });
+
+});
+

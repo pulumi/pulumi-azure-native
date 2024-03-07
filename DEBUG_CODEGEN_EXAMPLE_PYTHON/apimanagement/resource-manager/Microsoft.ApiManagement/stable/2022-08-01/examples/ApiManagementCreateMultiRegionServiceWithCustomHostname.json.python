@@ -2,14 +2,14 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 api_management_service = azure_native.apimanagement.ApiManagementService("apiManagementService",
-    additional_locations=[azure_native.apimanagement.AdditionalLocationArgs(
-        disable_gateway=True,
-        location="East US",
-        sku=azure_native.apimanagement.ApiManagementServiceSkuPropertiesArgs(
+    additional_locations=[{
+        "disableGateway": True,
+        "location": "East US",
+        "sku": azure_native.apimanagement.ApiManagementServiceSkuPropertiesArgs(
             capacity=1,
             name="Premium",
         ),
-    )],
+    }],
     api_version_constraint=azure_native.apimanagement.ApiVersionConstraintArgs(
         min_api_version="2019-01-01",
     ),

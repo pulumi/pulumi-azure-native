@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const roleAssignment = new azure_native.customerinsights.RoleAssignment("roleAssignment", {
+    assignmentName: "assignmentName8976",
+    hubName: "sdkTestHub",
+    principals: [
+        {
+            principalId: "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+            principalType: "User",
+        },
+        {
+            principalId: "93061d15a5054f2b9948ae25724cf9d5",
+            principalType: "User",
+        },
+    ],
+    resourceGroupName: "TestHubRG",
+    role: azure_native.customerinsights.RoleTypes.Admin,
+});

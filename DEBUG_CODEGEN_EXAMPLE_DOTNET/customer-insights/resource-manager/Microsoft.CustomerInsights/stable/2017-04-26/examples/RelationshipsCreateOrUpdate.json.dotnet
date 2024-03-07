@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var relationship = new AzureNative.CustomerInsights.Relationship("relationship", new()
+    {
+        Cardinality = AzureNative.CustomerInsights.CardinalityTypes.OneToOne,
+        Description = 
+        {
+            { "en-us", "Relationship Description" },
+        },
+        DisplayName = 
+        {
+            { "en-us", "Relationship DisplayName" },
+        },
+        Fields = new[] {},
+        HubName = "sdkTestHub",
+        ProfileType = "testProfile2326994",
+        RelatedProfileType = "testProfile2326994",
+        RelationshipName = "SomeRelationship",
+        ResourceGroupName = "TestHubRG",
+    });
+
+});
+

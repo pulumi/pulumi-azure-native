@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var databaseAdvisor = new AzureNative.Sql.DatabaseAdvisor("databaseAdvisor", new()
+    {
+        AdvisorName = "CreateIndex",
+        AutoExecuteStatus = AzureNative.Sql.AutoExecuteStatus.Disabled,
+        DatabaseName = "IndexAdvisor_test_3",
+        ResourceGroupName = "workloadinsight-demos",
+        ServerName = "misosisvr",
+    });
+
+});
+

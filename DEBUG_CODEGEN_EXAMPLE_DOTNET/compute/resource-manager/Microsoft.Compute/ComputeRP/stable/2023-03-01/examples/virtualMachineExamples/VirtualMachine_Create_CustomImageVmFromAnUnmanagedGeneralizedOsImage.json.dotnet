@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    {
+        HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+        {
+            VmSize = "Standard_D1_v2",
+        },
+        Location = "westus",
+        NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+        {
+            NetworkInterfaces = new[]
+            {
+                new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+                {
+                    Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    Primary = true,
+                },
+            },
+        },
+        OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+        {
+            AdminPassword = "{your-password}",
+            AdminUsername = "{your-username}",
+            ComputerName = "myVM",
+        },
+        ResourceGroupName = "myResourceGroup",
+        StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+        {
+            OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+            {
+                Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+                CreateOption = "FromImage",
+                Image = new AzureNative.Compute.Inputs.VirtualHardDiskArgs
+                {
+                    Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd",
+                },
+                Name = "myVMosdisk",
+                OsType = AzureNative.Compute.OperatingSystemTypes.Windows,
+                Vhd = new AzureNative.Compute.Inputs.VirtualHardDiskArgs
+                {
+                    Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+                },
+            },
+        },
+        VmName = "{vm-name}",
+    });
+
+});
+

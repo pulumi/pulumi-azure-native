@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const integrationAccountAssembly = new azure_native.logic.IntegrationAccountAssembly("integrationAccountAssembly", {
+    assemblyArtifactName: "testAssembly",
+    integrationAccountName: "testIntegrationAccount",
+    location: "westus",
+    properties: {
+        assemblyName: "System.IdentityModel.Tokens.Jwt",
+        content: "Base64 encoded Assembly Content",
+        metadata: {},
+    },
+    resourceGroupName: "testResourceGroup",
+});

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var schedule = new AzureNative.DevCenter.Schedule("schedule", new()
+    {
+        Frequency = "Daily",
+        PoolName = "DevPool",
+        ProjectName = "DevProject",
+        ResourceGroupName = "rg1",
+        ScheduleName = "autoShutdown",
+        State = "Enabled",
+        Time = "17:30",
+        TimeZone = "America/Los_Angeles",
+        Type = "StopDevBox",
+    });
+
+});
+

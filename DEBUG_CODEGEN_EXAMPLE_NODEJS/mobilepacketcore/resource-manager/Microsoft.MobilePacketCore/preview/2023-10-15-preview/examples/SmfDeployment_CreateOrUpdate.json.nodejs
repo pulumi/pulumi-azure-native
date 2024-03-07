@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const smfDeployment = new azure_native.mobilepacketcore.SmfDeployment("smfDeployment", {
+    clusterService: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobilePacketCore/clusterServices/byoCluster",
+    componentParameters: "{\"global\": {\"registry\": {\"docker\": []}}}",
+    location: "eastus",
+    resourceGroupName: "rg1",
+    secretsParameters: "{\"global\": {\"secret\": {\"secretValue\": []}}}",
+    smfDeploymentName: "smfDeployment1",
+});

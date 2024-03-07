@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var infrastructureResource = new AzureNative.IntegrationSpaces.InfrastructureResource("infrastructureResource", new()
+    {
+        InfrastructureResourceName = "InfrastructureResource1",
+        ResourceGroupName = "testrg",
+        ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.ApiManagement/service/APIM1",
+        ResourceType = "Microsoft.ApiManagement/service",
+        SpaceName = "Space1",
+    });
+
+});
+

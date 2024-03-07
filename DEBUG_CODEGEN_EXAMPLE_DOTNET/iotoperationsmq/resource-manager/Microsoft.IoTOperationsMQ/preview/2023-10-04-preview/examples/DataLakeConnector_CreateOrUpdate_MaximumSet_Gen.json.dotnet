@@ -1,0 +1,101 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataLakeConnector = new AzureNative.IoTOperationsMQ.DataLakeConnector("dataLakeConnector", new()
+    {
+        DataLakeConnectorName = "87v4D",
+        DatabaseFormat = "delta",
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        Image = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+        {
+            PullPolicy = "imfuzvqxgbdwliqnn",
+            PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+            Repository = "m",
+            Tag = "jygfdiamhhm",
+        },
+        Instances = 53467,
+        LocalBrokerConnection = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerConnectionSpecArgs
+        {
+            Authentication = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerAuthenticationMethodsArgs
+            {
+                Kubernetes = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerKubernetesAuthenticationArgs
+                {
+                    SecretPath = "soukzfkouir",
+                    ServiceAccountTokenName = "suwetviuhmhorhvsidlznnufe",
+                },
+            },
+            Endpoint = "xc",
+            Tls = new AzureNative.IoTOperationsMQ.Inputs.LocalBrokerConnectionTlsArgs
+            {
+                TlsEnabled = true,
+                TrustedCaCertificateConfigMap = "rinkomfeznsfedbmllxlbmmhc",
+            },
+        },
+        Location = "ewguwvlahlu",
+        LogLevel = "ikicyoalavfmqlodnupfjayxjti",
+        MqName = "Ox--3e65kYN0731DJ1Qg",
+        NodeTolerations = new AzureNative.IoTOperationsMQ.Inputs.NodeTolerationsArgs
+        {
+            Effect = "eeswvciblqmmaeesjoflyvxqbz",
+            Key = "wbrstdwxgm",
+            Operator = "lbegegneekwnyodtzraarivtwhmzep",
+            Value = "sfafsjdcezdmkwibxeluukxgl",
+        },
+        Protocol = "v3",
+        ResourceGroupName = "rgiotoperationsmq",
+        Tags = null,
+        Target = new AzureNative.IoTOperationsMQ.Inputs.DataLakeTargetStorageArgs
+        {
+            DatalakeStorage = new AzureNative.IoTOperationsMQ.Inputs.DataLakeServiceStorageArgs
+            {
+                Authentication = new AzureNative.IoTOperationsMQ.Inputs.DataLakeServiceStorageAuthenticationArgs
+                {
+                    AccessTokenSecretName = "cfaoxjbfbwdldqjbfczvovgooyqkl",
+                    SystemAssignedManagedIdentity = new AzureNative.IoTOperationsMQ.Inputs.ManagedIdentityAuthenticationArgs
+                    {
+                        Audience = "kjderojhpehosgfcrxxbh",
+                        ExtensionName = "cyckjqqzspleajbtkniwrfsqygjfhe",
+                    },
+                },
+                Endpoint = "bddy",
+            },
+            FabricOneLake = new AzureNative.IoTOperationsMQ.Inputs.DataLakeFabricStorageArgs
+            {
+                Authentication = new AzureNative.IoTOperationsMQ.Inputs.DataLakeFabricStorageAuthenticationArgs
+                {
+                    SystemAssignedManagedIdentity = new AzureNative.IoTOperationsMQ.Inputs.ManagedIdentityAuthenticationArgs
+                    {
+                        Audience = "kjderojhpehosgfcrxxbh",
+                        ExtensionName = "cyckjqqzspleajbtkniwrfsqygjfhe",
+                    },
+                },
+                Endpoint = "S.fabric.microsoft.com",
+                FabricPath = "files",
+                Guids = new AzureNative.IoTOperationsMQ.Inputs.FabricGuidsArgs
+                {
+                    LakehouseGuid = "grsapopwjnuzbmnxbjnawaae",
+                    WorkspaceGuid = "iwqfplayvdkdxumpdc",
+                },
+                Names = new AzureNative.IoTOperationsMQ.Inputs.FabricNamesArgs
+                {
+                    LakehouseName = "iqgqtk",
+                    WorkspaceName = "fxvlfhfcmlhcbgpopyqfikqsryct",
+                },
+            },
+            LocalStorage = new AzureNative.IoTOperationsMQ.Inputs.DataLakeLocalStorageArgs
+            {
+                VolumeName = "nmzsioldiwteljpplmftk",
+            },
+        },
+    });
+
+});
+

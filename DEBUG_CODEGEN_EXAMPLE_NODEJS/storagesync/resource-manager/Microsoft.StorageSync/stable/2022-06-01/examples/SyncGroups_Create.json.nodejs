@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const syncGroup = new azure_native.storagesync.SyncGroup("syncGroup", {
+    resourceGroupName: "SampleResourceGroup_1",
+    storageSyncServiceName: "SampleStorageSyncService_1",
+    syncGroupName: "SampleSyncGroup_1",
+});

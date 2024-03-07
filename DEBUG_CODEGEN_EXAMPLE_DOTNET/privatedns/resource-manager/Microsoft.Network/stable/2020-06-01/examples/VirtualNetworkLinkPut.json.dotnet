@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualNetworkLink = new AzureNative.Network.VirtualNetworkLink("virtualNetworkLink", new()
+    {
+        Location = "Global",
+        PrivateZoneName = "privatezone1.com",
+        RegistrationEnabled = false,
+        ResourceGroupName = "resourceGroup1",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+        VirtualNetwork = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+        },
+        VirtualNetworkLinkName = "virtualNetworkLink1",
+    });
+
+});
+

@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var registryDataContainer = new AzureNative.MachineLearningServices.RegistryDataContainer("registryDataContainer", new()
+    {
+        DataContainerProperties = new AzureNative.MachineLearningServices.Inputs.DataContainerArgs
+        {
+            DataType = "uri_folder",
+            Description = "string",
+            IsArchived = false,
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        Name = "string",
+        RegistryName = "registryName",
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const daprComponentResiliencyPolicy = new azure_native.app.DaprComponentResiliencyPolicy("daprComponentResiliencyPolicy", {
+    componentName: "mydaprcomponent",
+    environmentName: "myenvironment",
+    name: "myresiliencypolicy",
+    outboundPolicy: {
+        httpRetryPolicy: {
+            maxRetries: 5,
+            retryBackOff: {
+                initialDelayInMilliseconds: 100,
+                maxIntervalInMilliseconds: 30000,
+            },
+        },
+        timeoutPolicy: {
+            responseTimeoutInSeconds: 12,
+        },
+    },
+    resourceGroupName: "examplerg",
+});

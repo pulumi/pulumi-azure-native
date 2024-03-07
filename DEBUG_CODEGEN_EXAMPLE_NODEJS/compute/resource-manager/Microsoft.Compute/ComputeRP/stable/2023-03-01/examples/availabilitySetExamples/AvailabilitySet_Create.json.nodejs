@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const availabilitySet = new azure_native.compute.AvailabilitySet("availabilitySet", {
+    availabilitySetName: "myAvailabilitySet",
+    location: "westus",
+    platformFaultDomainCount: 2,
+    platformUpdateDomainCount: 20,
+    resourceGroupName: "myResourceGroup",
+});

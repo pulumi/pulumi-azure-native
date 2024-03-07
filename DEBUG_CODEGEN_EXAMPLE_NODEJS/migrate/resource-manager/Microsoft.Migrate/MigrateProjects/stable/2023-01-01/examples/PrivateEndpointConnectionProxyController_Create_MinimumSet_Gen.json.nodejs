@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnectionProxyController = new azure_native.migrate.PrivateEndpointConnectionProxyController("privateEndpointConnectionProxyController", {
+    migrateProjectName: "1GQwlI-",
+    pecProxyName: "z1LfRIz4-M2-1-V7",
+    resourceGroupName: "rghubmigrate",
+});

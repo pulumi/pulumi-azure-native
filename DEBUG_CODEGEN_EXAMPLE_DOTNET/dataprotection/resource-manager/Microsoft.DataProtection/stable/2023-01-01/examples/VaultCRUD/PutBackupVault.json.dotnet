@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var backupVault = new AzureNative.DataProtection.BackupVault("backupVault", new()
+    {
+        Identity = new AzureNative.DataProtection.Inputs.DppIdentityDetailsArgs
+        {
+            Type = "None",
+        },
+        Location = "WestUS",
+        Properties = new AzureNative.DataProtection.Inputs.BackupVaultArgs
+        {
+            MonitoringSettings = new AzureNative.DataProtection.Inputs.MonitoringSettingsArgs
+            {
+                AzureMonitorAlertSettings = new AzureNative.DataProtection.Inputs.AzureMonitorAlertSettingsArgs
+                {
+                    AlertsForAllJobFailures = "Enabled",
+                },
+            },
+            StorageSettings = new[]
+            {
+                new AzureNative.DataProtection.Inputs.StorageSettingArgs
+                {
+                    DatastoreType = "VaultStore",
+                    Type = "LocallyRedundant",
+                },
+            },
+        },
+        ResourceGroupName = "SampleResourceGroup",
+        Tags = 
+        {
+            { "key1", "val1" },
+        },
+        VaultName = "swaggerExample",
+    });
+
+});
+

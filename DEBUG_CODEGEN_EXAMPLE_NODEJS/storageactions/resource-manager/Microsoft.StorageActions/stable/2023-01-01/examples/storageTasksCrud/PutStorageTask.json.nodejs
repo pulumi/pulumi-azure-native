@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageTask = new azure_native.storageactions.StorageTask("storageTask", {
+    action: {
+        "else": {
+            operations: [{
+                name: "DeleteBlob",
+                onFailure: azure_native.storageactions.OnFailure.Break,
+                onSuccess: azure_native.storageactions.OnSuccess.Continue,
+            }],
+        },
+        "if": {
+            condition: "[[equals(AccessTier, 'Cool')]]",
+            operations: [{
+                name: "SetBlobTier",
+                onFailure: azure_native.storageactions.OnFailure.Break,
+                onSuccess: azure_native.storageactions.OnSuccess.Continue,
+                parameters: {
+                    tier: "Hot",
+                },
+            }],
+        },
+    },
+    description: "My Storage task",
+    enabled: true,
+    location: "westus",
+    resourceGroupName: "res4228",
+    storageTaskName: "mytask1",
+});

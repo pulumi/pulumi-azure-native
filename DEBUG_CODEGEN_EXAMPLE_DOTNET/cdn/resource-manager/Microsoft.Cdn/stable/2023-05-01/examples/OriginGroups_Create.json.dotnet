@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var originGroup = new AzureNative.Cdn.OriginGroup("originGroup", new()
+    {
+        EndpointName = "endpoint1",
+        HealthProbeSettings = new AzureNative.Cdn.Inputs.HealthProbeParametersArgs
+        {
+            ProbeIntervalInSeconds = 120,
+            ProbePath = "/health.aspx",
+            ProbeProtocol = AzureNative.Cdn.ProbeProtocol.Http,
+            ProbeRequestType = AzureNative.Cdn.HealthProbeRequestType.GET,
+        },
+        OriginGroupName = "origingroup1",
+        Origins = new[]
+        {
+            new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+            },
+        },
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+        ResponseBasedOriginErrorDetectionSettings = new AzureNative.Cdn.Inputs.ResponseBasedOriginErrorDetectionParametersArgs
+        {
+            ResponseBasedDetectedErrorTypes = AzureNative.Cdn.ResponseBasedDetectedErrorTypes.TcpErrorsOnly,
+            ResponseBasedFailoverThresholdPercentage = 10,
+        },
+    });
+
+});
+

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateLinkScopedResource = new azure_native.insights.PrivateLinkScopedResource("privateLinkScopedResource", {
+    linkedResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
+    name: "scoped-resource-name",
+    resourceGroupName: "MyResourceGroup",
+    scopeName: "MyPrivateLinkScope",
+});

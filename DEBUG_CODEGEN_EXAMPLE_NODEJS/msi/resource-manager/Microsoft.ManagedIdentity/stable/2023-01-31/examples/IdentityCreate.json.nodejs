@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const userAssignedIdentity = new azure_native.managedidentity.UserAssignedIdentity("userAssignedIdentity", {
+    location: "eastus",
+    resourceGroupName: "rgName",
+    resourceName: "resourceName",
+    tags: {
+        key1: "value1",
+        key2: "value2",
+    },
+});

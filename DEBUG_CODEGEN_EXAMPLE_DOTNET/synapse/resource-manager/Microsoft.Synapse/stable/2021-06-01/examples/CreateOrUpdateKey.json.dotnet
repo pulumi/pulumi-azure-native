@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var key = new AzureNative.Synapse.Key("key", new()
+    {
+        IsActiveCMK = true,
+        KeyName = "somekey",
+        KeyVaultUrl = "https://vault.azure.net/keys/somesecret",
+        ResourceGroupName = "ExampleResourceGroup",
+        WorkspaceName = "ExampleWorkspace",
+    });
+
+});
+

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const fleetMember = new azure_native.containerservice.FleetMember("fleetMember", {
+    clusterResourceId: "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster-1",
+    fleetMemberName: "member-1",
+    fleetName: "fleet1",
+    resourceGroupName: "rg1",
+});

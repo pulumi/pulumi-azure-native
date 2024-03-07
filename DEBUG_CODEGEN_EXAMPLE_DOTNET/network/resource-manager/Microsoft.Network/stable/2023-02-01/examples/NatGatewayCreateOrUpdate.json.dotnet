@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var natGateway = new AzureNative.Network.NatGateway("natGateway", new()
+    {
+        Location = "westus",
+        NatGatewayName = "test-natgateway",
+        PublicIpAddresses = new[]
+        {
+            new AzureNative.Network.Inputs.SubResourceArgs
+            {
+                Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+            },
+        },
+        PublicIpPrefixes = new[]
+        {
+            new AzureNative.Network.Inputs.SubResourceArgs
+            {
+                Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+            },
+        },
+        ResourceGroupName = "rg1",
+        Sku = new AzureNative.Network.Inputs.NatGatewaySkuArgs
+        {
+            Name = "Standard",
+        },
+    });
+
+});
+

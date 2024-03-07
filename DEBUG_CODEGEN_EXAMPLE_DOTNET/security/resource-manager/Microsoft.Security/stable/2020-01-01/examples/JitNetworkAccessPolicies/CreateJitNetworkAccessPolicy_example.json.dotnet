@@ -1,0 +1,67 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var jitNetworkAccessPolicy = new AzureNative.Security.JitNetworkAccessPolicy("jitNetworkAccessPolicy", new()
+    {
+        AscLocation = "westeurope",
+        JitNetworkAccessPolicyName = "default",
+        Kind = "Basic",
+        Requests = new[]
+        {
+            new AzureNative.Security.Inputs.JitNetworkAccessRequestArgs
+            {
+                Requestor = "barbara@contoso.com",
+                StartTimeUtc = "2018-05-17T08:06:45.5691611Z",
+                VirtualMachines = new[]
+                {
+                    new AzureNative.Security.Inputs.JitNetworkAccessRequestVirtualMachineArgs
+                    {
+                        Id = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+                        Ports = new[]
+                        {
+                            new AzureNative.Security.Inputs.JitNetworkAccessRequestPortArgs
+                            {
+                                AllowedSourceAddressPrefix = "192.127.0.2",
+                                EndTimeUtc = "2018-05-17T09:06:45.5691611Z",
+                                Number = 3389,
+                                Status = "Initiated",
+                                StatusReason = "UserRequested",
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "myRg1",
+        VirtualMachines = new[]
+        {
+            new AzureNative.Security.Inputs.JitNetworkAccessPolicyVirtualMachineArgs
+            {
+                Id = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+                Ports = new[]
+                {
+                    new AzureNative.Security.Inputs.JitNetworkAccessPortRuleArgs
+                    {
+                        AllowedSourceAddressPrefix = "*",
+                        MaxRequestAccessDuration = "PT3H",
+                        Number = 22,
+                        Protocol = "*",
+                    },
+                    new AzureNative.Security.Inputs.JitNetworkAccessPortRuleArgs
+                    {
+                        AllowedSourceAddressPrefix = "*",
+                        MaxRequestAccessDuration = "PT3H",
+                        Number = 3389,
+                        Protocol = "*",
+                    },
+                },
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var backupPolicy = new AzureNative.StorSimple.BackupPolicy("backupPolicy", new()
+    {
+        BackupPolicyName = "BkUpPolicy01ForSDKTest",
+        DeviceName = "Device05ForSDKTest",
+        Kind = AzureNative.StorSimple.Kind.Series8000,
+        ManagerName = "ManagerForSDKTest1",
+        ResourceGroupName = "ResourceGroupForSDKTest",
+        VolumeIds = new[]
+        {
+            "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/volumeContainerForSDKTest/volumes/Clonedvolume1",
+            "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/volumeContainerForSDKTest/volumes/volume1",
+        },
+    });
+
+});
+

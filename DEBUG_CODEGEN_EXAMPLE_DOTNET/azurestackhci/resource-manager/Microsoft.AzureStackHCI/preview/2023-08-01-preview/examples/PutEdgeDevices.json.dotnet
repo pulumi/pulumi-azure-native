@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var edgeDevice = new AzureNative.AzureStackHCI.EdgeDevice("edgeDevice", new()
+    {
+        DeviceConfiguration = new AzureNative.AzureStackHCI.Inputs.DeviceConfigurationArgs
+        {
+            DeviceMetadata = "",
+            NicDetails = new[]
+            {
+                new AzureNative.AzureStackHCI.Inputs.NicDetailArgs
+                {
+                    AdapterName = "ethernet",
+                    ComponentId = "VMBUS{f8615163-df3e-46c5-913f-f2d2f965ed0g} ",
+                    DefaultGateway = "10.10.10.1",
+                    DefaultIsolationId = "0",
+                    DnsServers = new[]
+                    {
+                        "100.10.10.1",
+                    },
+                    DriverVersion = "10.0.20348.1547 ",
+                    InterfaceDescription = "NDIS 6.70 ",
+                    Ip4Address = "10.10.10.10",
+                    SubnetMask = "255.255.255.0",
+                },
+            },
+        },
+        EdgeDeviceName = "default",
+        ResourceUri = "subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-1",
+    });
+
+});
+

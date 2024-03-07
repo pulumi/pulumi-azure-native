@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var api = new AzureNative.ApiManagement.Api("api", new()
+    {
+        ApiId = "apidocs",
+        Format = "swagger-link",
+        Path = "petstoreapi123",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        ServiceUrl = "http://petstore.swagger.wordnik.com/api",
+        Value = "http://apimpimportviaurl.azurewebsites.net/api/apidocs/",
+    });
+
+});
+

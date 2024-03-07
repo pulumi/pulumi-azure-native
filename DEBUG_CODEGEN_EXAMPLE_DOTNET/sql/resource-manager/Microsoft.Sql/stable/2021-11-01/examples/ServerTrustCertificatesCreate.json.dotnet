@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serverTrustCertificate = new AzureNative.Sql.ServerTrustCertificate("serverTrustCertificate", new()
+    {
+        CertificateName = "customerCertificateName",
+        ManagedInstanceName = "testcl",
+        PublicBlob = "308203AE30820296A0030201020210",
+        ResourceGroupName = "testrg",
+    });
+
+});
+

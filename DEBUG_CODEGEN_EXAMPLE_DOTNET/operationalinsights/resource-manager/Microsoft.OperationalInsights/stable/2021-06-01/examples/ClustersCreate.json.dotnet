@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.OperationalInsights.Cluster("cluster", new()
+    {
+        ClusterName = "oiautorest6685",
+        Location = "australiasoutheast",
+        ResourceGroupName = "oiautorest6685",
+        Sku = new AzureNative.OperationalInsights.Inputs.ClusterSkuArgs
+        {
+            Capacity = 1000,
+            Name = "CapacityReservation",
+        },
+        Tags = 
+        {
+            { "tag1", "val1" },
+        },
+    });
+
+});
+

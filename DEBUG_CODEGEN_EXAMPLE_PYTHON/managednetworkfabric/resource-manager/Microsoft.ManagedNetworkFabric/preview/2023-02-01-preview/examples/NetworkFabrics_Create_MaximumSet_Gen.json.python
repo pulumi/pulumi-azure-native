@@ -7,9 +7,9 @@ network_fabric = azure_native.managednetworkfabric.NetworkFabric("networkFabric"
     ipv4_prefix="10.18.0.0/19",
     ipv6_prefix="3FFE:FFFF:0:CD40::/59",
     location="eastuseuap",
-    management_network_configuration=azure_native.managednetworkfabric.ManagementNetworkConfigurationArgs(
-        infrastructure_vpn_configuration=azure_native.managednetworkfabric.VpnConfigurationPropertiesArgs(
-            option_a_properties=azure_native.managednetworkfabric.OptionAPropertiesArgs(
+    management_network_configuration=azure_native.managednetworkfabric.ManagementNetworkConfigurationResponseArgs(
+        infrastructure_vpn_configuration={
+            "optionAProperties": azure_native.managednetworkfabric.OptionAPropertiesArgs(
                 mtu=5892,
                 peer_asn=42666,
                 primary_ipv4_prefix="20.0.0.12/30",
@@ -18,14 +18,14 @@ network_fabric = azure_native.managednetworkfabric.NetworkFabric("networkFabric"
                 secondary_ipv6_prefix="3FFE:FFFF:0:CD30::ac/126",
                 vlan_id=2724,
             ),
-            option_b_properties=azure_native.managednetworkfabric.FabricOptionBPropertiesArgs(
+            "optionBProperties": azure_native.managednetworkfabric.FabricOptionBPropertiesArgs(
                 export_route_targets=["65046:10039"],
                 import_route_targets=["65046:10039"],
             ),
-            peering_option="OptionA",
-        ),
-        workload_vpn_configuration=azure_native.managednetworkfabric.VpnConfigurationPropertiesArgs(
-            option_a_properties=azure_native.managednetworkfabric.OptionAPropertiesArgs(
+            "peeringOption": "OptionA",
+        },
+        workload_vpn_configuration={
+            "optionAProperties": azure_native.managednetworkfabric.OptionAPropertiesArgs(
                 mtu=5892,
                 peer_asn=42666,
                 primary_ipv4_prefix="10.0.0.14/30",
@@ -34,12 +34,12 @@ network_fabric = azure_native.managednetworkfabric.NetworkFabric("networkFabric"
                 secondary_ipv6_prefix="2FFE:FFFF:0:CD30::ac/126",
                 vlan_id=2724,
             ),
-            option_b_properties=azure_native.managednetworkfabric.FabricOptionBPropertiesArgs(
+            "optionBProperties": azure_native.managednetworkfabric.FabricOptionBPropertiesArgs(
                 export_route_targets=["65046:10050"],
                 import_route_targets=["65046:10050"],
             ),
-            peering_option="OptionA",
-        ),
+            "peeringOption": "OptionA",
+        },
     ),
     network_fabric_controller_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
     network_fabric_name="FabricName",

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualRouter = new azure_native.network.VirtualRouter("virtualRouter", {
+    hostedGateway: {
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway",
+    },
+    location: "West US",
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "value1",
+    },
+    virtualRouterName: "virtualRouter",
+});

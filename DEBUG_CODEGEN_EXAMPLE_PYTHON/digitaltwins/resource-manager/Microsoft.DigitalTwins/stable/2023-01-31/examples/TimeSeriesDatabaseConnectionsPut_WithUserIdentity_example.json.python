@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 time_series_database_connection = azure_native.digitaltwins.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection",
-    properties=azure_native.digitaltwins.AzureDataExplorerConnectionPropertiesArgs(
+    properties=azure_native.digitaltwins.AzureDataExplorerConnectionPropertiesResponseArgs(
         adx_database_name="myDatabase",
         adx_endpoint_uri="https://mycluster.kusto.windows.net",
         adx_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",

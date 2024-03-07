@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var @namespace = new AzureNative.Relay.Namespace("namespace", new()
+    {
+        Location = "South Central US",
+        NamespaceName = "example-RelayNamespace-5849",
+        ResourceGroupName = "resourcegroup",
+        Sku = new AzureNative.Relay.Inputs.SkuArgs
+        {
+            Name = "Standard",
+            Tier = "Standard",
+        },
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+    });
+
+});
+

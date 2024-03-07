@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateLinkServicesForEDMUpload = new AzureNative.M365SecurityAndCompliance.PrivateLinkServicesForEDMUpload("privateLinkServicesForEDMUpload", new()
+    {
+        Kind = AzureNative.M365SecurityAndCompliance.Kind.Fhir_R4,
+        Location = "westus2",
+        Properties = new AzureNative.M365SecurityAndCompliance.Inputs.ServicesPropertiesArgs
+        {
+            AccessPolicies = new[]
+            {
+                new AzureNative.M365SecurityAndCompliance.Inputs.ServiceAccessPolicyEntryArgs
+                {
+                    ObjectId = "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+                },
+            },
+        },
+        ResourceGroupName = "rg1",
+        ResourceName = "service2",
+        Tags = null,
+    });
+
+});
+

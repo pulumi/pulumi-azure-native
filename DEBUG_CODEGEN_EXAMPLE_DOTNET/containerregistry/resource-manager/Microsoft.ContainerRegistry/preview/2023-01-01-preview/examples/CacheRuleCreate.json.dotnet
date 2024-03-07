@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cacheRule = new AzureNative.ContainerRegistry.CacheRule("cacheRule", new()
+    {
+        CacheRuleName = "myCacheRule",
+        CredentialSetResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet",
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+        SourceRepository = "docker.io/library/hello-world",
+        TargetRepository = "cached-docker-hub/hello-world",
+    });
+
+});
+

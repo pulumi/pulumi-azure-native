@@ -5,8 +5,8 @@ autoscale_setting = azure_native.insights.AutoscaleSetting("autoscaleSetting",
     autoscale_setting_name="MySetting",
     enabled=True,
     location="West US",
-    notifications=[azure_native.insights.AutoscaleNotificationArgs(
-        email=azure_native.insights.EmailNotificationArgs(
+    notifications=[{
+        "email": azure_native.insights.EmailNotificationArgs(
             custom_emails=[
                 "gu@ms.com",
                 "ge@ns.net",
@@ -14,31 +14,31 @@ autoscale_setting = azure_native.insights.AutoscaleSetting("autoscaleSetting",
             send_to_subscription_administrator=True,
             send_to_subscription_co_administrators=True,
         ),
-        operation=azure_native.insights.OperationType.SCALE,
-        webhooks=[azure_native.insights.WebhookNotificationArgs(
+        "operation": azure_native.insights.OperationType.SCALE,
+        "webhooks": [azure_native.insights.WebhookNotificationArgs(
             properties={},
             service_uri="http://myservice.com",
         )],
-    )],
+    }],
     predictive_autoscale_policy=azure_native.insights.PredictiveAutoscalePolicyArgs(
         scale_mode=azure_native.insights.PredictiveAutoscalePolicyScaleMode.ENABLED,
     ),
     profiles=[
-        azure_native.insights.AutoscaleProfileArgs(
-            capacity=azure_native.insights.ScaleCapacityArgs(
+        {
+            "capacity": azure_native.insights.ScaleCapacityArgs(
                 default="1",
                 maximum="10",
                 minimum="1",
             ),
-            fixed_date=azure_native.insights.TimeWindowArgs(
+            "fixedDate": azure_native.insights.TimeWindowArgs(
                 end="2015-03-05T14:30:00Z",
                 start="2015-03-05T14:00:00Z",
                 time_zone="UTC",
             ),
-            name="adios",
-            rules=[
-                azure_native.insights.ScaleRuleArgs(
-                    metric_trigger=azure_native.insights.MetricTriggerArgs(
+            "name": "adios",
+            "rules": [
+                {
+                    "metricTrigger": azure_native.insights.MetricTriggerArgs(
                         divide_per_instance=False,
                         metric_name="Percentage CPU",
                         metric_resource_uri="/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
@@ -49,15 +49,15 @@ autoscale_setting = azure_native.insights.AutoscaleSetting("autoscaleSetting",
                         time_grain="PT1M",
                         time_window="PT5M",
                     ),
-                    scale_action=azure_native.insights.ScaleActionArgs(
+                    "scaleAction": azure_native.insights.ScaleActionArgs(
                         cooldown="PT5M",
                         direction=azure_native.insights.ScaleDirection.INCREASE,
                         type=azure_native.insights.ScaleType.CHANGE_COUNT,
                         value="1",
                     ),
-                ),
-                azure_native.insights.ScaleRuleArgs(
-                    metric_trigger=azure_native.insights.MetricTriggerArgs(
+                },
+                {
+                    "metricTrigger": azure_native.insights.MetricTriggerArgs(
                         divide_per_instance=False,
                         metric_name="Percentage CPU",
                         metric_resource_uri="/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
@@ -68,34 +68,34 @@ autoscale_setting = azure_native.insights.AutoscaleSetting("autoscaleSetting",
                         time_grain="PT2M",
                         time_window="PT5M",
                     ),
-                    scale_action=azure_native.insights.ScaleActionArgs(
+                    "scaleAction": azure_native.insights.ScaleActionArgs(
                         cooldown="PT6M",
                         direction=azure_native.insights.ScaleDirection.DECREASE,
                         type=azure_native.insights.ScaleType.CHANGE_COUNT,
                         value="2",
                     ),
-                ),
+                },
             ],
-        ),
-        azure_native.insights.AutoscaleProfileArgs(
-            capacity=azure_native.insights.ScaleCapacityArgs(
+        },
+        {
+            "capacity": azure_native.insights.ScaleCapacityArgs(
                 default="1",
                 maximum="10",
                 minimum="1",
             ),
-            name="saludos",
-            recurrence=azure_native.insights.RecurrenceArgs(
-                frequency=azure_native.insights.RecurrenceFrequency.WEEK,
-                schedule=azure_native.insights.RecurrentScheduleArgs(
+            "name": "saludos",
+            "recurrence": {
+                "frequency": azure_native.insights.RecurrenceFrequency.WEEK,
+                "schedule": azure_native.insights.RecurrentScheduleArgs(
                     days=["1"],
                     hours=[5],
                     minutes=[15],
                     time_zone="UTC",
                 ),
-            ),
-            rules=[
-                azure_native.insights.ScaleRuleArgs(
-                    metric_trigger=azure_native.insights.MetricTriggerArgs(
+            },
+            "rules": [
+                {
+                    "metricTrigger": azure_native.insights.MetricTriggerArgs(
                         divide_per_instance=False,
                         metric_name="Percentage CPU",
                         metric_resource_uri="/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
@@ -106,15 +106,15 @@ autoscale_setting = azure_native.insights.AutoscaleSetting("autoscaleSetting",
                         time_grain="PT1M",
                         time_window="PT5M",
                     ),
-                    scale_action=azure_native.insights.ScaleActionArgs(
+                    "scaleAction": azure_native.insights.ScaleActionArgs(
                         cooldown="PT5M",
                         direction=azure_native.insights.ScaleDirection.INCREASE,
                         type=azure_native.insights.ScaleType.CHANGE_COUNT,
                         value="1",
                     ),
-                ),
-                azure_native.insights.ScaleRuleArgs(
-                    metric_trigger=azure_native.insights.MetricTriggerArgs(
+                },
+                {
+                    "metricTrigger": azure_native.insights.MetricTriggerArgs(
                         divide_per_instance=False,
                         metric_name="Percentage CPU",
                         metric_resource_uri="/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
@@ -125,15 +125,15 @@ autoscale_setting = azure_native.insights.AutoscaleSetting("autoscaleSetting",
                         time_grain="PT2M",
                         time_window="PT5M",
                     ),
-                    scale_action=azure_native.insights.ScaleActionArgs(
+                    "scaleAction": azure_native.insights.ScaleActionArgs(
                         cooldown="PT6M",
                         direction=azure_native.insights.ScaleDirection.DECREASE,
                         type=azure_native.insights.ScaleType.CHANGE_COUNT,
                         value="2",
                     ),
-                ),
+                },
             ],
-        ),
+        },
     ],
     resource_group_name="TestingMetricsScaleSet",
     tags={

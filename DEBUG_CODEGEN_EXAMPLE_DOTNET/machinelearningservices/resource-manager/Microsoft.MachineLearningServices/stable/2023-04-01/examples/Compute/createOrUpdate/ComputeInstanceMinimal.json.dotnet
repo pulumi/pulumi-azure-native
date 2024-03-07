@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var compute = new AzureNative.MachineLearningServices.Compute("compute", new()
+    {
+        ComputeName = "compute123",
+        Location = "eastus",
+        Properties = new AzureNative.MachineLearningServices.Inputs.ComputeInstanceArgs
+        {
+            ComputeType = "ComputeInstance",
+            Properties = new AzureNative.MachineLearningServices.Inputs.ComputeInstancePropertiesArgs
+            {
+                VmSize = "STANDARD_NC6",
+            },
+        },
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspaces123",
+    });
+
+});
+

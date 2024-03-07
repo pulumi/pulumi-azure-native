@@ -1,0 +1,47 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var diagnosticSetting = new AzureNative.Insights.DiagnosticSetting("diagnosticSetting", new()
+    {
+        EventHubAuthorizationRuleId = "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+        EventHubName = "myeventhub",
+        LogAnalyticsDestinationType = "Dedicated",
+        Logs = new[]
+        {
+            new AzureNative.Insights.Inputs.LogSettingsArgs
+            {
+                CategoryGroup = "allLogs",
+                Enabled = true,
+                RetentionPolicy = new AzureNative.Insights.Inputs.RetentionPolicyArgs
+                {
+                    Days = 0,
+                    Enabled = false,
+                },
+            },
+        },
+        MarketplacePartnerId = "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+        Metrics = new[]
+        {
+            new AzureNative.Insights.Inputs.MetricSettingsArgs
+            {
+                Category = "WorkflowMetrics",
+                Enabled = true,
+                RetentionPolicy = new AzureNative.Insights.Inputs.RetentionPolicyArgs
+                {
+                    Days = 0,
+                    Enabled = false,
+                },
+            },
+        },
+        Name = "mysetting",
+        ResourceUri = "subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourcegroups/viruela1/providers/microsoft.logic/workflows/viruela6",
+        StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+        WorkspaceId = "",
+    });
+
+});
+

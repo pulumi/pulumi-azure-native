@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ddosCustomPolicy = new AzureNative.Network.DdosCustomPolicy("ddosCustomPolicy", new()
+    {
+        DdosCustomPolicyName = "test-ddos-custom-policy",
+        Location = "centraluseuap",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

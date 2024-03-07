@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var compute = new AzureNative.MachineLearningServices.Compute("compute", new()
+    {
+        ComputeName = "compute123",
+        Location = "eastus",
+        Properties = new AzureNative.MachineLearningServices.Inputs.AmlComputeArgs
+        {
+            ComputeType = "AmlCompute",
+            Description = "some compute",
+            Properties = new AzureNative.MachineLearningServices.Inputs.AmlComputePropertiesArgs
+            {
+                ScaleSettings = new AzureNative.MachineLearningServices.Inputs.ScaleSettingsArgs
+                {
+                    MaxNodeCount = 4,
+                    MinNodeCount = 4,
+                    NodeIdleTimeBeforeScaleDown = "PT5M",
+                },
+            },
+        },
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspaces123",
+    });
+
+});
+

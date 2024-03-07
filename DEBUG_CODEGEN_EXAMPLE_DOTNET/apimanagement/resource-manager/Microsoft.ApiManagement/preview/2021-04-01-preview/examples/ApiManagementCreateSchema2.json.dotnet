@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var schema = new AzureNative.ApiManagement.Schema("schema", new()
+    {
+        Description = "sample schema description",
+        ResourceGroupName = "rg1",
+        SchemaId = "schema1",
+        SchemaType = "json",
+        ServiceName = "apimService1",
+    });
+
+});
+

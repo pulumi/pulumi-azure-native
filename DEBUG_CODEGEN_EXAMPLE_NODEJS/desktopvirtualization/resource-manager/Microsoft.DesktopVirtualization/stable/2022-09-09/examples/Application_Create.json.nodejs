@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const application = new azure_native.desktopvirtualization.Application("application", {
+    applicationGroupName: "applicationGroup1",
+    applicationName: "application1",
+    commandLineArguments: "arguments",
+    commandLineSetting: "Allow",
+    description: "des1",
+    filePath: "path",
+    friendlyName: "friendly",
+    iconIndex: 1,
+    iconPath: "icon",
+    resourceGroupName: "resourceGroup1",
+    showInPortal: true,
+});

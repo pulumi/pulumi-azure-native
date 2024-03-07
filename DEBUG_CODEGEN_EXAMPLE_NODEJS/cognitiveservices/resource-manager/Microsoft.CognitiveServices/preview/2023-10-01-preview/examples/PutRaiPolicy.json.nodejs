@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const raiPolicy = new azure_native.cognitiveservices.RaiPolicy("raiPolicy", {
+    accountName: "accountName",
+    properties: {
+        basePolicyName: "112",
+        contentFilters: [
+            {
+                allowedContentLevel: "Low",
+                blocking: true,
+                name: "hate",
+            },
+            {
+                allowedContentLevel: "Low",
+                name: "sexual",
+            },
+            {
+                enabled: false,
+                name: "violence",
+            },
+            {
+                enabled: false,
+                name: "DefaultHateSpeechBlockList",
+            },
+        ],
+    },
+    raiPolicyName: "raiPolicyName",
+    resourceGroupName: "resourceGroupName",
+});

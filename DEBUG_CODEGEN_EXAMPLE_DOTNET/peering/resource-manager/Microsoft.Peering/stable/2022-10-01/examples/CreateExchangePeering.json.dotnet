@@ -1,0 +1,58 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var peering = new AzureNative.Peering.Peering("peering", new()
+    {
+        Exchange = new AzureNative.Peering.Inputs.PeeringPropertiesExchangeArgs
+        {
+            Connections = new[]
+            {
+                new AzureNative.Peering.Inputs.ExchangeConnectionArgs
+                {
+                    BgpSession = new AzureNative.Peering.Inputs.BgpSessionArgs
+                    {
+                        MaxPrefixesAdvertisedV4 = 1000,
+                        MaxPrefixesAdvertisedV6 = 100,
+                        Md5AuthenticationKey = "test-md5-auth-key",
+                        PeerSessionIPv4Address = "192.168.2.1",
+                        PeerSessionIPv6Address = "fd00::1",
+                    },
+                    ConnectionIdentifier = "CE495334-0E94-4E51-8164-8116D6CD284D",
+                    PeeringDBFacilityId = 99999,
+                },
+                new AzureNative.Peering.Inputs.ExchangeConnectionArgs
+                {
+                    BgpSession = new AzureNative.Peering.Inputs.BgpSessionArgs
+                    {
+                        MaxPrefixesAdvertisedV4 = 1000,
+                        MaxPrefixesAdvertisedV6 = 100,
+                        Md5AuthenticationKey = "test-md5-auth-key",
+                        PeerSessionIPv4Address = "192.168.2.2",
+                        PeerSessionIPv6Address = "fd00::2",
+                    },
+                    ConnectionIdentifier = "CDD8E673-CB07-47E6-84DE-3739F778762B",
+                    PeeringDBFacilityId = 99999,
+                },
+            },
+            PeerAsn = new AzureNative.Peering.Inputs.SubResourceArgs
+            {
+                Id = "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+            },
+        },
+        Kind = "Exchange",
+        Location = "eastus",
+        PeeringLocation = "peeringLocation0",
+        PeeringName = "peeringName",
+        ResourceGroupName = "rgName",
+        Sku = new AzureNative.Peering.Inputs.PeeringSkuArgs
+        {
+            Name = "Basic_Exchange_Free",
+        },
+    });
+
+});
+

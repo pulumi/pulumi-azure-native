@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customDomain = new AzureNative.AppPlatform.CustomDomain("customDomain", new()
+    {
+        AppName = "myapp",
+        DomainName = "mydomain.com",
+        Properties = new AzureNative.AppPlatform.Inputs.CustomDomainPropertiesArgs
+        {
+            CertName = "mycert",
+            Thumbprint = "934367bf1c97033f877db0f15cb1b586957d3133",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

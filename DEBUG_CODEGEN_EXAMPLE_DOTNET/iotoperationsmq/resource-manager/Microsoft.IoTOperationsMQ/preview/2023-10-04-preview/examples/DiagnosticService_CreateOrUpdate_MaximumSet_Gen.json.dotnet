@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var diagnosticService = new AzureNative.IoTOperationsMQ.DiagnosticService("diagnosticService", new()
+    {
+        DataExportFrequencySeconds = 26084,
+        DiagnosticServiceName = "73-1El3-1",
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        Image = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+        {
+            PullPolicy = "imfuzvqxgbdwliqnn",
+            PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+            Repository = "m",
+            Tag = "jygfdiamhhm",
+        },
+        Location = "sbhavoiabxjpuq",
+        LogFormat = "i",
+        LogLevel = "aomqhmpa",
+        MaxDataStorageSize = 3757017229,
+        MetricsPort = 37109,
+        MqName = "6RCAgs-XQ-Y2HsUF2",
+        OpenTelemetryTracesCollectorAddr = "ggqmprmjlmmkfdpb",
+        ResourceGroupName = "rgiotoperationsmq",
+        StaleDataTimeoutSeconds = 51616,
+        Tags = null,
+    });
+
+});
+

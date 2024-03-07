@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadDeployment = new AzureNative.Migrate.WorkloadDeployment("workloadDeployment", new()
+    {
+        ModernizeProjectName = "tc",
+        ResourceGroupName = "rgmigrateEngine",
+        WorkloadDeploymentName = "wo2rs4",
+    });
+
+});
+

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.databricks.PrivateEndpointConnection("privateEndpointConnection", {
+    privateEndpointConnectionName: "myWorkspace.23456789-1111-1111-1111-111111111111",
+    properties: {
+        privateLinkServiceConnectionState: {
+            description: "Approved by databricksadmin@contoso.com",
+            status: "Approved",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    workspaceName: "myWorkspace",
+});

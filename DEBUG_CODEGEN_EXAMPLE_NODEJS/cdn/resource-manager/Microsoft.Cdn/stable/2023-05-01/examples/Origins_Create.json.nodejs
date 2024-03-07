@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const origin = new azure_native.cdn.Origin("origin", {
+    enabled: true,
+    endpointName: "endpoint1",
+    hostName: "www.someDomain.net",
+    httpPort: 80,
+    httpsPort: 443,
+    originHostHeader: "www.someDomain.net",
+    originName: "www-someDomain-net",
+    priority: 1,
+    privateLinkApprovalMessage: "Please approve the connection request for this Private Link",
+    privateLinkLocation: "eastus",
+    privateLinkResourceId: "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+    profileName: "profile1",
+    resourceGroupName: "RG",
+    weight: 50,
+});

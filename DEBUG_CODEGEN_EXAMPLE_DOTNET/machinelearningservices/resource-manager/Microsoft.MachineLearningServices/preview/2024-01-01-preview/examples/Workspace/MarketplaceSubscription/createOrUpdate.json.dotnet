@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var marketplaceSubscription = new AzureNative.MachineLearningServices.MarketplaceSubscription("marketplaceSubscription", new()
+    {
+        MarketplaceSubscriptionProperties = new AzureNative.MachineLearningServices.Inputs.MarketplaceSubscriptionArgs
+        {
+            ModelId = "string",
+        },
+        Name = "string",
+        ResourceGroupName = "test-rg",
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

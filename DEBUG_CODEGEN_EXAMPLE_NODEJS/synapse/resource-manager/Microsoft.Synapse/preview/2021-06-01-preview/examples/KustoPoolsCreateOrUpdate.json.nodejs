@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const kustoPool = new azure_native.synapse.KustoPool("kustoPool", {
+    enablePurge: true,
+    enableStreamingIngest: true,
+    kustoPoolName: "kustoclusterrptest4",
+    location: "westus",
+    resourceGroupName: "kustorptest",
+    sku: {
+        capacity: 2,
+        name: "Storage optimized",
+        size: "Medium",
+    },
+    workspaceName: "synapseWorkspaceName",
+    workspaceUID: "11111111-2222-3333-444444444444",
+});

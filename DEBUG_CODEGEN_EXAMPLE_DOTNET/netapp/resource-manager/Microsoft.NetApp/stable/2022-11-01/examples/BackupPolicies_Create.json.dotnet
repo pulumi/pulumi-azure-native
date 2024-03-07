@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var backupPolicy = new AzureNative.NetApp.BackupPolicy("backupPolicy", new()
+    {
+        AccountName = "account1",
+        BackupPolicyName = "backupPolicyName",
+        DailyBackupsToKeep = 10,
+        Enabled = true,
+        Location = "westus",
+        MonthlyBackupsToKeep = 10,
+        ResourceGroupName = "myRG",
+        WeeklyBackupsToKeep = 10,
+    });
+
+});
+

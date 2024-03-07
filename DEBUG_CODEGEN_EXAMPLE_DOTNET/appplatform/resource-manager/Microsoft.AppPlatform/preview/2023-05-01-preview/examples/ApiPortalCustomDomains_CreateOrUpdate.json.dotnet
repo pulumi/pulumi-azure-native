@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiPortalCustomDomain = new AzureNative.AppPlatform.ApiPortalCustomDomain("apiPortalCustomDomain", new()
+    {
+        ApiPortalName = "default",
+        DomainName = "myDomainName",
+        Properties = new AzureNative.AppPlatform.Inputs.ApiPortalCustomDomainPropertiesArgs
+        {
+            Thumbprint = "*",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ioTAddon = new AzureNative.DataBoxEdge.IoTAddon("ioTAddon", new()
+    {
+        AddonName = "arcName",
+        DeviceName = "testedgedevice",
+        ResourceGroupName = "GroupForEdgeAutomation",
+        RoleName = "KubernetesRole",
+    });
+
+});
+

@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 configuration_assignments_for_resource_group = azure_native.maintenance.ConfigurationAssignmentsForResourceGroup("configurationAssignmentsForResourceGroup",
     configuration_assignment_name="workervmConfiguration",
-    filter=azure_native.maintenance.ConfigurationAssignmentFilterPropertiesArgs(
+    filter=azure_native.maintenance.ConfigurationAssignmentFilterPropertiesResponseArgs(
         locations=[
             "Japan East",
             "UK South",

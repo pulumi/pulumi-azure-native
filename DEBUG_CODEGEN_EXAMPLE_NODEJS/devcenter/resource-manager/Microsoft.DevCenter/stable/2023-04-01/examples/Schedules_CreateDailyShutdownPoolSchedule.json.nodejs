@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const schedule = new azure_native.devcenter.Schedule("schedule", {
+    frequency: "Daily",
+    poolName: "DevPool",
+    projectName: "DevProject",
+    resourceGroupName: "rg1",
+    scheduleName: "autoShutdown",
+    state: "Enabled",
+    time: "17:30",
+    timeZone: "America/Los_Angeles",
+    type: "StopDevBox",
+});

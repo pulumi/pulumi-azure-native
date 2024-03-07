@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const professionalServiceSubscriptionLevel = new azure_native.professionalservice.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel", {
+    location: "global",
+    name: "MyContosoPS",
+    properties: {
+        offerId: "testprofservice",
+        publisherId: "microsoft-contoso",
+        quoteId: "quoteabc",
+        skuId: "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+    },
+    resourceGroupName: "my-ps-rg",
+    resourceName: "MyContosoPS",
+});

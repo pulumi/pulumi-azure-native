@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const scheduledTrigger = new azure_native.datashare.ScheduledTrigger("scheduledTrigger", {
+    accountName: "Account1",
+    kind: "ScheduleBased",
+    recurrenceInterval: "Day",
+    resourceGroupName: "SampleResourceGroup",
+    shareSubscriptionName: "ShareSubscription1",
+    synchronizationMode: "Incremental",
+    synchronizationTime: "2018-11-14T04:47:52.9614956Z",
+    triggerName: "Trigger1",
+});

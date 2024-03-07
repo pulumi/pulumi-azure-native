@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const raiBlocklist = new azure_native.cognitiveservices.RaiBlocklist("raiBlocklist", {
+    accountName: "accountName",
+    properties: {
+        description: "Basic blocklist description",
+    },
+    raiBlocklistName: "raiBlocklistName",
+    resourceGroupName: "resourceGroupName",
+});

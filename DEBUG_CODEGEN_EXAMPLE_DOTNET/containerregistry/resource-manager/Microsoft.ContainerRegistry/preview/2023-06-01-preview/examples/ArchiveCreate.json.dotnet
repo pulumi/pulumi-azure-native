@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var archife = new AzureNative.ContainerRegistry.Archife("archife", new()
+    {
+        ArchiveName = "myArchiveName",
+        PackageSource = new AzureNative.ContainerRegistry.Inputs.ArchivePackageSourcePropertiesArgs
+        {
+            Type = "remote",
+            Url = "string",
+        },
+        PackageType = "rpm",
+        PublishedVersion = "string",
+        RegistryName = "myRegistry",
+        RepositoryEndpointPrefix = "string",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.MachineLearning.Workspace("workspace", new()
+    {
+        Location = "West Europe",
+        OwnerEmail = "abc@microsoft.com",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.MachineLearning.Inputs.SkuArgs
+        {
+            Name = "Enterprise",
+            Tier = "Enterprise",
+        },
+        Tags = 
+        {
+            { "tagKey1", "TagValue1" },
+        },
+        UserStorageAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
+        WorkspaceName = "testworkspace",
+    });
+
+});
+

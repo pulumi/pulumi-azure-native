@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var authorizationServer = new AzureNative.ApiManagement.AuthorizationServer("authorizationServer", new()
+    {
+        AuthorizationEndpoint = "https://www.contoso.com/oauth2/auth",
+        AuthorizationMethods = new[]
+        {
+            AzureNative.ApiManagement.AuthorizationMethod.GET,
+        },
+        Authsid = "newauthServer",
+        BearerTokenSendingMethods = new[]
+        {
+            "authorizationHeader",
+        },
+        ClientId = "1",
+        ClientRegistrationEndpoint = "https://www.contoso.com/apps",
+        ClientSecret = "2",
+        DefaultScope = "read write",
+        Description = "test server",
+        DisplayName = "test2",
+        GrantTypes = new[]
+        {
+            "authorizationCode",
+            "implicit",
+        },
+        ResourceGroupName = "rg1",
+        ResourceOwnerPassword = "pwd",
+        ResourceOwnerUsername = "un",
+        ServiceName = "apimService1",
+        SupportState = true,
+        TokenEndpoint = "https://www.contoso.com/oauth2/token",
+        UseInApiDocumentation = true,
+        UseInTestConsole = false,
+    });
+
+});
+

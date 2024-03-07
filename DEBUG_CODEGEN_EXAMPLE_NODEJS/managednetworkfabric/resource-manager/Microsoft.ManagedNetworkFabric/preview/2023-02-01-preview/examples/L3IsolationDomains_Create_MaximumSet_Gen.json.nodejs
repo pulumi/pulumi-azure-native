@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const l3IsolationDomain = new azure_native.managednetworkfabric.L3IsolationDomain("l3IsolationDomain", {
+    aggregateRouteConfiguration: {
+        ipv4Routes: [{
+            prefix: "10.0.0.0/24",
+        }],
+        ipv6Routes: [{
+            prefix: "10.0.0.1",
+        }],
+    },
+    connectedSubnetRoutePolicy: {
+        exportRoutePolicyId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+    },
+    description: "creating L3 isolation domain",
+    l3IsolationDomainName: "example-l3domain",
+    location: "eastus",
+    networkFabricId: "/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+    redistributeConnectedSubnets: "True",
+    redistributeStaticRoutes: "False",
+    resourceGroupName: "resourceGroupName",
+});

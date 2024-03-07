@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configuration = new AzureNative.DBforPostgreSQL.Configuration("configuration", new()
+    {
+        ConfigurationName = "event_scheduler",
+        ResourceGroupName = "testrg",
+        ServerName = "testserver",
+        Source = "user-override",
+        Value = "on",
+    });
+
+});
+

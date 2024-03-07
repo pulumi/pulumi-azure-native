@@ -1,0 +1,52 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const gateway = new azure_native.servicefabricmesh.Gateway("gateway", {
+    description: "Service Fabric Mesh sample gateway.",
+    destinationNetwork: {
+        name: "helloWorldNetwork",
+    },
+    gatewayResourceName: "sampleGateway",
+    http: [{
+        hosts: [{
+            name: "contoso.com",
+            routes: [{
+                destination: {
+                    applicationName: "httpHelloWorldApp",
+                    endpointName: "indexHttpEndpoint",
+                    serviceName: "indexService",
+                },
+                match: {
+                    headers: [{
+                        name: "accept",
+                        type: "exact",
+                        value: "application/json",
+                    }],
+                    path: {
+                        rewrite: "/",
+                        type: "prefix",
+                        value: "/index",
+                    },
+                },
+                name: "index",
+            }],
+        }],
+        name: "contosoWebsite",
+        port: 8081,
+    }],
+    location: "EastUS",
+    resourceGroupName: "sbz_demo",
+    sourceNetwork: {
+        name: "Open",
+    },
+    tags: {},
+    tcp: [{
+        destination: {
+            applicationName: "helloWorldApp",
+            endpointName: "helloWorldListener",
+            serviceName: "helloWorldService",
+        },
+        name: "web",
+        port: 80,
+    }],
+});

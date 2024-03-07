@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 private_endpoint_connection_controller_private_endpoint_connection = azure_native.migrate.PrivateEndpointConnectionControllerPrivateEndpointConnection("privateEndpointConnectionControllerPrivateEndpointConnection",
     migrate_project_name="proj567",
     pe_connection_name="proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6",
-    properties=azure_native.migrate.ConnectionStateRequestBodyPropertiesArgs(
+    properties=azure_native.migrate.PrivateEndpointConnectionPropertiesResponseArgs(
         private_link_service_connection_state=azure_native.migrate.PrivateLinkServiceConnectionStateArgs(
             actions_required="",
             status="Approved",

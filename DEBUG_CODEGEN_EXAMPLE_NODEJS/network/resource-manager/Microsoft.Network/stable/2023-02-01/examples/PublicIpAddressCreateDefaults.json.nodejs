@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const publicIPAddress = new azure_native.network.PublicIPAddress("publicIPAddress", {
+    location: "eastus",
+    publicIpAddressName: "test-ip",
+    resourceGroupName: "rg1",
+});

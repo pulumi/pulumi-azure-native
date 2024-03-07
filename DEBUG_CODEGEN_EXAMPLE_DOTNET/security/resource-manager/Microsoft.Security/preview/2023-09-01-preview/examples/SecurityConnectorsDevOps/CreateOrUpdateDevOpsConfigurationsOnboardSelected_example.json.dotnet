@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var devOpsConfiguration = new AzureNative.Security.DevOpsConfiguration("devOpsConfiguration", new()
+    {
+        Properties = new AzureNative.Security.Inputs.DevOpsConfigurationPropertiesArgs
+        {
+            Authorization = new AzureNative.Security.Inputs.AuthorizationArgs
+            {
+                Code = "00000000000000000000",
+            },
+            AutoDiscovery = "Disabled",
+            TopLevelInventoryList = new[]
+            {
+                "org1",
+                "org2",
+            },
+        },
+        ResourceGroupName = "myRg",
+        SecurityConnectorName = "mySecurityConnectorName",
+    });
+
+});
+

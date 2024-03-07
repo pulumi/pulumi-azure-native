@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hub = new AzureNative.CustomerInsights.Hub("hub", new()
+    {
+        HubBillingInfo = new AzureNative.CustomerInsights.Inputs.HubBillingInfoFormatArgs
+        {
+            MaxUnits = 5,
+            MinUnits = 1,
+            SkuName = "B0",
+        },
+        HubName = "sdkTestHub",
+        Location = "West US",
+        ResourceGroupName = "TestHubRG",
+    });
+
+});
+

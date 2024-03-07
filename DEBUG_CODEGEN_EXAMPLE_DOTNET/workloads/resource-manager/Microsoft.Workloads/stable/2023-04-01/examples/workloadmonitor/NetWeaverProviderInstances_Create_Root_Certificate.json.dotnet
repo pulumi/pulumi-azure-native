@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var providerInstance = new AzureNative.Workloads.ProviderInstance("providerInstance", new()
+    {
+        MonitorName = "mySapMonitor",
+        ProviderInstanceName = "myProviderInstance",
+        ProviderSettings = new AzureNative.Workloads.Inputs.SapNetWeaverProviderInstancePropertiesArgs
+        {
+            ProviderType = "SapNetWeaver",
+            SapClientId = "111",
+            SapHostFileEntries = new[]
+            {
+                "127.0.0.1 name fqdn",
+            },
+            SapHostname = "name",
+            SapInstanceNr = "00",
+            SapPassword = "****",
+            SapPasswordUri = "",
+            SapPortNumber = "1234",
+            SapSid = "SID",
+            SapUsername = "username",
+            SslPreference = "RootCertificate",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

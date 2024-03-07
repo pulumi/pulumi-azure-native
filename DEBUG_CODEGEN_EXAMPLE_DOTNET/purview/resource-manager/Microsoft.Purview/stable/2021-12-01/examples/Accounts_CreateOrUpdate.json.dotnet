@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.Purview.Account("account", new()
+    {
+        AccountName = "account1",
+        Location = "West US 2",
+        ManagedResourceGroupName = "custom-rgname",
+        ManagedResourcesPublicNetworkAccess = "Enabled",
+        ResourceGroupName = "SampleResourceGroup",
+    });
+
+});
+

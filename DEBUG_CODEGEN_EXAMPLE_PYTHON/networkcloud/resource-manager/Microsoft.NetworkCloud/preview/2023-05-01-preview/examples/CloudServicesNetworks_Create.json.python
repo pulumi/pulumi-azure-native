@@ -2,13 +2,13 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 cloud_services_network = azure_native.networkcloud.CloudServicesNetwork("cloudServicesNetwork",
-    additional_egress_endpoints=[azure_native.networkcloud.EgressEndpointArgs(
-        category="azure-resource-management",
-        endpoints=[azure_native.networkcloud.EndpointDependencyArgs(
+    additional_egress_endpoints=[{
+        "category": "azure-resource-management",
+        "endpoints": [azure_native.networkcloud.EndpointDependencyArgs(
             domain_name="https://storageaccountex.blob.core.windows.net",
             port=443,
         )],
-    )],
+    }],
     cloud_services_network_name="cloudServicesNetworkName",
     enable_default_egress_endpoints="False",
     extended_location=azure_native.networkcloud.ExtendedLocationArgs(

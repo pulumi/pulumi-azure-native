@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var blobContainerImmutabilityPolicy = new AzureNative.Storage.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", new()
+    {
+        AccountName = "sto7069",
+        AllowProtectedAppendWrites = true,
+        ContainerName = "container6397",
+        ImmutabilityPeriodSinceCreationInDays = 3,
+        ImmutabilityPolicyName = "default",
+        ResourceGroupName = "res1782",
+    });
+
+});
+

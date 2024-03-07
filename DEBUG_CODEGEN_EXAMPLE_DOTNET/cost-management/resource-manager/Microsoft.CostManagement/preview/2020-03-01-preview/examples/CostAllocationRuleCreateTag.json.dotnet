@@ -1,0 +1,62 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var costAllocationRule = new AzureNative.CostManagement.CostAllocationRule("costAllocationRule", new()
+    {
+        BillingAccountId = "100",
+        Properties = new AzureNative.CostManagement.Inputs.CostAllocationRulePropertiesArgs
+        {
+            Description = "This is a testRule",
+            Details = new AzureNative.CostManagement.Inputs.CostAllocationRuleDetailsArgs
+            {
+                SourceResources = new[]
+                {
+                    new AzureNative.CostManagement.Inputs.SourceCostAllocationResourceArgs
+                    {
+                        Name = "category",
+                        ResourceType = "Tag",
+                        Values = new[]
+                        {
+                            "devops",
+                        },
+                    },
+                },
+                TargetResources = new[]
+                {
+                    new AzureNative.CostManagement.Inputs.TargetCostAllocationResourceArgs
+                    {
+                        Name = "ResourceGroupName",
+                        PolicyType = "FixedProportion",
+                        ResourceType = "Dimension",
+                        Values = new[]
+                        {
+                            new AzureNative.CostManagement.Inputs.CostAllocationProportionArgs
+                            {
+                                Name = "destinationRG",
+                                Percentage = 33.33,
+                            },
+                            new AzureNative.CostManagement.Inputs.CostAllocationProportionArgs
+                            {
+                                Name = "destinationRG2",
+                                Percentage = 33.33,
+                            },
+                            new AzureNative.CostManagement.Inputs.CostAllocationProportionArgs
+                            {
+                                Name = "destinationRG3",
+                                Percentage = 33.34,
+                            },
+                        },
+                    },
+                },
+            },
+            Status = "Active",
+        },
+        RuleName = "testRule",
+    });
+
+});
+

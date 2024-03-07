@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const elasticPool = new azure_native.sql.ElasticPool("elasticPool", {
+    elasticPoolName: "sqlcrudtest-8102",
+    location: "Japan East",
+    perDatabaseSettings: {
+        maxCapacity: 2,
+        minCapacity: 0.25,
+    },
+    resourceGroupName: "sqlcrudtest-2369",
+    serverName: "sqlcrudtest-8069",
+    sku: {
+        capacity: 2,
+        name: "GP_Gen4_2",
+        tier: "GeneralPurpose",
+    },
+});

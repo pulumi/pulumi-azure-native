@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customImage = new azure_native.testbase.CustomImage("customImage", {
+    customImageName: "image-2cfb2edc-13bc-4d54-8d6e-38b2a233b003",
+    definitionName: "contoso-image-def",
+    resourceGroupName: "contoso-rg1",
+    source: "VHD",
+    testBaseAccountName: "contoso-testBaseAccount1",
+    versionName: "1.0.0",
+    vhdId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/VHDs/vhd-00ac3ccd-1503-4ee5-aa26-26569cfafe88",
+});

@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var attestationAtSubscription = new AzureNative.PolicyInsights.AttestationAtSubscription("attestationAtSubscription", new()
+    {
+        AttestationName = "790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
+        ComplianceState = "Compliant",
+        PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    });
+
+});
+

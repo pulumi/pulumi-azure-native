@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var blobServiceProperties = new AzureNative.Storage.BlobServiceProperties("blobServiceProperties", new()
+    {
+        AccountName = "sto8607",
+        BlobServicesName = "default",
+        LastAccessTimeTrackingPolicy = new AzureNative.Storage.Inputs.LastAccessTimeTrackingPolicyArgs
+        {
+            BlobType = new[]
+            {
+                "blockBlob",
+            },
+            Enable = true,
+            Name = "AccessTimeTracking",
+            TrackingGranularityInDays = 1,
+        },
+        ResourceGroupName = "res4410",
+    });
+
+});
+

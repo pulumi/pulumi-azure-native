@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var kpi = new AzureNative.CustomerInsights.Kpi("kpi", new()
+    {
+        Aliases = new[]
+        {
+            new AzureNative.CustomerInsights.Inputs.KpiAliasArgs
+            {
+                AliasName = "alias",
+                Expression = "Id+4",
+            },
+        },
+        CalculationWindow = AzureNative.CustomerInsights.CalculationWindowTypes.Day,
+        Description = 
+        {
+            { "en-us", "Kpi Description" },
+        },
+        DisplayName = 
+        {
+            { "en-us", "Kpi DisplayName" },
+        },
+        EntityType = AzureNative.CustomerInsights.EntityTypes.Profile,
+        EntityTypeName = "testProfile2327128",
+        Expression = "SavingAccountBalance",
+        Function = AzureNative.CustomerInsights.KpiFunctions.Sum,
+        GroupBy = new[]
+        {
+            "SavingAccountBalance",
+        },
+        HubName = "sdkTestHub",
+        KpiName = "kpiTest45453647",
+        ResourceGroupName = "TestHubRG",
+        ThresHolds = new AzureNative.CustomerInsights.Inputs.KpiThresholdsArgs
+        {
+            IncreasingKpi = true,
+            LowerLimit = 5,
+            UpperLimit = 50,
+        },
+        Unit = "unit",
+    });
+
+});
+

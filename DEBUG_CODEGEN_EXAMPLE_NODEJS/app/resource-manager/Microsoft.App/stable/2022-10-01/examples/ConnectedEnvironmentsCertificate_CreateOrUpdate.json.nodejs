@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const connectedEnvironmentsCertificate = new azure_native.app.ConnectedEnvironmentsCertificate("connectedEnvironmentsCertificate", {
+    certificateName: "certificate-firendly-name",
+    connectedEnvironmentName: "testcontainerenv",
+    location: "East US",
+    properties: {
+        password: "private key password",
+        value: "Y2VydA==",
+    },
+    resourceGroupName: "examplerg",
+});

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var origin = new AzureNative.Cdn.Origin("origin", new()
+    {
+        Enabled = true,
+        EndpointName = "endpoint1",
+        HostName = "www.someDomain.net",
+        HttpPort = 80,
+        HttpsPort = 443,
+        OriginHostHeader = "www.someDomain.net",
+        OriginName = "www-someDomain-net",
+        Priority = 1,
+        PrivateLinkApprovalMessage = "Please approve the connection request for this Private Link",
+        PrivateLinkLocation = "eastus",
+        PrivateLinkResourceId = "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+        Weight = 50,
+    });
+
+});
+

@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var startStopManagedInstanceSchedule = new AzureNative.Sql.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule", new()
+    {
+        ManagedInstanceName = "schedulemi",
+        ResourceGroupName = "schedulerg",
+        ScheduleList = new[]
+        {
+            new AzureNative.Sql.Inputs.ScheduleItemArgs
+            {
+                StartDay = "Thursday",
+                StartTime = "18:00",
+                StopDay = "Thursday",
+                StopTime = "17:00",
+            },
+            new AzureNative.Sql.Inputs.ScheduleItemArgs
+            {
+                StartDay = "Thursday",
+                StartTime = "15:00",
+                StopDay = "Thursday",
+                StopTime = "14:00",
+            },
+        },
+        StartStopScheduleName = "default",
+    });
+
+});
+

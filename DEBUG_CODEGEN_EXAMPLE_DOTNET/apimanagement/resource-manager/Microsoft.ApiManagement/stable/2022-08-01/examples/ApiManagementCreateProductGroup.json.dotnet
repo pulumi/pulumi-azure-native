@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var productGroup = new AzureNative.ApiManagement.ProductGroup("productGroup", new()
+    {
+        GroupId = "templateGroup",
+        ProductId = "testproduct",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

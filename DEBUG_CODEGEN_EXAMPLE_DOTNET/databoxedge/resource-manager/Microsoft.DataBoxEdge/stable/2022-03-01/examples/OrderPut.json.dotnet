@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var order = new AzureNative.DataBoxEdge.Order("order", new()
+    {
+        ContactInformation = new AzureNative.DataBoxEdge.Inputs.ContactDetailsArgs
+        {
+            CompanyName = "Microsoft",
+            ContactPerson = "John Mcclane",
+            EmailList = new[]
+            {
+                "john@microsoft.com",
+            },
+            Phone = "(800) 426-9400",
+        },
+        DeviceName = "testedgedevice",
+        ResourceGroupName = "GroupForEdgeAutomation",
+        ShippingAddress = new AzureNative.DataBoxEdge.Inputs.AddressArgs
+        {
+            AddressLine1 = "Microsoft Corporation",
+            AddressLine2 = "One Microsoft Way",
+            AddressLine3 = "Redmond",
+            City = "WA",
+            Country = "USA",
+            PostalCode = "98052",
+            State = "WA",
+        },
+    });
+
+});
+

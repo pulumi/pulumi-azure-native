@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managementLockByScope = new AzureNative.Authorization.ManagementLockByScope("managementLockByScope", new()
+    {
+        Level = "ReadOnly",
+        LockName = "testlock",
+        Scope = "subscriptions/subscriptionId",
+    });
+
+});
+

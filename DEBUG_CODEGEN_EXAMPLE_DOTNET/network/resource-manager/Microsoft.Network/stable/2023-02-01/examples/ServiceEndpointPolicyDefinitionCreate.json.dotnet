@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serviceEndpointPolicyDefinition = new AzureNative.Network.ServiceEndpointPolicyDefinition("serviceEndpointPolicyDefinition", new()
+    {
+        Description = "Storage Service EndpointPolicy Definition",
+        ResourceGroupName = "rg1",
+        Service = "Microsoft.Storage",
+        ServiceEndpointPolicyDefinitionName = "testDefinition",
+        ServiceEndpointPolicyName = "testPolicy",
+        ServiceResources = new[]
+        {
+            "/subscriptions/subid1",
+            "/subscriptions/subid1/resourceGroups/storageRg",
+            "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+        },
+    });
+
+});
+

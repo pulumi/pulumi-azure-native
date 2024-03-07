@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.Batch.Pool("pool", new()
+    {
+        AccountName = "sampleacct",
+        DeploymentConfiguration = new AzureNative.Batch.Inputs.DeploymentConfigurationArgs
+        {
+            VirtualMachineConfiguration = new AzureNative.Batch.Inputs.VirtualMachineConfigurationArgs
+            {
+                ImageReference = new AzureNative.Batch.Inputs.ImageReferenceArgs
+                {
+                    Id = "/subscriptions/subid/resourceGroups/networking-group/providers/Microsoft.Compute/galleries/testgallery/images/testimagedef/versions/0.0.1",
+                },
+                NodeAgentSkuId = "batch.node.ubuntu 18.04",
+            },
+        },
+        NetworkConfiguration = new AzureNative.Batch.Inputs.NetworkConfigurationArgs
+        {
+            PublicIPAddressConfiguration = new AzureNative.Batch.Inputs.PublicIPAddressConfigurationArgs
+            {
+                Provision = AzureNative.Batch.IPAddressProvisioningType.NoPublicIPAddresses,
+            },
+            SubnetId = "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+        },
+        PoolName = "testpool",
+        ResourceGroupName = "default-azurebatch-japaneast",
+        VmSize = "STANDARD_D4",
+    });
+
+});
+

@@ -2,18 +2,18 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 gallery_application = azure_native.compute.GalleryApplication("galleryApplication",
-    custom_actions=[azure_native.compute.GalleryApplicationCustomActionArgs(
-        description="This is the custom action description.",
-        name="myCustomAction",
-        parameters=[azure_native.compute.GalleryApplicationCustomActionParameterArgs(
+    custom_actions=[{
+        "description": "This is the custom action description.",
+        "name": "myCustomAction",
+        "parameters": [azure_native.compute.GalleryApplicationCustomActionParameterArgs(
             default_value="default value of parameter.",
             description="This is the description of the parameter",
             name="myCustomActionParameter",
             required=False,
             type=azure_native.compute.GalleryApplicationCustomActionParameterType.STRING,
         )],
-        script="myCustomActionScript",
-    )],
+        "script": "myCustomActionScript",
+    }],
     description="This is the gallery application description.",
     eula="This is the gallery application EULA.",
     gallery_application_name="myGalleryApplicationName",

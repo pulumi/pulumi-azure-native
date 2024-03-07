@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var logicalNetwork = new AzureNative.AzureStackHCI.LogicalNetwork("logicalNetwork", new()
+    {
+        ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+            Type = "CustomLocation",
+        },
+        Location = "West US2",
+        LogicalNetworkName = "test-lnet",
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

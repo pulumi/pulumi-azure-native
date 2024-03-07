@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serviceEndpoint = new azure_native.recommendationsservice.ServiceEndpoint("serviceEndpoint", {
+    accountName: "sampleAccount",
+    location: "West US",
+    properties: {
+        preAllocatedCapacity: 100,
+    },
+    resourceGroupName: "rg",
+    serviceEndpointName: "s1",
+    tags: {
+        Environment: "Prod",
+    },
+});

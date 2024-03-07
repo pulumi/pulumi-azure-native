@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agentPool = new AzureNative.ContainerService.AgentPool("agentPool", new()
+    {
+        AgentPoolName = "agentpool1",
+        PowerState = new AzureNative.ContainerService.Inputs.PowerStateArgs
+        {
+            Code = "Running",
+        },
+        ResourceGroupName = "rg1",
+        ResourceName = "clustername1",
+    });
+
+});
+

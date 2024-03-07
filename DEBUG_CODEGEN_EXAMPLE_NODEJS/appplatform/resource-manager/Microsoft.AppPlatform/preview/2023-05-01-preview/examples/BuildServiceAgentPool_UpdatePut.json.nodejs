@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const buildServiceAgentPool = new azure_native.appplatform.BuildServiceAgentPool("buildServiceAgentPool", {
+    agentPoolName: "default",
+    buildServiceName: "default",
+    properties: {
+        poolSize: {
+            name: "S3",
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

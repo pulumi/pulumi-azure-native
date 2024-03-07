@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const diagnosticService = new azure_native.iotoperationsmq.DiagnosticService("diagnosticService", {
+    dataExportFrequencySeconds: 26084,
+    diagnosticServiceName: "73-1El3-1",
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    image: {
+        pullPolicy: "imfuzvqxgbdwliqnn",
+        pullSecrets: "klnqimxqsrdwhcqldjvdtsrs",
+        repository: "m",
+        tag: "jygfdiamhhm",
+    },
+    location: "sbhavoiabxjpuq",
+    logFormat: "i",
+    logLevel: "aomqhmpa",
+    maxDataStorageSize: 3757017229,
+    metricsPort: 37109,
+    mqName: "6RCAgs-XQ-Y2HsUF2",
+    openTelemetryTracesCollectorAddr: "ggqmprmjlmmkfdpb",
+    resourceGroupName: "rgiotoperationsmq",
+    staleDataTimeoutSeconds: 51616,
+    tags: {},
+});

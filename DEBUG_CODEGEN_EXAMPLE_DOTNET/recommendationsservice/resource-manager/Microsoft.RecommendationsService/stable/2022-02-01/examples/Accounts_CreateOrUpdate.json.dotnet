@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.RecommendationsService.Account("account", new()
+    {
+        AccountName = "sampleAccount",
+        Location = "West US",
+        Properties = new AzureNative.RecommendationsService.Inputs.AccountResourcePropertiesArgs
+        {
+            Configuration = "Capacity",
+            EndpointAuthentications = new[]
+            {
+                new AzureNative.RecommendationsService.Inputs.EndpointAuthenticationArgs
+                {
+                    AadTenantID = "tenant",
+                    PrincipalID = "oid",
+                    PrincipalType = "User",
+                },
+            },
+        },
+        ResourceGroupName = "rg",
+        Tags = 
+        {
+            { "Environment", "Prod" },
+        },
+    });
+
+});
+

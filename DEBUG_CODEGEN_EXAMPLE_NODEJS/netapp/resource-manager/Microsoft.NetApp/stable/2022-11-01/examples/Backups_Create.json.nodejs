@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const backup = new azure_native.netapp.Backup("backup", {
+    accountName: "account1",
+    backupName: "backup1",
+    label: "myLabel",
+    location: "eastus",
+    poolName: "pool1",
+    resourceGroupName: "myRG",
+    volumeName: "volume1",
+});

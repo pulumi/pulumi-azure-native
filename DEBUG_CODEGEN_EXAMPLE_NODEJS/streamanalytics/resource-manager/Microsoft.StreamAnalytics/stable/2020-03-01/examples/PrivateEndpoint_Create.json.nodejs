@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpoint = new azure_native.streamanalytics.PrivateEndpoint("privateEndpoint", {
+    clusterName: "testcluster",
+    manualPrivateLinkServiceConnections: [{
+        groupIds: ["groupIdFromResource"],
+        privateLinkServiceId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+    }],
+    privateEndpointName: "testpe",
+    resourceGroupName: "sjrg",
+});

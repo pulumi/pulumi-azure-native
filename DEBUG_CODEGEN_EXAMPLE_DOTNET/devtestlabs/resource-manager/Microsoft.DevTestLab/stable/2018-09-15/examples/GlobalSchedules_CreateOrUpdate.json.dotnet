@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var globalSchedule = new AzureNative.DevTestLab.GlobalSchedule("globalSchedule", new()
+    {
+        Name = "labvmautostart",
+        ResourceGroupName = "resourceGroupName",
+        Status = "Enabled",
+        TaskType = "LabVmsStartupTask",
+        TimeZoneId = "Hawaiian Standard Time",
+        WeeklyRecurrence = new AzureNative.DevTestLab.Inputs.WeekDetailsArgs
+        {
+            Time = "0700",
+            Weekdays = new[]
+            {
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+            },
+        },
+    });
+
+});
+

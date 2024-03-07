@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.media.PrivateEndpointConnection("privateEndpointConnection", {
+    accountName: "contososports",
+    name: "connectionName1",
+    privateLinkServiceConnectionState: {
+        description: "Test description.",
+        status: "Approved",
+    },
+    resourceGroupName: "contosorg",
+});

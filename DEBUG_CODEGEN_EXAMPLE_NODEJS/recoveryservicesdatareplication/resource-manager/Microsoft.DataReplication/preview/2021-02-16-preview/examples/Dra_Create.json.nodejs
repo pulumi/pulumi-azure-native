@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dra = new azure_native.datareplication.Dra("dra", {
+    fabricAgentName: "M",
+    fabricName: "wPR",
+    properties: {
+        authenticationIdentity: {
+            aadAuthority: "bubwwbowfhdmujrt",
+            applicationId: "cwktzrwajuvfyyymfstpey",
+            audience: "dkjobanyqgzenivyxhvavottpc",
+            objectId: "khsiaqfbpuhp",
+            tenantId: "joclkkdovixwapephhxaqtefubhhmq",
+        },
+        customProperties: {},
+        machineId: "envzcoijbqhtrpncbjbhk",
+        machineName: "y",
+        resourceAccessIdentity: {
+            aadAuthority: "bubwwbowfhdmujrt",
+            applicationId: "cwktzrwajuvfyyymfstpey",
+            audience: "dkjobanyqgzenivyxhvavottpc",
+            objectId: "khsiaqfbpuhp",
+            tenantId: "joclkkdovixwapephhxaqtefubhhmq",
+        },
+    },
+    resourceGroupName: "rgrecoveryservicesdatareplication",
+});

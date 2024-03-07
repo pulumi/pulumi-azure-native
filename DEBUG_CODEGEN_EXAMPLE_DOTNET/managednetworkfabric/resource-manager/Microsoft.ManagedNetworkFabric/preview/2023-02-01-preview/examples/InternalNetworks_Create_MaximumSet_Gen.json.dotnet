@@ -1,0 +1,88 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var internalNetwork = new AzureNative.ManagedNetworkFabric.InternalNetwork("internalNetwork", new()
+    {
+        BgpConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.BgpConfigurationArgs
+        {
+            AllowAS = 1,
+            AllowASOverride = "Enable",
+            DefaultRouteOriginate = "True",
+            Ipv4ListenRangePrefixes = new[]
+            {
+                "10.1.0.0/25",
+            },
+            Ipv4NeighborAddress = new[]
+            {
+                new AzureNative.ManagedNetworkFabric.Inputs.NeighborAddressArgs
+                {
+                    Address = "10.1.0.0",
+                },
+            },
+            Ipv6ListenRangePrefixes = new[]
+            {
+                "2fff::/66",
+            },
+            Ipv6NeighborAddress = new[]
+            {
+                new AzureNative.ManagedNetworkFabric.Inputs.NeighborAddressArgs
+                {
+                    Address = "2fff::",
+                },
+            },
+            PeerASN = 6,
+        },
+        ConnectedIPv4Subnets = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.ConnectedSubnetArgs
+            {
+                Prefix = "10.0.0.0/24",
+            },
+        },
+        ConnectedIPv6Subnets = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.ConnectedSubnetArgs
+            {
+                Prefix = "3FFE:FFFF:0:CD30::a0/29",
+            },
+        },
+        ExportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+        ImportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+        InternalNetworkName = "example-internalnetwork",
+        L3IsolationDomainName = "example-l3domain",
+        Mtu = 1500,
+        ResourceGroupName = "resourceGroupName",
+        StaticRouteConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.StaticRouteConfigurationArgs
+        {
+            Ipv4Routes = new[]
+            {
+                new AzureNative.ManagedNetworkFabric.Inputs.StaticRoutePropertiesArgs
+                {
+                    NextHop = new[]
+                    {
+                        "10.0.0.1",
+                    },
+                    Prefix = "10.1.0.0/24",
+                },
+            },
+            Ipv6Routes = new[]
+            {
+                new AzureNative.ManagedNetworkFabric.Inputs.StaticRoutePropertiesArgs
+                {
+                    NextHop = new[]
+                    {
+                        "2ffe::1",
+                    },
+                    Prefix = "2fff::/64",
+                },
+            },
+        },
+        VlanId = 501,
+    });
+
+});
+

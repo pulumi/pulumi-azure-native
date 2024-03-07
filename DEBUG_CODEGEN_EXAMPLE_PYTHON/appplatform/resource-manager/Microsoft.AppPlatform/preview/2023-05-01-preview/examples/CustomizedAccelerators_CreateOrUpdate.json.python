@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 customized_accelerator = azure_native.appplatform.CustomizedAccelerator("customizedAccelerator",
     application_accelerator_name="default",
     customized_accelerator_name="acc-name",
-    properties=azure_native.appplatform.CustomizedAcceleratorPropertiesArgs(
+    properties=azure_native.appplatform.CustomizedAcceleratorPropertiesResponseArgs(
         accelerator_tags=[
             "tag-a",
             "tag-b",

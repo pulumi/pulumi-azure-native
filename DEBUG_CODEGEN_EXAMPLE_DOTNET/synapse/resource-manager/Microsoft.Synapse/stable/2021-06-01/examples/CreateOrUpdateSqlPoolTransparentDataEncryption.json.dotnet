@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlPoolTransparentDataEncryption = new AzureNative.Synapse.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption", new()
+    {
+        ResourceGroupName = "sqlcrudtest-6852",
+        SqlPoolName = "sqlcrudtest-9187",
+        Status = "Enabled",
+        TransparentDataEncryptionName = "current",
+        WorkspaceName = "sqlcrudtest-2080",
+    });
+
+});
+

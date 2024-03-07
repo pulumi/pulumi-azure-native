@@ -1,0 +1,179 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var containerApp = new AzureNative.App.ContainerApp("containerApp", new()
+    {
+        Configuration = new AzureNative.App.Inputs.ConfigurationArgs
+        {
+            Dapr = new AzureNative.App.Inputs.DaprArgs
+            {
+                AppPort = 3000,
+                AppProtocol = "http",
+                EnableApiLogging = true,
+                Enabled = true,
+                HttpMaxRequestSize = 10,
+                HttpReadBufferSize = 30,
+                LogLevel = "debug",
+            },
+            Ingress = new AzureNative.App.Inputs.IngressArgs
+            {
+                ClientCertificateMode = "accept",
+                CorsPolicy = new AzureNative.App.Inputs.CorsPolicyArgs
+                {
+                    AllowCredentials = true,
+                    AllowedHeaders = new[]
+                    {
+                        "HEADER1",
+                        "HEADER2",
+                    },
+                    AllowedMethods = new[]
+                    {
+                        "GET",
+                        "POST",
+                    },
+                    AllowedOrigins = new[]
+                    {
+                        "https://a.test.com",
+                        "https://b.test.com",
+                    },
+                    ExposeHeaders = new[]
+                    {
+                        "HEADER3",
+                        "HEADER4",
+                    },
+                    MaxAge = 1234,
+                },
+                CustomDomains = new[]
+                {
+                    new AzureNative.App.Inputs.CustomDomainArgs
+                    {
+                        BindingType = "SniEnabled",
+                        CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+                        Name = "www.my-name.com",
+                    },
+                    new AzureNative.App.Inputs.CustomDomainArgs
+                    {
+                        BindingType = "SniEnabled",
+                        CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+                        Name = "www.my-other-name.com",
+                    },
+                },
+                External = true,
+                IpSecurityRestrictions = new[]
+                {
+                    new AzureNative.App.Inputs.IpSecurityRestrictionRuleArgs
+                    {
+                        Action = "Allow",
+                        Description = "Allowing all IP's within the subnet below to access containerapp",
+                        IpAddressRange = "192.168.1.1/32",
+                        Name = "Allow work IP A subnet",
+                    },
+                    new AzureNative.App.Inputs.IpSecurityRestrictionRuleArgs
+                    {
+                        Action = "Allow",
+                        Description = "Allowing all IP's within the subnet below to access containerapp",
+                        IpAddressRange = "192.168.1.1/8",
+                        Name = "Allow work IP B subnet",
+                    },
+                },
+                TargetPort = 3000,
+                Traffic = new[]
+                {
+                    new AzureNative.App.Inputs.TrafficWeightArgs
+                    {
+                        Label = "production",
+                        RevisionName = "testcontainerapp0-ab1234",
+                        Weight = 100,
+                    },
+                },
+            },
+            MaxInactiveRevisions = 10,
+        },
+        ContainerAppName = "testcontainerapp0",
+        EnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+        Location = "East US",
+        ResourceGroupName = "rg",
+        Template = new AzureNative.App.Inputs.TemplateArgs
+        {
+            Containers = new[]
+            {
+                new AzureNative.App.Inputs.ContainerArgs
+                {
+                    Image = "repo/testcontainerapp0:v1",
+                    Name = "testcontainerapp0",
+                    Probes = new[]
+                    {
+                        new AzureNative.App.Inputs.ContainerAppProbeArgs
+                        {
+                            HttpGet = new AzureNative.App.Inputs.ContainerAppProbeHttpGetArgs
+                            {
+                                HttpHeaders = new[]
+                                {
+                                    new AzureNative.App.Inputs.ContainerAppProbeHttpHeadersArgs
+                                    {
+                                        Name = "Custom-Header",
+                                        Value = "Awesome",
+                                    },
+                                },
+                                Path = "/health",
+                                Port = 8080,
+                            },
+                            InitialDelaySeconds = 3,
+                            PeriodSeconds = 3,
+                            Type = "Liveness",
+                        },
+                    },
+                },
+            },
+            InitContainers = new[]
+            {
+                new AzureNative.App.Inputs.InitContainerArgs
+                {
+                    Args = new[]
+                    {
+                        "-c",
+                        "while true; do echo hello; sleep 10;done",
+                    },
+                    Command = new[]
+                    {
+                        "/bin/sh",
+                    },
+                    Image = "repo/testcontainerapp0:v4",
+                    Name = "testinitcontainerApp0",
+                    Resources = new AzureNative.App.Inputs.ContainerResourcesArgs
+                    {
+                        Cpu = 0.5,
+                        Memory = "1Gi",
+                    },
+                },
+            },
+            Scale = new AzureNative.App.Inputs.ScaleArgs
+            {
+                MaxReplicas = 5,
+                MinReplicas = 1,
+                Rules = new[]
+                {
+                    new AzureNative.App.Inputs.ScaleRuleArgs
+                    {
+                        Custom = new AzureNative.App.Inputs.CustomScaleRuleArgs
+                        {
+                            Metadata = 
+                            {
+                                { "concurrentRequests", "50" },
+                            },
+                            Type = "http",
+                        },
+                        Name = "httpscalingrule",
+                    },
+                },
+            },
+        },
+        WorkloadProfileType = "GeneralPurpose",
+    });
+
+});
+

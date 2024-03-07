@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managementGroup = new AzureNative.Management.ManagementGroup("managementGroup", new()
+    {
+        Details = new AzureNative.Management.Inputs.CreateManagementGroupDetailsArgs
+        {
+            Parent = new AzureNative.Management.Inputs.CreateParentGroupInfoArgs
+            {
+                Id = "/providers/Microsoft.Management/managementGroups/RootGroup",
+            },
+        },
+        DisplayName = "ChildGroup",
+        GroupId = "ChildGroup",
+    });
+
+});
+

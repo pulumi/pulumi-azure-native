@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var azurePowerShellScript = new AzureNative.Resources.AzurePowerShellScript("azurePowerShellScript", new()
+    {
+        Arguments = "-Location 'westus' -Name \"*rg2\"",
+        AzPowerShellVersion = "1.7.0",
+        CleanupPreference = "Always",
+        Kind = "AzurePowerShell",
+        Location = "westus",
+        ResourceGroupName = "script-rg",
+        RetentionInterval = "PT7D",
+        ScriptContent = "Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+        ScriptName = "MyDeploymentScript",
+        SupportingScriptUris = new[]
+        {
+            "https://uri1.to.supporting.script",
+            "https://uri2.to.supporting.script",
+        },
+        Timeout = "PT1H",
+    });
+
+});
+

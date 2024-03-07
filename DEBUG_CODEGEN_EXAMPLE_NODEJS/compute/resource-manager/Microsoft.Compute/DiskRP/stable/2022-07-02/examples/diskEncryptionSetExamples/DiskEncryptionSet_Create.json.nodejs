@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const diskEncryptionSet = new azure_native.compute.DiskEncryptionSet("diskEncryptionSet", {
+    activeKey: {
+        keyUrl: "https://myvmvault.vault-int.azure-int.net/keys/{key}",
+        sourceVault: {
+            id: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+        },
+    },
+    diskEncryptionSetName: "myDiskEncryptionSet",
+    encryptionType: "EncryptionAtRestWithCustomerKey",
+    identity: {
+        type: "SystemAssigned",
+    },
+    location: "West US",
+    resourceGroupName: "myResourceGroup",
+});

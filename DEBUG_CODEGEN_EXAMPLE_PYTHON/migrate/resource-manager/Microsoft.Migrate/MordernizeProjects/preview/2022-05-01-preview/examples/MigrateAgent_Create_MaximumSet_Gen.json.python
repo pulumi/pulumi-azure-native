@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 migrate_agent = azure_native.migrate.MigrateAgent("migrateAgent",
     agent_name="l",
     modernize_project_name="rq1yec",
-    properties=azure_native.migrate.MigrateAgentModelPropertiesArgs(
+    properties=azure_native.migrate.MigrateAgentModelPropertiesResponseArgs(
         authentication_identity=azure_native.migrate.IdentityModelArgs(
             aad_authority="isbicanvfefdaci",
             application_id="dibfqwjrnzikktkwe",

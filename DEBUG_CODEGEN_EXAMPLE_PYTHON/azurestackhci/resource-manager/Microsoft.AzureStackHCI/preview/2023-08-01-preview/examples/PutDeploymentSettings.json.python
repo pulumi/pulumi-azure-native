@@ -7,70 +7,70 @@ deployment_setting = azure_native.azurestackhci.DeploymentSetting("deploymentSet
         "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/ArcInstance-rg/providers/Microsoft.HybridCompute/machines/Node-2",
     ],
     cluster_name="myCluster",
-    deployment_configuration=azure_native.azurestackhci.DeploymentConfigurationArgs(
-        scale_units=[azure_native.azurestackhci.ScaleUnitsArgs(
-            deployment_data=azure_native.azurestackhci.DeploymentDataArgs(
-                adou_path="OU=ms169,DC=ASZ1PLab8,DC=nttest,DC=microsoft,DC=com",
-                cluster=azure_native.azurestackhci.ClusterArgs(
+    deployment_configuration=azure_native.azurestackhci.DeploymentConfigurationResponseArgs(
+        scale_units=[{
+            "deploymentData": {
+                "adouPath": "OU=ms169,DC=ASZ1PLab8,DC=nttest,DC=microsoft,DC=com",
+                "cluster": azure_native.azurestackhci.ClusterArgs(
                     azure_service_endpoint="core.windows.net",
                     cloud_account_name="myasestoragacct",
                     name="testHCICluster",
                     witness_path="Cloud",
                     witness_type="Cloud",
                 ),
-                domain_fqdn="ASZ1PLab8.nttest.microsoft.com",
-                host_network=azure_native.azurestackhci.HostNetworkArgs(
-                    intents=[azure_native.azurestackhci.IntentsArgs(
-                        adapter=["Port2"],
-                        adapter_property_overrides=azure_native.azurestackhci.AdapterPropertyOverridesArgs(
+                "domainFqdn": "ASZ1PLab8.nttest.microsoft.com",
+                "hostNetwork": {
+                    "intents": [{
+                        "adapter": ["Port2"],
+                        "adapterPropertyOverrides": azure_native.azurestackhci.AdapterPropertyOverridesArgs(
                             jumbo_packet="1514",
                             network_direct="Enabled",
                             network_direct_technology="iWARP",
                         ),
-                        name="Compute_Management",
-                        override_adapter_property=False,
-                        override_qos_policy=False,
-                        override_virtual_switch_configuration=False,
-                        qos_policy_overrides=azure_native.azurestackhci.QosPolicyOverridesArgs(
+                        "name": "Compute_Management",
+                        "overrideAdapterProperty": False,
+                        "overrideQosPolicy": False,
+                        "overrideVirtualSwitchConfiguration": False,
+                        "qosPolicyOverrides": azure_native.azurestackhci.QosPolicyOverridesArgs(
                             bandwidth_percentage_smb="50",
                             priority_value8021_action_cluster="7",
                             priority_value8021_action_smb="3",
                         ),
-                        traffic_type=[
+                        "trafficType": [
                             "Compute",
                             "Management",
                         ],
-                        virtual_switch_configuration_overrides=azure_native.azurestackhci.VirtualSwitchConfigurationOverridesArgs(
+                        "virtualSwitchConfigurationOverrides": azure_native.azurestackhci.VirtualSwitchConfigurationOverridesArgs(
                             enable_iov="True",
                             load_balancing_algorithm="HyperVPort",
                         ),
-                    )],
-                    storage_connectivity_switchless=True,
-                    storage_networks=[azure_native.azurestackhci.StorageNetworksArgs(
+                    }],
+                    "storageConnectivitySwitchless": True,
+                    "storageNetworks": [azure_native.azurestackhci.StorageNetworksArgs(
                         name="Storage1Network",
                         network_adapter_name="Port3",
                         vlan_id="5",
                     )],
-                ),
-                infrastructure_network=[azure_native.azurestackhci.InfrastructureNetworkArgs(
-                    dns_servers=["10.57.50.90"],
-                    gateway="255.255.248.0",
-                    ip_pools=[azure_native.azurestackhci.IpPoolsArgs(
+                },
+                "infrastructureNetwork": [{
+                    "dnsServers": ["10.57.50.90"],
+                    "gateway": "255.255.248.0",
+                    "ipPools": [azure_native.azurestackhci.IpPoolsArgs(
                         ending_address="10.57.48.66",
                         starting_address="10.57.48.60",
                     )],
-                    subnet_mask="255.255.248.0",
-                )],
-                naming_prefix="ms169",
-                observability=azure_native.azurestackhci.ObservabilityArgs(
+                    "subnetMask": "255.255.248.0",
+                }],
+                "namingPrefix": "ms169",
+                "observability": azure_native.azurestackhci.ObservabilityArgs(
                     episodic_data_upload=True,
                     eu_location=False,
                     streaming_data_client=True,
                 ),
-                optional_services=azure_native.azurestackhci.OptionalServicesArgs(
+                "optionalServices": azure_native.azurestackhci.OptionalServicesArgs(
                     custom_location="customLocationName",
                 ),
-                physical_nodes=[
+                "physicalNodes": [
                     azure_native.azurestackhci.PhysicalNodesArgs(
                         ipv4_address="10.57.51.224",
                         name="ms169host",
@@ -80,8 +80,8 @@ deployment_setting = azure_native.azurestackhci.DeploymentSetting("deploymentSet
                         name="ms154host",
                     ),
                 ],
-                secrets_location="/subscriptions/db4e2fdb-6d80-4e6e-b7cd-xxxxxxx/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/abcd123",
-                security_settings=azure_native.azurestackhci.SecuritySettingsArgs(
+                "secretsLocation": "/subscriptions/db4e2fdb-6d80-4e6e-b7cd-xxxxxxx/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/abcd123",
+                "securitySettings": azure_native.azurestackhci.SecuritySettingsArgs(
                     bitlocker_boot_volume=True,
                     bitlocker_data_volumes=True,
                     credential_guard_enforced=False,
@@ -93,11 +93,11 @@ deployment_setting = azure_native.azurestackhci.DeploymentSetting("deploymentSet
                     smb_signing_enforced=True,
                     wdac_enforced=True,
                 ),
-                storage=azure_native.azurestackhci.StorageArgs(
+                "storage": azure_native.azurestackhci.StorageArgs(
                     configuration_mode="Express",
                 ),
-            ),
-        )],
+            },
+        }],
         version="string",
     ),
     deployment_mode="Deploy",

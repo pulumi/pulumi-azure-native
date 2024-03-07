@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var automationAccount = new AzureNative.Automation.AutomationAccount("automationAccount", new()
+    {
+        AutomationAccountName = "myAutomationAccount9",
+        Location = "East US 2",
+        Name = "myAutomationAccount9",
+        ResourceGroupName = "rg",
+        Sku = new AzureNative.Automation.Inputs.SkuArgs
+        {
+            Name = "Free",
+        },
+    });
+
+});
+

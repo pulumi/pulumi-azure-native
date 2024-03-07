@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var userSettings = new AzureNative.Portal.UserSettings("userSettings", new()
+    {
+        Properties = new AzureNative.Portal.Inputs.UserPropertiesArgs
+        {
+            PreferredLocation = "eastus",
+            PreferredOsType = "Linux",
+            PreferredShellType = "bash",
+            StorageProfile = new AzureNative.Portal.Inputs.StorageProfileArgs
+            {
+                DiskSizeInGB = 5,
+                FileShareName = "string",
+                StorageAccountResourceId = "string",
+            },
+            TerminalSettings = new AzureNative.Portal.Inputs.TerminalSettingsArgs
+            {
+                FontSize = "Medium",
+                FontStyle = "Monospace",
+            },
+        },
+        UserSettingsName = "cloudconsole",
+    });
+
+});
+

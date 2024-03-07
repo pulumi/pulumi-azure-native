@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const publicIPPrefix = new azure_native.network.PublicIPPrefix("publicIPPrefix", {
+    location: "westus",
+    prefixLength: 30,
+    publicIpPrefixName: "test-ipprefix",
+    resourceGroupName: "rg1",
+    sku: {
+        name: "Standard",
+    },
+});

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectionMonitorTest = new AzureNative.Peering.ConnectionMonitorTest("connectionMonitorTest", new()
+    {
+        ConnectionMonitorTestName = "connectionMonitorTestName",
+        Destination = "Example Destination",
+        DestinationPort = 443,
+        PeeringServiceName = "peeringServiceName",
+        ResourceGroupName = "rgName",
+        SourceAgent = "Example Source Agent",
+        TestFrequencyInSec = 30,
+    });
+
+});
+

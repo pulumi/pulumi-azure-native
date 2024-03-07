@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var databaseAccount = new AzureNative.DocumentDB.DatabaseAccount("databaseAccount", new()
+    {
+        AccountName = "ddb1",
+        CreateMode = "Default",
+        DatabaseAccountOfferType = AzureNative.DocumentDB.DatabaseAccountOfferType.Standard,
+        Location = "westus",
+        Locations = new[]
+        {
+            new AzureNative.DocumentDB.Inputs.LocationArgs
+            {
+                FailoverPriority = 0,
+                IsZoneRedundant = false,
+                LocationName = "southcentralus",
+            },
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

@@ -1,0 +1,74 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var contentType = new AzureNative.ApiManagement.ContentType("contentType", new()
+    {
+        ContentTypeId = "page",
+        Description = "A regular page",
+        Name = "Page",
+        ResourceGroupName = "rg1",
+        Schema = 
+        {
+            { "additionalProperties", false },
+            { "properties", 
+            {
+                { "en_us", 
+                {
+                    { "additionalProperties", false },
+                    { "properties", 
+                    {
+                        { "description", 
+                        {
+                            { "description", "Page description. This property gets included in SEO attributes." },
+                            { "indexed", true },
+                            { "title", "Description" },
+                            { "type", "string" },
+                        } },
+                        { "documentId", 
+                        {
+                            { "description", "Reference to page content document." },
+                            { "title", "Document ID" },
+                            { "type", "string" },
+                        } },
+                        { "keywords", 
+                        {
+                            { "description", "Page keywords. This property gets included in SEO attributes." },
+                            { "indexed", true },
+                            { "title", "Keywords" },
+                            { "type", "string" },
+                        } },
+                        { "permalink", 
+                        {
+                            { "description", "Page permalink, e.g. '/about'." },
+                            { "indexed", true },
+                            { "title", "Permalink" },
+                            { "type", "string" },
+                        } },
+                        { "title", 
+                        {
+                            { "description", "Page title. This property gets included in SEO attributes." },
+                            { "indexed", true },
+                            { "title", "Title" },
+                            { "type", "string" },
+                        } },
+                    } },
+                    { "required", new[]
+                    {
+                        "title",
+                        "permalink",
+                        "documentId",
+                    } },
+                    { "type", "object" },
+                } },
+            } },
+        },
+        ServiceName = "apimService1",
+        Version = "1.0.0",
+    });
+
+});
+

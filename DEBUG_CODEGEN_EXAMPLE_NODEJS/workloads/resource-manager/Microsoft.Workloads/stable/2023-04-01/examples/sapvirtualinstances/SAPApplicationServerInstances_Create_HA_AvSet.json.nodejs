@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sapApplicationServerInstance = new azure_native.workloads.SAPApplicationServerInstance("sapApplicationServerInstance", {
+    applicationInstanceName: "app01",
+    location: "westcentralus",
+    resourceGroupName: "test-rg",
+    sapVirtualInstanceName: "X00",
+    tags: {},
+});

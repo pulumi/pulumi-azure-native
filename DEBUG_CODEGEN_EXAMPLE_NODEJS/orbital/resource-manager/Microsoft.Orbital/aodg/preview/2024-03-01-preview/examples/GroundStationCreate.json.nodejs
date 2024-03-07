@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const groundStation = new azure_native.orbital.GroundStation("groundStation", {
+    altitudeMeters: 1500.83,
+    capabilities: ["Communication"],
+    city: "redmond",
+    globalCommunicationsSite: {
+        id: "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/providers/Microsoft.Orbital/globalCommunicationsSites/contoso-Vernon",
+    },
+    groundStationName: "westus_gs1",
+    latitudeDegrees: -122.122,
+    location: "westus",
+    longitudeDegrees: 47.674,
+    providerName: "Microsoft",
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "value1",
+        key2: "value2",
+    },
+});

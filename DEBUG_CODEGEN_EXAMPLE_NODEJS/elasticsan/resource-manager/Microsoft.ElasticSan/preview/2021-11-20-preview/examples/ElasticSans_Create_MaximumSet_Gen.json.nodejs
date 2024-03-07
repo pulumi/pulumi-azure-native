@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const elasticSan = new azure_native.elasticsan.ElasticSan("elasticSan", {
+    availabilityZones: ["aaaaaaaaaaaaaaaaa"],
+    baseSizeTiB: 26,
+    elasticSanName: "ti7q-k952-1qB3J_5",
+    extendedCapacitySizeTiB: 7,
+    location: "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    resourceGroupName: "rgelasticsan",
+    sku: {
+        name: "Premium_LRS",
+        tier: "Premium",
+    },
+    tags: {
+        key896: "aaaaaaaaaaaaaaaaaa",
+    },
+});

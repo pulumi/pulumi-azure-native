@@ -1,0 +1,54 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+    backendAddressPools: [{
+        loadBalancerBackendAddresses: [{
+            loadBalancerFrontendIPConfiguration: {
+                id: "/subscriptions/subid/resourceGroups/regional-lb-rg1/providers/Microsoft.Network/loadBalancers/regional-lb/frontendIPConfigurations/fe-rlb",
+            },
+            name: "regional-lb1-address",
+        }],
+        name: "be-lb",
+    }],
+    frontendIPConfigurations: [{
+        name: "fe-lb",
+        subnet: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+        },
+    }],
+    loadBalancerName: "lb",
+    loadBalancingRules: [{
+        backendAddressPool: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+        },
+        backendPort: 80,
+        enableFloatingIP: false,
+        frontendIPConfiguration: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+        },
+        frontendPort: 80,
+        idleTimeoutInMinutes: 15,
+        loadDistribution: "Default",
+        name: "rulelb",
+        probe: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+        },
+        protocol: "Tcp",
+    }],
+    location: "eastus",
+    probes: [{
+        intervalInSeconds: 15,
+        name: "probe-lb",
+        numberOfProbes: 2,
+        port: 80,
+        probeThreshold: 1,
+        protocol: "Http",
+        requestPath: "healthcheck.aspx",
+    }],
+    resourceGroupName: "rg1",
+    sku: {
+        name: "Standard",
+        tier: "Global",
+    },
+});

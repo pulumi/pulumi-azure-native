@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const securityContact = new azure_native.security.SecurityContact("securityContact", {
+    alertNotifications: {
+        minimalSeverity: "Low",
+        state: "On",
+    },
+    emails: "john@contoso.com;jane@contoso.com",
+    notificationsByRole: {
+        roles: ["Owner"],
+        state: "On",
+    },
+    phone: "(214)275-4038",
+    securityContactName: "default",
+});

@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const service = new azure_native.apicenter.Service("service", {
+    resourceGroupName: "contoso-resources",
+    serviceName: "contoso",
+});

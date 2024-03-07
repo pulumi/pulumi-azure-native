@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const containerAppsAuthConfig = new azure_native.app.ContainerAppsAuthConfig("containerAppsAuthConfig", {
+    authConfigName: "current",
+    containerAppName: "testcanadacentral",
+    globalValidation: {
+        unauthenticatedClientAction: azure_native.app.UnauthenticatedClientActionV2.AllowAnonymous,
+    },
+    identityProviders: {
+        facebook: {
+            registration: {
+                appId: "123",
+                appSecretSettingName: "facebook-secret",
+            },
+        },
+    },
+    platform: {
+        enabled: true,
+    },
+    resourceGroupName: "workerapps-rg-xj",
+});

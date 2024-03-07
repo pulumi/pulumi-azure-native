@@ -1,0 +1,98 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.hdinsight.Cluster("cluster", {
+    clusterName: "cluster1",
+    properties: {
+        clusterDefinition: {
+            componentVersion: {
+                Kafka: "2.1",
+            },
+            configurations: {
+                gateway: {
+                    "restAuthCredential.isEnabled": true,
+                    "restAuthCredential.password": "**********",
+                    "restAuthCredential.username": "admin",
+                },
+            },
+            kind: "kafka",
+        },
+        clusterVersion: "4.0",
+        computeProfile: {
+            roles: [
+                {
+                    hardwareProfile: {
+                        vmSize: "Large",
+                    },
+                    name: "headnode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 2,
+                },
+                {
+                    dataDisksGroups: [{
+                        disksPerNode: 8,
+                    }],
+                    hardwareProfile: {
+                        vmSize: "Large",
+                    },
+                    name: "workernode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 3,
+                },
+                {
+                    hardwareProfile: {
+                        vmSize: "Small",
+                    },
+                    name: "zookeepernode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 3,
+                },
+                {
+                    hardwareProfile: {
+                        vmSize: "Standard_D4_v2",
+                    },
+                    name: "kafkamanagementnode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "kafkauser",
+                        },
+                    },
+                    targetInstanceCount: 2,
+                },
+            ],
+        },
+        kafkaRestProperties: {
+            clientGroupInfo: {
+                groupId: "00000000-0000-0000-0000-111111111111",
+                groupName: "Kafka security group name",
+            },
+        },
+        osType: "Linux",
+        storageProfile: {
+            storageaccounts: [{
+                container: "containername",
+                isDefault: true,
+                key: "storagekey",
+                name: "mystorage.blob.core.windows.net",
+            }],
+        },
+        tier: "Standard",
+    },
+    resourceGroupName: "rg1",
+});

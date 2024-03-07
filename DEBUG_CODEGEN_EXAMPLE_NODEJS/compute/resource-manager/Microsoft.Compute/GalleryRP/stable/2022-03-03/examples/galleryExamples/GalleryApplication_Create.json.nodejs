@@ -1,0 +1,26 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const galleryApplication = new azure_native.compute.GalleryApplication("galleryApplication", {
+    customActions: [{
+        description: "This is the custom action description.",
+        name: "myCustomAction",
+        parameters: [{
+            defaultValue: "default value of parameter.",
+            description: "This is the description of the parameter",
+            name: "myCustomActionParameter",
+            required: false,
+            type: azure_native.compute.GalleryApplicationCustomActionParameterType.String,
+        }],
+        script: "myCustomActionScript",
+    }],
+    description: "This is the gallery application description.",
+    eula: "This is the gallery application EULA.",
+    galleryApplicationName: "myGalleryApplicationName",
+    galleryName: "myGalleryName",
+    location: "West US",
+    privacyStatementUri: "myPrivacyStatementUri}",
+    releaseNoteUri: "myReleaseNoteUri",
+    resourceGroupName: "myResourceGroup",
+    supportedOSType: azure_native.compute.OperatingSystemTypes.Windows,
+});

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var defaultAdminRule = new AzureNative.Network.DefaultAdminRule("defaultAdminRule", new()
+    {
+        ConfigurationName = "myTestSecurityConfig",
+        Flag = "AllowVnetInbound",
+        Kind = "Default",
+        NetworkManagerName = "testNetworkManager",
+        ResourceGroupName = "rg1",
+        RuleCollectionName = "testRuleCollection",
+        RuleName = "SampleDefaultAdminRule",
+    });
+
+});
+

@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var environmentContainer = new AzureNative.MachineLearningServices.EnvironmentContainer("environmentContainer", new()
+    {
+        EnvironmentContainerProperties = new AzureNative.MachineLearningServices.Inputs.EnvironmentContainerArgs
+        {
+            Description = "string",
+            Properties = 
+            {
+                { "additionalProp1", "string" },
+                { "additionalProp2", "string" },
+                { "additionalProp3", "string" },
+            },
+            Tags = 
+            {
+                { "additionalProp1", "string" },
+                { "additionalProp2", "string" },
+                { "additionalProp3", "string" },
+            },
+        },
+        Name = "testEnvironment",
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "testworkspace",
+    });
+
+});
+

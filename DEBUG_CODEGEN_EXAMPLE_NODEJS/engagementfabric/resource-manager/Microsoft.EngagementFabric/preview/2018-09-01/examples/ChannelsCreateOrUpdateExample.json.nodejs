@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const channel = new azure_native.engagementfabric.Channel("channel", {
+    accountName: "ExampleAccount",
+    channelFunctions: [
+        "MockFunction1",
+        "MockFunction2",
+    ],
+    channelName: "ExampleChannel",
+    channelType: "MockChannel",
+    credentials: {
+        AppId: "exampleApp",
+        AppKey: "exampleAppKey",
+    },
+    resourceGroupName: "ExampleRg",
+});

@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const avsAssessmentsOperation = new azure_native.migrate.AvsAssessmentsOperation("avsAssessmentsOperation", {
+    assessmentName: "asm2",
+    azureLocation: "EastUs",
+    azureOfferCode: "MSAZR0003P",
+    currency: "USD",
+    dedupeCompression: 1.5,
+    discountPercentage: 0,
+    failuresToTolerateAndRaidLevel: "Ftt1Raid1",
+    groupName: "kuchatur-test",
+    isStretchClusterEnabled: true,
+    memOvercommit: 1,
+    nodeType: "AV36",
+    percentile: "Percentile95",
+    perfDataEndTime: "2023-09-26T13:35:56.5671462Z",
+    perfDataStartTime: "2023-09-25T13:35:56.5671462Z",
+    projectName: "app18700project",
+    provisioningState: "Succeeded",
+    reservedInstance: "RI3Year",
+    resourceGroupName: "ayagrawrg",
+    scalingFactor: 1,
+    sizingCriterion: "AsOnPremises",
+    timeRange: "Day",
+    vcpuOversubscription: 4,
+});

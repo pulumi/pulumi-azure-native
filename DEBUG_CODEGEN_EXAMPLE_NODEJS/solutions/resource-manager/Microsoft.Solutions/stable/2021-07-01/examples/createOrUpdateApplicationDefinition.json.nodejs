@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const applicationDefinition = new azure_native.solutions.ApplicationDefinition("applicationDefinition", {
+    applicationDefinitionName: "myManagedApplicationDef",
+    authorizations: [{
+        principalId: "validprincipalguid",
+        roleDefinitionId: "validroleguid",
+    }],
+    description: "myManagedApplicationDef description",
+    displayName: "myManagedApplicationDef",
+    lockLevel: azure_native.solutions.ApplicationLockLevel.None,
+    packageFileUri: "https://path/to/packagezipfile",
+    resourceGroupName: "rg",
+});

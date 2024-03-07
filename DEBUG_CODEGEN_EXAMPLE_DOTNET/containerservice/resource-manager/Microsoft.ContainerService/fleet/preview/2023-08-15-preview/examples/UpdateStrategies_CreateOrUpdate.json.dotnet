@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fleetUpdateStrategy = new AzureNative.ContainerService.FleetUpdateStrategy("fleetUpdateStrategy", new()
+    {
+        FleetName = "fleet1",
+        ResourceGroupName = "rg1",
+        Strategy = new AzureNative.ContainerService.Inputs.UpdateRunStrategyArgs
+        {
+            Stages = new[]
+            {
+                new AzureNative.ContainerService.Inputs.UpdateStageArgs
+                {
+                    AfterStageWaitInSeconds = 3600,
+                    Groups = new[]
+                    {
+                        new AzureNative.ContainerService.Inputs.UpdateGroupArgs
+                        {
+                            Name = "group-a",
+                        },
+                    },
+                    Name = "stage1",
+                },
+            },
+        },
+        UpdateStrategyName = "strartegy1",
+    });
+
+});
+

@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const deploymentAtManagementGroupScope = new azure_native.resources.DeploymentAtManagementGroupScope("deploymentAtManagementGroupScope", {
+    deploymentName: "my-deployment",
+    groupId: "my-management-group-id",
+    location: "eastus",
+    properties: {
+        mode: azure_native.resources.DeploymentMode.Incremental,
+        parameters: {},
+        templateLink: {
+            uri: "https://example.com/exampleTemplate.json",
+        },
+    },
+});

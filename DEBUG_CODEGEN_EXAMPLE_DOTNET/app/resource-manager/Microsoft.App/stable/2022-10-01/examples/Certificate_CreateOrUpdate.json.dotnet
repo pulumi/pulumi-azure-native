@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var certificate = new AzureNative.App.Certificate("certificate", new()
+    {
+        CertificateName = "certificate-firendly-name",
+        EnvironmentName = "testcontainerenv",
+        Location = "East US",
+        Properties = new AzureNative.App.Inputs.CertificatePropertiesArgs
+        {
+            Password = "private key password",
+            Value = "Y2VydA==",
+        },
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

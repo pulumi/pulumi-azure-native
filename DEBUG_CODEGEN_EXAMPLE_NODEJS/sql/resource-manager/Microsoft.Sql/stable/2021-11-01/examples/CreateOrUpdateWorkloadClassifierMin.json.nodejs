@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadClassifier = new azure_native.sql.WorkloadClassifier("workloadClassifier", {
+    databaseName: "testdb",
+    memberName: "dbo",
+    resourceGroupName: "Default-SQL-SouthEastAsia",
+    serverName: "testsvr",
+    workloadClassifierName: "wlm_workloadclassifier",
+    workloadGroupName: "wlm_workloadgroup",
+});

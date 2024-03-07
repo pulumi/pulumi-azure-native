@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var packetCapture = new AzureNative.Network.PacketCapture("packetCapture", new()
+    {
+        BytesToCapturePerPacket = 10000,
+        Filters = new[]
+        {
+            new AzureNative.Network.Inputs.PacketCaptureFilterArgs
+            {
+                LocalIPAddress = "10.0.0.4",
+                LocalPort = "80",
+                Protocol = "TCP",
+            },
+        },
+        NetworkWatcherName = "nw1",
+        PacketCaptureName = "pc1",
+        ResourceGroupName = "rg1",
+        StorageLocation = new AzureNative.Network.Inputs.PacketCaptureStorageLocationArgs
+        {
+            FilePath = "D:\\capture\\pc1.cap",
+            StorageId = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/pcstore",
+            StoragePath = "https://mytestaccountname.blob.core.windows.net/capture/pc1.cap",
+        },
+        Target = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1",
+        TimeLimitInSeconds = 100,
+        TotalBytesPerSession = 100000,
+    });
+
+});
+

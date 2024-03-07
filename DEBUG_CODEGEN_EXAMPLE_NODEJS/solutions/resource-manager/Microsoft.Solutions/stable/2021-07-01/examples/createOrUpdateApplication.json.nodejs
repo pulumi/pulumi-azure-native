@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const application = new azure_native.solutions.Application("application", {
+    applicationDefinitionId: "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
+    applicationName: "myManagedApplication",
+    kind: "ServiceCatalog",
+    managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+    resourceGroupName: "rg",
+});

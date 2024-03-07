@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const integrationServiceEnvironmentManagedApi = new azure_native.logic.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi", {
+    apiName: "servicebus",
+    integrationServiceEnvironmentName: "testIntegrationServiceEnvironment",
+    location: "brazilsouth",
+    resourceGroup: "testResourceGroup",
+});

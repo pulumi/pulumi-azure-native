@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var staticSiteUserProvidedFunctionAppForStaticSite = new AzureNative.Web.StaticSiteUserProvidedFunctionAppForStaticSite("staticSiteUserProvidedFunctionAppForStaticSite", new()
+    {
+        FunctionAppName = "testFunctionApp",
+        FunctionAppRegion = "West US 2",
+        FunctionAppResourceId = "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/functionRG/providers/Microsoft.Web/sites/testFunctionApp",
+        IsForced = true,
+        Name = "testStaticSite0",
+        ResourceGroupName = "rg",
+    });
+
+});
+

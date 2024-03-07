@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const extension = new azure_native.kubernetesconfiguration.Extension("extension", {
+    autoUpgradeMinorVersion: true,
+    clusterName: "clusterName1",
+    clusterResourceName: "connectedClusters",
+    clusterRp: "Microsoft.Kubernetes",
+    extensionName: "azureVote",
+    extensionType: "azure-vote",
+    plan: {
+        name: "azure-vote-standard",
+        product: "azure-vote-standard-offer-id",
+        publisher: "Microsoft",
+    },
+    releaseTrain: "Preview",
+    resourceGroupName: "rg1",
+});

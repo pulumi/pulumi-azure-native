@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serverTrustGroup = new azure_native.sql.ServerTrustGroup("serverTrustGroup", {
+    groupMembers: [
+        {
+            serverId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1",
+        },
+        {
+            serverId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2",
+        },
+    ],
+    locationName: "Japan East",
+    resourceGroupName: "Default",
+    serverTrustGroupName: "server-trust-group-test",
+    trustScopes: [
+        "GlobalTransactions",
+        "ServiceBroker",
+    ],
+});

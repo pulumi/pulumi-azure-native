@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var instancePool = new AzureNative.Sql.InstancePool("instancePool", new()
+    {
+        InstancePoolName = "testIP",
+        LicenseType = "LicenseIncluded",
+        Location = "japaneast",
+        ResourceGroupName = "group1",
+        Sku = new AzureNative.Sql.Inputs.SkuArgs
+        {
+            Family = "Gen5",
+            Name = "GP_Gen5",
+            Tier = "GeneralPurpose",
+        },
+        SubnetId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+        Tags = 
+        {
+            { "a", "b" },
+        },
+        VCores = 8,
+    });
+
+});
+

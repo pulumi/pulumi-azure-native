@@ -1,0 +1,58 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var server = new AzureNative.DBforPostgreSQL.Server("server", new()
+    {
+        AdministratorLogin = "cloudsa",
+        AdministratorLoginPassword = "password",
+        AuthConfig = new AzureNative.DBforPostgreSQL.Inputs.AuthConfigArgs
+        {
+            ActiveDirectoryAuth = "Enabled",
+            PasswordAuth = "Enabled",
+            TenantId = "tttttt-tttt-tttt-tttt-tttttttttttt",
+        },
+        AvailabilityZone = "1",
+        Backup = new AzureNative.DBforPostgreSQL.Inputs.BackupArgs
+        {
+            BackupRetentionDays = 7,
+            GeoRedundantBackup = "Disabled",
+        },
+        CreateMode = "Create",
+        DataEncryption = new AzureNative.DBforPostgreSQL.Inputs.DataEncryptionArgs
+        {
+            Type = "SystemManaged",
+        },
+        HighAvailability = new AzureNative.DBforPostgreSQL.Inputs.HighAvailabilityArgs
+        {
+            Mode = "ZoneRedundant",
+        },
+        Location = "westus",
+        Network = new AzureNative.DBforPostgreSQL.Inputs.NetworkArgs
+        {
+            DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+            PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+        },
+        ResourceGroupName = "testrg",
+        ServerName = "pgtestsvc4",
+        Sku = new AzureNative.DBforPostgreSQL.Inputs.SkuArgs
+        {
+            Name = "Standard_D4s_v3",
+            Tier = "GeneralPurpose",
+        },
+        Storage = new AzureNative.DBforPostgreSQL.Inputs.StorageArgs
+        {
+            StorageSizeGB = 512,
+        },
+        Tags = 
+        {
+            { "ElasticServer", "1" },
+        },
+        Version = "12",
+    });
+
+});
+

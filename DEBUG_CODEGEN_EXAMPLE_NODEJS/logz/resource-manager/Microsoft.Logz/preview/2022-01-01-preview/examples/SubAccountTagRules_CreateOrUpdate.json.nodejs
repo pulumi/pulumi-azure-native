@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const subAccountTagRule = new azure_native.logz.SubAccountTagRule("subAccountTagRule", {
+    monitorName: "myMonitor",
+    resourceGroupName: "myResourceGroup",
+    ruleSetName: "default",
+    subAccountName: "SubAccount1",
+});

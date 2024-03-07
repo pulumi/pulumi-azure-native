@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var professionalServiceSubscriptionLevel = new AzureNative.ProfessionalService.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel", new()
+    {
+        Location = "global",
+        Name = "MyContosoPS",
+        Properties = new AzureNative.ProfessionalService.Inputs.ProfessionalServiceCreationPropertiesArgs
+        {
+            BillingPeriod = "P1Y",
+            OfferId = "testprofservice",
+            PublisherId = "microsoft-contoso",
+            QuoteId = "quoteabc",
+            SkuId = "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+            TermUnit = "P3Y",
+        },
+        ResourceGroupName = "my-ps-rg",
+        ResourceName = "MyContosoPS",
+    });
+
+});
+

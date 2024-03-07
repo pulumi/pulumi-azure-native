@@ -1,0 +1,89 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const acssBackupConnection = new azure_native.workloads.ACSSBackupConnection("acssBackupConnection", {
+    backupData: {
+        backupPolicy: {
+            backupManagementType: "AzureIaasVM",
+            instantRPDetails: {
+                azureBackupRGNamePrefix: "dasas",
+                azureBackupRGNameSuffix: "a",
+            },
+            instantRpRetentionRangeInDays: 2,
+            name: "defaultVmPolicy",
+            policyType: "V1",
+            protectedItemsCount: 0,
+            retentionPolicy: {
+                dailySchedule: {
+                    retentionDuration: {
+                        count: 30,
+                        durationType: "Days",
+                    },
+                    retentionTimes: ["2022-11-29T19:30:00.000Z"],
+                },
+                monthlySchedule: {
+                    retentionDuration: {
+                        count: 60,
+                        durationType: "Months",
+                    },
+                    retentionScheduleFormatType: "Weekly",
+                    retentionScheduleWeekly: {
+                        daysOfTheWeek: [azure_native.workloads.DayOfWeek.Sunday],
+                        weeksOfTheMonth: [azure_native.workloads.WeekOfMonth.First],
+                    },
+                    retentionTimes: ["2022-11-29T19:30:00.000Z"],
+                },
+                retentionPolicyType: "LongTermRetentionPolicy",
+                weeklySchedule: {
+                    daysOfTheWeek: [azure_native.workloads.DayOfWeek.Sunday],
+                    retentionDuration: {
+                        count: 12,
+                        durationType: "Weeks",
+                    },
+                    retentionTimes: ["2022-11-29T19:30:00.000Z"],
+                },
+                yearlySchedule: {
+                    monthsOfYear: [azure_native.workloads.MonthOfYear.January],
+                    retentionDuration: {
+                        count: 10,
+                        durationType: "Years",
+                    },
+                    retentionScheduleFormatType: "Weekly",
+                    retentionScheduleWeekly: {
+                        daysOfTheWeek: [azure_native.workloads.DayOfWeek.Sunday],
+                        weeksOfTheMonth: [azure_native.workloads.WeekOfMonth.First],
+                    },
+                    retentionTimes: ["2022-11-29T19:30:00.000Z"],
+                },
+            },
+            schedulePolicy: {
+                schedulePolicyType: "SimpleSchedulePolicy",
+                scheduleRunFrequency: "Daily",
+                scheduleRunTimes: ["2022-11-29T19:30:00.000Z"],
+            },
+            tieringPolicy: {
+                ArchivedRP: {
+                    duration: 3,
+                    durationType: "Months",
+                    tieringMode: "TierAfter",
+                },
+            },
+            timeZone: "UTC",
+        },
+        backupType: "VM",
+        diskExclusionProperties: {
+            diskLunList: [],
+            isInclusionList: true,
+        },
+        recoveryServicesVault: {
+            name: "test-vault",
+            resourceGroup: "test-rg",
+            vaultType: "New",
+        },
+    },
+    backupName: "vmBackup",
+    connectorName: "C1",
+    location: "westcentralus",
+    resourceGroupName: "test-rg",
+    tags: {},
+});

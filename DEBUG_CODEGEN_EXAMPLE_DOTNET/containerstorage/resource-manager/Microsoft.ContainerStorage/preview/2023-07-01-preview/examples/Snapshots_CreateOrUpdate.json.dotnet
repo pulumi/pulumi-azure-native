@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var snapshot = new AzureNative.ContainerStorage.Snapshot("snapshot", new()
+    {
+        PoolName = "test-pool",
+        ResourceGroupName = "test-rg",
+        SnapshotName = "test-snapshot",
+        Source = "C0C6I6",
+    });
+
+});
+

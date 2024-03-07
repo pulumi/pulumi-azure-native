@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadNetworkSegment = new azure_native.avs.WorkloadNetworkSegment("workloadNetworkSegment", {
+    connectedGateway: "/infra/tier-1s/gateway",
+    displayName: "segment1",
+    privateCloudName: "cloud1",
+    resourceGroupName: "group1",
+    revision: 1,
+    segmentId: "segment1",
+    subnet: {
+        dhcpRanges: ["40.20.0.0-40.20.0.1"],
+        gatewayAddress: "40.20.20.20/16",
+    },
+});

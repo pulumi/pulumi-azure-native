@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var userRule = new AzureNative.Network.UserRule("userRule", new()
+    {
+        ConfigurationName = "myTestSecurityConfig",
+        Description = "Sample User Rule",
+        DestinationPortRanges = new[]
+        {
+            "22",
+        },
+        Destinations = new[]
+        {
+            new AzureNative.Network.Inputs.AddressPrefixItemArgs
+            {
+                AddressPrefix = "*",
+                AddressPrefixType = "IPPrefix",
+            },
+        },
+        Direction = "Inbound",
+        Kind = "Custom",
+        NetworkManagerName = "testNetworkManager",
+        Protocol = "Tcp",
+        ResourceGroupName = "rg1",
+        RuleCollectionName = "testRuleCollection",
+        RuleName = "SampleUserRule",
+        SourcePortRanges = new[]
+        {
+            "0-65535",
+        },
+        Sources = new[]
+        {
+            new AzureNative.Network.Inputs.AddressPrefixItemArgs
+            {
+                AddressPrefix = "*",
+                AddressPrefixType = "IPPrefix",
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var watchlist = new AzureNative.SecurityInsights.Watchlist("watchlist", new()
+    {
+        ContentType = "text/csv",
+        Description = "Watchlist from CSV content",
+        DisplayName = "High Value Assets Watchlist",
+        ItemsSearchKey = "header1",
+        NumberOfLinesToSkip = 1,
+        Provider = "Microsoft",
+        RawContent = @"This line will be skipped
+header1,header2
+value1,value2",
+        ResourceGroupName = "myRg",
+        Source = "Local file",
+        WatchlistAlias = "highValueAsset",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const fabric = new azure_native.datareplication.Fabric("fabric", {
+    fabricName: "wPR",
+    location: "tqygutlpob",
+    properties: {
+        customProperties: {
+            instanceType: "FabricModelCustomProperties",
+        },
+    },
+    resourceGroupName: "rgrecoveryservicesdatareplication",
+    tags: {
+        key3917: "vgralu",
+    },
+});

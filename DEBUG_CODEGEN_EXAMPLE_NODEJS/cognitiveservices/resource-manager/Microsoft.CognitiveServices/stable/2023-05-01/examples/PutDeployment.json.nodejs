@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const deployment = new azure_native.cognitiveservices.Deployment("deployment", {
+    accountName: "accountName",
+    deploymentName: "deploymentName",
+    properties: {
+        model: {
+            format: "OpenAI",
+            name: "ada",
+            version: "1",
+        },
+    },
+    resourceGroupName: "resourceGroupName",
+    sku: {
+        capacity: 1,
+        name: "Standard",
+    },
+});

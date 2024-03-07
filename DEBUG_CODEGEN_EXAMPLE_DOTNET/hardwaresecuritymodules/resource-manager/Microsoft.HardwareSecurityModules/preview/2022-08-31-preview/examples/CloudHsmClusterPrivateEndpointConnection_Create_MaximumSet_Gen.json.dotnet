@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cloudHsmClusterPrivateEndpointConnection = new AzureNative.HardwareSecurityModules.CloudHsmClusterPrivateEndpointConnection("cloudHsmClusterPrivateEndpointConnection", new()
+    {
+        CloudHsmClusterName = "chsm1",
+        PeConnectionName = "sample-pec",
+        PrivateLinkServiceConnectionState = new AzureNative.HardwareSecurityModules.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "My name is Joe and I'm approving this.",
+            Status = "Approved",
+        },
+        ResourceGroupName = "rgcloudhsm",
+    });
+
+});
+

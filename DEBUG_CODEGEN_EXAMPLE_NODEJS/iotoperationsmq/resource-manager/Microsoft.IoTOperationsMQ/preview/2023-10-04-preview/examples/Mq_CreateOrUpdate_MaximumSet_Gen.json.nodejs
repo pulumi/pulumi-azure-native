@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mq = new azure_native.iotoperationsmq.Mq("mq", {
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    location: "qayqiarqxjennoyvglovxrdiccscq",
+    mqName: "-MK0Vqe3K7Ji",
+    resourceGroupName: "rgiotoperationsmq",
+    tags: {},
+});

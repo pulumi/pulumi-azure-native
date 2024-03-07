@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hybridUseBenefit = new azure_native.softwareplan.HybridUseBenefit("hybridUseBenefit", {
+    planId: "94f46eda-45f8-493a-8425-251921463a89",
+    scope: "subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
+    sku: {
+        name: "SQL_Server_Perpetual",
+    },
+});

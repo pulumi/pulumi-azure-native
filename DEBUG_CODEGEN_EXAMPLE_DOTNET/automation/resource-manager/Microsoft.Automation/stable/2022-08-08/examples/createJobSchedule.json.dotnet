@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var jobSchedule = new AzureNative.Automation.JobSchedule("jobSchedule", new()
+    {
+        AutomationAccountName = "ContoseAutomationAccount",
+        JobScheduleId = "0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc",
+        Parameters = 
+        {
+            { "jobscheduletag01", "jobschedulevalue01" },
+            { "jobscheduletag02", "jobschedulevalue02" },
+        },
+        ResourceGroupName = "rg",
+        Runbook = new AzureNative.Automation.Inputs.RunbookAssociationPropertyArgs
+        {
+            Name = "TestRunbook",
+        },
+        Schedule = new AzureNative.Automation.Inputs.ScheduleAssociationPropertyArgs
+        {
+            Name = "ScheduleNameGoesHere332204b5-debe-4348-a5c7-6357457189f2",
+        },
+    });
+
+});
+

@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const extension = new azure_native.visualstudio.Extension("extension", {
+    accountResourceName: "ExampleAccount",
+    extensionResourceName: "ms.example",
+    location: "Central US",
+    plan: {
+        name: "ExamplePlan",
+        product: "ExampleExtensionName",
+        promotionCode: "",
+        publisher: "ExampleExtensionPublisher",
+        version: "1.0",
+    },
+    properties: {},
+    resourceGroupName: "VS-Example-Group",
+    tags: {},
+});

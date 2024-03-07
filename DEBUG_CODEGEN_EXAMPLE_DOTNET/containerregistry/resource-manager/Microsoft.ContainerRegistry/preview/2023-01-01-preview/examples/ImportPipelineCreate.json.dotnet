@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var importPipeline = new AzureNative.ContainerRegistry.ImportPipeline("importPipeline", new()
+    {
+        Identity = new AzureNative.ContainerRegistry.Inputs.IdentityPropertiesArgs
+        {
+            Type = AzureNative.ContainerRegistry.ResourceIdentityType.UserAssigned,
+            UserAssignedIdentities = 
+            {
+                { "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2", null },
+            },
+        },
+        ImportPipelineName = "myImportPipeline",
+        Location = "westus",
+        Options = new[]
+        {
+            "OverwriteTags",
+            "DeleteSourceBlobOnSuccess",
+            "ContinueOnErrors",
+        },
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+        Source = new AzureNative.ContainerRegistry.Inputs.ImportPipelineSourcePropertiesArgs
+        {
+            KeyVaultUri = "https://myvault.vault.azure.net/secrets/acrimportsas",
+            Type = "AzureStorageBlobContainer",
+            Uri = "https://accountname.blob.core.windows.net/containername",
+        },
+    });
+
+});
+

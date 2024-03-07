@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const notificationHub = new azure_native.notificationhubs.NotificationHub("notificationHub", {
+    location: "eastus",
+    namespaceName: "nh-sdk-ns",
+    notificationHubName: "nh-sdk-hub",
+    properties: {},
+    resourceGroupName: "5ktrial",
+});

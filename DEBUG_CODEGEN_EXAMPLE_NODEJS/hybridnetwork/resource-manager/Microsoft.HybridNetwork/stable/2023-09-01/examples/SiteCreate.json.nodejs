@@ -1,0 +1,31 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const site = new azure_native.hybridnetwork.Site("site", {
+    location: "westUs2",
+    properties: {
+        nfvis: [
+            {
+                location: "westUs2",
+                name: "nfvi1",
+                nfviType: "AzureCore",
+            },
+            {
+                customLocationReference: {
+                    id: "/subscriptions/subid/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation1",
+                },
+                name: "nfvi2",
+                nfviType: "AzureArcKubernetes",
+            },
+            {
+                customLocationReference: {
+                    id: "/subscriptions/subid/resourceGroups/testResourceGroup/providers/Microsoft.ExtendedLocation/customLocations/testCustomLocation2",
+                },
+                name: "nfvi3",
+                nfviType: "AzureOperatorNexus",
+            },
+        ],
+    },
+    resourceGroupName: "rg1",
+    siteName: "testSite",
+});

@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 fabric = azure_native.datareplication.Fabric("fabric",
     fabric_name="wPR",
     location="tqygutlpob",
-    properties=azure_native.datareplication.FabricModelPropertiesArgs(
+    properties=azure_native.datareplication.FabricModelPropertiesResponseArgs(
         custom_properties={
             "instanceType": "FabricModelCustomProperties",
         },

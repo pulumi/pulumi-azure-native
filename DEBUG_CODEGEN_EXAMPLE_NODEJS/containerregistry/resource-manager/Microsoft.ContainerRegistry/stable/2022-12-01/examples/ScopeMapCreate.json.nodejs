@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const scopeMap = new azure_native.containerregistry.ScopeMap("scopeMap", {
+    actions: [
+        "repositories/myrepository/contentWrite",
+        "repositories/myrepository/delete",
+    ],
+    description: "Developer Scopes",
+    registryName: "myRegistry",
+    resourceGroupName: "myResourceGroup",
+    scopeMapName: "myScopeMap",
+});

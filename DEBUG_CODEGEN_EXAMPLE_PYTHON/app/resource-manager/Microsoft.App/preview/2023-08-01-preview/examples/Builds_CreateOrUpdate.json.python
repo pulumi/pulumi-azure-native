@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 build = azure_native.app.Build("build",
     build_name="testBuild-123456789az",
     builder_name="testBuilder",
-    configuration=azure_native.app.BuildConfigurationArgs(
+    configuration=azure_native.app.BuildConfigurationResponseArgs(
         base_os="DebianBullseye",
         environment_variables=[
             azure_native.app.EnvironmentVariableArgs(
@@ -19,9 +19,9 @@ build = azure_native.app.Build("build",
         platform="dotnetcore",
         platform_version="7.0",
         pre_build_steps=[
-            azure_native.app.PreBuildStepArgs(
-                description="First pre build step.",
-                http_get=azure_native.app.HttpGetArgs(
+            {
+                "description": "First pre build step.",
+                "httpGet": azure_native.app.HttpGetArgs(
                     file_name="output.txt",
                     headers=[
                         "foo",
@@ -29,23 +29,23 @@ build = azure_native.app.Build("build",
                     ],
                     url="https://microsoft.com",
                 ),
-                scripts=[
+                "scripts": [
                     "echo 'hello'",
                     "echo 'world'",
                 ],
-            ),
-            azure_native.app.PreBuildStepArgs(
-                description="Second pre build step.",
-                http_get=azure_native.app.HttpGetArgs(
+            },
+            {
+                "description": "Second pre build step.",
+                "httpGet": azure_native.app.HttpGetArgs(
                     file_name="output.txt",
                     headers=["foo"],
                     url="https://microsoft.com",
                 ),
-                scripts=[
+                "scripts": [
                     "echo 'hello'",
                     "echo 'again'",
                 ],
-            ),
+            },
         ],
     ),
     destination_container_registry=azure_native.app.ContainerRegistryWithCustomImageArgs(

@@ -1,0 +1,57 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.DataBox.Job("job", new()
+    {
+        Details = new AzureNative.DataBox.Inputs.DataBoxJobDetailsArgs
+        {
+            ContactDetails = new AzureNative.DataBox.Inputs.ContactDetailsArgs
+            {
+                ContactName = "XXXX XXXX",
+                EmailList = new[]
+                {
+                    "xxxx@xxxx.xxx",
+                },
+                Phone = "0000000000",
+                PhoneExtension = "",
+            },
+            DataImportDetails = new[]
+            {
+                new AzureNative.DataBox.Inputs.DataImportDetailsArgs
+                {
+                    AccountDetails = new AzureNative.DataBox.Inputs.StorageAccountDetailsArgs
+                    {
+                        DataAccountType = "StorageAccount",
+                        StorageAccountId = "/subscriptions/YourSubscriptionId/resourcegroups/YourResourceGroupName/providers/Microsoft.Storage/storageAccounts/YourStorageAccountName",
+                    },
+                },
+            },
+            JobDetailsType = "DataBox",
+            ShippingAddress = new AzureNative.DataBox.Inputs.ShippingAddressArgs
+            {
+                AddressType = "Commercial",
+                City = "XXXX XXXX",
+                CompanyName = "XXXX XXXX",
+                Country = "XX",
+                PostalCode = "00000",
+                StateOrProvince = "XX",
+                StreetAddress1 = "XXXX XXXX",
+                StreetAddress2 = "XXXX XXXX",
+            },
+        },
+        JobName = "TestJobName1",
+        Location = "westus",
+        ResourceGroupName = "YourResourceGroupName",
+        Sku = new AzureNative.DataBox.Inputs.SkuArgs
+        {
+            Name = "DataBox",
+        },
+        TransferType = "ImportToAzure",
+    });
+
+});
+

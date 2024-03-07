@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualNetworkPeering = new AzureNative.Network.VirtualNetworkPeering("virtualNetworkPeering", new()
+    {
+        AllowForwardedTraffic = true,
+        AllowGatewayTransit = false,
+        AllowVirtualNetworkAccess = true,
+        RemoteVirtualNetwork = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+        },
+        ResourceGroupName = "peerTest",
+        UseRemoteGateways = false,
+        VirtualNetworkName = "vnet1",
+        VirtualNetworkPeeringName = "peer",
+    });
+
+});
+

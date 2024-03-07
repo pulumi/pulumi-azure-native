@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkVirtualAppliance = new azure_native.network.NetworkVirtualAppliance("networkVirtualAppliance", {
+    delegation: {
+        serviceName: "PaloAltoNetworks.Cloudngfw/firewalls",
+    },
+    location: "West US",
+    networkVirtualApplianceName: "nva",
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "value1",
+    },
+    virtualHub: {
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    },
+});

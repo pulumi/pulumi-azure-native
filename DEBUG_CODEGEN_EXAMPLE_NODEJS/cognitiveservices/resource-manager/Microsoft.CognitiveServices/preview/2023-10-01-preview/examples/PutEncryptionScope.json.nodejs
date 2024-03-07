@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const encryptionScope = new azure_native.cognitiveservices.EncryptionScope("encryptionScope", {
+    accountName: "accountName",
+    encryptionScopeName: "encryptionScopeName",
+    properties: {
+        keySource: "Microsoft.KeyVault",
+        keyVaultProperties: {
+            identityClientId: "00000000-0000-0000-0000-000000000000",
+            keyName: "DevKeyWestUS2",
+            keyVaultUri: "https://devkvwestus2.vault.azure.net/",
+            keyVersion: "9f85549d7bf14ff4bf178c10d3bdca95",
+        },
+        state: "Enabled",
+    },
+    resourceGroupName: "resourceGroupName",
+});

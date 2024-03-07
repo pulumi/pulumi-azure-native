@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    {
+        Location = "westus",
+        ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+        Parameters = new AzureNative.Databricks.Inputs.WorkspaceCustomParametersArgs
+        {
+            CustomPrivateSubnetName = new AzureNative.Databricks.Inputs.WorkspaceCustomStringParameterArgs
+            {
+                Value = "myPrivateSubnet",
+            },
+            CustomPublicSubnetName = new AzureNative.Databricks.Inputs.WorkspaceCustomStringParameterArgs
+            {
+                Value = "myPublicSubnet",
+            },
+            CustomVirtualNetworkId = new AzureNative.Databricks.Inputs.WorkspaceCustomStringParameterArgs
+            {
+                Value = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork",
+            },
+        },
+        ResourceGroupName = "rg",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

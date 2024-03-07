@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dotNetComponent = new AzureNative.App.DotNetComponent("dotNetComponent", new()
+    {
+        ComponentType = "AspireDashboard",
+        Configurations = new[]
+        {
+            new AzureNative.App.Inputs.DotNetComponentConfigurationPropertyArgs
+            {
+                PropertyName = "dashboard-theme",
+                Value = "dark",
+            },
+        },
+        EnvironmentName = "myenvironment",
+        Name = "mydotnetcomponent",
+        ResourceGroupName = "examplerg",
+        ServiceBinds = new[]
+        {
+            new AzureNative.App.Inputs.DotNetComponentServiceBindArgs
+            {
+                Name = "yellowcat",
+                ServiceId = "/subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/myenvironment/dotNetComponents/yellowcat",
+            },
+        },
+    });
+
+});
+

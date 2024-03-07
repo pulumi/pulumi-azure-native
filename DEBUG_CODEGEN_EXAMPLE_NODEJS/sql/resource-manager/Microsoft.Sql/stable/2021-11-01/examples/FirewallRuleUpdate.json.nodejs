@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const firewallRule = new azure_native.sql.FirewallRule("firewallRule", {
+    endIpAddress: "0.0.0.1",
+    firewallRuleName: "firewallrulecrudtest-3927",
+    resourceGroupName: "firewallrulecrudtest-12",
+    serverName: "firewallrulecrudtest-6285",
+    startIpAddress: "0.0.0.1",
+});

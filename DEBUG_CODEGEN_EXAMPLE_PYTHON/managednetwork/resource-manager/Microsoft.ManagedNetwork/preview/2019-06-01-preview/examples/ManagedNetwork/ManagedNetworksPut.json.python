@@ -5,7 +5,7 @@ managed_network = azure_native.managednetwork.ManagedNetwork("managedNetwork",
     location="eastus",
     managed_network_name="myManagedNetwork",
     resource_group_name="myResourceGroup",
-    scope=azure_native.managednetwork.ScopeArgs(
+    scope=azure_native.managednetwork.ScopeResponseArgs(
         management_groups=[
             azure_native.managednetwork.ResourceIdArgs(
                 id="/providers/Microsoft.Management/managementGroups/20000000-0001-0000-0000-000000000000",

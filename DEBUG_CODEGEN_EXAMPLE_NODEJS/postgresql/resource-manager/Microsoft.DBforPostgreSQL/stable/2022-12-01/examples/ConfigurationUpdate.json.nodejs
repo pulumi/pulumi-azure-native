@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const configuration = new azure_native.dbforpostgresql.Configuration("configuration", {
+    configurationName: "event_scheduler",
+    resourceGroupName: "testrg",
+    serverName: "testserver",
+    source: "user-override",
+    value: "on",
+});

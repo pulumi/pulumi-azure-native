@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mongoDBResourceMongoUserDefinition = new azure_native.documentdb.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition", {
+    accountName: "myAccountName",
+    customData: "My custom data",
+    databaseName: "sales",
+    mechanisms: "SCRAM-SHA-256",
+    mongoUserDefinitionId: "myMongoUserDefinitionId",
+    password: "myPassword",
+    resourceGroupName: "myResourceGroupName",
+    roles: [{
+        db: "sales",
+        role: "myReadRole",
+    }],
+    userName: "myUserName",
+});

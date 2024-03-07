@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.attestation.PrivateEndpointConnection("privateEndpointConnection", {
+    privateEndpointConnectionName: "{privateEndpointConnectionName}",
+    privateLinkServiceConnectionState: {
+        description: "Auto-Approved",
+        status: "Approved",
+    },
+    providerName: "sto9699",
+    resourceGroupName: "res7687",
+});

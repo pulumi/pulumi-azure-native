@@ -1,0 +1,64 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+    policyName: "v2-daily-sample",
+    properties: {
+        backupManagementType: "AzureIaasVM",
+        instantRpRetentionRangeInDays: 30,
+        policyType: "V2",
+        retentionPolicy: {
+            dailySchedule: {
+                retentionDuration: {
+                    count: 180,
+                    durationType: "Days",
+                },
+                retentionTimes: ["2021-12-17T08:00:00+00:00"],
+            },
+            monthlySchedule: {
+                retentionDuration: {
+                    count: 60,
+                    durationType: "Months",
+                },
+                retentionScheduleFormatType: "Weekly",
+                retentionScheduleWeekly: {
+                    daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+                    weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+                },
+                retentionTimes: ["2021-12-17T08:00:00+00:00"],
+            },
+            retentionPolicyType: "LongTermRetentionPolicy",
+            weeklySchedule: {
+                daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+                retentionDuration: {
+                    count: 12,
+                    durationType: "Weeks",
+                },
+                retentionTimes: ["2021-12-17T08:00:00+00:00"],
+            },
+            yearlySchedule: {
+                monthsOfYear: [azure_native.recoveryservices.MonthOfYear.January],
+                retentionDuration: {
+                    count: 10,
+                    durationType: "Years",
+                },
+                retentionScheduleFormatType: "Weekly",
+                retentionScheduleWeekly: {
+                    daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+                    weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+                },
+                retentionTimes: ["2021-12-17T08:00:00+00:00"],
+            },
+        },
+        schedulePolicy: {
+            dailySchedule: {
+                scheduleRunTimes: ["2018-01-24T10:00:00Z"],
+            },
+            schedulePolicyType: "SimpleSchedulePolicyV2",
+            scheduleRunFrequency: "Daily",
+        },
+        timeZone: "India Standard Time",
+    },
+    resourceGroupName: "SwaggerTestRg",
+    vaultName: "NetSDKTestRsVault",
+});

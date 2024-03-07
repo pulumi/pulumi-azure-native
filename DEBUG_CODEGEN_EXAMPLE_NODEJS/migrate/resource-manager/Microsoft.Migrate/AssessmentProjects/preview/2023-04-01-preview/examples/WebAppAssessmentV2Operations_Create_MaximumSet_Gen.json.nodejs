@@ -1,0 +1,41 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webAppAssessmentV2Operation = new azure_native.migrate.WebAppAssessmentV2Operation("webAppAssessmentV2Operation", {
+    appSvcContainerSettings: {
+        isolationRequired: true,
+    },
+    appSvcNativeSettings: {
+        isolationRequired: true,
+    },
+    assessmentName: "anraghun-selfhost-v2",
+    assessmentType: "WebAppAssessment",
+    azureLocation: "UkWest",
+    azureOfferCode: "MSAZR0003P",
+    azureSecurityOfferingType: "NO",
+    confidenceRatingInPercentage: 13,
+    currency: "USD",
+    discountPercentage: 13,
+    discoveredEntityLightSummary: {
+        numberOfMachines: 27,
+        numberOfServers: 5,
+        numberOfWebApps: 23,
+    },
+    eaSubscriptionId: "",
+    entityUptime: {
+        daysPerMonth: 18,
+        hoursPerDay: 13,
+    },
+    environmentType: "Production",
+    groupName: "anraghun-selfhost-v2",
+    groupType: "Default",
+    percentile: "Percentile50",
+    perfDataEndTime: "2023-11-03T05:42:45.496Z",
+    perfDataStartTime: "2023-11-03T05:42:45.496Z",
+    projectName: "sumukk-ccy-bcs4557project",
+    reservedInstance: "None",
+    resourceGroupName: "rgopenapi",
+    scalingFactor: 17,
+    sizingCriterion: "PerformanceBased",
+    timeRange: "Day",
+});

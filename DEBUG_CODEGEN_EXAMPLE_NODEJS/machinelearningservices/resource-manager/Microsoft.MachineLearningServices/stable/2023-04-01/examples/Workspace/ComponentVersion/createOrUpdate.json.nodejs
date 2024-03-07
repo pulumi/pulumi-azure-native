@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const componentVersion = new azure_native.machinelearningservices.ComponentVersion("componentVersion", {
+    componentVersionProperties: {
+        componentSpec: {
+            "8ced901b-d826-477d-bfef-329da9672513": undefined,
+        },
+        description: "string",
+        isAnonymous: false,
+        properties: {
+            string: "string",
+        },
+        tags: {
+            string: "string",
+        },
+    },
+    name: "string",
+    resourceGroupName: "test-rg",
+    version: "string",
+    workspaceName: "my-aml-workspace",
+});

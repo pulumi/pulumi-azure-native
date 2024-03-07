@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var subscriptionFeatureRegistration = new AzureNative.Features.SubscriptionFeatureRegistration("subscriptionFeatureRegistration", new()
+    {
+        FeatureName = "testFeature",
+        Properties = null,
+        ProviderNamespace = "subscriptionFeatureRegistrationGroupTestRG",
+    });
+
+});
+

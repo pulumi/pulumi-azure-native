@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedPrivateEndpoint = new AzureNative.Dashboard.ManagedPrivateEndpoint("managedPrivateEndpoint", new()
+    {
+        GroupIds = new[]
+        {
+            "grafana",
+        },
+        Location = "West US",
+        ManagedPrivateEndpointName = "myMPEName",
+        PrivateLinkResourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-000000000000/resourceGroups/xx-rg/providers/Microsoft.Kusto/Clusters/sampleKustoResource",
+        PrivateLinkResourceRegion = "West US",
+        PrivateLinkServiceUrl = "my-self-hosted-influxdb.westus.mydomain.com",
+        RequestMessage = "Example Request Message",
+        ResourceGroupName = "myResourceGroup",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

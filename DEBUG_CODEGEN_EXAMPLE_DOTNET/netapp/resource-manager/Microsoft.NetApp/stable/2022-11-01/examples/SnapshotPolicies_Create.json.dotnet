@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var snapshotPolicy = new AzureNative.NetApp.SnapshotPolicy("snapshotPolicy", new()
+    {
+        AccountName = "account1",
+        DailySchedule = new AzureNative.NetApp.Inputs.DailyScheduleArgs
+        {
+            Hour = 14,
+            Minute = 30,
+            SnapshotsToKeep = 4,
+        },
+        Enabled = true,
+        HourlySchedule = new AzureNative.NetApp.Inputs.HourlyScheduleArgs
+        {
+            Minute = 50,
+            SnapshotsToKeep = 2,
+        },
+        Location = "eastus",
+        MonthlySchedule = new AzureNative.NetApp.Inputs.MonthlyScheduleArgs
+        {
+            DaysOfMonth = "10,11,12",
+            Hour = 14,
+            Minute = 15,
+            SnapshotsToKeep = 5,
+        },
+        ResourceGroupName = "myRG",
+        SnapshotPolicyName = "snapshotPolicyName",
+        WeeklySchedule = new AzureNative.NetApp.Inputs.WeeklyScheduleArgs
+        {
+            Day = "Wednesday",
+            Hour = 14,
+            Minute = 45,
+            SnapshotsToKeep = 3,
+        },
+    });
+
+});
+

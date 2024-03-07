@@ -5,19 +5,19 @@ kubernetes_cluster = azure_native.networkcloud.KubernetesCluster("kubernetesClus
     aad_configuration=azure_native.networkcloud.AadConfigurationArgs(
         admin_group_object_ids=["ffffffff-ffff-ffff-ffff-ffffffffffff"],
     ),
-    administrator_configuration=azure_native.networkcloud.AdministratorConfigurationArgs(
+    administrator_configuration=azure_native.networkcloud.AdministratorConfigurationResponseArgs(
         admin_username="azure",
         ssh_public_keys=[azure_native.networkcloud.SshPublicKeyArgs(
             key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
         )],
     ),
-    control_plane_node_configuration=azure_native.networkcloud.ControlPlaneNodeConfigurationArgs(
-        administrator_configuration=azure_native.networkcloud.AdministratorConfigurationArgs(
-            admin_username="azure",
-            ssh_public_keys=[azure_native.networkcloud.SshPublicKeyArgs(
+    control_plane_node_configuration=azure_native.networkcloud.ControlPlaneNodeConfigurationResponseArgs(
+        administrator_configuration={
+            "adminUsername": "azure",
+            "sshPublicKeys": [azure_native.networkcloud.SshPublicKeyArgs(
                 key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
             )],
-        ),
+        },
         availability_zones=[
             "1",
             "2",
@@ -30,53 +30,53 @@ kubernetes_cluster = azure_native.networkcloud.KubernetesCluster("kubernetesClus
         name="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
         type="CustomLocation",
     ),
-    initial_agent_pool_configurations=[azure_native.networkcloud.InitialAgentPoolConfigurationArgs(
-        administrator_configuration=azure_native.networkcloud.AdministratorConfigurationArgs(
-            admin_username="azure",
-            ssh_public_keys=[azure_native.networkcloud.SshPublicKeyArgs(
+    initial_agent_pool_configurations=[{
+        "administratorConfiguration": {
+            "adminUsername": "azure",
+            "sshPublicKeys": [azure_native.networkcloud.SshPublicKeyArgs(
                 key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
             )],
-        ),
-        agent_options=azure_native.networkcloud.AgentOptionsArgs(
+        },
+        "agentOptions": azure_native.networkcloud.AgentOptionsArgs(
             hugepages_count=96,
             hugepages_size="1G",
         ),
-        attached_network_configuration=azure_native.networkcloud.AttachedNetworkConfigurationArgs(
-            l2_networks=[azure_native.networkcloud.L2NetworkAttachmentConfigurationArgs(
+        "attachedNetworkConfiguration": {
+            "l2Networks": [azure_native.networkcloud.L2NetworkAttachmentConfigurationArgs(
                 network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName",
                 plugin_type="DPDK",
             )],
-            l3_networks=[azure_native.networkcloud.L3NetworkAttachmentConfigurationArgs(
+            "l3Networks": [azure_native.networkcloud.L3NetworkAttachmentConfigurationArgs(
                 ipam_enabled="False",
                 network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
                 plugin_type="SRIOV",
             )],
-            trunked_networks=[azure_native.networkcloud.TrunkedNetworkAttachmentConfigurationArgs(
+            "trunkedNetworks": [azure_native.networkcloud.TrunkedNetworkAttachmentConfigurationArgs(
                 network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName",
                 plugin_type="MACVLAN",
             )],
-        ),
-        availability_zones=[
+        },
+        "availabilityZones": [
             "1",
             "2",
             "3",
         ],
-        count=3,
-        labels=[azure_native.networkcloud.KubernetesLabelArgs(
+        "count": 3,
+        "labels": [azure_native.networkcloud.KubernetesLabelArgs(
             key="kubernetes.label",
             value="true",
         )],
-        mode="System",
-        name="SystemPool-1",
-        taints=[azure_native.networkcloud.KubernetesLabelArgs(
+        "mode": "System",
+        "name": "SystemPool-1",
+        "taints": [azure_native.networkcloud.KubernetesLabelArgs(
             key="kubernetes.taint",
             value="true",
         )],
-        upgrade_settings=azure_native.networkcloud.AgentPoolUpgradeSettingsArgs(
+        "upgradeSettings": azure_native.networkcloud.AgentPoolUpgradeSettingsArgs(
             max_surge="1",
         ),
-        vm_sku_name="NC_M16_v1",
-    )],
+        "vmSkuName": "NC_M16_v1",
+    }],
     kubernetes_cluster_name="kubernetesClusterName",
     kubernetes_version="1.24.12-1",
     location="location",
@@ -84,30 +84,30 @@ kubernetes_cluster = azure_native.networkcloud.KubernetesCluster("kubernetesClus
         location="East US",
         name="my-managed-rg",
     ),
-    network_configuration=azure_native.networkcloud.NetworkConfigurationArgs(
-        attached_network_configuration=azure_native.networkcloud.AttachedNetworkConfigurationArgs(
-            l2_networks=[azure_native.networkcloud.L2NetworkAttachmentConfigurationArgs(
+    network_configuration=azure_native.networkcloud.NetworkConfigurationResponseArgs(
+        attached_network_configuration={
+            "l2Networks": [azure_native.networkcloud.L2NetworkAttachmentConfigurationArgs(
                 network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName",
                 plugin_type="DPDK",
             )],
-            l3_networks=[azure_native.networkcloud.L3NetworkAttachmentConfigurationArgs(
+            "l3Networks": [azure_native.networkcloud.L3NetworkAttachmentConfigurationArgs(
                 ipam_enabled="False",
                 network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
                 plugin_type="SRIOV",
             )],
-            trunked_networks=[azure_native.networkcloud.TrunkedNetworkAttachmentConfigurationArgs(
+            "trunkedNetworks": [azure_native.networkcloud.TrunkedNetworkAttachmentConfigurationArgs(
                 network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName",
                 plugin_type="MACVLAN",
             )],
-        ),
-        bgp_service_load_balancer_configuration=azure_native.networkcloud.BgpServiceLoadBalancerConfigurationArgs(
-            bgp_advertisements=[azure_native.networkcloud.BgpAdvertisementArgs(
+        },
+        bgp_service_load_balancer_configuration={
+            "bgpAdvertisements": [azure_native.networkcloud.BgpAdvertisementArgs(
                 advertise_to_fabric="True",
                 communities=["64512:100"],
                 ip_address_pools=["pool1"],
                 peers=["peer1"],
             )],
-            bgp_peers=[azure_native.networkcloud.ServiceLoadBalancerBgpPeerArgs(
+            "bgpPeers": [azure_native.networkcloud.ServiceLoadBalancerBgpPeerArgs(
                 bfd_enabled="False",
                 bgp_multi_hop="False",
                 hold_time="P300s",
@@ -118,14 +118,14 @@ kubernetes_cluster = azure_native.networkcloud.KubernetesCluster("kubernetesClus
                 peer_asn=64497,
                 peer_port=179,
             )],
-            fabric_peering_enabled="True",
-            ip_address_pools=[azure_native.networkcloud.IpAddressPoolArgs(
+            "fabricPeeringEnabled": "True",
+            "ipAddressPools": [azure_native.networkcloud.IpAddressPoolArgs(
                 addresses=["198.51.102.0/24"],
                 auto_assign="True",
                 name="pool1",
                 only_use_host_ips="True",
             )],
-        ),
+        },
         cloud_services_network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName",
         cni_network_id="/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
         dns_service_ip="198.51.101.2",

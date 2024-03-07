@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var referenceDataSet = new AzureNative.TimeSeriesInsights.ReferenceDataSet("referenceDataSet", new()
+    {
+        EnvironmentName = "env1",
+        KeyProperties = new[]
+        {
+            new AzureNative.TimeSeriesInsights.Inputs.ReferenceDataSetKeyPropertyArgs
+            {
+                Name = "DeviceId1",
+                Type = "String",
+            },
+            new AzureNative.TimeSeriesInsights.Inputs.ReferenceDataSetKeyPropertyArgs
+            {
+                Name = "DeviceFloor",
+                Type = "Double",
+            },
+        },
+        Location = "West US",
+        ReferenceDataSetName = "rds1",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

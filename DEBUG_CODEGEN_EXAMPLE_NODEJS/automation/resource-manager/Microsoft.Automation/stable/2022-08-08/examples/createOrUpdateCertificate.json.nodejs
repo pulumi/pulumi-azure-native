@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const certificate = new azure_native.automation.Certificate("certificate", {
+    automationAccountName: "myAutomationAccount18",
+    base64Value: "base 64 value of cert",
+    certificateName: "testCert",
+    description: "Sample Cert",
+    isExportable: false,
+    name: "testCert",
+    resourceGroupName: "rg",
+    thumbprint: "thumbprint of cert",
+});

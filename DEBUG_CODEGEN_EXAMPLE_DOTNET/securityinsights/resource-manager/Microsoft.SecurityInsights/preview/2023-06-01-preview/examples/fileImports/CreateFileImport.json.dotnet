@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fileImport = new AzureNative.SecurityInsights.FileImport("fileImport", new()
+    {
+        ContentType = "StixIndicator",
+        FileImportId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+        ImportFile = new AzureNative.SecurityInsights.Inputs.FileMetadataArgs
+        {
+            FileFormat = "JSON",
+            FileName = "myFile.json",
+            FileSize = 4653,
+        },
+        IngestionMode = "IngestAnyValidRecords",
+        ResourceGroupName = "myRg",
+        Source = "mySource",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

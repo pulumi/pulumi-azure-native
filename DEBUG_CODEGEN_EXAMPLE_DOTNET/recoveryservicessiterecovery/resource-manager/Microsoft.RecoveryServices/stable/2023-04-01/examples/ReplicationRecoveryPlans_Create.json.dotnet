@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var replicationRecoveryPlan = new AzureNative.RecoveryServices.ReplicationRecoveryPlan("replicationRecoveryPlan", new()
+    {
+        Properties = new AzureNative.RecoveryServices.Inputs.CreateRecoveryPlanInputPropertiesArgs
+        {
+            FailoverDeploymentModel = "ResourceManager",
+            Groups = new[]
+            {
+                new AzureNative.RecoveryServices.Inputs.RecoveryPlanGroupArgs
+                {
+                    EndGroupActions = new[] {},
+                    GroupType = "Boot",
+                    ReplicationProtectedItems = new[]
+                    {
+                        new AzureNative.RecoveryServices.Inputs.RecoveryPlanProtectedItemArgs
+                        {
+                            Id = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+                            VirtualMachineId = "f8491e4f-817a-40dd-a90c-af773978c75b",
+                        },
+                    },
+                    StartGroupActions = new[] {},
+                },
+            },
+            PrimaryFabricId = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1",
+            RecoveryFabricId = "Microsoft Azure",
+        },
+        RecoveryPlanName = "RPtest1",
+        ResourceGroupName = "resourceGroupPS1",
+        ResourceName = "vault1",
+    });
+
+});
+

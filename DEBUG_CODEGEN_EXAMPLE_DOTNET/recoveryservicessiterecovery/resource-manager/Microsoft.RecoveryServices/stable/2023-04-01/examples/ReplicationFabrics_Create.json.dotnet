@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var replicationFabric = new AzureNative.RecoveryServices.ReplicationFabric("replicationFabric", new()
+    {
+        FabricName = "cloud1",
+        Properties = new AzureNative.RecoveryServices.Inputs.FabricCreationInputPropertiesArgs
+        {
+            CustomDetails = 
+            {
+                { "instanceType", "FabricSpecificCreationInput" },
+            },
+        },
+        ResourceGroupName = "resourceGroupPS1",
+        ResourceName = "vault1",
+    });
+
+});
+

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var permissionBinding = new AzureNative.EventGrid.PermissionBinding("permissionBinding", new()
+    {
+        ClientGroupName = "exampleClientGroupName1",
+        NamespaceName = "exampleNamespaceName1",
+        Permission = "Publisher",
+        PermissionBindingName = "examplePermissionBindingName1",
+        ResourceGroupName = "examplerg",
+        TopicSpaceName = "exampleTopicSpaceName1",
+    });
+
+});
+

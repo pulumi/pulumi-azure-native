@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const jobDefinition = new azure_native.storagemover.JobDefinition("jobDefinition", {
+    agentName: "migration-agent",
+    copyMode: "Additive",
+    description: "Example Job Definition Description",
+    jobDefinitionName: "examples-jobDefinitionName",
+    projectName: "examples-projectName",
+    resourceGroupName: "examples-rg",
+    sourceName: "examples-sourceEndpointName",
+    sourceSubpath: "/",
+    storageMoverName: "examples-storageMoverName",
+    targetName: "examples-targetEndpointName",
+    targetSubpath: "/",
+});

@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var internetGateway = new AzureNative.ManagedNetworkFabric.InternetGateway("internetGateway", new()
+    {
+        Annotation = "annotation",
+        InternetGatewayName = "example-internetGateway",
+        InternetGatewayRuleId = "/subscriptions/xxxx-xxxx-xxxx-xxxx/providers/Microsoft.ManagedNetworkFabric/internetGatewayRules/example-internetGatewayRule",
+        Location = "eastus",
+        NetworkFabricControllerId = "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/example-networkFabricController",
+        ResourceGroupName = "example-rg",
+        Tags = 
+        {
+            { "key3540", "1234" },
+        },
+        Type = "Infrastructure",
+    });
+
+});
+

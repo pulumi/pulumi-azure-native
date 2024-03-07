@@ -1,0 +1,80 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var build = new AzureNative.App.Build("build", new()
+    {
+        BuildName = "testBuild-123456789az",
+        BuilderName = "testBuilder",
+        Configuration = new AzureNative.App.Inputs.BuildConfigurationArgs
+        {
+            BaseOs = "DebianBullseye",
+            EnvironmentVariables = new[]
+            {
+                new AzureNative.App.Inputs.EnvironmentVariableArgs
+                {
+                    Name = "foo1",
+                    Value = "bar1",
+                },
+                new AzureNative.App.Inputs.EnvironmentVariableArgs
+                {
+                    Name = "foo2",
+                    Value = "bar2",
+                },
+            },
+            Platform = "dotnetcore",
+            PlatformVersion = "7.0",
+            PreBuildSteps = new[]
+            {
+                new AzureNative.App.Inputs.PreBuildStepArgs
+                {
+                    Description = "First pre build step.",
+                    HttpGet = new AzureNative.App.Inputs.HttpGetArgs
+                    {
+                        FileName = "output.txt",
+                        Headers = new[]
+                        {
+                            "foo",
+                            "bar",
+                        },
+                        Url = "https://microsoft.com",
+                    },
+                    Scripts = new[]
+                    {
+                        "echo 'hello'",
+                        "echo 'world'",
+                    },
+                },
+                new AzureNative.App.Inputs.PreBuildStepArgs
+                {
+                    Description = "Second pre build step.",
+                    HttpGet = new AzureNative.App.Inputs.HttpGetArgs
+                    {
+                        FileName = "output.txt",
+                        Headers = new[]
+                        {
+                            "foo",
+                        },
+                        Url = "https://microsoft.com",
+                    },
+                    Scripts = new[]
+                    {
+                        "echo 'hello'",
+                        "echo 'again'",
+                    },
+                },
+            },
+        },
+        DestinationContainerRegistry = new AzureNative.App.Inputs.ContainerRegistryWithCustomImageArgs
+        {
+            Image = "test.azurecr.io/repo:tag",
+            Server = "test.azurecr.io",
+        },
+        ResourceGroupName = "rg",
+    });
+
+});
+

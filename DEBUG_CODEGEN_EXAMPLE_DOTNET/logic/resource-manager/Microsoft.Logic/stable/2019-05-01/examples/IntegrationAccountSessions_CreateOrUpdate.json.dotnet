@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var integrationAccountSession = new AzureNative.Logic.IntegrationAccountSession("integrationAccountSession", new()
+    {
+        Content = 
+        {
+            { "controlNumber", "1234" },
+            { "controlNumberChangedTime", "2017-02-21T22:30:11.9923759Z" },
+        },
+        IntegrationAccountName = "testia123",
+        ResourceGroupName = "testrg123",
+        SessionName = "testsession123-ICN",
+    });
+
+});
+

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const namespaceAuthorizationRule = new azure_native.relay.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
+    authorizationRuleName: "example-RelayAuthRules-01",
+    namespaceName: "example-RelayNamespace-01",
+    resourceGroupName: "resourcegroup",
+    rights: [
+        "Listen",
+        "Send",
+    ],
+});

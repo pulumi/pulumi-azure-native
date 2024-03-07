@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const authorization = new azure_native.apimanagement.Authorization("authorization", {
+    authorizationId: "authz2",
+    authorizationProviderId: "aadwithauthcode",
+    authorizationType: "OAuth2",
+    oAuth2GrantType: "AuthorizationCode",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

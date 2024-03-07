@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const database = new azure_native.sql.Database("database", {
+    createMode: "Recovery",
+    databaseName: "testdw",
+    location: "westus",
+    resourceGroupName: "Default-SQL-WestUS",
+    serverName: "testsvr",
+    sourceResourceId: "/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-EastUS/providers/Microsoft.Sql/servers/srcsvr/recoverabledatabases/srcdw",
+});

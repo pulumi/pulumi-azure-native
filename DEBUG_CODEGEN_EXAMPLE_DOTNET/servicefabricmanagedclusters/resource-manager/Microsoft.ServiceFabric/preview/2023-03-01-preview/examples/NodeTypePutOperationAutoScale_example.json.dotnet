@@ -1,0 +1,75 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    {
+        Capacities = 
+        {
+            { "ClientConnections", "65536" },
+        },
+        ClusterName = "myCluster",
+        DataDiskSizeGB = 200,
+        DataDiskType = "Premium_LRS",
+        IsPrimary = false,
+        IsStateless = true,
+        MultiplePlacementGroups = true,
+        NodeTypeName = "BE",
+        PlacementProperties = 
+        {
+            { "HasSSD", "true" },
+            { "NodeColor", "green" },
+            { "SomeProperty", "5" },
+        },
+        ResourceGroupName = "resRg",
+        VmExtensions = new[]
+        {
+            new AzureNative.ServiceFabric.Inputs.VMSSExtensionArgs
+            {
+                AutoUpgradeMinorVersion = true,
+                Name = "Microsoft.Azure.Geneva.GenevaMonitoring",
+                Publisher = "Microsoft.Azure.Geneva",
+                Settings = null,
+                Type = "GenevaMonitoring",
+                TypeHandlerVersion = "2.0",
+            },
+        },
+        VmImageOffer = "WindowsServer",
+        VmImagePublisher = "MicrosoftWindowsServer",
+        VmImageSku = "2016-Datacenter-Server-Core",
+        VmImageVersion = "latest",
+        VmInstanceCount = -1,
+        VmManagedIdentity = new AzureNative.ServiceFabric.Inputs.VmManagedIdentityArgs
+        {
+            UserAssignedIdentities = new[]
+            {
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+            },
+        },
+        VmSecrets = new[]
+        {
+            new AzureNative.ServiceFabric.Inputs.VaultSecretGroupArgs
+            {
+                SourceVault = new AzureNative.ServiceFabric.Inputs.SubResourceArgs
+                {
+                    Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+                },
+                VaultCertificates = new[]
+                {
+                    new AzureNative.ServiceFabric.Inputs.VaultCertificateArgs
+                    {
+                        CertificateStore = "My",
+                        CertificateUrl = "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+                    },
+                },
+            },
+        },
+        VmSize = "Standard_DS3",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const instanceDetails = new azure_native.dynamics365fraudprotection.InstanceDetails("instanceDetails", {
+    administration: {
+        members: [
+            "azsdktest@microsoft.com",
+            "azsdktest2@microsoft.com",
+        ],
+    },
+    instanceName: "azsdktest",
+    location: "West US",
+    resourceGroupName: "TestRG",
+    tags: {
+        testKey: "testValue",
+    },
+});

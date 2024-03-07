@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var providerInstance = new AzureNative.Workloads.ProviderInstance("providerInstance", new()
+    {
+        MonitorName = "mySapMonitor",
+        ProviderInstanceName = "myProviderInstance",
+        ProviderSettings = new AzureNative.Workloads.Inputs.MsSqlServerProviderInstancePropertiesArgs
+        {
+            DbPassword = "****",
+            DbPasswordUri = "",
+            DbPort = "5912",
+            DbUsername = "user",
+            Hostname = "hostname",
+            ProviderType = "MsSqlServer",
+            SapSid = "sid",
+            SslCertificateUri = "https://storageaccount.blob.core.windows.net/containername/filename",
+            SslPreference = "ServerCertificate",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

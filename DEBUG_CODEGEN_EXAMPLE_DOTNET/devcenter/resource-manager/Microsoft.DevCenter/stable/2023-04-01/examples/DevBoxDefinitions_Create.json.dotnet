@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var devBoxDefinition = new AzureNative.DevCenter.DevBoxDefinition("devBoxDefinition", new()
+    {
+        DevBoxDefinitionName = "WebDevBox",
+        DevCenterName = "Contoso",
+        HibernateSupport = "Enabled",
+        ImageReference = new AzureNative.DevCenter.Inputs.ImageReferenceArgs
+        {
+            Id = "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/Example/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/contosogallery/images/exampleImage/version/1.0.0",
+        },
+        Location = "centralus",
+        ResourceGroupName = "rg1",
+        Sku = new AzureNative.DevCenter.Inputs.SkuArgs
+        {
+            Name = "Preview",
+        },
+    });
+
+});
+

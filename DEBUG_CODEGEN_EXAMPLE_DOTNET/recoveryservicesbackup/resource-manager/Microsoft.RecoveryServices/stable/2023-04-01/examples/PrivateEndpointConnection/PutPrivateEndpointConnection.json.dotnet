@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.RecoveryServices.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+        Properties = new AzureNative.RecoveryServices.Inputs.PrivateEndpointConnectionArgs
+        {
+            GroupIds = new[]
+            {
+                "AzureBackup_secondary",
+            },
+            PrivateEndpoint = new AzureNative.RecoveryServices.Inputs.PrivateEndpointArgs
+            {
+                Id = "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.Network/privateEndpoints/gaallatestpe3",
+            },
+            PrivateLinkServiceConnectionState = new AzureNative.RecoveryServices.Inputs.PrivateLinkServiceConnectionStateArgs
+            {
+                Description = "Approved by johndoe@company.com",
+                Status = "Approved",
+            },
+            ProvisioningState = "Succeeded",
+        },
+        ResourceGroupName = "gaallaRG",
+        VaultName = "gaallavaultbvtd2msi",
+    });
+
+});
+

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualNetwork = new AzureNative.DevTestLab.VirtualNetwork("virtualNetwork", new()
+    {
+        LabName = "{labName}",
+        Location = "{location}",
+        Name = "{virtualNetworkName}",
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "tagName1", "tagValue1" },
+        },
+    });
+
+});
+

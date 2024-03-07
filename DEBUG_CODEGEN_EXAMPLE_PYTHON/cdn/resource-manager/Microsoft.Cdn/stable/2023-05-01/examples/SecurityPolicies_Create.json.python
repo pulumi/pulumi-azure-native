@@ -2,9 +2,9 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 security_policy = azure_native.cdn.SecurityPolicy("securityPolicy",
-    parameters=azure_native.cdn.SecurityPolicyWebApplicationFirewallParametersArgs(
-        associations=[azure_native.cdn.SecurityPolicyWebApplicationFirewallAssociationArgs(
-            domains=[
+    parameters=azure_native.cdn.SecurityPolicyWebApplicationFirewallParametersResponseArgs(
+        associations=[{
+            "domains": [
                 azure_native.cdn.ActivatedResourceReferenceArgs(
                     id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
                 ),
@@ -12,8 +12,8 @@ security_policy = azure_native.cdn.SecurityPolicy("securityPolicy",
                     id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
                 ),
             ],
-            patterns_to_match=["/*"],
-        )],
+            "patternsToMatch": ["/*"],
+        }],
         type="WebApplicationFirewall",
         waf_policy=azure_native.cdn.ResourceReferenceArgs(
             id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/wafTest",

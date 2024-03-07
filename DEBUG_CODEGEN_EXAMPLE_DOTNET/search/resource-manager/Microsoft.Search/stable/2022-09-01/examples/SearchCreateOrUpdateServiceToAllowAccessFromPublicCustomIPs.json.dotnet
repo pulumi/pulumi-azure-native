@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.Search.Service("service", new()
+    {
+        HostingMode = AzureNative.Search.HostingMode.Default,
+        Location = "westus",
+        NetworkRuleSet = new AzureNative.Search.Inputs.NetworkRuleSetArgs
+        {
+            IpRules = new[]
+            {
+                new AzureNative.Search.Inputs.IpRuleArgs
+                {
+                    Value = "123.4.5.6",
+                },
+                new AzureNative.Search.Inputs.IpRuleArgs
+                {
+                    Value = "123.4.6.0/18",
+                },
+            },
+        },
+        PartitionCount = 1,
+        ReplicaCount = 1,
+        ResourceGroupName = "rg1",
+        SearchServiceName = "mysearchservice",
+        Sku = new AzureNative.Search.Inputs.SkuArgs
+        {
+            Name = AzureNative.Search.SkuName.Standard,
+        },
+        Tags = 
+        {
+            { "app-name", "My e-commerce app" },
+        },
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var queue = new AzureNative.ServiceBus.Queue("queue", new()
+    {
+        EnablePartitioning = true,
+        NamespaceName = "sdk-Namespace-3174",
+        QueueName = "sdk-Queues-5647",
+        ResourceGroupName = "ArunMonocle",
+    });
+
+});
+

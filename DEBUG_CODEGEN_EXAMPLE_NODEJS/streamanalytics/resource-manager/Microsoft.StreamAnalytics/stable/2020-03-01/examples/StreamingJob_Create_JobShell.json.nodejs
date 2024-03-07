@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const streamingJob = new azure_native.streamanalytics.StreamingJob("streamingJob", {
+    compatibilityLevel: "1.0",
+    dataLocale: "en-US",
+    eventsLateArrivalMaxDelayInSeconds: 16,
+    eventsOutOfOrderMaxDelayInSeconds: 5,
+    eventsOutOfOrderPolicy: "Drop",
+    functions: [],
+    inputs: [],
+    jobName: "sj59",
+    location: "West US",
+    outputErrorPolicy: "Drop",
+    outputs: [],
+    resourceGroupName: "sjrg6936",
+    sku: {
+        name: "Standard",
+    },
+    tags: {
+        key1: "value1",
+        key3: "value3",
+        randomKey: "randomValue",
+    },
+});

@@ -1,0 +1,68 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const fluxConfiguration = new azure_native.kubernetesconfiguration.FluxConfiguration("fluxConfiguration", {
+    clusterName: "clusterName1",
+    clusterResourceName: "connectedClusters",
+    clusterRp: "Microsoft.Kubernetes",
+    fluxConfigurationName: "srs-fluxconfig",
+    gitRepository: {
+        httpsCACert: "ZXhhbXBsZWNlcnRpZmljYXRl",
+        repositoryRef: {
+            branch: "master",
+        },
+        syncIntervalInSeconds: 600,
+        timeoutInSeconds: 600,
+        url: "https://github.com/Azure/arc-k8s-demo",
+    },
+    kustomizations: {
+        "srs-kustomization1": {
+            dependsOn: [],
+            path: "./test/path",
+            postBuild: {
+                substitute: {
+                    cluster_env: "prod",
+                    replica_count: "2",
+                },
+                substituteFrom: [{
+                    kind: "ConfigMap",
+                    name: "cluster-test",
+                    optional: true,
+                }],
+            },
+            syncIntervalInSeconds: 600,
+            timeoutInSeconds: 600,
+            wait: true,
+        },
+        "srs-kustomization2": {
+            dependsOn: ["srs-kustomization1"],
+            path: "./other/test/path",
+            postBuild: {
+                substituteFrom: [
+                    {
+                        kind: "ConfigMap",
+                        name: "cluster-values",
+                        optional: true,
+                    },
+                    {
+                        kind: "Secret",
+                        name: "secret-name",
+                        optional: false,
+                    },
+                ],
+            },
+            prune: false,
+            retryIntervalInSeconds: 600,
+            syncIntervalInSeconds: 600,
+            timeoutInSeconds: 600,
+            wait: false,
+        },
+    },
+    namespace: "srs-namespace",
+    reconciliationWaitDuration: "PT30M",
+    resourceGroupName: "rg1",
+    scope: "cluster",
+    sourceKind: "GitRepository",
+    suspend: false,
+    waitForReconciliation: true,
+});

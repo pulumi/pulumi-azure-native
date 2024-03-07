@@ -1,0 +1,37 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualMachine = new azure_native.azurestackhci.VirtualMachine("virtualMachine", {
+    extendedLocation: {
+        name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+        type: "CustomLocation",
+    },
+    hardwareProfile: {
+        vmSize: "Default",
+    },
+    location: "West US2",
+    networkProfile: {
+        networkInterfaces: [{
+            id: "test-nic",
+        }],
+    },
+    osProfile: {
+        adminPassword: "password",
+        adminUsername: "localadmin",
+        computerName: "luamaster",
+    },
+    resourceGroupName: "test-rg",
+    securityProfile: {
+        enableTPM: true,
+        uefiSettings: {
+            secureBootEnabled: true,
+        },
+    },
+    storageProfile: {
+        imageReference: {
+            id: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/test-marketplace-gallery-image",
+        },
+        vmConfigStoragePathId: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storageContainers/test-container",
+    },
+    virtualMachineName: "test-vm",
+});

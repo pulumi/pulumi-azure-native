@@ -27,13 +27,13 @@ managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
     dns_name="myCluster",
     enable_auto_os_upgrade=True,
     enable_ipv6=True,
-    fabric_settings=[azure_native.servicefabric.SettingsSectionDescriptionArgs(
-        name="ManagedIdentityTokenService",
-        parameters=[azure_native.servicefabric.SettingsParameterDescriptionArgs(
+    fabric_settings=[{
+        "name": "ManagedIdentityTokenService",
+        "parameters": [azure_native.servicefabric.SettingsParameterDescriptionArgs(
             name="IsEnabled",
             value="true",
         )],
-    )],
+    }],
     http_gateway_connection_port=19080,
     ip_tags=[azure_native.servicefabric.IPTagArgs(
         ip_tag_type="FirstPartyUsage",

@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configurationProfile = new AzureNative.Automanage.ConfigurationProfile("configurationProfile", new()
+    {
+        ConfigurationProfileName = "customConfigurationProfile",
+        Location = "East US",
+        Properties = new AzureNative.Automanage.Inputs.ConfigurationProfilePropertiesArgs
+        {
+            Configuration = 
+            {
+                { "Antimalware/Enable", false },
+                { "AzureSecurityCenter/Enable", true },
+                { "Backup/Enable", false },
+                { "BootDiagnostics/Enable", true },
+                { "ChangeTrackingAndInventory/Enable", true },
+                { "GuestConfiguration/Enable", true },
+                { "LogAnalytics/Enable", true },
+                { "UpdateManagement/Enable", true },
+                { "VMInsights/Enable", true },
+            },
+        },
+        ResourceGroupName = "myResourceGroupName",
+        Tags = 
+        {
+            { "Organization", "Administration" },
+        },
+    });
+
+});
+

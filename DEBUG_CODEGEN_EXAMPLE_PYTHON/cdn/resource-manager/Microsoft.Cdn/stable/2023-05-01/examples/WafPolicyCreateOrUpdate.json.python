@@ -2,11 +2,11 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 policy = azure_native.cdn.Policy("policy",
-    custom_rules=azure_native.cdn.CustomRuleListArgs(
-        rules=[azure_native.cdn.CustomRuleArgs(
-            action="Block",
-            enabled_state="Enabled",
-            match_conditions=[
+    custom_rules=azure_native.cdn.CustomRuleListResponseArgs(
+        rules=[{
+            "action": "Block",
+            "enabledState": "Enabled",
+            "matchConditions": [
                 azure_native.cdn.MatchConditionArgs(
                     match_value=["CH"],
                     match_variable="RemoteAddr",
@@ -37,16 +37,16 @@ policy = azure_native.cdn.Policy("policy",
                     ],
                 ),
             ],
-            name="CustomRule1",
-            priority=2,
-        )],
+            "name": "CustomRule1",
+            "priority": 2,
+        }],
     ),
     location="global",
-    managed_rules=azure_native.cdn.ManagedRuleSetListArgs(
-        managed_rule_sets=[azure_native.cdn.ManagedRuleSetArgs(
-            rule_group_overrides=[azure_native.cdn.ManagedRuleGroupOverrideArgs(
-                rule_group_name="Group1",
-                rules=[
+    managed_rules=azure_native.cdn.ManagedRuleSetListResponseArgs(
+        managed_rule_sets=[{
+            "ruleGroupOverrides": [{
+                "ruleGroupName": "Group1",
+                "rules": [
                     azure_native.cdn.ManagedRuleOverrideArgs(
                         action="Redirect",
                         enabled_state="Enabled",
@@ -57,10 +57,10 @@ policy = azure_native.cdn.Policy("policy",
                         rule_id="GROUP1-0002",
                     ),
                 ],
-            )],
-            rule_set_type="DefaultRuleSet",
-            rule_set_version="preview-1.0",
-        )],
+            }],
+            "ruleSetType": "DefaultRuleSet",
+            "ruleSetVersion": "preview-1.0",
+        }],
     ),
     policy_name="MicrosoftCdnWafPolicy",
     policy_settings=azure_native.cdn.PolicySettingsArgs(
@@ -68,11 +68,11 @@ policy = azure_native.cdn.Policy("policy",
         default_custom_block_response_status_code=200,
         default_redirect_url="http://www.bing.com",
     ),
-    rate_limit_rules=azure_native.cdn.RateLimitRuleListArgs(
-        rules=[azure_native.cdn.RateLimitRuleArgs(
-            action="Block",
-            enabled_state="Enabled",
-            match_conditions=[azure_native.cdn.MatchConditionArgs(
+    rate_limit_rules=azure_native.cdn.RateLimitRuleListResponseArgs(
+        rules=[{
+            "action": "Block",
+            "enabledState": "Enabled",
+            "matchConditions": [azure_native.cdn.MatchConditionArgs(
                 match_value=[
                     "192.168.1.0/24",
                     "10.0.0.0/24",
@@ -82,11 +82,11 @@ policy = azure_native.cdn.Policy("policy",
                 operator="IPMatch",
                 transforms=[],
             )],
-            name="RateLimitRule1",
-            priority=1,
-            rate_limit_duration_in_minutes=0,
-            rate_limit_threshold=1000,
-        )],
+            "name": "RateLimitRule1",
+            "priority": 1,
+            "rateLimitDurationInMinutes": 0,
+            "rateLimitThreshold": 1000,
+        }],
     ),
     resource_group_name="rg1",
     sku=azure_native.cdn.SkuArgs(

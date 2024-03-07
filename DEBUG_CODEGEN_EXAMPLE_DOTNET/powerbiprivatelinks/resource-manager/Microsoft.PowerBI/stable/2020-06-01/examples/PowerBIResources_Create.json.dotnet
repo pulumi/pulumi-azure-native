@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var powerBIResource = new AzureNative.PowerBI.PowerBIResource("powerBIResource", new()
+    {
+        AzureResourceName = "azureResourceName",
+        Location = "global",
+        ResourceGroupName = "resourceGroup",
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+        TenantId = "ac2bc297-8a3e-46f3-972d-87c2b4ae6e2f",
+    });
+
+});
+

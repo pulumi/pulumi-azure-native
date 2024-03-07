@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var containerApp = new AzureNative.App.ContainerApp("containerApp", new()
+    {
+        Configuration = new AzureNative.App.Inputs.ConfigurationArgs
+        {
+            Ingress = new AzureNative.App.Inputs.IngressArgs
+            {
+                ExposedPort = 4000,
+                External = true,
+                TargetPort = 3000,
+                Traffic = new[]
+                {
+                    new AzureNative.App.Inputs.TrafficWeightArgs
+                    {
+                        RevisionName = "testcontainerapptcp-ab1234",
+                        Weight = 100,
+                    },
+                },
+                Transport = "tcp",
+            },
+        },
+        ContainerAppName = "testcontainerapptcp",
+        EnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+        Location = "East US",
+        ResourceGroupName = "rg",
+        Template = new AzureNative.App.Inputs.TemplateArgs
+        {
+            Containers = new[]
+            {
+                new AzureNative.App.Inputs.ContainerArgs
+                {
+                    Image = "repo/testcontainerapptcp:v1",
+                    Name = "testcontainerapptcp",
+                    Probes = new[]
+                    {
+                        new AzureNative.App.Inputs.ContainerAppProbeArgs
+                        {
+                            InitialDelaySeconds = 3,
+                            PeriodSeconds = 3,
+                            TcpSocket = new AzureNative.App.Inputs.ContainerAppProbeTcpSocketArgs
+                            {
+                                Port = 8080,
+                            },
+                            Type = "Liveness",
+                        },
+                    },
+                },
+            },
+            Scale = new AzureNative.App.Inputs.ScaleArgs
+            {
+                MaxReplicas = 5,
+                MinReplicas = 1,
+                Rules = new[]
+                {
+                    new AzureNative.App.Inputs.ScaleRuleArgs
+                    {
+                        Name = "tcpscalingrule",
+                        Tcp = new AzureNative.App.Inputs.TcpScaleRuleArgs
+                        {
+                            Metadata = 
+                            {
+                                { "concurrentConnections", "50" },
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    });
+
+});
+

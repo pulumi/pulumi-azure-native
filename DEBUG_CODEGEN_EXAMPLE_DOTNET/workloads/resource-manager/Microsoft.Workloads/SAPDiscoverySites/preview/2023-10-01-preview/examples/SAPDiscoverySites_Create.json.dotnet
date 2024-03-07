@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sapDiscoverySite = new AzureNative.Workloads.SapDiscoverySite("sapDiscoverySite", new()
+    {
+        Location = "eastus",
+        MasterSiteId = "MasterSiteIdResourceId",
+        MigrateProjectId = "MigrateProjectId",
+        ResourceGroupName = "test-rg",
+        SapDiscoverySiteName = "SampleSite",
+        Tags = 
+        {
+            { "property1", "value1" },
+            { "property2", "value2" },
+        },
+    });
+
+});
+

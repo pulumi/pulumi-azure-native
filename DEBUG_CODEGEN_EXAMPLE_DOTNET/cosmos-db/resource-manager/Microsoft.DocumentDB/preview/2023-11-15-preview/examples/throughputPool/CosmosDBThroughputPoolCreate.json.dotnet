@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var throughputPool = new AzureNative.DocumentDB.ThroughputPool("throughputPool", new()
+    {
+        Location = "westus2",
+        MaxThroughput = 10000,
+        ResourceGroupName = "rg1",
+        Tags = null,
+        ThroughputPoolName = "tp1",
+    });
+
+});
+

@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webPubSubHub = new AzureNative.WebPubSub.WebPubSubHub("webPubSubHub", new()
+    {
+        HubName = "exampleHub",
+        Properties = new AzureNative.WebPubSub.Inputs.WebPubSubHubPropertiesArgs
+        {
+            AnonymousConnectPolicy = "allow",
+            EventHandlers = new[]
+            {
+                new AzureNative.WebPubSub.Inputs.EventHandlerArgs
+                {
+                    Auth = new AzureNative.WebPubSub.Inputs.UpstreamAuthSettingsArgs
+                    {
+                        ManagedIdentity = new AzureNative.WebPubSub.Inputs.ManagedIdentitySettingsArgs
+                        {
+                            Resource = "abc",
+                        },
+                        Type = "ManagedIdentity",
+                    },
+                    SystemEvents = new[]
+                    {
+                        "connect",
+                        "connected",
+                    },
+                    UrlTemplate = "http://host.com",
+                    UserEventPattern = "*",
+                },
+            },
+            EventListeners = new[]
+            {
+                new AzureNative.WebPubSub.Inputs.EventListenerArgs
+                {
+                    Endpoint = 
+                    {
+                        { "eventHubName", "eventHubName1" },
+                        { "fullyQualifiedNamespace", "example.servicebus.windows.net" },
+                        { "type", "EventHub" },
+                    },
+                    Filter = 
+                    {
+                        { "systemEvents", new[]
+                        {
+                            "connected",
+                            "disconnected",
+                        } },
+                        { "type", "EventName" },
+                        { "userEventPattern", "*" },
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "myWebPubSubService",
+    });
+
+});
+

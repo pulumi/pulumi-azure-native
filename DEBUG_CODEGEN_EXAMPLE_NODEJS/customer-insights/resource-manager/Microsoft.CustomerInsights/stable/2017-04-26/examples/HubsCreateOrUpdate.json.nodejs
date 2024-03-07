@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hub = new azure_native.customerinsights.Hub("hub", {
+    hubBillingInfo: {
+        maxUnits: 5,
+        minUnits: 1,
+        skuName: "B0",
+    },
+    hubName: "sdkTestHub",
+    location: "West US",
+    resourceGroupName: "TestHubRG",
+});

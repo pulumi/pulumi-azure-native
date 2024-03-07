@@ -1,0 +1,94 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var routePolicy = new AzureNative.ManagedNetworkFabric.RoutePolicy("routePolicy", new()
+    {
+        Annotation = "annotationValue",
+        Location = "EastUS",
+        ResourceGroupName = "rgRoutePolicies",
+        RoutePolicyName = "routePolicyName",
+        Statements = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.RoutePolicyStatementPropertiesArgs
+            {
+                Action = new AzureNative.ManagedNetworkFabric.Inputs.StatementActionPropertiesArgs
+                {
+                    ActionType = "Permit",
+                    IpCommunityProperties = new AzureNative.ManagedNetworkFabric.Inputs.ActionIpCommunityPropertiesArgs
+                    {
+                        Add = new AzureNative.ManagedNetworkFabric.Inputs.IpCommunityIdListArgs
+                        {
+                            IpCommunityIds = new[]
+                            {
+                                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName",
+                            },
+                        },
+                        Delete = new AzureNative.ManagedNetworkFabric.Inputs.IpCommunityIdListArgs
+                        {
+                            IpCommunityIds = new[]
+                            {
+                                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName",
+                            },
+                        },
+                        Set = new AzureNative.ManagedNetworkFabric.Inputs.IpCommunityIdListArgs
+                        {
+                            IpCommunityIds = new[]
+                            {
+                                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName",
+                            },
+                        },
+                    },
+                    IpExtendedCommunityProperties = new AzureNative.ManagedNetworkFabric.Inputs.ActionIpExtendedCommunityPropertiesArgs
+                    {
+                        Add = new AzureNative.ManagedNetworkFabric.Inputs.IpExtendedCommunityIdListArgs
+                        {
+                            IpExtendedCommunityIds = new[]
+                            {
+                                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName",
+                            },
+                        },
+                        Delete = new AzureNative.ManagedNetworkFabric.Inputs.IpExtendedCommunityIdListArgs
+                        {
+                            IpExtendedCommunityIds = new[]
+                            {
+                                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName",
+                            },
+                        },
+                        Set = new AzureNative.ManagedNetworkFabric.Inputs.IpExtendedCommunityIdListArgs
+                        {
+                            IpExtendedCommunityIds = new[]
+                            {
+                                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName",
+                            },
+                        },
+                    },
+                    LocalPreference = 20,
+                },
+                Annotation = "annotationValue",
+                Condition = new AzureNative.ManagedNetworkFabric.Inputs.StatementConditionPropertiesArgs
+                {
+                    IpCommunityIds = new[]
+                    {
+                        "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipCommunityName",
+                    },
+                    IpExtendedCommunityIds = new[]
+                    {
+                        "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipExtendedCommunityName",
+                    },
+                    IpPrefixId = "subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/ipPrefixes/example-ipPrefix",
+                },
+                SequenceNumber = 7,
+            },
+        },
+        Tags = 
+        {
+            { "key8254", "" },
+        },
+    });
+
+});
+

@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cloudConnection = new azure_native.hybridcloud.CloudConnection("cloudConnection", {
+    cloudConnectionName: "cloudconnection1",
+    cloudConnector: {
+        id: "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.HybridCloud/cloudConnectors/123456789012",
+    },
+    location: "West US",
+    remoteResourceId: "arn:aws:ec2:us-east-1:123456789012:VPNGateway/vgw-043da592550819c8a",
+    resourceGroupName: "demo-rg",
+    sharedKey: "password123",
+    virtualHub: {
+        id: "/subscriptions/subid/resourceGroups/demo-rg/providers/Microsoft.Network/VirtualHubs/testHub",
+    },
+});

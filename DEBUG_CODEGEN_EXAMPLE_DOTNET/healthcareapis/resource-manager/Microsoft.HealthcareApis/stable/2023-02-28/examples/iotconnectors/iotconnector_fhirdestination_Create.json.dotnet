@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var iotConnectorFhirDestination = new AzureNative.HealthcareApis.IotConnectorFhirDestination("iotConnectorFhirDestination", new()
+    {
+        FhirDestinationName = "dest1",
+        FhirMapping = new AzureNative.HealthcareApis.Inputs.IotMappingPropertiesArgs
+        {
+            Content = 
+            {
+                { "template", new[]
+                {
+                    
+                    {
+                        { "template", 
+                        {
+                            { "codes", new[]
+                            {
+                                
+                                {
+                                    { "code", "8867-4" },
+                                    { "display", "Heart rate" },
+                                    { "system", "http://loinc.org" },
+                                },
+                            } },
+                            { "periodInterval", 60 },
+                            { "typeName", "heartrate" },
+                            { "value", 
+                            {
+                                { "defaultPeriod", 5000 },
+                                { "unit", "count/min" },
+                                { "valueName", "hr" },
+                                { "valueType", "SampledData" },
+                            } },
+                        } },
+                        { "templateType", "CodeValueFhir" },
+                    },
+                } },
+                { "templateType", "CollectionFhirTemplate" },
+            },
+        },
+        FhirServiceResourceId = "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
+        IotConnectorName = "blue",
+        Location = "westus",
+        ResourceGroupName = "testRG",
+        ResourceIdentityResolutionType = "Create",
+        WorkspaceName = "workspace1",
+    });
+
+});
+

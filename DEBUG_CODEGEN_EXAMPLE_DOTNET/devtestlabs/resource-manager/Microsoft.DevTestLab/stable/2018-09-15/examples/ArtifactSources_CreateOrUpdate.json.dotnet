@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var artifactSource = new AzureNative.DevTestLab.ArtifactSource("artifactSource", new()
+    {
+        ArmTemplateFolderPath = "{armTemplateFolderPath}",
+        BranchRef = "{branchRef}",
+        DisplayName = "{displayName}",
+        FolderPath = "{folderPath}",
+        LabName = "{labName}",
+        Name = "{artifactSourceName}",
+        ResourceGroupName = "resourceGroupName",
+        SecurityToken = "{securityToken}",
+        SourceType = "{VsoGit|GitHub|StorageAccount}",
+        Status = "{Enabled|Disabled}",
+        Tags = 
+        {
+            { "tagName1", "tagValue1" },
+        },
+        Uri = "{artifactSourceUri}",
+    });
+
+});
+

@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const monitoringConfig = new azure_native.databoxedge.MonitoringConfig("monitoringConfig", {
+    deviceName: "testedgedevice",
+    metricConfigurations: [{
+        counterSets: [{
+            counters: [{
+                name: "test",
+            }],
+        }],
+        mdmAccount: "test",
+        metricNameSpace: "test",
+        resourceId: "test",
+    }],
+    resourceGroupName: "GroupForEdgeAutomation",
+    roleName: "testrole",
+});

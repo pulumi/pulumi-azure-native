@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedClusterService = new azure_native.servicefabric.ManagedClusterService("managedClusterService", {
+    applicationName: "myApp",
+    clusterName: "myCluster",
+    location: "eastus",
+    properties: {
+        instanceCount: 1,
+        partitionDescription: {
+            partitionScheme: "Singleton",
+        },
+        serviceKind: "Stateless",
+        serviceTypeName: "myServiceType",
+    },
+    resourceGroupName: "resRg",
+    serviceName: "myService",
+});

@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageAccount = new AzureNative.Storage.StorageAccount("storageAccount", new()
+    {
+        AccountName = "sto4445",
+        AllowSharedKeyAccess = true,
+        Encryption = new AzureNative.Storage.Inputs.EncryptionArgs
+        {
+            KeySource = "Microsoft.Storage",
+            RequireInfrastructureEncryption = false,
+            Services = new AzureNative.Storage.Inputs.EncryptionServicesArgs
+            {
+                Blob = new AzureNative.Storage.Inputs.EncryptionServiceArgs
+                {
+                    Enabled = true,
+                    KeyType = "Account",
+                },
+                File = new AzureNative.Storage.Inputs.EncryptionServiceArgs
+                {
+                    Enabled = true,
+                    KeyType = "Account",
+                },
+            },
+        },
+        Kind = "BlockBlobStorage",
+        Location = "eastus",
+        MinimumTlsVersion = "TLS1_2",
+        ResourceGroupName = "res9101",
+        Sku = new AzureNative.Storage.Inputs.SkuArgs
+        {
+            Name = "Premium_LRS",
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+            { "key2", "value2" },
+        },
+    });
+
+});
+

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dnsResolver = new azure_native.network.DnsResolver("dnsResolver", {
+    dnsResolverName: "sampleDnsResolver",
+    location: "westus2",
+    resourceGroupName: "sampleResourceGroup",
+    tags: {
+        key1: "value1",
+    },
+    virtualNetwork: {
+        id: "/subscriptions/cbb1387e-4b03-44f2-ad41-58d4677b9873/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+    },
+});

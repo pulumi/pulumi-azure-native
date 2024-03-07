@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const account = new azure_native.recommendationsservice.Account("account", {
+    accountName: "sampleAccount",
+    location: "West US",
+    properties: {
+        configuration: "Capacity",
+        endpointAuthentications: [{
+            aadTenantID: "tenant",
+            principalID: "oid",
+            principalType: "User",
+        }],
+    },
+    resourceGroupName: "rg",
+    tags: {
+        Environment: "Prod",
+    },
+});

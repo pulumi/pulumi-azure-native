@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var linker = new AzureNative.ServiceLinker.Linker("linker", new()
+    {
+        AuthInfo = new AzureNative.ServiceLinker.Inputs.SecretAuthInfoArgs
+        {
+            AuthType = "secret",
+            Name = "name",
+            SecretInfo = new AzureNative.ServiceLinker.Inputs.ValueSecretInfoArgs
+            {
+                SecretType = "rawValue",
+                Value = "secret",
+            },
+        },
+        LinkerName = "linkName",
+        ResourceUri = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+        TargetService = new AzureNative.ServiceLinker.Inputs.AzureResourceArgs
+        {
+            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DBforPostgreSQL/servers/test-pg/databases/test-db",
+            Type = "AzureResource",
+        },
+        VNetSolution = new AzureNative.ServiceLinker.Inputs.VNetSolutionArgs
+        {
+            Type = "serviceEndpoint",
+        },
+    });
+
+});
+

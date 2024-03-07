@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var metricAlert = new AzureNative.Insights.MetricAlert("metricAlert", new()
+    {
+        Actions = new[] {},
+        Criteria = new AzureNative.Insights.Inputs.WebtestLocationAvailabilityCriteriaArgs
+        {
+            ComponentId = "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+            FailedLocationCount = 2,
+            OdataType = "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+            WebTestId = "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+        },
+        Description = "Automatically created alert rule for availability test \"component-example\" a",
+        Enabled = true,
+        EvaluationFrequency = "PT1M",
+        Location = "global",
+        ResourceGroupName = "rg-example",
+        RuleName = "webtest-name-example",
+        Scopes = new[]
+        {
+            "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+            "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+        },
+        Severity = 4,
+        Tags = 
+        {
+            { "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example", "Resource" },
+            { "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example", "Resource" },
+        },
+        WindowSize = "PT15M",
+    });
+
+});
+

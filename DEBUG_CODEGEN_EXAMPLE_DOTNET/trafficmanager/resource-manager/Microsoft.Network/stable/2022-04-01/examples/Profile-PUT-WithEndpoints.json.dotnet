@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var profile = new AzureNative.Network.Profile("profile", new()
+    {
+        DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+        {
+            RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+            Ttl = 35,
+        },
+        Endpoints = new[]
+        {
+            new AzureNative.Network.Inputs.EndpointArgs
+            {
+                EndpointLocation = "North Europe",
+                EndpointStatus = "Enabled",
+                Name = "My external endpoint",
+                Target = "foobar.contoso.com",
+                Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            },
+        },
+        Location = "global",
+        MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+        {
+            IntervalInSeconds = 10,
+            Path = "/testpath.aspx",
+            Port = 80,
+            Protocol = "HTTP",
+            TimeoutInSeconds = 5,
+            ToleratedNumberOfFailures = 2,
+        },
+        ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+        ProfileStatus = "Enabled",
+        ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+        TrafficRoutingMethod = "Performance",
+    });
+
+});
+

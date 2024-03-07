@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlServerRegistration = new AzureNative.AzureData.SqlServerRegistration("sqlServerRegistration", new()
+    {
+        Location = "northeurope",
+        ResourceGroupName = "testrg",
+        SqlServerRegistrationName = "testsqlregistration",
+        Tags = 
+        {
+            { "mytag", "myval" },
+        },
+    });
+
+});
+

@@ -1,0 +1,79 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.App.Job("job", new()
+    {
+        Configuration = new AzureNative.App.Inputs.JobConfigurationArgs
+        {
+            EventTriggerConfig = new AzureNative.App.Inputs.JobConfigurationEventTriggerConfigArgs
+            {
+                Parallelism = 4,
+                ReplicaCompletionCount = 1,
+                Scale = new AzureNative.App.Inputs.JobScaleArgs
+                {
+                    MaxExecutions = 5,
+                    MinExecutions = 1,
+                    PollingInterval = 40,
+                    Rules = new[]
+                    {
+                        new AzureNative.App.Inputs.JobScaleRuleArgs
+                        {
+                            Metadata = 
+                            {
+                                { "topicName", "my-topic" },
+                            },
+                            Name = "servicebuscalingrule",
+                            Type = "azure-servicebus",
+                        },
+                    },
+                },
+            },
+            ReplicaRetryLimit = 10,
+            ReplicaTimeout = 10,
+            TriggerType = "Event",
+        },
+        EnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+        JobName = "testcontainerappsjob0",
+        Location = "East US",
+        ResourceGroupName = "rg",
+        Template = new AzureNative.App.Inputs.JobTemplateArgs
+        {
+            Containers = new[]
+            {
+                new AzureNative.App.Inputs.ContainerArgs
+                {
+                    Image = "repo/testcontainerappsjob0:v1",
+                    Name = "testcontainerappsjob0",
+                },
+            },
+            InitContainers = new[]
+            {
+                new AzureNative.App.Inputs.InitContainerArgs
+                {
+                    Args = new[]
+                    {
+                        "-c",
+                        "while true; do echo hello; sleep 10;done",
+                    },
+                    Command = new[]
+                    {
+                        "/bin/sh",
+                    },
+                    Image = "repo/testcontainerappsjob0:v4",
+                    Name = "testinitcontainerAppsJob0",
+                    Resources = new AzureNative.App.Inputs.ContainerResourcesArgs
+                    {
+                        Cpu = 0.5,
+                        Memory = "1Gi",
+                    },
+                },
+            },
+        },
+    });
+
+});
+

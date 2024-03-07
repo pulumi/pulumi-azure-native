@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedPrivateEndpoint = new AzureNative.DataFactory.ManagedPrivateEndpoint("managedPrivateEndpoint", new()
+    {
+        FactoryName = "exampleFactoryName",
+        ManagedPrivateEndpointName = "exampleManagedPrivateEndpointName",
+        ManagedVirtualNetworkName = "exampleManagedVirtualNetworkName",
+        Properties = new AzureNative.DataFactory.Inputs.ManagedPrivateEndpointArgs
+        {
+            Fqdns = new() { },
+            GroupId = "blob",
+            PrivateLinkResourceId = "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleBlobStorage",
+        },
+        ResourceGroupName = "exampleResourceGroup",
+    });
+
+});
+

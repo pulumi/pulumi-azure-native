@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configurationProfilePreference = new AzureNative.Automanage.ConfigurationProfilePreference("configurationProfilePreference", new()
+    {
+        ConfigurationProfilePreferenceName = "defaultProfilePreference",
+        Location = "East US",
+        Properties = new AzureNative.Automanage.Inputs.ConfigurationProfilePreferencePropertiesArgs
+        {
+            AntiMalware = new AzureNative.Automanage.Inputs.ConfigurationProfilePreferenceAntiMalwareArgs
+            {
+                EnableRealTimeProtection = "True",
+            },
+            VmBackup = new AzureNative.Automanage.Inputs.ConfigurationProfilePreferenceVmBackupArgs
+            {
+                TimeZone = "Pacific Standard Time",
+            },
+        },
+        ResourceGroupName = "myResourceGroupName",
+        Tags = 
+        {
+            { "Organization", "Administration" },
+        },
+    });
+
+});
+

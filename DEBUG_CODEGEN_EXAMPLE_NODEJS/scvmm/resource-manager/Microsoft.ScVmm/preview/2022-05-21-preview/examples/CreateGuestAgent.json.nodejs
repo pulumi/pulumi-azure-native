@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const guestAgent = new azure_native.scvmm.GuestAgent("guestAgent", {
+    credentials: {
+        password: "<password>",
+        username: "tempuser",
+    },
+    guestAgentName: "default",
+    httpProxyConfig: {
+        httpsProxy: "http://192.1.2.3:8080",
+    },
+    provisioningAction: "install",
+    resourceGroupName: "testrg",
+    virtualMachineName: "ContosoVm",
+});

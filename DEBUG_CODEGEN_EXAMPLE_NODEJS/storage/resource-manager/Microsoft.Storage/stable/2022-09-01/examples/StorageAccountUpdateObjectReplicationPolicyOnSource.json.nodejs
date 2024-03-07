@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const objectReplicationPolicy = new azure_native.storage.ObjectReplicationPolicy("objectReplicationPolicy", {
+    accountName: "src1122",
+    destinationAccount: "dst112",
+    objectReplicationPolicyId: "2a20bb73-5717-4635-985a-5d4cf777438f",
+    resourceGroupName: "res7687",
+    rules: [
+        {
+            destinationContainer: "dcont139",
+            filters: {
+                prefixMatch: [
+                    "blobA",
+                    "blobB",
+                ],
+            },
+            ruleId: "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+            sourceContainer: "scont139",
+        },
+        {
+            destinationContainer: "dcont179",
+            ruleId: "cfbb4bc2-8b60-429f-b05a-d1e0942b33b2",
+            sourceContainer: "scont179",
+        },
+    ],
+    sourceAccount: "src1122",
+});

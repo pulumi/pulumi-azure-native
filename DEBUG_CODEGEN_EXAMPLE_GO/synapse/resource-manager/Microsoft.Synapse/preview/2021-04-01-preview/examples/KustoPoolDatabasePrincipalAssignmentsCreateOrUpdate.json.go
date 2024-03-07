@@ -1,0 +1,26 @@
+package main
+
+import (
+	"github.com/pulumi/pulumi-azure-native-sdk/synapse/v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := synapse.NewDatabasePrincipalAssignment(ctx, "databasePrincipalAssignment", &synapse.DatabasePrincipalAssignmentArgs{
+			DatabaseName:            pulumi.String("Kustodatabase8"),
+			KustoPoolName:           pulumi.String("kustoclusterrptest4"),
+			PrincipalAssignmentName: pulumi.String("kustoprincipal1"),
+			PrincipalId:             pulumi.String("87654321-1234-1234-1234-123456789123"),
+			PrincipalType:           pulumi.String("App"),
+			ResourceGroupName:       pulumi.String("kustorptest"),
+			Role:                    pulumi.String("Admin"),
+			TenantId:                pulumi.String("12345678-1234-1234-1234-123456789123"),
+			WorkspaceName:           pulumi.String("synapseWorkspaceName"),
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}

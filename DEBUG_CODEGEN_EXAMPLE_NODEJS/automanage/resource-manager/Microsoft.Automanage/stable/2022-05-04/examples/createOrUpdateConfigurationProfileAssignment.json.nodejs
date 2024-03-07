@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const configurationProfileAssignment = new azure_native.automanage.ConfigurationProfileAssignment("configurationProfileAssignment", {
+    configurationProfileAssignmentName: "default",
+    properties: {
+        configurationProfile: "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+    },
+    resourceGroupName: "myResourceGroupName",
+    vmName: "myVMName",
+});

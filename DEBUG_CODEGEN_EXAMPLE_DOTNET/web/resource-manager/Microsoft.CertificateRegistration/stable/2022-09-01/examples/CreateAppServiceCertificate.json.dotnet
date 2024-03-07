@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var appServiceCertificateOrderCertificate = new AzureNative.CertificateRegistration.AppServiceCertificateOrderCertificate("appServiceCertificateOrderCertificate", new()
+    {
+        CertificateOrderName = "SampleCertificateOrderName",
+        KeyVaultId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+        KeyVaultSecretName = "SampleSecretName1",
+        Location = "Global",
+        Name = "SampleCertName1",
+        ResourceGroupName = "testrg123",
+    });
+
+});
+

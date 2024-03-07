@@ -1,0 +1,57 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.DataLakeStore.Account("account", new()
+    {
+        AccountName = "contosoadla",
+        DefaultGroup = "test_default_group",
+        EncryptionConfig = new AzureNative.DataLakeStore.Inputs.EncryptionConfigArgs
+        {
+            KeyVaultMetaInfo = new AzureNative.DataLakeStore.Inputs.KeyVaultMetaInfoArgs
+            {
+                EncryptionKeyName = "test_encryption_key_name",
+                EncryptionKeyVersion = "encryption_key_version",
+                KeyVaultResourceId = "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+            },
+            Type = AzureNative.DataLakeStore.EncryptionConfigType.UserManaged,
+        },
+        EncryptionState = AzureNative.DataLakeStore.EncryptionState.Enabled,
+        FirewallAllowAzureIps = AzureNative.DataLakeStore.FirewallAllowAzureIpsState.Enabled,
+        FirewallRules = new[]
+        {
+            new AzureNative.DataLakeStore.Inputs.CreateFirewallRuleWithAccountParametersArgs
+            {
+                EndIpAddress = "2.2.2.2",
+                Name = "test_rule",
+                StartIpAddress = "1.1.1.1",
+            },
+        },
+        FirewallState = AzureNative.DataLakeStore.FirewallState.Enabled,
+        Identity = new AzureNative.DataLakeStore.Inputs.EncryptionIdentityArgs
+        {
+            Type = AzureNative.DataLakeStore.EncryptionIdentityType.SystemAssigned,
+        },
+        Location = "eastus2",
+        NewTier = AzureNative.DataLakeStore.TierType.Consumption,
+        ResourceGroupName = "contosorg",
+        Tags = 
+        {
+            { "test_key", "test_value" },
+        },
+        TrustedIdProviderState = AzureNative.DataLakeStore.TrustedIdProviderState.Enabled,
+        TrustedIdProviders = new[]
+        {
+            new AzureNative.DataLakeStore.Inputs.CreateTrustedIdProviderWithAccountParametersArgs
+            {
+                IdProvider = "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+                Name = "test_trusted_id_provider_name",
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,115 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    {
+        PolicyName = "dailyPolicy2",
+        Properties = new AzureNative.RecoveryServices.Inputs.AzureFileShareProtectionPolicyArgs
+        {
+            BackupManagementType = "AzureStorage",
+            RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+            {
+                DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyRetentionScheduleArgs
+                {
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 5,
+                        DurationType = "Days",
+                    },
+                    RetentionTimes = new[]
+                    {
+                        "2021-09-29T08:00:00.000Z",
+                    },
+                },
+                MonthlySchedule = new AzureNative.RecoveryServices.Inputs.MonthlyRetentionScheduleArgs
+                {
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 60,
+                        DurationType = "Months",
+                    },
+                    RetentionScheduleFormatType = "Weekly",
+                    RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+                    {
+                        DaysOfTheWeek = new[]
+                        {
+                            AzureNative.RecoveryServices.DayOfWeek.Sunday,
+                        },
+                        WeeksOfTheMonth = new[]
+                        {
+                            AzureNative.RecoveryServices.WeekOfMonth.First,
+                        },
+                    },
+                    RetentionTimes = new[]
+                    {
+                        "2021-09-29T08:00:00.000Z",
+                    },
+                },
+                RetentionPolicyType = "LongTermRetentionPolicy",
+                WeeklySchedule = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionScheduleArgs
+                {
+                    DaysOfTheWeek = new[]
+                    {
+                        AzureNative.RecoveryServices.DayOfWeek.Sunday,
+                    },
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 12,
+                        DurationType = "Weeks",
+                    },
+                    RetentionTimes = new[]
+                    {
+                        "2021-09-29T08:00:00.000Z",
+                    },
+                },
+                YearlySchedule = new AzureNative.RecoveryServices.Inputs.YearlyRetentionScheduleArgs
+                {
+                    MonthsOfYear = new[]
+                    {
+                        AzureNative.RecoveryServices.MonthOfYear.January,
+                    },
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 10,
+                        DurationType = "Years",
+                    },
+                    RetentionScheduleFormatType = "Weekly",
+                    RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+                    {
+                        DaysOfTheWeek = new[]
+                        {
+                            AzureNative.RecoveryServices.DayOfWeek.Sunday,
+                        },
+                        WeeksOfTheMonth = new[]
+                        {
+                            AzureNative.RecoveryServices.WeekOfMonth.First,
+                        },
+                    },
+                    RetentionTimes = new[]
+                    {
+                        "2021-09-29T08:00:00.000Z",
+                    },
+                },
+            },
+            SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+            {
+                SchedulePolicyType = "SimpleSchedulePolicy",
+                ScheduleRunFrequency = "Daily",
+                ScheduleRunTimes = new[]
+                {
+                    "2021-09-29T08:00:00.000Z",
+                },
+            },
+            TimeZone = "UTC",
+            WorkLoadType = "AzureFileShare",
+        },
+        ResourceGroupName = "SwaggerTestRg",
+        VaultName = "swaggertestvault",
+    });
+
+});
+

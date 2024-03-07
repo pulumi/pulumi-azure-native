@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pool = new azure_native.containerstorage.Pool("pool", {
+    assignments: [{
+        id: "/subscriptions/bb4d87a2-4273-466c-a6ba-61d818061b3a/resourceGroups/test-rg/providers/Microsoft.ContainerService/managedClusters/containerstoragetest",
+    }],
+    location: "eastus",
+    poolName: "test-pool",
+    poolType: {
+        ephemeralDisk: {
+            replicas: 3,
+        },
+    },
+    reclaimPolicy: "Delete",
+    resourceGroupName: "test-rg",
+    resources: {
+        requests: {
+            storage: 15578,
+        },
+    },
+    tags: {
+        key1888: "value1888",
+    },
+    zones: [
+        "1",
+        "2",
+        "3",
+    ],
+});

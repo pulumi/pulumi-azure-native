@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var @group = new AzureNative.ApiManagement.Group("group", new()
+    {
+        Description = "new group to test",
+        DisplayName = "NewGroup (samiraad.onmicrosoft.com)",
+        ExternalId = "aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
+        GroupId = "aadGroup",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Type = AzureNative.ApiManagement.GroupType.External,
+    });
+
+});
+

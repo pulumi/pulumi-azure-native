@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.Cache.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        CacheName = "cachetest01",
+        PrivateEndpointConnectionName = "pectest01",
+        PrivateLinkServiceConnectionState = new AzureNative.Cache.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Auto-Approved",
+            Status = "Approved",
+        },
+        ResourceGroupName = "rgtest01",
+    });
+
+});
+

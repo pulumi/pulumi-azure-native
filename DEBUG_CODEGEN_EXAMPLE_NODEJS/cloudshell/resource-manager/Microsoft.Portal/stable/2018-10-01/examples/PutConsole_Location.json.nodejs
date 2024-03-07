@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const consoleWithLocation = new azure_native.portal.ConsoleWithLocation("consoleWithLocation", {
+    consoleName: "default",
+    location: "eastus",
+});

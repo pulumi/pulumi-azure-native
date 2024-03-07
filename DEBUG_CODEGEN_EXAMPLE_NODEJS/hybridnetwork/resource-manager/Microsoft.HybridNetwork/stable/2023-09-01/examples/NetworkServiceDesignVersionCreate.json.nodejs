@@ -1,0 +1,35 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkServiceDesignVersion = new azure_native.hybridnetwork.NetworkServiceDesignVersion("networkServiceDesignVersion", {
+    location: "eastus",
+    networkServiceDesignGroupName: "TestNetworkServiceDesignGroupName",
+    networkServiceDesignVersionName: "1.0.0",
+    properties: {
+        configurationGroupSchemaReferences: {
+            MyVM_Configuration: {
+                id: "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/publishers/contosoGroup/networkServiceDesignGroups/NSD_contoso/configurationGroupSchemas/MyVM_Configuration_Schema",
+            },
+        },
+        resourceElementTemplates: [{
+            configuration: {
+                artifactProfile: {
+                    artifactName: "MyVMArmTemplate",
+                    artifactStoreReference: {
+                        id: "/subscriptions/subid/providers/Microsoft.HybridNetwork/publishers/contosoGroup/artifactStoreReference/store1",
+                    },
+                    artifactVersion: "1.0.0",
+                },
+                parameterValues: "{\"publisherName\":\"{configurationparameters('MyVM_Configuration').publisherName}\",\"skuGroupName\":\"{configurationparameters('MyVM_Configuration').skuGroupName}\",\"skuVersion\":\"{configurationparameters('MyVM_Configuration').skuVersion}\",\"skuOfferingLocation\":\"{configurationparameters('MyVM_Configuration').skuOfferingLocation}\",\"nfviType\":\"{nfvis().nfvisFromSitePerNfviType.AzureCore.nfviAlias1.nfviType}\",\"nfviId\":\"{nfvis().nfvisFromSitePerNfviType.AzureCore.nfviAlias1.nfviId}\",\"allowSoftwareUpdates\":\"{configurationparameters('MyVM_Configuration').allowSoftwareUpdates}\",\"virtualNetworkName\":\"{configurationparameters('MyVM_Configuration').vnetName}\",\"subnetName\":\"{configurationparameters('MyVM_Configuration').subnetName}\",\"subnetAddressPrefix\":\"{configurationparameters('MyVM_Configuration').subnetAddressPrefix}\",\"managedResourceGroup\":\"{configurationparameters('SNSSelf').managedResourceGroupName}\",\"adminPassword\":\"{secretparameters('MyVM_Configuration').adminPassword}\"}",
+                templateType: "ArmTemplate",
+            },
+            dependsOnProfile: {
+                installDependsOn: [],
+            },
+            name: "MyVM",
+            resourceElementType: "ArmResourceDefinition",
+        }],
+    },
+    publisherName: "TestPublisher",
+    resourceGroupName: "rg",
+});

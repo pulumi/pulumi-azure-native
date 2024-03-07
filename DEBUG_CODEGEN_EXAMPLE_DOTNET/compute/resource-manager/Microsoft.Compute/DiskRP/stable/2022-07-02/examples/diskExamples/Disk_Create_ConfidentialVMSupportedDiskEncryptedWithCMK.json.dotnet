@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.Compute.Disk("disk", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "FromImage",
+            ImageReference = new AzureNative.Compute.Inputs.ImageDiskReferenceArgs
+            {
+                Id = "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0",
+            },
+        },
+        DiskName = "myDisk",
+        Location = "West US",
+        OsType = AzureNative.Compute.OperatingSystemTypes.Windows,
+        ResourceGroupName = "myResourceGroup",
+        SecurityProfile = new AzureNative.Compute.Inputs.DiskSecurityProfileArgs
+        {
+            SecureVMDiskEncryptionSetId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName}",
+            SecurityType = "ConfidentialVM_DiskEncryptedWithCustomerKey",
+        },
+    });
+
+});
+

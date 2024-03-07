@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const originGroup = new azure_native.cdn.OriginGroup("originGroup", {
+    endpointName: "endpoint1",
+    healthProbeSettings: {
+        probeIntervalInSeconds: 120,
+        probePath: "/health.aspx",
+        probeProtocol: azure_native.cdn.ProbeProtocol.Http,
+        probeRequestType: azure_native.cdn.HealthProbeRequestType.GET,
+    },
+    originGroupName: "origingroup1",
+    origins: [{
+        id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+    }],
+    profileName: "profile1",
+    resourceGroupName: "RG",
+    responseBasedOriginErrorDetectionSettings: {
+        responseBasedDetectedErrorTypes: azure_native.cdn.ResponseBasedDetectedErrorTypes.TcpErrorsOnly,
+        responseBasedFailoverThresholdPercentage: 10,
+    },
+});

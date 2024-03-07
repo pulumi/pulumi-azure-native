@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkFunction = new azure_native.mobilepacketcore.NetworkFunction("networkFunction", {
+    capacity: 100000,
+    deploymentNotes: "string",
+    location: "eastus",
+    networkFunctionAdministrativeState: "Commissioned",
+    networkFunctionName: "nf1",
+    networkFunctionType: "SMF",
+    resourceGroupName: "rg1",
+    sku: "NexusProduction",
+    userDescription: "string",
+});

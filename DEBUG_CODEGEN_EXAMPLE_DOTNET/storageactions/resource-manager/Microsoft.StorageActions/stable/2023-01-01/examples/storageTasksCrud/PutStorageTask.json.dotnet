@@ -1,0 +1,50 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageTask = new AzureNative.StorageActions.StorageTask("storageTask", new()
+    {
+        Action = new AzureNative.StorageActions.Inputs.StorageTaskActionArgs
+        {
+            Else = new AzureNative.StorageActions.Inputs.ElseConditionArgs
+            {
+                Operations = new[]
+                {
+                    new AzureNative.StorageActions.Inputs.StorageTaskOperationArgs
+                    {
+                        Name = "DeleteBlob",
+                        OnFailure = AzureNative.StorageActions.OnFailure.@Break,
+                        OnSuccess = AzureNative.StorageActions.OnSuccess.@Continue,
+                    },
+                },
+            },
+            If = new AzureNative.StorageActions.Inputs.IfConditionArgs
+            {
+                Condition = "[[equals(AccessTier, 'Cool')]]",
+                Operations = new[]
+                {
+                    new AzureNative.StorageActions.Inputs.StorageTaskOperationArgs
+                    {
+                        Name = "SetBlobTier",
+                        OnFailure = AzureNative.StorageActions.OnFailure.@Break,
+                        OnSuccess = AzureNative.StorageActions.OnSuccess.@Continue,
+                        Parameters = 
+                        {
+                            { "tier", "Hot" },
+                        },
+                    },
+                },
+            },
+        },
+        Description = "My Storage task",
+        Enabled = true,
+        Location = "westus",
+        ResourceGroupName = "res4228",
+        StorageTaskName = "mytask1",
+    });
+
+});
+

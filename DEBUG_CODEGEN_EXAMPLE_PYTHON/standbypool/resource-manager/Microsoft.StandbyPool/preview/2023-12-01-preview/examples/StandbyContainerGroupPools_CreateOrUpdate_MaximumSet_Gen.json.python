@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 standby_container_group_pool = azure_native.standbypool.StandbyContainerGroupPool("standbyContainerGroupPool",
-    container_group_properties=azure_native.standbypool.ContainerGroupPropertiesArgs(
+    container_group_properties=azure_native.standbypool.ContainerGroupPropertiesResponseArgs(
         container_group_profile=azure_native.standbypool.ContainerGroupProfileArgs(
             id="/subscriptions/8CC31D61-82D7-4B2B-B9DC-6B924DE7D229/resourceGroups/rgstandbypool/providers/Microsoft.ContainerInstance/containerGroupProfiles/cgProfile",
             revision=1,

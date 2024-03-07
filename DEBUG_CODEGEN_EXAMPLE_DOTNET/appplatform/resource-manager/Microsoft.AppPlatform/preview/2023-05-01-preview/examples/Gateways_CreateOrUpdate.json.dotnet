@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var gateway = new AzureNative.AppPlatform.Gateway("gateway", new()
+    {
+        GatewayName = "default",
+        Properties = new AzureNative.AppPlatform.Inputs.GatewayPropertiesArgs
+        {
+            Public = true,
+            ResourceRequests = new AzureNative.AppPlatform.Inputs.GatewayResourceRequestsArgs
+            {
+                Cpu = "1",
+                Memory = "1G",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+        {
+            Capacity = 2,
+            Name = "E0",
+            Tier = "Enterprise",
+        },
+    });
+
+});
+

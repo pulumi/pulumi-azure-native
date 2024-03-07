@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dicomService = new AzureNative.HealthcareApis.DicomService("dicomService", new()
+    {
+        DicomServiceName = "blue",
+        Location = "westus",
+        ResourceGroupName = "testRG",
+        WorkspaceName = "workspace1",
+    });
+
+});
+

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ipFirewallRule = new AzureNative.Synapse.IpFirewallRule("ipFirewallRule", new()
+    {
+        EndIpAddress = "10.0.0.254",
+        ResourceGroupName = "ExampleResourceGroup",
+        RuleName = "ExampleIpFirewallRule",
+        StartIpAddress = "10.0.0.0",
+        WorkspaceName = "ExampleWorkspace",
+    });
+
+});
+

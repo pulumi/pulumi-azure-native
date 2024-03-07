@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const replication = new azure_native.containerregistry.Replication("replication", {
+    location: "eastus",
+    regionEndpointEnabled: true,
+    registryName: "myRegistry",
+    replicationName: "myReplication",
+    resourceGroupName: "myResourceGroup",
+    tags: {
+        key: "value",
+    },
+    zoneRedundancy: "Enabled",
+});

@@ -1,0 +1,57 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualMachineScaleSet = new azure_native.compute.VirtualMachineScaleSet("virtualMachineScaleSet", {
+    location: "westus",
+    overprovision: true,
+    plan: {
+        name: "windows2016",
+        product: "windows-data-science-vm",
+        publisher: "microsoft-ads",
+    },
+    resourceGroupName: "myResourceGroup",
+    sku: {
+        capacity: 3,
+        name: "Standard_D1_v2",
+        tier: "Standard",
+    },
+    upgradePolicy: {
+        mode: azure_native.compute.UpgradeMode.Manual,
+    },
+    virtualMachineProfile: {
+        networkProfile: {
+            networkInterfaceConfigurations: [{
+                enableIPForwarding: true,
+                ipConfigurations: [{
+                    name: "{vmss-name}",
+                    subnet: {
+                        id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/{existing-virtual-network-name}/subnets/{existing-subnet-name}",
+                    },
+                }],
+                name: "{vmss-name}",
+                primary: true,
+            }],
+        },
+        osProfile: {
+            adminPassword: "{your-password}",
+            adminUsername: "{your-username}",
+            computerNamePrefix: "{vmss-name}",
+        },
+        storageProfile: {
+            imageReference: {
+                offer: "windows-data-science-vm",
+                publisher: "microsoft-ads",
+                sku: "windows2016",
+                version: "latest",
+            },
+            osDisk: {
+                caching: azure_native.compute.CachingTypes.ReadWrite,
+                createOption: "FromImage",
+                managedDisk: {
+                    storageAccountType: "Standard_LRS",
+                },
+            },
+        },
+    },
+    vmScaleSetName: "{vmss-name}",
+});

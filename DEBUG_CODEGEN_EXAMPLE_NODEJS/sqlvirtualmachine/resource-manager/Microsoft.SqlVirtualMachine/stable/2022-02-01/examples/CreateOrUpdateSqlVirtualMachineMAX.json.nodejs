@@ -1,0 +1,74 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlVirtualMachine = new azure_native.sqlvirtualmachine.SqlVirtualMachine("sqlVirtualMachine", {
+    assessmentSettings: {
+        enable: true,
+        runImmediately: true,
+        schedule: {
+            dayOfWeek: azure_native.sqlvirtualmachine.AssessmentDayOfWeek.Sunday,
+            enable: true,
+            startTime: "23:17",
+            weeklyInterval: 1,
+        },
+    },
+    autoBackupSettings: {
+        backupScheduleType: "Manual",
+        backupSystemDbs: true,
+        enable: true,
+        enableEncryption: true,
+        fullBackupFrequency: "Daily",
+        fullBackupStartTime: 6,
+        fullBackupWindowHours: 11,
+        logBackupFrequency: 10,
+        password: "<Password>",
+        retentionPeriod: 17,
+        storageAccessKey: "<primary storage access key>",
+        storageAccountUrl: "https://teststorage.blob.core.windows.net/",
+        storageContainerName: "testcontainer",
+    },
+    autoPatchingSettings: {
+        dayOfWeek: azure_native.sqlvirtualmachine.DayOfWeek.Sunday,
+        enable: true,
+        maintenanceWindowDuration: 60,
+        maintenanceWindowStartingHour: 2,
+    },
+    keyVaultCredentialSettings: {
+        enable: false,
+    },
+    location: "northeurope",
+    resourceGroupName: "testrg",
+    serverConfigurationsManagementSettings: {
+        additionalFeaturesServerConfigurations: {
+            isRServicesEnabled: false,
+        },
+        sqlConnectivityUpdateSettings: {
+            connectivityType: "PRIVATE",
+            port: 1433,
+            sqlAuthUpdatePassword: "<password>",
+            sqlAuthUpdateUserName: "sqllogin",
+        },
+        sqlInstanceSettings: {
+            collation: "SQL_Latin1_General_CP1_CI_AS",
+            isIfiEnabled: true,
+            isLpimEnabled: true,
+            isOptimizeForAdHocWorkloadsEnabled: true,
+            maxDop: 8,
+            maxServerMemoryMB: 128,
+            minServerMemoryMB: 0,
+        },
+        sqlStorageUpdateSettings: {
+            diskConfigurationType: "NEW",
+            diskCount: 1,
+            startingDeviceId: 2,
+        },
+        sqlWorkloadTypeUpdateSettings: {
+            sqlWorkloadType: "OLTP",
+        },
+    },
+    sqlImageSku: "Enterprise",
+    sqlManagement: "Full",
+    sqlServerLicenseType: "PAYG",
+    sqlVirtualMachineName: "testvm",
+    virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+});

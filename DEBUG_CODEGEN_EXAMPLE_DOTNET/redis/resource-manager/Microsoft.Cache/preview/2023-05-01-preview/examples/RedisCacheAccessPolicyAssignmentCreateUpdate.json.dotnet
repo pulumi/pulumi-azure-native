@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var accessPolicyAssignment = new AzureNative.Cache.AccessPolicyAssignment("accessPolicyAssignment", new()
+    {
+        AccessPolicyAssignmentName = "accessPolicyAssignmentName1",
+        AccessPolicyName = "accessPolicy1",
+        CacheName = "cache1",
+        ObjectId = "6497c918-11ad-41e7-1b0f-7c518a87d0b0",
+        ObjectIdAlias = "TestAADAppRedis",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

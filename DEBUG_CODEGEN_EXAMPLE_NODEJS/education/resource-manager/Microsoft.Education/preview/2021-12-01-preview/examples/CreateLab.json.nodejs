@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const lab = new azure_native.education.Lab("lab", {
+    billingAccountName: "{billingAccountName}",
+    billingProfileName: "{billingProfileName}",
+    budgetPerStudent: {
+        currency: "USD",
+        value: 100,
+    },
+    description: "example lab description",
+    displayName: "example lab",
+    expirationDate: "2021-12-09T22:11:29.422Z",
+    invoiceSectionName: "{invoiceSectionName}",
+});

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const streamingLocator = new azure_native.media.StreamingLocator("streamingLocator", {
+    accountName: "contosomedia",
+    assetName: "ClimbingMountRainier",
+    resourceGroupName: "contosorg",
+    streamingLocatorName: "UserCreatedClearStreamingLocator",
+    streamingPolicyName: "clearStreamingPolicy",
+});

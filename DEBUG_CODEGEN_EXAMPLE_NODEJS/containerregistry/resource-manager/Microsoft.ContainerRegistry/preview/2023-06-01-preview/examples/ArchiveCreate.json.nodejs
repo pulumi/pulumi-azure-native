@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const archife = new azure_native.containerregistry.Archife("archife", {
+    archiveName: "myArchiveName",
+    packageSource: {
+        type: "remote",
+        url: "string",
+    },
+    packageType: "rpm",
+    publishedVersion: "string",
+    registryName: "myRegistry",
+    repositoryEndpointPrefix: "string",
+    resourceGroupName: "myResourceGroup",
+});

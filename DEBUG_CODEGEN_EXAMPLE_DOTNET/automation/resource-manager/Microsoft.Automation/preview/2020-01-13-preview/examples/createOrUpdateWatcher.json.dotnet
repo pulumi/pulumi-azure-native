@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var watcher = new AzureNative.Automation.Watcher("watcher", new()
+    {
+        AutomationAccountName = "MyTestAutomationAccount",
+        Description = "This is a test watcher.",
+        ExecutionFrequencyInSeconds = 60,
+        ResourceGroupName = "rg",
+        ScriptName = "MyTestWatcherRunbook",
+        ScriptRunOn = "MyTestHybridWorkerGroup",
+        Tags = null,
+        WatcherName = "MyTestWatcher",
+    });
+
+});
+

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const database = new azure_native.sql.Database("database", {
+    createMode: "PointInTimeRestore",
+    databaseName: "dbpitr",
+    location: "southeastasia",
+    resourceGroupName: "Default-SQL-SouthEastAsia",
+    restorePointInTime: "2020-10-22T05:35:31.503Z",
+    serverName: "testsvr",
+    sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SoutheastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+});

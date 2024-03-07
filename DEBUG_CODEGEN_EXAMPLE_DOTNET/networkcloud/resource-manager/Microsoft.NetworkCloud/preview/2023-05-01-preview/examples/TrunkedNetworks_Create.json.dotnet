@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var trunkedNetwork = new AzureNative.NetworkCloud.TrunkedNetwork("trunkedNetwork", new()
+    {
+        ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+            Type = "CustomLocation",
+        },
+        InterfaceName = "eth0",
+        IsolationDomainIds = new[]
+        {
+            "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+            "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+        },
+        Location = "location",
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+        TrunkedNetworkName = "trunkedNetworkName",
+        Vlans = new[]
+        {
+            12,
+            14,
+        },
+    });
+
+});
+

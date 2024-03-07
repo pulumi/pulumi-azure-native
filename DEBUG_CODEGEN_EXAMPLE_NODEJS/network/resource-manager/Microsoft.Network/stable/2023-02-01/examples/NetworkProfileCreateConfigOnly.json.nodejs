@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkProfile = new azure_native.network.NetworkProfile("networkProfile", {
+    containerNetworkInterfaceConfigurations: [{
+        ipConfigurations: [{
+            name: "ipconfig1",
+            subnet: {
+                id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1",
+            },
+        }],
+        name: "eth1",
+    }],
+    location: "westus",
+    networkProfileName: "networkProfile1",
+    resourceGroupName: "rg1",
+});

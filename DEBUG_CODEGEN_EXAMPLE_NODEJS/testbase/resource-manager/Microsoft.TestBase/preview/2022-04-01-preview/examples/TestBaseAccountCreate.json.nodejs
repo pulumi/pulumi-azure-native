@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const testBaseAccount = new azure_native.testbase.TestBaseAccount("testBaseAccount", {
+    location: "westus",
+    resourceGroupName: "contoso-rg1",
+    sku: {
+        name: "S0",
+        tier: "Standard",
+    },
+    testBaseAccountName: "contoso-testBaseAccount1",
+});

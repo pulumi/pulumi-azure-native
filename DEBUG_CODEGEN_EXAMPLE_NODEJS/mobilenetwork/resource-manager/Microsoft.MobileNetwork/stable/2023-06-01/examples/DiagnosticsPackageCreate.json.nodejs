@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const diagnosticsPackage = new azure_native.mobilenetwork.DiagnosticsPackage("diagnosticsPackage", {
+    diagnosticsPackageName: "dp1",
+    packetCoreControlPlaneName: "TestPacketCoreCP",
+    resourceGroupName: "rg1",
+});

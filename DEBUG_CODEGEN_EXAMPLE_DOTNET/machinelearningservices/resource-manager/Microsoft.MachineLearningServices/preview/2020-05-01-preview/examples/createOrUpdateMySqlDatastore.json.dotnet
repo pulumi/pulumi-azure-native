@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineLearningDatastore = new AzureNative.MachineLearningServices.MachineLearningDatastore("machineLearningDatastore", new()
+    {
+        DataStoreType = "mysqldb",
+        DatabaseName = "dataset",
+        DatastoreName = "mySqlDatastore",
+        Password = "<password>",
+        ResourceGroupName = "acjain-mleastUS2",
+        ServerName = "dataset-mysql-srv",
+        UserId = "demo_user@dataset-mysql-srv",
+        WorkspaceName = "acjain-mleastUS2",
+    });
+
+});
+

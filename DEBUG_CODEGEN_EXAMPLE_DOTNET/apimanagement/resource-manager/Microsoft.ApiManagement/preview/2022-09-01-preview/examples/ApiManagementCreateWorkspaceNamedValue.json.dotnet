@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceNamedValue = new AzureNative.ApiManagement.WorkspaceNamedValue("workspaceNamedValue", new()
+    {
+        DisplayName = "prop3name",
+        NamedValueId = "testprop2",
+        ResourceGroupName = "rg1",
+        Secret = false,
+        ServiceName = "apimService1",
+        Tags = new[]
+        {
+            "foo",
+            "bar",
+        },
+        Value = "propValue",
+        WorkspaceId = "wks1",
+    });
+
+});
+

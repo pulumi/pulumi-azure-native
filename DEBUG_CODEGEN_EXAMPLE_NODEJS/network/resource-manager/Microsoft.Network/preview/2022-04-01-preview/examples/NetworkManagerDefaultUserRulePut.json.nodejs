@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const userRule = new azure_native.network.UserRule("userRule", {
+    configurationName: "myTestSecurityConfig",
+    networkManagerName: "testNetworkManager",
+    resourceGroupName: "rg1",
+    ruleCollectionName: "testRuleCollection",
+    ruleName: "SampleDefaultUserRule",
+});

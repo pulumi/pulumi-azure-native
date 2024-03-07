@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mediaService = new azure_native.media.MediaService("mediaService", {
+    accountName: "contososports",
+    location: "South Central US",
+    resourceGroupName: "contosorg",
+    storageAccounts: [{
+        id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+        type: "Primary",
+    }],
+    tags: {
+        key1: "value1",
+        key2: "value2",
+    },
+});

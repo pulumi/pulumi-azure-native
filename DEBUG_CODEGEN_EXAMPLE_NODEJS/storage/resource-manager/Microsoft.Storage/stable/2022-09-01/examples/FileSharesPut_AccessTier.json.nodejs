@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const fileShare = new azure_native.storage.FileShare("fileShare", {
+    accessTier: "Hot",
+    accountName: "sto666",
+    resourceGroupName: "res346",
+    shareName: "share1235",
+});

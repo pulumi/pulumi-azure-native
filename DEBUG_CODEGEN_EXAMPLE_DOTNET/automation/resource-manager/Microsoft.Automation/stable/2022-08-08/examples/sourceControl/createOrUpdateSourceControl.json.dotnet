@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sourceControl = new AzureNative.Automation.SourceControl("sourceControl", new()
+    {
+        AutoSync = true,
+        AutomationAccountName = "sampleAccount9",
+        Branch = "master",
+        Description = "my description",
+        FolderPath = "/folderOne/folderTwo",
+        PublishRunbook = true,
+        RepoUrl = "https://sampleUser.visualstudio.com/myProject/_git/myRepository",
+        ResourceGroupName = "rg",
+        SecurityToken = new AzureNative.Automation.Inputs.SourceControlSecurityTokenPropertiesArgs
+        {
+            AccessToken = "******",
+            TokenType = "PersonalAccessToken",
+        },
+        SourceControlName = "sampleSourceControl",
+        SourceType = "VsoGit",
+    });
+
+});
+

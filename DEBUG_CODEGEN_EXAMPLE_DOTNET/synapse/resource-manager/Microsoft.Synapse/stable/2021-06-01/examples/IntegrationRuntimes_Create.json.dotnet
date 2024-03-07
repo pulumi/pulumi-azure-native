@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var integrationRuntime = new AzureNative.Synapse.IntegrationRuntime("integrationRuntime", new()
+    {
+        IntegrationRuntimeName = "exampleIntegrationRuntime",
+        Properties = new AzureNative.Synapse.Inputs.SelfHostedIntegrationRuntimeArgs
+        {
+            Description = "A selfhosted integration runtime",
+            Type = "SelfHosted",
+        },
+        ResourceGroupName = "exampleResourceGroup",
+        WorkspaceName = "exampleWorkspace",
+    });
+
+});
+

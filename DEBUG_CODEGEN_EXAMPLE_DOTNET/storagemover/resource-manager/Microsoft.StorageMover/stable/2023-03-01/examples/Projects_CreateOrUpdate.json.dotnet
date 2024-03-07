@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var project = new AzureNative.StorageMover.Project("project", new()
+    {
+        Description = "Example Project Description",
+        ProjectName = "examples-projectName",
+        ResourceGroupName = "examples-rg",
+        StorageMoverName = "examples-storageMoverName",
+    });
+
+});
+

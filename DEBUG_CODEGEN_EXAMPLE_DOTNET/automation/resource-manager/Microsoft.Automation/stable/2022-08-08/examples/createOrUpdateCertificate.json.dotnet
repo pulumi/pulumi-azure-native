@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var certificate = new AzureNative.Automation.Certificate("certificate", new()
+    {
+        AutomationAccountName = "myAutomationAccount18",
+        Base64Value = "base 64 value of cert",
+        CertificateName = "testCert",
+        Description = "Sample Cert",
+        IsExportable = false,
+        Name = "testCert",
+        ResourceGroupName = "rg",
+        Thumbprint = "thumbprint of cert",
+    });
+
+});
+

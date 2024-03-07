@@ -1,0 +1,175 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    {
+        ClusterName = "cluster1",
+        Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+        {
+            ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+            {
+                Configurations = 
+                {
+                    { "gateway", 
+                    {
+                        { "restAuthCredential.isEnabled", true },
+                        { "restAuthCredential.password", "**********" },
+                        { "restAuthCredential.username", "admin" },
+                    } },
+                },
+                Kind = "Hadoop",
+            },
+            ClusterVersion = "3.5",
+            ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+            {
+                Roles = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "Standard_D3_V2",
+                        },
+                        MinInstanceCount = 1,
+                        Name = "headnode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+                                {
+                                    PublicKeys = new[]
+                                    {
+                                        new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+                                        {
+                                            CertificateData = "**********",
+                                        },
+                                    },
+                                },
+                                Username = "sshuser",
+                            },
+                        },
+                        ScriptActions = new[] {},
+                        TargetInstanceCount = 2,
+                        VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+                        {
+                            Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                            Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                        },
+                    },
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "Standard_D3_V2",
+                        },
+                        MinInstanceCount = 1,
+                        Name = "workernode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+                                {
+                                    PublicKeys = new[]
+                                    {
+                                        new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+                                        {
+                                            CertificateData = "**********",
+                                        },
+                                    },
+                                },
+                                Username = "sshuser",
+                            },
+                        },
+                        ScriptActions = new[] {},
+                        TargetInstanceCount = 4,
+                        VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+                        {
+                            Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                            Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                        },
+                    },
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "Small",
+                        },
+                        MinInstanceCount = 1,
+                        Name = "zookeepernode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+                                {
+                                    PublicKeys = new[]
+                                    {
+                                        new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+                                        {
+                                            CertificateData = "**********",
+                                        },
+                                    },
+                                },
+                                Username = "sshuser",
+                            },
+                        },
+                        ScriptActions = new[] {},
+                        TargetInstanceCount = 3,
+                        VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+                        {
+                            Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                            Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                        },
+                    },
+                },
+            },
+            OsType = "Linux",
+            SecurityProfile = new AzureNative.HDInsight.Inputs.SecurityProfileArgs
+            {
+                ClusterUsersGroupDNs = new[]
+                {
+                    "hdiusers",
+                },
+                DirectoryType = "ActiveDirectory",
+                Domain = "DomainName",
+                DomainUserPassword = "**********",
+                DomainUsername = "DomainUsername",
+                LdapsUrls = new[]
+                {
+                    "ldaps://10.10.0.4:636",
+                },
+                OrganizationalUnitDN = "OU=Hadoop,DC=hdinsight,DC=test",
+            },
+            StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+            {
+                Storageaccounts = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.StorageAccountArgs
+                    {
+                        Container = "containername",
+                        IsDefault = true,
+                        Key = "storage account key",
+                        Name = "mystorage.blob.core.windows.net",
+                    },
+                },
+            },
+            Tier = "Premium",
+        },
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "key1", "val1" },
+        },
+    });
+
+});
+

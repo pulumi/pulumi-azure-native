@@ -1,0 +1,88 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataFlow = new AzureNative.DataFactory.DataFlow("dataFlow", new()
+    {
+        DataFlowName = "exampleDataFlow",
+        FactoryName = "exampleFactoryName",
+        Properties = new AzureNative.DataFactory.Inputs.MappingDataFlowArgs
+        {
+            Description = "Sample demo data flow to convert currencies showing usage of union, derive and conditional split transformation.",
+            ScriptLines = new[]
+            {
+                "source(output(",
+                "PreviousConversionRate as double,",
+                "Country as string,",
+                "DateTime1 as string,",
+                "CurrentConversionRate as double",
+                "),",
+                "allowSchemaDrift: false,",
+                "validateSchema: false) ~> USDCurrency",
+                "source(output(",
+                "PreviousConversionRate as double,",
+                "Country as string,",
+                "DateTime1 as string,",
+                "CurrentConversionRate as double",
+                "),",
+                "allowSchemaDrift: true,",
+                "validateSchema: false) ~> CADSource",
+                "USDCurrency, CADSource union(byName: true)~> Union",
+                "Union derive(NewCurrencyRate = round(CurrentConversionRate*1.25)) ~> NewCurrencyColumn",
+                "NewCurrencyColumn split(Country == 'USD',",
+                "Country == 'CAD',disjoint: false) ~> ConditionalSplit1@(USD, CAD)",
+                "ConditionalSplit1@USD sink(saveMode:'overwrite' ) ~> USDSink",
+                "ConditionalSplit1@CAD sink(saveMode:'overwrite' ) ~> CADSink",
+            },
+            Sinks = new[]
+            {
+                new AzureNative.DataFactory.Inputs.DataFlowSinkArgs
+                {
+                    Dataset = new AzureNative.DataFactory.Inputs.DatasetReferenceArgs
+                    {
+                        ReferenceName = "USDOutput",
+                        Type = "DatasetReference",
+                    },
+                    Name = "USDSink",
+                },
+                new AzureNative.DataFactory.Inputs.DataFlowSinkArgs
+                {
+                    Dataset = new AzureNative.DataFactory.Inputs.DatasetReferenceArgs
+                    {
+                        ReferenceName = "CADOutput",
+                        Type = "DatasetReference",
+                    },
+                    Name = "CADSink",
+                },
+            },
+            Sources = new[]
+            {
+                new AzureNative.DataFactory.Inputs.DataFlowSourceArgs
+                {
+                    Dataset = new AzureNative.DataFactory.Inputs.DatasetReferenceArgs
+                    {
+                        ReferenceName = "CurrencyDatasetUSD",
+                        Type = "DatasetReference",
+                    },
+                    Name = "USDCurrency",
+                },
+                new AzureNative.DataFactory.Inputs.DataFlowSourceArgs
+                {
+                    Dataset = new AzureNative.DataFactory.Inputs.DatasetReferenceArgs
+                    {
+                        ReferenceName = "CurrencyDatasetCAD",
+                        Type = "DatasetReference",
+                    },
+                    Name = "CADSource",
+                },
+            },
+            Type = "MappingDataFlow",
+        },
+        ResourceGroupName = "exampleResourceGroup",
+    });
+
+});
+

@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mongoDBResourceMongoRoleDefinition = new AzureNative.DocumentDB.MongoDBResourceMongoRoleDefinition("mongoDBResourceMongoRoleDefinition", new()
+    {
+        AccountName = "myAccountName",
+        DatabaseName = "sales",
+        MongoRoleDefinitionId = "myMongoRoleDefinitionId",
+        Privileges = new[]
+        {
+            new AzureNative.DocumentDB.Inputs.PrivilegeArgs
+            {
+                Actions = new[]
+                {
+                    "insert",
+                    "find",
+                },
+                Resource = new AzureNative.DocumentDB.Inputs.PrivilegeResourceArgs
+                {
+                    Collection = "sales",
+                    Db = "sales",
+                },
+            },
+        },
+        ResourceGroupName = "myResourceGroupName",
+        RoleName = "myRoleName",
+        Roles = new[]
+        {
+            new AzureNative.DocumentDB.Inputs.RoleArgs
+            {
+                Db = "sales",
+                Role = "myInheritedRole",
+            },
+        },
+    });
+
+});
+

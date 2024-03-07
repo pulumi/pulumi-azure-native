@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sapInstance = new azure_native.workloads.SapInstance("sapInstance", {
+    location: "eastus",
+    resourceGroupName: "test-rg",
+    sapDiscoverySiteName: "SampleSite",
+    sapInstanceName: "MPP_MPP",
+    tags: {
+        property1: "value1",
+        property2: "value2",
+    },
+});

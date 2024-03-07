@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const contentPackage = new azure_native.securityinsights.ContentPackage("contentPackage", {
+    contentId: "str.azure-sentinel-solution-str",
+    contentKind: "Solution",
+    displayName: "str",
+    packageId: "str.azure-sentinel-solution-str",
+    resourceGroupName: "myRg",
+    version: "2.0.0",
+    workspaceName: "myWorkspace",
+});

@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const suppressionListAddress = new azure_native.communication.SuppressionListAddress("suppressionListAddress", {
+    addressId: "11112222-3333-4444-5555-aaaabbbbcccc",
+    domainName: "contoso.com",
+    email: "newuser1@fabrikam.com",
+    emailServiceName: "contosoEmailService",
+    firstName: "updatedFirstName",
+    resourceGroupName: "contosoResourceGroup",
+    suppressionListName: "aaaa1111-bbbb-2222-3333-aaaa11112222",
+});

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const geoBackupPolicy = new azure_native.sql.GeoBackupPolicy("geoBackupPolicy", {
+    databaseName: "testdw",
+    geoBackupPolicyName: "Default",
+    resourceGroupName: "sqlcrudtest-4799",
+    serverName: "sqlcrudtest-5961",
+    state: azure_native.sql.GeoBackupPolicyState.Enabled,
+});

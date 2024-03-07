@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dataNetwork = new azure_native.mobilenetwork.DataNetwork("dataNetwork", {
+    dataNetworkName: "testDataNetwork",
+    description: "myFavouriteDataNetwork",
+    location: "eastus",
+    mobileNetworkName: "testMobileNetwork",
+    resourceGroupName: "rg1",
+});

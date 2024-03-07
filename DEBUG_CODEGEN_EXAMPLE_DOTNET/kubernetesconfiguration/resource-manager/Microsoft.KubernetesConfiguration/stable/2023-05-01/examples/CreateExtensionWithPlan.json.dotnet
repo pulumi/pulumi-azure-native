@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var extension = new AzureNative.KubernetesConfiguration.Extension("extension", new()
+    {
+        AutoUpgradeMinorVersion = true,
+        ClusterName = "clusterName1",
+        ClusterResourceName = "connectedClusters",
+        ClusterRp = "Microsoft.Kubernetes",
+        ExtensionName = "azureVote",
+        ExtensionType = "azure-vote",
+        Plan = new AzureNative.KubernetesConfiguration.Inputs.PlanArgs
+        {
+            Name = "azure-vote-standard",
+            Product = "azure-vote-standard-offer-id",
+            Publisher = "Microsoft",
+        },
+        ReleaseTrain = "Preview",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

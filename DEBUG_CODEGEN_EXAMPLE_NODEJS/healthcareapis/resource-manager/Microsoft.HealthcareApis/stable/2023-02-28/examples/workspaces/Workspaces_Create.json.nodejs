@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspace = new azure_native.healthcareapis.Workspace("workspace", {
+    location: "westus",
+    resourceGroupName: "testRG",
+    workspaceName: "workspace1",
+});

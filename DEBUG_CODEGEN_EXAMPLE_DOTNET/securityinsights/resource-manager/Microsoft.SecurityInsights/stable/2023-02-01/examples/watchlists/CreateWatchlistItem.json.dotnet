@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var watchlistItem = new AzureNative.SecurityInsights.WatchlistItem("watchlistItem", new()
+    {
+        ItemsKeyValue = 
+        {
+            { "Business tier", "10.0.2.0/24" },
+            { "Data tier", "10.0.2.0/24" },
+            { "Gateway subnet", "10.0.255.224/27" },
+            { "Private DMZ in", "10.0.0.0/27" },
+            { "Public DMZ out", "10.0.0.96/27" },
+            { "Web Tier", "10.0.1.0/24" },
+        },
+        ResourceGroupName = "myRg",
+        WatchlistAlias = "highValueAsset",
+        WatchlistItemId = "82ba292c-dc97-4dfc-969d-d4dd9e666842",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

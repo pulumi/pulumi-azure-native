@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const eventSubscription = new azure_native.eventgrid.EventSubscription("eventSubscription", {
+    destination: {
+        endpointType: "WebHook",
+        endpointUrl: "https://requestb.in/15ksip71",
+    },
+    eventSubscriptionName: "examplesubscription3",
+    filter: {
+        isSubjectCaseSensitive: false,
+    },
+    scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+});

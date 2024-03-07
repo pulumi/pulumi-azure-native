@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customLocation = new AzureNative.ExtendedLocation.CustomLocation("customLocation", new()
+    {
+        Authentication = new AzureNative.ExtendedLocation.Inputs.CustomLocationPropertiesAuthenticationArgs
+        {
+            Type = "KubeConfig",
+            Value = "<base64 KubeConfig>",
+        },
+        ClusterExtensionIds = new[]
+        {
+            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension",
+        },
+        DisplayName = "customLocationLocation01",
+        HostResourceId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
+        Identity = new AzureNative.ExtendedLocation.Inputs.IdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Location = "West US",
+        Namespace = "namespace01",
+        ResourceGroupName = "testresourcegroup",
+        ResourceName = "customLocation01",
+    });
+
+});
+

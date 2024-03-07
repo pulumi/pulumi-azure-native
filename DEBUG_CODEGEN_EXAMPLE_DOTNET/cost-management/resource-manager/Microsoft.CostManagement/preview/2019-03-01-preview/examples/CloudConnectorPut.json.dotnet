@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cloudConnector = new AzureNative.CostManagement.CloudConnector("cloudConnector", new()
+    {
+        ConnectorName = "aws-123456789012",
+        CredentialsKey = "arn:aws:iam::123456789012:role/AzureCostManagementRole",
+        CredentialsSecret = "external-id",
+        DisplayName = "AWS-Consolidated-1",
+        ReportId = "HourlyWithResources",
+    });
+
+});
+

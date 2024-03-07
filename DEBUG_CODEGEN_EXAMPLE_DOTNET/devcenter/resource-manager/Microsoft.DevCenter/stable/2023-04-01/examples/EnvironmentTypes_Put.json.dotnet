@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var environmentType = new AzureNative.DevCenter.EnvironmentType("environmentType", new()
+    {
+        DevCenterName = "Contoso",
+        EnvironmentTypeName = "DevTest",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "Owner", "superuser" },
+        },
+    });
+
+});
+

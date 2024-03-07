@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var accessControlList = new AzureNative.ManagedNetworkFabric.AccessControlList("accessControlList", new()
+    {
+        AccessControlListName = "aclOne",
+        AddressFamily = "ipv4",
+        Conditions = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.AccessControlListConditionPropertiesArgs
+            {
+                Action = "allow",
+                DestinationAddress = "1.1.1.1",
+                DestinationPort = "21",
+                Protocol = 6,
+                SequenceNumber = 3,
+                SourceAddress = "2.2.2.2",
+                SourcePort = "65000",
+            },
+        },
+        Location = "EastUs",
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

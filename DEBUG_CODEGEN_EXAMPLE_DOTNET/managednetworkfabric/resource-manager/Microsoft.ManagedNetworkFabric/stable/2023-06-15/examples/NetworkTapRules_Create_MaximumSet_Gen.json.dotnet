@@ -1,0 +1,146 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkTapRule = new AzureNative.ManagedNetworkFabric.NetworkTapRule("networkTapRule", new()
+    {
+        Annotation = "annotation",
+        ConfigurationType = "File",
+        DynamicMatchConfigurations = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.CommonDynamicMatchConfigurationArgs
+            {
+                IpGroups = new[]
+                {
+                    new AzureNative.ManagedNetworkFabric.Inputs.IpGroupPropertiesArgs
+                    {
+                        IpAddressType = "IPv4",
+                        IpPrefixes = new[]
+                        {
+                            "10.10.10.10/30",
+                        },
+                        Name = "example-ipGroup1",
+                    },
+                },
+                PortGroups = new[]
+                {
+                    new AzureNative.ManagedNetworkFabric.Inputs.PortGroupPropertiesArgs
+                    {
+                        Name = "example-portGroup1",
+                        Ports = new[]
+                        {
+                            "100-200",
+                        },
+                    },
+                    new AzureNative.ManagedNetworkFabric.Inputs.PortGroupPropertiesArgs
+                    {
+                        Name = "example-portGroup2",
+                        Ports = new[]
+                        {
+                            "900",
+                            "1000-2000",
+                        },
+                    },
+                },
+                VlanGroups = new[]
+                {
+                    new AzureNative.ManagedNetworkFabric.Inputs.VlanGroupPropertiesArgs
+                    {
+                        Name = "exmaple-vlanGroup",
+                        Vlans = new[]
+                        {
+                            "10",
+                            "100-200",
+                        },
+                    },
+                },
+            },
+        },
+        Location = "eastus",
+        MatchConfigurations = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.NetworkTapRuleMatchConfigurationArgs
+            {
+                Actions = new[]
+                {
+                    new AzureNative.ManagedNetworkFabric.Inputs.NetworkTapRuleActionArgs
+                    {
+                        DestinationId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
+                        IsTimestampEnabled = "True",
+                        MatchConfigurationName = "match1",
+                        Truncate = "100",
+                        Type = "Drop",
+                    },
+                },
+                IpAddressType = "IPv4",
+                MatchConditions = new[]
+                {
+                    new AzureNative.ManagedNetworkFabric.Inputs.NetworkTapRuleMatchConditionArgs
+                    {
+                        EncapsulationType = "None",
+                        IpCondition = new AzureNative.ManagedNetworkFabric.Inputs.IpMatchConditionArgs
+                        {
+                            IpGroupNames = new[]
+                            {
+                                "example-ipGroup",
+                            },
+                            IpPrefixValues = new[]
+                            {
+                                "10.10.10.10/20",
+                            },
+                            PrefixType = "Prefix",
+                            Type = "SourceIP",
+                        },
+                        PortCondition = new AzureNative.ManagedNetworkFabric.Inputs.PortConditionArgs
+                        {
+                            Layer4Protocol = "TCP",
+                            PortGroupNames = new[]
+                            {
+                                "example-portGroup1",
+                            },
+                            PortType = "SourcePort",
+                            Ports = new[]
+                            {
+                                "100",
+                            },
+                        },
+                        ProtocolTypes = new[]
+                        {
+                            "TCP",
+                        },
+                        VlanMatchCondition = new AzureNative.ManagedNetworkFabric.Inputs.VlanMatchConditionArgs
+                        {
+                            InnerVlans = new[]
+                            {
+                                "11-20",
+                            },
+                            VlanGroupNames = new[]
+                            {
+                                "exmaple-vlanGroup",
+                            },
+                            Vlans = new[]
+                            {
+                                "10",
+                            },
+                        },
+                    },
+                },
+                MatchConfigurationName = "config1",
+                SequenceNumber = 10,
+            },
+        },
+        NetworkTapRuleName = "example-tapRule",
+        PollingIntervalInSeconds = 30,
+        ResourceGroupName = "example-rg",
+        Tags = 
+        {
+            { "keyID", "keyValue" },
+        },
+        TapRulesUrl = "https://microsoft.com/a",
+    });
+
+});
+

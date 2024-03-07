@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateResolverVirtualNetworkLink = new AzureNative.Network.PrivateResolverVirtualNetworkLink("privateResolverVirtualNetworkLink", new()
+    {
+        DnsForwardingRulesetName = "sampleDnsForwardingRuleset",
+        Metadata = 
+        {
+            { "additionalProp1", "value1" },
+        },
+        ResourceGroupName = "sampleResourceGroup",
+        VirtualNetwork = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+        },
+        VirtualNetworkLinkName = "sampleVirtualNetworkLink",
+    });
+
+});
+

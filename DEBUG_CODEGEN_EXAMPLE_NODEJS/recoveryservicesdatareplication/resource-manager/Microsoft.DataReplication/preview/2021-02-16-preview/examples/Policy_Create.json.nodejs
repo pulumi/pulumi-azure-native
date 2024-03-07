@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const policy = new azure_native.datareplication.Policy("policy", {
+    policyName: "fafqwc",
+    properties: {
+        customProperties: {
+            instanceType: "PolicyModelCustomProperties",
+        },
+    },
+    resourceGroupName: "rgrecoveryservicesdatareplication",
+    vaultName: "4",
+});

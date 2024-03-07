@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadNetworkPublicIP = new azure_native.avs.WorkloadNetworkPublicIP("workloadNetworkPublicIP", {
+    displayName: "publicIP1",
+    numberOfPublicIPs: 32,
+    privateCloudName: "cloud1",
+    publicIPId: "publicIP1",
+    resourceGroupName: "group1",
+});

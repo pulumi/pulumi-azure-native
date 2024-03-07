@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const replica = new azure_native.appconfiguration.Replica("replica", {
+    configStoreName: "contoso",
+    location: "eastus",
+    replicaName: "myReplicaEus",
+    resourceGroupName: "myResourceGroup",
+});

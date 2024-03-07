@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cassandraResourceCassandraView = new AzureNative.DocumentDB.CassandraResourceCassandraView("cassandraResourceCassandraView", new()
+    {
+        AccountName = "ddb1",
+        KeyspaceName = "keyspacename",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.CassandraViewResourceArgs
+        {
+            Id = "viewname",
+            ViewDefinition = "SELECT columna, columnb, columnc FROM keyspacename.srctablename WHERE columna IS NOT NULL AND columnc IS NOT NULL PRIMARY (columnc, columna)",
+        },
+        ResourceGroupName = "rg1",
+        Tags = null,
+        ViewName = "viewname",
+    });
+
+});
+

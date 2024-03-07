@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkFunction = new AzureNative.MobilePacketCore.NetworkFunction("networkFunction", new()
+    {
+        Capacity = 100000,
+        DeploymentNotes = "string",
+        Location = "eastus",
+        NetworkFunctionAdministrativeState = "Commissioned",
+        NetworkFunctionName = "nf1",
+        NetworkFunctionType = "SMF",
+        ResourceGroupName = "rg1",
+        Sku = "NexusProduction",
+        UserDescription = "string",
+    });
+
+});
+

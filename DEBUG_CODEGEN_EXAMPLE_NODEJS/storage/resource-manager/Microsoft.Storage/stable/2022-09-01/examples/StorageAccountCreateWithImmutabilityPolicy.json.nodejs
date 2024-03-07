@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+    accountName: "sto4445",
+    extendedLocation: {
+        name: "losangeles001",
+        type: "EdgeZone",
+    },
+    immutableStorageWithVersioning: {
+        enabled: true,
+        immutabilityPolicy: {
+            allowProtectedAppendWrites: true,
+            immutabilityPeriodSinceCreationInDays: 15,
+            state: "Unlocked",
+        },
+    },
+    kind: "Storage",
+    location: "eastus",
+    resourceGroupName: "res9101",
+    sku: {
+        name: "Standard_GRS",
+    },
+});

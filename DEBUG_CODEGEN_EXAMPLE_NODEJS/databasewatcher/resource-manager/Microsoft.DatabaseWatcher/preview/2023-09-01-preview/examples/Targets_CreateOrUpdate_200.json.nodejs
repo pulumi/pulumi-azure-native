@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const target = new azure_native.databasewatcher.Target("target", {
+    connectionServerName: "sqlServero1ihe2",
+    resourceGroupName: "apiTest-ddat4p",
+    targetAuthenticationType: "Aad",
+    targetName: "monitoringh22eed",
+    targetType: "SqlDb",
+    watcherName: "databasemo3ej9ih",
+});

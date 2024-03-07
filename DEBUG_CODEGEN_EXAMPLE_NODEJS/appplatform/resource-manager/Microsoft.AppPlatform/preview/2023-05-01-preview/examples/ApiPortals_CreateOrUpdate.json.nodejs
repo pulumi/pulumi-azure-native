@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const apiPortal = new azure_native.appplatform.ApiPortal("apiPortal", {
+    apiPortalName: "default",
+    properties: {
+        gatewayIds: ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default"],
+        "public": true,
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+    sku: {
+        capacity: 2,
+        name: "E0",
+        tier: "Enterprise",
+    },
+});

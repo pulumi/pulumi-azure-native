@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var table = new AzureNative.OperationalInsights.Table("table", new()
+    {
+        ResourceGroupName = "oiautorest6685",
+        RetentionInDays = 45,
+        Schema = new AzureNative.OperationalInsights.Inputs.SchemaArgs
+        {
+            Columns = new[]
+            {
+                new AzureNative.OperationalInsights.Inputs.ColumnArgs
+                {
+                    Name = "MyNewColumn",
+                    Type = "guid",
+                },
+            },
+            Name = "AzureNetworkFlow",
+        },
+        TableName = "AzureNetworkFlow",
+        TotalRetentionInDays = 70,
+        WorkspaceName = "oiautorest6685",
+    });
+
+});
+

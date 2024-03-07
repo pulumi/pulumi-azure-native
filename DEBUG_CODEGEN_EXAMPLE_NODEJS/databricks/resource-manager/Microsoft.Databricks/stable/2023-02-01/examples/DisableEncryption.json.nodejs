@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspace = new azure_native.databricks.Workspace("workspace", {
+    location: "westus",
+    managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+    parameters: {
+        encryption: {
+            value: {
+                keySource: "Default",
+            },
+        },
+    },
+    resourceGroupName: "rg",
+    workspaceName: "myWorkspace",
+});

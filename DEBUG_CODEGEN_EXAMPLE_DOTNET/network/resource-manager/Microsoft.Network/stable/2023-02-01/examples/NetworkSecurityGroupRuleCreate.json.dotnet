@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var securityRule = new AzureNative.Network.SecurityRule("securityRule", new()
+    {
+        Access = "Deny",
+        DestinationAddressPrefix = "11.0.0.0/8",
+        DestinationPortRange = "8080",
+        Direction = "Outbound",
+        NetworkSecurityGroupName = "testnsg",
+        Priority = 100,
+        Protocol = "*",
+        ResourceGroupName = "rg1",
+        SecurityRuleName = "rule1",
+        SourceAddressPrefix = "10.0.0.0/8",
+        SourcePortRange = "*",
+    });
+
+});
+

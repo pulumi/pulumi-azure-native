@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var prefix = new AzureNative.Peering.Prefix("prefix", new()
+    {
+        PeeringServiceName = "peeringServiceName",
+        PeeringServicePrefixKey = "00000000-0000-0000-0000-000000000000",
+        Prefix = "192.168.1.0/24",
+        PrefixName = "peeringServicePrefixName",
+        ResourceGroupName = "rgName",
+    });
+
+});
+

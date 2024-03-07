@@ -1,0 +1,88 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const brokerAuthentication = new azure_native.iotoperationsmq.BrokerAuthentication("brokerAuthentication", {
+    authenticationMethods: [{
+        custom: {
+            auth: {
+                x509: {
+                    keyVault: {
+                        vault: {
+                            credentials: {
+                                servicePrincipalLocalSecretName: "wuimjwpbhoglbsxxa",
+                            },
+                            directoryId: "eyjniptiykzcgbzok",
+                            name: "lxmwfan",
+                        },
+                        vaultCaChainSecret: {
+                            name: "bmectskddmpjxnsogwooexj",
+                            version: "unjfbf",
+                        },
+                        vaultCert: {
+                            name: "bmectskddmpjxnsogwooexj",
+                            version: "unjfbf",
+                        },
+                    },
+                    secretName: "dordbwjewnqkhfd",
+                },
+            },
+            caCertConfigMap: "diufihyysdcosgy",
+            endpoint: "yy",
+            headers: {},
+        },
+        sat: {
+            audiences: ["fiyitxutbuuhwtltukyjacads"],
+        },
+        svid: {
+            agentSocketPath: "gnyowebmeaj",
+            identityMaxRetry: 4031184731,
+            identityWaitRetryMs: 2243705844935085568,
+        },
+        usernamePassword: {
+            keyVault: {
+                vault: {
+                    credentials: {
+                        servicePrincipalLocalSecretName: "wuimjwpbhoglbsxxa",
+                    },
+                    directoryId: "eyjniptiykzcgbzok",
+                    name: "lxmwfan",
+                },
+                vaultSecret: {
+                    name: "bmectskddmpjxnsogwooexj",
+                    version: "unjfbf",
+                },
+            },
+            secretName: "blk",
+        },
+        x509: {
+            attributes: {
+                keyVault: {
+                    vault: {
+                        credentials: {
+                            servicePrincipalLocalSecretName: "wuimjwpbhoglbsxxa",
+                        },
+                        directoryId: "eyjniptiykzcgbzok",
+                        name: "lxmwfan",
+                    },
+                    vaultSecret: {
+                        name: "bmectskddmpjxnsogwooexj",
+                        version: "unjfbf",
+                    },
+                },
+                secretName: "ybcke",
+            },
+            trustedClientCaCertConfigMap: "udidafmnpt",
+        },
+    }],
+    authenticationName: "lUo-GQ3-95F-1O-",
+    brokerName: "87v1GC9557XuP-JLI4-",
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    listenerRef: ["dhjpypfjzzmwm"],
+    location: "vtxegvaeqwyupplnm",
+    mqName: "2S-A2-D9kC946K",
+    resourceGroupName: "rgiotoperationsmq",
+    tags: {},
+});

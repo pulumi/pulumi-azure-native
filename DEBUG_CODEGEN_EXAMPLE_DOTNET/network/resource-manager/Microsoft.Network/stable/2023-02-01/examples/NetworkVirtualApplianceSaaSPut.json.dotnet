@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkVirtualAppliance = new AzureNative.Network.NetworkVirtualAppliance("networkVirtualAppliance", new()
+    {
+        Delegation = new AzureNative.Network.Inputs.DelegationPropertiesArgs
+        {
+            ServiceName = "PaloAltoNetworks.Cloudngfw/firewalls",
+        },
+        Location = "West US",
+        NetworkVirtualApplianceName = "nva",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+        VirtualHub = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+        },
+    });
+
+});
+

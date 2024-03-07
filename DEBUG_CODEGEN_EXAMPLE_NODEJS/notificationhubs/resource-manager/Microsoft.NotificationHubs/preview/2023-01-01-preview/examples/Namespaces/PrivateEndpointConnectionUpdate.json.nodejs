@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.notificationhubs.PrivateEndpointConnection("privateEndpointConnection", {
+    namespaceName: "nh-sdk-ns",
+    privateEndpointConnectionName: "nh-sdk-ns.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    properties: {
+        privateLinkServiceConnectionState: {
+            status: "Approved",
+        },
+    },
+    resourceGroupName: "5ktrial",
+});

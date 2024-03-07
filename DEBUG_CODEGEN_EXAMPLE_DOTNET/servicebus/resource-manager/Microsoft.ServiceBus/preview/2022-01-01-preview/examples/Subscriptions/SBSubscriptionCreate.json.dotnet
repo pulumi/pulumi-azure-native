@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var subscription = new AzureNative.ServiceBus.Subscription("subscription", new()
+    {
+        EnableBatchedOperations = true,
+        NamespaceName = "sdk-Namespace-1349",
+        ResourceGroupName = "ResourceGroup",
+        SubscriptionName = "sdk-Subscriptions-2178",
+        TopicName = "sdk-Topics-8740",
+    });
+
+});
+

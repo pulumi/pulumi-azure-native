@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    {
+        PolicyName = "testPolicy1",
+        Properties = new AzureNative.RecoveryServices.Inputs.AzureIaaSVMProtectionPolicyArgs
+        {
+            BackupManagementType = "AzureIaasVM",
+            RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+            {
+                DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyRetentionScheduleArgs
+                {
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 1,
+                        DurationType = "Days",
+                    },
+                    RetentionTimes = new[]
+                    {
+                        "2018-01-24T02:00:00Z",
+                    },
+                },
+                RetentionPolicyType = "LongTermRetentionPolicy",
+            },
+            SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+            {
+                SchedulePolicyType = "SimpleSchedulePolicy",
+                ScheduleRunFrequency = "Daily",
+                ScheduleRunTimes = new[]
+                {
+                    "2018-01-24T02:00:00Z",
+                },
+            },
+            TimeZone = "Pacific Standard Time",
+        },
+        ResourceGroupName = "SwaggerTestRg",
+        VaultName = "NetSDKTestRsVault",
+    });
+
+});
+

@@ -1,0 +1,38 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const route = new azure_native.cdn.Route("route", {
+    cacheConfiguration: {
+        compressionSettings: {
+            contentTypesToCompress: [
+                "text/html",
+                "application/octet-stream",
+            ],
+            isCompressionEnabled: true,
+        },
+        queryParameters: "querystring=test",
+        queryStringCachingBehavior: "IgnoreSpecifiedQueryStrings",
+    },
+    customDomains: [{
+        id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1",
+    }],
+    enabledState: "Enabled",
+    endpointName: "endpoint1",
+    forwardingProtocol: "MatchRequest",
+    httpsRedirect: "Enabled",
+    linkToDefaultDomain: "Enabled",
+    originGroup: {
+        id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1",
+    },
+    patternsToMatch: ["/*"],
+    profileName: "profile1",
+    resourceGroupName: "RG",
+    routeName: "route1",
+    ruleSets: [{
+        id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1",
+    }],
+    supportedProtocols: [
+        "Https",
+        "Http",
+    ],
+});

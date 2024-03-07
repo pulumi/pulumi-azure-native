@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const referenceDataSet = new azure_native.timeseriesinsights.ReferenceDataSet("referenceDataSet", {
+    environmentName: "env1",
+    keyProperties: [
+        {
+            name: "DeviceId1",
+            type: "String",
+        },
+        {
+            name: "DeviceFloor",
+            type: "Double",
+        },
+    ],
+    location: "West US",
+    referenceDataSetName: "rds1",
+    resourceGroupName: "rg1",
+});

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var project = new AzureNative.DataMigration.Project("project", new()
+    {
+        GroupName = "DmsSdkRg",
+        Location = "southcentralus",
+        ProjectName = "DmsSdkProject",
+        ServiceName = "DmsSdkService",
+        SourcePlatform = "SQL",
+        TargetPlatform = "SQLDB",
+    });
+
+});
+

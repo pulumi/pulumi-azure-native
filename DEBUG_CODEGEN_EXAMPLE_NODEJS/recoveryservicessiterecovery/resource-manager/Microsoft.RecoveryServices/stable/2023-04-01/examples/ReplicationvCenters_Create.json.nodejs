@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const replicationvCenter = new azure_native.recoveryservices.ReplicationvCenter("replicationvCenter", {
+    fabricName: "MadhaviFabric",
+    properties: {
+        friendlyName: "esx-78",
+        ipAddress: "inmtest78",
+        port: "443",
+        processServerId: "5A720CAB-39CB-F445-BD1662B0B33164B5",
+        runAsAccountId: "2",
+    },
+    resourceGroupName: "MadhaviVRG",
+    resourceName: "MadhaviVault",
+    vcenterName: "esx-78",
+});

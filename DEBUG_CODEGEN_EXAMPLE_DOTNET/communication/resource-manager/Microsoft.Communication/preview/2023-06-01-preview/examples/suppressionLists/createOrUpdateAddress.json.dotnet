@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var suppressionListAddress = new AzureNative.Communication.SuppressionListAddress("suppressionListAddress", new()
+    {
+        AddressId = "11112222-3333-4444-5555-aaaabbbbcccc",
+        DomainName = "contoso.com",
+        Email = "newuser1@fabrikam.com",
+        EmailServiceName = "contosoEmailService",
+        FirstName = "updatedFirstName",
+        ResourceGroupName = "contosoResourceGroup",
+        SuppressionListName = "aaaa1111-bbbb-2222-3333-aaaa11112222",
+    });
+
+});
+

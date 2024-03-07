@@ -28,22 +28,22 @@ namespace_network_rule_set = azure_native.eventhub.NamespaceNetworkRuleSet("name
     namespace_name="sdk-Namespace-6019",
     resource_group_name="ResourceGroup",
     virtual_network_rules=[
-        azure_native.eventhub.NWRuleSetVirtualNetworkRulesArgs(
-            ignore_missing_vnet_service_endpoint=True,
-            subnet=azure_native.eventhub.SubnetArgs(
+        {
+            "ignoreMissingVnetServiceEndpoint": True,
+            "subnet": azure_native.eventhub.SubnetArgs(
                 id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2",
             ),
-        ),
-        azure_native.eventhub.NWRuleSetVirtualNetworkRulesArgs(
-            ignore_missing_vnet_service_endpoint=False,
-            subnet=azure_native.eventhub.SubnetArgs(
+        },
+        {
+            "ignoreMissingVnetServiceEndpoint": False,
+            "subnet": azure_native.eventhub.SubnetArgs(
                 id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3",
             ),
-        ),
-        azure_native.eventhub.NWRuleSetVirtualNetworkRulesArgs(
-            ignore_missing_vnet_service_endpoint=False,
-            subnet=azure_native.eventhub.SubnetArgs(
+        },
+        {
+            "ignoreMissingVnetServiceEndpoint": False,
+            "subnet": azure_native.eventhub.SubnetArgs(
                 id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6",
             ),
-        ),
+        },
     ])

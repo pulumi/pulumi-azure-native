@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkFunctionDefinitionGroup = new azure_native.hybridnetwork.NetworkFunctionDefinitionGroup("networkFunctionDefinitionGroup", {
+    location: "eastus",
+    networkFunctionDefinitionGroupName: "TestNetworkFunctionDefinitionGroupName",
+    publisherName: "TestPublisher",
+    resourceGroupName: "rg",
+});

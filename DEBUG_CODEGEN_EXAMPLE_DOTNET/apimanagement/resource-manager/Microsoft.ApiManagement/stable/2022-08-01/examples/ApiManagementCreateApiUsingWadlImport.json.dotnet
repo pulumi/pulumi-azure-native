@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var api = new AzureNative.ApiManagement.Api("api", new()
+    {
+        ApiId = "petstore",
+        Format = "wadl-link-json",
+        Path = "collector",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Value = "https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl",
+    });
+
+});
+

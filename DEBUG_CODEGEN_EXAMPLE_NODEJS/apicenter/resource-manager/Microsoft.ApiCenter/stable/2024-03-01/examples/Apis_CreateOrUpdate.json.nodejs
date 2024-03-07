@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const api = new azure_native.apicenter.Api("api", {
+    apiName: "echo-api",
+    customProperties: {
+        author: "John Doe",
+    },
+    description: "A simple HTTP request/response service.",
+    externalDocumentation: [{
+        title: "Onboarding docs",
+        url: "https://docs.contoso.com",
+    }],
+    kind: "rest",
+    license: {
+        url: "https://contoso.com/license",
+    },
+    resourceGroupName: "contoso-resources",
+    serviceName: "contoso",
+    termsOfService: {
+        url: "https://contoso.com/terms-of-service",
+    },
+    title: "Echo API",
+    workspaceName: "default",
+});

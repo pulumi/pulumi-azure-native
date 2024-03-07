@@ -1,0 +1,57 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const compute = new azure_native.machinelearningservices.Compute("compute", {
+    computeName: "compute123",
+    location: "eastus",
+    properties: {
+        computeType: "ComputeInstance",
+        properties: {
+            applicationSharingPolicy: "Personal",
+            computeInstanceAuthorizationType: "personal",
+            customServices: [{
+                docker: {
+                    privileged: true,
+                },
+                endpoints: [{
+                    name: "connect",
+                    protocol: "http",
+                    published: 8787,
+                    target: 8787,
+                }],
+                environmentVariables: {
+                    test_variable: {
+                        type: "local",
+                        value: "test_value",
+                    },
+                },
+                image: {
+                    reference: "ghcr.io/azure/rocker-rstudio-ml-verse:latest",
+                    type: "docker",
+                },
+                name: "rstudio",
+                volumes: [{
+                    readOnly: false,
+                    source: "/home/azureuser/cloudfiles",
+                    target: "/home/azureuser/cloudfiles",
+                    type: "bind",
+                }],
+            }],
+            personalComputeInstanceSettings: {
+                assignedUser: {
+                    objectId: "00000000-0000-0000-0000-000000000000",
+                    tenantId: "00000000-0000-0000-0000-000000000000",
+                },
+            },
+            sshSettings: {
+                sshPublicAccess: "Disabled",
+            },
+            subnet: {
+                id: "test-subnet-resource-id",
+            },
+            vmSize: "STANDARD_NC6",
+        },
+    },
+    resourceGroupName: "testrg123",
+    workspaceName: "workspaces123",
+});

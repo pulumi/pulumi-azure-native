@@ -1,0 +1,26 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hypervSitesController = new azure_native.offazure.HypervSitesController("hypervSitesController", {
+    agentDetails: {
+        keyVaultId: "awxurtbjmofxuciewsqfgpkccpzw",
+        keyVaultUri: "qizphgqwage",
+    },
+    applianceName: "jnpsjguxuzuxbhasiqfijf",
+    discoverySolutionId: "yxajidsykozchjkuxj",
+    location: "sctymxdndonxgejdhi",
+    provisioningState: "Created",
+    resourceGroupName: "rgmigrate",
+    servicePrincipalIdentityDetails: {
+        aadAuthority: "yanzipdww",
+        applicationId: "tspgrujepxyxuprkqvfuqbbjrweeqa",
+        audience: "oepwfaozztzvegmzvswafvotj",
+        objectId: "tqrjngpgxnnto",
+        rawCertData: "dotvgkslkmsgvtekgojnhcdrryk",
+        tenantId: "vesmyhu",
+    },
+    siteName: "692-u-93F93",
+    tags: {
+        key9741: "fdbzykkpvhnhsrhiam",
+    },
+});

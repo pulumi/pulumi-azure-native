@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var namespaceTopicEventSubscription = new AzureNative.EventGrid.NamespaceTopicEventSubscription("namespaceTopicEventSubscription", new()
+    {
+        DeliveryConfiguration = new AzureNative.EventGrid.Inputs.DeliveryConfigurationArgs
+        {
+            DeliveryMode = "Queue",
+            Queue = new AzureNative.EventGrid.Inputs.QueueInfoArgs
+            {
+                EventTimeToLive = "P1D",
+                MaxDeliveryCount = 4,
+                ReceiveLockDurationInSeconds = 60,
+            },
+        },
+        EventDeliverySchema = "CloudEventSchemaV1_0",
+        EventSubscriptionName = "examplenamespacetopicEventSub2",
+        NamespaceName = "examplenamespace2",
+        ResourceGroupName = "examplerg",
+        TopicName = "examplenamespacetopic2",
+    });
+
+});
+

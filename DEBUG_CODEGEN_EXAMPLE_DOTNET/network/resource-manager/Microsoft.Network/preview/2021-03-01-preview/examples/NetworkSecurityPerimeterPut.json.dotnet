@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkSecurityPerimeter = new AzureNative.Network.NetworkSecurityPerimeter("networkSecurityPerimeter", new()
+    {
+        Description = "Description of TestNetworkSecurityPerimeter",
+        DisplayName = "TestNetworkSecurityPerimeter",
+        NetworkSecurityPerimeterName = "nsp1",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

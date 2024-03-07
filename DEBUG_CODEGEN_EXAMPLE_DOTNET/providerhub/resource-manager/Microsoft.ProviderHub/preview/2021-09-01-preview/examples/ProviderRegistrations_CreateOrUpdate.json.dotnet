@@ -1,0 +1,47 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var providerRegistration = new AzureNative.ProviderHub.ProviderRegistration("providerRegistration", new()
+    {
+        Properties = new AzureNative.ProviderHub.Inputs.ProviderRegistrationPropertiesArgs
+        {
+            Capabilities = new[]
+            {
+                new AzureNative.ProviderHub.Inputs.ResourceProviderCapabilitiesArgs
+                {
+                    Effect = "Allow",
+                    QuotaId = "CSP_2015-05-01",
+                },
+                new AzureNative.ProviderHub.Inputs.ResourceProviderCapabilitiesArgs
+                {
+                    Effect = "Allow",
+                    QuotaId = "CSP_MG_2017-12-01",
+                },
+            },
+            Management = new AzureNative.ProviderHub.Inputs.ResourceProviderManifestPropertiesManagementArgs
+            {
+                IncidentContactEmail = "helpme@contoso.com",
+                IncidentRoutingService = "Contoso Resource Provider",
+                IncidentRoutingTeam = "Contoso Triage",
+                ServiceTreeInfos = new[]
+                {
+                    new AzureNative.ProviderHub.Inputs.ServiceTreeInfoArgs
+                    {
+                        ComponentId = "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        Readiness = "InDevelopment",
+                        ServiceId = "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    },
+                },
+            },
+            ProviderType = "Internal",
+            ProviderVersion = "2.0",
+        },
+        ProviderNamespace = "Microsoft.Contoso",
+    });
+
+});
+

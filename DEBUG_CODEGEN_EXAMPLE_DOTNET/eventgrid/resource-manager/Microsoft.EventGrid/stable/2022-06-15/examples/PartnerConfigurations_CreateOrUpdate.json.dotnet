@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var partnerConfiguration = new AzureNative.EventGrid.PartnerConfiguration("partnerConfiguration", new()
+    {
+        PartnerAuthorization = new AzureNative.EventGrid.Inputs.PartnerAuthorizationArgs
+        {
+            AuthorizedPartnersList = new[]
+            {
+                new AzureNative.EventGrid.Inputs.PartnerArgs
+                {
+                    AuthorizationExpirationTimeInUtc = "2022-01-28T01:20:55.142Z",
+                    PartnerName = "Contoso.Finance",
+                    PartnerRegistrationImmutableId = "941892bc-f5d0-4d1c-8fb5-477570fc2b71",
+                },
+                new AzureNative.EventGrid.Inputs.PartnerArgs
+                {
+                    AuthorizationExpirationTimeInUtc = "2022-02-20T01:00:00.142Z",
+                    PartnerName = "fabrikam.HR",
+                    PartnerRegistrationImmutableId = "5362bdb6-ce3e-4d0d-9a5b-3eb92c8aab38",
+                },
+            },
+            DefaultMaximumExpirationTimeInDays = 10,
+        },
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

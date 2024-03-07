@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const contentKeyPolicy = new azure_native.media.ContentKeyPolicy("contentKeyPolicy", {
+    accountName: "contosomedia",
+    contentKeyPolicyName: "PolicyWithClearKeyOptionAndSwtTokenRestriction",
+    description: "ArmPolicyDescription",
+    options: [{
+        configuration: {
+            odataType: "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+        },
+        name: "ClearKeyOption",
+        restriction: {
+            audience: "urn:audience",
+            issuer: "urn:issuer",
+            odataType: "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+            primaryVerificationKey: {
+                keyValue: "AAAAAAAAAAAAAAAAAAAAAA==",
+                odataType: "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+            },
+            restrictionTokenType: "Swt",
+        },
+    }],
+    resourceGroupName: "contosorg",
+});

@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var backupSchedule = new AzureNative.StorSimple.BackupSchedule("backupSchedule", new()
+    {
+        BackupPolicyName = "BkUpPolicy01ForSDKTest",
+        BackupScheduleName = "schedule2",
+        BackupType = AzureNative.StorSimple.BackupType.CloudSnapshot,
+        DeviceName = "Device05ForSDKTest",
+        Kind = AzureNative.StorSimple.Kind.Series8000,
+        ManagerName = "ManagerForSDKTest1",
+        ResourceGroupName = "ResourceGroupForSDKTest",
+        RetentionCount = 1,
+        ScheduleRecurrence = new AzureNative.StorSimple.Inputs.ScheduleRecurrenceArgs
+        {
+            RecurrenceType = AzureNative.StorSimple.RecurrenceType.Weekly,
+            RecurrenceValue = 1,
+            WeeklyDaysList = new[]
+            {
+                AzureNative.StorSimple.DayOfWeek.Friday,
+                AzureNative.StorSimple.DayOfWeek.Thursday,
+                AzureNative.StorSimple.DayOfWeek.Monday,
+            },
+        },
+        ScheduleStatus = AzureNative.StorSimple.ScheduleStatus.Enabled,
+        StartTime = "2017-06-24T01:00:00Z",
+    });
+
+});
+

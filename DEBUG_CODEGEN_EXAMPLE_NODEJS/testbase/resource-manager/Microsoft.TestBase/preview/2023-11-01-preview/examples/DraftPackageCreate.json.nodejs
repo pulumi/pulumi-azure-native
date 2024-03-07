@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const draftPackage = new azure_native.testbase.DraftPackage("draftPackage", {
+    appFileName: "TestBaseM365DigitalClock.msi",
+    applicationName: "contoso-package",
+    draftPackageName: "61d99543-14ff-47ae-bf03-8a8b8445502e",
+    resourceGroupName: "contoso-rg1",
+    sourceType: "Native",
+    testBaseAccountName: "contoso-testBaseAccount1",
+    useSample: false,
+    version: "1.0",
+});

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mongoClusterFirewallRule = new AzureNative.DocumentDB.MongoClusterFirewallRule("mongoClusterFirewallRule", new()
+    {
+        EndIpAddress = "255.255.255.255",
+        FirewallRuleName = "rule1",
+        MongoClusterName = "myMongoCluster",
+        ResourceGroupName = "TestGroup",
+        StartIpAddress = "0.0.0.0",
+    });
+
+});
+

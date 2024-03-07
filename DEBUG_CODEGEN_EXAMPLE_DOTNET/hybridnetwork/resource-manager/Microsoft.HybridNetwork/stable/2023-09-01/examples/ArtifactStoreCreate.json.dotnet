@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var artifactStore = new AzureNative.HybridNetwork.ArtifactStore("artifactStore", new()
+    {
+        ArtifactStoreName = "TestArtifactStore",
+        Location = "eastus",
+        Properties = new AzureNative.HybridNetwork.Inputs.ArtifactStorePropertiesFormatArgs
+        {
+            ManagedResourceGroupConfiguration = new AzureNative.HybridNetwork.Inputs.ArtifactStorePropertiesFormatManagedResourceGroupConfigurationArgs
+            {
+                Location = "eastus",
+                Name = "testRg",
+            },
+            ReplicationStrategy = "SingleReplication",
+            StoreType = "AzureContainerRegistry",
+        },
+        PublisherName = "TestPublisher",
+        ResourceGroupName = "rg",
+    });
+
+});
+

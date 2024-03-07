@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var throughputPoolAccount = new AzureNative.DocumentDB.ThroughputPoolAccount("throughputPoolAccount", new()
+    {
+        AccountLocation = "West US",
+        AccountResourceIdentifier = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/providers/Microsoft.DocumentDB/resourceGroup/rg1/databaseAccounts/db1/",
+        ResourceGroupName = "rg1",
+        ThroughputPoolAccountName = "db1",
+        ThroughputPoolName = "tp1",
+    });
+
+});
+

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var masterSitesController = new AzureNative.OffAzure.MasterSitesController("masterSitesController", new()
+    {
+        AllowMultipleSites = true,
+        CustomerStorageAccountArmId = "cdxrihtiskkn",
+        Location = "plyak",
+        PublicNetworkAccess = "NotSpecified",
+        ResourceGroupName = "rgmigrate",
+        SiteName = "74c1J1m56557t52H-75",
+        Sites = new[]
+        {
+            "zxupfq",
+        },
+        Tags = 
+        {
+            { "key7125", "jbhnzfuxjovyamasouyfhhzhevagvw" },
+        },
+    });
+
+});
+

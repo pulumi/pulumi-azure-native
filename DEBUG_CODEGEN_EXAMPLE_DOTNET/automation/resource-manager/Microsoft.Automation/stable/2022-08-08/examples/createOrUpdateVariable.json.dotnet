@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var variable = new AzureNative.Automation.Variable("variable", new()
+    {
+        AutomationAccountName = "sampleAccount9",
+        Description = "my description",
+        IsEncrypted = false,
+        Name = "sampleVariable",
+        ResourceGroupName = "rg",
+        Value = "\"ComputerName.domain.com\"",
+        VariableName = "sampleVariable",
+    });
+
+});
+

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const certificate = new azure_native.appplatform.Certificate("certificate", {
+    certificateName: "mycertificate",
+    properties: {
+        certVersion: "08a219d06d874795a96db47e06fbb01e",
+        keyVaultCertName: "mycert",
+        type: "KeyVaultCertificate",
+        vaultUri: "https://myvault.vault.azure.net",
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 alert_processing_rule_by_name = azure_native.alertsmanagement.AlertProcessingRuleByName("alertProcessingRuleByName",
     alert_processing_rule_name="AddActionGroupsBySeverity",
     location="Global",
-    properties=azure_native.alertsmanagement.AlertProcessingRulePropertiesArgs(
+    properties=azure_native.alertsmanagement.AlertProcessingRulePropertiesResponseArgs(
         actions=[azure_native.alertsmanagement.AddActionGroupsArgs(
             action_group_ids=[
                 "/subscriptions/subId1/resourcegroups/RGId1/providers/microsoft.insights/actiongroups/AGId1",

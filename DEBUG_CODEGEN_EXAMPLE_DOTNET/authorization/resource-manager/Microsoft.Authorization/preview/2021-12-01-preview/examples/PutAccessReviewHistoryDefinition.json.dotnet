@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var scopeAccessReviewHistoryDefinitionById = new AzureNative.Authorization.ScopeAccessReviewHistoryDefinitionById("scopeAccessReviewHistoryDefinitionById", new()
+    {
+        HistoryDefinitionId = "44724910-d7a5-4c29-b28f-db73e717165a",
+        Scope = "subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a",
+    });
+
+});
+

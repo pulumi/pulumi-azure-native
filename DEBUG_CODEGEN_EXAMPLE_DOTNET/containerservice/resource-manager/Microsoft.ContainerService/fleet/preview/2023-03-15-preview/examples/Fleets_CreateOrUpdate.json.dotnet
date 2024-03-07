@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fleet = new AzureNative.ContainerService.Fleet("fleet", new()
+    {
+        FleetName = "fleet1",
+        HubProfile = new AzureNative.ContainerService.Inputs.FleetHubProfileArgs
+        {
+            DnsPrefix = "dnsprefix1",
+        },
+        Location = "East US",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "archv2", "" },
+            { "tier", "production" },
+        },
+    });
+
+});
+

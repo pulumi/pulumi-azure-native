@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var wcfRelay = new AzureNative.Relay.WCFRelay("wcfRelay", new()
+    {
+        NamespaceName = "example-RelayNamespace-9953",
+        RelayName = "example-Relay-Wcf-1194",
+        RelayType = AzureNative.Relay.Relaytype.NetTcp,
+        RequiresClientAuthorization = true,
+        RequiresTransportSecurity = true,
+        ResourceGroupName = "resourcegroup",
+    });
+
+});
+

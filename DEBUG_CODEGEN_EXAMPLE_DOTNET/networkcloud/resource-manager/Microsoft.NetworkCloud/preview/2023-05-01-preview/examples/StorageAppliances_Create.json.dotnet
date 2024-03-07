@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageAppliance = new AzureNative.NetworkCloud.StorageAppliance("storageAppliance", new()
+    {
+        AdministratorCredentials = new AzureNative.NetworkCloud.Inputs.AdministrativeCredentialsArgs
+        {
+            Password = "{password}",
+            Username = "adminUser",
+        },
+        ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+            Type = "CustomLocation",
+        },
+        Location = "location",
+        RackId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+        RackSlot = 1,
+        ResourceGroupName = "resourceGroupName",
+        SerialNumber = "BM1219XXX",
+        StorageApplianceName = "storageApplianceName",
+        StorageApplianceSkuId = "684E-3B16-399E",
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+    });
+
+});
+

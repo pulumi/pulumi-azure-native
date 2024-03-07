@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var contentItem = new AzureNative.ApiManagement.ContentItem("contentItem", new()
+    {
+        ContentItemId = "4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+        ContentTypeId = "page",
+        Properties = 
+        {
+            { "en_us", 
+            {
+                { "description", "Short story about the company." },
+                { "documentId", "contentTypes/document/contentItems/4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8" },
+                { "keywords", "company, about" },
+                { "permalink", "/about" },
+                { "title", "About" },
+            } },
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

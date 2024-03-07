@@ -5,21 +5,21 @@ table = azure_native.storage.Table("table",
     account_name="sto328",
     resource_group_name="res3376",
     signed_identifiers=[
-        azure_native.storage.TableSignedIdentifierArgs(
-            access_policy=azure_native.storage.TableAccessPolicyArgs(
+        {
+            "accessPolicy": azure_native.storage.TableAccessPolicyArgs(
                 expiry_time="2022-03-20T08:49:37.0000000Z",
                 permission="raud",
                 start_time="2022-03-17T08:49:37.0000000Z",
             ),
-            id="MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-        ),
-        azure_native.storage.TableSignedIdentifierArgs(
-            access_policy=azure_native.storage.TableAccessPolicyArgs(
+            "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+        },
+        {
+            "accessPolicy": azure_native.storage.TableAccessPolicyArgs(
                 expiry_time="2022-03-20T08:49:37.0000000Z",
                 permission="rad",
                 start_time="2022-03-17T08:49:37.0000000Z",
             ),
-            id="PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
-        ),
+            "id": "PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
+        },
     ],
     table_name="table6185")

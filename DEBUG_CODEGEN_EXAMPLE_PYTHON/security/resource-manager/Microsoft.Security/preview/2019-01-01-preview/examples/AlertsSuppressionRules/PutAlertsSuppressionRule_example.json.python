@@ -8,7 +8,7 @@ alerts_suppression_rule = azure_native.security.AlertsSuppressionRule("alertsSup
     expiration_date_utc="2019-12-01T19:50:47.083633Z",
     reason="FalsePositive",
     state="Enabled",
-    suppression_alerts_scope=azure_native.security.SuppressionAlertsScopeArgs(
+    suppression_alerts_scope=azure_native.security.SuppressionAlertsScopeResponseArgs(
         all_of=[
             azure_native.security.ScopeElementArgs(
                 field="entities.ip.address",

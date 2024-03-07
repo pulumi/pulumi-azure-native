@@ -1,0 +1,39 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const packetCoreControlPlane = new azure_native.mobilenetwork.PacketCoreControlPlane("packetCoreControlPlane", {
+    controlPlaneAccessInterface: {
+        name: "N2",
+    },
+    coreNetworkTechnology: "5GC",
+    installation: {
+        desiredState: "Installed",
+    },
+    localDiagnosticsAccess: {
+        authenticationType: "AAD",
+        httpsServerCertificate: {
+            certificateUrl: "https://contosovault.vault.azure.net/certificates/ingress",
+        },
+    },
+    location: "eastus",
+    packetCoreControlPlaneName: "TestPacketCoreCP",
+    platform: {
+        azureStackEdgeDevice: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice",
+        },
+        connectedCluster: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/TestConnectedCluster",
+        },
+        customLocation: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/TestCustomLocation",
+        },
+        type: "AKS-HCI",
+    },
+    resourceGroupName: "rg1",
+    sites: [{
+        id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite",
+    }],
+    sku: "G0",
+    ueMtu: 1600,
+    version: "0.2.0",
+});

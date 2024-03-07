@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const importCollectorsOperation = new azure_native.migrate.ImportCollectorsOperation("importCollectorsOperation", {
+    discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourcegroups/ayagrawRG/providers/microsoft.offazure/importsites/actualSEA37d4importSite",
+    importCollectorName: "importCollectore7d5",
+    projectName: "app18700project",
+    provisioningState: "Succeeded",
+    resourceGroupName: "ayagrawRG",
+});

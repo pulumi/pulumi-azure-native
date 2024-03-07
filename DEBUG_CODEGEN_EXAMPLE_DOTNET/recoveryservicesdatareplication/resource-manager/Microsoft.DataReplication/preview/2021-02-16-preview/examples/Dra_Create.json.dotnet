@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dra = new AzureNative.DataReplication.Dra("dra", new()
+    {
+        FabricAgentName = "M",
+        FabricName = "wPR",
+        Properties = new AzureNative.DataReplication.Inputs.DraModelPropertiesArgs
+        {
+            AuthenticationIdentity = new AzureNative.DataReplication.Inputs.IdentityModelArgs
+            {
+                AadAuthority = "bubwwbowfhdmujrt",
+                ApplicationId = "cwktzrwajuvfyyymfstpey",
+                Audience = "dkjobanyqgzenivyxhvavottpc",
+                ObjectId = "khsiaqfbpuhp",
+                TenantId = "joclkkdovixwapephhxaqtefubhhmq",
+            },
+            CustomProperties = null,
+            MachineId = "envzcoijbqhtrpncbjbhk",
+            MachineName = "y",
+            ResourceAccessIdentity = new AzureNative.DataReplication.Inputs.IdentityModelArgs
+            {
+                AadAuthority = "bubwwbowfhdmujrt",
+                ApplicationId = "cwktzrwajuvfyyymfstpey",
+                Audience = "dkjobanyqgzenivyxhvavottpc",
+                ObjectId = "khsiaqfbpuhp",
+                TenantId = "joclkkdovixwapephhxaqtefubhhmq",
+            },
+        },
+        ResourceGroupName = "rgrecoveryservicesdatareplication",
+    });
+
+});
+

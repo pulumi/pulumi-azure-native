@@ -1,0 +1,52 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var alertProcessingRuleByName = new AzureNative.AlertsManagement.AlertProcessingRuleByName("alertProcessingRuleByName", new()
+    {
+        AlertProcessingRuleName = "AddActionGroupsBySeverity",
+        Location = "Global",
+        Properties = new AzureNative.AlertsManagement.Inputs.AlertProcessingRulePropertiesArgs
+        {
+            Actions = new[]
+            {
+                new AzureNative.AlertsManagement.Inputs.AddActionGroupsArgs
+                {
+                    ActionGroupIds = new[]
+                    {
+                        "/subscriptions/subId1/resourcegroups/RGId1/providers/microsoft.insights/actiongroups/AGId1",
+                        "/subscriptions/subId1/resourcegroups/RGId1/providers/microsoft.insights/actiongroups/AGId2",
+                    },
+                    ActionType = "AddActionGroups",
+                },
+            },
+            Conditions = new[]
+            {
+                new AzureNative.AlertsManagement.Inputs.ConditionArgs
+                {
+                    Field = "Severity",
+                    Operator = "Equals",
+                    Values = new[]
+                    {
+                        "sev0",
+                        "sev1",
+                    },
+                },
+            },
+            Description = "Add AGId1 and AGId2 to all Sev0 and Sev1 alerts in these resourceGroups",
+            Enabled = true,
+            Scopes = new[]
+            {
+                "/subscriptions/subId1/resourceGroups/RGId1",
+                "/subscriptions/subId1/resourceGroups/RGId2",
+            },
+        },
+        ResourceGroupName = "alertscorrelationrg",
+        Tags = null,
+    });
+
+});
+

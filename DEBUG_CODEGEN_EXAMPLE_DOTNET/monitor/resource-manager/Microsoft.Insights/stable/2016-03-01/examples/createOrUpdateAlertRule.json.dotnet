@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var alertRule = new AzureNative.Insights.AlertRule("alertRule", new()
+    {
+        Actions = new[] {},
+        Condition = new AzureNative.Insights.Inputs.ThresholdRuleConditionArgs
+        {
+            DataSource = new AzureNative.Insights.Inputs.RuleMetricDataSourceArgs
+            {
+                MetricName = "Requests",
+                OdataType = "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                ResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
+            },
+            OdataType = "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+            Operator = AzureNative.Insights.ConditionOperator.GreaterThan,
+            Threshold = 3,
+            TimeAggregation = AzureNative.Insights.TimeAggregationOperator.Total,
+            WindowSize = "PT5M",
+        },
+        Description = "Pura Vida",
+        IsEnabled = true,
+        Location = "West US",
+        Name = "chiricutin",
+        ResourceGroupName = "Rac46PostSwapRG",
+        RuleName = "chiricutin",
+        Tags = null,
+    });
+
+});
+

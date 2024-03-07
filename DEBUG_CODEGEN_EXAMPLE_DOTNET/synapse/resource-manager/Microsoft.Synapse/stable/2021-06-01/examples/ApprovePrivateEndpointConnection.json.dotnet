@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.Synapse.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "ExamplePrivateEndpointConnection",
+        PrivateLinkServiceConnectionState = new AzureNative.Synapse.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Approved by abc@example.com",
+            Status = "Approved",
+        },
+        ResourceGroupName = "ExampleResourceGroup",
+        WorkspaceName = "ExampleWorkspace",
+    });
+
+});
+

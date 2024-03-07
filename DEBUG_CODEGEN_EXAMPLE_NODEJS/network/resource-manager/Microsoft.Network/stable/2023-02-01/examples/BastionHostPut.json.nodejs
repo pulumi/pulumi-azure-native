@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const bastionHost = new azure_native.network.BastionHost("bastionHost", {
+    bastionHostName: "bastionhosttenant",
+    ipConfigurations: [{
+        name: "bastionHostIpConfiguration",
+        publicIPAddress: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+        },
+        subnet: {
+            id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/BastionHostSubnet",
+        },
+    }],
+    resourceGroupName: "rg1",
+});

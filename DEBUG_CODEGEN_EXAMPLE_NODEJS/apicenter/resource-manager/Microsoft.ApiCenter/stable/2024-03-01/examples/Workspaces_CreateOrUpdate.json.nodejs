@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspace = new azure_native.apicenter.Workspace("workspace", {
+    resourceGroupName: "contoso-resources",
+    serviceName: "contoso",
+    title: "default",
+    workspaceName: "default",
+});

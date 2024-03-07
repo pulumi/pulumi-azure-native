@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configurationPolicyGroup = new AzureNative.Network.ConfigurationPolicyGroup("configurationPolicyGroup", new()
+    {
+        ConfigurationPolicyGroupName = "policyGroup1",
+        IsDefault = true,
+        PolicyMembers = new[]
+        {
+            new AzureNative.Network.Inputs.VpnServerConfigurationPolicyGroupMemberArgs
+            {
+                AttributeType = "RadiusAzureGroupId",
+                AttributeValue = "6ad1bd08",
+                Name = "policy1",
+            },
+            new AzureNative.Network.Inputs.VpnServerConfigurationPolicyGroupMemberArgs
+            {
+                AttributeType = "CertificateGroupId",
+                AttributeValue = "red.com",
+                Name = "policy2",
+            },
+        },
+        Priority = 0,
+        ResourceGroupName = "rg1",
+        VpnServerConfigurationName = "vpnServerConfiguration1",
+    });
+
+});
+

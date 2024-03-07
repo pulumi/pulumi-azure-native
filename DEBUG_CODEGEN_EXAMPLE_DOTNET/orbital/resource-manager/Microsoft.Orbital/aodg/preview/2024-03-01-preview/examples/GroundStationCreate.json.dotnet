@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var groundStation = new AzureNative.Orbital.GroundStation("groundStation", new()
+    {
+        AltitudeMeters = 1500.83,
+        Capabilities = new[]
+        {
+            "Communication",
+        },
+        City = "redmond",
+        GlobalCommunicationsSite = new AzureNative.Orbital.Inputs.GroundStationsPropertiesGlobalCommunicationsSiteArgs
+        {
+            Id = "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/providers/Microsoft.Orbital/globalCommunicationsSites/contoso-Vernon",
+        },
+        GroundStationName = "westus_gs1",
+        LatitudeDegrees = -122.122,
+        Location = "westus",
+        LongitudeDegrees = 47.674,
+        ProviderName = "Microsoft",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "key1", "value1" },
+            { "key2", "value2" },
+        },
+    });
+
+});
+

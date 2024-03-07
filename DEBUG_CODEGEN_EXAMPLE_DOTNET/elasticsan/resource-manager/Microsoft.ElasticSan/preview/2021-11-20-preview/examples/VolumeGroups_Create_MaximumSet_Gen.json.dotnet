@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var volumeGroup = new AzureNative.ElasticSan.VolumeGroup("volumeGroup", new()
+    {
+        ElasticSanName = "ti7q-k952-1qB3J_5",
+        Encryption = "EncryptionAtRestWithPlatformKey",
+        NetworkAcls = new AzureNative.ElasticSan.Inputs.NetworkRuleSetArgs
+        {
+            VirtualNetworkRules = new[]
+            {
+                new AzureNative.ElasticSan.Inputs.VirtualNetworkRuleArgs
+                {
+                    Action = AzureNative.ElasticSan.Action.Allow,
+                    VirtualNetworkResourceId = "aaaaaaaaaaaaaaaa",
+                },
+            },
+        },
+        ProtocolType = "Iscsi",
+        ResourceGroupName = "rgelasticsan",
+        Tags = 
+        {
+            { "key5933", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa" },
+        },
+        VolumeGroupName = "u_5I_1j4t3",
+    });
+
+});
+

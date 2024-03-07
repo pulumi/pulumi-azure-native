@@ -1,0 +1,53 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var firewallPolicyRuleCollectionGroup = new AzureNative.Network.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", new()
+    {
+        FirewallPolicyName = "firewallPolicy",
+        Priority = 110,
+        ResourceGroupName = "rg1",
+        RuleCollectionGroupName = "ruleCollectionGroup1",
+        RuleCollections = new[]
+        {
+            new AzureNative.Network.Inputs.FirewallPolicyFilterRuleCollectionArgs
+            {
+                Action = new AzureNative.Network.Inputs.FirewallPolicyFilterRuleCollectionActionArgs
+                {
+                    Type = "Deny",
+                },
+                Name = "Example-Filter-Rule-Collection",
+                RuleCollectionType = "FirewallPolicyFilterRuleCollection",
+                Rules = new[]
+                {
+                    new AzureNative.Network.Inputs.NetworkRuleArgs
+                    {
+                        DestinationIpGroups = new[]
+                        {
+                            "/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2",
+                        },
+                        DestinationPorts = new[]
+                        {
+                            "*",
+                        },
+                        IpProtocols = new[]
+                        {
+                            "TCP",
+                        },
+                        Name = "network-1",
+                        RuleType = "NetworkRule",
+                        SourceIpGroups = new[]
+                        {
+                            "/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1",
+                        },
+                    },
+                },
+            },
+        },
+    });
+
+});
+

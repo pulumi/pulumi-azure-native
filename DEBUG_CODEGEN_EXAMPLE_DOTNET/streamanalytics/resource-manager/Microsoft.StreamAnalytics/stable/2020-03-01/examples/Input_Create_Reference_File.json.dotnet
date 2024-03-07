@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var input = new AzureNative.StreamAnalytics.Input("input", new()
+    {
+        InputName = "input7225",
+        JobName = "sj9597",
+        Properties = new AzureNative.StreamAnalytics.Inputs.ReferenceInputPropertiesArgs
+        {
+            Datasource = new AzureNative.StreamAnalytics.Inputs.FileReferenceInputDataSourceArgs
+            {
+                Path = "my/path",
+                Type = "File",
+            },
+            Type = "Reference",
+        },
+        ResourceGroupName = "sjrg8440",
+    });
+
+});
+

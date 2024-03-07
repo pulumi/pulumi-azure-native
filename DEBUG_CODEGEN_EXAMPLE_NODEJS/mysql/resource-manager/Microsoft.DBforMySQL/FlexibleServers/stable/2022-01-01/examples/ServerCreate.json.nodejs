@@ -1,0 +1,33 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const server = new azure_native.dbformysql.Server("server", {
+    administratorLogin: "cloudsa",
+    administratorLoginPassword: "your_password",
+    availabilityZone: "1",
+    backup: {
+        backupRetentionDays: 7,
+        geoRedundantBackup: "Disabled",
+    },
+    createMode: "Default",
+    highAvailability: {
+        mode: "ZoneRedundant",
+        standbyAvailabilityZone: "3",
+    },
+    location: "southeastasia",
+    resourceGroupName: "testrg",
+    serverName: "mysqltestserver",
+    sku: {
+        name: "Standard_D2ds_v4",
+        tier: "GeneralPurpose",
+    },
+    storage: {
+        autoGrow: "Disabled",
+        iops: 600,
+        storageSizeGB: 100,
+    },
+    tags: {
+        num: "1",
+    },
+    version: "5.7",
+});

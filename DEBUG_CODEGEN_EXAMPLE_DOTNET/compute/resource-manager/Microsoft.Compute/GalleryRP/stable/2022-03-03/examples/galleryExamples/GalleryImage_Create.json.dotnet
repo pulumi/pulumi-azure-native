@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var galleryImage = new AzureNative.Compute.GalleryImage("galleryImage", new()
+    {
+        GalleryImageName = "myGalleryImageName",
+        GalleryName = "myGalleryName",
+        HyperVGeneration = "V1",
+        Identifier = new AzureNative.Compute.Inputs.GalleryImageIdentifierArgs
+        {
+            Offer = "myOfferName",
+            Publisher = "myPublisherName",
+            Sku = "mySkuName",
+        },
+        Location = "West US",
+        OsState = AzureNative.Compute.OperatingSystemStateTypes.Generalized,
+        OsType = AzureNative.Compute.OperatingSystemTypes.Windows,
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

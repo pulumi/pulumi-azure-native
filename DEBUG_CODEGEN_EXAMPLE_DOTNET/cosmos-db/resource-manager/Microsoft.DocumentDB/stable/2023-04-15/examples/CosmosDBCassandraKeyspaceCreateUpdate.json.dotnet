@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cassandraResourceCassandraKeyspace = new AzureNative.DocumentDB.CassandraResourceCassandraKeyspace("cassandraResourceCassandraKeyspace", new()
+    {
+        AccountName = "ddb1",
+        KeyspaceName = "keyspaceName",
+        Location = "West US",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.CassandraKeyspaceResourceArgs
+        {
+            Id = "keyspaceName",
+        },
+        ResourceGroupName = "rg1",
+        Tags = null,
+    });
+
+});
+

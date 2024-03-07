@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var namespaceAuthorizationRule = new AzureNative.Relay.NamespaceAuthorizationRule("namespaceAuthorizationRule", new()
+    {
+        AuthorizationRuleName = "example-RelayAuthRules-01",
+        NamespaceName = "example-RelayNamespace-01",
+        ResourceGroupName = "resourcegroup",
+        Rights = new[]
+        {
+            "Listen",
+            "Send",
+        },
+    });
+
+});
+

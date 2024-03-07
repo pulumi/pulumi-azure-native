@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disk = new azure_native.compute.Disk("disk", {
+    creationData: {
+        createOption: "FromImage",
+        imageReference: {
+            id: "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0",
+        },
+    },
+    diskName: "myDisk",
+    location: "West US",
+    osType: azure_native.compute.OperatingSystemTypes.Windows,
+    resourceGroupName: "myResourceGroup",
+    securityProfile: {
+        secureVMDiskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName}",
+        securityType: "ConfidentialVM_DiskEncryptedWithCustomerKey",
+    },
+});

@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const channel = new azure_native.botservice.Channel("channel", {
+    channelName: "EmailChannel",
+    location: "global",
+    properties: {
+        channelName: "EmailChannel",
+        properties: {
+            authMethod: 1,
+            emailAddress: "a@b.com",
+            isEnabled: true,
+            magicCode: "000000",
+        },
+    },
+    resourceGroupName: "OneResourceGroupName",
+    resourceName: "samplebotname",
+});

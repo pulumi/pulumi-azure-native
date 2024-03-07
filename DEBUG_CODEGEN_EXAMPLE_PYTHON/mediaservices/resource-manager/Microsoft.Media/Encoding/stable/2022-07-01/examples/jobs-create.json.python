@@ -12,7 +12,7 @@ job = azure_native.media.Job("job",
         odata_type="#Microsoft.Media.JobInputAsset",
     ),
     job_name="job1",
-    outputs=[azure_native.media.JobOutputAssetArgs(
+    outputs=[azure_native.media.JobOutputAssetResponseArgs(
         asset_name="job1-OutputAsset",
         odata_type="#Microsoft.Media.JobOutputAsset",
     )],

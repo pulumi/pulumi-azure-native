@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var maintenanceConfiguration = new AzureNative.ContainerService.MaintenanceConfiguration("maintenanceConfiguration", new()
+    {
+        ConfigName = "default",
+        NotAllowedTime = new[]
+        {
+            new AzureNative.ContainerService.Inputs.TimeSpanArgs
+            {
+                End = "2020-11-30T12:00:00Z",
+                Start = "2020-11-26T03:00:00Z",
+            },
+        },
+        ResourceGroupName = "rg1",
+        ResourceName = "clustername1",
+        TimeInWeek = new[]
+        {
+            new AzureNative.ContainerService.Inputs.TimeInWeekArgs
+            {
+                Day = "Monday",
+                HourSlots = new[]
+                {
+                    1,
+                    2,
+                },
+            },
+        },
+    });
+
+});
+

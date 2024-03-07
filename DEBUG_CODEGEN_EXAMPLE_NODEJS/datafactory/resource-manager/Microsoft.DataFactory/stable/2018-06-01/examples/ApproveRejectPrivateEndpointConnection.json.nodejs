@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.datafactory.PrivateEndpointConnection("privateEndpointConnection", {
+    factoryName: "exampleFactoryName",
+    privateEndpointConnectionName: "connection",
+    properties: {
+        privateEndpoint: {
+            id: "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/privateEndpoints/myPrivateEndpoint",
+        },
+        privateLinkServiceConnectionState: {
+            actionsRequired: "",
+            description: "Approved by admin.",
+            status: "Approved",
+        },
+    },
+    resourceGroupName: "exampleResourceGroup",
+});

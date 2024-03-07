@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const databaseAccount = new azure_native.documentdb.DatabaseAccount("databaseAccount", {
+    accountName: "ddb1",
+    createMode: "Default",
+    databaseAccountOfferType: azure_native.documentdb.DatabaseAccountOfferType.Standard,
+    location: "westus",
+    locations: [{
+        failoverPriority: 0,
+        isZoneRedundant: false,
+        locationName: "southcentralus",
+    }],
+    resourceGroupName: "rg1",
+});

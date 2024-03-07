@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var endpoint = new AzureNative.StorageMover.Endpoint("endpoint", new()
+    {
+        EndpointName = "examples-endpointName",
+        Properties = new AzureNative.StorageMover.Inputs.AzureStorageBlobContainerEndpointPropertiesArgs
+        {
+            BlobContainerName = "examples-blobContainerName",
+            Description = "Example Storage Container Endpoint Description",
+            EndpointType = "AzureStorageBlobContainer",
+            StorageAccountResourceId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.Storage/storageAccounts/examples-storageAccountName/",
+        },
+        ResourceGroupName = "examples-rg",
+        StorageMoverName = "examples-storageMoverName",
+    });
+
+});
+

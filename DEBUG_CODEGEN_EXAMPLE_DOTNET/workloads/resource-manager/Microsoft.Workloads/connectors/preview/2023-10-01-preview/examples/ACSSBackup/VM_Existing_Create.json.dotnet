@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var acssBackupConnection = new AzureNative.Workloads.ACSSBackupConnection("acssBackupConnection", new()
+    {
+        BackupData = new AzureNative.Workloads.Inputs.VMBackupDataArgs
+        {
+            BackupPolicy = new AzureNative.Workloads.Inputs.VMBackupPolicyPropertiesArgs
+            {
+                Name = "defaultVmPolicy",
+            },
+            BackupType = "VM",
+            DiskExclusionProperties = new AzureNative.Workloads.Inputs.DiskExclusionPropertiesArgs
+            {
+                DiskLunList = new() { },
+                IsInclusionList = true,
+            },
+            RecoveryServicesVault = new AzureNative.Workloads.Inputs.ExistingRecoveryServicesVaultArgs
+            {
+                Id = "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+                VaultType = "Existing",
+            },
+        },
+        BackupName = "vmBackup",
+        ConnectorName = "C1",
+        Location = "westcentralus",
+        ResourceGroupName = "test-rg",
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var snapshot = new AzureNative.ContainerService.Snapshot("snapshot", new()
+    {
+        CreationData = new AzureNative.ContainerService.Inputs.CreationDataArgs
+        {
+            SourceResourceId = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool0",
+        },
+        Location = "westus",
+        ResourceGroupName = "rg1",
+        ResourceName = "snapshot1",
+        Tags = 
+        {
+            { "key1", "val1" },
+            { "key2", "val2" },
+        },
+    });
+
+});
+

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var rule = new AzureNative.ServiceBus.Rule("rule", new()
+    {
+        CorrelationFilter = new AzureNative.ServiceBus.Inputs.CorrelationFilterArgs
+        {
+            Properties = 
+            {
+                { "topicHint", "Crop" },
+            },
+        },
+        FilterType = "CorrelationFilter",
+        NamespaceName = "sdk-Namespace-1319",
+        ResourceGroupName = "resourceGroupName",
+        RuleName = "sdk-Rules-6571",
+        SubscriptionName = "sdk-Subscriptions-8691",
+        TopicName = "sdk-Topics-2081",
+    });
+
+});
+

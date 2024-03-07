@@ -1,0 +1,32 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const api = new azure_native.apimanagement.Api("api", {
+    apiId: "tempgroup",
+    authenticationSettings: {
+        oAuth2AuthenticationSettings: [
+            {
+                authorizationServerId: "authorizationServerId2283",
+                scope: "oauth2scope2580",
+            },
+            {
+                authorizationServerId: "authorizationServerId2284",
+                scope: "oauth2scope2581",
+            },
+        ],
+    },
+    description: "apidescription5200",
+    displayName: "apiname1463",
+    path: "newapiPath",
+    protocols: [
+        "https",
+        "http",
+    ],
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    serviceUrl: "http://newechoapi.cloudapp.net/api",
+    subscriptionKeyParameterNames: {
+        header: "header4520",
+        query: "query3037",
+    },
+});

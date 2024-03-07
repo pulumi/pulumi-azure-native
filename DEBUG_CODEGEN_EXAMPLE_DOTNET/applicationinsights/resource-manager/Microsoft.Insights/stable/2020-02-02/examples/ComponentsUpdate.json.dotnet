@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var component = new AzureNative.Insights.Component("component", new()
+    {
+        Kind = "web",
+        Location = "South Central US",
+        ResourceGroupName = "my-resource-group",
+        ResourceName = "my-component",
+        Tags = 
+        {
+            { "ApplicationGatewayType", "Internal-Only" },
+            { "BillingEntity", "Self" },
+        },
+    });
+
+});
+

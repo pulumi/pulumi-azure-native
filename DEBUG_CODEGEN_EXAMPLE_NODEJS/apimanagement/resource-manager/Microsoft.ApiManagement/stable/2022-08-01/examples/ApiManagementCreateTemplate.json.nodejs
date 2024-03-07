@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const emailTemplate = new azure_native.apimanagement.EmailTemplate("emailTemplate", {
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    subject: "Your request for $IssueName was successfully received.",
+    templateName: "newIssueNotificationMessage",
+});

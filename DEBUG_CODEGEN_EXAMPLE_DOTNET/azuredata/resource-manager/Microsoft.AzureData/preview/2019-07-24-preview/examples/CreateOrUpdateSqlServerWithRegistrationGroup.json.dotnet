@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlServer = new AzureNative.AzureData.SqlServer("sqlServer", new()
+    {
+        Cores = 8,
+        Edition = "Latin",
+        PropertyBag = "",
+        RegistrationID = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration",
+        ResourceGroupName = "testrg",
+        SqlServerName = "testsqlserver",
+        SqlServerRegistrationName = "testsqlregistration",
+        Version = "2008",
+    });
+
+});
+

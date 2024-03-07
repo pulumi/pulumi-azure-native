@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serviceRunner = new azure_native.devtestlab.ServiceRunner("serviceRunner", {
+    identity: {
+        clientSecretUrl: "{identityClientSecretUrl}",
+        principalId: "{identityPrincipalId}",
+        tenantId: "{identityTenantId}",
+        type: "{identityType}",
+    },
+    labName: "{devtestlabName}",
+    location: "{location}",
+    name: "{servicerunnerName}",
+    resourceGroupName: "resourceGroupName",
+    tags: {
+        tagName1: "tagValue1",
+    },
+});

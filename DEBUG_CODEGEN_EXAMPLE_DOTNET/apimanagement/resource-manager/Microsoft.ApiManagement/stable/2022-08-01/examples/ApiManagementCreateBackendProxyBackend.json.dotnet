@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var backend = new AzureNative.ApiManagement.Backend("backend", new()
+    {
+        BackendId = "proxybackend",
+        Credentials = new AzureNative.ApiManagement.Inputs.BackendCredentialsContractArgs
+        {
+            Authorization = new AzureNative.ApiManagement.Inputs.BackendAuthorizationHeaderCredentialsArgs
+            {
+                Parameter = "opensesma",
+                Scheme = "Basic",
+            },
+            Header = 
+            {
+                { "x-my-1", new[]
+                {
+                    "val1",
+                    "val2",
+                } },
+            },
+            Query = 
+            {
+                { "sv", new[]
+                {
+                    "xx",
+                    "bb",
+                    "cc",
+                } },
+            },
+        },
+        Description = "description5308",
+        Protocol = "http",
+        Proxy = new AzureNative.ApiManagement.Inputs.BackendProxyContractArgs
+        {
+            Password = "<password>",
+            Url = "http://192.168.1.1:8080",
+            Username = "Contoso\\admin",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Tls = new AzureNative.ApiManagement.Inputs.BackendTlsPropertiesArgs
+        {
+            ValidateCertificateChain = true,
+            ValidateCertificateName = true,
+        },
+        Url = "https://backendname2644/",
+    });
+
+});
+

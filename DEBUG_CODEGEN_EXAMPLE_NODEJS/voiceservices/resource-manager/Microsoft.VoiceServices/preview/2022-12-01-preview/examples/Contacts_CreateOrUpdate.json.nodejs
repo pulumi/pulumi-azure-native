@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const contact = new azure_native.voiceservices.Contact("contact", {
+    communicationsGatewayName: "myname",
+    contactName: "John Smith",
+    email: "johnsmith@example.com",
+    location: "useast",
+    phoneNumber: "+1-555-1234",
+    resourceGroupName: "testrg",
+    role: "Network Manager",
+});

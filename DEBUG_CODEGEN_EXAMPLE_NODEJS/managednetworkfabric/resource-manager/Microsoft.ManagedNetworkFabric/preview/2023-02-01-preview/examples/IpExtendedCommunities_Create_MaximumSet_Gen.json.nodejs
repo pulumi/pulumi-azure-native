@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const ipExtendedCommunity = new azure_native.managednetworkfabric.IpExtendedCommunity("ipExtendedCommunity", {
+    action: "Permit",
+    annotation: "annotationValue",
+    ipExtendedCommunityName: "example_ipExtendedCommunity",
+    location: "EastUs",
+    resourceGroupName: "rgIpExtendedCommunityLists",
+    routeTargets: ["1234:5678"],
+    tags: {
+        key5054: "key",
+    },
+});

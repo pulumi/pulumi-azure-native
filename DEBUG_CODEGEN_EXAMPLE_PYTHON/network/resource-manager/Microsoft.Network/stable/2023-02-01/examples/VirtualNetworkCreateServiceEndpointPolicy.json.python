@@ -7,14 +7,14 @@ virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
     ),
     location="eastus2euap",
     resource_group_name="vnetTest",
-    subnets=[azure_native.network.SubnetArgs(
-        address_prefix="10.0.0.0/16",
-        name="test-1",
-        service_endpoint_policies=[azure_native.network.ServiceEndpointPolicyArgs(
+    subnets=[{
+        "addressPrefix": "10.0.0.0/16",
+        "name": "test-1",
+        "serviceEndpointPolicies": [azure_native.network.ServiceEndpointPolicyArgs(
             id="/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/serviceEndpointPolicies/ServiceEndpointPolicy1",
         )],
-        service_endpoints=[azure_native.network.ServiceEndpointPropertiesFormatArgs(
+        "serviceEndpoints": [azure_native.network.ServiceEndpointPropertiesFormatArgs(
             service="Microsoft.Storage",
         )],
-    )],
+    }],
     virtual_network_name="vnet1")

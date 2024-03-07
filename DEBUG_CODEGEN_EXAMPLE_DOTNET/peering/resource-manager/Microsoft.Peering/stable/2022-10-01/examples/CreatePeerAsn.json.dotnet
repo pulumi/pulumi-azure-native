@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var peerAsn = new AzureNative.Peering.PeerAsn("peerAsn", new()
+    {
+        PeerAsn = 65000,
+        PeerAsnName = "peerAsnName",
+        PeerContactDetail = new[]
+        {
+            new AzureNative.Peering.Inputs.ContactDetailArgs
+            {
+                Email = "noc@contoso.com",
+                Phone = "+1 (234) 567-8999",
+                Role = "Noc",
+            },
+            new AzureNative.Peering.Inputs.ContactDetailArgs
+            {
+                Email = "abc@contoso.com",
+                Phone = "+1 (234) 567-8900",
+                Role = "Policy",
+            },
+            new AzureNative.Peering.Inputs.ContactDetailArgs
+            {
+                Email = "xyz@contoso.com",
+                Phone = "+1 (234) 567-8900",
+                Role = "Technical",
+            },
+        },
+        PeerName = "Contoso",
+    });
+
+});
+

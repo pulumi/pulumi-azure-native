@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var extendedServerBlobAuditingPolicy = new AzureNative.Sql.ExtendedServerBlobAuditingPolicy("extendedServerBlobAuditingPolicy", new()
+    {
+        AuditActionsAndGroups = new[]
+        {
+            "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
+            "FAILED_DATABASE_AUTHENTICATION_GROUP",
+            "BATCH_COMPLETED_GROUP",
+        },
+        BlobAuditingPolicyName = "default",
+        IsAzureMonitorTargetEnabled = true,
+        IsStorageSecondaryKeyInUse = false,
+        PredicateExpression = "object_name = 'SensitiveData'",
+        QueueDelayMs = 4000,
+        ResourceGroupName = "blobauditingtest-4799",
+        RetentionDays = 6,
+        ServerName = "blobauditingtest-6440",
+        State = AzureNative.Sql.BlobAuditingPolicyState.Enabled,
+        StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+        StorageAccountSubscriptionId = "00000000-1234-0000-5678-000000000000",
+        StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    });
+
+});
+

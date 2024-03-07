@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var accessPolicy = new AzureNative.TimeSeriesInsights.AccessPolicy("accessPolicy", new()
+    {
+        AccessPolicyName = "ap1",
+        Description = "some description",
+        EnvironmentName = "env1",
+        PrincipalObjectId = "aGuid",
+        ResourceGroupName = "rg1",
+        Roles = new[]
+        {
+            "Reader",
+        },
+    });
+
+});
+

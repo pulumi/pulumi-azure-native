@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.ElasticSan.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        ElasticSanName = "elasticsanname",
+        PrivateEndpointConnectionName = "privateendpointconnectionname",
+        PrivateLinkServiceConnectionState = new AzureNative.ElasticSan.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "None",
+            Description = "Auto-Approved",
+            Status = "Pending",
+        },
+        ResourceGroupName = "resourcegroupname",
+    });
+
+});
+

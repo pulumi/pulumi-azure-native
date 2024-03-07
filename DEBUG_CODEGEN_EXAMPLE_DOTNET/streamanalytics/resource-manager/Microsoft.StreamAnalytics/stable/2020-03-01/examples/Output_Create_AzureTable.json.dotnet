@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var output = new AzureNative.StreamAnalytics.Output("output", new()
+    {
+        Datasource = new AzureNative.StreamAnalytics.Inputs.AzureTableOutputDataSourceArgs
+        {
+            AccountKey = "accountKey==",
+            AccountName = "someAccountName",
+            BatchSize = 25,
+            ColumnsToRemove = new[]
+            {
+                "column1",
+                "column2",
+            },
+            PartitionKey = "partitionKey",
+            RowKey = "rowKey",
+            Table = "samples",
+            Type = "Microsoft.Storage/Table",
+        },
+        JobName = "sj2790",
+        OutputName = "output958",
+        ResourceGroupName = "sjrg5176",
+    });
+
+});
+

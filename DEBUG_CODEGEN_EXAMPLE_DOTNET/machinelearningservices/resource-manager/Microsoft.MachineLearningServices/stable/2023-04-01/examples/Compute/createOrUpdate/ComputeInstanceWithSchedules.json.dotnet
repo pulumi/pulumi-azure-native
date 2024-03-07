@@ -1,0 +1,57 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var compute = new AzureNative.MachineLearningServices.Compute("compute", new()
+    {
+        ComputeName = "compute123",
+        Location = "eastus",
+        Properties = new AzureNative.MachineLearningServices.Inputs.ComputeInstanceArgs
+        {
+            ComputeType = "ComputeInstance",
+            Properties = new AzureNative.MachineLearningServices.Inputs.ComputeInstancePropertiesArgs
+            {
+                ApplicationSharingPolicy = "Personal",
+                ComputeInstanceAuthorizationType = "personal",
+                PersonalComputeInstanceSettings = new AzureNative.MachineLearningServices.Inputs.PersonalComputeInstanceSettingsArgs
+                {
+                    AssignedUser = new AzureNative.MachineLearningServices.Inputs.AssignedUserArgs
+                    {
+                        ObjectId = "00000000-0000-0000-0000-000000000000",
+                        TenantId = "00000000-0000-0000-0000-000000000000",
+                    },
+                },
+                Schedules = new AzureNative.MachineLearningServices.Inputs.ComputeSchedulesArgs
+                {
+                    ComputeStartStop = new[]
+                    {
+                        new AzureNative.MachineLearningServices.Inputs.ComputeStartStopScheduleArgs
+                        {
+                            Action = "Stop",
+                            Cron = new AzureNative.MachineLearningServices.Inputs.CronArgs
+                            {
+                                Expression = "0 18 * * *",
+                                StartTime = "2021-04-23T01:30:00",
+                                TimeZone = "Pacific Standard Time",
+                            },
+                            Status = "Enabled",
+                            TriggerType = "Cron",
+                        },
+                    },
+                },
+                SshSettings = new AzureNative.MachineLearningServices.Inputs.ComputeInstanceSshSettingsArgs
+                {
+                    SshPublicAccess = "Disabled",
+                },
+                VmSize = "STANDARD_NC6",
+            },
+        },
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspaces123",
+    });
+
+});
+

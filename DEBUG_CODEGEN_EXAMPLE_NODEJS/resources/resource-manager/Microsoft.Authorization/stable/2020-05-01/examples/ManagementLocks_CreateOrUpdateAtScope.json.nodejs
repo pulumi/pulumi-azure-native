@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managementLockByScope = new azure_native.authorization.ManagementLockByScope("managementLockByScope", {
+    level: "ReadOnly",
+    lockName: "testlock",
+    scope: "subscriptions/subscriptionId",
+});

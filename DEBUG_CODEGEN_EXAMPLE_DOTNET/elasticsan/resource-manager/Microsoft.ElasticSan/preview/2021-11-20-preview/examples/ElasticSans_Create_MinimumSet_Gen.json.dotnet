@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var elasticSan = new AzureNative.ElasticSan.ElasticSan("elasticSan", new()
+    {
+        BaseSizeTiB = 26,
+        ElasticSanName = "ti7q-k952-1qB3J_5",
+        ExtendedCapacitySizeTiB = 7,
+        ResourceGroupName = "rgelasticsan",
+        Sku = new AzureNative.ElasticSan.Inputs.SkuArgs
+        {
+            Name = "Premium_LRS",
+        },
+    });
+
+});
+

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var streamingPolicy = new AzureNative.Media.StreamingPolicy("streamingPolicy", new()
+    {
+        AccountName = "contosomedia",
+        NoEncryption = new AzureNative.Media.Inputs.NoEncryptionArgs
+        {
+            EnabledProtocols = new AzureNative.Media.Inputs.EnabledProtocolsArgs
+            {
+                Dash = true,
+                Download = true,
+                Hls = true,
+                SmoothStreaming = true,
+            },
+        },
+        ResourceGroupName = "contosorg",
+        StreamingPolicyName = "clearStreamingPolicy",
+    });
+
+});
+

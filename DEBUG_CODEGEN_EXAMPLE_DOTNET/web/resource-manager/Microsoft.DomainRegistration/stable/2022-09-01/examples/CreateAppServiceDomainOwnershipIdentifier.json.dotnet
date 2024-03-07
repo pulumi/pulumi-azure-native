@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var domainOwnershipIdentifier = new AzureNative.DomainRegistration.DomainOwnershipIdentifier("domainOwnershipIdentifier", new()
+    {
+        DomainName = "example.com",
+        Name = "SampleOwnershipId",
+        OwnershipId = "SampleOwnershipId",
+        ResourceGroupName = "testrg123",
+    });
+
+});
+

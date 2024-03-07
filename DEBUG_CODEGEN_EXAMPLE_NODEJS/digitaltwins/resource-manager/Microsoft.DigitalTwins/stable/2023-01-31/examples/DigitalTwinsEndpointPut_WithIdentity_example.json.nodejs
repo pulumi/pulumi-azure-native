@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const digitalTwinsEndpoint = new azure_native.digitaltwins.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
+    endpointName: "myServiceBus",
+    properties: {
+        authenticationType: "IdentityBased",
+        endpointType: "ServiceBus",
+        endpointUri: "sb://mysb.servicebus.windows.net/",
+        entityPath: "mysbtopic",
+    },
+    resourceGroupName: "resRg",
+    resourceName: "myDigitalTwinsService",
+});

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadNetworkPortMirroring = new AzureNative.AVS.WorkloadNetworkPortMirroring("workloadNetworkPortMirroring", new()
+    {
+        Destination = "vmGroup2",
+        Direction = "BIDIRECTIONAL",
+        DisplayName = "portMirroring1",
+        PortMirroringId = "portMirroring1",
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+        Revision = 1,
+        Source = "vmGroup1",
+    });
+
+});
+

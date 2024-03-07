@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fleetMember = new AzureNative.ContainerService.FleetMember("fleetMember", new()
+    {
+        ClusterResourceId = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster-1",
+        FleetMemberName = "member-1",
+        FleetName = "fleet1",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

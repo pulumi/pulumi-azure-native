@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var trustedIdProvider = new AzureNative.DataLakeStore.TrustedIdProvider("trustedIdProvider", new()
+    {
+        AccountName = "contosoadla",
+        IdProvider = "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+        ResourceGroupName = "contosorg",
+        TrustedIdProviderName = "test_trusted_id_provider_name",
+    });
+
+});
+

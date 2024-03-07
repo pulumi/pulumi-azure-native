@@ -1,0 +1,101 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    {
+        PolicyName = "newPolicy2",
+        Properties = new AzureNative.RecoveryServices.Inputs.AzureFileShareProtectionPolicyArgs
+        {
+            BackupManagementType = "AzureStorage",
+            RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+            {
+                DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyRetentionScheduleArgs
+                {
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 5,
+                        DurationType = "Days",
+                    },
+                },
+                MonthlySchedule = new AzureNative.RecoveryServices.Inputs.MonthlyRetentionScheduleArgs
+                {
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 60,
+                        DurationType = "Months",
+                    },
+                    RetentionScheduleFormatType = "Weekly",
+                    RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+                    {
+                        DaysOfTheWeek = new[]
+                        {
+                            AzureNative.RecoveryServices.DayOfWeek.Sunday,
+                        },
+                        WeeksOfTheMonth = new[]
+                        {
+                            AzureNative.RecoveryServices.WeekOfMonth.First,
+                        },
+                    },
+                },
+                RetentionPolicyType = "LongTermRetentionPolicy",
+                WeeklySchedule = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionScheduleArgs
+                {
+                    DaysOfTheWeek = new[]
+                    {
+                        AzureNative.RecoveryServices.DayOfWeek.Sunday,
+                    },
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 12,
+                        DurationType = "Weeks",
+                    },
+                },
+                YearlySchedule = new AzureNative.RecoveryServices.Inputs.YearlyRetentionScheduleArgs
+                {
+                    MonthsOfYear = new[]
+                    {
+                        AzureNative.RecoveryServices.MonthOfYear.January,
+                    },
+                    RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+                    {
+                        Count = 10,
+                        DurationType = "Years",
+                    },
+                    RetentionScheduleFormatType = "Weekly",
+                    RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+                    {
+                        DaysOfTheWeek = new[]
+                        {
+                            AzureNative.RecoveryServices.DayOfWeek.Sunday,
+                        },
+                        WeeksOfTheMonth = new[]
+                        {
+                            AzureNative.RecoveryServices.WeekOfMonth.First,
+                        },
+                    },
+                },
+            },
+            SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+            {
+                HourlySchedule = new AzureNative.RecoveryServices.Inputs.HourlyScheduleArgs
+                {
+                    Interval = 4,
+                    ScheduleWindowDuration = 12,
+                    ScheduleWindowStartTime = "2021-09-29T08:00:00.000Z",
+                },
+                SchedulePolicyType = "SimpleSchedulePolicy",
+                ScheduleRunFrequency = "Hourly",
+            },
+            TimeZone = "UTC",
+            WorkLoadType = "AzureFileShare",
+        },
+        ResourceGroupName = "SwaggerTestRg",
+        VaultName = "swaggertestvault",
+    });
+
+});
+

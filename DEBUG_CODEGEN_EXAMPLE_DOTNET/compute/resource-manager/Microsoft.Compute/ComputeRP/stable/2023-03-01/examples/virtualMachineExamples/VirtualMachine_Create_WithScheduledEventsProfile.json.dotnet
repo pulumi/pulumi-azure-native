@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    {
+        DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+        {
+            BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+            {
+                Enabled = true,
+                StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+            },
+        },
+        HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+        {
+            VmSize = "Standard_D1_v2",
+        },
+        Location = "westus",
+        NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+        {
+            NetworkInterfaces = new[]
+            {
+                new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+                {
+                    Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+                    Primary = true,
+                },
+            },
+        },
+        OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+        {
+            AdminPassword = "{your-password}",
+            AdminUsername = "{your-username}",
+            ComputerName = "myVM",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ScheduledEventsProfile = new AzureNative.Compute.Inputs.ScheduledEventsProfileArgs
+        {
+            OsImageNotificationProfile = new AzureNative.Compute.Inputs.OSImageNotificationProfileArgs
+            {
+                Enable = true,
+                NotBeforeTimeout = "PT15M",
+            },
+            TerminateNotificationProfile = new AzureNative.Compute.Inputs.TerminateNotificationProfileArgs
+            {
+                Enable = true,
+                NotBeforeTimeout = "PT10M",
+            },
+        },
+        StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+        {
+            ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+            {
+                Offer = "WindowsServer",
+                Publisher = "MicrosoftWindowsServer",
+                Sku = "2016-Datacenter",
+                Version = "latest",
+            },
+            OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+            {
+                Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+                CreateOption = "FromImage",
+                ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+                {
+                    StorageAccountType = "Standard_LRS",
+                },
+                Name = "myVMosdisk",
+            },
+        },
+        VmName = "myVM",
+    });
+
+});
+

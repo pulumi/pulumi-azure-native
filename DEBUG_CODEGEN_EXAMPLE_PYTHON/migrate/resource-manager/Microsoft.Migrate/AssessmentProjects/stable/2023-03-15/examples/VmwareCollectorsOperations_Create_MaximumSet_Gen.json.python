@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 vmware_collectors_operation = azure_native.migrate.VmwareCollectorsOperation("vmwareCollectorsOperation",
-    agent_properties=azure_native.migrate.CollectorAgentPropertiesBaseArgs(
+    agent_properties=azure_native.migrate.CollectorAgentPropertiesBaseResponseArgs(
         id="fe243486-3318-41fa-aaba-c48b5df75308",
         last_heartbeat_utc="2022-03-29T12:10:08.9167289Z",
         spn_details=azure_native.migrate.CollectorAgentSpnPropertiesBaseArgs(

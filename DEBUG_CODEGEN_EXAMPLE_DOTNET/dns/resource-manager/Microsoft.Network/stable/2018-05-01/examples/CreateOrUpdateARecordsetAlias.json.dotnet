@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var recordSet = new AzureNative.Network.RecordSet("recordSet", new()
+    {
+        Metadata = 
+        {
+            { "key1", "value1" },
+        },
+        RecordType = "A",
+        RelativeRecordSetName = "record1",
+        ResourceGroupName = "rg1",
+        TargetResource = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2",
+        },
+        Ttl = 3600,
+        ZoneName = "zone1",
+    });
+
+});
+

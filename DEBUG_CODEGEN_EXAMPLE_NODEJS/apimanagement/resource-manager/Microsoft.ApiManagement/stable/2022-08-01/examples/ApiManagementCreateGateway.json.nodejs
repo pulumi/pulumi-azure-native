@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const gateway = new azure_native.apimanagement.Gateway("gateway", {
+    description: "my gateway 1",
+    gatewayId: "gw1",
+    locationData: {
+        name: "my location",
+    },
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

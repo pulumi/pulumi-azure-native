@@ -1,0 +1,75 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkTapRule = new azure_native.managednetworkfabric.NetworkTapRule("networkTapRule", {
+    annotation: "annotation",
+    configurationType: "File",
+    dynamicMatchConfigurations: [{
+        ipGroups: [{
+            ipAddressType: "IPv4",
+            ipPrefixes: ["10.10.10.10/30"],
+            name: "example-ipGroup1",
+        }],
+        portGroups: [
+            {
+                name: "example-portGroup1",
+                ports: ["100-200"],
+            },
+            {
+                name: "example-portGroup2",
+                ports: [
+                    "900",
+                    "1000-2000",
+                ],
+            },
+        ],
+        vlanGroups: [{
+            name: "exmaple-vlanGroup",
+            vlans: [
+                "10",
+                "100-200",
+            ],
+        }],
+    }],
+    location: "eastus",
+    matchConfigurations: [{
+        actions: [{
+            destinationId: "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
+            isTimestampEnabled: "True",
+            matchConfigurationName: "match1",
+            truncate: "100",
+            type: "Drop",
+        }],
+        ipAddressType: "IPv4",
+        matchConditions: [{
+            encapsulationType: "None",
+            ipCondition: {
+                ipGroupNames: ["example-ipGroup"],
+                ipPrefixValues: ["10.10.10.10/20"],
+                prefixType: "Prefix",
+                type: "SourceIP",
+            },
+            portCondition: {
+                layer4Protocol: "TCP",
+                portGroupNames: ["example-portGroup1"],
+                portType: "SourcePort",
+                ports: ["100"],
+            },
+            protocolTypes: ["TCP"],
+            vlanMatchCondition: {
+                innerVlans: ["11-20"],
+                vlanGroupNames: ["exmaple-vlanGroup"],
+                vlans: ["10"],
+            },
+        }],
+        matchConfigurationName: "config1",
+        sequenceNumber: 10,
+    }],
+    networkTapRuleName: "example-tapRule",
+    pollingIntervalInSeconds: 30,
+    resourceGroupName: "example-rg",
+    tags: {
+        keyID: "keyValue",
+    },
+    tapRulesUrl: "https://microsoft.com/a",
+});

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const webAppDiscoverySiteDataSourcesController = new azure_native.offazure.WebAppDiscoverySiteDataSourcesController("webAppDiscoverySiteDataSourcesController", {
+    discoverySiteDataSourceName: "171iiIY1M39-M--VU2x8uOy",
+    discoverySiteId: "fwkwva",
+    resourceGroupName: "rgmigrate",
+    siteName: "0M4C6JZc",
+    webAppSiteName: "QhlGHU7obm",
+});

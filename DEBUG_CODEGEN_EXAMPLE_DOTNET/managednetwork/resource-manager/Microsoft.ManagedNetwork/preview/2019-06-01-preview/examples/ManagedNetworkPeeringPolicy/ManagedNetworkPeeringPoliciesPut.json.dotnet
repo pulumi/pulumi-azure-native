@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedNetworkPeeringPolicy = new AzureNative.ManagedNetwork.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy", new()
+    {
+        ManagedNetworkName = "myManagedNetwork",
+        ManagedNetworkPeeringPolicyName = "myHubAndSpoke",
+        Properties = new AzureNative.ManagedNetwork.Inputs.ManagedNetworkPeeringPolicyPropertiesArgs
+        {
+            Hub = new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+            {
+                Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myHubVnet",
+            },
+            Spokes = new[]
+            {
+                new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+                {
+                    Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1",
+                },
+            },
+            Type = "HubAndSpokeTopology",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

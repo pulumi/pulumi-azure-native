@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var raiBlocklistItem = new AzureNative.CognitiveServices.RaiBlocklistItem("raiBlocklistItem", new()
+    {
+        AccountName = "accountName",
+        Properties = new AzureNative.CognitiveServices.Inputs.RaiBlocklistItemPropertiesArgs
+        {
+            IsRegex = false,
+            Pattern = "Pattern To Block",
+        },
+        RaiBlocklistItemName = "raiBlocklistItemName",
+        RaiBlocklistName = "raiBlocklistName",
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

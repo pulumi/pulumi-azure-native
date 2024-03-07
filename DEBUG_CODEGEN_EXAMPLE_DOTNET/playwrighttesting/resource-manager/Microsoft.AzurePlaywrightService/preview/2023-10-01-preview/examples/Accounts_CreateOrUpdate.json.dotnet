@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.AzurePlaywrightService.Account("account", new()
+    {
+        Location = "westus",
+        Name = "myPlaywrightAccount",
+        RegionalAffinity = "Enabled",
+        ResourceGroupName = "dummyrg",
+        Tags = 
+        {
+            { "Team", "Dev Exp" },
+        },
+    });
+
+});
+

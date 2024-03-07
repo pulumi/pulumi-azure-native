@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.IoTFirmwareDefense.Workspace("workspace", new()
+    {
+        Location = "jjwbseilitjgdrhbvvkwviqj",
+        ResourceGroupName = "rgworkspaces",
+        Tags = 
+        {
+            { "key450", "rzqqumbpfsbibnpirsm" },
+        },
+        WorkspaceName = "E___-3",
+    });
+
+});
+

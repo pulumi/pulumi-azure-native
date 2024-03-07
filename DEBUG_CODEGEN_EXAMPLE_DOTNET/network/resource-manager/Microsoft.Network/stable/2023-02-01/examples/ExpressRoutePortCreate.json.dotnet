@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var expressRoutePort = new AzureNative.Network.ExpressRoutePort("expressRoutePort", new()
+    {
+        BandwidthInGbps = 100,
+        BillingType = "UnlimitedData",
+        Encapsulation = "QinQ",
+        ExpressRoutePortName = "portName",
+        Location = "westus",
+        PeeringLocation = "peeringLocationName",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

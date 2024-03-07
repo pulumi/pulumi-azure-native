@@ -1,0 +1,49 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataLakeConnectorTopicMap = new AzureNative.IoTOperationsMQ.DataLakeConnectorTopicMap("dataLakeConnectorTopicMap", new()
+    {
+        DataLakeConnectorName = "E9gU89-1QnIG7-IP8qOQLV-",
+        DataLakeConnectorRef = "zirczjfua",
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        Location = "wjmgeh",
+        Mapping = new AzureNative.IoTOperationsMQ.Inputs.DataLakeConnectorMapArgs
+        {
+            AllowedLatencySecs = 25407,
+            ClientId = "gyjduryceozwqyjdrxhrtwuw",
+            MaxMessagesPerBatch = 1581641880,
+            MessagePayloadType = "pwhpwzqlzlhdrozpqziipvjqrnipo",
+            MqttSourceTopic = "mtac",
+            Qos = 2,
+            Table = new AzureNative.IoTOperationsMQ.Inputs.DeltaTableArgs
+            {
+                Schema = new[]
+                {
+                    new AzureNative.IoTOperationsMQ.Inputs.DeltaTableSchemaArgs
+                    {
+                        Format = "boolean",
+                        Mapping = "lfnyjp",
+                        Name = "hejqncdsueoerueffbaqix",
+                        Optional = true,
+                    },
+                },
+                TableName = "qyvzigmefvxwyjqksofyrstn",
+                TablePath = "cyrkvxsjhbhwjegmhzyixchkdnxe",
+            },
+        },
+        MqName = "rc-8Z--2m-MU",
+        ResourceGroupName = "rgiotoperationsmq",
+        Tags = null,
+        TopicMapName = "17-",
+    });
+
+});
+

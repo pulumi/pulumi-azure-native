@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const variable = new azure_native.automation.Variable("variable", {
+    automationAccountName: "sampleAccount9",
+    description: "my description",
+    isEncrypted: false,
+    name: "sampleVariable",
+    resourceGroupName: "rg",
+    value: "\"ComputerName.domain.com\"",
+    variableName: "sampleVariable",
+});

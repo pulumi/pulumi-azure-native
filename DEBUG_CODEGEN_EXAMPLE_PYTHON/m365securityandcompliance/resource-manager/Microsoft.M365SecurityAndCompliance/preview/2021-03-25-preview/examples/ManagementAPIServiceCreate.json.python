@@ -7,7 +7,7 @@ private_link_services_for_o365_management_activity_api = azure_native.m365securi
     ),
     kind=azure_native.m365securityandcompliance.Kind.FHIR_R4,
     location="westus2",
-    properties=azure_native.m365securityandcompliance.ServicesPropertiesArgs(
+    properties=azure_native.m365securityandcompliance.ServicesPropertiesResponseArgs(
         access_policies=[
             azure_native.m365securityandcompliance.ServiceAccessPolicyEntryArgs(
                 object_id="c487e7d1-3210-41a3-8ccc-e9372b78da47",

@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const input = new azure_native.streamanalytics.Input("input", {
+    inputName: "input7970",
+    jobName: "sj9742",
+    properties: {
+        datasource: {
+            topic: "EdgeTopic1",
+            type: "GatewayMessageBus",
+        },
+        type: "Stream",
+    },
+    resourceGroupName: "sjrg3467",
+});

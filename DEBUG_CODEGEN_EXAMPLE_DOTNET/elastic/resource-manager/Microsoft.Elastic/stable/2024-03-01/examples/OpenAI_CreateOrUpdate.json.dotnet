@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var openAI = new AzureNative.Elastic.OpenAI("openAI", new()
+    {
+        IntegrationName = "default",
+        MonitorName = "myMonitor",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

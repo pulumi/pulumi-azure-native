@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disk = new azure_native.compute.Disk("disk", {
+    creationData: {
+        createOption: "Empty",
+        logicalSectorSize: 4096,
+    },
+    diskIOPSReadWrite: 125,
+    diskMBpsReadWrite: 3000,
+    diskName: "myUltraReadOnlyDisk",
+    diskSizeGB: 200,
+    encryption: {
+        type: "EncryptionAtRestWithPlatformKey",
+    },
+    location: "West US",
+    resourceGroupName: "myResourceGroup",
+    sku: {
+        name: "UltraSSD_LRS",
+    },
+});

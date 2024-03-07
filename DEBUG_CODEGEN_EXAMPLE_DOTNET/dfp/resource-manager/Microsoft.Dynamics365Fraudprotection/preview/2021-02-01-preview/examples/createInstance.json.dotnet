@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var instanceDetails = new AzureNative.Dynamics365Fraudprotection.InstanceDetails("instanceDetails", new()
+    {
+        Administration = new AzureNative.Dynamics365Fraudprotection.Inputs.DFPInstanceAdministratorsArgs
+        {
+            Members = new[]
+            {
+                "azsdktest@microsoft.com",
+                "azsdktest2@microsoft.com",
+            },
+        },
+        InstanceName = "azsdktest",
+        Location = "West US",
+        ResourceGroupName = "TestRG",
+        Tags = 
+        {
+            { "testKey", "testValue" },
+        },
+    });
+
+});
+

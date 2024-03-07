@@ -1,0 +1,63 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const acssBackupConnection = new azure_native.workloads.ACSSBackupConnection("acssBackupConnection", {
+    backupData: {
+        backupPolicy: {
+            backupManagementType: "AzureWorkload",
+            name: "defaultDbPolicy",
+            protectedItemsCount: 0,
+            settings: {
+                isCompression: false,
+                issqlcompression: false,
+                timeZone: "UTC",
+            },
+            subProtectionPolicy: [
+                {
+                    policyType: "Full",
+                    retentionPolicy: {
+                        dailySchedule: {
+                            retentionDuration: {
+                                count: 30,
+                                durationType: "Days",
+                            },
+                            retentionTimes: ["2018-01-10T18:30:00Z"],
+                        },
+                        retentionPolicyType: "LongTermRetentionPolicy",
+                    },
+                    schedulePolicy: {
+                        schedulePolicyType: "SimpleSchedulePolicy",
+                        scheduleRunFrequency: "Daily",
+                        scheduleRunTimes: ["2018-01-10T18:30:00Z"],
+                        scheduleWeeklyFrequency: 0,
+                    },
+                },
+                {
+                    policyType: "Log",
+                    retentionPolicy: {
+                        retentionDuration: {
+                            count: 30,
+                            durationType: "Days",
+                        },
+                        retentionPolicyType: "SimpleRetentionPolicy",
+                    },
+                    schedulePolicy: {
+                        scheduleFrequencyInMins: 60,
+                        schedulePolicyType: "LogSchedulePolicy",
+                    },
+                },
+            ],
+            workLoadType: "SQLDataBase",
+        },
+        backupType: "SQL",
+        recoveryServicesVault: {
+            id: "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+            vaultType: "Existing",
+        },
+    },
+    backupName: "dbBackup",
+    connectorName: "C1",
+    location: "westcentralus",
+    resourceGroupName: "test-rg",
+    tags: {},
+});

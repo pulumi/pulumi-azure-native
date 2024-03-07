@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const transparentDataEncryption = new azure_native.sql.TransparentDataEncryption("transparentDataEncryption", {
+    databaseName: "testdb",
+    resourceGroupName: "securitytde-42-rg",
+    serverName: "securitytde-42",
+    state: azure_native.sql.TransparentDataEncryptionState.Enabled,
+    tdeName: "current",
+});

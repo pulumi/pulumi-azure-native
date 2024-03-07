@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.TimeSeriesInsights.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        EnvironmentName = "myEnvironment",
+        PrivateEndpointConnectionName = "myPrivateEndpointConnectionName",
+        PrivateLinkServiceConnectionState = new AzureNative.TimeSeriesInsights.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Rejected for some reason",
+            Status = "Rejected",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

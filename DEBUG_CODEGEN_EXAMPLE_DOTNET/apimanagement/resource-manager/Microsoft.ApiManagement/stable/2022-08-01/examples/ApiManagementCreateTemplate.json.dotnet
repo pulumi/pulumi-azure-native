@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var emailTemplate = new AzureNative.ApiManagement.EmailTemplate("emailTemplate", new()
+    {
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Subject = "Your request for $IssueName was successfully received.",
+        TemplateName = "newIssueNotificationMessage",
+    });
+
+});
+

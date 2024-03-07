@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nspAssociation = new AzureNative.Network.NspAssociation("nspAssociation", new()
+    {
+        AccessMode = "Enforced",
+        AssociationName = "association1",
+        NetworkSecurityPerimeterName = "nsp1",
+        PrivateLinkResource = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/{paasSubscriptionId}/resourceGroups/{paasResourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}",
+        },
+        Profile = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/{profileName}",
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

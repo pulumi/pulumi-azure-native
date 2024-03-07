@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var setting = new AzureNative.CostManagement.Setting("setting", new()
+    {
+        Cache = new[]
+        {
+            new AzureNative.CostManagement.Inputs.SettingsPropertiesCacheArgs
+            {
+                Channel = "Modern",
+                Id = "/providers/Microsoft.Management/managementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                Name = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+                Parent = "/providers/Microsoft.Management/managementGroups/acm",
+                Status = "enabled",
+                Subchannel = "NotApplicable",
+            },
+        },
+        Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
+        SettingName = "myscope",
+        StartOn = "LastUsed",
+    });
+
+});
+

@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var registryDataVersion = new AzureNative.MachineLearningServices.RegistryDataVersion("registryDataVersion", new()
+    {
+        DataVersionBaseProperties = new AzureNative.MachineLearningServices.Inputs.MLTableDataArgs
+        {
+            DataType = "mltable",
+            DataUri = "string",
+            Description = "string",
+            IsAnonymous = false,
+            IsArchived = false,
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            ReferencedUris = new[]
+            {
+                "string",
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        Name = "string",
+        RegistryName = "registryName",
+        ResourceGroupName = "test-rg",
+        Version = "string",
+    });
+
+});
+

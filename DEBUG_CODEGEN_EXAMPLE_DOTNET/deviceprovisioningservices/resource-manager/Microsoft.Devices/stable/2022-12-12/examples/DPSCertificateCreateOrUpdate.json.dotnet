@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dpsCertificate = new AzureNative.Devices.DpsCertificate("dpsCertificate", new()
+    {
+        CertificateName = "cert",
+        Properties = new AzureNative.Devices.Inputs.CertificatePropertiesArgs
+        {
+            Certificate = "MA==",
+        },
+        ProvisioningServiceName = "myFirstProvisioningService",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

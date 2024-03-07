@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const site = new azure_native.mobilenetwork.Site("site", {
+    location: "testLocation",
+    mobileNetworkName: "testMobileNetwork",
+    resourceGroupName: "rg1",
+    siteName: "testSite",
+});

@@ -1,0 +1,74 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var asset = new AzureNative.DeviceRegistry.Asset("asset", new()
+    {
+        AssetEndpointProfileUri = "https://www.example.com/myAssetEndpointProfile",
+        AssetName = "my-asset",
+        AssetType = "MyAssetType",
+        DataPoints = new[]
+        {
+            new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+            {
+                CapabilityId = "dtmi:com:example:Thermostat:__temperature;1",
+                DataPointConfiguration = "{\"publishingInterval\":8,\"samplingInterval\":8,\"queueSize\":4}",
+                DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1",
+                ObservabilityMode = "counter",
+            },
+            new AzureNative.DeviceRegistry.Inputs.DataPointArgs
+            {
+                CapabilityId = "dtmi:com:example:Thermostat:__pressure;1",
+                DataPointConfiguration = "{\"publishingInterval\":4,\"samplingInterval\":4,\"queueSize\":7}",
+                DataSource = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2",
+                ObservabilityMode = "none",
+            },
+        },
+        DefaultDataPointsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+        DefaultEventsConfiguration = "{\"publishingInterval\":10,\"samplingInterval\":15,\"queueSize\":20}",
+        Description = "This is a sample Asset",
+        DisplayName = "AssetDisplayName",
+        DocumentationUri = "https://www.example.com/manual",
+        Enabled = true,
+        Events = new[]
+        {
+            new AzureNative.DeviceRegistry.Inputs.EventArgs
+            {
+                CapabilityId = "dtmi:com:example:Thermostat:__temperature;1",
+                EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":1,\"queueSize\":8}",
+                EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3",
+                ObservabilityMode = "none",
+            },
+            new AzureNative.DeviceRegistry.Inputs.EventArgs
+            {
+                CapabilityId = "dtmi:com:example:Thermostat:__pressure;1",
+                EventConfiguration = "{\"publishingInterval\":7,\"samplingInterval\":8,\"queueSize\":4}",
+                EventNotifier = "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4",
+                ObservabilityMode = "log",
+            },
+        },
+        ExtendedLocation = new AzureNative.DeviceRegistry.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+            Type = "CustomLocation",
+        },
+        HardwareRevision = "1.0",
+        Location = "West Europe",
+        Manufacturer = "Contoso",
+        ManufacturerUri = "https://www.contoso.com/manufacturerUri",
+        Model = "ContosoModel",
+        ProductCode = "SA34VDG",
+        ResourceGroupName = "myResourceGroup",
+        SerialNumber = "64-103816-519918-8",
+        SoftwareRevision = "2.0",
+        Tags = 
+        {
+            { "site", "building-1" },
+        },
+    });
+
+});
+

@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managementLockAtResourceGroupLevel = new AzureNative.Authorization.ManagementLockAtResourceGroupLevel("managementLockAtResourceGroupLevel", new()
+    {
+        Level = "ReadOnly",
+        LockName = "testlock",
+        ResourceGroupName = "resourcegroupname",
+    });
+
+});
+

@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const configurationProfileHCIAssignment = new azure_native.automanage.ConfigurationProfileHCIAssignment("configurationProfileHCIAssignment", {
+    clusterName: "myClusterName",
+    configurationProfileAssignmentName: "default",
+    properties: {
+        configurationProfile: "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+    },
+    resourceGroupName: "myResourceGroupName",
+});

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ipAllocation = new AzureNative.Network.IpAllocation("ipAllocation", new()
+    {
+        AllocationTags = 
+        {
+            { "VNetID", "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1" },
+        },
+        IpAllocationName = "test-ipallocation",
+        Location = "centraluseuap",
+        Prefix = "3.2.5.0/24",
+        ResourceGroupName = "rg1",
+        Type = "Hypernet",
+    });
+
+});
+

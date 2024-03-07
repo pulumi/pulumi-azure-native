@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configurationProfileHCIAssignment = new AzureNative.Automanage.ConfigurationProfileHCIAssignment("configurationProfileHCIAssignment", new()
+    {
+        ClusterName = "myClusterName",
+        ConfigurationProfileAssignmentName = "default",
+        Properties = new AzureNative.Automanage.Inputs.ConfigurationProfileAssignmentPropertiesArgs
+        {
+            ConfigurationProfile = "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+        },
+        ResourceGroupName = "myResourceGroupName",
+    });
+
+});
+

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var replicationNetworkMapping = new AzureNative.RecoveryServices.ReplicationNetworkMapping("replicationNetworkMapping", new()
+    {
+        FabricName = "b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
+        NetworkMappingName = "corpe2amap",
+        NetworkName = "e2267b5c-2650-49bd-ab3f-d66aae694c06",
+        Properties = new AzureNative.RecoveryServices.Inputs.CreateNetworkMappingInputPropertiesArgs
+        {
+            FabricSpecificDetails = new AzureNative.RecoveryServices.Inputs.VmmToAzureCreateNetworkMappingInputArgs
+            {
+                InstanceType = "VmmToAzure",
+            },
+            RecoveryFabricName = "Microsoft Azure",
+            RecoveryNetworkId = "/subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/siterecoveryProd1/providers/Microsoft.Network/virtualNetworks/vnetavrai",
+        },
+        ResourceGroupName = "srcBvte2a14C27",
+        ResourceName = "srce2avaultbvtaC27",
+    });
+
+});
+

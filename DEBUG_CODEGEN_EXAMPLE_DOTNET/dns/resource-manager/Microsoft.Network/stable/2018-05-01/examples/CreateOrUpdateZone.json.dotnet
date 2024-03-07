@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var zone = new AzureNative.Network.Zone("zone", new()
+    {
+        Location = "Global",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+        ZoneName = "zone1",
+    });
+
+});
+

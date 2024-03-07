@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedNetworkSettingsRule = new AzureNative.MachineLearningServices.ManagedNetworkSettingsRule("managedNetworkSettingsRule", new()
+    {
+        Properties = new AzureNative.MachineLearningServices.Inputs.FqdnOutboundRuleArgs
+        {
+            Category = "UserDefined",
+            Destination = "some_string",
+            Status = "Active",
+            Type = "FQDN",
+        },
+        ResourceGroupName = "test-rg",
+        RuleName = "some_string",
+        WorkspaceName = "aml-workspace-name",
+    });
+
+});
+

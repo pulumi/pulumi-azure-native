@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var eventSubscription = new AzureNative.EventGrid.EventSubscription("eventSubscription", new()
+    {
+        DeadLetterDestination = new AzureNative.EventGrid.Inputs.StorageBlobDeadLetterDestinationArgs
+        {
+            BlobContainerName = "contosocontainer",
+            EndpointType = "StorageBlob",
+            ResourceId = "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/contosostg",
+        },
+        Destination = new AzureNative.EventGrid.Inputs.ServiceBusTopicEventSubscriptionDestinationArgs
+        {
+            EndpointType = "ServiceBusTopic",
+            ResourceId = "/subscriptions/55f3dcd4-cac7-43b4-990b-a139d62a1eb2/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ContosoNamespace/topics/SBT",
+        },
+        EventSubscriptionName = "examplesubscription1",
+        Filter = new AzureNative.EventGrid.Inputs.EventSubscriptionFilterArgs
+        {
+            IsSubjectCaseSensitive = false,
+            SubjectBeginsWith = "ExamplePrefix",
+            SubjectEndsWith = "ExampleSuffix",
+        },
+        Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1",
+    });
+
+});
+

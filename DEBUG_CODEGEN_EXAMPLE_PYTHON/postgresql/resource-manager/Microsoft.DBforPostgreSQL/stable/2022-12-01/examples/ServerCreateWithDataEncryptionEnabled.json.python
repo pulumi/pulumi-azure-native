@@ -18,7 +18,7 @@ server = azure_native.dbforpostgresql.Server("server",
     high_availability=azure_native.dbforpostgresql.HighAvailabilityArgs(
         mode="ZoneRedundant",
     ),
-    identity=azure_native.dbforpostgresql.UserAssignedIdentityArgs(
+    identity=azure_native.dbforpostgresql.UserAssignedIdentityResponseArgs(
         type="UserAssigned",
         user_assigned_identities={
             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity": azure_native.dbforpostgresql.UserIdentityArgs(),

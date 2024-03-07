@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspacePolicy = new azure_native.apimanagement.WorkspacePolicy("workspacePolicy", {
+    format: "rawxml",
+    policyId: "policy",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    value: `<policies>
+     <inbound>
+     <base />
+  <set-header name="newvalue" exists-action="override">
+   <value>"@(context.Request.Headers.FirstOrDefault(h => h.Ke=="Via"))" </value>
+    </set-header>
+  </inbound>
+      </policies>`,
+    workspaceId: "wks1",
+});

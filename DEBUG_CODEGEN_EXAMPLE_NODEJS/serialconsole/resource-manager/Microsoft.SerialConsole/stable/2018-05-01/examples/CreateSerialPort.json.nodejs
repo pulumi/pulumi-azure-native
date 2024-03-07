@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serialPort = new azure_native.serialconsole.SerialPort("serialPort", {
+    parentResource: "myVM",
+    parentResourceType: "virtualMachines",
+    resourceGroupName: "myResourceGroup",
+    resourceProviderNamespace: "Microsoft.Compute",
+    serialPort: "0",
+    state: azure_native.serialconsole.SerialPortState.Enabled,
+});

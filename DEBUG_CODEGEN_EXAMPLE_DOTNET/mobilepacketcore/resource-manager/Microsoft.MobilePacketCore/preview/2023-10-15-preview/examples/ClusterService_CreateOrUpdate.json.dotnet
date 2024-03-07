@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var clusterService = new AzureNative.MobilePacketCore.ClusterService("clusterService", new()
+    {
+        ClusterServiceName = "clusterService1",
+        ClusterTypeSpecificData = new AzureNative.MobilePacketCore.Inputs.ClusterServiceNexusAksClusterDataArgs
+        {
+            CustomLocationId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cluster124Location",
+            Type = "NexusAks",
+        },
+        ComponentParameters = new[]
+        {
+            new AzureNative.MobilePacketCore.Inputs.QualifiedComponentDeploymentParametersArgs
+            {
+                Parameters = "{\"global\": {\"registry\": {\"docker\": []}}}",
+                Secrets = "{\"global\": {\"secret\": {\"secretValue\": []}}}",
+                Type = "fed-crds",
+            },
+        },
+        DeploymentType = "Production",
+        Location = "eastus",
+        ReleaseVersion = "4.3.0-alpha",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.DevTestLab.Disk("disk", new()
+    {
+        DiskSizeGiB = 1023,
+        DiskType = "Standard",
+        LabName = "{labName}",
+        LeasedByLabVmId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/vmName",
+        Name = "{diskName}",
+        ResourceGroupName = "resourceGroupName",
+        UserName = "{userId}",
+    });
+
+});
+

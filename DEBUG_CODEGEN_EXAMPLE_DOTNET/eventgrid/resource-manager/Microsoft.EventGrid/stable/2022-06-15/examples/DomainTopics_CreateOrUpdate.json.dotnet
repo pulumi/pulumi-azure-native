@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var domainTopic = new AzureNative.EventGrid.DomainTopic("domainTopic", new()
+    {
+        DomainName = "exampledomain1",
+        DomainTopicName = "exampledomaintopic1",
+        ResourceGroupName = "examplerg",
+    });
+
+});
+

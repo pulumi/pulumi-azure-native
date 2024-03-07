@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var documentation = new AzureNative.ApiManagement.Documentation("documentation", new()
+    {
+        Content = "content",
+        DocumentationId = "57d1f7558aa04f15146d9d8a",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Title = "Title",
+    });
+
+});
+

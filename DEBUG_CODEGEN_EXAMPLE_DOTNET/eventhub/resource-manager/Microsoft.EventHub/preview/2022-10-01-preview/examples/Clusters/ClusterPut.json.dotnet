@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.EventHub.Cluster("cluster", new()
+    {
+        ClusterName = "testCluster",
+        Location = "South Central US",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.EventHub.Inputs.ClusterSkuArgs
+        {
+            Capacity = 1,
+            Name = "Dedicated",
+        },
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+    });
+
+});
+

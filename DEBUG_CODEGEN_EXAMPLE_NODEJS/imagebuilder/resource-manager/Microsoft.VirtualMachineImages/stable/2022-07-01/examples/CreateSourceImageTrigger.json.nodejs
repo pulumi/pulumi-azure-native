@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const trigger = new azure_native.virtualmachineimages.Trigger("trigger", {
+    imageTemplateName: "myImageTemplate",
+    kind: "SourceImage",
+    resourceGroupName: "myResourceGroup",
+    triggerName: "source",
+});

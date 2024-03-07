@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pool = new azure_native.devcenter.Pool("pool", {
+    devBoxDefinitionName: "WebDevBox",
+    licenseType: "Windows_Client",
+    localAdministrator: "Enabled",
+    location: "centralus",
+    networkConnectionName: "Network1-westus2",
+    poolName: "DevPool",
+    projectName: "DevProject",
+    resourceGroupName: "rg1",
+    stopOnDisconnect: {
+        gracePeriodMinutes: 60,
+        status: "Enabled",
+    },
+});

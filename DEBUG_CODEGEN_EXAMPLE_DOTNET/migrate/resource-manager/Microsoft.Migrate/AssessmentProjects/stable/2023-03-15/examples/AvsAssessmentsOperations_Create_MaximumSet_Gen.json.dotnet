@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var avsAssessmentsOperation = new AzureNative.Migrate.AvsAssessmentsOperation("avsAssessmentsOperation", new()
+    {
+        AssessmentName = "asm2",
+        AzureLocation = "EastUs",
+        AzureOfferCode = "MSAZR0003P",
+        Currency = "USD",
+        DedupeCompression = 1.5,
+        DiscountPercentage = 0,
+        FailuresToTolerateAndRaidLevel = "Ftt1Raid1",
+        GroupName = "kuchatur-test",
+        IsStretchClusterEnabled = true,
+        MemOvercommit = 1,
+        NodeType = "AV36",
+        Percentile = "Percentile95",
+        PerfDataEndTime = "2023-09-26T13:35:56.5671462Z",
+        PerfDataStartTime = "2023-09-25T13:35:56.5671462Z",
+        ProjectName = "app18700project",
+        ProvisioningState = "Succeeded",
+        ReservedInstance = "RI3Year",
+        ResourceGroupName = "ayagrawrg",
+        ScalingFactor = 1,
+        SizingCriterion = "AsOnPremises",
+        TimeRange = "Day",
+        VcpuOversubscription = 4,
+    });
+
+});
+

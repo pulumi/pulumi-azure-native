@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serverCommunicationLink = new azure_native.sql.ServerCommunicationLink("serverCommunicationLink", {
+    communicationLinkName: "link1",
+    partnerServer: "sqldcrudtest-test",
+    resourceGroupName: "sqlcrudtest-7398",
+    serverName: "sqlcrudtest-4645",
+});

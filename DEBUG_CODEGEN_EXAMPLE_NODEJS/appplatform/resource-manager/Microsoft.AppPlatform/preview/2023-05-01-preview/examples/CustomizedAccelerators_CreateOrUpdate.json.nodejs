@@ -1,0 +1,36 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customizedAccelerator = new azure_native.appplatform.CustomizedAccelerator("customizedAccelerator", {
+    applicationAcceleratorName: "default",
+    customizedAcceleratorName: "acc-name",
+    properties: {
+        acceleratorTags: [
+            "tag-a",
+            "tag-b",
+        ],
+        description: "acc-desc",
+        displayName: "acc-name",
+        gitRepository: {
+            authSetting: {
+                authType: "SSH",
+                hostKey: "git-auth-hostkey",
+                hostKeyAlgorithm: "git-auth-algorithm",
+                privateKey: "git-auth-privatekey",
+            },
+            branch: "git-branch",
+            commit: "12345",
+            gitTag: "git-tag",
+            intervalInSeconds: 70,
+            url: "git-url",
+        },
+        iconUrl: "acc-icon",
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+    sku: {
+        capacity: 2,
+        name: "E0",
+        tier: "Enterprise",
+    },
+});

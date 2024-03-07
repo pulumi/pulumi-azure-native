@@ -1,0 +1,67 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var acssBackupConnection = new AzureNative.Workloads.ACSSBackupConnection("acssBackupConnection", new()
+    {
+        BackupData = new AzureNative.Workloads.Inputs.VMBackupDataArgs
+        {
+            BackupPolicy = new AzureNative.Workloads.Inputs.VMBackupPolicyPropertiesArgs
+            {
+                BackupManagementType = "AzureIaasVM",
+                InstantRPDetails = null,
+                InstantRpRetentionRangeInDays = 2,
+                Name = "defaultVmPolicy",
+                ProtectedItemsCount = 0,
+                RetentionPolicy = new AzureNative.Workloads.Inputs.LongTermRetentionPolicyArgs
+                {
+                    DailySchedule = new AzureNative.Workloads.Inputs.DailyRetentionScheduleArgs
+                    {
+                        RetentionDuration = new AzureNative.Workloads.Inputs.RetentionDurationArgs
+                        {
+                            Count = 30,
+                            DurationType = "Days",
+                        },
+                        RetentionTimes = new[]
+                        {
+                            "2018-01-10T18:30:00Z",
+                        },
+                    },
+                    RetentionPolicyType = "LongTermRetentionPolicy",
+                },
+                SchedulePolicy = new AzureNative.Workloads.Inputs.SimpleSchedulePolicyArgs
+                {
+                    SchedulePolicyType = "SimpleSchedulePolicy",
+                    ScheduleRunFrequency = "Daily",
+                    ScheduleRunTimes = new[]
+                    {
+                        "2018-01-10T18:30:00Z",
+                    },
+                    ScheduleWeeklyFrequency = 0,
+                },
+            },
+            BackupType = "VM",
+            DiskExclusionProperties = new AzureNative.Workloads.Inputs.DiskExclusionPropertiesArgs
+            {
+                DiskLunList = new() { },
+                IsInclusionList = true,
+            },
+            RecoveryServicesVault = new AzureNative.Workloads.Inputs.NewRecoveryServicesVaultArgs
+            {
+                Name = "test-vault",
+                ResourceGroup = "test-rg",
+                VaultType = "New",
+            },
+        },
+        BackupName = "vmBackup",
+        ConnectorName = "C1",
+        Location = "westcentralus",
+        ResourceGroupName = "test-rg",
+        Tags = null,
+    });
+
+});
+

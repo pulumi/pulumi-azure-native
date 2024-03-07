@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const endpoint = new azure_native.network.Endpoint("endpoint", {
+    endpointName: "My%20external%20endpoint",
+    endpointStatus: "Enabled",
+    endpointType: "ExternalEndpoints",
+    name: "My external endpoint",
+    profileName: "azuresdkfornetautoresttrafficmanager8224",
+    resourceGroupName: "azuresdkfornetautoresttrafficmanager2191",
+    subnets: [
+        {
+            first: "1.2.3.0",
+            scope: 24,
+        },
+        {
+            first: "25.26.27.28",
+            last: "29.30.31.32",
+        },
+    ],
+    target: "foobar.contoso.com",
+    type: "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+});

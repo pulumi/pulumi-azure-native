@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var profile = new AzureNative.Network.Profile("profile", new()
+    {
+        DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+        {
+            RelativeName = "azsmnet6386",
+            Ttl = 35,
+        },
+        Location = "global",
+        MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+        {
+            Path = "/testpath.aspx",
+            Port = 80,
+            Protocol = "HTTP",
+        },
+        ProfileName = "azsmnet6386",
+        ProfileStatus = "Enabled",
+        ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+        TrafficRoutingMethod = "Performance",
+    });
+
+});
+

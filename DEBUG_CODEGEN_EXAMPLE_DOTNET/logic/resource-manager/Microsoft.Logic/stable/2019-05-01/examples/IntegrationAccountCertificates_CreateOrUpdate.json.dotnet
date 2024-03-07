@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var integrationAccountCertificate = new AzureNative.Logic.IntegrationAccountCertificate("integrationAccountCertificate", new()
+    {
+        CertificateName = "testCertificate",
+        IntegrationAccountName = "testIntegrationAccount",
+        Key = new AzureNative.Logic.Inputs.KeyVaultKeyReferenceArgs
+        {
+            KeyName = "<keyName>",
+            KeyVault = new AzureNative.Logic.Inputs.KeyVaultKeyReferenceKeyVaultArgs
+            {
+                Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>",
+            },
+            KeyVersion = "87d9764197604449b9b8eb7bd8710868",
+        },
+        Location = "brazilsouth",
+        PublicCertificate = "<publicCertificateValue>",
+        ResourceGroupName = "testResourceGroup",
+    });
+
+});
+

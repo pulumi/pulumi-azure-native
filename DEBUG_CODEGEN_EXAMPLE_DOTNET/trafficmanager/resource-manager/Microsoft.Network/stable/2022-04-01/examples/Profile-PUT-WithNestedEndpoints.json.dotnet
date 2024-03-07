@@ -1,0 +1,59 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var profile = new AzureNative.Network.Profile("profile", new()
+    {
+        DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+        {
+            RelativeName = "parentprofile",
+            Ttl = 35,
+        },
+        Endpoints = new[]
+        {
+            new AzureNative.Network.Inputs.EndpointArgs
+            {
+                EndpointStatus = "Enabled",
+                MinChildEndpoints = 2,
+                MinChildEndpointsIPv4 = 1,
+                MinChildEndpointsIPv6 = 2,
+                Name = "MyFirstNestedEndpoint",
+                Priority = 1,
+                Target = "firstnestedprofile.tmpreview.watmtest.azure-test.net",
+                Type = "Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+                Weight = 1,
+            },
+            new AzureNative.Network.Inputs.EndpointArgs
+            {
+                EndpointStatus = "Enabled",
+                MinChildEndpoints = 2,
+                MinChildEndpointsIPv4 = 2,
+                MinChildEndpointsIPv6 = 1,
+                Name = "MySecondNestedEndpoint",
+                Priority = 2,
+                Target = "secondnestedprofile.tmpreview.watmtest.azure-test.net",
+                Type = "Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+                Weight = 1,
+            },
+        },
+        Location = "global",
+        MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+        {
+            IntervalInSeconds = 10,
+            Path = "/testpath.aspx",
+            Port = 80,
+            Protocol = "HTTP",
+            TimeoutInSeconds = 5,
+            ToleratedNumberOfFailures = 2,
+        },
+        ProfileName = "parentprofile",
+        ProfileStatus = "Enabled",
+        ResourceGroupName = "myresourcegroup",
+        TrafficRoutingMethod = "Priority",
+    });
+
+});
+

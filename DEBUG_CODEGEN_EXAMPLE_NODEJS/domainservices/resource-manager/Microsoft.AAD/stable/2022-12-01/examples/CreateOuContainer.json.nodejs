@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const ouContainer = new azure_native.aad.OuContainer("ouContainer", {
+    accountName: "AccountName1",
+    domainServiceName: "OuContainer.com",
+    ouContainerName: "OuContainer1",
+    password: "<password>",
+    resourceGroupName: "OuContainerResourceGroup",
+    spn: "Spn1",
+});

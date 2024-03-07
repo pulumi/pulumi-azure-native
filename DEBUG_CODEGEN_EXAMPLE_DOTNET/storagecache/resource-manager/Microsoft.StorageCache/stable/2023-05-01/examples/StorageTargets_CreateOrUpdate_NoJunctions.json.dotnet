@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageTarget = new AzureNative.StorageCache.StorageTarget("storageTarget", new()
+    {
+        CacheName = "sc1",
+        Nfs3 = new AzureNative.StorageCache.Inputs.Nfs3TargetArgs
+        {
+            Target = "10.0.44.44",
+            UsageModel = "READ_ONLY",
+            VerificationTimer = 30,
+        },
+        ResourceGroupName = "scgroup",
+        StorageTargetName = "st1",
+        TargetType = "nfs3",
+    });
+
+});
+

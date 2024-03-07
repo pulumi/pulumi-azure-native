@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var interfaceEndpoint = new AzureNative.Network.InterfaceEndpoint("interfaceEndpoint", new()
+    {
+        EndpointService = new AzureNative.Network.Inputs.EndpointServiceArgs
+        {
+            Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Provider/resourceType/resourceName",
+        },
+        Fqdn = "uniqueIdentifier.fqdn.windows.net",
+        InterfaceEndpointName = "testIe",
+        ResourceGroupName = "rg1",
+        Subnet = new AzureNative.Network.Inputs.SubnetArgs
+        {
+            Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+        },
+    });
+
+});
+

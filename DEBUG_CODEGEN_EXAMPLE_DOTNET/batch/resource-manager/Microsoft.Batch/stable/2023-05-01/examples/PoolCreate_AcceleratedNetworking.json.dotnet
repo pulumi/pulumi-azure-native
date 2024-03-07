@@ -1,0 +1,44 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.Batch.Pool("pool", new()
+    {
+        AccountName = "sampleacct",
+        DeploymentConfiguration = new AzureNative.Batch.Inputs.DeploymentConfigurationArgs
+        {
+            VirtualMachineConfiguration = new AzureNative.Batch.Inputs.VirtualMachineConfigurationArgs
+            {
+                ImageReference = new AzureNative.Batch.Inputs.ImageReferenceArgs
+                {
+                    Offer = "WindowsServer",
+                    Publisher = "MicrosoftWindowsServer",
+                    Sku = "2016-datacenter-smalldisk",
+                    Version = "latest",
+                },
+                NodeAgentSkuId = "batch.node.windows amd64",
+            },
+        },
+        NetworkConfiguration = new AzureNative.Batch.Inputs.NetworkConfigurationArgs
+        {
+            EnableAcceleratedNetworking = true,
+            SubnetId = "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+        },
+        PoolName = "testpool",
+        ResourceGroupName = "default-azurebatch-japaneast",
+        ScaleSettings = new AzureNative.Batch.Inputs.ScaleSettingsArgs
+        {
+            FixedScale = new AzureNative.Batch.Inputs.FixedScaleSettingsArgs
+            {
+                TargetDedicatedNodes = 1,
+                TargetLowPriorityNodes = 0,
+            },
+        },
+        VmSize = "STANDARD_D1_V2",
+    });
+
+});
+

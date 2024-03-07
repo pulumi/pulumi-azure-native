@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mqttBridgeTopicMap = new AzureNative.IoTOperationsMQ.MqttBridgeTopicMap("mqttBridgeTopicMap", new()
+    {
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        Location = "icfdftifk",
+        MqName = "52A1-D1-t--Q7O9-C-2S",
+        MqttBridgeConnectorName = "5sKfh6461-KDI8h-5",
+        MqttBridgeConnectorRef = "aemmhvfdzmdtxwgimpaqephgo",
+        ResourceGroupName = "rgiotoperationsmq",
+        Routes = new[]
+        {
+            new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRoutesArgs
+            {
+                Direction = "remote-to-local",
+                Name = "u",
+                Qos = 2,
+                SharedSubscription = new AzureNative.IoTOperationsMQ.Inputs.MqttBridgeRouteSharedSubscriptionArgs
+                {
+                    GroupMinimumShareNumber = 129,
+                    GroupName = "exnfgkdccpuvzqhxrg",
+                },
+                Source = "xwnfgkkfezlgh",
+                Target = "mgwem",
+            },
+        },
+        Tags = null,
+        TopicMapName = "5--CR4S47--UaxB4-",
+    });
+
+});
+

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceProductGroupLink = new AzureNative.ApiManagement.WorkspaceProductGroupLink("workspaceProductGroupLink", new()
+    {
+        GroupId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/groups/group1",
+        GroupLinkId = "link1",
+        ProductId = "testproduct",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        WorkspaceId = "wks1",
+    });
+
+});
+

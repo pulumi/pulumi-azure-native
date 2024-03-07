@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hunt = new AzureNative.SecurityInsights.Hunt("hunt", new()
+    {
+        AttackTactics = new[]
+        {
+            "Reconnaissance",
+        },
+        AttackTechniques = new[]
+        {
+            "T1595",
+        },
+        Description = "Log4J Hunt Description",
+        DisplayName = "Log4J new hunt",
+        HuntId = "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+        HypothesisStatus = "Unknown",
+        Labels = new[]
+        {
+            "Label1",
+            "Label2",
+        },
+        Owner = new AzureNative.SecurityInsights.Inputs.HuntOwnerArgs
+        {
+            ObjectId = "873b5263-5d34-4149-b356-ad341b01e123",
+        },
+        ResourceGroupName = "myRg",
+        Status = "New",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

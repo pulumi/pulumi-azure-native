@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var devCenter = new AzureNative.DevCenter.DevCenter("devCenter", new()
+    {
+        DevCenterName = "Contoso",
+        Location = "centralus",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "CostCode", "12345" },
+        },
+    });
+
+});
+

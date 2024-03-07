@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var afdOriginGroup = new AzureNative.Cdn.AFDOriginGroup("afdOriginGroup", new()
+    {
+        HealthProbeSettings = new AzureNative.Cdn.Inputs.HealthProbeParametersArgs
+        {
+            ProbeIntervalInSeconds = 10,
+            ProbePath = "/path2",
+            ProbeProtocol = AzureNative.Cdn.ProbeProtocol.NotSet,
+            ProbeRequestType = AzureNative.Cdn.HealthProbeRequestType.NotSet,
+        },
+        LoadBalancingSettings = new AzureNative.Cdn.Inputs.LoadBalancingSettingsParametersArgs
+        {
+            AdditionalLatencyInMilliseconds = 1000,
+            SampleSize = 3,
+            SuccessfulSamplesRequired = 3,
+        },
+        OriginGroupName = "origingroup1",
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+        TrafficRestorationTimeToHealedOrNewEndpointsInMinutes = 5,
+    });
+
+});
+

@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policyAssignment = new AzureNative.Authorization.PolicyAssignment("policyAssignment", new()
+    {
+        DisplayName = "Enforce security policies",
+        NonComplianceMessages = new[]
+        {
+            new AzureNative.Authorization.Inputs.NonComplianceMessageArgs
+            {
+                Message = "Resources must comply with all internal security policies. See <internal site URL> for more info.",
+            },
+            new AzureNative.Authorization.Inputs.NonComplianceMessageArgs
+            {
+                Message = "Resource names must start with 'DeptA' and end with '-LC'.",
+                PolicyDefinitionReferenceId = "10420126870854049575",
+            },
+            new AzureNative.Authorization.Inputs.NonComplianceMessageArgs
+            {
+                Message = "Storage accounts must have firewall rules configured.",
+                PolicyDefinitionReferenceId = "8572513655450389710",
+            },
+        },
+        PolicyAssignmentName = "securityInitAssignment",
+        PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/securityInitiative",
+        Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    });
+
+});
+

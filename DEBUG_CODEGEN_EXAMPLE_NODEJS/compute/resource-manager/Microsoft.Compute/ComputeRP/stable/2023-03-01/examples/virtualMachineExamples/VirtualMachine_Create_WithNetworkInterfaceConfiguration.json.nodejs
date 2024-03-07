@@ -1,0 +1,53 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualMachine = new azure_native.compute.VirtualMachine("virtualMachine", {
+    hardwareProfile: {
+        vmSize: "Standard_D1_v2",
+    },
+    location: "westus",
+    networkProfile: {
+        networkApiVersion: "2020-11-01",
+        networkInterfaceConfigurations: [{
+            deleteOption: "Delete",
+            ipConfigurations: [{
+                name: "{ip-config-name}",
+                primary: true,
+                publicIPAddressConfiguration: {
+                    deleteOption: "Detach",
+                    name: "{publicIP-config-name}",
+                    publicIPAllocationMethod: "Static",
+                    sku: {
+                        name: "Basic",
+                        tier: "Global",
+                    },
+                },
+            }],
+            name: "{nic-config-name}",
+            primary: true,
+        }],
+    },
+    osProfile: {
+        adminPassword: "{your-password}",
+        adminUsername: "{your-username}",
+        computerName: "myVM",
+    },
+    resourceGroupName: "myResourceGroup",
+    storageProfile: {
+        imageReference: {
+            offer: "WindowsServer",
+            publisher: "MicrosoftWindowsServer",
+            sku: "2016-Datacenter",
+            version: "latest",
+        },
+        osDisk: {
+            caching: azure_native.compute.CachingTypes.ReadWrite,
+            createOption: "FromImage",
+            managedDisk: {
+                storageAccountType: "Standard_LRS",
+            },
+            name: "myVMosdisk",
+        },
+    },
+    vmName: "myVM",
+});

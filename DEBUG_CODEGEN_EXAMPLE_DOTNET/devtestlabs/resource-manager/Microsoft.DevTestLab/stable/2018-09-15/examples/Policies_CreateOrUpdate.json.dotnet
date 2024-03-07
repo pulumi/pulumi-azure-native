@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policy = new AzureNative.DevTestLab.Policy("policy", new()
+    {
+        Description = "{policyDescription}",
+        EvaluatorType = "{policyEvaluatorType}",
+        FactData = "{policyFactData}",
+        FactName = "{policyFactName}",
+        LabName = "{labName}",
+        Location = "{location}",
+        Name = "{policyName}",
+        PolicySetName = "{policySetName}",
+        ResourceGroupName = "resourceGroupName",
+        Status = "{policyStatus}",
+        Tags = 
+        {
+            { "tagName1", "tagValue1" },
+        },
+        Threshold = "{policyThreshold}",
+    });
+
+});
+

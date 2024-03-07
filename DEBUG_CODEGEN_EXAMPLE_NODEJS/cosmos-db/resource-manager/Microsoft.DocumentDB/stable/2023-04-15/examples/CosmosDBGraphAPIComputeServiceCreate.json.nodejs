@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const service = new azure_native.documentdb.Service("service", {
+    accountName: "ddb1",
+    instanceCount: 1,
+    instanceSize: "Cosmos.D4s",
+    resourceGroupName: "rg1",
+    serviceName: "GraphAPICompute",
+    serviceType: "GraphAPICompute",
+});

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var batchAccount = new AzureNative.Batch.BatchAccount("batchAccount", new()
+    {
+        AccountName = "sampleacct",
+        AutoStorage = new AzureNative.Batch.Inputs.AutoStorageBasePropertiesArgs
+        {
+            StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+        },
+        Location = "japaneast",
+        ResourceGroupName = "default-azurebatch-japaneast",
+    });
+
+});
+

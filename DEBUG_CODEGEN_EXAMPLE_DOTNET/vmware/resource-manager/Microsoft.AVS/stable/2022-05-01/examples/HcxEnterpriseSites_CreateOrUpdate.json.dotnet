@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hcxEnterpriseSite = new AzureNative.AVS.HcxEnterpriseSite("hcxEnterpriseSite", new()
+    {
+        HcxEnterpriseSiteName = "site1",
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+    });
+
+});
+

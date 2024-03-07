@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serviceFabric = new AzureNative.DevTestLab.ServiceFabric("serviceFabric", new()
+    {
+        EnvironmentId = "{environmentId}",
+        ExternalServiceFabricId = "{serviceFabricId}",
+        LabName = "{labName}",
+        Location = "{location}",
+        Name = "{serviceFabricName}",
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "tagName1", "tagValue1" },
+        },
+        UserName = "{userName}",
+    });
+
+});
+

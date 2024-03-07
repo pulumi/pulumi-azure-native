@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managementGroupNetworkManagerConnection = new AzureNative.Network.ManagementGroupNetworkManagerConnection("managementGroupNetworkManagerConnection", new()
+    {
+        ManagementGroupId = "managementGroupA",
+        NetworkManagerConnectionName = "TestNMConnection",
+        NetworkManagerId = "/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager",
+    });
+
+});
+

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const network = new azure_native.servicefabricmesh.Network("network", {
+    location: "EastUS",
+    networkResourceName: "sampleNetwork",
+    properties: {},
+    resourceGroupName: "sbz_demo",
+    tags: {},
+});

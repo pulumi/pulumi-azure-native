@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadInstance = new AzureNative.Migrate.WorkloadInstance("workloadInstance", new()
+    {
+        ModernizeProjectName = "mx8",
+        Properties = new AzureNative.Migrate.Inputs.WorkloadInstanceModelPropertiesArgs
+        {
+            CustomProperties = 
+            {
+                { "instanceType", "IISWorkload" },
+                { "webAppArmId", "xseseqsrzdiga" },
+                { "webAppSiteName", "mirgzmy" },
+            },
+            DisplayName = "juoorbubchvk",
+            MasterSiteName = "ubks",
+            MigrateAgentId = "aqgzsxqbk",
+            Name = "wonkuhgsafzviuwqerzdmme",
+            SourceName = "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+            SourcePlatform = "eh",
+        },
+        ResourceGroupName = "rgmigrateEngine",
+        Tags = 
+        {
+            { "key2836", "biqip" },
+        },
+        WorkloadInstanceName = "m",
+    });
+
+});
+

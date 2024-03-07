@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var securityPolicy = new AzureNative.Cdn.SecurityPolicy("securityPolicy", new()
+    {
+        Parameters = new AzureNative.Cdn.Inputs.SecurityPolicyWebApplicationFirewallParametersArgs
+        {
+            Associations = new[]
+            {
+                new AzureNative.Cdn.Inputs.SecurityPolicyWebApplicationFirewallAssociationArgs
+                {
+                    Domains = new[]
+                    {
+                        new AzureNative.Cdn.Inputs.ActivatedResourceReferenceArgs
+                        {
+                            Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
+                        },
+                        new AzureNative.Cdn.Inputs.ActivatedResourceReferenceArgs
+                        {
+                            Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
+                        },
+                    },
+                    PatternsToMatch = new[]
+                    {
+                        "/*",
+                    },
+                },
+            },
+            Type = "WebApplicationFirewall",
+            WafPolicy = new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/wafTest",
+            },
+        },
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+        SecurityPolicyName = "securityPolicy1",
+    });
+
+});
+

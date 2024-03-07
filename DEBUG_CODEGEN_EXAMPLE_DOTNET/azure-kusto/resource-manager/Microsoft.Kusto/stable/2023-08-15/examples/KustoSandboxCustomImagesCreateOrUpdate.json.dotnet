@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sandboxCustomImage = new AzureNative.Kusto.SandboxCustomImage("sandboxCustomImage", new()
+    {
+        ClusterName = "kustoCluster",
+        Language = "Python",
+        LanguageVersion = "3.10.8",
+        RequirementsFileContent = "Requests",
+        ResourceGroupName = "kustorptest",
+        SandboxCustomImageName = "customImage8",
+    });
+
+});
+

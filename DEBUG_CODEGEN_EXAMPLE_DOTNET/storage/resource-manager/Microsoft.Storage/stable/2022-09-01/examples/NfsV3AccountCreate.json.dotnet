@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageAccount = new AzureNative.Storage.StorageAccount("storageAccount", new()
+    {
+        AccountName = "sto4445",
+        EnableHttpsTrafficOnly = false,
+        EnableNfsV3 = true,
+        IsHnsEnabled = true,
+        Kind = "BlockBlobStorage",
+        Location = "eastus",
+        NetworkRuleSet = new AzureNative.Storage.Inputs.NetworkRuleSetArgs
+        {
+            Bypass = "AzureServices",
+            DefaultAction = AzureNative.Storage.DefaultAction.Allow,
+            IpRules = new() { },
+            VirtualNetworkRules = new[]
+            {
+                new AzureNative.Storage.Inputs.VirtualNetworkRuleArgs
+                {
+                    VirtualNetworkResourceId = "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Network/virtualNetworks/net123/subnets/subnet12",
+                },
+            },
+        },
+        ResourceGroupName = "res9101",
+        Sku = new AzureNative.Storage.Inputs.SkuArgs
+        {
+            Name = "Premium_LRS",
+        },
+    });
+
+});
+

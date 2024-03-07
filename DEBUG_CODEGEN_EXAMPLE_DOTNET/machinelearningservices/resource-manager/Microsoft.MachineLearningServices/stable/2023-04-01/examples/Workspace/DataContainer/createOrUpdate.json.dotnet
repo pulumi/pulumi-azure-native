@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataContainer = new AzureNative.MachineLearningServices.DataContainer("dataContainer", new()
+    {
+        DataContainerProperties = new AzureNative.MachineLearningServices.Inputs.DataContainerArgs
+        {
+            DataType = "UriFile",
+            Description = "string",
+            Properties = 
+            {
+                { "properties1", "value1" },
+                { "properties2", "value2" },
+            },
+            Tags = 
+            {
+                { "tag1", "value1" },
+                { "tag2", "value2" },
+            },
+        },
+        Name = "datacontainer123",
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspace123",
+    });
+
+});
+

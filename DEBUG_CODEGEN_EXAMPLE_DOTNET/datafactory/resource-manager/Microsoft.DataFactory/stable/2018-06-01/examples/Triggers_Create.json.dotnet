@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var trigger = new AzureNative.DataFactory.Trigger("trigger", new()
+    {
+        FactoryName = "exampleFactoryName",
+        Properties = new AzureNative.DataFactory.Inputs.ScheduleTriggerArgs
+        {
+            Pipelines = new[]
+            {
+                new AzureNative.DataFactory.Inputs.TriggerPipelineReferenceArgs
+                {
+                    Parameters = 
+                    {
+                        { "OutputBlobNameList", new[]
+                        {
+                            "exampleoutput.csv",
+                        } },
+                    },
+                    PipelineReference = new AzureNative.DataFactory.Inputs.PipelineReferenceArgs
+                    {
+                        ReferenceName = "examplePipeline",
+                        Type = "PipelineReference",
+                    },
+                },
+            },
+            Recurrence = new AzureNative.DataFactory.Inputs.ScheduleTriggerRecurrenceArgs
+            {
+                EndTime = "2018-06-16T00:55:13.8441801Z",
+                Frequency = "Minute",
+                Interval = 4,
+                StartTime = "2018-06-16T00:39:13.8441801Z",
+                TimeZone = "UTC",
+            },
+            Type = "ScheduleTrigger",
+        },
+        ResourceGroupName = "exampleResourceGroup",
+        TriggerName = "exampleTrigger",
+    });
+
+});
+

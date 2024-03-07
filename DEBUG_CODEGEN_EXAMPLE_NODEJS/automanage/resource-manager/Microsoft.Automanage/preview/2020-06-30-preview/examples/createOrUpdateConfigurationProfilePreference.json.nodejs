@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const configurationProfilePreference = new azure_native.automanage.ConfigurationProfilePreference("configurationProfilePreference", {
+    configurationProfilePreferenceName: "defaultProfilePreference",
+    location: "East US",
+    properties: {
+        antiMalware: {
+            enableRealTimeProtection: "True",
+        },
+        vmBackup: {
+            timeZone: "Pacific Standard Time",
+        },
+    },
+    resourceGroupName: "myResourceGroupName",
+    tags: {
+        Organization: "Administration",
+    },
+});

@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var project = new AzureNative.DevCenter.Project("project", new()
+    {
+        Description = "This is my first project.",
+        DevCenterId = "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso",
+        Location = "centralus",
+        MaxDevBoxesPerUser = 3,
+        ProjectName = "DevProject",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "CostCenter", "R&D" },
+        },
+    });
+
+});
+

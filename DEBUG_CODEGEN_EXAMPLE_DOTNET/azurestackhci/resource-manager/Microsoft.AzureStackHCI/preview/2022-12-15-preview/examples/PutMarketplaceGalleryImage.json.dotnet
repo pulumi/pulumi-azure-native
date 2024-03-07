@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var marketplaceGalleryImage = new AzureNative.AzureStackHCI.MarketplaceGalleryImage("marketplaceGalleryImage", new()
+    {
+        CloudInitDataSource = "Azure",
+        ContainerName = "Default_Container",
+        ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+            Type = "CustomLocation",
+        },
+        HyperVGeneration = "V1",
+        Identifier = new AzureNative.AzureStackHCI.Inputs.GalleryImageIdentifierArgs
+        {
+            Offer = "myOfferName",
+            Publisher = "myPublisherName",
+            Sku = "mySkuName",
+        },
+        Location = "West US2",
+        MarketplaceGalleryImageName = "test-marketplace-gallery-image",
+        OsType = AzureNative.AzureStackHCI.OperatingSystemTypes.Windows,
+        ResourceGroupName = "test-rg",
+        Version = new AzureNative.AzureStackHCI.Inputs.GalleryImageVersionArgs
+        {
+            Name = "1.0.0",
+        },
+    });
+
+});
+

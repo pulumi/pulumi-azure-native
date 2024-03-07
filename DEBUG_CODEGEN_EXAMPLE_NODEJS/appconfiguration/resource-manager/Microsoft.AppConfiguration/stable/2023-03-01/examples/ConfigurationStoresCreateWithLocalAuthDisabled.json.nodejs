@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const configurationStore = new azure_native.appconfiguration.ConfigurationStore("configurationStore", {
+    configStoreName: "contoso",
+    disableLocalAuth: true,
+    location: "westus",
+    resourceGroupName: "myResourceGroup",
+    sku: {
+        name: "Standard",
+    },
+});

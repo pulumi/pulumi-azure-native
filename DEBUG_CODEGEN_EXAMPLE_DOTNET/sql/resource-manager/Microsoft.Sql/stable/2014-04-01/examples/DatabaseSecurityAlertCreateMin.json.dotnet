@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var databaseThreatDetectionPolicy = new AzureNative.Sql.DatabaseThreatDetectionPolicy("databaseThreatDetectionPolicy", new()
+    {
+        DatabaseName = "testdb",
+        ResourceGroupName = "securityalert-4799",
+        SecurityAlertPolicyName = "default",
+        ServerName = "securityalert-6440",
+        State = "Enabled",
+        StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+        StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    });
+
+});
+

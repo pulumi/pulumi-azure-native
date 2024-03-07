@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const governanceRule = new azure_native.security.GovernanceRule("governanceRule", {
+    description: "A rule for a management group",
+    displayName: "Management group rule",
+    excludedScopes: ["/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23"],
+    governanceEmailNotification: {
+        disableManagerEmailNotification: true,
+        disableOwnerEmailNotification: false,
+    },
+    isDisabled: false,
+    isGracePeriod: true,
+    ownerSource: {
+        type: "Manually",
+        value: "user@contoso.com",
+    },
+    remediationTimeframe: "7.00:00:00",
+    ruleId: "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    rulePriority: 200,
+    ruleType: "Integrated",
+    scope: "providers/Microsoft.Management/managementGroups/contoso",
+    sourceResourceType: "Assessments",
+});

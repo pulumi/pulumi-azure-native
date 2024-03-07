@@ -1,0 +1,79 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.hdinsight.Cluster("cluster", {
+    clusterName: "cluster1",
+    properties: {
+        clusterDefinition: {
+            configurations: {
+                gateway: {
+                    "restAuthCredential.isEnabled": "true",
+                    "restAuthCredential.password": "**********",
+                    "restAuthCredential.username": "admin",
+                },
+            },
+            kind: "Hadoop",
+        },
+        clusterVersion: "3.6",
+        computeProfile: {
+            roles: [
+                {
+                    hardwareProfile: {
+                        vmSize: "Standard_D3_V2",
+                    },
+                    minInstanceCount: 1,
+                    name: "headnode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 2,
+                },
+                {
+                    hardwareProfile: {
+                        vmSize: "Standard_D3_V2",
+                    },
+                    minInstanceCount: 1,
+                    name: "workernode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 4,
+                },
+                {
+                    hardwareProfile: {
+                        vmSize: "Small",
+                    },
+                    minInstanceCount: 1,
+                    name: "zookeepernode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 3,
+                },
+            ],
+        },
+        osType: "Linux",
+        storageProfile: {
+            storageaccounts: [{
+                fileSystem: "default",
+                isDefault: true,
+                key: "storagekey",
+                name: "mystorage.dfs.core.windows.net",
+            }],
+        },
+        tier: "Standard",
+    },
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "val1",
+    },
+});

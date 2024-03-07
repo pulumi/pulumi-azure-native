@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var license = new AzureNative.HybridCompute.License("license", new()
+    {
+        LicenseDetails = new AzureNative.HybridCompute.Inputs.LicenseDetailsArgs
+        {
+            Edition = "Datacenter",
+            Processors = 6,
+            State = "Activated",
+            Target = "Windows Server 2012",
+            Type = "pCore",
+        },
+        LicenseName = "{licenseName}",
+        LicenseType = "ESU",
+        Location = "eastus2euap",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

@@ -1,0 +1,160 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    {
+        ClusterName = "cluster1",
+        Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+        {
+            ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+            {
+                Configurations = 
+                {
+                    { "ambari-conf", 
+                    {
+                        { "database-name", "{ambari database name}" },
+                        { "database-server", "{sql server name}.database.windows.net" },
+                        { "database-user-name", "**********" },
+                        { "database-user-password", "**********" },
+                    } },
+                    { "gateway", 
+                    {
+                        { "restAuthCredential.isEnabled", true },
+                        { "restAuthCredential.password", "**********" },
+                        { "restAuthCredential.username", "admin" },
+                    } },
+                    { "hive-env", 
+                    {
+                        { "hive_database", "Existing MSSQL Server database with SQL authentication" },
+                        { "hive_database_name", "{hive metastore name}" },
+                        { "hive_database_type", "mssql" },
+                        { "hive_existing_mssql_server_database", "{hive metastore name}" },
+                        { "hive_existing_mssql_server_host", "{sql server name}.database.windows.net" },
+                        { "hive_hostname", "{sql server name}.database.windows.net" },
+                    } },
+                    { "hive-site", 
+                    {
+                        { "javax.jdo.option.ConnectionDriverName", "com.microsoft.sqlserver.jdbc.SQLServerDriver" },
+                        { "javax.jdo.option.ConnectionPassword", "**********!" },
+                        { "javax.jdo.option.ConnectionURL", "jdbc:sqlserver://{sql server name}.database.windows.net;database={hive metastore name};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300;sendStringParametersAsUnicode=true;prepareSQL=0" },
+                        { "javax.jdo.option.ConnectionUserName", "**********" },
+                    } },
+                    { "oozie-env", 
+                    {
+                        { "oozie_database", "Existing MSSQL Server database with SQL authentication" },
+                        { "oozie_database_name", "{oozie metastore name}" },
+                        { "oozie_database_type", "mssql" },
+                        { "oozie_existing_mssql_server_database", "{oozie metastore name}" },
+                        { "oozie_existing_mssql_server_host", "{sql server name}.database.windows.net" },
+                        { "oozie_hostname", "{sql server name}.database.windows.net" },
+                    } },
+                    { "oozie-site", 
+                    {
+                        { "oozie.db.schema.name", "oozie" },
+                        { "oozie.service.JPAService.jdbc.driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver" },
+                        { "oozie.service.JPAService.jdbc.password", "**********" },
+                        { "oozie.service.JPAService.jdbc.url", "jdbc:sqlserver://{sql server name}.database.windows.net;database={oozie metastore name};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300;sendStringParametersAsUnicode=true;prepareSQL=0" },
+                        { "oozie.service.JPAService.jdbc.username", "**********" },
+                    } },
+                },
+                Kind = "hadoop",
+            },
+            ClusterVersion = "3.6",
+            ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+            {
+                Roles = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "standard_d3",
+                        },
+                        Name = "headnode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+                                {
+                                    PublicKeys = new[]
+                                    {
+                                        new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+                                        {
+                                            CertificateData = "**********",
+                                        },
+                                    },
+                                },
+                                Username = "sshuser",
+                            },
+                        },
+                        TargetInstanceCount = 2,
+                        VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+                        {
+                            Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                            Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                        },
+                    },
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "standard_d3",
+                        },
+                        Name = "workernode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+                                {
+                                    PublicKeys = new[]
+                                    {
+                                        new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+                                        {
+                                            CertificateData = "**********",
+                                        },
+                                    },
+                                },
+                                Username = "sshuser",
+                            },
+                        },
+                        TargetInstanceCount = 2,
+                        VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+                        {
+                            Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                            Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                        },
+                    },
+                },
+            },
+            OsType = "Linux",
+            StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+            {
+                Storageaccounts = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.StorageAccountArgs
+                    {
+                        Container = "containername",
+                        IsDefault = true,
+                        Key = "storage account key",
+                        Name = "mystorage",
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "rg1",
+        Zones = new[]
+        {
+            "1",
+        },
+    });
+
+});
+

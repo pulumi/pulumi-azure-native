@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.iotcentral.PrivateEndpointConnection("privateEndpointConnection", {
+    privateEndpointConnectionName: "myIoTCentralAppEndpoint",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "None",
+        description: "Auto-approved",
+        status: "Approved",
+    },
+    resourceGroupName: "resRg",
+    resourceName: "myIoTCentralApp",
+});

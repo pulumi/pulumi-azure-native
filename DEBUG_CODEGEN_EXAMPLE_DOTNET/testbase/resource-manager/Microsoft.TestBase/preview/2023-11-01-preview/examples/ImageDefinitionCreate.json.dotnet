@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var imageDefinition = new AzureNative.TestBase.ImageDefinition("imageDefinition", new()
+    {
+        Architecture = "x64",
+        ImageDefinitionName = "contoso-image-def",
+        OsState = "Generalized",
+        ResourceGroupName = "contoso-rg1",
+        SecurityType = "Standard",
+        TestBaseAccountName = "contoso-testBaseAccount1",
+    });
+
+});
+

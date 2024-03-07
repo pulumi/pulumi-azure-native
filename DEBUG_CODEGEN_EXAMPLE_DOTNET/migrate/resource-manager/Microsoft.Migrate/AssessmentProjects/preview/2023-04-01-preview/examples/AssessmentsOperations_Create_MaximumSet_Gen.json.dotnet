@@ -1,0 +1,53 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var assessmentsOperation = new AzureNative.Migrate.AssessmentsOperation("assessmentsOperation", new()
+    {
+        AssessmentName = "asm1",
+        AzureDiskTypes = new[]
+        {
+            "Premium",
+            "StandardSSD",
+        },
+        AzureHybridUseBenefit = "Unknown",
+        AzureLocation = "njxbwdtsxzhichsnk",
+        AzureOfferCode = "Unknown",
+        AzurePricingTier = "Standard",
+        AzureStorageRedundancy = "Unknown",
+        AzureVmFamilies = new[]
+        {
+            "D_series",
+            "Lsv2_series",
+            "M_series",
+            "Mdsv2_series",
+            "Msv2_series",
+            "Mv2_series",
+        },
+        Currency = "Unknown",
+        DiscountPercentage = 6,
+        EaSubscriptionId = "kwsu",
+        GroupName = "kuchatur-test",
+        LinuxAzureHybridUseBenefit = "Unknown",
+        Percentile = "Percentile50",
+        PerfDataEndTime = "2023-09-26T09:36:48.491Z",
+        PerfDataStartTime = "2023-09-26T09:36:48.491Z",
+        ProjectName = "app18700project",
+        ProvisioningState = "Succeeded",
+        ReservedInstance = "None",
+        ResourceGroupName = "ayagrawrg",
+        ScalingFactor = 24,
+        SizingCriterion = "PerformanceBased",
+        TimeRange = "Day",
+        VmUptime = new AzureNative.Migrate.Inputs.VmUptimeArgs
+        {
+            DaysPerMonth = 13,
+            HoursPerDay = 26,
+        },
+    });
+
+});
+

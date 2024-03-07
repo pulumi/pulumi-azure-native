@@ -6,19 +6,19 @@ profile = azure_native.network.Profile("profile",
         relative_name="azuresdkfornetautoresttrafficmanager6192",
         ttl=35,
     ),
-    endpoints=[azure_native.network.EndpointArgs(
-        custom_headers=[azure_native.network.EndpointPropertiesCustomHeadersArgs(
+    endpoints=[{
+        "customHeaders": [azure_native.network.EndpointPropertiesCustomHeadersArgs(
             name="header-2",
             value="value-2-overridden",
         )],
-        endpoint_location="North Europe",
-        endpoint_status="Enabled",
-        name="My external endpoint",
-        target="foobar.contoso.com",
-        type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
-    )],
+        "endpointLocation": "North Europe",
+        "endpointStatus": "Enabled",
+        "name": "My external endpoint",
+        "target": "foobar.contoso.com",
+        "type": "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    }],
     location="global",
-    monitor_config=azure_native.network.MonitorConfigArgs(
+    monitor_config=azure_native.network.MonitorConfigResponseArgs(
         custom_headers=[
             azure_native.network.MonitorConfigCustomHeadersArgs(
                 name="header-1",

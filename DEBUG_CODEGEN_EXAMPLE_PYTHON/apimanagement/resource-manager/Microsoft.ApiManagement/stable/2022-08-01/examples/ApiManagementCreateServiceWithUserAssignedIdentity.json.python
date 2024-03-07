@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 api_management_service = azure_native.apimanagement.ApiManagementService("apiManagementService",
-    identity=azure_native.apimanagement.ApiManagementServiceIdentityArgs(
+    identity=azure_native.apimanagement.ApiManagementServiceIdentityResponseArgs(
         type="UserAssigned",
         user_assigned_identities={
             "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/apimService1": azure_native.apimanagement.UserIdentityPropertiesArgs(),

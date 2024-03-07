@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var computePolicy = new AzureNative.DataLakeAnalytics.ComputePolicy("computePolicy", new()
+    {
+        AccountName = "contosoadla",
+        ComputePolicyName = "test_policy",
+        MaxDegreeOfParallelismPerJob = 10,
+        MinPriorityPerJob = 30,
+        ObjectId = "776b9091-8916-4638-87f7-9c989a38da98",
+        ObjectType = "User",
+        ResourceGroupName = "contosorg",
+    });
+
+});
+

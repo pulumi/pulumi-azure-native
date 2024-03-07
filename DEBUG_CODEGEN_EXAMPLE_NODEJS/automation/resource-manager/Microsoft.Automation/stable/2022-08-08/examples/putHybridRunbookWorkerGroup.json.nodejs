@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hybridRunbookWorkerGroup = new azure_native.automation.HybridRunbookWorkerGroup("hybridRunbookWorkerGroup", {
+    automationAccountName: "testaccount",
+    credential: {
+        name: "myRunAsCredentialName",
+    },
+    hybridRunbookWorkerGroupName: "TestHybridGroup",
+    resourceGroupName: "rg",
+});

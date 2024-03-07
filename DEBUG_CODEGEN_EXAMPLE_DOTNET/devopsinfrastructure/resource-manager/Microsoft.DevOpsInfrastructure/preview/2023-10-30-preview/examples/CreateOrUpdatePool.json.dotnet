@@ -1,0 +1,49 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.DevOpsInfrastructure.Pool("pool", new()
+    {
+        AgentProfile = new AzureNative.DevOpsInfrastructure.Inputs.StatelessAgentProfileArgs
+        {
+            Kind = "Stateless",
+        },
+        DevCenterProjectResourceId = "/subscriptions/222e81d0-cf38-4dab-baa5-289bf16baaa4/resourceGroups/rg-1es-devcenter/providers/Microsoft.DevCenter/projects/1ES",
+        FabricProfile = new AzureNative.DevOpsInfrastructure.Inputs.VmssFabricProfileArgs
+        {
+            Images = new[]
+            {
+                new AzureNative.DevOpsInfrastructure.Inputs.PoolImageArgs
+                {
+                    ResourceId = "/MicrosoftWindowsServer/WindowsServer/2019-Datacenter/latest",
+                },
+            },
+            Kind = "Vmss",
+            Sku = new AzureNative.DevOpsInfrastructure.Inputs.DevOpsAzureSkuArgs
+            {
+                Name = "Standard_D4ads_v5",
+            },
+        },
+        Location = "eastus",
+        MaximumConcurrency = 10,
+        OrganizationProfile = new AzureNative.DevOpsInfrastructure.Inputs.AzureDevOpsOrganizationProfileArgs
+        {
+            Kind = "AzureDevOps",
+            Organizations = new[]
+            {
+                new AzureNative.DevOpsInfrastructure.Inputs.OrganizationArgs
+                {
+                    Url = "https://mseng.visualstudio.com",
+                },
+            },
+        },
+        PoolName = "pool",
+        ProvisioningState = "Succeeded",
+        ResourceGroupName = "rg",
+    });
+
+});
+

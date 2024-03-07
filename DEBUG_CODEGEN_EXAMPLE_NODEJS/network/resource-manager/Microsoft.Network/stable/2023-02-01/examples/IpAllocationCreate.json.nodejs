@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const ipAllocation = new azure_native.network.IpAllocation("ipAllocation", {
+    allocationTags: {
+        VNetID: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1",
+    },
+    ipAllocationName: "test-ipallocation",
+    location: "centraluseuap",
+    prefix: "3.2.5.0/24",
+    resourceGroupName: "rg1",
+    type: "Hypernet",
+});

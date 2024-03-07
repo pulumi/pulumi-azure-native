@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var topicSpace = new AzureNative.EventGrid.TopicSpace("topicSpace", new()
+    {
+        NamespaceName = "exampleNamespaceName1",
+        ResourceGroupName = "examplerg",
+        TopicSpaceName = "exampleTopicSpaceName1",
+        TopicTemplates = new[]
+        {
+            "filter1",
+            "filter2",
+        },
+    });
+
+});
+

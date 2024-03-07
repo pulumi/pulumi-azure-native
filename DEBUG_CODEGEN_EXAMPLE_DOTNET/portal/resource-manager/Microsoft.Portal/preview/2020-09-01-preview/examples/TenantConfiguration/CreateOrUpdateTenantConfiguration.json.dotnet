@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var tenantConfiguration = new AzureNative.Portal.TenantConfiguration("tenantConfiguration", new()
+    {
+        ConfigurationName = "default",
+        EnforcePrivateMarkdownStorage = true,
+    });
+
+});
+

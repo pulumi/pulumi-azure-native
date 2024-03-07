@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deploymentStackAtSubscription = new AzureNative.Resources.DeploymentStackAtSubscription("deploymentStackAtSubscription", new()
+    {
+        ActionOnUnmanage = new AzureNative.Resources.Inputs.DeploymentStackPropertiesActionOnUnmanageArgs
+        {
+            ManagementGroups = "detach",
+            ResourceGroups = "delete",
+            Resources = "delete",
+        },
+        DenySettings = new AzureNative.Resources.Inputs.DenySettingsArgs
+        {
+            ApplyToChildScopes = false,
+            ExcludedActions = new[]
+            {
+                "action",
+            },
+            ExcludedPrincipals = new[]
+            {
+                "principal",
+            },
+            Mode = "denyDelete",
+        },
+        DeploymentStackName = "simpleDeploymentStack",
+        Location = "eastus",
+        Parameters = 
+        {
+            { "parameter1", 
+            {
+                { "value", "a string" },
+            } },
+        },
+        Tags = 
+        {
+            { "tagkey", "tagVal" },
+        },
+    });
+
+});
+

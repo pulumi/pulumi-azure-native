@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var transform = new AzureNative.Media.Transform("transform", new()
+    {
+        AccountName = "contosomedia",
+        Description = "Example Transform to illustrate create and update.",
+        Outputs = new[]
+        {
+            new AzureNative.Media.Inputs.TransformOutputArgs
+            {
+                Preset = new AzureNative.Media.Inputs.BuiltInStandardEncoderPresetArgs
+                {
+                    OdataType = "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                    PresetName = "AdaptiveStreaming",
+                },
+            },
+        },
+        ResourceGroupName = "contosoresources",
+        TransformName = "createdTransform",
+    });
+
+});
+

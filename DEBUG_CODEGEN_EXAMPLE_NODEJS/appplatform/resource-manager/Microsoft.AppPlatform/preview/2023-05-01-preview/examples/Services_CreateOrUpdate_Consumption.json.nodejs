@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const service = new azure_native.appplatform.Service("service", {
+    location: "eastus",
+    properties: {
+        managedEnvironmentId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.App/managedEnvironments/myenvironment",
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+    sku: {
+        name: "S0",
+        tier: "StandardGen2",
+    },
+    tags: {
+        key1: "value1",
+    },
+});

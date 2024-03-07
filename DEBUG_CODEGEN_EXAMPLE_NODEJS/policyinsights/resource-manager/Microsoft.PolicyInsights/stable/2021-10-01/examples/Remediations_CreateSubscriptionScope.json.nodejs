@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const remediationAtSubscription = new azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription", {
+    policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    remediationName: "storageRemediation",
+});

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var eventSubscription = new AzureNative.EventGrid.EventSubscription("eventSubscription", new()
+    {
+        Destination = new AzureNative.EventGrid.Inputs.WebHookEventSubscriptionDestinationArgs
+        {
+            EndpointType = "WebHook",
+            EndpointUrl = "https://requestb.in/15ksip71",
+        },
+        EventSubscriptionName = "examplesubscription2",
+        Filter = new AzureNative.EventGrid.Inputs.EventSubscriptionFilterArgs
+        {
+            IsSubjectCaseSensitive = false,
+            SubjectBeginsWith = "ExamplePrefix",
+            SubjectEndsWith = "ExampleSuffix",
+        },
+        Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg",
+    });
+
+});
+

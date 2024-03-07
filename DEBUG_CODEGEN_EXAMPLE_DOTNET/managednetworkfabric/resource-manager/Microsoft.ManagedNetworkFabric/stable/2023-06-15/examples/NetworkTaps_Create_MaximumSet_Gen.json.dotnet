@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkTap = new AzureNative.ManagedNetworkFabric.NetworkTap("networkTap", new()
+    {
+        Annotation = "annotation",
+        Destinations = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.NetworkTapPropertiesDestinationsArgs
+            {
+                DestinationId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsloationDomains/example-l3Domain/internalNetworks/example-internalNetwork",
+                DestinationTapRuleId = "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-destinationTapRule",
+                DestinationType = "IsolationDomain",
+                IsolationDomainProperties = new AzureNative.ManagedNetworkFabric.Inputs.IsolationDomainPropertiesArgs
+                {
+                    Encapsulation = "None",
+                    NeighborGroupIds = new[]
+                    {
+                        "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
+                    },
+                },
+                Name = "example-destinaionName",
+            },
+        },
+        Location = "eastuseuap",
+        NetworkPacketBrokerId = "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker",
+        NetworkTapName = "example-networkTap",
+        PollingType = "Pull",
+        ResourceGroupName = "example-rg",
+        Tags = 
+        {
+            { "key6024", "1234" },
+        },
+    });
+
+});
+

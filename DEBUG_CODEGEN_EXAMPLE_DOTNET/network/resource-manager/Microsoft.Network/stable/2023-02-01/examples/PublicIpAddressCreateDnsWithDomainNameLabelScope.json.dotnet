@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var publicIPAddress = new AzureNative.Network.PublicIPAddress("publicIPAddress", new()
+    {
+        DnsSettings = new AzureNative.Network.Inputs.PublicIPAddressDnsSettingsArgs
+        {
+            DomainNameLabel = "dnslbl",
+            DomainNameLabelScope = AzureNative.Network.PublicIpAddressDnsSettingsDomainNameLabelScope.TenantReuse,
+        },
+        Location = "eastus",
+        PublicIpAddressName = "test-ip",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

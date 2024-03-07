@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const resourceManagementPrivateLink = new azure_native.authorization.ResourceManagementPrivateLink("resourceManagementPrivateLink", {
+    location: "eastus",
+    resourceGroupName: "my-resource-group",
+    rmplName: "my-rmplName",
+});

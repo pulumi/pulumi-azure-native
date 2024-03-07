@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const namespace = new azure_native.relay.Namespace("namespace", {
+    location: "South Central US",
+    namespaceName: "example-RelayNamespace-5849",
+    resourceGroupName: "resourcegroup",
+    sku: {
+        name: "Standard",
+        tier: "Standard",
+    },
+    tags: {
+        tag1: "value1",
+        tag2: "value2",
+    },
+});

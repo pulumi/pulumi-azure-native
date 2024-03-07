@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const migrationConfig = new azure_native.servicebus.MigrationConfig("migrationConfig", {
+    configName: "$default",
+    namespaceName: "sdk-Namespace-41",
+    postMigrationName: "sdk-PostMigration-5919",
+    resourceGroupName: "ResourceGroup",
+    targetNamespace: "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028",
+});

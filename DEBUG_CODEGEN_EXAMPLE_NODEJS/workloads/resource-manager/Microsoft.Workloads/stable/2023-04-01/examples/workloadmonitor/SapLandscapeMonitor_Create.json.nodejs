@@ -1,0 +1,29 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sapLandscapeMonitor = new azure_native.workloads.SapLandscapeMonitor("sapLandscapeMonitor", {
+    grouping: {
+        landscape: [{
+            name: "Prod",
+            topSid: [
+                "SID1",
+                "SID2",
+            ],
+        }],
+        sapApplication: [{
+            name: "ERP1",
+            topSid: [
+                "SID1",
+                "SID2",
+            ],
+        }],
+    },
+    monitorName: "mySapMonitor",
+    resourceGroupName: "myResourceGroup",
+    topMetricsThresholds: [{
+        green: 90,
+        name: "Instance Availability",
+        red: 50,
+        yellow: 75,
+    }],
+});

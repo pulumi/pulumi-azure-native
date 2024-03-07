@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var galleryImage = new AzureNative.AzureStackHCI.GalleryImage("galleryImage", new()
+    {
+        ContainerName = "Default_Container",
+        ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+            Type = "CustomLocation",
+        },
+        GalleryImageName = "test-gallery-image",
+        ImagePath = "C:\\test.vhdx",
+        Location = "West US2",
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

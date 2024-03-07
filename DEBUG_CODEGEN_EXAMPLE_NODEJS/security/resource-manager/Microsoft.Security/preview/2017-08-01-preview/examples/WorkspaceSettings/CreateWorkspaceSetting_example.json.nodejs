@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceSetting = new azure_native.security.WorkspaceSetting("workspaceSetting", {
+    scope: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    workspaceId: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
+    workspaceSettingName: "default",
+});

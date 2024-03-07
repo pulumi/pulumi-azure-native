@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const elasticPool = new azure_native.sql.ElasticPool("elasticPool", {
+    elasticPoolName: "sqlcrudtest-8102",
+    location: "Japan East",
+    maintenanceConfigurationId: "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_1",
+    resourceGroupName: "sqlcrudtest-2369",
+    serverName: "sqlcrudtest-8069",
+});

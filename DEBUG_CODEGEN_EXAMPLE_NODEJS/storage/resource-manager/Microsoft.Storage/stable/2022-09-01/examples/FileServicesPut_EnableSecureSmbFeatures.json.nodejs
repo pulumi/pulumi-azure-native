@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const fileServiceProperties = new azure_native.storage.FileServiceProperties("fileServiceProperties", {
+    accountName: "sto8607",
+    fileServicesName: "default",
+    protocolSettings: {
+        smb: {
+            authenticationMethods: "NTLMv2;Kerberos",
+            channelEncryption: "AES-128-CCM;AES-128-GCM;AES-256-GCM",
+            kerberosTicketEncryption: "RC4-HMAC;AES-256",
+            versions: "SMB2.1;SMB3.0;SMB3.1.1",
+        },
+    },
+    resourceGroupName: "res4410",
+});

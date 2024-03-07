@@ -1,0 +1,49 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customizedAccelerator = new AzureNative.AppPlatform.CustomizedAccelerator("customizedAccelerator", new()
+    {
+        ApplicationAcceleratorName = "default",
+        CustomizedAcceleratorName = "acc-name",
+        Properties = new AzureNative.AppPlatform.Inputs.CustomizedAcceleratorPropertiesArgs
+        {
+            AcceleratorTags = new[]
+            {
+                "tag-a",
+                "tag-b",
+            },
+            Description = "acc-desc",
+            DisplayName = "acc-name",
+            GitRepository = new AzureNative.AppPlatform.Inputs.AcceleratorGitRepositoryArgs
+            {
+                AuthSetting = new AzureNative.AppPlatform.Inputs.AcceleratorSshSettingArgs
+                {
+                    AuthType = "SSH",
+                    HostKey = "git-auth-hostkey",
+                    HostKeyAlgorithm = "git-auth-algorithm",
+                    PrivateKey = "git-auth-privatekey",
+                },
+                Branch = "git-branch",
+                Commit = "12345",
+                GitTag = "git-tag",
+                IntervalInSeconds = 70,
+                Url = "git-url",
+            },
+            IconUrl = "acc-icon",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+        {
+            Capacity = 2,
+            Name = "E0",
+            Tier = "Enterprise",
+        },
+    });
+
+});
+

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const standbyVirtualMachinePool = new azure_native.standbypool.StandbyVirtualMachinePool("standbyVirtualMachinePool", {
+    attachedVirtualMachineScaleSetId: "/subscriptions/8CC31D61-82D7-4B2B-B9DC-6B924DE7D229/resourceGroups/vmssRg/providers/Microsoft.Compute/virtualMachineScaleSets/myVmss",
+    elasticityProfile: {
+        maxReadyCapacity: 304,
+    },
+    location: "West US",
+    resourceGroupName: "rgstandbypool",
+    standbyVirtualMachinePoolName: "pool",
+    tags: {},
+    virtualMachineState: "Running",
+});

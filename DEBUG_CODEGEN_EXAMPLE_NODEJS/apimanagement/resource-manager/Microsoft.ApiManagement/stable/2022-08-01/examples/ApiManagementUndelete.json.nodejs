@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const apiManagementService = new azure_native.apimanagement.ApiManagementService("apiManagementService", {
+    location: "South Central US",
+    publisherEmail: "foo@contoso.com",
+    publisherName: "foo",
+    resourceGroupName: "rg1",
+    restore: true,
+    serviceName: "apimService1",
+    sku: {
+        capacity: 1,
+        name: "Developer",
+    },
+});

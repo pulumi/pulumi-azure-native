@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const compute = new azure_native.machinelearningservices.Compute("compute", {
+    computeName: "compute123",
+    location: "eastus",
+    properties: {
+        computeType: "AKS",
+        description: "some compute",
+        properties: {
+            agentCount: 4,
+        },
+        resourceId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/Microsoft.ContainerService/managedClusters/compute123-56826-c9b00420020b2",
+    },
+    resourceGroupName: "testrg123",
+    workspaceName: "workspaces123",
+});

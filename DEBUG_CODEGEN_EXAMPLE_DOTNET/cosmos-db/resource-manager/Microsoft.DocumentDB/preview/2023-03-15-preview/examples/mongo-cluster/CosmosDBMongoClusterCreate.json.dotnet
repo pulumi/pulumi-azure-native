@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mongoCluster = new AzureNative.DocumentDB.MongoCluster("mongoCluster", new()
+    {
+        AdministratorLogin = "mongoAdmin",
+        AdministratorLoginPassword = "password",
+        Location = "westus2",
+        MongoClusterName = "myMongoCluster",
+        NodeGroupSpecs = new[]
+        {
+            new AzureNative.DocumentDB.Inputs.NodeGroupSpecArgs
+            {
+                DiskSizeGB = 128,
+                EnableHa = true,
+                Kind = "Shard",
+                NodeCount = 3,
+                Sku = "M30",
+            },
+        },
+        ResourceGroupName = "TestResourceGroup",
+        ServerVersion = "5.0",
+    });
+
+});
+

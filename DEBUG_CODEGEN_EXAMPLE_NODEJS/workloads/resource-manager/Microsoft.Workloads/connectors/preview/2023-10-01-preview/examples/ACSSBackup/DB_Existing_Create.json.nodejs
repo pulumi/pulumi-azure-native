@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const acssBackupConnection = new azure_native.workloads.ACSSBackupConnection("acssBackupConnection", {
+    backupData: {
+        backupPolicy: {
+            name: "defaultDbPolicy",
+        },
+        backupType: "SQL",
+        recoveryServicesVault: {
+            id: "/subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.RecoveryServices/vaults/test-vault",
+            vaultType: "Existing",
+        },
+    },
+    backupName: "dbBackup",
+    connectorName: "C1",
+    location: "westcentralus",
+    resourceGroupName: "test-rg",
+    tags: {},
+});

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managerExtendedInfo = new azure_native.storsimple.ManagerExtendedInfo("managerExtendedInfo", {
+    algorithm: "None",
+    integrityKey: "BIl+RHqO8PZ6DRvuXTTK7g==",
+    managerName: "ManagerForSDKTest2",
+    resourceGroupName: "ResourceGroupForSDKTest",
+});

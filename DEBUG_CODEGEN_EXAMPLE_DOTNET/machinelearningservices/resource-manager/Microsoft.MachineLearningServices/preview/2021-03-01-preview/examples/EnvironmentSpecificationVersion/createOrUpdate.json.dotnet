@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var environmentSpecificationVersion = new AzureNative.MachineLearningServices.EnvironmentSpecificationVersion("environmentSpecificationVersion", new()
+    {
+        Name = "testEnvironment",
+        Properties = new AzureNative.MachineLearningServices.Inputs.EnvironmentSpecificationVersionArgs
+        {
+            CondaFile = @"channels:
+- defaults
+dependencies:
+- python=3.7.7
+name: my-env",
+            Description = "string",
+            Docker = new AzureNative.MachineLearningServices.Inputs.DockerBuildArgs
+            {
+                DockerSpecificationType = "Build",
+                Dockerfile = "FROM myimage",
+            },
+            Properties = 
+            {
+                { "additionalProp1", "string" },
+                { "additionalProp2", "string" },
+                { "additionalProp3", "string" },
+            },
+            Tags = 
+            {
+                { "additionalProp1", "string" },
+                { "additionalProp2", "string" },
+                { "additionalProp3", "string" },
+            },
+        },
+        ResourceGroupName = "testrg123",
+        Version = "1",
+        WorkspaceName = "testworkspace",
+    });
+
+});
+

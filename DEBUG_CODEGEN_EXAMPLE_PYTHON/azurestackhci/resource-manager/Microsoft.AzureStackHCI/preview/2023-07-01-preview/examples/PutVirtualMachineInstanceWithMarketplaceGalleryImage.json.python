@@ -9,7 +9,7 @@ virtual_machine_instance = azure_native.azurestackhci.VirtualMachineInstance("vi
     hardware_profile=azure_native.azurestackhci.VirtualMachineInstancePropertiesHardwareProfileArgs(
         vm_size="Default",
     ),
-    network_profile=azure_native.azurestackhci.VirtualMachineInstancePropertiesNetworkProfileArgs(
+    network_profile=azure_native.azurestackhci.VirtualMachineInstancePropertiesResponseNetworkProfileArgs(
         network_interfaces=[azure_native.azurestackhci.VirtualMachineInstancePropertiesNetworkInterfacesArgs(
             id="test-nic",
         )],
@@ -20,13 +20,13 @@ virtual_machine_instance = azure_native.azurestackhci.VirtualMachineInstance("vi
         computer_name="luamaster",
     ),
     resource_uri="subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/Microsoft.HybridCompute/machines/DemoVM",
-    security_profile=azure_native.azurestackhci.VirtualMachineInstancePropertiesSecurityProfileArgs(
+    security_profile=azure_native.azurestackhci.VirtualMachineInstancePropertiesResponseSecurityProfileArgs(
         enable_tpm=True,
         uefi_settings=azure_native.azurestackhci.VirtualMachineInstancePropertiesUefiSettingsArgs(
             secure_boot_enabled=True,
         ),
     ),
-    storage_profile=azure_native.azurestackhci.VirtualMachineInstancePropertiesStorageProfileArgs(
+    storage_profile=azure_native.azurestackhci.VirtualMachineInstancePropertiesResponseStorageProfileArgs(
         image_reference=azure_native.azurestackhci.VirtualMachineInstancePropertiesImageReferenceArgs(
             id="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/test-marketplace-gallery-image",
         ),

@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 virtual_appliance_site = azure_native.network.VirtualApplianceSite("virtualApplianceSite",
     address_prefix="192.168.1.0/24",
     network_virtual_appliance_name="nva",
-    o365_policy=azure_native.network.Office365PolicyPropertiesArgs(
+    o365_policy=azure_native.network.Office365PolicyPropertiesResponseArgs(
         break_out_categories=azure_native.network.BreakOutCategoryPoliciesArgs(
             allow=True,
             default=True,

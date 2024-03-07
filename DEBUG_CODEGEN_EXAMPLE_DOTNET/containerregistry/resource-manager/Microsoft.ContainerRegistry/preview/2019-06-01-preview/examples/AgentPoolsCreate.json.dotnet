@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agentPool = new AzureNative.ContainerRegistry.AgentPool("agentPool", new()
+    {
+        AgentPoolName = "myAgentPool",
+        Count = 1,
+        Location = "WESTUS",
+        Os = "Linux",
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "key", "value" },
+        },
+        Tier = "S1",
+    });
+
+});
+

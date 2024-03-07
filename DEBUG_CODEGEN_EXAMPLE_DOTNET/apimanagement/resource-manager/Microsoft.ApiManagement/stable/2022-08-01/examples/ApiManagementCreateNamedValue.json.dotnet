@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var namedValue = new AzureNative.ApiManagement.NamedValue("namedValue", new()
+    {
+        DisplayName = "prop3name",
+        NamedValueId = "testprop2",
+        ResourceGroupName = "rg1",
+        Secret = false,
+        ServiceName = "apimService1",
+        Tags = new[]
+        {
+            "foo",
+            "bar",
+        },
+        Value = "propValue",
+    });
+
+});
+

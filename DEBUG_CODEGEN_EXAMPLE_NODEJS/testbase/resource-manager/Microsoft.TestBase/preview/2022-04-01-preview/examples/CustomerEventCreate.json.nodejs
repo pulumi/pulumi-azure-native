@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customerEvent = new azure_native.testbase.CustomerEvent("customerEvent", {
+    customerEventName: "WeeklySummary",
+    eventName: "WeeklySummary",
+    receivers: [
+        {
+            receiverType: "UserObjects",
+            receiverValue: {
+                userObjectReceiverValue: {
+                    userObjectIds: [
+                        "245245245245325",
+                        "365365365363565",
+                    ],
+                },
+            },
+        },
+        {
+            receiverType: "DistributionGroup",
+            receiverValue: {
+                distributionGroupListReceiverValue: {
+                    distributionGroups: ["test@microsoft.com"],
+                },
+            },
+        },
+    ],
+    resourceGroupName: "contoso-rg1",
+    testBaseAccountName: "contoso-testBaseAccount1",
+});

@@ -1,0 +1,94 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var tableServiceProperties = new AzureNative.Storage.TableServiceProperties("tableServiceProperties", new()
+    {
+        AccountName = "sto8607",
+        Cors = new AzureNative.Storage.Inputs.CorsRulesArgs
+        {
+            CorsRules = new[]
+            {
+                new AzureNative.Storage.Inputs.CorsRuleArgs
+                {
+                    AllowedHeaders = new[]
+                    {
+                        "x-ms-meta-abc",
+                        "x-ms-meta-data*",
+                        "x-ms-meta-target*",
+                    },
+                    AllowedMethods = new[]
+                    {
+                        "GET",
+                        "HEAD",
+                        "POST",
+                        "OPTIONS",
+                        "MERGE",
+                        "PUT",
+                    },
+                    AllowedOrigins = new[]
+                    {
+                        "http://www.contoso.com",
+                        "http://www.fabrikam.com",
+                    },
+                    ExposedHeaders = new[]
+                    {
+                        "x-ms-meta-*",
+                    },
+                    MaxAgeInSeconds = 100,
+                },
+                new AzureNative.Storage.Inputs.CorsRuleArgs
+                {
+                    AllowedHeaders = new[]
+                    {
+                        "*",
+                    },
+                    AllowedMethods = new[]
+                    {
+                        "GET",
+                    },
+                    AllowedOrigins = new[]
+                    {
+                        "*",
+                    },
+                    ExposedHeaders = new[]
+                    {
+                        "*",
+                    },
+                    MaxAgeInSeconds = 2,
+                },
+                new AzureNative.Storage.Inputs.CorsRuleArgs
+                {
+                    AllowedHeaders = new[]
+                    {
+                        "x-ms-meta-12345675754564*",
+                    },
+                    AllowedMethods = new[]
+                    {
+                        "GET",
+                        "PUT",
+                    },
+                    AllowedOrigins = new[]
+                    {
+                        "http://www.abc23.com",
+                        "https://www.fabrikam.com/*",
+                    },
+                    ExposedHeaders = new[]
+                    {
+                        "x-ms-meta-abc",
+                        "x-ms-meta-data*",
+                        "x-ms-meta-target*",
+                    },
+                    MaxAgeInSeconds = 2000,
+                },
+            },
+        },
+        ResourceGroupName = "res4410",
+        TableServiceName = "default",
+    });
+
+});
+

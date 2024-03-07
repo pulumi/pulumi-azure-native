@@ -1,0 +1,55 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var export = new AzureNative.CostManagement.Export("export", new()
+    {
+        Definition = new AzureNative.CostManagement.Inputs.ExportDefinitionArgs
+        {
+            DataSet = new AzureNative.CostManagement.Inputs.ExportDatasetArgs
+            {
+                Configuration = new AzureNative.CostManagement.Inputs.ExportDatasetConfigurationArgs
+                {
+                    Columns = new[]
+                    {
+                        "Date",
+                        "MeterId",
+                        "ResourceId",
+                        "ResourceLocation",
+                        "Quantity",
+                    },
+                },
+                Granularity = "Daily",
+            },
+            Timeframe = "MonthToDate",
+            Type = "ActualCost",
+        },
+        DeliveryInfo = new AzureNative.CostManagement.Inputs.ExportDeliveryInfoArgs
+        {
+            Destination = new AzureNative.CostManagement.Inputs.ExportDeliveryDestinationArgs
+            {
+                Container = "exports",
+                ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
+                RootFolderPath = "ad-hoc",
+            },
+        },
+        ExportName = "TestExport",
+        Format = "Csv",
+        Schedule = new AzureNative.CostManagement.Inputs.ExportScheduleArgs
+        {
+            Recurrence = "Weekly",
+            RecurrencePeriod = new AzureNative.CostManagement.Inputs.ExportRecurrencePeriodArgs
+            {
+                From = "2020-06-01T00:00:00Z",
+                To = "2020-10-31T00:00:00Z",
+            },
+            Status = "Active",
+        },
+        Scope = "providers/Microsoft.Billing/billingAccounts/123456",
+    });
+
+});
+

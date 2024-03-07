@@ -6,30 +6,30 @@ application = azure_native.servicefabricmesh.Application("application",
     description="Service Fabric Mesh sample application.",
     location="EastUS",
     resource_group_name="sbz_demo",
-    services=[azure_native.servicefabricmesh.ServiceResourceDescriptionArgs(
-        code_packages=[azure_native.servicefabricmesh.ContainerCodePackagePropertiesArgs(
-            endpoints=[azure_native.servicefabricmesh.EndpointPropertiesArgs(
+    services=[{
+        "codePackages": [{
+            "endpoints": [azure_native.servicefabricmesh.EndpointPropertiesArgs(
                 name="helloWorldListener",
                 port=80,
             )],
-            image="seabreeze/sbz-helloworld:1.0-alpine",
-            name="helloWorldCode",
-            resources=azure_native.servicefabricmesh.ResourceRequirementsArgs(
-                requests=azure_native.servicefabricmesh.ResourceRequestsArgs(
+            "image": "seabreeze/sbz-helloworld:1.0-alpine",
+            "name": "helloWorldCode",
+            "resources": {
+                "requests": azure_native.servicefabricmesh.ResourceRequestsArgs(
                     cpu=1,
                     memory_in_gb=1,
                 ),
-            ),
-        )],
-        description="SeaBreeze Hello World Service.",
-        name="helloWorldService",
-        network_refs=[azure_native.servicefabricmesh.NetworkRefArgs(
-            endpoint_refs=[azure_native.servicefabricmesh.EndpointRefArgs(
+            },
+        }],
+        "description": "SeaBreeze Hello World Service.",
+        "name": "helloWorldService",
+        "networkRefs": [{
+            "endpointRefs": [azure_native.servicefabricmesh.EndpointRefArgs(
                 name="helloWorldListener",
             )],
-            name="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork",
-        )],
-        os_type="Linux",
-        replica_count=1,
-    )],
+            "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork",
+        }],
+        "osType": "Linux",
+        "replicaCount": 1,
+    }],
     tags={})

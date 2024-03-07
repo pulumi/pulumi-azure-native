@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var binding = new AzureNative.AppPlatform.Binding("binding", new()
+    {
+        AppName = "myapp",
+        BindingName = "mybinding",
+        Properties = new AzureNative.AppPlatform.Inputs.BindingResourcePropertiesArgs
+        {
+            BindingParameters = 
+            {
+                { "apiType", "SQL" },
+                { "databaseName", "db1" },
+            },
+            Key = "xxxx",
+            ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1",
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

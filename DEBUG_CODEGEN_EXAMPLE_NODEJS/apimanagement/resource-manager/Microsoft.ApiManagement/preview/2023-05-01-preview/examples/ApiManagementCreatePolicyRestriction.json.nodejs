@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const policyRestriction = new azure_native.apimanagement.PolicyRestriction("policyRestriction", {
+    policyRestrictionId: "policyRestriction1",
+    requireBase: "true",
+    resourceGroupName: "rg1",
+    scope: "Sample Path to the policy document.",
+    serviceName: "apimService1",
+});

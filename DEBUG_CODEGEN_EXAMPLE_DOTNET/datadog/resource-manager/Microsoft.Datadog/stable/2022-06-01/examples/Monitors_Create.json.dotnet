@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var monitor = new AzureNative.Datadog.Monitor("monitor", new()
+    {
+        Location = "West US",
+        MonitorName = "myMonitor",
+        Properties = new AzureNative.Datadog.Inputs.MonitorPropertiesArgs
+        {
+            DatadogOrganizationProperties = new AzureNative.Datadog.Inputs.DatadogOrganizationPropertiesArgs
+            {
+                EnterpriseAppId = "00000000-0000-0000-0000-000000000000",
+                Id = "myOrg123",
+                LinkingAuthCode = "someAuthCode",
+                LinkingClientId = "00000000-0000-0000-0000-000000000000",
+                Name = "myOrg",
+            },
+            MonitoringStatus = "Enabled",
+            UserInfo = new AzureNative.Datadog.Inputs.UserInfoArgs
+            {
+                EmailAddress = "alice@microsoft.com",
+                Name = "Alice",
+                PhoneNumber = "123-456-7890",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Datadog.Inputs.ResourceSkuArgs
+        {
+            Name = "free_Monthly",
+        },
+        Tags = 
+        {
+            { "Environment", "Dev" },
+        },
+    });
+
+});
+

@@ -6,10 +6,10 @@ budget = azure_native.consumption.Budget("budget",
     budget_name="TestBudget",
     category="Cost",
     e_tag="\"1d34d016a593709\"",
-    filter=azure_native.consumption.BudgetFilterArgs(
+    filter=azure_native.consumption.BudgetFilterResponseArgs(
         and_=[
-            azure_native.consumption.BudgetFilterPropertiesArgs(
-                dimensions=azure_native.consumption.BudgetComparisonExpressionArgs(
+            {
+                "dimensions": azure_native.consumption.BudgetComparisonExpressionArgs(
                     name="ResourceId",
                     operator="In",
                     values=[
@@ -17,9 +17,9 @@ budget = azure_native.consumption.Budget("budget",
                         "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
                     ],
                 ),
-            ),
-            azure_native.consumption.BudgetFilterPropertiesArgs(
-                tags=azure_native.consumption.BudgetComparisonExpressionArgs(
+            },
+            {
+                "tags": azure_native.consumption.BudgetComparisonExpressionArgs(
                     name="category",
                     operator="In",
                     values=[
@@ -27,9 +27,9 @@ budget = azure_native.consumption.Budget("budget",
                         "Prod",
                     ],
                 ),
-            ),
-            azure_native.consumption.BudgetFilterPropertiesArgs(
-                tags=azure_native.consumption.BudgetComparisonExpressionArgs(
+            },
+            {
+                "tags": azure_native.consumption.BudgetComparisonExpressionArgs(
                     name="department",
                     operator="In",
                     values=[
@@ -37,7 +37,7 @@ budget = azure_native.consumption.Budget("budget",
                         "sales",
                     ],
                 ),
-            ),
+            },
         ],
     ),
     notifications={

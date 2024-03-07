@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const taskRun = new azure_native.containerregistry.TaskRun("taskRun", {
+    forceUpdateTag: "test",
+    registryName: "myRegistry",
+    resourceGroupName: "myResourceGroup",
+    runRequest: {
+        credentials: {},
+        encodedTaskContent: "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+        encodedValuesContent: "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+        platform: {
+            architecture: "amd64",
+            os: "Linux",
+        },
+        type: "EncodedTaskRunRequest",
+        values: [],
+    },
+    taskRunName: "myRun",
+});

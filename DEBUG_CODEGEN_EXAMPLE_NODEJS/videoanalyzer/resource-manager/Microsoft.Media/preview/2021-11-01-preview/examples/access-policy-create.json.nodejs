@@ -1,0 +1,42 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const accessPolicy = new azure_native.videoanalyzer.AccessPolicy("accessPolicy", {
+    accessPolicyName: "accessPolicyName1",
+    accountName: "testaccount2",
+    authentication: {
+        audiences: ["audience1"],
+        claims: [
+            {
+                name: "claimname1",
+                value: "claimvalue1",
+            },
+            {
+                name: "claimname2",
+                value: "claimvalue2",
+            },
+        ],
+        issuers: [
+            "issuer1",
+            "issuer2",
+        ],
+        keys: [
+            {
+                alg: "RS256",
+                e: "ZLFzZTY0IQ==",
+                kid: "123",
+                n: "YmFzZTY0IQ==",
+                type: "#Microsoft.VideoAnalyzer.RsaTokenKey",
+            },
+            {
+                alg: "ES256",
+                kid: "124",
+                type: "#Microsoft.VideoAnalyzer.EccTokenKey",
+                x: "XX==",
+                y: "YY==",
+            },
+        ],
+        type: "#Microsoft.VideoAnalyzer.JwtAuthentication",
+    },
+    resourceGroupName: "testrg",
+});

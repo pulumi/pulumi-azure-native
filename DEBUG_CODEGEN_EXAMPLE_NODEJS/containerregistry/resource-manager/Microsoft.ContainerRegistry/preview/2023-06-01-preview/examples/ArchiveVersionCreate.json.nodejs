@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const archiveVersion = new azure_native.containerregistry.ArchiveVersion("archiveVersion", {
+    archiveName: "myArchiveName",
+    archiveVersionName: "myArchiveVersionName",
+    packageType: "rpm",
+    registryName: "myRegistry",
+    resourceGroupName: "myResourceGroup",
+});

@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managementLockAtResourceGroupLevel = new azure_native.authorization.ManagementLockAtResourceGroupLevel("managementLockAtResourceGroupLevel", {
+    level: "ReadOnly",
+    lockName: "testlock",
+    resourceGroupName: "resourcegroupname",
+});

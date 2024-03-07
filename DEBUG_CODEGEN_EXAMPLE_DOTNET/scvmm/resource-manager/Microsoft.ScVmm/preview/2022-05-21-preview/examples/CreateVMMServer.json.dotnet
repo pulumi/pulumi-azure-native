@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vmmServer = new AzureNative.ScVmm.VmmServer("vmmServer", new()
+    {
+        Credentials = new AzureNative.ScVmm.Inputs.VMMServerPropertiesCredentialsArgs
+        {
+            Password = "password",
+            Username = "testuser",
+        },
+        ExtendedLocation = new AzureNative.ScVmm.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+            Type = "customLocation",
+        },
+        Fqdn = "VMM.contoso.com",
+        Location = "East US",
+        Port = 1234,
+        ResourceGroupName = "testrg",
+        VmmServerName = "ContosoVMMServer",
+    });
+
+});
+

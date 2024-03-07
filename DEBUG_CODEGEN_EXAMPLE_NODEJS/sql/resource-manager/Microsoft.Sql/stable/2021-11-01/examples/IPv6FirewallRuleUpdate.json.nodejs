@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const iPv6FirewallRule = new azure_native.sql.IPv6FirewallRule("iPv6FirewallRule", {
+    endIPv6Address: "0000:0000:0000:0000:0000:ffff:0000:0001",
+    firewallRuleName: "firewallrulecrudtest-3927",
+    resourceGroupName: "firewallrulecrudtest-12",
+    serverName: "firewallrulecrudtest-6285",
+    startIPv6Address: "0000:0000:0000:0000:0000:ffff:0000:0001",
+});

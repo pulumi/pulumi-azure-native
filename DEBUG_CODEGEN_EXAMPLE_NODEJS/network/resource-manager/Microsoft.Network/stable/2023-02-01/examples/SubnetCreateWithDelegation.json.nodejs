@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const subnet = new azure_native.network.Subnet("subnet", {
+    addressPrefix: "10.0.0.0/16",
+    resourceGroupName: "subnet-test",
+    subnetName: "subnet1",
+    virtualNetworkName: "vnetname",
+});

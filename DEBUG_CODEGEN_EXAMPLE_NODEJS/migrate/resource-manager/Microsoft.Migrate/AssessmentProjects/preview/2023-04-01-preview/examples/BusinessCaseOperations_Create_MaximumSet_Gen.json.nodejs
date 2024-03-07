@@ -1,0 +1,107 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const businessCaseOperation = new azure_native.migrate.BusinessCaseOperation("businessCaseOperation", {
+    businessCaseName: "sample-business-case",
+    projectName: "multipleto8617project",
+    resourceGroupName: "rgopenapi",
+    settings: {
+        azureSettings: {
+            avsLaborCostPercentage: 0,
+            businessCaseType: "OptimizeForCost",
+            comfortFactor: 29,
+            currency: "USD",
+            discountPercentage: 83,
+            iaasLaborCostPercentage: 94,
+            infrastructureGrowthRate: 83,
+            networkCostPercentage: 40,
+            paasLaborCostPercentage: 47,
+            perYearMigrationCompletionPercentage: {
+                Year0: 20,
+                Year1: 30,
+                Year2: 60,
+                Year3: 90,
+            },
+            performanceDataEndTime: "2023-11-08T07:10:07.764Z",
+            performanceDataStartTime: "2023-11-08T07:10:07.764Z",
+            performanceUtilizationPercentile: 4,
+            savingsOption: "RI3Year",
+            targetLocation: "WestUs2",
+            wacc: 79,
+            workloadDiscoverySource: "Appliance",
+        },
+        onPremiseSettings: {
+            computeSettings: {
+                hyperthreadCoreToMemoryRatio: 12,
+                price: 16,
+                sqlServerLicensing: [{
+                    licenseCost: 27,
+                    softwareAssuranceCost: 16,
+                    version: "Enterprise",
+                }],
+                virtualizationSoftwareSettings: {
+                    licenseAndSupportList: [{
+                        basicSupportCost: 22,
+                        licenseCost: 8,
+                        licenseType: "VSphereStandard",
+                        productionSupportCost: 22,
+                    }],
+                    numberOfPhysicalCoresPerLicense: 17,
+                    softwareAssuranceCost: 14,
+                },
+                windowsServerLicensing: {
+                    licenseCost: 9,
+                    licensesPerCore: 11,
+                    softwareAssuranceCost: 1,
+                },
+            },
+            facilitySettings: {
+                facilitiesCost: 7,
+            },
+            laborSettings: {
+                hourlyAdminCost: 25,
+                physicalServersPerAdmin: 6,
+                virtualMachinesPerAdmin: 24,
+            },
+            managementSettings: {
+                hypervVirtualizationManagementSettings: {
+                    licenseAndSupportList: [{
+                        licenseCost: 4,
+                        licenseType: "Standard",
+                    }],
+                    numberOfPhysicalCoresPerLicense: 2,
+                    softwareAssuranceCost: 11,
+                },
+                otherManagementCostsSettings: {
+                    dataProtectionCostPerServerPerYear: 18,
+                    monitoringCostPerServerPerYear: 10,
+                    patchingCostPerServerPerYear: 18,
+                },
+                thirdPartyManagementSettings: {
+                    licenseCost: 23,
+                    supportCost: 9,
+                },
+                vsphereManagementSettings: {
+                    licenseAndSupportList: [{
+                        basicSupportCost: 1,
+                        licenseCost: 6,
+                        licenseType: "VSphereServerStandard",
+                        productionSupportCost: 18,
+                    }],
+                },
+            },
+            networkSettings: {
+                hardwareSoftwareCostPercentage: 50,
+                maintenanceCostPercentage: 48,
+            },
+            securitySettings: {
+                serverSecurityCostPerServerPerYear: 14,
+                sqlServerSecurityCostPerServerPerYear: 7,
+            },
+            storageSettings: {
+                costPerGbPerMonth: 22,
+                maintainanceCostPercentageToAcquisitionCost: 1,
+            },
+        },
+    },
+});

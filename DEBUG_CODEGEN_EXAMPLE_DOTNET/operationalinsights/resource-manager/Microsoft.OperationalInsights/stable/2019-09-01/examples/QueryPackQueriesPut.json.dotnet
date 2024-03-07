@@ -1,0 +1,49 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var query = new AzureNative.OperationalInsights.Query("query", new()
+    {
+        Body = @"let newExceptionsTimeRange = 1d;
+let timeRangeToCheckBefore = 7d;
+exceptions
+| where timestamp < ago(timeRangeToCheckBefore)
+| summarize count() by problemId
+| join kind= rightanti (
+exceptions
+| where timestamp >= ago(newExceptionsTimeRange)
+| extend stack = tostring(details[0].rawStack)
+| summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+) on problemId 
+| order by  count_ desc
+",
+        Description = "my description",
+        DisplayName = "Exceptions - New in the last 24 hours",
+        Id = "a449f8af-8e64-4b3a-9b16-5a7165ff98c4",
+        QueryPackName = "my-querypack",
+        Related = new AzureNative.OperationalInsights.Inputs.LogAnalyticsQueryPackQueryPropertiesRelatedArgs
+        {
+            Categories = new[]
+            {
+                "analytics",
+            },
+        },
+        ResourceGroupName = "my-resource-group",
+        Tags = 
+        {
+            { "my-label", new[]
+            {
+                "label1",
+            } },
+            { "my-other-label", new[]
+            {
+                "label2",
+            } },
+        },
+    });
+
+});
+

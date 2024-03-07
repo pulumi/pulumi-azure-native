@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cloudConnector = new AzureNative.HybridCloud.CloudConnector("cloudConnector", new()
+    {
+        AccountId = "123456789012",
+        CloudConnectorName = "123456789012",
+        CloudType = "AWS",
+        Location = "West US",
+        ResourceGroupName = "demo-rg",
+    });
+
+});
+

@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 private_endpoint_connection = azure_native.search.PrivateEndpointConnection("privateEndpointConnection",
     private_endpoint_connection_name="testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
-    properties=azure_native.search.PrivateEndpointConnectionPropertiesArgs(
+    properties=azure_native.search.PrivateEndpointConnectionPropertiesResponseArgs(
         private_link_service_connection_state=azure_native.search.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs(
             description="Rejected for some reason",
             status=azure_native.search.PrivateLinkServiceConnectionStatus.REJECTED,

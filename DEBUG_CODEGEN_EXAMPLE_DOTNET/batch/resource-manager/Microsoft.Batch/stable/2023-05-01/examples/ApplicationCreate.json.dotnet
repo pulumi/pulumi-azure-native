@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var application = new AzureNative.Batch.Application("application", new()
+    {
+        AccountName = "sampleacct",
+        AllowUpdates = false,
+        ApplicationName = "app1",
+        DisplayName = "myAppName",
+        ResourceGroupName = "default-azurebatch-japaneast",
+    });
+
+});
+

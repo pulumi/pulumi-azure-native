@@ -1,0 +1,38 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const vpnSite = new azure_native.network.VpnSite("vpnSite", {
+    addressSpace: {
+        addressPrefixes: ["10.0.0.0/16"],
+    },
+    isSecuritySite: false,
+    location: "West US",
+    o365Policy: {
+        breakOutCategories: {
+            allow: true,
+            "default": false,
+            optimize: true,
+        },
+    },
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "value1",
+    },
+    virtualWan: {
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1",
+    },
+    vpnSiteLinks: [{
+        bgpProperties: {
+            asn: 1234,
+            bgpPeeringAddress: "192.168.0.0",
+        },
+        fqdn: "link1.vpnsite1.contoso.com",
+        ipAddress: "50.50.50.56",
+        linkProperties: {
+            linkProviderName: "vendor1",
+            linkSpeedInMbps: 0,
+        },
+        name: "vpnSiteLink1",
+    }],
+    vpnSiteName: "vpnSite1",
+});

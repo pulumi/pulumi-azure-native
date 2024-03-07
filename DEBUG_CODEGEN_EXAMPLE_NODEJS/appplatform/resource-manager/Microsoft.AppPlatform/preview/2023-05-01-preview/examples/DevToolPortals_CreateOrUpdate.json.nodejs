@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const devToolPortal = new azure_native.appplatform.DevToolPortal("devToolPortal", {
+    devToolPortalName: "default",
+    properties: {
+        features: {
+            applicationAccelerator: {
+                state: "Enabled",
+            },
+            applicationLiveView: {
+                state: "Enabled",
+            },
+        },
+        "public": true,
+        ssoProperties: {
+            clientId: "00000000-0000-0000-0000-000000000000",
+            clientSecret: "xxxxx",
+            metadataUrl: "https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/.well-known/openid-configuration",
+            scopes: ["openid"],
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

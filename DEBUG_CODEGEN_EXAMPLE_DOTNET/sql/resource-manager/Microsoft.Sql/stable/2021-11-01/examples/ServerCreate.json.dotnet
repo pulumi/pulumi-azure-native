@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var server = new AzureNative.Sql.Server("server", new()
+    {
+        AdministratorLogin = "dummylogin",
+        AdministratorLoginPassword = "PLACEHOLDER",
+        Administrators = new AzureNative.Sql.Inputs.ServerExternalAdministratorArgs
+        {
+            AzureADOnlyAuthentication = true,
+            Login = "bob@contoso.com",
+            PrincipalType = "User",
+            Sid = "00000011-1111-2222-2222-123456789111",
+            TenantId = "00000011-1111-2222-2222-123456789111",
+        },
+        Location = "Japan East",
+        PublicNetworkAccess = "Enabled",
+        ResourceGroupName = "sqlcrudtest-7398",
+        RestrictOutboundNetworkAccess = "Enabled",
+        ServerName = "sqlcrudtest-4645",
+    });
+
+});
+

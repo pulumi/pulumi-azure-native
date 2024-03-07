@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedDatabase = new azure_native.sql.ManagedDatabase("managedDatabase", {
+    createMode: "Recovery",
+    databaseName: "testdb_recovered",
+    location: "southeastasia",
+    managedInstanceName: "server1",
+    recoverableDatabaseId: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+    resourceGroupName: "Default-SQL-SouthEastAsia",
+});

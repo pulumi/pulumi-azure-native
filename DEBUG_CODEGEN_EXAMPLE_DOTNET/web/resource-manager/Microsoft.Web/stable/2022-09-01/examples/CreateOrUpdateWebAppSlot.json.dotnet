@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppSlot = new AzureNative.Web.WebAppSlot("webAppSlot", new()
+    {
+        Kind = "app",
+        Location = "East US",
+        Name = "sitef6141",
+        ResourceGroupName = "testrg123",
+        ServerFarmId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
+        Slot = "staging",
+    });
+
+});
+

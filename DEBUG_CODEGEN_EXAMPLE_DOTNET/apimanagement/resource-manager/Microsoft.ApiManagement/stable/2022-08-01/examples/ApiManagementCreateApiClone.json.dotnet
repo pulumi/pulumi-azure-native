@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var api = new AzureNative.ApiManagement.Api("api", new()
+    {
+        ApiId = "echo-api2",
+        Description = "Copy of Existing Echo Api including Operations.",
+        DisplayName = "Echo API2",
+        IsCurrent = true,
+        Path = "echo2",
+        Protocols = new[]
+        {
+            "http",
+            "https",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        ServiceUrl = "http://echoapi.cloudapp.net/api",
+        SourceApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/58a4aeac497000007d040001",
+        SubscriptionRequired = true,
+    });
+
+});
+

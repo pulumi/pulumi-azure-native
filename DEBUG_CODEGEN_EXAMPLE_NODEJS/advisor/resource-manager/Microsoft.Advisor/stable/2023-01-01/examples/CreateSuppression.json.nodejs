@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const suppression = new azure_native.advisor.Suppression("suppression", {
+    name: "suppressionName1",
+    recommendationId: "recommendationId",
+    resourceUri: "resourceUri",
+    ttl: "07:00:00:00",
+});

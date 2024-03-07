@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var runtimeEnvironment = new AzureNative.Automation.RuntimeEnvironment("runtimeEnvironment", new()
+    {
+        AutomationAccountName = "myAutomationAccount9",
+        DefaultPackages = 
+        {
+            { "Az", "8.3.0" },
+        },
+        Language = "PowerShell",
+        Location = "East US 2",
+        ResourceGroupName = "rg",
+        RuntimeEnvironmentName = "myRuntimeEnvironmentName",
+        Version = "7.1",
+    });
+
+});
+

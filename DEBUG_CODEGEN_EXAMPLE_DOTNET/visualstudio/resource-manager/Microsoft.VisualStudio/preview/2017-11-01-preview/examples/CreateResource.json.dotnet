@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.VisualStudio.Account("account", new()
+    {
+        AccountName = "Example",
+        Location = "Central US",
+        OperationType = "create",
+        Properties = null,
+        ResourceGroupName = "VS-Example-Group",
+        ResourceName = "Example",
+        Tags = null,
+    });
+
+});
+

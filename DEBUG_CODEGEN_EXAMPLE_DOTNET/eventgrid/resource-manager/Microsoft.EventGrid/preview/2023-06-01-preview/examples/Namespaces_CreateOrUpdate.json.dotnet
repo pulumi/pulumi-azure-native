@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var @namespace = new AzureNative.EventGrid.Namespace("namespace", new()
+    {
+        Location = "westus",
+        NamespaceName = "exampleNamespaceName1",
+        ResourceGroupName = "examplerg",
+        Tags = 
+        {
+            { "tag1", "value11" },
+            { "tag2", "value22" },
+        },
+        TopicSpacesConfiguration = new AzureNative.EventGrid.Inputs.TopicSpacesConfigurationArgs
+        {
+            RouteTopicResourceId = "/subscriptions/8f6b6269-84f2-4d09-9e31-1127efcd1e40/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampleTopic1",
+            State = "Enabled",
+        },
+    });
+
+});
+

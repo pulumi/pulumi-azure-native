@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var compute = new AzureNative.MachineLearningServices.Compute("compute", new()
+    {
+        ComputeName = "compute123",
+        Location = "eastus",
+        Properties = new AzureNative.MachineLearningServices.Inputs.AmlComputeArgs
+        {
+            ComputeType = "AmlCompute",
+            Properties = new AzureNative.MachineLearningServices.Inputs.AmlComputePropertiesArgs
+            {
+                EnableNodePublicIp = true,
+                IsolatedNetwork = false,
+                OsType = "Windows",
+                RemoteLoginPortPublicAccess = "NotSpecified",
+                ScaleSettings = new AzureNative.MachineLearningServices.Inputs.ScaleSettingsArgs
+                {
+                    MaxNodeCount = 1,
+                    MinNodeCount = 0,
+                    NodeIdleTimeBeforeScaleDown = "PT5M",
+                },
+                VirtualMachineImage = new AzureNative.MachineLearningServices.Inputs.VirtualMachineImageArgs
+                {
+                    Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1",
+                },
+                VmPriority = "Dedicated",
+                VmSize = "STANDARD_NC6",
+            },
+        },
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspaces123",
+    });
+
+});
+

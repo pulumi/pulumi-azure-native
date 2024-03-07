@@ -1,0 +1,76 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.hdinsight.Cluster("cluster", {
+    clusterName: "cluster1",
+    properties: {
+        clusterDefinition: {
+            configurations: {
+                gateway: {
+                    "restAuthCredential.isEnabled": true,
+                    "restAuthCredential.password": "**********",
+                    "restAuthCredential.username": "admin",
+                },
+            },
+            kind: "Hadoop",
+        },
+        clusterVersion: "3.6",
+        computeProfile: {
+            roles: [
+                {
+                    hardwareProfile: {
+                        vmSize: "Large",
+                    },
+                    name: "headnode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 2,
+                },
+                {
+                    hardwareProfile: {
+                        vmSize: "Large",
+                    },
+                    name: "workernode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 3,
+                },
+                {
+                    hardwareProfile: {
+                        vmSize: "Small",
+                    },
+                    name: "zookeepernode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            username: "sshuser",
+                        },
+                    },
+                    targetInstanceCount: 3,
+                },
+            ],
+        },
+        encryptionInTransitProperties: {
+            isEncryptionInTransitEnabled: true,
+        },
+        osType: "Linux",
+        storageProfile: {
+            storageaccounts: [{
+                container: "default8525",
+                isDefault: true,
+                key: "storagekey",
+                name: "mystorage.blob.core.windows.net",
+            }],
+        },
+        tier: "Standard",
+    },
+    resourceGroupName: "rg1",
+});

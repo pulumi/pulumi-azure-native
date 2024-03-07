@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var scheduledTrigger = new AzureNative.DataShare.ScheduledTrigger("scheduledTrigger", new()
+    {
+        AccountName = "Account1",
+        Kind = "ScheduleBased",
+        RecurrenceInterval = "Day",
+        ResourceGroupName = "SampleResourceGroup",
+        ShareSubscriptionName = "ShareSubscription1",
+        SynchronizationMode = "Incremental",
+        SynchronizationTime = "2018-11-14T04:47:52.9614956Z",
+        TriggerName = "Trigger1",
+    });
+
+});
+

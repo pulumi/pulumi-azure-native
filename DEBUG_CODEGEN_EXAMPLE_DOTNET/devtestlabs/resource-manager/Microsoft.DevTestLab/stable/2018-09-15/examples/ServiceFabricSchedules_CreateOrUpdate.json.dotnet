@@ -1,0 +1,57 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serviceFabricSchedule = new AzureNative.DevTestLab.ServiceFabricSchedule("serviceFabricSchedule", new()
+    {
+        DailyRecurrence = new AzureNative.DevTestLab.Inputs.DayDetailsArgs
+        {
+            Time = "19:00",
+        },
+        HourlyRecurrence = new AzureNative.DevTestLab.Inputs.HourDetailsArgs
+        {
+            Minute = 0,
+        },
+        LabName = "{labName}",
+        Location = "{location}",
+        Name = "{scheduleName}",
+        NotificationSettings = new AzureNative.DevTestLab.Inputs.NotificationSettingsArgs
+        {
+            EmailRecipient = "{email}",
+            NotificationLocale = "EN",
+            Status = "{Enabled|Disabled}",
+            TimeInMinutes = 15,
+            WebhookUrl = "{webhoolUrl}",
+        },
+        ResourceGroupName = "resourceGroupName",
+        ServiceFabricName = "{serviceFrabicName}",
+        Status = "{Enabled|Disabled}",
+        Tags = 
+        {
+            { "tagName1", "tagValue1" },
+        },
+        TargetResourceId = "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}",
+        TaskType = "{Unknown|LabVmsShutdownTask|LabVmsStartupTask|LabVmReclamationTask|ComputeVmShutdownTask}",
+        TimeZoneId = "Pacific Standard Time",
+        UserName = "@me",
+        WeeklyRecurrence = new AzureNative.DevTestLab.Inputs.WeekDetailsArgs
+        {
+            Time = "19:00",
+            Weekdays = new[]
+            {
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const vNetPeering = new azure_native.databricks.VNetPeering("vNetPeering", {
+    allowForwardedTraffic: false,
+    allowGatewayTransit: false,
+    allowVirtualNetworkAccess: true,
+    peeringName: "vNetPeeringTest",
+    remoteVirtualNetwork: {
+        id: "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+    },
+    resourceGroupName: "rg",
+    useRemoteGateways: false,
+    workspaceName: "myWorkspace",
+});

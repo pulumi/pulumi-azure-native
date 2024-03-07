@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const agentPool = new azure_native.hybridcontainerservice.AgentPool("agentPool", {
+    agentPoolName: "test-hybridaksnodepool",
+    count: 1,
+    location: "westus",
+    osType: "Linux",
+    resourceGroupName: "test-arcappliance-resgrp",
+    resourceName: "test-hybridakscluster",
+    vmSize: "Standard_A4_v2",
+});

@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var defenderForStorage = new AzureNative.Security.DefenderForStorage("defenderForStorage", new()
+    {
+        IsEnabled = true,
+        MalwareScanning = new AzureNative.Security.Inputs.MalwareScanningPropertiesArgs
+        {
+            CapGBPerMonth = -1,
+            IsEnabled = true,
+            ScanResultsEventGridTopicResourceId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.EventGrid/topics/sampletopic",
+        },
+        OverrideSubscriptionLevelSettings = true,
+        ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount",
+        SensitiveDataDiscovery = new AzureNative.Security.Inputs.SensitiveDataDiscoveryPropertiesArgs
+        {
+            IsEnabled = true,
+        },
+        SettingName = "current",
+    });
+
+});
+

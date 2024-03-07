@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const expressRouteGateway = new azure_native.network.ExpressRouteGateway("expressRouteGateway", {
+    allowNonVirtualWanTraffic: false,
+    autoScaleConfiguration: {
+        bounds: {
+            min: 3,
+        },
+    },
+    expressRouteGatewayName: "gateway-2",
+    location: "westus",
+    resourceGroupName: "resourceGroupName",
+    virtualHub: {
+        id: "/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+    },
+});

@@ -1,0 +1,60 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var appAttachPackage = new AzureNative.DesktopVirtualization.AppAttachPackage("appAttachPackage", new()
+    {
+        AppAttachPackageName = "msixpackagefullname",
+        Location = "southcentralus",
+        Properties = new AzureNative.DesktopVirtualization.Inputs.AppAttachPackagePropertiesArgs
+        {
+            FailHealthCheckOnStagingFailure = "NeedsAssistance",
+            HostPoolReferences = new() { },
+            Image = new AzureNative.DesktopVirtualization.Inputs.AppAttachPackageInfoPropertiesArgs
+            {
+                CertificateExpiry = "2023-01-02T17:18:19.1234567Z",
+                CertificateName = "certName",
+                DisplayName = "displayname",
+                ImagePath = "imagepath",
+                IsActive = false,
+                IsRegularRegistration = false,
+                LastUpdated = "2008-09-22T14:01:54.9571247Z",
+                PackageAlias = "msixpackagealias",
+                PackageApplications = new[]
+                {
+                    new AzureNative.DesktopVirtualization.Inputs.MsixPackageApplicationsArgs
+                    {
+                        AppId = "AppId",
+                        AppUserModelID = "AppUserModelId",
+                        Description = "PackageApplicationDescription",
+                        FriendlyName = "FriendlyName",
+                        IconImageName = "Iconimagename",
+                        RawIcon = "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+                        RawPng = "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+                    },
+                },
+                PackageDependencies = new[]
+                {
+                    new AzureNative.DesktopVirtualization.Inputs.MsixPackageDependenciesArgs
+                    {
+                        DependencyName = "MsixPackage_Dependency_Name",
+                        MinVersion = "packageDep_version",
+                        Publisher = "MsixPackage_Dependency_Publisher",
+                    },
+                },
+                PackageFamilyName = "MsixPackage_FamilyName",
+                PackageFullName = "MsixPackage_FullName",
+                PackageName = "MsixPackageName",
+                PackageRelativePath = "packagerelativepath",
+                Version = "packageversion",
+            },
+            KeyVaultURL = "",
+        },
+        ResourceGroupName = "resourceGroup1",
+    });
+
+});
+

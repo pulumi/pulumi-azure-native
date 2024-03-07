@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var manager = new AzureNative.StorSimple.Manager("manager", new()
+    {
+        CisIntrinsicSettings = new AzureNative.StorSimple.Inputs.ManagerIntrinsicSettingsArgs
+        {
+            Type = AzureNative.StorSimple.ManagerType.GardaV1,
+        },
+        Location = "westus",
+        ManagerName = "ManagerForSDKTest2",
+        ResourceGroupName = "ResourceGroupForSDKTest",
+        Sku = new AzureNative.StorSimple.Inputs.ManagerSkuArgs
+        {
+            Name = AzureNative.StorSimple.ManagerSkuType.Standard,
+        },
+    });
+
+});
+

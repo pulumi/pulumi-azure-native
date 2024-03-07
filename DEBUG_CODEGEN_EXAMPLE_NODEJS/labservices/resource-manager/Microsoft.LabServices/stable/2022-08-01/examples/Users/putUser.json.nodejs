@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const user = new azure_native.labservices.User("user", {
+    additionalUsageQuota: "PT10H",
+    email: "testuser@contoso.com",
+    labName: "testlab",
+    resourceGroupName: "testrg123",
+    userName: "testuser",
+});

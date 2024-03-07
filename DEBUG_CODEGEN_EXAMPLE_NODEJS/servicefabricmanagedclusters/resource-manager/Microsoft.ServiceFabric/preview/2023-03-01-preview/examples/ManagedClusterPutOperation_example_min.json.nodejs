@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managedCluster = new azure_native.servicefabric.ManagedCluster("managedCluster", {
+    adminPassword: "{vm-password}",
+    adminUserName: "vmadmin",
+    clusterName: "myCluster",
+    clusterUpgradeCadence: "Wave1",
+    clusterUpgradeMode: "Automatic",
+    dnsName: "myCluster",
+    fabricSettings: [{
+        name: "ManagedIdentityTokenService",
+        parameters: [{
+            name: "IsEnabled",
+            value: "true",
+        }],
+    }],
+    location: "eastus",
+    resourceGroupName: "resRg",
+    sku: {
+        name: "Basic",
+    },
+});

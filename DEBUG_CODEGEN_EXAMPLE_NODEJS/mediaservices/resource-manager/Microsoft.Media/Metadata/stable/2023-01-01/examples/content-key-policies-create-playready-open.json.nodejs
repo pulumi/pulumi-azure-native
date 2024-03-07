@@ -1,0 +1,35 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const contentKeyPolicy = new azure_native.media.ContentKeyPolicy("contentKeyPolicy", {
+    accountName: "contosomedia",
+    contentKeyPolicyName: "PolicyWithPlayReadyOptionAndOpenRestriction",
+    description: "ArmPolicyDescription",
+    options: [{
+        configuration: {
+            licenses: [{
+                allowTestDevices: true,
+                beginDate: "2017-10-16T18:22:53.46Z",
+                contentKeyLocation: {
+                    odataType: "#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader",
+                },
+                contentType: "UltraVioletDownload",
+                licenseType: "Persistent",
+                playRight: {
+                    allowPassingVideoContentToUnknownOutput: "NotAllowed",
+                    digitalVideoOnlyContentRestriction: false,
+                    imageConstraintForAnalogComponentVideoRestriction: true,
+                    imageConstraintForAnalogComputerMonitorRestriction: false,
+                    scmsRestriction: 2,
+                },
+                securityLevel: "SL150",
+            }],
+            odataType: "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+        },
+        name: "ArmPolicyOptionName",
+        restriction: {
+            odataType: "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+        },
+    }],
+    resourceGroupName: "contosorg",
+});

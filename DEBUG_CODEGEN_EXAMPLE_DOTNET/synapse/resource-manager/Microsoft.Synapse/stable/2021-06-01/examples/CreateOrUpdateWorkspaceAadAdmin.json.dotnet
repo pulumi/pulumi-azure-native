@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceSqlAadAdmin = new AzureNative.Synapse.WorkspaceSqlAadAdmin("workspaceSqlAadAdmin", new()
+    {
+        AdministratorType = "ActiveDirectory",
+        Login = "bob@contoso.com",
+        ResourceGroupName = "resourceGroup1",
+        Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+        TenantId = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+        WorkspaceName = "workspace1",
+    });
+
+});
+

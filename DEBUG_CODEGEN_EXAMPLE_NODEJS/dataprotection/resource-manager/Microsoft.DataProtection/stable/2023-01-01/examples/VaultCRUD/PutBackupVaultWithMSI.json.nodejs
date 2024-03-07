@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const backupVault = new azure_native.dataprotection.BackupVault("backupVault", {
+    identity: {
+        type: "systemAssigned",
+    },
+    location: "WestUS",
+    properties: {
+        monitoringSettings: {
+            azureMonitorAlertSettings: {
+                alertsForAllJobFailures: "Enabled",
+            },
+        },
+        storageSettings: [{
+            datastoreType: "VaultStore",
+            type: "LocallyRedundant",
+        }],
+    },
+    resourceGroupName: "SampleResourceGroup",
+    tags: {
+        key1: "val1",
+    },
+    vaultName: "swaggerExample",
+});

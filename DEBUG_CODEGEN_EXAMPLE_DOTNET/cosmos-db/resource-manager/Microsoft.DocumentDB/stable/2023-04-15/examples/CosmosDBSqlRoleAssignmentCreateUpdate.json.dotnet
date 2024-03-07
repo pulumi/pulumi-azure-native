@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlResourceSqlRoleAssignment = new AzureNative.DocumentDB.SqlResourceSqlRoleAssignment("sqlResourceSqlRoleAssignment", new()
+    {
+        AccountName = "myAccountName",
+        PrincipalId = "myPrincipalId",
+        ResourceGroupName = "myResourceGroupName",
+        RoleAssignmentId = "myRoleAssignmentId",
+        RoleDefinitionId = "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId",
+        Scope = "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases/colls/redmond-purchases",
+    });
+
+});
+

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var environment = new AzureNative.DevTestLab.Environment("environment", new()
+    {
+        DeploymentProperties = new AzureNative.DevTestLab.Inputs.EnvironmentDeploymentPropertiesArgs
+        {
+            ArmTemplateId = "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}",
+            Parameters = new() { },
+        },
+        LabName = "{labName}",
+        Name = "{environmentName}",
+        ResourceGroupName = "resourceGroupName",
+        UserName = "@me",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const table = new azure_native.operationalinsights.Table("table", {
+    resourceGroupName: "oiautorest6685",
+    retentionInDays: 45,
+    schema: {
+        columns: [{
+            name: "MyNewColumn",
+            type: "guid",
+        }],
+        name: "AzureNetworkFlow",
+    },
+    tableName: "AzureNetworkFlow",
+    totalRetentionInDays: 70,
+    workspaceName: "oiautorest6685",
+});

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var draftPackage = new AzureNative.TestBase.DraftPackage("draftPackage", new()
+    {
+        AppFileName = "TestBaseM365DigitalClock.msi",
+        ApplicationName = "contoso-package",
+        DraftPackageName = "61d99543-14ff-47ae-bf03-8a8b8445502e",
+        ResourceGroupName = "contoso-rg1",
+        SourceType = "Native",
+        TestBaseAccountName = "contoso-testBaseAccount1",
+        UseSample = false,
+        Version = "1.0",
+    });
+
+});
+

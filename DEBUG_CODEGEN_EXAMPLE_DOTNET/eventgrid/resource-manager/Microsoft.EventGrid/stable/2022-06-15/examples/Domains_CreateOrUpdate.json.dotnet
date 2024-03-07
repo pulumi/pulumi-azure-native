@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var domain = new AzureNative.EventGrid.Domain("domain", new()
+    {
+        DomainName = "exampledomain1",
+        InboundIpRules = new[]
+        {
+            new AzureNative.EventGrid.Inputs.InboundIpRuleArgs
+            {
+                Action = "Allow",
+                IpMask = "12.18.30.15",
+            },
+            new AzureNative.EventGrid.Inputs.InboundIpRuleArgs
+            {
+                Action = "Allow",
+                IpMask = "12.18.176.1",
+            },
+        },
+        Location = "westus2",
+        PublicNetworkAccess = "Enabled",
+        ResourceGroupName = "examplerg",
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+    });
+
+});
+

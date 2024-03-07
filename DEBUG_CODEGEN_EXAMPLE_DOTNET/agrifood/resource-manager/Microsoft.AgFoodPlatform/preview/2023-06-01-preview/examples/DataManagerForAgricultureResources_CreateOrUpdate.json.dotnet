@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataManagerForAgricultureResource = new AzureNative.AgFoodPlatform.DataManagerForAgricultureResource("dataManagerForAgricultureResource", new()
+    {
+        DataManagerForAgricultureResourceName = "examples-farmbeatsResourceName",
+        Location = "eastus2",
+        ResourceGroupName = "examples-rg",
+        Tags = 
+        {
+            { "key1", "value1" },
+            { "key2", "value2" },
+        },
+    });
+
+});
+

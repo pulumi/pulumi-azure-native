@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspaceProductGroupLink = new azure_native.apimanagement.WorkspaceProductGroupLink("workspaceProductGroupLink", {
+    groupId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/groups/group1",
+    groupLinkId: "link1",
+    productId: "testproduct",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    workspaceId: "wks1",
+});

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var schemaRegistry = new AzureNative.EventHub.SchemaRegistry("schemaRegistry", new()
+    {
+        GroupProperties = null,
+        NamespaceName = "ali-ua-test-eh-system-1",
+        ResourceGroupName = "alitest",
+        SchemaCompatibility = "Forward",
+        SchemaGroupName = "testSchemaGroup1",
+        SchemaType = "Avro",
+    });
+
+});
+

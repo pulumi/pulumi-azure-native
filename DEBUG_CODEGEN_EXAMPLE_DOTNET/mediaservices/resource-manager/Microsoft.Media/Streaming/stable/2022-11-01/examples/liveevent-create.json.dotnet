@@ -1,0 +1,61 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var liveEvent = new AzureNative.Media.LiveEvent("liveEvent", new()
+    {
+        AccountName = "slitestmedia10",
+        Description = "test event 1",
+        Input = new AzureNative.Media.Inputs.LiveEventInputArgs
+        {
+            AccessControl = new AzureNative.Media.Inputs.LiveEventInputAccessControlArgs
+            {
+                Ip = new AzureNative.Media.Inputs.IPAccessControlArgs
+                {
+                    Allow = new[]
+                    {
+                        new AzureNative.Media.Inputs.IPRangeArgs
+                        {
+                            Address = "0.0.0.0",
+                            Name = "AllowAll",
+                            SubnetPrefixLength = 0,
+                        },
+                    },
+                },
+            },
+            KeyFrameIntervalDuration = "PT6S",
+            StreamingProtocol = "RTMP",
+        },
+        LiveEventName = "myLiveEvent1",
+        Location = "West US",
+        Preview = new AzureNative.Media.Inputs.LiveEventPreviewArgs
+        {
+            AccessControl = new AzureNative.Media.Inputs.LiveEventPreviewAccessControlArgs
+            {
+                Ip = new AzureNative.Media.Inputs.IPAccessControlArgs
+                {
+                    Allow = new[]
+                    {
+                        new AzureNative.Media.Inputs.IPRangeArgs
+                        {
+                            Address = "0.0.0.0",
+                            Name = "AllowAll",
+                            SubnetPrefixLength = 0,
+                        },
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "mediaresources",
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+    });
+
+});
+

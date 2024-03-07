@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var bareMetalMachine = new AzureNative.NetworkCloud.BareMetalMachine("bareMetalMachine", new()
+    {
+        BareMetalMachineName = "bareMetalMachineName",
+        BmcConnectionString = "bmcconnectionstring",
+        BmcCredentials = new AzureNative.NetworkCloud.Inputs.AdministrativeCredentialsArgs
+        {
+            Password = "{password}",
+            Username = "bmcuser",
+        },
+        BmcMacAddress = "00:00:4f:00:57:00",
+        BootMacAddress = "00:00:4e:00:58:af",
+        ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+            Type = "CustomLocation",
+        },
+        Location = "location",
+        MachineDetails = "User-provided machine details.",
+        MachineName = "r01c001",
+        MachineSkuId = "684E-3B16-399E",
+        RackId = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+        RackSlot = 1,
+        ResourceGroupName = "resourceGroupName",
+        SerialNumber = "BM1219XXX",
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+    });
+
+});
+

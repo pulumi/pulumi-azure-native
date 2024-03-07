@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const backupLongTermRetentionPolicy = new azure_native.sql.BackupLongTermRetentionPolicy("backupLongTermRetentionPolicy", {
+    databaseName: "testDatabase",
+    monthlyRetention: "P1Y",
+    policyName: "default",
+    resourceGroupName: "resourceGroup",
+    serverName: "testserver",
+    weekOfYear: 5,
+    weeklyRetention: "P1M",
+    yearlyRetention: "P5Y",
+});

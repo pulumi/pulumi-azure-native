@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managementConfiguration = new azure_native.operationsmanagement.ManagementConfiguration("managementConfiguration", {
+    location: "East US",
+    managementConfigurationName: "managementConfiguration1",
+    resourceGroupName: "rg1",
+});

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pipeline = new AzureNative.AzureDataTransfer.Pipeline("pipeline", new()
+    {
+        Location = "East US",
+        PipelineName = "testPipeline",
+        Properties = new AzureNative.AzureDataTransfer.Inputs.PipelinePropertiesArgs
+        {
+            RemoteCloud = "testdc",
+        },
+        ResourceGroupName = "testRG",
+    });
+
+});
+

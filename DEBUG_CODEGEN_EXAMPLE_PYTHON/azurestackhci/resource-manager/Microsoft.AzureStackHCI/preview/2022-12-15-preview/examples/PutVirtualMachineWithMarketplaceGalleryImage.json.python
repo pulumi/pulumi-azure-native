@@ -10,7 +10,7 @@ virtual_machine = azure_native.azurestackhci.VirtualMachine("virtualMachine",
         vm_size="Default",
     ),
     location="West US2",
-    network_profile=azure_native.azurestackhci.VirtualMachinePropertiesNetworkProfileArgs(
+    network_profile=azure_native.azurestackhci.VirtualMachinePropertiesResponseNetworkProfileArgs(
         network_interfaces=[azure_native.azurestackhci.VirtualMachinePropertiesNetworkInterfacesArgs(
             id="test-nic",
         )],
@@ -21,13 +21,13 @@ virtual_machine = azure_native.azurestackhci.VirtualMachine("virtualMachine",
         computer_name="luamaster",
     ),
     resource_group_name="test-rg",
-    security_profile=azure_native.azurestackhci.VirtualMachinePropertiesSecurityProfileArgs(
+    security_profile=azure_native.azurestackhci.VirtualMachinePropertiesResponseSecurityProfileArgs(
         enable_tpm=True,
         uefi_settings=azure_native.azurestackhci.VirtualMachinePropertiesUefiSettingsArgs(
             secure_boot_enabled=True,
         ),
     ),
-    storage_profile=azure_native.azurestackhci.VirtualMachinePropertiesStorageProfileArgs(
+    storage_profile=azure_native.azurestackhci.VirtualMachinePropertiesResponseStorageProfileArgs(
         image_reference=azure_native.azurestackhci.VirtualMachinePropertiesImageReferenceArgs(
             id="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplaceGalleryImages/test-marketplace-gallery-image",
         ),

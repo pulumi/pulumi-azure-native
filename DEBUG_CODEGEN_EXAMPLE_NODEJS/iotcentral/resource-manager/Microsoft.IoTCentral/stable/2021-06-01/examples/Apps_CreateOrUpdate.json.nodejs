@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const app = new azure_native.iotcentral.App("app", {
+    displayName: "My IoT Central App",
+    identity: {
+        type: "SystemAssigned",
+    },
+    location: "westus",
+    resourceGroupName: "resRg",
+    resourceName: "myIoTCentralApp",
+    sku: {
+        name: "ST2",
+    },
+    subdomain: "my-iot-central-app",
+    template: "iotc-pnp-preview@1.0.0",
+});

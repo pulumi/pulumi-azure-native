@@ -1,0 +1,67 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiManagementService = new AzureNative.ApiManagement.ApiManagementService("apiManagementService", new()
+    {
+        ApiVersionConstraint = new AzureNative.ApiManagement.Inputs.ApiVersionConstraintArgs
+        {
+            MinApiVersion = "2019-01-01",
+        },
+        HostnameConfigurations = new[]
+        {
+            new AzureNative.ApiManagement.Inputs.HostnameConfigurationArgs
+            {
+                DefaultSslBinding = true,
+                HostName = "gateway1.msitesting.net",
+                IdentityClientId = "329419bc-adec-4dce-9568-25a6d486e468",
+                KeyVaultId = "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                Type = "Proxy",
+            },
+            new AzureNative.ApiManagement.Inputs.HostnameConfigurationArgs
+            {
+                HostName = "mgmt.msitesting.net",
+                IdentityClientId = "329419bc-adec-4dce-9568-25a6d486e468",
+                KeyVaultId = "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                Type = "Management",
+            },
+            new AzureNative.ApiManagement.Inputs.HostnameConfigurationArgs
+            {
+                HostName = "portal1.msitesting.net",
+                IdentityClientId = "329419bc-adec-4dce-9568-25a6d486e468",
+                KeyVaultId = "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                Type = "Portal",
+            },
+        },
+        Identity = new AzureNative.ApiManagement.Inputs.ApiManagementServiceIdentityArgs
+        {
+            Type = "UserAssigned",
+            UserAssignedIdentities = 
+            {
+                { "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+            },
+        },
+        Location = "North Europe",
+        PublisherEmail = "apim@autorestsdk.com",
+        PublisherName = "autorestsdk",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Sku = new AzureNative.ApiManagement.Inputs.ApiManagementServiceSkuPropertiesArgs
+        {
+            Capacity = 1,
+            Name = "Premium",
+        },
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+            { "tag3", "value3" },
+        },
+        VirtualNetworkType = "None",
+    });
+
+});
+

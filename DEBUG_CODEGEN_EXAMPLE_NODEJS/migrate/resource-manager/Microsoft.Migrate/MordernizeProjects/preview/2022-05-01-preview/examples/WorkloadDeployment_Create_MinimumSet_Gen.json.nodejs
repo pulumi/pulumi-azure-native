@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadDeployment = new azure_native.migrate.WorkloadDeployment("workloadDeployment", {
+    modernizeProjectName: "tc",
+    resourceGroupName: "rgmigrateEngine",
+    workloadDeploymentName: "wo2rs4",
+});

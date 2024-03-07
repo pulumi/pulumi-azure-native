@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const job = new azure_native.sql.Job("job", {
+    description: "my favourite job",
+    jobAgentName: "agent1",
+    jobName: "job1",
+    resourceGroupName: "group1",
+    schedule: {
+        enabled: true,
+        endTime: "2015-09-24T23:59:59Z",
+        interval: "PT5M",
+        startTime: "2015-09-24T18:30:01Z",
+        type: azure_native.sql.JobScheduleType.Recurring,
+    },
+    serverName: "server1",
+});

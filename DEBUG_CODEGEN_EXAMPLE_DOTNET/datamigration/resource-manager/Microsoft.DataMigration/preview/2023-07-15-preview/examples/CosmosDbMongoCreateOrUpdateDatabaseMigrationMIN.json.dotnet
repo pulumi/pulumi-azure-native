@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var databaseMigrationsMongoToCosmosDbvCoreMongo = new AzureNative.DataMigration.DatabaseMigrationsMongoToCosmosDbvCoreMongo("databaseMigrationsMongoToCosmosDbvCoreMongo", new()
+    {
+        CollectionList = new[]
+        {
+            new AzureNative.DataMigration.Inputs.MongoMigrationCollectionArgs
+            {
+                SourceCollection = "sourceCol1",
+                SourceDatabase = "sourceDb1",
+                TargetCollection = "targetCol1",
+                TargetDatabase = "targetDb1",
+            },
+            new AzureNative.DataMigration.Inputs.MongoMigrationCollectionArgs
+            {
+                SourceCollection = "sourceCol2",
+                SourceDatabase = "sourceDb2",
+            },
+        },
+        Kind = "MongoToCosmosDbMongo",
+        MigrationName = "migrationRequest",
+        MigrationService = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/MigrationServices/testMigrationService",
+        ResourceGroupName = "testrg",
+        Scope = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DocumentDB/mongoClusters/targetCosmosDbClusterName",
+        SourceMongoConnection = new AzureNative.DataMigration.Inputs.MongoConnectionInformationArgs
+        {
+            Host = "abc.mongodb.com",
+            Password = "placeholder",
+            Port = 88,
+            UseSsl = true,
+            UserName = "abc",
+        },
+        TargetMongoConnection = new AzureNative.DataMigration.Inputs.MongoConnectionInformationArgs
+        {
+            ConnectionString = "placeholder",
+        },
+        TargetResourceName = "targetCosmosDbClusterName",
+    });
+
+});
+

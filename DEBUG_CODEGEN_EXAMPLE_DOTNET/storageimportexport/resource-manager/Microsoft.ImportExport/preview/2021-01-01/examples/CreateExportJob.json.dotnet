@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var job = new AzureNative.ImportExport.Job("job", new()
+    {
+        JobName = "myExportJob",
+        Location = "West US",
+        Properties = new AzureNative.ImportExport.Inputs.JobDetailsArgs
+        {
+            BackupDriveManifest = true,
+            DiagnosticsPath = "waimportexport",
+            Export = new AzureNative.ImportExport.Inputs.ExportArgs
+            {
+                BlobPathPrefix = new[]
+                {
+                    "/",
+                },
+            },
+            JobType = "Export",
+            LogLevel = "Verbose",
+            ReturnAddress = new AzureNative.ImportExport.Inputs.ReturnAddressArgs
+            {
+                City = "Redmond",
+                CountryOrRegion = "USA",
+                Email = "Test@contoso.com",
+                Phone = "4250000000",
+                PostalCode = "98007",
+                RecipientName = "Test",
+                StateOrProvince = "wa",
+                StreetAddress1 = "Street1",
+                StreetAddress2 = "street2",
+            },
+            ReturnShipping = new AzureNative.ImportExport.Inputs.ReturnShippingArgs
+            {
+                CarrierAccountNumber = "989ffff",
+                CarrierName = "FedEx",
+            },
+            StorageAccountId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.ClassicStorage/storageAccounts/test",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

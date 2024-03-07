@@ -18,8 +18,8 @@ policy_set_definition_version = azure_native.authorization.PolicySetDefinitionVe
     },
     policy_definition_version="1.2.1",
     policy_definitions=[
-        azure_native.authorization.PolicyDefinitionReferenceArgs(
-            parameters={
+        {
+            "parameters": {
                 "listOfAllowedSKUs": azure_native.authorization.ParameterValuesValueArgs(
                     value=[
                         "Standard_GRS",
@@ -27,11 +27,11 @@ policy_set_definition_version = azure_native.authorization.PolicySetDefinitionVe
                     ],
                 ),
             },
-            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
-            policy_definition_reference_id="Limit_Skus",
-        ),
-        azure_native.authorization.PolicyDefinitionReferenceArgs(
-            parameters={
+            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+            "policyDefinitionReferenceId": "Limit_Skus",
+        },
+        {
+            "parameters": {
                 "prefix": azure_native.authorization.ParameterValuesValueArgs(
                     value="[parameters('namePrefix')]",
                 ),
@@ -39,9 +39,9 @@ policy_set_definition_version = azure_native.authorization.PolicySetDefinitionVe
                     value="-LC",
                 ),
             },
-            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
-            policy_definition_reference_id="Resource_Naming",
-        ),
+            "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            "policyDefinitionReferenceId": "Resource_Naming",
+        },
     ],
     policy_set_definition_name="CostManagement",
     version="1.2.1")

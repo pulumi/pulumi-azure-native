@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var output = new AzureNative.StreamAnalytics.Output("output", new()
+    {
+        Datasource = new AzureNative.StreamAnalytics.Inputs.AzureFunctionOutputDataSourceArgs
+        {
+            FunctionAppName = "functionappforasaautomation",
+            FunctionName = "HttpTrigger2",
+            MaxBatchCount = 100,
+            MaxBatchSize = 256,
+            Type = "Microsoft.AzureFunction",
+        },
+        JobName = "sjName",
+        OutputName = "azureFunction1",
+        ResourceGroupName = "sjrg",
+    });
+
+});
+

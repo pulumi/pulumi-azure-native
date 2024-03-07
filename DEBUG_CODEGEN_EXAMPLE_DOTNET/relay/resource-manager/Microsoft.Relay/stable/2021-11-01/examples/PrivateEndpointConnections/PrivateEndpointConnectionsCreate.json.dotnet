@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.Relay.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        NamespaceName = "example-RelayNamespace-5849",
+        PrivateEndpoint = new AzureNative.Relay.Inputs.PrivateEndpointArgs
+        {
+            Id = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+        },
+        PrivateEndpointConnectionName = "{privateEndpointConnection name}",
+        PrivateLinkServiceConnectionState = new AzureNative.Relay.Inputs.ConnectionStateArgs
+        {
+            Description = "You may pass",
+            Status = "Approved",
+        },
+        ResourceGroupName = "resourcegroup",
+    });
+
+});
+

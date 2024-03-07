@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const image = new azure_native.compute.Image("image", {
+    imageName: "myImage",
+    location: "West US",
+    resourceGroupName: "myResourceGroup",
+    storageProfile: {
+        dataDisks: [{
+            blobUri: "https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd",
+            lun: 1,
+        }],
+        osDisk: {
+            blobUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            osState: azure_native.compute.OperatingSystemStateTypes.Generalized,
+            osType: azure_native.compute.OperatingSystemTypes.Linux,
+        },
+        zoneResilient: false,
+    },
+});

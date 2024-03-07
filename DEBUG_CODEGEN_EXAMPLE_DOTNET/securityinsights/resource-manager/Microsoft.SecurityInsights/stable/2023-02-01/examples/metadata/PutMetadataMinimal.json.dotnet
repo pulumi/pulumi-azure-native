@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var metadata = new AzureNative.SecurityInsights.Metadata("metadata", new()
+    {
+        ContentId = "c00ee137-7475-47c8-9cce-ec6f0f1bedd0",
+        Kind = "AnalyticsRule",
+        MetadataName = "metadataName",
+        ParentId = "/subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/ruleName",
+        ResourceGroupName = "myRg",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

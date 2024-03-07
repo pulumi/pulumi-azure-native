@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedClusterService = new AzureNative.ServiceFabric.ManagedClusterService("managedClusterService", new()
+    {
+        ApplicationName = "myApp",
+        ClusterName = "myCluster",
+        Location = "eastus",
+        Properties = new AzureNative.ServiceFabric.Inputs.StatelessServicePropertiesArgs
+        {
+            InstanceCount = 1,
+            PartitionDescription = new AzureNative.ServiceFabric.Inputs.SingletonPartitionSchemeArgs
+            {
+                PartitionScheme = "Singleton",
+            },
+            ServiceKind = "Stateless",
+            ServiceTypeName = "myServiceType",
+        },
+        ResourceGroupName = "resRg",
+        ServiceName = "myService",
+    });
+
+});
+

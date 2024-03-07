@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var snapshot = new AzureNative.Compute.Snapshot("snapshot", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "CopyStart",
+            SourceResourceId = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+        },
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+        SnapshotName = "mySnapshot2",
+    });
+
+});
+

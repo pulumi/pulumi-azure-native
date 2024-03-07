@@ -3,14 +3,14 @@ import pulumi_azure_native as azure_native
 
 vault = azure_native.keyvault.Vault("vault",
     location="westus",
-    properties=azure_native.keyvault.VaultPropertiesArgs(
+    properties=azure_native.keyvault.VaultPropertiesResponseArgs(
         enabled_for_deployment=True,
         enabled_for_disk_encryption=True,
         enabled_for_template_deployment=True,
-        network_acls=azure_native.keyvault.NetworkRuleSetArgs(
-            bypass="AzureServices",
-            default_action="Deny",
-            ip_rules=[
+        network_acls={
+            "bypass": "AzureServices",
+            "defaultAction": "Deny",
+            "ipRules": [
                 azure_native.keyvault.IPRuleArgs(
                     value="124.56.78.91",
                 ),
@@ -18,10 +18,10 @@ vault = azure_native.keyvault.Vault("vault",
                     value="'10.91.4.0/24'",
                 ),
             ],
-            virtual_network_rules=[azure_native.keyvault.VirtualNetworkRuleArgs(
+            "virtualNetworkRules": [azure_native.keyvault.VirtualNetworkRuleArgs(
                 id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
             )],
-        ),
+        },
         sku=azure_native.keyvault.SkuArgs(
             family="A",
             name=azure_native.keyvault.SkuName.STANDARD,

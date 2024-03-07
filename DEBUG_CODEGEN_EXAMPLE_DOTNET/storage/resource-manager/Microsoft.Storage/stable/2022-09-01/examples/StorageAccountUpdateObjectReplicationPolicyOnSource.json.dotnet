@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var objectReplicationPolicy = new AzureNative.Storage.ObjectReplicationPolicy("objectReplicationPolicy", new()
+    {
+        AccountName = "src1122",
+        DestinationAccount = "dst112",
+        ObjectReplicationPolicyId = "2a20bb73-5717-4635-985a-5d4cf777438f",
+        ResourceGroupName = "res7687",
+        Rules = new[]
+        {
+            new AzureNative.Storage.Inputs.ObjectReplicationPolicyRuleArgs
+            {
+                DestinationContainer = "dcont139",
+                Filters = new AzureNative.Storage.Inputs.ObjectReplicationPolicyFilterArgs
+                {
+                    PrefixMatch = new[]
+                    {
+                        "blobA",
+                        "blobB",
+                    },
+                },
+                RuleId = "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+                SourceContainer = "scont139",
+            },
+            new AzureNative.Storage.Inputs.ObjectReplicationPolicyRuleArgs
+            {
+                DestinationContainer = "dcont179",
+                RuleId = "cfbb4bc2-8b60-429f-b05a-d1e0942b33b2",
+                SourceContainer = "scont179",
+            },
+        },
+        SourceAccount = "src1122",
+    });
+
+});
+

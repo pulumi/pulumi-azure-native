@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dataType = new azure_native.networkanalytics.DataType("dataType", {
+    dataProductName: "dataproduct01",
+    dataTypeName: "datatypename",
+    databaseCacheRetention: 23,
+    databaseRetention: 6,
+    resourceGroupName: "aoiresourceGroupName",
+    state: "STARTED",
+    storageOutputRetention: 27,
+});

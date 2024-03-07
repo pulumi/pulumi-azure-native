@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var associationsInterface = new AzureNative.ServiceNetworking.AssociationsInterface("associationsInterface", new()
+    {
+        AssociationName = "as1",
+        AssociationType = "subnets",
+        Location = "NorthCentralUS",
+        ResourceGroupName = "rg1",
+        Subnet = new AzureNative.ServiceNetworking.Inputs.AssociationSubnetArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet-tc/subnets/tc-subnet",
+        },
+        TrafficControllerName = "tc1",
+    });
+
+});
+

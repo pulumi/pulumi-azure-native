@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var providerInstance = new AzureNative.HanaOnAzure.ProviderInstance("providerInstance", new()
+    {
+        Metadata = "{\"key\":\"value\"}",
+        Properties = "{\"hostname\":\"10.0.0.6\",\"dbName\":\"SYSTEMDB\",\"sqlPort\":30013,\"dbUsername\":\"SYSTEM\",\"dbPassword\":\"PASSWORD\"}",
+        ProviderInstanceName = "myProviderInstance",
+        ResourceGroupName = "myResourceGroup",
+        SapMonitorName = "mySapMonitor",
+        Type = "hana",
+    });
+
+});
+

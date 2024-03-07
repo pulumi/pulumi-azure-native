@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const arcSetting = new azure_native.azurestackhci.ArcSetting("arcSetting", {
+    arcSettingName: "default",
+    clusterName: "myCluster",
+    resourceGroupName: "test-rg",
+});

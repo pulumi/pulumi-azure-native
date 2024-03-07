@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const machineRunCommand = new azure_native.hybridcompute.MachineRunCommand("machineRunCommand", {
+    asyncExecution: false,
+    errorBlobUri: "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
+    location: "eastus2",
+    machineName: "myMachine",
+    outputBlobUri: "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+    parameters: [
+        {
+            name: "param1",
+            value: "value1",
+        },
+        {
+            name: "param2",
+            value: "value2",
+        },
+    ],
+    resourceGroupName: "myResourceGroup",
+    runAsPassword: "<runAsPassword>",
+    runAsUser: "user1",
+    runCommandName: "myRunCommand",
+    source: {
+        script: "Write-Host Hello World!",
+    },
+    timeoutInSeconds: 3600,
+});

@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var azureCliScript = new AzureNative.Resources.AzureCliScript("azureCliScript", new()
+    {
+        ResourceGroupName = "script-rg",
+        ScriptName = "MyDeploymentScript",
+    });
+
+});
+

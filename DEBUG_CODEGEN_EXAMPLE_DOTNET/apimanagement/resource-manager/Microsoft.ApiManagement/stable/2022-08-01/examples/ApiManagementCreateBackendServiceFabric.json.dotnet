@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var backend = new AzureNative.ApiManagement.Backend("backend", new()
+    {
+        BackendId = "sfbackend",
+        Description = "Service Fabric Test App 1",
+        Properties = new AzureNative.ApiManagement.Inputs.BackendPropertiesArgs
+        {
+            ServiceFabricCluster = new AzureNative.ApiManagement.Inputs.BackendServiceFabricClusterPropertiesArgs
+            {
+                ClientCertificateId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+                ManagementEndpoints = new[]
+                {
+                    "https://somecluster.com",
+                },
+                MaxPartitionResolutionRetries = 5,
+                ServerX509Names = new[]
+                {
+                    new AzureNative.ApiManagement.Inputs.X509CertificateNameArgs
+                    {
+                        IssuerCertificateThumbprint = "IssuerCertificateThumbprint1",
+                        Name = "ServerCommonName1",
+                    },
+                },
+            },
+        },
+        Protocol = "http",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Url = "fabric:/mytestapp/mytestservice",
+    });
+
+});
+

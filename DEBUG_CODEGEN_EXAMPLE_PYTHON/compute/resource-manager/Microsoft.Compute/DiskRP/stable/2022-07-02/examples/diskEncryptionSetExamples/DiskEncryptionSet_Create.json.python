@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 disk_encryption_set = azure_native.compute.DiskEncryptionSet("diskEncryptionSet",
-    active_key=azure_native.compute.KeyForDiskEncryptionSetArgs(
+    active_key=azure_native.compute.KeyForDiskEncryptionSetResponseArgs(
         key_url="https://myvmvault.vault-int.azure-int.net/keys/{key}",
         source_vault=azure_native.compute.SourceVaultArgs(
             id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",

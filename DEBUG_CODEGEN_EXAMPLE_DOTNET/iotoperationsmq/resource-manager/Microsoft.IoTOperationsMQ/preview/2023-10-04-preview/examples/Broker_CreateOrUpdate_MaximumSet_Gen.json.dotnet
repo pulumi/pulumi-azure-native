@@ -1,0 +1,217 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var broker = new AzureNative.IoTOperationsMQ.Broker("broker", new()
+    {
+        AuthImage = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+        {
+            PullPolicy = "imfuzvqxgbdwliqnn",
+            PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+            Repository = "m",
+            Tag = "jygfdiamhhm",
+        },
+        BrokerImage = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+        {
+            PullPolicy = "imfuzvqxgbdwliqnn",
+            PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+            Repository = "m",
+            Tag = "jygfdiamhhm",
+        },
+        BrokerName = "29tAwt4A2-aH6nP",
+        BrokerNodeTolerations = new AzureNative.IoTOperationsMQ.Inputs.NodeTolerationsArgs
+        {
+            Effect = "eeswvciblqmmaeesjoflyvxqbz",
+            Key = "wbrstdwxgm",
+            Operator = "lbegegneekwnyodtzraarivtwhmzep",
+            Value = "sfafsjdcezdmkwibxeluukxgl",
+        },
+        Cardinality = new AzureNative.IoTOperationsMQ.Inputs.CardinalityArgs
+        {
+            BackendChain = new AzureNative.IoTOperationsMQ.Inputs.BackendChainArgs
+            {
+                Partitions = 34721,
+                RedundancyFactor = 468,
+                TemporaryDiskTransferEnabled = true,
+                TemporaryDiskTransferHighWatermarkPercent = 79,
+                TemporaryDiskTransferLowWatermarkPercent = 94,
+                TemporaryMaxBackendMemUsagePercent = 54,
+                TemporaryResourceLimits = new AzureNative.IoTOperationsMQ.Inputs.TemporaryResourceLimitsConfigArgs
+                {
+                    MaxInflightMessages = 33208,
+                    MaxInflightPatches = 3410,
+                    MaxInflightPatchesPerClient = 58933,
+                    MaxMessageExpirySecs = 2036532516,
+                    MaxQueuedMessages = 8083241696687839232,
+                    MaxQueuedQos0Messages = 6545343433569253376,
+                    MaxSessionExpirySecs = 2526293894,
+                },
+                Workers = 15754,
+            },
+            Frontend = new AzureNative.IoTOperationsMQ.Inputs.FrontendArgs
+            {
+                Replicas = 38165,
+                TemporaryResourceLimits = new AzureNative.IoTOperationsMQ.Inputs.TemporaryResourceLimitsConfigArgs
+                {
+                    MaxInflightMessages = 33208,
+                    MaxInflightPatches = 3410,
+                    MaxInflightPatchesPerClient = 58933,
+                    MaxMessageExpirySecs = 2036532516,
+                    MaxQueuedMessages = 8083241696687839232,
+                    MaxQueuedQos0Messages = 6545343433569253376,
+                    MaxSessionExpirySecs = 2526293894,
+                },
+                Workers = 38,
+            },
+        },
+        Diagnostics = new AzureNative.IoTOperationsMQ.Inputs.BrokerDiagnosticsArgs
+        {
+            DiagnosticServiceEndpoint = "cdvelitwasofaaqhdb",
+            EnableMetrics = true,
+            EnableSelfCheck = true,
+            EnableSelfTracing = true,
+            EnableTracing = true,
+            LogFormat = "tcivnlakxcajynypbz",
+            LogLevel = "zdjh",
+            MaxCellMapLifetime = 997099872515057664,
+            MetricUpdateFrequencySeconds = 6156703238506293248,
+            ProbeImage = "uzizubdxsgcpjwly",
+            SelfCheckFrequencySeconds = 579622483050303872,
+            SelfCheckTimeoutSeconds = 7847246333600883712,
+            SelfTraceFrequencySeconds = 6527612490765174784,
+            SpanChannelCapacity = 5533451650716961792,
+        },
+        DiskBackedMessageBufferSettings = new AzureNative.IoTOperationsMQ.Inputs.DiskBackedMessageBufferSettingsArgs
+        {
+            EphemeralVolumeClaimSpec = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimSpecArgs
+            {
+                AccessModes = new[]
+                {
+                    "cly",
+                },
+                DataSource = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimDataSourceArgs
+                {
+                    ApiGroup = "v",
+                    Kind = "pvzbnjebkoslzzucpaem",
+                    Name = "bgzdfwfpdrubbbnfwzyr",
+                },
+                DataSourceRef = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimDataSourceRefArgs
+                {
+                    ApiGroup = "e",
+                    Kind = "hjbktqbtg",
+                    Name = "losjjcujomepwhztzptrobavolc",
+                },
+                Resources = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimResourceRequirementsArgs
+                {
+                    Limits = null,
+                    Requests = null,
+                },
+                Selector = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimSpecSelectorArgs
+                {
+                    MatchExpressions = new[]
+                    {
+                        new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimSpecSelectorMatchExpressionsArgs
+                        {
+                            Key = "d",
+                            Operator = "fcfvoarytcdbtccjervsmdis",
+                            Values = new[]
+                            {
+                                "y",
+                            },
+                        },
+                    },
+                    MatchLabels = null,
+                },
+                StorageClassName = "etajfhrtgatxi",
+                VolumeMode = "mipdeutsgidkzpxelbrqggjheplvmx",
+                VolumeName = "dacuvlvuullautxjxwdctvzlmd",
+            },
+            MaxSize = "gnwxgqjypylz",
+            PersistentVolumeClaimSpec = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimSpecArgs
+            {
+                AccessModes = new[]
+                {
+                    "cly",
+                },
+                DataSource = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimDataSourceArgs
+                {
+                    ApiGroup = "v",
+                    Kind = "pvzbnjebkoslzzucpaem",
+                    Name = "bgzdfwfpdrubbbnfwzyr",
+                },
+                DataSourceRef = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimDataSourceRefArgs
+                {
+                    ApiGroup = "e",
+                    Kind = "hjbktqbtg",
+                    Name = "losjjcujomepwhztzptrobavolc",
+                },
+                Resources = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimResourceRequirementsArgs
+                {
+                    Limits = null,
+                    Requests = null,
+                },
+                Selector = new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimSpecSelectorArgs
+                {
+                    MatchExpressions = new[]
+                    {
+                        new AzureNative.IoTOperationsMQ.Inputs.VolumeClaimSpecSelectorMatchExpressionsArgs
+                        {
+                            Key = "d",
+                            Operator = "fcfvoarytcdbtccjervsmdis",
+                            Values = new[]
+                            {
+                                "y",
+                            },
+                        },
+                    },
+                    MatchLabels = null,
+                },
+                StorageClassName = "etajfhrtgatxi",
+                VolumeMode = "mipdeutsgidkzpxelbrqggjheplvmx",
+                VolumeName = "dacuvlvuullautxjxwdctvzlmd",
+            },
+        },
+        EncryptInternalTraffic = true,
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        HealthManagerImage = new AzureNative.IoTOperationsMQ.Inputs.ContainerImageArgs
+        {
+            PullPolicy = "imfuzvqxgbdwliqnn",
+            PullSecrets = "klnqimxqsrdwhcqldjvdtsrs",
+            Repository = "m",
+            Tag = "jygfdiamhhm",
+        },
+        HealthManagerNodeTolerations = new AzureNative.IoTOperationsMQ.Inputs.NodeTolerationsArgs
+        {
+            Effect = "eeswvciblqmmaeesjoflyvxqbz",
+            Key = "wbrstdwxgm",
+            Operator = "lbegegneekwnyodtzraarivtwhmzep",
+            Value = "sfafsjdcezdmkwibxeluukxgl",
+        },
+        InternalCerts = new AzureNative.IoTOperationsMQ.Inputs.CertManagerCertOptionsArgs
+        {
+            Duration = "xjjmzq",
+            PrivateKey = new AzureNative.IoTOperationsMQ.Inputs.CertManagerPrivateKeyArgs
+            {
+                Algorithm = "wwewfsddymjefuhxzqybwvay",
+                RotationPolicy = "jxmpyvfneckopjiakjtous",
+                Size = 63427,
+            },
+            RenewBefore = "zkajhllevrxkfmfyzasmbllvd",
+        },
+        Location = "ltzfwqzs",
+        MemoryProfile = "tiny",
+        Mode = "auto",
+        MqName = "u229L1RZ5",
+        ResourceGroupName = "rgiotoperationsmq",
+        Tags = null,
+    });
+
+});
+

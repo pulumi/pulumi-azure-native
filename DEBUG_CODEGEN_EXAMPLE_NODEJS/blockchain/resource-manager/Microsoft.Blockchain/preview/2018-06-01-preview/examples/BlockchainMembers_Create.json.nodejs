@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const blockchainMember = new azure_native.blockchain.BlockchainMember("blockchainMember", {
+    blockchainMemberName: "contosemember1",
+    consortium: "ContoseConsortium",
+    consortiumManagementAccountPassword: "<consortiumManagementAccountPassword>",
+    location: "southeastasia",
+    password: "<password>",
+    protocol: "Quorum",
+    resourceGroupName: "mygroup",
+    validatorNodesSku: {
+        capacity: 2,
+    },
+});

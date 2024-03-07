@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const build = new azure_native.app.Build("build", {
+    buildName: "testBuild",
+    builderName: "testBuilder",
+    resourceGroupName: "rg",
+});

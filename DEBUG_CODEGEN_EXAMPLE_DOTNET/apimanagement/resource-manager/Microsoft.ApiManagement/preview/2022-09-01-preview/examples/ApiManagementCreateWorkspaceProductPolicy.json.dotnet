@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceProductPolicy = new AzureNative.ApiManagement.WorkspaceProductPolicy("workspaceProductPolicy", new()
+    {
+        Format = "xml",
+        PolicyId = "policy",
+        ProductId = "5702e97e5157a50f48dce801",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        Value = @"<policies>
+  <inbound>
+    <rate-limit calls=""{{call-count}}"" renewal-period=""15""></rate-limit>
+    <log-to-eventhub logger-id=""16"">
+                      @( string.Join("","", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) 
+                  </log-to-eventhub>
+    <quota-by-key calls=""40"" counter-key=""cc"" renewal-period=""3600"" increment-count=""@(context.Request.Method == &quot;POST&quot; ? 1:2)"" />
+    <base />
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+  </outbound>
+</policies>",
+        WorkspaceId = "wks1",
+    });
+
+});
+

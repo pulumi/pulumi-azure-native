@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var localNetworkGateway = new AzureNative.Network.LocalNetworkGateway("localNetworkGateway", new()
+    {
+        Fqdn = "site1.contoso.com",
+        GatewayIpAddress = "11.12.13.14",
+        LocalNetworkAddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+        {
+            AddressPrefixes = new[]
+            {
+                "10.1.0.0/16",
+            },
+        },
+        LocalNetworkGatewayName = "localgw",
+        Location = "Central US",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

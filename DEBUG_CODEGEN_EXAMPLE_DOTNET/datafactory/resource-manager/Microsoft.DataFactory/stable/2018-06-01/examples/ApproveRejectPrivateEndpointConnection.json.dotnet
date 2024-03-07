@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.DataFactory.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        FactoryName = "exampleFactoryName",
+        PrivateEndpointConnectionName = "connection",
+        Properties = new AzureNative.DataFactory.Inputs.PrivateLinkConnectionApprovalRequestArgs
+        {
+            PrivateEndpoint = new AzureNative.DataFactory.Inputs.PrivateEndpointArgs
+            {
+                Id = "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/privateEndpoints/myPrivateEndpoint",
+            },
+            PrivateLinkServiceConnectionState = new AzureNative.DataFactory.Inputs.PrivateLinkConnectionStateArgs
+            {
+                ActionsRequired = "",
+                Description = "Approved by admin.",
+                Status = "Approved",
+            },
+        },
+        ResourceGroupName = "exampleResourceGroup",
+    });
+
+});
+

@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var logger = new AzureNative.ApiManagement.Logger("logger", new()
+    {
+        Credentials = 
+        {
+            { "connectionString", "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=" },
+            { "name", "hydraeventhub" },
+        },
+        Description = "adding a new logger",
+        LoggerId = "eh1",
+        LoggerType = "azureEventHub",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

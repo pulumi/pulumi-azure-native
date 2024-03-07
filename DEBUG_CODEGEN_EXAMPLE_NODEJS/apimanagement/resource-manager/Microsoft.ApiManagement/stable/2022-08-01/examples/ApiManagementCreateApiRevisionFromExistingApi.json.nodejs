@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const api = new azure_native.apimanagement.Api("api", {
+    apiId: "echo-api;rev=3",
+    apiRevisionDescription: "Creating a Revision of an existing API",
+    path: "echo",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    serviceUrl: "http://echoapi.cloudapp.net/apiv3",
+    sourceApiId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echo-api",
+});

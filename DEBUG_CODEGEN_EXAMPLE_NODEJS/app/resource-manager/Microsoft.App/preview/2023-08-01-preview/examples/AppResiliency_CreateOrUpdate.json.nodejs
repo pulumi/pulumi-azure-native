@@ -1,0 +1,47 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const appResiliency = new azure_native.app.AppResiliency("appResiliency", {
+    appName: "testcontainerApp0",
+    circuitBreakerPolicy: {
+        consecutiveErrors: 5,
+        intervalInSeconds: 10,
+        maxEjectionPercent: 50,
+    },
+    httpConnectionPool: {
+        http1MaxPendingRequests: 1024,
+        http2MaxRequests: 1024,
+    },
+    httpRetryPolicy: {
+        errors: [
+            "5xx",
+            "connect-failure",
+            "reset",
+            "retriable-headers",
+            "retriable-status-codes",
+        ],
+        headers: [{
+            header: "X-Content-Type",
+            prefixMatch: "GOATS",
+        }],
+        httpStatusCodes: [
+            502,
+            503,
+        ],
+        initialDelayInMilliseconds: 1000,
+        maxIntervalInMilliseconds: 10000,
+        maxRetries: 5,
+    },
+    name: "resiliency-policy-1",
+    resourceGroupName: "rg",
+    tcpConnectionPool: {
+        maxConnections: 100,
+    },
+    tcpRetryPolicy: {
+        maxConnectAttempts: 3,
+    },
+    timeoutPolicy: {
+        connectionTimeoutInSeconds: 5,
+        responseTimeoutInSeconds: 15,
+    },
+});

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webPubSubCustomDomain = new AzureNative.WebPubSub.WebPubSubCustomDomain("webPubSubCustomDomain", new()
+    {
+        CustomCertificate = new AzureNative.WebPubSub.Inputs.ResourceReferenceArgs
+        {
+            Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert",
+        },
+        DomainName = "example.com",
+        Name = "myDomain",
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "myWebPubSubService",
+    });
+
+});
+

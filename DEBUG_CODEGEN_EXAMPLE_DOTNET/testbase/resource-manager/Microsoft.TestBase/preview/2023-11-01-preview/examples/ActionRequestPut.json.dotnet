@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var actionRequest = new AzureNative.TestBase.ActionRequest("actionRequest", new()
+    {
+        ActionRequestName = "167184141414254",
+        ResourceGroupName = "contoso-rg",
+        TestBaseAccountName = "contoso-testBaseAccount",
+    });
+
+});
+

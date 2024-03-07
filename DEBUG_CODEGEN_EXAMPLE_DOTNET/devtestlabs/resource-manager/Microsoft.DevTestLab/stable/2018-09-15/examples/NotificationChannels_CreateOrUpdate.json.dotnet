@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var notificationChannel = new AzureNative.DevTestLab.NotificationChannel("notificationChannel", new()
+    {
+        Description = "Integration configured for auto-shutdown",
+        EmailRecipient = "{email}",
+        Events = new[]
+        {
+            new AzureNative.DevTestLab.Inputs.EventArgs
+            {
+                EventName = "AutoShutdown",
+            },
+        },
+        LabName = "{labName}",
+        Name = "{notificationChannelName}",
+        NotificationLocale = "en",
+        ResourceGroupName = "resourceGroupName",
+        WebHookUrl = "{webhookUrl}",
+    });
+
+});
+

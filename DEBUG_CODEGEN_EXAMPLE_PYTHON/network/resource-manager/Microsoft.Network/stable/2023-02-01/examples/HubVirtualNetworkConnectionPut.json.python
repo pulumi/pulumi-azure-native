@@ -8,7 +8,7 @@ hub_virtual_network_connection = azure_native.network.HubVirtualNetworkConnectio
         id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1",
     ),
     resource_group_name="rg1",
-    routing_configuration=azure_native.network.RoutingConfigurationArgs(
+    routing_configuration=azure_native.network.RoutingConfigurationResponseArgs(
         associated_route_table=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
         ),
@@ -18,17 +18,17 @@ hub_virtual_network_connection = azure_native.network.HubVirtualNetworkConnectio
         outbound_route_map=azure_native.network.SubResourceArgs(
             id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
         ),
-        propagated_route_tables=azure_native.network.PropagatedRouteTableArgs(
-            ids=[azure_native.network.SubResourceArgs(
+        propagated_route_tables={
+            "ids": [azure_native.network.SubResourceArgs(
                 id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
             )],
-            labels=[
+            "labels": [
                 "label1",
                 "label2",
             ],
-        ),
-        vnet_routes=azure_native.network.VnetRouteArgs(
-            static_routes=[
+        },
+        vnet_routes={
+            "staticRoutes": [
                 azure_native.network.StaticRouteArgs(
                     address_prefixes=[
                         "10.1.0.0/16",
@@ -46,9 +46,9 @@ hub_virtual_network_connection = azure_native.network.HubVirtualNetworkConnectio
                     next_hop_ip_address="10.0.0.65",
                 ),
             ],
-            static_routes_config=azure_native.network.StaticRoutesConfigArgs(
+            "staticRoutesConfig": azure_native.network.StaticRoutesConfigArgs(
                 vnet_local_route_override_criteria="Equal",
             ),
-        ),
+        },
     ),
     virtual_hub_name="virtualHub1")

@@ -1,0 +1,21 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const output = new azure_native.streamanalytics.Output("output", {
+    datasource: {
+        accountKey: "accountKey==",
+        accountName: "someAccountName",
+        batchSize: 25,
+        columnsToRemove: [
+            "column1",
+            "column2",
+        ],
+        partitionKey: "partitionKey",
+        rowKey: "rowKey",
+        table: "samples",
+        type: "Microsoft.Storage/Table",
+    },
+    jobName: "sj2790",
+    outputName: "output958",
+    resourceGroupName: "sjrg5176",
+});

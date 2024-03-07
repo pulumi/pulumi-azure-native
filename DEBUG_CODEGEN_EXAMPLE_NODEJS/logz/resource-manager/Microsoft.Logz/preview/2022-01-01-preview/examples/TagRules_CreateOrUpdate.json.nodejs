@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const tagRule = new azure_native.logz.TagRule("tagRule", {
+    monitorName: "myMonitor",
+    resourceGroupName: "myResourceGroup",
+    ruleSetName: "default",
+});

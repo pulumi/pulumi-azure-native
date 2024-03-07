@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var documentProcessor = new AzureNative.Syntex.DocumentProcessor("documentProcessor", new()
+    {
+        Location = "westus",
+        ProcessorName = "myprocessor",
+        Properties = new AzureNative.Syntex.Inputs.DocumentProcessorPropertiesArgs
+        {
+            SpoTenantId = "e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+            SpoTenantUrl = "https://test123.sharepoint.com",
+        },
+        ResourceGroupName = "mygroup",
+        Tags = 
+        {
+            { "additionalProp1", "string1" },
+            { "additionalProp2", "string2" },
+            { "additionalProp3", "string3" },
+        },
+    });
+
+});
+

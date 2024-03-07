@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceApiRelease = new AzureNative.ApiManagement.WorkspaceApiRelease("workspaceApiRelease", new()
+    {
+        ApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/workspaces/wks1/apis/a1",
+        Notes = "yahooagain",
+        ReleaseId = "testrev",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        WorkspaceId = "wks1",
+    });
+
+});
+

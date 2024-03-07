@@ -9,7 +9,7 @@ web_test = azure_native.insights.WebTest("webTest",
     locations=[azure_native.insights.WebTestGeolocationArgs(
         location="us-fl-mia-edge",
     )],
-    request=azure_native.insights.WebTestPropertiesRequestArgs(
+    request=azure_native.insights.WebTestPropertiesResponseRequestArgs(
         headers=[
             azure_native.insights.HeaderFieldArgs(
                 header_field_name="Content-Language",

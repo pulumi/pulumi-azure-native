@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const firewallPolicyRuleCollectionGroup = new azure_native.network.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", {
+    firewallPolicyName: "firewallPolicy",
+    priority: 100,
+    resourceGroupName: "rg1",
+    ruleCollectionGroupName: "ruleCollectionGroup1",
+    ruleCollections: [{
+        action: {
+            type: "Deny",
+        },
+        name: "Example-Filter-Rule-Collection",
+        priority: 100,
+        ruleCollectionType: "FirewallPolicyFilterRuleCollection",
+        rules: [{
+            destinationAddresses: ["*"],
+            destinationPorts: ["*"],
+            ipProtocols: ["TCP"],
+            name: "network-rule1",
+            ruleType: "NetworkRule",
+            sourceAddresses: ["10.1.25.0/24"],
+        }],
+    }],
+});

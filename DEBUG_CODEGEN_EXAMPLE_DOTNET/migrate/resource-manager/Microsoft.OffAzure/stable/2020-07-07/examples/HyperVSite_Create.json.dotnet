@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hyperVSite = new AzureNative.OffAzure.HyperVSite("hyperVSite", new()
+    {
+        Location = "eastus",
+        Properties = new AzureNative.OffAzure.Inputs.SitePropertiesArgs
+        {
+            ServicePrincipalIdentityDetails = new AzureNative.OffAzure.Inputs.SiteSpnPropertiesArgs
+            {
+                AadAuthority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                ApplicationId = "e9f013df-2a2a-4871-b766-e79867f30348",
+                Audience = "https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
+                ObjectId = "2cd492bc-7ef3-4ee0-b301-59a88108b47b",
+                TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+            },
+        },
+        ResourceGroupName = "pajindTest",
+        SiteName = "appliance1e39site",
+    });
+
+});
+

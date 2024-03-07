@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const service = new azure_native.search.Service("service", {
+    hostingMode: azure_native.search.HostingMode.Default,
+    location: "westus",
+    networkRuleSet: {
+        ipRules: [
+            {
+                value: "123.4.5.6",
+            },
+            {
+                value: "123.4.6.0/18",
+            },
+        ],
+    },
+    partitionCount: 1,
+    replicaCount: 1,
+    resourceGroupName: "rg1",
+    searchServiceName: "mysearchservice",
+    sku: {
+        name: azure_native.search.SkuName.Standard,
+    },
+    tags: {
+        "app-name": "My e-commerce app",
+    },
+});

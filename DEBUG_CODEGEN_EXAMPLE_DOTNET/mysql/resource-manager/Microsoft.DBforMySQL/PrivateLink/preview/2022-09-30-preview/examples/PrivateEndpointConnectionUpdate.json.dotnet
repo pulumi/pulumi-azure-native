@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.DBforMySQL.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "private-endpoint-connection-name",
+        PrivateLinkServiceConnectionState = new AzureNative.DBforMySQL.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Approved by johndoe@contoso.com",
+            Status = "Approved",
+        },
+        ResourceGroupName = "Default",
+        ServerName = "test-svr",
+    });
+
+});
+

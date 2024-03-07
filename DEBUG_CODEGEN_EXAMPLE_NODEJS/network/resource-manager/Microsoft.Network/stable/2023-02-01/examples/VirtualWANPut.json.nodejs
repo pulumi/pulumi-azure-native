@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualWan = new azure_native.network.VirtualWan("virtualWan", {
+    disableVpnEncryption: false,
+    location: "West US",
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "value1",
+    },
+    type: "Basic",
+    virtualWANName: "wan1",
+});

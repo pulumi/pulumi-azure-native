@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const securityUserConfiguration = new azure_native.network.SecurityUserConfiguration("securityUserConfiguration", {
+    configurationName: "myTestSecurityConfig",
+    deleteExistingNSGs: "True",
+    description: "A sample policy",
+    networkManagerName: "testNetworkManager",
+    resourceGroupName: "rg1",
+});

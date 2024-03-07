@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const certificate = new azure_native.apimanagement.Certificate("certificate", {
+    certificateId: "templateCertkv",
+    keyVault: {
+        identityClientId: "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+        secretIdentifier: "https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
+    },
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+});

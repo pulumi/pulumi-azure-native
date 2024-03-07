@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const connectorDryrun = new azure_native.servicelinker.ConnectorDryrun("connectorDryrun", {
+    dryrunName: "dryrunName",
+    location: "westus",
+    parameters: {
+        actionName: "createOrUpdate",
+        authInfo: {
+            authType: "secret",
+            name: "name",
+            secretInfo: {
+                secretType: "rawValue",
+                value: "secret",
+            },
+        },
+        targetService: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+            type: "AzureResource",
+        },
+    },
+    resourceGroupName: "test-rg",
+});

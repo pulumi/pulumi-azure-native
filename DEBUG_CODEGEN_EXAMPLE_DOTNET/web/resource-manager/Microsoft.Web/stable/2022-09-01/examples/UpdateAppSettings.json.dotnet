@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppApplicationSettings = new AzureNative.Web.WebAppApplicationSettings("webAppApplicationSettings", new()
+    {
+        Name = "sitef6141",
+        Properties = 
+        {
+            { "Setting1", "Value1" },
+            { "Setting2", "Value2" },
+        },
+        ResourceGroupName = "testrg123",
+    });
+
+});
+

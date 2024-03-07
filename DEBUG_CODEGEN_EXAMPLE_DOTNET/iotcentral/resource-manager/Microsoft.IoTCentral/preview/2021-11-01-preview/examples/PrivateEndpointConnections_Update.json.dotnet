@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.IoTCentral.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        PrivateEndpointConnectionName = "myIoTCentralAppEndpoint",
+        PrivateLinkServiceConnectionState = new AzureNative.IoTCentral.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            ActionsRequired = "None",
+            Description = "Auto-approved",
+            Status = "Approved",
+        },
+        ResourceGroupName = "resRg",
+        ResourceName = "myIoTCentralApp",
+    });
+
+});
+

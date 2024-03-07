@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const extension = new azure_native.azurestackhci.Extension("extension", {
+    arcSettingName: "default",
+    clusterName: "myCluster",
+    enableAutomaticUpgrade: false,
+    extensionName: "MicrosoftMonitoringAgent",
+    protectedSettings: {
+        workspaceKey: "xx",
+    },
+    publisher: "Microsoft.Compute",
+    resourceGroupName: "test-rg",
+    settings: {
+        workspaceId: "xx",
+    },
+    type: "MicrosoftMonitoringAgent",
+    typeHandlerVersion: "1.10",
+});

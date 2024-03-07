@@ -1,0 +1,118 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.hdinsight.Cluster("cluster", {
+    clusterName: "cluster1",
+    properties: {
+        clusterDefinition: {
+            configurations: {
+                gateway: {
+                    "restAuthCredential.isEnabled": true,
+                    "restAuthCredential.password": "**********",
+                    "restAuthCredential.username": "admin",
+                },
+            },
+            kind: "Hadoop",
+        },
+        clusterVersion: "3.5",
+        computeProfile: {
+            roles: [
+                {
+                    hardwareProfile: {
+                        vmSize: "Standard_D3_V2",
+                    },
+                    minInstanceCount: 1,
+                    name: "headnode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            sshProfile: {
+                                publicKeys: [{
+                                    certificateData: "**********",
+                                }],
+                            },
+                            username: "sshuser",
+                        },
+                    },
+                    scriptActions: [],
+                    targetInstanceCount: 2,
+                    virtualNetworkProfile: {
+                        id: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                        subnet: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                    },
+                },
+                {
+                    hardwareProfile: {
+                        vmSize: "Standard_D3_V2",
+                    },
+                    minInstanceCount: 1,
+                    name: "workernode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            sshProfile: {
+                                publicKeys: [{
+                                    certificateData: "**********",
+                                }],
+                            },
+                            username: "sshuser",
+                        },
+                    },
+                    scriptActions: [],
+                    targetInstanceCount: 4,
+                    virtualNetworkProfile: {
+                        id: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                        subnet: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                    },
+                },
+                {
+                    hardwareProfile: {
+                        vmSize: "Small",
+                    },
+                    minInstanceCount: 1,
+                    name: "zookeepernode",
+                    osProfile: {
+                        linuxOperatingSystemProfile: {
+                            password: "**********",
+                            sshProfile: {
+                                publicKeys: [{
+                                    certificateData: "**********",
+                                }],
+                            },
+                            username: "sshuser",
+                        },
+                    },
+                    scriptActions: [],
+                    targetInstanceCount: 3,
+                    virtualNetworkProfile: {
+                        id: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                        subnet: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                    },
+                },
+            ],
+        },
+        osType: "Linux",
+        securityProfile: {
+            clusterUsersGroupDNs: ["hdiusers"],
+            directoryType: "ActiveDirectory",
+            domain: "DomainName",
+            domainUserPassword: "**********",
+            domainUsername: "DomainUsername",
+            ldapsUrls: ["ldaps://10.10.0.4:636"],
+            organizationalUnitDN: "OU=Hadoop,DC=hdinsight,DC=test",
+        },
+        storageProfile: {
+            storageaccounts: [{
+                container: "containername",
+                isDefault: true,
+                key: "storage account key",
+                name: "mystorage.blob.core.windows.net",
+            }],
+        },
+        tier: "Premium",
+    },
+    resourceGroupName: "rg1",
+    tags: {
+        key1: "val1",
+    },
+});

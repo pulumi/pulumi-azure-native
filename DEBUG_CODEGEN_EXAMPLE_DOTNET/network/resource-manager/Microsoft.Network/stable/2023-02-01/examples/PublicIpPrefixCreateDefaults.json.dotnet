@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var publicIPPrefix = new AzureNative.Network.PublicIPPrefix("publicIPPrefix", new()
+    {
+        Location = "westus",
+        PrefixLength = 30,
+        PublicIpPrefixName = "test-ipprefix",
+        ResourceGroupName = "rg1",
+        Sku = new AzureNative.Network.Inputs.PublicIPPrefixSkuArgs
+        {
+            Name = "Standard",
+        },
+    });
+
+});
+

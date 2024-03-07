@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var multipleActivationKey = new AzureNative.WindowsESU.MultipleActivationKey("multipleActivationKey", new()
+    {
+        AgreementNumber = "1a2b45ag",
+        InstalledServerNumber = 100,
+        IsEligible = true,
+        Location = "East US",
+        MultipleActivationKeyName = "server08-key-2019",
+        OsType = "WindowsServer2008",
+        ResourceGroupName = "testgr1",
+        SupportType = "SupplementalServicing",
+    });
+
+});
+

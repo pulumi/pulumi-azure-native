@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var springbootsite = new AzureNative.OffAzureSpringBoot.Springbootsite("springbootsite", new()
+    {
+        ExtendedLocation = new AzureNative.OffAzureSpringBoot.Inputs.SpringbootsitesModelExtendedLocationArgs
+        {
+            Name = "rywvpbfsqovhlfirtwisugsdsfsgf",
+            Type = "lvsb",
+        },
+        Location = "tgobtvxktootwhhvjtsmpddvlqlrq",
+        Properties = new AzureNative.OffAzureSpringBoot.Inputs.SpringbootsitesPropertiesArgs
+        {
+            MasterSiteId = "xsoimrgshsactearljwuljmi",
+            MigrateProjectId = "wwuattybgco",
+        },
+        ResourceGroupName = "rgspringbootsites",
+        SpringbootsitesName = "xrmzlavpewxtfeitghdrj",
+        Tags = 
+        {
+            { "key3558", "xeuhtglamqzj" },
+        },
+    });
+
+});
+

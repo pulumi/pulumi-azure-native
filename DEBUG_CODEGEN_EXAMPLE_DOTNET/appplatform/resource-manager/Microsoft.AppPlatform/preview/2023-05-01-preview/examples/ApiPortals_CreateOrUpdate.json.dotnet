@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiPortal = new AzureNative.AppPlatform.ApiPortal("apiPortal", new()
+    {
+        ApiPortalName = "default",
+        Properties = new AzureNative.AppPlatform.Inputs.ApiPortalPropertiesArgs
+        {
+            GatewayIds = new[]
+            {
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default",
+            },
+            Public = true,
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+        {
+            Capacity = 2,
+            Name = "E0",
+            Tier = "Enterprise",
+        },
+    });
+
+});
+

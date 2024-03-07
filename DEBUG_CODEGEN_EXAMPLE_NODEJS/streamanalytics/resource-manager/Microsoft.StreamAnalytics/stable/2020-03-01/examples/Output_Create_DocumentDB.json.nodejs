@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const output = new azure_native.streamanalytics.Output("output", {
+    datasource: {
+        accountId: "someAccountId",
+        accountKey: "accountKey==",
+        collectionNamePattern: "collection",
+        database: "db01",
+        documentId: "documentId",
+        partitionKey: "key",
+        type: "Microsoft.Storage/DocumentDB",
+    },
+    jobName: "sj2331",
+    outputName: "output3022",
+    resourceGroupName: "sjrg7983",
+});

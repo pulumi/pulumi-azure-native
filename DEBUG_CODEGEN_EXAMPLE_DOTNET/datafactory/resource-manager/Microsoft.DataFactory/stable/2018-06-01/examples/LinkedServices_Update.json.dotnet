@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var linkedService = new AzureNative.DataFactory.LinkedService("linkedService", new()
+    {
+        FactoryName = "exampleFactoryName",
+        LinkedServiceName = "exampleLinkedService",
+        Properties = new AzureNative.DataFactory.Inputs.AzureStorageLinkedServiceArgs
+        {
+            ConnectionString = 
+            {
+                { "type", "SecureString" },
+                { "value", "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>" },
+            },
+            Description = "Example description",
+            Type = "AzureStorage",
+        },
+        ResourceGroupName = "exampleResourceGroup",
+    });
+
+});
+

@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const providerInstance = new azure_native.workloads.ProviderInstance("providerInstance", {
+    monitorName: "mySapMonitor",
+    providerInstanceName: "myProviderInstance",
+    providerSettings: {
+        dbName: "db",
+        dbPassword: "****",
+        dbPasswordUri: "",
+        dbUsername: "user",
+        hostname: "name",
+        instanceNumber: "00",
+        providerType: "SapHana",
+        sapSid: "SID",
+        sqlPort: "0000",
+        sslCertificateUri: "https://storageaccount.blob.core.windows.net/containername/filename",
+        sslHostNameInCertificate: "xyz.domain.com",
+        sslPreference: "ServerCertificate",
+    },
+    resourceGroupName: "myResourceGroup",
+});

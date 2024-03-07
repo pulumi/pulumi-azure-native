@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var api = new AzureNative.ApiManagement.Api("api", new()
+    {
+        ApiId = "tempgroup",
+        AuthenticationSettings = new AzureNative.ApiManagement.Inputs.AuthenticationSettingsContractArgs
+        {
+            OAuth2 = new AzureNative.ApiManagement.Inputs.OAuth2AuthenticationSettingsContractArgs
+            {
+                AuthorizationServerId = "authorizationServerId2283",
+                Scope = "oauth2scope2580",
+            },
+        },
+        Description = "apidescription5200",
+        DisplayName = "apiname1463",
+        Path = "newapiPath",
+        Protocols = new[]
+        {
+            "https",
+            "http",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        ServiceUrl = "http://newechoapi.cloudapp.net/api",
+        SubscriptionKeyParameterNames = new AzureNative.ApiManagement.Inputs.SubscriptionKeyParameterNamesContractArgs
+        {
+            Header = "header4520",
+            Query = "query3037",
+        },
+    });
+
+});
+

@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const migrateProject = new azure_native.migrate.MigrateProject("migrateProject", {
+    eTag: "\"b701c73a-0000-0000-0000-59c12ff00000\"",
+    location: "Southeast Asia",
+    migrateProjectName: "project01",
+    properties: {},
+    resourceGroupName: "myResourceGroup",
+    tags: {},
+});

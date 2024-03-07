@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var firewallPolicyRuleCollectionGroup = new AzureNative.Network.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", new()
+    {
+        FirewallPolicyName = "firewallPolicy",
+        Priority = 110,
+        ResourceGroupName = "rg1",
+        RuleCollectionGroupName = "ruleCollectionGroup1",
+        RuleCollections = new[]
+        {
+            new AzureNative.Network.Inputs.FirewallPolicyFilterRuleCollectionArgs
+            {
+                Action = new AzureNative.Network.Inputs.FirewallPolicyFilterRuleCollectionActionArgs
+                {
+                    Type = "Allow",
+                },
+                Name = "Example-Filter-Rule-Collection",
+                RuleCollectionType = "FirewallPolicyFilterRuleCollection",
+                Rules = new[]
+                {
+                    new AzureNative.Network.Inputs.ApplicationRuleArgs
+                    {
+                        Description = "Insert HTTP header rule",
+                        FqdnTags = new[]
+                        {
+                            "WindowsVirtualDesktop",
+                        },
+                        HttpHeadersToInsert = new[]
+                        {
+                            new AzureNative.Network.Inputs.FirewallPolicyHttpHeaderToInsertArgs
+                            {
+                                HeaderName = "Restrict-Access-To-Tenants",
+                                HeaderValue = "contoso.com,fabrikam.onmicrosoft.com",
+                            },
+                        },
+                        Name = "rule1",
+                        Protocols = new[]
+                        {
+                            new AzureNative.Network.Inputs.FirewallPolicyRuleApplicationProtocolArgs
+                            {
+                                Port = 80,
+                                ProtocolType = "Http",
+                            },
+                        },
+                        RuleType = "ApplicationRule",
+                        SourceAddresses = new[]
+                        {
+                            "216.58.216.164",
+                            "10.0.0.0/24",
+                        },
+                    },
+                },
+            },
+        },
+    });
+
+});
+

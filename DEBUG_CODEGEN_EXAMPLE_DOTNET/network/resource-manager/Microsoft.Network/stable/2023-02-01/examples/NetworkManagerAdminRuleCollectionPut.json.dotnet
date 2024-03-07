@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var adminRuleCollection = new AzureNative.Network.AdminRuleCollection("adminRuleCollection", new()
+    {
+        AppliesToGroups = new[]
+        {
+            new AzureNative.Network.Inputs.NetworkManagerSecurityGroupItemArgs
+            {
+                NetworkGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+            },
+        },
+        ConfigurationName = "myTestSecurityConfig",
+        Description = "A sample policy",
+        NetworkManagerName = "testNetworkManager",
+        ResourceGroupName = "rg1",
+        RuleCollectionName = "testRuleCollection",
+    });
+
+});
+

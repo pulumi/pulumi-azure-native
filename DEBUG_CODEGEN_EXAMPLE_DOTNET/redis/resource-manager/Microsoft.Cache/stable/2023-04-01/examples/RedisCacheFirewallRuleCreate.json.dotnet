@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var firewallRule = new AzureNative.Cache.FirewallRule("firewallRule", new()
+    {
+        CacheName = "cache1",
+        EndIP = "192.168.1.4",
+        ResourceGroupName = "rg1",
+        RuleName = "rule1",
+        StartIP = "192.168.1.1",
+    });
+
+});
+

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var scheduledSynchronizationSetting = new AzureNative.DataShare.ScheduledSynchronizationSetting("scheduledSynchronizationSetting", new()
+    {
+        AccountName = "Account1",
+        Kind = "ScheduleBased",
+        RecurrenceInterval = "Day",
+        ResourceGroupName = "SampleResourceGroup",
+        ShareName = "Share1",
+        SynchronizationSettingName = "Dataset1",
+        SynchronizationTime = "2018-11-14T04:47:52.9614956Z",
+    });
+
+});
+

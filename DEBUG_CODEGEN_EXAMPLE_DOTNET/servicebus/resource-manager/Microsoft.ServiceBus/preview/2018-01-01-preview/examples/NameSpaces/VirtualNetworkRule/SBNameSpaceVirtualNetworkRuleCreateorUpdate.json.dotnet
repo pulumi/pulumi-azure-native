@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var namespaceVirtualNetworkRule = new AzureNative.ServiceBus.NamespaceVirtualNetworkRule("namespaceVirtualNetworkRule", new()
+    {
+        NamespaceName = "sdk-Namespace-6019",
+        ResourceGroupName = "ResourceGroup",
+        VirtualNetworkRuleName = "sdk-VirtualNetworkRules-9191",
+        VirtualNetworkSubnetId = "/subscriptions/Subscription/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default",
+    });
+
+});
+

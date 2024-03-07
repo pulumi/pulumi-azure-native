@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.AppPlatform.Service("service", new()
+    {
+        Location = "eastus",
+        Properties = new AzureNative.AppPlatform.Inputs.ClusterResourcePropertiesArgs
+        {
+            MarketplaceResource = new AzureNative.AppPlatform.Inputs.MarketplaceResourceArgs
+            {
+                Plan = "tanzu-asc-ent-mtr",
+                Product = "azure-spring-cloud-vmware-tanzu-2",
+                Publisher = "vmware-inc",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+        {
+            Name = "E0",
+            Tier = "Enterprise",
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

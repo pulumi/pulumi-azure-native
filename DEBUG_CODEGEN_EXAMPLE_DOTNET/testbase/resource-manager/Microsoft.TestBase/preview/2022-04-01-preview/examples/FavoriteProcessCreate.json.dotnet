@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var favoriteProcess = new AzureNative.TestBase.FavoriteProcess("favoriteProcess", new()
+    {
+        ActualProcessName = "testApp&.exe",
+        FavoriteProcessResourceName = "testAppProcess",
+        PackageName = "contoso-package2",
+        ResourceGroupName = "contoso-rg1",
+        TestBaseAccountName = "contoso-testBaseAccount1",
+    });
+
+});
+

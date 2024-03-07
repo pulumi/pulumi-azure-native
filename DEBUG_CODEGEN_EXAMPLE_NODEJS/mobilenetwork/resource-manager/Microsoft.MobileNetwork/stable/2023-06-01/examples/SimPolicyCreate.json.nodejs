@@ -1,0 +1,44 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const simPolicy = new azure_native.mobilenetwork.SimPolicy("simPolicy", {
+    defaultSlice: {
+        id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+    },
+    location: "eastus",
+    mobileNetworkName: "testMobileNetwork",
+    registrationTimer: 3240,
+    resourceGroupName: "rg1",
+    simPolicyName: "testPolicy",
+    sliceConfigurations: [{
+        dataNetworkConfigurations: [{
+            additionalAllowedSessionTypes: [],
+            allocationAndRetentionPriorityLevel: 9,
+            allowedServices: [{
+                id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/testService",
+            }],
+            dataNetwork: {
+                id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+            },
+            defaultSessionType: "IPv4",
+            fiveQi: 9,
+            maximumNumberOfBufferedPackets: 200,
+            preemptionCapability: "NotPreempt",
+            preemptionVulnerability: "Preemptable",
+            sessionAmbr: {
+                downlink: "1 Gbps",
+                uplink: "500 Mbps",
+            },
+        }],
+        defaultDataNetwork: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+        },
+        slice: {
+            id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+        },
+    }],
+    ueAmbr: {
+        downlink: "1 Gbps",
+        uplink: "500 Mbps",
+    },
+});

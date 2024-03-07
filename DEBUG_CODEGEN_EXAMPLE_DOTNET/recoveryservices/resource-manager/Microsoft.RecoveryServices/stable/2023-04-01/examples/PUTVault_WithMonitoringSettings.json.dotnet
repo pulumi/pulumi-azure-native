@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vault = new AzureNative.RecoveryServices.Vault("vault", new()
+    {
+        Identity = new AzureNative.RecoveryServices.Inputs.IdentityDataArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Location = "West US",
+        Properties = new AzureNative.RecoveryServices.Inputs.VaultPropertiesArgs
+        {
+            MonitoringSettings = new AzureNative.RecoveryServices.Inputs.MonitoringSettingsArgs
+            {
+                AzureMonitorAlertSettings = new AzureNative.RecoveryServices.Inputs.AzureMonitorAlertSettingsArgs
+                {
+                    AlertsForAllJobFailures = "Enabled",
+                },
+                ClassicAlertSettings = new AzureNative.RecoveryServices.Inputs.ClassicAlertSettingsArgs
+                {
+                    AlertsForCriticalOperations = "Disabled",
+                },
+            },
+            PublicNetworkAccess = "Enabled",
+        },
+        ResourceGroupName = "Default-RecoveryServices-ResourceGroup",
+        Sku = new AzureNative.RecoveryServices.Inputs.SkuArgs
+        {
+            Name = "Standard",
+        },
+        VaultName = "swaggerExample",
+    });
+
+});
+

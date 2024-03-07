@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const group = new azure_native.migrate.Group("group", {
+    eTag: "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+    groupName: "Group2",
+    projectName: "abgoyalWEselfhostb72bproject",
+    properties: {},
+    resourceGroupName: "abgoyal-westEurope",
+});

@@ -1,0 +1,62 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectionMonitor = new AzureNative.Network.ConnectionMonitor("connectionMonitor", new()
+    {
+        ConnectionMonitorName = "cm1",
+        Endpoints = new[]
+        {
+            new AzureNative.Network.Inputs.ConnectionMonitorEndpointArgs
+            {
+                Name = "source",
+                ResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/ct1",
+            },
+            new AzureNative.Network.Inputs.ConnectionMonitorEndpointArgs
+            {
+                Address = "bing.com",
+                Name = "destination",
+            },
+        },
+        Location = "eastus",
+        NetworkWatcherName = "nw1",
+        ResourceGroupName = "rg1",
+        TestConfigurations = new[]
+        {
+            new AzureNative.Network.Inputs.ConnectionMonitorTestConfigurationArgs
+            {
+                Name = "tcp",
+                Protocol = "Tcp",
+                TcpConfiguration = new AzureNative.Network.Inputs.ConnectionMonitorTcpConfigurationArgs
+                {
+                    Port = 80,
+                },
+                TestFrequencySec = 60,
+            },
+        },
+        TestGroups = new[]
+        {
+            new AzureNative.Network.Inputs.ConnectionMonitorTestGroupArgs
+            {
+                Destinations = new[]
+                {
+                    "destination",
+                },
+                Name = "tg",
+                Sources = new[]
+                {
+                    "source",
+                },
+                TestConfigurations = new[]
+                {
+                    "tcp",
+                },
+            },
+        },
+    });
+
+});
+

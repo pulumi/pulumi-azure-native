@@ -1,0 +1,65 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cloudService = new AzureNative.Compute.CloudService("cloudService", new()
+    {
+        CloudServiceName = "{cs-name}",
+        Location = "westus",
+        Properties = new AzureNative.Compute.Inputs.CloudServicePropertiesArgs
+        {
+            Configuration = "{ServiceConfiguration}",
+            NetworkProfile = new AzureNative.Compute.Inputs.CloudServiceNetworkProfileArgs
+            {
+                LoadBalancerConfigurations = new[]
+                {
+                    new AzureNative.Compute.Inputs.LoadBalancerConfigurationArgs
+                    {
+                        Name = "myLoadBalancer",
+                        Properties = new AzureNative.Compute.Inputs.LoadBalancerConfigurationPropertiesArgs
+                        {
+                            FrontendIpConfigurations = new[]
+                            {
+                                new AzureNative.Compute.Inputs.LoadBalancerFrontendIpConfigurationArgs
+                                {
+                                    Name = "myfe",
+                                    Properties = new AzureNative.Compute.Inputs.LoadBalancerFrontendIpConfigurationPropertiesArgs
+                                    {
+                                        PublicIPAddress = new AzureNative.Compute.Inputs.SubResourceArgs
+                                        {
+                                            Id = "/subscriptions/{subscription-id}/resourceGroups/ConstosoRG/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+            PackageUrl = "{PackageUrl}",
+            RoleProfile = new AzureNative.Compute.Inputs.CloudServiceRoleProfileArgs
+            {
+                Roles = new[]
+                {
+                    new AzureNative.Compute.Inputs.CloudServiceRoleProfilePropertiesArgs
+                    {
+                        Name = "ContosoFrontend",
+                        Sku = new AzureNative.Compute.Inputs.CloudServiceRoleSkuArgs
+                        {
+                            Capacity = 1,
+                            Name = "Standard_D1_v2",
+                            Tier = "Standard",
+                        },
+                    },
+                },
+            },
+            UpgradeMode = "Auto",
+        },
+        ResourceGroupName = "ConstosoRG",
+    });
+
+});
+

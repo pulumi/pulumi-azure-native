@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    {
+        ClusterName = "myCluster",
+        EnableEncryptionAtHost = true,
+        IsPrimary = false,
+        IsStateless = true,
+        MultiplePlacementGroups = true,
+        NodeTypeName = "BE",
+        ResourceGroupName = "resRg",
+        UseTempDataDisk = true,
+        VmExtensions = new[]
+        {
+            new AzureNative.ServiceFabric.Inputs.VMSSExtensionArgs
+            {
+                AutoUpgradeMinorVersion = true,
+                Name = "Microsoft.Azure.Geneva.GenevaMonitoring",
+                Publisher = "Microsoft.Azure.Geneva",
+                Settings = null,
+                Type = "GenevaMonitoring",
+                TypeHandlerVersion = "2.0",
+            },
+        },
+        VmImageOffer = "WindowsServer",
+        VmImagePublisher = "MicrosoftWindowsServer",
+        VmImageSku = "2016-Datacenter-Server-Core",
+        VmImageVersion = "latest",
+        VmInstanceCount = 10,
+        VmSize = "Standard_DS3",
+    });
+
+});
+

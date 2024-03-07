@@ -1,0 +1,49 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var assignment = new AzureNative.Blueprint.Assignment("assignment", new()
+    {
+        AssignmentName = "assignSimpleBlueprint",
+        BlueprintId = "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+        Description = "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+        Identity = new AzureNative.Blueprint.Inputs.ManagedServiceIdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Location = "eastus",
+        Parameters = 
+        {
+            { "costCenter", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+            {
+                Value = "Contoso/Online/Shopping/Production",
+            } },
+            { "owners", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+            {
+                Value = new[]
+                {
+                    "johnDoe@contoso.com",
+                    "johnsteam@contoso.com",
+                },
+            } },
+            { "storageAccountType", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+            {
+                Value = "Standard_LRS",
+            } },
+        },
+        ResourceGroups = 
+        {
+            { "storageRG", new AzureNative.Blueprint.Inputs.ResourceGroupValueArgs
+            {
+                Location = "eastus",
+                Name = "defaultRG",
+            } },
+        },
+        ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    });
+
+});
+

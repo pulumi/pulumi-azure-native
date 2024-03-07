@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineRunCommand = new AzureNative.HybridCompute.MachineRunCommand("machineRunCommand", new()
+    {
+        AsyncExecution = false,
+        ErrorBlobUri = "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
+        Location = "eastus2",
+        MachineName = "myMachine",
+        OutputBlobUri = "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+        Parameters = new[]
+        {
+            new AzureNative.HybridCompute.Inputs.RunCommandInputParameterArgs
+            {
+                Name = "param1",
+                Value = "value1",
+            },
+            new AzureNative.HybridCompute.Inputs.RunCommandInputParameterArgs
+            {
+                Name = "param2",
+                Value = "value2",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        RunAsPassword = "<runAsPassword>",
+        RunAsUser = "user1",
+        RunCommandName = "myRunCommand",
+        Source = new AzureNative.HybridCompute.Inputs.MachineRunCommandScriptSourceArgs
+        {
+            Script = "Write-Host Hello World!",
+        },
+        TimeoutInSeconds = 3600,
+    });
+
+});
+

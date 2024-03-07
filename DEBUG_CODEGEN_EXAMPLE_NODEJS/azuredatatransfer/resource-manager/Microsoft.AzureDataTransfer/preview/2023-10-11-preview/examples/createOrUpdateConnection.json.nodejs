@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const connection = new azure_native.azuredatatransfer.Connection("connection", {
+    connectionName: "testConnection",
+    location: "East US",
+    properties: {
+        justification: "justification",
+        pipeline: "testdc",
+        requirementId: "id",
+    },
+    resourceGroupName: "testRG",
+});

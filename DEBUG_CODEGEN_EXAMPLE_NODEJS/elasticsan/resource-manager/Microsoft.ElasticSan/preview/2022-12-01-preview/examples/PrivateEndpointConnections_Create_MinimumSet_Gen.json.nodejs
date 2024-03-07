@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnection = new azure_native.elasticsan.PrivateEndpointConnection("privateEndpointConnection", {
+    elasticSanName: "elasticsanname",
+    privateEndpointConnectionName: "privateendpointconnectionname",
+    privateLinkServiceConnectionState: {
+        actionsRequired: "None",
+        description: "Auto-Approved",
+        status: "Pending",
+    },
+    resourceGroupName: "resourcegroupname",
+});

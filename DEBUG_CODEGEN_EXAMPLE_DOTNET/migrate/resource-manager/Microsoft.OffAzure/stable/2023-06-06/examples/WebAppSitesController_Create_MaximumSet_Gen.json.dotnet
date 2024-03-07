@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppSitesController = new AzureNative.OffAzure.WebAppSitesController("webAppSitesController", new()
+    {
+        DiscoveryScenario = "Migrate",
+        ResourceGroupName = "rgmigrate",
+        SiteAppliancePropertiesCollection = new[]
+        {
+            new AzureNative.OffAzure.Inputs.SiteAppliancePropertiesArgs
+            {
+                AgentDetails = new AzureNative.OffAzure.Inputs.SiteAgentPropertiesArgs
+                {
+                    KeyVaultId = "awxurtbjmofxuciewsqfgpkccpzw",
+                    KeyVaultUri = "qizphgqwage",
+                },
+                ApplianceName = "zpbkpigahvexsxevwafzgsu",
+                ServicePrincipalIdentityDetails = new AzureNative.OffAzure.Inputs.SiteSpnPropertiesArgs
+                {
+                    AadAuthority = "yanzipdww",
+                    ApplicationId = "tspgrujepxyxuprkqvfuqbbjrweeqa",
+                    Audience = "oepwfaozztzvegmzvswafvotj",
+                    ObjectId = "tqrjngpgxnnto",
+                    RawCertData = "dotvgkslkmsgvtekgojnhcdrryk",
+                    TenantId = "vesmyhu",
+                },
+            },
+        },
+        SiteName = "36cmQ",
+        WebAppSiteName = "GJRq",
+    });
+
+});
+

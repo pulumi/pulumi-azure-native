@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var target = new AzureNative.DatabaseWatcher.Target("target", new()
+    {
+        ConnectionServerName = "sqlServero1ihe2",
+        ResourceGroupName = "apiTest-ddat4p",
+        TargetAuthenticationType = "Aad",
+        TargetName = "monitoringh22eed",
+        TargetType = "SqlDb",
+        WatcherName = "databasemo3ej9ih",
+    });
+
+});
+

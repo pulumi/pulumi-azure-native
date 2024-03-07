@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const instance = new azure_native.iotoperationsdataprocessor.Instance("instance", {
+    description: "ytazzjdwgnnwsmexqasgpyabrtkgtf",
+    extendedLocation: {
+        name: "/subscriptions/e0aaa3df-e9a4-456a-9824-3c3b5c438110/resourceGroups/IoTOperationsDataProcessor-rg/providers/Microsoft.ExtendedLocation/customLocations/dev-space",
+        type: "CustomLocation",
+    },
+    instanceName: "15wp-47-e60s18w",
+    location: "westus",
+    resourceGroupName: "rgopenapi",
+    tags: {},
+});

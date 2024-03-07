@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const firmware = new azure_native.iotfirmwaredefense.Firmware("firmware", {
+    description: "uz",
+    fileName: "wresexxulcdsdd",
+    fileSize: 17,
+    firmwareId: "umrkdttp",
+    model: "f",
+    resourceGroupName: "rgworkspaces-firmwares",
+    status: "Pending",
+    statusMessages: [{
+        message: "ulvhmhokezathzzauiitu",
+    }],
+    vendor: "vycmdhgtmepcptyoubztiuudpkcpd",
+    version: "s",
+    workspaceName: "A7",
+});

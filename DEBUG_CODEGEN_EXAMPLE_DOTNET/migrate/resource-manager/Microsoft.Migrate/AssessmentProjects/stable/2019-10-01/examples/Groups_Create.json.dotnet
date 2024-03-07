@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var @group = new AzureNative.Migrate.Group("group", new()
+    {
+        ETag = "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+        GroupName = "Group2",
+        ProjectName = "abgoyalWEselfhostb72bproject",
+        Properties = null,
+        ResourceGroupName = "abgoyal-westEurope",
+    });
+
+});
+

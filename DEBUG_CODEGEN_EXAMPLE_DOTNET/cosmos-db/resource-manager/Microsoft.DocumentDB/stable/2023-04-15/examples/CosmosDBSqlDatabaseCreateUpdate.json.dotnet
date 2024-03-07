@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlResourceSqlDatabase = new AzureNative.DocumentDB.SqlResourceSqlDatabase("sqlResourceSqlDatabase", new()
+    {
+        AccountName = "ddb1",
+        DatabaseName = "databaseName",
+        Location = "West US",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.SqlDatabaseResourceArgs
+        {
+            Id = "databaseName",
+        },
+        ResourceGroupName = "rg1",
+        Tags = null,
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualNetworkRule = new AzureNative.DataLakeStore.VirtualNetworkRule("virtualNetworkRule", new()
+    {
+        AccountName = "contosoadla",
+        ResourceGroupName = "contosorg",
+        SubnetId = "test_subnetId",
+        VirtualNetworkRuleName = "test_virtual_network_rules_name",
+    });
+
+});
+

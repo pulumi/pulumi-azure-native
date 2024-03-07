@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 pipeline_run = azure_native.containerregistry.PipelineRun("pipelineRun",
     pipeline_run_name="myPipelineRun",
     registry_name="myRegistry",
-    request=azure_native.containerregistry.PipelineRunRequestArgs(
+    request=azure_native.containerregistry.PipelineRunRequestResponseArgs(
         artifacts=[
             "sourceRepository/hello-world",
             "sourceRepository2@sha256:00000000000000000000000000000000000",

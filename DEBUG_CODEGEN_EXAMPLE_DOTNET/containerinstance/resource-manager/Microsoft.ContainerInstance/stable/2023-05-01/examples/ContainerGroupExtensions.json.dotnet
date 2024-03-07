@@ -1,0 +1,86 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var containerGroup = new AzureNative.ContainerInstance.ContainerGroup("containerGroup", new()
+    {
+        ContainerGroupName = "demo1",
+        Containers = new[]
+        {
+            new AzureNative.ContainerInstance.Inputs.ContainerArgs
+            {
+                Command = new() { },
+                EnvironmentVariables = new[] {},
+                Image = "nginx",
+                Name = "demo1",
+                Ports = new[]
+                {
+                    new AzureNative.ContainerInstance.Inputs.ContainerPortArgs
+                    {
+                        Port = 80,
+                    },
+                },
+                Resources = new AzureNative.ContainerInstance.Inputs.ResourceRequirementsArgs
+                {
+                    Requests = new AzureNative.ContainerInstance.Inputs.ResourceRequestsArgs
+                    {
+                        Cpu = 1,
+                        MemoryInGB = 1.5,
+                    },
+                },
+            },
+        },
+        Extensions = new[]
+        {
+            new AzureNative.ContainerInstance.Inputs.DeploymentExtensionSpecArgs
+            {
+                ExtensionType = "kube-proxy",
+                Name = "kube-proxy",
+                ProtectedSettings = 
+                {
+                    { "kubeConfig", "<kubeconfig encoded string>" },
+                },
+                Settings = 
+                {
+                    { "clusterCidr", "10.240.0.0/16" },
+                    { "kubeVersion", "v1.9.10" },
+                },
+                Version = "1.0",
+            },
+            new AzureNative.ContainerInstance.Inputs.DeploymentExtensionSpecArgs
+            {
+                ExtensionType = "realtime-metrics",
+                Name = "vk-realtime-metrics",
+                Version = "1.0",
+            },
+        },
+        ImageRegistryCredentials = new[] {},
+        IpAddress = new AzureNative.ContainerInstance.Inputs.IpAddressArgs
+        {
+            Ports = new[]
+            {
+                new AzureNative.ContainerInstance.Inputs.PortArgs
+                {
+                    Port = 80,
+                    Protocol = "TCP",
+                },
+            },
+            Type = "Private",
+        },
+        Location = "eastus2",
+        OsType = "Linux",
+        ResourceGroupName = "demo",
+        SubnetIds = new[]
+        {
+            new AzureNative.ContainerInstance.Inputs.ContainerGroupSubnetIdArgs
+            {
+                Id = "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-rg-vnet/subnets/test-subnet",
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var migrationService = new AzureNative.DataMigration.MigrationService("migrationService", new()
+    {
+        Location = "northeurope",
+        MigrationServiceName = "testagent",
+        ResourceGroupName = "testrg",
+    });
+
+});
+

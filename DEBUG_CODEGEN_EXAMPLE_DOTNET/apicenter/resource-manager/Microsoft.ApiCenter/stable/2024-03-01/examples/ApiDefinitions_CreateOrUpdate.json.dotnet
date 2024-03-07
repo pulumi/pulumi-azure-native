@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiDefinition = new AzureNative.ApiCenter.ApiDefinition("apiDefinition", new()
+    {
+        ApiName = "openapi",
+        DefinitionName = "openapi",
+        Description = "Default spec",
+        ResourceGroupName = "contoso-resources",
+        ServiceName = "contoso",
+        Title = "OpenAPI",
+        VersionName = "2023-01-01",
+        WorkspaceName = "default",
+    });
+
+});
+

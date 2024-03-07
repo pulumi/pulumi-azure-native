@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var guestUsage = new AzureNative.AzureActiveDirectory.GuestUsage("guestUsage", new()
+    {
+        ResourceGroupName = "contosoResourceGroup",
+        ResourceName = "contoso.onmicrosoft.com",
+    });
+
+});
+

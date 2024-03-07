@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const runbook = new azure_native.automation.Runbook("runbook", {
+    automationAccountName: "ContoseAutomationAccount",
+    description: "Description of the Runbook",
+    draft: {},
+    location: "East US 2",
+    logProgress: false,
+    logVerbose: false,
+    name: "Get-AzureVMTutorial",
+    resourceGroupName: "rg",
+    runbookName: "Get-AzureVMTutorial",
+    runbookType: "PowerShellWorkflow",
+    tags: {
+        tag01: "value01",
+        tag02: "value02",
+    },
+});

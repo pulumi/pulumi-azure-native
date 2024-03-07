@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceNotificationRecipientEmail = new AzureNative.ApiManagement.WorkspaceNotificationRecipientEmail("workspaceNotificationRecipientEmail", new()
+    {
+        Email = "foobar@live.com",
+        NotificationName = "RequestPublisherNotificationMessage",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        WorkspaceId = "wks1",
+    });
+
+});
+

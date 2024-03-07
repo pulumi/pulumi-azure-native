@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspace = new azure_native.desktopvirtualization.Workspace("workspace", {
+    description: "des1",
+    friendlyName: "friendly",
+    location: "centralus",
+    resourceGroupName: "resourceGroup1",
+    tags: {
+        tag1: "value1",
+        tag2: "value2",
+    },
+    workspaceName: "workspace1",
+});

@@ -1,0 +1,91 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var brokerListener = new AzureNative.IoTOperationsMQ.BrokerListener("brokerListener", new()
+    {
+        AuthenticationEnabled = true,
+        AuthorizationEnabled = true,
+        BrokerName = "HGF6WIy6oHv756MjW0JRLILF",
+        BrokerRef = "ikuszpfycikq",
+        ExtendedLocation = new AzureNative.IoTOperationsMQ.Inputs.ExtendedLocationPropertyArgs
+        {
+            Name = "an",
+            Type = "CustomLocation",
+        },
+        ListenerName = "XGEP",
+        Location = "dppbdcpstouifyko",
+        MqName = "Z1-2BCdNY4JO--84",
+        NodePort = 34375,
+        Port = 19791,
+        ResourceGroupName = "rgiotoperationsmq",
+        ServiceName = "euxa",
+        ServiceType = "clusterIp",
+        Tags = null,
+        Tls = new AzureNative.IoTOperationsMQ.Inputs.TlsCertMethodArgs
+        {
+            Automatic = new AzureNative.IoTOperationsMQ.Inputs.AutomaticCertMethodArgs
+            {
+                Duration = "rv",
+                IssuerRef = new AzureNative.IoTOperationsMQ.Inputs.CertManagerIssuerRefArgs
+                {
+                    Group = "wxydv",
+                    Kind = "birgjwuxfjcvyqe",
+                    Name = "krmdlovyynymtvgffaveker",
+                },
+                PrivateKey = new AzureNative.IoTOperationsMQ.Inputs.CertManagerPrivateKeyArgs
+                {
+                    Algorithm = "wwewfsddymjefuhxzqybwvay",
+                    RotationPolicy = "jxmpyvfneckopjiakjtous",
+                    Size = 63427,
+                },
+                RenewBefore = "dexxoqqkgyofhkbk",
+                San = new AzureNative.IoTOperationsMQ.Inputs.SanForCertArgs
+                {
+                    Dns = new[]
+                    {
+                        "nknzptgqgjvbkgzv",
+                    },
+                    Ip = new[]
+                    {
+                        "jpdkemham",
+                    },
+                },
+                SecretName = "hquvygbuueerkspqqktviya",
+                SecretNamespace = "aevwndhcnfxitdjykp",
+            },
+            KeyVault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCertificatePropertiesArgs
+            {
+                Vault = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultConnectionPropertiesArgs
+                {
+                    Credentials = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultCredentialsPropertiesArgs
+                    {
+                        ServicePrincipalLocalSecretName = "wuimjwpbhoglbsxxa",
+                    },
+                    DirectoryId = "eyjniptiykzcgbzok",
+                    Name = "lxmwfan",
+                },
+                VaultCaChainSecret = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+                {
+                    Name = "bmectskddmpjxnsogwooexj",
+                    Version = "unjfbf",
+                },
+                VaultCert = new AzureNative.IoTOperationsMQ.Inputs.KeyVaultSecretObjectArgs
+                {
+                    Name = "bmectskddmpjxnsogwooexj",
+                    Version = "unjfbf",
+                },
+            },
+            Manual = new AzureNative.IoTOperationsMQ.Inputs.ManualCertMethodArgs
+            {
+                SecretName = "fezcl",
+                SecretNamespace = "ozhayajoooingoczovfusqyilin",
+            },
+        },
+    });
+
+});
+

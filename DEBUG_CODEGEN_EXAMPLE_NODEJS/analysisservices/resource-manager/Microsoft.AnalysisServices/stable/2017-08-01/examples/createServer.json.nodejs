@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serverDetails = new azure_native.analysisservices.ServerDetails("serverDetails", {
+    asAdministrators: {
+        members: [
+            "azsdktest@microsoft.com",
+            "azsdktest2@microsoft.com",
+        ],
+    },
+    location: "West US",
+    resourceGroupName: "TestRG",
+    serverName: "azsdktest",
+    sku: {
+        capacity: 1,
+        name: "S1",
+        tier: "Standard",
+    },
+    tags: {
+        testKey: "testValue",
+    },
+});

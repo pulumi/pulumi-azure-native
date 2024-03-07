@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const user = new azure_native.apimanagement.User("user", {
+    confirmation: "signup",
+    email: "foobar@outlook.com",
+    firstName: "foo",
+    lastName: "bar",
+    resourceGroupName: "rg1",
+    serviceName: "apimService1",
+    userId: "5931a75ae4bbd512288c680b",
+});

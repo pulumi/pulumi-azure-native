@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const defaultRollout = new azure_native.providerhub.DefaultRollout("defaultRollout", {
+    properties: {
+        specification: {
+            canary: {
+                skipRegions: ["eastus2euap"],
+            },
+            expeditedRollout: {
+                enabled: true,
+            },
+            restOfTheWorldGroupTwo: {
+                waitDuration: "PT4H",
+            },
+        },
+    },
+    providerNamespace: "Microsoft.Contoso",
+    rolloutName: "2020week10",
+});

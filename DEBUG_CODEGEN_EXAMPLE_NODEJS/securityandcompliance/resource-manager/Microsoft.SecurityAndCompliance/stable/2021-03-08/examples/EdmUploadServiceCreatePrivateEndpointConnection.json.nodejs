@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnectionsForEDM = new azure_native.securityandcompliance.PrivateEndpointConnectionsForEDM("privateEndpointConnectionsForEDM", {
+    privateEndpointConnectionName: "myConnection",
+    privateLinkServiceConnectionState: {
+        description: "Auto-Approved",
+        status: "Approved",
+    },
+    resourceGroupName: "rgname",
+    resourceName: "service1",
+});

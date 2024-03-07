@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var azureTrafficCollector = new AzureNative.NetworkFunction.AzureTrafficCollector("azureTrafficCollector", new()
+    {
+        AzureTrafficCollectorName = "atc",
+        Location = "West US",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

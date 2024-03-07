@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var output = new AzureNative.StreamAnalytics.Output("output", new()
+    {
+        Datasource = new AzureNative.StreamAnalytics.Inputs.ServiceBusTopicOutputDataSourceArgs
+        {
+            PropertyColumns = new[]
+            {
+                "column1",
+                "column2",
+            },
+            ServiceBusNamespace = "sdktest",
+            SharedAccessPolicyKey = "sharedAccessPolicyKey=",
+            SharedAccessPolicyName = "RootManageSharedAccessKey",
+            TopicName = "sdktopic",
+            Type = "Microsoft.ServiceBus/Topic",
+        },
+        JobName = "sj7094",
+        OutputName = "output7886",
+        ResourceGroupName = "sjrg6450",
+        Serialization = new AzureNative.StreamAnalytics.Inputs.CsvSerializationArgs
+        {
+            Encoding = "UTF8",
+            FieldDelimiter = ",",
+            Type = "Csv",
+        },
+    });
+
+});
+

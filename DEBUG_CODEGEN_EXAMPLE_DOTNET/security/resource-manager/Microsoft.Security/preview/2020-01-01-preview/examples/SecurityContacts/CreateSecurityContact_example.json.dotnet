@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var securityContact = new AzureNative.Security.SecurityContact("securityContact", new()
+    {
+        AlertNotifications = new AzureNative.Security.Inputs.SecurityContactPropertiesAlertNotificationsArgs
+        {
+            MinimalSeverity = "Low",
+            State = "On",
+        },
+        Emails = "john@contoso.com;jane@contoso.com",
+        NotificationsByRole = new AzureNative.Security.Inputs.SecurityContactPropertiesNotificationsByRoleArgs
+        {
+            Roles = new[]
+            {
+                "Owner",
+            },
+            State = "On",
+        },
+        Phone = "(214)275-4038",
+        SecurityContactName = "default",
+    });
+
+});
+

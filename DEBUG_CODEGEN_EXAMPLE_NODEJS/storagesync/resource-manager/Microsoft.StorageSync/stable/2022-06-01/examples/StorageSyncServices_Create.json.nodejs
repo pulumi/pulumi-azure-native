@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageSyncService = new azure_native.storagesync.StorageSyncService("storageSyncService", {
+    incomingTrafficPolicy: "AllowAllTraffic",
+    location: "WestUS",
+    resourceGroupName: "SampleResourceGroup_1",
+    storageSyncServiceName: "SampleStorageSyncService_1",
+    tags: {},
+});

@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var organization = new AzureNative.Confluent.Organization("organization", new()
+    {
+        Location = "West US",
+        OfferDetail = new AzureNative.Confluent.Inputs.OfferDetailArgs
+        {
+            Id = "string",
+            PlanId = "string",
+            PlanName = "string",
+            PublisherId = "string",
+            TermUnit = "string",
+        },
+        OrganizationName = "myOrganization",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "Environment", "Dev" },
+        },
+        UserDetail = new AzureNative.Confluent.Inputs.UserDetailArgs
+        {
+            EmailAddress = "contoso@microsoft.com",
+            FirstName = "string",
+            LastName = "string",
+        },
+    });
+
+});
+

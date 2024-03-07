@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedDatabase = new AzureNative.Sql.ManagedDatabase("managedDatabase", new()
+    {
+        Collation = "SQL_Latin1_General_CP1_CI_AS",
+        CreateMode = "RestoreExternalBackup",
+        DatabaseName = "managedDatabase",
+        Location = "southeastasia",
+        ManagedInstanceName = "managedInstance",
+        ResourceGroupName = "Default-SQL-SouthEastAsia",
+        StorageContainerSasToken = "sv=2015-12-11&sr=c&sp=rl&sig=1234",
+        StorageContainerUri = "https://myaccountname.blob.core.windows.net/backups",
+    });
+
+});
+

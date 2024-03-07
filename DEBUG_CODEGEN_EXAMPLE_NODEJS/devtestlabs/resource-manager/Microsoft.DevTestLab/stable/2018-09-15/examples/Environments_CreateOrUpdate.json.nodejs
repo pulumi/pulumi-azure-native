@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const environment = new azure_native.devtestlab.Environment("environment", {
+    deploymentProperties: {
+        armTemplateId: "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}",
+        parameters: [],
+    },
+    labName: "{labName}",
+    name: "{environmentName}",
+    resourceGroupName: "resourceGroupName",
+    userName: "@me",
+});

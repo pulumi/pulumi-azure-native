@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var l3IsolationDomain = new AzureNative.ManagedNetworkFabric.L3IsolationDomain("l3IsolationDomain", new()
+    {
+        AggregateRouteConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.AggregateRouteConfigurationArgs
+        {
+            Ipv4Routes = new[]
+            {
+                new AzureNative.ManagedNetworkFabric.Inputs.AggregateRouteArgs
+                {
+                    Prefix = "10.0.0.0/24",
+                },
+            },
+            Ipv6Routes = new[]
+            {
+                new AzureNative.ManagedNetworkFabric.Inputs.AggregateRouteArgs
+                {
+                    Prefix = "10.0.0.1",
+                },
+            },
+        },
+        ConnectedSubnetRoutePolicy = new AzureNative.ManagedNetworkFabric.Inputs.L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs
+        {
+            ExportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+        },
+        Description = "creating L3 isolation domain",
+        L3IsolationDomainName = "example-l3domain",
+        Location = "eastus",
+        NetworkFabricId = "/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+        RedistributeConnectedSubnets = "True",
+        RedistributeStaticRoutes = "False",
+        ResourceGroupName = "resourceGroupName",
+    });
+
+});
+

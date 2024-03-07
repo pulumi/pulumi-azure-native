@@ -5,19 +5,19 @@ storage_account = azure_native.storage.StorageAccount("storageAccount",
     account_name="sto4445",
     allow_blob_public_access=False,
     allow_shared_key_access=True,
-    encryption=azure_native.storage.EncryptionArgs(
+    encryption=azure_native.storage.EncryptionResponseArgs(
         key_source="Microsoft.Storage",
         require_infrastructure_encryption=False,
-        services=azure_native.storage.EncryptionServicesArgs(
-            blob=azure_native.storage.EncryptionServiceArgs(
+        services={
+            "blob": azure_native.storage.EncryptionServiceArgs(
                 enabled=True,
                 key_type="Account",
             ),
-            file=azure_native.storage.EncryptionServiceArgs(
+            "file": azure_native.storage.EncryptionServiceArgs(
                 enabled=True,
                 key_type="Account",
             ),
-        ),
+        },
     ),
     extended_location=azure_native.storage.ExtendedLocationArgs(
         name="losangeles001",

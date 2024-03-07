@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var task = new AzureNative.DataMigration.Task("task", new()
+    {
+        GroupName = "DmsSdkRg",
+        ProjectName = "DmsSdkProject",
+        Properties = new AzureNative.DataMigration.Inputs.ConnectToTargetSqlDbTaskPropertiesArgs
+        {
+            Input = new AzureNative.DataMigration.Inputs.ConnectToTargetSqlDbTaskInputArgs
+            {
+                TargetConnectionInfo = new AzureNative.DataMigration.Inputs.SqlConnectionInfoArgs
+                {
+                    Authentication = "SqlAuthentication",
+                    DataSource = "ssma-test-server.database.windows.net",
+                    EncryptConnection = true,
+                    Password = "testpassword",
+                    TrustServerCertificate = true,
+                    Type = "SqlConnectionInfo",
+                    UserName = "testuser",
+                },
+            },
+            TaskType = "ConnectToTarget.SqlDb",
+        },
+        ServiceName = "DmsSdkService",
+        TaskName = "DmsSdkTask",
+    });
+
+});
+

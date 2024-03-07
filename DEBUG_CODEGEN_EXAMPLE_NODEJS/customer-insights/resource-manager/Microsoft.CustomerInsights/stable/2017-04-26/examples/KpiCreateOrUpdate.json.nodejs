@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const kpi = new azure_native.customerinsights.Kpi("kpi", {
+    aliases: [{
+        aliasName: "alias",
+        expression: "Id+4",
+    }],
+    calculationWindow: azure_native.customerinsights.CalculationWindowTypes.Day,
+    description: {
+        "en-us": "Kpi Description",
+    },
+    displayName: {
+        "en-us": "Kpi DisplayName",
+    },
+    entityType: azure_native.customerinsights.EntityTypes.Profile,
+    entityTypeName: "testProfile2327128",
+    expression: "SavingAccountBalance",
+    "function": azure_native.customerinsights.KpiFunctions.Sum,
+    groupBy: ["SavingAccountBalance"],
+    hubName: "sdkTestHub",
+    kpiName: "kpiTest45453647",
+    resourceGroupName: "TestHubRG",
+    thresHolds: {
+        increasingKpi: true,
+        lowerLimit: 5,
+        upperLimit: 50,
+    },
+    unit: "unit",
+});

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var streamingLocator = new AzureNative.Media.StreamingLocator("streamingLocator", new()
+    {
+        AccountName = "contosomedia",
+        AssetName = "ClimbingMountRainier",
+        ResourceGroupName = "contosorg",
+        StreamingLocatorName = "UserCreatedClearStreamingLocator",
+        StreamingPolicyName = "clearStreamingPolicy",
+    });
+
+});
+

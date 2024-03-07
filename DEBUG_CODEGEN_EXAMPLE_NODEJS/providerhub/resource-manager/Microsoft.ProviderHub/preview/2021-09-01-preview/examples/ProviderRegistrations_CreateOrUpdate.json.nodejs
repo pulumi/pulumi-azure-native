@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const providerRegistration = new azure_native.providerhub.ProviderRegistration("providerRegistration", {
+    properties: {
+        capabilities: [
+            {
+                effect: "Allow",
+                quotaId: "CSP_2015-05-01",
+            },
+            {
+                effect: "Allow",
+                quotaId: "CSP_MG_2017-12-01",
+            },
+        ],
+        management: {
+            incidentContactEmail: "helpme@contoso.com",
+            incidentRoutingService: "Contoso Resource Provider",
+            incidentRoutingTeam: "Contoso Triage",
+            serviceTreeInfos: [{
+                componentId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                readiness: "InDevelopment",
+                serviceId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+            }],
+        },
+        providerType: "Internal",
+        providerVersion: "2.0",
+    },
+    providerNamespace: "Microsoft.Contoso",
+});

@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const appServiceEnvironmentAseCustomDnsSuffixConfiguration = new azure_native.web.AppServiceEnvironmentAseCustomDnsSuffixConfiguration("appServiceEnvironmentAseCustomDnsSuffixConfiguration", {
+    certificateUrl: "https://test-kv.vault.azure.net/secrets/contosocert",
+    dnsSuffix: "contoso.com",
+    keyVaultReferenceIdentity: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
+    name: "test-ase",
+    resourceGroupName: "test-rg",
+});

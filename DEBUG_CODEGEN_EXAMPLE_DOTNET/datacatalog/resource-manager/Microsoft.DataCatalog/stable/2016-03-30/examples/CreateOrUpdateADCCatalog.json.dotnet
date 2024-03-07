@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var adcCatalog = new AzureNative.DataCatalog.ADCCatalog("adcCatalog", new()
+    {
+        Admins = new[]
+        {
+            new AzureNative.DataCatalog.Inputs.PrincipalsArgs
+            {
+                ObjectId = "99999999-9999-9999-999999999999",
+                Upn = "myupn@microsoft.com",
+            },
+        },
+        CatalogName = "exampleCatalog",
+        EnableAutomaticUnitAdjustment = false,
+        Location = "North US",
+        ResourceGroupName = "exampleResourceGroup",
+        Sku = "Standard",
+        Tags = 
+        {
+            { "mykey", "myvalue" },
+            { "mykey2", "myvalue2" },
+        },
+        Units = 1,
+        Users = new[]
+        {
+            new AzureNative.DataCatalog.Inputs.PrincipalsArgs
+            {
+                ObjectId = "99999999-9999-9999-999999999999",
+                Upn = "myupn@microsoft.com",
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageContainer = new azure_native.azurestackhci.StorageContainer("storageContainer", {
+    extendedLocation: {
+        name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+        type: "CustomLocation",
+    },
+    location: "West US2",
+    path: "C:\\container_storage",
+    resourceGroupName: "test-rg",
+    storageContainerName: "Default_Container",
+});

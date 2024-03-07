@@ -1,0 +1,28 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const storageTarget = new azure_native.storagecache.StorageTarget("storageTarget", {
+    cacheName: "sc1",
+    junctions: [
+        {
+            namespacePath: "/path/on/cache",
+            nfsAccessPolicy: "default",
+            nfsExport: "exp1",
+            targetPath: "/path/on/exp1",
+        },
+        {
+            namespacePath: "/path2/on/cache",
+            nfsAccessPolicy: "rootSquash",
+            nfsExport: "exp2",
+            targetPath: "/path2/on/exp2",
+        },
+    ],
+    nfs3: {
+        target: "10.0.44.44",
+        usageModel: "READ_ONLY",
+        verificationTimer: 30,
+    },
+    resourceGroupName: "scgroup",
+    storageTargetName: "st1",
+    targetType: "nfs3",
+});

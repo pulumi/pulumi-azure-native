@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var contentPackage = new AzureNative.SecurityInsights.ContentPackage("contentPackage", new()
+    {
+        ContentId = "str.azure-sentinel-solution-str",
+        ContentKind = "Solution",
+        DisplayName = "str",
+        PackageId = "str.azure-sentinel-solution-str",
+        ResourceGroupName = "myRg",
+        Version = "2.0.0",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

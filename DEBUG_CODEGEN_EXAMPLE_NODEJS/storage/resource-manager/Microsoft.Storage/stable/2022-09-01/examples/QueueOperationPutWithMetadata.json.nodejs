@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const queue = new azure_native.storage.Queue("queue", {
+    accountName: "sto328",
+    metadata: {
+        sample1: "meta1",
+        sample2: "meta2",
+    },
+    queueName: "queue6185",
+    resourceGroupName: "res3376",
+});

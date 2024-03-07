@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const signalRReplica = new azure_native.signalrservice.SignalRReplica("signalRReplica", {
+    location: "eastus",
+    replicaName: "mySignalRService-eastus",
+    resourceGroupName: "myResourceGroup",
+    resourceName: "mySignalRService",
+    sku: {
+        capacity: 1,
+        name: "Premium_P1",
+        tier: "Premium",
+    },
+    tags: {
+        key1: "value1",
+    },
+});

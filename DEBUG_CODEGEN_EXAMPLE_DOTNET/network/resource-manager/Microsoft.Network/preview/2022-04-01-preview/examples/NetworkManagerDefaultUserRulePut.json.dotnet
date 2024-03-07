@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var userRule = new AzureNative.Network.UserRule("userRule", new()
+    {
+        ConfigurationName = "myTestSecurityConfig",
+        NetworkManagerName = "testNetworkManager",
+        ResourceGroupName = "rg1",
+        RuleCollectionName = "testRuleCollection",
+        RuleName = "SampleDefaultUserRule",
+    });
+
+});
+

@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var instanceFailoverGroup = new AzureNative.Sql.InstanceFailoverGroup("instanceFailoverGroup", new()
+    {
+        FailoverGroupName = "failover-group-test-3",
+        LocationName = "Japan East",
+        ManagedInstancePairs = new[]
+        {
+            new AzureNative.Sql.Inputs.ManagedInstancePairInfoArgs
+            {
+                PartnerManagedInstanceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-secondary-mngdInstance",
+                PrimaryManagedInstanceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-primary-mngdInstance",
+            },
+        },
+        PartnerRegions = new[]
+        {
+            new AzureNative.Sql.Inputs.PartnerRegionInfoArgs
+            {
+                Location = "Japan West",
+            },
+        },
+        ReadOnlyEndpoint = new AzureNative.Sql.Inputs.InstanceFailoverGroupReadOnlyEndpointArgs
+        {
+            FailoverPolicy = "Disabled",
+        },
+        ReadWriteEndpoint = new AzureNative.Sql.Inputs.InstanceFailoverGroupReadWriteEndpointArgs
+        {
+            FailoverPolicy = "Automatic",
+            FailoverWithDataLossGracePeriodMinutes = 480,
+        },
+        ResourceGroupName = "Default",
+    });
+
+});
+

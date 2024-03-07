@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var diskAccessAPrivateEndpointConnection = new AzureNative.Compute.DiskAccessAPrivateEndpointConnection("diskAccessAPrivateEndpointConnection", new()
+    {
+        DiskAccessName = "myDiskAccess",
+        PrivateEndpointConnectionName = "myPrivateEndpointConnection",
+        PrivateLinkServiceConnectionState = new AzureNative.Compute.Inputs.PrivateLinkServiceConnectionStateArgs
+        {
+            Description = "Approving myPrivateEndpointConnection",
+            Status = "Approved",
+        },
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

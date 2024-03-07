@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const integrationAccountMap = new azure_native.logic.IntegrationAccountMap("integrationAccountMap", {
+    contentType: "application/xml",
+    integrationAccountName: "testIntegrationAccount",
+    location: "westus",
+    mapName: "testMap",
+    mapType: "Xslt",
+    metadata: {},
+    resourceGroupName: "testResourceGroup",
+});

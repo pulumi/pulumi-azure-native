@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const logicalNetwork = new azure_native.azurestackhci.LogicalNetwork("logicalNetwork", {
+    extendedLocation: {
+        name: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+        type: "CustomLocation",
+    },
+    location: "West US2",
+    logicalNetworkName: "test-lnet",
+    resourceGroupName: "test-rg",
+});

@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const inboundNatRule = new azure_native.network.InboundNatRule("inboundNatRule", {
+    backendPort: 3389,
+    enableFloatingIP: false,
+    enableTcpReset: false,
+    frontendIPConfiguration: {
+        id: "/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/frontendIPConfigurations/ip1",
+    },
+    frontendPort: 3390,
+    idleTimeoutInMinutes: 4,
+    inboundNatRuleName: "natRule1.1",
+    loadBalancerName: "lb1",
+    protocol: "Tcp",
+    resourceGroupName: "testrg",
+});

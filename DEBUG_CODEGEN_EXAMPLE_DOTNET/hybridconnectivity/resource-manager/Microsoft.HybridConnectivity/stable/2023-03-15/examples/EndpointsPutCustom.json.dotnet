@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var endpoint = new AzureNative.HybridConnectivity.Endpoint("endpoint", new()
+    {
+        EndpointName = "custom",
+        Properties = new AzureNative.HybridConnectivity.Inputs.EndpointPropertiesArgs
+        {
+            ResourceId = "/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+            Type = "custom",
+        },
+        ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+    });
+
+});
+

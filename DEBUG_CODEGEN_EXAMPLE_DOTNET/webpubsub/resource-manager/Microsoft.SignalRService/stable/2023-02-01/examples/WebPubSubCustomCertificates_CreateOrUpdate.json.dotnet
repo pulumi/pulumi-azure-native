@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webPubSubCustomCertificate = new AzureNative.WebPubSub.WebPubSubCustomCertificate("webPubSubCustomCertificate", new()
+    {
+        CertificateName = "myCert",
+        KeyVaultBaseUri = "https://myvault.keyvault.azure.net/",
+        KeyVaultSecretName = "mycert",
+        KeyVaultSecretVersion = "bb6a44b2743f47f68dad0d6cc9756432",
+        ResourceGroupName = "myResourceGroup",
+        ResourceName = "myWebPubSubService",
+    });
+
+});
+

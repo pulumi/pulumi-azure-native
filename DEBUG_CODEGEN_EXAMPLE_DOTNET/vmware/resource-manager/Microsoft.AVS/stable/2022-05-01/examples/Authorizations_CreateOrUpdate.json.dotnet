@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var authorization = new AzureNative.AVS.Authorization("authorization", new()
+    {
+        AuthorizationName = "authorization1",
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var notificationRecipientEmail = new AzureNative.ApiManagement.NotificationRecipientEmail("notificationRecipientEmail", new()
+    {
+        Email = "foobar@live.com",
+        NotificationName = "RequestPublisherNotificationMessage",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

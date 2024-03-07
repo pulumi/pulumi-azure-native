@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nspLink = new AzureNative.Network.NspLink("nspLink", new()
+    {
+        AutoApprovedRemotePerimeterResourceId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp2",
+        LinkName = "link1",
+        NetworkSecurityPerimeterName = "nsp1",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var supportPlanType = new AzureNative.Addons.SupportPlanType("supportPlanType", new()
+    {
+        PlanTypeName = "Standard",
+        ProviderName = "Canonical",
+    });
+
+});
+

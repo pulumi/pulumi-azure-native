@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var kustoPoolDatabasePrincipalAssignment = new AzureNative.Synapse.KustoPoolDatabasePrincipalAssignment("kustoPoolDatabasePrincipalAssignment", new()
+    {
+        DatabaseName = "Kustodatabase8",
+        KustoPoolName = "kustoclusterrptest4",
+        PrincipalAssignmentName = "kustoprincipal1",
+        PrincipalId = "87654321-1234-1234-1234-123456789123",
+        PrincipalType = "App",
+        ResourceGroupName = "kustorptest",
+        Role = "Admin",
+        TenantId = "12345678-1234-1234-1234-123456789123",
+        WorkspaceName = "synapseWorkspaceName",
+    });
+
+});
+

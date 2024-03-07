@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualMachineScaleSetExtension = new azure_native.compute.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension", {
+    autoUpgradeMinorVersion: true,
+    enableAutomaticUpgrade: true,
+    forceUpdateTag: "aaaaaaaaa",
+    name: "{extension-name}",
+    protectedSettings: {},
+    provisionAfterExtensions: ["aa"],
+    publisher: "{extension-Publisher}",
+    resourceGroupName: "rgcompute",
+    settings: {},
+    suppressFailures: true,
+    type: "{extension-Type}",
+    typeHandlerVersion: "{handler-version}",
+    vmScaleSetName: "aaaaaaa",
+    vmssExtensionName: "aaaaaaaaaaaaaaaaaaaaa",
+});

@@ -4,17 +4,17 @@ import pulumi_azure_native as azure_native
 application = azure_native.hdinsight.Application("application",
     application_name="hue",
     cluster_name="cluster1",
-    properties=azure_native.hdinsight.ApplicationPropertiesArgs(
+    properties=azure_native.hdinsight.ApplicationPropertiesResponseArgs(
         application_type="CustomApplication",
-        compute_profile=azure_native.hdinsight.ComputeProfileArgs(
-            roles=[azure_native.hdinsight.RoleArgs(
-                hardware_profile=azure_native.hdinsight.HardwareProfileArgs(
+        compute_profile={
+            "roles": [{
+                "hardwareProfile": azure_native.hdinsight.HardwareProfileArgs(
                     vm_size="Standard_D12_v2",
                 ),
-                name="edgenode",
-                target_instance_count=1,
-            )],
-        ),
+                "name": "edgenode",
+                "targetInstanceCount": 1,
+            }],
+        },
         errors=[],
         https_endpoints=[azure_native.hdinsight.ApplicationGetHttpsEndpointArgs(
             access_modes=["WebPage"],

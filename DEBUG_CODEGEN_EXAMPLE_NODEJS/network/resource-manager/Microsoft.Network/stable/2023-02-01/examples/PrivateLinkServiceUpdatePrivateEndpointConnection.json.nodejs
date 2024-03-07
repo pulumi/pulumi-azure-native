@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateLinkServicePrivateEndpointConnection = new azure_native.network.PrivateLinkServicePrivateEndpointConnection("privateLinkServicePrivateEndpointConnection", {
+    name: "testPlePeConnection",
+    peConnectionName: "testPlePeConnection",
+    privateLinkServiceConnectionState: {
+        description: "approved it for some reason.",
+        status: "Approved",
+    },
+    resourceGroupName: "rg1",
+    serviceName: "testPls",
+});

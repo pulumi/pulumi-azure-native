@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const tiDataConnector = new azure_native.securityinsights.TIDataConnector("tiDataConnector", {
+    dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    dataTypes: {
+        indicators: {
+            state: "Enabled",
+        },
+    },
+    kind: "ThreatIntelligence",
+    resourceGroupName: "myRg",
+    tenantId: "06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+    tipLookbackPeriod: "2020-01-01T13:00:30.123Z",
+    workspaceName: "myWorkspace",
+});

@@ -1,0 +1,76 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dataLakeConnector = new azure_native.iotoperationsmq.DataLakeConnector("dataLakeConnector", {
+    dataLakeConnectorName: "87v4D",
+    databaseFormat: "delta",
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    image: {
+        pullPolicy: "imfuzvqxgbdwliqnn",
+        pullSecrets: "klnqimxqsrdwhcqldjvdtsrs",
+        repository: "m",
+        tag: "jygfdiamhhm",
+    },
+    instances: 53467,
+    localBrokerConnection: {
+        authentication: {
+            kubernetes: {
+                secretPath: "soukzfkouir",
+                serviceAccountTokenName: "suwetviuhmhorhvsidlznnufe",
+            },
+        },
+        endpoint: "xc",
+        tls: {
+            tlsEnabled: true,
+            trustedCaCertificateConfigMap: "rinkomfeznsfedbmllxlbmmhc",
+        },
+    },
+    location: "ewguwvlahlu",
+    logLevel: "ikicyoalavfmqlodnupfjayxjti",
+    mqName: "Ox--3e65kYN0731DJ1Qg",
+    nodeTolerations: {
+        effect: "eeswvciblqmmaeesjoflyvxqbz",
+        key: "wbrstdwxgm",
+        operator: "lbegegneekwnyodtzraarivtwhmzep",
+        value: "sfafsjdcezdmkwibxeluukxgl",
+    },
+    protocol: "v3",
+    resourceGroupName: "rgiotoperationsmq",
+    tags: {},
+    target: {
+        datalakeStorage: {
+            authentication: {
+                accessTokenSecretName: "cfaoxjbfbwdldqjbfczvovgooyqkl",
+                systemAssignedManagedIdentity: {
+                    audience: "kjderojhpehosgfcrxxbh",
+                    extensionName: "cyckjqqzspleajbtkniwrfsqygjfhe",
+                },
+            },
+            endpoint: "bddy",
+        },
+        fabricOneLake: {
+            authentication: {
+                systemAssignedManagedIdentity: {
+                    audience: "kjderojhpehosgfcrxxbh",
+                    extensionName: "cyckjqqzspleajbtkniwrfsqygjfhe",
+                },
+            },
+            endpoint: "S.fabric.microsoft.com",
+            fabricPath: "files",
+            guids: {
+                lakehouseGuid: "grsapopwjnuzbmnxbjnawaae",
+                workspaceGuid: "iwqfplayvdkdxumpdc",
+            },
+            names: {
+                lakehouseName: "iqgqtk",
+                workspaceName: "fxvlfhfcmlhcbgpopyqfikqsryct",
+            },
+        },
+        localStorage: {
+            volumeName: "nmzsioldiwteljpplmftk",
+        },
+    },
+});

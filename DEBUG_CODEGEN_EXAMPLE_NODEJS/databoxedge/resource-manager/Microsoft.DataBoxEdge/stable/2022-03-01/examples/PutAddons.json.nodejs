@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const ioTAddon = new azure_native.databoxedge.IoTAddon("ioTAddon", {
+    addonName: "arcName",
+    deviceName: "testedgedevice",
+    resourceGroupName: "GroupForEdgeAutomation",
+    roleName: "KubernetesRole",
+});

@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedDatabase = new AzureNative.Sql.ManagedDatabase("managedDatabase", new()
+    {
+        CreateMode = "Recovery",
+        DatabaseName = "testdb_recovered",
+        Location = "southeastasia",
+        ManagedInstanceName = "server1",
+        RecoverableDatabaseId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+        ResourceGroupName = "Default-SQL-SouthEastAsia",
+    });
+
+});
+

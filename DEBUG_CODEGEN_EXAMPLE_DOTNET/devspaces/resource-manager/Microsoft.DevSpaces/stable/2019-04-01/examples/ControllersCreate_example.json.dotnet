@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var controller = new AzureNative.DevSpaces.Controller("controller", new()
+    {
+        Location = "eastus",
+        Name = "myControllerResource",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.DevSpaces.Inputs.SkuArgs
+        {
+            Name = "S1",
+            Tier = "Standard",
+        },
+        Tags = null,
+        TargetContainerHostCredentialsBase64 = "QmFzZTY0IEVuY29kZWQgVmFsdWUK",
+        TargetContainerHostResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster",
+    });
+
+});
+

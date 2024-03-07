@@ -1,0 +1,50 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualHubRouteTableV2 = new AzureNative.Network.VirtualHubRouteTableV2("virtualHubRouteTableV2", new()
+    {
+        AttachedConnections = new[]
+        {
+            "All_Vnets",
+        },
+        ResourceGroupName = "rg1",
+        RouteTableName = "virtualHubRouteTable1a",
+        Routes = new[]
+        {
+            new AzureNative.Network.Inputs.VirtualHubRouteV2Args
+            {
+                DestinationType = "CIDR",
+                Destinations = new[]
+                {
+                    "20.10.0.0/16",
+                    "20.20.0.0/16",
+                },
+                NextHopType = "IPAddress",
+                NextHops = new[]
+                {
+                    "10.0.0.68",
+                },
+            },
+            new AzureNative.Network.Inputs.VirtualHubRouteV2Args
+            {
+                DestinationType = "CIDR",
+                Destinations = new[]
+                {
+                    "0.0.0.0/0",
+                },
+                NextHopType = "IPAddress",
+                NextHops = new[]
+                {
+                    "10.0.0.68",
+                },
+            },
+        },
+        VirtualHubName = "virtualHub1",
+    });
+
+});
+

@@ -1,0 +1,110 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    {
+        ClusterName = "cluster1",
+        Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+        {
+            ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+            {
+                Configurations = 
+                {
+                    { "gateway", 
+                    {
+                        { "restAuthCredential.isEnabled", true },
+                        { "restAuthCredential.password", "**********" },
+                        { "restAuthCredential.username", "admin" },
+                    } },
+                },
+                Kind = "hadoop",
+            },
+            ClusterVersion = "3.6",
+            ComputeIsolationProperties = new AzureNative.HDInsight.Inputs.ComputeIsolationPropertiesArgs
+            {
+                EnableComputeIsolation = true,
+            },
+            ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+            {
+                Roles = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "standard_d3",
+                        },
+                        Name = "headnode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+                                {
+                                    PublicKeys = new[]
+                                    {
+                                        new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+                                        {
+                                            CertificateData = "**********",
+                                        },
+                                    },
+                                },
+                                Username = "sshuser",
+                            },
+                        },
+                        TargetInstanceCount = 2,
+                    },
+                    new AzureNative.HDInsight.Inputs.RoleArgs
+                    {
+                        HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+                        {
+                            VmSize = "standard_d3",
+                        },
+                        Name = "workernode",
+                        OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+                        {
+                            LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+                            {
+                                Password = "**********",
+                                SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+                                {
+                                    PublicKeys = new[]
+                                    {
+                                        new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+                                        {
+                                            CertificateData = "**********",
+                                        },
+                                    },
+                                },
+                                Username = "sshuser",
+                            },
+                        },
+                        TargetInstanceCount = 2,
+                    },
+                },
+            },
+            OsType = "Linux",
+            StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+            {
+                Storageaccounts = new[]
+                {
+                    new AzureNative.HDInsight.Inputs.StorageAccountArgs
+                    {
+                        Container = "containername",
+                        IsDefault = true,
+                        Key = "storage account key",
+                        Name = "mystorage",
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

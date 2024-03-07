@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const galleryImage = new azure_native.compute.GalleryImage("galleryImage", {
+    galleryImageName: "myGalleryImageName",
+    galleryName: "myGalleryName",
+    hyperVGeneration: "V1",
+    identifier: {
+        offer: "myOfferName",
+        publisher: "myPublisherName",
+        sku: "mySkuName",
+    },
+    location: "West US",
+    osState: azure_native.compute.OperatingSystemStateTypes.Generalized,
+    osType: azure_native.compute.OperatingSystemTypes.Windows,
+    resourceGroupName: "myResourceGroup",
+});

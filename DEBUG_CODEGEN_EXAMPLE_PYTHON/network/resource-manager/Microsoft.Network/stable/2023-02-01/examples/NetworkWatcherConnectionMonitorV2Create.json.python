@@ -8,17 +8,17 @@ connection_monitor = azure_native.network.ConnectionMonitor("connectionMonitor",
             name="vm1",
             resource_id="/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/NwRgIrinaCentralUSEUAP/providers/Microsoft.Compute/virtualMachines/vm1",
         ),
-        azure_native.network.ConnectionMonitorEndpointArgs(
-            filter=azure_native.network.ConnectionMonitorEndpointFilterArgs(
-                items=[azure_native.network.ConnectionMonitorEndpointFilterItemArgs(
+        {
+            "filter": {
+                "items": [azure_native.network.ConnectionMonitorEndpointFilterItemArgs(
                     address="npmuser",
                     type="AgentAddress",
                 )],
-                type="Include",
-            ),
-            name="CanaryWorkspaceVamshi",
-            resource_id="/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
-        ),
+                "type": "Include",
+            },
+            "name": "CanaryWorkspaceVamshi",
+            "resourceId": "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
+        },
         azure_native.network.ConnectionMonitorEndpointArgs(
             address="bing.com",
             name="bing",
@@ -31,15 +31,15 @@ connection_monitor = azure_native.network.ConnectionMonitor("connectionMonitor",
     network_watcher_name="nw1",
     outputs=[],
     resource_group_name="rg1",
-    test_configurations=[azure_native.network.ConnectionMonitorTestConfigurationArgs(
-        name="testConfig1",
-        protocol="Tcp",
-        tcp_configuration=azure_native.network.ConnectionMonitorTcpConfigurationArgs(
+    test_configurations=[{
+        "name": "testConfig1",
+        "protocol": "Tcp",
+        "tcpConfiguration": azure_native.network.ConnectionMonitorTcpConfigurationArgs(
             disable_trace_route=False,
             port=80,
         ),
-        test_frequency_sec=60,
-    )],
+        "testFrequencySec": 60,
+    }],
     test_groups=[azure_native.network.ConnectionMonitorTestGroupArgs(
         destinations=[
             "bing",

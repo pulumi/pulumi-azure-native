@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const output = new azure_native.streamanalytics.Output("output", {
+    datasource: {
+        dataset: "someDataset",
+        groupId: "ac40305e-3e8d-43ac-8161-c33799f43e95",
+        groupName: "MyPowerBIGroup",
+        refreshToken: "someRefreshToken==",
+        table: "someTable",
+        tokenUserDisplayName: "Bob Smith",
+        tokenUserPrincipalName: "bobsmith@contoso.com",
+        type: "PowerBI",
+    },
+    jobName: "sj2331",
+    outputName: "output3022",
+    resourceGroupName: "sjrg7983",
+});

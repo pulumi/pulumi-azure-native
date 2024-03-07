@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var recordSet = new AzureNative.Network.RecordSet("recordSet", new()
+    {
+        Metadata = 
+        {
+            { "key1", "value1" },
+        },
+        MxRecords = new[]
+        {
+            new AzureNative.Network.Inputs.MxRecordArgs
+            {
+                Exchange = "mail.contoso.com",
+                Preference = 0,
+            },
+        },
+        RecordType = "MX",
+        RelativeRecordSetName = "record1",
+        ResourceGroupName = "rg1",
+        Ttl = 3600,
+        ZoneName = "zone1",
+    });
+
+});
+

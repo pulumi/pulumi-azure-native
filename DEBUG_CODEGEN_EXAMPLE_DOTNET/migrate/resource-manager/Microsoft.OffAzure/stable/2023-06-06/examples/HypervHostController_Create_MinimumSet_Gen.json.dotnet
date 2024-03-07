@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hypervHostController = new AzureNative.OffAzure.HypervHostController("hypervHostController", new()
+    {
+        HostName = "IIfm6suXoKL",
+        ResourceGroupName = "rgmigrate",
+        SiteName = "-25mH3",
+    });
+
+});
+

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connection = new AzureNative.AzureDataTransfer.Connection("connection", new()
+    {
+        ConnectionName = "testConnection",
+        Location = "East US",
+        Properties = new AzureNative.AzureDataTransfer.Inputs.ConnectionPropertiesArgs
+        {
+            Justification = "justification",
+            Pipeline = "testdc",
+            RequirementId = "id",
+        },
+        ResourceGroupName = "testRG",
+    });
+
+});
+

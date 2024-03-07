@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const resourceSyncRule = new azure_native.extendedlocation.ResourceSyncRule("resourceSyncRule", {
+    childResourceName: "resourceSyncRule01",
+    location: "West US",
+    priority: 999,
+    resourceGroupName: "testresourcegroup",
+    resourceName: "customLocation01",
+    selector: {
+        matchLabels: {
+            key1: "value1",
+        },
+    },
+    targetResourceGroup: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup",
+});

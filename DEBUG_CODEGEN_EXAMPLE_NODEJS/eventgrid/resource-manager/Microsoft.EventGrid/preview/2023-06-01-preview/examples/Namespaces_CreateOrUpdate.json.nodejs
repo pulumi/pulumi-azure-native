@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const namespace = new azure_native.eventgrid.Namespace("namespace", {
+    location: "westus",
+    namespaceName: "exampleNamespaceName1",
+    resourceGroupName: "examplerg",
+    tags: {
+        tag1: "value11",
+        tag2: "value22",
+    },
+    topicSpacesConfiguration: {
+        routeTopicResourceId: "/subscriptions/8f6b6269-84f2-4d09-9e31-1127efcd1e40/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampleTopic1",
+        state: "Enabled",
+    },
+});

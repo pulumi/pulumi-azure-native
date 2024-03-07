@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configurationService = new AzureNative.AppPlatform.ConfigurationService("configurationService", new()
+    {
+        ConfigurationServiceName = "default",
+        Properties = new AzureNative.AppPlatform.Inputs.ConfigurationServicePropertiesArgs
+        {
+            Settings = new AzureNative.AppPlatform.Inputs.ConfigurationServiceSettingsArgs
+            {
+                GitProperty = new AzureNative.AppPlatform.Inputs.ConfigurationServiceGitPropertyArgs
+                {
+                    Repositories = new[]
+                    {
+                        new AzureNative.AppPlatform.Inputs.ConfigurationServiceGitRepositoryArgs
+                        {
+                            Label = "master",
+                            Name = "fake",
+                            Patterns = new[]
+                            {
+                                "app/dev",
+                            },
+                            Uri = "https://github.com/fake-user/fake-repository",
+                        },
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

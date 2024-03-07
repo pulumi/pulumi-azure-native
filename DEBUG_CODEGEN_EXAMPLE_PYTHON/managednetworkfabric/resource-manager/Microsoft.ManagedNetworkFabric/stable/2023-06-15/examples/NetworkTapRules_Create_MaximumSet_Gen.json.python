@@ -4,13 +4,13 @@ import pulumi_azure_native as azure_native
 network_tap_rule = azure_native.managednetworkfabric.NetworkTapRule("networkTapRule",
     annotation="annotation",
     configuration_type="File",
-    dynamic_match_configurations=[azure_native.managednetworkfabric.CommonDynamicMatchConfigurationArgs(
-        ip_groups=[azure_native.managednetworkfabric.IpGroupPropertiesArgs(
+    dynamic_match_configurations=[{
+        "ipGroups": [azure_native.managednetworkfabric.IpGroupPropertiesArgs(
             ip_address_type="IPv4",
             ip_prefixes=["10.10.10.10/30"],
             name="example-ipGroup1",
         )],
-        port_groups=[
+        "portGroups": [
             azure_native.managednetworkfabric.PortGroupPropertiesArgs(
                 name="example-portGroup1",
                 ports=["100-200"],
@@ -23,48 +23,48 @@ network_tap_rule = azure_native.managednetworkfabric.NetworkTapRule("networkTapR
                 ],
             ),
         ],
-        vlan_groups=[azure_native.managednetworkfabric.VlanGroupPropertiesArgs(
+        "vlanGroups": [azure_native.managednetworkfabric.VlanGroupPropertiesArgs(
             name="exmaple-vlanGroup",
             vlans=[
                 "10",
                 "100-200",
             ],
         )],
-    )],
+    }],
     location="eastus",
-    match_configurations=[azure_native.managednetworkfabric.NetworkTapRuleMatchConfigurationArgs(
-        actions=[azure_native.managednetworkfabric.NetworkTapRuleActionArgs(
+    match_configurations=[{
+        "actions": [azure_native.managednetworkfabric.NetworkTapRuleActionArgs(
             destination_id="/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
             is_timestamp_enabled="True",
             match_configuration_name="match1",
             truncate="100",
             type="Drop",
         )],
-        ip_address_type="IPv4",
-        match_conditions=[azure_native.managednetworkfabric.NetworkTapRuleMatchConditionArgs(
-            encapsulation_type="None",
-            ip_condition=azure_native.managednetworkfabric.IpMatchConditionArgs(
+        "ipAddressType": "IPv4",
+        "matchConditions": [{
+            "encapsulationType": "None",
+            "ipCondition": azure_native.managednetworkfabric.IpMatchConditionArgs(
                 ip_group_names=["example-ipGroup"],
                 ip_prefix_values=["10.10.10.10/20"],
                 prefix_type="Prefix",
                 type="SourceIP",
             ),
-            port_condition=azure_native.managednetworkfabric.PortConditionArgs(
+            "portCondition": azure_native.managednetworkfabric.PortConditionArgs(
                 layer4_protocol="TCP",
                 port_group_names=["example-portGroup1"],
                 port_type="SourcePort",
                 ports=["100"],
             ),
-            protocol_types=["TCP"],
-            vlan_match_condition=azure_native.managednetworkfabric.VlanMatchConditionArgs(
+            "protocolTypes": ["TCP"],
+            "vlanMatchCondition": azure_native.managednetworkfabric.VlanMatchConditionArgs(
                 inner_vlans=["11-20"],
                 vlan_group_names=["exmaple-vlanGroup"],
                 vlans=["10"],
             ),
-        )],
-        match_configuration_name="config1",
-        sequence_number=10,
-    )],
+        }],
+        "matchConfigurationName": "config1",
+        "sequenceNumber": 10,
+    }],
     network_tap_rule_name="example-tapRule",
     polling_interval_in_seconds=30,
     resource_group_name="example-rg",

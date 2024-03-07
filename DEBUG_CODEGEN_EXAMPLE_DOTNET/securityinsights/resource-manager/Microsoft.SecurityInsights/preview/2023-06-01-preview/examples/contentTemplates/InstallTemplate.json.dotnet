@@ -1,0 +1,104 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var contentTemplate = new AzureNative.SecurityInsights.ContentTemplate("contentTemplate", new()
+    {
+        Author = new AzureNative.SecurityInsights.Inputs.MetadataAuthorArgs
+        {
+            Email = "support@microsoft.com",
+            Name = "Microsoft",
+        },
+        ContentId = "8365ebfe-a381-45b7-ad08-7d818070e11f",
+        ContentKind = "AnalyticsRule",
+        DisplayName = "API Protection workbook template",
+        MainTemplate = 
+        {
+            { "$schema", "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#" },
+            { "contentVersion", "1.0.1" },
+            { "resources", new[]
+            {
+                
+                {
+                    { "apiVersion", "2022-04-01-preview" },
+                    { "kind", "Scheduled" },
+                    { "location", "[parameters('workspace-location')]" },
+                    { "name", "8365ebfe-a381-45b7-ad08-7d818070e11f" },
+                    { "properties", 
+                    {
+                        { "description", "Creates an incident when a large number of Critical/High severity CrowdStrike Falcon sensor detections is triggered by a single user" },
+                        { "displayName", "Critical or High Severity Detections by User" },
+                        { "enabled", false },
+                        { "query", "..." },
+                        { "queryFrequency", "PT1H" },
+                        { "queryPeriod", "PT1H" },
+                        { "severity", "High" },
+                        { "status", "Available" },
+                        { "suppressionDuration", "PT1H" },
+                        { "suppressionEnabled", false },
+                        { "triggerOperator", "GreaterThan" },
+                        { "triggerThreshold", 0 },
+                    } },
+                    { "type", "Microsoft.SecurityInsights/AlertRuleTemplates" },
+                },
+                
+                {
+                    { "apiVersion", "2022-01-01-preview" },
+                    { "name", "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('AnalyticsRule-', last(split([resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 8365ebfe-a381-45b7-ad08-7d818070e11f)],'/'))))]" },
+                    { "properties", 
+                    {
+                        { "author", 
+                        {
+                            { "email", "support@microsoft.com" },
+                            { "name", "Microsoft" },
+                        } },
+                        { "contentId", "4465ebde-b381-45f7-ad08-7d818070a11c" },
+                        { "description", "CrowdStrike Falcon Endpoint Protection Analytics Rule 1" },
+                        { "kind", "AnalyticsRule" },
+                        { "parentId", "[resourceId('Microsoft.SecurityInsights/AlertRuleTemplates', 8365ebfe-a381-45b7-ad08-7d818070e11f)]" },
+                        { "source", 
+                        {
+                            { "kind", "Solution" },
+                            { "name", "str" },
+                            { "sourceId", "str.azure-sentinel-solution-str" },
+                        } },
+                        { "support", 
+                        {
+                            { "email", "support@microsoft.com" },
+                            { "link", "https://support.microsoft.com/" },
+                            { "name", "Microsoft Corporation" },
+                            { "tier", "Microsoft" },
+                        } },
+                        { "version", "1.0.0" },
+                    } },
+                    { "type", "Microsoft.OperationalInsights/workspaces/providers/metadata" },
+                },
+            } },
+        },
+        PackageId = "str.azure-sentinel-solution-str",
+        PackageKind = "Solution",
+        PackageName = "str",
+        ResourceGroupName = "myRg",
+        Source = new AzureNative.SecurityInsights.Inputs.MetadataSourceArgs
+        {
+            Kind = "Solution",
+            Name = "str",
+            SourceId = "str.azure-sentinel-solution-str",
+        },
+        Support = new AzureNative.SecurityInsights.Inputs.MetadataSupportArgs
+        {
+            Email = "support@microsoft.com",
+            Link = "https://support.microsoft.com/",
+            Name = "Microsoft Corporation",
+            Tier = "Microsoft",
+        },
+        TemplateId = "str.azure-sentinel-solution-str",
+        Version = "1.0.1",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

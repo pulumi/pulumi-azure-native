@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const linkedStorageAccount = new azure_native.operationalinsights.LinkedStorageAccount("linkedStorageAccount", {
+    dataSourceType: "CustomLogs",
+    resourceGroupName: "mms-eus",
+    storageAccountIds: [
+        "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA",
+        "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB",
+    ],
+    workspaceName: "testLinkStorageAccountsWS",
+});

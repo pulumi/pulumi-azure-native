@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpoint = new AzureNative.Network.PrivateEndpoint("privateEndpoint", new()
+    {
+        CustomNetworkInterfaceName = "testPeNic",
+        IpConfigurations = new[]
+        {
+            new AzureNative.Network.Inputs.PrivateEndpointIPConfigurationArgs
+            {
+                GroupId = "file",
+                MemberName = "file",
+                Name = "pestaticconfig",
+                PrivateIPAddress = "192.168.0.6",
+            },
+        },
+        Location = "eastus2euap",
+        PrivateEndpointName = "testPe",
+        PrivateLinkServiceConnections = new[]
+        {
+            new AzureNative.Network.Inputs.PrivateLinkServiceConnectionArgs
+            {
+                GroupIds = new[]
+                {
+                    "groupIdFromResource",
+                },
+                PrivateLinkServiceId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+                RequestMessage = "Please approve my connection.",
+            },
+        },
+        ResourceGroupName = "rg1",
+        Subnet = new AzureNative.Network.Inputs.SubnetArgs
+        {
+            Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+        },
+    });
+
+});
+

@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var wcfRelayAuthorizationRule = new AzureNative.Relay.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule", new()
+    {
+        AuthorizationRuleName = "example-RelayAuthRules-01",
+        NamespaceName = "example-RelayNamespace-01",
+        RelayName = "example-Relay-wcf-01",
+        ResourceGroupName = "resourcegroup",
+        Rights = new[]
+        {
+            "Listen",
+            "Send",
+        },
+    });
+
+});
+

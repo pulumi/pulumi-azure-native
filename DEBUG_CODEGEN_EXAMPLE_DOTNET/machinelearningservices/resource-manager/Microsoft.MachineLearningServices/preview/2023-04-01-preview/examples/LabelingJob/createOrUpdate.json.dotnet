@@ -1,0 +1,86 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var labelingJob = new AzureNative.MachineLearningServices.LabelingJob("labelingJob", new()
+    {
+        Id = "testLabelingJob",
+        LabelingJobProperties = new AzureNative.MachineLearningServices.Inputs.LabelingJobArgs
+        {
+            Description = "string",
+            JobInstructions = new AzureNative.MachineLearningServices.Inputs.LabelingJobInstructionsArgs
+            {
+                Uri = "link/to/instructions",
+            },
+            JobType = "Labeling",
+            LabelCategories = 
+            {
+                { "myCategory1", new AzureNative.MachineLearningServices.Inputs.LabelCategoryArgs
+                {
+                    Classes = 
+                    {
+                        { "myLabelClass1", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
+                        {
+                            DisplayName = "myLabelClass1",
+                            Subclasses = null,
+                        } },
+                        { "myLabelClass2", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
+                        {
+                            DisplayName = "myLabelClass2",
+                            Subclasses = null,
+                        } },
+                    },
+                    DisplayName = "myCategory1Title",
+                    MultiSelect = "Disabled",
+                } },
+                { "myCategory2", new AzureNative.MachineLearningServices.Inputs.LabelCategoryArgs
+                {
+                    Classes = 
+                    {
+                        { "myLabelClass1", 
+                        {
+                            { "displayName", "myLabelClass1" },
+                            { "subclasses", null },
+                        } },
+                        { "myLabelClass2", new AzureNative.MachineLearningServices.Inputs.LabelClassArgs
+                        {
+                            DisplayName = "myLabelClass2",
+                            Subclasses = null,
+                        } },
+                    },
+                    DisplayName = "myCategory2Title",
+                    MultiSelect = "Disabled",
+                } },
+            },
+            LabelingJobMediaProperties = new AzureNative.MachineLearningServices.Inputs.LabelingJobImagePropertiesArgs
+            {
+                MediaType = "Image",
+            },
+            MlAssistConfiguration = new AzureNative.MachineLearningServices.Inputs.MLAssistConfigurationEnabledArgs
+            {
+                InferencingComputeBinding = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+                MlAssist = "Enabled",
+                TrainingComputeBinding = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingompute",
+            },
+            Properties = 
+            {
+                { "additionalProp1", "string" },
+                { "additionalProp2", "string" },
+                { "additionalProp3", "string" },
+            },
+            Tags = 
+            {
+                { "additionalProp1", "string" },
+                { "additionalProp2", "string" },
+                { "additionalProp3", "string" },
+            },
+        },
+        ResourceGroupName = "workspace-1234",
+        WorkspaceName = "testworkspace",
+    });
+
+});
+

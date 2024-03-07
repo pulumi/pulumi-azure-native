@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const account = new azure_native.maps.Account("account", {
+    accountName: "myMapsAccount",
+    kind: "Gen1",
+    location: "global",
+    properties: {
+        disableLocalAuth: false,
+    },
+    resourceGroupName: "myResourceGroup",
+    sku: {
+        name: "S0",
+    },
+    tags: {
+        test: "true",
+    },
+});

@@ -1,0 +1,44 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workloadDeployment = new AzureNative.Migrate.WorkloadDeployment("workloadDeployment", new()
+    {
+        ModernizeProjectName = "l6r8",
+        Properties = new AzureNative.Migrate.Inputs.WorkloadDeploymentModelPropertiesArgs
+        {
+            CustomProperties = 
+            {
+                { "instanceType", "IISAKSWorkloadDeployment" },
+            },
+            DisplayName = "wqe",
+            TargetPlatform = "AzureKubernetesService",
+            WorkloadInstanceProperties = new AzureNative.Migrate.Inputs.WorkloadInstanceModelPropertiesArgs
+            {
+                CustomProperties = 
+                {
+                    { "instanceType", "IISWorkload" },
+                    { "webAppArmId", "xseseqsrzdiga" },
+                    { "webAppSiteName", "mirgzmy" },
+                },
+                DisplayName = "juoorbubchvk",
+                MasterSiteName = "ubks",
+                MigrateAgentId = "aqgzsxqbk",
+                Name = "wonkuhgsafzviuwqerzdmme",
+                SourceName = "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+                SourcePlatform = "eh",
+            },
+        },
+        ResourceGroupName = "rgmigrateEngine",
+        Tags = 
+        {
+            { "key8241", "gcyxztzr" },
+        },
+        WorkloadDeploymentName = "l4t",
+    });
+
+});
+

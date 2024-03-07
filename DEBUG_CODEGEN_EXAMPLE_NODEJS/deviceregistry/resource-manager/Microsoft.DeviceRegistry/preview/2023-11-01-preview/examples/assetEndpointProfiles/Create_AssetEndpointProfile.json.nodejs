@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const assetEndpointProfile = new azure_native.deviceregistry.AssetEndpointProfile("assetEndpointProfile", {
+    assetEndpointProfileName: "my-assetendpointprofile",
+    extendedLocation: {
+        name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.extendedlocation/customlocations/location1",
+        type: "CustomLocation",
+    },
+    location: "West Europe",
+    resourceGroupName: "myResourceGroup",
+    tags: {
+        site: "building-1",
+    },
+    targetAddress: "https://www.example.com/myTargetAddress",
+    userAuthentication: {
+        mode: "Anonymous",
+    },
+});

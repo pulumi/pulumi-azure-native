@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var modelContainer = new AzureNative.MachineLearningServices.ModelContainer("modelContainer", new()
+    {
+        ModelContainerProperties = new AzureNative.MachineLearningServices.Inputs.ModelContainerArgs
+        {
+            Description = "Model container description",
+            Tags = 
+            {
+                { "tag1", "value1" },
+                { "tag2", "value2" },
+            },
+        },
+        Name = "testContainer",
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspace123",
+    });
+
+});
+

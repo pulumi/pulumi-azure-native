@@ -1,0 +1,104 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dscpConfiguration = new AzureNative.Network.DscpConfiguration("dscpConfiguration", new()
+    {
+        DscpConfigurationName = "mydscpconfig",
+        Location = "eastus",
+        QosDefinitionCollection = new[]
+        {
+            new AzureNative.Network.Inputs.QosDefinitionArgs
+            {
+                DestinationIpRanges = new[]
+                {
+                    new AzureNative.Network.Inputs.QosIpRangeArgs
+                    {
+                        EndIP = "127.0.10.2",
+                        StartIP = "127.0.10.1",
+                    },
+                },
+                DestinationPortRanges = new[]
+                {
+                    new AzureNative.Network.Inputs.QosPortRangeArgs
+                    {
+                        End = 15,
+                        Start = 15,
+                    },
+                },
+                Markings = new[]
+                {
+                    1,
+                },
+                Protocol = "Tcp",
+                SourceIpRanges = new[]
+                {
+                    new AzureNative.Network.Inputs.QosIpRangeArgs
+                    {
+                        EndIP = "127.0.0.2",
+                        StartIP = "127.0.0.1",
+                    },
+                },
+                SourcePortRanges = new[]
+                {
+                    new AzureNative.Network.Inputs.QosPortRangeArgs
+                    {
+                        End = 11,
+                        Start = 10,
+                    },
+                    new AzureNative.Network.Inputs.QosPortRangeArgs
+                    {
+                        End = 21,
+                        Start = 20,
+                    },
+                },
+            },
+            new AzureNative.Network.Inputs.QosDefinitionArgs
+            {
+                DestinationIpRanges = new[]
+                {
+                    new AzureNative.Network.Inputs.QosIpRangeArgs
+                    {
+                        EndIP = "12.0.10.2",
+                        StartIP = "12.0.10.1",
+                    },
+                },
+                DestinationPortRanges = new[]
+                {
+                    new AzureNative.Network.Inputs.QosPortRangeArgs
+                    {
+                        End = 52,
+                        Start = 51,
+                    },
+                },
+                Markings = new[]
+                {
+                    2,
+                },
+                Protocol = "Udp",
+                SourceIpRanges = new[]
+                {
+                    new AzureNative.Network.Inputs.QosIpRangeArgs
+                    {
+                        EndIP = "12.0.0.2",
+                        StartIP = "12.0.0.1",
+                    },
+                },
+                SourcePortRanges = new[]
+                {
+                    new AzureNative.Network.Inputs.QosPortRangeArgs
+                    {
+                        End = 12,
+                        Start = 11,
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

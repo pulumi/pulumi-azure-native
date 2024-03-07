@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var accessPolicy = new AzureNative.Cache.AccessPolicy("accessPolicy", new()
+    {
+        AccessPolicyName = "accessPolicy1",
+        CacheName = "cache1",
+        Permissions = "+get +hget",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

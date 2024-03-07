@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var applicationResource = new AzureNative.IntegrationSpaces.ApplicationResource("applicationResource", new()
+    {
+        ApplicationName = "Application1",
+        ResourceGroupName = "testrg",
+        ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Web/sites/LogicApp1",
+        ResourceKind = "LogicApp",
+        ResourceName = "Resource1",
+        ResourceType = "Microsoft.Web/sites",
+        SpaceName = "Space1",
+    });
+
+});
+

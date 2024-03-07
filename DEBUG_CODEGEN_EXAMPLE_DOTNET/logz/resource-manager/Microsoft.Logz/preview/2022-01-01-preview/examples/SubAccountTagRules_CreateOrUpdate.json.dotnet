@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var subAccountTagRule = new AzureNative.Logz.SubAccountTagRule("subAccountTagRule", new()
+    {
+        MonitorName = "myMonitor",
+        ResourceGroupName = "myResourceGroup",
+        RuleSetName = "default",
+        SubAccountName = "SubAccount1",
+    });
+
+});
+

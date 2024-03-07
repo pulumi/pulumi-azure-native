@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var scheduledAction = new AzureNative.CostManagement.ScheduledAction("scheduledAction", new()
+    {
+        DisplayName = "Monthly Cost By Resource",
+        Kind = "Email",
+        Name = "monthlyCostByResource",
+        Notification = new AzureNative.CostManagement.Inputs.NotificationPropertiesArgs
+        {
+            Subject = "Cost by resource this month",
+            To = new[]
+            {
+                "user@gmail.com",
+                "team@gmail.com",
+            },
+        },
+        Schedule = new AzureNative.CostManagement.Inputs.SchedulePropertiesArgs
+        {
+            DaysOfWeek = new[]
+            {
+                "Monday",
+            },
+            EndDate = "2021-06-19T22:21:51.1287144Z",
+            Frequency = "Monthly",
+            HourOfDay = 10,
+            StartDate = "2020-06-19T22:21:51.1287144Z",
+            WeeksOfMonth = new[]
+            {
+                "First",
+                "Third",
+            },
+        },
+        Status = "Enabled",
+        ViewId = "/providers/Microsoft.CostManagement/views/swaggerExample",
+    });
+
+});
+

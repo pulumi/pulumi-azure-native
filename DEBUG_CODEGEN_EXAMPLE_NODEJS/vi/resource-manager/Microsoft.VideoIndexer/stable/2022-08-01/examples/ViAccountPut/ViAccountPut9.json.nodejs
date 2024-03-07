@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const account = new azure_native.videoindexer.Account("account", {
+    accountName: "contosto-videoanalyzer",
+    resourceGroupName: "contosto-videoanalyzer-rg",
+});

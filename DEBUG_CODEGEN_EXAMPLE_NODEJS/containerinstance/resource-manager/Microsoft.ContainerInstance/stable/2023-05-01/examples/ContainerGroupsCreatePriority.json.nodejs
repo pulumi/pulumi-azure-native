@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const containerGroup = new azure_native.containerinstance.ContainerGroup("containerGroup", {
+    containerGroupName: "demo1",
+    containers: [{
+        command: [
+            "/bin/sh",
+            "-c",
+            "sleep 10",
+        ],
+        image: "alpine:latest",
+        name: "test-container-001",
+        resources: {
+            requests: {
+                cpu: 1,
+                memoryInGB: 1,
+            },
+        },
+    }],
+    location: "eastus",
+    osType: "Linux",
+    priority: "Spot",
+    resourceGroupName: "demo",
+    restartPolicy: "Never",
+    sku: "Standard",
+});

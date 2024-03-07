@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var accessControlRecord = new AzureNative.StorSimple.AccessControlRecord("accessControlRecord", new()
+    {
+        AccessControlRecordName = "ACRForTest",
+        InitiatorName = "iqn.2017-06.com.contoso:ForTest",
+        ManagerName = "ManagerForSDKTest1",
+        ResourceGroupName = "ResourceGroupForSDKTest",
+    });
+
+});
+

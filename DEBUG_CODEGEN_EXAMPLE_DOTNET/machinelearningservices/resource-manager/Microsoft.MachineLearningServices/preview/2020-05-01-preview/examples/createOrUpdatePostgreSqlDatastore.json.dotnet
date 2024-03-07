@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineLearningDatastore = new AzureNative.MachineLearningServices.MachineLearningDatastore("machineLearningDatastore", new()
+    {
+        DataStoreType = "psqldb",
+        DatabaseName = "dataset",
+        DatastoreName = "postgreSqlDatastore",
+        Password = "<password>",
+        ResourceGroupName = "acjain-mleastUS2",
+        ServerName = "dataset-pgsql-srv",
+        UserId = "demo_user@dataset-pgsql-srv",
+        WorkspaceName = "acjain-mleastUS2",
+    });
+
+});
+

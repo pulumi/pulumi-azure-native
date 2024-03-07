@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const vcenterController = new azure_native.offazure.VcenterController("vcenterController", {
+    fqdn: "mzrejobgzhpxhynsfpumuhk",
+    friendlyName: "qqsnhutpvockzhwuesuohnfirvxmw",
+    port: "ahagklwzutlumcdhawkrfzmpfypcz",
+    provisioningState: "Created",
+    resourceGroupName: "rgmigrate",
+    runAsAccountId: "orrfsvlcuoagqlkkqsd",
+    siteName: "Snu-38v6",
+    vcenterName: "e72lZRSD",
+});

@@ -17,7 +17,7 @@ extension = azure_native.kubernetesconfiguration.Extension("extension",
     extension_type="azuremonitor-containers",
     release_train="Preview",
     resource_group_name="rg1",
-    scope=azure_native.kubernetesconfiguration.ScopeArgs(
+    scope=azure_native.kubernetesconfiguration.ScopeResponseArgs(
         cluster=azure_native.kubernetesconfiguration.ScopeClusterArgs(
             release_namespace="kube-system",
         ),

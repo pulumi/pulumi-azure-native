@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var groupQuotaSubscription = new AzureNative.Quota.GroupQuotaSubscription("groupQuotaSubscription", new()
+    {
+        GroupQuotaName = "groupquota1",
+        MgId = "E7EC67B3-7657-4966-BFFC-41EFD36BAA09",
+    });
+
+});
+

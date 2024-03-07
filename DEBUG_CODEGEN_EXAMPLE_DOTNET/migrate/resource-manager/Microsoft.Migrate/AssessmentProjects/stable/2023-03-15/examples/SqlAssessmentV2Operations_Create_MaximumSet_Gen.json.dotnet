@@ -1,0 +1,60 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlAssessmentV2Operation = new AzureNative.Migrate.SqlAssessmentV2Operation("sqlAssessmentV2Operation", new()
+    {
+        AssessmentName = "test_swagger_1",
+        AsyncCommitModeIntent = "DisasterRecovery",
+        AzureLocation = "SoutheastAsia",
+        AzureOfferCode = "MSAZR0003P",
+        AzureOfferCodeForVm = "MSAZR0003P",
+        AzureSqlDatabaseSettings = new AzureNative.Migrate.Inputs.SqlDbSettingsArgs
+        {
+            AzureSqlComputeTier = "Automatic",
+            AzureSqlDataBaseType = "SingleDatabase",
+            AzureSqlPurchaseModel = "VCore",
+            AzureSqlServiceTier = "Automatic",
+        },
+        AzureSqlManagedInstanceSettings = new AzureNative.Migrate.Inputs.SqlMiSettingsArgs
+        {
+            AzureSqlInstanceType = "SingleInstance",
+            AzureSqlServiceTier = "Automatic",
+        },
+        AzureSqlVmSettings = new AzureNative.Migrate.Inputs.SqlVmSettingsArgs
+        {
+            InstanceSeries = new[]
+            {
+                "Eadsv5_series",
+            },
+        },
+        Currency = "USD",
+        DisasterRecoveryLocation = "EastAsia",
+        DiscountPercentage = 0,
+        EnableHadrAssessment = true,
+        EntityUptime = new AzureNative.Migrate.Inputs.EntityUptimeArgs
+        {
+            DaysPerMonth = 30,
+            HoursPerDay = 24,
+        },
+        EnvironmentType = "Production",
+        GroupName = "test_fci_hadr",
+        MultiSubnetIntent = "DisasterRecovery",
+        OptimizationLogic = "MinimizeCost",
+        OsLicense = "Unknown",
+        Percentile = "Percentile95",
+        ProjectName = "fci-test6904project",
+        ReservedInstance = "None",
+        ReservedInstanceForVm = "None",
+        ResourceGroupName = "rgmigrate",
+        ScalingFactor = 1,
+        SizingCriterion = "PerformanceBased",
+        SqlServerLicense = "Unknown",
+        TimeRange = "Day",
+    });
+
+});
+

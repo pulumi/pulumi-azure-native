@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const transform = new azure_native.media.Transform("transform", {
+    accountName: "contosomedia",
+    description: "Example Transform to illustrate create and update.",
+    outputs: [{
+        preset: {
+            odataType: "#Microsoft.Media.BuiltInStandardEncoderPreset",
+            presetName: "AdaptiveStreaming",
+        },
+    }],
+    resourceGroupName: "contosoresources",
+    transformName: "createdTransform",
+});

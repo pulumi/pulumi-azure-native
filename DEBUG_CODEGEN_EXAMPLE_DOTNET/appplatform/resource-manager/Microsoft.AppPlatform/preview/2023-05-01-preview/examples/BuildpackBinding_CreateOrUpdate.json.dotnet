@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var buildpackBinding = new AzureNative.AppPlatform.BuildpackBinding("buildpackBinding", new()
+    {
+        BuildServiceName = "default",
+        BuilderName = "default",
+        BuildpackBindingName = "myBuildpackBinding",
+        Properties = new AzureNative.AppPlatform.Inputs.BuildpackBindingPropertiesArgs
+        {
+            BindingType = "ApplicationInsights",
+            LaunchProperties = new AzureNative.AppPlatform.Inputs.BuildpackBindingLaunchPropertiesArgs
+            {
+                Properties = 
+                {
+                    { "abc", "def" },
+                    { "any-string", "any-string" },
+                    { "sampling-rate", "12.0" },
+                },
+                Secrets = 
+                {
+                    { "connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX" },
+                },
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+    });
+
+});
+

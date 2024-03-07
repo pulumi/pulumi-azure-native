@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var domain = new AzureNative.Communication.Domain("domain", new()
+    {
+        DomainManagement = "CustomerManaged",
+        DomainName = "mydomain.com",
+        EmailServiceName = "MyEmailServiceResource",
+        Location = "Global",
+        ResourceGroupName = "MyResourceGroup",
+    });
+
+});
+

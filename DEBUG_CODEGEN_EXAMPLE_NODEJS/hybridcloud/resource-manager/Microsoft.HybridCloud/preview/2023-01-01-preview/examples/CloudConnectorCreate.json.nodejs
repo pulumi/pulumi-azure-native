@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cloudConnector = new azure_native.hybridcloud.CloudConnector("cloudConnector", {
+    accountId: "123456789012",
+    cloudConnectorName: "123456789012",
+    cloudType: "AWS",
+    location: "West US",
+    resourceGroupName: "demo-rg",
+});

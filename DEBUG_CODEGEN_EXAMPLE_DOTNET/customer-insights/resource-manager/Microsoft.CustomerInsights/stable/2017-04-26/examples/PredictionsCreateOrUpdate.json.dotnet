@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var prediction = new AzureNative.CustomerInsights.Prediction("prediction", new()
+    {
+        AutoAnalyze = true,
+        Description = 
+        {
+            { "en-us", "sdktest" },
+        },
+        DisplayName = 
+        {
+            { "en-us", "sdktest" },
+        },
+        Grades = new[] {},
+        HubName = "sdkTestHub",
+        InvolvedInteractionTypes = new[] {},
+        InvolvedKpiTypes = new[] {},
+        InvolvedRelationships = new[] {},
+        Mappings = new AzureNative.CustomerInsights.Inputs.PredictionMappingsArgs
+        {
+            Grade = "sdktest_Grade",
+            Reason = "sdktest_Reason",
+            Score = "sdktest_Score",
+        },
+        NegativeOutcomeExpression = "Customers.FirstName = 'Mike'",
+        PositiveOutcomeExpression = "Customers.FirstName = 'David'",
+        PredictionName = "sdktest",
+        PrimaryProfileType = "Customers",
+        ResourceGroupName = "TestHubRG",
+        ScopeExpression = "*",
+        ScoreLabel = "score label",
+    });
+
+});
+

@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const forwardingRule = new azure_native.network.ForwardingRule("forwardingRule", {
+    dnsForwardingRulesetName: "sampleDnsForwardingRuleset",
+    domainName: "contoso.com.",
+    forwardingRuleName: "sampleForwardingRule",
+    forwardingRuleState: "Enabled",
+    metadata: {
+        additionalProp1: "value1",
+    },
+    resourceGroupName: "sampleResourceGroup",
+    targetDnsServers: [
+        {
+            ipAddress: "10.0.0.1",
+            port: 53,
+        },
+        {
+            ipAddress: "10.0.0.2",
+            port: 53,
+        },
+    ],
+});

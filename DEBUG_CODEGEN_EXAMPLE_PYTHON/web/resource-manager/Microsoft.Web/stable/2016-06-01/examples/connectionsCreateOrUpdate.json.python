@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 connection = azure_native.web.Connection("connection",
     connection_name="testManagedApi",
-    properties=azure_native.web.ApiConnectionDefinitionPropertiesArgs(
+    properties=azure_native.web.ApiConnectionDefinitionResponsePropertiesArgs(
         api=azure_native.web.ApiReferenceArgs(
             id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
         ),

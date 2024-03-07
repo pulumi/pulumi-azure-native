@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var experiment = new AzureNative.Network.Experiment("experiment", new()
+    {
+        Description = "this is my first experiment!",
+        EnabledState = "Enabled",
+        EndpointA = new AzureNative.Network.Inputs.ExperimentEndpointArgs
+        {
+            Endpoint = "endpointA.net",
+            Name = "endpoint A",
+        },
+        EndpointB = new AzureNative.Network.Inputs.ExperimentEndpointArgs
+        {
+            Endpoint = "endpointB.net",
+            Name = "endpoint B",
+        },
+        ExperimentName = "MyExperiment",
+        ProfileName = "MyProfile",
+        ResourceGroupName = "MyResourceGroup",
+    });
+
+});
+

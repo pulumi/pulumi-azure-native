@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var eventHub = new AzureNative.EventHub.EventHub("eventHub", new()
+    {
+        CaptureDescription = new AzureNative.EventHub.Inputs.CaptureDescriptionArgs
+        {
+            Destination = new AzureNative.EventHub.Inputs.DestinationArgs
+            {
+                ArchiveNameFormat = "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+                BlobContainer = "container",
+                Name = "EventHubArchive.AzureBlockBlob",
+                StorageAccountResourceId = "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-Storage-SouthCentralUS/providers/Microsoft.ClassicStorage/storageAccounts/arjunteststorage",
+            },
+            Enabled = true,
+            Encoding = AzureNative.EventHub.EncodingCaptureDescription.Avro,
+            IntervalInSeconds = 120,
+            SizeLimitInBytes = 10485763,
+        },
+        EventHubName = "sdk-EventHub-6547",
+        MessageRetentionInDays = 4,
+        NamespaceName = "sdk-Namespace-5357",
+        PartitionCount = 4,
+        ResourceGroupName = "Default-NotificationHubs-AustraliaEast",
+        RetentionDescription = new AzureNative.EventHub.Inputs.RetentionDescriptionArgs
+        {
+            CleanupPolicy = "Compact",
+            RetentionTimeInHours = 96,
+            TombstoneRetentionTimeInHours = 1,
+        },
+        Status = AzureNative.EventHub.EntityStatus.Active,
+    });
+
+});
+

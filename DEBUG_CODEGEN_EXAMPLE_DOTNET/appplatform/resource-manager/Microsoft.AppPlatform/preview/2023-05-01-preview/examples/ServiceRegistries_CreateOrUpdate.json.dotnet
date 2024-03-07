@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serviceRegistry = new AzureNative.AppPlatform.ServiceRegistry("serviceRegistry", new()
+    {
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        ServiceRegistryName = "default",
+    });
+
+});
+

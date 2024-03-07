@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const defaultAdminRule = new azure_native.network.DefaultAdminRule("defaultAdminRule", {
+    configurationName: "myTestSecurityConfig",
+    flag: "AllowVnetInbound",
+    kind: "Default",
+    networkManagerName: "testNetworkManager",
+    resourceGroupName: "rg1",
+    ruleCollectionName: "testRuleCollection",
+    ruleName: "SampleDefaultAdminRule",
+});

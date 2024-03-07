@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var componentCurrentBillingFeature = new AzureNative.Insights.ComponentCurrentBillingFeature("componentCurrentBillingFeature", new()
+    {
+        CurrentBillingFeatures = new[]
+        {
+            "Basic",
+            "Application Insights Enterprise",
+        },
+        DataVolumeCap = new AzureNative.Insights.Inputs.ApplicationInsightsComponentDataVolumeCapArgs
+        {
+            Cap = 100,
+            StopSendNotificationWhenHitCap = true,
+        },
+        ResourceGroupName = "my-resource-group",
+        ResourceName = "my-component",
+    });
+
+});
+

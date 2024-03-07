@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customDomain = new azure_native.appplatform.CustomDomain("customDomain", {
+    appName: "myapp",
+    domainName: "mydomain.com",
+    properties: {
+        certName: "mycert",
+        thumbprint: "934367bf1c97033f877db0f15cb1b586957d3133",
+    },
+    resourceGroupName: "myResourceGroup",
+    serviceName: "myservice",
+});

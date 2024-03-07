@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customDomain = new AzureNative.Cdn.CustomDomain("customDomain", new()
+    {
+        CustomDomainName = "www-someDomain-net",
+        EndpointName = "endpoint1",
+        HostName = "www.someDomain.net",
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+    });
+
+});
+

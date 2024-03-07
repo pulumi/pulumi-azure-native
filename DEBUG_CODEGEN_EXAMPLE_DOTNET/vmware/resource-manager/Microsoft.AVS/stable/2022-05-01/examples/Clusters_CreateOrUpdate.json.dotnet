@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var cluster = new AzureNative.AVS.Cluster("cluster", new()
+    {
+        ClusterName = "cluster1",
+        ClusterSize = 3,
+        PrivateCloudName = "cloud1",
+        ResourceGroupName = "group1",
+        Sku = new AzureNative.AVS.Inputs.SkuArgs
+        {
+            Name = "AV20",
+        },
+    });
+
+});
+

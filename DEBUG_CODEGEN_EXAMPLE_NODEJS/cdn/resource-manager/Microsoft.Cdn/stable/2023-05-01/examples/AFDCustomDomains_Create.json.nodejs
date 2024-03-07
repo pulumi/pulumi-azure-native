@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const afdCustomDomain = new azure_native.cdn.AFDCustomDomain("afdCustomDomain", {
+    azureDnsZone: {
+        id: "",
+    },
+    customDomainName: "domain1",
+    hostName: "www.someDomain.net",
+    profileName: "profile1",
+    resourceGroupName: "RG",
+    tlsSettings: {
+        certificateType: "ManagedCertificate",
+        minimumTlsVersion: azure_native.cdn.AfdMinimumTlsVersion.TLS12,
+    },
+});

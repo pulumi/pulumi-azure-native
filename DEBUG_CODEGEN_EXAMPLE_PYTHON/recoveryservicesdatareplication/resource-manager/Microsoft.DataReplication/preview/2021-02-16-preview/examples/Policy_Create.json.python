@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 policy = azure_native.datareplication.Policy("policy",
     policy_name="fafqwc",
-    properties=azure_native.datareplication.PolicyModelPropertiesArgs(
+    properties=azure_native.datareplication.PolicyModelPropertiesResponseArgs(
         custom_properties={
             "instanceType": "PolicyModelCustomProperties",
         },

@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const fileServiceProperties = new azure_native.storage.FileServiceProperties("fileServiceProperties", {
+    accountName: "sto8607",
+    fileServicesName: "default",
+    protocolSettings: {
+        smb: {
+            multichannel: {
+                enabled: true,
+            },
+        },
+    },
+    resourceGroupName: "res4410",
+});

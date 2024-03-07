@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const firewallRule = new azure_native.dbformysql.FirewallRule("firewallRule", {
+    endIpAddress: "255.255.255.255",
+    firewallRuleName: "rule1",
+    resourceGroupName: "TestGroup",
+    serverName: "testserver",
+    startIpAddress: "0.0.0.0",
+});

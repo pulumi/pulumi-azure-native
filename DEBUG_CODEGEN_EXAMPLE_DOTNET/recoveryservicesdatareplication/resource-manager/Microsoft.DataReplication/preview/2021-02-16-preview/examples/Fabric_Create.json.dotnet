@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var fabric = new AzureNative.DataReplication.Fabric("fabric", new()
+    {
+        FabricName = "wPR",
+        Location = "tqygutlpob",
+        Properties = new AzureNative.DataReplication.Inputs.FabricModelPropertiesArgs
+        {
+            CustomProperties = 
+            {
+                { "instanceType", "FabricModelCustomProperties" },
+            },
+        },
+        ResourceGroupName = "rgrecoveryservicesdatareplication",
+        Tags = 
+        {
+            { "key3917", "vgralu" },
+        },
+    });
+
+});
+

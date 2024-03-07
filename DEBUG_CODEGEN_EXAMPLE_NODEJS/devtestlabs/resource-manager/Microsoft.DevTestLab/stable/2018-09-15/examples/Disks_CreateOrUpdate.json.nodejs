@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disk = new azure_native.devtestlab.Disk("disk", {
+    diskSizeGiB: 1023,
+    diskType: "Standard",
+    labName: "{labName}",
+    leasedByLabVmId: "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/vmName",
+    name: "{diskName}",
+    resourceGroupName: "resourceGroupName",
+    userName: "{userId}",
+});

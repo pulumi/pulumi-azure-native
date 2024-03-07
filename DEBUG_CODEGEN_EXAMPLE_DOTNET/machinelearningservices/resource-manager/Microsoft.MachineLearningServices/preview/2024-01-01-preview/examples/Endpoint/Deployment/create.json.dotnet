@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var endpointDeployment = new AzureNative.MachineLearningServices.EndpointDeployment("endpointDeployment", new()
+    {
+        DeploymentName = "text-davinci-003",
+        EndpointName = "Azure.OpenAI",
+        Properties = new AzureNative.MachineLearningServices.Inputs.OpenAIEndpointDeploymentResourcePropertiesArgs
+        {
+            Model = new AzureNative.MachineLearningServices.Inputs.EndpointDeploymentModelArgs
+            {
+                Format = "OpenAI",
+                Name = "text-davinci-003",
+                Version = "1",
+            },
+            Type = "Azure.OpenAI",
+            VersionUpgradeOption = "OnceNewDefaultVersionAvailable",
+        },
+        ResourceGroupName = "resourceGroup-1",
+        WorkspaceName = "testworkspace",
+    });
+
+});
+

@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const topic = new azure_native.servicebus.Topic("topic", {
+    enableExpress: true,
+    namespaceName: "sdk-Namespace-1617",
+    resourceGroupName: "ArunMonocle",
+    topicName: "sdk-Topics-5488",
+});

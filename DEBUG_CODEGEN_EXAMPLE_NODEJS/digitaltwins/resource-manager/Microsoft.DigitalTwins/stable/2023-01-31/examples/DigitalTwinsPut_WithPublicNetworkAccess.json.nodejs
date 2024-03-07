@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const digitalTwin = new azure_native.digitaltwins.DigitalTwin("digitalTwin", {
+    location: "WestUS2",
+    publicNetworkAccess: "Enabled",
+    resourceGroupName: "resRg",
+    resourceName: "myDigitalTwinsService",
+});

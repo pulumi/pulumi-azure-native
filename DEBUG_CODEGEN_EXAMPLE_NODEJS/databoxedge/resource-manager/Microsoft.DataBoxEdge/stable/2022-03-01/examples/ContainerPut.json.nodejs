@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const container = new azure_native.databoxedge.Container("container", {
+    containerName: "blobcontainer1",
+    dataFormat: "BlockBlob",
+    deviceName: "testedgedevice",
+    resourceGroupName: "GroupForEdgeAutomation",
+    storageAccountName: "storageaccount1",
+});

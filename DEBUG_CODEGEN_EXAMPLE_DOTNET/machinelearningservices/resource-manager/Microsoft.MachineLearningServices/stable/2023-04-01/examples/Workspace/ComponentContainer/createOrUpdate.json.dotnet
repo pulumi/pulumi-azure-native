@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var componentContainer = new AzureNative.MachineLearningServices.ComponentContainer("componentContainer", new()
+    {
+        ComponentContainerProperties = new AzureNative.MachineLearningServices.Inputs.ComponentContainerArgs
+        {
+            Description = "string",
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        Name = "string",
+        ResourceGroupName = "test-rg",
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

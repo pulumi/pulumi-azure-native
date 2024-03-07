@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var disk = new AzureNative.Compute.Disk("disk", new()
+    {
+        CreationData = new AzureNative.Compute.Inputs.CreationDataArgs
+        {
+            CreateOption = "Import",
+            SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+        },
+        DiskName = "myDisk",
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

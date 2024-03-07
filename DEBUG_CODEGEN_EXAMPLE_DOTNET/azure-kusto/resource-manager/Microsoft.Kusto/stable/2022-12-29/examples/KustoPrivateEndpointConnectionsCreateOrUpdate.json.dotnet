@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateEndpointConnection = new AzureNative.Kusto.PrivateEndpointConnection("privateEndpointConnection", new()
+    {
+        ClusterName = "kustoclusterrptest4",
+        PrivateEndpointConnectionName = "privateEndpointTest",
+        PrivateLinkServiceConnectionState = new AzureNative.Kusto.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
+        {
+            Description = "Approved by johndoe@contoso.com",
+            Status = "Approved",
+        },
+        ResourceGroupName = "kustorptest",
+    });
+
+});
+

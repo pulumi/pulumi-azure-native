@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mobileNetwork = new AzureNative.MobileNetwork.MobileNetwork("mobileNetwork", new()
+    {
+        Location = "eastus",
+        MobileNetworkName = "testMobileNetwork",
+        PublicLandMobileNetworkIdentifier = new AzureNative.MobileNetwork.Inputs.PlmnIdArgs
+        {
+            Mcc = "001",
+            Mnc = "01",
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

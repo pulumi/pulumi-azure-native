@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var emailService = new AzureNative.Communication.EmailService("emailService", new()
+    {
+        DataLocation = "United States",
+        EmailServiceName = "MyEmailServiceResource",
+        Location = "Global",
+        ResourceGroupName = "MyResourceGroup",
+    });
+
+});
+

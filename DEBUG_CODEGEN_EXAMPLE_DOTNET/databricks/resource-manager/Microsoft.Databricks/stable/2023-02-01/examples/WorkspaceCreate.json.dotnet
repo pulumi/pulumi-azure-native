@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    {
+        Location = "westus",
+        ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+        ResourceGroupName = "rg",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

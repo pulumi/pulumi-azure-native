@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var galleryImageVersion = new AzureNative.Compute.GalleryImageVersion("galleryImageVersion", new()
+    {
+        GalleryImageName = "myGalleryImageName",
+        GalleryImageVersionName = "1.0.0",
+        GalleryName = "myGalleryName",
+        Location = "West US",
+        PublishingProfile = new AzureNative.Compute.Inputs.GalleryImageVersionPublishingProfileArgs
+        {
+            ReplicationMode = "Shallow",
+            TargetRegions = new[]
+            {
+                new AzureNative.Compute.Inputs.TargetRegionArgs
+                {
+                    ExcludeFromLatest = false,
+                    Name = "West US",
+                    RegionalReplicaCount = 1,
+                },
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        SafetyProfile = new AzureNative.Compute.Inputs.GalleryImageVersionSafetyProfileArgs
+        {
+            AllowDeletionOfReplicatedLocations = false,
+        },
+        StorageProfile = new AzureNative.Compute.Inputs.GalleryImageVersionStorageProfileArgs
+        {
+            Source = new AzureNative.Compute.Inputs.GalleryArtifactVersionFullSourceArgs
+            {
+                Id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+            },
+        },
+    });
+
+});
+

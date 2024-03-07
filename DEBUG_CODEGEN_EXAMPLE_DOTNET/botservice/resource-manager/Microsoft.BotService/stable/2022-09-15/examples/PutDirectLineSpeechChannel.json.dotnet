@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var channel = new AzureNative.BotService.Channel("channel", new()
+    {
+        ChannelName = "DirectLineSpeechChannel",
+        Location = "global",
+        Properties = new AzureNative.BotService.Inputs.DirectLineSpeechChannelArgs
+        {
+            ChannelName = "DirectLineSpeechChannel",
+            Properties = new AzureNative.BotService.Inputs.DirectLineSpeechChannelPropertiesArgs
+            {
+                CognitiveServiceRegion = "XcognitiveServiceRegionX",
+                CognitiveServiceSubscriptionKey = "XcognitiveServiceSubscriptionKeyX",
+                IsEnabled = true,
+            },
+        },
+        ResourceGroupName = "OneResourceGroupName",
+        ResourceName = "samplebotname",
+    });
+
+});
+

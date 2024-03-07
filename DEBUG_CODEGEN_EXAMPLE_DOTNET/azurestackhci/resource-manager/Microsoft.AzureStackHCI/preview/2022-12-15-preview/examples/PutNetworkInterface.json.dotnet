@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkInterface = new AzureNative.AzureStackHCI.NetworkInterface("networkInterface", new()
+    {
+        ExtendedLocation = new AzureNative.AzureStackHCI.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+            Type = "CustomLocation",
+        },
+        IpConfigurations = new[]
+        {
+            new AzureNative.AzureStackHCI.Inputs.IPConfigurationArgs
+            {
+                Name = "ipconfig-sample",
+                Properties = new AzureNative.AzureStackHCI.Inputs.IPConfigurationPropertiesArgs
+                {
+                    Subnet = new AzureNative.AzureStackHCI.Inputs.IPConfigurationSubnetArgs
+                    {
+                        Id = "test-vnet",
+                    },
+                },
+            },
+        },
+        Location = "West US2",
+        NetworkInterfaceName = "test-nic",
+        ResourceGroupName = "test-rg",
+    });
+
+});
+

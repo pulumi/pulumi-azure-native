@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 backend = azure_native.apimanagement.Backend("backend",
     backend_id="proxybackend",
-    credentials=azure_native.apimanagement.BackendCredentialsContractArgs(
+    credentials=azure_native.apimanagement.BackendCredentialsContractResponseArgs(
         authorization=azure_native.apimanagement.BackendAuthorizationHeaderCredentialsArgs(
             parameter="opensesma",
             scheme="Basic",

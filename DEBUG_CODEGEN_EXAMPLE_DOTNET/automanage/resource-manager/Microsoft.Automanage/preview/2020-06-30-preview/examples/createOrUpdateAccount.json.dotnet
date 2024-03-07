@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.Automanage.Account("account", new()
+    {
+        AccountName = "account",
+        Identity = new AzureNative.Automanage.Inputs.AccountIdentityArgs
+        {
+            Type = AzureNative.Automanage.ResourceIdentityType.SystemAssigned,
+        },
+        Location = "East US",
+        ResourceGroupName = "resourceGroup",
+        Tags = 
+        {
+            { "Organization", "Administration" },
+        },
+    });
+
+});
+

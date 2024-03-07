@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateCloud = new azure_native.avs.PrivateCloud("privateCloud", {
+    identity: {
+        type: "SystemAssigned",
+    },
+    location: "eastus2",
+    managementCluster: {
+        clusterSize: 4,
+    },
+    networkBlock: "192.168.48.0/22",
+    privateCloudName: "cloud1",
+    resourceGroupName: "group1",
+    sku: {
+        name: "AV36",
+    },
+    tags: {},
+});

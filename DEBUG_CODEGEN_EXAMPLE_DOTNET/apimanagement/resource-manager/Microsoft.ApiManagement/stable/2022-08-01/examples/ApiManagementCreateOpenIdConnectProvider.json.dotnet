@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var openIdConnectProvider = new AzureNative.ApiManagement.OpenIdConnectProvider("openIdConnectProvider", new()
+    {
+        ClientId = "oidprovidertemplate3",
+        ClientSecret = "x",
+        DisplayName = "templateoidprovider3",
+        MetadataEndpoint = "https://oidprovider-template3.net",
+        Opid = "templateOpenIdConnect3",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        UseInApiDocumentation = true,
+        UseInTestConsole = false,
+    });
+
+});
+

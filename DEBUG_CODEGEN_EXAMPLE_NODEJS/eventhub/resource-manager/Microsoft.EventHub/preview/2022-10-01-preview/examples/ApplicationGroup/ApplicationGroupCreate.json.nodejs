@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const applicationGroup = new azure_native.eventhub.ApplicationGroup("applicationGroup", {
+    applicationGroupName: "appGroup1",
+    clientAppGroupIdentifier: "SASKeyName=KeyName",
+    isEnabled: true,
+    namespaceName: "contoso-ua-test-eh-system-1",
+    policies: [
+        {
+            metricId: "IncomingMessages",
+            name: "ThrottlingPolicy1",
+            rateLimitThreshold: 7912,
+            type: "ThrottlingPolicy",
+        },
+        {
+            metricId: "IncomingBytes",
+            name: "ThrottlingPolicy2",
+            rateLimitThreshold: 3951729,
+            type: "ThrottlingPolicy",
+        },
+        {
+            metricId: "OutgoingBytes",
+            name: "ThrottlingPolicy3",
+            rateLimitThreshold: 245175,
+            type: "ThrottlingPolicy",
+        },
+    ],
+    resourceGroupName: "contosotest",
+});

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var kustoPool = new AzureNative.Synapse.KustoPool("kustoPool", new()
+    {
+        EnablePurge = true,
+        EnableStreamingIngest = true,
+        KustoPoolName = "kustoclusterrptest4",
+        Location = "westus",
+        ResourceGroupName = "kustorptest",
+        Sku = new AzureNative.Synapse.Inputs.AzureSkuArgs
+        {
+            Capacity = 2,
+            Name = "Storage optimized",
+            Size = "Medium",
+        },
+        WorkspaceName = "synapseWorkspaceName",
+        WorkspaceUID = "11111111-2222-3333-444444444444",
+    });
+
+});
+

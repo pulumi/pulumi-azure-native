@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const role = new azure_native.dbforpostgresql.Role("role", {
+    clusterName: "pgtestsvc4",
+    password: "password",
+    resourceGroupName: "TestGroup",
+    roleName: "role1",
+});

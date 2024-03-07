@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const providerInstance = new azure_native.workloads.ProviderInstance("providerInstance", {
+    monitorName: "mySapMonitor",
+    providerInstanceName: "myProviderInstance",
+    providerSettings: {
+        prometheusUrl: "http://192.168.0.0:9090/metrics",
+        providerType: "PrometheusOS",
+        sapSid: "SID",
+        sslPreference: "RootCertificate",
+    },
+    resourceGroupName: "myResourceGroup",
+});

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var iPv6FirewallRule = new AzureNative.Sql.IPv6FirewallRule("iPv6FirewallRule", new()
+    {
+        EndIPv6Address = "0000:0000:0000:0000:0000:ffff:0000:0003",
+        FirewallRuleName = "firewallrulecrudtest-5370",
+        ResourceGroupName = "firewallrulecrudtest-12",
+        ServerName = "firewallrulecrudtest-6285",
+        StartIPv6Address = "0000:0000:0000:0000:0000:ffff:0000:0003",
+    });
+
+});
+

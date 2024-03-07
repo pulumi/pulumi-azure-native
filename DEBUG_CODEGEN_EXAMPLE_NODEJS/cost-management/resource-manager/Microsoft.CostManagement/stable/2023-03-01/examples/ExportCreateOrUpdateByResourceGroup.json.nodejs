@@ -1,0 +1,39 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const _export = new azure_native.costmanagement.Export("export", {
+    definition: {
+        dataSet: {
+            configuration: {
+                columns: [
+                    "Date",
+                    "MeterId",
+                    "ResourceId",
+                    "ResourceLocation",
+                    "Quantity",
+                ],
+            },
+            granularity: "Daily",
+        },
+        timeframe: "MonthToDate",
+        type: "ActualCost",
+    },
+    deliveryInfo: {
+        destination: {
+            container: "exports",
+            resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/ccmeastusdiag182",
+            rootFolderPath: "ad-hoc",
+        },
+    },
+    exportName: "TestExport",
+    format: "Csv",
+    schedule: {
+        recurrence: "Weekly",
+        recurrencePeriod: {
+            from: "2020-06-01T00:00:00Z",
+            to: "2020-10-31T00:00:00Z",
+        },
+        status: "Active",
+    },
+    scope: "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG",
+});

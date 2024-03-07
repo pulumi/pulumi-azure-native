@@ -1,0 +1,148 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var businessCaseOperation = new AzureNative.Migrate.BusinessCaseOperation("businessCaseOperation", new()
+    {
+        BusinessCaseName = "sample-business-case",
+        ProjectName = "multipleto8617project",
+        ResourceGroupName = "rgopenapi",
+        Settings = new AzureNative.Migrate.Inputs.SettingsArgs
+        {
+            AzureSettings = new AzureNative.Migrate.Inputs.AzureSettingsArgs
+            {
+                AvsLaborCostPercentage = 0,
+                BusinessCaseType = "OptimizeForCost",
+                ComfortFactor = 29,
+                Currency = "USD",
+                DiscountPercentage = 83,
+                IaasLaborCostPercentage = 94,
+                InfrastructureGrowthRate = 83,
+                NetworkCostPercentage = 40,
+                PaasLaborCostPercentage = 47,
+                PerYearMigrationCompletionPercentage = 
+                {
+                    { "Year0", 20 },
+                    { "Year1", 30 },
+                    { "Year2", 60 },
+                    { "Year3", 90 },
+                },
+                PerformanceDataEndTime = "2023-11-08T07:10:07.764Z",
+                PerformanceDataStartTime = "2023-11-08T07:10:07.764Z",
+                PerformanceUtilizationPercentile = 4,
+                SavingsOption = "RI3Year",
+                TargetLocation = "WestUs2",
+                Wacc = 79,
+                WorkloadDiscoverySource = "Appliance",
+            },
+            OnPremiseSettings = new AzureNative.Migrate.Inputs.OnPremiseSettingsArgs
+            {
+                ComputeSettings = new AzureNative.Migrate.Inputs.ComputeSettingsArgs
+                {
+                    HyperthreadCoreToMemoryRatio = 12,
+                    Price = 16,
+                    SqlServerLicensing = new[]
+                    {
+                        new AzureNative.Migrate.Inputs.SqlServerLicensingSettingsArgs
+                        {
+                            LicenseCost = 27,
+                            SoftwareAssuranceCost = 16,
+                            Version = "Enterprise",
+                        },
+                    },
+                    VirtualizationSoftwareSettings = new AzureNative.Migrate.Inputs.VirtualizationSoftwareSettingsArgs
+                    {
+                        LicenseAndSupportList = new[]
+                        {
+                            new AzureNative.Migrate.Inputs.VsphereLicenseArgs
+                            {
+                                BasicSupportCost = 22,
+                                LicenseCost = 8,
+                                LicenseType = "VSphereStandard",
+                                ProductionSupportCost = 22,
+                            },
+                        },
+                        NumberOfPhysicalCoresPerLicense = 17,
+                        SoftwareAssuranceCost = 14,
+                    },
+                    WindowsServerLicensing = new AzureNative.Migrate.Inputs.WindowsServerLicensingSettingsArgs
+                    {
+                        LicenseCost = 9,
+                        LicensesPerCore = 11,
+                        SoftwareAssuranceCost = 1,
+                    },
+                },
+                FacilitySettings = new AzureNative.Migrate.Inputs.FacilitySettingsArgs
+                {
+                    FacilitiesCost = 7,
+                },
+                LaborSettings = new AzureNative.Migrate.Inputs.LaborSettingsArgs
+                {
+                    HourlyAdminCost = 25,
+                    PhysicalServersPerAdmin = 6,
+                    VirtualMachinesPerAdmin = 24,
+                },
+                ManagementSettings = new AzureNative.Migrate.Inputs.ManagementSettingsArgs
+                {
+                    HypervVirtualizationManagementSettings = new AzureNative.Migrate.Inputs.HypervVirtualizationManagementSettingsArgs
+                    {
+                        LicenseAndSupportList = new[]
+                        {
+                            new AzureNative.Migrate.Inputs.HypervLicenseArgs
+                            {
+                                LicenseCost = 4,
+                                LicenseType = "Standard",
+                            },
+                        },
+                        NumberOfPhysicalCoresPerLicense = 2,
+                        SoftwareAssuranceCost = 11,
+                    },
+                    OtherManagementCostsSettings = new AzureNative.Migrate.Inputs.OtherManagementCostsSettingsArgs
+                    {
+                        DataProtectionCostPerServerPerYear = 18,
+                        MonitoringCostPerServerPerYear = 10,
+                        PatchingCostPerServerPerYear = 18,
+                    },
+                    ThirdPartyManagementSettings = new AzureNative.Migrate.Inputs.ThirdPartyManagementSettingsArgs
+                    {
+                        LicenseCost = 23,
+                        SupportCost = 9,
+                    },
+                    VsphereManagementSettings = new AzureNative.Migrate.Inputs.VsphereManagementSettingsArgs
+                    {
+                        LicenseAndSupportList = new[]
+                        {
+                            new AzureNative.Migrate.Inputs.VsphereManagementLicenseArgs
+                            {
+                                BasicSupportCost = 1,
+                                LicenseCost = 6,
+                                LicenseType = "VSphereServerStandard",
+                                ProductionSupportCost = 18,
+                            },
+                        },
+                    },
+                },
+                NetworkSettings = new AzureNative.Migrate.Inputs.NetworkSettingsArgs
+                {
+                    HardwareSoftwareCostPercentage = 50,
+                    MaintenanceCostPercentage = 48,
+                },
+                SecuritySettings = new AzureNative.Migrate.Inputs.SecuritySettingsArgs
+                {
+                    ServerSecurityCostPerServerPerYear = 14,
+                    SqlServerSecurityCostPerServerPerYear = 7,
+                },
+                StorageSettings = new AzureNative.Migrate.Inputs.StorageSettingsArgs
+                {
+                    CostPerGbPerMonth = 22,
+                    MaintainanceCostPercentageToAcquisitionCost = 1,
+                },
+            },
+        },
+    });
+
+});
+

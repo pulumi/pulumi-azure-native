@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkSecurityGroup = new azure_native.network.NetworkSecurityGroup("networkSecurityGroup", {
+    location: "eastus",
+    networkSecurityGroupName: "testnsg",
+    resourceGroupName: "rg1",
+    securityRules: [{
+        access: "Allow",
+        destinationAddressPrefix: "*",
+        destinationPortRange: "80",
+        direction: "Inbound",
+        name: "rule1",
+        priority: 130,
+        protocol: "*",
+        sourceAddressPrefix: "*",
+        sourcePortRange: "*",
+    }],
+});

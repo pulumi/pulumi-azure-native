@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mongoCluster = new azure_native.documentdb.MongoCluster("mongoCluster", {
+    administratorLogin: "mongoAdmin",
+    administratorLoginPassword: "password",
+    location: "westus2",
+    mongoClusterName: "myMongoCluster",
+    nodeGroupSpecs: [{
+        diskSizeGB: 128,
+        enableHa: true,
+        kind: "Shard",
+        nodeCount: 3,
+        sku: "M30",
+    }],
+    resourceGroupName: "TestResourceGroup",
+    serverVersion: "5.0",
+});

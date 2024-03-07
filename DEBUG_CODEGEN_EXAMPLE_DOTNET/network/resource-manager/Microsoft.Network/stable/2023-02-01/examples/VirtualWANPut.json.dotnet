@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualWan = new AzureNative.Network.VirtualWan("virtualWan", new()
+    {
+        DisableVpnEncryption = false,
+        Location = "West US",
+        ResourceGroupName = "rg1",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+        Type = "Basic",
+        VirtualWANName = "wan1",
+    });
+
+});
+

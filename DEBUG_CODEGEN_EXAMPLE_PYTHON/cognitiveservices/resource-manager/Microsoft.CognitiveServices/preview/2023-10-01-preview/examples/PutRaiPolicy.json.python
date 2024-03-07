@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 rai_policy = azure_native.cognitiveservices.RaiPolicy("raiPolicy",
     account_name="accountName",
-    properties=azure_native.cognitiveservices.RaiPolicyPropertiesArgs(
+    properties=azure_native.cognitiveservices.RaiPolicyPropertiesResponseArgs(
         base_policy_name="112",
         content_filters=[
             azure_native.cognitiveservices.RaiPolicyContentFilterArgs(

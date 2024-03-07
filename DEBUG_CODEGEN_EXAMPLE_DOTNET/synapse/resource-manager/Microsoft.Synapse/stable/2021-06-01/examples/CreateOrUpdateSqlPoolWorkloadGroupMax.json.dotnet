@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlPoolWorkloadGroup = new AzureNative.Synapse.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup", new()
+    {
+        Importance = "normal",
+        MaxResourcePercent = 100,
+        MaxResourcePercentPerRequest = 3,
+        MinResourcePercent = 0,
+        MinResourcePercentPerRequest = 3,
+        QueryExecutionTimeout = 0,
+        ResourceGroupName = "sqlcrudtest-6852",
+        SqlPoolName = "sqlcrudtest-9187",
+        WorkloadGroupName = "smallrc",
+        WorkspaceName = "sqlcrudtest-2080",
+    });
+
+});
+

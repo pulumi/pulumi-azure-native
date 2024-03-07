@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var migrateAgent = new AzureNative.Migrate.MigrateAgent("migrateAgent", new()
+    {
+        AgentName = "e85v",
+        ModernizeProjectName = "l77ak",
+        ResourceGroupName = "rgmigrateEngine",
+    });
+
+});
+

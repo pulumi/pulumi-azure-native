@@ -1,0 +1,42 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var updateRun = new AzureNative.ContainerService.UpdateRun("updateRun", new()
+    {
+        FleetName = "fleet1",
+        ManagedClusterUpdate = new AzureNative.ContainerService.Inputs.ManagedClusterUpdateArgs
+        {
+            Upgrade = new AzureNative.ContainerService.Inputs.ManagedClusterUpgradeSpecArgs
+            {
+                KubernetesVersion = "1.26.1",
+                Type = "Full",
+            },
+        },
+        ResourceGroupName = "rg1",
+        Strategy = new AzureNative.ContainerService.Inputs.UpdateRunStrategyArgs
+        {
+            Stages = new[]
+            {
+                new AzureNative.ContainerService.Inputs.UpdateStageArgs
+                {
+                    AfterStageWaitInSeconds = 3600,
+                    Groups = new[]
+                    {
+                        new AzureNative.ContainerService.Inputs.UpdateGroupArgs
+                        {
+                            Name = "group-a",
+                        },
+                    },
+                    Name = "stage1",
+                },
+            },
+        },
+        UpdateRunName = "run1",
+    });
+
+});
+

@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var periodicTimerEventTrigger = new AzureNative.DataBoxEdge.PeriodicTimerEventTrigger("periodicTimerEventTrigger", new()
+    {
+        DeviceName = "testedgedevice",
+        Name = "trigger1",
+        ResourceGroupName = "GroupForEdgeAutomation",
+    });
+
+});
+

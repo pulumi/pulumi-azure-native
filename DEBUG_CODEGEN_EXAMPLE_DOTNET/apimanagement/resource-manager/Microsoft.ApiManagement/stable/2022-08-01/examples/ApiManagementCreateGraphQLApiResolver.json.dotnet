@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var graphQLApiResolver = new AzureNative.ApiManagement.GraphQLApiResolver("graphQLApiResolver", new()
+    {
+        ApiId = "someAPI",
+        Description = "A GraphQL Resolver example",
+        DisplayName = "Query Users",
+        Path = "Query/users",
+        ResolverId = "newResolver",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

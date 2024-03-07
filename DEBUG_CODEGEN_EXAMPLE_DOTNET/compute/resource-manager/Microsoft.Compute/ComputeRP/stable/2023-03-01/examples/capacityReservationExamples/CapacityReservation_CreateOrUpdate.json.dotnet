@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var capacityReservation = new AzureNative.Compute.CapacityReservation("capacityReservation", new()
+    {
+        CapacityReservationGroupName = "myCapacityReservationGroup",
+        CapacityReservationName = "myCapacityReservation",
+        Location = "westus",
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Compute.Inputs.SkuArgs
+        {
+            Capacity = 4,
+            Name = "Standard_DS1_v2",
+        },
+        Tags = 
+        {
+            { "department", "HR" },
+        },
+        Zones = new[]
+        {
+            "1",
+        },
+    });
+
+});
+

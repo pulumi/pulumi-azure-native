@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deviceGroup = new AzureNative.AzureSphere.DeviceGroup("deviceGroup", new()
+    {
+        CatalogName = "MyCatalog1",
+        Description = "Description for MyDeviceGroup1",
+        DeviceGroupName = "MyDeviceGroup1",
+        OsFeedType = "Retail",
+        ProductName = "MyProduct1",
+        ResourceGroupName = "MyResourceGroup1",
+        UpdatePolicy = "UpdateAll",
+    });
+
+});
+

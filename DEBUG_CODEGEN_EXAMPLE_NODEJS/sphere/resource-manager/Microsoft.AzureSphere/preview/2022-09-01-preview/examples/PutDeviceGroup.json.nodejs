@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const deviceGroup = new azure_native.azuresphere.DeviceGroup("deviceGroup", {
+    catalogName: "MyCatalog1",
+    description: "Description for MyDeviceGroup1",
+    deviceGroupName: "MyDeviceGroup1",
+    osFeedType: "Retail",
+    productName: "MyProduct1",
+    resourceGroupName: "MyResourceGroup1",
+    updatePolicy: "UpdateAll",
+});

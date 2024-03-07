@@ -4,15 +4,15 @@ import pulumi_azure_native as azure_native
 monitored_subscription = azure_native.datadog.MonitoredSubscription("monitoredSubscription",
     configuration_name="default",
     monitor_name="myMonitor",
-    properties=azure_native.datadog.SubscriptionListArgs(
+    properties=azure_native.datadog.SubscriptionListResponseArgs(
         monitored_subscription_list=[
-            azure_native.datadog.MonitoredSubscriptionArgs(
-                status="Active",
-                subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000",
-                tag_rules=azure_native.datadog.MonitoringTagRulesPropertiesArgs(
-                    automuting=True,
-                    log_rules=azure_native.datadog.LogRulesArgs(
-                        filtering_tags=[
+            {
+                "status": "Active",
+                "subscriptionId": "/subscriptions/00000000-0000-0000-0000-000000000000",
+                "tagRules": {
+                    "automuting": True,
+                    "logRules": {
+                        "filteringTags": [
                             azure_native.datadog.FilteringTagArgs(
                                 action="Include",
                                 name="Environment",
@@ -24,22 +24,22 @@ monitored_subscription = azure_native.datadog.MonitoredSubscription("monitoredSu
                                 value="Dev",
                             ),
                         ],
-                        send_aad_logs=False,
-                        send_resource_logs=True,
-                        send_subscription_logs=True,
-                    ),
-                    metric_rules=azure_native.datadog.MetricRulesArgs(
-                        filtering_tags=[],
-                    ),
-                ),
-            ),
-            azure_native.datadog.MonitoredSubscriptionArgs(
-                status="Failed",
-                subscription_id="/subscriptions/00000000-0000-0000-0000-000000000001",
-                tag_rules=azure_native.datadog.MonitoringTagRulesPropertiesArgs(
-                    automuting=True,
-                    log_rules=azure_native.datadog.LogRulesArgs(
-                        filtering_tags=[
+                        "sendAadLogs": False,
+                        "sendResourceLogs": True,
+                        "sendSubscriptionLogs": True,
+                    },
+                    "metricRules": {
+                        "filteringTags": [],
+                    },
+                },
+            },
+            {
+                "status": "Failed",
+                "subscriptionId": "/subscriptions/00000000-0000-0000-0000-000000000001",
+                "tagRules": {
+                    "automuting": True,
+                    "logRules": {
+                        "filteringTags": [
                             azure_native.datadog.FilteringTagArgs(
                                 action="Include",
                                 name="Environment",
@@ -51,15 +51,15 @@ monitored_subscription = azure_native.datadog.MonitoredSubscription("monitoredSu
                                 value="Dev",
                             ),
                         ],
-                        send_aad_logs=False,
-                        send_resource_logs=True,
-                        send_subscription_logs=True,
-                    ),
-                    metric_rules=azure_native.datadog.MetricRulesArgs(
-                        filtering_tags=[],
-                    ),
-                ),
-            ),
+                        "sendAadLogs": False,
+                        "sendResourceLogs": True,
+                        "sendSubscriptionLogs": True,
+                    },
+                    "metricRules": {
+                        "filteringTags": [],
+                    },
+                },
+            },
         ],
         operation="AddBegin",
     ),

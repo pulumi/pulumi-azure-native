@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const databaseAdvisor = new azure_native.sql.DatabaseAdvisor("databaseAdvisor", {
+    advisorName: "CreateIndex",
+    autoExecuteStatus: azure_native.sql.AutoExecuteStatus.Disabled,
+    databaseName: "IndexAdvisor_test_3",
+    resourceGroupName: "workloadinsight-demos",
+    serverName: "misosisvr",
+});

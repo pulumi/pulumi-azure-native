@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var certificate = new AzureNative.Web.Certificate("certificate", new()
+    {
+        HostNames = new[]
+        {
+            "ServerCert",
+        },
+        Location = "East US",
+        Name = "testc6282",
+        Password = "<password>",
+        ResourceGroupName = "testrg123",
+    });
+
+});
+

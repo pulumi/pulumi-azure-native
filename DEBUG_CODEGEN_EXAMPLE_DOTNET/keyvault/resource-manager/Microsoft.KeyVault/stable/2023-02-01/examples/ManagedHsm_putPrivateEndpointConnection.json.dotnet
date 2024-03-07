@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var mhsmPrivateEndpointConnection = new AzureNative.KeyVault.MHSMPrivateEndpointConnection("mhsmPrivateEndpointConnection", new()
+    {
+        Name = "sample-mhsm",
+        PrivateEndpointConnectionName = "sample-pec",
+        PrivateLinkServiceConnectionState = new AzureNative.KeyVault.Inputs.MHSMPrivateLinkServiceConnectionStateArgs
+        {
+            Description = "My name is Joe and I'm approving this.",
+            Status = "Approved",
+        },
+        ResourceGroupName = "sample-group",
+    });
+
+});
+

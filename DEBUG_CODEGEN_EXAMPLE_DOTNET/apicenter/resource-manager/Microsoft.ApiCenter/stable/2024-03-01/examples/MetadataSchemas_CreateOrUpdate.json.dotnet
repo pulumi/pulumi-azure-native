@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var metadataSchema = new AzureNative.ApiCenter.MetadataSchema("metadataSchema", new()
+    {
+        AssignedTo = new[]
+        {
+            new AzureNative.ApiCenter.Inputs.MetadataAssignmentArgs
+            {
+                Deprecated = true,
+                Entity = "api",
+            },
+        },
+        MetadataSchemaName = "author",
+        ResourceGroupName = "contoso-resources",
+        Schema = "{\"type\":\"string\", \"title\":\"Author\", pattern: \"^[a-zA-Z]+$\"}",
+        ServiceName = "contoso",
+    });
+
+});
+

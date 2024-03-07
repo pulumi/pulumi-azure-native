@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const managementGroupNetworkManagerConnection = new azure_native.network.ManagementGroupNetworkManagerConnection("managementGroupNetworkManagerConnection", {
+    managementGroupId: "managementGroupA",
+    networkManagerConnectionName: "TestNMConnection",
+    networkManagerId: "/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager",
+});

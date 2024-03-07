@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const customDomain = new azure_native.cdn.CustomDomain("customDomain", {
+    customDomainName: "www-someDomain-net",
+    endpointName: "endpoint1",
+    hostName: "www.someDomain.net",
+    profileName: "profile1",
+    resourceGroupName: "RG",
+});

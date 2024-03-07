@@ -1,0 +1,23 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const javaComponent = new azure_native.app.JavaComponent("javaComponent", {
+    componentType: "SpringBootAdmin",
+    configurations: [
+        {
+            propertyName: "spring.boot.admin.ui.enable-toasts",
+            value: "true",
+        },
+        {
+            propertyName: "spring.boot.admin.monitor.status-interval",
+            value: "10000ms",
+        },
+    ],
+    environmentName: "myenvironment",
+    name: "myjavacomponent",
+    resourceGroupName: "examplerg",
+    serviceBinds: [{
+        name: "yellowcat",
+        serviceId: "/subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/myenvironment/javaComponents/yellowcat",
+    }],
+});

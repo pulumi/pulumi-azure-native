@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const bandwidthSchedule = new azure_native.databoxedge.BandwidthSchedule("bandwidthSchedule", {
+    days: [
+        "Sunday",
+        "Monday",
+    ],
+    deviceName: "testedgedevice",
+    name: "bandwidth-1",
+    rateInMbps: 100,
+    resourceGroupName: "GroupForEdgeAutomation",
+    start: "0:0:0",
+    stop: "13:59:0",
+});

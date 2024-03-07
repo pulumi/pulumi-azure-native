@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var hubRouteTable = new AzureNative.Network.HubRouteTable("hubRouteTable", new()
+    {
+        Labels = new[]
+        {
+            "label1",
+            "label2",
+        },
+        ResourceGroupName = "rg1",
+        RouteTableName = "hubRouteTable1",
+        Routes = new[]
+        {
+            new AzureNative.Network.Inputs.HubRouteArgs
+            {
+                DestinationType = "CIDR",
+                Destinations = new[]
+                {
+                    "10.0.0.0/8",
+                    "20.0.0.0/8",
+                    "30.0.0.0/8",
+                },
+                Name = "route1",
+                NextHop = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
+                NextHopType = "ResourceId",
+            },
+        },
+        VirtualHubName = "virtualHub1",
+    });
+
+});
+

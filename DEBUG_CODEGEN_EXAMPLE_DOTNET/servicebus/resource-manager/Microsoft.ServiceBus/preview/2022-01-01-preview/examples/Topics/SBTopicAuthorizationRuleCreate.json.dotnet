@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var topicAuthorizationRule = new AzureNative.ServiceBus.TopicAuthorizationRule("topicAuthorizationRule", new()
+    {
+        AuthorizationRuleName = "sdk-AuthRules-4310",
+        NamespaceName = "sdk-Namespace-6261",
+        ResourceGroupName = "ArunMonocle",
+        Rights = new[]
+        {
+            "Listen",
+            "Send",
+        },
+        TopicName = "sdk-Topics-1984",
+    });
+
+});
+

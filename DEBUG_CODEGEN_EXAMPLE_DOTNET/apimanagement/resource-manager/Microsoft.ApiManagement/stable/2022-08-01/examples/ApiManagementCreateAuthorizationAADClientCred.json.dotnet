@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var authorization = new AzureNative.ApiManagement.Authorization("authorization", new()
+    {
+        AuthorizationId = "authz1",
+        AuthorizationProviderId = "aadwithclientcred",
+        AuthorizationType = "OAuth2",
+        OAuth2GrantType = "AuthorizationCode",
+        Parameters = 
+        {
+            { "clientId", "53790925-fdd3-4b80-bc7a-4c3aaf25801d" },
+            { "clientSecret", "FcJkQ3iPSaKAQRA7Ft8Q~fZ1X5vKmqzUAfJagcJ8" },
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

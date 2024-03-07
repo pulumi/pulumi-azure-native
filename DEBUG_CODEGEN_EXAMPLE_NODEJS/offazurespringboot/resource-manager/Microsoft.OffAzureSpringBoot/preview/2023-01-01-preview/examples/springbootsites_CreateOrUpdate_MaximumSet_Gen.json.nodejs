@@ -1,0 +1,19 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const springbootsite = new azure_native.offazurespringboot.Springbootsite("springbootsite", {
+    extendedLocation: {
+        name: "rywvpbfsqovhlfirtwisugsdsfsgf",
+        type: "lvsb",
+    },
+    location: "tgobtvxktootwhhvjtsmpddvlqlrq",
+    properties: {
+        masterSiteId: "xsoimrgshsactearljwuljmi",
+        migrateProjectId: "wwuattybgco",
+    },
+    resourceGroupName: "rgspringbootsites",
+    springbootsitesName: "xrmzlavpewxtfeitghdrj",
+    tags: {
+        key3558: "xeuhtglamqzj",
+    },
+});

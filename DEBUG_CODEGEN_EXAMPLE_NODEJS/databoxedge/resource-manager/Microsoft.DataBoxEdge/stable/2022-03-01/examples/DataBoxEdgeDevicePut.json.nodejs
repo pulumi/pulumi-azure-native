@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const device = new azure_native.databoxedge.Device("device", {
+    deviceName: "testedgedevice",
+    location: "WUS",
+    resourceGroupName: "GroupForEdgeAutomation",
+    sku: {
+        name: "Edge",
+        tier: "Standard",
+    },
+    tags: {},
+});

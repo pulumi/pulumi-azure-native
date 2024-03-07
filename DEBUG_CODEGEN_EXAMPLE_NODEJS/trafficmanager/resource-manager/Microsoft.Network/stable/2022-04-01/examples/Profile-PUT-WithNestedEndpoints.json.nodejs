@@ -1,0 +1,46 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const profile = new azure_native.network.Profile("profile", {
+    dnsConfig: {
+        relativeName: "parentprofile",
+        ttl: 35,
+    },
+    endpoints: [
+        {
+            endpointStatus: "Enabled",
+            minChildEndpoints: 2,
+            minChildEndpointsIPv4: 1,
+            minChildEndpointsIPv6: 2,
+            name: "MyFirstNestedEndpoint",
+            priority: 1,
+            target: "firstnestedprofile.tmpreview.watmtest.azure-test.net",
+            type: "Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+            weight: 1,
+        },
+        {
+            endpointStatus: "Enabled",
+            minChildEndpoints: 2,
+            minChildEndpointsIPv4: 2,
+            minChildEndpointsIPv6: 1,
+            name: "MySecondNestedEndpoint",
+            priority: 2,
+            target: "secondnestedprofile.tmpreview.watmtest.azure-test.net",
+            type: "Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+            weight: 1,
+        },
+    ],
+    location: "global",
+    monitorConfig: {
+        intervalInSeconds: 10,
+        path: "/testpath.aspx",
+        port: 80,
+        protocol: "HTTP",
+        timeoutInSeconds: 5,
+        toleratedNumberOfFailures: 2,
+    },
+    profileName: "parentprofile",
+    profileStatus: "Enabled",
+    resourceGroupName: "myresourcegroup",
+    trafficRoutingMethod: "Priority",
+});

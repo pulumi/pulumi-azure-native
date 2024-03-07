@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var governanceRule = new AzureNative.Security.GovernanceRule("governanceRule", new()
+    {
+        Description = "A rule for a management group",
+        DisplayName = "Management group rule",
+        ExcludedScopes = new[]
+        {
+            "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+        },
+        GovernanceEmailNotification = new AzureNative.Security.Inputs.GovernanceRuleEmailNotificationArgs
+        {
+            DisableManagerEmailNotification = true,
+            DisableOwnerEmailNotification = false,
+        },
+        IsDisabled = false,
+        IsGracePeriod = true,
+        OwnerSource = new AzureNative.Security.Inputs.GovernanceRuleOwnerSourceArgs
+        {
+            Type = "Manually",
+            Value = "user@contoso.com",
+        },
+        RemediationTimeframe = "7.00:00:00",
+        RuleId = "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+        RulePriority = 200,
+        RuleType = "Integrated",
+        Scope = "providers/Microsoft.Management/managementGroups/contoso",
+        SourceResourceType = "Assessments",
+    });
+
+});
+

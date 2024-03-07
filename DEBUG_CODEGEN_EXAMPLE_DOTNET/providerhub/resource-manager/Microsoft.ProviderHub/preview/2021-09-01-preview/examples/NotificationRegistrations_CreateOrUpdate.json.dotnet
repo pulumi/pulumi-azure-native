@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var notificationRegistration = new AzureNative.ProviderHub.NotificationRegistration("notificationRegistration", new()
+    {
+        NotificationRegistrationName = "fooNotificationRegistration",
+        Properties = new AzureNative.ProviderHub.Inputs.NotificationRegistrationPropertiesArgs
+        {
+            IncludedEvents = new[]
+            {
+                "*/write",
+                "Microsoft.Contoso/employees/delete",
+            },
+            MessageScope = "RegisteredSubscriptions",
+            NotificationEndpoints = new[]
+            {
+                new AzureNative.ProviderHub.Inputs.NotificationEndpointArgs
+                {
+                    Locations = new[]
+                    {
+                        "",
+                        "East US",
+                    },
+                    NotificationDestination = "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+                },
+                new AzureNative.ProviderHub.Inputs.NotificationEndpointArgs
+                {
+                    Locations = new[]
+                    {
+                        "North Europe",
+                    },
+                    NotificationDestination = "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+                },
+            },
+            NotificationMode = "EventHub",
+        },
+        ProviderNamespace = "Microsoft.Contoso",
+    });
+
+});
+

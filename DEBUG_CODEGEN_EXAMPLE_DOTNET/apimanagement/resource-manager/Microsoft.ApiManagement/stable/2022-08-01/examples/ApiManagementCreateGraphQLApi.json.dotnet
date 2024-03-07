@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var api = new AzureNative.ApiManagement.Api("api", new()
+    {
+        ApiId = "tempgroup",
+        ApiType = "graphql",
+        Description = "apidescription5200",
+        DisplayName = "apiname1463",
+        Path = "graphql-api",
+        Protocols = new[]
+        {
+            "http",
+            "https",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        ServiceUrl = "https://api.spacex.land/graphql",
+    });
+
+});
+

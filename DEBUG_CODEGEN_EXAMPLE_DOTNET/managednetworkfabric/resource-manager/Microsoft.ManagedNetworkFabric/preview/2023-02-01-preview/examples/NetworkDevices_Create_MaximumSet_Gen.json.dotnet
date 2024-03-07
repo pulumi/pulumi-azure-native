@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkDevice = new AzureNative.ManagedNetworkFabric.NetworkDevice("networkDevice", new()
+    {
+        Annotation = "null",
+        HostName = "networkDeviceName",
+        Location = "eastus",
+        NetworkDeviceName = "networkDeviceName",
+        NetworkDeviceRole = "CE",
+        NetworkDeviceSku = "DefaultSku",
+        ResourceGroupName = "resourceGroupName",
+        SerialNumber = "Arista;DCS-7280PR3-24;12.05;JPE21330382",
+        Tags = 
+        {
+            { "keyID", "keyValue" },
+        },
+    });
+
+});
+

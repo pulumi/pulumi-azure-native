@@ -1,0 +1,43 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sourceControl = new AzureNative.SecurityInsights.SourceControl("sourceControl", new()
+    {
+        ContentTypes = new[]
+        {
+            "AnalyticRules",
+            "Workbook",
+        },
+        Description = "This is a source control",
+        DisplayName = "My Source Control",
+        RepoType = "Github",
+        Repository = new AzureNative.SecurityInsights.Inputs.RepositoryArgs
+        {
+            Branch = "master",
+            DisplayUrl = "https://github.com/user/repo",
+            PathMapping = new[]
+            {
+                new AzureNative.SecurityInsights.Inputs.ContentPathMapArgs
+                {
+                    ContentType = "AnalyticRules",
+                    Path = "path/to/rules",
+                },
+                new AzureNative.SecurityInsights.Inputs.ContentPathMapArgs
+                {
+                    ContentType = "Workbook",
+                    Path = "path/to/workbooks",
+                },
+            },
+            Url = "https://github.com/user/repo",
+        },
+        ResourceGroupName = "myRg",
+        SourceControlId = "789e0c1f-4a3d-43ad-809c-e713b677b04a",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

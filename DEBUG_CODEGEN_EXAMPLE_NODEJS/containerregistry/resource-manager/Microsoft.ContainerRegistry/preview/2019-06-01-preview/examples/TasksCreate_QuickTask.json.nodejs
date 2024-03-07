@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const task = new azure_native.containerregistry.Task("task", {
+    isSystemTask: true,
+    location: "eastus",
+    logTemplate: "acr/tasks:{{.Run.OS}}",
+    registryName: "myRegistry",
+    resourceGroupName: "myResourceGroup",
+    status: "Enabled",
+    tags: {
+        testkey: "value",
+    },
+    taskName: "quicktask",
+});

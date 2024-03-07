@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const share = new azure_native.datashare.Share("share", {
+    accountName: "Account1",
+    description: "share description",
+    resourceGroupName: "SampleResourceGroup",
+    shareKind: "CopyBased",
+    shareName: "Share1",
+    terms: "Confidential",
+});

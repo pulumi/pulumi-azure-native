@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const azureDevOpsConnector = new azure_native.securitydevops.AzureDevOpsConnector("azureDevOpsConnector", {
+    azureDevOpsConnectorName: "testconnector",
+    location: "West US",
+    properties: {
+        authorization: {
+            code: "00000000000000000000",
+        },
+        orgs: [{
+            name: "testOrg",
+            projects: [{
+                name: "testProject",
+                repos: ["testRepo"],
+            }],
+        }],
+    },
+    resourceGroupName: "westusrg",
+});

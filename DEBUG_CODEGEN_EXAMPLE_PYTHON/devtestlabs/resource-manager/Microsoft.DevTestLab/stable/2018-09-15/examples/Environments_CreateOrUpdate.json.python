@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 environment = azure_native.devtestlab.Environment("environment",
-    deployment_properties=azure_native.devtestlab.EnvironmentDeploymentPropertiesArgs(
+    deployment_properties=azure_native.devtestlab.EnvironmentDeploymentPropertiesResponseArgs(
         arm_template_id="/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}",
         parameters=[],
     ),

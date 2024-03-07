@@ -1,0 +1,57 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualMachineScaleSet = new azure_native.compute.VirtualMachineScaleSet("virtualMachineScaleSet", {
+    location: "westus",
+    overprovision: true,
+    resourceGroupName: "myResourceGroup",
+    sku: {
+        capacity: 3,
+        name: "Standard_D1_v2",
+        tier: "Standard",
+    },
+    upgradePolicy: {
+        mode: azure_native.compute.UpgradeMode.Manual,
+    },
+    virtualMachineProfile: {
+        networkProfile: {
+            networkInterfaceConfigurations: [{
+                enableIPForwarding: true,
+                ipConfigurations: [{
+                    name: "{vmss-name}",
+                    subnet: {
+                        id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/{existing-virtual-network-name}/subnets/{existing-subnet-name}",
+                    },
+                }],
+                name: "{vmss-name}",
+                primary: true,
+            }],
+        },
+        osProfile: {
+            adminPassword: "{your-password}",
+            adminUsername: "{your-username}",
+            computerNamePrefix: "{vmss-name}",
+        },
+        storageProfile: {
+            imageReference: {
+                offer: "WindowsServer",
+                publisher: "MicrosoftWindowsServer",
+                sku: "2016-Datacenter",
+                version: "latest",
+            },
+            osDisk: {
+                caching: azure_native.compute.CachingTypes.ReadWrite,
+                createOption: "FromImage",
+                name: "osDisk",
+                vhdContainers: [
+                    "http://{existing-storage-account-name-0}.blob.core.windows.net/vhdContainer",
+                    "http://{existing-storage-account-name-1}.blob.core.windows.net/vhdContainer",
+                    "http://{existing-storage-account-name-2}.blob.core.windows.net/vhdContainer",
+                    "http://{existing-storage-account-name-3}.blob.core.windows.net/vhdContainer",
+                    "http://{existing-storage-account-name-4}.blob.core.windows.net/vhdContainer",
+                ],
+            },
+        },
+    },
+    vmScaleSetName: "{vmss-name}",
+});

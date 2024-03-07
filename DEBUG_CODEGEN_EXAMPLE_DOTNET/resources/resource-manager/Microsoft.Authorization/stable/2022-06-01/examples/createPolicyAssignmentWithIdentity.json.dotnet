@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policyAssignment = new AzureNative.Authorization.PolicyAssignment("policyAssignment", new()
+    {
+        Description = "Force resource names to begin with given DeptA and end with -LC",
+        DisplayName = "Enforce resource naming rules",
+        EnforcementMode = "Default",
+        Identity = new AzureNative.Authorization.Inputs.IdentityArgs
+        {
+            Type = AzureNative.Authorization.ResourceIdentityType.SystemAssigned,
+        },
+        Location = "eastus",
+        Metadata = 
+        {
+            { "assignedBy", "Foo Bar" },
+        },
+        Parameters = 
+        {
+            { "prefix", new AzureNative.Authorization.Inputs.ParameterValuesValueArgs
+            {
+                Value = "DeptA",
+            } },
+            { "suffix", new AzureNative.Authorization.Inputs.ParameterValuesValueArgs
+            {
+                Value = "-LC",
+            } },
+        },
+        PolicyAssignmentName = "EnforceNaming",
+        PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    });
+
+});
+

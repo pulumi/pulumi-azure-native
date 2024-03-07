@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var privateLinkAssociation = new AzureNative.Authorization.PrivateLinkAssociation("privateLinkAssociation", new()
+    {
+        GroupId = "my-management-group",
+        PlaId = "00000000-0000-0000-0000-000000000000",
+        Properties = new AzureNative.Authorization.Inputs.PrivateLinkAssociationPropertiesArgs
+        {
+            PrivateLink = "00000000-0000-0000-0000-000000000000",
+            PublicNetworkAccess = "Enabled",
+        },
+    });
+
+});
+

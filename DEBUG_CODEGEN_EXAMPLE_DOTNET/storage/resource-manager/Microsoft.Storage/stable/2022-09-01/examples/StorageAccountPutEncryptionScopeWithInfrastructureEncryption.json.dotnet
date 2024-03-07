@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var encryptionScope = new AzureNative.Storage.EncryptionScope("encryptionScope", new()
+    {
+        AccountName = "{storage-account-name}",
+        EncryptionScopeName = "{encryption-scope-name}",
+        RequireInfrastructureEncryption = true,
+        ResourceGroupName = "resource-group-name",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dedicatedCloudService = new AzureNative.VMwareCloudSimple.DedicatedCloudService("dedicatedCloudService", new()
+    {
+        DedicatedCloudServiceName = "myService",
+        GatewaySubnet = "10.0.0.0",
+        Location = "westus",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

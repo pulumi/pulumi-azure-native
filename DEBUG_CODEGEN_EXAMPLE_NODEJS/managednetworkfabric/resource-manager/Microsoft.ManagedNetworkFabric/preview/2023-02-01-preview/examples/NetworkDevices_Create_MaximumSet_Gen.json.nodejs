@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const networkDevice = new azure_native.managednetworkfabric.NetworkDevice("networkDevice", {
+    annotation: "null",
+    hostName: "networkDeviceName",
+    location: "eastus",
+    networkDeviceName: "networkDeviceName",
+    networkDeviceRole: "CE",
+    networkDeviceSku: "DefaultSku",
+    resourceGroupName: "resourceGroupName",
+    serialNumber: "Arista;DCS-7280PR3-24;12.05;JPE21330382",
+    tags: {
+        keyID: "keyValue",
+    },
+});

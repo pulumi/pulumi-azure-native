@@ -1,0 +1,56 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const build = new azure_native.app.Build("build", {
+    buildName: "testBuild-123456789az",
+    builderName: "testBuilder",
+    configuration: {
+        baseOs: "DebianBullseye",
+        environmentVariables: [
+            {
+                name: "foo1",
+                value: "bar1",
+            },
+            {
+                name: "foo2",
+                value: "bar2",
+            },
+        ],
+        platform: "dotnetcore",
+        platformVersion: "7.0",
+        preBuildSteps: [
+            {
+                description: "First pre build step.",
+                httpGet: {
+                    fileName: "output.txt",
+                    headers: [
+                        "foo",
+                        "bar",
+                    ],
+                    url: "https://microsoft.com",
+                },
+                scripts: [
+                    "echo 'hello'",
+                    "echo 'world'",
+                ],
+            },
+            {
+                description: "Second pre build step.",
+                httpGet: {
+                    fileName: "output.txt",
+                    headers: ["foo"],
+                    url: "https://microsoft.com",
+                },
+                scripts: [
+                    "echo 'hello'",
+                    "echo 'again'",
+                ],
+            },
+        ],
+    },
+    destinationContainerRegistry: {
+        image: "test.azurecr.io/repo:tag",
+        server: "test.azurecr.io",
+    },
+    resourceGroupName: "rg",
+});

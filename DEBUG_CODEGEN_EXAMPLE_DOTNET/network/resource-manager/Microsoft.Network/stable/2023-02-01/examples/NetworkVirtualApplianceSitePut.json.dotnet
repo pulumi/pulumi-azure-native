@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualApplianceSite = new AzureNative.Network.VirtualApplianceSite("virtualApplianceSite", new()
+    {
+        AddressPrefix = "192.168.1.0/24",
+        NetworkVirtualApplianceName = "nva",
+        O365Policy = new AzureNative.Network.Inputs.Office365PolicyPropertiesArgs
+        {
+            BreakOutCategories = new AzureNative.Network.Inputs.BreakOutCategoryPoliciesArgs
+            {
+                Allow = true,
+                Default = true,
+                Optimize = true,
+            },
+        },
+        ResourceGroupName = "rg1",
+        SiteName = "site1",
+    });
+
+});
+

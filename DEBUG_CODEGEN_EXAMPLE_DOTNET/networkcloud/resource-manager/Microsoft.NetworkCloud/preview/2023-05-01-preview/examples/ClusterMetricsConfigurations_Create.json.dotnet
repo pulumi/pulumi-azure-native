@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var metricsConfiguration = new AzureNative.NetworkCloud.MetricsConfiguration("metricsConfiguration", new()
+    {
+        ClusterName = "clusterName",
+        CollectionInterval = 15,
+        EnabledMetrics = new[]
+        {
+            "metric1",
+            "metric2",
+        },
+        ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+        {
+            Name = "/subscriptions/123e4567-e89b-12d3-a456-426655440000/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+            Type = "CustomLocation",
+        },
+        Location = "location",
+        MetricsConfigurationName = "default",
+        ResourceGroupName = "resourceGroupName",
+        Tags = 
+        {
+            { "key1", "myvalue1" },
+            { "key2", "myvalue2" },
+        },
+    });
+
+});
+

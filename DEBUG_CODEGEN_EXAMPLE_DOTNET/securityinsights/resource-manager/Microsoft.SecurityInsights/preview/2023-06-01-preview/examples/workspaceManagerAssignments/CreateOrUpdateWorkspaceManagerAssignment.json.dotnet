@@ -1,0 +1,28 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceManagerAssignment = new AzureNative.SecurityInsights.WorkspaceManagerAssignment("workspaceManagerAssignment", new()
+    {
+        Items = new[]
+        {
+            new AzureNative.SecurityInsights.Inputs.AssignmentItemArgs
+            {
+                ResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleOne",
+            },
+            new AzureNative.SecurityInsights.Inputs.AssignmentItemArgs
+            {
+                ResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleTwo",
+            },
+        },
+        ResourceGroupName = "myRg",
+        TargetResourceName = "37207a7a-3b8a-438f-a559-c7df400e1b96",
+        WorkspaceManagerAssignmentName = "47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

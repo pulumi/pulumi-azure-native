@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadGroup = new azure_native.sql.WorkloadGroup("workloadGroup", {
+    databaseName: "testdb",
+    importance: "normal",
+    maxResourcePercent: 100,
+    maxResourcePercentPerRequest: 3,
+    minResourcePercent: 0,
+    minResourcePercentPerRequest: 3,
+    queryExecutionTimeout: 0,
+    resourceGroupName: "Default-SQL-SouthEastAsia",
+    serverName: "testsvr",
+    workloadGroupName: "smallrc",
+});

@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var modeling = new AzureNative.RecommendationsService.Modeling("modeling", new()
+    {
+        AccountName = "sampleAccount",
+        Location = "West US",
+        ModelingName = "c1",
+        Properties = new AzureNative.RecommendationsService.Inputs.ModelingResourcePropertiesArgs
+        {
+            Features = "Standard",
+            Frequency = "High",
+            InputData = new AzureNative.RecommendationsService.Inputs.ModelingInputDataArgs
+            {
+                ConnectionString = "https://storageAccount.blob.core.windows.net/container/root",
+            },
+            Size = "Medium",
+        },
+        ResourceGroupName = "rg",
+        Tags = 
+        {
+            { "Environment", "Prod" },
+        },
+    });
+
+});
+

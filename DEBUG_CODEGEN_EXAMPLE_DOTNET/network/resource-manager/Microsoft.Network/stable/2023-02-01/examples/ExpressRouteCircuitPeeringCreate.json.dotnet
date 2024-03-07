@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var expressRouteCircuitPeering = new AzureNative.Network.ExpressRouteCircuitPeering("expressRouteCircuitPeering", new()
+    {
+        CircuitName = "circuitName",
+        PeerASN = 200,
+        PeeringName = "AzurePrivatePeering",
+        PrimaryPeerAddressPrefix = "192.168.16.252/30",
+        ResourceGroupName = "rg1",
+        SecondaryPeerAddressPrefix = "192.168.18.252/30",
+        VlanId = 200,
+    });
+
+});
+

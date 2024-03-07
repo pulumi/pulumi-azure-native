@@ -1,0 +1,67 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const monitoredSubscription = new azure_native.datadog.MonitoredSubscription("monitoredSubscription", {
+    configurationName: "default",
+    monitorName: "myMonitor",
+    properties: {
+        monitoredSubscriptionList: [
+            {
+                status: "Active",
+                subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000",
+                tagRules: {
+                    automuting: true,
+                    logRules: {
+                        filteringTags: [
+                            {
+                                action: "Include",
+                                name: "Environment",
+                                value: "Prod",
+                            },
+                            {
+                                action: "Exclude",
+                                name: "Environment",
+                                value: "Dev",
+                            },
+                        ],
+                        sendAadLogs: false,
+                        sendResourceLogs: true,
+                        sendSubscriptionLogs: true,
+                    },
+                    metricRules: {
+                        filteringTags: [],
+                    },
+                },
+            },
+            {
+                status: "Failed",
+                subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000001",
+                tagRules: {
+                    automuting: true,
+                    logRules: {
+                        filteringTags: [
+                            {
+                                action: "Include",
+                                name: "Environment",
+                                value: "Prod",
+                            },
+                            {
+                                action: "Exclude",
+                                name: "Environment",
+                                value: "Dev",
+                            },
+                        ],
+                        sendAadLogs: false,
+                        sendResourceLogs: true,
+                        sendSubscriptionLogs: true,
+                    },
+                    metricRules: {
+                        filteringTags: [],
+                    },
+                },
+            },
+        ],
+        operation: "AddBegin",
+    },
+    resourceGroupName: "myResourceGroup",
+});

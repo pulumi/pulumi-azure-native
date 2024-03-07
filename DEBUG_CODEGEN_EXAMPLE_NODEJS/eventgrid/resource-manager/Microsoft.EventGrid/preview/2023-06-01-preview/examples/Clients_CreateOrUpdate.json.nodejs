@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const client = new azure_native.eventgrid.Client("client", {
+    attributes: {
+        deviceTypes: [
+            "Fan",
+            "Light",
+            "AC",
+        ],
+        floor: 3,
+        room: "345",
+    },
+    clientCertificateAuthentication: {
+        validationScheme: "SubjectMatchesAuthenticationName",
+    },
+    clientName: "exampleClientName1",
+    description: "This is a test client",
+    namespaceName: "exampleNamespaceName1",
+    resourceGroupName: "examplerg",
+    state: "Enabled",
+});

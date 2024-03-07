@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var subnet = new AzureNative.Network.Subnet("subnet", new()
+    {
+        AddressPrefix = "10.0.0.0/16",
+        ResourceGroupName = "subnet-test",
+        SubnetName = "subnet1",
+        VirtualNetworkName = "vnetname",
+    });
+
+});
+

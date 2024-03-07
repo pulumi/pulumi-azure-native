@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dedicatedHostGroup = new AzureNative.Compute.DedicatedHostGroup("dedicatedHostGroup", new()
+    {
+        AdditionalCapabilities = new AzureNative.Compute.Inputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs
+        {
+            UltraSSDEnabled = true,
+        },
+        HostGroupName = "myDedicatedHostGroup",
+        Location = "westus",
+        PlatformFaultDomainCount = 3,
+        ResourceGroupName = "myResourceGroup",
+        SupportAutomaticPlacement = true,
+        Tags = 
+        {
+            { "department", "finance" },
+        },
+        Zones = new[]
+        {
+            "1",
+        },
+    });
+
+});
+

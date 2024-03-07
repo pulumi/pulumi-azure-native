@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var streamingLocator = new AzureNative.Media.StreamingLocator("streamingLocator", new()
+    {
+        AccountName = "contosomedia",
+        AssetName = "ClimbingMountRainier",
+        ContentKeys = new[]
+        {
+            new AzureNative.Media.Inputs.StreamingLocatorContentKeyArgs
+            {
+                Id = "60000000-0000-0000-0000-000000000001",
+                LabelReferenceInStreamingPolicy = "aesDefaultKey",
+                Value = "1UqLohAfWsEGkULYxHjYZg==",
+            },
+            new AzureNative.Media.Inputs.StreamingLocatorContentKeyArgs
+            {
+                Id = "60000000-0000-0000-0000-000000000004",
+                LabelReferenceInStreamingPolicy = "cencDefaultKey",
+                Value = "4UqLohAfWsEGkULYxHjYZg==",
+            },
+            new AzureNative.Media.Inputs.StreamingLocatorContentKeyArgs
+            {
+                Id = "60000000-0000-0000-0000-000000000007",
+                LabelReferenceInStreamingPolicy = "cbcsDefaultKey",
+                Value = "7UqLohAfWsEGkULYxHjYZg==",
+            },
+        },
+        ResourceGroupName = "contosorg",
+        StreamingLocatorId = "90000000-0000-0000-0000-00000000000A",
+        StreamingLocatorName = "UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys",
+        StreamingPolicyName = "secureStreamingPolicy",
+    });
+
+});
+

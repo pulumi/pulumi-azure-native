@@ -2,18 +2,18 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 workspace = azure_native.databricks.Workspace("workspace",
-    encryption=azure_native.databricks.WorkspacePropertiesEncryptionArgs(
-        entities=azure_native.databricks.EncryptionEntitiesDefinitionArgs(
-            managed_disk=azure_native.databricks.ManagedDiskEncryptionArgs(
-                key_source="Microsoft.Keyvault",
-                key_vault_properties=azure_native.databricks.ManagedDiskEncryptionKeyVaultPropertiesArgs(
+    encryption=azure_native.databricks.WorkspacePropertiesResponseEncryptionArgs(
+        entities={
+            "managedDisk": {
+                "keySource": "Microsoft.Keyvault",
+                "keyVaultProperties": azure_native.databricks.ManagedDiskEncryptionKeyVaultPropertiesArgs(
                     key_name="test-cmk-key",
                     key_vault_uri="https://test-vault-name.vault.azure.net/",
                     key_version="00000000000000000000000000000000",
                 ),
-                rotation_to_latest_key_version_enabled=True,
-            ),
-        ),
+                "rotationToLatestKeyVersionEnabled": True,
+            },
+        },
     ),
     location="westus",
     managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",

@@ -3,7 +3,7 @@ import pulumi_azure_native as azure_native
 
 gateway_route_config = azure_native.appplatform.GatewayRouteConfig("gatewayRouteConfig",
     gateway_name="default",
-    properties=azure_native.appplatform.GatewayRouteConfigPropertiesArgs(
+    properties=azure_native.appplatform.GatewayRouteConfigPropertiesResponseArgs(
         app_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myApp",
         open_api=azure_native.appplatform.GatewayRouteConfigOpenApiPropertiesArgs(
             uri="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.json",

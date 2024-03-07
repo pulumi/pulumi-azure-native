@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var templateSpecVersion = new AzureNative.Resources.TemplateSpecVersion("templateSpecVersion", new()
+    {
+        Description = "This is version v1.0 of our template content",
+        Location = "eastus",
+        MainTemplate = 
+        {
+            { "$schema", "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#" },
+            { "contentVersion", "1.0.0.0" },
+            { "parameters", null },
+            { "resources", new[] {} },
+        },
+        ResourceGroupName = "templateSpecRG",
+        TemplateSpecName = "simpleTemplateSpec",
+        TemplateSpecVersion = "v1.0",
+    });
+
+});
+

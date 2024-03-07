@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const output = new azure_native.streamanalytics.Output("output", {
+    datasource: {
+        propertyColumns: [
+            "column1",
+            "column2",
+        ],
+        serviceBusNamespace: "sdktest",
+        sharedAccessPolicyKey: "sharedAccessPolicyKey=",
+        sharedAccessPolicyName: "RootManageSharedAccessKey",
+        topicName: "sdktopic",
+        type: "Microsoft.ServiceBus/Topic",
+    },
+    jobName: "sj7094",
+    outputName: "output7886",
+    resourceGroupName: "sjrg6450",
+    serialization: {
+        encoding: "UTF8",
+        fieldDelimiter: ",",
+        type: "Csv",
+    },
+});

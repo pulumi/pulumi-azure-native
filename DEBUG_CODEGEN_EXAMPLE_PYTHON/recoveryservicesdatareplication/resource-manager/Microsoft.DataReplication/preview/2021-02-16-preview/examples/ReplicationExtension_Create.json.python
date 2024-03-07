@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 replication_extension = azure_native.datareplication.ReplicationExtension("replicationExtension",
-    properties=azure_native.datareplication.ReplicationExtensionModelPropertiesArgs(
+    properties=azure_native.datareplication.ReplicationExtensionModelPropertiesResponseArgs(
         custom_properties={
             "instanceType": "ReplicationExtensionModelCustomProperties",
         },

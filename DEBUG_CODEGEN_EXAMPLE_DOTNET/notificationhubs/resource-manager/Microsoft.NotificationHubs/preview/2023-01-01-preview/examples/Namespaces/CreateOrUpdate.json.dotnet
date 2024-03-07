@@ -1,0 +1,53 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var @namespace = new AzureNative.NotificationHubs.Namespace("namespace", new()
+    {
+        Location = "South Central US",
+        NamespaceName = "nh-sdk-ns",
+        Properties = new AzureNative.NotificationHubs.Inputs.NamespacePropertiesArgs
+        {
+            NetworkAcls = new AzureNative.NotificationHubs.Inputs.NetworkAclsArgs
+            {
+                IpRules = new[]
+                {
+                    new AzureNative.NotificationHubs.Inputs.IpRuleArgs
+                    {
+                        IpMask = "185.48.100.00/24",
+                        Rights = new[]
+                        {
+                            "Manage",
+                            "Send",
+                            "Listen",
+                        },
+                    },
+                },
+                PublicNetworkRule = new AzureNative.NotificationHubs.Inputs.PublicInternetAuthorizationRuleArgs
+                {
+                    Rights = new[]
+                    {
+                        "Listen",
+                    },
+                },
+            },
+            ZoneRedundancy = "Enabled",
+        },
+        ResourceGroupName = "5ktrial",
+        Sku = new AzureNative.NotificationHubs.Inputs.SkuArgs
+        {
+            Name = "Standard",
+            Tier = "Standard",
+        },
+        Tags = 
+        {
+            { "tag1", "value1" },
+            { "tag2", "value2" },
+        },
+    });
+
+});
+

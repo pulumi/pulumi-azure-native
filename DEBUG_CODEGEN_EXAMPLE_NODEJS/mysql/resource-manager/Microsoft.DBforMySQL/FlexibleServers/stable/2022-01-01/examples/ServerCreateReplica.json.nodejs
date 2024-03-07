@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const server = new azure_native.dbformysql.Server("server", {
+    createMode: "Replica",
+    location: "SoutheastAsia",
+    resourceGroupName: "testgr",
+    serverName: "replica-server",
+    sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testgr/providers/Microsoft.DBforMySQL/flexibleServers/source-server",
+});

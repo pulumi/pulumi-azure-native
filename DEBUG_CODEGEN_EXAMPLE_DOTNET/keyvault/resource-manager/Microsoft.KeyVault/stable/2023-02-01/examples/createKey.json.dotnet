@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var key = new AzureNative.KeyVault.Key("key", new()
+    {
+        KeyName = "sample-key-name",
+        Properties = new AzureNative.KeyVault.Inputs.KeyPropertiesArgs
+        {
+            Kty = "RSA",
+        },
+        ResourceGroupName = "sample-group",
+        VaultName = "sample-vault-name",
+    });
+
+});
+

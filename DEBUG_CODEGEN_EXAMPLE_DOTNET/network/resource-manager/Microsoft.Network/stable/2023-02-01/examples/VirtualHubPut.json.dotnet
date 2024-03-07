@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualHub = new AzureNative.Network.VirtualHub("virtualHub", new()
+    {
+        AddressPrefix = "10.168.0.0/24",
+        Location = "West US",
+        ResourceGroupName = "rg1",
+        Sku = "Basic",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+        VirtualHubName = "virtualHub2",
+        VirtualWan = new AzureNative.Network.Inputs.SubResourceArgs
+        {
+            Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
+        },
+    });
+
+});
+

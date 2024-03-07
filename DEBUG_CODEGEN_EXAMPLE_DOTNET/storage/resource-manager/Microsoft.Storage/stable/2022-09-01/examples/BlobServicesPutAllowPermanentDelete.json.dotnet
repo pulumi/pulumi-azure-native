@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var blobServiceProperties = new AzureNative.Storage.BlobServiceProperties("blobServiceProperties", new()
+    {
+        AccountName = "sto8607",
+        BlobServicesName = "default",
+        DeleteRetentionPolicy = new AzureNative.Storage.Inputs.DeleteRetentionPolicyArgs
+        {
+            AllowPermanentDelete = true,
+            Days = 300,
+            Enabled = true,
+        },
+        IsVersioningEnabled = true,
+        ResourceGroupName = "res4410",
+    });
+
+});
+

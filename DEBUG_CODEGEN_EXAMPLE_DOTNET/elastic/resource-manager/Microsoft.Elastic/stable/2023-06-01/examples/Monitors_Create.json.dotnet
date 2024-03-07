@@ -1,0 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var monitor = new AzureNative.Elastic.Monitor("monitor", new()
+    {
+        MonitorName = "myMonitor",
+        ResourceGroupName = "myResourceGroup",
+    });
+
+});
+

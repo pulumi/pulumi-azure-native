@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policy = new AzureNative.DataReplication.Policy("policy", new()
+    {
+        PolicyName = "fafqwc",
+        Properties = new AzureNative.DataReplication.Inputs.PolicyModelPropertiesArgs
+        {
+            CustomProperties = 
+            {
+                { "instanceType", "PolicyModelCustomProperties" },
+            },
+        },
+        ResourceGroupName = "rgrecoveryservicesdatareplication",
+        VaultName = "4",
+    });
+
+});
+

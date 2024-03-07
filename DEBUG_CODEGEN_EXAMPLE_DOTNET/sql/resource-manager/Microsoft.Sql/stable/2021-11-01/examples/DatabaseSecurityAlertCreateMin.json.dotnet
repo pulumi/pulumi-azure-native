@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var databaseSecurityAlertPolicy = new AzureNative.Sql.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", new()
+    {
+        DatabaseName = "testdb",
+        ResourceGroupName = "securityalert-4799",
+        SecurityAlertPolicyName = "default",
+        ServerName = "securityalert-6440",
+        State = AzureNative.Sql.SecurityAlertsPolicyState.Enabled,
+    });
+
+});
+

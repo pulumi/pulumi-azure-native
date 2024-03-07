@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var configurationAssignmentParent = new AzureNative.Maintenance.ConfigurationAssignmentParent("configurationAssignmentParent", new()
+    {
+        ConfigurationAssignmentName = "workervmPolicy",
+        MaintenanceConfigurationId = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/policy1",
+        ProviderName = "Microsoft.Compute",
+        ResourceGroupName = "examplerg",
+        ResourceName = "smdvm1",
+        ResourceParentName = "smdtest1",
+        ResourceParentType = "virtualMachineScaleSets",
+        ResourceType = "virtualMachines",
+    });
+
+});
+

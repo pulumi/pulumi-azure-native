@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var remediationAtManagementGroup = new AzureNative.PolicyInsights.RemediationAtManagementGroup("remediationAtManagementGroup", new()
+    {
+        ManagementGroupId = "financeMg",
+        ManagementGroupsNamespace = "Microsoft.Management",
+        PolicyAssignmentId = "/providers/microsoft.management/managementGroups/financeMg/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+        RemediationName = "storageRemediation",
+    });
+
+});
+

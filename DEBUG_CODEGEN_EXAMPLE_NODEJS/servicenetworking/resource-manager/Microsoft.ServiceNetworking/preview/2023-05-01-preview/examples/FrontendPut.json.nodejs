@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const frontendsInterface = new azure_native.servicenetworking.FrontendsInterface("frontendsInterface", {
+    frontendName: "fe1",
+    location: "NorthCentralUS",
+    resourceGroupName: "rg1",
+    trafficControllerName: "tc1",
+});

@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var exportPipeline = new AzureNative.ContainerRegistry.ExportPipeline("exportPipeline", new()
+    {
+        ExportPipelineName = "myExportPipeline",
+        Identity = new AzureNative.ContainerRegistry.Inputs.IdentityPropertiesArgs
+        {
+            Type = AzureNative.ContainerRegistry.ResourceIdentityType.SystemAssigned,
+        },
+        Location = "westus",
+        Options = new[]
+        {
+            "OverwriteBlobs",
+        },
+        RegistryName = "myRegistry",
+        ResourceGroupName = "myResourceGroup",
+        Target = new AzureNative.ContainerRegistry.Inputs.ExportPipelineTargetPropertiesArgs
+        {
+            KeyVaultUri = "https://myvault.vault.azure.net/secrets/acrexportsas",
+            Type = "AzureStorageBlobContainer",
+            Uri = "https://accountname.blob.core.windows.net/containername",
+        },
+    });
+
+});
+

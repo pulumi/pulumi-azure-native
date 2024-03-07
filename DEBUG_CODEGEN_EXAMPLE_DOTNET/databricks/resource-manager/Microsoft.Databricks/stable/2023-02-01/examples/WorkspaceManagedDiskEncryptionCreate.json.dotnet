@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    {
+        Encryption = new AzureNative.Databricks.Inputs.WorkspacePropertiesEncryptionArgs
+        {
+            Entities = new AzureNative.Databricks.Inputs.EncryptionEntitiesDefinitionArgs
+            {
+                ManagedDisk = new AzureNative.Databricks.Inputs.ManagedDiskEncryptionArgs
+                {
+                    KeySource = "Microsoft.Keyvault",
+                    KeyVaultProperties = new AzureNative.Databricks.Inputs.ManagedDiskEncryptionKeyVaultPropertiesArgs
+                    {
+                        KeyName = "test-cmk-key",
+                        KeyVaultUri = "https://test-vault-name.vault.azure.net/",
+                        KeyVersion = "00000000000000000000000000000000",
+                    },
+                    RotationToLatestKeyVersionEnabled = true,
+                },
+            },
+        },
+        Location = "westus",
+        ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+        ResourceGroupName = "rg",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

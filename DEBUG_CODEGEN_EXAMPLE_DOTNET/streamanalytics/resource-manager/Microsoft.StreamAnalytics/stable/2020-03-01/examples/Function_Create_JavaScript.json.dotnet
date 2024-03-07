@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var function = new AzureNative.StreamAnalytics.Function("function", new()
+    {
+        FunctionName = "function8197",
+        JobName = "sj8653",
+        Properties = new AzureNative.StreamAnalytics.Inputs.ScalarFunctionPropertiesArgs
+        {
+            Binding = new AzureNative.StreamAnalytics.Inputs.JavaScriptFunctionBindingArgs
+            {
+                Script = "function (x, y) { return x + y; }",
+                Type = "Microsoft.StreamAnalytics/JavascriptUdf",
+            },
+            Inputs = new[]
+            {
+                new AzureNative.StreamAnalytics.Inputs.FunctionInputArgs
+                {
+                    DataType = "Any",
+                },
+            },
+            Output = new AzureNative.StreamAnalytics.Inputs.FunctionOutputArgs
+            {
+                DataType = "Any",
+            },
+            Type = "Scalar",
+        },
+        ResourceGroupName = "sjrg1637",
+    });
+
+});
+

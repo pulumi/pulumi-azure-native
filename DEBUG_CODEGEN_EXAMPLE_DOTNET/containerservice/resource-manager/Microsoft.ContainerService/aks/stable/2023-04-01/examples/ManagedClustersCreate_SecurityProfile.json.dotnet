@@ -1,0 +1,82 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    {
+        AgentPoolProfiles = new[]
+        {
+            new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+            {
+                Count = 3,
+                EnableNodePublicIP = true,
+                Mode = "System",
+                Name = "nodepool1",
+                OsType = "Linux",
+                Type = "VirtualMachineScaleSets",
+                VmSize = "Standard_DS2_v2",
+            },
+        },
+        DnsPrefix = "dnsprefix1",
+        KubernetesVersion = "",
+        LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+        {
+            AdminUsername = "azureuser",
+            Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+            {
+                PublicKeys = new[]
+                {
+                    new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+                    {
+                        KeyData = "keydata",
+                    },
+                },
+            },
+        },
+        Location = "location1",
+        NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+        {
+            LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+            {
+                ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+                {
+                    Count = 2,
+                },
+            },
+            LoadBalancerSku = "standard",
+            OutboundType = "loadBalancer",
+        },
+        ResourceGroupName = "rg1",
+        ResourceName = "clustername1",
+        SecurityProfile = new AzureNative.ContainerService.Inputs.ManagedClusterSecurityProfileArgs
+        {
+            Defender = new AzureNative.ContainerService.Inputs.ManagedClusterSecurityProfileDefenderArgs
+            {
+                LogAnalyticsWorkspaceResourceId = "/subscriptions/SUB_ID/resourcegroups/RG_NAME/providers/microsoft.operationalinsights/workspaces/WORKSPACE_NAME",
+                SecurityMonitoring = new AzureNative.ContainerService.Inputs.ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs
+                {
+                    Enabled = true,
+                },
+            },
+            WorkloadIdentity = new AzureNative.ContainerService.Inputs.ManagedClusterSecurityProfileWorkloadIdentityArgs
+            {
+                Enabled = true,
+            },
+        },
+        Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+        {
+            Name = "Basic",
+            Tier = "Free",
+        },
+        Tags = 
+        {
+            { "archv2", "" },
+            { "tier", "production" },
+        },
+    });
+
+});
+

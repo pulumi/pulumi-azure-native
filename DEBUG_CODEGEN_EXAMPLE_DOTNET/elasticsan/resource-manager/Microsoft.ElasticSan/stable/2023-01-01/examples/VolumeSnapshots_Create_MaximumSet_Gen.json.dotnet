@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var volumeSnapshot = new AzureNative.ElasticSan.VolumeSnapshot("volumeSnapshot", new()
+    {
+        CreationData = new AzureNative.ElasticSan.Inputs.SnapshotCreationDataArgs
+        {
+            SourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}",
+        },
+        ElasticSanName = "elasticsanname",
+        ResourceGroupName = "resourcegroupname",
+        SnapshotName = "snapshotname",
+        VolumeGroupName = "volumegroupname",
+    });
+
+});
+

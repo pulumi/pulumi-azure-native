@@ -1,0 +1,36 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const application = new azure_native.servicefabricmesh.Application("application", {
+    applicationResourceName: "sampleApplication",
+    description: "Service Fabric Mesh sample application.",
+    location: "EastUS",
+    resourceGroupName: "sbz_demo",
+    services: [{
+        codePackages: [{
+            endpoints: [{
+                name: "helloWorldListener",
+                port: 80,
+            }],
+            image: "seabreeze/sbz-helloworld:1.0-alpine",
+            name: "helloWorldCode",
+            resources: {
+                requests: {
+                    cpu: 1,
+                    memoryInGB: 1,
+                },
+            },
+        }],
+        description: "SeaBreeze Hello World Service.",
+        name: "helloWorldService",
+        networkRefs: [{
+            endpointRefs: [{
+                name: "helloWorldListener",
+            }],
+            name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork",
+        }],
+        osType: "Linux",
+        replicaCount: 1,
+    }],
+    tags: {},
+});

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateResolverVirtualNetworkLink = new azure_native.network.PrivateResolverVirtualNetworkLink("privateResolverVirtualNetworkLink", {
+    dnsForwardingRulesetName: "sampleDnsForwardingRuleset",
+    metadata: {
+        additionalProp1: "value1",
+    },
+    resourceGroupName: "sampleResourceGroup",
+    virtualNetwork: {
+        id: "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+    },
+    virtualNetworkLinkName: "sampleVirtualNetworkLink",
+});

@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var jobDefinition = new AzureNative.StorageMover.JobDefinition("jobDefinition", new()
+    {
+        AgentName = "migration-agent",
+        CopyMode = "Additive",
+        Description = "Example Job Definition Description",
+        JobDefinitionName = "examples-jobDefinitionName",
+        ProjectName = "examples-projectName",
+        ResourceGroupName = "examples-rg",
+        SourceName = "examples-sourceEndpointName",
+        SourceSubpath = "/",
+        StorageMoverName = "examples-storageMoverName",
+        TargetName = "examples-targetEndpointName",
+        TargetSubpath = "/",
+    });
+
+});
+

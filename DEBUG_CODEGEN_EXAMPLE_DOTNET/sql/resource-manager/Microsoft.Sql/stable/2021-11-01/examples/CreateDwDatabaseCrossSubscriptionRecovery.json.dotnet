@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var database = new AzureNative.Sql.Database("database", new()
+    {
+        CreateMode = "Recovery",
+        DatabaseName = "testdw",
+        Location = "westus",
+        ResourceGroupName = "Default-SQL-WestUS",
+        ServerName = "testsvr",
+        SourceResourceId = "/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-EastUS/providers/Microsoft.Sql/servers/srcsvr/recoverabledatabases/srcdw",
+    });
+
+});
+

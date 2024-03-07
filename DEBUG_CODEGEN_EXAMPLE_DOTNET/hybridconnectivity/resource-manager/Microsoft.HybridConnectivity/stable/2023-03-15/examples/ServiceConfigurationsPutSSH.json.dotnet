@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serviceConfiguration = new AzureNative.HybridConnectivity.ServiceConfiguration("serviceConfiguration", new()
+    {
+        EndpointName = "default",
+        Port = 22,
+        ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
+        ServiceConfigurationName = "SSH",
+        ServiceName = "SSH",
+    });
+
+});
+

@@ -4,7 +4,7 @@ import pulumi_azure_native as azure_native
 build_service_agent_pool = azure_native.appplatform.BuildServiceAgentPool("buildServiceAgentPool",
     agent_pool_name="default",
     build_service_name="default",
-    properties=azure_native.appplatform.BuildServiceAgentPoolPropertiesArgs(
+    properties=azure_native.appplatform.BuildServiceAgentPoolPropertiesResponseArgs(
         pool_size=azure_native.appplatform.BuildServiceAgentPoolSizePropertiesArgs(
             name="S3",
         ),

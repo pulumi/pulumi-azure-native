@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.AppPlatform.Service("service", new()
+    {
+        Location = "eastus",
+        Properties = new AzureNative.AppPlatform.Inputs.ClusterResourcePropertiesArgs
+        {
+            NetworkProfile = new AzureNative.AppPlatform.Inputs.NetworkProfileArgs
+            {
+                AppNetworkResourceGroup = "my-app-network-rg",
+                AppSubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/apps",
+                IngressConfig = new AzureNative.AppPlatform.Inputs.IngressConfigArgs
+                {
+                    ReadTimeoutInSeconds = 300,
+                },
+                ServiceCidr = "10.8.0.0/16,10.244.0.0/16,10.245.0.1/16",
+                ServiceRuntimeNetworkResourceGroup = "my-service-runtime-network-rg",
+                ServiceRuntimeSubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/serviceRuntime",
+            },
+            VnetAddons = new AzureNative.AppPlatform.Inputs.ServiceVNetAddonsArgs
+            {
+                DataPlanePublicEndpoint = true,
+                LogStreamPublicEndpoint = true,
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "myservice",
+        Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+        {
+            Name = "S0",
+            Tier = "Standard",
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

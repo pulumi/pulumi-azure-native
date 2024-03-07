@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var l2IsolationDomain = new AzureNative.ManagedNetworkFabric.L2IsolationDomain("l2IsolationDomain", new()
+    {
+        L2IsolationDomainName = "example-l2domain",
+        Location = "eastus",
+        Mtu = 1500,
+        NetworkFabricId = "/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+        ResourceGroupName = "resourceGroupName",
+        VlanId = 501,
+    });
+
+});
+

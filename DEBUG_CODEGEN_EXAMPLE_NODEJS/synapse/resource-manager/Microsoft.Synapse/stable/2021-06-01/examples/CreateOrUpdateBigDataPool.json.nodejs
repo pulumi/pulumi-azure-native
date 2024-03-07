@@ -1,0 +1,32 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const bigDataPool = new azure_native.synapse.BigDataPool("bigDataPool", {
+    autoPause: {
+        delayInMinutes: 15,
+        enabled: true,
+    },
+    autoScale: {
+        enabled: true,
+        maxNodeCount: 50,
+        minNodeCount: 3,
+    },
+    bigDataPoolName: "ExamplePool",
+    defaultSparkLogFolder: "/logs",
+    isAutotuneEnabled: false,
+    libraryRequirements: {
+        content: "",
+        filename: "requirements.txt",
+    },
+    location: "West US 2",
+    nodeCount: 4,
+    nodeSize: "Medium",
+    nodeSizeFamily: "MemoryOptimized",
+    resourceGroupName: "ExampleResourceGroup",
+    sparkEventsFolder: "/events",
+    sparkVersion: "3.3",
+    tags: {
+        key: "value",
+    },
+    workspaceName: "ExampleWorkspace",
+});

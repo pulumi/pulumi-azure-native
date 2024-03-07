@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var addon = new AzureNative.AVS.Addon("addon", new()
+    {
+        AddonName = "srm",
+        PrivateCloudName = "cloud1",
+        Properties = new AzureNative.AVS.Inputs.AddonSrmPropertiesArgs
+        {
+            AddonType = "SRM",
+            LicenseKey = "41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+        },
+        ResourceGroupName = "group1",
+    });
+
+});
+

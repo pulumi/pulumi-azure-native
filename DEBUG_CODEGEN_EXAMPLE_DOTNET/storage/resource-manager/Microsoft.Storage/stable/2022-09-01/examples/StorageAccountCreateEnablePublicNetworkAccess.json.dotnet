@@ -1,0 +1,69 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageAccount = new AzureNative.Storage.StorageAccount("storageAccount", new()
+    {
+        AccountName = "sto4445",
+        AllowBlobPublicAccess = false,
+        AllowSharedKeyAccess = true,
+        Encryption = new AzureNative.Storage.Inputs.EncryptionArgs
+        {
+            KeySource = "Microsoft.Storage",
+            RequireInfrastructureEncryption = false,
+            Services = new AzureNative.Storage.Inputs.EncryptionServicesArgs
+            {
+                Blob = new AzureNative.Storage.Inputs.EncryptionServiceArgs
+                {
+                    Enabled = true,
+                    KeyType = "Account",
+                },
+                File = new AzureNative.Storage.Inputs.EncryptionServiceArgs
+                {
+                    Enabled = true,
+                    KeyType = "Account",
+                },
+            },
+        },
+        ExtendedLocation = new AzureNative.Storage.Inputs.ExtendedLocationArgs
+        {
+            Name = "losangeles001",
+            Type = "EdgeZone",
+        },
+        IsHnsEnabled = true,
+        KeyPolicy = new AzureNative.Storage.Inputs.KeyPolicyArgs
+        {
+            KeyExpirationPeriodInDays = 20,
+        },
+        Kind = "Storage",
+        Location = "eastus",
+        MinimumTlsVersion = "TLS1_2",
+        PublicNetworkAccess = "Enabled",
+        ResourceGroupName = "res9101",
+        RoutingPreference = new AzureNative.Storage.Inputs.RoutingPreferenceArgs
+        {
+            PublishInternetEndpoints = true,
+            PublishMicrosoftEndpoints = true,
+            RoutingChoice = "MicrosoftRouting",
+        },
+        SasPolicy = new AzureNative.Storage.Inputs.SasPolicyArgs
+        {
+            ExpirationAction = "Log",
+            SasExpirationPeriod = "1.15:59:59",
+        },
+        Sku = new AzureNative.Storage.Inputs.SkuArgs
+        {
+            Name = "Standard_GRS",
+        },
+        Tags = 
+        {
+            { "key1", "value1" },
+            { "key2", "value2" },
+        },
+    });
+
+});
+

@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const account = new azure_native.automanage.Account("account", {
+    accountName: "account",
+    identity: {
+        type: azure_native.automanage.ResourceIdentityType.SystemAssigned,
+    },
+    location: "East US",
+    resourceGroupName: "resourceGroup",
+    tags: {
+        Organization: "Administration",
+    },
+});

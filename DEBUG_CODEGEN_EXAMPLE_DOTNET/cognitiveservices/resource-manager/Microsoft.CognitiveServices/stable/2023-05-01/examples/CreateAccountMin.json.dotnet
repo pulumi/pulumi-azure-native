@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.CognitiveServices.Account("account", new()
+    {
+        AccountName = "testCreate1",
+        Identity = new AzureNative.CognitiveServices.Inputs.IdentityArgs
+        {
+            Type = AzureNative.CognitiveServices.ResourceIdentityType.SystemAssigned,
+        },
+        Kind = "CognitiveServices",
+        Location = "West US",
+        Properties = null,
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.CognitiveServices.Inputs.SkuArgs
+        {
+            Name = "S0",
+        },
+    });
+
+});
+

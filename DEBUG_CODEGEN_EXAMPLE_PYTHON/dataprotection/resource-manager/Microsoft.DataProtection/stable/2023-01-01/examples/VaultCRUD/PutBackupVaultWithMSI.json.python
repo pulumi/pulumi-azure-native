@@ -6,12 +6,12 @@ backup_vault = azure_native.dataprotection.BackupVault("backupVault",
         type="systemAssigned",
     ),
     location="WestUS",
-    properties=azure_native.dataprotection.BackupVaultArgs(
-        monitoring_settings=azure_native.dataprotection.MonitoringSettingsArgs(
-            azure_monitor_alert_settings=azure_native.dataprotection.AzureMonitorAlertSettingsArgs(
+    properties=azure_native.dataprotection.BackupVaultResponseArgs(
+        monitoring_settings={
+            "azureMonitorAlertSettings": azure_native.dataprotection.AzureMonitorAlertSettingsArgs(
                 alerts_for_all_job_failures="Enabled",
             ),
-        ),
+        },
         storage_settings=[azure_native.dataprotection.StorageSettingArgs(
             datastore_type="VaultStore",
             type="LocallyRedundant",

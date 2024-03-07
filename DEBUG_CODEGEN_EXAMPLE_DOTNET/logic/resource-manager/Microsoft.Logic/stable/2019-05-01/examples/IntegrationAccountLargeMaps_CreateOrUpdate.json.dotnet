@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var integrationAccountMap = new AzureNative.Logic.IntegrationAccountMap("integrationAccountMap", new()
+    {
+        ContentType = "application/xml",
+        IntegrationAccountName = "testIntegrationAccount",
+        Location = "westus",
+        MapName = "testMap",
+        MapType = "Xslt",
+        Metadata = null,
+        ResourceGroupName = "testResourceGroup",
+    });
+
+});
+

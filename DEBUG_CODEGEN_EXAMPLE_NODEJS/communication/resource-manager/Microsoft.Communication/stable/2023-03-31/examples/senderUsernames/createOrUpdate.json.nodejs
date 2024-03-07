@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const senderUsername = new azure_native.communication.SenderUsername("senderUsername", {
+    displayName: "Contoso News Alerts",
+    domainName: "contoso.com",
+    emailServiceName: "contosoEmailService",
+    resourceGroupName: "contosoResourceGroup",
+    senderUsername: "contosoNewsAlerts",
+    username: "contosoNewsAlerts",
+});

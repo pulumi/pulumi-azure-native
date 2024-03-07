@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.EngagementFabric.Account("account", new()
+    {
+        AccountName = "ExampleAccount",
+        Location = "WestUS",
+        ResourceGroupName = "ExampleRg",
+        Sku = new AzureNative.EngagementFabric.Inputs.SKUArgs
+        {
+            Name = "B1",
+        },
+    });
+
+});
+

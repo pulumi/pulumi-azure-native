@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webAppPrivateEndpointConnectionSlot = new AzureNative.Web.WebAppPrivateEndpointConnectionSlot("webAppPrivateEndpointConnectionSlot", new()
+    {
+        Name = "testSite",
+        PrivateEndpointConnectionName = "connection",
+        PrivateLinkServiceConnectionState = new AzureNative.Web.Inputs.PrivateLinkConnectionStateArgs
+        {
+            ActionsRequired = "",
+            Description = "Approved by admin.",
+            Status = "Approved",
+        },
+        ResourceGroupName = "rg",
+        Slot = "stage",
+    });
+
+});
+

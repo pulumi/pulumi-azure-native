@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const monitor = new azure_native.elastic.Monitor("monitor", {
+    monitorName: "myMonitor",
+    resourceGroupName: "myResourceGroup",
+});

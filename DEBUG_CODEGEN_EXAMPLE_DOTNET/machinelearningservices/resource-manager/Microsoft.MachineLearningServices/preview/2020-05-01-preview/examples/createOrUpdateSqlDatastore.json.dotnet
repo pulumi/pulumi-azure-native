@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineLearningDatastore = new AzureNative.MachineLearningServices.MachineLearningDatastore("machineLearningDatastore", new()
+    {
+        DataStoreType = "sqldb",
+        DatabaseName = "dataset",
+        DatastoreName = "sqlDatastore",
+        Password = "<password>",
+        ResourceGroupName = "acjain-mleastUS2",
+        ServerName = "dataset-azsql-srv",
+        UserName = "demo_user",
+        WorkspaceName = "acjain-mleastUS2",
+    });
+
+});
+

@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var virtualNetworkRule = new AzureNative.DBforMariaDB.VirtualNetworkRule("virtualNetworkRule", new()
+    {
+        IgnoreMissingVnetServiceEndpoint = false,
+        ResourceGroupName = "TestGroup",
+        ServerName = "vnet-test-svr",
+        VirtualNetworkRuleName = "vnet-firewall-rule",
+        VirtualNetworkSubnetId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+    });
+
+});
+

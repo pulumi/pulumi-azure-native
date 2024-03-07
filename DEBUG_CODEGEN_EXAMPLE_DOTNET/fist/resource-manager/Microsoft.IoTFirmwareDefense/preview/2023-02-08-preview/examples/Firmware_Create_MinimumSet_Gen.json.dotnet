@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var firmware = new AzureNative.IoTFirmwareDefense.Firmware("firmware", new()
+    {
+        FirmwareId = "umrkdttp",
+        ResourceGroupName = "rgworkspaces-firmwares",
+        WorkspaceName = "A7",
+    });
+
+});
+

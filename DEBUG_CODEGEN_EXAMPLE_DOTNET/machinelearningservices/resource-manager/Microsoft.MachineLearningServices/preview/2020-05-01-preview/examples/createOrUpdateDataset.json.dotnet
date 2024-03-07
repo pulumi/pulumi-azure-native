@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineLearningDataset = new AzureNative.MachineLearningServices.MachineLearningDataset("machineLearningDataset", new()
+    {
+        DatasetName = "datasetName123",
+        DatasetType = "file",
+        Parameters = new AzureNative.MachineLearningServices.Inputs.DatasetCreateRequestParametersArgs
+        {
+            Path = new AzureNative.MachineLearningServices.Inputs.DatasetCreateRequestPathArgs
+            {
+                DataPath = new AzureNative.MachineLearningServices.Inputs.DatasetCreateRequestDataPathArgs
+                {
+                    DatastoreName = "testblobfromarm",
+                    RelativePath = "UI/03-26-2020_083359_UTC/latin1encoding.csv",
+                },
+            },
+        },
+        Registration = new AzureNative.MachineLearningServices.Inputs.DatasetCreateRequestRegistrationArgs
+        {
+            Description = "test description",
+            Name = "datasetName123",
+        },
+        ResourceGroupName = "acjain-mleastUS2",
+        SkipValidation = false,
+        WorkspaceName = "acjain-mleastUS2",
+    });
+
+});
+

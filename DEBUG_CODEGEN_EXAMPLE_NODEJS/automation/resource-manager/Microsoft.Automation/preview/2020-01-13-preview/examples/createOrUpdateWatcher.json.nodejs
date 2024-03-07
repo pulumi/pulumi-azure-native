@@ -1,0 +1,13 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const watcher = new azure_native.automation.Watcher("watcher", {
+    automationAccountName: "MyTestAutomationAccount",
+    description: "This is a test watcher.",
+    executionFrequencyInSeconds: 60,
+    resourceGroupName: "rg",
+    scriptName: "MyTestWatcherRunbook",
+    scriptRunOn: "MyTestHybridWorkerGroup",
+    tags: {},
+    watcherName: "MyTestWatcher",
+});

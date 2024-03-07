@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var guestConfigurationAssignmentsVMSS = new AzureNative.GuestConfiguration.GuestConfigurationAssignmentsVMSS("guestConfigurationAssignmentsVMSS", new()
+    {
+        Location = "westcentralus",
+        Name = "NotInstalledApplicationForWindows",
+        Properties = new AzureNative.GuestConfiguration.Inputs.GuestConfigurationAssignmentPropertiesArgs
+        {
+            Context = "Azure policy",
+            GuestConfiguration = new AzureNative.GuestConfiguration.Inputs.GuestConfigurationNavigationArgs
+            {
+                AssignmentType = "ApplyAndAutoCorrect",
+                ConfigurationParameter = new[]
+                {
+                    new AzureNative.GuestConfiguration.Inputs.ConfigurationParameterArgs
+                    {
+                        Name = "[InstalledApplication]NotInstalledApplicationResource1;Name",
+                        Value = "NotePad,sql",
+                    },
+                },
+                ContentHash = "123contenthash",
+                ContentUri = "https://thisisfake/pacakge",
+                Name = "NotInstalledApplicationForWindows",
+                Version = "1.0.0.3",
+            },
+        },
+        ResourceGroupName = "myResourceGroupName",
+        VmssName = "myVMSSName",
+    });
+
+});
+

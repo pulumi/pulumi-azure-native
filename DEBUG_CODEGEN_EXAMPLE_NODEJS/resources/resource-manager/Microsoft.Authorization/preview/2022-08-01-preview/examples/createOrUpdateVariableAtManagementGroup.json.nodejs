@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const variableAtManagementGroup = new azure_native.authorization.VariableAtManagementGroup("variableAtManagementGroup", {
+    columns: [{
+        columnName: "TestColumn",
+    }],
+    managementGroupId: "DevOrg",
+    variableName: "DemoTestVariable",
+});

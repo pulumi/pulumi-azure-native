@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const groupsOperation = new azure_native.migrate.GroupsOperation("groupsOperation", {
+    groupName: "kuchatur-test",
+    groupType: "Default",
+    projectName: "app18700project",
+    provisioningState: "Succeeded",
+    resourceGroupName: "ayagrawrg",
+});

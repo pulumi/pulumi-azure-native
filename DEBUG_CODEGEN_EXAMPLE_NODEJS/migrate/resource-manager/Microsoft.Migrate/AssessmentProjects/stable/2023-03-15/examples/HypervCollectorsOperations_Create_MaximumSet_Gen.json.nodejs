@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const hypervCollectorsOperation = new azure_native.migrate.HypervCollectorsOperation("hypervCollectorsOperation", {
+    agentProperties: {
+        id: "12f1d90f-b3fa-4926-8893-e56803a09af0",
+        lastHeartbeatUtc: "2022-07-07T14:25:35.708325Z",
+        spnDetails: {
+            applicationId: "e3bd6eaa-980b-40ae-a30e-2a5069ba097c",
+            audience: "e3bd6eaa-980b-40ae-a30e-2a5069ba097c",
+            authority: "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+            objectId: "01b9f9e2-2d82-414c-adaa-09ce259b6b44",
+            tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        },
+        version: "2.0.1993.19",
+    },
+    discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/HyperVSites/test-60527site",
+    hypervCollectorName: "test-697cecollector",
+    projectName: "app18700project",
+    provisioningState: "Succeeded",
+    resourceGroupName: "ayagrawRG",
+});

@@ -1,0 +1,29 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const azureFirewall = new azure_native.network.AzureFirewall("azureFirewall", {
+    azureFirewallName: "azurefirewall",
+    firewallPolicy: {
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/policy1",
+    },
+    hubIPAddresses: {
+        publicIPs: {
+            addresses: [],
+            count: 1,
+        },
+    },
+    location: "West US",
+    resourceGroupName: "rg1",
+    sku: {
+        name: "AZFW_Hub",
+        tier: "Standard",
+    },
+    tags: {
+        key1: "value1",
+    },
+    threatIntelMode: "Alert",
+    virtualHub: {
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    },
+    zones: [],
+});

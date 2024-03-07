@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const compute = new azure_native.machinelearningservices.Compute("compute", {
+    computeName: "compute123",
+    location: "eastus",
+    properties: {
+        computeType: "ComputeInstance",
+        properties: {
+            vmSize: "STANDARD_NC6",
+        },
+    },
+    resourceGroupName: "testrg123",
+    workspaceName: "workspaces123",
+});

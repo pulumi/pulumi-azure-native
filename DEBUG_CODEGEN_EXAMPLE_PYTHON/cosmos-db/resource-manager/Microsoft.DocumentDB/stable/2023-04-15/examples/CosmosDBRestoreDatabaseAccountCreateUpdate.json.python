@@ -31,7 +31,7 @@ database_account = azure_native.documentdb.DatabaseAccount("databaseAccount",
     )],
     minimal_tls_version="Tls",
     resource_group_name="rg1",
-    restore_parameters=azure_native.documentdb.RestoreParametersArgs(
+    restore_parameters=azure_native.documentdb.RestoreParametersResponseArgs(
         databases_to_restore=[
             azure_native.documentdb.DatabaseRestoreResourceArgs(
                 collection_names=[

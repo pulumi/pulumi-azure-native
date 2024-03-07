@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var iotHubDataConnection = new AzureNative.Synapse.IotHubDataConnection("iotHubDataConnection", new()
+    {
+        DataConnectionName = "DataConnections8",
+        DatabaseName = "KustoDatabase8",
+        KustoPoolName = "kustoclusterrptest4",
+        ResourceGroupName = "kustorptest",
+        WorkspaceName = "synapseWorkspaceName",
+    });
+
+});
+

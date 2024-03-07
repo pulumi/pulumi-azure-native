@@ -1,0 +1,36 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlServerDatabase = new azure_native.azurearcdata.SqlServerDatabase("sqlServerDatabase", {
+    databaseName: "testdb",
+    location: "southeastasia",
+    properties: {
+        backupInformation: {
+            lastFullBackup: "2022-05-05T16:26:33.883Z",
+            lastLogBackup: "2022-05-10T16:26:33.883Z",
+        },
+        collationName: "SQL_Latin1_General_CP1_CI_AS",
+        compatibilityLevel: 150,
+        databaseCreationDate: "2022-04-05T16:26:33.883Z",
+        databaseOptions: {
+            isAutoCloseOn: true,
+            isAutoCreateStatsOn: true,
+            isAutoShrinkOn: true,
+            isAutoUpdateStatsOn: true,
+            isEncrypted: true,
+            isMemoryOptimizationEnabled: true,
+            isRemoteDataArchiveEnabled: true,
+            isTrustworthyOn: true,
+        },
+        isReadOnly: true,
+        recoveryMode: "Full",
+        sizeMB: 150,
+        spaceAvailableMB: 100,
+        state: "Online",
+    },
+    resourceGroupName: "testrg",
+    sqlServerInstanceName: "testSqlServerInstance",
+    tags: {
+        mytag: "myval",
+    },
+});

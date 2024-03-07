@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var rule = new AzureNative.ServiceBus.Rule("rule", new()
+    {
+        FilterType = "SqlFilter",
+        NamespaceName = "sdk-Namespace-1319",
+        ResourceGroupName = "resourceGroupName",
+        RuleName = "sdk-Rules-6571",
+        SqlFilter = new AzureNative.ServiceBus.Inputs.SqlFilterArgs
+        {
+            SqlExpression = "myproperty=test",
+        },
+        SubscriptionName = "sdk-Subscriptions-8691",
+        TopicName = "sdk-Topics-2081",
+    });
+
+});
+

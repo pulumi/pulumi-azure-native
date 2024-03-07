@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var automationRule = new AzureNative.SecurityInsights.AutomationRule("automationRule", new()
+    {
+        AutomationRuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+        ResourceGroupName = "myRg",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

@@ -1,0 +1,33 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const job = new azure_native.importexport.Job("job", {
+    jobName: "myExportJob",
+    location: "West US",
+    properties: {
+        backupDriveManifest: true,
+        diagnosticsPath: "waimportexport",
+        "export": {
+            blobPathPrefix: ["/"],
+        },
+        jobType: "Export",
+        logLevel: "Verbose",
+        returnAddress: {
+            city: "Redmond",
+            countryOrRegion: "USA",
+            email: "Test@contoso.com",
+            phone: "4250000000",
+            postalCode: "98007",
+            recipientName: "Test",
+            stateOrProvince: "wa",
+            streetAddress1: "Street1",
+            streetAddress2: "street2",
+        },
+        returnShipping: {
+            carrierAccountNumber: "989ffff",
+            carrierName: "FedEx",
+        },
+        storageAccountId: "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.ClassicStorage/storageAccounts/test",
+    },
+    resourceGroupName: "myResourceGroup",
+});

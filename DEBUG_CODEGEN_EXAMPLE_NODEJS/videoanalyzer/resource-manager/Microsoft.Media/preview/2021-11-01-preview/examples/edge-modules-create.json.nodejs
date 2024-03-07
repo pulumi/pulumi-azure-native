@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const edgeModule = new azure_native.videoanalyzer.EdgeModule("edgeModule", {
+    accountName: "testaccount2",
+    edgeModuleName: "edgeModule1",
+    resourceGroupName: "testrg",
+});

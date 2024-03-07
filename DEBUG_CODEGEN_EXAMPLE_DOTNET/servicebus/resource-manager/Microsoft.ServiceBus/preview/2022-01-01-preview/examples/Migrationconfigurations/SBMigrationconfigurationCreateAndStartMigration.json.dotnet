@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var migrationConfig = new AzureNative.ServiceBus.MigrationConfig("migrationConfig", new()
+    {
+        ConfigName = "$default",
+        NamespaceName = "sdk-Namespace-41",
+        PostMigrationName = "sdk-PostMigration-5919",
+        ResourceGroupName = "ResourceGroup",
+        TargetNamespace = "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028",
+    });
+
+});
+

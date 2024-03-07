@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const account = new azure_native.purview.Account("account", {
+    accountName: "account1",
+    location: "West US 2",
+    managedResourceGroupName: "custom-rgname",
+    managedResourcesPublicNetworkAccess: "Enabled",
+    resourceGroupName: "SampleResourceGroup",
+});

@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+    metadata: {
+        key1: "value1",
+    },
+    privateZoneName: "privatezone1.com",
+    recordType: "SOA",
+    relativeRecordSetName: "@",
+    resourceGroupName: "resourceGroup1",
+    soaRecord: {
+        email: "azureprivatedns-hostmaster.microsoft.com",
+        expireTime: 2419200,
+        host: "azureprivatedns.net",
+        minimumTtl: 300,
+        refreshTime: 3600,
+        retryTime: 300,
+        serialNumber: 1,
+    },
+    ttl: 3600,
+});

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connector = new AzureNative.CostManagement.Connector("connector", new()
+    {
+        ConnectorName = "AWSBillingAccount",
+        CredentialsKey = "arn:aws:iam::123456789012:role/AzureCostManagementRole",
+        CredentialsSecret = "external-id",
+        DisplayName = "AWS-Consolidated-1",
+        Location = "westus",
+        ReportId = "HourlyWithResources",
+        ResourceGroupName = "rg1",
+        Status = "active",
+    });
+
+});
+

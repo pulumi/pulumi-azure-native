@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disk = new azure_native.compute.Disk("disk", {
+    creationData: {
+        createOption: "FromImage",
+        galleryImageReference: {
+            sharedGalleryImageId: "/SharedGalleries/{sharedGalleryUniqueName}/Images/{imageName}/Versions/1.0.0",
+        },
+    },
+    diskName: "myDisk",
+    location: "West US",
+    osType: azure_native.compute.OperatingSystemTypes.Windows,
+    resourceGroupName: "myResourceGroup",
+});

@@ -1,0 +1,16 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const packetCapture = new azure_native.mobilenetwork.PacketCapture("packetCapture", {
+    bytesToCapturePerPacket: 10000,
+    networkInterfaces: [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestADN",
+    ],
+    packetCaptureName: "pc1",
+    packetCoreControlPlaneName: "TestPacketCoreCP",
+    resourceGroupName: "rg1",
+    timeLimitInSeconds: 100,
+    totalBytesPerSession: 100000,
+});

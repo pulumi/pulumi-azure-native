@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedInstance = new AzureNative.Sql.ManagedInstance("managedInstance", new()
+    {
+        AdministratorLogin = "dummylogin",
+        AdministratorLoginPassword = "PLACEHOLDER",
+        LicenseType = "LicenseIncluded",
+        Location = "Japan East",
+        ManagedInstanceName = "testinstance",
+        ResourceGroupName = "testrg",
+        Sku = new AzureNative.Sql.Inputs.SkuArgs
+        {
+            Name = "GP_Gen4",
+            Tier = "GeneralPurpose",
+        },
+        StorageSizeInGB = 1024,
+        SubnetId = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+        VCores = 8,
+    });
+
+});
+

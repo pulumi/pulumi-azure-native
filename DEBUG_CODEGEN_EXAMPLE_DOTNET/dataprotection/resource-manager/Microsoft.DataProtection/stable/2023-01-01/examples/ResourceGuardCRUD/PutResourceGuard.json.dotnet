@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var resourceGuard = new AzureNative.DataProtection.ResourceGuard("resourceGuard", new()
+    {
+        Location = "WestUS",
+        ResourceGroupName = "SampleResourceGroup",
+        ResourceGuardsName = "swaggerExample",
+        Tags = 
+        {
+            { "key1", "val1" },
+        },
+    });
+
+});
+

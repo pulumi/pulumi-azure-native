@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const staticSiteCustomDomain = new azure_native.web.StaticSiteCustomDomain("staticSiteCustomDomain", {
+    domainName: "custom.domain.net",
+    name: "testStaticSite0",
+    resourceGroupName: "rg",
+});

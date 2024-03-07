@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const dataMaskingPolicy = new azure_native.sql.DataMaskingPolicy("dataMaskingPolicy", {
+    dataMaskingPolicyName: "Default",
+    dataMaskingState: azure_native.sql.DataMaskingState.Enabled,
+    databaseName: "sqlcrudtest-331",
+    exemptPrincipals: "testuser;",
+    resourceGroupName: "sqlcrudtest-6852",
+    serverName: "sqlcrudtest-2080",
+});

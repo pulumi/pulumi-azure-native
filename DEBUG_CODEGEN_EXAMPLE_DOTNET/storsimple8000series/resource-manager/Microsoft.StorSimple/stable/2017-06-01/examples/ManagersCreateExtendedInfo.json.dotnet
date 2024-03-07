@@ -1,0 +1,17 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managerExtendedInfo = new AzureNative.StorSimple.ManagerExtendedInfo("managerExtendedInfo", new()
+    {
+        Algorithm = "None",
+        IntegrityKey = "BIl+RHqO8PZ6DRvuXTTK7g==",
+        ManagerName = "ManagerForSDKTest2",
+        ResourceGroupName = "ResourceGroupForSDKTest",
+    });
+
+});
+

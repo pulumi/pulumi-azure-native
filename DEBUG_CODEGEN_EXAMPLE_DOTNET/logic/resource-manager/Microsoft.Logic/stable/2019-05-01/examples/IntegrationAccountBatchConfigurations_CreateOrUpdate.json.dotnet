@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var integrationAccountBatchConfiguration = new AzureNative.Logic.IntegrationAccountBatchConfiguration("integrationAccountBatchConfiguration", new()
+    {
+        BatchConfigurationName = "testBatchConfiguration",
+        IntegrationAccountName = "testIntegrationAccount",
+        Location = "westus",
+        Properties = new AzureNative.Logic.Inputs.BatchConfigurationPropertiesArgs
+        {
+            BatchGroupName = "DEFAULT",
+            ReleaseCriteria = new AzureNative.Logic.Inputs.BatchReleaseCriteriaArgs
+            {
+                BatchSize = 234567,
+                MessageCount = 10,
+                Recurrence = new AzureNative.Logic.Inputs.WorkflowTriggerRecurrenceArgs
+                {
+                    Frequency = "Minute",
+                    Interval = 1,
+                    StartTime = "2017-03-24T11:43:00",
+                    TimeZone = "India Standard Time",
+                },
+            },
+        },
+        ResourceGroupName = "testResourceGroup",
+    });
+
+});
+

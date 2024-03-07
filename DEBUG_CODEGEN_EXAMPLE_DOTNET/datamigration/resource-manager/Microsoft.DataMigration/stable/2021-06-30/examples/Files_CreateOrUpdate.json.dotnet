@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var file = new AzureNative.DataMigration.File("file", new()
+    {
+        FileName = "x114d023d8",
+        GroupName = "DmsSdkRg",
+        ProjectName = "DmsSdkProject",
+        Properties = new AzureNative.DataMigration.Inputs.ProjectFilePropertiesArgs
+        {
+            FilePath = "DmsSdkFilePath/DmsSdkFile.sql",
+        },
+        ServiceName = "DmsSdkService",
+    });
+
+});
+

@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var staticSiteDatabaseConnection = new AzureNative.Web.StaticSiteDatabaseConnection("staticSiteDatabaseConnection", new()
+    {
+        ConnectionIdentity = "SystemAssigned",
+        ConnectionString = "AccountEndpoint=https://exampleDatabaseName.documents.azure.com:443/;Database=mydb;",
+        DatabaseConnectionName = "default",
+        Name = "testStaticSite0",
+        Region = "West US 2",
+        ResourceGroupName = "rg",
+        ResourceId = "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/databaseRG/providers/Microsoft.DocumentDB/databaseAccounts/exampleDatabaseName",
+    });
+
+});
+

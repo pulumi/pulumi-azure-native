@@ -1,0 +1,27 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const daprSubscription = new azure_native.app.DaprSubscription("daprSubscription", {
+    environmentName: "myenvironment",
+    metadata: {
+        foo: "bar",
+        hello: "world",
+    },
+    name: "mysubscription",
+    pubsubName: "mypubsubcomponent",
+    resourceGroupName: "examplerg",
+    routes: {
+        "default": "/products",
+        rules: [
+            {
+                match: "event.type == 'widget'",
+                path: "/widgets",
+            },
+            {
+                match: "event.type == 'gadget'",
+                path: "/gadgets",
+            },
+        ],
+    },
+    topic: "inventory",
+});

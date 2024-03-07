@@ -1,0 +1,62 @@
+package main
+
+import (
+	"github.com/pulumi/pulumi-azure-native-sdk/eventhub/v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+	pulumi.Run(func(ctx *pulumi.Context) error {
+		_, err := eventhub.NewNamespaceNetworkRuleSet(ctx, "namespaceNetworkRuleSet", &eventhub.NamespaceNetworkRuleSetArgs{
+			DefaultAction: pulumi.String("Deny"),
+			IpRules: []eventhub.NWRuleSetIpRulesArgs{
+				{
+					Action: pulumi.String("Allow"),
+					IpMask: pulumi.String("1.1.1.1"),
+				},
+				{
+					Action: pulumi.String("Allow"),
+					IpMask: pulumi.String("1.1.1.2"),
+				},
+				{
+					Action: pulumi.String("Allow"),
+					IpMask: pulumi.String("1.1.1.3"),
+				},
+				{
+					Action: pulumi.String("Allow"),
+					IpMask: pulumi.String("1.1.1.4"),
+				},
+				{
+					Action: pulumi.String("Allow"),
+					IpMask: pulumi.String("1.1.1.5"),
+				},
+			},
+			NamespaceName:     pulumi.String("sdk-Namespace-6019"),
+			ResourceGroupName: pulumi.String("ResourceGroup"),
+			VirtualNetworkRules: []eventhub.NWRuleSetVirtualNetworkRulesArgs{
+				{
+					IgnoreMissingVnetServiceEndpoint: pulumi.Bool(true),
+					Subnet: {
+						Id: pulumi.String("/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2"),
+					},
+				},
+				{
+					IgnoreMissingVnetServiceEndpoint: pulumi.Bool(false),
+					Subnet: {
+						Id: pulumi.String("/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3"),
+					},
+				},
+				{
+					IgnoreMissingVnetServiceEndpoint: pulumi.Bool(false),
+					Subnet: {
+						Id: pulumi.String("/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6"),
+					},
+				},
+			},
+		})
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+}

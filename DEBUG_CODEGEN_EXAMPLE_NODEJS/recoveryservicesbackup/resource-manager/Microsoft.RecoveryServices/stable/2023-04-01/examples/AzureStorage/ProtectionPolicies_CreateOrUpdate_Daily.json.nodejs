@@ -1,0 +1,61 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const protectionPolicy = new azure_native.recoveryservices.ProtectionPolicy("protectionPolicy", {
+    policyName: "dailyPolicy2",
+    properties: {
+        backupManagementType: "AzureStorage",
+        retentionPolicy: {
+            dailySchedule: {
+                retentionDuration: {
+                    count: 5,
+                    durationType: "Days",
+                },
+                retentionTimes: ["2021-09-29T08:00:00.000Z"],
+            },
+            monthlySchedule: {
+                retentionDuration: {
+                    count: 60,
+                    durationType: "Months",
+                },
+                retentionScheduleFormatType: "Weekly",
+                retentionScheduleWeekly: {
+                    daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+                    weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+                },
+                retentionTimes: ["2021-09-29T08:00:00.000Z"],
+            },
+            retentionPolicyType: "LongTermRetentionPolicy",
+            weeklySchedule: {
+                daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+                retentionDuration: {
+                    count: 12,
+                    durationType: "Weeks",
+                },
+                retentionTimes: ["2021-09-29T08:00:00.000Z"],
+            },
+            yearlySchedule: {
+                monthsOfYear: [azure_native.recoveryservices.MonthOfYear.January],
+                retentionDuration: {
+                    count: 10,
+                    durationType: "Years",
+                },
+                retentionScheduleFormatType: "Weekly",
+                retentionScheduleWeekly: {
+                    daysOfTheWeek: [azure_native.recoveryservices.DayOfWeek.Sunday],
+                    weeksOfTheMonth: [azure_native.recoveryservices.WeekOfMonth.First],
+                },
+                retentionTimes: ["2021-09-29T08:00:00.000Z"],
+            },
+        },
+        schedulePolicy: {
+            schedulePolicyType: "SimpleSchedulePolicy",
+            scheduleRunFrequency: "Daily",
+            scheduleRunTimes: ["2021-09-29T08:00:00.000Z"],
+        },
+        timeZone: "UTC",
+        workLoadType: "AzureFileShare",
+    },
+    resourceGroupName: "SwaggerTestRg",
+    vaultName: "swaggertestvault",
+});

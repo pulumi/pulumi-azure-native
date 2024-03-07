@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedHsm = new AzureNative.KeyVault.ManagedHsm("managedHsm", new()
+    {
+        Location = "westus",
+        Name = "hsm1",
+        Properties = new AzureNative.KeyVault.Inputs.ManagedHsmPropertiesArgs
+        {
+            EnablePurgeProtection = false,
+            EnableSoftDelete = true,
+            InitialAdminObjectIds = new[]
+            {
+                "00000000-0000-0000-0000-000000000000",
+            },
+            SoftDeleteRetentionInDays = 90,
+            TenantId = "00000000-0000-0000-0000-000000000000",
+        },
+        ResourceGroupName = "hsm-group",
+        Sku = new AzureNative.KeyVault.Inputs.ManagedHsmSkuArgs
+        {
+            Family = "B",
+            Name = AzureNative.KeyVault.ManagedHsmSkuName.Standard_B1,
+        },
+        Tags = 
+        {
+            { "Dept", "hsm" },
+            { "Environment", "dogfood" },
+        },
+    });
+
+});
+

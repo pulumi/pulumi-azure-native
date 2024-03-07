@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlPoolTransparentDataEncryption = new azure_native.synapse.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption", {
+    resourceGroupName: "sqlcrudtest-6852",
+    sqlPoolName: "sqlcrudtest-9187",
+    status: "Enabled",
+    transparentDataEncryptionName: "current",
+    workspaceName: "sqlcrudtest-2080",
+});

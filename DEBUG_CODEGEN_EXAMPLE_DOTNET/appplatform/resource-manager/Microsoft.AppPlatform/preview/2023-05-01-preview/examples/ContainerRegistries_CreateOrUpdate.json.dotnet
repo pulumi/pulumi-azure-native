@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var containerRegistry = new AzureNative.AppPlatform.ContainerRegistry("containerRegistry", new()
+    {
+        ContainerRegistryName = "my-container-registry",
+        Properties = new AzureNative.AppPlatform.Inputs.ContainerRegistryPropertiesArgs
+        {
+            Credentials = 
+            {
+                { "password", "myPassword" },
+                { "server", "myServer" },
+                { "type", "BasicAuth" },
+                { "username", "myUsername" },
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        ServiceName = "my-service",
+    });
+
+});
+

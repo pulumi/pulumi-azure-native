@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var recordSet = new AzureNative.Network.RecordSet("recordSet", new()
+    {
+        CnameRecord = new AzureNative.Network.Inputs.CnameRecordArgs
+        {
+            Cname = "contoso.com",
+        },
+        Metadata = 
+        {
+            { "key1", "value1" },
+        },
+        RecordType = "CNAME",
+        RelativeRecordSetName = "record1",
+        ResourceGroupName = "rg1",
+        Ttl = 3600,
+        ZoneName = "zone1",
+    });
+
+});
+

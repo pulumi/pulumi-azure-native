@@ -5,14 +5,14 @@ dapr_component_resiliency_policy = azure_native.app.DaprComponentResiliencyPolic
     component_name="mydaprcomponent",
     environment_name="myenvironment",
     name="myresiliencypolicy",
-    outbound_policy=azure_native.app.DaprComponentResiliencyPolicyConfigurationArgs(
-        http_retry_policy=azure_native.app.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs(
-            max_retries=5,
-            retry_back_off=azure_native.app.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs(
+    outbound_policy=azure_native.app.DaprComponentResiliencyPolicyConfigurationResponseArgs(
+        http_retry_policy={
+            "maxRetries": 5,
+            "retryBackOff": azure_native.app.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs(
                 initial_delay_in_milliseconds=100,
                 max_interval_in_milliseconds=30000,
             ),
-        ),
+        },
         timeout_policy=azure_native.app.DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs(
             response_timeout_in_seconds=12,
         ),

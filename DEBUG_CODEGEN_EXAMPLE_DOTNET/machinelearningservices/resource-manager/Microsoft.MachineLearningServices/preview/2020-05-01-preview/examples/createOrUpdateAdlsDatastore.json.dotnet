@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var machineLearningDatastore = new AzureNative.MachineLearningServices.MachineLearningDatastore("machineLearningDatastore", new()
+    {
+        ClientId = "233d7008-b157-4354-88d1-ba191f06a900",
+        ClientSecret = "vdvgdvdvdv",
+        DataStoreType = "adls",
+        DatastoreName = "adlsDatastore",
+        ResourceGroupName = "acjain-mleastUS2",
+        StoreName = "stanley",
+        TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        WorkspaceName = "acjain-mleastUS2",
+    });
+
+});
+

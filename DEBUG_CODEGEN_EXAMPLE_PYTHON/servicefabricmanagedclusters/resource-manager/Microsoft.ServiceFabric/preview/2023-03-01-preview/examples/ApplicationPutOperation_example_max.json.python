@@ -12,23 +12,23 @@ managed_cluster_application = azure_native.servicefabric.ManagedClusterApplicati
     tags={
         "a": "b",
     },
-    upgrade_policy=azure_native.servicefabric.ApplicationUpgradePolicyArgs(
-        application_health_policy=azure_native.servicefabric.ApplicationHealthPolicyArgs(
-            consider_warning_as_error=True,
-            default_service_type_health_policy=azure_native.servicefabric.ServiceTypeHealthPolicyArgs(
+    upgrade_policy=azure_native.servicefabric.ApplicationUpgradePolicyResponseArgs(
+        application_health_policy={
+            "considerWarningAsError": True,
+            "defaultServiceTypeHealthPolicy": azure_native.servicefabric.ServiceTypeHealthPolicyArgs(
                 max_percent_unhealthy_partitions_per_service=0,
                 max_percent_unhealthy_replicas_per_partition=0,
                 max_percent_unhealthy_services=0,
             ),
-            max_percent_unhealthy_deployed_applications=0,
-            service_type_health_policy_map={
+            "maxPercentUnhealthyDeployedApplications": 0,
+            "serviceTypeHealthPolicyMap": {
                 "myService": azure_native.servicefabric.ServiceTypeHealthPolicyArgs(
                     max_percent_unhealthy_partitions_per_service=30,
                     max_percent_unhealthy_replicas_per_partition=30,
                     max_percent_unhealthy_services=30,
                 ),
             },
-        ),
+        },
         force_restart=False,
         instance_close_delay_duration=600,
         recreate_application=False,

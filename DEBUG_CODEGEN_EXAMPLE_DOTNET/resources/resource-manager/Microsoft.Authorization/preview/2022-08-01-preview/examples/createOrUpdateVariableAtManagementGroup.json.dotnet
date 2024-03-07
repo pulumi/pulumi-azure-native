@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var variableAtManagementGroup = new AzureNative.Authorization.VariableAtManagementGroup("variableAtManagementGroup", new()
+    {
+        Columns = new[]
+        {
+            new AzureNative.Authorization.Inputs.PolicyVariableColumnArgs
+            {
+                ColumnName = "TestColumn",
+            },
+        },
+        ManagementGroupId = "DevOrg",
+        VariableName = "DemoTestVariable",
+    });
+
+});
+

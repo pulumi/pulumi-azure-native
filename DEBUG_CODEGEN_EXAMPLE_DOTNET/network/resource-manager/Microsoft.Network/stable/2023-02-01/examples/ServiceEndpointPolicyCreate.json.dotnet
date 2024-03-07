@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var serviceEndpointPolicy = new AzureNative.Network.ServiceEndpointPolicy("serviceEndpointPolicy", new()
+    {
+        Location = "westus",
+        ResourceGroupName = "rg1",
+        ServiceEndpointPolicyName = "testPolicy",
+    });
+
+});
+

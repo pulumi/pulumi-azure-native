@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var namespaceTopic = new AzureNative.EventGrid.NamespaceTopic("namespaceTopic", new()
+    {
+        EventRetentionInDays = 1,
+        InputSchema = "CloudEventSchemaV1_0",
+        NamespaceName = "examplenamespace2",
+        PublisherType = "Custom",
+        ResourceGroupName = "examplerg",
+        TopicName = "examplenamespacetopic2",
+    });
+
+});
+

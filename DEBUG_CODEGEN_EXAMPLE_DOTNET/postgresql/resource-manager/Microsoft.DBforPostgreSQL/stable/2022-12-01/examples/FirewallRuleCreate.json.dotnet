@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var firewallRule = new AzureNative.DBforPostgreSQL.FirewallRule("firewallRule", new()
+    {
+        EndIpAddress = "255.255.255.255",
+        FirewallRuleName = "rule1",
+        ResourceGroupName = "testrg",
+        ServerName = "testserver",
+        StartIpAddress = "0.0.0.0",
+    });
+
+});
+

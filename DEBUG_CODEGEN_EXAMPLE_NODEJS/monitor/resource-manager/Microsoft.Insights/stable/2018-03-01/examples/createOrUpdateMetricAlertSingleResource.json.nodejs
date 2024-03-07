@@ -1,0 +1,35 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const metricAlert = new azure_native.insights.MetricAlert("metricAlert", {
+    actions: [{
+        actionGroupId: "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+        webHookProperties: {
+            key11: "value11",
+            key12: "value12",
+        },
+    }],
+    autoMitigate: true,
+    criteria: {
+        allOf: [{
+            criterionType: "StaticThresholdCriterion",
+            dimensions: [],
+            metricName: "\\Processor(_Total)\\% Processor Time",
+            name: "High_CPU_80",
+            operator: "GreaterThan",
+            threshold: 80.5,
+            timeAggregation: "Average",
+        }],
+        odataType: "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+    },
+    description: "This is the description of the rule1",
+    enabled: true,
+    evaluationFrequency: "Pt1m",
+    location: "global",
+    resourceGroupName: "gigtest",
+    ruleName: "chiricutin",
+    scopes: ["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"],
+    severity: 3,
+    tags: {},
+    windowSize: "Pt15m",
+});

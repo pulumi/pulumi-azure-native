@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    {
+        ClusterName = "myCluster",
+        DataDiskSizeGB = 200,
+        IsPrimary = false,
+        NodeTypeName = "BE",
+        ResourceGroupName = "resRg",
+        VmImageOffer = "windows_2022_test",
+        VmImagePlan = new AzureNative.ServiceFabric.Inputs.VmImagePlanArgs
+        {
+            Name = "win_2022_test_20_10_gen2",
+            Product = "windows_2022_test",
+            Publisher = "testpublisher",
+        },
+        VmImagePublisher = "testpublisher",
+        VmImageSku = "win_2022_test_20_10_gen2",
+        VmImageVersion = "latest",
+        VmInstanceCount = 10,
+        VmSize = "Standard_D3",
+    });
+
+});
+

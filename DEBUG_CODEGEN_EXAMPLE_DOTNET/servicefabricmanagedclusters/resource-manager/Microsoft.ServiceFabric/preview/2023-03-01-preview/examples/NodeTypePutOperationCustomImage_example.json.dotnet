@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    {
+        ClusterName = "myCluster",
+        DataDiskSizeGB = 200,
+        IsPrimary = false,
+        NodeTypeName = "BE",
+        ResourceGroupName = "resRg",
+        VmImageResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-custom-image/providers/Microsoft.Compute/galleries/myCustomImages/images/Win2019DC",
+        VmInstanceCount = 10,
+        VmSize = "Standard_D3",
+    });
+
+});
+

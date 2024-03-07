@@ -1,0 +1,20 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serverCollectorsOperation = new azure_native.migrate.ServerCollectorsOperation("serverCollectorsOperation", {
+    agentProperties: {
+        id: "498e4965-bbb1-47c2-8613-345baff9c509",
+        spnDetails: {
+            applicationId: "65153d2f-9afb-44e8-b3ca-1369150b7354",
+            audience: "65153d2f-9afb-44e8-b3ca-1369150b7354",
+            authority: "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+            objectId: "ddde6f96-87c8-420b-9d4d-f16a5090519e",
+            tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        },
+    },
+    discoverySiteId: "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/ayagrawRG/providers/Microsoft.OffAzure/ServerSites/walter7155site",
+    projectName: "app18700project",
+    provisioningState: "Succeeded",
+    resourceGroupName: "ayagrawRG",
+    serverCollectorName: "walter389fcollector",
+});

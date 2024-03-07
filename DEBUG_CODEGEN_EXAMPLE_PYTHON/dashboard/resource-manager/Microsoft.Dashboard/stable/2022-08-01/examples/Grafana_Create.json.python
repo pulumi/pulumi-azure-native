@@ -6,14 +6,14 @@ grafana = azure_native.dashboard.Grafana("grafana",
         type="SystemAssigned",
     ),
     location="West US",
-    properties=azure_native.dashboard.ManagedGrafanaPropertiesArgs(
+    properties=azure_native.dashboard.ManagedGrafanaPropertiesResponseArgs(
         api_key="Enabled",
         deterministic_outbound_ip="Enabled",
-        grafana_integrations=azure_native.dashboard.GrafanaIntegrationsArgs(
-            azure_monitor_workspace_integrations=[azure_native.dashboard.AzureMonitorWorkspaceIntegrationArgs(
+        grafana_integrations={
+            "azureMonitorWorkspaceIntegrations": [azure_native.dashboard.AzureMonitorWorkspaceIntegrationArgs(
                 azure_monitor_workspace_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.monitor/accounts/myAzureMonitorWorkspace",
             )],
-        ),
+        },
         public_network_access="Enabled",
         zone_redundancy="Enabled",
     ),

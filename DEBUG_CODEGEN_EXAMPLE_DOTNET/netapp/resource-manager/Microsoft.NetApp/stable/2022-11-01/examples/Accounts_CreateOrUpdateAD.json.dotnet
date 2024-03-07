@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var account = new AzureNative.NetApp.Account("account", new()
+    {
+        AccountName = "account1",
+        ActiveDirectories = new[]
+        {
+            new AzureNative.NetApp.Inputs.ActiveDirectoryArgs
+            {
+                AesEncryption = true,
+                Dns = "10.10.10.3",
+                Domain = "10.10.10.3",
+                LdapOverTLS = false,
+                LdapSigning = false,
+                OrganizationalUnit = "OU=Engineering",
+                Password = "ad_password",
+                Site = "SiteName",
+                SmbServerName = "SMBServer",
+                Username = "ad_user_name",
+            },
+        },
+        Location = "eastus",
+        ResourceGroupName = "myRG",
+    });
+
+});
+

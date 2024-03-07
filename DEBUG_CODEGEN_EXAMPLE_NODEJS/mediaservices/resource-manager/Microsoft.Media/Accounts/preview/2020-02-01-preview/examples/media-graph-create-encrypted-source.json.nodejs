@@ -1,0 +1,57 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mediaGraph = new azure_native.media.MediaGraph("mediaGraph", {
+    accountName: "contosomedia",
+    description: "updated description",
+    mediaGraphName: "SampleMediaGraph",
+    resourceGroupName: "contoso",
+    sinks: [{
+        assetName: "SampleAsset",
+        inputs: ["rtspSource"],
+        name: "AssetSink",
+        odataType: "#Microsoft.Media.MediaGraphAssetSink",
+    }],
+    sources: [{
+        endpoint: {
+            credentials: {
+                odataType: "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+                password: "examplepassword",
+                username: "exampleusername",
+            },
+            odataType: "#Microsoft.Media.MediaGraphTlsEndpoint",
+            trustedCertificates: {
+                certificates: [`-----BEGIN CERTIFICATE-----
+MIIDhTCCAm2gAwIBAgIUajvPKmoO+8qaO89/ZGATl7ZYnTswDQYJKoZIhvcNAQEL
+BQAwUTESMBAGA1UECgwJTWljcm9zb2Z0MRQwEgYDVQQLDAtBenVyZSBNZWRpYTEl
+MCMGA1UEAwwcKFVudHJ1c3RlZCkgVGVzdCBDZXJ0aWZpY2F0ZTAgFw0yMDAyMDYy
+MTI5MTlaGA8zMDE5MDYwOTIxMjkxOVowUTESMBAGA1UECgwJTWljcm9zb2Z0MRQw
+EgYDVQQLDAtBenVyZSBNZWRpYTElMCMGA1UEAwwcKFVudHJ1c3RlZCkgVGVzdCBD
+ZXJ0aWZpY2F0ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK2lg5ff
+7xXPaBZXHl/zrTukdiBtu7BNIOchHba51eloruPRzpvQx7Pedk3CVTut7LYinijf
+uol0EwkQ2FLt2i2jOqiva9nXR95ujIZHcKsEeMC4RSNSP4++k6SpP8FgyYVdv5ru
+f8GC+HyYQ4j0TqpR/cJs53l/LGRSldaFZ6fcDde1jeyca4VivAbAH1/WDIOvmjzo
+9XIGxZ10VSS5l5+DIgdkJZ+mDMLJIuVZ0YVF16ZGEB3beq1trk5lItvmSjQLTllH
+qMFm9UGY8jKZSo/BY8ewHEtnGSAFQK0TVuRx1HhUWwu6C9jk+2zmRS2090BNpQWa
+JMKFJrSPzFDPRX8CAwEAAaNTMFEwHQYDVR0OBBYEFIumbhu0lYk0EFDThEg0yyIn
+/wZZMB8GA1UdIwQYMBaAFIumbhu0lYk0EFDThEg0yyIn/wZZMA8GA1UdEwEB/wQF
+MAMBAf8wDQYJKoZIhvcNAQELBQADggEBADUNw+/NGNVtigq9tMJKqlk39MTpDn1s
+Z1BVIAuAWSQjlevYZJeDIPUiWNWFhRe+xN7oOLnn2+NIXEKKeMSyuPoZYbN0mBkB
+99oS3XVipSANpmDvIepNdCrOnjfqDFIifRF1Dqjtb6i1hb6v/qYKVPLQvcrgGur7
+PKKkAu9p4YRZ3RBdwwaUuMgojrj/l6DGbeJY6IRVnVMY39rryMnZjA5xUlhCu55n
+oB3t/jsJLwnQN+JbAjLAeuqgOWtgARsEFzvpt+VvDsaj0YLOJPhyJwTvHgaa/slB
+nECzd3TuyFKYeGssSni/QQ1e7yZcLapQqz66g5otdriw0IRdOfDxm5M=
+-----END CERTIFICATE-----`],
+                odataType: "#Microsoft.Media.MediaGraphPemCertificateList",
+            },
+            url: "rtsps://contoso.com:443/stream1",
+            validationOptions: {
+                ignoreHostname: true,
+                ignoreSignature: false,
+            },
+        },
+        name: "rtspSource",
+        odataType: "#Microsoft.Media.MediaGraphRtspSource",
+        transport: "Http",
+    }],
+});

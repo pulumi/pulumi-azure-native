@@ -1,0 +1,22 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const solutionsControllerSolution = new azure_native.migrate.SolutionsControllerSolution("solutionsControllerSolution", {
+    migrateProjectName: "1GQwlI-",
+    properties: {
+        cleanupState: "None",
+        details: {
+            assessmentCount: 7,
+            extendedDetails: {
+                key9031: "ombnjq",
+            },
+            groupCount: 30,
+        },
+        goal: "Servers",
+        purpose: "Discovery",
+        status: "Inactive",
+        tool: "ServerDiscovery",
+    },
+    resourceGroupName: "rghubmigrate",
+    solutionName: "1zJY9v3KFENX698GSOl",
+});

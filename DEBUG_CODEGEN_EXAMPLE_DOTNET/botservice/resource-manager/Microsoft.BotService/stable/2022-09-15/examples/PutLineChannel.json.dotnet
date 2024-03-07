@@ -1,0 +1,32 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var channel = new AzureNative.BotService.Channel("channel", new()
+    {
+        ChannelName = "LineChannel",
+        Location = "global",
+        Properties = new AzureNative.BotService.Inputs.LineChannelArgs
+        {
+            ChannelName = "LineChannel",
+            Properties = new AzureNative.BotService.Inputs.LineChannelPropertiesArgs
+            {
+                LineRegistrations = new[]
+                {
+                    new AzureNative.BotService.Inputs.LineRegistrationArgs
+                    {
+                        ChannelAccessToken = "channelAccessToken",
+                        ChannelSecret = "channelSecret",
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "OneResourceGroupName",
+        ResourceName = "samplebotname",
+    });
+
+});
+

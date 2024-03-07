@@ -1,0 +1,246 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var webApplicationFirewallPolicy = new AzureNative.Network.WebApplicationFirewallPolicy("webApplicationFirewallPolicy", new()
+    {
+        CustomRules = new[]
+        {
+            new AzureNative.Network.Inputs.WebApplicationFirewallCustomRuleArgs
+            {
+                Action = "Block",
+                MatchConditions = new[]
+                {
+                    new AzureNative.Network.Inputs.MatchConditionArgs
+                    {
+                        MatchValues = new[]
+                        {
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        },
+                        MatchVariables = new[]
+                        {
+                            new AzureNative.Network.Inputs.MatchVariableArgs
+                            {
+                                VariableName = "RemoteAddr",
+                            },
+                        },
+                        Operator = "IPMatch",
+                    },
+                },
+                Name = "Rule1",
+                Priority = 1,
+                RuleType = "MatchRule",
+            },
+            new AzureNative.Network.Inputs.WebApplicationFirewallCustomRuleArgs
+            {
+                Action = "Block",
+                MatchConditions = new[]
+                {
+                    new AzureNative.Network.Inputs.MatchConditionArgs
+                    {
+                        MatchValues = new[]
+                        {
+                            "192.168.1.0/24",
+                        },
+                        MatchVariables = new[]
+                        {
+                            new AzureNative.Network.Inputs.MatchVariableArgs
+                            {
+                                VariableName = "RemoteAddr",
+                            },
+                        },
+                        Operator = "IPMatch",
+                    },
+                    new AzureNative.Network.Inputs.MatchConditionArgs
+                    {
+                        MatchValues = new[]
+                        {
+                            "Windows",
+                        },
+                        MatchVariables = new[]
+                        {
+                            new AzureNative.Network.Inputs.MatchVariableArgs
+                            {
+                                Selector = "UserAgent",
+                                VariableName = "RequestHeaders",
+                            },
+                        },
+                        Operator = "Contains",
+                    },
+                },
+                Name = "Rule2",
+                Priority = 2,
+                RuleType = "MatchRule",
+            },
+            new AzureNative.Network.Inputs.WebApplicationFirewallCustomRuleArgs
+            {
+                Action = "Block",
+                GroupByUserSession = new[]
+                {
+                    new AzureNative.Network.Inputs.GroupByUserSessionArgs
+                    {
+                        GroupByVariables = new[]
+                        {
+                            new AzureNative.Network.Inputs.GroupByVariableArgs
+                            {
+                                VariableName = "ClientAddr",
+                            },
+                        },
+                    },
+                },
+                MatchConditions = new[]
+                {
+                    new AzureNative.Network.Inputs.MatchConditionArgs
+                    {
+                        MatchValues = new[]
+                        {
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        },
+                        MatchVariables = new[]
+                        {
+                            new AzureNative.Network.Inputs.MatchVariableArgs
+                            {
+                                VariableName = "RemoteAddr",
+                            },
+                        },
+                        NegationConditon = true,
+                        Operator = "IPMatch",
+                    },
+                },
+                Name = "RateLimitRule3",
+                Priority = 3,
+                RateLimitDuration = "OneMin",
+                RateLimitThreshold = 10,
+                RuleType = "RateLimitRule",
+            },
+        },
+        Location = "WestUs",
+        ManagedRules = new AzureNative.Network.Inputs.ManagedRulesDefinitionArgs
+        {
+            Exclusions = new[]
+            {
+                new AzureNative.Network.Inputs.OwaspCrsExclusionEntryArgs
+                {
+                    ExclusionManagedRuleSets = new[]
+                    {
+                        new AzureNative.Network.Inputs.ExclusionManagedRuleSetArgs
+                        {
+                            RuleGroups = new[]
+                            {
+                                new AzureNative.Network.Inputs.ExclusionManagedRuleGroupArgs
+                                {
+                                    RuleGroupName = "REQUEST-930-APPLICATION-ATTACK-LFI",
+                                    Rules = new[]
+                                    {
+                                        new AzureNative.Network.Inputs.ExclusionManagedRuleArgs
+                                        {
+                                            RuleId = "930120",
+                                        },
+                                    },
+                                },
+                                new AzureNative.Network.Inputs.ExclusionManagedRuleGroupArgs
+                                {
+                                    RuleGroupName = "REQUEST-932-APPLICATION-ATTACK-RCE",
+                                },
+                            },
+                            RuleSetType = "OWASP",
+                            RuleSetVersion = "3.2",
+                        },
+                    },
+                    MatchVariable = "RequestArgNames",
+                    Selector = "hello",
+                    SelectorMatchOperator = "StartsWith",
+                },
+                new AzureNative.Network.Inputs.OwaspCrsExclusionEntryArgs
+                {
+                    ExclusionManagedRuleSets = new[]
+                    {
+                        new AzureNative.Network.Inputs.ExclusionManagedRuleSetArgs
+                        {
+                            RuleGroups = new[] {},
+                            RuleSetType = "OWASP",
+                            RuleSetVersion = "3.1",
+                        },
+                    },
+                    MatchVariable = "RequestArgNames",
+                    Selector = "hello",
+                    SelectorMatchOperator = "EndsWith",
+                },
+                new AzureNative.Network.Inputs.OwaspCrsExclusionEntryArgs
+                {
+                    MatchVariable = "RequestArgNames",
+                    Selector = "test",
+                    SelectorMatchOperator = "StartsWith",
+                },
+                new AzureNative.Network.Inputs.OwaspCrsExclusionEntryArgs
+                {
+                    MatchVariable = "RequestArgValues",
+                    Selector = "test",
+                    SelectorMatchOperator = "StartsWith",
+                },
+            },
+            ManagedRuleSets = new[]
+            {
+                new AzureNative.Network.Inputs.ManagedRuleSetArgs
+                {
+                    RuleGroupOverrides = new[]
+                    {
+                        new AzureNative.Network.Inputs.ManagedRuleGroupOverrideArgs
+                        {
+                            RuleGroupName = "REQUEST-931-APPLICATION-ATTACK-RFI",
+                            Rules = new[]
+                            {
+                                new AzureNative.Network.Inputs.ManagedRuleOverrideArgs
+                                {
+                                    Action = "Log",
+                                    RuleId = "931120",
+                                    State = "Enabled",
+                                },
+                                new AzureNative.Network.Inputs.ManagedRuleOverrideArgs
+                                {
+                                    Action = "AnomalyScoring",
+                                    RuleId = "931130",
+                                    State = "Disabled",
+                                },
+                            },
+                        },
+                    },
+                    RuleSetType = "OWASP",
+                    RuleSetVersion = "3.2",
+                },
+            },
+        },
+        PolicyName = "Policy1",
+        PolicySettings = new AzureNative.Network.Inputs.PolicySettingsArgs
+        {
+            LogScrubbing = new AzureNative.Network.Inputs.PolicySettingsLogScrubbingArgs
+            {
+                ScrubbingRules = new[]
+                {
+                    new AzureNative.Network.Inputs.WebApplicationFirewallScrubbingRulesArgs
+                    {
+                        MatchVariable = "RequestArgNames",
+                        Selector = "test",
+                        SelectorMatchOperator = "Equals",
+                        State = "Enabled",
+                    },
+                    new AzureNative.Network.Inputs.WebApplicationFirewallScrubbingRulesArgs
+                    {
+                        MatchVariable = "RequestIPAddress",
+                        SelectorMatchOperator = "EqualsAny",
+                        State = "Enabled",
+                    },
+                },
+                State = "Enabled",
+            },
+        },
+        ResourceGroupName = "rg1",
+    });
+
+});
+

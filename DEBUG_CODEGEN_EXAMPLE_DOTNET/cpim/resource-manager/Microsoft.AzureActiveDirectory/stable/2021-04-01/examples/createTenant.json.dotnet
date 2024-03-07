@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var b2cTenant = new AzureNative.AzureActiveDirectory.B2CTenant("b2cTenant", new()
+    {
+        CountryCode = "US",
+        DisplayName = "Contoso",
+        Location = "United States",
+        ResourceGroupName = "contosoResourceGroup",
+        ResourceName = "contoso.onmicrosoft.com",
+        Sku = new AzureNative.AzureActiveDirectory.Inputs.B2CResourceSKUArgs
+        {
+            Name = "Standard",
+            Tier = "A0",
+        },
+    });
+
+});
+

@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var routeFilterRule = new AzureNative.Network.RouteFilterRule("routeFilterRule", new()
+    {
+        Access = "Allow",
+        Communities = new[]
+        {
+            "12076:5030",
+            "12076:5040",
+        },
+        ResourceGroupName = "rg1",
+        RouteFilterName = "filterName",
+        RouteFilterRuleType = "Community",
+        RuleName = "ruleName",
+    });
+
+});
+

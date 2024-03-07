@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var agentPool = new AzureNative.ContainerService.AgentPool("agentPool", new()
+    {
+        AgentPoolName = "agentpool1",
+        Count = 3,
+        EnableAutoScaling = true,
+        MaxCount = 2,
+        MinCount = 2,
+        NodeTaints = new[]
+        {
+            "Key1=Value1:NoSchedule",
+        },
+        OrchestratorVersion = "",
+        OsType = "Linux",
+        ResourceGroupName = "rg1",
+        ResourceName = "clustername1",
+        ScaleSetEvictionPolicy = "Delete",
+        ScaleSetPriority = "Spot",
+        VmSize = "Standard_DS1_v2",
+    });
+
+});
+

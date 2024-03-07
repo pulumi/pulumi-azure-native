@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cluster = new azure_native.dbforpostgresql.Cluster("cluster", {
+    clusterName: "testcluster",
+    location: "westus",
+    resourceGroupName: "TestGroup",
+    sourceLocation: "westus",
+    sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/sourcecluster",
+});

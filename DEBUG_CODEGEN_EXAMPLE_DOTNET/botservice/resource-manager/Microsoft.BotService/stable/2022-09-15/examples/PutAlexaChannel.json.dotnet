@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var channel = new AzureNative.BotService.Channel("channel", new()
+    {
+        ChannelName = "AlexaChannel",
+        Location = "global",
+        Properties = new AzureNative.BotService.Inputs.AlexaChannelArgs
+        {
+            ChannelName = "AlexaChannel",
+            Properties = new AzureNative.BotService.Inputs.AlexaChannelPropertiesArgs
+            {
+                AlexaSkillId = "XAlexaSkillIdX",
+                IsEnabled = true,
+            },
+        },
+        ResourceGroupName = "OneResourceGroupName",
+        ResourceName = "samplebotname",
+    });
+
+});
+

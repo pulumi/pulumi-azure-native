@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const firewallRule = new azure_native.datalakeanalytics.FirewallRule("firewallRule", {
+    accountName: "contosoadla",
+    endIpAddress: "2.2.2.2",
+    firewallRuleName: "test_rule",
+    resourceGroupName: "contosorg",
+    startIpAddress: "1.1.1.1",
+});

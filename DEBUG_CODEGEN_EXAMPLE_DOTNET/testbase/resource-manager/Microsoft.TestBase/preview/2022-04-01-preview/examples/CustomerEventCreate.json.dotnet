@@ -1,0 +1,49 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var customerEvent = new AzureNative.TestBase.CustomerEvent("customerEvent", new()
+    {
+        CustomerEventName = "WeeklySummary",
+        EventName = "WeeklySummary",
+        Receivers = new[]
+        {
+            new AzureNative.TestBase.Inputs.NotificationEventReceiverArgs
+            {
+                ReceiverType = "UserObjects",
+                ReceiverValue = new AzureNative.TestBase.Inputs.NotificationReceiverValueArgs
+                {
+                    UserObjectReceiverValue = new AzureNative.TestBase.Inputs.UserObjectReceiverValueArgs
+                    {
+                        UserObjectIds = new[]
+                        {
+                            "245245245245325",
+                            "365365365363565",
+                        },
+                    },
+                },
+            },
+            new AzureNative.TestBase.Inputs.NotificationEventReceiverArgs
+            {
+                ReceiverType = "DistributionGroup",
+                ReceiverValue = new AzureNative.TestBase.Inputs.NotificationReceiverValueArgs
+                {
+                    DistributionGroupListReceiverValue = new AzureNative.TestBase.Inputs.DistributionGroupListReceiverValueArgs
+                    {
+                        DistributionGroups = new[]
+                        {
+                            "test@microsoft.com",
+                        },
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "contoso-rg1",
+        TestBaseAccountName = "contoso-testBaseAccount1",
+    });
+
+});
+

@@ -2,7 +2,7 @@ import pulumi
 import pulumi_azure_native as azure_native
 
 import_pipeline = azure_native.containerregistry.ImportPipeline("importPipeline",
-    identity=azure_native.containerregistry.IdentityPropertiesArgs(
+    identity=azure_native.containerregistry.IdentityPropertiesResponseArgs(
         type=azure_native.containerregistry.ResourceIdentityType.USER_ASSIGNED,
         user_assigned_identities={
             "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": azure_native.containerregistry.UserIdentityPropertiesArgs(),

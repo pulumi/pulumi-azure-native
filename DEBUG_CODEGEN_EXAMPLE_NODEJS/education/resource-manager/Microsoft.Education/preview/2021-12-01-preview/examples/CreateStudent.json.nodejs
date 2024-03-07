@@ -1,0 +1,18 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const student = new azure_native.education.Student("student", {
+    billingAccountName: "{billingAccountName}",
+    billingProfileName: "{billingProfileName}",
+    budget: {
+        currency: "USD",
+        value: 100,
+    },
+    email: "test@contoso.com",
+    expirationDate: "2021-11-09T22:13:21.795Z",
+    firstName: "test",
+    invoiceSectionName: "{invoiceSectionName}",
+    lastName: "user",
+    role: "Student",
+    studentAlias: "{studentAlias}",
+});

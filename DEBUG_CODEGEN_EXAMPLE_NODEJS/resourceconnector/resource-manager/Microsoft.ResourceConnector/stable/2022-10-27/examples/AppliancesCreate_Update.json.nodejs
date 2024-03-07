@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const appliance = new azure_native.resourceconnector.Appliance("appliance", {
+    distro: "AKSEdge",
+    infrastructureConfig: {
+        provider: "VMWare",
+    },
+    location: "West US",
+    resourceGroupName: "testresourcegroup",
+    resourceName: "appliance01",
+});

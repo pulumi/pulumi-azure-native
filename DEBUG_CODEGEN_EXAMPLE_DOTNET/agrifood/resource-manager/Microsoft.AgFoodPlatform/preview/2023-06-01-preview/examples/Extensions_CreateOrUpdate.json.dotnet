@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var extension = new AzureNative.AgFoodPlatform.Extension("extension", new()
+    {
+        DataManagerForAgricultureResourceName = "examples-dataManagerForAgricultureResourceName",
+        ExtensionId = "provider.extension",
+        ResourceGroupName = "examples-rg",
+    });
+
+});
+

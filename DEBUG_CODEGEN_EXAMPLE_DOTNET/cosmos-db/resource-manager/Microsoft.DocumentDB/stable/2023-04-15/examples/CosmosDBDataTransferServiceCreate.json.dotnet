@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var service = new AzureNative.DocumentDB.Service("service", new()
+    {
+        AccountName = "ddb1",
+        InstanceCount = 1,
+        InstanceSize = "Cosmos.D4s",
+        ResourceGroupName = "rg1",
+        ServiceName = "DataTransfer",
+        ServiceType = "DataTransfer",
+    });
+
+});
+

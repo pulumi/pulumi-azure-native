@@ -1,0 +1,30 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const brokerAuthorization = new azure_native.iotoperationsmq.BrokerAuthorization("brokerAuthorization", {
+    authorizationName: "C15G",
+    authorizationPolicies: {
+        enableCache: true,
+        rules: [{
+            brokerResources: [{
+                method: "Connect",
+                topics: ["v"],
+            }],
+            principals: {
+                attributes: [{}],
+                clientids: ["smrfzvniq"],
+                usernames: ["jtwwmsrzriat"],
+            },
+        }],
+    },
+    brokerName: "7E0-tXS-6u1h-Vx396----",
+    extendedLocation: {
+        name: "an",
+        type: "CustomLocation",
+    },
+    listenerRef: ["mxgpbyb"],
+    location: "bvgohixie",
+    mqName: "Zz22-b2VC-9",
+    resourceGroupName: "rgiotoperationsmq",
+    tags: {},
+});

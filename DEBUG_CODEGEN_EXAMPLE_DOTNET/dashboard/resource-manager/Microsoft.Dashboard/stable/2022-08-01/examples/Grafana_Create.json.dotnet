@@ -1,0 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var grafana = new AzureNative.Dashboard.Grafana("grafana", new()
+    {
+        Identity = new AzureNative.Dashboard.Inputs.ManagedServiceIdentityArgs
+        {
+            Type = "SystemAssigned",
+        },
+        Location = "West US",
+        Properties = new AzureNative.Dashboard.Inputs.ManagedGrafanaPropertiesArgs
+        {
+            ApiKey = "Enabled",
+            DeterministicOutboundIP = "Enabled",
+            GrafanaIntegrations = new AzureNative.Dashboard.Inputs.GrafanaIntegrationsArgs
+            {
+                AzureMonitorWorkspaceIntegrations = new[]
+                {
+                    new AzureNative.Dashboard.Inputs.AzureMonitorWorkspaceIntegrationArgs
+                    {
+                        AzureMonitorWorkspaceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.monitor/accounts/myAzureMonitorWorkspace",
+                    },
+                },
+            },
+            PublicNetworkAccess = "Enabled",
+            ZoneRedundancy = "Enabled",
+        },
+        ResourceGroupName = "myResourceGroup",
+        Sku = new AzureNative.Dashboard.Inputs.ResourceSkuArgs
+        {
+            Name = "Standard",
+        },
+        Tags = 
+        {
+            { "Environment", "Dev" },
+        },
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

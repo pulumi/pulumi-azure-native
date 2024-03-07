@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cassandraResourceCassandraKeyspace = new azure_native.documentdb.CassandraResourceCassandraKeyspace("cassandraResourceCassandraKeyspace", {
+    accountName: "ddb1",
+    keyspaceName: "keyspaceName",
+    location: "West US",
+    options: {},
+    resource: {
+        id: "keyspaceName",
+    },
+    resourceGroupName: "rg1",
+    tags: {},
+});

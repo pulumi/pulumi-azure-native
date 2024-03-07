@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pool = new azure_native.batch.Pool("pool", {
+    accountName: "sampleacct",
+    deploymentConfiguration: {
+        virtualMachineConfiguration: {
+            imageReference: {
+                id: "/subscriptions/subid/resourceGroups/networking-group/providers/Microsoft.Compute/galleries/testgallery/images/testimagedef/versions/0.0.1",
+            },
+            nodeAgentSkuId: "batch.node.ubuntu 18.04",
+        },
+    },
+    networkConfiguration: {
+        publicIPAddressConfiguration: {
+            ipAddressIds: ["/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135"],
+            provision: azure_native.batch.IPAddressProvisioningType.UserManaged,
+        },
+        subnetId: "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+    },
+    poolName: "testpool",
+    resourceGroupName: "default-azurebatch-japaneast",
+    vmSize: "STANDARD_D4",
+});

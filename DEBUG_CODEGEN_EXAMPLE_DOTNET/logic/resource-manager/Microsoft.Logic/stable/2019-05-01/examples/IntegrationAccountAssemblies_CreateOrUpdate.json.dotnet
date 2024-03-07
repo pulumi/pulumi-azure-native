@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var integrationAccountAssembly = new AzureNative.Logic.IntegrationAccountAssembly("integrationAccountAssembly", new()
+    {
+        AssemblyArtifactName = "testAssembly",
+        IntegrationAccountName = "testIntegrationAccount",
+        Location = "westus",
+        Properties = new AzureNative.Logic.Inputs.AssemblyPropertiesArgs
+        {
+            AssemblyName = "System.IdentityModel.Tokens.Jwt",
+            Content = "Base64 encoded Assembly Content",
+            Metadata = null,
+        },
+        ResourceGroupName = "testResourceGroup",
+    });
+
+});
+

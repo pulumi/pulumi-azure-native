@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workspace = new azure_native.iotfirmwaredefense.Workspace("workspace", {
+    location: "jjwbseilitjgdrhbvvkwviqj",
+    resourceGroupName: "rgworkspaces",
+    workspaceName: "E___-3",
+});

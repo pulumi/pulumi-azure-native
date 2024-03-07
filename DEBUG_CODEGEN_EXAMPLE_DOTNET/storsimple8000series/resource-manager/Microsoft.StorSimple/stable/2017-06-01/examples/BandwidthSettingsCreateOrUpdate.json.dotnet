@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var bandwidthSetting = new AzureNative.StorSimple.BandwidthSetting("bandwidthSetting", new()
+    {
+        BandwidthSettingName = "BWSForTest",
+        ManagerName = "ManagerForSDKTest1",
+        ResourceGroupName = "ResourceGroupForSDKTest",
+        Schedules = new[]
+        {
+            new AzureNative.StorSimple.Inputs.BandwidthScheduleArgs
+            {
+                Days = new[]
+                {
+                    AzureNative.StorSimple.DayOfWeek.Saturday,
+                    AzureNative.StorSimple.DayOfWeek.Sunday,
+                },
+                RateInMbps = 10,
+                Start = new AzureNative.StorSimple.Inputs.TimeArgs
+                {
+                    Hours = 10,
+                    Minutes = 0,
+                    Seconds = 0,
+                },
+                Stop = new AzureNative.StorSimple.Inputs.TimeArgs
+                {
+                    Hours = 20,
+                    Minutes = 0,
+                    Seconds = 0,
+                },
+            },
+        },
+    });
+
+});
+

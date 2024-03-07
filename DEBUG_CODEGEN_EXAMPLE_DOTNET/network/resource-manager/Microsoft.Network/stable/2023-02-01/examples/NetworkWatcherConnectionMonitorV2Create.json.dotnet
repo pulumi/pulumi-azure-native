@@ -1,0 +1,88 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var connectionMonitor = new AzureNative.Network.ConnectionMonitor("connectionMonitor", new()
+    {
+        ConnectionMonitorName = "cm1",
+        Endpoints = new[]
+        {
+            new AzureNative.Network.Inputs.ConnectionMonitorEndpointArgs
+            {
+                Name = "vm1",
+                ResourceId = "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/NwRgIrinaCentralUSEUAP/providers/Microsoft.Compute/virtualMachines/vm1",
+            },
+            new AzureNative.Network.Inputs.ConnectionMonitorEndpointArgs
+            {
+                Filter = new AzureNative.Network.Inputs.ConnectionMonitorEndpointFilterArgs
+                {
+                    Items = new[]
+                    {
+                        new AzureNative.Network.Inputs.ConnectionMonitorEndpointFilterItemArgs
+                        {
+                            Address = "npmuser",
+                            Type = "AgentAddress",
+                        },
+                    },
+                    Type = "Include",
+                },
+                Name = "CanaryWorkspaceVamshi",
+                ResourceId = "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
+            },
+            new AzureNative.Network.Inputs.ConnectionMonitorEndpointArgs
+            {
+                Address = "bing.com",
+                Name = "bing",
+            },
+            new AzureNative.Network.Inputs.ConnectionMonitorEndpointArgs
+            {
+                Address = "google.com",
+                Name = "google",
+            },
+        },
+        NetworkWatcherName = "nw1",
+        Outputs = new[] {},
+        ResourceGroupName = "rg1",
+        TestConfigurations = new[]
+        {
+            new AzureNative.Network.Inputs.ConnectionMonitorTestConfigurationArgs
+            {
+                Name = "testConfig1",
+                Protocol = "Tcp",
+                TcpConfiguration = new AzureNative.Network.Inputs.ConnectionMonitorTcpConfigurationArgs
+                {
+                    DisableTraceRoute = false,
+                    Port = 80,
+                },
+                TestFrequencySec = 60,
+            },
+        },
+        TestGroups = new[]
+        {
+            new AzureNative.Network.Inputs.ConnectionMonitorTestGroupArgs
+            {
+                Destinations = new[]
+                {
+                    "bing",
+                    "google",
+                },
+                Disable = false,
+                Name = "test1",
+                Sources = new[]
+                {
+                    "vm1",
+                    "CanaryWorkspaceVamshi",
+                },
+                TestConfigurations = new[]
+                {
+                    "testConfig1",
+                },
+            },
+        },
+    });
+
+});
+

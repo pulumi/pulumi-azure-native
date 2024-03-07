@@ -1,0 +1,46 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var databaseMigrationsSqlDb = new AzureNative.DataMigration.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb", new()
+    {
+        Properties = new AzureNative.DataMigration.Inputs.DatabaseMigrationPropertiesSqlDbArgs
+        {
+            Kind = "SqlDb",
+            MigrationService = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+            Scope = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+            SourceDatabaseName = "aaa",
+            SourceSqlConnection = new AzureNative.DataMigration.Inputs.SqlConnectionInformationArgs
+            {
+                Authentication = "WindowsAuthentication",
+                DataSource = "aaa",
+                EncryptConnection = true,
+                Password = "placeholder",
+                TrustServerCertificate = true,
+                UserName = "bbb",
+            },
+            TableList = new[]
+            {
+                "[Schema1].[TableName1]",
+                "[Schema2].[TableName2]",
+            },
+            TargetSqlConnection = new AzureNative.DataMigration.Inputs.SqlConnectionInformationArgs
+            {
+                Authentication = "SqlAuthentication",
+                DataSource = "sqldbinstance",
+                EncryptConnection = true,
+                Password = "placeholder",
+                TrustServerCertificate = true,
+                UserName = "bbb",
+            },
+        },
+        ResourceGroupName = "testrg",
+        SqlDbInstanceName = "sqldbinstance",
+        TargetDbName = "db1",
+    });
+
+});
+

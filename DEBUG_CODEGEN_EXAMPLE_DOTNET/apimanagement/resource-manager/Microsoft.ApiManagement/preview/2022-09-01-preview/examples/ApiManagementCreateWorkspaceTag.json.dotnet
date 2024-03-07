@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspaceTag = new AzureNative.ApiManagement.WorkspaceTag("workspaceTag", new()
+    {
+        DisplayName = "tag1",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        TagId = "tagId1",
+        WorkspaceId = "wks1",
+    });
+
+});
+

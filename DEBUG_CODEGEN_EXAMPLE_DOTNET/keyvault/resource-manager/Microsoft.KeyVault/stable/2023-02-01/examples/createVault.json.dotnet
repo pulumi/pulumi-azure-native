@@ -1,0 +1,87 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var vault = new AzureNative.KeyVault.Vault("vault", new()
+    {
+        Location = "westus",
+        Properties = new AzureNative.KeyVault.Inputs.VaultPropertiesArgs
+        {
+            AccessPolicies = new[]
+            {
+                new AzureNative.KeyVault.Inputs.AccessPolicyEntryArgs
+                {
+                    ObjectId = "00000000-0000-0000-0000-000000000000",
+                    Permissions = new AzureNative.KeyVault.Inputs.PermissionsArgs
+                    {
+                        Certificates = new[]
+                        {
+                            "get",
+                            "list",
+                            "delete",
+                            "create",
+                            "import",
+                            "update",
+                            "managecontacts",
+                            "getissuers",
+                            "listissuers",
+                            "setissuers",
+                            "deleteissuers",
+                            "manageissuers",
+                            "recover",
+                            "purge",
+                        },
+                        Keys = new[]
+                        {
+                            "encrypt",
+                            "decrypt",
+                            "wrapKey",
+                            "unwrapKey",
+                            "sign",
+                            "verify",
+                            "get",
+                            "list",
+                            "create",
+                            "update",
+                            "import",
+                            "delete",
+                            "backup",
+                            "restore",
+                            "recover",
+                            "purge",
+                        },
+                        Secrets = new[]
+                        {
+                            "get",
+                            "list",
+                            "set",
+                            "delete",
+                            "backup",
+                            "restore",
+                            "recover",
+                            "purge",
+                        },
+                    },
+                    TenantId = "00000000-0000-0000-0000-000000000000",
+                },
+            },
+            EnabledForDeployment = true,
+            EnabledForDiskEncryption = true,
+            EnabledForTemplateDeployment = true,
+            PublicNetworkAccess = "Enabled",
+            Sku = new AzureNative.KeyVault.Inputs.SkuArgs
+            {
+                Family = "A",
+                Name = AzureNative.KeyVault.SkuName.Standard,
+            },
+            TenantId = "00000000-0000-0000-0000-000000000000",
+        },
+        ResourceGroupName = "sample-resource-group",
+        VaultName = "sample-vault",
+    });
+
+});
+

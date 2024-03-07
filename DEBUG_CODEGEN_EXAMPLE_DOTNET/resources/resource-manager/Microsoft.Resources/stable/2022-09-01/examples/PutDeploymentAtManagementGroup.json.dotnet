@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var deploymentAtManagementGroupScope = new AzureNative.Resources.DeploymentAtManagementGroupScope("deploymentAtManagementGroupScope", new()
+    {
+        DeploymentName = "my-deployment",
+        GroupId = "my-management-group-id",
+        Location = "eastus",
+        Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+        {
+            Mode = AzureNative.Resources.DeploymentMode.Incremental,
+            Parameters = null,
+            TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+            {
+                Uri = "https://example.com/exampleTemplate.json",
+            },
+        },
+    });
+
+});
+

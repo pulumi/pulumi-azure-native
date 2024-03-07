@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var instance = new AzureNative.IoTOperationsOrchestrator.Instance("instance", new()
+    {
+        ExtendedLocation = new AzureNative.IoTOperationsOrchestrator.Inputs.ExtendedLocationArgs
+        {
+            Name = "bjjhfqsplgzdlbdlddleetyg",
+            Type = "sosibrbmmrfbbyp",
+        },
+        Location = "uzehbktba",
+        Name = "j6-r05-43h--55-q97-9ig--6w44a-2--3g-k53-13263ncl6-2q-h0-q5",
+        ReconciliationPolicy = new AzureNative.IoTOperationsOrchestrator.Inputs.ReconciliationPolicyArgs
+        {
+            Interval = "wyrrzydmfgzymvzbppscxyfobku",
+            Type = "periodic",
+        },
+        ResourceGroupName = "rgopenapi",
+        Scope = "rkargnjeljnivwjly",
+        Solution = "p",
+        Tags = null,
+        Target = new AzureNative.IoTOperationsOrchestrator.Inputs.TargetSelectorPropertiesArgs
+        {
+            Name = "mqxcv",
+        },
+        Version = "nf",
+    });
+
+});
+

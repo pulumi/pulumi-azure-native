@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const subvolume = new azure_native.netapp.Subvolume("subvolume", {
+    accountName: "account1",
+    path: "/subvolumePath",
+    poolName: "pool1",
+    resourceGroupName: "myRG",
+    subvolumeName: "subvolume1",
+    volumeName: "volume1",
+});

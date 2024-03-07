@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var recordSet = new AzureNative.Network.RecordSet("recordSet", new()
+    {
+        Metadata = 
+        {
+            { "key1", "value1" },
+        },
+        PtrRecords = new[]
+        {
+            new AzureNative.Network.Inputs.PtrRecordArgs
+            {
+                Ptrdname = "localhost",
+            },
+        },
+        RecordType = "PTR",
+        RelativeRecordSetName = "1",
+        ResourceGroupName = "rg1",
+        Ttl = 3600,
+        ZoneName = "0.0.127.in-addr.arpa",
+    });
+
+});
+

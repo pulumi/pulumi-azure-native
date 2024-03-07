@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var importCollector = new AzureNative.Migrate.ImportCollector("importCollector", new()
+    {
+        ImportCollectorName = "importCollector2952",
+        ProjectName = "rajoshCCY9671project",
+        ResourceGroupName = "markusavstestrg",
+    });
+
+});
+

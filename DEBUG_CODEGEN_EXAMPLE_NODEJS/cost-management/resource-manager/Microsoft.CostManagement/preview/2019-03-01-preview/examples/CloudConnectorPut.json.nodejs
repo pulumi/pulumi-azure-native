@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const cloudConnector = new azure_native.costmanagement.CloudConnector("cloudConnector", {
+    connectorName: "aws-123456789012",
+    credentialsKey: "arn:aws:iam::123456789012:role/AzureCostManagementRole",
+    credentialsSecret: "external-id",
+    displayName: "AWS-Consolidated-1",
+    reportId: "HourlyWithResources",
+});

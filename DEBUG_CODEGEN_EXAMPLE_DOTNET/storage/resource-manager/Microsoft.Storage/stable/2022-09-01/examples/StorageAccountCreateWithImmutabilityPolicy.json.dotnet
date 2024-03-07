@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageAccount = new AzureNative.Storage.StorageAccount("storageAccount", new()
+    {
+        AccountName = "sto4445",
+        ExtendedLocation = new AzureNative.Storage.Inputs.ExtendedLocationArgs
+        {
+            Name = "losangeles001",
+            Type = "EdgeZone",
+        },
+        ImmutableStorageWithVersioning = new AzureNative.Storage.Inputs.ImmutableStorageAccountArgs
+        {
+            Enabled = true,
+            ImmutabilityPolicy = new AzureNative.Storage.Inputs.AccountImmutabilityPolicyPropertiesArgs
+            {
+                AllowProtectedAppendWrites = true,
+                ImmutabilityPeriodSinceCreationInDays = 15,
+                State = "Unlocked",
+            },
+        },
+        Kind = "Storage",
+        Location = "eastus",
+        ResourceGroupName = "res9101",
+        Sku = new AzureNative.Storage.Inputs.SkuArgs
+        {
+            Name = "Standard_GRS",
+        },
+    });
+
+});
+

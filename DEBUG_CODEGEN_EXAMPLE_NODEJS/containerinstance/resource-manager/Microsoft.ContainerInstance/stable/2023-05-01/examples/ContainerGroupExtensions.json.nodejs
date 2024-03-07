@@ -1,0 +1,54 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const containerGroup = new azure_native.containerinstance.ContainerGroup("containerGroup", {
+    containerGroupName: "demo1",
+    containers: [{
+        command: [],
+        environmentVariables: [],
+        image: "nginx",
+        name: "demo1",
+        ports: [{
+            port: 80,
+        }],
+        resources: {
+            requests: {
+                cpu: 1,
+                memoryInGB: 1.5,
+            },
+        },
+    }],
+    extensions: [
+        {
+            extensionType: "kube-proxy",
+            name: "kube-proxy",
+            protectedSettings: {
+                kubeConfig: "<kubeconfig encoded string>",
+            },
+            settings: {
+                clusterCidr: "10.240.0.0/16",
+                kubeVersion: "v1.9.10",
+            },
+            version: "1.0",
+        },
+        {
+            extensionType: "realtime-metrics",
+            name: "vk-realtime-metrics",
+            version: "1.0",
+        },
+    ],
+    imageRegistryCredentials: [],
+    ipAddress: {
+        ports: [{
+            port: 80,
+            protocol: "TCP",
+        }],
+        type: "Private",
+    },
+    location: "eastus2",
+    osType: "Linux",
+    resourceGroupName: "demo",
+    subnetIds: [{
+        id: "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-rg-vnet/subnets/test-subnet",
+    }],
+});

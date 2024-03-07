@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var dataConnector = new AzureNative.AgFoodPlatform.DataConnector("dataConnector", new()
+    {
+        DataConnectorName = "WeatherIBM",
+        DataManagerForAgricultureResourceName = "examples-dataManagerForAgricultureResourceName",
+        Properties = new AzureNative.AgFoodPlatform.Inputs.DataConnectorPropertiesArgs
+        {
+            Credentials = new AzureNative.AgFoodPlatform.Inputs.ApiKeyAuthCredentialsArgs
+            {
+                ApiKey = new AzureNative.AgFoodPlatform.Inputs.KeyVaultPropertiesArgs
+                {
+                    KeyName = "abcApiKey",
+                    KeyVaultUri = "https://testKeyVault.vault.azure.net/",
+                    KeyVersion = "239c0475c7d44f20b0fc27d3fe90a41d",
+                },
+                Kind = "ApiKeyAuthCredentials",
+            },
+        },
+        ResourceGroupName = "examples-rg",
+    });
+
+});
+

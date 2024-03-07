@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const replicationLink = new azure_native.sql.ReplicationLink("replicationLink", {
+    databaseName: "gamma-db",
+    linkId: "00000000-1111-2222-3333-666666666666",
+    linkType: "STANDBY",
+    resourceGroupName: "Default",
+    serverName: "sourcesvr",
+});

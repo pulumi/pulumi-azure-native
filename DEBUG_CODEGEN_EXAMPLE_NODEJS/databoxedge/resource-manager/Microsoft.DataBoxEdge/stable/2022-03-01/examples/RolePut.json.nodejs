@@ -1,0 +1,8 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const mecRole = new azure_native.databoxedge.MECRole("mecRole", {
+    deviceName: "testedgedevice",
+    name: "IoTRole1",
+    resourceGroupName: "GroupForEdgeAutomation",
+});

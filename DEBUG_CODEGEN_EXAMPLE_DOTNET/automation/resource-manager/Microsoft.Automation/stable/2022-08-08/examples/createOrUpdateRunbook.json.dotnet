@@ -1,0 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var runbook = new AzureNative.Automation.Runbook("runbook", new()
+    {
+        AutomationAccountName = "ContoseAutomationAccount",
+        Description = "Description of the Runbook",
+        Location = "East US 2",
+        LogActivityTrace = 1,
+        LogProgress = true,
+        LogVerbose = false,
+        Name = "Get-AzureVMTutorial",
+        PublishContentLink = new AzureNative.Automation.Inputs.ContentLinkArgs
+        {
+            ContentHash = new AzureNative.Automation.Inputs.ContentHashArgs
+            {
+                Algorithm = "SHA256",
+                Value = "115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
+            },
+            Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+        },
+        ResourceGroupName = "rg",
+        RunbookName = "Get-AzureVMTutorial",
+        RunbookType = "PowerShellWorkflow",
+        Tags = 
+        {
+            { "tag01", "value01" },
+            { "tag02", "value02" },
+        },
+    });
+
+});
+

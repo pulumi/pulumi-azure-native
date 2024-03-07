@@ -1,0 +1,80 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var profile = new AzureNative.CustomerInsights.Profile("profile", new()
+    {
+        ApiEntitySetName = "TestProfileType396",
+        Fields = new[]
+        {
+            new AzureNative.CustomerInsights.Inputs.PropertyDefinitionArgs
+            {
+                FieldName = "Id",
+                FieldType = "Edm.String",
+                IsArray = false,
+                IsRequired = true,
+            },
+            new AzureNative.CustomerInsights.Inputs.PropertyDefinitionArgs
+            {
+                FieldName = "ProfileId",
+                FieldType = "Edm.String",
+                IsArray = false,
+                IsRequired = true,
+            },
+            new AzureNative.CustomerInsights.Inputs.PropertyDefinitionArgs
+            {
+                FieldName = "LastName",
+                FieldType = "Edm.String",
+                IsArray = false,
+                IsRequired = true,
+            },
+            new AzureNative.CustomerInsights.Inputs.PropertyDefinitionArgs
+            {
+                FieldName = "TestProfileType396",
+                FieldType = "Edm.String",
+                IsArray = false,
+                IsRequired = true,
+            },
+            new AzureNative.CustomerInsights.Inputs.PropertyDefinitionArgs
+            {
+                FieldName = "SavingAccountBalance",
+                FieldType = "Edm.Int32",
+                IsArray = false,
+                IsRequired = true,
+            },
+        },
+        HubName = "sdkTestHub",
+        LargeImage = "\\\\Images\\\\LargeImage",
+        MediumImage = "\\\\Images\\\\MediumImage",
+        ProfileName = "TestProfileType396",
+        ResourceGroupName = "TestHubRG",
+        SchemaItemTypeLink = "SchemaItemTypeLink",
+        SmallImage = "\\\\Images\\\\smallImage",
+        StrongIds = new[]
+        {
+            new AzureNative.CustomerInsights.Inputs.StrongIdArgs
+            {
+                KeyPropertyNames = new[]
+                {
+                    "Id",
+                    "SavingAccountBalance",
+                },
+                StrongIdName = "Id",
+            },
+            new AzureNative.CustomerInsights.Inputs.StrongIdArgs
+            {
+                KeyPropertyNames = new[]
+                {
+                    "ProfileId",
+                    "LastName",
+                },
+                StrongIdName = "ProfileId",
+            },
+        },
+    });
+
+});
+

@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const artifactManifest = new azure_native.hybridnetwork.ArtifactManifest("artifactManifest", {
+    artifactManifestName: "TestManifest",
+    artifactStoreName: "TestArtifactStore",
+    location: "eastus",
+    properties: {
+        artifacts: [
+            {
+                artifactName: "fed-rbac",
+                artifactType: "OCIArtifact",
+                artifactVersion: "1.0.0",
+            },
+            {
+                artifactName: "nginx",
+                artifactType: "OCIArtifact",
+                artifactVersion: "v1",
+            },
+        ],
+    },
+    publisherName: "TestPublisher",
+    resourceGroupName: "rg",
+});

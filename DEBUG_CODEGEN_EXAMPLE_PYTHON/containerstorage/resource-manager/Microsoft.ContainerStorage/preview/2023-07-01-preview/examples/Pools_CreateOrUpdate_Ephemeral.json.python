@@ -7,14 +7,14 @@ pool = azure_native.containerstorage.Pool("pool",
     )],
     location="eastus",
     pool_name="test-pool",
-    pool_type=azure_native.containerstorage.PoolTypeArgs(
+    pool_type=azure_native.containerstorage.PoolTypeResponseArgs(
         ephemeral_disk=azure_native.containerstorage.EphemeralDiskArgs(
             replicas=3,
         ),
     ),
     reclaim_policy="Delete",
     resource_group_name="test-rg",
-    resources=azure_native.containerstorage.ResourcesArgs(
+    resources=azure_native.containerstorage.ResourcesResponseArgs(
         requests=azure_native.containerstorage.RequestsArgs(
             storage=15578,
         ),

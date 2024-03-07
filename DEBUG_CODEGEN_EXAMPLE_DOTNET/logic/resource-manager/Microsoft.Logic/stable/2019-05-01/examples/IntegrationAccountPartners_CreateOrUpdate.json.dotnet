@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var integrationAccountPartner = new AzureNative.Logic.IntegrationAccountPartner("integrationAccountPartner", new()
+    {
+        Content = new AzureNative.Logic.Inputs.PartnerContentArgs
+        {
+            B2b = new AzureNative.Logic.Inputs.B2BPartnerContentArgs
+            {
+                BusinessIdentities = new[]
+                {
+                    new AzureNative.Logic.Inputs.BusinessIdentityArgs
+                    {
+                        Qualifier = "AA",
+                        Value = "ZZ",
+                    },
+                },
+            },
+        },
+        IntegrationAccountName = "testIntegrationAccount",
+        Location = "westus",
+        Metadata = null,
+        PartnerName = "testPartner",
+        PartnerType = "B2B",
+        ResourceGroupName = "testResourceGroup",
+        Tags = null,
+    });
+
+});
+

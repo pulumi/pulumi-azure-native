@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var saasSubscriptionLevel = new AzureNative.SaaS.SaasSubscriptionLevel("saasSubscriptionLevel", new()
+    {
+        Location = "global",
+        Name = "MyContosoSubscription",
+        Properties = new AzureNative.SaaS.Inputs.SaasCreationPropertiesArgs
+        {
+            OfferId = "contosoOffer",
+            PaymentChannelMetadata = 
+            {
+                { "AzureSubscriptionId", "155af98a-3205-47e7-883b-a2ab9db9f88d" },
+            },
+            PaymentChannelType = "SubscriptionDelegated",
+            PublisherId = "microsoft-contoso",
+            SaasResourceName = "MyContosoSubscription",
+            SkuId = "free",
+            TermId = "hjdtn7tfnxcy",
+        },
+        ResourceGroupName = "my-saas-rg",
+        ResourceName = "MyContosoSubscription",
+    });
+
+});
+

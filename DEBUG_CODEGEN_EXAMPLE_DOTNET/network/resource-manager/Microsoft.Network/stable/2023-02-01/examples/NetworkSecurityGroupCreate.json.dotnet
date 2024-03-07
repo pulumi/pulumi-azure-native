@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkSecurityGroup = new AzureNative.Network.NetworkSecurityGroup("networkSecurityGroup", new()
+    {
+        Location = "eastus",
+        NetworkSecurityGroupName = "testnsg",
+        ResourceGroupName = "rg1",
+    });
+
+});
+

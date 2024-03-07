@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var sqlResourceSqlTrigger = new AzureNative.DocumentDB.SqlResourceSqlTrigger("sqlResourceSqlTrigger", new()
+    {
+        AccountName = "ddb1",
+        ContainerName = "containerName",
+        DatabaseName = "databaseName",
+        Options = null,
+        Resource = new AzureNative.DocumentDB.Inputs.SqlTriggerResourceArgs
+        {
+            Body = "body",
+            Id = "triggerName",
+            TriggerOperation = "triggerOperation",
+            TriggerType = "triggerType",
+        },
+        ResourceGroupName = "rg1",
+        TriggerName = "triggerName",
+    });
+
+});
+

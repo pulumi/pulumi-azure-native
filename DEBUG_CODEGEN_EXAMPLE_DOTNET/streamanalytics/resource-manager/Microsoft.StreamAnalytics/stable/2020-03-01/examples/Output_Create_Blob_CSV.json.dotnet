@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var output = new AzureNative.StreamAnalytics.Output("output", new()
+    {
+        Datasource = new AzureNative.StreamAnalytics.Inputs.BlobOutputDataSourceArgs
+        {
+            Container = "state",
+            DateFormat = "yyyy/MM/dd",
+            PathPattern = "{date}/{time}",
+            StorageAccounts = new[]
+            {
+                new AzureNative.StreamAnalytics.Inputs.StorageAccountArgs
+                {
+                    AccountKey = "accountKey==",
+                    AccountName = "someAccountName",
+                },
+            },
+            TimeFormat = "HH",
+            Type = "Microsoft.Storage/Blob",
+        },
+        JobName = "sj900",
+        OutputName = "output1623",
+        ResourceGroupName = "sjrg5023",
+        Serialization = new AzureNative.StreamAnalytics.Inputs.CsvSerializationArgs
+        {
+            Encoding = "UTF8",
+            FieldDelimiter = ",",
+            Type = "Csv",
+        },
+    });
+
+});
+

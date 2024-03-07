@@ -1,0 +1,25 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const siteNetworkService = new azure_native.hybridnetwork.SiteNetworkService("siteNetworkService", {
+    location: "westUs2",
+    properties: {
+        desiredStateConfigurationGroupValueReferences: {
+            MyVM_Configuration: {
+                id: "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/configurationgroupvalues/MyVM_Configuration1",
+            },
+        },
+        networkServiceDesignVersionResourceReference: {
+            id: "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/publishers/TestPublisher/networkServiceDesignGroups/TestNetworkServiceDesignGroupName/networkServiceDesignVersions/1.0.0",
+            idType: "Open",
+        },
+        siteReference: {
+            id: "/subscriptions/subid/resourcegroups/contosorg1/providers/microsoft.hybridnetwork/sites/testSite",
+        },
+    },
+    resourceGroupName: "rg1",
+    siteNetworkServiceName: "testSiteNetworkServiceName",
+    sku: {
+        name: "Standard",
+    },
+});

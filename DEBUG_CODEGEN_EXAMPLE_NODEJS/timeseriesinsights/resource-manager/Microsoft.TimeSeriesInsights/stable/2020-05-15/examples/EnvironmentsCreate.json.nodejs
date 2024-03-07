@@ -1,0 +1,7 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const gen2Environment = new azure_native.timeseriesinsights.Gen2Environment("gen2Environment", {
+    environmentName: "env1",
+    resourceGroupName: "rg1",
+});

@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var migration = new AzureNative.DBforPostgreSQL.Migration("migration", new()
+    {
+        DbsToMigrate = new[]
+        {
+            "db1",
+            "db2",
+            "db3",
+            "db4",
+        },
+        Location = "westus",
+        MigrationMode = "Offline",
+        MigrationName = "testmigration",
+        OverwriteDbsInTarget = "True",
+        ResourceGroupName = "testrg",
+        SecretParameters = new AzureNative.DBforPostgreSQL.Inputs.MigrationSecretParametersArgs
+        {
+            AdminCredentials = new AzureNative.DBforPostgreSQL.Inputs.AdminCredentialsArgs
+            {
+                SourceServerPassword = "xxxxxxxx",
+                TargetServerPassword = "xxxxxxxx",
+            },
+        },
+        SourceDbServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+        TargetDbServerName = "testtarget",
+    });
+
+});
+

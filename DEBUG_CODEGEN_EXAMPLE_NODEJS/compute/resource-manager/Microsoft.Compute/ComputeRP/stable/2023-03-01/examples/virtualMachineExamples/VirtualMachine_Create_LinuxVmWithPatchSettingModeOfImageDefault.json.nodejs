@@ -1,0 +1,44 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const virtualMachine = new azure_native.compute.VirtualMachine("virtualMachine", {
+    hardwareProfile: {
+        vmSize: "Standard_D2s_v3",
+    },
+    location: "westus",
+    networkProfile: {
+        networkInterfaces: [{
+            id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+            primary: true,
+        }],
+    },
+    osProfile: {
+        adminPassword: "{your-password}",
+        adminUsername: "{your-username}",
+        computerName: "myVM",
+        linuxConfiguration: {
+            patchSettings: {
+                patchMode: "ImageDefault",
+            },
+            provisionVMAgent: true,
+        },
+    },
+    resourceGroupName: "myResourceGroup",
+    storageProfile: {
+        imageReference: {
+            offer: "UbuntuServer",
+            publisher: "Canonical",
+            sku: "16.04-LTS",
+            version: "latest",
+        },
+        osDisk: {
+            caching: azure_native.compute.CachingTypes.ReadWrite,
+            createOption: "FromImage",
+            managedDisk: {
+                storageAccountType: "Premium_LRS",
+            },
+            name: "myVMosdisk",
+        },
+    },
+    vmName: "myVM",
+});

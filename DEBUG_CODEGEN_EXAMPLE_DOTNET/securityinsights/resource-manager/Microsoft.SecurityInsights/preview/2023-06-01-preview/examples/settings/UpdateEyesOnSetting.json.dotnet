@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ueba = new AzureNative.SecurityInsights.Ueba("ueba", new()
+    {
+        ResourceGroupName = "myRg",
+        SettingsName = "EyesOn",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

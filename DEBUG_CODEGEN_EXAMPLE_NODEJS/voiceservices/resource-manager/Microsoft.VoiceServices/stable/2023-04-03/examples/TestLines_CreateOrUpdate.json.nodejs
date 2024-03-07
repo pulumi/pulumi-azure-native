@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const testLine = new azure_native.voiceservices.TestLine("testLine", {
+    communicationsGatewayName: "myname",
+    location: "useast",
+    phoneNumber: "+1-555-1234",
+    purpose: "Automated",
+    resourceGroupName: "testrg",
+    testLineName: "myline",
+});

@@ -1,0 +1,49 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var compute = new AzureNative.MachineLearningServices.Compute("compute", new()
+    {
+        ComputeName = "compute123",
+        Location = "eastus",
+        Properties = new AzureNative.MachineLearningServices.Inputs.KubernetesArgs
+        {
+            ComputeType = "Kubernetes",
+            Description = "some compute",
+            Properties = new AzureNative.MachineLearningServices.Inputs.KubernetesPropertiesArgs
+            {
+                DefaultInstanceType = "defaultInstanceType",
+                InstanceTypes = 
+                {
+                    { "defaultInstanceType", new AzureNative.MachineLearningServices.Inputs.InstanceTypeSchemaArgs
+                    {
+                        Resources = new AzureNative.MachineLearningServices.Inputs.InstanceTypeSchemaResourcesArgs
+                        {
+                            Limits = 
+                            {
+                                { "cpu", "1" },
+                                { "memory", "4Gi" },
+                                { "nvidia.com/gpu", null },
+                            },
+                            Requests = 
+                            {
+                                { "cpu", "1" },
+                                { "memory", "4Gi" },
+                                { "nvidia.com/gpu", null },
+                            },
+                        },
+                    } },
+                },
+                Namespace = "default",
+            },
+            ResourceId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/Microsoft.ContainerService/managedClusters/compute123-56826-c9b00420020b2",
+        },
+        ResourceGroupName = "testrg123",
+        WorkspaceName = "workspaces123",
+    });
+
+});
+

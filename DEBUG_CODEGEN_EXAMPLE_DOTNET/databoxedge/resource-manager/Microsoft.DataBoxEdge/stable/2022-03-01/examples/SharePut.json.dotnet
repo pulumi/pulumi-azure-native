@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var share = new AzureNative.DataBoxEdge.Share("share", new()
+    {
+        AccessProtocol = "SMB",
+        AzureContainerInfo = new AzureNative.DataBoxEdge.Inputs.AzureContainerInfoArgs
+        {
+            ContainerName = "testContainerSMB",
+            DataFormat = "BlockBlob",
+            StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+        },
+        DataPolicy = "Cloud",
+        Description = "",
+        DeviceName = "testedgedevice",
+        MonitoringStatus = "Enabled",
+        Name = "smbshare",
+        ResourceGroupName = "GroupForEdgeAutomation",
+        ShareStatus = "Online",
+        UserAccessRights = new[]
+        {
+            new AzureNative.DataBoxEdge.Inputs.UserAccessRightArgs
+            {
+                AccessType = "Change",
+                UserId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+            },
+        },
+    });
+
+});
+

@@ -6,14 +6,14 @@ network_interface = azure_native.azurestackhci.NetworkInterface("networkInterfac
         name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
         type="CustomLocation",
     ),
-    ip_configurations=[azure_native.azurestackhci.IPConfigurationArgs(
-        name="ipconfig-sample",
-        properties=azure_native.azurestackhci.IPConfigurationPropertiesArgs(
-            subnet=azure_native.azurestackhci.IPConfigurationSubnetArgs(
+    ip_configurations=[{
+        "name": "ipconfig-sample",
+        "properties": {
+            "subnet": azure_native.azurestackhci.IPConfigurationSubnetArgs(
                 id="test-vnet",
             ),
-        ),
-    )],
+        },
+    }],
     location="West US2",
     network_interface_name="test-nic",
     resource_group_name="test-rg")

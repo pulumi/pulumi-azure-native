@@ -1,0 +1,14 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateEndpointConnectionControllerPrivateEndpointConnection = new azure_native.migrate.PrivateEndpointConnectionControllerPrivateEndpointConnection("privateEndpointConnectionControllerPrivateEndpointConnection", {
+    migrateProjectName: "proj567",
+    peConnectionName: "proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6",
+    properties: {
+        privateLinkServiceConnectionState: {
+            actionsRequired: "",
+            status: "Approved",
+        },
+    },
+    resourceGroupName: "pajindTest1",
+});

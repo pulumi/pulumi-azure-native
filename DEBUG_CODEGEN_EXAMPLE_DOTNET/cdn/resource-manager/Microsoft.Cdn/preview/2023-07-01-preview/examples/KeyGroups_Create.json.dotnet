@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var keyGroup = new AzureNative.Cdn.KeyGroup("keyGroup", new()
+    {
+        KeyGroupName = "kg1",
+        KeyReferences = new[]
+        {
+            new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1",
+            },
+            new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret2",
+            },
+            new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+            {
+                Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret3",
+            },
+        },
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+    });
+
+});
+

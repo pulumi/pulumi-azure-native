@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var iscsiTarget = new AzureNative.StoragePool.IscsiTarget("iscsiTarget", new()
+    {
+        AclMode = "Dynamic",
+        DiskPoolName = "myDiskPool",
+        IscsiTargetName = "myIscsiTarget",
+        Luns = new[]
+        {
+            new AzureNative.StoragePool.Inputs.IscsiLunArgs
+            {
+                ManagedDiskAzureResourceId = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                Name = "lun0",
+            },
+        },
+        ResourceGroupName = "myResourceGroup",
+        TargetIqn = "iqn.2005-03.org.iscsi:server1",
+    });
+
+});
+

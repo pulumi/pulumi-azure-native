@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var workspace = new AzureNative.Quantum.Workspace("workspace", new()
+    {
+        Location = "West US",
+        Providers = new[]
+        {
+            new AzureNative.Quantum.Inputs.ProviderArgs
+            {
+                ProviderId = "Honeywell",
+                ProviderSku = "Basic",
+            },
+            new AzureNative.Quantum.Inputs.ProviderArgs
+            {
+                ProviderId = "IonQ",
+                ProviderSku = "Basic",
+            },
+            new AzureNative.Quantum.Inputs.ProviderArgs
+            {
+                ProviderId = "OneQBit",
+                ProviderSku = "Basic",
+            },
+        },
+        ResourceGroupName = "quantumResourcegroup",
+        StorageAccount = "/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+        WorkspaceName = "quantumworkspace1",
+    });
+
+});
+

@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var project = new AzureNative.MachineLearningExperimentation.Project("project", new()
+    {
+        AccountName = "testaccount",
+        FriendlyName = "testName",
+        Gitrepo = "https://github/abc",
+        Location = "East US",
+        ProjectName = "testProject",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "tagKey1", "TagValue1" },
+        },
+        WorkspaceName = "testworkspace",
+    });
+
+});
+

@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var input = new AzureNative.StreamAnalytics.Input("input", new()
+    {
+        InputName = "input7425",
+        JobName = "sj197",
+        Properties = new AzureNative.StreamAnalytics.Inputs.StreamInputPropertiesArgs
+        {
+            Datasource = new AzureNative.StreamAnalytics.Inputs.EventHubStreamInputDataSourceArgs
+            {
+                ConsumerGroupName = "sdkconsumergroup",
+                EventHubName = "sdkeventhub",
+                ServiceBusNamespace = "sdktest",
+                SharedAccessPolicyKey = "someSharedAccessPolicyKey==",
+                SharedAccessPolicyName = "RootManageSharedAccessKey",
+                Type = "Microsoft.ServiceBus/EventHub",
+            },
+            Serialization = new AzureNative.StreamAnalytics.Inputs.JsonSerializationArgs
+            {
+                Encoding = "UTF8",
+                Type = "Json",
+            },
+            Type = "Stream",
+        },
+        ResourceGroupName = "sjrg3139",
+    });
+
+});
+

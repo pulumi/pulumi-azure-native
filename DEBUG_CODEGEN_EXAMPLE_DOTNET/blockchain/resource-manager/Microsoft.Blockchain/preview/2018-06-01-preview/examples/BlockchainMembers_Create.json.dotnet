@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var blockchainMember = new AzureNative.Blockchain.BlockchainMember("blockchainMember", new()
+    {
+        BlockchainMemberName = "contosemember1",
+        Consortium = "ContoseConsortium",
+        ConsortiumManagementAccountPassword = "<consortiumManagementAccountPassword>",
+        Location = "southeastasia",
+        Password = "<password>",
+        Protocol = "Quorum",
+        ResourceGroupName = "mygroup",
+        ValidatorNodesSku = new AzureNative.Blockchain.Inputs.BlockchainMemberNodesSkuArgs
+        {
+            Capacity = 2,
+        },
+    });
+
+});
+

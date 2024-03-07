@@ -1,0 +1,40 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var api = new AzureNative.ApiCenter.Api("api", new()
+    {
+        ApiName = "echo-api",
+        CustomProperties = 
+        {
+            { "author", "John Doe" },
+        },
+        Description = "A simple HTTP request/response service.",
+        ExternalDocumentation = new[]
+        {
+            new AzureNative.ApiCenter.Inputs.ExternalDocumentationArgs
+            {
+                Title = "Onboarding docs",
+                Url = "https://docs.contoso.com",
+            },
+        },
+        Kind = "rest",
+        License = new AzureNative.ApiCenter.Inputs.LicenseArgs
+        {
+            Url = "https://contoso.com/license",
+        },
+        ResourceGroupName = "contoso-resources",
+        ServiceName = "contoso",
+        TermsOfService = new AzureNative.ApiCenter.Inputs.TermsOfServiceArgs
+        {
+            Url = "https://contoso.com/terms-of-service",
+        },
+        Title = "Echo API",
+        WorkspaceName = "default",
+    });
+
+});
+

@@ -1,0 +1,38 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const compute = new azure_native.machinelearningservices.Compute("compute", {
+    computeName: "compute123",
+    location: "eastus",
+    properties: {
+        computeType: "ComputeInstance",
+        properties: {
+            applicationSharingPolicy: "Personal",
+            computeInstanceAuthorizationType: "personal",
+            personalComputeInstanceSettings: {
+                assignedUser: {
+                    objectId: "00000000-0000-0000-0000-000000000000",
+                    tenantId: "00000000-0000-0000-0000-000000000000",
+                },
+            },
+            schedules: {
+                computeStartStop: [{
+                    action: "Stop",
+                    cron: {
+                        expression: "0 18 * * *",
+                        startTime: "2021-04-23T01:30:00",
+                        timeZone: "Pacific Standard Time",
+                    },
+                    status: "Enabled",
+                    triggerType: "Cron",
+                }],
+            },
+            sshSettings: {
+                sshPublicAccess: "Disabled",
+            },
+            vmSize: "STANDARD_NC6",
+        },
+    },
+    resourceGroupName: "testrg123",
+    workspaceName: "workspaces123",
+});

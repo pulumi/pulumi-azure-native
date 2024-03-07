@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sshPublicKey = new azure_native.compute.SshPublicKey("sshPublicKey", {
+    location: "westus",
+    publicKey: "{ssh-rsa public key}",
+    resourceGroupName: "myResourceGroup",
+    sshPublicKeyName: "mySshPublicKeyName",
+});

@@ -1,0 +1,30 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var api = new AzureNative.ApiManagement.Api("api", new()
+    {
+        ApiId = "echoapiv3",
+        ApiVersion = "v4",
+        ApiVersionSetId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/aa9c59e6-c0cd-4258-9356-9ca7d2f0b458",
+        Description = "Create Echo API into a new Version using Existing Version Set and Copy all Operations.",
+        DisplayName = "Echo API2",
+        IsCurrent = true,
+        Path = "echo2",
+        Protocols = new[]
+        {
+            "http",
+            "https",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+        ServiceUrl = "http://echoapi.cloudapp.net/api",
+        SourceApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echoPath",
+        SubscriptionRequired = true,
+    });
+
+});
+

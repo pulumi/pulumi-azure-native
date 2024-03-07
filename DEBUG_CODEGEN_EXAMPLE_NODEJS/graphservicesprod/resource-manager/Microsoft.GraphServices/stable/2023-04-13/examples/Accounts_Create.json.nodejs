@@ -1,0 +1,10 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const account = new azure_native.graphservices.Account("account", {
+    properties: {
+        appId: "11111111-aaaa-1111-bbbb-111111111111",
+    },
+    resourceGroupName: "testResourceGroupGRAM",
+    resourceName: "11111111-aaaa-1111-bbbb-1111111111111",
+});

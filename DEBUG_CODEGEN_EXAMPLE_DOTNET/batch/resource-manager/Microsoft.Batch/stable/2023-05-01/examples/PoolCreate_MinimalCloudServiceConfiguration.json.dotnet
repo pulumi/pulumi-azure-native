@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var pool = new AzureNative.Batch.Pool("pool", new()
+    {
+        AccountName = "sampleacct",
+        DeploymentConfiguration = new AzureNative.Batch.Inputs.DeploymentConfigurationArgs
+        {
+            CloudServiceConfiguration = new AzureNative.Batch.Inputs.CloudServiceConfigurationArgs
+            {
+                OsFamily = "5",
+            },
+        },
+        PoolName = "testpool",
+        ResourceGroupName = "default-azurebatch-japaneast",
+        ScaleSettings = new AzureNative.Batch.Inputs.ScaleSettingsArgs
+        {
+            FixedScale = new AzureNative.Batch.Inputs.FixedScaleSettingsArgs
+            {
+                TargetDedicatedNodes = 3,
+            },
+        },
+        VmSize = "STANDARD_D4",
+    });
+
+});
+

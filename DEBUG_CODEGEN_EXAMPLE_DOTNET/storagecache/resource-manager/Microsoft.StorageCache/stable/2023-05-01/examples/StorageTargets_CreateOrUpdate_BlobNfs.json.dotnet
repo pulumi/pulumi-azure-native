@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var storageTarget = new AzureNative.StorageCache.StorageTarget("storageTarget", new()
+    {
+        BlobNfs = new AzureNative.StorageCache.Inputs.BlobNfsTargetArgs
+        {
+            Target = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/blofnfs/blobServices/default/containers/blobnfs",
+            UsageModel = "READ_WRITE",
+            VerificationTimer = 28800,
+            WriteBackTimer = 3600,
+        },
+        CacheName = "sc1",
+        Junctions = new[]
+        {
+            new AzureNative.StorageCache.Inputs.NamespaceJunctionArgs
+            {
+                NamespacePath = "/blobnfs",
+            },
+        },
+        ResourceGroupName = "scgroup",
+        StorageTargetName = "st1",
+        TargetType = "blobNfs",
+    });
+
+});
+

@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var gateway = new AzureNative.ApiManagement.Gateway("gateway", new()
+    {
+        Description = "my gateway 1",
+        GatewayId = "gw1",
+        LocationData = new AzureNative.ApiManagement.Inputs.ResourceLocationDataContractArgs
+        {
+            Name = "my location",
+        },
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+

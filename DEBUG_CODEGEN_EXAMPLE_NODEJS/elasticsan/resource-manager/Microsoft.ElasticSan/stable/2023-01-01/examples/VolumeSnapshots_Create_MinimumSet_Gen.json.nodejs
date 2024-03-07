@@ -1,0 +1,12 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const volumeSnapshot = new azure_native.elasticsan.VolumeSnapshot("volumeSnapshot", {
+    creationData: {
+        sourceId: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}",
+    },
+    elasticSanName: "elasticsanname",
+    resourceGroupName: "resourcegroupname",
+    snapshotName: "snapshotname",
+    volumeGroupName: "volumegroupname",
+});

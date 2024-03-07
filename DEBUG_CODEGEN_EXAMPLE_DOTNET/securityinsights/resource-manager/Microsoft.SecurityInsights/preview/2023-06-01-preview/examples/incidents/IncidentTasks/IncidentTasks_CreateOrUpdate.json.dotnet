@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var incidentTask = new AzureNative.SecurityInsights.IncidentTask("incidentTask", new()
+    {
+        Description = "Task description",
+        IncidentId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+        IncidentTaskId = "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+        ResourceGroupName = "myRg",
+        Status = "New",
+        Title = "Task title",
+        WorkspaceName = "myWorkspace",
+    });
+
+});
+

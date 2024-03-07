@@ -14,13 +14,13 @@ mqtt_bridge_connector = azure_native.iotoperationsmq.MqttBridgeConnector("mqttBr
         repository="m",
         tag="jygfdiamhhm",
     ),
-    local_broker_connection=azure_native.iotoperationsmq.LocalBrokerConnectionSpecArgs(
-        authentication=azure_native.iotoperationsmq.LocalBrokerAuthenticationMethodsArgs(
-            kubernetes=azure_native.iotoperationsmq.LocalBrokerKubernetesAuthenticationArgs(
+    local_broker_connection=azure_native.iotoperationsmq.LocalBrokerConnectionSpecResponseArgs(
+        authentication={
+            "kubernetes": azure_native.iotoperationsmq.LocalBrokerKubernetesAuthenticationArgs(
                 secret_path="soukzfkouir",
                 service_account_token_name="suwetviuhmhorhvsidlznnufe",
             ),
-        ),
+        },
         endpoint="xc",
         tls=azure_native.iotoperationsmq.LocalBrokerConnectionTlsArgs(
             tls_enabled=True,
@@ -38,33 +38,33 @@ mqtt_bridge_connector = azure_native.iotoperationsmq.MqttBridgeConnector("mqttBr
         value="sfafsjdcezdmkwibxeluukxgl",
     ),
     protocol="v3",
-    remote_broker_connection=azure_native.iotoperationsmq.MqttBridgeRemoteBrokerConnectionSpecArgs(
-        authentication=azure_native.iotoperationsmq.MqttBridgeRemoteBrokerAuthenticationMethodsArgs(
-            system_assigned_managed_identity=azure_native.iotoperationsmq.ManagedIdentityAuthenticationArgs(
+    remote_broker_connection=azure_native.iotoperationsmq.MqttBridgeRemoteBrokerConnectionSpecResponseArgs(
+        authentication={
+            "systemAssignedManagedIdentity": azure_native.iotoperationsmq.ManagedIdentityAuthenticationArgs(
                 audience="kjderojhpehosgfcrxxbh",
                 extension_name="cyckjqqzspleajbtkniwrfsqygjfhe",
             ),
-            x509=azure_native.iotoperationsmq.MqttBridgeRemoteBrokerX509AuthenticationArgs(
-                key_vault=azure_native.iotoperationsmq.KeyVaultCertificatePropertiesArgs(
-                    vault=azure_native.iotoperationsmq.KeyVaultConnectionPropertiesArgs(
-                        credentials=azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
+            "x509": {
+                "keyVault": {
+                    "vault": {
+                        "credentials": azure_native.iotoperationsmq.KeyVaultCredentialsPropertiesArgs(
                             service_principal_local_secret_name="wuimjwpbhoglbsxxa",
                         ),
-                        directory_id="eyjniptiykzcgbzok",
-                        name="lxmwfan",
-                    ),
-                    vault_ca_chain_secret=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                        "directoryId": "eyjniptiykzcgbzok",
+                        "name": "lxmwfan",
+                    },
+                    "vaultCaChainSecret": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                         name="bmectskddmpjxnsogwooexj",
                         version="unjfbf",
                     ),
-                    vault_cert=azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
+                    "vaultCert": azure_native.iotoperationsmq.KeyVaultSecretObjectArgs(
                         name="bmectskddmpjxnsogwooexj",
                         version="unjfbf",
                     ),
-                ),
-                secret_name="x",
-            ),
-        ),
+                },
+                "secretName": "x",
+            },
+        },
         endpoint="bshzrukafmxjgnrlhzlxbbzjdbqh",
         protocol="mqtt",
         tls=azure_native.iotoperationsmq.MqttBridgeRemoteBrokerConnectionTlsArgs(

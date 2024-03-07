@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ruleSet = new AzureNative.Cdn.RuleSet("ruleSet", new()
+    {
+        ProfileName = "profile1",
+        ResourceGroupName = "RG",
+        RuleSetName = "ruleSet1",
+    });
+
+});
+

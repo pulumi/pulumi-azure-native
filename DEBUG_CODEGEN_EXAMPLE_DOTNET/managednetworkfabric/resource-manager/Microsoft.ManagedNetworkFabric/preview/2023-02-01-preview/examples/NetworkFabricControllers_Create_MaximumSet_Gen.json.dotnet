@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkFabricController = new AzureNative.ManagedNetworkFabric.NetworkFabricController("networkFabricController", new()
+    {
+        Annotation = "lab 1",
+        InfrastructureExpressRouteConnections = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.ExpressRouteConnectionInformationArgs
+            {
+                ExpressRouteAuthorizationKey = "xxxxxxx",
+                ExpressRouteCircuitId = "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+            },
+        },
+        Ipv4AddressSpace = "172.253.0.0/19",
+        Location = "eastus",
+        ManagedResourceGroupConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.ManagedResourceGroupConfigurationArgs
+        {
+            Location = "eastus",
+            Name = "managedResourceGroupName",
+        },
+        NetworkFabricControllerName = "NetworkControllerName",
+        ResourceGroupName = "resourceGroupName",
+        WorkloadExpressRouteConnections = new[]
+        {
+            new AzureNative.ManagedNetworkFabric.Inputs.ExpressRouteConnectionInformationArgs
+            {
+                ExpressRouteAuthorizationKey = "xxxxx",
+                ExpressRouteCircuitId = "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+            },
+        },
+    });
+
+});
+

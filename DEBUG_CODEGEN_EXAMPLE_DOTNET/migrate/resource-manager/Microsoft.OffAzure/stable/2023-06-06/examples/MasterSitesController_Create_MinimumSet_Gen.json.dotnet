@@ -1,0 +1,16 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var masterSitesController = new AzureNative.OffAzure.MasterSitesController("masterSitesController", new()
+    {
+        Location = "plyak",
+        ResourceGroupName = "rgmigrate",
+        SiteName = "-3A8SuY-jRr63J",
+    });
+
+});
+

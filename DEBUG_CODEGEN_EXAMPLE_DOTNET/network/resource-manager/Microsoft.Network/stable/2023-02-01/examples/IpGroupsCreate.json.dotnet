@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var ipGroup = new AzureNative.Network.IpGroup("ipGroup", new()
+    {
+        IpAddresses = new[]
+        {
+            "13.64.39.16/32",
+            "40.74.146.80/31",
+            "40.74.147.32/28",
+        },
+        IpGroupsName = "ipGroups1",
+        Location = "West US",
+        ResourceGroupName = "myResourceGroup",
+        Tags = 
+        {
+            { "key1", "value1" },
+        },
+    });
+
+});
+

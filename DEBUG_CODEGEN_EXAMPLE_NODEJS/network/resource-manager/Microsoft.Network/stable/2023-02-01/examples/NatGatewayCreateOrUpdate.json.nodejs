@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const natGateway = new azure_native.network.NatGateway("natGateway", {
+    location: "westus",
+    natGatewayName: "test-natgateway",
+    publicIpAddresses: [{
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+    }],
+    publicIpPrefixes: [{
+        id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+    }],
+    resourceGroupName: "rg1",
+    sku: {
+        name: "Standard",
+    },
+});

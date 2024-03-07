@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var output = new AzureNative.StreamAnalytics.Output("output", new()
+    {
+        Datasource = new AzureNative.StreamAnalytics.Inputs.PowerBIOutputDataSourceArgs
+        {
+            Dataset = "someDataset",
+            GroupId = "ac40305e-3e8d-43ac-8161-c33799f43e95",
+            GroupName = "MyPowerBIGroup",
+            RefreshToken = "someRefreshToken==",
+            Table = "someTable",
+            TokenUserDisplayName = "Bob Smith",
+            TokenUserPrincipalName = "bobsmith@contoso.com",
+            Type = "PowerBI",
+        },
+        JobName = "sj2331",
+        OutputName = "output3022",
+        ResourceGroupName = "sjrg7983",
+    });
+
+});
+

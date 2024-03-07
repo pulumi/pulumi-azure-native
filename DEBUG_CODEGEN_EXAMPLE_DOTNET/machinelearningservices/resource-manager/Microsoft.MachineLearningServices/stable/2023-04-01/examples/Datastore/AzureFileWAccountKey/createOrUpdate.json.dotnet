@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var datastore = new AzureNative.MachineLearningServices.Datastore("datastore", new()
+    {
+        DatastoreProperties = new AzureNative.MachineLearningServices.Inputs.AzureFileDatastoreArgs
+        {
+            AccountName = "string",
+            Credentials = new AzureNative.MachineLearningServices.Inputs.AccountKeyDatastoreCredentialsArgs
+            {
+                CredentialsType = "AccountKey",
+                Secrets = new AzureNative.MachineLearningServices.Inputs.AccountKeyDatastoreSecretsArgs
+                {
+                    Key = "string",
+                    SecretsType = "AccountKey",
+                },
+            },
+            DatastoreType = "AzureFile",
+            Description = "string",
+            Endpoint = "string",
+            FileShareName = "string",
+            Protocol = "string",
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        Name = "string",
+        ResourceGroupName = "test-rg",
+        SkipValidation = false,
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

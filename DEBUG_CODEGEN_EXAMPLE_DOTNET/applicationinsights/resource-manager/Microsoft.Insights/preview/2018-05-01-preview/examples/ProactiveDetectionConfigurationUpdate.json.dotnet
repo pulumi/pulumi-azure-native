@@ -1,0 +1,36 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var proactiveDetectionConfiguration = new AzureNative.Insights.ProactiveDetectionConfiguration("proactiveDetectionConfiguration", new()
+    {
+        ConfigurationId = "slowpageloadtime",
+        CustomEmails = new[]
+        {
+            "foo@microsoft.com",
+            "foo2@microsoft.com",
+        },
+        Enabled = true,
+        Location = "South Central US",
+        Name = "slowpageloadtime",
+        ResourceGroupName = "my-resource-group",
+        ResourceName = "my-component",
+        RuleDefinitions = new AzureNative.Insights.Inputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs
+        {
+            Description = "Smart Detection rules notify you of performance anomaly issues.",
+            DisplayName = "Slow page load time",
+            HelpUrl = "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+            IsEnabledByDefault = true,
+            IsHidden = false,
+            IsInPreview = false,
+            Name = "slowpageloadtime",
+            SupportsEmailNotifications = true,
+        },
+        SendEmailsToSubscriptionOwners = true,
+    });
+
+});
+

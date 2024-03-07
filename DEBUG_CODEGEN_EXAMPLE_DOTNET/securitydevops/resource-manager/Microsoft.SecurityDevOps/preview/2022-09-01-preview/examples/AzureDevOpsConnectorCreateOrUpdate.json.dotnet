@@ -1,0 +1,41 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var azureDevOpsConnector = new AzureNative.SecurityDevOps.AzureDevOpsConnector("azureDevOpsConnector", new()
+    {
+        AzureDevOpsConnectorName = "testconnector",
+        Location = "West US",
+        Properties = new AzureNative.SecurityDevOps.Inputs.AzureDevOpsConnectorPropertiesArgs
+        {
+            Authorization = new AzureNative.SecurityDevOps.Inputs.AuthorizationInfoArgs
+            {
+                Code = "00000000000000000000",
+            },
+            Orgs = new[]
+            {
+                new AzureNative.SecurityDevOps.Inputs.AzureDevOpsOrgMetadataArgs
+                {
+                    Name = "testOrg",
+                    Projects = new[]
+                    {
+                        new AzureNative.SecurityDevOps.Inputs.AzureDevOpsProjectMetadataArgs
+                        {
+                            Name = "testProject",
+                            Repos = new[]
+                            {
+                                "testRepo",
+                            },
+                        },
+                    },
+                },
+            },
+        },
+        ResourceGroupName = "westusrg",
+    });
+
+});
+

@@ -1,0 +1,17 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const disk = new azure_native.compute.Disk("disk", {
+    creationData: {
+        createOption: "Empty",
+    },
+    diskIOPSReadWrite: 125,
+    diskMBpsReadWrite: 3000,
+    diskName: "myPremiumV2Disk",
+    diskSizeGB: 200,
+    location: "West US",
+    resourceGroupName: "myResourceGroup",
+    sku: {
+        name: "PremiumV2_LRS",
+    },
+});

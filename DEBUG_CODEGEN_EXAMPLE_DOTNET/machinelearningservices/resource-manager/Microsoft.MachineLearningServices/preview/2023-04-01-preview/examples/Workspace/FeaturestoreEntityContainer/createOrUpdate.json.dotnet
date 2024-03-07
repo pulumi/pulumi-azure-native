@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var featurestoreEntityContainerEntity = new AzureNative.MachineLearningServices.FeaturestoreEntityContainerEntity("featurestoreEntityContainerEntity", new()
+    {
+        FeaturestoreEntityContainerProperties = new AzureNative.MachineLearningServices.Inputs.FeaturestoreEntityContainerArgs
+        {
+            Description = "string",
+            IsArchived = false,
+            Properties = 
+            {
+                { "string", "string" },
+            },
+            Tags = 
+            {
+                { "string", "string" },
+            },
+        },
+        Name = "string",
+        ResourceGroupName = "test-rg",
+        WorkspaceName = "my-aml-workspace",
+    });
+
+});
+

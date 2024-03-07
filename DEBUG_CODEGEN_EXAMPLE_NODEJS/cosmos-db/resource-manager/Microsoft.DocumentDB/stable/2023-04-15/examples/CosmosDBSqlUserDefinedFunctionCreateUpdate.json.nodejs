@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const sqlResourceSqlUserDefinedFunction = new azure_native.documentdb.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction", {
+    accountName: "ddb1",
+    containerName: "containerName",
+    databaseName: "databaseName",
+    options: {},
+    resource: {
+        body: "body",
+        id: "userDefinedFunctionName",
+    },
+    resourceGroupName: "rg1",
+    userDefinedFunctionName: "userDefinedFunctionName",
+});

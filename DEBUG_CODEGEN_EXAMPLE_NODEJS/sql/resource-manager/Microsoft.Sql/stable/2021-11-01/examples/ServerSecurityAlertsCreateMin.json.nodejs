@@ -1,0 +1,9 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const serverSecurityAlertPolicy = new azure_native.sql.ServerSecurityAlertPolicy("serverSecurityAlertPolicy", {
+    resourceGroupName: "securityalert-4799",
+    securityAlertPolicyName: "Default",
+    serverName: "securityalert-6440",
+    state: azure_native.sql.SecurityAlertsPolicyState.Enabled,
+});

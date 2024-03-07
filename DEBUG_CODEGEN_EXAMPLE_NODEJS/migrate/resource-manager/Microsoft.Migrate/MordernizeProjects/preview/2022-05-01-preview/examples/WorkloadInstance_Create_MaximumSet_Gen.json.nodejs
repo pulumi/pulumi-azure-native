@@ -1,0 +1,24 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const workloadInstance = new azure_native.migrate.WorkloadInstance("workloadInstance", {
+    modernizeProjectName: "mx8",
+    properties: {
+        customProperties: {
+            instanceType: "IISWorkload",
+            webAppArmId: "xseseqsrzdiga",
+            webAppSiteName: "mirgzmy",
+        },
+        displayName: "juoorbubchvk",
+        masterSiteName: "ubks",
+        migrateAgentId: "aqgzsxqbk",
+        name: "wonkuhgsafzviuwqerzdmme",
+        sourceName: "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+        sourcePlatform: "eh",
+    },
+    resourceGroupName: "rgmigrateEngine",
+    tags: {
+        key2836: "biqip",
+    },
+    workloadInstanceName: "m",
+});

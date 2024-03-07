@@ -1,0 +1,15 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const privateLinkServicesForM365ComplianceCenter = new azure_native.m365securityandcompliance.PrivateLinkServicesForM365ComplianceCenter("privateLinkServicesForM365ComplianceCenter", {
+    kind: azure_native.m365securityandcompliance.Kind.Fhir_R4,
+    location: "westus2",
+    properties: {
+        accessPolicies: [{
+            objectId: "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+        }],
+    },
+    resourceGroupName: "rg1",
+    resourceName: "service2",
+    tags: {},
+});

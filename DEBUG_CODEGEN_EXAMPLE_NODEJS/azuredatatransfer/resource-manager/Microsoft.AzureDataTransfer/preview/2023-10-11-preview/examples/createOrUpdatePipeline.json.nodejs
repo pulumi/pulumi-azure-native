@@ -1,0 +1,11 @@
+import * as pulumi from "@pulumi/pulumi";
+import * as azure_native from "@pulumi/azure-native";
+
+const pipeline = new azure_native.azuredatatransfer.Pipeline("pipeline", {
+    location: "East US",
+    pipelineName: "testPipeline",
+    properties: {
+        remoteCloud: "testdc",
+    },
+    resourceGroupName: "testRG",
+});

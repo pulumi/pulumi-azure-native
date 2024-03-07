@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var networkToNetworkInterconnect = new AzureNative.ManagedNetworkFabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect", new()
+    {
+        IsManagementType = "True",
+        Layer2Configuration = new AzureNative.ManagedNetworkFabric.Inputs.Layer2ConfigurationArgs
+        {
+            Mtu = 1500,
+            PortCount = 10,
+        },
+        Layer3Configuration = new AzureNative.ManagedNetworkFabric.Inputs.Layer3ConfigurationArgs
+        {
+            ExportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+            ImportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+            PeerASN = 50272,
+            PrimaryIpv4Prefix = "172.31.0.0/31",
+            PrimaryIpv6Prefix = "3FFE:FFFF:0:CD30::a0/126",
+            SecondaryIpv4Prefix = "172.31.0.20/31",
+            SecondaryIpv6Prefix = "3FFE:FFFF:0:CD30::a4/126",
+            VlanId = 2064,
+        },
+        NetworkFabricName = "FabricName",
+        NetworkToNetworkInterconnectName = "DefaultNNI",
+        NniType = "CE",
+        ResourceGroupName = "resourceGroupName",
+        UseOptionB = "False",
+    });
+
+});
+

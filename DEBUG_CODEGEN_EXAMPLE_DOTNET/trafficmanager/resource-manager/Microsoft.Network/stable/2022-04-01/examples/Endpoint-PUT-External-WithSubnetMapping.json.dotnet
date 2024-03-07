@@ -1,0 +1,34 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var endpoint = new AzureNative.Network.Endpoint("endpoint", new()
+    {
+        EndpointName = "My%20external%20endpoint",
+        EndpointStatus = "Enabled",
+        EndpointType = "ExternalEndpoints",
+        Name = "My external endpoint",
+        ProfileName = "azuresdkfornetautoresttrafficmanager8224",
+        ResourceGroupName = "azuresdkfornetautoresttrafficmanager2191",
+        Subnets = new[]
+        {
+            new AzureNative.Network.Inputs.EndpointPropertiesSubnetsArgs
+            {
+                First = "1.2.3.0",
+                Scope = 24,
+            },
+            new AzureNative.Network.Inputs.EndpointPropertiesSubnetsArgs
+            {
+                First = "25.26.27.28",
+                Last = "29.30.31.32",
+            },
+        },
+        Target = "foobar.contoso.com",
+        Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    });
+
+});
+

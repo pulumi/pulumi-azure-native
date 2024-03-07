@@ -1,0 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var policyRestriction = new AzureNative.ApiManagement.PolicyRestriction("policyRestriction", new()
+    {
+        PolicyRestrictionId = "policyRestriction1",
+        RequireBase = "true",
+        ResourceGroupName = "rg1",
+        Scope = "Sample Path to the policy document.",
+        ServiceName = "apimService1",
+    });
+
+});
+

@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var managedEnvironmentsStorage = new AzureNative.App.ManagedEnvironmentsStorage("managedEnvironmentsStorage", new()
+    {
+        EnvironmentName = "managedEnv",
+        Properties = new AzureNative.App.Inputs.ManagedEnvironmentStoragePropertiesArgs
+        {
+            AzureFile = new AzureNative.App.Inputs.AzureFilePropertiesArgs
+            {
+                AccessMode = "ReadOnly",
+                AccountKey = "key",
+                AccountName = "account1",
+                ShareName = "share1",
+            },
+        },
+        ResourceGroupName = "examplerg",
+        StorageName = "jlaw-demo1",
+    });
+
+});
+
