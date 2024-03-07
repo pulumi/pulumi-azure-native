@@ -1428,6 +1428,13 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 			return nil, azure.AzureError(err)
 		}
 	}
+
+	// Check if we timed out and the resource still exists. If so, return an error.
+	// This is a best-effort check, as the resource may have been deleted after the timeout.
+	if err := ctx.Err(); err != nil && errors.Is(err, context.DeadlineExceeded) {
+		return nil, fmt.Errorf("timed out waiting for resource %q to be deleted", id)
+	}
+
 	return &pbempty.Empty{}, nil
 }
 
