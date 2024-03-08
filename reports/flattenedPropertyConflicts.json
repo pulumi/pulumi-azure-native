@@ -95,6 +95,9 @@
     "properties.etag": {},
     "properties.name": {}
   },
+  "azure-native:orbital/v20240301:L2Connection": {
+    "groundStationPartnerRouter.name": {}
+  },
   "azure-native:orbital/v20240301preview:L2Connection": {
     "groundStationPartnerRouter.name": {}
   },

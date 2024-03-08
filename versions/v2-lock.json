@@ -1138,10 +1138,7 @@
     "getClusterGatewaySettings": "2021-06-01",
     "listVirtualMachineHosts": "2021-06-01"
   },
-  "HanaOnAzure": {
-    "ProviderInstance": "2020-02-07-preview",
-    "SapMonitor": "2020-02-07-preview"
-  },
+  "HanaOnAzure": {},
   "HardwareSecurityModules": {
     "CloudHsmCluster": "2022-08-31-preview",
     "CloudHsmClusterPrivateEndpointConnection": "2022-08-31-preview",
@@ -2237,7 +2234,9 @@
     "WorkspaceManagerMember": "2023-06-01-preview",
     "getEntitiesGetTimeline": "2023-06-01-preview",
     "getEntityInsights": "2023-06-01-preview",
-    "listSourceControlRepositories": "2023-06-01-preview"
+    "listGeodataByIp": "2024-01-01-preview",
+    "listSourceControlRepositories": "2023-06-01-preview",
+    "listWhoisByDomain": "2024-01-01-preview"
   },
   "SerialConsole": {
     "SerialPort": "2018-05-01"
