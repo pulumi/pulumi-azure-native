@@ -188,5 +188,29 @@ func mapRulesById(managementPolicy resource.PropertyMap) map[string]resource.Pro
 func pimRoleEligibilityScheduleInstance() *CustomResource {
 	return &CustomResource{
 		path: "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/{roleEligibilityScheduleInstanceName}",
+
+		CanCreate: func(ctx context.Context, id string) error {
+			// List for scope with filter for principalId
+			// If exists: error
+			return nil
+		},
+
+		Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
+			// Scoped RoleEligibilityScheduleRequest with new GUID
+			// Submit
+			// Check for OData.Error.Code != "SubjectNotFound"
+			// Poll schedules "list for scope" with filter assignedTo=principalId until
+			//   item.Properties.RoleDefinitionId == roleDefinitionId && *item.Properties.MemberType == roleeligibilityschedules.MemberTypeDirect
+
+			return nil, nil
+		},
+
+		Delete: func(ctx context.Context, id string, properties, state resource.PropertyMap) error {
+			// Scoped RoleEligibilityScheduleRequest with new GUID and requestType = AdminRemove
+			// Submit
+			// Check OData.Error.Code
+			// done - TF is not waiting for schedule to be removed
+			return nil
+		},
 	}
 }
