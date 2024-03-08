@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns a list of L2 Connections attached to an edge site.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-03-01.
  */
 export function listEdgeSiteL2Connections(args: ListEdgeSiteL2ConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListEdgeSiteL2ConnectionsResult> {
 
@@ -47,6 +49,8 @@ export interface ListEdgeSiteL2ConnectionsResult {
 /**
  * Returns a list of L2 Connections attached to an edge site.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-03-01.
  */
 export function listEdgeSiteL2ConnectionsOutput(args: ListEdgeSiteL2ConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEdgeSiteL2ConnectionsResult> {
     return pulumi.output(args).apply((a: any) => listEdgeSiteL2Connections(a, opts))

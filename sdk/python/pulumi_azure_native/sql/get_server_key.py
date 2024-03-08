@@ -148,7 +148,7 @@ def get_server_key(key_name: Optional[str] = None,
     Gets a server key.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
+    Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
 
 
     :param str key_name: The name of the server key to be retrieved.
@@ -183,7 +183,7 @@ def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
     Gets a server key.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
+    Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
 
 
     :param str key_name: The name of the server key to be retrieved.

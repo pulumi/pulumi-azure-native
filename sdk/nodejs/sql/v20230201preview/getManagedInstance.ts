@@ -160,7 +160,7 @@ export interface GetManagedInstanceResult {
      */
     readonly state: string;
     /**
-     * Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+     * Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
     readonly storageIOps?: number;
     /**
@@ -168,7 +168,7 @@ export interface GetManagedInstanceResult {
      */
     readonly storageSizeInGB?: number;
     /**
-     * Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+     * Storage throughput MBps parameter is not supported in the instance create/update operation.
      */
     readonly storageThroughputMBps?: number;
     /**

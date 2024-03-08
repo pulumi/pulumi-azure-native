@@ -98,7 +98,7 @@ class TableServiceProperties(pulumi.CustomResource):
         The properties of a storage account’s Table service.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
 
-        Other available API versions: 2023-01-01.
+        Other available API versions: 2023-01-01, 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +117,7 @@ class TableServiceProperties(pulumi.CustomResource):
         The properties of a storage account’s Table service.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
 
-        Other available API versions: 2023-01-01.
+        Other available API versions: 2023-01-01, 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param TableServicePropertiesArgs args: The arguments to use to populate this resource's properties.
@@ -157,7 +157,7 @@ class TableServiceProperties(pulumi.CustomResource):
             __props__.__dict__["table_service_name"] = table_service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20190601:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210401:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210601:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210801:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210901:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20220501:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20220901:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230101:TableServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20190601:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210401:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210601:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210801:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210901:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20220501:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20220901:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230101:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20230401:TableServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableServiceProperties, __self__).__init__(
             'azure-native:storage:TableServiceProperties',

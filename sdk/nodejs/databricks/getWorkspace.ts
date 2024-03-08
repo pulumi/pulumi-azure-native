@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the workspace.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2023-09-15-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-09-15-preview.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -138,7 +138,7 @@ export interface GetWorkspaceResult {
  * Gets the workspace.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2023-09-15-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-09-15-preview.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

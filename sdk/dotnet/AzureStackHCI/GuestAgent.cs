@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Defines the GuestAgent.
     /// Azure REST API version: 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource

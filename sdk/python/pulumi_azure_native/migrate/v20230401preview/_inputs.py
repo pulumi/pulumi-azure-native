@@ -25,6 +25,7 @@ __all__ = [
     'HypervLicenseArgs',
     'HypervVirtualizationManagementSettingsArgs',
     'LaborSettingsArgs',
+    'LinuxServerLicensingSettingsArgs',
     'ManagementSettingsArgs',
     'NetworkSettingsArgs',
     'OnPremiseSettingsArgs',
@@ -773,20 +774,26 @@ class ComputeSettingsArgs:
     def __init__(__self__, *,
                  hyperthread_core_to_memory_ratio: pulumi.Input[float],
                  price: pulumi.Input[float],
+                 rhel_linux_server_licensing: pulumi.Input['LinuxServerLicensingSettingsArgs'],
                  sql_server_licensing: pulumi.Input[Sequence[pulumi.Input['SqlServerLicensingSettingsArgs']]],
+                 suse_linux_server_licensing: pulumi.Input['LinuxServerLicensingSettingsArgs'],
                  virtualization_software_settings: pulumi.Input['VirtualizationSoftwareSettingsArgs'],
                  windows_server_licensing: pulumi.Input['WindowsServerLicensingSettingsArgs']):
         """
         Compute settings.
         :param pulumi.Input[float] hyperthread_core_to_memory_ratio: Hyperthread core to memory ratio.
         :param pulumi.Input[float] price: Compute Price.
+        :param pulumi.Input['LinuxServerLicensingSettingsArgs'] rhel_linux_server_licensing: Linux Rhel Server licensing settings.
         :param pulumi.Input[Sequence[pulumi.Input['SqlServerLicensingSettingsArgs']]] sql_server_licensing: SQL Server licensing settings.
+        :param pulumi.Input['LinuxServerLicensingSettingsArgs'] suse_linux_server_licensing: Linux Suse Server licensing settings.
         :param pulumi.Input['VirtualizationSoftwareSettingsArgs'] virtualization_software_settings: Virtualization software settings.
         :param pulumi.Input['WindowsServerLicensingSettingsArgs'] windows_server_licensing: Windows Server licensing settings.
         """
         pulumi.set(__self__, "hyperthread_core_to_memory_ratio", hyperthread_core_to_memory_ratio)
         pulumi.set(__self__, "price", price)
+        pulumi.set(__self__, "rhel_linux_server_licensing", rhel_linux_server_licensing)
         pulumi.set(__self__, "sql_server_licensing", sql_server_licensing)
+        pulumi.set(__self__, "suse_linux_server_licensing", suse_linux_server_licensing)
         pulumi.set(__self__, "virtualization_software_settings", virtualization_software_settings)
         pulumi.set(__self__, "windows_server_licensing", windows_server_licensing)
 
@@ -815,6 +822,18 @@ class ComputeSettingsArgs:
         pulumi.set(self, "price", value)
 
     @property
+    @pulumi.getter(name="rhelLinuxServerLicensing")
+    def rhel_linux_server_licensing(self) -> pulumi.Input['LinuxServerLicensingSettingsArgs']:
+        """
+        Linux Rhel Server licensing settings.
+        """
+        return pulumi.get(self, "rhel_linux_server_licensing")
+
+    @rhel_linux_server_licensing.setter
+    def rhel_linux_server_licensing(self, value: pulumi.Input['LinuxServerLicensingSettingsArgs']):
+        pulumi.set(self, "rhel_linux_server_licensing", value)
+
+    @property
     @pulumi.getter(name="sqlServerLicensing")
     def sql_server_licensing(self) -> pulumi.Input[Sequence[pulumi.Input['SqlServerLicensingSettingsArgs']]]:
         """
@@ -825,6 +844,18 @@ class ComputeSettingsArgs:
     @sql_server_licensing.setter
     def sql_server_licensing(self, value: pulumi.Input[Sequence[pulumi.Input['SqlServerLicensingSettingsArgs']]]):
         pulumi.set(self, "sql_server_licensing", value)
+
+    @property
+    @pulumi.getter(name="suseLinuxServerLicensing")
+    def suse_linux_server_licensing(self) -> pulumi.Input['LinuxServerLicensingSettingsArgs']:
+        """
+        Linux Suse Server licensing settings.
+        """
+        return pulumi.get(self, "suse_linux_server_licensing")
+
+    @suse_linux_server_licensing.setter
+    def suse_linux_server_licensing(self, value: pulumi.Input['LinuxServerLicensingSettingsArgs']):
+        pulumi.set(self, "suse_linux_server_licensing", value)
 
     @property
     @pulumi.getter(name="virtualizationSoftwareSettings")
@@ -1109,6 +1140,29 @@ class LaborSettingsArgs:
     @virtual_machines_per_admin.setter
     def virtual_machines_per_admin(self, value: pulumi.Input[int]):
         pulumi.set(self, "virtual_machines_per_admin", value)
+
+
+@pulumi.input_type
+class LinuxServerLicensingSettingsArgs:
+    def __init__(__self__, *,
+                 license_cost: pulumi.Input[float]):
+        """
+        Linux Server licensing settings.
+        :param pulumi.Input[float] license_cost: Licence Cost.
+        """
+        pulumi.set(__self__, "license_cost", license_cost)
+
+    @property
+    @pulumi.getter(name="licenseCost")
+    def license_cost(self) -> pulumi.Input[float]:
+        """
+        Licence Cost.
+        """
+        return pulumi.get(self, "license_cost")
+
+    @license_cost.setter
+    def license_cost(self, value: pulumi.Input[float]):
+        pulumi.set(self, "license_cost", value)
 
 
 @pulumi.input_type

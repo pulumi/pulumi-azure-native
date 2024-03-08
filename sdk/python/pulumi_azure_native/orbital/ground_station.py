@@ -216,6 +216,8 @@ class GroundStation(pulumi.CustomResource):
         Ground Station contains one or more antennas.
         Azure REST API version: 2024-03-01-preview.
 
+        Other available API versions: 2024-03-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] altitude_meters: Altitude of the ground station.
@@ -239,6 +241,8 @@ class GroundStation(pulumi.CustomResource):
         """
         Ground Station contains one or more antennas.
         Azure REST API version: 2024-03-01-preview.
+
+        Other available API versions: 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param GroundStationArgs args: The arguments to use to populate this resource's properties.
@@ -296,7 +300,7 @@ class GroundStation(pulumi.CustomResource):
             __props__.__dict__["release_mode"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20240301preview:GroundStation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20240301:GroundStation"), pulumi.Alias(type_="azure-native:orbital/v20240301preview:GroundStation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroundStation, __self__).__init__(
             'azure-native:orbital:GroundStation',

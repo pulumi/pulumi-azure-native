@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The pipeline resource definition.
  * Azure REST API version: 2023-10-11-preview.
+ *
+ * Other available API versions: 2024-01-25.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**
@@ -94,7 +96,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20231011preview:Pipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuredatatransfer/v20231011preview:Pipeline" }, { type: "azure-native:azuredatatransfer/v20240125:Pipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }

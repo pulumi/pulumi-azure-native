@@ -79,7 +79,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage:Queue" }, { type: "azure-native:storage/v20190601:Queue" }, { type: "azure-native:storage/v20200801preview:Queue" }, { type: "azure-native:storage/v20210101:Queue" }, { type: "azure-native:storage/v20210201:Queue" }, { type: "azure-native:storage/v20210401:Queue" }, { type: "azure-native:storage/v20210601:Queue" }, { type: "azure-native:storage/v20210801:Queue" }, { type: "azure-native:storage/v20210901:Queue" }, { type: "azure-native:storage/v20220501:Queue" }, { type: "azure-native:storage/v20220901:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:Queue" }, { type: "azure-native:storage/v20190601:Queue" }, { type: "azure-native:storage/v20200801preview:Queue" }, { type: "azure-native:storage/v20210101:Queue" }, { type: "azure-native:storage/v20210201:Queue" }, { type: "azure-native:storage/v20210401:Queue" }, { type: "azure-native:storage/v20210601:Queue" }, { type: "azure-native:storage/v20210801:Queue" }, { type: "azure-native:storage/v20210901:Queue" }, { type: "azure-native:storage/v20220501:Queue" }, { type: "azure-native:storage/v20220901:Queue" }, { type: "azure-native:storage/v20230401:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
     }

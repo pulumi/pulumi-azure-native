@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a workspace manager group
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
  */
 export function getWorkspaceManagerGroup(args: GetWorkspaceManagerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceManagerGroupResult> {
 
@@ -79,7 +79,7 @@ export interface GetWorkspaceManagerGroupResult {
  * Gets a workspace manager group
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
  */
 export function getWorkspaceManagerGroupOutput(args: GetWorkspaceManagerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerGroupResult> {
     return pulumi.output(args).apply((a: any) => getWorkspaceManagerGroup(a, opts))

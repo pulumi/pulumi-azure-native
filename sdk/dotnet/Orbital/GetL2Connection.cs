@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified L2 connection in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Task<GetL2ConnectionResult> InvokeAsync(GetL2ConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL2ConnectionResult>("azure-native:orbital:getL2Connection", args ?? new GetL2ConnectionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified L2 connection in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetL2ConnectionResult> Invoke(GetL2ConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2ConnectionResult>("azure-native:orbital:getL2Connection", args ?? new GetL2ConnectionInvokeArgs(), options.WithDefaults());

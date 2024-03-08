@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
  *
- * Other available API versions: 2019-04-01, 2023-01-01.
+ * Other available API versions: 2019-04-01, 2023-01-01, 2023-04-01.
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210101:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210201:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210401:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210601:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210801:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210901:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20220501:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20220901:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20230101:BlobContainerImmutabilityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20180201:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20180301preview:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20180701:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20181101:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20190401:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20190601:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20200801preview:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210101:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210201:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210401:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210601:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210801:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20210901:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20220501:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20220901:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20230101:BlobContainerImmutabilityPolicy" }, { type: "azure-native:storage/v20230401:BlobContainerImmutabilityPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobContainerImmutabilityPolicy.__pulumiType, name, resourceInputs, opts);
     }

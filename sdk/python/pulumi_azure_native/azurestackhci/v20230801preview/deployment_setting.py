@@ -197,7 +197,7 @@ class DeploymentSetting(pulumi.CustomResource):
             __props__.__dict__["reported_properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:DeploymentSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:DeploymentSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:DeploymentSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:DeploymentSetting"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:DeploymentSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentSetting, __self__).__init__(
             'azure-native:azurestackhci/v20230801preview:DeploymentSetting',

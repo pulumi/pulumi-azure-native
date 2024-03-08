@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-03-01.
  */
 export class L2Connection extends pulumi.CustomResource {
     /**
@@ -124,7 +126,7 @@ export class L2Connection extends pulumi.CustomResource {
             resourceInputs["vlanId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20240301preview:L2Connection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20240301:L2Connection" }, { type: "azure-native:orbital/v20240301preview:L2Connection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(L2Connection.__pulumiType, name, resourceInputs, opts);
     }

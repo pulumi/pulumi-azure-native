@@ -64,6 +64,8 @@ def list_ground_station_l2_connections(ground_station_name: Optional[str] = None
     Returns a list of L2 Connections attached to an ground station.
     Azure REST API version: 2024-03-01-preview.
 
+    Other available API versions: 2024-03-01.
+
 
     :param str ground_station_name: Ground Station name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -86,6 +88,8 @@ def list_ground_station_l2_connections_output(ground_station_name: Optional[pulu
     """
     Returns a list of L2 Connections attached to an ground station.
     Azure REST API version: 2024-03-01-preview.
+
+    Other available API versions: 2024-03-01.
 
 
     :param str ground_station_name: Ground Station name.

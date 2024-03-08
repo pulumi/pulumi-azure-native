@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Lists approved schemas for Azure Data Transfer.
  * Azure REST API version: 2023-10-11-preview.
+ *
+ * Other available API versions: 2024-01-25.
  */
 export function listAzureDataTransferApprovedSchemas(args?: ListAzureDataTransferApprovedSchemasArgs, opts?: pulumi.InvokeOptions): Promise<ListAzureDataTransferApprovedSchemasResult> {
     args = args || {};
@@ -44,6 +46,8 @@ export interface ListAzureDataTransferApprovedSchemasResult {
 /**
  * Lists approved schemas for Azure Data Transfer.
  * Azure REST API version: 2023-10-11-preview.
+ *
+ * Other available API versions: 2024-01-25.
  */
 export function listAzureDataTransferApprovedSchemasOutput(args?: ListAzureDataTransferApprovedSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAzureDataTransferApprovedSchemasResult> {
     return pulumi.output(args).apply((a: any) => listAzureDataTransferApprovedSchemas(a, opts))

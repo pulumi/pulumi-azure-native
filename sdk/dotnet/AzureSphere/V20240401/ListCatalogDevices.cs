@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
         /// <summary>
         /// The link to the next page of items
         /// </summary>
-        public readonly string? NextLink;
+        public readonly string NextLink;
         /// <summary>
         /// The Device items on this page
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
 
         [OutputConstructor]
         private ListCatalogDevicesResult(
-            string? nextLink,
+            string nextLink,
 
             ImmutableArray<Outputs.DeviceResponse> value)
         {

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get a SecuritySetting
         /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Task<GetSecuritySettingResult> InvokeAsync(GetSecuritySettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecuritySettingResult>("azure-native:azurestackhci:getSecuritySetting", args ?? new GetSecuritySettingArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Get a SecuritySetting
         /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Output<GetSecuritySettingResult> Invoke(GetSecuritySettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecuritySettingResult>("azure-native:azurestackhci:getSecuritySetting", args ?? new GetSecuritySettingInvokeArgs(), options.WithDefaults());

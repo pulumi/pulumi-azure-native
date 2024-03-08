@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     /// The properties of a storage account’s Queue service.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
     /// 
-    /// Other available API versions: 2023-01-01.
+    /// Other available API versions: 2023-01-01, 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:QueueServiceProperties")]
     public partial class QueueServiceProperties : global::Pulumi.CustomResource
@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Storage
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:QueueServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:QueueServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:QueueServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20230401:QueueServiceProperties" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

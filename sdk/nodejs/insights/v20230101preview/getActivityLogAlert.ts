@@ -55,7 +55,7 @@ export interface GetActivityLogAlertResult {
      */
     readonly id: string;
     /**
-     * The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+     * The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
      */
     readonly location?: string;
     /**

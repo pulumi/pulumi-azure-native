@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * get a dryrun job
  * Azure REST API version: 2022-11-01-preview.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export function getConnectorDryrun(args: GetConnectorDryrunArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorDryrunResult> {
 
@@ -81,6 +83,8 @@ export interface GetConnectorDryrunResult {
 /**
  * get a dryrun job
  * Azure REST API version: 2022-11-01-preview.
+ *
+ * Other available API versions: 2023-04-01-preview.
  */
 export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorDryrunResult> {
     return pulumi.output(args).apply((a: any) => getConnectorDryrun(a, opts))

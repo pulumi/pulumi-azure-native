@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The logical network resource definition.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export class LogicalNetwork extends pulumi.CustomResource {
     /**
@@ -124,7 +126,7 @@ export class LogicalNetwork extends pulumi.CustomResource {
             resourceInputs["vmSwitchName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230901preview:LogicalNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230901preview:LogicalNetwork" }, { type: "azure-native:azurestackhci/v20240101:LogicalNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogicalNetwork.__pulumiType, name, resourceInputs, opts);
     }

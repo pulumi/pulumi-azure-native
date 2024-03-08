@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Insights
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        /// The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Insights
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        /// The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

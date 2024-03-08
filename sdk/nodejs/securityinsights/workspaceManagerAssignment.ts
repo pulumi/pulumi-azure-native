@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The workspace manager assignment
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
  */
 export class WorkspaceManagerAssignment extends pulumi.CustomResource {
     /**
@@ -118,7 +118,7 @@ export class WorkspaceManagerAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230501preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230601preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230701preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230801preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230901preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20231001preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20231201preview:WorkspaceManagerAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230501preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230601preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230701preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230801preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20230901preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20231001preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20231201preview:WorkspaceManagerAssignment" }, { type: "azure-native:securityinsights/v20240101preview:WorkspaceManagerAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceManagerAssignment.__pulumiType, name, resourceInputs, opts);
     }

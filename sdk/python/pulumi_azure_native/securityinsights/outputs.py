@@ -42,6 +42,10 @@ __all__ = [
     'DataConnectorDataTypeCommonResponse',
     'DeploymentInfoResponse',
     'DeploymentResponse',
+    'EnrichmentDomainWhoisContactResponse',
+    'EnrichmentDomainWhoisContactsResponse',
+    'EnrichmentDomainWhoisDetailsResponse',
+    'EnrichmentDomainWhoisRegistrarDetailsResponse',
     'EntityInsightItemResponse',
     'EntityInsightItemResponseQueryTimeInterval',
     'EntityMappingResponse',
@@ -2063,6 +2067,338 @@ class DeploymentResponse(dict):
         The time when the deployment finished.
         """
         return pulumi.get(self, "deployment_time")
+
+
+@pulumi.output_type
+class EnrichmentDomainWhoisContactResponse(dict):
+    """
+    An individual contact associated with this domain
+    """
+    def __init__(__self__, *,
+                 city: Optional[str] = None,
+                 country: Optional[str] = None,
+                 email: Optional[str] = None,
+                 fax: Optional[str] = None,
+                 name: Optional[str] = None,
+                 org: Optional[str] = None,
+                 phone: Optional[str] = None,
+                 postal: Optional[str] = None,
+                 state: Optional[str] = None,
+                 street: Optional[Sequence[str]] = None):
+        """
+        An individual contact associated with this domain
+        :param str city: The city for this contact
+        :param str country: The country for this contact
+        :param str email: The email address for this contact
+        :param str fax: The fax number for this contact
+        :param str name: The name of this contact
+        :param str org: The organization for this contact
+        :param str phone: The phone number for this contact
+        :param str postal: The postal code for this contact
+        :param str state: The state for this contact
+        :param Sequence[str] street: A list describing the street address for this contact
+        """
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if fax is not None:
+            pulumi.set(__self__, "fax", fax)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if org is not None:
+            pulumi.set(__self__, "org", org)
+        if phone is not None:
+            pulumi.set(__self__, "phone", phone)
+        if postal is not None:
+            pulumi.set(__self__, "postal", postal)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if street is not None:
+            pulumi.set(__self__, "street", street)
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[str]:
+        """
+        The city for this contact
+        """
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter
+    def country(self) -> Optional[str]:
+        """
+        The country for this contact
+        """
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[str]:
+        """
+        The email address for this contact
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter
+    def fax(self) -> Optional[str]:
+        """
+        The fax number for this contact
+        """
+        return pulumi.get(self, "fax")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of this contact
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def org(self) -> Optional[str]:
+        """
+        The organization for this contact
+        """
+        return pulumi.get(self, "org")
+
+    @property
+    @pulumi.getter
+    def phone(self) -> Optional[str]:
+        """
+        The phone number for this contact
+        """
+        return pulumi.get(self, "phone")
+
+    @property
+    @pulumi.getter
+    def postal(self) -> Optional[str]:
+        """
+        The postal code for this contact
+        """
+        return pulumi.get(self, "postal")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state for this contact
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def street(self) -> Optional[Sequence[str]]:
+        """
+        A list describing the street address for this contact
+        """
+        return pulumi.get(self, "street")
+
+
+@pulumi.output_type
+class EnrichmentDomainWhoisContactsResponse(dict):
+    """
+    The set of contacts associated with this domain
+    """
+    def __init__(__self__, *,
+                 admin: Optional['outputs.EnrichmentDomainWhoisContactResponse'] = None,
+                 billing: Optional['outputs.EnrichmentDomainWhoisContactResponse'] = None,
+                 registrant: Optional['outputs.EnrichmentDomainWhoisContactResponse'] = None,
+                 tech: Optional['outputs.EnrichmentDomainWhoisContactResponse'] = None):
+        """
+        The set of contacts associated with this domain
+        :param 'EnrichmentDomainWhoisContactResponse' admin: The admin contact for this whois record
+        :param 'EnrichmentDomainWhoisContactResponse' billing: The billing contact for this whois record
+        :param 'EnrichmentDomainWhoisContactResponse' registrant: The registrant contact for this whois record
+        :param 'EnrichmentDomainWhoisContactResponse' tech: The technical contact for this whois record
+        """
+        if admin is not None:
+            pulumi.set(__self__, "admin", admin)
+        if billing is not None:
+            pulumi.set(__self__, "billing", billing)
+        if registrant is not None:
+            pulumi.set(__self__, "registrant", registrant)
+        if tech is not None:
+            pulumi.set(__self__, "tech", tech)
+
+    @property
+    @pulumi.getter
+    def admin(self) -> Optional['outputs.EnrichmentDomainWhoisContactResponse']:
+        """
+        The admin contact for this whois record
+        """
+        return pulumi.get(self, "admin")
+
+    @property
+    @pulumi.getter
+    def billing(self) -> Optional['outputs.EnrichmentDomainWhoisContactResponse']:
+        """
+        The billing contact for this whois record
+        """
+        return pulumi.get(self, "billing")
+
+    @property
+    @pulumi.getter
+    def registrant(self) -> Optional['outputs.EnrichmentDomainWhoisContactResponse']:
+        """
+        The registrant contact for this whois record
+        """
+        return pulumi.get(self, "registrant")
+
+    @property
+    @pulumi.getter
+    def tech(self) -> Optional['outputs.EnrichmentDomainWhoisContactResponse']:
+        """
+        The technical contact for this whois record
+        """
+        return pulumi.get(self, "tech")
+
+
+@pulumi.output_type
+class EnrichmentDomainWhoisDetailsResponse(dict):
+    """
+    The whois record for a given domain
+    """
+    def __init__(__self__, *,
+                 contacts: Optional['outputs.EnrichmentDomainWhoisContactsResponse'] = None,
+                 name_servers: Optional[Sequence[str]] = None,
+                 registrar: Optional['outputs.EnrichmentDomainWhoisRegistrarDetailsResponse'] = None,
+                 statuses: Optional[Sequence[str]] = None):
+        """
+        The whois record for a given domain
+        :param 'EnrichmentDomainWhoisContactsResponse' contacts: The set of contacts associated with this domain
+        :param Sequence[str] name_servers: A list of name servers associated with this domain
+        :param 'EnrichmentDomainWhoisRegistrarDetailsResponse' registrar: The registrar associated with this domain
+        :param Sequence[str] statuses: The set of status flags for this whois record
+        """
+        if contacts is not None:
+            pulumi.set(__self__, "contacts", contacts)
+        if name_servers is not None:
+            pulumi.set(__self__, "name_servers", name_servers)
+        if registrar is not None:
+            pulumi.set(__self__, "registrar", registrar)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+
+    @property
+    @pulumi.getter
+    def contacts(self) -> Optional['outputs.EnrichmentDomainWhoisContactsResponse']:
+        """
+        The set of contacts associated with this domain
+        """
+        return pulumi.get(self, "contacts")
+
+    @property
+    @pulumi.getter(name="nameServers")
+    def name_servers(self) -> Optional[Sequence[str]]:
+        """
+        A list of name servers associated with this domain
+        """
+        return pulumi.get(self, "name_servers")
+
+    @property
+    @pulumi.getter
+    def registrar(self) -> Optional['outputs.EnrichmentDomainWhoisRegistrarDetailsResponse']:
+        """
+        The registrar associated with this domain
+        """
+        return pulumi.get(self, "registrar")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[Sequence[str]]:
+        """
+        The set of status flags for this whois record
+        """
+        return pulumi.get(self, "statuses")
+
+
+@pulumi.output_type
+class EnrichmentDomainWhoisRegistrarDetailsResponse(dict):
+    """
+    The registrar associated with this domain
+    """
+    def __init__(__self__, *,
+                 abuse_contact_email: Optional[str] = None,
+                 abuse_contact_phone: Optional[str] = None,
+                 iana_id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 url: Optional[str] = None,
+                 whois_server: Optional[str] = None):
+        """
+        The registrar associated with this domain
+        :param str abuse_contact_email: This registrar's abuse contact email
+        :param str abuse_contact_phone: This registrar's abuse contact phone number
+        :param str iana_id: This registrar's Internet Assigned Numbers Authority id
+        :param str name: The name of this registrar
+        :param str url: This registrar's URL
+        :param str whois_server: The hostname of this registrar's whois server
+        """
+        if abuse_contact_email is not None:
+            pulumi.set(__self__, "abuse_contact_email", abuse_contact_email)
+        if abuse_contact_phone is not None:
+            pulumi.set(__self__, "abuse_contact_phone", abuse_contact_phone)
+        if iana_id is not None:
+            pulumi.set(__self__, "iana_id", iana_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if whois_server is not None:
+            pulumi.set(__self__, "whois_server", whois_server)
+
+    @property
+    @pulumi.getter(name="abuseContactEmail")
+    def abuse_contact_email(self) -> Optional[str]:
+        """
+        This registrar's abuse contact email
+        """
+        return pulumi.get(self, "abuse_contact_email")
+
+    @property
+    @pulumi.getter(name="abuseContactPhone")
+    def abuse_contact_phone(self) -> Optional[str]:
+        """
+        This registrar's abuse contact phone number
+        """
+        return pulumi.get(self, "abuse_contact_phone")
+
+    @property
+    @pulumi.getter(name="ianaId")
+    def iana_id(self) -> Optional[str]:
+        """
+        This registrar's Internet Assigned Numbers Authority id
+        """
+        return pulumi.get(self, "iana_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of this registrar
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        This registrar's URL
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="whoisServer")
+    def whois_server(self) -> Optional[str]:
+        """
+        The hostname of this registrar's whois server
+        """
+        return pulumi.get(self, "whois_server")
 
 
 @pulumi.output_type

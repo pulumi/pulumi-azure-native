@@ -149,6 +149,8 @@ def get_flow(connection_name: Optional[str] = None,
     Gets flow resource.
     Azure REST API version: 2023-10-11-preview.
 
+    Other available API versions: 2024-01-25.
+
 
     :param str connection_name: The name for the connection that is to be requested.
     :param str flow_name: The name for the flow that is to be onboarded.
@@ -181,6 +183,8 @@ def get_flow_output(connection_name: Optional[pulumi.Input[str]] = None,
     """
     Gets flow resource.
     Azure REST API version: 2023-10-11-preview.
+
+    Other available API versions: 2024-01-25.
 
 
     :param str connection_name: The name for the connection that is to be requested.

@@ -160,6 +160,8 @@ def get_l2_connection(l2_connection_name: Optional[str] = None,
     Gets the specified L2 connection in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
 
+    Other available API versions: 2024-03-01.
+
 
     :param str l2_connection_name: L2 Connection name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -190,6 +192,8 @@ def get_l2_connection_output(l2_connection_name: Optional[pulumi.Input[str]] = N
     """
     Gets the specified L2 connection in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
+
+    Other available API versions: 2024-03-01.
 
 
     :param str l2_connection_name: L2 Connection name.

@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Orbital.V20240301Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:orbital:L2Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20240301:L2Connection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

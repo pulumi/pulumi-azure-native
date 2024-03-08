@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ServerAzureADAdministrator" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:ServerAzureADAdministrator" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ServerAzureADAdministrator" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ServerAzureADAdministrator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

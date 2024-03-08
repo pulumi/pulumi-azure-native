@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Returns a list of L2 Connections attached to an edge site.
         /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Task<ListEdgeSiteL2ConnectionsResult> InvokeAsync(ListEdgeSiteL2ConnectionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEdgeSiteL2ConnectionsResult>("azure-native:orbital:listEdgeSiteL2Connections", args ?? new ListEdgeSiteL2ConnectionsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Returns a list of L2 Connections attached to an edge site.
         /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<ListEdgeSiteL2ConnectionsResult> Invoke(ListEdgeSiteL2ConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEdgeSiteL2ConnectionsResult>("azure-native:orbital:listEdgeSiteL2Connections", args ?? new ListEdgeSiteL2ConnectionsInvokeArgs(), options.WithDefaults());

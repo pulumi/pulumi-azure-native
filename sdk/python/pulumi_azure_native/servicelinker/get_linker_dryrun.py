@@ -136,6 +136,8 @@ def get_linker_dryrun(dryrun_name: Optional[str] = None,
     get a dryrun job
     Azure REST API version: 2022-11-01-preview.
 
+    Other available API versions: 2023-04-01-preview.
+
 
     :param str dryrun_name: The name of dryrun.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
@@ -164,6 +166,8 @@ def get_linker_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
     """
     get a dryrun job
     Azure REST API version: 2022-11-01-preview.
+
+    Other available API versions: 2023-04-01-preview.
 
 
     :param str dryrun_name: The name of dryrun.

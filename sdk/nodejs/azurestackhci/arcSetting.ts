@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * ArcSetting details.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
  *
- * Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
  */
 export class ArcSetting extends pulumi.CustomResource {
     /**
@@ -142,7 +142,7 @@ export class ArcSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20220101:ArcSetting" }, { type: "azure-native:azurestackhci/v20220301:ArcSetting" }, { type: "azure-native:azurestackhci/v20220501:ArcSetting" }, { type: "azure-native:azurestackhci/v20220901:ArcSetting" }, { type: "azure-native:azurestackhci/v20221001:ArcSetting" }, { type: "azure-native:azurestackhci/v20221201:ArcSetting" }, { type: "azure-native:azurestackhci/v20221215preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20230201:ArcSetting" }, { type: "azure-native:azurestackhci/v20230301:ArcSetting" }, { type: "azure-native:azurestackhci/v20230601:ArcSetting" }, { type: "azure-native:azurestackhci/v20230801:ArcSetting" }, { type: "azure-native:azurestackhci/v20230801preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20231101preview:ArcSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20220101:ArcSetting" }, { type: "azure-native:azurestackhci/v20220301:ArcSetting" }, { type: "azure-native:azurestackhci/v20220501:ArcSetting" }, { type: "azure-native:azurestackhci/v20220901:ArcSetting" }, { type: "azure-native:azurestackhci/v20221001:ArcSetting" }, { type: "azure-native:azurestackhci/v20221201:ArcSetting" }, { type: "azure-native:azurestackhci/v20221215preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20230201:ArcSetting" }, { type: "azure-native:azurestackhci/v20230301:ArcSetting" }, { type: "azure-native:azurestackhci/v20230601:ArcSetting" }, { type: "azure-native:azurestackhci/v20230801:ArcSetting" }, { type: "azure-native:azurestackhci/v20230801preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20231101preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20240101:ArcSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArcSetting.__pulumiType, name, resourceInputs, opts);
     }

@@ -124,6 +124,8 @@ def get_connection(connection_name: Optional[str] = None,
     Gets connection resource.
     Azure REST API version: 2023-10-11-preview.
 
+    Other available API versions: 2024-01-25.
+
 
     :param str connection_name: The name for the connection that is to be requested.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -151,6 +153,8 @@ def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
     """
     Gets connection resource.
     Azure REST API version: 2023-10-11-preview.
+
+    Other available API versions: 2024-01-25.
 
 
     :param str connection_name: The name for the connection that is to be requested.

@@ -60,7 +60,7 @@ export interface ListCatalogDeviceInsightsResult {
     /**
      * The link to the next page of items
      */
-    readonly nextLink?: string;
+    readonly nextLink: string;
     /**
      * The DeviceInsight items on this page
      */

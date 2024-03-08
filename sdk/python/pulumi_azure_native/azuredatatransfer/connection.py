@@ -116,6 +116,8 @@ class Connection(pulumi.CustomResource):
         The connection resource definition.
         Azure REST API version: 2023-10-11-preview.
 
+        Other available API versions: 2024-01-25.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name for the connection that is to be requested.
@@ -133,6 +135,8 @@ class Connection(pulumi.CustomResource):
         """
         The connection resource definition.
         Azure REST API version: 2023-10-11-preview.
+
+        Other available API versions: 2024-01-25.
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -173,7 +177,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer/v20231011preview:Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredatatransfer/v20231011preview:Connection"), pulumi.Alias(type_="azure-native:azuredatatransfer/v20240125:Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connection, __self__).__init__(
             'azure-native:azuredatatransfer:Connection',

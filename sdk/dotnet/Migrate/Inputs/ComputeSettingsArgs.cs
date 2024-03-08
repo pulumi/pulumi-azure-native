@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         [Input("price", required: true)]
         public Input<double> Price { get; set; } = null!;
 
+        /// <summary>
+        /// Linux Rhel Server licensing settings.
+        /// </summary>
+        [Input("rhelLinuxServerLicensing", required: true)]
+        public Input<Inputs.LinuxServerLicensingSettingsArgs> RhelLinuxServerLicensing { get; set; } = null!;
+
         [Input("sqlServerLicensing", required: true)]
         private InputList<Inputs.SqlServerLicensingSettingsArgs>? _sqlServerLicensing;
 
@@ -38,6 +44,12 @@ namespace Pulumi.AzureNative.Migrate.Inputs
             get => _sqlServerLicensing ?? (_sqlServerLicensing = new InputList<Inputs.SqlServerLicensingSettingsArgs>());
             set => _sqlServerLicensing = value;
         }
+
+        /// <summary>
+        /// Linux Suse Server licensing settings.
+        /// </summary>
+        [Input("suseLinuxServerLicensing", required: true)]
+        public Input<Inputs.LinuxServerLicensingSettingsArgs> SuseLinuxServerLicensing { get; set; } = null!;
 
         /// <summary>
         /// Virtualization software settings.

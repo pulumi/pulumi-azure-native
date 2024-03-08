@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        /// The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         /// </summary>
         public readonly string? Location;
         /// <summary>

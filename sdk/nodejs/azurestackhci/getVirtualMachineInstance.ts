@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a virtual machine instance
  * Azure REST API version: 2023-07-01-preview.
  *
- * Other available API versions: 2023-09-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-01-01.
  */
 export function getVirtualMachineInstance(args: GetVirtualMachineInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineInstanceResult> {
 
@@ -105,7 +105,7 @@ export interface GetVirtualMachineInstanceResult {
  * Gets a virtual machine instance
  * Azure REST API version: 2023-07-01-preview.
  *
- * Other available API versions: 2023-09-01-preview.
+ * Other available API versions: 2023-09-01-preview, 2024-01-01.
  */
 export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineInstance(a, opts))

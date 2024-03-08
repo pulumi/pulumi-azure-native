@@ -60,7 +60,7 @@ export interface ListCatalogDeploymentsResult {
     /**
      * The link to the next page of items
      */
-    readonly nextLink?: string;
+    readonly nextLink: string;
     /**
      * The Deployment items on this page
      */

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Managed instance's Start/Stop schedule.
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-02-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
  */
 export class StartStopManagedInstanceSchedule extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class StartStopManagedInstanceSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230501preview:StartStopManagedInstanceSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230501preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230801preview:StartStopManagedInstanceSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StartStopManagedInstanceSchedule.__pulumiType, name, resourceInputs, opts);
     }

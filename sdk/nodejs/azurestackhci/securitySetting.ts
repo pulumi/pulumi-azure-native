@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Security settings proxy resource
  * Azure REST API version: 2023-11-01-preview.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export class SecuritySetting extends pulumi.CustomResource {
     /**
@@ -98,7 +100,7 @@ export class SecuritySetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20231101preview:SecuritySetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20231101preview:SecuritySetting" }, { type: "azure-native:azurestackhci/v20240101:SecuritySetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecuritySetting.__pulumiType, name, resourceInputs, opts);
     }

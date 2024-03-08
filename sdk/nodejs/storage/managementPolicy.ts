@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Get Storage Account ManagementPolicies operation response.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
  *
- * Other available API versions: 2018-03-01-preview, 2023-01-01.
+ * Other available API versions: 2018-03-01-preview, 2023-01-01, 2023-04-01.
  */
 export class ManagementPolicy extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20180301preview:ManagementPolicy" }, { type: "azure-native:storage/v20181101:ManagementPolicy" }, { type: "azure-native:storage/v20190401:ManagementPolicy" }, { type: "azure-native:storage/v20190601:ManagementPolicy" }, { type: "azure-native:storage/v20200801preview:ManagementPolicy" }, { type: "azure-native:storage/v20210101:ManagementPolicy" }, { type: "azure-native:storage/v20210201:ManagementPolicy" }, { type: "azure-native:storage/v20210401:ManagementPolicy" }, { type: "azure-native:storage/v20210601:ManagementPolicy" }, { type: "azure-native:storage/v20210801:ManagementPolicy" }, { type: "azure-native:storage/v20210901:ManagementPolicy" }, { type: "azure-native:storage/v20220501:ManagementPolicy" }, { type: "azure-native:storage/v20220901:ManagementPolicy" }, { type: "azure-native:storage/v20230101:ManagementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20180301preview:ManagementPolicy" }, { type: "azure-native:storage/v20181101:ManagementPolicy" }, { type: "azure-native:storage/v20190401:ManagementPolicy" }, { type: "azure-native:storage/v20190601:ManagementPolicy" }, { type: "azure-native:storage/v20200801preview:ManagementPolicy" }, { type: "azure-native:storage/v20210101:ManagementPolicy" }, { type: "azure-native:storage/v20210201:ManagementPolicy" }, { type: "azure-native:storage/v20210401:ManagementPolicy" }, { type: "azure-native:storage/v20210601:ManagementPolicy" }, { type: "azure-native:storage/v20210801:ManagementPolicy" }, { type: "azure-native:storage/v20210901:ManagementPolicy" }, { type: "azure-native:storage/v20220501:ManagementPolicy" }, { type: "azure-native:storage/v20220901:ManagementPolicy" }, { type: "azure-native:storage/v20230101:ManagementPolicy" }, { type: "azure-native:storage/v20230401:ManagementPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementPolicy.__pulumiType, name, resourceInputs, opts);
     }

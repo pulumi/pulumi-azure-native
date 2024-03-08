@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the managed instance's Start/Stop schedule.
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-02-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
  */
 export function getStartStopManagedInstanceSchedule(args: GetStartStopManagedInstanceScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetStartStopManagedInstanceScheduleResult> {
 
@@ -83,7 +83,7 @@ export interface GetStartStopManagedInstanceScheduleResult {
  * Gets the managed instance's Start/Stop schedule.
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-02-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
  */
 export function getStartStopManagedInstanceScheduleOutput(args: GetStartStopManagedInstanceScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStartStopManagedInstanceScheduleResult> {
     return pulumi.output(args).apply((a: any) => getStartStopManagedInstanceSchedule(a, opts))

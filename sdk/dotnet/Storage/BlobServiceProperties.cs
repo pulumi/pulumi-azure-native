@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     /// The properties of a storage account’s Blob service.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
     /// 
-    /// Other available API versions: 2023-01-01.
+    /// Other available API versions: 2023-01-01, 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobServiceProperties")]
     public partial class BlobServiceProperties : global::Pulumi.CustomResource
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Storage
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:BlobServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:BlobServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:BlobServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20230401:BlobServiceProperties" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

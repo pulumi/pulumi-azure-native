@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets an installed packages by its id.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetContentPackageResult> InvokeAsync(GetContentPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContentPackageResult>("azure-native:securityinsights:getContentPackage", args ?? new GetContentPackageArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets an installed packages by its id.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetContentPackageResult> Invoke(GetContentPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentPackageResult>("azure-native:securityinsights:getContentPackage", args ?? new GetContentPackageInvokeArgs(), options.WithDefaults());

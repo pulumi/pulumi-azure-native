@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get the Update run for a specified update
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
         /// </summary>
         public static Task<GetUpdateRunResult> InvokeAsync(GetUpdateRunArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUpdateRunResult>("azure-native:azurestackhci:getUpdateRun", args ?? new GetUpdateRunArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Get the Update run for a specified update
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
+        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
         /// </summary>
         public static Output<GetUpdateRunResult> Invoke(GetUpdateRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateRunResult>("azure-native:azurestackhci:getUpdateRun", args ?? new GetUpdateRunInvokeArgs(), options.WithDefaults());

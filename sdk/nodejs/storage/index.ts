@@ -207,10 +207,12 @@ export * from "../types/enums/storage";
 // Export sub-modules:
 import * as v20220901 from "./v20220901";
 import * as v20230101 from "./v20230101";
+import * as v20230401 from "./v20230401";
 
 export {
     v20220901,
     v20230101,
+    v20230401,
 };
 
 const _module = {

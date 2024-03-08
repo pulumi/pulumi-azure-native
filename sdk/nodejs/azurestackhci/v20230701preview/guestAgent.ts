@@ -104,7 +104,7 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230901preview:GuestAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230901preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240101:GuestAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestAgent.__pulumiType, name, resourceInputs, opts);
     }

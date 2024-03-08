@@ -25,9 +25,17 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview.Outputs
         /// </summary>
         public readonly double Price;
         /// <summary>
+        /// Linux Rhel Server licensing settings.
+        /// </summary>
+        public readonly Outputs.LinuxServerLicensingSettingsResponse RhelLinuxServerLicensing;
+        /// <summary>
         /// SQL Server licensing settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.SqlServerLicensingSettingsResponse> SqlServerLicensing;
+        /// <summary>
+        /// Linux Suse Server licensing settings.
+        /// </summary>
+        public readonly Outputs.LinuxServerLicensingSettingsResponse SuseLinuxServerLicensing;
         /// <summary>
         /// Virtualization software settings.
         /// </summary>
@@ -43,7 +51,11 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview.Outputs
 
             double price,
 
+            Outputs.LinuxServerLicensingSettingsResponse rhelLinuxServerLicensing,
+
             ImmutableArray<Outputs.SqlServerLicensingSettingsResponse> sqlServerLicensing,
+
+            Outputs.LinuxServerLicensingSettingsResponse suseLinuxServerLicensing,
 
             Outputs.VirtualizationSoftwareSettingsResponse virtualizationSoftwareSettings,
 
@@ -51,7 +63,9 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview.Outputs
         {
             HyperthreadCoreToMemoryRatio = hyperthreadCoreToMemoryRatio;
             Price = price;
+            RhelLinuxServerLicensing = rhelLinuxServerLicensing;
             SqlServerLicensing = sqlServerLicensing;
+            SuseLinuxServerLicensing = suseLinuxServerLicensing;
             VirtualizationSoftwareSettings = virtualizationSoftwareSettings;
             WindowsServerLicensing = windowsServerLicensing;
         }

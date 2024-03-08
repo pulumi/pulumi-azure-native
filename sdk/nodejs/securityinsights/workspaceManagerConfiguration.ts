@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The workspace manager configuration
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
  */
 export class WorkspaceManagerConfiguration extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class WorkspaceManagerConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230901preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20231001preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20231201preview:WorkspaceManagerConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230601preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230901preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20231001preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20231201preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20240101preview:WorkspaceManagerConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceManagerConfiguration.__pulumiType, name, resourceInputs, opts);
     }

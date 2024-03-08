@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Details of a particular extension in HCI Cluster.
     /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
     /// 
-    /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801preview:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:Extension" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

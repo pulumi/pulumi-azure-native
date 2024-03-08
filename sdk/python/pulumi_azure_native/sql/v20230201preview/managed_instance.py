@@ -83,9 +83,9 @@ class ManagedInstanceArgs:
         :param pulumi.Input['ServicePrincipalArgs'] service_principal: The managed instance's service principal.
         :param pulumi.Input['SkuArgs'] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
-        :param pulumi.Input[int] storage_i_ops: Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        :param pulumi.Input[int] storage_i_ops: Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
         :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
-        :param pulumi.Input[int] storage_throughput_m_bps: Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        :param pulumi.Input[int] storage_throughput_m_bps: Storage throughput MBps parameter is not supported in the instance create/update operation.
         :param pulumi.Input[str] subnet_id: Subnet resource ID for the managed instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timezone_id: Id of the timezone. Allowed values are timezones supported by Windows.
@@ -485,7 +485,7 @@ class ManagedInstanceArgs:
     @pulumi.getter(name="storageIOps")
     def storage_i_ops(self) -> Optional[pulumi.Input[int]]:
         """
-        Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
         """
         return pulumi.get(self, "storage_i_ops")
 
@@ -509,7 +509,7 @@ class ManagedInstanceArgs:
     @pulumi.getter(name="storageThroughputMBps")
     def storage_throughput_m_bps(self) -> Optional[pulumi.Input[int]]:
         """
-        Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        Storage throughput MBps parameter is not supported in the instance create/update operation.
         """
         return pulumi.get(self, "storage_throughput_m_bps")
 
@@ -658,9 +658,9 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServicePrincipalArgs']] service_principal: The managed instance's service principal.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
-        :param pulumi.Input[int] storage_i_ops: Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        :param pulumi.Input[int] storage_i_ops: Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
         :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
-        :param pulumi.Input[int] storage_throughput_m_bps: Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        :param pulumi.Input[int] storage_throughput_m_bps: Storage throughput MBps parameter is not supported in the instance create/update operation.
         :param pulumi.Input[str] subnet_id: Subnet resource ID for the managed instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timezone_id: Id of the timezone. Allowed values are timezones supported by Windows.
@@ -787,7 +787,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_cluster_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20230501preview:ManagedInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20230501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20230801preview:ManagedInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstance, __self__).__init__(
             'azure-native:sql/v20230201preview:ManagedInstance',
@@ -1088,7 +1088,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter(name="storageIOps")
     def storage_i_ops(self) -> pulumi.Output[Optional[int]]:
         """
-        Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
         """
         return pulumi.get(self, "storage_i_ops")
 
@@ -1104,7 +1104,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter(name="storageThroughputMBps")
     def storage_throughput_m_bps(self) -> pulumi.Output[Optional[int]]:
         """
-        Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        Storage throughput MBps parameter is not supported in the instance create/update operation.
         """
         return pulumi.get(self, "storage_throughput_m_bps")
 

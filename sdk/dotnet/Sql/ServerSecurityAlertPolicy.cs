@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     /// A server security alert policy.
     /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
     /// 
-    /// Other available API versions: 2017-03-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
+    /// Other available API versions: 2017-03-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerSecurityAlertPolicy")]
     public partial class ServerSecurityAlertPolicy : global::Pulumi.CustomResource
@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ServerSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:ServerSecurityAlertPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ServerSecurityAlertPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ServerSecurityAlertPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

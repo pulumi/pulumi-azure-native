@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Edge device resource
     /// Azure REST API version: 2023-08-01-preview.
     /// 
-    /// Other available API versions: 2023-11-01-preview.
+    /// Other available API versions: 2023-11-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:EdgeDevice")]
     public partial class EdgeDevice : global::Pulumi.CustomResource
@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230801preview:EdgeDevice" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20231101preview:EdgeDevice" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:EdgeDevice" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

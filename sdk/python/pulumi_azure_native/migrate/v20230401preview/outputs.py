@@ -28,6 +28,7 @@ __all__ = [
     'HypervLicenseResponse',
     'HypervVirtualizationManagementSettingsResponse',
     'LaborSettingsResponse',
+    'LinuxServerLicensingSettingsResponse',
     'ManagementSettingsResponse',
     'NetworkSettingsResponse',
     'OnPremiseSettingsResponse',
@@ -952,8 +953,12 @@ class ComputeSettingsResponse(dict):
         suggest = None
         if key == "hyperthreadCoreToMemoryRatio":
             suggest = "hyperthread_core_to_memory_ratio"
+        elif key == "rhelLinuxServerLicensing":
+            suggest = "rhel_linux_server_licensing"
         elif key == "sqlServerLicensing":
             suggest = "sql_server_licensing"
+        elif key == "suseLinuxServerLicensing":
+            suggest = "suse_linux_server_licensing"
         elif key == "virtualizationSoftwareSettings":
             suggest = "virtualization_software_settings"
         elif key == "windowsServerLicensing":
@@ -973,20 +978,26 @@ class ComputeSettingsResponse(dict):
     def __init__(__self__, *,
                  hyperthread_core_to_memory_ratio: float,
                  price: float,
+                 rhel_linux_server_licensing: 'outputs.LinuxServerLicensingSettingsResponse',
                  sql_server_licensing: Sequence['outputs.SqlServerLicensingSettingsResponse'],
+                 suse_linux_server_licensing: 'outputs.LinuxServerLicensingSettingsResponse',
                  virtualization_software_settings: 'outputs.VirtualizationSoftwareSettingsResponse',
                  windows_server_licensing: 'outputs.WindowsServerLicensingSettingsResponse'):
         """
         Compute settings.
         :param float hyperthread_core_to_memory_ratio: Hyperthread core to memory ratio.
         :param float price: Compute Price.
+        :param 'LinuxServerLicensingSettingsResponse' rhel_linux_server_licensing: Linux Rhel Server licensing settings.
         :param Sequence['SqlServerLicensingSettingsResponse'] sql_server_licensing: SQL Server licensing settings.
+        :param 'LinuxServerLicensingSettingsResponse' suse_linux_server_licensing: Linux Suse Server licensing settings.
         :param 'VirtualizationSoftwareSettingsResponse' virtualization_software_settings: Virtualization software settings.
         :param 'WindowsServerLicensingSettingsResponse' windows_server_licensing: Windows Server licensing settings.
         """
         pulumi.set(__self__, "hyperthread_core_to_memory_ratio", hyperthread_core_to_memory_ratio)
         pulumi.set(__self__, "price", price)
+        pulumi.set(__self__, "rhel_linux_server_licensing", rhel_linux_server_licensing)
         pulumi.set(__self__, "sql_server_licensing", sql_server_licensing)
+        pulumi.set(__self__, "suse_linux_server_licensing", suse_linux_server_licensing)
         pulumi.set(__self__, "virtualization_software_settings", virtualization_software_settings)
         pulumi.set(__self__, "windows_server_licensing", windows_server_licensing)
 
@@ -1007,12 +1018,28 @@ class ComputeSettingsResponse(dict):
         return pulumi.get(self, "price")
 
     @property
+    @pulumi.getter(name="rhelLinuxServerLicensing")
+    def rhel_linux_server_licensing(self) -> 'outputs.LinuxServerLicensingSettingsResponse':
+        """
+        Linux Rhel Server licensing settings.
+        """
+        return pulumi.get(self, "rhel_linux_server_licensing")
+
+    @property
     @pulumi.getter(name="sqlServerLicensing")
     def sql_server_licensing(self) -> Sequence['outputs.SqlServerLicensingSettingsResponse']:
         """
         SQL Server licensing settings.
         """
         return pulumi.get(self, "sql_server_licensing")
+
+    @property
+    @pulumi.getter(name="suseLinuxServerLicensing")
+    def suse_linux_server_licensing(self) -> 'outputs.LinuxServerLicensingSettingsResponse':
+        """
+        Linux Suse Server licensing settings.
+        """
+        return pulumi.get(self, "suse_linux_server_licensing")
 
     @property
     @pulumi.getter(name="virtualizationSoftwareSettings")
@@ -1415,6 +1442,45 @@ class LaborSettingsResponse(dict):
         Virtual machines per administrator.
         """
         return pulumi.get(self, "virtual_machines_per_admin")
+
+
+@pulumi.output_type
+class LinuxServerLicensingSettingsResponse(dict):
+    """
+    Linux Server licensing settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseCost":
+            suggest = "license_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxServerLicensingSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxServerLicensingSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxServerLicensingSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_cost: float):
+        """
+        Linux Server licensing settings.
+        :param float license_cost: Licence Cost.
+        """
+        pulumi.set(__self__, "license_cost", license_cost)
+
+    @property
+    @pulumi.getter(name="licenseCost")
+    def license_cost(self) -> float:
+        """
+        Licence Cost.
+        """
+        return pulumi.get(self, "license_cost")
 
 
 @pulumi.output_type

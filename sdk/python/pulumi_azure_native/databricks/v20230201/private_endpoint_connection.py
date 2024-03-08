@@ -152,7 +152,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:databricks/v20230915preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:databricks/v20240201preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:databricks/v20230915preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:databricks/v20230201:PrivateEndpointConnection',

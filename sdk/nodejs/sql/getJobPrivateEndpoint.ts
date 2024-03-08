@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Gets a private endpoint.
  * Azure REST API version: 2023-05-01-preview.
+ *
+ * Other available API versions: 2023-08-01-preview.
  */
 export function getJobPrivateEndpoint(args: GetJobPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetJobPrivateEndpointResult> {
 
@@ -66,6 +68,8 @@ export interface GetJobPrivateEndpointResult {
 /**
  * Gets a private endpoint.
  * Azure REST API version: 2023-05-01-preview.
+ *
+ * Other available API versions: 2023-08-01-preview.
  */
 export function getJobPrivateEndpointOutput(args: GetJobPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobPrivateEndpointResult> {
     return pulumi.output(args).apply((a: any) => getJobPrivateEndpoint(a, opts))

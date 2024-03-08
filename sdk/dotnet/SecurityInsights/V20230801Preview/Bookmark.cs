@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:Bookmark" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:Bookmark" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

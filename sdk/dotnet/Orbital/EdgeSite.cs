@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Orbital
     /// <summary>
     /// A customer's reference to a global communications site site.
     /// Azure REST API version: 2024-03-01-preview.
+    /// 
+    /// Other available API versions: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:EdgeSite")]
     public partial class EdgeSite : global::Pulumi.CustomResource
@@ -77,6 +79,7 @@ namespace Pulumi.AzureNative.Orbital
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:orbital/v20240301:EdgeSite" },
                     new global::Pulumi.Alias { Type = "azure-native:orbital/v20240301preview:EdgeSite" },
                 },
             };

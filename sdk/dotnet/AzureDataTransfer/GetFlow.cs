@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Gets flow resource.
         /// Azure REST API version: 2023-10-11-preview.
+        /// 
+        /// Other available API versions: 2024-01-25.
         /// </summary>
         public static Task<GetFlowResult> InvokeAsync(GetFlowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowResult>("azure-native:azuredatatransfer:getFlow", args ?? new GetFlowArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// <summary>
         /// Gets flow resource.
         /// Azure REST API version: 2023-10-11-preview.
+        /// 
+        /// Other available API versions: 2024-01-25.
         /// </summary>
         public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("azure-native:azuredatatransfer:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());

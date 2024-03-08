@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// The gallery images resource definition.
     /// Azure REST API version: 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource
@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:GalleryImage" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:GalleryImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:GalleryImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

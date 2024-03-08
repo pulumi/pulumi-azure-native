@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:FailoverGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:FailoverGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:FailoverGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:FailoverGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

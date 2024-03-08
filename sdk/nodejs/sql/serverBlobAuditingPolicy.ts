@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A server blob auditing policy.
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
  */
 export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
     /**
@@ -220,7 +220,7 @@ export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20221101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20230201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20230501preview:ServerBlobAuditingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20221101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20230201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20230501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20230801preview:ServerBlobAuditingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerBlobAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }

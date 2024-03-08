@@ -251,7 +251,7 @@ class Cluster(pulumi.CustomResource):
         Cluster details.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
+        Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,7 +279,7 @@ class Cluster(pulumi.CustomResource):
         Cluster details.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-10-01.
 
-        Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
+        Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param ClusterInitArgs args: The arguments to use to populate this resource's properties.
@@ -350,7 +350,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["trial_days_remaining"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20200301preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20201001:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20220301:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20221201:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230601:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20200301preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20201001:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20210101preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20220101:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20220301:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20220501:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20220901:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20221001:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20221201:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230601:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:Cluster"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:azurestackhci:Cluster',

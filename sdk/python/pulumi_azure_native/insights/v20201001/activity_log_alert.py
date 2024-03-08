@@ -34,7 +34,7 @@ class ActivityLogAlertArgs:
         :param pulumi.Input[str] activity_log_alert_name: The name of the Activity Log Alert rule.
         :param pulumi.Input[str] description: A description of this Activity Log Alert rule.
         :param pulumi.Input[bool] enabled: Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
-        :param pulumi.Input[str] location: The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        :param pulumi.Input[str] location: The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         pulumi.set(__self__, "actions", actions)
@@ -144,7 +144,7 @@ class ActivityLogAlertArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         """
         return pulumi.get(self, "location")
 
@@ -190,7 +190,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AlertRuleAllOfConditionArgs']] condition: The condition that will cause this alert to activate.
         :param pulumi.Input[str] description: A description of this Activity Log Alert rule.
         :param pulumi.Input[bool] enabled: Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
-        :param pulumi.Input[str] location: The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        :param pulumi.Input[str] location: The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
@@ -331,7 +331,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
-        The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         """
         return pulumi.get(self, "location")
 

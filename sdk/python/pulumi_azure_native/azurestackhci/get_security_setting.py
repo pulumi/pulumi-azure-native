@@ -125,6 +125,8 @@ def get_security_setting(cluster_name: Optional[str] = None,
     Get a SecuritySetting
     Azure REST API version: 2023-11-01-preview.
 
+    Other available API versions: 2024-01-01.
+
 
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -155,6 +157,8 @@ def get_security_setting_output(cluster_name: Optional[pulumi.Input[str]] = None
     """
     Get a SecuritySetting
     Azure REST API version: 2023-11-01-preview.
+
+    Other available API versions: 2024-01-01.
 
 
     :param str cluster_name: The name of the cluster.

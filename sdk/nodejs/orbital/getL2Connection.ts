@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified L2 connection in a specified resource group.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-03-01.
  */
 export function getL2Connection(args: GetL2ConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetL2ConnectionResult> {
 
@@ -79,6 +81,8 @@ export interface GetL2ConnectionResult {
 /**
  * Gets the specified L2 connection in a specified resource group.
  * Azure REST API version: 2024-03-01-preview.
+ *
+ * Other available API versions: 2024-03-01.
  */
 export function getL2ConnectionOutput(args: GetL2ConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2ConnectionResult> {
     return pulumi.output(args).apply((a: any) => getL2Connection(a, opts))

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets an outbound firewall rule.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Task<GetOutboundFirewallRuleResult> InvokeAsync(GetOutboundFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutboundFirewallRuleResult>("azure-native:sql:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets an outbound firewall rule.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
         /// </summary>
         public static Output<GetOutboundFirewallRuleResult> Invoke(GetOutboundFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutboundFirewallRuleResult>("azure-native:sql:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleInvokeArgs(), options.WithDefaults());

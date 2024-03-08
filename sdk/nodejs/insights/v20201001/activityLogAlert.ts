@@ -54,7 +54,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+     * The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface ActivityLogAlertArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+     * The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
      */
     location?: pulumi.Input<string>;
     /**

@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
         /// <summary>
         /// The link to the next page of items
         /// </summary>
-        public readonly string? NextLink;
+        public readonly string NextLink;
         /// <summary>
         /// The DeviceInsight items on this page
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
 
         [OutputConstructor]
         private ListCatalogDeviceInsightsResult(
-            string? nextLink,
+            string nextLink,
 
             ImmutableArray<Outputs.DeviceInsightResponse> value)
         {

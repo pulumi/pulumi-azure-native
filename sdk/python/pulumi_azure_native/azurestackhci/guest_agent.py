@@ -132,7 +132,7 @@ class GuestAgent(pulumi.CustomResource):
         Defines the GuestAgent.
         Azure REST API version: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +153,7 @@ class GuestAgent(pulumi.CustomResource):
         Defines the GuestAgent.
         Azure REST API version: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param GuestAgentArgs args: The arguments to use to populate this resource's properties.

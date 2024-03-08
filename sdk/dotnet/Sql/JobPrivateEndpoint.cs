@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Sql
     /// <summary>
     /// A job agent private endpoint.
     /// Azure REST API version: 2023-05-01-preview.
+    /// 
+    /// Other available API versions: 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:JobPrivateEndpoint")]
     public partial class JobPrivateEndpoint : global::Pulumi.CustomResource
@@ -66,6 +68,7 @@ namespace Pulumi.AzureNative.Sql
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:JobPrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:JobPrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:BackupLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:BackupLongTermRetentionPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:BackupLongTermRetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:BackupLongTermRetentionPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

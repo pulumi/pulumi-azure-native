@@ -388,7 +388,7 @@ class GetManagedInstanceResult:
     @pulumi.getter(name="storageIOps")
     def storage_i_ops(self) -> Optional[int]:
         """
-        Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
         """
         return pulumi.get(self, "storage_i_ops")
 
@@ -404,7 +404,7 @@ class GetManagedInstanceResult:
     @pulumi.getter(name="storageThroughputMBps")
     def storage_throughput_m_bps(self) -> Optional[int]:
         """
-        Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+        Storage throughput MBps parameter is not supported in the instance create/update operation.
         """
         return pulumi.get(self, "storage_throughput_m_bps")
 

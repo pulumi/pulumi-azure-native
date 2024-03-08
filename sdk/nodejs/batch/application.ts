@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Contains information about an application in a Batch account.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2017-09-01, 2023-11-01.
+ * Other available API versions: 2017-09-01, 2023-11-01, 2024-02-01.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20151201:Application" }, { type: "azure-native:batch/v20170101:Application" }, { type: "azure-native:batch/v20170501:Application" }, { type: "azure-native:batch/v20170901:Application" }, { type: "azure-native:batch/v20181201:Application" }, { type: "azure-native:batch/v20190401:Application" }, { type: "azure-native:batch/v20190801:Application" }, { type: "azure-native:batch/v20200301:Application" }, { type: "azure-native:batch/v20200501:Application" }, { type: "azure-native:batch/v20200901:Application" }, { type: "azure-native:batch/v20210101:Application" }, { type: "azure-native:batch/v20210601:Application" }, { type: "azure-native:batch/v20220101:Application" }, { type: "azure-native:batch/v20220601:Application" }, { type: "azure-native:batch/v20221001:Application" }, { type: "azure-native:batch/v20230501:Application" }, { type: "azure-native:batch/v20231101:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20151201:Application" }, { type: "azure-native:batch/v20170101:Application" }, { type: "azure-native:batch/v20170501:Application" }, { type: "azure-native:batch/v20170901:Application" }, { type: "azure-native:batch/v20181201:Application" }, { type: "azure-native:batch/v20190401:Application" }, { type: "azure-native:batch/v20190801:Application" }, { type: "azure-native:batch/v20200301:Application" }, { type: "azure-native:batch/v20200501:Application" }, { type: "azure-native:batch/v20200901:Application" }, { type: "azure-native:batch/v20210101:Application" }, { type: "azure-native:batch/v20210601:Application" }, { type: "azure-native:batch/v20220101:Application" }, { type: "azure-native:batch/v20220601:Application" }, { type: "azure-native:batch/v20221001:Application" }, { type: "azure-native:batch/v20230501:Application" }, { type: "azure-native:batch/v20231101:Application" }, { type: "azure-native:batch/v20240201:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

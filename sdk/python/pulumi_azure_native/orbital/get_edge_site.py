@@ -124,6 +124,8 @@ def get_edge_site(edge_site_name: Optional[str] = None,
     Gets the specified edge site in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
 
+    Other available API versions: 2024-03-01.
+
 
     :param str edge_site_name: Edge site name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -151,6 +153,8 @@ def get_edge_site_output(edge_site_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified edge site in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
+
+    Other available API versions: 2024-03-01.
 
 
     :param str edge_site_name: Edge site name.

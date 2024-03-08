@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     /// <summary>
     /// The flow resource definition.
     /// Azure REST API version: 2023-10-11-preview.
+    /// 
+    /// Other available API versions: 2024-01-25.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredatatransfer:Flow")]
     public partial class Flow : global::Pulumi.CustomResource
@@ -90,6 +92,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20231011preview:Flow" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuredatatransfer/v20240125:Flow" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -245,7 +245,7 @@ def get_file_import(file_import_id: Optional[str] = None,
     Gets a file import.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
 
 
     :param str file_import_id: File import ID
@@ -288,7 +288,7 @@ def get_file_import_output(file_import_id: Optional[pulumi.Input[str]] = None,
     Gets a file import.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
+    Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
 
 
     :param str file_import_id: File import ID

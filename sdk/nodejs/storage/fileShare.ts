@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Properties of the file share, including Id, resource name, resource type, Etag.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
  *
- * Other available API versions: 2023-01-01.
+ * Other available API versions: 2023-01-01, 2023-04-01.
  */
 export class FileShare extends pulumi.CustomResource {
     /**
@@ -191,7 +191,7 @@ export class FileShare extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190401:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20200801preview:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-native:storage/v20210201:FileShare" }, { type: "azure-native:storage/v20210401:FileShare" }, { type: "azure-native:storage/v20210601:FileShare" }, { type: "azure-native:storage/v20210801:FileShare" }, { type: "azure-native:storage/v20210901:FileShare" }, { type: "azure-native:storage/v20220501:FileShare" }, { type: "azure-native:storage/v20220901:FileShare" }, { type: "azure-native:storage/v20230101:FileShare" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190401:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20200801preview:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-native:storage/v20210201:FileShare" }, { type: "azure-native:storage/v20210401:FileShare" }, { type: "azure-native:storage/v20210601:FileShare" }, { type: "azure-native:storage/v20210801:FileShare" }, { type: "azure-native:storage/v20210901:FileShare" }, { type: "azure-native:storage/v20220501:FileShare" }, { type: "azure-native:storage/v20220901:FileShare" }, { type: "azure-native:storage/v20230101:FileShare" }, { type: "azure-native:storage/v20230401:FileShare" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FileShare.__pulumiType, name, resourceInputs, opts);
     }

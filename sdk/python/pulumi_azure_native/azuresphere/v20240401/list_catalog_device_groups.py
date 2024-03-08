@@ -32,7 +32,7 @@ class ListCatalogDeviceGroupsResult:
 
     @property
     @pulumi.getter(name="nextLink")
-    def next_link(self) -> Optional[str]:
+    def next_link(self) -> str:
         """
         The link to the next page of items
         """

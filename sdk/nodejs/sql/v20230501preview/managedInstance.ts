@@ -162,7 +162,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+     * Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
     public readonly storageIOps!: pulumi.Output<number | undefined>;
     /**
@@ -170,7 +170,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly storageSizeInGB!: pulumi.Output<number | undefined>;
     /**
-     * Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+     * Storage throughput MBps parameter is not supported in the instance create/update operation.
      */
     public readonly storageThroughputMBps!: pulumi.Output<number | undefined>;
     /**
@@ -313,7 +313,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstance" }, { type: "azure-native:sql/v20150501preview:ManagedInstance" }, { type: "azure-native:sql/v20180601preview:ManagedInstance" }, { type: "azure-native:sql/v20200202preview:ManagedInstance" }, { type: "azure-native:sql/v20200801preview:ManagedInstance" }, { type: "azure-native:sql/v20201101preview:ManagedInstance" }, { type: "azure-native:sql/v20210201preview:ManagedInstance" }, { type: "azure-native:sql/v20210501preview:ManagedInstance" }, { type: "azure-native:sql/v20210801preview:ManagedInstance" }, { type: "azure-native:sql/v20211101:ManagedInstance" }, { type: "azure-native:sql/v20211101preview:ManagedInstance" }, { type: "azure-native:sql/v20220201preview:ManagedInstance" }, { type: "azure-native:sql/v20220501preview:ManagedInstance" }, { type: "azure-native:sql/v20220801preview:ManagedInstance" }, { type: "azure-native:sql/v20221101preview:ManagedInstance" }, { type: "azure-native:sql/v20230201preview:ManagedInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstance" }, { type: "azure-native:sql/v20150501preview:ManagedInstance" }, { type: "azure-native:sql/v20180601preview:ManagedInstance" }, { type: "azure-native:sql/v20200202preview:ManagedInstance" }, { type: "azure-native:sql/v20200801preview:ManagedInstance" }, { type: "azure-native:sql/v20201101preview:ManagedInstance" }, { type: "azure-native:sql/v20210201preview:ManagedInstance" }, { type: "azure-native:sql/v20210501preview:ManagedInstance" }, { type: "azure-native:sql/v20210801preview:ManagedInstance" }, { type: "azure-native:sql/v20211101:ManagedInstance" }, { type: "azure-native:sql/v20211101preview:ManagedInstance" }, { type: "azure-native:sql/v20220201preview:ManagedInstance" }, { type: "azure-native:sql/v20220501preview:ManagedInstance" }, { type: "azure-native:sql/v20220801preview:ManagedInstance" }, { type: "azure-native:sql/v20221101preview:ManagedInstance" }, { type: "azure-native:sql/v20230201preview:ManagedInstance" }, { type: "azure-native:sql/v20230801preview:ManagedInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -440,7 +440,7 @@ export interface ManagedInstanceArgs {
      */
     sourceManagedInstanceId?: pulumi.Input<string>;
     /**
-     * Storage IOps. Minimum value: 120. Maximum value: 120000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+     * Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
     storageIOps?: pulumi.Input<number>;
     /**
@@ -448,7 +448,7 @@ export interface ManagedInstanceArgs {
      */
     storageSizeInGB?: pulumi.Input<number>;
     /**
-     * Storage throughput in MBps. Minimum value: 25. Maximum value: 4000. Increments of 1 MBps allowed only. Maximum value depends on the selected hardware family and number of vCores.
+     * Storage throughput MBps parameter is not supported in the instance create/update operation.
      */
     storageThroughputMBps?: pulumi.Input<number>;
     /**

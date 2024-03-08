@@ -183,6 +183,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:AnomalySecurityMLAnalyticsSettings" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:AnomalySecurityMLAnalyticsSettings" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:AnomalySecurityMLAnalyticsSettings" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:AnomalySecurityMLAnalyticsSettings" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

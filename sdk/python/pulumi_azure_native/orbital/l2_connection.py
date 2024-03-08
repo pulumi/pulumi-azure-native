@@ -162,6 +162,8 @@ class L2Connection(pulumi.CustomResource):
         Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
         Azure REST API version: 2024-03-01-preview.
 
+        Other available API versions: 2024-03-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['L2ConnectionsPropertiesEdgeSiteArgs']] edge_site: A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
@@ -182,6 +184,8 @@ class L2Connection(pulumi.CustomResource):
         """
         Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
         Azure REST API version: 2024-03-01-preview.
+
+        Other available API versions: 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param L2ConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -236,7 +240,7 @@ class L2Connection(pulumi.CustomResource):
             __props__.__dict__["circuit_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20240301preview:L2Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20240301:L2Connection"), pulumi.Alias(type_="azure-native:orbital/v20240301preview:L2Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(L2Connection, __self__).__init__(
             'azure-native:orbital:L2Connection',

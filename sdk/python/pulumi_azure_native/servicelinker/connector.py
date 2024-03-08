@@ -234,6 +234,8 @@ class Connector(pulumi.CustomResource):
         Linker of source and target resource
         Azure REST API version: 2022-11-01-preview.
 
+        Other available API versions: 2023-04-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AccessKeyInfoBaseArgs'], pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAccountAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]] auth_info: The authentication type.
@@ -258,6 +260,8 @@ class Connector(pulumi.CustomResource):
         """
         Linker of source and target resource
         Azure REST API version: 2022-11-01-preview.
+
+        Other available API versions: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -315,7 +319,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicelinker/v20221101preview:Connector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicelinker/v20221101preview:Connector"), pulumi.Alias(type_="azure-native:servicelinker/v20230401preview:Connector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connector, __self__).__init__(
             'azure-native:servicelinker:Connector',

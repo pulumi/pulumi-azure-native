@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
         /// <summary>
         /// The link to the next page of items
         /// </summary>
-        public readonly string? NextLink;
+        public readonly string NextLink;
         /// <summary>
         /// The DeviceGroup items on this page
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
 
         [OutputConstructor]
         private ListCatalogDeviceGroupsResult(
-            string? nextLink,
+            string nextLink,
 
             ImmutableArray<Outputs.DeviceGroupResponse> value)
         {

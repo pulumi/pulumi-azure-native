@@ -196,7 +196,7 @@ def get_update_summary(cluster_name: Optional[str] = None,
     Get all Update summaries under the HCI cluster
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
+    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -232,7 +232,7 @@ def get_update_summary_output(cluster_name: Optional[pulumi.Input[str]] = None,
     Get all Update summaries under the HCI cluster
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview.
+    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
 
 
     :param str cluster_name: The name of the cluster.

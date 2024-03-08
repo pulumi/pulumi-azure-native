@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// The storage container resource definition.
     /// Azure REST API version: 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:StorageContainer")]
     public partial class StorageContainer : global::Pulumi.CustomResource
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:StorageContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:StorageContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240101:StorageContainer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

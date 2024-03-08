@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets an incident task.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetIncidentTaskResult> InvokeAsync(GetIncidentTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentTaskResult>("azure-native:securityinsights:getIncidentTask", args ?? new GetIncidentTaskArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// Gets an incident task.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetIncidentTaskResult> Invoke(GetIncidentTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentTaskResult>("azure-native:securityinsights:getIncidentTask", args ?? new GetIncidentTaskInvokeArgs(), options.WithDefaults());

@@ -101,7 +101,7 @@ class GetActivityLogAlertResult:
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+        The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         """
         return pulumi.get(self, "location")
 

@@ -60,7 +60,7 @@ export interface ListCatalogDevicesResult {
     /**
      * The link to the next page of items
      */
-    readonly nextLink?: string;
+    readonly nextLink: string;
     /**
      * The Device items on this page
      */

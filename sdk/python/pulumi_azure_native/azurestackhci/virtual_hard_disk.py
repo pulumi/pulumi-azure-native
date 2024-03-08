@@ -240,7 +240,7 @@ class VirtualHardDisk(pulumi.CustomResource):
         The virtual hard disk resource definition.
         Azure REST API version: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,7 +265,7 @@ class VirtualHardDisk(pulumi.CustomResource):
         The virtual hard disk resource definition.
         Azure REST API version: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualHardDiskArgs args: The arguments to use to populate this resource's properties.
@@ -324,7 +324,7 @@ class VirtualHardDisk(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:VirtualHardDisk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:VirtualHardDisk"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:VirtualHardDisk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualHardDisk, __self__).__init__(
             'azure-native:azurestackhci:VirtualHardDisk',

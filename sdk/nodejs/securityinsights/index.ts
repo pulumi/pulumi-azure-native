@@ -350,10 +350,20 @@ export type IncidentTask = import("./incidentTask").IncidentTask;
 export const IncidentTask: typeof import("./incidentTask").IncidentTask = null as any;
 utilities.lazyLoad(exports, ["IncidentTask"], () => require("./incidentTask"));
 
+export { ListGeodataByIpArgs, ListGeodataByIpResult, ListGeodataByIpOutputArgs } from "./listGeodataByIp";
+export const listGeodataByIp: typeof import("./listGeodataByIp").listGeodataByIp = null as any;
+export const listGeodataByIpOutput: typeof import("./listGeodataByIp").listGeodataByIpOutput = null as any;
+utilities.lazyLoad(exports, ["listGeodataByIp","listGeodataByIpOutput"], () => require("./listGeodataByIp"));
+
 export { ListSourceControlRepositoriesArgs, ListSourceControlRepositoriesResult, ListSourceControlRepositoriesOutputArgs } from "./listSourceControlRepositories";
 export const listSourceControlRepositories: typeof import("./listSourceControlRepositories").listSourceControlRepositories = null as any;
 export const listSourceControlRepositoriesOutput: typeof import("./listSourceControlRepositories").listSourceControlRepositoriesOutput = null as any;
 utilities.lazyLoad(exports, ["listSourceControlRepositories","listSourceControlRepositoriesOutput"], () => require("./listSourceControlRepositories"));
+
+export { ListWhoisByDomainArgs, ListWhoisByDomainResult, ListWhoisByDomainOutputArgs } from "./listWhoisByDomain";
+export const listWhoisByDomain: typeof import("./listWhoisByDomain").listWhoisByDomain = null as any;
+export const listWhoisByDomainOutput: typeof import("./listWhoisByDomain").listWhoisByDomainOutput = null as any;
+utilities.lazyLoad(exports, ["listWhoisByDomain","listWhoisByDomainOutput"], () => require("./listWhoisByDomain"));
 
 export { MCASDataConnectorArgs } from "./mcasdataConnector";
 export type MCASDataConnector = import("./mcasdataConnector").MCASDataConnector;
@@ -472,6 +482,7 @@ import * as v20230901preview from "./v20230901preview";
 import * as v20231001preview from "./v20231001preview";
 import * as v20231101 from "./v20231101";
 import * as v20231201preview from "./v20231201preview";
+import * as v20240101preview from "./v20240101preview";
 
 export {
     v20190101preview,
@@ -501,6 +512,7 @@ export {
     v20231001preview,
     v20231101,
     v20231201preview,
+    v20240101preview,
 };
 
 const _module = {

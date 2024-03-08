@@ -5080,7 +5080,9 @@ class PrivateEndpointConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "groupId":
+        if key == "systemData":
+            suggest = "system_data"
+        elif key == "groupId":
             suggest = "group_id"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
@@ -5103,6 +5105,7 @@ class PrivateEndpointConnectionResponse(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  group_id: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
@@ -5110,8 +5113,9 @@ class PrivateEndpointConnectionResponse(dict):
                  provisioning_state: Optional[str] = None):
         """
         A private endpoint connection
-        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param str group_id: Group id of the private endpoint.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
@@ -5120,6 +5124,7 @@ class PrivateEndpointConnectionResponse(dict):
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -5134,7 +5139,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -5145,6 +5150,14 @@ class PrivateEndpointConnectionResponse(dict):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

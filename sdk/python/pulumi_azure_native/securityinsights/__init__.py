@@ -75,7 +75,9 @@ from .incident import *
 from .incident_comment import *
 from .incident_relation import *
 from .incident_task import *
+from .list_geodata_by_ip import *
 from .list_source_control_repositories import *
+from .list_whois_by_domain import *
 from .mcas_data_connector import *
 from .mdatp_data_connector import *
 from .metadata import *
@@ -152,6 +154,8 @@ if typing.TYPE_CHECKING:
     v20231101 = __v20231101
     import pulumi_azure_native.securityinsights.v20231201preview as __v20231201preview
     v20231201preview = __v20231201preview
+    import pulumi_azure_native.securityinsights.v20240101preview as __v20240101preview
+    v20240101preview = __v20240101preview
 else:
     v20190101preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20190101preview')
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20210301preview')
@@ -180,4 +184,5 @@ else:
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20231001preview')
     v20231101 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20231101')
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20231201preview')
+    v20240101preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20240101preview')
 

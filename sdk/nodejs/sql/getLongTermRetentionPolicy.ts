@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets a database's long term retention policy.
  * Azure REST API version: 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
  */
 export function getLongTermRetentionPolicy(args: GetLongTermRetentionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetLongTermRetentionPolicyResult> {
 
@@ -77,7 +77,7 @@ export interface GetLongTermRetentionPolicyResult {
  * Gets a database's long term retention policy.
  * Azure REST API version: 2021-11-01.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
  */
 export function getLongTermRetentionPolicyOutput(args: GetLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLongTermRetentionPolicyResult> {
     return pulumi.output(args).apply((a: any) => getLongTermRetentionPolicy(a, opts))
