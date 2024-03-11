@@ -975,6 +975,10 @@
     "ManageLink": "/subscriptions/{subscriptionId}/providers/Microsoft.EdgeOrderPartner/locations/{location}/productFamilies/{familyIdentifier}/inventories/{serialNumber}/manageLink",
     "SearchInventories": "/subscriptions/{subscriptionId}/providers/Microsoft.EdgeOrderPartner/searchInventories"
   },
+  "EdgeZones": {
+    "AzureExtendedZones_Register": "/subscriptions/{subscriptionId}/providers/Microsoft.EdgeZones/azureExtendedZones/{azureExtendedZoneName}/register",
+    "AzureExtendedZones_Unregister": "/subscriptions/{subscriptionId}/providers/Microsoft.EdgeZones/azureExtendedZones/{azureExtendedZoneName}/unregister"
+  },
   "Education": {
     "JoinRequests_Approve": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default/joinRequests/{joinRequestName}/approve",
     "JoinRequests_Deny": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default/joinRequests/{joinRequestName}/deny",

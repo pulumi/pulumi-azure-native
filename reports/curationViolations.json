@@ -136,6 +136,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "HanaOnAzure",
+    "Detail": "expected tracking preview but found stable"
+  },
+  {
     "Provider": "HealthcareApis",
     "Detail": "expected no additions but found some"
   },

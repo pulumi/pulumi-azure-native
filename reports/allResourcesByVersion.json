@@ -6764,6 +6764,13 @@
       "BackupVault",
       "DppResourceGuardProxy",
       "ResourceGuard"
+    ],
+    "2024-02-01-preview": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "DppResourceGuardProxy",
+      "ResourceGuard"
     ]
   },
   "DataReplication": {
@@ -8783,6 +8790,9 @@
   "EdgeOrderPartner": {
     "": []
   },
+  "EdgeZones": {
+    "": []
+  },
   "Education": {
     "2021-12-01-preview": [
       "Lab",
@@ -9621,10 +9631,7 @@
     ]
   },
   "HanaOnAzure": {
-    "": [],
-    "2017-11-03-preview": [
-      "HanaInstance"
-    ]
+    "": []
   },
   "HardwareSecurityModules": {
     "2018-10-31-preview": [

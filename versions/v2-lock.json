@@ -1007,6 +1007,7 @@
     "listProductsAndConfigurations": "2022-05-01-preview"
   },
   "EdgeOrderPartner": {},
+  "EdgeZones": {},
   "Education": {
     "Lab": "2021-12-01-preview",
     "Student": "2021-12-01-preview"
