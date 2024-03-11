@@ -248,6 +248,7 @@ jobs:
           set -euo pipefail
           cd examples && \
             go mod edit -replace github.com/pulumi/examples/misc/test=../p-examples/misc/test/ && \
+            go mod tidy && \
             go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
           
   test_provider:
