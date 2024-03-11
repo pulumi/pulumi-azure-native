@@ -6,8 +6,8 @@ require (
 	github.com/pulumi/examples/misc/test v0.0.0-20240224092907-9f1d92c3e166
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.28.0
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v2 v2.28.0
-	github.com/pulumi/pulumi/pkg/v3 v3.104.2
-	github.com/pulumi/pulumi/sdk/v3 v3.104.2
+	github.com/pulumi/pulumi/pkg/v3 v3.109.0
+	github.com/pulumi/pulumi/sdk/v3 v3.109.0
 	github.com/stretchr/testify v1.8.4
 )
 
