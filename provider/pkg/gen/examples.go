@@ -248,7 +248,7 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 		return nil, err
 	}
 
-	writeDebugHCL(programBody, example.Location)
+	writeDebugProgram("pp", programBody, example.Location)
 
 	debug.Log("Generating example programs for %s\n%s\n", example.Location, programBody)
 	parser := syntax.NewParser()
@@ -262,21 +262,22 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 			log.Printf("failed to write diagnostics: %v", err)
 		}
 	}
-	program, diags, err := hcl2.BindProgram(parser.Files, bindOptions...)
-	if err != nil {
-		return nil, fmt.Errorf("failed to bind program for example %s. %v", example.Location, err)
-	}
-	if diags.HasErrors() {
-		log.Print(programBody)
-		err := program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
-		if err != nil {
-			log.Printf("failed to write diagnostics: %v", err)
-		}
-	}
 
 	languageExample := languageToExampleProgram{}
 
 	for _, lang := range languages {
+		program, diags, err := hcl2.BindProgram(parser.Files, bindOptions...)
+		if err != nil {
+			return nil, fmt.Errorf("failed to bind program for example %s. %v", example.Location, err)
+		}
+		if diags.HasErrors() {
+			log.Print(programBody)
+			err := program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(diags)
+			if err != nil {
+				log.Printf("failed to write diagnostics: %v", err)
+			}
+		}
+
 		var files map[string][]byte
 
 		switch lang {
@@ -310,29 +311,46 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 		languageExample[language(lang)] = programText(buf.String())
 		debug.Log("Generated %s equivalent for %s", lang, example.Location)
 		debug.Log("%s", buf.String())
+		writeDebugProgram(lang, buf.String(), example.Location)
 	}
 
 	return languageExample, nil
 }
 
-// writeDebugHCL writes the given example program to DEBUG_CODEGEN_EXAMPLE_HCL/ as a .pp file if
-// the exampleLocation path matches the value of DEBUG_CODEGEN_EXAMPLE_HCL. Paths are from the
-// root of the provider repository. Wildcards are allowed.
+// writeDebugProgram writes the given example program to DEBUG_CODEGEN_EXAMPLE_<LANG>/ as a file if
+// the exampleLocation path matches the value of DEBUG_CODEGEN_EXAMPLE_<LANG>. Paths are from the
+// root of the provider repository. Wildcards are allowed. Set the path to '*' to write all examples.
 // Example: DEBUG_CODEGEN_EXAMPLE_HCL=azure-rest-api-specs/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2023-08-01/examples/ManagedClustersCreate_*
-func writeDebugHCL(programBody string, exampleLocation string) {
-	debugExamplesPath := os.Getenv("DEBUG_CODEGEN_EXAMPLE_HCL")
+func writeDebugProgram(lang, programBody, exampleLocation string) {
+	envVar := fmt.Sprintf("DEBUG_CODEGEN_EXAMPLE_%s", strings.ToUpper(lang))
+	debugExamplesPath := os.Getenv(envVar)
 	match, err := path.Match(debugExamplesPath, exampleLocation)
+	if debugExamplesPath == "*" {
+		match = true
+	}
 	if err != nil {
 		log.Printf("\nMalformed DEBUG_CODEGEN_EXAMPLE_HCL %s: %v", debugExamplesPath, err)
-	} else if match {
+		return
+	}
+
+	if match {
 		log.Printf("\nGenerated HCL for %s:\n%s\n", exampleLocation, programBody)
 
-		// Switch path from azure-rest-api-specs/specification/provider/... to reports/provider/...
+		// Switch path from azure-rest-api-specs/specification/provider/... to DEBUG_CODEGEN_EXAMPLE_HCL/provider/...
 		parts := strings.Split(exampleLocation, "/")
 		newParts := make([]string, len(parts))
-		newParts = append(newParts, "DEBUG_CODEGEN_EXAMPLE_HCL")
+		newParts = append(newParts, envVar)
 		newParts = append(newParts, parts[2:]...)
-		newParts[len(newParts)-1] = newParts[len(newParts)-1] + ".pp"
+		ext := lang
+		switch lang {
+		case "dotnet":
+			ext = "cs"
+		case "nodejs":
+			ext = "ts"
+		case "python":
+			ext = "py"
+		}
+		newParts[len(newParts)-1] = newParts[len(newParts)-1] + "." + ext
 		dest := filepath.Join(newParts...)
 		log.Printf("Writing example %s to %s", exampleLocation, dest)
 
