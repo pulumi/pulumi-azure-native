@@ -4,7 +4,6 @@ package customresources
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -17,17 +16,31 @@ import (
 // one of them. The result of this is that we generate a discriminated union which is so restricted that it can't be used
 // in practice.
 //
-// The override does three things:
+// The override does two things:
 // 1. Defines a new type DashboardPartMetadata with three properties: type, inputs, and settings. Inputs and settings are
 // loosely typed collections to allow for arbitrary JSON objects.
 // 2. Overrides the 'metadata' property type of the portal:DashboardParts type to be DashboardPartMetadata.
-// 3. Deletes the redundant type MarkdownPartMetadata that is the only concrete type defined in the specs, currently.
 //
 // The override effectively removes the discriminated union and replaces it with a single loosely-typed structure.
 // We override both input and output (Response) types.
 func portalDashboard() *CustomResource {
 	return &CustomResource{
-		Transformation: portalDashboardTransformation,
+		Types: map[string]schema.ComplexTypeSpec{
+			resources.BuildToken(PortalMod, "", MetadataType):            dashboardPartMetadataType(),
+			resources.BuildToken(PortalMod, "", MetadataType+"Response"): dashboardPartMetadataType(),
+		},
+		TypeOverrides: map[string]schema.ComplexTypeSpec{
+			resources.BuildToken(PortalMod, "", PartsType):            dashboardPartsType(""),
+			resources.BuildToken(PortalMod, "", PartsType+"Response"): dashboardPartsType("Response"),
+		},
+		MetaTypes: map[string]resources.AzureAPIType{
+			resources.BuildToken(PortalMod, "", MetadataType):            dashboardPartMetadataApiType(),
+			resources.BuildToken(PortalMod, "", MetadataType+"Response"): dashboardPartMetadataApiType(),
+		},
+		MetaTypeOverrides: map[string]resources.AzureAPIType{
+			resources.BuildToken(PortalMod, "", PartsType):            dashboardPartsApiType(""),
+			resources.BuildToken(PortalMod, "", PartsType+"Response"): dashboardPartsApiType("Response"),
+		},
 	}
 }
 
@@ -36,59 +49,45 @@ const PartsType = "DashboardParts"
 const MetadataType = "DashboardPartMetadata"
 const MarkdownMetadataType = "MarkdownPartMetadata"
 
-func portalDashboardTransformation(types map[string]schema.ComplexTypeSpec, metaTypes map[string]resources.AzureAPIType) {
-	// The list of existing type suffixes that need to be deleted for each redundant MarkdownPartMetadata type.
-	markdownSubTypes := []string{
-		"",
-		"Content",
-		"Settings",
-		"SettingsSettings",
-	}
-
-	for tok, typ := range types {
-		// Skip all types except for the portal:DashboardParts type.
-		mod, apiVersion, typeName, err := resources.ParseToken(tok)
-		if err != nil || mod != PortalMod || (typeName != PartsType && typeName != PartsType+"Response") {
-			continue
-		}
-
-		newTypeTok := resources.BuildToken(PortalMod, apiVersion, MetadataType)
-		redundantTypeTok := resources.BuildToken(PortalMod, apiVersion, MarkdownMetadataType)
-		if strings.HasSuffix(typeName, "Response") {
-			newTypeTok += "Response"
-			redundantTypeTok += "Response"
-		}
-
-		// Define the new type DashboardPartMetadata.
-		types[newTypeTok] = dashboardPartMetadataType()
-		metaTypes[newTypeTok] = dashboardPartMetadataApiType()
-
-		// Override the 'metadata' property reference to point to the newly defined DashboardPartMetadata.
-		newTypeRef := fmt.Sprintf("#/types/%s", newTypeTok)
-		typ.Properties["metadata"] = schema.PropertySpec{
-			Description: "The dashboard part's metadata.",
-			TypeSpec: schema.TypeSpec{
-				Type: "object",
-				Ref:  newTypeRef,
+func dashboardPartsType(suffix string) schema.ComplexTypeSpec {
+	return schema.ComplexTypeSpec{
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Description: "A dashboard part.",
+			Type:        "object",
+			Properties: map[string]schema.PropertySpec{
+				"metadata": {
+					TypeSpec: schema.TypeSpec{
+						Type: "object",
+						Ref:  fmt.Sprintf("#/types/azure-native:portal:DashboardPartMetadata%s", suffix),
+					},
+					Description: "The dashboard's part metadata.",
+				},
+				"position": {
+					TypeSpec: schema.TypeSpec{
+						Type: "object",
+						Ref:  fmt.Sprintf("#/types/azure-native:portal:DashboardParts%sPosition", suffix),
+					},
+					Description: "The dashboard's part position.",
+				},
 			},
-		}
-		types[tok] = typ
-		meta, ok := metaTypes[tok]
-		if !ok {
-			panic(fmt.Sprintf("metadata type %q not found", tok))
-		}
-		meta.Properties["metadata"] = resources.AzureAPIProperty{
-			Type: "object",
-			Ref:  newTypeRef,
-		}
-		metaTypes[tok] = meta
+			Required: []string{"position"},
+		},
+	}
+}
 
-		// Delete the redundant type MarkdownPartMetadata (the only specific type defined in Open API).
-		for _, subType := range markdownSubTypes {
-			markdownTypeTok := redundantTypeTok + subType
-			delete(types, markdownTypeTok)
-			delete(metaTypes, markdownTypeTok)
-		}
+func dashboardPartsApiType(suffix string) resources.AzureAPIType {
+	return resources.AzureAPIType{
+		Properties: map[string]resources.AzureAPIProperty{
+			"metadata": {
+				Type: "object",
+				Ref:  fmt.Sprintf("#/types/azure-native:portal:DashboardPartMetadata%s", suffix),
+			},
+			"position": {
+				Type: "object",
+				Ref:  fmt.Sprintf("#/types/azure-native:portal:DashboardParts%sPosition", suffix),
+			},
+		},
+		RequiredProperties: []string{"position"},
 	}
 }
 
