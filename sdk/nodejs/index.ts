@@ -112,7 +112,6 @@ import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
 import * as graphservices from "./graphservices";
 import * as guestconfiguration from "./guestconfiguration";
-import * as hanaonazure from "./hanaonazure";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
 import * as hdinsight from "./hdinsight";
 import * as healthbot from "./healthbot";
@@ -339,7 +338,6 @@ export {
     fluidrelay,
     graphservices,
     guestconfiguration,
-    hanaonazure,
     hardwaresecuritymodules,
     hdinsight,
     healthbot,

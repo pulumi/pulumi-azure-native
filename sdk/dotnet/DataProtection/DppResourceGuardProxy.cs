@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataProtection
     /// ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
     /// Azure REST API version: 2023-01-01.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01.
+    /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:DppResourceGuardProxy")]
     public partial class DppResourceGuardProxy : global::Pulumi.CustomResource
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.DataProtection
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230801preview:DppResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20231101:DppResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20231201:DppResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240201preview:DppResourceGuardProxy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

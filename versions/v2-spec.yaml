@@ -732,6 +732,7 @@ EdgeOrder:
         listConfigurations: "2021-12-01"
         listProductFamilies: "2021-12-01"
 EdgeOrderPartner: {}
+EdgeZones: {}
 Education:
     tracking: 2021-12-01-preview
 Elastic:
@@ -787,8 +788,7 @@ HDInsight:
     tracking: "2021-06-01"
     additions:
         ClusterPool: 2023-06-01-preview
-HanaOnAzure:
-    tracking: 2020-02-07-preview
+HanaOnAzure: {}
 HardwareSecurityModules:
     tracking: "2021-11-30"
     additions:

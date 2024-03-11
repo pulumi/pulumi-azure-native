@@ -209,8 +209,6 @@ if typing.TYPE_CHECKING:
     graphservices = __graphservices
     import pulumi_azure_native.guestconfiguration as __guestconfiguration
     guestconfiguration = __guestconfiguration
-    import pulumi_azure_native.hanaonazure as __hanaonazure
-    hanaonazure = __hanaonazure
     import pulumi_azure_native.hardwaresecuritymodules as __hardwaresecuritymodules
     hardwaresecuritymodules = __hardwaresecuritymodules
     import pulumi_azure_native.hdinsight as __hdinsight
@@ -558,7 +556,6 @@ else:
     fluidrelay = _utilities.lazy_import('pulumi_azure_native.fluidrelay')
     graphservices = _utilities.lazy_import('pulumi_azure_native.graphservices')
     guestconfiguration = _utilities.lazy_import('pulumi_azure_native.guestconfiguration')
-    hanaonazure = _utilities.lazy_import('pulumi_azure_native.hanaonazure')
     hardwaresecuritymodules = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules')
     hdinsight = _utilities.lazy_import('pulumi_azure_native.hdinsight')
     healthbot = _utilities.lazy_import('pulumi_azure_native.healthbot')
@@ -5357,6 +5354,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dataprotection/v20240201preview",
+  "fqn": "pulumi_azure_native.dataprotection.v20240201preview",
+  "classes": {
+   "azure-native:dataprotection/v20240201preview:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20240201preview:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20240201preview:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20240201preview:DppResourceGuardProxy": "DppResourceGuardProxy",
+   "azure-native:dataprotection/v20240201preview:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datareplication",
   "fqn": "pulumi_azure_native.datareplication",
   "classes": {
@@ -7262,14 +7271,6 @@ _utilities.register(
    "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS": "GuestConfigurationAssignmentsVMSS",
    "azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment": "GuestConfigurationConnectedVMwarevSphereAssignment",
    "azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment": "GuestConfigurationHCRPAssignment"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "hanaonazure/v20171103preview",
-  "fqn": "pulumi_azure_native.hanaonazure.v20171103preview",
-  "classes": {
-   "azure-native:hanaonazure/v20171103preview:HanaInstance": "HanaInstance"
   }
  },
  {
