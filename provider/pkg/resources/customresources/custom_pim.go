@@ -189,15 +189,8 @@ func pimRoleEligibilityScheduleInstance() *CustomResource {
 	return &CustomResource{
 		path: "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/{roleEligibilityScheduleInstanceName}",
 
-		CanCreate: func(ctx context.Context, id string) error {
-			// List for scope with filter for principalId
-			// If exists: error
-			return nil
-		},
-
 		Create: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, error) {
-			// Scoped RoleEligibilityScheduleRequest with new GUID
-			// Submit
+			// Submit scoped RoleEligibilityScheduleRequest with new GUID
 			// Check for OData.Error.Code != "SubjectNotFound"
 			// Poll schedules "list for scope" with filter assignedTo=principalId until
 			//   item.Properties.RoleDefinitionId == roleDefinitionId && *item.Properties.MemberType == roleeligibilityschedules.MemberTypeDirect

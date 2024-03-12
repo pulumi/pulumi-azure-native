@@ -125,6 +125,11 @@ export const getRoleDefinition: typeof import("./getRoleDefinition").getRoleDefi
 export const getRoleDefinitionOutput: typeof import("./getRoleDefinition").getRoleDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getRoleDefinition","getRoleDefinitionOutput"], () => require("./getRoleDefinition"));
 
+export { GetRoleEligibilityScheduleInstanceArgs, GetRoleEligibilityScheduleInstanceResult, GetRoleEligibilityScheduleInstanceOutputArgs } from "./getRoleEligibilityScheduleInstance";
+export const getRoleEligibilityScheduleInstance: typeof import("./getRoleEligibilityScheduleInstance").getRoleEligibilityScheduleInstance = null as any;
+export const getRoleEligibilityScheduleInstanceOutput: typeof import("./getRoleEligibilityScheduleInstance").getRoleEligibilityScheduleInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleEligibilityScheduleInstance","getRoleEligibilityScheduleInstanceOutput"], () => require("./getRoleEligibilityScheduleInstance"));
+
 export { GetRoleManagementPolicyArgs, GetRoleManagementPolicyResult, GetRoleManagementPolicyOutputArgs } from "./getRoleManagementPolicy";
 export const getRoleManagementPolicy: typeof import("./getRoleManagementPolicy").getRoleManagementPolicy = null as any;
 export const getRoleManagementPolicyOutput: typeof import("./getRoleManagementPolicy").getRoleManagementPolicyOutput = null as any;
@@ -285,6 +290,11 @@ export type RoleDefinition = import("./roleDefinition").RoleDefinition;
 export const RoleDefinition: typeof import("./roleDefinition").RoleDefinition = null as any;
 utilities.lazyLoad(exports, ["RoleDefinition"], () => require("./roleDefinition"));
 
+export { RoleEligibilityScheduleInstanceArgs } from "./roleEligibilityScheduleInstance";
+export type RoleEligibilityScheduleInstance = import("./roleEligibilityScheduleInstance").RoleEligibilityScheduleInstance;
+export const RoleEligibilityScheduleInstance: typeof import("./roleEligibilityScheduleInstance").RoleEligibilityScheduleInstance = null as any;
+utilities.lazyLoad(exports, ["RoleEligibilityScheduleInstance"], () => require("./roleEligibilityScheduleInstance"));
+
 export { RoleManagementPolicyArgs } from "./roleManagementPolicy";
 export type RoleManagementPolicy = import("./roleManagementPolicy").RoleManagementPolicy;
 export const RoleManagementPolicy: typeof import("./roleManagementPolicy").RoleManagementPolicy = null as any;
@@ -412,6 +422,8 @@ const _module = {
                 return new RoleAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleDefinition":
                 return new RoleDefinition(name, <any>undefined, { urn })
+            case "azure-native:authorization:RoleEligibilityScheduleInstance":
+                return new RoleEligibilityScheduleInstance(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicy":
                 return new RoleManagementPolicy(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicyAssignment":

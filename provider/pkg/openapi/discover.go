@@ -633,6 +633,31 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 		}
 	}
 
+	// if !foundResourceOrInvoke && path == "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/{roleEligibilityScheduleInstanceName}" {
+	// 	typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
+	// 	recordDisambiguation(disambiguation)
+
+	// 	requestSpec, err := NewSpec(filepath.Join("azure-rest-api-specs", filepath.Dir(fileLocation), "RoleEligibilityScheduleRequest.json"))
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
+	// 	// request, ok := requestSpec.Paths.Paths["/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/{roleEligibilityScheduleRequestName}"]
+	// 	// if ok {
+	// 	// pathItem.Put = request.Put
+	// 	for k, v := range requestSpec.Definitions {
+	// 		swagger.Definitions[k] = v
+	// 	}
+	// 	// requestSpec.swagger.SwaggerProps.
+
+	// 	version.Resources[typeName] = &ResourceSpec{
+	// 		Path:     path,
+	// 		PathItem: &pathItem,
+	// 		Swagger:  swagger,
+	// 	}
+	// 	foundResourceOrInvoke = true
+	// 	// }
+	// }
+
 	// Finally, check for resources that don't match our standard criteria but have a custom implementation.
 	// We could get rid of the requirement for a GET operation by extending custom resources to provide their own resource name.
 	if !foundResourceOrInvoke && customresources.IsCustomResource(path) && pathItem.Get != nil && !pathItem.Get.Deprecated {

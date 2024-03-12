@@ -2400,11 +2400,13 @@
       "PolicySetDefinitionAtManagementGroup"
     ],
     "2020-10-01": [
+      "RoleEligibilityScheduleInstance",
       "RoleManagementPolicy",
       "RoleManagementPolicyAssignment"
     ],
     "2020-10-01-preview": [
       "RoleAssignment",
+      "RoleEligibilityScheduleInstance",
       "RoleManagementPolicy",
       "RoleManagementPolicyAssignment"
     ],

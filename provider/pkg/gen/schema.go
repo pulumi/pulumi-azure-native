@@ -574,6 +574,19 @@ const (
 	extensionParameterLocation  = "x-ms-parameter-location"
 )
 
+func updateOp(resource *openapi.ResourceSpec) (*spec.Operation, string) {
+	updateOp := resource.PathItem.Put
+	updateMethod := ""
+	if resource.PathItem.Put == nil {
+		updateOp = resource.PathItem.Patch
+		updateMethod = "PATCH"
+	}
+	if updateOp == nil && resource.Path == "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/{roleEligibilityScheduleInstanceName}" {
+		updateOp = resource.PathItem.Get
+	}
+	return updateOp, updateMethod
+}
+
 type packageGenerator struct {
 	pkg                *pschema.PackageSpec
 	metadata           *resources.AzureAPIMetadata
@@ -645,10 +658,7 @@ type resourceVariant struct {
 // findResourceVariants searches for discriminated unions in the resource's API specs and returns
 // a list of those variants. An empty list is returned for non-discriminated types.
 func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) ([]*resourceVariant, error) {
-	updateOp := resource.PathItem.Put
-	if resource.PathItem.Put == nil {
-		updateOp = resource.PathItem.Patch
-	}
+	updateOp, _ := updateOp(resource)
 
 	// Check if the body schema has a discriminator, return otherwise.
 	bodySchema, err := getRequestBodySchema(resource.Swagger.ReferenceContext, updateOp.Parameters)
@@ -749,12 +759,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		allEndpoints:               g.allEndpoints,
 	}
 
-	updateOp := path.Put
-	updateMethod := ""
-	if path.Put == nil {
-		updateOp = path.Patch
-		updateMethod = "PATCH"
-	}
+	updateOp, updateMethod := updateOp(apiSpec)
 
 	resourceResponse, err := gen.genResponse(updateOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
 	if err != nil {
@@ -877,6 +882,45 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	requiredContainers := mergeRequiredContainers(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok))
 
+	if resourceTok == "azure-native:authorization:RoleEligibilityScheduleInstance" {
+		fileLocation := "/Users/tkappler/pulumi/pulumi-azure-native/azure-rest-api-specs/specification/authorization/resource-manager/Microsoft.Authorization/stable/2020-10-01/RoleEligibilityScheduleRequest.json"
+		requestPSpec, err := openapi.NewSpec(fileLocation)
+		if err != nil {
+			return err
+		}
+
+		for requestTypeName, requestTypeDef := range requestPSpec.Definitions {
+			resolvedRequest, err := requestPSpec.ResolveSchema(&requestTypeDef)
+			if err != nil {
+				return err
+			}
+
+			reqProps, err := gen.genProperties(resolvedRequest, false, true /* isType */)
+			if err != nil {
+				return err
+			}
+
+			reqSpec := pschema.ComplexTypeSpec{
+				ObjectTypeSpec: pschema.ObjectTypeSpec{
+					Description: requestTypeDef.Description,
+					Type:        "object",
+					Properties:  reqProps.specs,
+					Required:    reqProps.requiredSpecs.SortedValues(),
+				},
+			}
+			// requestSpec, err := gen.genTypeSpec("foo", &requestDef, reqContext, false /* isOutput */)
+			// if err != nil {
+			// 	return err
+			// }
+			typeTok := typeToken(g.pkg.Name, module, requestTypeName)
+			g.pkg.Types[typeTok] = reqSpec
+			g.metadata.Types[typeTok] = resources.AzureAPIType{
+				Properties:         reqProps.properties,
+				RequiredProperties: reqProps.requiredProperties.SortedValues(),
+			}
+		}
+	}
+
 	r := resources.AzureAPIResource{
 		APIVersion:           swagger.Info.Version,
 		Path:                 resource.Path,
@@ -928,7 +972,13 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 	if path.Put == nil {
 		op = path.Patch
 	}
+	if op == nil {
+		return nil
+	}
 
+	if op.Extensions == nil {
+		return nil
+	}
 	raw, ok := op.Extensions["x-ms-examples"]
 	if !ok {
 		return nil
@@ -978,6 +1028,10 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 	return nil
 }
 
+func typeToken(pkgName, module, typeName string) string {
+	return fmt.Sprintf(`%s:%s:%s`, pkgName, module, typeName)
+}
+
 // genFunctions defines functions for list* (listKeys, listSecrets, etc.)
 // and get* (getFullUrl, getBastionShareableLink, etc.) POST and GET endpoints.
 func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec.Parameter, operation *spec.Operation, swagger *openapi.Spec) {
@@ -986,7 +1040,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 		pkg:                        g.pkg,
 		metadata:                   g.metadata,
 		module:                     module,
-		resourceToken:              fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
+		resourceToken:              typeToken(g.pkg.Name, module, typeName),
 		prov:                       g.provider,
 		resourceName:               typeName,
 		visitedTypes:               make(map[string]bool),

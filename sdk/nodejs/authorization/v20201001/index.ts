@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetRoleEligibilityScheduleInstanceArgs, GetRoleEligibilityScheduleInstanceResult, GetRoleEligibilityScheduleInstanceOutputArgs } from "./getRoleEligibilityScheduleInstance";
+export const getRoleEligibilityScheduleInstance: typeof import("./getRoleEligibilityScheduleInstance").getRoleEligibilityScheduleInstance = null as any;
+export const getRoleEligibilityScheduleInstanceOutput: typeof import("./getRoleEligibilityScheduleInstance").getRoleEligibilityScheduleInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleEligibilityScheduleInstance","getRoleEligibilityScheduleInstanceOutput"], () => require("./getRoleEligibilityScheduleInstance"));
+
 export { GetRoleManagementPolicyArgs, GetRoleManagementPolicyResult, GetRoleManagementPolicyOutputArgs } from "./getRoleManagementPolicy";
 export const getRoleManagementPolicy: typeof import("./getRoleManagementPolicy").getRoleManagementPolicy = null as any;
 export const getRoleManagementPolicyOutput: typeof import("./getRoleManagementPolicy").getRoleManagementPolicyOutput = null as any;
@@ -14,6 +19,11 @@ export { GetRoleManagementPolicyAssignmentArgs, GetRoleManagementPolicyAssignmen
 export const getRoleManagementPolicyAssignment: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignment = null as any;
 export const getRoleManagementPolicyAssignmentOutput: typeof import("./getRoleManagementPolicyAssignment").getRoleManagementPolicyAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getRoleManagementPolicyAssignment","getRoleManagementPolicyAssignmentOutput"], () => require("./getRoleManagementPolicyAssignment"));
+
+export { RoleEligibilityScheduleInstanceArgs } from "./roleEligibilityScheduleInstance";
+export type RoleEligibilityScheduleInstance = import("./roleEligibilityScheduleInstance").RoleEligibilityScheduleInstance;
+export const RoleEligibilityScheduleInstance: typeof import("./roleEligibilityScheduleInstance").RoleEligibilityScheduleInstance = null as any;
+utilities.lazyLoad(exports, ["RoleEligibilityScheduleInstance"], () => require("./roleEligibilityScheduleInstance"));
 
 export { RoleManagementPolicyArgs } from "./roleManagementPolicy";
 export type RoleManagementPolicy = import("./roleManagementPolicy").RoleManagementPolicy;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:authorization/v20201001:RoleEligibilityScheduleInstance":
+                return new RoleEligibilityScheduleInstance(name, <any>undefined, { urn })
             case "azure-native:authorization/v20201001:RoleManagementPolicy":
                 return new RoleManagementPolicy(name, <any>undefined, { urn })
             case "azure-native:authorization/v20201001:RoleManagementPolicyAssignment":
