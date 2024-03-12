@@ -9814,6 +9814,16 @@
       "Service",
       "Workspace",
       "WorkspacePrivateEndpointConnection"
+    ],
+    "2024-03-31": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
     ]
   },
   "Help": {
