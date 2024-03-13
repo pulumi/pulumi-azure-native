@@ -34,7 +34,7 @@ require (
 	github.com/tombuildsstuff/giovanni v0.15.1
 	github.com/zclconf/go-cty v1.13.2
 	google.golang.org/grpc v1.59.0
-	google.golang.org/protobuf v1.31.0
+	google.golang.org/protobuf v1.33.0
 	gopkg.in/yaml.v3 v3.0.1
 	modernc.org/sqlite v1.10.0
 	pgregory.net/rapid v1.1.0
