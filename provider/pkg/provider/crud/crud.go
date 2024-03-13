@@ -74,6 +74,7 @@ type ResourceCrudClient interface {
 	ResourceCrudOperations
 	AzureRESTConverter
 	SubresourceMaintainer
+	ApiVersion() string
 }
 
 type resourceCrudClient struct {
@@ -102,6 +103,10 @@ func NewResourceCrudClient(
 }
 
 type ResourceCrudClientFactory func(res *resources.AzureAPIResource) ResourceCrudClient
+
+func (r *resourceCrudClient) ApiVersion() string {
+	return r.res.APIVersion
+}
 
 func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {
 	return PrepareAzureRESTIdAndQuery(r.res.Path, r.res.PutParameters, inputs.Mappable(), map[string]any{
