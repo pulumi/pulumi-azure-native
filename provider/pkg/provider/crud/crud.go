@@ -80,6 +80,7 @@ type ResourceCrudClient interface {
 	ResourceCrudOperations
 	AzureRESTConverter
 	SubresourceMaintainer
+	ApiVersion() string
 }
 
 type resourceCrudClient struct {
@@ -109,6 +110,10 @@ func NewResourceCrudClient(
 		subscriptionID: subscriptionID,
 		res:            res,
 	}
+}
+
+func (r *resourceCrudClient) ApiVersion() string {
+	return r.res.APIVersion
 }
 
 func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {
