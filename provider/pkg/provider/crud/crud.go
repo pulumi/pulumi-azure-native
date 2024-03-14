@@ -22,7 +22,7 @@ import (
 // AzureRESTConverter is an interface for preparing Azure inputs from Pulumi data and for converting from Azure outputs to Pulumi SDK shape.
 // It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
 type AzureRESTConverter interface {
-	PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any)
+	PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error)
 	PrepareAzureRESTBody(id string, inputs resource.PropertyMap) map[string]any
 
 	ResponseBodyToSdkOutputs(response map[string]any) map[string]any
@@ -99,7 +99,7 @@ func NewResourceCrudClient(
 	}
 }
 
-func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any) {
+func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {
 	return PrepareAzureRESTIdAndQuery(r.res.Path, r.res.PutParameters, inputs.Mappable(), map[string]any{
 		"subscriptionId": r.subscriptionID,
 		"api-version":    r.res.APIVersion,
@@ -110,7 +110,7 @@ func (r *resourceCrudClient) PrepareAzureRESTBody(id string, inputs resource.Pro
 	return PrepareAzureRESTBody(id, r.res.PutParameters, r.res.RequiredContainers, inputs.Mappable(), r.converter)
 }
 
-func PrepareAzureRESTIdAndQuery(path string, parameters []resources.AzureAPIParameter, methodInputs, clientInputs map[string]any) (string, map[string]any) {
+func PrepareAzureRESTIdAndQuery(path string, parameters []resources.AzureAPIParameter, methodInputs, clientInputs map[string]any) (string, map[string]any, error) {
 	params := map[string]map[string]interface{}{
 		"query": {
 			"api-version": clientInputs["api-version"],
@@ -142,11 +142,15 @@ func PrepareAzureRESTIdAndQuery(path string, parameters []resources.AzureAPIPara
 	// Calculate resource ID based on path parameter values.
 	id := path
 	for key, value := range params["path"] {
-		encodedVal := strings.Replace(url.QueryEscape(value.(string)), "+", "%20", -1)
+		strVal, isString := value.(string)
+		if !isString {
+			return "", nil, errors.Errorf("expected string value for path parameter '%s', got %T", key, value)
+		}
+		encodedVal := strings.Replace(url.QueryEscape(strVal), "+", "%20", -1)
 		id = strings.Replace(id, "{"+key+"}", encodedVal, -1)
 	}
 
-	return id, params["query"]
+	return id, params["query"], nil
 }
 
 func PrepareAzureRESTBody(id string, parameters []resources.AzureAPIParameter, requiredContainers [][]string,

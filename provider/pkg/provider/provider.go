@@ -326,7 +326,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		}
 
 		// Construct ARM REST API path from args.
-		id, query := crud.PrepareAzureRESTIdAndQuery(
+		id, query, err := crud.PrepareAzureRESTIdAndQuery(
 			res.Path,
 			parameters,
 			args.Mappable(),
@@ -335,6 +335,9 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 				"api-version":    res.APIVersion,
 			},
 		)
+		if err != nil {
+			return nil, err
+		}
 		body := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), k.converter)
 
 		var response map[string]interface{}
@@ -859,7 +862,10 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
-	id, queryParams := crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	id, queryParams, err := crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	if err != nil {
+		return nil, err
+	}
 
 	ctx, cancel := azureContext(ctx, req.Timeout)
 	defer cancel()
@@ -1275,7 +1281,10 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 
 	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
-	id, queryParams := crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	id, queryParams, err := crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	if err != nil {
+		return nil, err
+	}
 
 	var outputs map[string]interface{}
 	customRes, isCustom := k.customResources[res.Path]
