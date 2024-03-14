@@ -1691,6 +1691,13 @@
       "PrivateEndpointConnection",
       "Replica",
       "listConfigurationStoreKeys"
+    ],
+    "2023-09-01-preview": [
+      "ConfigurationStore",
+      "KeyValue",
+      "PrivateEndpointConnection",
+      "Replica",
+      "listConfigurationStoreKeys"
     ]
   },
   "AppPlatform": {
@@ -3589,6 +3596,24 @@
       "CustomDomain",
       "Endpoint",
       "KeyGroup",
+      "Origin",
+      "OriginGroup",
+      "Policy",
+      "Profile",
+      "Route",
+      "Rule",
+      "RuleSet",
+      "Secret",
+      "SecurityPolicy",
+      "getProfileSupportedOptimizationTypes"
+    ],
+    "2024-02-01": [
+      "AFDCustomDomain",
+      "AFDEndpoint",
+      "AFDOrigin",
+      "AFDOriginGroup",
+      "CustomDomain",
+      "Endpoint",
       "Origin",
       "OriginGroup",
       "Policy",
@@ -7168,6 +7193,19 @@
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
       "Workspace"
+    ],
+    "2024-03-06-preview": [
+      "AppAttachPackage",
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
     ]
   },
   "DevCenter": {
@@ -9806,6 +9844,16 @@
       "WorkspacePrivateEndpointConnection"
     ],
     "2024-03-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
+    ],
+    "2024-03-31": [
       "DicomService",
       "FhirService",
       "IotConnector",
@@ -16293,6 +16341,9 @@
       "listNetworkManagerDeploymentStatus",
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
+    ],
+    "2024-02-01": [
+      "Policy"
     ]
   },
   "NetworkAnalytics": {
@@ -17996,6 +18047,10 @@
     ],
     "2023-11-15": [
       "APICollectionByAzureApiManagementService"
+    ],
+    "2023-12-01-preview": [
+      "Automation",
+      "SecurityContact"
     ],
     "2024-01-01": [
       "Pricing"
