@@ -73,6 +73,10 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.orbital.ContactProfilesPropertiesResponseNetworkConfiguration>;
     /**
+     * The current state of the resource's creation, deletion, or modification.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<outputs.orbital.ContactProfilesPropertiesResponseProvisioningState | undefined>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.SystemDataResponse>;
@@ -121,6 +125,7 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thirdPartyConfigurations"] = args ? args.thirdPartyConfigurations : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -132,6 +137,7 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["minimumViableContactDuration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["thirdPartyConfigurations"] = undefined /*out*/;

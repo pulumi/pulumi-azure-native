@@ -73,6 +73,10 @@ export class Contact extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The current state of the resource's creation, deletion, or modification.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<outputs.orbital.ContactsPropertiesResponseProvisioningState | undefined>;
+    /**
      * Reservation end time of a contact (ISO 8601 UTC standard).
      */
     public readonly reservationEndTime!: pulumi.Output<string>;
@@ -159,6 +163,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["maximumElevationDegrees"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["rxEndTime"] = undefined /*out*/;
             resourceInputs["rxStartTime"] = undefined /*out*/;
             resourceInputs["startAzimuthDegrees"] = undefined /*out*/;
@@ -177,6 +182,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["groundStationName"] = undefined /*out*/;
             resourceInputs["maximumElevationDegrees"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reservationEndTime"] = undefined /*out*/;
             resourceInputs["reservationStartTime"] = undefined /*out*/;
             resourceInputs["rxEndTime"] = undefined /*out*/;

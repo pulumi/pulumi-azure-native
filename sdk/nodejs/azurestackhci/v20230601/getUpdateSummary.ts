@@ -34,6 +34,7 @@ export interface GetUpdateSummaryArgs {
  * Get the update summaries for the cluster
  */
 export interface GetUpdateSummaryResult {
+    readonly HealthState?: string;
     /**
      * Current Solution Bundle version of the stamp.
      */

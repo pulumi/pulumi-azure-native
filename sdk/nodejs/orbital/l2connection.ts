@@ -61,6 +61,10 @@ export class L2Connection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The current state of the resource's creation, deletion, or modification.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<outputs.orbital.L2ConnectionsPropertiesResponseProvisioningState>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.SystemDataResponse>;
@@ -112,6 +116,7 @@ export class L2Connection extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vlanId"] = args ? args.vlanId : undefined;
             resourceInputs["circuitId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -120,6 +125,7 @@ export class L2Connection extends pulumi.CustomResource {
             resourceInputs["groundStation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

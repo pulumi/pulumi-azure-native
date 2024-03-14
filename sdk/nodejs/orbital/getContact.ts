@@ -79,6 +79,10 @@ export interface GetContactResult {
      */
     readonly name: string;
     /**
+     * The current state of the resource's creation, deletion, or modification.
+     */
+    readonly provisioningState?: outputs.orbital.ContactsPropertiesResponseProvisioningState;
+    /**
      * Reservation end time of a contact (ISO 8601 UTC standard).
      */
     readonly reservationEndTime: string;

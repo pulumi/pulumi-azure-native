@@ -75,6 +75,10 @@ export interface GetContactProfileResult {
      */
     readonly networkConfiguration: outputs.orbital.v20220301.ContactProfilesPropertiesResponseNetworkConfiguration;
     /**
+     * The current state of the resource's creation, deletion, or modification.
+     */
+    readonly provisioningState?: outputs.orbital.v20220301.ContactProfilesPropertiesResponseProvisioningState;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.orbital.v20220301.SystemDataResponse;

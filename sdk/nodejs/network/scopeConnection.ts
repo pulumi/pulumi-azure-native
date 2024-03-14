@@ -40,6 +40,7 @@ export class ScopeConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScopeConnection.__pulumiType;
     }
 
+    public /*out*/ readonly ConnectionState!: pulumi.Output<string | undefined>;
     /**
      * A description of the scope connection.
      */
@@ -92,11 +93,13 @@ export class ScopeConnection extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["scopeConnectionName"] = args ? args.scopeConnectionName : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["ConnectionState"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["ConnectionState"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

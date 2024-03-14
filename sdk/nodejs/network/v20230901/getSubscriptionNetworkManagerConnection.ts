@@ -29,6 +29,7 @@ export interface GetSubscriptionNetworkManagerConnectionArgs {
  * The Network Manager Connection resource
  */
 export interface GetSubscriptionNetworkManagerConnectionResult {
+    readonly ConnectionState?: string;
     /**
      * A description of the network manager connection.
      */

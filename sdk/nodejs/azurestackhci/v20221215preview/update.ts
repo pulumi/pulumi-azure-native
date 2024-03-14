@@ -37,6 +37,8 @@ export class Update extends pulumi.CustomResource {
         return obj['__pulumiType'] === Update.__pulumiType;
     }
 
+    public /*out*/ readonly HealthState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly RebootRequirement!: pulumi.Output<string | undefined>;
     /**
      * Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.
      */
@@ -189,11 +191,15 @@ export class Update extends pulumi.CustomResource {
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["updateName"] = args ? args.updateName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["HealthState"] = undefined /*out*/;
+            resourceInputs["RebootRequirement"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["HealthState"] = undefined /*out*/;
+            resourceInputs["RebootRequirement"] = undefined /*out*/;
             resourceInputs["additionalProperties"] = undefined /*out*/;
             resourceInputs["availabilityType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;

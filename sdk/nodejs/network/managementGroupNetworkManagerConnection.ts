@@ -40,6 +40,7 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
         return obj['__pulumiType'] === ManagementGroupNetworkManagerConnection.__pulumiType;
     }
 
+    public /*out*/ readonly ConnectionState!: pulumi.Output<string | undefined>;
     /**
      * A description of the network manager connection.
      */
@@ -83,11 +84,13 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
             resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             resourceInputs["networkManagerConnectionName"] = args ? args.networkManagerConnectionName : undefined;
             resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["ConnectionState"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["ConnectionState"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

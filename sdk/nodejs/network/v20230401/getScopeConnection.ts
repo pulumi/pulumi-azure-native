@@ -39,6 +39,7 @@ export interface GetScopeConnectionArgs {
  * The Scope Connections resource
  */
 export interface GetScopeConnectionResult {
+    readonly ConnectionState?: string;
     /**
      * A description of the scope connection.
      */
