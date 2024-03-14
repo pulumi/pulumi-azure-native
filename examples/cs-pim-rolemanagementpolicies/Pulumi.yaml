@@ -1,0 +1,7 @@
+name: cs-pim-rolemanagementpolicies
+runtime: dotnet
+description: A small C# Pulumi program demonstrating the use of PIM Role Management Policies
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: ""
