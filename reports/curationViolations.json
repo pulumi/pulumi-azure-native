@@ -48,6 +48,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "CodeSigning",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "CognitiveServices",
     "Detail": "expected no additions but found some"
   },
