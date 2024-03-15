@@ -37,7 +37,6 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === IotConnectorFhirDestination.__pulumiType;
     }
 
-    public /*out*/ readonly ProvisioningState!: pulumi.Output<string | undefined>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -108,13 +107,11 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceIdentityResolutionType"] = args ? args.resourceIdentityResolutionType : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["ProvisioningState"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["ProvisioningState"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fhirMapping"] = undefined /*out*/;
             resourceInputs["fhirServiceResourceId"] = undefined /*out*/;

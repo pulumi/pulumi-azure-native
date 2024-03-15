@@ -39,8 +39,6 @@ export interface GetUpdateArgs {
  * Update details
  */
 export interface GetUpdateResult {
-    readonly HealthState?: string;
-    readonly RebootRequirement?: string;
     /**
      * Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.
      */

@@ -750,7 +750,7 @@ export const getVirtualNetworkGatewayConnection: typeof import("./getVirtualNetw
 export const getVirtualNetworkGatewayConnectionOutput: typeof import("./getVirtualNetworkGatewayConnection").getVirtualNetworkGatewayConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayConnection","getVirtualNetworkGatewayConnectionOutput"], () => require("./getVirtualNetworkGatewayConnection"));
 
-export { GetVirtualNetworkGatewayConnectionIkeSasArgs, GetVirtualNetworkGatewayConnectionIkeSasResult, GetVirtualNetworkGatewayConnectionIkeSasOutputArgs } from "./getVirtualNetworkGatewayConnectionIkeSas";
+export { GetVirtualNetworkGatewayConnectionIkeSasArgs, GetVirtualNetworkGatewayConnectionIkeSasOutputArgs } from "./getVirtualNetworkGatewayConnectionIkeSas";
 export const getVirtualNetworkGatewayConnectionIkeSas: typeof import("./getVirtualNetworkGatewayConnectionIkeSas").getVirtualNetworkGatewayConnectionIkeSas = null as any;
 export const getVirtualNetworkGatewayConnectionIkeSasOutput: typeof import("./getVirtualNetworkGatewayConnectionIkeSas").getVirtualNetworkGatewayConnectionIkeSasOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayConnectionIkeSas","getVirtualNetworkGatewayConnectionIkeSasOutput"], () => require("./getVirtualNetworkGatewayConnectionIkeSas"));
@@ -765,7 +765,7 @@ export const getVirtualNetworkGatewayNatRule: typeof import("./getVirtualNetwork
 export const getVirtualNetworkGatewayNatRuleOutput: typeof import("./getVirtualNetworkGatewayNatRule").getVirtualNetworkGatewayNatRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayNatRule","getVirtualNetworkGatewayNatRuleOutput"], () => require("./getVirtualNetworkGatewayNatRule"));
 
-export { GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, GetVirtualNetworkGatewayVpnProfilePackageUrlResult, GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs } from "./getVirtualNetworkGatewayVpnProfilePackageUrl";
+export { GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs } from "./getVirtualNetworkGatewayVpnProfilePackageUrl";
 export const getVirtualNetworkGatewayVpnProfilePackageUrl: typeof import("./getVirtualNetworkGatewayVpnProfilePackageUrl").getVirtualNetworkGatewayVpnProfilePackageUrl = null as any;
 export const getVirtualNetworkGatewayVpnProfilePackageUrlOutput: typeof import("./getVirtualNetworkGatewayVpnProfilePackageUrl").getVirtualNetworkGatewayVpnProfilePackageUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnProfilePackageUrl","getVirtualNetworkGatewayVpnProfilePackageUrlOutput"], () => require("./getVirtualNetworkGatewayVpnProfilePackageUrl"));
@@ -820,7 +820,7 @@ export const getVpnGateway: typeof import("./getVpnGateway").getVpnGateway = nul
 export const getVpnGatewayOutput: typeof import("./getVpnGateway").getVpnGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getVpnGateway","getVpnGatewayOutput"], () => require("./getVpnGateway"));
 
-export { GetVpnLinkConnectionIkeSasArgs, GetVpnLinkConnectionIkeSasResult, GetVpnLinkConnectionIkeSasOutputArgs } from "./getVpnLinkConnectionIkeSas";
+export { GetVpnLinkConnectionIkeSasArgs, GetVpnLinkConnectionIkeSasOutputArgs } from "./getVpnLinkConnectionIkeSas";
 export const getVpnLinkConnectionIkeSas: typeof import("./getVpnLinkConnectionIkeSas").getVpnLinkConnectionIkeSas = null as any;
 export const getVpnLinkConnectionIkeSasOutput: typeof import("./getVpnLinkConnectionIkeSas").getVpnLinkConnectionIkeSasOutput = null as any;
 utilities.lazyLoad(exports, ["getVpnLinkConnectionIkeSas","getVpnLinkConnectionIkeSasOutput"], () => require("./getVpnLinkConnectionIkeSas"));

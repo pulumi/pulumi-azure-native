@@ -10,22 +10,15 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2021-03-31-privatepreview, 2021-06-01, 2022-01-20-preview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview.
  */
-export function getGetPrivateDnsZoneSuffixExecute(args?: GetGetPrivateDnsZoneSuffixExecuteArgs, opts?: pulumi.InvokeOptions): Promise<GetGetPrivateDnsZoneSuffixExecuteResult> {
+export function getGetPrivateDnsZoneSuffixExecute(args?: GetGetPrivateDnsZoneSuffixExecuteArgs, opts?: pulumi.InvokeOptions): Promise<string> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:dbforpostgresql:getGetPrivateDnsZoneSuffixExecute", {
+    return pulumi.runtime.invokeSingle("azure-native:dbforpostgresql:getGetPrivateDnsZoneSuffixExecute", {
     }, opts);
 }
 
 export interface GetGetPrivateDnsZoneSuffixExecuteArgs {
-}
-
-/**
- * Represents a resource name availability.
- */
-export interface GetGetPrivateDnsZoneSuffixExecuteResult {
-    readonly PrivateDnsZoneSuffix?: string;
 }
 /**
  * Get private DNS zone suffix in the cloud
@@ -33,6 +26,6 @@ export interface GetGetPrivateDnsZoneSuffixExecuteResult {
  *
  * Other available API versions: 2021-03-31-privatepreview, 2021-06-01, 2022-01-20-preview, 2022-03-08-preview, 2023-03-01-preview, 2023-06-01-preview.
  */
-export function getGetPrivateDnsZoneSuffixExecuteOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetGetPrivateDnsZoneSuffixExecuteResult> {
+export function getGetPrivateDnsZoneSuffixExecuteOutput(opts?: pulumi.InvokeOptions): pulumi.Output<string> {
     return pulumi.output(getGetPrivateDnsZoneSuffixExecute(opts))
 }

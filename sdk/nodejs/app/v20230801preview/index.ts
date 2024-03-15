@@ -135,7 +135,7 @@ export const getContainerAppsSourceControl: typeof import("./getContainerAppsSou
 export const getContainerAppsSourceControlOutput: typeof import("./getContainerAppsSourceControl").getContainerAppsSourceControlOutput = null as any;
 utilities.lazyLoad(exports, ["getContainerAppsSourceControl","getContainerAppsSourceControlOutput"], () => require("./getContainerAppsSourceControl"));
 
-export { GetCustomDomainVerificationIdArgs, GetCustomDomainVerificationIdResult } from "./getCustomDomainVerificationId";
+export { GetCustomDomainVerificationIdArgs } from "./getCustomDomainVerificationId";
 export const getCustomDomainVerificationId: typeof import("./getCustomDomainVerificationId").getCustomDomainVerificationId = null as any;
 export const getCustomDomainVerificationIdOutput: typeof import("./getCustomDomainVerificationId").getCustomDomainVerificationIdOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomDomainVerificationId","getCustomDomainVerificationIdOutput"], () => require("./getCustomDomainVerificationId"));

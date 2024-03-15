@@ -40,7 +40,6 @@ export class UpdateSummary extends pulumi.CustomResource {
         return obj['__pulumiType'] === UpdateSummary.__pulumiType;
     }
 
-    public /*out*/ readonly HealthState!: pulumi.Output<string | undefined>;
     /**
      * Current Solution Bundle version of the stamp.
      */
@@ -117,13 +116,11 @@ export class UpdateSummary extends pulumi.CustomResource {
             resourceInputs["oemFamily"] = args ? args.oemFamily : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["HealthState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["HealthState"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["hardwareModel"] = undefined /*out*/;
             resourceInputs["healthCheckDate"] = undefined /*out*/;

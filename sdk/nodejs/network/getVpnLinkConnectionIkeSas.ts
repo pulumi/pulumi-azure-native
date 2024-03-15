@@ -10,10 +10,10 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
  */
-export function getVpnLinkConnectionIkeSas(args: GetVpnLinkConnectionIkeSasArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnLinkConnectionIkeSasResult> {
+export function getVpnLinkConnectionIkeSas(args: GetVpnLinkConnectionIkeSasArgs, opts?: pulumi.InvokeOptions): Promise<string> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:network:getVpnLinkConnectionIkeSas", {
+    return pulumi.runtime.invokeSingle("azure-native:network:getVpnLinkConnectionIkeSas", {
         "connectionName": args.connectionName,
         "gatewayName": args.gatewayName,
         "linkConnectionName": args.linkConnectionName,
@@ -39,17 +39,13 @@ export interface GetVpnLinkConnectionIkeSasArgs {
      */
     resourceGroupName: string;
 }
-
-export interface GetVpnLinkConnectionIkeSasResult {
-    readonly ?: string;
-}
 /**
  * Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.
  * Azure REST API version: 2023-02-01.
  *
  * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
  */
-export function getVpnLinkConnectionIkeSasOutput(args: GetVpnLinkConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnLinkConnectionIkeSasResult> {
+export function getVpnLinkConnectionIkeSasOutput(args: GetVpnLinkConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<string> {
     return pulumi.output(args).apply((a: any) => getVpnLinkConnectionIkeSas(a, opts))
 }
 

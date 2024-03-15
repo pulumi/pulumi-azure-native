@@ -58,10 +58,6 @@ export interface GetSpacecraftResult {
      */
     readonly noradId?: string;
     /**
-     * The current state of the resource's creation, deletion, or modification.
-     */
-    readonly provisioningState?: outputs.orbital.SpacecraftsPropertiesResponseProvisioningState;
-    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.orbital.SystemDataResponse;

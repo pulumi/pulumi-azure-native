@@ -10,10 +10,10 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
  */
-export function getVirtualNetworkGatewayVpnProfilePackageUrl(args: GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> {
+export function getVirtualNetworkGatewayVpnProfilePackageUrl(args: GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, opts?: pulumi.InvokeOptions): Promise<string> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:network:getVirtualNetworkGatewayVpnProfilePackageUrl", {
+    return pulumi.runtime.invokeSingle("azure-native:network:getVirtualNetworkGatewayVpnProfilePackageUrl", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayName": args.virtualNetworkGatewayName,
     }, opts);
@@ -29,17 +29,13 @@ export interface GetVirtualNetworkGatewayVpnProfilePackageUrlArgs {
      */
     virtualNetworkGatewayName: string;
 }
-
-export interface GetVirtualNetworkGatewayVpnProfilePackageUrlResult {
-    readonly ?: string;
-}
 /**
  * Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
  * Azure REST API version: 2023-02-01.
  *
  * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
  */
-export function getVirtualNetworkGatewayVpnProfilePackageUrlOutput(args: GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> {
+export function getVirtualNetworkGatewayVpnProfilePackageUrlOutput(args: GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<string> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnProfilePackageUrl(a, opts))
 }
 

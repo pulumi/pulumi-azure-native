@@ -54,10 +54,6 @@ export class Spacecraft extends pulumi.CustomResource {
      */
     public readonly noradId!: pulumi.Output<string | undefined>;
     /**
-     * The current state of the resource's creation, deletion, or modification.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<outputs.orbital.v20221101.SpacecraftsPropertiesResponseProvisioningState | undefined>;
-    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.v20221101.SystemDataResponse>;
@@ -118,7 +114,6 @@ export class Spacecraft extends pulumi.CustomResource {
             resourceInputs["tleLine1"] = args ? args.tleLine1 : undefined;
             resourceInputs["tleLine2"] = args ? args.tleLine2 : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -126,7 +121,6 @@ export class Spacecraft extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["noradId"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["titleLine"] = undefined /*out*/;

@@ -26,7 +26,6 @@ export interface GetPartnerArgs {
  * this is the management partner operations response
  */
 export interface GetPartnerResult {
-    readonly ManagementPartnerState?: string;
     /**
      * This is the DateTime when the partner was created.
      */

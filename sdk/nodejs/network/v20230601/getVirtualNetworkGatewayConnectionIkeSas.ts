@@ -7,10 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Lists IKE Security Associations for the virtual network gateway connection in the specified resource group.
  */
-export function getVirtualNetworkGatewayConnectionIkeSas(args: GetVirtualNetworkGatewayConnectionIkeSasArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionIkeSasResult> {
+export function getVirtualNetworkGatewayConnectionIkeSas(args: GetVirtualNetworkGatewayConnectionIkeSasArgs, opts?: pulumi.InvokeOptions): Promise<string> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:network/v20230601:getVirtualNetworkGatewayConnectionIkeSas", {
+    return pulumi.runtime.invokeSingle("azure-native:network/v20230601:getVirtualNetworkGatewayConnectionIkeSas", {
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkGatewayConnectionName": args.virtualNetworkGatewayConnectionName,
     }, opts);
@@ -26,14 +26,10 @@ export interface GetVirtualNetworkGatewayConnectionIkeSasArgs {
      */
     virtualNetworkGatewayConnectionName: string;
 }
-
-export interface GetVirtualNetworkGatewayConnectionIkeSasResult {
-    readonly ?: string;
-}
 /**
  * Lists IKE Security Associations for the virtual network gateway connection in the specified resource group.
  */
-export function getVirtualNetworkGatewayConnectionIkeSasOutput(args: GetVirtualNetworkGatewayConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionIkeSasResult> {
+export function getVirtualNetworkGatewayConnectionIkeSasOutput(args: GetVirtualNetworkGatewayConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<string> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayConnectionIkeSas(a, opts))
 }
 

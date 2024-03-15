@@ -44,7 +44,6 @@ export interface GetIotConnectorFhirDestinationArgs {
  * IoT Connector FHIR destination definition.
  */
 export interface GetIotConnectorFhirDestinationResult {
-    readonly ProvisioningState?: string;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */

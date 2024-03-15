@@ -59,10 +59,6 @@ export interface GetL2ConnectionResult {
      */
     readonly name: string;
     /**
-     * The current state of the resource's creation, deletion, or modification.
-     */
-    readonly provisioningState: outputs.orbital.v20240301.L2ConnectionsPropertiesResponseProvisioningState;
-    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.orbital.v20240301.SystemDataResponse;

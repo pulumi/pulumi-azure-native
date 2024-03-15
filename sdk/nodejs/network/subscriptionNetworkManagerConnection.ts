@@ -40,7 +40,6 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
         return obj['__pulumiType'] === SubscriptionNetworkManagerConnection.__pulumiType;
     }
 
-    public /*out*/ readonly ConnectionState!: pulumi.Output<string | undefined>;
     /**
      * A description of the network manager connection.
      */
@@ -80,13 +79,11 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["networkManagerConnectionName"] = args ? args.networkManagerConnectionName : undefined;
             resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
-            resourceInputs["ConnectionState"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["ConnectionState"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

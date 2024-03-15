@@ -34,7 +34,6 @@ export class Partner extends pulumi.CustomResource {
         return obj['__pulumiType'] === Partner.__pulumiType;
     }
 
-    public /*out*/ readonly ManagementPartnerState!: pulumi.Output<string | undefined>;
     /**
      * This is the DateTime when the partner was created.
      */
@@ -88,7 +87,6 @@ export class Partner extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
-            resourceInputs["ManagementPartnerState"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -99,7 +97,6 @@ export class Partner extends pulumi.CustomResource {
             resourceInputs["updatedTime"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
-            resourceInputs["ManagementPartnerState"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

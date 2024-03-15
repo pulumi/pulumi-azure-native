@@ -37,7 +37,6 @@ export interface GetManagementGroupNetworkManagerConnectionArgs {
  * The Network Manager Connection resource
  */
 export interface GetManagementGroupNetworkManagerConnectionResult {
-    readonly ConnectionState?: string;
     /**
      * A description of the network manager connection.
      */

@@ -7,10 +7,10 @@ import * as utilities from "../../utilities";
 /**
  * Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.
  */
-export function getVpnLinkConnectionIkeSas(args: GetVpnLinkConnectionIkeSasArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnLinkConnectionIkeSasResult> {
+export function getVpnLinkConnectionIkeSas(args: GetVpnLinkConnectionIkeSasArgs, opts?: pulumi.InvokeOptions): Promise<string> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:network/v20230501:getVpnLinkConnectionIkeSas", {
+    return pulumi.runtime.invokeSingle("azure-native:network/v20230501:getVpnLinkConnectionIkeSas", {
         "connectionName": args.connectionName,
         "gatewayName": args.gatewayName,
         "linkConnectionName": args.linkConnectionName,
@@ -36,14 +36,10 @@ export interface GetVpnLinkConnectionIkeSasArgs {
      */
     resourceGroupName: string;
 }
-
-export interface GetVpnLinkConnectionIkeSasResult {
-    readonly ?: string;
-}
 /**
  * Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.
  */
-export function getVpnLinkConnectionIkeSasOutput(args: GetVpnLinkConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnLinkConnectionIkeSasResult> {
+export function getVpnLinkConnectionIkeSasOutput(args: GetVpnLinkConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<string> {
     return pulumi.output(args).apply((a: any) => getVpnLinkConnectionIkeSas(a, opts))
 }
 

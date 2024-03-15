@@ -7,26 +7,19 @@ import * as utilities from "../../utilities";
 /**
  * Get the verification id of a subscription used for verifying custom domains
  */
-export function getCustomDomainVerificationId(args?: GetCustomDomainVerificationIdArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainVerificationIdResult> {
+export function getCustomDomainVerificationId(args?: GetCustomDomainVerificationIdArgs, opts?: pulumi.InvokeOptions): Promise<string> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:app/v20230502preview:getCustomDomainVerificationId", {
+    return pulumi.runtime.invokeSingle("azure-native:app/v20230502preview:getCustomDomainVerificationId", {
     }, opts);
 }
 
 export interface GetCustomDomainVerificationIdArgs {
 }
-
-/**
- * Custom domain verification Id of a subscription
- */
-export interface GetCustomDomainVerificationIdResult {
-    readonly CustomDomainVerificationId?: string;
-}
 /**
  * Get the verification id of a subscription used for verifying custom domains
  */
-export function getCustomDomainVerificationIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainVerificationIdResult> {
+export function getCustomDomainVerificationIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<string> {
     return pulumi.output(getCustomDomainVerificationId(opts))
 }
