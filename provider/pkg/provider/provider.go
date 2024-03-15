@@ -337,14 +337,29 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		)
 		body := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), k.converter)
 
-		var response map[string]interface{}
+		var target any
+		responseIsObject := false
+		switch res.ReturnType {
+		case "string":
+			target = new(string)
+		case "integer":
+			target = new(int)
+		case "boolean":
+			target = new(bool)
+		case "array":
+			target = new([]any)
+		default:
+			target = &map[string]any{}
+			responseIsObject = true
+		}
+
 		if res.GetParameters != nil {
-			response, err = k.azureClient.Get(ctx, id, res.APIVersion)
+			_, err = k.azureClient.Get(ctx, id, res.APIVersion, target)
 		} else if res.PostParameters != nil {
 			if body == nil {
 				body = map[string]interface{}{}
 			}
-			response, err = k.azureClient.Post(ctx, id, body, query)
+			_, err = k.azureClient.Post(ctx, id, body, query, target)
 		} else {
 			return nil, errors.Errorf("neither GET nor POST is defined for %s", label)
 		}
@@ -353,12 +368,17 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			return nil, errors.Wrapf(err, "request failed %v", id)
 		}
 
-		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
+		if responseIsObject {
+			// Map the raw response to the shape of outputs that the SDKs expect.
+			outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, target.(map[string]any))
+		} else {
+			outputs = map[string]interface{}{"result": target}
+		}
 	}
 
 	// Serialize and return RPC outputs.
-	result, err := plugin.MarshalProperties(
+	var result *structpb.Struct
+	result, err = plugin.MarshalProperties(
 		resource.NewPropertyMapFromMap(outputs),
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.response", label), KeepUnknowns: true, SkipNulls: true},
 	)
@@ -486,7 +506,7 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 
 	// 3c. Retrieve the resource group's properties from ARM API.
 	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", k.subscriptionID, rgName)
-	response, err := k.azureClient.Get(ctx, id, apiVersionResources)
+	response, err := k.azureClient.Get(ctx, id, apiVersionResources, nil)
 	if err != nil {
 		logging.V(9).Infof("failed to lookup the location of resource group %q: %v", rgName, err)
 		return nil
@@ -1039,7 +1059,7 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
 func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context, id string, res resources.AzureAPIResource, inputs resource.PropertyMap) (*structpb.Struct, error) {
-	getResp, getErr := k.azureClient.Get(ctx, id, res.APIVersion)
+	getResp, getErr := k.azureClient.Get(ctx, id, res.APIVersion, nil)
 	if getErr != nil {
 		return nil, getErr
 	}

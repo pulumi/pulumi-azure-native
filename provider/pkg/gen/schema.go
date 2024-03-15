@@ -756,7 +756,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		updateMethod = "PATCH"
 	}
 
-	resourceResponse, err := gen.genResponse(updateOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
+	resourceResponse, _, err := gen.genResponse(updateOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': response type", resourceTok)
 	}
@@ -830,7 +830,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		if err != nil {
 			return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
 		}
-		responseFunction, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
+		responseFunction, _, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
 		if err != nil {
 			return errors.Wrapf(err, "failed to generate '%s': response type", functionTok)
 		}
@@ -859,6 +859,12 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 				Path:          resource.Path,
 				GetParameters: requestFunction.parameters,
 				Response:      responseFunction.properties,
+			}
+			if functionSpec.ReturnType != nil &&
+				functionSpec.ReturnType.TypeSpec != nil &&
+				functionSpec.ReturnType.TypeSpec.Type != "object" {
+				contract.Assertf(len(f.Response) == 0, "Function %s has a non-object return type but also response properties", functionTok)
+				f.ReturnType = functionSpec.ReturnType.TypeSpec.Type
 			}
 			g.metadata.Invokes[functionTok] = f
 		}
@@ -1007,15 +1013,24 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
 	}
-	response, err := gen.genResponse(operation.Responses.StatusCodeResponses, swagger.ReferenceContext, nil)
+	response, resolvedResponseSchema, err := gen.genResponse(operation.Responses.StatusCodeResponses, swagger.ReferenceContext, nil)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
 	}
 
-	if response == nil || len(response.specs) == 0 {
-		// Response is specified empty, do not generate an invoke for it.
+	if response == nil {
 		return
+	}
+
+	var returnType *pschema.ReturnTypeSpec
+	if len(response.specs) == 0 {
+		if len(resolvedResponseSchema.Type) == 1 && resolvedResponseSchema.Type[0] != "object" {
+			returnType = &pschema.ReturnTypeSpec{TypeSpec: &pschema.TypeSpec{Type: resolvedResponseSchema.Type[0]}}
+		} else {
+			// Response is specified empty, do not generate an invoke for it.
+			return
+		}
 	}
 
 	functionSpec := pschema.FunctionSpec{
@@ -1032,6 +1047,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 			Properties:  response.specs,
 			Required:    response.requiredSpecs.SortedValues(),
 		},
+		ReturnType: returnType,
 	}
 	g.pkg.Functions[functionTok] = functionSpec
 
@@ -1040,6 +1056,9 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 		Path:           path,
 		PostParameters: request.parameters,
 		Response:       response.properties,
+	}
+	if returnType != nil {
+		f.ReturnType = returnType.TypeSpec.Type
 	}
 	g.metadata.Invokes[functionTok] = f
 }
@@ -1381,24 +1400,24 @@ func isMethodParameter(param *openapi.Parameter) bool {
 }
 
 func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext,
-	responseSchema *openapi.Schema) (*propertyBag, error) {
+	responseSchema *openapi.Schema) (*propertyBag, *openapi.Schema, error) {
 
 	if responseSchema == nil {
 		v, err := getResponseSchema(ctx, statusCodeResponses)
 		if v == nil || err != nil {
-			return nil, err
+			return nil, nil, err
 		}
 		responseSchema = v
 	}
 
 	if len(responseSchema.Type) > 0 && responseSchema.Type[0] == "array" {
 		// Array responses are not implemented yet (see issue #120).
-		return nil, nil
+		return nil, responseSchema, nil
 	}
 
 	result, err := m.genProperties(responseSchema, true /* isOutput */, false /* isType */)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	// Special case the 'properties' output property as required.
@@ -1408,7 +1427,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 	}
 
 	result.description = responseSchema.Description
-	return result, nil
+	return result, responseSchema, nil
 }
 
 // getDiscriminatorValue return the value of the discriminator value extension, or the schema name as the default.

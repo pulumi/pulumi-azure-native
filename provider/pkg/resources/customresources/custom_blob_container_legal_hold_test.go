@@ -57,7 +57,7 @@ func (m *MockAzureClient) Delete(ctx context.Context, id, apiVersion, asyncStyle
 func (m *MockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error {
 	return nil
 }
-func (m *MockAzureClient) Get(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error) {
+func (m *MockAzureClient) Get(ctx context.Context, id string, apiVersion string, v any) (map[string]interface{}, error) {
 	m.getIds = append(m.getIds, id)
 
 	azureResponse := map[string]any{}
@@ -70,7 +70,7 @@ func (m *MockAzureClient) Head(ctx context.Context, id string, apiVersion string
 func (m *MockAzureClient) Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
 	return nil, false, nil
 }
-func (m *MockAzureClient) Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (map[string]interface{}, error) {
+func (m *MockAzureClient) Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, v any) (map[string]interface{}, error) {
 	m.postIds = append(m.postIds, id)
 	m.postBodies = append(m.postBodies, bodyProps)
 	return nil, nil

@@ -223,6 +223,8 @@ type AzureAPIInvoke struct {
 	GetParameters  []AzureAPIParameter         `json:"GET"`
 	PostParameters []AzureAPIParameter         `json:"POST"`
 	Response       map[string]AzureAPIProperty `json:"response"`
+	// Set to string, int, array, etc.; only if the return type is not an object and `Response` is empty.
+	ReturnType string `json:"returnType"`
 }
 
 // AzureAPIMetadata is a collection of all resources and functions in the Azure REST API surface.

@@ -217,20 +217,6 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 	}
 
-	// If the schema has no properties but is a primitive output, we include it as a property so invokes can be generated.
-	if len(names) == 0 && len(result.specs) == 0 && isOutput && len(resolvedSchema.Type) == 1 && resolvedSchema.Type[0] == "string" {
-		// ReferenceName is the name of the type in the spec, like `CustomDomainVerificationId` here:
-		//  "definitions": {"CustomDomainVerificationId": { "type": "string" }}`.
-		result.specs[resolvedSchema.ReferenceName] = pschema.PropertySpec{
-			TypeSpec: pschema.TypeSpec{
-				Type: "string",
-			},
-		}
-		result.properties[resolvedSchema.ReferenceName] = resources.AzureAPIProperty{
-			Type: "string",
-		}
-	}
-
 	return result, nil
 }
 
