@@ -100,6 +100,7 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 			}
 
 			outputs := client.ResponseBodyToSdkOutputs(resp)
+			outputs[OriginalStateKey] = olds[OriginalStateKey]
 			return outputs, nil
 		},
 
@@ -138,8 +139,12 @@ func restoreDefaultsForDeletedRules(olds, news resource.PropertyMap) {
 
 	newRules := mapRulesById(news)
 
-	origState := olds[OriginalStateKey]
-	origRules := mapRulesById(origState.ObjectValue())
+	origState := olds[OriginalStateKey].ObjectValue()
+	if !origState.HasValue("properties") {
+		logging.V(3).Infof("Warning: restoreDefaultsForDeletedRules: no 'properties' in original state")
+		return
+	}
+	origRules := mapRulesById(origState["properties"].ObjectValue())
 
 	newRulesList := []resource.PropertyValue{}
 	if len(newRules) > 0 {
