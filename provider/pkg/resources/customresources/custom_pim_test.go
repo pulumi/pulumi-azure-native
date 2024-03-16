@@ -17,8 +17,10 @@ func TestRestoreDefaultsForDeletedRules(t *testing.T) {
 				{"id": "rule1", "isExpirationRequired": true},
 			},
 			OriginalStateKey: map[string]any{
-				"rules": []map[string]any{
-					{"id": "rule1", "isExpirationRequired": false},
+				"properties": map[string]any{
+					"rules": []map[string]any{
+						{"id": "rule1", "isExpirationRequired": false},
+					},
 				},
 			},
 		}
@@ -44,8 +46,10 @@ func TestRestoreDefaultsForDeletedRules(t *testing.T) {
 				{"id": "rule1", "isExpirationRequired": true},
 			},
 			OriginalStateKey: map[string]any{
-				"rules": []map[string]any{
-					{"id": "rule1", "isExpirationRequired": false},
+				"properties": map[string]any{
+					"rules": []map[string]any{
+						{"id": "rule1", "isExpirationRequired": false},
+					},
 				},
 			},
 		}
@@ -84,7 +88,9 @@ func TestRestoreDefaultsForDeletedRules(t *testing.T) {
 				{"id": "rule2"},
 			},
 			OriginalStateKey: map[string]any{
-				"rules": origRules,
+				"properties": map[string]any{
+					"rules": origRules,
+				},
 			},
 		}
 
