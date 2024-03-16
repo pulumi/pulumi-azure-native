@@ -1,0 +1,10 @@
+{
+    "name": "azure-native-dashboard",
+    "version": "0.1.0",
+    "devDependencies": {
+        "@types/node": "latest"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0"
+    }
+}

@@ -23,13 +23,21 @@ import (
 type CustomResource struct {
 	path string
 	tok  string
-	// Auxiliary types defined for this resource. Optional.
+	// Types are net-new auxiliary types defined for this resource. Optional.
 	Types map[string]schema.ComplexTypeSpec
+	// TypeOverrides define types that already exist in the auto-generated schema but we want to override
+	// to our custom shape and behavior. Optional.
+	TypeOverrides map[string]schema.ComplexTypeSpec
 	// Resource schema. Optional, by default the schema is assumed to be included in Azure Open API specs.
 	Schema *schema.ResourceSpec
 	// Resource metadata. Defines the parameters and properties that are used for diff calculation and validation.
 	// Optional, by default the metadata is assumed to be derived from Azure Open API specs.
 	Meta *AzureAPIResource
+	// MetaTypes are net-new auxiliary metadata types defined for this resource. Optional.
+	MetaTypes map[string]AzureAPIType
+	// MetaTypeOverrides define meta types that already exist in the auto-generated metadata but we want to override
+	// to our custom shape and behavior. Optional.
+	MetaTypeOverrides map[string]AzureAPIType
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
 	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
@@ -76,6 +84,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		// Customization of regular resources
 		customWebAppDelete(lookupResource, azureClient),
 		blobContainerLegalHold(azureClient),
+		portalDashboard(),
 	}
 
 	result := map[string]*CustomResource{}
@@ -118,7 +127,18 @@ func SchemaTypeMixins() map[string]schema.ComplexTypeSpec {
 	return types
 }
 
-// SchemaMixins returns the map of custom resource metadata definitions per resource token.
+// SchemaTypeOverrides returns the map of custom resource schema overrides per resource token.
+func SchemaTypeOverrides() map[string]schema.ComplexTypeSpec {
+	types := map[string]schema.ComplexTypeSpec{}
+	for _, r := range featureLookup {
+		for n, v := range r.TypeOverrides {
+			types[n] = v
+		}
+	}
+	return types
+}
+
+// MetaMixins returns the map of custom resource metadata definitions per resource token.
 func MetaMixins() map[string]AzureAPIResource {
 	meta := map[string]AzureAPIResource{}
 	for _, r := range featureLookup {
@@ -127,4 +147,26 @@ func MetaMixins() map[string]AzureAPIResource {
 		}
 	}
 	return meta
+}
+
+// MetaMixins returns the map of custom resource metadata definitions per resource token.
+func MetaTypeMixins() map[string]AzureAPIType {
+	types := map[string]AzureAPIType{}
+	for _, r := range featureLookup {
+		for n, v := range r.MetaTypes {
+			types[n] = v
+		}
+	}
+	return types
+}
+
+// MetaTypeOverrides returns the map of custom resource metadata overrides per resource token.
+func MetaTypeOverrides() map[string]AzureAPIType {
+	types := map[string]AzureAPIType{}
+	for _, r := range featureLookup {
+		for n, v := range r.MetaTypeOverrides {
+			types[n] = v
+		}
+	}
+	return types
 }
