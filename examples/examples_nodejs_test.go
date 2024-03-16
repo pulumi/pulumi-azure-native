@@ -4,7 +4,9 @@
 package examples
 
 import (
+	"context"
 	"encoding/json"
+	"os"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -12,6 +14,9 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v2"
 )
 
 func TestAccAppServiceTs(t *testing.T) {
@@ -285,6 +290,72 @@ func TestAccBlobContainerLegalHold(t *testing.T) {
 				{
 					Dir:      filepath.Join("blobcontainer-legalhold", "2-update-legalhold"),
 					Additive: true,
+				},
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccPIMRoleManagementPolicies(t *testing.T) {
+	skipIfShort(t)
+
+	// Retrieve the `maximumDuration` property of the randomly chosen Expiration_Admin_Eligibility rule.
+	// Used in ExtraRuntimeValidation to assert that the rule has the expected duration.
+	// Uses the Azure SDK to be able to retrieve the actual value from Azure, independent of Pulumi.
+	get_Expiration_Admin_Eligibility_RuleDuration := func() string {
+		cred, err := azidentity.NewClientSecretCredential(
+			os.Getenv("ARM_TENANT_ID"),
+			os.Getenv("ARM_CLIENT_ID"),
+			os.Getenv("ARM_CLIENT_SECRET"),
+			nil)
+		require.NoError(t, err)
+
+		sub := os.Getenv("ARM_SUBSCRIPTION_ID")
+		clientFactory, err := armauthorization.NewClientFactory(sub, cred, nil)
+		require.NoError(t, err)
+		client := clientFactory.NewRoleManagementPoliciesClient()
+
+		resp, err := client.Get(context.Background(), "subscriptions/"+sub, "3faafb81-7f6f-4c66-b936-fb41ef4e4734", nil)
+		require.NoError(t, err)
+
+		var rule *armauthorization.RoleManagementPolicyExpirationRule
+		for _, r := range resp.RoleManagementPolicy.Properties.Rules {
+			if *r.GetRoleManagementPolicyRule().ID != "Expiration_Admin_Eligibility" {
+				continue
+			}
+			var castOk bool
+			rule, castOk = r.(*armauthorization.RoleManagementPolicyExpirationRule)
+			require.True(t, castOk, "%T", r)
+			break
+		}
+		assert.NotNil(t, rule)
+		return *(rule.MaximumDuration)
+	}
+
+	initialDuration := get_Expiration_Admin_Eligibility_RuleDuration()
+
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:                  filepath.Join(getCwd(t), "pim-rolemanagementpolicies"),
+			ExpectRefreshChanges: false,
+			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+				assert.Equal(t, "P365D", get_Expiration_Admin_Eligibility_RuleDuration())
+			},
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join("pim-rolemanagementpolicies", "2-update-rule"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						assert.Equal(t, "P90D", get_Expiration_Admin_Eligibility_RuleDuration())
+					},
+				},
+				{
+					Dir:      filepath.Join("pim-rolemanagementpolicies", "3-remove-rule"),
+					Additive: true,
+					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+						assert.Equal(t, initialDuration, get_Expiration_Admin_Eligibility_RuleDuration())
+					},
 				},
 			},
 		})
