@@ -1,7 +1,8 @@
 {
   "ADHybridHealthService": [],
   "AVS": [
-    "2023-03-01"
+    "2023-03-01",
+    "2023-09-01"
   ],
   "Aad": [],
   "AadIam": [
@@ -48,7 +49,8 @@
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [
-    "2023-08-01-preview"
+    "2023-08-01-preview",
+    "2023-09-01-preview"
   ],
   "AppPlatform": [
     "2023-07-01-preview",
@@ -154,7 +156,8 @@
   ],
   "Capacity": [],
   "Cdn": [
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2024-02-01"
   ],
   "CertificateRegistration": [
     "2023-01-01"
@@ -166,6 +169,7 @@
     "2023-11-01",
     "2024-01-01"
   ],
+  "CodeSigning": [],
   "CognitiveServices": [
     "2023-10-01-preview"
   ],
@@ -289,7 +293,8 @@
     "2023-11-01",
     "2023-11-02-preview",
     "2024-01-01",
-    "2024-01-02-preview"
+    "2024-01-02-preview",
+    "2024-02-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -329,13 +334,15 @@
     "2023-06-01-preview",
     "2023-06-30",
     "2023-10-01-preview",
-    "2023-12-01-preview"
+    "2023-12-01-preview",
+    "2023-12-30"
   ],
   "DBforPostgreSQL": [
     "2022-12-01",
     "2023-03-01-preview",
     "2023-03-02-preview",
-    "2023-06-01-preview"
+    "2023-06-01-preview",
+    "2023-12-01-preview"
   ],
   "Dashboard": [
     "2022-10-01-preview",
@@ -394,7 +401,8 @@
     "2023-09-05",
     "2023-10-04-preview",
     "2023-11-01-preview",
-    "2024-01-16-preview"
+    "2024-01-16-preview",
+    "2024-03-06-preview"
   ],
   "DevCenter": [
     "2023-08-01-preview",
@@ -493,7 +501,8 @@
     "2023-09-06",
     "2023-11-01",
     "2023-12-01",
-    "2024-03-01"
+    "2024-03-01",
+    "2024-03-31"
   ],
   "Help": [],
   "HybridCloud": [],
@@ -794,7 +803,8 @@
     "2023-06-01",
     "2023-07-01-preview",
     "2023-08-01-preview",
-    "2023-09-01"
+    "2023-09-01",
+    "2024-02-01"
   ],
   "NetworkAnalytics": [],
   "NetworkCloud": [
@@ -925,6 +935,7 @@
     "2023-09-01-preview",
     "2023-10-01-preview",
     "2023-11-15",
+    "2023-12-01-preview",
     "2024-01-01"
   ],
   "SecurityAndCompliance": [],

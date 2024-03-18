@@ -1,5 +1,9 @@
 [
   {
+    "Provider": "AVS",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "ApiCenter",
     "Detail": "expected tracking stable but found preview"
   },
@@ -46,6 +50,10 @@
   {
     "Provider": "Chaos",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "CodeSigning",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "Provider": "CognitiveServices",
