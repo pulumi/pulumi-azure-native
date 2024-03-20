@@ -216,6 +216,21 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			result.requiredProperties.Add(name)
 		}
 	}
+
+	// If the schema has no properties but is a primitive output, we include it as a property so invokes can be generated.
+	// Ideally we'd just represent it as a primitive type and use FunctionSpec.ReturnType to specify this, but pulumi/pulumi
+	// #15739 and #15738 prevent this.
+	if len(names) == 0 && len(result.specs) == 0 && isOutput && len(resolvedSchema.Type) == 1 && resolvedSchema.Type[0] == "string" {
+		result.specs["value"] = pschema.PropertySpec{
+			TypeSpec: pschema.TypeSpec{
+				Type: "string",
+			},
+		}
+		result.properties["value"] = resources.AzureAPIProperty{
+			Type: "string",
+		}
+	}
+
 	return result, nil
 }
 
