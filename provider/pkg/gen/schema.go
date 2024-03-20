@@ -1023,12 +1023,13 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 		return
 	}
 
+	// If the response has no properties, it's either of a primitive type, which we include, or it's empty, in which
+	// case we don't generate an invoke for it.
 	var returnType *pschema.ReturnTypeSpec
 	if len(response.specs) == 0 {
 		if len(resolvedResponseSchema.Type) == 1 && resolvedResponseSchema.Type[0] != "object" {
 			returnType = &pschema.ReturnTypeSpec{TypeSpec: &pschema.TypeSpec{Type: resolvedResponseSchema.Type[0]}}
 		} else {
-			// Response is specified empty, do not generate an invoke for it.
 			return
 		}
 	}

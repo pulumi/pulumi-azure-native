@@ -118,7 +118,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 		},
 		Read: func(ctx context.Context, id string, properties resource.PropertyMap) (map[string]any, bool, error) {
 			containerId := strings.TrimSuffix(id, "/legalHold")
-			container, err := azureClient.Get(ctx, containerId, "2022-09-01", nil)
+			container, err := azureClient.Get(ctx, containerId, "2022-09-01")
 			if err != nil {
 				if azure.IsNotFound(err) {
 					return nil, false, nil
@@ -126,7 +126,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 				return nil, false, err
 			}
 
-			legalHoldProp, ok := getInnerMap(container, "properties", "legalHold")
+			legalHoldProp, ok := getInnerMap(container.(map[string]any), "properties", "legalHold")
 			if !ok {
 				return nil, false, nil
 			}
@@ -245,7 +245,11 @@ func post(ctx context.Context, path string, body map[string]any, apiVersion stri
 	queryParams := map[string]any{
 		"api-version": apiVersion,
 	}
-	return azureClient.Post(ctx, path, body, queryParams, nil)
+	resp, err := azureClient.Post(ctx, path, body, queryParams)
+	if err != nil {
+		return nil, err
+	}
+	return resp.(map[string]any), nil
 }
 
 func readTags(p map[string]any) (codegen.StringSet, error) {

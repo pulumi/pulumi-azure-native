@@ -6,12 +6,10 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"reflect"
 	"strings"
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
@@ -33,10 +31,10 @@ type AzureDeleter interface {
 type AzureClient interface {
 	AzureDeleter
 	CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error
-	Get(ctx context.Context, id string, apiVersion string, target any) (map[string]interface{}, error)
+	Get(ctx context.Context, id string, apiVersion string) (any, error)
 	Head(ctx context.Context, id string, apiVersion string) error
 	Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
-	Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, target any) (map[string]interface{}, error)
+	Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (any, error)
 	Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
 }
 
@@ -126,10 +124,7 @@ func (a *azureClientImpl) Post(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
-	queryParameters map[string]interface{},
-	target any) (map[string]interface{}, error) {
-
-	contract.Assertf(target == nil || reflect.ValueOf(target).Kind() == reflect.Ptr, "target must be nil or a pointer")
+	queryParameters map[string]interface{}) (any, error) {
 
 	preparer := autorest.CreatePreparer(
 		autorest.AsContentType("application/json; charset=utf-8"),
@@ -152,12 +147,12 @@ func (a *azureClientImpl) Post(
 		return nil, err
 	}
 
-	var outputs map[string]interface{}
+	var outputs any
 	err = autorest.Respond(
 		resp,
 		a.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusCreated),
-		autorest.ByUnmarshallingJSON(target),
+		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {
 		return nil, err
@@ -165,12 +160,7 @@ func (a *azureClientImpl) Post(
 	return outputs, nil
 }
 
-func (a *azureClientImpl) Get(ctx context.Context,
-	id string,
-	apiVersion string,
-	target any) (map[string]interface{}, error) {
-	contract.Assertf(target == nil || reflect.ValueOf(target).Kind() == reflect.Ptr, "target must be nil or a pointer")
-
+func (a *azureClientImpl) Get(ctx context.Context, id string, apiVersion string) (any, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -192,21 +182,18 @@ func (a *azureClientImpl) Get(ctx context.Context,
 		return nil, err
 	}
 
-	if target == nil {
-		target = map[string]any{}
-	}
-	var outputs map[string]interface{}
+	var data any
 	err = autorest.Respond(
 		resp,
 		a.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK),
 		forceRequestErrorForStatusNotFound,
-		autorest.ByUnmarshallingJSON(&target),
+		autorest.ByUnmarshallingJSON(&data),
 		autorest.ByClosing())
 	if err != nil {
 		return nil, err
 	}
-	return outputs, nil
+	return data, nil
 }
 
 func (a *azureClientImpl) Head(ctx context.Context, id string, apiVersion string) error {

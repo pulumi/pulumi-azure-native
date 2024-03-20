@@ -205,11 +205,11 @@ func (r *resourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err 
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
 func (r *resourceCrudClient) currentResourceStateCheckpoint(ctx context.Context, id string, inputs resource.PropertyMap) (*structpb.Struct, error) {
-	getResp, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion, nil)
+	getResp, getErr := r.azureClient.Get(ctx, id, r.res.APIVersion)
 	if getErr != nil {
 		return nil, getErr
 	}
-	outputs := r.converter.ResponseBodyToSdkOutputs(r.res.Response, getResp)
+	outputs := r.converter.ResponseBodyToSdkOutputs(r.res.Response, getResp.(map[string]any))
 	obj := checkpointObject(inputs, outputs)
 	return plugin.MarshalProperties(
 		obj,
@@ -239,12 +239,12 @@ func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.C
 	}
 
 	// Read the current resource state.
-	state, err := r.azureClient.Get(ctx, id+r.res.ReadPath, r.res.APIVersion, nil)
+	state, err := r.azureClient.Get(ctx, id+r.res.ReadPath, r.res.APIVersion)
 	if err != nil {
 		return fmt.Errorf("reading cloud state: %w", err)
 	}
 
-	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state)
+	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state.(map[string]any))
 	for writtenProperty, writtenValue := range writtenProperties {
 		logging.V(9).Infof("Maintaining remote value for property: %s.%s = %v", id, writtenProperty, writtenValue)
 	}
@@ -331,19 +331,29 @@ func (r *resourceCrudClient) CreateOrUpdate(ctx context.Context, id string, body
 func (r *resourceCrudClient) Read(ctx context.Context, id string) (map[string]any, error) {
 	url := id + r.res.ReadPath
 
+	var response any
+	var err error
 	switch r.res.ReadMethod {
 	case "HEAD":
-		err := r.azureClient.Head(ctx, url, r.res.APIVersion)
+		err = r.azureClient.Head(ctx, url, r.res.APIVersion)
 		return nil, err
 	case "POST":
 		bodyParams := map[string]interface{}{}
 		queryParams := map[string]interface{}{
 			"api-version": r.res.APIVersion,
 		}
-		return r.azureClient.Post(ctx, url, bodyParams, queryParams, nil)
+		response, err = r.azureClient.Post(ctx, url, bodyParams, queryParams)
 	default:
-		return r.azureClient.Get(ctx, url, r.res.APIVersion, nil)
+		response, err = r.azureClient.Get(ctx, url, r.res.APIVersion)
 	}
+
+	if err != nil {
+		return nil, err
+	}
+	if respObject, ok := response.(map[string]any); ok {
+		return respObject, err
+	}
+	return nil, fmt.Errorf("Read response for %s is not an object", id)
 }
 
 type propertyPath struct {

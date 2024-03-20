@@ -337,29 +337,14 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		)
 		body := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), k.converter)
 
-		var target any
-		responseIsObject := false
-		switch res.ReturnType {
-		case "string":
-			target = new(string)
-		case "integer":
-			target = new(int)
-		case "boolean":
-			target = new(bool)
-		case "array":
-			target = new([]any)
-		default:
-			target = &map[string]any{}
-			responseIsObject = true
-		}
-
+		var resp any
 		if res.GetParameters != nil {
-			_, err = k.azureClient.Get(ctx, id, res.APIVersion, target)
+			resp, err = k.azureClient.Get(ctx, id, res.APIVersion)
 		} else if res.PostParameters != nil {
 			if body == nil {
-				body = map[string]interface{}{}
+				body = map[string]any{}
 			}
-			_, err = k.azureClient.Post(ctx, id, body, query, target)
+			resp, err = k.azureClient.Post(ctx, id, body, query)
 		} else {
 			return nil, errors.Errorf("neither GET nor POST is defined for %s", label)
 		}
@@ -368,11 +353,11 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			return nil, errors.Wrapf(err, "request failed %v", id)
 		}
 
-		if responseIsObject {
+		if respMap, ok := resp.(map[string]any); ok {
 			// Map the raw response to the shape of outputs that the SDKs expect.
-			outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, target.(map[string]any))
+			outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, respMap)
 		} else {
-			outputs = map[string]interface{}{"result": target}
+			outputs = map[string]any{"result": resp}
 		}
 	}
 
@@ -506,13 +491,18 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 
 	// 3c. Retrieve the resource group's properties from ARM API.
 	id := fmt.Sprintf("/subscriptions/%s/resourceGroups/%s", k.subscriptionID, rgName)
-	response, err := k.azureClient.Get(ctx, id, apiVersionResources, nil)
+	response, err := k.azureClient.Get(ctx, id, apiVersionResources)
 	if err != nil {
 		logging.V(9).Infof("failed to lookup the location of resource group %q: %v", rgName, err)
 		return nil
 	}
+	responseMap, ok := response.(map[string]any)
+	if !ok {
+		logging.V(5).Infof("unexpected response type for resource group %q: %T", rgName, response)
+		return nil
+	}
 
-	v, ok := response["location"].(string)
+	v, ok := responseMap["location"].(string)
 	if !ok {
 		logging.V(9).Infof("no location for resource group %q", rgName)
 		return nil
@@ -1059,11 +1049,16 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 // currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
 // produces a checkpoint with these outputs and given inputs.
 func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context, id string, res resources.AzureAPIResource, inputs resource.PropertyMap) (*structpb.Struct, error) {
-	getResp, getErr := k.azureClient.Get(ctx, id, res.APIVersion, nil)
+	getResp, getErr := k.azureClient.Get(ctx, id, res.APIVersion)
 	if getErr != nil {
 		return nil, getErr
 	}
-	outputs := k.converter.ResponseBodyToSdkOutputs(res.Response, getResp)
+	getRespMap, ok := getResp.(map[string]any)
+	if !ok {
+		return nil, errors.Errorf("unexpected response type from Get %s: %T", id, getResp)
+	}
+
+	outputs := k.converter.ResponseBodyToSdkOutputs(res.Response, getRespMap)
 	obj := checkpointObject(inputs, outputs)
 	return plugin.MarshalProperties(
 		obj,
