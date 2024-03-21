@@ -135,6 +135,11 @@ export const getVirtualNetworkGatewayLearnedRoutes: typeof import("./getVirtualN
 export const getVirtualNetworkGatewayLearnedRoutesOutput: typeof import("./getVirtualNetworkGatewayLearnedRoutes").getVirtualNetworkGatewayLearnedRoutesOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualNetworkGatewayLearnedRoutes","getVirtualNetworkGatewayLearnedRoutesOutput"], () => require("./getVirtualNetworkGatewayLearnedRoutes"));
 
+export { GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, GetVirtualNetworkGatewayVpnProfilePackageUrlResult, GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs } from "./getVirtualNetworkGatewayVpnProfilePackageUrl";
+export const getVirtualNetworkGatewayVpnProfilePackageUrl: typeof import("./getVirtualNetworkGatewayVpnProfilePackageUrl").getVirtualNetworkGatewayVpnProfilePackageUrl = null as any;
+export const getVirtualNetworkGatewayVpnProfilePackageUrlOutput: typeof import("./getVirtualNetworkGatewayVpnProfilePackageUrl").getVirtualNetworkGatewayVpnProfilePackageUrlOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayVpnProfilePackageUrl","getVirtualNetworkGatewayVpnProfilePackageUrlOutput"], () => require("./getVirtualNetworkGatewayVpnProfilePackageUrl"));
+
 export { GetVirtualNetworkGatewayVpnclientConnectionHealthArgs, GetVirtualNetworkGatewayVpnclientConnectionHealthResult, GetVirtualNetworkGatewayVpnclientConnectionHealthOutputArgs } from "./getVirtualNetworkGatewayVpnclientConnectionHealth";
 export const getVirtualNetworkGatewayVpnclientConnectionHealth: typeof import("./getVirtualNetworkGatewayVpnclientConnectionHealth").getVirtualNetworkGatewayVpnclientConnectionHealth = null as any;
 export const getVirtualNetworkGatewayVpnclientConnectionHealthOutput: typeof import("./getVirtualNetworkGatewayVpnclientConnectionHealth").getVirtualNetworkGatewayVpnclientConnectionHealthOutput = null as any;

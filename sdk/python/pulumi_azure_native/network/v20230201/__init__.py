@@ -117,8 +117,10 @@ from .get_virtual_network_gateway import *
 from .get_virtual_network_gateway_advertised_routes import *
 from .get_virtual_network_gateway_bgp_peer_status import *
 from .get_virtual_network_gateway_connection import *
+from .get_virtual_network_gateway_connection_ike_sas import *
 from .get_virtual_network_gateway_learned_routes import *
 from .get_virtual_network_gateway_nat_rule import *
+from .get_virtual_network_gateway_vpn_profile_package_url import *
 from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .get_virtual_network_peering import *
@@ -128,6 +130,7 @@ from .get_virtual_router_peering import *
 from .get_virtual_wan import *
 from .get_vpn_connection import *
 from .get_vpn_gateway import *
+from .get_vpn_link_connection_ike_sas import *
 from .get_vpn_server_configuration import *
 from .get_vpn_site import *
 from .get_web_application_firewall_policy import *

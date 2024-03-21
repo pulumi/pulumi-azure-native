@@ -16,6 +16,7 @@ from .get_cluster import *
 from .get_configuration import *
 from .get_database import *
 from .get_firewall_rule import *
+from .get_get_private_dns_zone_suffix_execute import *
 from .get_migration import *
 from .get_private_endpoint_connection import *
 from .get_role import *
@@ -43,10 +44,16 @@ if typing.TYPE_CHECKING:
     v20200214privatepreview = __v20200214privatepreview
     import pulumi_azure_native.dbforpostgresql.v20201005privatepreview as __v20201005privatepreview
     v20201005privatepreview = __v20201005privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20210331privatepreview as __v20210331privatepreview
+    v20210331privatepreview = __v20210331privatepreview
     import pulumi_azure_native.dbforpostgresql.v20210410privatepreview as __v20210410privatepreview
     v20210410privatepreview = __v20210410privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20210601 as __v20210601
+    v20210601 = __v20210601
     import pulumi_azure_native.dbforpostgresql.v20210615privatepreview as __v20210615privatepreview
     v20210615privatepreview = __v20210615privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20220120preview as __v20220120preview
+    v20220120preview = __v20220120preview
     import pulumi_azure_native.dbforpostgresql.v20220308preview as __v20220308preview
     v20220308preview = __v20220308preview
     import pulumi_azure_native.dbforpostgresql.v20220308privatepreview as __v20220308privatepreview
@@ -72,8 +79,11 @@ else:
     v20200214preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20200214preview')
     v20200214privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20200214privatepreview')
     v20201005privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20201005privatepreview')
+    v20210331privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210331privatepreview')
     v20210410privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210410privatepreview')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210601')
     v20210615privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210615privatepreview')
+    v20220120preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220120preview')
     v20220308preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220308preview')
     v20220308privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220308privatepreview')
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220501preview')
