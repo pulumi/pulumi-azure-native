@@ -24,6 +24,7 @@ from .get_container_app import *
 from .get_container_app_auth_token import *
 from .get_container_apps_auth_config import *
 from .get_container_apps_source_control import *
+from .get_custom_domain_verification_id import *
 from .get_dapr_component import *
 from .get_job import *
 from .get_managed_certificate import *

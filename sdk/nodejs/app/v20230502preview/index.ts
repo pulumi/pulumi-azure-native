@@ -95,6 +95,11 @@ export const getContainerAppsSourceControl: typeof import("./getContainerAppsSou
 export const getContainerAppsSourceControlOutput: typeof import("./getContainerAppsSourceControl").getContainerAppsSourceControlOutput = null as any;
 utilities.lazyLoad(exports, ["getContainerAppsSourceControl","getContainerAppsSourceControlOutput"], () => require("./getContainerAppsSourceControl"));
 
+export { GetCustomDomainVerificationIdArgs, GetCustomDomainVerificationIdResult } from "./getCustomDomainVerificationId";
+export const getCustomDomainVerificationId: typeof import("./getCustomDomainVerificationId").getCustomDomainVerificationId = null as any;
+export const getCustomDomainVerificationIdOutput: typeof import("./getCustomDomainVerificationId").getCustomDomainVerificationIdOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomDomainVerificationId","getCustomDomainVerificationIdOutput"], () => require("./getCustomDomainVerificationId"));
+
 export { GetDaprComponentArgs, GetDaprComponentResult, GetDaprComponentOutputArgs } from "./getDaprComponent";
 export const getDaprComponent: typeof import("./getDaprComponent").getDaprComponent = null as any;
 export const getDaprComponentOutput: typeof import("./getDaprComponent").getDaprComponentOutput = null as any;
