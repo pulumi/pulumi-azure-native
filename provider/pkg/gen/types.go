@@ -78,7 +78,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
 
-			props, err := m.genProperties(resolvedSchema, isOutput, true /* isType */)
+			props, err := m.genProperties(resolvedSchema, isOutput, true /* isType */, false /* isResponse */)
 			if err != nil {
 				return nil, err
 			}
