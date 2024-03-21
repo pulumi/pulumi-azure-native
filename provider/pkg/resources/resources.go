@@ -11,6 +11,9 @@ import (
 	"github.com/gedex/inflector"
 )
 
+// SingleValueProperty is the name of the property that we insert into the schema for non-object type responses of invokes.
+const SingleValueProperty = "value"
+
 // AzureAPIParameter represents a parameter of a Azure REST API endpoint.
 type AzureAPIParameter struct {
 	Name string `json:"name"`

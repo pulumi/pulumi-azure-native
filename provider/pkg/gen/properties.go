@@ -43,7 +43,7 @@ type propertyBag struct {
 
 type RequiredContainers [][]string
 
-func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType bool) (*propertyBag, error) {
+func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType, isResponse bool) (*propertyBag, error) {
 	result := newPropertyBag()
 
 	// Sort properties to make codegen deterministic.
@@ -98,7 +98,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
-			bag, err := m.genProperties(resolvedProperty, isOutput, isType)
+			bag, err := m.genProperties(resolvedProperty, isOutput, isType, false /* isResponse */)
 			if err != nil {
 				return nil, err
 			}
@@ -171,7 +171,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
-		allOfProperties, err := m.genProperties(allOfSchema, isOutput, isType)
+		allOfProperties, err := m.genProperties(allOfSchema, isOutput, isType, false /* isResponse */)
 		if err != nil {
 			return nil, err
 		}
@@ -220,14 +220,15 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	// If the schema has no properties but is a primitive output, we include it as a property so invokes can be generated.
 	// Ideally we'd just represent it as a primitive type and use FunctionSpec.ReturnType to specify this, but pulumi/pulumi
 	// #15739 and #15738 prevent this.
-	if len(names) == 0 && len(result.specs) == 0 && isOutput && len(resolvedSchema.Type) == 1 && resolvedSchema.Type[0] == "string" {
-		result.specs["value"] = pschema.PropertySpec{
+	if len(names) == 0 && len(result.specs) == 0 && isResponse && len(resolvedSchema.Type) == 1 && resolvedSchema.Type[0] != "object" {
+		result.specs[resources.SingleValueProperty] = pschema.PropertySpec{
 			TypeSpec: pschema.TypeSpec{
-				Type: "string",
+				Type: resolvedSchema.Type[0],
 			},
+			Description: result.description,
 		}
-		result.properties["value"] = resources.AzureAPIProperty{
-			Type: "string",
+		result.properties[resources.SingleValueProperty] = resources.AzureAPIProperty{
+			Type: resolvedSchema.Type[0],
 		}
 	}
 
