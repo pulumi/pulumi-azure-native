@@ -298,7 +298,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		}
 		body := crud.PrepareAzureRESTBody(id, parameters, nil, args.Mappable(), k.converter)
 
-		var response map[string]interface{}
+		var response any
 		if res.GetParameters != nil {
 			response, err = k.azureClient.Get(ctx, id, res.APIVersion)
 		} else if res.PostParameters != nil {
@@ -309,13 +309,10 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		} else {
 			return nil, errors.Errorf("neither GET nor POST is defined for %s", label)
 		}
-
 		if err != nil {
 			return nil, errors.Wrapf(err, "request failed %v", id)
 		}
-
-		// Map the raw response to the shape of outputs that the SDKs expect.
-		outputs = k.converter.ResponseBodyToSdkOutputs(res.Response, response)
+		outputs = k.invokeResponseToOutputs(response, res)
 	}
 
 	// Serialize and return RPC outputs.
@@ -327,6 +324,14 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		return nil, err
 	}
 	return &rpc.InvokeResponse{Return: result}, nil
+}
+
+func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resources.AzureAPIInvoke) map[string]any {
+	if responseMap, ok := response.(map[string]any); ok {
+		// Map the raw response to the shape of outputs that the SDKs expect.
+		return k.converter.ResponseBodyToSdkOutputs(res.Response, responseMap)
+	}
+	return map[string]any{resources.SingleValueProperty: response}
 }
 
 // StreamInvoke dynamically executes a built-in function in the provider. The result is streamed
@@ -453,7 +458,7 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 		return nil
 	}
 
-	v, ok := response["location"].(string)
+	v, ok := response.(map[string]any)["location"].(string)
 	if !ok {
 		logging.V(9).Infof("no location for resource group %q", rgName)
 		return nil

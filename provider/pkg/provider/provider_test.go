@@ -2,11 +2,14 @@ package provider
 
 import (
 	"context"
+	"fmt"
 	"testing"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestRestoreDefaultInputs(t *testing.T) {
@@ -308,5 +311,30 @@ func TestSetUnsetSubresourcePropertiesToDefaults(t *testing.T) {
 				"accessPolicies": []any{},
 			},
 		}, body)
+	})
+}
+
+func TestInvokeResponseToOutputs(t *testing.T) {
+	conv := convert.NewSdkShapeConverterFull(map[string]resources.AzureAPIType{})
+	p := azureNativeProvider{
+		converter: &conv,
+	}
+
+	for _, val := range []any{
+		"string",
+		42,
+		[]string{"a", "b"},
+	} {
+		t.Run(fmt.Sprintf("single value of type %T", val), func(t *testing.T) {
+			outputs := p.invokeResponseToOutputs(val, resources.AzureAPIInvoke{} /* unused */)
+			require.Len(t, outputs, 1)
+			require.Contains(t, outputs, resources.SingleValueProperty)
+			assert.Equal(t, val, outputs[resources.SingleValueProperty])
+		})
+	}
+
+	t.Run("object", func(t *testing.T) {
+		outputs := p.invokeResponseToOutputs(map[string]any{"key": "value"}, resources.AzureAPIInvoke{})
+		assert.Empty(t, outputs) // the empty converter doesn't know any properties
 	})
 }
