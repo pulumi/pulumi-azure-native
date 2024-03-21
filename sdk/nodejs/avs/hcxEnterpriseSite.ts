@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * An HCX Enterprise Site resource
  * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export class HcxEnterpriseSite extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210101preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210601:HcxEnterpriseSite" }, { type: "azure-native:avs/v20211201:HcxEnterpriseSite" }, { type: "azure-native:avs/v20220501:HcxEnterpriseSite" }, { type: "azure-native:avs/v20230301:HcxEnterpriseSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210101preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210601:HcxEnterpriseSite" }, { type: "azure-native:avs/v20211201:HcxEnterpriseSite" }, { type: "azure-native:avs/v20220501:HcxEnterpriseSite" }, { type: "azure-native:avs/v20230301:HcxEnterpriseSite" }, { type: "azure-native:avs/v20230901:HcxEnterpriseSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HcxEnterpriseSite.__pulumiType, name, resourceInputs, opts);
     }

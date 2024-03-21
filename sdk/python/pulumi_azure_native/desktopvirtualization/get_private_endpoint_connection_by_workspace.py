@@ -125,7 +125,7 @@ def get_private_endpoint_connection_by_workspace(private_endpoint_connection_nam
     Get a private endpoint connection.
     Azure REST API version: 2022-10-14-preview.
 
-    Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview.
+    Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -158,7 +158,7 @@ def get_private_endpoint_connection_by_workspace_output(private_endpoint_connect
     Get a private endpoint connection.
     Azure REST API version: 2022-10-14-preview.
 
-    Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview.
+    Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

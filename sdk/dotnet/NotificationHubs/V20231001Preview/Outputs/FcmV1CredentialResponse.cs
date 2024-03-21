@@ -17,14 +17,29 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Outputs
     public sealed class FcmV1CredentialResponse
     {
         /// <summary>
-        /// Description of a NotificationHub FcmV1Credential.
+        /// Gets or sets client email.
         /// </summary>
-        public readonly Outputs.FcmV1CredentialPropertiesResponse Properties;
+        public readonly string ClientEmail;
+        /// <summary>
+        /// Gets or sets private key.
+        /// </summary>
+        public readonly string PrivateKey;
+        /// <summary>
+        /// Gets or sets project id.
+        /// </summary>
+        public readonly string ProjectId;
 
         [OutputConstructor]
-        private FcmV1CredentialResponse(Outputs.FcmV1CredentialPropertiesResponse properties)
+        private FcmV1CredentialResponse(
+            string clientEmail,
+
+            string privateKey,
+
+            string projectId)
         {
-            Properties = properties;
+            ClientEmail = clientEmail;
+            PrivateKey = privateKey;
+            ProjectId = projectId;
         }
     }
 }

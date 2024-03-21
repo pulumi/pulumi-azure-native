@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240116Preview
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:AppAttachPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231101preview:AppAttachPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20240306preview:AppAttachPackage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

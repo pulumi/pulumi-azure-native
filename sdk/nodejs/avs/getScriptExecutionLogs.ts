@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Return the logs for a script execution resource
  * Azure REST API version: 2022-05-01.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export function getScriptExecutionLogs(args: GetScriptExecutionLogsArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptExecutionLogsResult> {
 
@@ -119,7 +119,7 @@ export interface GetScriptExecutionLogsResult {
  * Return the logs for a script execution resource
  * Azure REST API version: 2022-05-01.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export function getScriptExecutionLogsOutput(args: GetScriptExecutionLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionLogsResult> {
     return pulumi.output(args).apply((a: any) => getScriptExecutionLogs(a, opts))

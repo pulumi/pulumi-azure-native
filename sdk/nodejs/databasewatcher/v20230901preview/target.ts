@@ -58,10 +58,6 @@ export class Target extends pulumi.CustomResource {
      */
     public readonly targetAuthenticationType!: pulumi.Output<string>;
     /**
-     * The target collection status.
-     */
-    public readonly targetCollectionStatus!: pulumi.Output<string | undefined>;
-    /**
      * Discriminator property for TargetProperties.
      */
     public readonly targetType!: pulumi.Output<string>;
@@ -103,7 +99,6 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["connectionServerName"] = args ? args.connectionServerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["targetAuthenticationType"] = args ? args.targetAuthenticationType : undefined;
-            resourceInputs["targetCollectionStatus"] = args ? args.targetCollectionStatus : undefined;
             resourceInputs["targetName"] = args ? args.targetName : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["targetVault"] = args ? args.targetVault : undefined;
@@ -118,7 +113,6 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["targetAuthenticationType"] = undefined /*out*/;
-            resourceInputs["targetCollectionStatus"] = undefined /*out*/;
             resourceInputs["targetType"] = undefined /*out*/;
             resourceInputs["targetVault"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -146,10 +140,6 @@ export interface TargetArgs {
      * The type of authentication to use when connecting to a target.
      */
     targetAuthenticationType: pulumi.Input<string | enums.databasewatcher.v20230901preview.TargetAuthenticationType>;
-    /**
-     * The target collection status.
-     */
-    targetCollectionStatus?: pulumi.Input<string | enums.databasewatcher.v20230901preview.TargetCollectionStatus>;
     /**
      * The target resource name.
      */

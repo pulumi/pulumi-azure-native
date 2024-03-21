@@ -114,7 +114,7 @@ class PlacementPolicy(pulumi.CustomResource):
         A vSphere Distributed Resource Scheduler (DRS) placement policy
         Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-12-01.
 
-        Other available API versions: 2023-03-01.
+        Other available API versions: 2023-03-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class PlacementPolicy(pulumi.CustomResource):
         A vSphere Distributed Resource Scheduler (DRS) placement policy
         Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-12-01.
 
-        Other available API versions: 2023-03-01.
+        Other available API versions: 2023-03-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param PlacementPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class PlacementPolicy(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20211201:PlacementPolicy"), pulumi.Alias(type_="azure-native:avs/v20220501:PlacementPolicy"), pulumi.Alias(type_="azure-native:avs/v20230301:PlacementPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20211201:PlacementPolicy"), pulumi.Alias(type_="azure-native:avs/v20220501:PlacementPolicy"), pulumi.Alias(type_="azure-native:avs/v20230301:PlacementPolicy"), pulumi.Alias(type_="azure-native:avs/v20230901:PlacementPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PlacementPolicy, __self__).__init__(
             'azure-native:avs:PlacementPolicy',

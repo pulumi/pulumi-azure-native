@@ -97,7 +97,7 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         NSX DHCP
         Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
 
-        Other available API versions: 2021-01-01-preview, 2023-03-01.
+        Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         NSX DHCP
         Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
 
-        Other available API versions: 2021-01-01-preview, 2023-03-01.
+        Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkDhcpArgs args: The arguments to use to populate this resource's properties.
@@ -156,7 +156,7 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkDhcp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkDhcp"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkDhcp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkDhcp, __self__).__init__(
             'azure-native:avs:WorkloadNetworkDhcp',

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An instance of a script executed by a user - custom or AVS
  * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export class ScriptExecution extends pulumi.CustomResource {
     /**
@@ -169,7 +169,7 @@ export class ScriptExecution extends pulumi.CustomResource {
             resourceInputs["warnings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:ScriptExecution" }, { type: "azure-native:avs/v20211201:ScriptExecution" }, { type: "azure-native:avs/v20220501:ScriptExecution" }, { type: "azure-native:avs/v20230301:ScriptExecution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:ScriptExecution" }, { type: "azure-native:avs/v20211201:ScriptExecution" }, { type: "azure-native:avs/v20220501:ScriptExecution" }, { type: "azure-native:avs/v20230301:ScriptExecution" }, { type: "azure-native:avs/v20230901:ScriptExecution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScriptExecution.__pulumiType, name, resourceInputs, opts);
     }

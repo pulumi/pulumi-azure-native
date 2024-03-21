@@ -8,9 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.ContainerService.V20230315Preview
 {
     /// <summary>
-    /// The upgrade type.
-    /// Full requires the KubernetesVersion property to be set.
-    /// NodeImageOnly requires the KubernetesVersion property not to be set.
+    /// ManagedClusterUpgradeType is the type of upgrade to be applied.
     /// </summary>
     [EnumType]
     public readonly struct ManagedClusterUpgradeType : IEquatable<ManagedClusterUpgradeType>
@@ -23,11 +21,11 @@ namespace Pulumi.AzureNative.ContainerService.V20230315Preview
         }
 
         /// <summary>
-        /// Full upgrades the control plane and all agent pools of the target ManagedClusters.
+        /// Full upgrades the control plane and all agent pools of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
         /// </summary>
         public static ManagedClusterUpgradeType Full { get; } = new ManagedClusterUpgradeType("Full");
         /// <summary>
-        /// NodeImageOnly upgrades only the node images of the target ManagedClusters.
+        /// NodeImageOnly upgrades only the node images of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to NOT be set.
         /// </summary>
         public static ManagedClusterUpgradeType NodeImageOnly { get; } = new ManagedClusterUpgradeType("NodeImageOnly");
 

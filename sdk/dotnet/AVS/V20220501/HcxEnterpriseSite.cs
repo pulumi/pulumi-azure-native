@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.AVS.V20220501
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:HcxEnterpriseSite" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:HcxEnterpriseSite" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:HcxEnterpriseSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

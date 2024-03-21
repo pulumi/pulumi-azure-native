@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * A cloud link resource
  * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export class CloudLink extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class CloudLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:CloudLink" }, { type: "azure-native:avs/v20211201:CloudLink" }, { type: "azure-native:avs/v20220501:CloudLink" }, { type: "azure-native:avs/v20230301:CloudLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:CloudLink" }, { type: "azure-native:avs/v20211201:CloudLink" }, { type: "azure-native:avs/v20220501:CloudLink" }, { type: "azure-native:avs/v20230301:CloudLink" }, { type: "azure-native:avs/v20230901:CloudLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudLink.__pulumiType, name, resourceInputs, opts);
     }

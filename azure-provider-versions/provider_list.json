@@ -121,6 +121,57 @@
         ]
       },
       {
+        "resourceType": "monitors/listAppServices",
+        "apiVersions": [
+          "2023-11-24-preview",
+          "2023-11-11-preview",
+          "2023-09-20-preview",
+          "2023-09-12-preview",
+          "2023-08-22-preview",
+          "2023-08-14-preview",
+          "2023-04-27",
+          "2023-04-20-preview",
+          "2023-03-01-preview",
+          "2022-10-01-preview",
+          "2021-09-01-preview",
+          "2021-09-01"
+        ]
+      },
+      {
+        "resourceType": "monitors/listHosts",
+        "apiVersions": [
+          "2023-11-24-preview",
+          "2023-11-11-preview",
+          "2023-09-20-preview",
+          "2023-09-12-preview",
+          "2023-08-22-preview",
+          "2023-08-14-preview",
+          "2023-04-27",
+          "2023-04-20-preview",
+          "2023-03-01-preview",
+          "2022-10-01-preview",
+          "2021-09-01-preview",
+          "2021-09-01"
+        ]
+      },
+      {
+        "resourceType": "monitors/listMonitoredResources",
+        "apiVersions": [
+          "2023-11-24-preview",
+          "2023-11-11-preview",
+          "2023-09-20-preview",
+          "2023-09-12-preview",
+          "2023-08-22-preview",
+          "2023-08-14-preview",
+          "2023-04-27",
+          "2023-04-20-preview",
+          "2023-03-01-preview",
+          "2022-10-01-preview",
+          "2021-09-01-preview",
+          "2021-09-01"
+        ]
+      },
+      {
         "resourceType": "monitors/singleSignOnConfigurations",
         "apiVersions": [
           "2023-11-24-preview",
@@ -760,6 +811,7 @@
       {
         "resourceType": "recommendations",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-01-01",
           "2022-10-01",
           "2022-09-01",
@@ -1107,6 +1159,7 @@
       {
         "resourceType": "checkFeedbackRequired",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -1133,6 +1186,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -1166,6 +1220,7 @@
       {
         "resourceType": "deletedServices",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -1181,6 +1236,7 @@
       {
         "resourceType": "getDomainOwnershipIdentifier",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -1196,6 +1252,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -1212,6 +1269,7 @@
       {
         "resourceType": "locations/deletedServices",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -1227,6 +1285,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -1253,6 +1312,7 @@
       {
         "resourceType": "reportFeedback",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -1279,6 +1339,7 @@
       {
         "resourceType": "service",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-05-01-preview",
           "2023-03-01-preview",
           "2022-09-01-preview",
@@ -2703,6 +2764,12 @@
     "namespace": "Microsoft.AppSecurity",
     "resourceTypes": [
       {
+        "resourceType": "Operations",
+        "apiVersions": [
+          "2023-02-06-preview"
+        ]
+      },
+      {
         "resourceType": "operationStatuses",
         "apiVersions": [
           "2023-02-06-preview"
@@ -3539,12 +3606,14 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-08-01-preview",
           "2023-12-01-preview"
         ]
       },
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-08-01-preview",
           "2023-12-01-preview"
         ]
       }
@@ -4015,42 +4084,49 @@
       {
         "resourceType": "catalogs",
         "apiVersions": [
+          "2024-04-01",
           "2022-09-01-preview"
         ]
       },
       {
         "resourceType": "catalogs/certificates",
         "apiVersions": [
+          "2024-04-01",
           "2022-09-01-preview"
         ]
       },
       {
         "resourceType": "catalogs/images",
         "apiVersions": [
+          "2024-04-01",
           "2022-09-01-preview"
         ]
       },
       {
         "resourceType": "catalogs/products",
         "apiVersions": [
+          "2024-04-01",
           "2022-09-01-preview"
         ]
       },
       {
         "resourceType": "catalogs/products/devicegroups",
         "apiVersions": [
+          "2024-04-01",
           "2022-09-01-preview"
         ]
       },
       {
         "resourceType": "catalogs/products/devicegroups/deployments",
         "apiVersions": [
+          "2024-04-01",
           "2022-09-01-preview"
         ]
       },
       {
         "resourceType": "catalogs/products/devicegroups/devices",
         "apiVersions": [
+          "2024-04-01",
           "2022-09-01-preview"
         ]
       },
@@ -4137,6 +4213,7 @@
       {
         "resourceType": "clusters",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2023-08-01-preview",
           "2023-08-01",
@@ -4157,6 +4234,7 @@
       {
         "resourceType": "clusters/arcSettings",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2023-08-01-preview",
           "2023-08-01",
@@ -4176,6 +4254,8 @@
       {
         "resourceType": "clusters/arcSettings/extensions",
         "apiVersions": [
+          "2024-01-01",
+          "2023-11-01-preview",
           "2023-08-01-preview",
           "2023-08-01",
           "2023-06-01",
@@ -4194,6 +4274,7 @@
       {
         "resourceType": "clusters/deploymentSettings",
         "apiVersions": [
+          "2024-01-01",
           "2023-08-01-preview"
         ]
       },
@@ -4224,12 +4305,14 @@
       {
         "resourceType": "clusters/securitySettings",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview"
         ]
       },
       {
         "resourceType": "clusters/updateSummaries",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2023-08-01-preview",
           "2023-08-01",
@@ -4245,6 +4328,7 @@
       {
         "resourceType": "clusters/updates",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2023-08-01-preview",
           "2023-08-01",
@@ -4260,6 +4344,7 @@
       {
         "resourceType": "clusters/updates/updateRuns",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2023-08-01-preview",
           "2023-08-01",
@@ -4275,12 +4360,14 @@
       {
         "resourceType": "edgeDevices",
         "apiVersions": [
+          "2024-01-01",
           "2023-08-01-preview"
         ]
       },
       {
         "resourceType": "galleryImages",
         "apiVersions": [
+          "2024-01-01",
           "2023-09-01-preview",
           "2023-07-01-preview",
           "2022-12-15-preview",
@@ -4292,6 +4379,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-01-15-preview",
           "2024-01-01",
           "2023-11-01-preview",
           "2023-09-01-preview",
@@ -4320,6 +4408,8 @@
       {
         "resourceType": "locations/operationstatuses",
         "apiVersions": [
+          "2024-02-15-preview",
+          "2024-01-15-preview",
           "2024-01-01",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -4349,12 +4439,14 @@
       {
         "resourceType": "logicalNetworks",
         "apiVersions": [
+          "2024-01-01",
           "2023-09-01-preview"
         ]
       },
       {
         "resourceType": "marketplaceGalleryImages",
         "apiVersions": [
+          "2024-01-01",
           "2023-09-01-preview",
           "2023-07-01-preview",
           "2022-12-15-preview",
@@ -4364,6 +4456,7 @@
       {
         "resourceType": "networkInterfaces",
         "apiVersions": [
+          "2024-01-01",
           "2023-09-01-preview",
           "2023-07-01-preview",
           "2022-12-15-preview",
@@ -4375,6 +4468,8 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-02-15-preview",
+          "2024-01-15-preview",
           "2024-01-01",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -4405,6 +4500,7 @@
       {
         "resourceType": "registeredSubscriptions",
         "apiVersions": [
+          "2024-01-01",
           "2023-11-01-preview",
           "2023-08-01-preview",
           "2023-08-01",
@@ -4419,6 +4515,7 @@
       {
         "resourceType": "storageContainers",
         "apiVersions": [
+          "2024-01-01",
           "2023-09-01-preview",
           "2023-07-01-preview",
           "2022-12-15-preview",
@@ -4428,6 +4525,7 @@
       {
         "resourceType": "virtualHardDisks",
         "apiVersions": [
+          "2024-01-01",
           "2023-09-01-preview",
           "2023-07-01-preview",
           "2022-12-15-preview",
@@ -4439,6 +4537,7 @@
       {
         "resourceType": "virtualMachineInstances",
         "apiVersions": [
+          "2024-01-01",
           "2023-09-01-preview",
           "2023-07-01-preview"
         ]
@@ -6733,6 +6832,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6749,6 +6849,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/operationresults",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6765,6 +6866,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnectionProxies/validate",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6781,6 +6883,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnections",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6797,6 +6900,7 @@
       {
         "resourceType": "RedisEnterprise/privateEndpointConnections/operationresults",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6813,6 +6917,7 @@
       {
         "resourceType": "RedisEnterprise/privateLinkResources",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6852,6 +6957,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6897,6 +7003,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6935,6 +7042,7 @@
       {
         "resourceType": "locations/operationsStatus",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6951,6 +7059,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6981,6 +7090,7 @@
       {
         "resourceType": "redisEnterprise",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -6997,6 +7107,7 @@
       {
         "resourceType": "redisEnterprise/databases",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01",
           "2023-10-01-preview",
           "2023-07-01",
@@ -8336,6 +8447,7 @@
       {
         "resourceType": "certificateOrders",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -8355,6 +8467,7 @@
       {
         "resourceType": "certificateOrders/certificates",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -8374,6 +8487,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -8393,6 +8507,7 @@
       {
         "resourceType": "validateCertificateRegistrationInformation",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -9297,17 +9412,13 @@
       {
         "resourceType": "codeSigningAccounts",
         "apiVersions": [
-          "2024-02-05-preview",
-          "2023-04-30-preview",
-          "2020-12-14-preview"
+          "2024-02-05-preview"
         ]
       },
       {
         "resourceType": "codeSigningAccounts/certificateProfiles",
         "apiVersions": [
-          "2024-02-05-preview",
-          "2023-04-30-preview",
-          "2020-12-14-preview"
+          "2024-02-05-preview"
         ]
       }
     ]
@@ -9704,6 +9815,18 @@
           "2023-04-01",
           "2023-03-31",
           "2023-03-01-preview"
+        ]
+      },
+      {
+        "resourceType": "EmailServices/Domains/SuppressionLists",
+        "apiVersions": [
+          "2023-06-01-preview"
+        ]
+      },
+      {
+        "resourceType": "EmailServices/Domains/SuppressionLists/SuppressionListAddresses",
+        "apiVersions": [
+          "2023-06-01-preview"
         ]
       },
       {
@@ -15041,6 +15164,7 @@
       {
         "resourceType": "flexibleServers",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15060,6 +15184,7 @@
       {
         "resourceType": "getPrivateDnsZoneSuffix",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15104,6 +15229,7 @@
       {
         "resourceType": "locations/capabilities",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15123,6 +15249,7 @@
       {
         "resourceType": "locations/capabilitySets",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15132,6 +15259,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15149,6 +15277,7 @@
       {
         "resourceType": "locations/checkVirtualNetworkSubnetUsage",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15168,6 +15297,7 @@
       {
         "resourceType": "locations/listMigrations",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15181,6 +15311,7 @@
       {
         "resourceType": "locations/operationProgress",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview"
         ]
       },
@@ -15274,6 +15405,7 @@
       {
         "resourceType": "locations/updateMigration",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15287,6 +15419,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-12-30",
           "2023-12-01-preview",
           "2023-10-01-preview",
           "2023-06-30",
@@ -15423,6 +15556,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2023-12-01-preview",
           "2023-06-01-preview",
           "2023-03-01-preview",
           "2022-12-01",
@@ -15442,6 +15576,7 @@
       {
         "resourceType": "flexibleServers",
         "apiVersions": [
+          "2023-12-01-preview",
           "2023-06-01-preview",
           "2023-03-01-preview",
           "2023-01-01-privatepreview",
@@ -15490,6 +15625,7 @@
       {
         "resourceType": "locations/capabilities",
         "apiVersions": [
+          "2023-12-01-preview",
           "2023-06-01-preview",
           "2023-03-01-preview",
           "2022-12-01",
@@ -15508,6 +15644,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2023-12-01-preview",
           "2023-06-01-preview",
           "2023-03-01-preview",
           "2022-12-01",
@@ -15526,6 +15663,7 @@
       {
         "resourceType": "locations/checkVirtualNetworkSubnetUsage",
         "apiVersions": [
+          "2023-12-01-preview",
           "2023-06-01-preview",
           "2023-03-01-preview",
           "2022-12-01",
@@ -15635,6 +15773,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-12-01-preview",
           "2023-06-01-preview",
           "2023-03-01-preview",
           "2022-12-01",
@@ -17515,6 +17654,7 @@
       {
         "resourceType": "appattachpackages",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17530,6 +17670,7 @@
       {
         "resourceType": "applicationgroups",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17563,6 +17704,7 @@
       {
         "resourceType": "applicationgroups/applications",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17596,6 +17738,7 @@
       {
         "resourceType": "applicationgroups/desktops",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17629,6 +17772,7 @@
       {
         "resourceType": "applicationgroups/startmenuitems",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17662,6 +17806,7 @@
       {
         "resourceType": "hostpools",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17695,6 +17840,7 @@
       {
         "resourceType": "hostpools/msixpackages",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17728,6 +17874,7 @@
       {
         "resourceType": "hostpools/sessionhosts",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17761,6 +17908,7 @@
       {
         "resourceType": "hostpools/sessionhosts/usersessions",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17794,6 +17942,7 @@
       {
         "resourceType": "hostpools/usersessions",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17827,6 +17976,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-03-06-preview",
           "2024-01-16-preview",
           "2023-11-29-privatepreview",
           "2023-11-01-preview",
@@ -17872,6 +18022,7 @@
       {
         "resourceType": "scalingplans",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17905,6 +18056,7 @@
       {
         "resourceType": "workspaces",
         "apiVersions": [
+          "2024-01-16-preview",
           "2023-11-01-preview",
           "2023-10-04-preview",
           "2023-09-05",
@@ -17997,6 +18149,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18013,6 +18166,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18029,6 +18183,8 @@
       {
         "resourceType": "Locations/usages",
         "apiVersions": [
+          "2024-02-01",
+          "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
           "2023-08-01-preview",
@@ -18039,6 +18195,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18052,12 +18209,14 @@
       {
         "resourceType": "checkScopedNameAvailability",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview"
         ]
       },
       {
         "resourceType": "devcenters",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18074,6 +18233,7 @@
       {
         "resourceType": "devcenters/attachednetworks",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18090,6 +18250,7 @@
       {
         "resourceType": "devcenters/catalogs",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18116,6 +18277,7 @@
       {
         "resourceType": "devcenters/catalogs/environmentDefinitions",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18134,6 +18296,7 @@
       {
         "resourceType": "devcenters/devboxdefinitions",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18150,6 +18313,7 @@
       {
         "resourceType": "devcenters/environmentTypes",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18166,6 +18330,7 @@
       {
         "resourceType": "devcenters/galleries",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18182,6 +18347,7 @@
       {
         "resourceType": "devcenters/galleries/images",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18198,6 +18364,7 @@
       {
         "resourceType": "devcenters/galleries/images/versions",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18214,6 +18381,7 @@
       {
         "resourceType": "devcenters/images",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18230,6 +18398,7 @@
       {
         "resourceType": "networkconnections",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18246,6 +18415,7 @@
       {
         "resourceType": "networkconnections/healthchecks",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18262,6 +18432,7 @@
       {
         "resourceType": "networkconnections/outboundNetworkDependenciesEndpoints",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18274,6 +18445,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18290,6 +18462,7 @@
       {
         "resourceType": "projects",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18306,6 +18479,7 @@
       {
         "resourceType": "projects/allowedEnvironmentTypes",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18321,6 +18495,7 @@
       {
         "resourceType": "projects/attachednetworks",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18337,6 +18512,7 @@
       {
         "resourceType": "projects/devboxdefinitions",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18353,6 +18529,7 @@
       {
         "resourceType": "projects/environmentTypes",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18369,6 +18546,7 @@
       {
         "resourceType": "projects/pools",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -18385,6 +18563,7 @@
       {
         "resourceType": "projects/pools/schedules",
         "apiVersions": [
+          "2024-02-01",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-09-01-preview",
@@ -19430,6 +19609,7 @@
       {
         "resourceType": "locations/checkMongoClusterNameAvailability",
         "apiVersions": [
+          "2024-03-01-preview",
           "2024-02-15-preview",
           "2023-11-15-preview",
           "2023-09-15-preview",
@@ -19486,6 +19666,7 @@
       {
         "resourceType": "locations/mongoClusterAzureAsyncOperation",
         "apiVersions": [
+          "2024-03-01-preview",
           "2024-02-15-preview",
           "2023-11-15-preview",
           "2023-09-15-preview",
@@ -19497,6 +19678,7 @@
       {
         "resourceType": "locations/mongoClusterOperationResults",
         "apiVersions": [
+          "2024-03-01-preview",
           "2024-02-15-preview",
           "2023-11-15-preview",
           "2023-09-15-preview",
@@ -19646,6 +19828,7 @@
       {
         "resourceType": "mongoClusters",
         "apiVersions": [
+          "2024-03-01-preview",
           "2024-02-15-preview",
           "2023-11-15-preview",
           "2023-09-15-preview",
@@ -19841,6 +20024,7 @@
       {
         "resourceType": "checkDomainAvailability",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -19861,6 +20045,7 @@
       {
         "resourceType": "domains",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -19881,6 +20066,7 @@
       {
         "resourceType": "domains/domainOwnershipIdentifiers",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -19901,6 +20087,7 @@
       {
         "resourceType": "generateSsoRequest",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -19921,6 +20108,7 @@
       {
         "resourceType": "listDomainRecommendations",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -19941,6 +20129,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -19961,6 +20150,7 @@
       {
         "resourceType": "topLevelDomains",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -19981,6 +20171,7 @@
       {
         "resourceType": "validateDomainRegistrationInformation",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -20253,6 +20444,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -20272,6 +20464,7 @@
       {
         "resourceType": "elasticVersions",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -20284,6 +20477,7 @@
       {
         "resourceType": "getElasticOrganizationToAzureSubscriptionMapping",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -20293,6 +20487,7 @@
       {
         "resourceType": "getOrganizationApiKey",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -20305,6 +20500,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -20324,6 +20520,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -20343,6 +20540,7 @@
       {
         "resourceType": "monitors",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -20360,8 +20558,15 @@
         ]
       },
       {
+        "resourceType": "monitors/openAIIntegrations",
+        "apiVersions": [
+          "2024-01-01-preview"
+        ]
+      },
+      {
         "resourceType": "monitors/tagRules",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -20381,6 +20586,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-11-01-preview",
           "2023-10-01-preview",
           "2023-07-01-preview",
@@ -22359,6 +22565,12 @@
         ]
       },
       {
+        "resourceType": "simplifiedSolutions",
+        "apiVersions": [
+          "2024-03-01-preview"
+        ]
+      },
+      {
         "resourceType": "solutions",
         "apiVersions": [
           "2024-03-01-preview",
@@ -22930,6 +23142,7 @@
       {
         "resourceType": "generateAwsTemplate",
         "apiVersions": [
+          "2024-08-01-preview",
           "2023-12-01-preview"
         ]
       }
@@ -23239,6 +23452,23 @@
         "resourceType": "operations",
         "apiVersions": [
           "2023-11-14-preview"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "Microsoft.Inventory",
+    "resourceTypes": [
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2024-01-01-preview"
+        ]
+      },
+      {
+        "resourceType": "subscriptionInternalProperties",
+        "apiVersions": [
+          "2024-01-01-preview"
         ]
       }
     ]
@@ -24685,6 +24915,12 @@
         "apiVersions": [
           "2023-12-01-preview",
           "2022-12-01"
+        ]
+      },
+      {
+        "resourceType": "loadTestMappings",
+        "apiVersions": [
+          "2023-12-01-preview"
         ]
       },
       {
@@ -26302,6 +26538,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15",
           "2023-02-01-preview",
           "2022-01-15-privatepreview"
@@ -26358,6 +26595,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2024-02-15-preview",
           "2023-06-15",
           "2023-02-01-preview",
           "2022-01-15-privatepreview"
@@ -27958,6 +28196,12 @@
         ]
       },
       {
+        "resourceType": "investigations",
+        "apiVersions": [
+          "2024-01-01-preview"
+        ]
+      },
+      {
         "resourceType": "locations",
         "apiVersions": [
           "2023-10-01-preview",
@@ -28614,6 +28858,31 @@
         ]
       },
       {
+        "resourceType": "netAppAccounts/capacityPools/volumes/volumeQuotaRules",
+        "apiVersions": [
+          "2023-11-01-preview",
+          "2023-11-01",
+          "2023-09-01-preview",
+          "2023-09-01",
+          "2023-07-01-preview",
+          "2023-07-01",
+          "2023-05-01-preview",
+          "2023-05-01",
+          "2023-03-01-preview",
+          "2023-03-01",
+          "2023-01-01-preview",
+          "2023-01-01",
+          "2022-11-01-preview",
+          "2022-11-01",
+          "2022-09-01",
+          "2022-07-01-preview",
+          "2022-07-01",
+          "2022-05-01",
+          "2022-03-01",
+          "2022-01-01"
+        ]
+      },
+      {
         "resourceType": "netAppAccounts/snapshotPolicies",
         "apiVersions": [
           "2023-11-01-preview",
@@ -28682,6 +28951,10 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-11-01-preview",
+          "2023-11-01",
+          "2023-09-01-preview",
+          "2023-09-01",
           "2023-07-01-preview",
           "2023-07-01",
           "2023-05-01-preview",
@@ -37133,6 +37406,9 @@
       {
         "resourceType": "availabilityStatuses",
         "apiVersions": [
+          "2024-02-01-rc",
+          "2024-02-01-preview",
+          "2024-02-01",
           "2023-10-01-preview",
           "2023-07-01-rc",
           "2023-07-01-preview",
@@ -37154,6 +37430,10 @@
       {
         "resourceType": "childAvailabilityStatuses",
         "apiVersions": [
+          "2024-02-01-rc",
+          "2024-02-01-preview",
+          "2024-02-01-beta",
+          "2024-02-01",
           "2023-10-01-preview",
           "2023-07-01-rc",
           "2023-07-01-preview",
@@ -37176,6 +37456,10 @@
       {
         "resourceType": "childResources",
         "apiVersions": [
+          "2024-02-01-rc",
+          "2024-02-01-preview",
+          "2024-02-01-beta",
+          "2024-02-01",
           "2023-10-01-preview",
           "2023-07-01-preview",
           "2022-10-01",
@@ -37196,6 +37480,11 @@
       {
         "resourceType": "emergingissues",
         "apiVersions": [
+          "2024-02-01-rc",
+          "2024-02-01-preview",
+          "2024-02-01-beta",
+          "2024-02-01-alpha",
+          "2024-02-01",
           "2023-10-01-preview",
           "2023-07-01-rc",
           "2023-07-01-preview",
@@ -37218,6 +37507,8 @@
       {
         "resourceType": "events",
         "apiVersions": [
+          "2024-02-01-rc",
+          "2024-02-01",
           "2023-10-01-preview",
           "2023-07-01-rc",
           "2022-10-01-rc",
@@ -37232,6 +37523,11 @@
       {
         "resourceType": "metadata",
         "apiVersions": [
+          "2024-02-01-rc",
+          "2024-02-01-preview",
+          "2024-02-01-beta",
+          "2024-02-01-alpha",
+          "2024-02-01",
           "2023-10-01-preview",
           "2023-07-01-rc",
           "2023-07-01-preview",
@@ -37252,6 +37548,11 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-02-01-rc",
+          "2024-02-01-preview",
+          "2024-02-01-beta",
+          "2024-02-01-alpha",
+          "2024-02-01",
           "2023-10-01-preview",
           "2023-07-01-rc",
           "2023-07-01-preview",
@@ -38311,6 +38612,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-07-07-preview",
           "2022-09-13-preview",
           "2022-04-30-preview",
@@ -38320,6 +38622,7 @@
       {
         "resourceType": "managedInstances",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-07-07-preview",
           "2022-09-13-preview",
           "2022-04-30-preview",
@@ -38329,12 +38632,14 @@
       {
         "resourceType": "managedInstances/managedGateways",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-07-07-preview"
         ]
       },
       {
         "resourceType": "managedInstances/monitoredResources",
         "apiVersions": [
+          "2024-01-01-preview",
           "2023-07-07-preview"
         ]
       },
@@ -39042,6 +39347,23 @@
     ]
   },
   {
+    "namespace": "Microsoft.SecurityCopilot",
+    "resourceTypes": [
+      {
+        "resourceType": "Operations",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.SecurityDetonation",
     "resourceTypes": [
       {
@@ -39270,6 +39592,7 @@
       {
         "resourceType": "alertRuleTemplates",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39307,6 +39630,7 @@
       {
         "resourceType": "alertRules",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39344,6 +39668,7 @@
       {
         "resourceType": "automationRules",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39393,6 +39718,7 @@
       {
         "resourceType": "bookmarks",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39459,6 +39785,7 @@
       {
         "resourceType": "contentPackages",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39479,6 +39806,7 @@
       {
         "resourceType": "contentProductPackages",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39495,6 +39823,7 @@
       {
         "resourceType": "contentProductTemplates",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39511,6 +39840,7 @@
       {
         "resourceType": "contentTemplates",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39558,6 +39888,7 @@
       {
         "resourceType": "dataConnectors",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39620,22 +39951,6 @@
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2019-01-01-preview"
-        ]
-      },
-      {
-        "resourceType": "dynamicSummaries",
-        "apiVersions": [
-          "2024-01-01-preview",
-          "2023-12-01-preview",
-          "2023-11-01-preview",
-          "2023-10-01-preview",
-          "2023-09-01-preview",
-          "2023-08-01-preview",
-          "2023-07-01-preview",
-          "2023-06-01-preview",
-          "2023-05-01-preview",
-          "2023-04-01-preview",
-          "2023-03-01-preview"
         ]
       },
       {
@@ -39838,6 +40153,7 @@
       {
         "resourceType": "incidents",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39876,6 +40192,7 @@
       {
         "resourceType": "listrepositories",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39907,6 +40224,7 @@
       {
         "resourceType": "metadata",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -39969,6 +40287,7 @@
       {
         "resourceType": "onboardingStates",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -40004,6 +40323,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -40082,6 +40402,7 @@
       {
         "resourceType": "securityMLAnalyticsSettings",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -40141,6 +40462,7 @@
       {
         "resourceType": "sourceControls",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -40172,6 +40494,7 @@
       {
         "resourceType": "threatIntelligence",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -40225,6 +40548,7 @@
       {
         "resourceType": "watchlists",
         "apiVersions": [
+          "2024-03-01",
           "2024-01-01-preview",
           "2023-12-01-preview",
           "2023-11-01-preview",
@@ -41355,6 +41679,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-04-01-preview",
           "2022-05-01",
           "2021-11-01-preview",
           "2021-01-01-privatepreview"
@@ -49587,12 +49912,14 @@
       {
         "resourceType": "aseregions",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01"
         ]
       },
       {
         "resourceType": "availableStacks",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49623,6 +49950,7 @@
       {
         "resourceType": "billingMeters",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49654,6 +49982,7 @@
       {
         "resourceType": "certificates",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49685,6 +50014,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49748,6 +50078,7 @@
       {
         "resourceType": "customhostnameSites",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49775,6 +50106,7 @@
       {
         "resourceType": "deletedSites",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49805,6 +50137,7 @@
       {
         "resourceType": "deploymentLocations",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49841,6 +50174,7 @@
       {
         "resourceType": "functionAppStacks",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49855,6 +50189,7 @@
       {
         "resourceType": "generateGithubAccessTokenForAppserviceCLI",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49870,6 +50205,7 @@
       {
         "resourceType": "georegions",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49900,6 +50236,7 @@
       {
         "resourceType": "hostingEnvironments",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49935,6 +50272,7 @@
       {
         "resourceType": "hostingEnvironments/eventGridFilters",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -49970,6 +50308,7 @@
       {
         "resourceType": "hostingEnvironments/multiRolePools",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50003,6 +50342,7 @@
       {
         "resourceType": "hostingEnvironments/workerPools",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50036,6 +50376,7 @@
       {
         "resourceType": "ishostingenvironmentnameavailable",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50066,6 +50407,7 @@
       {
         "resourceType": "ishostnameavailable",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50096,6 +50438,7 @@
       {
         "resourceType": "isusernameavailable",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50132,6 +50475,7 @@
       {
         "resourceType": "listSitesAssignedToHostName",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50185,6 +50529,7 @@
       {
         "resourceType": "locations/deleteVirtualNetworkOrSubnets",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50218,6 +50563,7 @@
       {
         "resourceType": "locations/deletedSites",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50256,6 +50602,7 @@
       {
         "resourceType": "locations/functionAppStacks",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50270,6 +50617,7 @@
       {
         "resourceType": "locations/getNetworkPolicies",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50307,6 +50655,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50329,6 +50678,7 @@
       {
         "resourceType": "locations/operations",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50351,6 +50701,7 @@
       {
         "resourceType": "locations/previewStaticSiteWorkflowFile",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50377,12 +50728,14 @@
       {
         "resourceType": "locations/usages",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01"
         ]
       },
       {
         "resourceType": "locations/validateDeleteVirtualNetworkOrSubnets",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50416,6 +50769,7 @@
       {
         "resourceType": "locations/webAppStacks",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50430,6 +50784,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50460,6 +50815,7 @@
       {
         "resourceType": "publishingUsers",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50490,6 +50846,7 @@
       {
         "resourceType": "recommendations",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50520,6 +50877,7 @@
       {
         "resourceType": "resourceHealthMetadata",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50550,6 +50908,7 @@
       {
         "resourceType": "runtimes",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50579,6 +50938,7 @@
       {
         "resourceType": "serverFarms",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50611,6 +50971,7 @@
       {
         "resourceType": "serverFarms/eventGridFilters",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50643,6 +51004,7 @@
       {
         "resourceType": "serverFarms/firstPartyApps",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50675,6 +51037,7 @@
       {
         "resourceType": "serverFarms/firstPartyApps/keyVaultSettings",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50707,6 +51070,7 @@
       {
         "resourceType": "sites",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50743,6 +51107,7 @@
       {
         "resourceType": "sites/eventGridFilters",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50779,6 +51144,7 @@
       {
         "resourceType": "sites/hostNameBindings",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50806,6 +51172,7 @@
       {
         "resourceType": "sites/networkConfig",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50833,6 +51200,7 @@
       {
         "resourceType": "sites/premieraddons",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50858,6 +51226,7 @@
       {
         "resourceType": "sites/slots",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50893,6 +51262,7 @@
       {
         "resourceType": "sites/slots/eventGridFilters",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50928,6 +51298,7 @@
       {
         "resourceType": "sites/slots/hostNameBindings",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50955,6 +51326,7 @@
       {
         "resourceType": "sites/slots/networkConfig",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -50982,6 +51354,7 @@
       {
         "resourceType": "sourceControls",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51012,6 +51385,7 @@
       {
         "resourceType": "staticSites",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51030,6 +51404,7 @@
       {
         "resourceType": "staticSites/builds",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51048,6 +51423,7 @@
       {
         "resourceType": "staticSites/builds/databaseConnections",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51066,6 +51442,7 @@
       {
         "resourceType": "staticSites/builds/linkedBackends",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51084,6 +51461,7 @@
       {
         "resourceType": "staticSites/builds/userProvidedFunctionApps",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51097,6 +51475,7 @@
       {
         "resourceType": "staticSites/databaseConnections",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51115,6 +51494,7 @@
       {
         "resourceType": "staticSites/linkedBackends",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51133,6 +51513,7 @@
       {
         "resourceType": "staticSites/userProvidedFunctionApps",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51146,6 +51527,7 @@
       {
         "resourceType": "validate",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51176,6 +51558,7 @@
       {
         "resourceType": "verifyHostingEnvironmentVnet",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51206,6 +51589,7 @@
       {
         "resourceType": "webAppStacks",
         "apiVersions": [
+          "2023-12-01",
           "2023-01-01",
           "2022-09-01",
           "2022-03-01",
@@ -51361,12 +51745,18 @@
       {
         "resourceType": "monitors",
         "apiVersions": [
+          "2023-10-01-preview",
+          "2023-04-01",
+          "2022-11-01-preview",
           "2021-12-01-preview"
         ]
       },
       {
         "resourceType": "monitors/providerInstances",
         "apiVersions": [
+          "2023-10-01-preview",
+          "2023-04-01",
+          "2022-11-01-preview",
           "2021-12-01-preview"
         ]
       },
@@ -51629,7 +52019,91 @@
         ]
       },
       {
+        "resourceType": "Locations/autonomousDatabaseCharacterSets",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "Locations/autonomousDatabaseNationalCharacterSets",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "Locations/autonomousDbVersions",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "Locations/dbSystemShapes",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "Locations/dnsPrivateViews",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "Locations/dnsPrivateZones",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "Locations/giVersions",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
         "resourceType": "Operations",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "autonomousDatabases",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "cloudExadataInfrastructures",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "cloudExadataInfrastructures/dbServers",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "cloudVmClusters",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "cloudVmClusters/dbNodes",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "cloudVmClusters/virtualNetworkAddresses",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "oracleSubscriptions",
         "apiVersions": [
           "2023-09-01-preview"
         ]

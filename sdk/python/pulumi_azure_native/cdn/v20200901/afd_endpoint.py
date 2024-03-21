@@ -214,7 +214,7 @@ class AFDEndpoint(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20210601:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20230501:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:AFDEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20210601:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20230501:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:AFDEndpoint"), pulumi.Alias(type_="azure-native:cdn/v20240201:AFDEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AFDEndpoint, __self__).__init__(
             'azure-native:cdn/v20200901:AFDEndpoint',

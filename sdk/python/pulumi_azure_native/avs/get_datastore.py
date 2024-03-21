@@ -126,7 +126,7 @@ def get_datastore(cluster_name: Optional[str] = None,
     A datastore resource
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2023-03-01.
+    Other available API versions: 2023-03-01, 2023-09-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud
@@ -162,7 +162,7 @@ def get_datastore_output(cluster_name: Optional[pulumi.Input[str]] = None,
     A datastore resource
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2023-03-01.
+    Other available API versions: 2023-03-01, 2023-09-01.
 
 
     :param str cluster_name: Name of the cluster in the private cloud

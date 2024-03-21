@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Inputs
     public sealed class FcmV1CredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of a NotificationHub FcmV1Credential.
+        /// Gets or sets client email.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.FcmV1CredentialPropertiesArgs> Properties { get; set; } = null!;
+        [Input("clientEmail", required: true)]
+        public Input<string> ClientEmail { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets private key.
+        /// </summary>
+        [Input("privateKey", required: true)]
+        public Input<string> PrivateKey { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets project id.
+        /// </summary>
+        [Input("projectId", required: true)]
+        public Input<string> ProjectId { get; set; } = null!;
 
         public FcmV1CredentialArgs()
         {

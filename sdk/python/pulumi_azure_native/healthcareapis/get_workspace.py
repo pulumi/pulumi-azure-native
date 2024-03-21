@@ -136,7 +136,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     Gets the properties of the specified workspace.
     Azure REST API version: 2023-02-28.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01.
+    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -167,7 +167,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     Gets the properties of the specified workspace.
     Azure REST API version: 2023-02-28.
 
-    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01.
+    Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

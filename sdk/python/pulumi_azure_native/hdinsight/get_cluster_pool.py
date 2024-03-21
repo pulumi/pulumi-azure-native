@@ -232,7 +232,7 @@ def get_cluster_pool(cluster_pool_name: Optional[str] = None,
     Gets a cluster pool.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2023-11-01-preview, 2024-05-01.
 
 
     :param str cluster_pool_name: The name of the cluster pool.
@@ -271,7 +271,7 @@ def get_cluster_pool_output(cluster_pool_name: Optional[pulumi.Input[str]] = Non
     Gets a cluster pool.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-11-01-preview.
+    Other available API versions: 2023-11-01-preview, 2024-05-01.
 
 
     :param str cluster_pool_name: The name of the cluster pool.

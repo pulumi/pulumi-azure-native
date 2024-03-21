@@ -29,6 +29,7 @@ import * as v20231101 from "./v20231101";
 import * as v20231102preview from "./v20231102preview";
 import * as v20240101 from "./v20240101";
 import * as v20240102preview from "./v20240102preview";
+import * as v20240202preview from "./v20240202preview";
 
 export {
     v20190601,
@@ -58,6 +59,7 @@ export {
     v20231102preview,
     v20240101,
     v20240102preview,
+    v20240202preview,
 };
 
 export const AgentPoolMode = {
@@ -284,19 +286,17 @@ export type ManagedClusterSKUTier = (typeof ManagedClusterSKUTier)[keyof typeof 
 
 export const ManagedClusterUpgradeType = {
     /**
-     * Full upgrades the control plane and all agent pools of the target ManagedClusters.
+     * Full upgrades the control plane and all agent pools of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
      */
     Full: "Full",
     /**
-     * NodeImageOnly upgrades only the node images of the target ManagedClusters.
+     * NodeImageOnly upgrades only the node images of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to NOT be set.
      */
     NodeImageOnly: "NodeImageOnly",
 } as const;
 
 /**
- * The upgrade type.
- * Full requires the KubernetesVersion property to be set.
- * NodeImageOnly requires the KubernetesVersion property not to be set.
+ * ManagedClusterUpgradeType is the type of upgrade to be applied.
  */
 export type ManagedClusterUpgradeType = (typeof ManagedClusterUpgradeType)[keyof typeof ManagedClusterUpgradeType];
 

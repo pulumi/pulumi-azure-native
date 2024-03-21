@@ -172,7 +172,7 @@ def get_workload_network_dns_service(dns_service_id: Optional[str] = None,
     NSX DNS Service
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2023-03-01.
+    Other available API versions: 2023-03-01, 2023-09-01.
 
 
     :param str dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name
@@ -209,7 +209,7 @@ def get_workload_network_dns_service_output(dns_service_id: Optional[pulumi.Inpu
     NSX DNS Service
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2023-03-01.
+    Other available API versions: 2023-03-01, 2023-09-01.
 
 
     :param str dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name

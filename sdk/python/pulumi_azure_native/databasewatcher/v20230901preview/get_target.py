@@ -22,7 +22,7 @@ class GetTargetResult:
     """
     Concrete proxy resource types can be created by aliasing this type using a specific property type.
     """
-    def __init__(__self__, connection_server_name=None, id=None, name=None, provisioning_state=None, system_data=None, target_authentication_type=None, target_collection_status=None, target_type=None, target_vault=None, type=None):
+    def __init__(__self__, connection_server_name=None, id=None, name=None, provisioning_state=None, system_data=None, target_authentication_type=None, target_type=None, target_vault=None, type=None):
         if connection_server_name and not isinstance(connection_server_name, str):
             raise TypeError("Expected argument 'connection_server_name' to be a str")
         pulumi.set(__self__, "connection_server_name", connection_server_name)
@@ -41,9 +41,6 @@ class GetTargetResult:
         if target_authentication_type and not isinstance(target_authentication_type, str):
             raise TypeError("Expected argument 'target_authentication_type' to be a str")
         pulumi.set(__self__, "target_authentication_type", target_authentication_type)
-        if target_collection_status and not isinstance(target_collection_status, str):
-            raise TypeError("Expected argument 'target_collection_status' to be a str")
-        pulumi.set(__self__, "target_collection_status", target_collection_status)
         if target_type and not isinstance(target_type, str):
             raise TypeError("Expected argument 'target_type' to be a str")
         pulumi.set(__self__, "target_type", target_type)
@@ -103,14 +100,6 @@ class GetTargetResult:
         return pulumi.get(self, "target_authentication_type")
 
     @property
-    @pulumi.getter(name="targetCollectionStatus")
-    def target_collection_status(self) -> Optional[str]:
-        """
-        The target collection status.
-        """
-        return pulumi.get(self, "target_collection_status")
-
-    @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> str:
         """
@@ -147,7 +136,6 @@ class AwaitableGetTargetResult(GetTargetResult):
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             target_authentication_type=self.target_authentication_type,
-            target_collection_status=self.target_collection_status,
             target_type=self.target_type,
             target_vault=self.target_vault,
             type=self.type)
@@ -179,7 +167,6 @@ def get_target(resource_group_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         target_authentication_type=pulumi.get(__ret__, 'target_authentication_type'),
-        target_collection_status=pulumi.get(__ret__, 'target_collection_status'),
         target_type=pulumi.get(__ret__, 'target_type'),
         target_vault=pulumi.get(__ret__, 'target_vault'),
         type=pulumi.get(__ret__, 'type'))

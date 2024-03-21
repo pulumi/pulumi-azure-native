@@ -29,10 +29,10 @@ namespace Pulumi.AzureNative.DataFactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Managed Identity Credential properties.
+        /// Properties of credentials.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ManagedIdentityCredentialResponse> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -102,10 +102,10 @@ namespace Pulumi.AzureNative.DataFactory
         public Input<string> FactoryName { get; set; } = null!;
 
         /// <summary>
-        /// Managed Identity Credential properties.
+        /// Properties of credentials.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.ManagedIdentityCredentialArgs> Properties { get; set; } = null!;
+        public object Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

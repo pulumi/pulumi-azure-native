@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves information about the model of a security automation.
  * Azure REST API version: 2019-01-01-preview.
+ *
+ * Other available API versions: 2023-12-01-preview.
  */
 export function getAutomation(args: GetAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationResult> {
 
@@ -87,6 +89,8 @@ export interface GetAutomationResult {
 /**
  * Retrieves information about the model of a security automation.
  * Azure REST API version: 2019-01-01-preview.
+ *
+ * Other available API versions: 2023-12-01-preview.
  */
 export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationResult> {
     return pulumi.output(args).apply((a: any) => getAutomation(a, opts))

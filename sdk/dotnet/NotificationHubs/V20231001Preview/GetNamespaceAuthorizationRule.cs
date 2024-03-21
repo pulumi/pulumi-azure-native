@@ -82,21 +82,55 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
     public sealed class GetNamespaceAuthorizationRuleResult
     {
         /// <summary>
+        /// Gets a string that describes the claim type
+        /// </summary>
+        public readonly string ClaimType;
+        /// <summary>
+        /// Gets a string that describes the claim value
+        /// </summary>
+        public readonly string ClaimValue;
+        /// <summary>
+        /// Gets the created time for this rule
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Gets a string that describes the authorization rule.
+        /// </summary>
+        public readonly string KeyName;
         /// <summary>
         /// Deprecated - only for compatibility.
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Gets the last modified time for this rule
+        /// </summary>
+        public readonly string ModifiedTime;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// SharedAccessAuthorizationRule properties.
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
         /// </summary>
-        public readonly Outputs.SharedAccessAuthorizationRulePropertiesResponse Properties;
+        public readonly string? PrimaryKey;
+        /// <summary>
+        /// Gets the revision number for the rule
+        /// </summary>
+        public readonly int Revision;
+        /// <summary>
+        /// Gets or sets the rights associated with the rule.
+        /// </summary>
+        public readonly ImmutableArray<string> Rights;
+        /// <summary>
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
+        /// </summary>
+        public readonly string? SecondaryKey;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -112,13 +146,29 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
 
         [OutputConstructor]
         private GetNamespaceAuthorizationRuleResult(
+            string claimType,
+
+            string claimValue,
+
+            string createdTime,
+
             string id,
+
+            string keyName,
 
             string? location,
 
+            string modifiedTime,
+
             string name,
 
-            Outputs.SharedAccessAuthorizationRulePropertiesResponse properties,
+            string? primaryKey,
+
+            int revision,
+
+            ImmutableArray<string> rights,
+
+            string? secondaryKey,
 
             Outputs.SystemDataResponse systemData,
 
@@ -126,10 +176,18 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
 
             string type)
         {
+            ClaimType = claimType;
+            ClaimValue = claimValue;
+            CreatedTime = createdTime;
             Id = id;
+            KeyName = keyName;
             Location = location;
+            ModifiedTime = modifiedTime;
             Name = name;
-            Properties = properties;
+            PrimaryKey = primaryKey;
+            Revision = revision;
+            Rights = rights;
+            SecondaryKey = secondaryKey;
             SystemData = systemData;
             Tags = tags;
             Type = type;

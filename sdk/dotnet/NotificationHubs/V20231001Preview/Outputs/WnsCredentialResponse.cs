@@ -17,14 +17,43 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Outputs
     public sealed class WnsCredentialResponse
     {
         /// <summary>
-        /// Description of a NotificationHub WnsCredential.
+        /// Ges or sets the WNS Certificate Key.
         /// </summary>
-        public readonly Outputs.WnsCredentialPropertiesResponse Properties;
+        public readonly string? CertificateKey;
+        /// <summary>
+        /// Gets or sets the package ID for this credential.
+        /// </summary>
+        public readonly string? PackageSid;
+        /// <summary>
+        /// Gets or sets the secret key.
+        /// </summary>
+        public readonly string? SecretKey;
+        /// <summary>
+        /// Gets or sets the Windows Live endpoint.
+        /// </summary>
+        public readonly string? WindowsLiveEndpoint;
+        /// <summary>
+        /// Gets or sets the WNS Certificate.
+        /// </summary>
+        public readonly string? WnsCertificate;
 
         [OutputConstructor]
-        private WnsCredentialResponse(Outputs.WnsCredentialPropertiesResponse properties)
+        private WnsCredentialResponse(
+            string? certificateKey,
+
+            string? packageSid,
+
+            string? secretKey,
+
+            string? windowsLiveEndpoint,
+
+            string? wnsCertificate)
         {
-            Properties = properties;
+            CertificateKey = certificateKey;
+            PackageSid = packageSid;
+            SecretKey = secretKey;
+            WindowsLiveEndpoint = windowsLiveEndpoint;
+            WnsCertificate = wnsCertificate;
         }
     }
 }

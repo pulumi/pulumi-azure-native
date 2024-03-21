@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AVS
         /// NSX DNS Service
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Task<GetWorkloadNetworkDnsServiceResult> InvokeAsync(GetWorkloadNetworkDnsServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsServiceResult>("azure-native:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AVS
         /// NSX DNS Service
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Output<GetWorkloadNetworkDnsServiceResult> Invoke(GetWorkloadNetworkDnsServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsServiceResult>("azure-native:avs:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceInvokeArgs(), options.WithDefaults());

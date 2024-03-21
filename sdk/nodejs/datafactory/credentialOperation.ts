@@ -47,9 +47,9 @@ export class CredentialOperation extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Managed Identity Credential properties.
+     * Properties of credentials.
      */
-    public readonly properties!: pulumi.Output<outputs.datafactory.ManagedIdentityCredentialResponse>;
+    public readonly properties!: pulumi.Output<outputs.datafactory.ManagedIdentityCredentialResponse | outputs.datafactory.ServicePrincipalCredentialResponse | outputs.datafactory.SystemAssignedManagedIdentityCredentialResponse | outputs.datafactory.UserAssignedManagedIdentityCredentialResponse>;
     /**
      * The resource type.
      */
@@ -108,9 +108,9 @@ export interface CredentialOperationArgs {
      */
     factoryName: pulumi.Input<string>;
     /**
-     * Managed Identity Credential properties.
+     * Properties of credentials.
      */
-    properties: pulumi.Input<inputs.datafactory.ManagedIdentityCredentialArgs>;
+    properties: pulumi.Input<inputs.datafactory.ManagedIdentityCredentialArgs | inputs.datafactory.ServicePrincipalCredentialArgs | inputs.datafactory.SystemAssignedManagedIdentityCredentialArgs | inputs.datafactory.UserAssignedManagedIdentityCredentialArgs>;
     /**
      * The resource group name.
      */

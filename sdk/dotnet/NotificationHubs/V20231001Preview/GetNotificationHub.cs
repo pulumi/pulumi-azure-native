@@ -82,6 +82,35 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
     public sealed class GetNotificationHubResult
     {
         /// <summary>
+        /// Description of a NotificationHub AdmCredential.
+        /// </summary>
+        public readonly Outputs.AdmCredentialResponse? AdmCredential;
+        /// <summary>
+        /// Description of a NotificationHub ApnsCredential.
+        /// </summary>
+        public readonly Outputs.ApnsCredentialResponse? ApnsCredential;
+        /// <summary>
+        /// Gets or sets the AuthorizationRules of the created NotificationHub
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponse> AuthorizationRules;
+        /// <summary>
+        /// Description of a NotificationHub BaiduCredential.
+        /// </summary>
+        public readonly Outputs.BaiduCredentialResponse? BaiduCredential;
+        /// <summary>
+        /// Description of a NotificationHub BrowserCredential.
+        /// </summary>
+        public readonly Outputs.BrowserCredentialResponse? BrowserCredential;
+        public readonly double DailyMaxActiveDevices;
+        /// <summary>
+        /// Description of a NotificationHub FcmV1Credential.
+        /// </summary>
+        public readonly Outputs.FcmV1CredentialResponse? FcmV1Credential;
+        /// <summary>
+        /// Description of a NotificationHub GcmCredential.
+        /// </summary>
+        public readonly Outputs.GcmCredentialResponse? GcmCredential;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -90,13 +119,17 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Description of a NotificationHub MpnsCredential.
+        /// </summary>
+        public readonly Outputs.MpnsCredentialResponse? MpnsCredential;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// NotificationHub properties.
+        /// Gets or sets the RegistrationTtl of the created NotificationHub
         /// </summary>
-        public readonly Outputs.NotificationHubPropertiesResponse Properties;
+        public readonly string? RegistrationTtl;
         /// <summary>
         /// The Sku description for a namespace
         /// </summary>
@@ -113,16 +146,42 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Description of a NotificationHub WnsCredential.
+        /// </summary>
+        public readonly Outputs.WnsCredentialResponse? WnsCredential;
+        /// <summary>
+        /// Description of a NotificationHub XiaomiCredential.
+        /// </summary>
+        public readonly Outputs.XiaomiCredentialResponse? XiaomiCredential;
 
         [OutputConstructor]
         private GetNotificationHubResult(
+            Outputs.AdmCredentialResponse? admCredential,
+
+            Outputs.ApnsCredentialResponse? apnsCredential,
+
+            ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponse> authorizationRules,
+
+            Outputs.BaiduCredentialResponse? baiduCredential,
+
+            Outputs.BrowserCredentialResponse? browserCredential,
+
+            double dailyMaxActiveDevices,
+
+            Outputs.FcmV1CredentialResponse? fcmV1Credential,
+
+            Outputs.GcmCredentialResponse? gcmCredential,
+
             string id,
 
             string location,
 
+            Outputs.MpnsCredentialResponse? mpnsCredential,
+
             string name,
 
-            Outputs.NotificationHubPropertiesResponse properties,
+            string? registrationTtl,
 
             Outputs.SkuResponse? sku,
 
@@ -130,16 +189,31 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.WnsCredentialResponse? wnsCredential,
+
+            Outputs.XiaomiCredentialResponse? xiaomiCredential)
         {
+            AdmCredential = admCredential;
+            ApnsCredential = apnsCredential;
+            AuthorizationRules = authorizationRules;
+            BaiduCredential = baiduCredential;
+            BrowserCredential = browserCredential;
+            DailyMaxActiveDevices = dailyMaxActiveDevices;
+            FcmV1Credential = fcmV1Credential;
+            GcmCredential = gcmCredential;
             Id = id;
             Location = location;
+            MpnsCredential = mpnsCredential;
             Name = name;
-            Properties = properties;
+            RegistrationTtl = registrationTtl;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            WnsCredential = wnsCredential;
+            XiaomiCredential = xiaomiCredential;
         }
     }
 }

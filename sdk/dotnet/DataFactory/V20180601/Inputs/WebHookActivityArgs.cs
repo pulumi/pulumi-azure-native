@@ -46,14 +46,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         [Input("headers")]
-        private InputMap<string>? _headers;
+        private InputMap<object>? _headers;
 
         /// <summary>
         /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         /// </summary>
-        public InputMap<string> Headers
+        public InputMap<object> Headers
         {
-            get => _headers ?? (_headers = new InputMap<string>());
+            get => _headers ?? (_headers = new InputMap<object>());
             set => _headers = value;
         }
 

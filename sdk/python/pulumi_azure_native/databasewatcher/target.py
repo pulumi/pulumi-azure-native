@@ -22,7 +22,6 @@ class TargetArgs:
                  target_authentication_type: pulumi.Input[Union[str, 'TargetAuthenticationType']],
                  target_type: pulumi.Input[str],
                  watcher_name: pulumi.Input[str],
-                 target_collection_status: Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
         """
@@ -32,7 +31,6 @@ class TargetArgs:
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
         :param pulumi.Input[str] target_type: Discriminator property for TargetProperties.
         :param pulumi.Input[str] watcher_name: The database watcher name.
-        :param pulumi.Input[Union[str, 'TargetCollectionStatus']] target_collection_status: The target collection status.
         :param pulumi.Input[str] target_name: The target resource name.
         :param pulumi.Input['VaultSecretArgs'] target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         """
@@ -41,8 +39,6 @@ class TargetArgs:
         pulumi.set(__self__, "target_authentication_type", target_authentication_type)
         pulumi.set(__self__, "target_type", target_type)
         pulumi.set(__self__, "watcher_name", watcher_name)
-        if target_collection_status is not None:
-            pulumi.set(__self__, "target_collection_status", target_collection_status)
         if target_name is not None:
             pulumi.set(__self__, "target_name", target_name)
         if target_vault is not None:
@@ -109,18 +105,6 @@ class TargetArgs:
         pulumi.set(self, "watcher_name", value)
 
     @property
-    @pulumi.getter(name="targetCollectionStatus")
-    def target_collection_status(self) -> Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]]:
-        """
-        The target collection status.
-        """
-        return pulumi.get(self, "target_collection_status")
-
-    @target_collection_status.setter
-    def target_collection_status(self, value: Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]]):
-        pulumi.set(self, "target_collection_status", value)
-
-    @property
     @pulumi.getter(name="targetName")
     def target_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -153,7 +137,6 @@ class Target(pulumi.CustomResource):
                  connection_server_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_authentication_type: Optional[pulumi.Input[Union[str, 'TargetAuthenticationType']]] = None,
-                 target_collection_status: Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  target_vault: Optional[pulumi.Input[pulumi.InputType['VaultSecretArgs']]] = None,
@@ -168,7 +151,6 @@ class Target(pulumi.CustomResource):
         :param pulumi.Input[str] connection_server_name: The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
-        :param pulumi.Input[Union[str, 'TargetCollectionStatus']] target_collection_status: The target collection status.
         :param pulumi.Input[str] target_name: The target resource name.
         :param pulumi.Input[str] target_type: Discriminator property for TargetProperties.
         :param pulumi.Input[pulumi.InputType['VaultSecretArgs']] target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
@@ -202,7 +184,6 @@ class Target(pulumi.CustomResource):
                  connection_server_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target_authentication_type: Optional[pulumi.Input[Union[str, 'TargetAuthenticationType']]] = None,
-                 target_collection_status: Optional[pulumi.Input[Union[str, 'TargetCollectionStatus']]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  target_vault: Optional[pulumi.Input[pulumi.InputType['VaultSecretArgs']]] = None,
@@ -225,7 +206,6 @@ class Target(pulumi.CustomResource):
             if target_authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_authentication_type'")
             __props__.__dict__["target_authentication_type"] = target_authentication_type
-            __props__.__dict__["target_collection_status"] = target_collection_status
             __props__.__dict__["target_name"] = target_name
             if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")
@@ -267,7 +247,6 @@ class Target(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["target_authentication_type"] = None
-        __props__.__dict__["target_collection_status"] = None
         __props__.__dict__["target_type"] = None
         __props__.__dict__["target_vault"] = None
         __props__.__dict__["type"] = None
@@ -312,14 +291,6 @@ class Target(pulumi.CustomResource):
         The type of authentication to use when connecting to a target.
         """
         return pulumi.get(self, "target_authentication_type")
-
-    @property
-    @pulumi.getter(name="targetCollectionStatus")
-    def target_collection_status(self) -> pulumi.Output[Optional[str]]:
-        """
-        The target collection status.
-        """
-        return pulumi.get(self, "target_collection_status")
 
     @property
     @pulumi.getter(name="targetType")

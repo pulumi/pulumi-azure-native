@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AVS
         /// A vSphere Distributed Resource Scheduler (DRS) placement policy
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Task<GetPlacementPolicyResult> InvokeAsync(GetPlacementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AVS
         /// A vSphere Distributed Resource Scheduler (DRS) placement policy
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());

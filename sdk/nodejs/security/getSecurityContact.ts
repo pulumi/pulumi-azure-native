@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get Default Security contact configurations for the subscription
  * Azure REST API version: 2020-01-01-preview.
  *
- * Other available API versions: 2017-08-01-preview.
+ * Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
  */
 export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityContactResult> {
 
@@ -65,7 +65,7 @@ export interface GetSecurityContactResult {
  * Get Default Security contact configurations for the subscription
  * Azure REST API version: 2020-01-01-preview.
  *
- * Other available API versions: 2017-08-01-preview.
+ * Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
  */
 export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityContactResult> {
     return pulumi.output(args).apply((a: any) => getSecurityContact(a, opts))

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get an app attach package.
         /// Azure REST API version: 2023-10-04-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-01-16-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
         /// </summary>
         public static Task<GetAppAttachPackageResult> InvokeAsync(GetAppAttachPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppAttachPackageResult>("azure-native:desktopvirtualization:getAppAttachPackage", args ?? new GetAppAttachPackageArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get an app attach package.
         /// Azure REST API version: 2023-10-04-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-01-16-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
         /// </summary>
         public static Output<GetAppAttachPackageResult> Invoke(GetAppAttachPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppAttachPackageResult>("azure-native:desktopvirtualization:getAppAttachPackage", args ?? new GetAppAttachPackageInvokeArgs(), options.WithDefaults());

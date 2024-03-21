@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * NSX Public IP Block
  * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20211201:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20220501:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20230301:WorkloadNetworkPublicIP" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210601:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20211201:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20220501:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20230301:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20230901:WorkloadNetworkPublicIP" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkPublicIP.__pulumiType, name, resourceInputs, opts);
     }

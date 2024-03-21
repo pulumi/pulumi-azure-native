@@ -64,7 +64,7 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id(event_tra
     Lists impacted resources in the tenant by an event (Security Advisory).
     Azure REST API version: 2022-10-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
+    Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.
@@ -89,7 +89,7 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(ev
     Lists impacted resources in the tenant by an event (Security Advisory).
     Azure REST API version: 2022-10-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview.
+    Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
 
 
     :param str event_tracking_id: Event Id which uniquely identifies ServiceHealth event.

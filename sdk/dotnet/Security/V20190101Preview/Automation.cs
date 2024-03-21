@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security:Automation" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20231201preview:Automation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

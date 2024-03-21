@@ -534,6 +534,7 @@ __all__ = [
     'ServiceNowV2LinkedServiceResponse',
     'ServiceNowV2ObjectDatasetResponse',
     'ServiceNowV2SourceResponse',
+    'ServicePrincipalCredentialResponse',
     'SetVariableActivityResponse',
     'SftpLocationResponse',
     'SftpReadSettingsResponse',
@@ -596,6 +597,7 @@ __all__ = [
     'SynapseNotebookReferenceResponse',
     'SynapseSparkJobDefinitionActivityResponse',
     'SynapseSparkJobReferenceResponse',
+    'SystemAssignedManagedIdentityCredentialResponse',
     'TabularSourceResponse',
     'TarGZipReadSettingsResponse',
     'TarReadSettingsResponse',
@@ -614,6 +616,7 @@ __all__ = [
     'TwilioLinkedServiceResponse',
     'UntilActivityResponse',
     'UserAccessPolicyResponse',
+    'UserAssignedManagedIdentityCredentialResponse',
     'UserPropertyResponse',
     'ValidationActivityResponse',
     'VariableSpecificationResponse',
@@ -10812,7 +10815,7 @@ class AzureFunctionActivityResponse(dict):
                  body: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
-                 headers: Optional[Mapping[str, str]] = None,
+                 headers: Optional[Mapping[str, Any]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
@@ -10828,7 +10831,7 @@ class AzureFunctionActivityResponse(dict):
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Mapping[str, str] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Mapping[str, Any] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -10917,7 +10920,7 @@ class AzureFunctionActivityResponse(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, str]]:
+    def headers(self) -> Optional[Mapping[str, Any]]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
@@ -46282,43 +46285,22 @@ class ManagedIdentityCredentialResponse(dict):
     """
     Managed identity credential.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceId":
-            suggest = "resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityCredentialResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ManagedIdentityCredentialResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ManagedIdentityCredentialResponse.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
-                 description: Optional[str] = None,
-                 resource_id: Optional[str] = None):
+                 description: Optional[str] = None):
         """
         Managed identity credential.
         :param str type: Type of credential.
                Expected value is 'ManagedIdentity'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Credential.
         :param str description: Credential description.
-        :param str resource_id: The resource id of user assigned managed identity
         """
         pulumi.set(__self__, "type", 'ManagedIdentity')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter
@@ -46344,14 +46326,6 @@ class ManagedIdentityCredentialResponse(dict):
         Credential description.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
-        """
-        The resource id of user assigned managed identity
-        """
-        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -72071,6 +72045,109 @@ class ServiceNowV2SourceResponse(dict):
 
 
 @pulumi.output_type
+class ServicePrincipalCredentialResponse(dict):
+    """
+    Service principal credential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePrincipalCredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePrincipalCredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 service_principal_id: Optional[Any] = None,
+                 service_principal_key: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 tenant: Optional[Any] = None):
+        """
+        Service principal credential.
+        :param str type: Type of credential.
+               Expected value is 'ServicePrincipal'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Credential.
+        :param str description: Credential description.
+        :param Any service_principal_id: The app ID of the service principal used to authenticate
+        :param 'AzureKeyVaultSecretReferenceResponse' service_principal_key: The key of the service principal used to authenticate.
+        :param Any tenant: The ID of the tenant to which the service principal belongs
+        """
+        pulumi.set(__self__, "type", 'ServicePrincipal')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of credential.
+        Expected value is 'ServicePrincipal'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Credential.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Credential description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The app ID of the service principal used to authenticate
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional['outputs.AzureKeyVaultSecretReferenceResponse']:
+        """
+        The key of the service principal used to authenticate.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[Any]:
+        """
+        The ID of the tenant to which the service principal belongs
+        """
+        return pulumi.get(self, "tenant")
+
+
+@pulumi.output_type
 class SetVariableActivityResponse(dict):
     """
     Set value for a Variable.
@@ -81019,6 +81096,54 @@ class SynapseSparkJobReferenceResponse(dict):
 
 
 @pulumi.output_type
+class SystemAssignedManagedIdentityCredentialResponse(dict):
+    """
+    System Assigned Managed identity credential.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None):
+        """
+        System Assigned Managed identity credential.
+        :param str type: Type of credential.
+               Expected value is 'SystemAssignedManagedIdentityCredential'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Credential.
+        :param str description: Credential description.
+        """
+        pulumi.set(__self__, "type", 'SystemAssignedManagedIdentityCredential')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of credential.
+        Expected value is 'SystemAssignedManagedIdentityCredential'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Credential.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Credential description.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class TabularSourceResponse(dict):
     """
     Copy activity sources of tabular type.
@@ -82990,6 +83115,54 @@ class UserAccessPolicyResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedManagedIdentityCredentialResponse(dict):
+    """
+    User Assigned Managed identity credential.
+    """
+    def __init__(__self__, *,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None):
+        """
+        User Assigned Managed identity credential.
+        :param str type: Type of credential.
+               Expected value is 'UserAssignedManagedIdentityCredential'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Credential.
+        :param str description: Credential description.
+        """
+        pulumi.set(__self__, "type", 'UserAssignedManagedIdentityCredential')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of credential.
+        Expected value is 'UserAssignedManagedIdentityCredential'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Credential.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Credential description.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class UserPropertyResponse(dict):
     """
     User property.
@@ -84702,7 +84875,7 @@ class WebActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  disable_cert_validation: Optional[bool] = None,
-                 headers: Optional[Mapping[str, str]] = None,
+                 headers: Optional[Mapping[str, Any]] = None,
                  http_request_timeout: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
@@ -84725,7 +84898,7 @@ class WebActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param bool disable_cert_validation: When set to true, Certificate validation will be disabled.
-        :param Mapping[str, str] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Mapping[str, Any] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Sequence['LinkedServiceReferenceResponse'] linked_services: List of linked services passed to web endpoint.
@@ -84863,7 +85036,7 @@ class WebActivityResponse(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, str]]:
+    def headers(self) -> Optional[Mapping[str, Any]]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
@@ -85171,7 +85344,7 @@ class WebHookActivityResponse(dict):
                  body: Optional[Any] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
-                 headers: Optional[Mapping[str, str]] = None,
+                 headers: Optional[Mapping[str, Any]] = None,
                  on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.SecureInputOutputPolicyResponse'] = None,
                  report_status_on_call_back: Optional[Any] = None,
@@ -85189,7 +85362,7 @@ class WebHookActivityResponse(dict):
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Mapping[str, str] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param Mapping[str, Any] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'SecureInputOutputPolicyResponse' policy: Activity policy.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -85291,7 +85464,7 @@ class WebHookActivityResponse(dict):
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[Mapping[str, str]]:
+    def headers(self) -> Optional[Mapping[str, Any]]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """

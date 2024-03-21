@@ -124,7 +124,7 @@ def get_workload_network_public_ip(private_cloud_name: Optional[str] = None,
     NSX Public IP Block
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2023-03-01.
+    Other available API versions: 2023-03-01, 2023-09-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -157,7 +157,7 @@ def get_workload_network_public_ip_output(private_cloud_name: Optional[pulumi.In
     NSX Public IP Block
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2023-03-01.
+    Other available API versions: 2023-03-01, 2023-09-01.
 
 
     :param str private_cloud_name: Name of the private cloud

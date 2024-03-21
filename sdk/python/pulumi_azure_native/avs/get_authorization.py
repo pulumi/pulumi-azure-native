@@ -124,7 +124,7 @@ def get_authorization(authorization_name: Optional[str] = None,
     ExpressRoute Circuit Authorization
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2023-03-01.
+    Other available API versions: 2023-03-01, 2023-09-01.
 
 
     :param str authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
@@ -157,7 +157,7 @@ def get_authorization_output(authorization_name: Optional[pulumi.Input[str]] = N
     ExpressRoute Circuit Authorization
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2023-03-01.
+    Other available API versions: 2023-03-01, 2023-09-01.
 
 
     :param str authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud

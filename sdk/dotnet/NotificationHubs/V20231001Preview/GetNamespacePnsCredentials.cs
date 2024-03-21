@@ -72,6 +72,30 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
     public sealed class GetNamespacePnsCredentialsResult
     {
         /// <summary>
+        /// Description of a NotificationHub AdmCredential.
+        /// </summary>
+        public readonly Outputs.AdmCredentialResponse? AdmCredential;
+        /// <summary>
+        /// Description of a NotificationHub ApnsCredential.
+        /// </summary>
+        public readonly Outputs.ApnsCredentialResponse? ApnsCredential;
+        /// <summary>
+        /// Description of a NotificationHub BaiduCredential.
+        /// </summary>
+        public readonly Outputs.BaiduCredentialResponse? BaiduCredential;
+        /// <summary>
+        /// Description of a NotificationHub BrowserCredential.
+        /// </summary>
+        public readonly Outputs.BrowserCredentialResponse? BrowserCredential;
+        /// <summary>
+        /// Description of a NotificationHub FcmV1Credential.
+        /// </summary>
+        public readonly Outputs.FcmV1CredentialResponse? FcmV1Credential;
+        /// <summary>
+        /// Description of a NotificationHub GcmCredential.
+        /// </summary>
+        public readonly Outputs.GcmCredentialResponse? GcmCredential;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -80,13 +104,13 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Description of a NotificationHub MpnsCredential.
+        /// </summary>
+        public readonly Outputs.MpnsCredentialResponse? MpnsCredential;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-        /// </summary>
-        public readonly Outputs.PnsCredentialsResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -99,30 +123,62 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Description of a NotificationHub WnsCredential.
+        /// </summary>
+        public readonly Outputs.WnsCredentialResponse? WnsCredential;
+        /// <summary>
+        /// Description of a NotificationHub XiaomiCredential.
+        /// </summary>
+        public readonly Outputs.XiaomiCredentialResponse? XiaomiCredential;
 
         [OutputConstructor]
         private GetNamespacePnsCredentialsResult(
+            Outputs.AdmCredentialResponse? admCredential,
+
+            Outputs.ApnsCredentialResponse? apnsCredential,
+
+            Outputs.BaiduCredentialResponse? baiduCredential,
+
+            Outputs.BrowserCredentialResponse? browserCredential,
+
+            Outputs.FcmV1CredentialResponse? fcmV1Credential,
+
+            Outputs.GcmCredentialResponse? gcmCredential,
+
             string id,
 
             string? location,
 
-            string name,
+            Outputs.MpnsCredentialResponse? mpnsCredential,
 
-            Outputs.PnsCredentialsResponse properties,
+            string name,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.WnsCredentialResponse? wnsCredential,
+
+            Outputs.XiaomiCredentialResponse? xiaomiCredential)
         {
+            AdmCredential = admCredential;
+            ApnsCredential = apnsCredential;
+            BaiduCredential = baiduCredential;
+            BrowserCredential = browserCredential;
+            FcmV1Credential = fcmV1Credential;
+            GcmCredential = gcmCredential;
             Id = id;
             Location = location;
+            MpnsCredential = mpnsCredential;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            WnsCredential = wnsCredential;
+            XiaomiCredential = xiaomiCredential;
         }
     }
 }

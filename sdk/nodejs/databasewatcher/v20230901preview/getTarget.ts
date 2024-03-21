@@ -64,10 +64,6 @@ export interface GetTargetResult {
      */
     readonly targetAuthenticationType: string;
     /**
-     * The target collection status.
-     */
-    readonly targetCollectionStatus?: string;
-    /**
      * Discriminator property for TargetProperties.
      */
     readonly targetType: string;

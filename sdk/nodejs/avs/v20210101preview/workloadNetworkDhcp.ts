@@ -106,7 +106,7 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20220501:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20230301:WorkloadNetworkDhcp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20220501:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20230301:WorkloadNetworkDhcp" }, { type: "azure-native:avs/v20230901:WorkloadNetworkDhcp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkDhcp.__pulumiType, name, resourceInputs, opts);
     }

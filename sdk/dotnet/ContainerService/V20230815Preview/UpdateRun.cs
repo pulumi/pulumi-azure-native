@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230815Preview
         /// 
         /// Setting both "updateStrategyId" and "strategy" is invalid.
         /// 
-        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
         /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
         /// UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         /// </summary>
@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230815Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230315preview:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230615preview:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231015:UpdateRun" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240202preview:UpdateRun" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -176,7 +177,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230815Preview
         /// 
         /// Setting both "updateStrategyId" and "strategy" is invalid.
         /// 
-        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
         /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
         /// UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         /// </summary>

@@ -65,9 +65,9 @@ class GetCredentialOperationResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ManagedIdentityCredentialResponse':
+    def properties(self) -> Any:
         """
-        Managed Identity Credential properties.
+        Properties of credentials.
         """
         return pulumi.get(self, "properties")
 

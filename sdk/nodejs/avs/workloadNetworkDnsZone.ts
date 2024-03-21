@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * NSX DNS Zone
  * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20220501:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20230301:WorkloadNetworkDnsZone" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20211201:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20220501:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20230301:WorkloadNetworkDnsZone" }, { type: "azure-native:avs/v20230901:WorkloadNetworkDnsZone" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkDnsZone.__pulumiType, name, resourceInputs, opts);
     }

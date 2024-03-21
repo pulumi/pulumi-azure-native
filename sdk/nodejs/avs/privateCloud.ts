@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A private cloud resource
  * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**
@@ -219,7 +219,7 @@ export class PrivateCloud extends pulumi.CustomResource {
             resourceInputs["vmotionNetwork"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-native:avs/v20210601:PrivateCloud" }, { type: "azure-native:avs/v20211201:PrivateCloud" }, { type: "azure-native:avs/v20220501:PrivateCloud" }, { type: "azure-native:avs/v20230301:PrivateCloud" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20200717preview:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-native:avs/v20210601:PrivateCloud" }, { type: "azure-native:avs/v20211201:PrivateCloud" }, { type: "azure-native:avs/v20220501:PrivateCloud" }, { type: "azure-native:avs/v20230301:PrivateCloud" }, { type: "azure-native:avs/v20230901:PrivateCloud" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateCloud.__pulumiType, name, resourceInputs, opts);
     }

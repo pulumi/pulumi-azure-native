@@ -188,7 +188,7 @@ class AppAttachPackage(pulumi.CustomResource):
         Schema for App Attach Package properties.
         Azure REST API version: 2023-10-04-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-01-16-preview.
+        Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,7 +210,7 @@ class AppAttachPackage(pulumi.CustomResource):
         Schema for App Attach Package properties.
         Azure REST API version: 2023-10-04-preview.
 
-        Other available API versions: 2023-11-01-preview, 2024-01-16-preview.
+        Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
 
         :param str resource_name: The name of the resource.
         :param AppAttachPackageArgs args: The arguments to use to populate this resource's properties.
@@ -264,7 +264,7 @@ class AppAttachPackage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:AppAttachPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:AppAttachPackage"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:AppAttachPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppAttachPackage, __self__).__init__(
             'azure-native:desktopvirtualization:AppAttachPackage',

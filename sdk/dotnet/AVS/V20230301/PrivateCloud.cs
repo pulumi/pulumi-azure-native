@@ -203,6 +203,7 @@ namespace Pulumi.AzureNative.AVS.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:PrivateCloud" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:PrivateCloud" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:PrivateCloud" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:PrivateCloud" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

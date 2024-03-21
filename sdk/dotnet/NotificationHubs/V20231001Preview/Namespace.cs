@@ -16,10 +16,40 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
     public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Time when the namespace was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets whether or not the namespace is set as Critical.
+        /// </summary>
+        [Output("critical")]
+        public Output<bool> Critical { get; private set; } = null!;
+
+        /// <summary>
+        /// Deprecated.
+        /// </summary>
+        [Output("dataCenter")]
+        public Output<string?> DataCenter { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets whether or not the namespace is currently enabled.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Insights Metrics id.
+        /// </summary>
+        [Output("metricId")]
+        public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -28,16 +58,84 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents namespace properties.
+        /// Defines values for NamespaceType.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NamespacePropertiesResponse> Properties { get; private set; } = null!;
+        [Output("namespaceType")]
+        public Output<string?> NamespaceType { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of network authorization rules.
+        /// </summary>
+        [Output("networkAcls")]
+        public Output<Outputs.NetworkAclsResponse?> NetworkAcls { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+        /// </summary>
+        [Output("pnsCredentials")]
+        public Output<Outputs.PnsCredentialsResponse?> PnsCredentials { get; private set; } = null!;
+
+        /// <summary>
+        /// Private Endpoint Connections for namespace
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResourceResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines values for OperationProvisioningState.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of public network access.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Region. The value is always set to the same value as Namespace.Location, so we are deprecating
+        /// this property.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// Allowed replication region
+        /// </summary>
+        [Output("replicationRegion")]
+        public Output<string?> ReplicationRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets scaleUnit where the namespace gets created
+        /// </summary>
+        [Output("scaleUnit")]
+        public Output<string?> ScaleUnit { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets endpoint you can use to perform NotificationHub
+        /// operations.
+        /// </summary>
+        [Output("serviceBusEndpoint")]
+        public Output<string> ServiceBusEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The Sku description for a namespace
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Namespace status.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Namespace subscription id.
+        /// </summary>
+        [Output("subscriptionId")]
+        public Output<string> SubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -56,6 +154,18 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when the namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Namespace SKU name.
+        /// </summary>
+        [Output("zoneRedundancy")]
+        public Output<string?> ZoneRedundancy { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,6 +222,12 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Deprecated.
+        /// </summary>
+        [Input("dataCenter")]
+        public Input<string>? DataCenter { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -124,10 +240,40 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// Represents namespace properties.
+        /// Defines values for NamespaceType.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NamespacePropertiesArgs>? Properties { get; set; }
+        [Input("namespaceType")]
+        public InputUnion<string, Pulumi.AzureNative.NotificationHubs.V20231001Preview.NamespaceType>? NamespaceType { get; set; }
+
+        /// <summary>
+        /// A collection of network authorization rules.
+        /// </summary>
+        [Input("networkAcls")]
+        public Input<Inputs.NetworkAclsArgs>? NetworkAcls { get; set; }
+
+        /// <summary>
+        /// Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+        /// </summary>
+        [Input("pnsCredentials")]
+        public Input<Inputs.PnsCredentialsArgs>? PnsCredentials { get; set; }
+
+        /// <summary>
+        /// Defines values for OperationProvisioningState.
+        /// </summary>
+        [Input("provisioningState")]
+        public InputUnion<string, Pulumi.AzureNative.NotificationHubs.V20231001Preview.OperationProvisioningState>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Type of public network access.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.NotificationHubs.V20231001Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// Allowed replication region
+        /// </summary>
+        [Input("replicationRegion")]
+        public InputUnion<string, Pulumi.AzureNative.NotificationHubs.V20231001Preview.ReplicationRegion>? ReplicationRegion { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -136,10 +282,22 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets scaleUnit where the namespace gets created
+        /// </summary>
+        [Input("scaleUnit")]
+        public Input<string>? ScaleUnit { get; set; }
+
+        /// <summary>
         /// The Sku description for a namespace
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
+
+        /// <summary>
+        /// Namespace status.
+        /// </summary>
+        [Input("status")]
+        public InputUnion<string, Pulumi.AzureNative.NotificationHubs.V20231001Preview.NamespaceStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -152,6 +310,12 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Namespace SKU name.
+        /// </summary>
+        [Input("zoneRedundancy")]
+        public InputUnion<string, Pulumi.AzureNative.NotificationHubs.V20231001Preview.ZoneRedundancyPreference>? ZoneRedundancy { get; set; }
 
         public NamespaceArgs()
         {

@@ -35,6 +35,22 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * Time when the namespace was created.
+     */
+    readonly createdAt: string;
+    /**
+     * Gets or sets whether or not the namespace is set as Critical.
+     */
+    readonly critical: boolean;
+    /**
+     * Deprecated.
+     */
+    readonly dataCenter?: string;
+    /**
+     * Gets or sets whether or not the namespace is currently enabled.
+     */
+    readonly enabled: boolean;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -43,17 +59,67 @@ export interface GetNamespaceResult {
      */
     readonly location: string;
     /**
+     * Azure Insights Metrics id.
+     */
+    readonly metricId: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Represents namespace properties.
+     * Defines values for NamespaceType.
      */
-    readonly properties: outputs.notificationhubs.v20231001preview.NamespacePropertiesResponse;
+    readonly namespaceType?: string;
+    /**
+     * A collection of network authorization rules.
+     */
+    readonly networkAcls?: outputs.notificationhubs.v20231001preview.NetworkAclsResponse;
+    /**
+     * Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+     */
+    readonly pnsCredentials?: outputs.notificationhubs.v20231001preview.PnsCredentialsResponse;
+    /**
+     * Private Endpoint Connections for namespace
+     */
+    readonly privateEndpointConnections: outputs.notificationhubs.v20231001preview.PrivateEndpointConnectionResourceResponse[];
+    /**
+     * Defines values for OperationProvisioningState.
+     */
+    readonly provisioningState?: string;
+    /**
+     * Type of public network access.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * Region. The value is always set to the same value as Namespace.Location, so we are deprecating
+     * this property.
+     */
+    readonly region: string;
+    /**
+     * Allowed replication region
+     */
+    readonly replicationRegion?: string;
+    /**
+     * Gets or sets scaleUnit where the namespace gets created
+     */
+    readonly scaleUnit?: string;
+    /**
+     * Gets or sets endpoint you can use to perform NotificationHub
+     * operations.
+     */
+    readonly serviceBusEndpoint: string;
     /**
      * The Sku description for a namespace
      */
     readonly sku: outputs.notificationhubs.v20231001preview.SkuResponse;
+    /**
+     * Namespace status.
+     */
+    readonly status?: string;
+    /**
+     * Namespace subscription id.
+     */
+    readonly subscriptionId: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -66,6 +132,14 @@ export interface GetNamespaceResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Time when the namespace was updated.
+     */
+    readonly updatedAt: string;
+    /**
+     * Namespace SKU name.
+     */
+    readonly zoneRedundancy?: string;
 }
 /**
  * Notification Hubs Namespace Resource.

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security
     /// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
     /// Azure REST API version: 2020-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
     /// 
-    /// Other available API versions: 2017-08-01-preview.
+    /// Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityContact")]
     public partial class SecurityContact : global::Pulumi.CustomResource
@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.Security
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20170801preview:SecurityContact" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20200101preview:SecurityContact" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20231201preview:SecurityContact" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

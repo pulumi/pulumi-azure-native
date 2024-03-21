@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Inputs
     public sealed class GcmCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of a NotificationHub GcmCredential.
+        /// Gets or sets the GCM endpoint.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.GcmCredentialPropertiesArgs> Properties { get; set; } = null!;
+        [Input("gcmEndpoint")]
+        public Input<string>? GcmEndpoint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Google API key.
+        /// </summary>
+        [Input("googleApiKey", required: true)]
+        public Input<string> GoogleApiKey { get; set; } = null!;
 
         public GcmCredentialArgs()
         {

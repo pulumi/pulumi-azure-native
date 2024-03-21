@@ -40,6 +40,35 @@ export interface GetNotificationHubArgs {
  */
 export interface GetNotificationHubResult {
     /**
+     * Description of a NotificationHub AdmCredential.
+     */
+    readonly admCredential?: outputs.notificationhubs.v20231001preview.AdmCredentialResponse;
+    /**
+     * Description of a NotificationHub ApnsCredential.
+     */
+    readonly apnsCredential?: outputs.notificationhubs.v20231001preview.ApnsCredentialResponse;
+    /**
+     * Gets or sets the AuthorizationRules of the created NotificationHub
+     */
+    readonly authorizationRules: outputs.notificationhubs.v20231001preview.SharedAccessAuthorizationRulePropertiesResponse[];
+    /**
+     * Description of a NotificationHub BaiduCredential.
+     */
+    readonly baiduCredential?: outputs.notificationhubs.v20231001preview.BaiduCredentialResponse;
+    /**
+     * Description of a NotificationHub BrowserCredential.
+     */
+    readonly browserCredential?: outputs.notificationhubs.v20231001preview.BrowserCredentialResponse;
+    readonly dailyMaxActiveDevices: number;
+    /**
+     * Description of a NotificationHub FcmV1Credential.
+     */
+    readonly fcmV1Credential?: outputs.notificationhubs.v20231001preview.FcmV1CredentialResponse;
+    /**
+     * Description of a NotificationHub GcmCredential.
+     */
+    readonly gcmCredential?: outputs.notificationhubs.v20231001preview.GcmCredentialResponse;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -48,13 +77,17 @@ export interface GetNotificationHubResult {
      */
     readonly location: string;
     /**
+     * Description of a NotificationHub MpnsCredential.
+     */
+    readonly mpnsCredential?: outputs.notificationhubs.v20231001preview.MpnsCredentialResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * NotificationHub properties.
+     * Gets or sets the RegistrationTtl of the created NotificationHub
      */
-    readonly properties: outputs.notificationhubs.v20231001preview.NotificationHubPropertiesResponse;
+    readonly registrationTtl?: string;
     /**
      * The Sku description for a namespace
      */
@@ -71,6 +104,14 @@ export interface GetNotificationHubResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Description of a NotificationHub WnsCredential.
+     */
+    readonly wnsCredential?: outputs.notificationhubs.v20231001preview.WnsCredentialResponse;
+    /**
+     * Description of a NotificationHub XiaomiCredential.
+     */
+    readonly xiaomiCredential?: outputs.notificationhubs.v20231001preview.XiaomiCredentialResponse;
 }
 /**
  * Notification Hub Resource.

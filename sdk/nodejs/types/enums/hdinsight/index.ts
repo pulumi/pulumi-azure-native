@@ -7,6 +7,7 @@ import * as v20230415preview from "./v20230415preview";
 import * as v20230601preview from "./v20230601preview";
 import * as v20230815preview from "./v20230815preview";
 import * as v20231101preview from "./v20231101preview";
+import * as v20240501 from "./v20240501";
 
 export {
     v20210601,
@@ -14,6 +15,7 @@ export {
     v20230601preview,
     v20230815preview,
     v20231101preview,
+    v20240501,
 };
 
 export const DaysOfWeek = {

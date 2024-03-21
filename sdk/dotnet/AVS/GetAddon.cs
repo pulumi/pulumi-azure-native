@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AVS
         /// An addon resource
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2021-01-01-preview, 2023-03-01.
+        /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AVS
         /// An addon resource
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2021-01-01-preview, 2023-03-01.
+        /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());

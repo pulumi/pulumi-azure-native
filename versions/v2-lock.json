@@ -8,6 +8,7 @@
     "Datastore": "2022-05-01",
     "GlobalReachConnection": "2022-05-01",
     "HcxEnterpriseSite": "2022-05-01",
+    "IscsiPath": "2023-09-01",
     "PlacementPolicy": "2022-05-01",
     "PrivateCloud": "2022-05-01",
     "ScriptExecution": "2022-05-01",
@@ -495,6 +496,10 @@
     "PrivateAccess": "2023-10-27-preview",
     "Target": "2023-04-15-preview",
     "getExperimentExecutionDetails": "2023-11-01"
+  },
+  "CodeSigning": {
+    "CertificateProfile": "2024-02-05-preview",
+    "CodeSigningAccount": "2024-02-05-preview"
   },
   "CognitiveServices": {
     "Account": "2023-05-01",

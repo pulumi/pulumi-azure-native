@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:DicomService" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:DicomService" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231201:DicomService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240331:DicomService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

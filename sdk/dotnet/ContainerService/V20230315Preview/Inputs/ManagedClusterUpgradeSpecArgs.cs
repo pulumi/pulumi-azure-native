@@ -22,9 +22,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230315Preview.Inputs
         public Input<string>? KubernetesVersion { get; set; }
 
         /// <summary>
-        /// The upgrade type.
-        /// Full requires the KubernetesVersion property to be set.
-        /// NodeImageOnly requires the KubernetesVersion property not to be set.
+        /// ManagedClusterUpgradeType is the type of upgrade to be applied.
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.V20230315Preview.ManagedClusterUpgradeType> Type { get; set; } = null!;

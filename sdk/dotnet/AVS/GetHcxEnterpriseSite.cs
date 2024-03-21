@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AVS
         /// An HCX Enterprise Site resource
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Task<GetHcxEnterpriseSiteResult> InvokeAsync(GetHcxEnterpriseSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AVS
         /// An HCX Enterprise Site resource
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Output<GetHcxEnterpriseSiteResult> Invoke(GetHcxEnterpriseSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteInvokeArgs(), options.WithDefaults());

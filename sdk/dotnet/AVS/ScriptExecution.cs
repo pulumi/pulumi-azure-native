@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     /// An instance of a script executed by a user - custom or AVS
     /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01.
     /// 
-    /// Other available API versions: 2023-03-01.
+    /// Other available API versions: 2023-03-01, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:ScriptExecution")]
     public partial class ScriptExecution : global::Pulumi.CustomResource
@@ -149,6 +149,7 @@ namespace Pulumi.AzureNative.AVS
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:ScriptExecution" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:ScriptExecution" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:ScriptExecution" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:ScriptExecution" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

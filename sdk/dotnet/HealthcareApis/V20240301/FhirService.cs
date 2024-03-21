@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:FhirService" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:FhirService" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231201:FhirService" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240331:FhirService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -41,7 +41,7 @@ class UpdateRunArgs:
                
                Setting both "updateStrategyId" and "strategy" is invalid.
                
-               UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+               UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
                Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
                UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         """
@@ -130,7 +130,7 @@ class UpdateRunArgs:
 
         Setting both "updateStrategyId" and "strategy" is invalid.
 
-        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
         Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
         UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         """
@@ -174,7 +174,7 @@ class UpdateRun(pulumi.CustomResource):
                
                Setting both "updateStrategyId" and "strategy" is invalid.
                
-               UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+               UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
                Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
                UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         """
@@ -235,7 +235,7 @@ class UpdateRun(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:UpdateRun"), pulumi.Alias(type_="azure-native:containerservice/v20230315preview:UpdateRun"), pulumi.Alias(type_="azure-native:containerservice/v20230615preview:UpdateRun"), pulumi.Alias(type_="azure-native:containerservice/v20230815preview:UpdateRun")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:UpdateRun"), pulumi.Alias(type_="azure-native:containerservice/v20230315preview:UpdateRun"), pulumi.Alias(type_="azure-native:containerservice/v20230615preview:UpdateRun"), pulumi.Alias(type_="azure-native:containerservice/v20230815preview:UpdateRun"), pulumi.Alias(type_="azure-native:containerservice/v20240202preview:UpdateRun")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UpdateRun, __self__).__init__(
             'azure-native:containerservice/v20231015:UpdateRun',
@@ -349,7 +349,7 @@ class UpdateRun(pulumi.CustomResource):
 
         Setting both "updateStrategyId" and "strategy" is invalid.
 
-        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
         Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
         UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         """

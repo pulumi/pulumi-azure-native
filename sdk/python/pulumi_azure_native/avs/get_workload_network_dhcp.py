@@ -89,7 +89,7 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
     NSX DHCP
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2021-01-01-preview, 2023-03-01.
+    Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
 
 
     :param str dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name
@@ -119,7 +119,7 @@ def get_workload_network_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None
     NSX DHCP
     Azure REST API version: 2022-05-01.
 
-    Other available API versions: 2021-01-01-preview, 2023-03-01.
+    Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
 
 
     :param str dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the properties of the specified replica.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-08-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-09-01-preview.
  */
 export function getReplica(args: GetReplicaArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicaResult> {
 
@@ -75,7 +75,7 @@ export interface GetReplicaResult {
  * Gets the properties of the specified replica.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2023-08-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-09-01-preview.
  */
 export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaResult> {
     return pulumi.output(args).apply((a: any) => getReplica(a, opts))

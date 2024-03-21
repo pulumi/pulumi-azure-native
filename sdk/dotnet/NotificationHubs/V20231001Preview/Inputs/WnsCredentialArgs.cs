@@ -16,10 +16,34 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Inputs
     public sealed class WnsCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of a NotificationHub WnsCredential.
+        /// Ges or sets the WNS Certificate Key.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.WnsCredentialPropertiesArgs> Properties { get; set; } = null!;
+        [Input("certificateKey")]
+        public Input<string>? CertificateKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the package ID for this credential.
+        /// </summary>
+        [Input("packageSid")]
+        public Input<string>? PackageSid { get; set; }
+
+        /// <summary>
+        /// Gets or sets the secret key.
+        /// </summary>
+        [Input("secretKey")]
+        public Input<string>? SecretKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Windows Live endpoint.
+        /// </summary>
+        [Input("windowsLiveEndpoint")]
+        public Input<string>? WindowsLiveEndpoint { get; set; }
+
+        /// <summary>
+        /// Gets or sets the WNS Certificate.
+        /// </summary>
+        [Input("wnsCertificate")]
+        public Input<string>? WnsCertificate { get; set; }
 
         public WnsCredentialArgs()
         {

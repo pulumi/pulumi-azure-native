@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * A cloud link resource
  * Azure REST API version: 2022-05-01.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export function getCloudLink(args: GetCloudLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudLinkResult> {
 
@@ -64,7 +64,7 @@ export interface GetCloudLinkResult {
  * A cloud link resource
  * Azure REST API version: 2022-05-01.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudLinkResult> {
     return pulumi.output(args).apply((a: any) => getCloudLink(a, opts))

@@ -129,7 +129,7 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
         NSX VM Group
         Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
 
-        Other available API versions: 2023-03-01.
+        Other available API versions: 2023-03-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
         NSX VM Group
         Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
 
-        Other available API versions: 2023-03-01.
+        Other available API versions: 2023-03-01, 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkVMGroupArgs args: The arguments to use to populate this resource's properties.
@@ -196,7 +196,7 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkVMGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkVMGroup"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkVMGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadNetworkVMGroup, __self__).__init__(
             'azure-native:avs:WorkloadNetworkVMGroup',

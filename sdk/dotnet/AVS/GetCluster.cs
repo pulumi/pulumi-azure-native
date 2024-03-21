@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AVS
         /// A cluster resource
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01.
+        /// Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AVS
         /// A cluster resource
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01.
+        /// Other available API versions: 2020-03-20, 2021-06-01, 2023-03-01, 2023-09-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

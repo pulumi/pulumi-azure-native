@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * NSX VM Group
  * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
  *
- * Other available API versions: 2023-03-01.
+ * Other available API versions: 2023-03-01, 2023-09-01.
  */
 export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20210601:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20211201:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20220501:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20230301:WorkloadNetworkVMGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20210601:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20211201:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20220501:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20230301:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20230901:WorkloadNetworkVMGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkVMGroup.__pulumiType, name, resourceInputs, opts);
     }

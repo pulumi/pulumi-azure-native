@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
     /// Azure REST API version: 2023-03-15-preview.
     /// 
-    /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15.
+    /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:FleetMember")]
     public partial class FleetMember : global::Pulumi.CustomResource
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230615preview:FleetMember" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230815preview:FleetMember" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231015:FleetMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240202preview:FleetMember" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

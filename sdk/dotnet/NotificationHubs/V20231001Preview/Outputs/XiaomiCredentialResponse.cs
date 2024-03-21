@@ -17,14 +17,22 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Outputs
     public sealed class XiaomiCredentialResponse
     {
         /// <summary>
-        /// Description of a NotificationHub XiaomiCredentialProperties.
+        /// Gets or sets app secret.
         /// </summary>
-        public readonly Outputs.XiaomiCredentialPropertiesResponse Properties;
+        public readonly string? AppSecret;
+        /// <summary>
+        /// Gets or sets xiaomi service endpoint.
+        /// </summary>
+        public readonly string? Endpoint;
 
         [OutputConstructor]
-        private XiaomiCredentialResponse(Outputs.XiaomiCredentialPropertiesResponse properties)
+        private XiaomiCredentialResponse(
+            string? appSecret,
+
+            string? endpoint)
         {
-            Properties = properties;
+            AppSecret = appSecret;
+            Endpoint = endpoint;
         }
     }
 }

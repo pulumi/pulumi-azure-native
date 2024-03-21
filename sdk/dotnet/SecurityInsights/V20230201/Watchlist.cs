@@ -217,6 +217,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:Watchlist" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:Watchlist" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:Watchlist" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240301:Watchlist" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

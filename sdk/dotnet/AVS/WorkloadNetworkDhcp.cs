@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     /// NSX DHCP
     /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
     /// 
-    /// Other available API versions: 2021-01-01-preview, 2023-03-01.
+    /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDhcp")]
     public partial class WorkloadNetworkDhcp : global::Pulumi.CustomResource
@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.AVS
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDhcp" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkDhcp" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkDhcp" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:WorkloadNetworkDhcp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

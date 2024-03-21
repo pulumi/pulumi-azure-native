@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// Defines a multi-stage process to perform update operations across members of a Fleet.
     /// Azure REST API version: 2023-08-15-preview.
     /// 
-    /// Other available API versions: 2023-10-15.
+    /// Other available API versions: 2023-10-15, 2024-02-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:FleetUpdateStrategy")]
     public partial class FleetUpdateStrategy : global::Pulumi.CustomResource
@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.ContainerService
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230815preview:FleetUpdateStrategy" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20231015:FleetUpdateStrategy" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240202preview:FleetUpdateStrategy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

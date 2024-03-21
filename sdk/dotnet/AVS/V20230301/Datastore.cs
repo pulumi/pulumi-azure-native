@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.AVS.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:Datastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:Datastore" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

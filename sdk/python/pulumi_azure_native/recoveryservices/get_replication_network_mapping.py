@@ -103,7 +103,7 @@ def get_replication_network_mapping(fabric_name: Optional[str] = None,
     Gets the details of an ASR network mapping.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01.
+    Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01.
 
 
     :param str fabric_name: Primary fabric name.
@@ -140,7 +140,7 @@ def get_replication_network_mapping_output(fabric_name: Optional[pulumi.Input[st
     Gets the details of an ASR network mapping.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01.
+    Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01.
 
 
     :param str fabric_name: Primary fabric name.

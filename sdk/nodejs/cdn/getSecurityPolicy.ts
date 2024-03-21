@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an existing security policy within a profile.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-07-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01.
  */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
 
@@ -76,7 +76,7 @@ export interface GetSecurityPolicyResult {
  * Gets an existing security policy within a profile.
  * Azure REST API version: 2023-05-01.
  *
- * Other available API versions: 2023-07-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01.
  */
 export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSecurityPolicy(a, opts))

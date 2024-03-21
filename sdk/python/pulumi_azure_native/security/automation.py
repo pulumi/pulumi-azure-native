@@ -201,6 +201,8 @@ class Automation(pulumi.CustomResource):
         The security automation resource.
         Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview.
 
+        Other available API versions: 2023-12-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationActionEventHubArgs'], pulumi.InputType['AutomationActionLogicAppArgs'], pulumi.InputType['AutomationActionWorkspaceArgs']]]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
@@ -223,6 +225,8 @@ class Automation(pulumi.CustomResource):
         """
         The security automation resource.
         Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+
+        Other available API versions: 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AutomationArgs args: The arguments to use to populate this resource's properties.
@@ -273,7 +277,7 @@ class Automation(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:Automation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:Automation"), pulumi.Alias(type_="azure-native:security/v20231201preview:Automation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Automation, __self__).__init__(
             'azure-native:security:Automation',

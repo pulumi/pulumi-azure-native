@@ -8,7 +8,6 @@ __all__ = [
     'KustoOfferingType',
     'ManagedServiceIdentityType',
     'TargetAuthenticationType',
-    'TargetCollectionStatus',
 ]
 
 
@@ -51,18 +50,4 @@ class TargetAuthenticationType(str, Enum):
     SQL = "Sql"
     """
     The SQL password authentication.
-    """
-
-
-class TargetCollectionStatus(str, Enum):
-    """
-    The target collection status.
-    """
-    ENABLED = "Enabled"
-    """
-    Denotes a target that is enabled.
-    """
-    DISABLED = "Disabled"
-    """
-    Denotes a target that is disabled.
     """

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AVS
         /// NSX DNS Zone
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Task<GetWorkloadNetworkDnsZoneResult> InvokeAsync(GetWorkloadNetworkDnsZoneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AVS
         /// NSX DNS Zone
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Output<GetWorkloadNetworkDnsZoneResult> Invoke(GetWorkloadNetworkDnsZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsZoneResult>("azure-native:avs:getWorkloadNetworkDnsZone", args ?? new GetWorkloadNetworkDnsZoneInvokeArgs(), options.WithDefaults());

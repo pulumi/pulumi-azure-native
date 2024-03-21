@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The security automation resource.
  * Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+ *
+ * Other available API versions: 2023-12-01-preview.
  */
 export class Automation extends pulumi.CustomResource {
     /**
@@ -124,7 +126,7 @@ export class Automation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:Automation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:Automation" }, { type: "azure-native:security/v20231201preview:Automation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Automation.__pulumiType, name, resourceInputs, opts);
     }

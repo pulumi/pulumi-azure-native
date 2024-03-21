@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2023-07-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01.
  */
 export class RuleSet extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class RuleSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:RuleSet" }, { type: "azure-native:cdn/v20210601:RuleSet" }, { type: "azure-native:cdn/v20220501preview:RuleSet" }, { type: "azure-native:cdn/v20221101preview:RuleSet" }, { type: "azure-native:cdn/v20230501:RuleSet" }, { type: "azure-native:cdn/v20230701preview:RuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:RuleSet" }, { type: "azure-native:cdn/v20210601:RuleSet" }, { type: "azure-native:cdn/v20220501preview:RuleSet" }, { type: "azure-native:cdn/v20221101preview:RuleSet" }, { type: "azure-native:cdn/v20230501:RuleSet" }, { type: "azure-native:cdn/v20230701preview:RuleSet" }, { type: "azure-native:cdn/v20240201:RuleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RuleSet.__pulumiType, name, resourceInputs, opts);
     }

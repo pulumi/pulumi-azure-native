@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Represents a bookmark in Azure Security Insights.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01.
     /// 
-    /// Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview.
+    /// Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Bookmark")]
     public partial class Bookmark : global::Pulumi.CustomResource
@@ -175,6 +175,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:Bookmark" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:Bookmark" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240301:Bookmark" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

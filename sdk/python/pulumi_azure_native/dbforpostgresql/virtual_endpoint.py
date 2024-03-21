@@ -114,6 +114,8 @@ class VirtualEndpoint(pulumi.CustomResource):
         Represents a virtual endpoint for a server.
         Azure REST API version: 2023-06-01-preview.
 
+        Other available API versions: 2023-12-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'VirtualEndpointType']] endpoint_type: The endpoint type for the virtual endpoint.
@@ -131,6 +133,8 @@ class VirtualEndpoint(pulumi.CustomResource):
         """
         Represents a virtual endpoint for a server.
         Azure REST API version: 2023-06-01-preview.
+
+        Other available API versions: 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +178,7 @@ class VirtualEndpoint(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_endpoints"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:VirtualEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualEndpoint, __self__).__init__(
             'azure-native:dbforpostgresql:VirtualEndpoint',

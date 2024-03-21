@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets a cluster pool.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-05-01.
         /// </summary>
         public static Task<GetClusterPoolResult> InvokeAsync(GetClusterPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterPoolResult>("azure-native:hdinsight:getClusterPool", args ?? new GetClusterPoolArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets a cluster pool.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Other available API versions: 2023-11-01-preview, 2024-05-01.
         /// </summary>
         public static Output<GetClusterPoolResult> Invoke(GetClusterPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterPoolResult>("azure-native:hdinsight:getClusterPool", args ?? new GetClusterPoolInvokeArgs(), options.WithDefaults());

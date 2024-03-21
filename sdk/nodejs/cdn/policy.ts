@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Defines web application firewall policy for Azure CDN.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2023-07-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-02-01.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -150,7 +150,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20190615:Policy" }, { type: "azure-native:cdn/v20190615preview:Policy" }, { type: "azure-native:cdn/v20200331:Policy" }, { type: "azure-native:cdn/v20200415:Policy" }, { type: "azure-native:cdn/v20200901:Policy" }, { type: "azure-native:cdn/v20210601:Policy" }, { type: "azure-native:cdn/v20220501preview:Policy" }, { type: "azure-native:cdn/v20221101preview:Policy" }, { type: "azure-native:cdn/v20230501:Policy" }, { type: "azure-native:cdn/v20230701preview:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20190615:Policy" }, { type: "azure-native:cdn/v20190615preview:Policy" }, { type: "azure-native:cdn/v20200331:Policy" }, { type: "azure-native:cdn/v20200415:Policy" }, { type: "azure-native:cdn/v20200901:Policy" }, { type: "azure-native:cdn/v20210601:Policy" }, { type: "azure-native:cdn/v20220501preview:Policy" }, { type: "azure-native:cdn/v20221101preview:Policy" }, { type: "azure-native:cdn/v20230501:Policy" }, { type: "azure-native:cdn/v20230701preview:Policy" }, { type: "azure-native:cdn/v20240201:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }

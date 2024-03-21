@@ -16,10 +16,55 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Inputs
     public sealed class ApnsCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of a NotificationHub ApnsCredential.
+        /// Gets or sets the APNS certificate.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApnsCredentialPropertiesArgs> Properties { get; set; } = null!;
+        [Input("apnsCertificate")]
+        public Input<string>? ApnsCertificate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the issuer (iss) registered claim key, whose value is
+        /// your 10-character Team ID, obtained from your developer account
+        /// </summary>
+        [Input("appId")]
+        public Input<string>? AppId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the application
+        /// </summary>
+        [Input("appName")]
+        public Input<string>? AppName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the certificate key.
+        /// </summary>
+        [Input("certificateKey")]
+        public Input<string>? CertificateKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the endpoint of this credential.
+        /// </summary>
+        [Input("endpoint", required: true)]
+        public Input<string> Endpoint { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets a 10-character key identifier (kid) key, obtained from
+        /// your developer account
+        /// </summary>
+        [Input("keyId")]
+        public Input<string>? KeyId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the APNS certificate Thumbprint
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
+
+        /// <summary>
+        /// Gets or sets provider Authentication Token, obtained through your
+        /// developer account
+        /// </summary>
+        [Input("token")]
+        public Input<string>? Token { get; set; }
 
         public ApnsCredentialArgs()
         {

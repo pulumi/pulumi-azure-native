@@ -526,6 +526,7 @@ __all__ = [
     'ServiceNowV2LinkedServiceArgs',
     'ServiceNowV2ObjectDatasetArgs',
     'ServiceNowV2SourceArgs',
+    'ServicePrincipalCredentialArgs',
     'SetVariableActivityArgs',
     'SftpLocationArgs',
     'SftpReadSettingsArgs',
@@ -581,6 +582,7 @@ __all__ = [
     'SynapseNotebookReferenceArgs',
     'SynapseSparkJobDefinitionActivityArgs',
     'SynapseSparkJobReferenceArgs',
+    'SystemAssignedManagedIdentityCredentialArgs',
     'TabularSourceArgs',
     'TarGZipReadSettingsArgs',
     'TarReadSettingsArgs',
@@ -598,6 +600,7 @@ __all__ = [
     'TumblingWindowTriggerArgs',
     'TwilioLinkedServiceArgs',
     'UntilActivityArgs',
+    'UserAssignedManagedIdentityCredentialArgs',
     'UserPropertyArgs',
     'ValidationActivityArgs',
     'VariableSpecificationArgs',
@@ -11364,7 +11367,7 @@ class AzureFunctionActivityArgs:
                  body: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
@@ -11380,7 +11383,7 @@ class AzureFunctionActivityArgs:
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, Any]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -11497,14 +11500,14 @@ class AzureFunctionActivityArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -48722,23 +48725,19 @@ class ManagedIdentityCredentialArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None):
         """
         Managed identity credential.
         :param pulumi.Input[str] type: Type of credential.
                Expected value is 'ManagedIdentity'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Credential.
         :param pulumi.Input[str] description: Credential description.
-        :param pulumi.Input[str] resource_id: The resource id of user assigned managed identity
         """
         pulumi.set(__self__, "type", 'ManagedIdentity')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter
@@ -48776,18 +48775,6 @@ class ManagedIdentityCredentialArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource id of user assigned managed identity
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -74988,6 +74975,111 @@ class ServiceNowV2SourceArgs:
 
 
 @pulumi.input_type
+class ServicePrincipalCredentialArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 service_principal_id: Optional[Any] = None,
+                 service_principal_key: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
+                 tenant: Optional[Any] = None):
+        """
+        Service principal credential.
+        :param pulumi.Input[str] type: Type of credential.
+               Expected value is 'ServicePrincipal'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Credential.
+        :param pulumi.Input[str] description: Credential description.
+        :param Any service_principal_id: The app ID of the service principal used to authenticate
+        :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] service_principal_key: The key of the service principal used to authenticate.
+        :param Any tenant: The ID of the tenant to which the service principal belongs
+        """
+        pulumi.set(__self__, "type", 'ServicePrincipal')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of credential.
+        Expected value is 'ServicePrincipal'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the Credential.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Credential description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The app ID of the service principal used to authenticate
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @service_principal_id.setter
+    def service_principal_id(self, value: Optional[Any]):
+        pulumi.set(self, "service_principal_id", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']]:
+        """
+        The key of the service principal used to authenticate.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @service_principal_key.setter
+    def service_principal_key(self, value: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']]):
+        pulumi.set(self, "service_principal_key", value)
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[Any]:
+        """
+        The ID of the tenant to which the service principal belongs
+        """
+        return pulumi.get(self, "tenant")
+
+    @tenant.setter
+    def tenant(self, value: Optional[Any]):
+        pulumi.set(self, "tenant", value)
+
+
+@pulumi.input_type
 class SetVariableActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -83718,6 +83810,63 @@ class SynapseSparkJobReferenceArgs:
 
 
 @pulumi.input_type
+class SystemAssignedManagedIdentityCredentialArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        System Assigned Managed identity credential.
+        :param pulumi.Input[str] type: Type of credential.
+               Expected value is 'SystemAssignedManagedIdentityCredential'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Credential.
+        :param pulumi.Input[str] description: Credential description.
+        """
+        pulumi.set(__self__, "type", 'SystemAssignedManagedIdentityCredential')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of credential.
+        Expected value is 'SystemAssignedManagedIdentityCredential'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the Credential.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Credential description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
 class TabularSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -85641,6 +85790,63 @@ class UntilActivityArgs:
 
 
 @pulumi.input_type
+class UserAssignedManagedIdentityCredentialArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        User Assigned Managed identity credential.
+        :param pulumi.Input[str] type: Type of credential.
+               Expected value is 'UserAssignedManagedIdentityCredential'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Credential.
+        :param pulumi.Input[str] description: Credential description.
+        """
+        pulumi.set(__self__, "type", 'UserAssignedManagedIdentityCredential')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of credential.
+        Expected value is 'UserAssignedManagedIdentityCredential'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the Credential.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Credential description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
 class UserPropertyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -87428,7 +87634,7 @@ class WebActivityArgs:
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_cert_validation: Optional[pulumi.Input[bool]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  http_request_timeout: Optional[Any] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None,
@@ -87451,7 +87657,7 @@ class WebActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[bool] disable_cert_validation: When set to true, Certificate validation will be disabled.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, Any]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param Any http_request_timeout: Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: List of linked services passed to web endpoint.
@@ -87633,14 +87839,14 @@ class WebActivityArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "headers", value)
 
     @property
@@ -87931,7 +88137,7 @@ class WebHookActivityArgs:
                  body: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['SecureInputOutputPolicyArgs']] = None,
                  report_status_on_call_back: Optional[Any] = None,
@@ -87949,7 +88155,7 @@ class WebHookActivityArgs:
         :param Any body: Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, Any]] headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['SecureInputOutputPolicyArgs'] policy: Activity policy.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -88083,14 +88289,14 @@ class WebHookActivityArgs:
 
     @property
     @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "headers", value)
 
     @property

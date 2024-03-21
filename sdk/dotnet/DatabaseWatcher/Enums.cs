@@ -117,41 +117,4 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// The target collection status.
-    /// </summary>
-    [EnumType]
-    public readonly struct TargetCollectionStatus : IEquatable<TargetCollectionStatus>
-    {
-        private readonly string _value;
-
-        private TargetCollectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Denotes a target that is enabled.
-        /// </summary>
-        public static TargetCollectionStatus Enabled { get; } = new TargetCollectionStatus("Enabled");
-        /// <summary>
-        /// Denotes a target that is disabled.
-        /// </summary>
-        public static TargetCollectionStatus Disabled { get; } = new TargetCollectionStatus("Disabled");
-
-        public static bool operator ==(TargetCollectionStatus left, TargetCollectionStatus right) => left.Equals(right);
-        public static bool operator !=(TargetCollectionStatus left, TargetCollectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(TargetCollectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TargetCollectionStatus other && Equals(other);
-        public bool Equals(TargetCollectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

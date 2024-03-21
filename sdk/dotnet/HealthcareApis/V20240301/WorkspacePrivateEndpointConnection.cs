@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:WorkspacePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:WorkspacePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231201:WorkspacePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240331:WorkspacePrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

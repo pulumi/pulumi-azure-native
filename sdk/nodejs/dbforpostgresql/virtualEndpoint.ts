@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a virtual endpoint for a server.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-12-01-preview.
  */
 export class VirtualEndpoint extends pulumi.CustomResource {
     /**
@@ -98,7 +100,7 @@ export class VirtualEndpoint extends pulumi.CustomResource {
             resourceInputs["virtualEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql/v20231201preview:VirtualEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualEndpoint.__pulumiType, name, resourceInputs, opts);
     }

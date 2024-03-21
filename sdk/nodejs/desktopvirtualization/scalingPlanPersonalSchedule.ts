@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a ScalingPlanPersonalSchedule definition.
  * Azure REST API version: 2023-07-07-preview.
  *
- * Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview.
+ * Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
  */
 export class ScalingPlanPersonalSchedule extends pulumi.CustomResource {
     /**
@@ -238,7 +238,7 @@ export class ScalingPlanPersonalSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20230707preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20230707preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20230905:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20231004preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20231101preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240116preview:ScalingPlanPersonalSchedule" }, { type: "azure-native:desktopvirtualization/v20240306preview:ScalingPlanPersonalSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScalingPlanPersonalSchedule.__pulumiType, name, resourceInputs, opts);
     }

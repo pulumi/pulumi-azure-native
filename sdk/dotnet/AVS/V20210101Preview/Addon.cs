@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:Addon" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:Addon" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

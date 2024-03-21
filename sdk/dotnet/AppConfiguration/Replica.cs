@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppConfiguration
     /// The replica resource.
     /// Azure REST API version: 2023-03-01.
     /// 
-    /// Other available API versions: 2023-08-01-preview.
+    /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:Replica")]
     public partial class Replica : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AppConfiguration
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:Replica" },
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230301:Replica" },
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230801preview:Replica" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230901preview:Replica" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -229,7 +229,7 @@ def get_policy(policy_name: Optional[str] = None,
     Retrieve protection policy with specified name within a resource group.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2023-07-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-02-01.
 
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
@@ -268,7 +268,7 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     Retrieve protection policy with specified name within a resource group.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2023-07-01-preview.
+    Other available API versions: 2023-07-01-preview, 2024-02-01.
 
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.

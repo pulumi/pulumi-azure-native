@@ -238,17 +238,15 @@ class ManagedClusterSKUTier(str, Enum):
 
 class ManagedClusterUpgradeType(str, Enum):
     """
-    The upgrade type.
-    Full requires the KubernetesVersion property to be set.
-    NodeImageOnly requires the KubernetesVersion property not to be set.
+    ManagedClusterUpgradeType is the type of upgrade to be applied.
     """
     FULL = "Full"
     """
-    Full upgrades the control plane and all agent pools of the target ManagedClusters.
+    Full upgrades the control plane and all agent pools of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to be set.
     """
     NODE_IMAGE_ONLY = "NodeImageOnly"
     """
-    NodeImageOnly upgrades only the node images of the target ManagedClusters.
+    NodeImageOnly upgrades only the node images of the target ManagedClusters. Requires the ManagedClusterUpgradeSpec.KubernetesVersion property to NOT be set.
     """
 
 

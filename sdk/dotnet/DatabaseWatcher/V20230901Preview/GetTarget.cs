@@ -106,10 +106,6 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20230901Preview
         /// </summary>
         public readonly string TargetAuthenticationType;
         /// <summary>
-        /// The target collection status.
-        /// </summary>
-        public readonly string? TargetCollectionStatus;
-        /// <summary>
         /// Discriminator property for TargetProperties.
         /// </summary>
         public readonly string TargetType;
@@ -136,8 +132,6 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20230901Preview
 
             string targetAuthenticationType,
 
-            string? targetCollectionStatus,
-
             string targetType,
 
             Outputs.VaultSecretResponse? targetVault,
@@ -150,7 +144,6 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20230901Preview
             ProvisioningState = provisioningState;
             SystemData = systemData;
             TargetAuthenticationType = targetAuthenticationType;
-            TargetCollectionStatus = targetCollectionStatus;
             TargetType = targetType;
             TargetVault = targetVault;
             Type = type;

@@ -47,12 +47,6 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         public Output<string> TargetAuthenticationType { get; private set; } = null!;
 
         /// <summary>
-        /// The target collection status.
-        /// </summary>
-        [Output("targetCollectionStatus")]
-        public Output<string?> TargetCollectionStatus { get; private set; } = null!;
-
-        /// <summary>
         /// Discriminator property for TargetProperties.
         /// </summary>
         [Output("targetType")]
@@ -136,12 +130,6 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         [Input("targetAuthenticationType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DatabaseWatcher.TargetAuthenticationType> TargetAuthenticationType { get; set; } = null!;
-
-        /// <summary>
-        /// The target collection status.
-        /// </summary>
-        [Input("targetCollectionStatus")]
-        public InputUnion<string, Pulumi.AzureNative.DatabaseWatcher.TargetCollectionStatus>? TargetCollectionStatus { get; set; }
 
         /// <summary>
         /// The target resource name.

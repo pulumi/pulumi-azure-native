@@ -205,9 +205,7 @@ class ManagedClusterUpgradeSpecArgs:
                  kubernetes_version: Optional[pulumi.Input[str]] = None):
         """
         The upgrade to apply to a ManagedCluster.
-        :param pulumi.Input[Union[str, 'ManagedClusterUpgradeType']] type: The upgrade type.
-               Full requires the KubernetesVersion property to be set.
-               NodeImageOnly requires the KubernetesVersion property not to be set.
+        :param pulumi.Input[Union[str, 'ManagedClusterUpgradeType']] type: ManagedClusterUpgradeType is the type of upgrade to be applied.
         :param pulumi.Input[str] kubernetes_version: The Kubernetes version to upgrade the member clusters to.
         """
         pulumi.set(__self__, "type", type)
@@ -218,9 +216,7 @@ class ManagedClusterUpgradeSpecArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[str, 'ManagedClusterUpgradeType']]:
         """
-        The upgrade type.
-        Full requires the KubernetesVersion property to be set.
-        NodeImageOnly requires the KubernetesVersion property not to be set.
+        ManagedClusterUpgradeType is the type of upgrade to be applied.
         """
         return pulumi.get(self, "type")
 

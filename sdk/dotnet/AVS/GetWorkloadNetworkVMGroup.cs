@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AVS
         /// NSX VM Group
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Task<GetWorkloadNetworkVMGroupResult> InvokeAsync(GetWorkloadNetworkVMGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkVMGroupResult>("azure-native:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AVS
         /// NSX VM Group
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Output<GetWorkloadNetworkVMGroupResult> Invoke(GetWorkloadNetworkVMGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkVMGroupResult>("azure-native:avs:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupInvokeArgs(), options.WithDefaults());

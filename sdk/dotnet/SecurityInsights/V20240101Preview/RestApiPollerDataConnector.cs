@@ -163,6 +163,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231101:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:RestApiPollerDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240301:RestApiPollerDataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -17,14 +17,67 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Outputs
     public sealed class ApnsCredentialResponse
     {
         /// <summary>
-        /// Description of a NotificationHub ApnsCredential.
+        /// Gets or sets the APNS certificate.
         /// </summary>
-        public readonly Outputs.ApnsCredentialPropertiesResponse Properties;
+        public readonly string? ApnsCertificate;
+        /// <summary>
+        /// Gets or sets the issuer (iss) registered claim key, whose value is
+        /// your 10-character Team ID, obtained from your developer account
+        /// </summary>
+        public readonly string? AppId;
+        /// <summary>
+        /// Gets or sets the name of the application
+        /// </summary>
+        public readonly string? AppName;
+        /// <summary>
+        /// Gets or sets the certificate key.
+        /// </summary>
+        public readonly string? CertificateKey;
+        /// <summary>
+        /// Gets or sets the endpoint of this credential.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
+        /// Gets or sets a 10-character key identifier (kid) key, obtained from
+        /// your developer account
+        /// </summary>
+        public readonly string? KeyId;
+        /// <summary>
+        /// Gets or sets the APNS certificate Thumbprint
+        /// </summary>
+        public readonly string? Thumbprint;
+        /// <summary>
+        /// Gets or sets provider Authentication Token, obtained through your
+        /// developer account
+        /// </summary>
+        public readonly string? Token;
 
         [OutputConstructor]
-        private ApnsCredentialResponse(Outputs.ApnsCredentialPropertiesResponse properties)
+        private ApnsCredentialResponse(
+            string? apnsCertificate,
+
+            string? appId,
+
+            string? appName,
+
+            string? certificateKey,
+
+            string endpoint,
+
+            string? keyId,
+
+            string? thumbprint,
+
+            string? token)
         {
-            Properties = properties;
+            ApnsCertificate = apnsCertificate;
+            AppId = appId;
+            AppName = appName;
+            CertificateKey = certificateKey;
+            Endpoint = endpoint;
+            KeyId = keyId;
+            Thumbprint = thumbprint;
+            Token = token;
         }
     }
 }

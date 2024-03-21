@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a Configuration.
  * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
  *
- * Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview.
  */
 export class Configuration extends pulumi.CustomResource {
     /**
@@ -148,7 +148,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220120preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220308preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20221201:Configuration" }, { type: "azure-native:dbforpostgresql/v20230301preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20230601preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601:Configuration" }, { type: "azure-native:dbforpostgresql/v20210601preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220120preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20220308preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20221201:Configuration" }, { type: "azure-native:dbforpostgresql/v20230301preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20230601preview:Configuration" }, { type: "azure-native:dbforpostgresql/v20231201preview:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }

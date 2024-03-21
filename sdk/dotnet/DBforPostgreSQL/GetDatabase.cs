@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets information about a database.
         /// Azure REST API version: 2022-12-01.
         /// 
-        /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview.
+        /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbforpostgresql:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Gets information about a database.
         /// Azure REST API version: 2022-12-01.
         /// 
-        /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview.
+        /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:dbforpostgresql:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());

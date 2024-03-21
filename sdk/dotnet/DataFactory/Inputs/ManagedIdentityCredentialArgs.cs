@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The resource id of user assigned managed identity
-        /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
-
-        /// <summary>
         /// Type of credential.
         /// Expected value is 'ManagedIdentity'.
         /// </summary>

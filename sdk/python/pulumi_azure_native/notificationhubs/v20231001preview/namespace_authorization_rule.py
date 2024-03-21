@@ -10,7 +10,6 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
 
@@ -19,27 +18,36 @@ class NamespaceAuthorizationRuleArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
         :param pulumi.Input[str] namespace_name: Namespace name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: Gets or sets the rights associated with the rule.
         :param pulumi.Input[str] authorization_rule_name: Authorization Rule Name
         :param pulumi.Input[str] location: Deprecated - only for compatibility.
-        :param pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs'] properties: SharedAccessAuthorizationRule properties.
+        :param pulumi.Input[str] primary_key: Gets a base64-encoded 256-bit primary key for signing and
+               validating the SAS token.
+        :param pulumi.Input[str] secondary_key: Gets a base64-encoded 256-bit primary key for signing and
+               validating the SAS token.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deprecated - only for compatibility.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rights", rights)
         if authorization_rule_name is not None:
             pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -68,6 +76,18 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter
+    def rights(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]:
+        """
+        Gets or sets the rights associated with the rule.
+        """
+        return pulumi.get(self, "rights")
+
+    @rights.setter
+    def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
+        pulumi.set(self, "rights", value)
+
+    @property
     @pulumi.getter(name="authorizationRuleName")
     def authorization_rule_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -92,16 +112,30 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]:
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
         """
-        SharedAccessAuthorizationRule properties.
+        Gets a base64-encoded 256-bit primary key for signing and
+        validating the SAS token.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "primary_key")
 
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets a base64-encoded 256-bit primary key for signing and
+        validating the SAS token.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
 
     @property
     @pulumi.getter
@@ -124,8 +158,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -136,8 +172,12 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_rule_name: Authorization Rule Name
         :param pulumi.Input[str] location: Deprecated - only for compatibility.
         :param pulumi.Input[str] namespace_name: Namespace name
-        :param pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']] properties: SharedAccessAuthorizationRule properties.
+        :param pulumi.Input[str] primary_key: Gets a base64-encoded 256-bit primary key for signing and
+               validating the SAS token.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: Gets or sets the rights associated with the rule.
+        :param pulumi.Input[str] secondary_key: Gets a base64-encoded 256-bit primary key for signing and
+               validating the SAS token.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deprecated - only for compatibility.
         """
         ...
@@ -167,8 +207,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['SharedAccessAuthorizationRulePropertiesArgs']]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -184,12 +226,22 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
-            __props__.__dict__["properties"] = properties
+            __props__.__dict__["primary_key"] = primary_key
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rights is None and not opts.urn:
+                raise TypeError("Missing required property 'rights'")
+            __props__.__dict__["rights"] = rights
+            __props__.__dict__["secondary_key"] = secondary_key
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["claim_type"] = None
+            __props__.__dict__["claim_value"] = None
+            __props__.__dict__["created_time"] = None
+            __props__.__dict__["key_name"] = None
+            __props__.__dict__["modified_time"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["revision"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20230901:NamespaceAuthorizationRule")])
@@ -216,13 +268,53 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         __props__ = NamespaceAuthorizationRuleArgs.__new__(NamespaceAuthorizationRuleArgs)
 
+        __props__.__dict__["claim_type"] = None
+        __props__.__dict__["claim_value"] = None
+        __props__.__dict__["created_time"] = None
+        __props__.__dict__["key_name"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["modified_time"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["primary_key"] = None
+        __props__.__dict__["revision"] = None
+        __props__.__dict__["rights"] = None
+        __props__.__dict__["secondary_key"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return NamespaceAuthorizationRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="claimType")
+    def claim_type(self) -> pulumi.Output[str]:
+        """
+        Gets a string that describes the claim type
+        """
+        return pulumi.get(self, "claim_type")
+
+    @property
+    @pulumi.getter(name="claimValue")
+    def claim_value(self) -> pulumi.Output[str]:
+        """
+        Gets a string that describes the claim value
+        """
+        return pulumi.get(self, "claim_value")
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> pulumi.Output[str]:
+        """
+        Gets the created time for this rule
+        """
+        return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Output[str]:
+        """
+        Gets a string that describes the authorization rule.
+        """
+        return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter
@@ -233,6 +325,14 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> pulumi.Output[str]:
+        """
+        Gets the last modified time for this rule
+        """
+        return pulumi.get(self, "modified_time")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -241,12 +341,38 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Gets a base64-encoded 256-bit primary key for signing and
+        validating the SAS token.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.SharedAccessAuthorizationRulePropertiesResponse']:
+    def revision(self) -> pulumi.Output[int]:
         """
-        SharedAccessAuthorizationRule properties.
+        Gets the revision number for the rule
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter
+    def rights(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Gets or sets the rights associated with the rule.
+        """
+        return pulumi.get(self, "rights")
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Gets a base64-encoded 256-bit primary key for signing and
+        validating the SAS token.
+        """
+        return pulumi.get(self, "secondary_key")
 
     @property
     @pulumi.getter(name="systemData")

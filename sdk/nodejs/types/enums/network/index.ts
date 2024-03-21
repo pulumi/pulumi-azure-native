@@ -32,6 +32,7 @@ import * as v20230601 from "./v20230601";
 import * as v20230701preview from "./v20230701preview";
 import * as v20230801preview from "./v20230801preview";
 import * as v20230901 from "./v20230901";
+import * as v20240201 from "./v20240201";
 
 export {
     v20180501,
@@ -64,6 +65,7 @@ export {
     v20230701preview,
     v20230801preview,
     v20230901,
+    v20240201,
 };
 
 export const Access = {

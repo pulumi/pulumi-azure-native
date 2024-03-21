@@ -17,6 +17,7 @@ import * as v20221201 from "./v20221201";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230302preview from "./v20230302preview";
 import * as v20230601preview from "./v20230601preview";
+import * as v20231201preview from "./v20231201preview";
 
 export {
     v20171201,
@@ -34,6 +35,7 @@ export {
     v20230301preview,
     v20230302preview,
     v20230601preview,
+    v20231201preview,
 };
 
 export const ActiveDirectoryAuthEnum = {

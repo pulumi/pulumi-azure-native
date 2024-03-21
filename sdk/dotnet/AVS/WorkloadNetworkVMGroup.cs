@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     /// NSX VM Group
     /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
     /// 
-    /// Other available API versions: 2023-03-01.
+    /// Other available API versions: 2023-03-01, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkVMGroup")]
     public partial class WorkloadNetworkVMGroup : global::Pulumi.CustomResource
@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.AVS
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkVMGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkVMGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkVMGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:WorkloadNetworkVMGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -2422,6 +2422,76 @@
     "Property": "nodeImageSelection"
   },
   {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "vmSize"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "agentProfile"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enablePrivateCluster"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enableVnetIntegration"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "apiServerAccessProfile"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "FleetHubProfile",
+    "Property": "dnsPrefix"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "Module": "containerservice/v20240202preview",
+    "Provider": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelection",
+    "Property": "nodeImageSelection"
+  },
+  {
     "Module": "containerstorage",
     "Provider": "ContainerStorage",
     "ResourceName": "Pool",
@@ -2598,6 +2668,34 @@
   },
   {
     "Module": "dbformysql/v20231201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageUrl"
+  },
+  {
+    "Module": "dbformysql/v20231230",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "dataDirPath"
+  },
+  {
+    "Module": "dbformysql/v20231230",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "sasToken"
+  },
+  {
+    "Module": "dbformysql/v20231230",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageType"
+  },
+  {
+    "Module": "dbformysql/v20231230",
     "Provider": "DBforMySQL",
     "ResourceName": "Server",
     "ReferenceName": "ImportSourceProperties",
@@ -2675,6 +2773,13 @@
   },
   {
     "Module": "dbforpostgresql/v20230601preview",
+    "Provider": "DBforPostgreSQL",
+    "ResourceName": "Server",
+    "ReferenceName": "Backup",
+    "Property": "geoRedundantBackup"
+  },
+  {
+    "Module": "dbforpostgresql/v20231201preview",
     "Provider": "DBforPostgreSQL",
     "ResourceName": "Server",
     "ReferenceName": "Backup",
@@ -3956,6 +4061,20 @@
   },
   {
     "Module": "hdinsight/v20231101preview",
+    "Provider": "HDInsight",
+    "ResourceName": "ClusterPool",
+    "ReferenceName": "ClusterPoolNetworkProfile",
+    "Property": "enablePrivateApiServer"
+  },
+  {
+    "Module": "hdinsight/v20240501",
+    "Provider": "HDInsight",
+    "ResourceName": "Cluster",
+    "ReferenceName": "ClusterAccessProfile",
+    "Property": "enableInternalIngress"
+  },
+  {
+    "Module": "hdinsight/v20240501",
     "Provider": "HDInsight",
     "ResourceName": "ClusterPool",
     "ReferenceName": "ClusterPoolNetworkProfile",
@@ -39082,27 +39201,6 @@
   },
   {
     "Module": "notificationhubs/v20230901",
-    "Provider": "NotificationHubs",
-    "ResourceName": "NotificationHub",
-    "ReferenceName": "NotificationHubProperties",
-    "Property": "name"
-  },
-  {
-    "Module": "notificationhubs/v20231001preview",
-    "Provider": "NotificationHubs",
-    "ResourceName": "Namespace",
-    "ReferenceName": "NamespaceProperties",
-    "Property": "scaleUnit"
-  },
-  {
-    "Module": "notificationhubs/v20231001preview",
-    "Provider": "NotificationHubs",
-    "ResourceName": "Namespace",
-    "ReferenceName": "ZoneRedundancyPreference",
-    "Property": "zoneRedundancy"
-  },
-  {
-    "Module": "notificationhubs/v20231001preview",
     "Provider": "NotificationHubs",
     "ResourceName": "NotificationHub",
     "ReferenceName": "NotificationHubProperties",

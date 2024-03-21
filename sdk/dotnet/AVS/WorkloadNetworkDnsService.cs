@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     /// NSX DNS Service
     /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
     /// 
-    /// Other available API versions: 2023-03-01.
+    /// Other available API versions: 2023-03-01, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkDnsService")]
     public partial class WorkloadNetworkDnsService : global::Pulumi.CustomResource
@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.AVS
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDnsService" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:WorkloadNetworkDnsService" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:WorkloadNetworkDnsService" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:WorkloadNetworkDnsService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

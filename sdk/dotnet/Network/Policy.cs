@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// Defines web application firewall policy.
     /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-11-01.
     /// 
-    /// Other available API versions: 2021-06-01.
+    /// Other available API versions: 2021-06-01, 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20201101:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:Policy" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:Policy" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240201:Policy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

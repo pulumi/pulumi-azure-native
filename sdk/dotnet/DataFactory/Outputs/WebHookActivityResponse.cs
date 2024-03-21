@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Headers;
+        public readonly ImmutableDictionary<string, object>? Headers;
         /// <summary>
         /// Rest API method for target endpoint.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            ImmutableDictionary<string, string>? headers,
+            ImmutableDictionary<string, object>? headers,
 
             string method,
 

@@ -81,7 +81,7 @@ export class UpdateRun extends pulumi.CustomResource {
      *
      * Setting both "updateStrategyId" and "strategy" is invalid.
      *
-     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
      * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
      * UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
      */
@@ -131,7 +131,7 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["updateStrategyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:UpdateRun" }, { type: "azure-native:containerservice/v20230315preview:UpdateRun" }, { type: "azure-native:containerservice/v20230615preview:UpdateRun" }, { type: "azure-native:containerservice/v20231015:UpdateRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:UpdateRun" }, { type: "azure-native:containerservice/v20230315preview:UpdateRun" }, { type: "azure-native:containerservice/v20230615preview:UpdateRun" }, { type: "azure-native:containerservice/v20231015:UpdateRun" }, { type: "azure-native:containerservice/v20240202preview:UpdateRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UpdateRun.__pulumiType, name, resourceInputs, opts);
     }
@@ -173,7 +173,7 @@ export interface UpdateRunArgs {
      *
      * Setting both "updateStrategyId" and "strategy" is invalid.
      *
-     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
      * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
      * UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
      */

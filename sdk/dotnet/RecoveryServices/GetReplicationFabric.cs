@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// Gets the details of an Azure Site Recovery fabric.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01.
+        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
         /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// Gets the details of an Azure Site Recovery fabric.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-06-01, 2023-08-01.
+        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
         /// </summary>
         public static Output<GetReplicationFabricResult> Invoke(GetReplicationFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithDefaults());

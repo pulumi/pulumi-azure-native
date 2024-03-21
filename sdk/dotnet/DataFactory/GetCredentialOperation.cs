@@ -96,9 +96,9 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Managed Identity Credential properties.
+        /// Properties of credentials.
         /// </summary>
-        public readonly Outputs.ManagedIdentityCredentialResponse Properties;
+        public readonly object Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.DataFactory
 
             string name,
 
-            Outputs.ManagedIdentityCredentialResponse properties,
+            object properties,
 
             string type)
         {

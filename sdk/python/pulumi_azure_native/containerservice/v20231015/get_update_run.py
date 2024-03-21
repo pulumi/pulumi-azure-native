@@ -141,7 +141,7 @@ class GetUpdateRunResult:
 
         Setting both "updateStrategyId" and "strategy" is invalid.
 
-        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field.
+        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
         Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
         UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         """

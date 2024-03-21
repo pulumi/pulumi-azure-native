@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.Cdn.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20230701preview:AFDEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:AFDEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AVS
     /// A vSphere Distributed Resource Scheduler (DRS) placement policy
     /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-12-01.
     /// 
-    /// Other available API versions: 2023-03-01.
+    /// Other available API versions: 2023-03-01, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PlacementPolicy")]
     public partial class PlacementPolicy : global::Pulumi.CustomResource
@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.AVS
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:PlacementPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:PlacementPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:PlacementPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:PlacementPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -184,6 +184,8 @@ def get_automation(automation_name: Optional[str] = None,
     Retrieves information about the model of a security automation.
     Azure REST API version: 2019-01-01-preview.
 
+    Other available API versions: 2023-12-01-preview.
+
 
     :param str automation_name: The security automation name.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -216,6 +218,8 @@ def get_automation_output(automation_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves information about the model of a security automation.
     Azure REST API version: 2019-01-01-preview.
+
+    Other available API versions: 2023-12-01-preview.
 
 
     :param str automation_name: The security automation name.

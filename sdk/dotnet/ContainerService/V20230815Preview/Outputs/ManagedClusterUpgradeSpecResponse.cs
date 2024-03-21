@@ -21,9 +21,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230815Preview.Outputs
         /// </summary>
         public readonly string? KubernetesVersion;
         /// <summary>
-        /// The upgrade type.
-        /// Full requires the KubernetesVersion property to be set.
-        /// NodeImageOnly requires the KubernetesVersion property not to be set.
+        /// ManagedClusterUpgradeType is the type of upgrade to be applied.
         /// </summary>
         public readonly string Type;
 

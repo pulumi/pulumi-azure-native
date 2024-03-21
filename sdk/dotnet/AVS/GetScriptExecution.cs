@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AVS
         /// An instance of a script executed by a user - custom or AVS
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Task<GetScriptExecutionResult> InvokeAsync(GetScriptExecutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptExecutionResult>("azure-native:avs:getScriptExecution", args ?? new GetScriptExecutionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AVS
         /// An instance of a script executed by a user - custom or AVS
         /// Azure REST API version: 2022-05-01.
         /// 
-        /// Other available API versions: 2023-03-01.
+        /// Other available API versions: 2023-03-01, 2023-09-01.
         /// </summary>
         public static Output<GetScriptExecutionResult> Invoke(GetScriptExecutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithDefaults());

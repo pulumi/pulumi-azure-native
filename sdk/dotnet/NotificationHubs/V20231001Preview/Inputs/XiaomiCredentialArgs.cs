@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview.Inputs
     public sealed class XiaomiCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of a NotificationHub XiaomiCredentialProperties.
+        /// Gets or sets app secret.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.XiaomiCredentialPropertiesArgs> Properties { get; set; } = null!;
+        [Input("appSecret")]
+        public Input<string>? AppSecret { get; set; }
+
+        /// <summary>
+        /// Gets or sets xiaomi service endpoint.
+        /// </summary>
+        [Input("endpoint")]
+        public Input<string>? Endpoint { get; set; }
 
         public XiaomiCredentialArgs()
         {
