@@ -213,7 +213,7 @@ func (r *resourceCrudClient) currentResourceStateCheckpoint(ctx context.Context,
 	if getErr != nil {
 		return nil, getErr
 	}
-	outputs := r.converter.ResponseBodyToSdkOutputs(r.res.Response, getResp)
+	outputs := r.converter.ResponseBodyToSdkOutputs(r.res.Response, getResp.(map[string]any))
 	obj := checkpointObject(inputs, outputs)
 	return plugin.MarshalProperties(
 		obj,
@@ -248,7 +248,7 @@ func (r *resourceCrudClient) MaintainSubResourcePropertiesIfNotSet(ctx context.C
 		return fmt.Errorf("reading cloud state: %w", err)
 	}
 
-	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state)
+	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state.(map[string]any))
 	for writtenProperty, writtenValue := range writtenProperties {
 		logging.V(9).Infof("Maintaining remote value for property: %s.%s = %v", id, writtenProperty, writtenValue)
 	}
@@ -335,19 +335,27 @@ func (r *resourceCrudClient) CreateOrUpdate(ctx context.Context, id string, body
 func (r *resourceCrudClient) Read(ctx context.Context, id string) (map[string]any, error) {
 	url := id + r.res.ReadPath
 
+	var resp any
+	var err error
 	switch r.res.ReadMethod {
 	case "HEAD":
-		err := r.azureClient.Head(ctx, url, r.res.APIVersion)
+		err = r.azureClient.Head(ctx, url, r.res.APIVersion)
 		return nil, err
 	case "POST":
 		bodyParams := map[string]interface{}{}
 		queryParams := map[string]interface{}{
 			"api-version": r.res.APIVersion,
 		}
-		return r.azureClient.Post(ctx, url, bodyParams, queryParams)
+		resp, err = r.azureClient.Post(ctx, url, bodyParams, queryParams)
 	default:
-		return r.azureClient.Get(ctx, url, r.res.APIVersion)
+		resp, err = r.azureClient.Get(ctx, url, r.res.APIVersion)
 	}
+
+	if err != nil {
+		return nil, err
+	}
+	// Cast is safe because we're reading a resource, only invokes return non-objects.
+	return resp.(map[string]any), nil
 }
 
 type propertyPath struct {
