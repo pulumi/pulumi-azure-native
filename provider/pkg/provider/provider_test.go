@@ -83,9 +83,8 @@ func TestRestoreDefaultInputsIsNoopWithoutDefaultProperties(t *testing.T) {
 
 func TestMappableOldStateIsNoopWithoutDefaults(t *testing.T) {
 	res := resources.AzureAPIResource{} // no defaults
-	m := mappableOldState(res, resource.PropertyMap{
-		"foo": resource.NewStringProperty("bar"),
-	})
+	m := map[string]interface{}{"foo": "bar"}
+	removeDefaults(res, m)
 	assert.Equal(t, map[string]interface{}{"foo": "bar"}, m)
 }
 
@@ -97,11 +96,12 @@ func TestMappableOldStatePreservesNonDefaults(t *testing.T) {
 			},
 		},
 	}
-	m := mappableOldState(res, resource.PropertyMap{
-		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
-			"defaultAction": resource.NewStringProperty("Deny"),
-		}),
-	})
+	m := map[string]any{
+		"networkRuleSet": map[string]any{
+			"defaultAction": "Deny",
+		},
+	}
+	removeDefaults(res, m)
 	assert.Equal(t, "Deny", m["networkRuleSet"].(map[string]interface{})["defaultAction"])
 }
 
@@ -113,16 +113,17 @@ func TestMappableOldStateRemovesDefaultsThatWereInputs(t *testing.T) {
 			},
 		},
 	}
-	m := mappableOldState(res, resource.PropertyMap{
-		"__inputs": resource.NewObjectProperty(resource.PropertyMap{
-			"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
-				"defaultAction": resource.NewStringProperty("Allow"),
-			}),
-		}),
-		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
-			"defaultAction": resource.NewStringProperty("Allow"),
-		}),
-	})
+	m := map[string]any{
+		"__inputs": map[string]any{
+			"networkRuleSet": map[string]any{
+				"defaultAction": "Allow",
+			},
+		},
+		"networkRuleSet": map[string]any{
+			"defaultAction": "Allow",
+		},
+	}
+	removeDefaults(res, m)
 	assert.Contains(t, m, "__inputs")
 	assert.NotContains(t, m, "networkRuleSet")
 }
@@ -135,12 +136,13 @@ func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
 			},
 		},
 	}
-	m := mappableOldState(res, resource.PropertyMap{
-		"__inputs": resource.NewObjectProperty(resource.PropertyMap{}),
-		"networkRuleSet": resource.NewObjectProperty(resource.PropertyMap{
-			"defaultAction": resource.NewStringProperty("Allow"),
-		}),
-	})
+	m := map[string]any{
+		"__inputs": map[string]any{},
+		"networkRuleSet": map[string]any{
+			"defaultAction": "Allow",
+		},
+	}
+	removeDefaults(res, m)
 	assert.Contains(t, m, "__inputs")
 	assert.Contains(t, m, "networkRuleSet")
 }
