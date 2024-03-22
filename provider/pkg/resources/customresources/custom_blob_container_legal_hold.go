@@ -7,6 +7,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versionLookup"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -126,7 +127,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 				return nil, false, err
 			}
 
-			legalHoldProp, ok := getInnerMap(container, "properties", "legalHold")
+			legalHoldProp, ok := util.GetInnerMap(container, "properties", "legalHold")
 			if !ok {
 				return nil, false, nil
 			}
@@ -152,7 +153,7 @@ func blobContainerLegalHold(azureClient azure.AzureClient) *CustomResource {
 					}
 					result[tagsProp] = tagsResult
 				}
-				if hist, ok := getInnerMap(legalHoldProp, "protectedAppendWritesHistory"); ok {
+				if hist, ok := util.GetInnerMap(legalHoldProp, "protectedAppendWritesHistory"); ok {
 					if allow, ok := hist["allowProtectedAppendWritesAll"]; ok {
 						result[allowProtectedAppendWritesAllProp] = allow.(bool)
 					}
@@ -262,24 +263,4 @@ func readTags(p map[string]any) (codegen.StringSet, error) {
 		strTags.Add(tag.(string))
 	}
 	return strTags, nil
-}
-
-func getInnerMap(m map[string]any, keys ...string) (map[string]any, bool) {
-	cur := m
-	for i, key := range keys {
-		val, ok := cur[key]
-		if !ok {
-			return nil, false
-		}
-		if i == len(keys)-1 {
-			if valMap, ok := val.(map[string]any); ok {
-				return valMap, true
-			}
-		}
-		cur, ok = val.(map[string]any)
-		if !ok {
-			return nil, false
-		}
-	}
-	return nil, false
 }
