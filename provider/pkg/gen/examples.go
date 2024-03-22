@@ -19,6 +19,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
@@ -108,6 +109,7 @@ func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.A
 				if err != nil {
 					return err
 				}
+
 				var exampleJSON map[string]interface{}
 				if err = json.NewDecoder(f).Decode(&exampleJSON); err != nil {
 					return err
@@ -130,6 +132,13 @@ func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.A
 					continue
 				}
 				exampleParams := exampleJSON["parameters"].(map[string]interface{})
+
+				// Due to https://github.com/Azure/azure-rest-api-specs/issues/28404
+				if strings.HasSuffix(example.Location, "Microsoft.Security/preview/2020-01-01-preview/examples/Connectors/CreateUpdateAwsCredConnectorSubscription_example.json") {
+					if authenticationDetails, ok := util.GetInnerMap(exampleParams, "connectorSetting", "properties", "authenticationDetails"); ok {
+						authenticationDetails["awsAccessKeyId"] = "<awsAccessKeyId>"
+					}
+				}
 
 				// Fill in sample name and ID for the import section.
 				responseId, responseName := extractExampleResponseNameId(exampleJSON)
