@@ -68,8 +68,8 @@ func TestRestoreDefaultsForDeletedRules(t *testing.T) {
 		assert.NotEqual(t, newsPropertyMap, newsPropertyMapCopy)
 		assert.Equal(t,
 			[]resource.PropertyValue{
-				resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]any{"id": "rule2"})),
 				resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]any{"id": "rule1", "isExpirationRequired": false})),
+				resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]any{"id": "rule2"})),
 			},
 			newsPropertyMap["rules"].ArrayValue(),
 		)

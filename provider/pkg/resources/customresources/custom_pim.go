@@ -1,8 +1,10 @@
 package customresources
 
 import (
+	"cmp"
 	"context"
 	"fmt"
+	"slices"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -65,8 +67,8 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 			}
 			queryParams := map[string]any{"api-version": client.ApiVersion()}
 
-			// TODO we could skip this if bodyParams = originalState, i.e., the user adds a policy
-			// in its default configuration to their program
+			// We could skip this if bodyParams = originalState, i.e., the user adds a policy
+			// in its default configuration to their program, but we don't have a diff function.
 			resp, _, err := client.CreateOrUpdate(ctx, id, bodyParams, queryParams)
 			if err != nil {
 				return nil, err
@@ -100,7 +102,9 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 			}
 
 			outputs := client.ResponseBodyToSdkOutputs(resp)
-			outputs[OriginalStateKey] = olds[OriginalStateKey]
+			if olds.HasValue(OriginalStateKey) {
+				outputs[OriginalStateKey] = olds[OriginalStateKey].Mappable()
+			}
 			return outputs, nil
 		},
 
@@ -161,8 +165,16 @@ func restoreDefaultsForDeletedRules(olds, news resource.PropertyMap) {
 		}
 	}
 
-	// TODO sort?
+	sortRules(newRulesList)
 	news["rules"] = resource.NewArrayProperty(newRulesList)
+}
+
+func sortRules(rules []resource.PropertyValue) {
+	slices.SortFunc(rules, func(a, b resource.PropertyValue) int {
+		return cmp.Compare(
+			a.ObjectValue()["id"].StringValue(),
+			b.ObjectValue()["id"].StringValue())
+	})
 }
 
 func mapRulesById(managementPolicy resource.PropertyMap) map[string]resource.PropertyValue {
