@@ -26,7 +26,6 @@ import (
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
@@ -287,30 +286,6 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			return nil, err
 		}
 		outputs = map[string]interface{}{"token": token}
-	case "azure-native:armtemplate:decode":
-		var text string
-		if textArg := args["text"]; textArg.HasValue() && textArg.IsString() {
-			text = textArg.StringValue()
-		} else {
-			return nil, errors.New("missing required field 'text' of type 'string'")
-		}
-
-		if k.fullPkgSpec == nil {
-			if _, err := json.Parse(k.schemaBytes, k.fullPkgSpec, json.ZeroCopy); err != nil {
-				return nil, fmt.Errorf("deserializing schema: %w", err)
-			}
-		}
-
-		resourceMap, err := k.getFullMetadata()
-		if err != nil {
-			return nil, fmt.Errorf("deserializing ")
-		}
-
-		res, err := arm2pulumi.DecodeTemplate(k.fullPkgSpec, resourceMap, text)
-		if err != nil {
-			return nil, fmt.Errorf("rendering template: %w", err)
-		}
-		outputs = map[string]interface{}{"result": res}
 	default:
 		res, ok, err := k.resourceMap.Invokes.Get(req.Tok)
 		if err != nil {
