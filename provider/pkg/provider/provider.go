@@ -18,7 +18,6 @@ import (
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/deepcopy"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	"github.com/segmentio/encoding/json"
 	"google.golang.org/protobuf/types/known/emptypb"
 
@@ -32,7 +31,6 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
@@ -62,9 +60,6 @@ type azureNativeProvider struct {
 	resourceMap      *resources.PartialAzureAPIMetadata
 	config           map[string]string
 	schemaBytes      []byte
-	metadataBytes    []byte
-	fullPkgSpec      *schema.PackageSpec
-	fullResourceMap  *resources.AzureAPIMetadata
 	converter        *convert.SdkShapeConverter
 	customResources  map[string]*customresources.CustomResource
 	rgLocationMap    map[string]string
@@ -118,18 +113,6 @@ func LoadMetadata(azureAPIResourcesBytes []byte) (*resources.AzureAPIMetadata, e
 		return nil, errors.Wrap(err, "unmarshalling resource map")
 	}
 	return &resourceMap, nil
-}
-
-func (k *azureNativeProvider) getFullMetadata() (*resources.AzureAPIMetadata, error) {
-	if k.fullResourceMap != nil {
-		return k.fullResourceMap, nil
-	}
-
-	if _, err := json.Parse(k.metadataBytes, k.fullResourceMap, json.ZeroCopy); err != nil {
-		return nil, errors.Wrap(err, "unmarshalling metadata")
-	}
-
-	return k.fullResourceMap, nil
 }
 
 // Looks up a type reference, with or without the #/types/ prefix, in the resource map.
@@ -1017,26 +1000,6 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 	return missingProperties
 }
 
-// currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
-// produces a checkpoint with these outputs and given inputs.
-func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context, id string, res resources.AzureAPIResource, inputs resource.PropertyMap) (*structpb.Struct, error) {
-	getResp, getErr := k.azureClient.Get(ctx, id, res.APIVersion)
-	if getErr != nil {
-		return nil, getErr
-	}
-	outputs := k.converter.ResponseBodyToSdkOutputs(res.Response, getResp)
-	obj := checkpointObject(inputs, outputs)
-	return plugin.MarshalProperties(
-		obj,
-		plugin.MarshalOptions{
-			Label:        "currentResourceStateCheckpoint.checkpoint",
-			KeepSecrets:  true,
-			KeepUnknowns: true,
-			SkipNulls:    true,
-		},
-	)
-}
-
 // Read the current live state associated with a resource.
 func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
 	urn := resource.URN(req.GetUrn())
@@ -1483,18 +1446,6 @@ func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context,
 		d = time.Duration(timeoutSeconds) * time.Second
 	}
 	return context.WithTimeout(ctx, d)
-}
-
-// partialError creates an error for resources that did not complete an operation in progress.
-// The last known state of the object is included in the error so that it can be checkpointed.
-func partialError(id string, err error, state *structpb.Struct, inputs *structpb.Struct) error {
-	detail := rpc.ErrorResourceInitFailed{
-		Id:         id,
-		Properties: state,
-		Reasons:    []string{err.Error()},
-		Inputs:     inputs,
-	}
-	return rpcerror.WithDetails(rpcerror.New(codes.Unknown, err.Error()), &detail)
 }
 
 // checkpointObject puts inputs in the `__inputs` field of the state.
