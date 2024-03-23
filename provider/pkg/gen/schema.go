@@ -548,12 +548,57 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 		metadata.Resources[tok] = r
 	}
 
+	for tok, overlay := range customresources.SchemaOverlays() {
+		res, has := pkg.Resources[tok]
+		if !has {
+			return errors.Errorf("Resource %q is not defined", tok)
+		}
+		pkg.Resources[tok] = mergeSchemaOverlay(res, overlay)
+	}
+
+	for tok, overlay := range customresources.MetaOverlays() {
+		meta, has := metadata.Resources[tok]
+		if !has {
+			return errors.Errorf("Metadata %q is not defined", tok)
+		}
+		metadata.Resources[tok] = mergeMetaOverlay(meta, overlay)
+	}
+
 	// Add a note regarding WorkspaceSqlAadAdmin creation.
 	workspaceSqlAadAdmin := pkg.Resources["azure-native:synapse:WorkspaceSqlAadAdmin"]
 	workspaceSqlAadAdmin.Description += "\n\nNote: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin."
 	pkg.Resources["azure-native:synapse:WorkspaceSqlAadAdmin"] = workspaceSqlAadAdmin
 
 	return nil
+}
+
+func mergeSchemaOverlay(res, overlay pschema.ResourceSpec) pschema.ResourceSpec {
+	// merge the additional properties into the existing resource
+	for propName, prop := range overlay.Properties {
+		res.Properties[propName] = prop
+	}
+	for propName, prop := range overlay.InputProperties {
+		res.InputProperties[propName] = prop
+	}
+	return res
+}
+
+func mergeMetaOverlay(meta, overlay resources.AzureAPIResource) resources.AzureAPIResource {
+	for _, param := range overlay.PutParameters {
+		if param.Location != "body" {
+			meta.PutParameters = append(meta.PutParameters, param)
+		} else {
+			body, ok := meta.BodyParameter()
+			if !ok {
+				meta.PutParameters = append(meta.PutParameters, param)
+			} else {
+				for propName, prop := range param.Body.Properties {
+					body.Body.Properties[propName] = prop
+				}
+			}
+		}
+	}
+	return meta
 }
 
 // Microsoft-specific API extension constants.
