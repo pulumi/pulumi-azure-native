@@ -26,7 +26,7 @@ func (t *MockAzureDeleter) Delete(ctx context.Context, id, apiVersion, asyncStyl
 func TestSetsDeleteParam(t *testing.T) {
 	deleter := MockAzureDeleter{}
 	custom := customWebAppDelete(mockResourceLookup, &deleter)
-	custom.Delete(context.Background(), "id", resource.PropertyMap{})
+	custom.Delete(context.Background(), "id", resource.PropertyMap{}, resource.PropertyMap{})
 	assert.Len(t, deleter.queryParamsOfLastDelete, 1)
 	assert.Contains(t, deleter.queryParamsOfLastDelete, "deleteEmptyServerFarm")
 }
