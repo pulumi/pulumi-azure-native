@@ -3444,6 +3444,9 @@
   "Capacity": {
     "": []
   },
+  "Carbon": {
+    "": []
+  },
   "Cdn": {
     "2015-06-01": [
       "CustomDomain",
@@ -4458,6 +4461,28 @@
       "DiskAccessAPrivateEndpointConnection",
       "DiskEncryptionSet",
       "Snapshot"
+    ],
+    "2024-03-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
     ]
   },
   "ConfidentialLedger": {
@@ -5706,6 +5731,17 @@
       "MaintenanceConfiguration",
       "ManagedCluster",
       "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2024-02-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
       "PrivateEndpointConnection",
       "Snapshot",
       "TrustedAccessRoleBinding",
@@ -10638,6 +10674,20 @@
       "Extension",
       "FluxConfiguration",
       "SourceControlConfiguration"
+    ]
+  },
+  "KubernetesRuntime": {
+    "2023-10-01-preview": [
+      "BgpPeer",
+      "LoadBalancer",
+      "Service",
+      "StorageClass"
+    ],
+    "2024-03-01": [
+      "BgpPeer",
+      "LoadBalancer",
+      "Service",
+      "StorageClass"
     ]
   },
   "Kusto": {
@@ -16599,6 +16649,11 @@
     "2023-01-01-preview": [
       "springbootserver",
       "springbootsite"
+    ],
+    "2024-04-01-preview": [
+      "springbootapp",
+      "springbootserver",
+      "springbootsite"
     ]
   },
   "OpenEnergyPlatform": {
@@ -17540,6 +17595,9 @@
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
       "ResourceGuardProxy",
+      "Vault"
+    ],
+    "2024-02-01": [
       "Vault"
     ]
   },
@@ -19467,6 +19525,15 @@
       "listSignalRKeys"
     ],
     "2023-08-01-preview": [
+      "SignalR",
+      "SignalRCustomCertificate",
+      "SignalRCustomDomain",
+      "SignalRPrivateEndpointConnection",
+      "SignalRReplica",
+      "SignalRSharedPrivateLinkResource",
+      "listSignalRKeys"
+    ],
+    "2024-01-01-preview": [
       "SignalR",
       "SignalRCustomCertificate",
       "SignalRCustomDomain",
@@ -23087,6 +23154,16 @@
       "listWebPubSubKeys"
     ],
     "2023-08-01-preview": [
+      "WebPubSub",
+      "WebPubSubCustomCertificate",
+      "WebPubSubCustomDomain",
+      "WebPubSubHub",
+      "WebPubSubPrivateEndpointConnection",
+      "WebPubSubReplica",
+      "WebPubSubSharedPrivateLinkResource",
+      "listWebPubSubKeys"
+    ],
+    "2024-01-01-preview": [
       "WebPubSub",
       "WebPubSubCustomCertificate",
       "WebPubSubCustomDomain",
