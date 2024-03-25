@@ -2,7 +2,7 @@ package providerlist
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"io"
 	"os"
 	"strings"
 
@@ -32,7 +32,7 @@ func ReadProviderList(providerListPath string) (ProviderPathVersions, error) {
 	}
 	defer jsonFile.Close()
 
-	byteValue, err := ioutil.ReadAll(jsonFile)
+	byteValue, err := io.ReadAll(jsonFile)
 	if err != nil {
 		return nil, err
 	}

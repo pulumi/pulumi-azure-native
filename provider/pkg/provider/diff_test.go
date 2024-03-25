@@ -821,9 +821,7 @@ func TestDiffKeyedArraysRapid(tt *testing.T) {
 		mutator mutator) {
 
 		array := makeArrayGenerator(objectGenerator)
-
 		old := array.Draw(t, "old").ArrayValue()
-		new := deepcopy.Copy(old).([]resource.PropertyValue)
 
 		changes, new := mutator(t, old, keyProperties)
 
