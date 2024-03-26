@@ -337,6 +337,10 @@
     "Reservation_Unarchive": "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}/unarchive",
     "Return_Post": "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/return"
   },
+  "Carbon": {
+    "CarbonService_ListCarbonEmissionReports": "/providers/Microsoft.Carbon/carbonEmissionReports",
+    "CarbonService_QueryCarbonEmissionDataAvailableDateRange": "/providers/Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange"
+  },
   "Cdn": {
     "AFDCustomDomains_RefreshValidationToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/customDomains/{customDomainName}/refreshValidationToken",
     "AFDEndpoints_ListResourceUsage": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/afdEndpoints/{endpointName}/usages",
