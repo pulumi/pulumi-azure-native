@@ -116,7 +116,6 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				"useMsi": {
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					Description: "Allow Managed Service Identity be used for Authentication.",
-					Default:     false,
 				},
 				"msiEndpoint": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -130,7 +129,6 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				"useOidc": {
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					Description: "Allow OpenID Connect (OIDC) to be used for Authentication.",
-					Default:     false,
 				},
 				"oidcToken": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},

@@ -128,16 +128,16 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('tenantId')
 
     @property
-    def use_msi(self) -> bool:
+    def use_msi(self) -> Optional[bool]:
         """
         Allow Managed Service Identity be used for Authentication.
         """
-        return __config__.get_bool('useMsi') or False
+        return __config__.get_bool('useMsi')
 
     @property
-    def use_oidc(self) -> bool:
+    def use_oidc(self) -> Optional[bool]:
         """
         Allow OpenID Connect (OIDC) to be used for Authentication.
         """
-        return __config__.get_bool('useOidc') or False
+        return __config__.get_bool('useOidc')
 

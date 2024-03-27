@@ -89,12 +89,12 @@ tenantId: Optional[str]
 The Tenant ID which should be used.
 """
 
-useMsi: bool
+useMsi: Optional[bool]
 """
 Allow Managed Service Identity be used for Authentication.
 """
 
-useOidc: bool
+useOidc: Optional[bool]
 """
 Allow OpenID Connect (OIDC) to be used for Authentication.
 """
