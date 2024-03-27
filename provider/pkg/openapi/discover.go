@@ -435,8 +435,14 @@ func swaggerLocations(specsDir, namespace, apiVersions string) ([]string, error)
 		return nil, err
 	}
 
+	pattern3 := filepath.Join(specsDir, "specification", "*", "resource-manager", "PaloAltoNetworks."+namespace, "*", apiVersions, "*.json")
+	files3, err := filepath.Glob(pattern3)
+	if err != nil {
+		return nil, err
+	}
+
 	fileSet := codegen.NewStringSet()
-	for _, file := range append(files, files2...) {
+	for _, file := range append(append(files, files2...), files3...) {
 		// In December 2022, Azure started authoring some API specs in https://github.com/microsoft/cadl.
 		// pattern2 above matches some of these folders, like
 		// voiceservices/resource-manager/Microsoft.VoiceServices/cadl/examples/2023-01-31, so we exclude them.
