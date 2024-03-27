@@ -52,7 +52,7 @@ jobs:
     name: publish-provider
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
           ref: ${{ inputs.ref }}
@@ -137,7 +137,7 @@ jobs:
     needs: publish-provider
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -180,12 +180,12 @@ jobs:
     needs: publish-provider
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Checkout Scripts Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: ci-scripts
           repository: pulumi/scripts
@@ -222,7 +222,7 @@ jobs:
     needs: publish-provider
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -265,7 +265,7 @@ jobs:
       PACKAGE_VERSION: ${{ inputs.version }}
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
       - name: Install Languages & Frameworks
@@ -306,7 +306,7 @@ jobs:
     needs: publish-provider
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -314,7 +314,7 @@ jobs:
         uses: ./.github/actions/install
 
       - name: Checkout Go SDK repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.PULUMI_BOT_TOKEN }}
           repository: pulumi/pulumi-azure-native-sdk
