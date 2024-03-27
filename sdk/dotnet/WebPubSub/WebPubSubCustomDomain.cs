@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.WebPubSub
     /// A custom domain
     /// Azure REST API version: 2023-02-01.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubCustomDomain")]
     public partial class WebPubSubCustomDomain : global::Pulumi.CustomResource
@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230801preview:WebPubSubCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240101preview:WebPubSubCustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

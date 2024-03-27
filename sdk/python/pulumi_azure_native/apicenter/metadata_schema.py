@@ -114,6 +114,8 @@ class MetadataSchema(pulumi.CustomResource):
         Metadata schema entity. Used to define metadata for the entities in API catalog.
         Azure REST API version: 2024-03-01.
 
+        Other available API versions: 2024-03-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataAssignmentArgs']]]] assigned_to: The assignees
@@ -131,6 +133,8 @@ class MetadataSchema(pulumi.CustomResource):
         """
         Metadata schema entity. Used to define metadata for the entities in API catalog.
         Azure REST API version: 2024-03-01.
+
+        Other available API versions: 2024-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param MetadataSchemaArgs args: The arguments to use to populate this resource's properties.
@@ -175,7 +179,7 @@ class MetadataSchema(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter/v20240301:MetadataSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter/v20240301:MetadataSchema"), pulumi.Alias(type_="azure-native:apicenter/v20240315preview:MetadataSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MetadataSchema, __self__).__init__(
             'azure-native:apicenter:MetadataSchema',

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A hub setting
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-10-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
  */
 export class WebPubSubHub extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class WebPubSubHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20211001:WebPubSubHub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230201:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20211001:WebPubSubHub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230201:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20240101preview:WebPubSubHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubHub.__pulumiType, name, resourceInputs, opts);
     }

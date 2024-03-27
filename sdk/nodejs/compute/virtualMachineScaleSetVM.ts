@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a virtual machine scale set virtual machine.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01.
+ * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
@@ -225,7 +225,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20220301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20220801:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20221101:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20230301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20230701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20230901:VirtualMachineScaleSetVM" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20171201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20220301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20220801:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20221101:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20230301:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20230701:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20230901:VirtualMachineScaleSetVM" }, { type: "azure-native:compute/v20240301:VirtualMachineScaleSetVM" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSetVM.__pulumiType, name, resourceInputs, opts);
     }

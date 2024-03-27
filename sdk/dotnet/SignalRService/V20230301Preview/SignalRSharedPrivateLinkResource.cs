@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.SignalRService.V20230301Preview
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRSharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230801preview:SignalRSharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240101preview:SignalRSharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

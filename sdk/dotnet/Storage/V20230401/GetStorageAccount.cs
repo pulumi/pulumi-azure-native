@@ -234,7 +234,7 @@ namespace Pulumi.AzureNative.Storage.V20230401
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+        /// Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>

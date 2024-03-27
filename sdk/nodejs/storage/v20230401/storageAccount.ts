@@ -186,7 +186,7 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+     * Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**

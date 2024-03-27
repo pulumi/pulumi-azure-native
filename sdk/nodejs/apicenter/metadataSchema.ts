@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Metadata schema entity. Used to define metadata for the entities in API catalog.
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-03-15-preview.
  */
 export class MetadataSchema extends pulumi.CustomResource {
     /**
@@ -95,7 +97,7 @@ export class MetadataSchema extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:MetadataSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apicenter/v20240301:MetadataSchema" }, { type: "azure-native:apicenter/v20240315preview:MetadataSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MetadataSchema.__pulumiType, name, resourceInputs, opts);
     }

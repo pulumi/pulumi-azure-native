@@ -192,7 +192,7 @@ export interface GetStorageAccountResult {
      */
     readonly provisioningState: string;
     /**
-     * Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+     * Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
      */
     readonly publicNetworkAccess?: string;
     /**

@@ -541,7 +541,7 @@ class VirtualMachine(pulumi.CustomResource):
         Describes a Virtual Machine.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01.
+        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -586,7 +586,7 @@ class VirtualMachine(pulumi.CustomResource):
         Describes a Virtual Machine.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01.
+        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -681,7 +681,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20150615:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20160430preview:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20170330:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20171201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20180601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20181001:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20190701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20191201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20200601:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20201201:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210401:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20210701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20211101:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20220301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20220801:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20221101:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230301:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230701:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20230901:VirtualMachine"), pulumi.Alias(type_="azure-native:compute/v20240301:VirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachine, __self__).__init__(
             'azure-native:compute:VirtualMachine',

@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230801preview:SignalRCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240101preview:SignalRCustomCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -12,6 +12,10 @@ from ._enums import *
 
 __all__ = [
     'ErrorArgs',
+    'SpringbootappsPropertiesApplicationConfigurationsArgs',
+    'SpringbootappsPropertiesInstancesArgs',
+    'SpringbootappsPropertiesMiscsArgs',
+    'SpringbootappsPropertiesArgs',
     'SpringbootserversPropertiesArgs',
     'SpringbootsitesModelExtendedLocationArgs',
     'SpringbootsitesPropertiesArgs',
@@ -167,6 +171,576 @@ class ErrorArgs:
     @updated_time_stamp.setter
     def updated_time_stamp(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "updated_time_stamp", value)
+
+
+@pulumi.input_type
+class SpringbootappsPropertiesApplicationConfigurationsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The application config file name.
+        :param pulumi.Input[str] value: The application config file content, only contains config keys.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The application config file name.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application config file content, only contains config keys.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SpringbootappsPropertiesInstancesArgs:
+    def __init__(__self__, *,
+                 machine_arm_id: pulumi.Input[str],
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 jvm_memory_in_mb: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] machine_arm_id: The machine ARM resource Id of this app instance
+        :param pulumi.Input[int] instance_count: The instance count of this app instance
+        :param pulumi.Input[int] jvm_memory_in_mb: The jvm heap memory allocated of this app instance
+        """
+        pulumi.set(__self__, "machine_arm_id", machine_arm_id)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if jvm_memory_in_mb is not None:
+            pulumi.set(__self__, "jvm_memory_in_mb", jvm_memory_in_mb)
+
+    @property
+    @pulumi.getter(name="machineArmId")
+    def machine_arm_id(self) -> pulumi.Input[str]:
+        """
+        The machine ARM resource Id of this app instance
+        """
+        return pulumi.get(self, "machine_arm_id")
+
+    @machine_arm_id.setter
+    def machine_arm_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_arm_id", value)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The instance count of this app instance
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter(name="jvmMemoryInMB")
+    def jvm_memory_in_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The jvm heap memory allocated of this app instance
+        """
+        return pulumi.get(self, "jvm_memory_in_mb")
+
+    @jvm_memory_in_mb.setter
+    def jvm_memory_in_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "jvm_memory_in_mb", value)
+
+
+@pulumi.input_type
+class SpringbootappsPropertiesMiscsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The miscs. key.
+        :param pulumi.Input[str] value: The miscs. value.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The miscs. key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The miscs. value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SpringbootappsPropertiesArgs:
+    def __init__(__self__, *,
+                 app_name: Optional[pulumi.Input[str]] = None,
+                 app_port: Optional[pulumi.Input[int]] = None,
+                 app_type: Optional[pulumi.Input[str]] = None,
+                 application_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesApplicationConfigurationsArgs']]]] = None,
+                 artifact_name: Optional[pulumi.Input[str]] = None,
+                 binding_ports: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 build_jdk_version: Optional[pulumi.Input[str]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 checksum: Optional[pulumi.Input[str]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]]] = None,
+                 instance_count: Optional[pulumi.Input[int]] = None,
+                 instances: Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesInstancesArgs']]]] = None,
+                 jar_file_location: Optional[pulumi.Input[str]] = None,
+                 jvm_memory_in_mb: Optional[pulumi.Input[int]] = None,
+                 jvm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 last_modified_time: Optional[pulumi.Input[str]] = None,
+                 last_updated_time: Optional[pulumi.Input[str]] = None,
+                 machine_arm_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 miscs: Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesMiscsArgs']]]] = None,
+                 runtime_jdk_version: Optional[pulumi.Input[str]] = None,
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 spring_boot_version: Optional[pulumi.Input[str]] = None,
+                 static_content_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The springbootapps resource definition.
+        :param pulumi.Input[str] app_name: The name of SpringBootApp.
+        :param pulumi.Input[int] app_port: The application port.
+        :param pulumi.Input[str] app_type: The application type, whether it is a SpringBoot app.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesApplicationConfigurationsArgs']]] application_configurations: The application configuration file list.
+        :param pulumi.Input[str] artifact_name: The artifact name of SpringBootApp.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] binding_ports: The application binding port list.
+        :param pulumi.Input[str] build_jdk_version: The jdk version in build.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificates: The certificate file list.
+        :param pulumi.Input[str] checksum: The checksum of jar file.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: The connection string list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dependencies: The dependency list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] environments: The environment variable list.
+        :param pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]] errors: The list of errors.
+        :param pulumi.Input[int] instance_count: The total instance count the app deployed.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesInstancesArgs']]] instances: The breakdown info for app instances on all the servers
+        :param pulumi.Input[str] jar_file_location: The jar file location on the server.
+        :param pulumi.Input[int] jvm_memory_in_mb: The jvm heap memory allocated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] jvm_options: The jvm options.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Resource labels
+        :param pulumi.Input[str] last_modified_time: Time when this springbootapps jar file was last modified.
+        :param pulumi.Input[str] last_updated_time: Time when this springbootapps instance was last refreshed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] machine_arm_ids: The machine ARM id list the app belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesMiscsArgs']]] miscs: The other types of date collected.
+        :param pulumi.Input[str] runtime_jdk_version: The jdk version installed on server
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: The server list the app installed
+        :param pulumi.Input[str] spring_boot_version: The spring boot version.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_content_locations: The static content location list.
+        """
+        if app_name is not None:
+            pulumi.set(__self__, "app_name", app_name)
+        if app_port is not None:
+            pulumi.set(__self__, "app_port", app_port)
+        if app_type is not None:
+            pulumi.set(__self__, "app_type", app_type)
+        if application_configurations is not None:
+            pulumi.set(__self__, "application_configurations", application_configurations)
+        if artifact_name is not None:
+            pulumi.set(__self__, "artifact_name", artifact_name)
+        if binding_ports is not None:
+            pulumi.set(__self__, "binding_ports", binding_ports)
+        if build_jdk_version is not None:
+            pulumi.set(__self__, "build_jdk_version", build_jdk_version)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if checksum is not None:
+            pulumi.set(__self__, "checksum", checksum)
+        if connection_strings is not None:
+            pulumi.set(__self__, "connection_strings", connection_strings)
+        if dependencies is not None:
+            pulumi.set(__self__, "dependencies", dependencies)
+        if environments is not None:
+            pulumi.set(__self__, "environments", environments)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instances is not None:
+            pulumi.set(__self__, "instances", instances)
+        if jar_file_location is not None:
+            pulumi.set(__self__, "jar_file_location", jar_file_location)
+        if jvm_memory_in_mb is not None:
+            pulumi.set(__self__, "jvm_memory_in_mb", jvm_memory_in_mb)
+        if jvm_options is not None:
+            pulumi.set(__self__, "jvm_options", jvm_options)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if last_modified_time is not None:
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if machine_arm_ids is not None:
+            pulumi.set(__self__, "machine_arm_ids", machine_arm_ids)
+        if miscs is not None:
+            pulumi.set(__self__, "miscs", miscs)
+        if runtime_jdk_version is not None:
+            pulumi.set(__self__, "runtime_jdk_version", runtime_jdk_version)
+        if servers is not None:
+            pulumi.set(__self__, "servers", servers)
+        if spring_boot_version is not None:
+            pulumi.set(__self__, "spring_boot_version", spring_boot_version)
+        if static_content_locations is not None:
+            pulumi.set(__self__, "static_content_locations", static_content_locations)
+
+    @property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of SpringBootApp.
+        """
+        return pulumi.get(self, "app_name")
+
+    @app_name.setter
+    def app_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_name", value)
+
+    @property
+    @pulumi.getter(name="appPort")
+    def app_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The application port.
+        """
+        return pulumi.get(self, "app_port")
+
+    @app_port.setter
+    def app_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "app_port", value)
+
+    @property
+    @pulumi.getter(name="appType")
+    def app_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application type, whether it is a SpringBoot app.
+        """
+        return pulumi.get(self, "app_type")
+
+    @app_type.setter
+    def app_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_type", value)
+
+    @property
+    @pulumi.getter(name="applicationConfigurations")
+    def application_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesApplicationConfigurationsArgs']]]]:
+        """
+        The application configuration file list.
+        """
+        return pulumi.get(self, "application_configurations")
+
+    @application_configurations.setter
+    def application_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesApplicationConfigurationsArgs']]]]):
+        pulumi.set(self, "application_configurations", value)
+
+    @property
+    @pulumi.getter(name="artifactName")
+    def artifact_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The artifact name of SpringBootApp.
+        """
+        return pulumi.get(self, "artifact_name")
+
+    @artifact_name.setter
+    def artifact_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_name", value)
+
+    @property
+    @pulumi.getter(name="bindingPorts")
+    def binding_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The application binding port list.
+        """
+        return pulumi.get(self, "binding_ports")
+
+    @binding_ports.setter
+    def binding_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "binding_ports", value)
+
+    @property
+    @pulumi.getter(name="buildJdkVersion")
+    def build_jdk_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The jdk version in build.
+        """
+        return pulumi.get(self, "build_jdk_version")
+
+    @build_jdk_version.setter
+    def build_jdk_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_jdk_version", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The certificate file list.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter
+    def checksum(self) -> Optional[pulumi.Input[str]]:
+        """
+        The checksum of jar file.
+        """
+        return pulumi.get(self, "checksum")
+
+    @checksum.setter
+    def checksum(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "checksum", value)
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The connection string list.
+        """
+        return pulumi.get(self, "connection_strings")
+
+    @connection_strings.setter
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_strings", value)
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The dependency list.
+        """
+        return pulumi.get(self, "dependencies")
+
+    @dependencies.setter
+    def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dependencies", value)
+
+    @property
+    @pulumi.getter
+    def environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The environment variable list.
+        """
+        return pulumi.get(self, "environments")
+
+    @environments.setter
+    def environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "environments", value)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]]]:
+        """
+        The list of errors.
+        """
+        return pulumi.get(self, "errors")
+
+    @errors.setter
+    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]]]):
+        pulumi.set(self, "errors", value)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total instance count the app deployed.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @instance_count.setter
+    def instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter
+    def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesInstancesArgs']]]]:
+        """
+        The breakdown info for app instances on all the servers
+        """
+        return pulumi.get(self, "instances")
+
+    @instances.setter
+    def instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesInstancesArgs']]]]):
+        pulumi.set(self, "instances", value)
+
+    @property
+    @pulumi.getter(name="jarFileLocation")
+    def jar_file_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The jar file location on the server.
+        """
+        return pulumi.get(self, "jar_file_location")
+
+    @jar_file_location.setter
+    def jar_file_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "jar_file_location", value)
+
+    @property
+    @pulumi.getter(name="jvmMemoryInMB")
+    def jvm_memory_in_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The jvm heap memory allocated.
+        """
+        return pulumi.get(self, "jvm_memory_in_mb")
+
+    @jvm_memory_in_mb.setter
+    def jvm_memory_in_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "jvm_memory_in_mb", value)
+
+    @property
+    @pulumi.getter(name="jvmOptions")
+    def jvm_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The jvm options.
+        """
+        return pulumi.get(self, "jvm_options")
+
+    @jvm_options.setter
+    def jvm_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "jvm_options", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource labels
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time when this springbootapps jar file was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @last_modified_time.setter
+    def last_modified_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified_time", value)
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time when this springbootapps instance was last refreshed.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @last_updated_time.setter
+    def last_updated_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_updated_time", value)
+
+    @property
+    @pulumi.getter(name="machineArmIds")
+    def machine_arm_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The machine ARM id list the app belongs to.
+        """
+        return pulumi.get(self, "machine_arm_ids")
+
+    @machine_arm_ids.setter
+    def machine_arm_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "machine_arm_ids", value)
+
+    @property
+    @pulumi.getter
+    def miscs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesMiscsArgs']]]]:
+        """
+        The other types of date collected.
+        """
+        return pulumi.get(self, "miscs")
+
+    @miscs.setter
+    def miscs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringbootappsPropertiesMiscsArgs']]]]):
+        pulumi.set(self, "miscs", value)
+
+    @property
+    @pulumi.getter(name="runtimeJdkVersion")
+    def runtime_jdk_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The jdk version installed on server
+        """
+        return pulumi.get(self, "runtime_jdk_version")
+
+    @runtime_jdk_version.setter
+    def runtime_jdk_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_jdk_version", value)
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The server list the app installed
+        """
+        return pulumi.get(self, "servers")
+
+    @servers.setter
+    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "servers", value)
+
+    @property
+    @pulumi.getter(name="springBootVersion")
+    def spring_boot_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The spring boot version.
+        """
+        return pulumi.get(self, "spring_boot_version")
+
+    @spring_boot_version.setter
+    def spring_boot_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spring_boot_version", value)
+
+    @property
+    @pulumi.getter(name="staticContentLocations")
+    def static_content_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The static content location list.
+        """
+        return pulumi.get(self, "static_content_locations")
+
+    @static_content_locations.setter
+    def static_content_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "static_content_locations", value)
 
 
 @pulumi.input_type

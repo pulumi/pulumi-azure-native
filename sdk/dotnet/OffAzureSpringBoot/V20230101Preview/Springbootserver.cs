@@ -73,6 +73,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20230101preview:springbootserver" },
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot:Springbootserver" },
                     new global::Pulumi.Alias { Type = "azure-native:offazurespringboot:springbootserver" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:Springbootserver" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazurespringboot/v20240401preview:springbootserver" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

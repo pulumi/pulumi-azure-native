@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.WebPubSub
         /// Get a custom certificate.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Task<GetWebPubSubCustomCertificateResult> InvokeAsync(GetWebPubSubCustomCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubCustomCertificateResult>("azure-native:webpubsub:getWebPubSubCustomCertificate", args ?? new GetWebPubSubCustomCertificateArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.WebPubSub
         /// Get a custom certificate.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
         /// </summary>
         public static Output<GetWebPubSubCustomCertificateResult> Invoke(GetWebPubSubCustomCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubCustomCertificateResult>("azure-native:webpubsub:getWebPubSubCustomCertificate", args ?? new GetWebPubSubCustomCertificateInvokeArgs(), options.WithDefaults());

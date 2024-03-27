@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns details of the API definition.
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-03-15-preview.
  */
 export function getApiDefinition(args: GetApiDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiDefinitionResult> {
 
@@ -87,6 +89,8 @@ export interface GetApiDefinitionResult {
 /**
  * Returns details of the API definition.
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-03-15-preview.
  */
 export function getApiDefinitionOutput(args: GetApiDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getApiDefinition(a, opts))

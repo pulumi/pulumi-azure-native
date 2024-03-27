@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2023-07-01, 2023-09-01.
+ * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
  */
 export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
@@ -123,7 +123,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:DedicatedHostGroup" }, { type: "azure-native:compute/v20190701:DedicatedHostGroup" }, { type: "azure-native:compute/v20191201:DedicatedHostGroup" }, { type: "azure-native:compute/v20200601:DedicatedHostGroup" }, { type: "azure-native:compute/v20201201:DedicatedHostGroup" }, { type: "azure-native:compute/v20210301:DedicatedHostGroup" }, { type: "azure-native:compute/v20210401:DedicatedHostGroup" }, { type: "azure-native:compute/v20210701:DedicatedHostGroup" }, { type: "azure-native:compute/v20211101:DedicatedHostGroup" }, { type: "azure-native:compute/v20220301:DedicatedHostGroup" }, { type: "azure-native:compute/v20220801:DedicatedHostGroup" }, { type: "azure-native:compute/v20221101:DedicatedHostGroup" }, { type: "azure-native:compute/v20230301:DedicatedHostGroup" }, { type: "azure-native:compute/v20230701:DedicatedHostGroup" }, { type: "azure-native:compute/v20230901:DedicatedHostGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:DedicatedHostGroup" }, { type: "azure-native:compute/v20190701:DedicatedHostGroup" }, { type: "azure-native:compute/v20191201:DedicatedHostGroup" }, { type: "azure-native:compute/v20200601:DedicatedHostGroup" }, { type: "azure-native:compute/v20201201:DedicatedHostGroup" }, { type: "azure-native:compute/v20210301:DedicatedHostGroup" }, { type: "azure-native:compute/v20210401:DedicatedHostGroup" }, { type: "azure-native:compute/v20210701:DedicatedHostGroup" }, { type: "azure-native:compute/v20211101:DedicatedHostGroup" }, { type: "azure-native:compute/v20220301:DedicatedHostGroup" }, { type: "azure-native:compute/v20220801:DedicatedHostGroup" }, { type: "azure-native:compute/v20221101:DedicatedHostGroup" }, { type: "azure-native:compute/v20230301:DedicatedHostGroup" }, { type: "azure-native:compute/v20230701:DedicatedHostGroup" }, { type: "azure-native:compute/v20230901:DedicatedHostGroup" }, { type: "azure-native:compute/v20240301:DedicatedHostGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedHostGroup.__pulumiType, name, resourceInputs, opts);
     }
