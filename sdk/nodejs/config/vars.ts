@@ -186,10 +186,10 @@ Object.defineProperty(exports, "tenantId", {
 /**
  * Allow Managed Service Identity be used for Authentication.
  */
-export declare const useMsi: boolean;
+export declare const useMsi: boolean | undefined;
 Object.defineProperty(exports, "useMsi", {
     get() {
-        return __config.getObject<boolean>("useMsi") ?? false;
+        return __config.getObject<boolean>("useMsi");
     },
     enumerable: true,
 });
@@ -197,10 +197,10 @@ Object.defineProperty(exports, "useMsi", {
 /**
  * Allow OpenID Connect (OIDC) to be used for Authentication.
  */
-export declare const useOidc: boolean;
+export declare const useOidc: boolean | undefined;
 Object.defineProperty(exports, "useOidc", {
     get() {
-        return __config.getObject<boolean>("useOidc") ?? false;
+        return __config.getObject<boolean>("useOidc");
     },
     enumerable: true,
 });

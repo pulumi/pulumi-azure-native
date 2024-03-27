@@ -192,7 +192,7 @@ namespace Pulumi.AzureNative
             set => _tenantId.Set(value);
         }
 
-        private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi") ?? false);
+        private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi"));
         /// <summary>
         /// Allow Managed Service Identity be used for Authentication.
         /// </summary>
@@ -202,7 +202,7 @@ namespace Pulumi.AzureNative
             set => _useMsi.Set(value);
         }
 
-        private static readonly __Value<bool?> _useOidc = new __Value<bool?>(() => __config.GetBoolean("useOidc") ?? false);
+        private static readonly __Value<bool?> _useOidc = new __Value<bool?>(() => __config.GetBoolean("useOidc"));
         /// <summary>
         /// Allow OpenID Connect (OIDC) to be used for Authentication.
         /// </summary>
