@@ -390,6 +390,20 @@
     "Experiments_Cancel": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/experiments/{experimentName}/cancel",
     "Experiments_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/experiments/{experimentName}/start"
   },
+  "Cloudngfw": {
+    "Firewalls_saveLogProfile": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/firewalls/{firewallName}/saveLogProfile",
+    "GlobalRulestack_commit": "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/commit",
+    "GlobalRulestack_revert": "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/revert",
+    "LocalRules_refreshCounters": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/localRules/{priority}/refreshCounters",
+    "LocalRules_resetCounters": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/localRules/{priority}/resetCounters",
+    "LocalRulestacks_commit": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/commit",
+    "LocalRulestacks_revert": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/revert",
+    "PaloAltoNetworksCloudngfw_createProductSerialNumber": "/subscriptions/{subscriptionId}/providers/PaloAltoNetworks.Cloudngfw/createProductSerialNumber",
+    "PostRules_refreshCounters": "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/postRules/{priority}/refreshCounters",
+    "PostRules_resetCounters": "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/postRules/{priority}/resetCounters",
+    "PreRules_refreshCounters": "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/preRules/{priority}/refreshCounters",
+    "PreRules_resetCounters": "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/preRules/{priority}/resetCounters"
+  },
   "CodeSigning": {
     "CertificateProfiles_RevokeCertificate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CodeSigning/codeSigningAccounts/{accountName}/certificateProfiles/{profileName}/revokeCertificate",
     "CodeSigningAccounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.CodeSigning/checkNameAvailability"

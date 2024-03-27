@@ -50,6 +50,7 @@ import * as cdn from "./cdn";
 import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
 import * as chaos from "./chaos";
+import * as cloudngfw from "./cloudngfw";
 import * as codesigning from "./codesigning";
 import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
@@ -277,6 +278,7 @@ export {
     certificateregistration,
     changeanalysis,
     chaos,
+    cloudngfw,
     codesigning,
     cognitiveservices,
     communication,

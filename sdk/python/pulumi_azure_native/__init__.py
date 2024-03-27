@@ -85,6 +85,8 @@ if typing.TYPE_CHECKING:
     changeanalysis = __changeanalysis
     import pulumi_azure_native.chaos as __chaos
     chaos = __chaos
+    import pulumi_azure_native.cloudngfw as __cloudngfw
+    cloudngfw = __cloudngfw
     import pulumi_azure_native.codesigning as __codesigning
     codesigning = __codesigning
     import pulumi_azure_native.cognitiveservices as __cognitiveservices
@@ -496,6 +498,7 @@ else:
     certificateregistration = _utilities.lazy_import('pulumi_azure_native.certificateregistration')
     changeanalysis = _utilities.lazy_import('pulumi_azure_native.changeanalysis')
     chaos = _utilities.lazy_import('pulumi_azure_native.chaos')
+    cloudngfw = _utilities.lazy_import('pulumi_azure_native.cloudngfw')
     codesigning = _utilities.lazy_import('pulumi_azure_native.codesigning')
     cognitiveservices = _utilities.lazy_import('pulumi_azure_native.cognitiveservices')
     communication = _utilities.lazy_import('pulumi_azure_native.communication')
@@ -3461,6 +3464,158 @@ _utilities.register(
    "azure-native:chaos/v20240101:Capability": "Capability",
    "azure-native:chaos/v20240101:Experiment": "Experiment",
    "azure-native:chaos/v20240101:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw",
+  "fqn": "pulumi_azure_native.cloudngfw",
+  "classes": {
+   "azure-native:cloudngfw:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw:Firewall": "Firewall",
+   "azure-native:cloudngfw:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw:LocalRule": "LocalRule",
+   "azure-native:cloudngfw:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw:PostRule": "PostRule",
+   "azure-native:cloudngfw:PreRule": "PreRule",
+   "azure-native:cloudngfw:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw:PrefixListLocalRulestack": "PrefixListLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw/v20220829",
+  "fqn": "pulumi_azure_native.cloudngfw.v20220829",
+  "classes": {
+   "azure-native:cloudngfw/v20220829:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw/v20220829:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw/v20220829:Firewall": "Firewall",
+   "azure-native:cloudngfw/v20220829:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw/v20220829:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw/v20220829:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw/v20220829:LocalRule": "LocalRule",
+   "azure-native:cloudngfw/v20220829:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw/v20220829:PostRule": "PostRule",
+   "azure-native:cloudngfw/v20220829:PreRule": "PreRule",
+   "azure-native:cloudngfw/v20220829:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw/v20220829:PrefixListLocalRulestack": "PrefixListLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw/v20220829preview",
+  "fqn": "pulumi_azure_native.cloudngfw.v20220829preview",
+  "classes": {
+   "azure-native:cloudngfw/v20220829preview:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw/v20220829preview:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw/v20220829preview:Firewall": "Firewall",
+   "azure-native:cloudngfw/v20220829preview:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw/v20220829preview:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw/v20220829preview:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw/v20220829preview:LocalRule": "LocalRule",
+   "azure-native:cloudngfw/v20220829preview:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw/v20220829preview:PostRule": "PostRule",
+   "azure-native:cloudngfw/v20220829preview:PreRule": "PreRule",
+   "azure-native:cloudngfw/v20220829preview:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw/v20220829preview:PrefixListLocalRulestack": "PrefixListLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw/v20230901",
+  "fqn": "pulumi_azure_native.cloudngfw.v20230901",
+  "classes": {
+   "azure-native:cloudngfw/v20230901:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw/v20230901:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw/v20230901:Firewall": "Firewall",
+   "azure-native:cloudngfw/v20230901:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw/v20230901:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw/v20230901:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw/v20230901:LocalRule": "LocalRule",
+   "azure-native:cloudngfw/v20230901:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw/v20230901:PostRule": "PostRule",
+   "azure-native:cloudngfw/v20230901:PreRule": "PreRule",
+   "azure-native:cloudngfw/v20230901:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw/v20230901:PrefixListLocalRulestack": "PrefixListLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw/v20230901preview",
+  "fqn": "pulumi_azure_native.cloudngfw.v20230901preview",
+  "classes": {
+   "azure-native:cloudngfw/v20230901preview:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw/v20230901preview:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw/v20230901preview:Firewall": "Firewall",
+   "azure-native:cloudngfw/v20230901preview:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw/v20230901preview:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw/v20230901preview:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw/v20230901preview:LocalRule": "LocalRule",
+   "azure-native:cloudngfw/v20230901preview:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw/v20230901preview:PostRule": "PostRule",
+   "azure-native:cloudngfw/v20230901preview:PreRule": "PreRule",
+   "azure-native:cloudngfw/v20230901preview:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw/v20230901preview:PrefixListLocalRulestack": "PrefixListLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw/v20231010preview",
+  "fqn": "pulumi_azure_native.cloudngfw.v20231010preview",
+  "classes": {
+   "azure-native:cloudngfw/v20231010preview:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw/v20231010preview:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw/v20231010preview:Firewall": "Firewall",
+   "azure-native:cloudngfw/v20231010preview:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw/v20231010preview:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw/v20231010preview:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw/v20231010preview:LocalRule": "LocalRule",
+   "azure-native:cloudngfw/v20231010preview:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw/v20231010preview:PostRule": "PostRule",
+   "azure-native:cloudngfw/v20231010preview:PreRule": "PreRule",
+   "azure-native:cloudngfw/v20231010preview:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw/v20231010preview:PrefixListLocalRulestack": "PrefixListLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw/v20240119preview",
+  "fqn": "pulumi_azure_native.cloudngfw.v20240119preview",
+  "classes": {
+   "azure-native:cloudngfw/v20240119preview:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw/v20240119preview:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw/v20240119preview:Firewall": "Firewall",
+   "azure-native:cloudngfw/v20240119preview:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw/v20240119preview:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw/v20240119preview:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw/v20240119preview:LocalRule": "LocalRule",
+   "azure-native:cloudngfw/v20240119preview:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw/v20240119preview:PostRule": "PostRule",
+   "azure-native:cloudngfw/v20240119preview:PreRule": "PreRule",
+   "azure-native:cloudngfw/v20240119preview:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw/v20240119preview:PrefixListLocalRulestack": "PrefixListLocalRulestack"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cloudngfw/v20240207preview",
+  "fqn": "pulumi_azure_native.cloudngfw.v20240207preview",
+  "classes": {
+   "azure-native:cloudngfw/v20240207preview:CertificateObjectGlobalRulestack": "CertificateObjectGlobalRulestack",
+   "azure-native:cloudngfw/v20240207preview:CertificateObjectLocalRulestack": "CertificateObjectLocalRulestack",
+   "azure-native:cloudngfw/v20240207preview:Firewall": "Firewall",
+   "azure-native:cloudngfw/v20240207preview:FqdnListGlobalRulestack": "FqdnListGlobalRulestack",
+   "azure-native:cloudngfw/v20240207preview:FqdnListLocalRulestack": "FqdnListLocalRulestack",
+   "azure-native:cloudngfw/v20240207preview:GlobalRulestack": "GlobalRulestack",
+   "azure-native:cloudngfw/v20240207preview:LocalRule": "LocalRule",
+   "azure-native:cloudngfw/v20240207preview:LocalRulestack": "LocalRulestack",
+   "azure-native:cloudngfw/v20240207preview:PostRule": "PostRule",
+   "azure-native:cloudngfw/v20240207preview:PreRule": "PreRule",
+   "azure-native:cloudngfw/v20240207preview:PrefixListGlobalRulestack": "PrefixListGlobalRulestack",
+   "azure-native:cloudngfw/v20240207preview:PrefixListLocalRulestack": "PrefixListLocalRulestack"
   }
  },
  {
