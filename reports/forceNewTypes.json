@@ -2989,6 +2989,13 @@
     "Property": "policyParameters"
   },
   {
+    "Module": "dataprotection/v20240301",
+    "Provider": "DataProtection",
+    "ResourceName": "BackupInstance",
+    "ReferenceName": "PolicyParameters",
+    "Property": "policyParameters"
+  },
+  {
     "Module": "datadog",
     "Provider": "Datadog",
     "ResourceName": "Monitor",
