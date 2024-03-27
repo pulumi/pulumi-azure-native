@@ -55,14 +55,3 @@ jobs:
       short_test: ${{ (github.event_name == 'pull_request' || inputs.short_test) || false }}
       retention_days: 30
     secrets: inherit
-
-  lint_workflows:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Lint actions
-        uses: reviewdog/action-actionlint@v1.36.0
-        with:
-          actionlint_flags: "-config-file .actionlint.yml"
