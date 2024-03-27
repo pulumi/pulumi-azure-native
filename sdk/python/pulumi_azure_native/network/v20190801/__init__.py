@@ -32,6 +32,7 @@ from .get_virtual_network_gateway_advertised_routes import *
 from .get_virtual_network_gateway_bgp_peer_status import *
 from .get_virtual_network_gateway_connection import *
 from .get_virtual_network_gateway_learned_routes import *
+from .get_virtual_network_gateway_vpn_profile_package_url import *
 from .get_virtual_network_gateway_vpnclient_connection_health import *
 from .get_virtual_network_gateway_vpnclient_ipsec_parameters import *
 from .load_balancer import *

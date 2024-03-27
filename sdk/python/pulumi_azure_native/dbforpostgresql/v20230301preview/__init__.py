@@ -14,6 +14,7 @@ from .get_administrator import *
 from .get_configuration import *
 from .get_database import *
 from .get_firewall_rule import *
+from .get_get_private_dns_zone_suffix_execute import *
 from .get_migration import *
 from .get_server import *
 from .migration import *

@@ -55,6 +55,11 @@ export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule
 export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
 
+export { GetGetPrivateDnsZoneSuffixExecuteArgs, GetGetPrivateDnsZoneSuffixExecuteResult } from "./getGetPrivateDnsZoneSuffixExecute";
+export const getGetPrivateDnsZoneSuffixExecute: typeof import("./getGetPrivateDnsZoneSuffixExecute").getGetPrivateDnsZoneSuffixExecute = null as any;
+export const getGetPrivateDnsZoneSuffixExecuteOutput: typeof import("./getGetPrivateDnsZoneSuffixExecute").getGetPrivateDnsZoneSuffixExecuteOutput = null as any;
+utilities.lazyLoad(exports, ["getGetPrivateDnsZoneSuffixExecute","getGetPrivateDnsZoneSuffixExecuteOutput"], () => require("./getGetPrivateDnsZoneSuffixExecute"));
+
 export { GetMigrationArgs, GetMigrationResult, GetMigrationOutputArgs } from "./getMigration";
 export const getMigration: typeof import("./getMigration").getMigration = null as any;
 export const getMigrationOutput: typeof import("./getMigration").getMigrationOutput = null as any;
@@ -116,8 +121,11 @@ import * as v20180601privatepreview from "./v20180601privatepreview";
 import * as v20200214preview from "./v20200214preview";
 import * as v20200214privatepreview from "./v20200214privatepreview";
 import * as v20201005privatepreview from "./v20201005privatepreview";
+import * as v20210331privatepreview from "./v20210331privatepreview";
 import * as v20210410privatepreview from "./v20210410privatepreview";
+import * as v20210601 from "./v20210601";
 import * as v20210615privatepreview from "./v20210615privatepreview";
+import * as v20220120preview from "./v20220120preview";
 import * as v20220308preview from "./v20220308preview";
 import * as v20220308privatepreview from "./v20220308privatepreview";
 import * as v20220501preview from "./v20220501preview";
@@ -135,8 +143,11 @@ export {
     v20200214preview,
     v20200214privatepreview,
     v20201005privatepreview,
+    v20210331privatepreview,
     v20210410privatepreview,
+    v20210601,
     v20210615privatepreview,
+    v20220120preview,
     v20220308preview,
     v20220308privatepreview,
     v20220501preview,
