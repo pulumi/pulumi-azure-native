@@ -44,3 +44,4 @@ sdk/python/venv
 DEBUG_CODEGEN_EXAMPLE_HCL
 
 p-examples/
+.mono
