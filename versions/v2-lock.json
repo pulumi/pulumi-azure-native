@@ -464,6 +464,7 @@
     "listRedisKeys": "2023-04-01"
   },
   "Capacity": {},
+  "Carbon": {},
   "Cdn": {
     "AFDCustomDomain": "2023-05-01",
     "AFDEndpoint": "2023-05-01",
@@ -1327,6 +1328,12 @@
     "PrivateLinkScope": "2022-04-02-preview",
     "SourceControlConfiguration": "2023-05-01"
   },
+  "KubernetesRuntime": {
+    "BgpPeer": "2024-03-01",
+    "LoadBalancer": "2024-03-01",
+    "Service": "2024-03-01",
+    "StorageClass": "2024-03-01"
+  },
   "Kusto": {
     "AttachedDatabaseConfiguration": "2022-12-29",
     "Cluster": "2022-12-29",
@@ -1926,6 +1933,7 @@
     "listSitesControllerHealthSummary": "2023-06-06"
   },
   "OffAzureSpringBoot": {
+    "springbootapp": "2024-04-01-preview",
     "springbootserver": "2023-01-01-preview",
     "springbootsite": "2023-01-01-preview"
   },

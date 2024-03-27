@@ -217,6 +217,7 @@ Cache:
         RedisEnterprise: 2023-03-01-preview
         listDatabaseKeys: 2023-03-01-preview
 Capacity: {}
+Carbon: {}
 Cdn:
     tracking: "2023-05-01"
     additions:
@@ -920,6 +921,8 @@ KubernetesConfiguration:
     additions:
         PrivateEndpointConnection: 2022-04-02-preview
         PrivateLinkScope: 2022-04-02-preview
+KubernetesRuntime:
+    tracking: "2024-03-01"
 Kusto:
     tracking: "2022-12-29"
     additions:
@@ -1355,6 +1358,8 @@ OffAzure:
         listSitesControllerHealthSummary: "2023-06-06"
 OffAzureSpringBoot:
     tracking: 2023-01-01-preview
+    additions:
+        springbootapp: 2024-04-01-preview
 OpenEnergyPlatform:
     tracking: 2022-04-04-preview
 OperationalInsights:
