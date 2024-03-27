@@ -198,3 +198,32 @@ func TestTraverseProperties(t *testing.T) {
 		assert.Equal(t, []string{"properties", "accessPolicies", "permissions"}, paths[0])
 	})
 }
+
+func TestResourceProviderNaming(t *testing.T) {
+	for name, tc := range map[string]struct{ filePath, apiUri, expected string }{
+		"Standard case": {
+			"specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
+			"/providers/Microsoft.EnterpriseKnowledgeGraph/operations",
+			"EnterpriseKnowledgeGraph",
+		},
+		"PaloAltoNetworks namespace": {
+			"specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json",
+			"/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks",
+			"Cloudngfw",
+		},
+		"When the provider names of file path and URI don't match, return empty": {
+			"specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.One/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
+			"/providers/Microsoft.Two/operations",
+			"",
+		},
+		"Change lower case to title case": {
+			"specification/EnterpriseKnowledgeGraph/resource-manager/microsoft.fooBar/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
+			"/providers/microsoft.fooBar/operations",
+			"FooBar",
+		},
+	} {
+		t.Run(name, func(t *testing.T) {
+			assert.Equal(t, tc.expected, ResourceProvider(tc.filePath, tc.apiUri))
+		})
+	}
+}

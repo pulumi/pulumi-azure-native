@@ -52,6 +52,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "Cloudngfw",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "CodeSigning",
     "Detail": "expected tracking stable but found preview"
   },

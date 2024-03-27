@@ -293,19 +293,14 @@ func resourceProvider(path, defaultValue string) string {
 
 	for i := len(parts) - 2; i >= 0; i-- {
 		part := parts[i]
-		if strings.HasPrefix(part, "Microsoft.") {
-			name := strings.TrimPrefix(part, "Microsoft.")
-			if knownName, ok := wellKnownProviderNames[strings.ToLower(name)]; ok {
-				return knownName
+		for _, prefix := range []string{"Microsoft.", "microsoft.", "PaloAltoNetworks."} {
+			if strings.HasPrefix(part, prefix) {
+				name := strings.Title(strings.TrimPrefix(part, prefix))
+				if knownName, ok := wellKnownProviderNames[strings.ToLower(name)]; ok {
+					return knownName
+				}
+				return name
 			}
-			return name
-		}
-		if strings.HasPrefix(part, "microsoft.") {
-			name := strings.Title(strings.TrimPrefix(part, "microsoft."))
-			if knownName, ok := wellKnownProviderNames[strings.ToLower(name)]; ok {
-				return knownName
-			}
-			return name
 		}
 	}
 

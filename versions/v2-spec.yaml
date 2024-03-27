@@ -230,6 +230,12 @@ Chaos:
     additions:
         PrivateAccess: 2023-10-27-preview
         getExperimentExecutionDetails: "2023-11-01"
+Cloudngfw:
+    tracking: "2023-09-01"
+    additions:
+        listPaloAltoNetworksCloudngfwCloudManagerTenants: 2024-02-07-preview
+        listPaloAltoNetworksCloudngfwProductSerialNumberStatus: 2024-02-07-preview
+        listPaloAltoNetworksCloudngfwSupportInfo: 2024-02-07-preview
 CodeSigning:
     tracking: 2024-02-05-preview
 CognitiveServices:
