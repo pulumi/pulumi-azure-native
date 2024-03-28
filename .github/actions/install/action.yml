@@ -12,7 +12,7 @@ runs:
     - name: Install Go
       uses: actions/setup-go@v5
       with:
-        go-version: "1.21.x"
+        go-version: "1.22.x"
 
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
@@ -20,7 +20,7 @@ runs:
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
         registry-url: https://registry.npmjs.org
 
     - name: Setup Python
