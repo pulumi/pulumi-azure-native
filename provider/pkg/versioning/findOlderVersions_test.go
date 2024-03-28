@@ -10,9 +10,9 @@ import (
 )
 
 func TestFindOlderVersions(t *testing.T) {
-	providerA := gofakeit.Noun()
-	resourceA := gofakeit.Noun()
-	resourceB := gofakeit.Noun()
+	providerA := "providerA"
+	resourceA := "resourceA"
+	resourceB := "resourceB"
 	olderVersion := fakeApiVersion(FakeApiVersion{})
 	versionA := fakeApiVersion(FakeApiVersion{GreaterThan: olderVersion})
 	versionB := fakeApiVersion(FakeApiVersion{GreaterThan: olderVersion})
@@ -36,7 +36,7 @@ func TestFindOlderVersions(t *testing.T) {
 			olderVersion,
 		},
 	}
-	assert.Equal(t, expected, olderVersions)
+	assert.Equal(t, expected, olderVersions, "olderVersion=%s, versionA=%s, versionB=%s", olderVersion, versionA, versionB)
 }
 
 type FakeApiVersion struct {
@@ -54,7 +54,7 @@ func fakeApiVersion(spec FakeApiVersion) openapi.ApiVersion {
 		min = min.AddDate(0, 0, 1)
 	}
 	if spec.LessThan != "" {
-		max, _ = time.Parse(ApiVersionLayout, spec.GreaterThan)
+		max, _ = time.Parse(ApiVersionLayout, spec.LessThan)
 		max = max.AddDate(0, 0, -1)
 	}
 	return gofakeit.DateRange(min, max).Format(ApiVersionLayout)
