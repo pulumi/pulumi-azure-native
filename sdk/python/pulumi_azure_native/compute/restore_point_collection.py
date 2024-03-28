@@ -115,7 +115,7 @@ class RestorePointCollection(pulumi.CustomResource):
         Create or update Restore Point collection parameters.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01.
+        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class RestorePointCollection(pulumi.CustomResource):
         Create or update Restore Point collection parameters.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01.
+        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param RestorePointCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class RestorePointCollection(pulumi.CustomResource):
             __props__.__dict__["restore_point_collection_id"] = None
             __props__.__dict__["restore_points"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210401:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210701:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20211101:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20220301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20220801:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20221101:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230701:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230901:RestorePointCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210401:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210701:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20211101:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20220301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20220801:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20221101:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230701:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20230901:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20240301:RestorePointCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RestorePointCollection, __self__).__init__(
             'azure-native:compute:RestorePointCollection',

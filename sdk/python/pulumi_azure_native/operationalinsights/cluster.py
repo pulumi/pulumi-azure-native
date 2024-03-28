@@ -313,6 +313,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["created_date"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["is_availability_zones_enabled"] = None
+        __props__.__dict__["is_double_encryption_enabled"] = None
         __props__.__dict__["key_vault_properties"] = None
         __props__.__dict__["last_modified_date"] = None
         __props__.__dict__["location"] = None
@@ -378,6 +379,14 @@ class Cluster(pulumi.CustomResource):
         Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         """
         return pulumi.get(self, "is_availability_zones_enabled")
+
+    @property
+    @pulumi.getter(name="isDoubleEncryptionEnabled")
+    def is_double_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
+        """
+        return pulumi.get(self, "is_double_encryption_enabled")
 
     @property
     @pulumi.getter(name="keyVaultProperties")

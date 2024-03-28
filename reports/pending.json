@@ -28,7 +28,8 @@
     "2017-08-01-beta"
   ],
   "ApiCenter": [
-    "2024-03-01"
+    "2024-03-01",
+    "2024-03-15-preview"
   ],
   "ApiManagement": [
     "2021-08-01",
@@ -155,6 +156,7 @@
     "2024-02-01"
   ],
   "Capacity": [],
+  "Carbon": [],
   "Cdn": [
     "2023-07-01-preview",
     "2024-02-01"
@@ -199,7 +201,8 @@
     "2023-07-01",
     "2023-07-03",
     "2023-09-01",
-    "2023-10-02"
+    "2023-10-02",
+    "2024-03-01"
   ],
   "ConfidentialLedger": [
     "2022-09-08-preview",
@@ -300,6 +303,7 @@
     "2023-11-02-preview",
     "2024-01-01",
     "2024-01-02-preview",
+    "2024-02-01",
     "2024-02-02-preview"
   ],
   "ContainerStorage": [],
@@ -384,7 +388,8 @@
     "2023-08-01-preview",
     "2023-11-01",
     "2023-12-01",
-    "2024-02-01-preview"
+    "2024-02-01-preview",
+    "2024-03-01"
   ],
   "DataReplication": [],
   "DataShare": [],
@@ -587,7 +592,8 @@
     "2023-03-01-preview",
     "2023-03-15-preview",
     "2023-05-01-preview",
-    "2023-06-01"
+    "2023-06-01",
+    "2023-12-01"
   ],
   "IntegrationSpaces": [],
   "Intune": [
@@ -618,6 +624,7 @@
     "2022-11-01",
     "2023-05-01"
   ],
+  "KubernetesRuntime": [],
   "Kusto": [
     "2019-01-21",
     "2019-05-15",
@@ -827,7 +834,9 @@
     "2023-06-06",
     "2023-10-01-preview"
   ],
-  "OffAzureSpringBoot": [],
+  "OffAzureSpringBoot": [
+    "2024-04-01-preview"
+  ],
   "OpenEnergyPlatform": [],
   "OperationalInsights": [
     "2019-08-01-preview",
@@ -878,7 +887,8 @@
     "2023-04-01",
     "2023-06-01",
     "2023-08-01",
-    "2024-01-01"
+    "2024-01-01",
+    "2024-02-01"
   ],
   "RedHatOpenShift": [
     "2023-04-01",
@@ -988,7 +998,8 @@
   "SignalRService": [
     "2023-03-01-preview",
     "2023-06-01-preview",
-    "2023-08-01-preview"
+    "2023-08-01-preview",
+    "2024-01-01-preview"
   ],
   "SoftwarePlan": [],
   "Solutions": [],
@@ -1094,7 +1105,8 @@
   "WebPubSub": [
     "2023-03-01-preview",
     "2023-06-01-preview",
-    "2023-08-01-preview"
+    "2023-08-01-preview",
+    "2024-01-01-preview"
   ],
   "WindowsESU": [],
   "WindowsIoT": [],

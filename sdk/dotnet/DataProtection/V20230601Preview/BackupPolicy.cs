@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.DataProtection.V20230601Preview
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20231101:BackupPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20231201:BackupPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240201preview:BackupPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240301:BackupPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a dedicated host group.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01.
+        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
         /// </summary>
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Compute
         /// Retrieves information about a dedicated host group.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01.
+        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
         /// </summary>
         public static Output<GetDedicatedHostGroupResult> Invoke(GetDedicatedHostGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupInvokeArgs(), options.WithDefaults());

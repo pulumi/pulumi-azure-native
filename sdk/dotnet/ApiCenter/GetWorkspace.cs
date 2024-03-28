@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the workspace.
         /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-03-15-preview.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:apicenter:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the workspace.
         /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-03-15-preview.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:apicenter:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());

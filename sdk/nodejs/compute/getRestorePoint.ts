@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The operation to get the restore point.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01.
+ * Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01.
  */
 export function getRestorePoint(args: GetRestorePointArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointResult> {
 
@@ -92,7 +92,7 @@ export interface GetRestorePointResult {
  * The operation to get the restore point.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01.
+ * Other available API versions: 2021-11-01, 2022-11-01, 2023-07-01, 2023-09-01, 2024-03-01.
  */
 export function getRestorePointOutput(args: GetRestorePointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointResult> {
     return pulumi.output(args).apply((a: any) => getRestorePoint(a, opts))

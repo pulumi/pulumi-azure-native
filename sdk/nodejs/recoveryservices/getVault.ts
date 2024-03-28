@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the Vault details.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2020-02-02, 2023-06-01, 2023-08-01, 2024-01-01.
+ * Other available API versions: 2020-02-02, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
 
@@ -82,7 +82,7 @@ export interface GetVaultResult {
  * Get the Vault details.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2020-02-02, 2023-06-01, 2023-08-01, 2024-01-01.
+ * Other available API versions: 2020-02-02, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
     return pulumi.output(args).apply((a: any) => getVault(a, opts))

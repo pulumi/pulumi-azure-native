@@ -136,6 +136,7 @@ import * as iotoperationsorchestrator from "./iotoperationsorchestrator";
 import * as keyvault from "./keyvault";
 import * as kubernetes from "./kubernetes";
 import * as kubernetesconfiguration from "./kubernetesconfiguration";
+import * as kubernetesruntime from "./kubernetesruntime";
 import * as kusto from "./kusto";
 import * as labservices from "./labservices";
 import * as loadtestservice from "./loadtestservice";
@@ -364,6 +365,7 @@ export {
     keyvault,
     kubernetes,
     kubernetesconfiguration,
+    kubernetesruntime,
     kusto,
     labservices,
     loadtestservice,

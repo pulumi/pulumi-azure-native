@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20230101preview from "./v20230101preview";
+import * as v20240401preview from "./v20240401preview";
 
 export {
     v20230101preview,
+    v20240401preview,
 };
 
 export const ProvisioningState = {

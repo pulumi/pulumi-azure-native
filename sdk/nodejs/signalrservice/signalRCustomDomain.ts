@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A custom domain
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
  */
 export class SignalRCustomDomain extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class SignalRCustomDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20220201:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20220801preview:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20230201:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20230301preview:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20230601preview:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20230801preview:SignalRCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20220201:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20220801preview:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20230201:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20230301preview:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20230601preview:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20230801preview:SignalRCustomDomain" }, { type: "azure-native:signalrservice/v20240101preview:SignalRCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRCustomDomain.__pulumiType, name, resourceInputs, opts);
     }

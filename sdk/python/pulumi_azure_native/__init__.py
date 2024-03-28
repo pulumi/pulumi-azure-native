@@ -257,6 +257,8 @@ if typing.TYPE_CHECKING:
     kubernetes = __kubernetes
     import pulumi_azure_native.kubernetesconfiguration as __kubernetesconfiguration
     kubernetesconfiguration = __kubernetesconfiguration
+    import pulumi_azure_native.kubernetesruntime as __kubernetesruntime
+    kubernetesruntime = __kubernetesruntime
     import pulumi_azure_native.kusto as __kusto
     kusto = __kusto
     import pulumi_azure_native.labservices as __labservices
@@ -584,6 +586,7 @@ else:
     keyvault = _utilities.lazy_import('pulumi_azure_native.keyvault')
     kubernetes = _utilities.lazy_import('pulumi_azure_native.kubernetes')
     kubernetesconfiguration = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration')
+    kubernetesruntime = _utilities.lazy_import('pulumi_azure_native.kubernetesruntime')
     kusto = _utilities.lazy_import('pulumi_azure_native.kusto')
     labservices = _utilities.lazy_import('pulumi_azure_native.labservices')
     loadtestservice = _utilities.lazy_import('pulumi_azure_native.loadtestservice')
@@ -952,6 +955,21 @@ _utilities.register(
    "azure-native:apicenter/v20240301:MetadataSchema": "MetadataSchema",
    "azure-native:apicenter/v20240301:Service": "Service",
    "azure-native:apicenter/v20240301:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "apicenter/v20240315preview",
+  "fqn": "pulumi_azure_native.apicenter.v20240315preview",
+  "classes": {
+   "azure-native:apicenter/v20240315preview:Api": "Api",
+   "azure-native:apicenter/v20240315preview:ApiDefinition": "ApiDefinition",
+   "azure-native:apicenter/v20240315preview:ApiVersion": "ApiVersion",
+   "azure-native:apicenter/v20240315preview:Deployment": "Deployment",
+   "azure-native:apicenter/v20240315preview:Environment": "Environment",
+   "azure-native:apicenter/v20240315preview:MetadataSchema": "MetadataSchema",
+   "azure-native:apicenter/v20240315preview:Service": "Service",
+   "azure-native:apicenter/v20240315preview:Workspace": "Workspace"
   }
  },
  {
@@ -3998,6 +4016,31 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "compute/v20240301",
+  "fqn": "pulumi_azure_native.compute.v20240301",
+  "classes": {
+   "azure-native:compute/v20240301:AvailabilitySet": "AvailabilitySet",
+   "azure-native:compute/v20240301:CapacityReservation": "CapacityReservation",
+   "azure-native:compute/v20240301:CapacityReservationGroup": "CapacityReservationGroup",
+   "azure-native:compute/v20240301:DedicatedHost": "DedicatedHost",
+   "azure-native:compute/v20240301:DedicatedHostGroup": "DedicatedHostGroup",
+   "azure-native:compute/v20240301:Image": "Image",
+   "azure-native:compute/v20240301:ProximityPlacementGroup": "ProximityPlacementGroup",
+   "azure-native:compute/v20240301:RestorePoint": "RestorePoint",
+   "azure-native:compute/v20240301:RestorePointCollection": "RestorePointCollection",
+   "azure-native:compute/v20240301:SshPublicKey": "SshPublicKey",
+   "azure-native:compute/v20240301:VirtualMachine": "VirtualMachine",
+   "azure-native:compute/v20240301:VirtualMachineExtension": "VirtualMachineExtension",
+   "azure-native:compute/v20240301:VirtualMachineRunCommandByVirtualMachine": "VirtualMachineRunCommandByVirtualMachine",
+   "azure-native:compute/v20240301:VirtualMachineScaleSet": "VirtualMachineScaleSet",
+   "azure-native:compute/v20240301:VirtualMachineScaleSetExtension": "VirtualMachineScaleSetExtension",
+   "azure-native:compute/v20240301:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
+   "azure-native:compute/v20240301:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
+   "azure-native:compute/v20240301:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confidentialledger",
   "fqn": "pulumi_azure_native.confidentialledger",
   "classes": {
@@ -4737,12 +4780,32 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20240201",
+  "fqn": "pulumi_azure_native.containerservice.v20240201",
+  "classes": {
+   "azure-native:containerservice/v20240201:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240201:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240201:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240201:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240201:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerservice/v20240202preview",
   "fqn": "pulumi_azure_native.containerservice.v20240202preview",
   "classes": {
+   "azure-native:containerservice/v20240202preview:AgentPool": "AgentPool",
    "azure-native:containerservice/v20240202preview:Fleet": "Fleet",
    "azure-native:containerservice/v20240202preview:FleetMember": "FleetMember",
    "azure-native:containerservice/v20240202preview:FleetUpdateStrategy": "FleetUpdateStrategy",
+   "azure-native:containerservice/v20240202preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240202preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240202preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20240202preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240202preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240202preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding",
    "azure-native:containerservice/v20240202preview:UpdateRun": "UpdateRun"
   }
  },
@@ -5608,6 +5671,18 @@ _utilities.register(
    "azure-native:dataprotection/v20240201preview:BackupVault": "BackupVault",
    "azure-native:dataprotection/v20240201preview:DppResourceGuardProxy": "DppResourceGuardProxy",
    "azure-native:dataprotection/v20240201preview:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dataprotection/v20240301",
+  "fqn": "pulumi_azure_native.dataprotection.v20240301",
+  "classes": {
+   "azure-native:dataprotection/v20240301:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20240301:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20240301:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20240301:DppResourceGuardProxy": "DppResourceGuardProxy",
+   "azure-native:dataprotection/v20240301:ResourceGuard": "ResourceGuard"
   }
  },
  {
@@ -8380,6 +8455,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "insights/v20231201",
+  "fqn": "pulumi_azure_native.insights.v20231201",
+  "classes": {
+   "azure-native:insights/v20231201:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "integrationspaces",
   "fqn": "pulumi_azure_native.integrationspaces",
   "classes": {
@@ -8710,6 +8793,39 @@ _utilities.register(
    "azure-native:kubernetesconfiguration/v20230501:Extension": "Extension",
    "azure-native:kubernetesconfiguration/v20230501:FluxConfiguration": "FluxConfiguration",
    "azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration": "SourceControlConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesruntime",
+  "fqn": "pulumi_azure_native.kubernetesruntime",
+  "classes": {
+   "azure-native:kubernetesruntime:BgpPeer": "BgpPeer",
+   "azure-native:kubernetesruntime:LoadBalancer": "LoadBalancer",
+   "azure-native:kubernetesruntime:Service": "Service",
+   "azure-native:kubernetesruntime:StorageClass": "StorageClass"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesruntime/v20231001preview",
+  "fqn": "pulumi_azure_native.kubernetesruntime.v20231001preview",
+  "classes": {
+   "azure-native:kubernetesruntime/v20231001preview:BgpPeer": "BgpPeer",
+   "azure-native:kubernetesruntime/v20231001preview:LoadBalancer": "LoadBalancer",
+   "azure-native:kubernetesruntime/v20231001preview:Service": "Service",
+   "azure-native:kubernetesruntime/v20231001preview:StorageClass": "StorageClass"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesruntime/v20240301",
+  "fqn": "pulumi_azure_native.kubernetesruntime.v20240301",
+  "classes": {
+   "azure-native:kubernetesruntime/v20240301:BgpPeer": "BgpPeer",
+   "azure-native:kubernetesruntime/v20240301:LoadBalancer": "LoadBalancer",
+   "azure-native:kubernetesruntime/v20240301:Service": "Service",
+   "azure-native:kubernetesruntime/v20240301:StorageClass": "StorageClass"
   }
  },
  {
@@ -11773,6 +11889,7 @@ _utilities.register(
   "mod": "offazurespringboot",
   "fqn": "pulumi_azure_native.offazurespringboot",
   "classes": {
+   "azure-native:offazurespringboot:Springbootapp": "Springbootapp",
    "azure-native:offazurespringboot:Springbootserver": "Springbootserver",
    "azure-native:offazurespringboot:Springbootsite": "Springbootsite"
   }
@@ -11784,6 +11901,16 @@ _utilities.register(
   "classes": {
    "azure-native:offazurespringboot/v20230101preview:Springbootserver": "Springbootserver",
    "azure-native:offazurespringboot/v20230101preview:Springbootsite": "Springbootsite"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "offazurespringboot/v20240401preview",
+  "fqn": "pulumi_azure_native.offazurespringboot.v20240401preview",
+  "classes": {
+   "azure-native:offazurespringboot/v20240401preview:Springbootapp": "Springbootapp",
+   "azure-native:offazurespringboot/v20240401preview:Springbootserver": "Springbootserver",
+   "azure-native:offazurespringboot/v20240401preview:Springbootsite": "Springbootsite"
   }
  },
  {
@@ -12468,6 +12595,14 @@ _utilities.register(
    "azure-native:recoveryservices/v20240101:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20240101:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20240101:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "recoveryservices/v20240201",
+  "fqn": "pulumi_azure_native.recoveryservices.v20240201",
+  "classes": {
+   "azure-native:recoveryservices/v20240201:Vault": "Vault"
   }
  },
  {
@@ -14295,6 +14430,19 @@ _utilities.register(
    "azure-native:signalrservice/v20230801preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
    "azure-native:signalrservice/v20230801preview:SignalRReplica": "SignalRReplica",
    "azure-native:signalrservice/v20230801preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "signalrservice/v20240101preview",
+  "fqn": "pulumi_azure_native.signalrservice.v20240101preview",
+  "classes": {
+   "azure-native:signalrservice/v20240101preview:SignalR": "SignalR",
+   "azure-native:signalrservice/v20240101preview:SignalRCustomCertificate": "SignalRCustomCertificate",
+   "azure-native:signalrservice/v20240101preview:SignalRCustomDomain": "SignalRCustomDomain",
+   "azure-native:signalrservice/v20240101preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
+   "azure-native:signalrservice/v20240101preview:SignalRReplica": "SignalRReplica",
+   "azure-native:signalrservice/v20240101preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
   }
  },
  {
@@ -16158,6 +16306,20 @@ _utilities.register(
    "azure-native:webpubsub/v20230801preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20230801preview:WebPubSubReplica": "WebPubSubReplica",
    "azure-native:webpubsub/v20230801preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "webpubsub/v20240101preview",
+  "fqn": "pulumi_azure_native.webpubsub.v20240101preview",
+  "classes": {
+   "azure-native:webpubsub/v20240101preview:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub/v20240101preview:WebPubSubCustomCertificate": "WebPubSubCustomCertificate",
+   "azure-native:webpubsub/v20240101preview:WebPubSubCustomDomain": "WebPubSubCustomDomain",
+   "azure-native:webpubsub/v20240101preview:WebPubSubHub": "WebPubSubHub",
+   "azure-native:webpubsub/v20240101preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
+   "azure-native:webpubsub/v20240101preview:WebPubSubReplica": "WebPubSubReplica",
+   "azure-native:webpubsub/v20240101preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

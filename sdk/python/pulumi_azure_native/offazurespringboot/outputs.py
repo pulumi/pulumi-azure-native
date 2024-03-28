@@ -13,6 +13,10 @@ from ._enums import *
 
 __all__ = [
     'ErrorResponse',
+    'SpringbootappsPropertiesResponse',
+    'SpringbootappsPropertiesResponseApplicationConfigurations',
+    'SpringbootappsPropertiesResponseInstances',
+    'SpringbootappsPropertiesResponseMiscs',
     'SpringbootserversPropertiesResponse',
     'SpringbootsitesModelResponseExtendedLocation',
     'SpringbootsitesPropertiesResponse',
@@ -161,6 +165,528 @@ class ErrorResponse(dict):
         Time when this error was last updated.
         """
         return pulumi.get(self, "updated_time_stamp")
+
+
+@pulumi.output_type
+class SpringbootappsPropertiesResponse(dict):
+    """
+    The springbootapps resource definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "appName":
+            suggest = "app_name"
+        elif key == "appPort":
+            suggest = "app_port"
+        elif key == "appType":
+            suggest = "app_type"
+        elif key == "applicationConfigurations":
+            suggest = "application_configurations"
+        elif key == "artifactName":
+            suggest = "artifact_name"
+        elif key == "bindingPorts":
+            suggest = "binding_ports"
+        elif key == "buildJdkVersion":
+            suggest = "build_jdk_version"
+        elif key == "connectionStrings":
+            suggest = "connection_strings"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "jarFileLocation":
+            suggest = "jar_file_location"
+        elif key == "jvmMemoryInMB":
+            suggest = "jvm_memory_in_mb"
+        elif key == "jvmOptions":
+            suggest = "jvm_options"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "machineArmIds":
+            suggest = "machine_arm_ids"
+        elif key == "runtimeJdkVersion":
+            suggest = "runtime_jdk_version"
+        elif key == "springBootVersion":
+            suggest = "spring_boot_version"
+        elif key == "staticContentLocations":
+            suggest = "static_content_locations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringbootappsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringbootappsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringbootappsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 app_name: Optional[str] = None,
+                 app_port: Optional[int] = None,
+                 app_type: Optional[str] = None,
+                 application_configurations: Optional[Sequence['outputs.SpringbootappsPropertiesResponseApplicationConfigurations']] = None,
+                 artifact_name: Optional[str] = None,
+                 binding_ports: Optional[Sequence[int]] = None,
+                 build_jdk_version: Optional[str] = None,
+                 certificates: Optional[Sequence[str]] = None,
+                 checksum: Optional[str] = None,
+                 connection_strings: Optional[Sequence[str]] = None,
+                 dependencies: Optional[Sequence[str]] = None,
+                 environments: Optional[Sequence[str]] = None,
+                 errors: Optional[Sequence['outputs.ErrorResponse']] = None,
+                 instance_count: Optional[int] = None,
+                 instances: Optional[Sequence['outputs.SpringbootappsPropertiesResponseInstances']] = None,
+                 jar_file_location: Optional[str] = None,
+                 jvm_memory_in_mb: Optional[int] = None,
+                 jvm_options: Optional[Sequence[str]] = None,
+                 labels: Optional[Mapping[str, str]] = None,
+                 last_modified_time: Optional[str] = None,
+                 last_updated_time: Optional[str] = None,
+                 machine_arm_ids: Optional[Sequence[str]] = None,
+                 miscs: Optional[Sequence['outputs.SpringbootappsPropertiesResponseMiscs']] = None,
+                 runtime_jdk_version: Optional[str] = None,
+                 servers: Optional[Sequence[str]] = None,
+                 spring_boot_version: Optional[str] = None,
+                 static_content_locations: Optional[Sequence[str]] = None):
+        """
+        The springbootapps resource definition.
+        :param str provisioning_state: The resource provisioning state.
+        :param str app_name: The name of SpringBootApp.
+        :param int app_port: The application port.
+        :param str app_type: The application type, whether it is a SpringBoot app.
+        :param Sequence['SpringbootappsPropertiesResponseApplicationConfigurations'] application_configurations: The application configuration file list.
+        :param str artifact_name: The artifact name of SpringBootApp.
+        :param Sequence[int] binding_ports: The application binding port list.
+        :param str build_jdk_version: The jdk version in build.
+        :param Sequence[str] certificates: The certificate file list.
+        :param str checksum: The checksum of jar file.
+        :param Sequence[str] connection_strings: The connection string list.
+        :param Sequence[str] dependencies: The dependency list.
+        :param Sequence[str] environments: The environment variable list.
+        :param Sequence['ErrorResponse'] errors: The list of errors.
+        :param int instance_count: The total instance count the app deployed.
+        :param Sequence['SpringbootappsPropertiesResponseInstances'] instances: The breakdown info for app instances on all the servers
+        :param str jar_file_location: The jar file location on the server.
+        :param int jvm_memory_in_mb: The jvm heap memory allocated.
+        :param Sequence[str] jvm_options: The jvm options.
+        :param Mapping[str, str] labels: Resource labels
+        :param str last_modified_time: Time when this springbootapps jar file was last modified.
+        :param str last_updated_time: Time when this springbootapps instance was last refreshed.
+        :param Sequence[str] machine_arm_ids: The machine ARM id list the app belongs to.
+        :param Sequence['SpringbootappsPropertiesResponseMiscs'] miscs: The other types of date collected.
+        :param str runtime_jdk_version: The jdk version installed on server
+        :param Sequence[str] servers: The server list the app installed
+        :param str spring_boot_version: The spring boot version.
+        :param Sequence[str] static_content_locations: The static content location list.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if app_name is not None:
+            pulumi.set(__self__, "app_name", app_name)
+        if app_port is not None:
+            pulumi.set(__self__, "app_port", app_port)
+        if app_type is not None:
+            pulumi.set(__self__, "app_type", app_type)
+        if application_configurations is not None:
+            pulumi.set(__self__, "application_configurations", application_configurations)
+        if artifact_name is not None:
+            pulumi.set(__self__, "artifact_name", artifact_name)
+        if binding_ports is not None:
+            pulumi.set(__self__, "binding_ports", binding_ports)
+        if build_jdk_version is not None:
+            pulumi.set(__self__, "build_jdk_version", build_jdk_version)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if checksum is not None:
+            pulumi.set(__self__, "checksum", checksum)
+        if connection_strings is not None:
+            pulumi.set(__self__, "connection_strings", connection_strings)
+        if dependencies is not None:
+            pulumi.set(__self__, "dependencies", dependencies)
+        if environments is not None:
+            pulumi.set(__self__, "environments", environments)
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instances is not None:
+            pulumi.set(__self__, "instances", instances)
+        if jar_file_location is not None:
+            pulumi.set(__self__, "jar_file_location", jar_file_location)
+        if jvm_memory_in_mb is not None:
+            pulumi.set(__self__, "jvm_memory_in_mb", jvm_memory_in_mb)
+        if jvm_options is not None:
+            pulumi.set(__self__, "jvm_options", jvm_options)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if last_modified_time is not None:
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if machine_arm_ids is not None:
+            pulumi.set(__self__, "machine_arm_ids", machine_arm_ids)
+        if miscs is not None:
+            pulumi.set(__self__, "miscs", miscs)
+        if runtime_jdk_version is not None:
+            pulumi.set(__self__, "runtime_jdk_version", runtime_jdk_version)
+        if servers is not None:
+            pulumi.set(__self__, "servers", servers)
+        if spring_boot_version is not None:
+            pulumi.set(__self__, "spring_boot_version", spring_boot_version)
+        if static_content_locations is not None:
+            pulumi.set(__self__, "static_content_locations", static_content_locations)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The resource provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> Optional[str]:
+        """
+        The name of SpringBootApp.
+        """
+        return pulumi.get(self, "app_name")
+
+    @property
+    @pulumi.getter(name="appPort")
+    def app_port(self) -> Optional[int]:
+        """
+        The application port.
+        """
+        return pulumi.get(self, "app_port")
+
+    @property
+    @pulumi.getter(name="appType")
+    def app_type(self) -> Optional[str]:
+        """
+        The application type, whether it is a SpringBoot app.
+        """
+        return pulumi.get(self, "app_type")
+
+    @property
+    @pulumi.getter(name="applicationConfigurations")
+    def application_configurations(self) -> Optional[Sequence['outputs.SpringbootappsPropertiesResponseApplicationConfigurations']]:
+        """
+        The application configuration file list.
+        """
+        return pulumi.get(self, "application_configurations")
+
+    @property
+    @pulumi.getter(name="artifactName")
+    def artifact_name(self) -> Optional[str]:
+        """
+        The artifact name of SpringBootApp.
+        """
+        return pulumi.get(self, "artifact_name")
+
+    @property
+    @pulumi.getter(name="bindingPorts")
+    def binding_ports(self) -> Optional[Sequence[int]]:
+        """
+        The application binding port list.
+        """
+        return pulumi.get(self, "binding_ports")
+
+    @property
+    @pulumi.getter(name="buildJdkVersion")
+    def build_jdk_version(self) -> Optional[str]:
+        """
+        The jdk version in build.
+        """
+        return pulumi.get(self, "build_jdk_version")
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[Sequence[str]]:
+        """
+        The certificate file list.
+        """
+        return pulumi.get(self, "certificates")
+
+    @property
+    @pulumi.getter
+    def checksum(self) -> Optional[str]:
+        """
+        The checksum of jar file.
+        """
+        return pulumi.get(self, "checksum")
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Optional[Sequence[str]]:
+        """
+        The connection string list.
+        """
+        return pulumi.get(self, "connection_strings")
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> Optional[Sequence[str]]:
+        """
+        The dependency list.
+        """
+        return pulumi.get(self, "dependencies")
+
+    @property
+    @pulumi.getter
+    def environments(self) -> Optional[Sequence[str]]:
+        """
+        The environment variable list.
+        """
+        return pulumi.get(self, "environments")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence['outputs.ErrorResponse']]:
+        """
+        The list of errors.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        """
+        The total instance count the app deployed.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter
+    def instances(self) -> Optional[Sequence['outputs.SpringbootappsPropertiesResponseInstances']]:
+        """
+        The breakdown info for app instances on all the servers
+        """
+        return pulumi.get(self, "instances")
+
+    @property
+    @pulumi.getter(name="jarFileLocation")
+    def jar_file_location(self) -> Optional[str]:
+        """
+        The jar file location on the server.
+        """
+        return pulumi.get(self, "jar_file_location")
+
+    @property
+    @pulumi.getter(name="jvmMemoryInMB")
+    def jvm_memory_in_mb(self) -> Optional[int]:
+        """
+        The jvm heap memory allocated.
+        """
+        return pulumi.get(self, "jvm_memory_in_mb")
+
+    @property
+    @pulumi.getter(name="jvmOptions")
+    def jvm_options(self) -> Optional[Sequence[str]]:
+        """
+        The jvm options.
+        """
+        return pulumi.get(self, "jvm_options")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource labels
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        """
+        Time when this springbootapps jar file was last modified.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[str]:
+        """
+        Time when this springbootapps instance was last refreshed.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="machineArmIds")
+    def machine_arm_ids(self) -> Optional[Sequence[str]]:
+        """
+        The machine ARM id list the app belongs to.
+        """
+        return pulumi.get(self, "machine_arm_ids")
+
+    @property
+    @pulumi.getter
+    def miscs(self) -> Optional[Sequence['outputs.SpringbootappsPropertiesResponseMiscs']]:
+        """
+        The other types of date collected.
+        """
+        return pulumi.get(self, "miscs")
+
+    @property
+    @pulumi.getter(name="runtimeJdkVersion")
+    def runtime_jdk_version(self) -> Optional[str]:
+        """
+        The jdk version installed on server
+        """
+        return pulumi.get(self, "runtime_jdk_version")
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Optional[Sequence[str]]:
+        """
+        The server list the app installed
+        """
+        return pulumi.get(self, "servers")
+
+    @property
+    @pulumi.getter(name="springBootVersion")
+    def spring_boot_version(self) -> Optional[str]:
+        """
+        The spring boot version.
+        """
+        return pulumi.get(self, "spring_boot_version")
+
+    @property
+    @pulumi.getter(name="staticContentLocations")
+    def static_content_locations(self) -> Optional[Sequence[str]]:
+        """
+        The static content location list.
+        """
+        return pulumi.get(self, "static_content_locations")
+
+
+@pulumi.output_type
+class SpringbootappsPropertiesResponseApplicationConfigurations(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        :param str key: The application config file name.
+        :param str value: The application config file content, only contains config keys.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The application config file name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The application config file content, only contains config keys.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SpringbootappsPropertiesResponseInstances(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "machineArmId":
+            suggest = "machine_arm_id"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "jvmMemoryInMB":
+            suggest = "jvm_memory_in_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringbootappsPropertiesResponseInstances. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringbootappsPropertiesResponseInstances.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringbootappsPropertiesResponseInstances.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 machine_arm_id: str,
+                 instance_count: Optional[int] = None,
+                 jvm_memory_in_mb: Optional[int] = None):
+        """
+        :param str machine_arm_id: The machine ARM resource Id of this app instance
+        :param int instance_count: The instance count of this app instance
+        :param int jvm_memory_in_mb: The jvm heap memory allocated of this app instance
+        """
+        pulumi.set(__self__, "machine_arm_id", machine_arm_id)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if jvm_memory_in_mb is not None:
+            pulumi.set(__self__, "jvm_memory_in_mb", jvm_memory_in_mb)
+
+    @property
+    @pulumi.getter(name="machineArmId")
+    def machine_arm_id(self) -> str:
+        """
+        The machine ARM resource Id of this app instance
+        """
+        return pulumi.get(self, "machine_arm_id")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        """
+        The instance count of this app instance
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="jvmMemoryInMB")
+    def jvm_memory_in_mb(self) -> Optional[int]:
+        """
+        The jvm heap memory allocated of this app instance
+        """
+        return pulumi.get(self, "jvm_memory_in_mb")
+
+
+@pulumi.output_type
+class SpringbootappsPropertiesResponseMiscs(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        :param str key: The miscs. key.
+        :param str value: The miscs. value.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The miscs. key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The miscs. value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -69,6 +69,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly isAvailabilityZonesEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
+     */
+    public readonly isDoubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The associated key properties.
      */
     public readonly keyVaultProperties!: pulumi.Output<outputs.operationalinsights.KeyVaultPropertiesResponse | undefined>;
@@ -141,6 +145,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["isAvailabilityZonesEnabled"] = undefined /*out*/;
+            resourceInputs["isDoubleEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["keyVaultProperties"] = undefined /*out*/;
             resourceInputs["lastModifiedDate"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

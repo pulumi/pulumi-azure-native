@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     /// Describes a Virtual Machine.
     /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01.
+    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -276,6 +276,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230301:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230701:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:VirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

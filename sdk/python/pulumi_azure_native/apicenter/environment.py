@@ -197,6 +197,8 @@ class Environment(pulumi.CustomResource):
         Environment entity.
         Azure REST API version: 2024-03-01.
 
+        Other available API versions: 2024-03-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any custom_properties: The custom metadata defined for API catalog entities.
@@ -219,6 +221,8 @@ class Environment(pulumi.CustomResource):
         """
         Environment entity.
         Azure REST API version: 2024-03-01.
+
+        Other available API versions: 2024-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -277,7 +281,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter/v20240301:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter/v20240301:Environment"), pulumi.Alias(type_="azure-native:apicenter/v20240315preview:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azure-native:apicenter:Environment',

@@ -268,6 +268,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "OffAzureSpringBoot",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "Orbital",
     "Detail": "expected no additions but found some"
   },

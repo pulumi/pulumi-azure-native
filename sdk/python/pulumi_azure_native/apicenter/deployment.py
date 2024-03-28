@@ -232,6 +232,8 @@ class Deployment(pulumi.CustomResource):
         API deployment entity.
         Azure REST API version: 2024-03-01.
 
+        Other available API versions: 2024-03-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_name: The name of the API.
@@ -256,6 +258,8 @@ class Deployment(pulumi.CustomResource):
         """
         API deployment entity.
         Azure REST API version: 2024-03-01.
+
+        Other available API versions: 2024-03-15-preview.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
@@ -316,7 +320,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter/v20240301:Deployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apicenter/v20240301:Deployment"), pulumi.Alias(type_="azure-native:apicenter/v20240315preview:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Deployment, __self__).__init__(
             'azure-native:apicenter:Deployment',

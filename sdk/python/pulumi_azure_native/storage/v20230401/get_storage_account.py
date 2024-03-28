@@ -479,7 +479,7 @@ class GetStorageAccountResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
+        Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
         """
         return pulumi.get(self, "public_network_access")
 

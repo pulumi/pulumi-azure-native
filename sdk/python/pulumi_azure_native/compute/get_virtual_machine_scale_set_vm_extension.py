@@ -235,7 +235,7 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
     The operation to get the VMSS VM extension.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01, 2023-09-01.
+    Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01, 2023-09-01, 2024-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -283,7 +283,7 @@ def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.In
     The operation to get the VMSS VM extension.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01, 2023-09-01.
+    Other available API versions: 2019-12-01, 2021-11-01, 2023-07-01, 2023-09-01, 2024-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

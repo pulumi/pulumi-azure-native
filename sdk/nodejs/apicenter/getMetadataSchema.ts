@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Returns details of the metadata schema.
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-03-15-preview.
  */
 export function getMetadataSchema(args: GetMetadataSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataSchemaResult> {
 
@@ -68,6 +70,8 @@ export interface GetMetadataSchemaResult {
 /**
  * Returns details of the metadata schema.
  * Azure REST API version: 2024-03-01.
+ *
+ * Other available API versions: 2024-03-15-preview.
  */
 export function getMetadataSchemaOutput(args: GetMetadataSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSchemaResult> {
     return pulumi.output(args).apply((a: any) => getMetadataSchema(a, opts))

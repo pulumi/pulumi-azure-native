@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.ApiCenter.V20240301
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:apicenter:Deployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240315preview:Deployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -115,6 +115,8 @@ def get_api_version(api_name: Optional[str] = None,
     Returns details of the API version.
     Azure REST API version: 2024-03-01.
 
+    Other available API versions: 2024-03-15-preview.
+
 
     :param str api_name: The name of the API.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -150,6 +152,8 @@ def get_api_version_output(api_name: Optional[pulumi.Input[str]] = None,
     """
     Returns details of the API version.
     Azure REST API version: 2024-03-01.
+
+    Other available API versions: 2024-03-15-preview.
 
 
     :param str api_name: The name of the API.

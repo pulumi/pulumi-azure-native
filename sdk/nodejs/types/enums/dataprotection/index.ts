@@ -10,6 +10,7 @@ import * as v20230801preview from "./v20230801preview";
 import * as v20231101 from "./v20231101";
 import * as v20231201 from "./v20231201";
 import * as v20240201preview from "./v20240201preview";
+import * as v20240301 from "./v20240301";
 
 export {
     v20230101,
@@ -20,6 +21,7 @@ export {
     v20231101,
     v20231201,
     v20240201preview,
+    v20240301,
 };
 
 export const AbsoluteMarker = {

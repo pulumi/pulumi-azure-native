@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ApiCenter
         /// Get service
         /// Azure REST API version: 2023-07-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01.
+        /// Other available API versions: 2024-03-01, 2024-03-15-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:apicenter:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ApiCenter
         /// Get service
         /// Azure REST API version: 2023-07-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01.
+        /// Other available API versions: 2024-03-01, 2024-03-15-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:apicenter:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
