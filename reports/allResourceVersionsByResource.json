@@ -7781,7 +7781,8 @@
   "DevOpsInfrastructure": {
     "Pool": [
       "2023-10-30-preview",
-      "2023-12-13-preview"
+      "2023-12-13-preview",
+      "2024-03-26-preview"
     ]
   },
   "DevSpaces": {
@@ -10997,7 +10998,8 @@
       "2022-03-01",
       "2022-07-01",
       "2022-11-01",
-      "2023-05-01"
+      "2023-05-01",
+      "2024-04-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2022-04-02-preview"

@@ -7710,6 +7710,9 @@
     ],
     "2023-12-13-preview": [
       "Pool"
+    ],
+    "2024-03-26-preview": [
+      "Pool"
     ]
   },
   "DevSpaces": {
@@ -10955,6 +10958,9 @@
       "Extension",
       "FluxConfiguration",
       "SourceControlConfiguration"
+    ],
+    "2024-04-01-preview": [
+      "FluxConfiguration"
     ]
   },
   "KubernetesRuntime": {

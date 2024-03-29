@@ -424,7 +424,8 @@
   ],
   "DevOps": [],
   "DevOpsInfrastructure": [
-    "2023-12-13-preview"
+    "2023-12-13-preview",
+    "2024-03-26-preview"
   ],
   "DevSpaces": [],
   "DevTestLab": [],
@@ -622,7 +623,8 @@
   "KubernetesConfiguration": [
     "2022-07-01",
     "2022-11-01",
-    "2023-05-01"
+    "2023-05-01",
+    "2024-04-01-preview"
   ],
   "KubernetesRuntime": [],
   "Kusto": [
