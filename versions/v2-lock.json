@@ -916,12 +916,15 @@
     "NetworkConnection": "2023-04-01",
     "Pool": "2023-04-01",
     "Project": "2023-04-01",
+    "ProjectCatalog": "2024-02-01",
     "ProjectEnvironmentType": "2023-04-01",
     "Schedule": "2023-04-01",
     "getCatalogDevBoxDefinitionErrorDetails": "2023-08-01-preview",
     "getCatalogSyncErrorDetails": "2023-08-01-preview",
     "getCustomizationTaskErrorDetails": "2023-08-01-preview",
-    "getEnvironmentDefinitionErrorDetails": "2023-08-01-preview"
+    "getEnvironmentDefinitionErrorDetails": "2023-08-01-preview",
+    "getProjectCatalogEnvironmentDefinitionErrorDetails": "2024-02-01",
+    "getProjectCatalogSyncErrorDetails": "2024-02-01"
   },
   "DevHub": {
     "Workflow": "2022-10-11-preview",
