@@ -3009,6 +3009,17 @@
       "UpdateSummary",
       "VirtualHardDisk",
       "VirtualMachineInstance"
+    ],
+    "2024-02-15-preview": [
+      "ArcSetting",
+      "Cluster",
+      "DeploymentSetting",
+      "EdgeDevice",
+      "Extension",
+      "SecuritySetting",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
     ]
   },
   "BareMetalInfrastructure": {
@@ -7685,6 +7696,24 @@
       "getCatalogSyncErrorDetails",
       "getCustomizationTaskErrorDetails",
       "getEnvironmentDefinitionErrorDetails"
+    ],
+    "2024-02-01": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectCatalog",
+      "ProjectEnvironmentType",
+      "Schedule",
+      "getCatalogSyncErrorDetails",
+      "getEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogSyncErrorDetails"
     ]
   },
   "DevHub": {
@@ -7709,6 +7738,9 @@
       "Pool"
     ],
     "2023-12-13-preview": [
+      "Pool"
+    ],
+    "2024-03-26-preview": [
       "Pool"
     ]
   },
@@ -10955,6 +10987,9 @@
       "Extension",
       "FluxConfiguration",
       "SourceControlConfiguration"
+    ],
+    "2024-04-01-preview": [
+      "FluxConfiguration"
     ]
   },
   "KubernetesRuntime": {
@@ -18462,6 +18497,9 @@
     ],
     "2024-01-01": [
       "Pricing"
+    ],
+    "2024-03-01-preview": [
+      "SecurityConnector"
     ]
   },
   "SecurityAndCompliance": {

@@ -3140,7 +3140,8 @@
       "2023-08-01",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "Cluster": [
       "2020-03-01-preview",
@@ -3161,17 +3162,20 @@
       "2023-08-01",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "DeploymentSetting": [
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "EdgeDevice": [
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "Extension": [
       "2021-01-01-preview",
@@ -3190,7 +3194,8 @@
       "2023-08-01",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "GalleryImage": [
       "2022-12-15-preview",
@@ -3231,7 +3236,8 @@
     ],
     "SecuritySetting": [
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "StorageContainer": [
       "2022-12-15-preview",
@@ -3248,7 +3254,8 @@
       "2023-08-01",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "UpdateRun": [
       "2022-12-01",
@@ -3259,7 +3266,8 @@
       "2023-08-01",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "UpdateSummary": [
       "2022-12-01",
@@ -3270,7 +3278,8 @@
       "2023-08-01",
       "2023-08-01-preview",
       "2023-11-01-preview",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-02-15-preview"
     ],
     "VirtualHardDisk": [
       "2022-12-15-preview",
@@ -7646,7 +7655,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "Catalog": [
       "2022-08-01-preview",
@@ -7656,7 +7666,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "DevBoxDefinition": [
       "2022-08-01-preview",
@@ -7666,7 +7677,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "DevCenter": [
       "2022-08-01-preview",
@@ -7676,7 +7688,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "EnvironmentType": [
       "2022-08-01-preview",
@@ -7686,7 +7699,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "Gallery": [
       "2022-08-01-preview",
@@ -7696,7 +7710,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "NetworkConnection": [
       "2022-08-01-preview",
@@ -7706,7 +7721,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "Pool": [
       "2022-08-01-preview",
@@ -7716,7 +7732,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "Project": [
       "2022-08-01-preview",
@@ -7726,7 +7743,11 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
+    ],
+    "ProjectCatalog": [
+      "2024-02-01"
     ],
     "ProjectEnvironmentType": [
       "2022-08-01-preview",
@@ -7736,7 +7757,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "Schedule": [
       "2022-08-01-preview",
@@ -7746,7 +7768,8 @@
       "2023-01-01-preview",
       "2023-04-01",
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "getCatalogDevBoxDefinitionErrorDetails": [
       "2023-08-01-preview",
@@ -7754,7 +7777,8 @@
     ],
     "getCatalogSyncErrorDetails": [
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
     ],
     "getCustomizationTaskErrorDetails": [
       "2023-08-01-preview",
@@ -7762,7 +7786,14 @@
     ],
     "getEnvironmentDefinitionErrorDetails": [
       "2023-08-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01"
+    ],
+    "getProjectCatalogEnvironmentDefinitionErrorDetails": [
+      "2024-02-01"
+    ],
+    "getProjectCatalogSyncErrorDetails": [
+      "2024-02-01"
     ]
   },
   "DevHub": {
@@ -7781,7 +7812,8 @@
   "DevOpsInfrastructure": {
     "Pool": [
       "2023-10-30-preview",
-      "2023-12-13-preview"
+      "2023-12-13-preview",
+      "2024-03-26-preview"
     ]
   },
   "DevSpaces": {
@@ -10997,7 +11029,8 @@
       "2022-03-01",
       "2022-07-01",
       "2022-11-01",
-      "2023-05-01"
+      "2023-05-01",
+      "2024-04-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2022-04-02-preview"
@@ -18993,7 +19026,8 @@
       "2022-05-01-preview",
       "2022-08-01-preview",
       "2023-03-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-03-01-preview"
     ],
     "SecurityConnectorApplication": [
       "2022-07-01-preview"
