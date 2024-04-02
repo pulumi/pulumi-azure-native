@@ -25,11 +25,15 @@ from .get_gallery import *
 from .get_network_connection import *
 from .get_pool import *
 from .get_project import *
+from .get_project_catalog import *
+from .get_project_catalog_environment_definition_error_details import *
+from .get_project_catalog_sync_error_details import *
 from .get_project_environment_type import *
 from .get_schedule import *
 from .network_connection import *
 from .pool import *
 from .project import *
+from .project_catalog import *
 from .project_environment_type import *
 from .schedule import *
 from ._inputs import *
@@ -45,9 +49,12 @@ if typing.TYPE_CHECKING:
     v20230801preview = __v20230801preview
     import pulumi_azure_native.devcenter.v20231001preview as __v20231001preview
     v20231001preview = __v20231001preview
+    import pulumi_azure_native.devcenter.v20240201 as __v20240201
+    v20240201 = __v20240201
 else:
     v20221111preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20221111preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.devcenter.v20230401')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20230801preview')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20231001preview')
+    v20240201 = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240201')
 

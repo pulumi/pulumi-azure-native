@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a devcenter resource.
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
  */
 export class DevCenter extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class DevCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevCenter" }, { type: "azure-native:devcenter/v20220901preview:DevCenter" }, { type: "azure-native:devcenter/v20221012preview:DevCenter" }, { type: "azure-native:devcenter/v20221111preview:DevCenter" }, { type: "azure-native:devcenter/v20230101preview:DevCenter" }, { type: "azure-native:devcenter/v20230401:DevCenter" }, { type: "azure-native:devcenter/v20230801preview:DevCenter" }, { type: "azure-native:devcenter/v20231001preview:DevCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevCenter" }, { type: "azure-native:devcenter/v20220901preview:DevCenter" }, { type: "azure-native:devcenter/v20221012preview:DevCenter" }, { type: "azure-native:devcenter/v20221111preview:DevCenter" }, { type: "azure-native:devcenter/v20230101preview:DevCenter" }, { type: "azure-native:devcenter/v20230401:DevCenter" }, { type: "azure-native:devcenter/v20230801preview:DevCenter" }, { type: "azure-native:devcenter/v20231001preview:DevCenter" }, { type: "azure-native:devcenter/v20240201:DevCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevCenter.__pulumiType, name, resourceInputs, opts);
     }

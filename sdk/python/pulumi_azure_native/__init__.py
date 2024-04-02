@@ -2941,6 +2941,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurestackhci/v20240215preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20240215preview",
+  "classes": {
+   "azure-native:azurestackhci/v20240215preview:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20240215preview:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20240215preview:DeploymentSetting": "DeploymentSetting",
+   "azure-native:azurestackhci/v20240215preview:Extension": "Extension",
+   "azure-native:azurestackhci/v20240215preview:HciEdgeDevice": "HciEdgeDevice",
+   "azure-native:azurestackhci/v20240215preview:SecuritySetting": "SecuritySetting",
+   "azure-native:azurestackhci/v20240215preview:Update": "Update",
+   "azure-native:azurestackhci/v20240215preview:UpdateRun": "UpdateRun",
+   "azure-native:azurestackhci/v20240215preview:UpdateSummary": "UpdateSummary"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "baremetalinfrastructure",
   "fqn": "pulumi_azure_native.baremetalinfrastructure",
   "classes": {
@@ -6397,6 +6413,7 @@ _utilities.register(
    "azure-native:devcenter:NetworkConnection": "NetworkConnection",
    "azure-native:devcenter:Pool": "Pool",
    "azure-native:devcenter:Project": "Project",
+   "azure-native:devcenter:ProjectCatalog": "ProjectCatalog",
    "azure-native:devcenter:ProjectEnvironmentType": "ProjectEnvironmentType",
    "azure-native:devcenter:Schedule": "Schedule"
   }
@@ -6461,6 +6478,25 @@ _utilities.register(
    "azure-native:devcenter/v20231001preview:Project": "Project",
    "azure-native:devcenter/v20231001preview:ProjectEnvironmentType": "ProjectEnvironmentType",
    "azure-native:devcenter/v20231001preview:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devcenter/v20240201",
+  "fqn": "pulumi_azure_native.devcenter.v20240201",
+  "classes": {
+   "azure-native:devcenter/v20240201:AttachedNetworkByDevCenter": "AttachedNetworkByDevCenter",
+   "azure-native:devcenter/v20240201:Catalog": "Catalog",
+   "azure-native:devcenter/v20240201:DevBoxDefinition": "DevBoxDefinition",
+   "azure-native:devcenter/v20240201:DevCenter": "DevCenter",
+   "azure-native:devcenter/v20240201:EnvironmentType": "EnvironmentType",
+   "azure-native:devcenter/v20240201:Gallery": "Gallery",
+   "azure-native:devcenter/v20240201:NetworkConnection": "NetworkConnection",
+   "azure-native:devcenter/v20240201:Pool": "Pool",
+   "azure-native:devcenter/v20240201:Project": "Project",
+   "azure-native:devcenter/v20240201:ProjectCatalog": "ProjectCatalog",
+   "azure-native:devcenter/v20240201:ProjectEnvironmentType": "ProjectEnvironmentType",
+   "azure-native:devcenter/v20240201:Schedule": "Schedule"
   }
  },
  {
@@ -6659,6 +6695,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.devopsinfrastructure.v20231213preview",
   "classes": {
    "azure-native:devopsinfrastructure/v20231213preview:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devopsinfrastructure/v20240326preview",
+  "fqn": "pulumi_azure_native.devopsinfrastructure.v20240326preview",
+  "classes": {
+   "azure-native:devopsinfrastructure/v20240326preview:Pool": "Pool"
   }
  },
  {
@@ -8793,6 +8837,14 @@ _utilities.register(
    "azure-native:kubernetesconfiguration/v20230501:Extension": "Extension",
    "azure-native:kubernetesconfiguration/v20230501:FluxConfiguration": "FluxConfiguration",
    "azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration": "SourceControlConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesconfiguration/v20240401preview",
+  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20240401preview",
+  "classes": {
+   "azure-native:kubernetesconfiguration/v20240401preview:FluxConfiguration": "FluxConfiguration"
   }
  },
  {
@@ -13277,6 +13329,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20240101",
   "classes": {
    "azure-native:security/v20240101:Pricing": "Pricing"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20240301preview",
+  "fqn": "pulumi_azure_native.security.v20240301preview",
+  "classes": {
+   "azure-native:security/v20240301preview:SecurityConnector": "SecurityConnector"
   }
  },
  {

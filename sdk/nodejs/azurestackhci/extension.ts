@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Details of a particular extension in HCI Cluster.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
  *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01.
+ * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview.
  */
 export class Extension extends pulumi.CustomResource {
     /**
@@ -152,7 +152,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:Extension" }, { type: "azure-native:azurestackhci/v20210901:Extension" }, { type: "azure-native:azurestackhci/v20210901preview:Extension" }, { type: "azure-native:azurestackhci/v20220101:Extension" }, { type: "azure-native:azurestackhci/v20220301:Extension" }, { type: "azure-native:azurestackhci/v20220501:Extension" }, { type: "azure-native:azurestackhci/v20220901:Extension" }, { type: "azure-native:azurestackhci/v20221001:Extension" }, { type: "azure-native:azurestackhci/v20221201:Extension" }, { type: "azure-native:azurestackhci/v20221215preview:Extension" }, { type: "azure-native:azurestackhci/v20230201:Extension" }, { type: "azure-native:azurestackhci/v20230301:Extension" }, { type: "azure-native:azurestackhci/v20230601:Extension" }, { type: "azure-native:azurestackhci/v20230801:Extension" }, { type: "azure-native:azurestackhci/v20230801preview:Extension" }, { type: "azure-native:azurestackhci/v20231101preview:Extension" }, { type: "azure-native:azurestackhci/v20240101:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:Extension" }, { type: "azure-native:azurestackhci/v20210901:Extension" }, { type: "azure-native:azurestackhci/v20210901preview:Extension" }, { type: "azure-native:azurestackhci/v20220101:Extension" }, { type: "azure-native:azurestackhci/v20220301:Extension" }, { type: "azure-native:azurestackhci/v20220501:Extension" }, { type: "azure-native:azurestackhci/v20220901:Extension" }, { type: "azure-native:azurestackhci/v20221001:Extension" }, { type: "azure-native:azurestackhci/v20221201:Extension" }, { type: "azure-native:azurestackhci/v20221215preview:Extension" }, { type: "azure-native:azurestackhci/v20230201:Extension" }, { type: "azure-native:azurestackhci/v20230301:Extension" }, { type: "azure-native:azurestackhci/v20230601:Extension" }, { type: "azure-native:azurestackhci/v20230801:Extension" }, { type: "azure-native:azurestackhci/v20230801preview:Extension" }, { type: "azure-native:azurestackhci/v20231101preview:Extension" }, { type: "azure-native:azurestackhci/v20240101:Extension" }, { type: "azure-native:azurestackhci/v20240215preview:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }

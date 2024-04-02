@@ -22,10 +22,12 @@ export * from "../types/enums/devopsinfrastructure";
 // Export sub-modules:
 import * as v20231030preview from "./v20231030preview";
 import * as v20231213preview from "./v20231213preview";
+import * as v20240326preview from "./v20240326preview";
 
 export {
     v20231030preview,
     v20231213preview,
+    v20240326preview,
 };
 
 const _module = {

@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'CatalogSyncType',
     'DomainJoinType',
     'EnvironmentTypeEnableStatus',
     'HibernateSupport',
@@ -17,6 +18,14 @@ __all__ = [
     'SkuTier',
     'StopOnDisconnectEnableStatus',
 ]
+
+
+class CatalogSyncType(str, Enum):
+    """
+    Indicates the type of sync that is configured for the catalog.
+    """
+    MANUAL = "Manual"
+    SCHEDULED = "Scheduled"
 
 
 class DomainJoinType(str, Enum):

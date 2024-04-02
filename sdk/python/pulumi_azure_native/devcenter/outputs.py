@@ -24,6 +24,7 @@ __all__ = [
     'ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment',
     'SkuResponse',
     'StopOnDisconnectConfigurationResponse',
+    'SyncStatsResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
     'UserRoleAssignmentResponse',
@@ -595,6 +596,116 @@ class StopOnDisconnectConfigurationResponse(dict):
         Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SyncStatsResponse(dict):
+    """
+    Stats of the synchronization.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "synchronizationErrors":
+            suggest = "synchronization_errors"
+        elif key == "validationErrors":
+            suggest = "validation_errors"
+        elif key == "syncedCatalogItemTypes":
+            suggest = "synced_catalog_item_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SyncStatsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SyncStatsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SyncStatsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 added: int,
+                 removed: int,
+                 synchronization_errors: int,
+                 unchanged: int,
+                 updated: int,
+                 validation_errors: int,
+                 synced_catalog_item_types: Optional[Sequence[str]] = None):
+        """
+        Stats of the synchronization.
+        :param int added: Count of catalog items added during synchronization.
+        :param int removed: Count of catalog items removed during synchronization.
+        :param int synchronization_errors: Count of synchronization errors that occured during synchronization.
+        :param int unchanged: Count of catalog items that were unchanged during synchronization.
+        :param int updated: Count of catalog items updated during synchronization.
+        :param int validation_errors: Count of catalog items that had validation errors during synchronization.
+        :param Sequence[str] synced_catalog_item_types: Indicates catalog item types that were synced.
+        """
+        pulumi.set(__self__, "added", added)
+        pulumi.set(__self__, "removed", removed)
+        pulumi.set(__self__, "synchronization_errors", synchronization_errors)
+        pulumi.set(__self__, "unchanged", unchanged)
+        pulumi.set(__self__, "updated", updated)
+        pulumi.set(__self__, "validation_errors", validation_errors)
+        if synced_catalog_item_types is not None:
+            pulumi.set(__self__, "synced_catalog_item_types", synced_catalog_item_types)
+
+    @property
+    @pulumi.getter
+    def added(self) -> int:
+        """
+        Count of catalog items added during synchronization.
+        """
+        return pulumi.get(self, "added")
+
+    @property
+    @pulumi.getter
+    def removed(self) -> int:
+        """
+        Count of catalog items removed during synchronization.
+        """
+        return pulumi.get(self, "removed")
+
+    @property
+    @pulumi.getter(name="synchronizationErrors")
+    def synchronization_errors(self) -> int:
+        """
+        Count of synchronization errors that occured during synchronization.
+        """
+        return pulumi.get(self, "synchronization_errors")
+
+    @property
+    @pulumi.getter
+    def unchanged(self) -> int:
+        """
+        Count of catalog items that were unchanged during synchronization.
+        """
+        return pulumi.get(self, "unchanged")
+
+    @property
+    @pulumi.getter
+    def updated(self) -> int:
+        """
+        Count of catalog items updated during synchronization.
+        """
+        return pulumi.get(self, "updated")
+
+    @property
+    @pulumi.getter(name="validationErrors")
+    def validation_errors(self) -> int:
+        """
+        Count of catalog items that had validation errors during synchronization.
+        """
+        return pulumi.get(self, "validation_errors")
+
+    @property
+    @pulumi.getter(name="syncedCatalogItemTypes")
+    def synced_catalog_item_types(self) -> Optional[Sequence[str]]:
+        """
+        Indicates catalog item types that were synced.
+        """
+        return pulumi.get(self, "synced_catalog_item_types")
 
 
 @pulumi.output_type

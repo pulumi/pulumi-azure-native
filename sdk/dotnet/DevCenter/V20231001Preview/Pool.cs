@@ -156,6 +156,7 @@ namespace Pulumi.AzureNative.DevCenter.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240201:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

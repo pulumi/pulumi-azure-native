@@ -196,7 +196,7 @@ class Pool(pulumi.CustomResource):
         A pool of Virtual Machines.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,7 +221,7 @@ class Pool(pulumi.CustomResource):
         A pool of Virtual Machines.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -285,7 +285,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:devcenter:Pool',

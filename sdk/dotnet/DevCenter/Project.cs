@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter
     /// Represents a project resource.
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
     /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview.
+    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Project")]
     public partial class Project : global::Pulumi.CustomResource
@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240201:Project" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
+    /// Indicates the type of sync that is configured for the catalog.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogSyncType : IEquatable<CatalogSyncType>
+    {
+        private readonly string _value;
+
+        private CatalogSyncType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogSyncType Manual { get; } = new CatalogSyncType("Manual");
+        public static CatalogSyncType Scheduled { get; } = new CatalogSyncType("Scheduled");
+
+        public static bool operator ==(CatalogSyncType left, CatalogSyncType right) => left.Equals(right);
+        public static bool operator !=(CatalogSyncType left, CatalogSyncType right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogSyncType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogSyncType other && Equals(other);
+        public bool Equals(CatalogSyncType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// AAD Join type.
     /// </summary>
     [EnumType]

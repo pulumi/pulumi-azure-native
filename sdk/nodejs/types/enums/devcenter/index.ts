@@ -6,13 +6,25 @@ import * as v20221111preview from "./v20221111preview";
 import * as v20230401 from "./v20230401";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231001preview from "./v20231001preview";
+import * as v20240201 from "./v20240201";
 
 export {
     v20221111preview,
     v20230401,
     v20230801preview,
     v20231001preview,
+    v20240201,
 };
+
+export const CatalogSyncType = {
+    Manual: "Manual",
+    Scheduled: "Scheduled",
+} as const;
+
+/**
+ * Indicates the type of sync that is configured for the catalog.
+ */
+export type CatalogSyncType = (typeof CatalogSyncType)[keyof typeof CatalogSyncType];
 
 export const DomainJoinType = {
     HybridAzureADJoin: "HybridAzureADJoin",
