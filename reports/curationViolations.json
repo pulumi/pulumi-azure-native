@@ -20,6 +20,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "AzureArcData",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "AzureDataTransfer",
     "Detail": "expected tracking stable but found preview"
   },

@@ -2722,6 +2722,18 @@
       "SqlManagedInstance",
       "SqlServerDatabase",
       "SqlServerInstance"
+    ],
+    "2024-01-01": [
+      "ActiveDirectoryConnector",
+      "DataController",
+      "FailoverGroup",
+      "PostgresInstance",
+      "SqlManagedInstance",
+      "SqlServerAvailabilityGroup",
+      "SqlServerDatabase",
+      "SqlServerInstance",
+      "getSqlServerAvailabilityGroupDetailView",
+      "getSqlServerInstanceTelemetry"
     ]
   },
   "AzureData": {
@@ -10705,6 +10717,11 @@
     "2023-03-01-preview": [
       "TenantActionGroup"
     ],
+    "2023-03-11": [
+      "DataCollectionEndpoint",
+      "DataCollectionRule",
+      "DataCollectionRuleAssociation"
+    ],
     "2023-03-15-preview": [
       "ScheduledQueryRule"
     ],
@@ -18249,6 +18266,16 @@
     ],
     "2023-08-01": [
       "DeploymentScript"
+    ],
+    "2024-03-01": [
+      "Deployment",
+      "DeploymentAtManagementGroupScope",
+      "DeploymentAtScope",
+      "DeploymentAtSubscriptionScope",
+      "DeploymentAtTenantScope",
+      "Resource",
+      "ResourceGroup",
+      "TagAtScope"
     ]
   },
   "SaaS": {

@@ -1281,6 +1281,13 @@
     "Property": "collationName"
   },
   {
+    "Module": "azurearcdata/v20240101",
+    "Provider": "AzureArcData",
+    "ResourceName": "SqlServerDatabase",
+    "ReferenceName": "SqlServerDatabaseResourceProperties",
+    "Property": "collationName"
+  },
+  {
     "Module": "azuredatatransfer",
     "Provider": "AzureDataTransfer",
     "ResourceName": "Flow",

@@ -183,6 +183,10 @@
     "B2CTenants_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/checkNameAvailability",
     "CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/checkNameAvailability"
   },
+  "AzureArcData": {
+    "SqlServerAvailabilityGroups_Failover": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/failover",
+    "SqlServerAvailabilityGroups_ForceFailoverAllowDataLoss": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/forceFailoverAllowDataLoss"
+  },
   "AzureDataTransfer": {
     "AzureDataTransfer_validateSchema": "/providers/Microsoft.AzureDataTransfer/validateSchema",
     "Connections_Link": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName}/link",
@@ -1102,6 +1106,9 @@
   "Help": {
     "CheckNameAvailability_Post": "/{scope}/providers/Microsoft.Help/checkNameAvailability",
     "Diagnostics_CheckNameAvailability": "/{scope}/providers/Microsoft.Help/checkNameAvailability",
+    "DiscoverySolutionNLPSubscriptionScope_Post": "/subscriptions/{subscriptionId}/providers/Microsoft.Help/discoverSolutions",
+    "DiscoverySolutionNLPTenantScope_Post": "/providers/Microsoft.Help/discoverSolutions",
+    "Solution_WarmUp": "/{scope}/providers/Microsoft.Help/solutions/{solutionResourceName}/warmup",
     "Troubleshooters_Continue": "/{scope}/providers/Microsoft.Help/troubleshooters/{troubleshooterName}/continue",
     "Troubleshooters_End": "/{scope}/providers/Microsoft.Help/troubleshooters/{troubleshooterName}/end",
     "Troubleshooters_Restart": "/{scope}/providers/Microsoft.Help/troubleshooters/{troubleshooterName}/restart"
