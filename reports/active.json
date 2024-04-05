@@ -358,14 +358,16 @@
       "2023-05-01-preview",
       "2023-06-01-preview",
       "2023-08-01-preview",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2024-03-01-preview"
     ],
     "actionrules": [
       "2018-11-02-privatepreview",
       "2019-05-05-preview",
       "2021-08-08",
       "2021-08-08-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2024-03-01-preview"
     ],
     "alertrulerecommendations": [
       "2023-01-01-preview",
@@ -8988,6 +8990,9 @@
       "2023-12-01-preview"
     ],
     "locations": [
+      "2023-12-01-preview"
+    ],
+    "operations": [
       "2023-12-01-preview"
     ]
   },

@@ -344,8 +344,11 @@
     "FailoverGroup": "2023-01-15-preview",
     "PostgresInstance": "2023-01-15-preview",
     "SqlManagedInstance": "2023-01-15-preview",
+    "SqlServerAvailabilityGroup": "2024-01-01",
     "SqlServerDatabase": "2023-01-15-preview",
-    "SqlServerInstance": "2023-01-15-preview"
+    "SqlServerInstance": "2023-01-15-preview",
+    "getSqlServerAvailabilityGroupDetailView": "2024-01-01",
+    "getSqlServerInstanceTelemetry": "2024-01-01"
   },
   "AzureData": {
     "SqlServer": "2019-07-24-preview",

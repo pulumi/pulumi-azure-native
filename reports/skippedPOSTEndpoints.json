@@ -183,6 +183,10 @@
     "B2CTenants_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/checkNameAvailability",
     "CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/checkNameAvailability"
   },
+  "AzureArcData": {
+    "SqlServerAvailabilityGroups_Failover": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/failover",
+    "SqlServerAvailabilityGroups_ForceFailoverAllowDataLoss": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureArcData/sqlServerInstances/{sqlServerInstanceName}/availabilityGroups/{availabilityGroupName}/forceFailoverAllowDataLoss"
+  },
   "AzureDataTransfer": {
     "AzureDataTransfer_validateSchema": "/providers/Microsoft.AzureDataTransfer/validateSchema",
     "Connections_Link": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureDataTransfer/connections/{connectionName}/link",
@@ -1102,6 +1106,9 @@
   "Help": {
     "CheckNameAvailability_Post": "/{scope}/providers/Microsoft.Help/checkNameAvailability",
     "Diagnostics_CheckNameAvailability": "/{scope}/providers/Microsoft.Help/checkNameAvailability",
+    "DiscoverySolutionNLPSubscriptionScope_Post": "/subscriptions/{subscriptionId}/providers/Microsoft.Help/discoverSolutions",
+    "DiscoverySolutionNLPTenantScope_Post": "/providers/Microsoft.Help/discoverSolutions",
+    "Solution_WarmUp": "/{scope}/providers/Microsoft.Help/solutions/{solutionResourceName}/warmup",
     "Troubleshooters_Continue": "/{scope}/providers/Microsoft.Help/troubleshooters/{troubleshooterName}/continue",
     "Troubleshooters_End": "/{scope}/providers/Microsoft.Help/troubleshooters/{troubleshooterName}/end",
     "Troubleshooters_Restart": "/{scope}/providers/Microsoft.Help/troubleshooters/{troubleshooterName}/restart"
@@ -1512,8 +1519,12 @@
     "Volumes_AuthorizeReplication": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/authorizeReplication",
     "Volumes_BreakFileLocks": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/breakFileLocks",
     "Volumes_BreakReplication": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/breakReplication",
+    "Volumes_CreateOnPremMigrationReplication": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/createOnPremMigrationReplication",
     "Volumes_DeleteReplication": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/deleteReplication",
+    "Volumes_FinalizeOnPremMigration": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/finalizeOnPremMigration",
     "Volumes_FinalizeRelocation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/finalizeRelocation",
+    "Volumes_PeerClusterForOnPremMigration": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/peerClusterForOnPremMigration",
+    "Volumes_PerformReplicationTransfer": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/performReplicationTransfer",
     "Volumes_PoolChange": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/poolChange",
     "Volumes_PopulateAvailabilityZone": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/populateAvailabilityZone",
     "Volumes_ReInitializeReplication": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/reinitializeReplication",

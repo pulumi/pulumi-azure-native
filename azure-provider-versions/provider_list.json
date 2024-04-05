@@ -1002,6 +1002,7 @@
       {
         "resourceType": "actionRules",
         "apiVersions": [
+          "2024-03-01-preview",
           "2023-05-01-preview",
           "2021-08-08-preview",
           "2021-08-08",
@@ -11541,6 +11542,12 @@
     "resourceTypes": [
       {
         "resourceType": "Locations",
+        "apiVersions": [
+          "2023-12-01-preview"
+        ]
+      },
+      {
+        "resourceType": "Operations",
         "apiVersions": [
           "2023-12-01-preview"
         ]
