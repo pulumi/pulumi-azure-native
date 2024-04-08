@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.Quota
     public static class GetGroupQuotaSubscription
     {
         /// <summary>
-        /// Returns the subscriptionId along with its provisioning state for being associated with the GroupQuotasEntity.
+        /// Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
         /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetGroupQuotaSubscriptionResult> InvokeAsync(GetGroupQuotaSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupQuotaSubscriptionResult>("azure-native:quota:getGroupQuotaSubscription", args ?? new GetGroupQuotaSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns the subscriptionId along with its provisioning state for being associated with the GroupQuotasEntity.
+        /// Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
         /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetGroupQuotaSubscriptionResult> Invoke(GetGroupQuotaSubscriptionInvokeArgs args, InvokeOptions? options = null)
@@ -38,8 +38,8 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// Management Group Id.
         /// </summary>
-        [Input("mgId", required: true)]
-        public string MgId { get; set; } = null!;
+        [Input("managementGroupId", required: true)]
+        public string ManagementGroupId { get; set; } = null!;
 
         public GetGroupQuotaSubscriptionArgs()
         {
@@ -58,8 +58,8 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// Management Group Id.
         /// </summary>
-        [Input("mgId", required: true)]
-        public Input<string> MgId { get; set; } = null!;
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
 
         public GetGroupQuotaSubscriptionInvokeArgs()
         {

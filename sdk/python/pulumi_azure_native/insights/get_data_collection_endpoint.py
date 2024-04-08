@@ -268,6 +268,8 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
     Definition of ARM tracked top level resource.
     Azure REST API version: 2022-06-01.
 
+    Other available API versions: 2023-03-11.
+
 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -307,6 +309,8 @@ def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[
     """
     Definition of ARM tracked top level resource.
     Azure REST API version: 2022-06-01.
+
+    Other available API versions: 2023-03-11.
 
 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.

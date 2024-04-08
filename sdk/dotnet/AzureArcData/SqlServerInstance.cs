@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.AzureArcData
     /// <summary>
     /// A SqlServerInstance.
     /// Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+    /// 
+    /// Other available API versions: 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerInstance")]
     public partial class SqlServerInstance : global::Pulumi.CustomResource
@@ -84,6 +86,7 @@ namespace Pulumi.AzureNative.AzureArcData
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:SqlServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20220615preview:SqlServerInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:SqlServerInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:SqlServerInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

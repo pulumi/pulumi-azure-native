@@ -22,7 +22,13 @@ class ManagedServiceIdentityType(str, Enum):
 
 class Type(str, Enum):
     """
-    Managed identity type to use for accessing encryption key Url
+    Managed identity type to use for accessing encryption key Url.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    System assigned identity.
+    """
     USER_ASSIGNED = "UserAssigned"
+    """
+    User assigned identity.
+    """

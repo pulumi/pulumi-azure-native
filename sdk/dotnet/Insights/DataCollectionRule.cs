@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Insights
     /// <summary>
     /// Definition of ARM tracked top level resource.
     /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+    /// 
+    /// Other available API versions: 2023-03-11.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionRule")]
     public partial class DataCollectionRule : global::Pulumi.CustomResource
@@ -148,6 +150,7 @@ namespace Pulumi.AzureNative.Insights
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:DataCollectionRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230311:DataCollectionRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

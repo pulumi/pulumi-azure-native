@@ -45,6 +45,16 @@ export const getSqlManagedInstance: typeof import("./getSqlManagedInstance").get
 export const getSqlManagedInstanceOutput: typeof import("./getSqlManagedInstance").getSqlManagedInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlManagedInstance","getSqlManagedInstanceOutput"], () => require("./getSqlManagedInstance"));
 
+export { GetSqlServerAvailabilityGroupArgs, GetSqlServerAvailabilityGroupResult, GetSqlServerAvailabilityGroupOutputArgs } from "./getSqlServerAvailabilityGroup";
+export const getSqlServerAvailabilityGroup: typeof import("./getSqlServerAvailabilityGroup").getSqlServerAvailabilityGroup = null as any;
+export const getSqlServerAvailabilityGroupOutput: typeof import("./getSqlServerAvailabilityGroup").getSqlServerAvailabilityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerAvailabilityGroup","getSqlServerAvailabilityGroupOutput"], () => require("./getSqlServerAvailabilityGroup"));
+
+export { GetSqlServerAvailabilityGroupDetailViewArgs, GetSqlServerAvailabilityGroupDetailViewResult, GetSqlServerAvailabilityGroupDetailViewOutputArgs } from "./getSqlServerAvailabilityGroupDetailView";
+export const getSqlServerAvailabilityGroupDetailView: typeof import("./getSqlServerAvailabilityGroupDetailView").getSqlServerAvailabilityGroupDetailView = null as any;
+export const getSqlServerAvailabilityGroupDetailViewOutput: typeof import("./getSqlServerAvailabilityGroupDetailView").getSqlServerAvailabilityGroupDetailViewOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerAvailabilityGroupDetailView","getSqlServerAvailabilityGroupDetailViewOutput"], () => require("./getSqlServerAvailabilityGroupDetailView"));
+
 export { GetSqlServerDatabaseArgs, GetSqlServerDatabaseResult, GetSqlServerDatabaseOutputArgs } from "./getSqlServerDatabase";
 export const getSqlServerDatabase: typeof import("./getSqlServerDatabase").getSqlServerDatabase = null as any;
 export const getSqlServerDatabaseOutput: typeof import("./getSqlServerDatabase").getSqlServerDatabaseOutput = null as any;
@@ -55,6 +65,11 @@ export const getSqlServerInstance: typeof import("./getSqlServerInstance").getSq
 export const getSqlServerInstanceOutput: typeof import("./getSqlServerInstance").getSqlServerInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlServerInstance","getSqlServerInstanceOutput"], () => require("./getSqlServerInstance"));
 
+export { GetSqlServerInstanceTelemetryArgs, GetSqlServerInstanceTelemetryResult, GetSqlServerInstanceTelemetryOutputArgs } from "./getSqlServerInstanceTelemetry";
+export const getSqlServerInstanceTelemetry: typeof import("./getSqlServerInstanceTelemetry").getSqlServerInstanceTelemetry = null as any;
+export const getSqlServerInstanceTelemetryOutput: typeof import("./getSqlServerInstanceTelemetry").getSqlServerInstanceTelemetryOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerInstanceTelemetry","getSqlServerInstanceTelemetryOutput"], () => require("./getSqlServerInstanceTelemetry"));
+
 export { PostgresInstanceArgs } from "./postgresInstance";
 export type PostgresInstance = import("./postgresInstance").PostgresInstance;
 export const PostgresInstance: typeof import("./postgresInstance").PostgresInstance = null as any;
@@ -64,6 +79,11 @@ export { SqlManagedInstanceArgs } from "./sqlManagedInstance";
 export type SqlManagedInstance = import("./sqlManagedInstance").SqlManagedInstance;
 export const SqlManagedInstance: typeof import("./sqlManagedInstance").SqlManagedInstance = null as any;
 utilities.lazyLoad(exports, ["SqlManagedInstance"], () => require("./sqlManagedInstance"));
+
+export { SqlServerAvailabilityGroupArgs } from "./sqlServerAvailabilityGroup";
+export type SqlServerAvailabilityGroup = import("./sqlServerAvailabilityGroup").SqlServerAvailabilityGroup;
+export const SqlServerAvailabilityGroup: typeof import("./sqlServerAvailabilityGroup").SqlServerAvailabilityGroup = null as any;
+utilities.lazyLoad(exports, ["SqlServerAvailabilityGroup"], () => require("./sqlServerAvailabilityGroup"));
 
 export { SqlServerDatabaseArgs } from "./sqlServerDatabase";
 export type SqlServerDatabase = import("./sqlServerDatabase").SqlServerDatabase;
@@ -81,9 +101,11 @@ export * from "../types/enums/azurearcdata";
 
 // Export sub-modules:
 import * as v20230115preview from "./v20230115preview";
+import * as v20240101 from "./v20240101";
 
 export {
     v20230115preview,
+    v20240101,
 };
 
 const _module = {
@@ -100,6 +122,8 @@ const _module = {
                 return new PostgresInstance(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlManagedInstance":
                 return new SqlManagedInstance(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlServerAvailabilityGroup":
+                return new SqlServerAvailabilityGroup(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerDatabase":
                 return new SqlServerDatabase(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerInstance":

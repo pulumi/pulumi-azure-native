@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves a failover group resource
         /// Azure REST API version: 2023-01-15-preview.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Task<GetFailoverGroupResult> InvokeAsync(GetFailoverGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFailoverGroupResult>("azure-native:azurearcdata:getFailoverGroup", args ?? new GetFailoverGroupArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves a failover group resource
         /// Azure REST API version: 2023-01-15-preview.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure-native:azurearcdata:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());

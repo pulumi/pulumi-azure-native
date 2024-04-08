@@ -84,7 +84,7 @@ export class DevOpsConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security:DevOpsConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:DevOpsConfiguration" }, { type: "azure-native:security/v20240401:DevOpsConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevOpsConfiguration.__pulumiType, name, resourceInputs, opts);
     }

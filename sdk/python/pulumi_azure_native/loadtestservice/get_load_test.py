@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetLoadTestResult:
     """
-    LoadTest details
+    LoadTest details.
     """
     def __init__(__self__, data_plane_uri=None, description=None, encryption=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if data_plane_uri and not isinstance(data_plane_uri, str):
@@ -85,7 +85,7 @@ class GetLoadTestResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -93,7 +93,7 @@ class GetLoadTestResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        The type of identity used for the resource.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -169,13 +169,13 @@ def get_load_test(load_test_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadTestResult:
     """
-    Get a LoadTest resource.
+    Get a LoadTestResource
     Azure REST API version: 2022-12-01.
 
     Other available API versions: 2021-12-01-preview.
 
 
-    :param str load_test_name: Load Test name.
+    :param str load_test_name: Load Test name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -203,13 +203,13 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadTestResult]:
     """
-    Get a LoadTest resource.
+    Get a LoadTestResource
     Azure REST API version: 2022-12-01.
 
     Other available API versions: 2021-12-01-preview.
 
 
-    :param str load_test_name: Load Test name.
+    :param str load_test_name: Load Test name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

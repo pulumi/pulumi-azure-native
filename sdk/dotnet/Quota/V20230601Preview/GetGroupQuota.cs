@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Quota.V20230601Preview
     public static class GetGroupQuota
     {
         /// <summary>
-        /// Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on groupQuota can be access from the groupQuota APIs.
+        /// Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
         /// </summary>
         public static Task<GetGroupQuotaResult> InvokeAsync(GetGroupQuotaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupQuotaResult>("azure-native:quota/v20230601preview:getGroupQuota", args ?? new GetGroupQuotaArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on groupQuota can be access from the groupQuota APIs.
+        /// Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
         /// </summary>
         public static Output<GetGroupQuotaResult> Invoke(GetGroupQuotaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaResult>("azure-native:quota/v20230601preview:getGroupQuota", args ?? new GetGroupQuotaInvokeArgs(), options.WithDefaults());
@@ -36,8 +36,8 @@ namespace Pulumi.AzureNative.Quota.V20230601Preview
         /// <summary>
         /// Management Group Id.
         /// </summary>
-        [Input("mgId", required: true)]
-        public string MgId { get; set; } = null!;
+        [Input("managementGroupId", required: true)]
+        public string ManagementGroupId { get; set; } = null!;
 
         public GetGroupQuotaArgs()
         {
@@ -56,8 +56,8 @@ namespace Pulumi.AzureNative.Quota.V20230601Preview
         /// <summary>
         /// Management Group Id.
         /// </summary>
-        [Input("mgId", required: true)]
-        public Input<string> MgId { get; set; } = null!;
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
 
         public GetGroupQuotaInvokeArgs()
         {

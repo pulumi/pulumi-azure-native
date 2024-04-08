@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.Quota.V20230601Preview
 {
     /// <summary>
-    /// GroupingId type. It is a required property. More types of groupIds can be supported in future. MGID is already in the URI, so it's not needed.'
+    /// GroupingId type. It is a required property. More types of groupIds can be supported in future.
     /// </summary>
     [EnumType]
     public readonly struct GroupingIdType : IEquatable<GroupingIdType>

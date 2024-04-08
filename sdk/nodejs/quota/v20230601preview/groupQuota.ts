@@ -65,11 +65,11 @@ export class GroupQuota extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mgId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'mgId'");
+            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'managementGroupId'");
             }
             resourceInputs["groupQuotaName"] = args ? args.groupQuotaName : undefined;
-            resourceInputs["mgId"] = args ? args.mgId : undefined;
+            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -98,7 +98,7 @@ export interface GroupQuotaArgs {
     /**
      * Management Group Id.
      */
-    mgId: pulumi.Input<string>;
+    managementGroupId: pulumi.Input<string>;
     /**
      * Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
      */

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Quota.V20230601Preview
 {
     /// <summary>
-    /// This represents a Azure subscriptionId that is associated with a GroupQuotaSEntity.
+    /// This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
     /// </summary>
     [AzureNativeResourceType("azure-native:quota/v20230601preview:GroupQuotaSubscription")]
     public partial class GroupQuotaSubscription : global::Pulumi.CustomResource
@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.Quota.V20230601Preview
         /// <summary>
         /// Management Group Id.
         /// </summary>
-        [Input("mgId", required: true)]
-        public Input<string> MgId { get; set; } = null!;
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
 
         public GroupQuotaSubscriptionArgs()
         {

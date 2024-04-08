@@ -1281,6 +1281,13 @@
     "Property": "collationName"
   },
   {
+    "Module": "azurearcdata/v20240101",
+    "Provider": "AzureArcData",
+    "ResourceName": "SqlServerDatabase",
+    "ReferenceName": "SqlServerDatabaseResourceProperties",
+    "Property": "collationName"
+  },
+  {
     "Module": "azuredatatransfer",
     "Provider": "AzureDataTransfer",
     "ResourceName": "Flow",
@@ -35785,6 +35792,62 @@
   },
   {
     "Module": "netapp/v20230701",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeGroupVolumeProperties",
+    "Property": "zones"
+  },
+  {
+    "Module": "netapp/v20230701preview",
+    "Provider": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "Module": "netapp/v20230701preview",
+    "Provider": "NetApp",
+    "ResourceName": "Volume",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "Module": "netapp/v20230701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "backupId"
+  },
+  {
+    "Module": "netapp/v20230701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "remotePath",
+    "Property": "remotePath"
+  },
+  {
+    "Module": "netapp/v20230701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "replicationObject",
+    "Property": "remoteVolumeResourceId"
+  },
+  {
+    "Module": "netapp/v20230701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "kerberosEnabled"
+  },
+  {
+    "Module": "netapp/v20230701preview",
+    "Provider": "NetApp",
+    "ResourceName": "VolumeGroup",
+    "ReferenceName": "volumeProperties",
+    "Property": "snapshotId"
+  },
+  {
+    "Module": "netapp/v20230701preview",
     "Provider": "NetApp",
     "ResourceName": "VolumeGroup",
     "ReferenceName": "volumeGroupVolumeProperties",

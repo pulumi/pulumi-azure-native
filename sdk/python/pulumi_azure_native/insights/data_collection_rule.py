@@ -237,6 +237,8 @@ class DataCollectionRule(pulumi.CustomResource):
         Definition of ARM tracked top level resource.
         Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
 
+        Other available API versions: 2023-03-11.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the data collection endpoint that this rule can be used with.
@@ -262,6 +264,8 @@ class DataCollectionRule(pulumi.CustomResource):
         """
         Definition of ARM tracked top level resource.
         Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+
+        Other available API versions: 2023-03-11.
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleArgs args: The arguments to use to populate this resource's properties.
@@ -320,7 +324,7 @@ class DataCollectionRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20191101preview:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20210401:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20210901preview:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20220601:DataCollectionRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20191101preview:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20210401:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20210901preview:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20220601:DataCollectionRule"), pulumi.Alias(type_="azure-native:insights/v20230311:DataCollectionRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataCollectionRule, __self__).__init__(
             'azure-native:insights:DataCollectionRule',

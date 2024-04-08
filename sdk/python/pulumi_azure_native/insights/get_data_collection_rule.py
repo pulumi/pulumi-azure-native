@@ -257,6 +257,8 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
     Definition of ARM tracked top level resource.
     Azure REST API version: 2022-06-01.
 
+    Other available API versions: 2023-03-11.
+
 
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -295,6 +297,8 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
     """
     Definition of ARM tracked top level resource.
     Azure REST API version: 2022-06-01.
+
+    Other available API versions: 2023-03-11.
 
 
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.

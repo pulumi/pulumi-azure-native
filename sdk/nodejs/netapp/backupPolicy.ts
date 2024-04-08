@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Backup policy information
  * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01.
+ * Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview.
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**
@@ -148,7 +148,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             resourceInputs["weeklyBackupsToKeep"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-native:netapp/v20201101:BackupPolicy" }, { type: "azure-native:netapp/v20201201:BackupPolicy" }, { type: "azure-native:netapp/v20210201:BackupPolicy" }, { type: "azure-native:netapp/v20210401:BackupPolicy" }, { type: "azure-native:netapp/v20210401preview:BackupPolicy" }, { type: "azure-native:netapp/v20210601:BackupPolicy" }, { type: "azure-native:netapp/v20210801:BackupPolicy" }, { type: "azure-native:netapp/v20211001:BackupPolicy" }, { type: "azure-native:netapp/v20220101:BackupPolicy" }, { type: "azure-native:netapp/v20220301:BackupPolicy" }, { type: "azure-native:netapp/v20220501:BackupPolicy" }, { type: "azure-native:netapp/v20220901:BackupPolicy" }, { type: "azure-native:netapp/v20221101:BackupPolicy" }, { type: "azure-native:netapp/v20221101preview:BackupPolicy" }, { type: "azure-native:netapp/v20230501:BackupPolicy" }, { type: "azure-native:netapp/v20230501preview:BackupPolicy" }, { type: "azure-native:netapp/v20230701:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-native:netapp/v20201101:BackupPolicy" }, { type: "azure-native:netapp/v20201201:BackupPolicy" }, { type: "azure-native:netapp/v20210201:BackupPolicy" }, { type: "azure-native:netapp/v20210401:BackupPolicy" }, { type: "azure-native:netapp/v20210401preview:BackupPolicy" }, { type: "azure-native:netapp/v20210601:BackupPolicy" }, { type: "azure-native:netapp/v20210801:BackupPolicy" }, { type: "azure-native:netapp/v20211001:BackupPolicy" }, { type: "azure-native:netapp/v20220101:BackupPolicy" }, { type: "azure-native:netapp/v20220301:BackupPolicy" }, { type: "azure-native:netapp/v20220501:BackupPolicy" }, { type: "azure-native:netapp/v20220901:BackupPolicy" }, { type: "azure-native:netapp/v20221101:BackupPolicy" }, { type: "azure-native:netapp/v20221101preview:BackupPolicy" }, { type: "azure-native:netapp/v20230501:BackupPolicy" }, { type: "azure-native:netapp/v20230501preview:BackupPolicy" }, { type: "azure-native:netapp/v20230701:BackupPolicy" }, { type: "azure-native:netapp/v20230701preview:BackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupPolicy.__pulumiType, name, resourceInputs, opts);
     }

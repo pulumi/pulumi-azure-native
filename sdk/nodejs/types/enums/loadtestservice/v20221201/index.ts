@@ -15,11 +15,17 @@ export const ManagedServiceIdentityType = {
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const Type = {
+    /**
+     * System assigned identity.
+     */
     SystemAssigned: "SystemAssigned",
+    /**
+     * User assigned identity.
+     */
     UserAssigned: "UserAssigned",
 } as const;
 
 /**
- * Managed identity type to use for accessing encryption key Url
+ * Managed identity type to use for accessing encryption key Url.
  */
 export type Type = (typeof Type)[keyof typeof Type];

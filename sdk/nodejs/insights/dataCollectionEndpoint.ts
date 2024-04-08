@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of ARM tracked top level resource.
  * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-09-01-preview.
+ *
+ * Other available API versions: 2023-03-11.
  */
 export class DataCollectionEndpoint extends pulumi.CustomResource {
     /**
@@ -166,7 +168,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210401:DataCollectionEndpoint" }, { type: "azure-native:insights/v20210901preview:DataCollectionEndpoint" }, { type: "azure-native:insights/v20220601:DataCollectionEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210401:DataCollectionEndpoint" }, { type: "azure-native:insights/v20210901preview:DataCollectionEndpoint" }, { type: "azure-native:insights/v20220601:DataCollectionEndpoint" }, { type: "azure-native:insights/v20230311:DataCollectionEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataCollectionEndpoint.__pulumiType, name, resourceInputs, opts);
     }

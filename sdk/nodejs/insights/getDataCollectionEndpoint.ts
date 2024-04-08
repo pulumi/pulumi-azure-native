@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of ARM tracked top level resource.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2023-03-11.
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
 
@@ -115,6 +117,8 @@ export interface GetDataCollectionEndpointResult {
 /**
  * Definition of ARM tracked top level resource.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2023-03-11.
  */
 export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionEndpoint(a, opts))

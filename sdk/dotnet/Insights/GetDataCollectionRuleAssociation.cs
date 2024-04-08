@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Definition of generic ARM proxy resource.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2023-03-11.
         /// </summary>
         public static Task<GetDataCollectionRuleAssociationResult> InvokeAsync(GetDataCollectionRuleAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Definition of generic ARM proxy resource.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2023-03-11.
         /// </summary>
         public static Output<GetDataCollectionRuleAssociationResult> Invoke(GetDataCollectionRuleAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationInvokeArgs(), options.WithDefaults());

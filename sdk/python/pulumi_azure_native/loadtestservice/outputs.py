@@ -12,17 +12,69 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'EncryptionPropertiesIdentityResponse',
     'EncryptionPropertiesResponse',
-    'EncryptionPropertiesResponseIdentity',
     'ManagedServiceIdentityResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
+class EncryptionPropertiesIdentityResponse(dict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertiesIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertiesIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param str resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        :param str type: Managed identity type to use for accessing encryption key Url.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Managed identity type to use for accessing encryption key Url.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class EncryptionPropertiesResponse(dict):
     """
-    Key and identity details for Customer Managed Key encryption of load test resource
+    Key and identity details for Customer Managed Key encryption of load test resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -42,11 +94,11 @@ class EncryptionPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 identity: Optional['outputs.EncryptionPropertiesResponseIdentity'] = None,
+                 identity: Optional['outputs.EncryptionPropertiesIdentityResponse'] = None,
                  key_url: Optional[str] = None):
         """
-        Key and identity details for Customer Managed Key encryption of load test resource
-        :param 'EncryptionPropertiesResponseIdentity' identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        Key and identity details for Customer Managed Key encryption of load test resource.
+        :param 'EncryptionPropertiesIdentityResponse' identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         :param str key_url: key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
         if identity is not None:
@@ -56,7 +108,7 @@ class EncryptionPropertiesResponse(dict):
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.EncryptionPropertiesResponseIdentity']:
+    def identity(self) -> Optional['outputs.EncryptionPropertiesIdentityResponse']:
         """
         All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         """
@@ -69,58 +121,6 @@ class EncryptionPropertiesResponse(dict):
         key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         """
         return pulumi.get(self, "key_url")
-
-
-@pulumi.output_type
-class EncryptionPropertiesResponseIdentity(dict):
-    """
-    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceId":
-            suggest = "resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesResponseIdentity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EncryptionPropertiesResponseIdentity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EncryptionPropertiesResponseIdentity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resource_id: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
-        :param str resource_id: user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
-        :param str type: Managed identity type to use for accessing encryption key Url
-        """
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
-        """
-        user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
-        """
-        return pulumi.get(self, "resource_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Managed identity type to use for accessing encryption key Url
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

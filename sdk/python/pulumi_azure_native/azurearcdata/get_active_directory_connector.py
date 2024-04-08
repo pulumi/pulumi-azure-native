@@ -101,6 +101,8 @@ def get_active_directory_connector(active_directory_connector_name: Optional[str
     Retrieves an Active Directory connector resource
     Azure REST API version: 2023-01-15-preview.
 
+    Other available API versions: 2024-01-01.
+
 
     :param str active_directory_connector_name: The name of the Active Directory connector instance
     :param str data_controller_name: The name of the data controller
@@ -129,6 +131,8 @@ def get_active_directory_connector_output(active_directory_connector_name: Optio
     """
     Retrieves an Active Directory connector resource
     Azure REST API version: 2023-01-15-preview.
+
+    Other available API versions: 2024-01-01.
 
 
     :param str active_directory_connector_name: The name of the Active Directory connector instance

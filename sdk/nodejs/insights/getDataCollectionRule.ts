@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of ARM tracked top level resource.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2023-03-11.
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
 
@@ -112,6 +114,8 @@ export interface GetDataCollectionRuleResult {
 /**
  * Definition of ARM tracked top level resource.
  * Azure REST API version: 2022-06-01.
+ *
+ * Other available API versions: 2023-03-11.
  */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))

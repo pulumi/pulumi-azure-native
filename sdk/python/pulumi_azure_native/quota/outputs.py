@@ -22,7 +22,7 @@ __all__ = [
 @pulumi.output_type
 class AdditionalAttributesResponse(dict):
     """
-    Additional attribute to allow subscriptions to be part of the GroupQuota.
+    Additional attribute or filter to allow subscriptions meeting the requirements to be part of the GroupQuota.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -45,8 +45,8 @@ class AdditionalAttributesResponse(dict):
                  group_id: 'outputs.GroupingIdResponse',
                  environment: Optional[Any] = None):
         """
-        Additional attribute to allow subscriptions to be part of the GroupQuota.
-        :param 'GroupingIdResponse' group_id: The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
+        Additional attribute or filter to allow subscriptions meeting the requirements to be part of the GroupQuota.
+        :param 'GroupingIdResponse' group_id: The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
         """
         pulumi.set(__self__, "group_id", group_id)
         if environment is not None:
@@ -56,7 +56,7 @@ class AdditionalAttributesResponse(dict):
     @pulumi.getter(name="groupId")
     def group_id(self) -> 'outputs.GroupingIdResponse':
         """
-        The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
+        The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
         """
         return pulumi.get(self, "group_id")
 
@@ -147,7 +147,7 @@ class GroupQuotasEntityBaseResponse(dict):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
         :param str provisioning_state: Provisioning state of the operation.
-        :param 'AdditionalAttributesResponse' additional_attributes: Additional attributes to allow subscription, which can be added to the subscriptionIds.
+        :param 'AdditionalAttributesResponse' additional_attributes: Additional attributes to filter/restrict the subscriptions, which can be added to the subscriptionIds.
         :param str display_name: Display name of the GroupQuota entity.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -168,7 +168,7 @@ class GroupQuotasEntityBaseResponse(dict):
     @pulumi.getter(name="additionalAttributes")
     def additional_attributes(self) -> Optional['outputs.AdditionalAttributesResponse']:
         """
-        Additional attributes to allow subscription, which can be added to the subscriptionIds.
+        Additional attributes to filter/restrict the subscriptions, which can be added to the subscriptionIds.
         """
         return pulumi.get(self, "additional_attributes")
 
@@ -184,7 +184,7 @@ class GroupQuotasEntityBaseResponse(dict):
 @pulumi.output_type
 class GroupingIdResponse(dict):
     """
-    The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
+    The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
     """
     @staticmethod
     def __key_warning(key: str):
@@ -207,9 +207,9 @@ class GroupingIdResponse(dict):
                  grouping_id_type: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
-        :param str grouping_id_type: GroupingId type. It is a required property. More types of groupIds can be supported in future. MGID is already in the URI, so it's not needed.'
-        :param str value: GroupId value based on the groupingType selected - management Group Id or ServiceTreeId.
+        The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
+        :param str grouping_id_type: GroupingId type. It is a required property. More types of groupIds can be supported in future.
+        :param str value: GroupId value based on the groupingType selected - Billing Id or ServiceTreeId.
         """
         if grouping_id_type is not None:
             pulumi.set(__self__, "grouping_id_type", grouping_id_type)
@@ -220,7 +220,7 @@ class GroupingIdResponse(dict):
     @pulumi.getter(name="groupingIdType")
     def grouping_id_type(self) -> Optional[str]:
         """
-        GroupingId type. It is a required property. More types of groupIds can be supported in future. MGID is already in the URI, so it's not needed.'
+        GroupingId type. It is a required property. More types of groupIds can be supported in future.
         """
         return pulumi.get(self, "grouping_id_type")
 
@@ -228,7 +228,7 @@ class GroupingIdResponse(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        GroupId value based on the groupingType selected - management Group Id or ServiceTreeId.
+        GroupId value based on the groupingType selected - Billing Id or ServiceTreeId.
         """
         return pulumi.get(self, "value")
 

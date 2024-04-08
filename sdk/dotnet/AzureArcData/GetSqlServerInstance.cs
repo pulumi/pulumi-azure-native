@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves a SQL Server Instance resource
         /// Azure REST API version: 2023-01-15-preview.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Task<GetSqlServerInstanceResult> InvokeAsync(GetSqlServerInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves a SQL Server Instance resource
         /// Azure REST API version: 2023-01-15-preview.
+        /// 
+        /// Other available API versions: 2024-01-01.
         /// </summary>
         public static Output<GetSqlServerInstanceResult> Invoke(GetSqlServerInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());

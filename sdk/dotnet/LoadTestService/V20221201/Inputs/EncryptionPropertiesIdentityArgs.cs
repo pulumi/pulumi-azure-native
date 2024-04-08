@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201.Inputs
     public sealed class EncryptionPropertiesIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// user assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/&lt;resource group&gt;/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId
+        /// User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/&lt;resource group&gt;/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// Managed identity type to use for accessing encryption key Url
+        /// Managed identity type to use for accessing encryption key Url.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.AzureNative.LoadTestService.V20221201.Type>? Type { get; set; }

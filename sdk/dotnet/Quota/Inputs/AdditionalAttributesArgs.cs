@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Quota.Inputs
 {
 
     /// <summary>
-    /// Additional attribute to allow subscriptions to be part of the GroupQuota.
+    /// Additional attribute or filter to allow subscriptions meeting the requirements to be part of the GroupQuota.
     /// </summary>
     public sealed class AdditionalAttributesArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Quota.Inputs
         public Input<object>? Environment { get; set; }
 
         /// <summary>
-        /// The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
+        /// The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
         /// </summary>
         [Input("groupId", required: true)]
         public Input<Inputs.GroupingIdArgs> GroupId { get; set; } = null!;

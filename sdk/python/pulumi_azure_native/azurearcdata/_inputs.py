@@ -19,6 +19,8 @@ __all__ = [
     'ActiveDirectoryDomainControllersArgs',
     'ActiveDirectoryDomainControllerArgs',
     'ActiveDirectoryInformationArgs',
+    'AvailabilityGroupConfigureArgs',
+    'AvailabilityGroupInfoArgs',
     'BasicLoginInformationArgs',
     'DataControllerPropertiesArgs',
     'ExtendedLocationArgs',
@@ -38,10 +40,15 @@ __all__ = [
     'OnPremisePropertyArgs',
     'PostgresInstancePropertiesArgs',
     'PostgresInstanceSkuArgs',
+    'SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs',
+    'SqlAvailabilityGroupReplicaResourcePropertiesArgs',
     'SqlManagedInstanceK8sRawArgs',
     'SqlManagedInstanceK8sSpecArgs',
     'SqlManagedInstancePropertiesArgs',
     'SqlManagedInstanceSkuArgs',
+    'SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs',
+    'SqlServerAvailabilityGroupResourcePropertiesReplicasArgs',
+    'SqlServerAvailabilityGroupResourcePropertiesArgs',
     'SqlServerDatabaseResourcePropertiesBackupInformationArgs',
     'SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs',
     'SqlServerDatabaseResourcePropertiesArgs',
@@ -448,6 +455,230 @@ class ActiveDirectoryInformationArgs:
     @keytab_information.setter
     def keytab_information(self, value: Optional[pulumi.Input['KeytabInformationArgs']]):
         pulumi.set(self, "keytab_information", value)
+
+
+@pulumi.input_type
+class AvailabilityGroupConfigureArgs:
+    def __init__(__self__, *,
+                 backup_priority: Optional[pulumi.Input[int]] = None,
+                 endpoint_url: Optional[pulumi.Input[str]] = None,
+                 read_only_routing_url: Optional[pulumi.Input[str]] = None,
+                 read_write_routing_url: Optional[pulumi.Input[str]] = None,
+                 session_timeout: Optional[pulumi.Input[int]] = None):
+        """
+        The specifications of the availability group replica configuration
+        :param pulumi.Input[int] backup_priority: Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
+        :param pulumi.Input[str] endpoint_url: Mirroring endpoint URL of availability group replica
+        :param pulumi.Input[str] read_only_routing_url: Connectivity endpoint (URL) of the read only availability replica.
+        :param pulumi.Input[str] read_write_routing_url: Connectivity endpoint (URL) of the read write availability replica.
+        :param pulumi.Input[int] session_timeout: The time-out period of availability group session replica, in seconds.
+        """
+        if backup_priority is not None:
+            pulumi.set(__self__, "backup_priority", backup_priority)
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if read_only_routing_url is not None:
+            pulumi.set(__self__, "read_only_routing_url", read_only_routing_url)
+        if read_write_routing_url is not None:
+            pulumi.set(__self__, "read_write_routing_url", read_write_routing_url)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+
+    @property
+    @pulumi.getter(name="backupPriority")
+    def backup_priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
+        """
+        return pulumi.get(self, "backup_priority")
+
+    @backup_priority.setter
+    def backup_priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_priority", value)
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mirroring endpoint URL of availability group replica
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @endpoint_url.setter
+    def endpoint_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_url", value)
+
+    @property
+    @pulumi.getter(name="readOnlyRoutingUrl")
+    def read_only_routing_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connectivity endpoint (URL) of the read only availability replica.
+        """
+        return pulumi.get(self, "read_only_routing_url")
+
+    @read_only_routing_url.setter
+    def read_only_routing_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "read_only_routing_url", value)
+
+    @property
+    @pulumi.getter(name="readWriteRoutingUrl")
+    def read_write_routing_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connectivity endpoint (URL) of the read write availability replica.
+        """
+        return pulumi.get(self, "read_write_routing_url")
+
+    @read_write_routing_url.setter
+    def read_write_routing_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "read_write_routing_url", value)
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time-out period of availability group session replica, in seconds.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @session_timeout.setter
+    def session_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "session_timeout", value)
+
+
+@pulumi.input_type
+class AvailabilityGroupInfoArgs:
+    def __init__(__self__, *,
+                 basic_features: Optional[pulumi.Input[bool]] = None,
+                 db_failover: Optional[pulumi.Input[bool]] = None,
+                 dtc_support: Optional[pulumi.Input[bool]] = None,
+                 failure_condition_level: Optional[pulumi.Input[int]] = None,
+                 health_check_timeout: Optional[pulumi.Input[int]] = None,
+                 is_contained: Optional[pulumi.Input[bool]] = None,
+                 is_distributed: Optional[pulumi.Input[bool]] = None,
+                 required_synchronized_secondaries_to_commit: Optional[pulumi.Input[int]] = None):
+        """
+        The specifications of the availability group state
+        :param pulumi.Input[bool] basic_features: Specifies whether this is a basic availability group.
+        :param pulumi.Input[bool] db_failover: Specifies whether the availability group supports failover for database health conditions.
+        :param pulumi.Input[bool] dtc_support: Specifies whether DTC support has been enabled for this availability group.
+        :param pulumi.Input[int] failure_condition_level: User-defined failure condition level under which an automatic failover must be triggered.
+        :param pulumi.Input[int] health_check_timeout: Wait time (in milliseconds) for the sp_server_diagnostics system stored procedure to return server-health information, before the server instance is assumed to be slow or not responding.
+        :param pulumi.Input[bool] is_contained: SQL Server availability group contained system databases.
+        :param pulumi.Input[bool] is_distributed: Specifies whether this is a distributed availability group.
+        :param pulumi.Input[int] required_synchronized_secondaries_to_commit: The number of secondary replicas that must be in a synchronized state for a commit to complete.
+        """
+        if basic_features is not None:
+            pulumi.set(__self__, "basic_features", basic_features)
+        if db_failover is not None:
+            pulumi.set(__self__, "db_failover", db_failover)
+        if dtc_support is not None:
+            pulumi.set(__self__, "dtc_support", dtc_support)
+        if failure_condition_level is not None:
+            pulumi.set(__self__, "failure_condition_level", failure_condition_level)
+        if health_check_timeout is not None:
+            pulumi.set(__self__, "health_check_timeout", health_check_timeout)
+        if is_contained is not None:
+            pulumi.set(__self__, "is_contained", is_contained)
+        if is_distributed is not None:
+            pulumi.set(__self__, "is_distributed", is_distributed)
+        if required_synchronized_secondaries_to_commit is not None:
+            pulumi.set(__self__, "required_synchronized_secondaries_to_commit", required_synchronized_secondaries_to_commit)
+
+    @property
+    @pulumi.getter(name="basicFeatures")
+    def basic_features(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this is a basic availability group.
+        """
+        return pulumi.get(self, "basic_features")
+
+    @basic_features.setter
+    def basic_features(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "basic_features", value)
+
+    @property
+    @pulumi.getter(name="dbFailover")
+    def db_failover(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the availability group supports failover for database health conditions.
+        """
+        return pulumi.get(self, "db_failover")
+
+    @db_failover.setter
+    def db_failover(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "db_failover", value)
+
+    @property
+    @pulumi.getter(name="dtcSupport")
+    def dtc_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether DTC support has been enabled for this availability group.
+        """
+        return pulumi.get(self, "dtc_support")
+
+    @dtc_support.setter
+    def dtc_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dtc_support", value)
+
+    @property
+    @pulumi.getter(name="failureConditionLevel")
+    def failure_condition_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        User-defined failure condition level under which an automatic failover must be triggered.
+        """
+        return pulumi.get(self, "failure_condition_level")
+
+    @failure_condition_level.setter
+    def failure_condition_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_condition_level", value)
+
+    @property
+    @pulumi.getter(name="healthCheckTimeout")
+    def health_check_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Wait time (in milliseconds) for the sp_server_diagnostics system stored procedure to return server-health information, before the server instance is assumed to be slow or not responding.
+        """
+        return pulumi.get(self, "health_check_timeout")
+
+    @health_check_timeout.setter
+    def health_check_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "health_check_timeout", value)
+
+    @property
+    @pulumi.getter(name="isContained")
+    def is_contained(self) -> Optional[pulumi.Input[bool]]:
+        """
+        SQL Server availability group contained system databases.
+        """
+        return pulumi.get(self, "is_contained")
+
+    @is_contained.setter
+    def is_contained(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_contained", value)
+
+    @property
+    @pulumi.getter(name="isDistributed")
+    def is_distributed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this is a distributed availability group.
+        """
+        return pulumi.get(self, "is_distributed")
+
+    @is_distributed.setter
+    def is_distributed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_distributed", value)
+
+    @property
+    @pulumi.getter(name="requiredSynchronizedSecondariesToCommit")
+    def required_synchronized_secondaries_to_commit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of secondary replicas that must be in a synchronized state for a commit to complete.
+        """
+        return pulumi.get(self, "required_synchronized_secondaries_to_commit")
+
+    @required_synchronized_secondaries_to_commit.setter
+    def required_synchronized_secondaries_to_commit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "required_synchronized_secondaries_to_commit", value)
 
 
 @pulumi.input_type
@@ -1610,6 +1841,70 @@ class PostgresInstanceSkuArgs:
 
 
 @pulumi.input_type
+class SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 database_name: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of Arc Sql availability group database replica resource
+        :param pulumi.Input[str] database_name: the database name.
+        """
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the database name.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+
+@pulumi.input_type
+class SqlAvailabilityGroupReplicaResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 configure: Optional[pulumi.Input['AvailabilityGroupConfigureArgs']] = None,
+                 replica_name: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of Arc Sql availability group replica resource
+        :param pulumi.Input['AvailabilityGroupConfigureArgs'] configure: null
+        :param pulumi.Input[str] replica_name: the replica name.
+        """
+        if configure is not None:
+            pulumi.set(__self__, "configure", configure)
+        if replica_name is not None:
+            pulumi.set(__self__, "replica_name", replica_name)
+
+    @property
+    @pulumi.getter
+    def configure(self) -> Optional[pulumi.Input['AvailabilityGroupConfigureArgs']]:
+        """
+        null
+        """
+        return pulumi.get(self, "configure")
+
+    @configure.setter
+    def configure(self, value: Optional[pulumi.Input['AvailabilityGroupConfigureArgs']]):
+        pulumi.set(self, "configure", value)
+
+    @property
+    @pulumi.getter(name="replicaName")
+    def replica_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the replica name.
+        """
+        return pulumi.get(self, "replica_name")
+
+    @replica_name.setter
+    def replica_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replica_name", value)
+
+
+@pulumi.input_type
 class SqlManagedInstanceK8sRawArgs:
     def __init__(__self__, *,
                  spec: Optional[pulumi.Input['SqlManagedInstanceK8sSpecArgs']] = None):
@@ -1996,6 +2291,110 @@ class SqlManagedInstanceSkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input['SqlManagedInstanceSkuTier']]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs']]]] = None):
+        """
+        A list of Availability Group Database Replicas.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs']]] value: Array of Availability Group Database Replicas.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs']]]]:
+        """
+        Array of Availability Group Database Replicas.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgs']]]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SqlServerAvailabilityGroupResourcePropertiesReplicasArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupReplicaResourcePropertiesArgs']]]] = None):
+        """
+        A list of Availability Group Replicas.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupReplicaResourcePropertiesArgs']]] value: Array of Availability Group Replicas.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupReplicaResourcePropertiesArgs']]]]:
+        """
+        Array of Availability Group Replicas.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupReplicaResourcePropertiesArgs']]]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SqlServerAvailabilityGroupResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 databases: Optional[pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs']] = None,
+                 info: Optional[pulumi.Input['AvailabilityGroupInfoArgs']] = None,
+                 replicas: Optional[pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesReplicasArgs']] = None):
+        """
+        The properties of Arc Sql Server availability group resource
+        :param pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs'] databases: A list of Availability Group Database Replicas.
+        :param pulumi.Input['AvailabilityGroupInfoArgs'] info: Availability Group Info
+        :param pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesReplicasArgs'] replicas: A list of Availability Group Replicas.
+        """
+        if databases is not None:
+            pulumi.set(__self__, "databases", databases)
+        if info is not None:
+            pulumi.set(__self__, "info", info)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Optional[pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs']]:
+        """
+        A list of Availability Group Database Replicas.
+        """
+        return pulumi.get(self, "databases")
+
+    @databases.setter
+    def databases(self, value: Optional[pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesDatabasesArgs']]):
+        pulumi.set(self, "databases", value)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Optional[pulumi.Input['AvailabilityGroupInfoArgs']]:
+        """
+        Availability Group Info
+        """
+        return pulumi.get(self, "info")
+
+    @info.setter
+    def info(self, value: Optional[pulumi.Input['AvailabilityGroupInfoArgs']]):
+        pulumi.set(self, "info", value)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesReplicasArgs']]:
+        """
+        A list of Availability Group Replicas.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesReplicasArgs']]):
+        pulumi.set(self, "replicas", value)
 
 
 @pulumi.input_type

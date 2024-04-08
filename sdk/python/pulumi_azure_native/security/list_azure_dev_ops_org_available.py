@@ -64,6 +64,8 @@ def list_azure_dev_ops_org_available(resource_group_name: Optional[str] = None,
     List of RP resources which supports pagination.
     Azure REST API version: 2023-09-01-preview.
 
+    Other available API versions: 2024-04-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str security_connector_name: The security connector name.
@@ -86,6 +88,8 @@ def list_azure_dev_ops_org_available_output(resource_group_name: Optional[pulumi
     """
     List of RP resources which supports pagination.
     Azure REST API version: 2023-09-01-preview.
+
+    Other available API versions: 2024-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

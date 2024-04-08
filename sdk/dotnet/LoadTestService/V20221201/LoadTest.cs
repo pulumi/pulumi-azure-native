@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LoadTestService.V20221201
 {
     /// <summary>
-    /// LoadTest details
+    /// LoadTest details.
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice/v20221201:LoadTest")]
     public partial class LoadTest : global::Pulumi.CustomResource
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201
         public Output<Outputs.EncryptionPropertiesResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// The type of identity used for the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -139,13 +139,13 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201
         public Input<Inputs.EncryptionPropertiesArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// The type of identity used for the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Load Test name.
+        /// Load Test name
         /// </summary>
         [Input("loadTestName")]
         public Input<string>? LoadTestName { get; set; }

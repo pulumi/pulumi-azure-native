@@ -108,7 +108,7 @@ export class PostgresInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:PostgresInstance" }, { type: "azure-native:azurearcdata/v20210601preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20210701preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20220301preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20220615preview:PostgresInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:PostgresInstance" }, { type: "azure-native:azurearcdata/v20210601preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20210701preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20220301preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20220615preview:PostgresInstance" }, { type: "azure-native:azurearcdata/v20240101:PostgresInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PostgresInstance.__pulumiType, name, resourceInputs, opts);
     }

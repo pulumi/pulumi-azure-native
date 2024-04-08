@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieves a failover group resource
  * Azure REST API version: 2023-01-15-preview.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export function getFailoverGroup(args: GetFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFailoverGroupResult> {
 
@@ -64,6 +66,8 @@ export interface GetFailoverGroupResult {
 /**
  * Retrieves a failover group resource
  * Azure REST API version: 2023-01-15-preview.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupResult> {
     return pulumi.output(args).apply((a: any) => getFailoverGroup(a, opts))

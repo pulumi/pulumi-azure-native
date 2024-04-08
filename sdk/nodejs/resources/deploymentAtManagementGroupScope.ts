@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Deployment information.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2024-03-01.
  */
 export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
     /**
@@ -93,7 +93,7 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190501:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190510:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190701:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190801:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20191001:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20200601:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20200801:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20201001:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20210101:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20210401:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20220901:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20230701:DeploymentAtManagementGroupScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190501:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190510:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190701:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190801:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20191001:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20200601:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20200801:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20201001:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20210101:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20210401:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20220901:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20230701:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20240301:DeploymentAtManagementGroupScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentAtManagementGroupScope.__pulumiType, name, resourceInputs, opts);
     }

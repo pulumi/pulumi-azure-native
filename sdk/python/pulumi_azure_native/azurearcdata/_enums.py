@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AccountProvisioningMode',
+    'AggregationType',
     'ArcSqlManagedInstanceLicenseType',
     'ArcSqlServerLicenseType',
     'ConnectionStatus',
@@ -31,6 +32,17 @@ class AccountProvisioningMode(str, Enum):
     """
     AUTOMATIC = "automatic"
     MANUAL = "manual"
+
+
+class AggregationType(str, Enum):
+    """
+    The aggregation type to use for the numerical columns in the dataset.
+    """
+    AVERAGE = "Average"
+    MINIMUM = "Minimum"
+    MAXIMUM = "Maximum"
+    SUM = "Sum"
+    COUNT = "Count"
 
 
 class ArcSqlManagedInstanceLicenseType(str, Enum):

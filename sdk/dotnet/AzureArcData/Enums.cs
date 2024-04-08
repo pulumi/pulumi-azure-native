@@ -39,6 +39,40 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
     /// <summary>
+    /// The aggregation type to use for the numerical columns in the dataset.
+    /// </summary>
+    [EnumType]
+    public readonly struct AggregationType : IEquatable<AggregationType>
+    {
+        private readonly string _value;
+
+        private AggregationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AggregationType Average { get; } = new AggregationType("Average");
+        public static AggregationType Minimum { get; } = new AggregationType("Minimum");
+        public static AggregationType Maximum { get; } = new AggregationType("Maximum");
+        public static AggregationType Sum { get; } = new AggregationType("Sum");
+        public static AggregationType Count { get; } = new AggregationType("Count");
+
+        public static bool operator ==(AggregationType left, AggregationType right) => left.Equals(right);
+        public static bool operator !=(AggregationType left, AggregationType right) => !left.Equals(right);
+
+        public static explicit operator string(AggregationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AggregationType other && Equals(other);
+        public bool Equals(AggregationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The license type to apply for this managed instance.
     /// </summary>
     [EnumType]

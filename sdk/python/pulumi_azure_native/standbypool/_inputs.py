@@ -141,7 +141,7 @@ class StandbyVirtualMachinePoolElasticityProfileArgs:
                  max_ready_capacity: pulumi.Input[float]):
         """
         Details of the elasticity profile.
-        :param pulumi.Input[float] max_ready_capacity: Specifies maximum number of virtual machines in the standby virtual machine pool.
+        :param pulumi.Input[float] max_ready_capacity: Specifies the maximum number of virtual machines in the standby virtual machine pool.
         """
         pulumi.set(__self__, "max_ready_capacity", max_ready_capacity)
 
@@ -149,7 +149,7 @@ class StandbyVirtualMachinePoolElasticityProfileArgs:
     @pulumi.getter(name="maxReadyCapacity")
     def max_ready_capacity(self) -> pulumi.Input[float]:
         """
-        Specifies maximum number of virtual machines in the standby virtual machine pool.
+        Specifies the maximum number of virtual machines in the standby virtual machine pool.
         """
         return pulumi.get(self, "max_ready_capacity")
 

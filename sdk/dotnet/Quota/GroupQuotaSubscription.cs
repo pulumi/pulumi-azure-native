@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Quota
 {
     /// <summary>
-    /// This represents a Azure subscriptionId that is associated with a GroupQuotaSEntity.
+    /// This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
     /// Azure REST API version: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:quota:GroupQuotaSubscription")]
@@ -95,8 +95,8 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// Management Group Id.
         /// </summary>
-        [Input("mgId", required: true)]
-        public Input<string> MgId { get; set; } = null!;
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
 
         public GroupQuotaSubscriptionArgs()
         {

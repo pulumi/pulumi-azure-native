@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Arc Sql Server database
  * Azure REST API version: 2023-01-15-preview.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export class SqlServerDatabase extends pulumi.CustomResource {
     /**
@@ -101,7 +103,7 @@ export class SqlServerDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220615preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220615preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20230115preview:SqlServerDatabase" }, { type: "azure-native:azurearcdata/v20240101:SqlServerDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerDatabase.__pulumiType, name, resourceInputs, opts);
     }

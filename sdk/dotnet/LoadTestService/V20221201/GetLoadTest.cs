@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201
     public static class GetLoadTest
     {
         /// <summary>
-        /// Get a LoadTest resource.
+        /// Get a LoadTestResource
         /// </summary>
         public static Task<GetLoadTestResult> InvokeAsync(GetLoadTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestResult>("azure-native:loadtestservice/v20221201:getLoadTest", args ?? new GetLoadTestArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a LoadTest resource.
+        /// Get a LoadTestResource
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice/v20221201:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201
     public sealed class GetLoadTestArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Load Test name.
+        /// Load Test name
         /// </summary>
         [Input("loadTestName", required: true)]
         public string LoadTestName { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201
     public sealed class GetLoadTestInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Load Test name.
+        /// Load Test name
         /// </summary>
         [Input("loadTestName", required: true)]
         public Input<string> LoadTestName { get; set; } = null!;
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201
         /// </summary>
         public readonly Outputs.EncryptionPropertiesResponse? Encryption;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The type of identity used for the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * List of RP resources which supports pagination.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function listGitLabSubgroup(args: ListGitLabSubgroupArgs, opts?: pulumi.InvokeOptions): Promise<ListGitLabSubgroupResult> {
 
@@ -52,6 +54,8 @@ export interface ListGitLabSubgroupResult {
 /**
  * List of RP resources which supports pagination.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export function listGitLabSubgroupOutput(args: ListGitLabSubgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitLabSubgroupResult> {
     return pulumi.output(args).apply((a: any) => listGitLabSubgroup(a, opts))

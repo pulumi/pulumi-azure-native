@@ -22,8 +22,8 @@ class AdditionalAttributesArgs:
                  group_id: pulumi.Input['GroupingIdArgs'],
                  environment: Optional[Any] = None):
         """
-        Additional attribute to allow subscriptions to be part of the GroupQuota.
-        :param pulumi.Input['GroupingIdArgs'] group_id: The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
+        Additional attribute or filter to allow subscriptions meeting the requirements to be part of the GroupQuota.
+        :param pulumi.Input['GroupingIdArgs'] group_id: The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
         """
         pulumi.set(__self__, "group_id", group_id)
         if environment is not None:
@@ -33,7 +33,7 @@ class AdditionalAttributesArgs:
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input['GroupingIdArgs']:
         """
-        The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
+        The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
         """
         return pulumi.get(self, "group_id")
 
@@ -58,7 +58,7 @@ class GroupQuotasEntityBaseArgs:
                  display_name: Optional[pulumi.Input[str]] = None):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        :param pulumi.Input['AdditionalAttributesArgs'] additional_attributes: Additional attributes to allow subscription, which can be added to the subscriptionIds.
+        :param pulumi.Input['AdditionalAttributesArgs'] additional_attributes: Additional attributes to filter/restrict the subscriptions, which can be added to the subscriptionIds.
         :param pulumi.Input[str] display_name: Display name of the GroupQuota entity.
         """
         if additional_attributes is not None:
@@ -70,7 +70,7 @@ class GroupQuotasEntityBaseArgs:
     @pulumi.getter(name="additionalAttributes")
     def additional_attributes(self) -> Optional[pulumi.Input['AdditionalAttributesArgs']]:
         """
-        Additional attributes to allow subscription, which can be added to the subscriptionIds.
+        Additional attributes to filter/restrict the subscriptions, which can be added to the subscriptionIds.
         """
         return pulumi.get(self, "additional_attributes")
 
@@ -97,9 +97,9 @@ class GroupingIdArgs:
                  grouping_id_type: Optional[pulumi.Input[Union[str, 'GroupingIdType']]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
-        :param pulumi.Input[Union[str, 'GroupingIdType']] grouping_id_type: GroupingId type. It is a required property. More types of groupIds can be supported in future. MGID is already in the URI, so it's not needed.'
-        :param pulumi.Input[str] value: GroupId value based on the groupingType selected - management Group Id or ServiceTreeId.
+        The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
+        :param pulumi.Input[Union[str, 'GroupingIdType']] grouping_id_type: GroupingId type. It is a required property. More types of groupIds can be supported in future.
+        :param pulumi.Input[str] value: GroupId value based on the groupingType selected - Billing Id or ServiceTreeId.
         """
         if grouping_id_type is not None:
             pulumi.set(__self__, "grouping_id_type", grouping_id_type)
@@ -110,7 +110,7 @@ class GroupingIdArgs:
     @pulumi.getter(name="groupingIdType")
     def grouping_id_type(self) -> Optional[pulumi.Input[Union[str, 'GroupingIdType']]]:
         """
-        GroupingId type. It is a required property. More types of groupIds can be supported in future. MGID is already in the URI, so it's not needed.'
+        GroupingId type. It is a required property. More types of groupIds can be supported in future.
         """
         return pulumi.get(self, "grouping_id_type")
 
@@ -122,7 +122,7 @@ class GroupingIdArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        GroupId value based on the groupingType selected - management Group Id or ServiceTreeId.
+        GroupId value based on the groupingType selected - Billing Id or ServiceTreeId.
         """
         return pulumi.get(self, "value")
 

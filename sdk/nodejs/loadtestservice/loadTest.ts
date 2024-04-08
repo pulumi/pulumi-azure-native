@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * LoadTest details
+ * LoadTest details.
  * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
  *
  * Other available API versions: 2021-12-01-preview.
@@ -53,7 +53,7 @@ export class LoadTest extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.loadtestservice.EncryptionPropertiesResponse | undefined>;
     /**
-     * The type of identity used for the resource.
+     * The managed service identities assigned to this resource.
      */
     public readonly identity!: pulumi.Output<outputs.loadtestservice.ManagedServiceIdentityResponse | undefined>;
     /**
@@ -139,11 +139,11 @@ export interface LoadTestArgs {
      */
     encryption?: pulumi.Input<inputs.loadtestservice.EncryptionPropertiesArgs>;
     /**
-     * The type of identity used for the resource.
+     * The managed service identities assigned to this resource.
      */
     identity?: pulumi.Input<inputs.loadtestservice.ManagedServiceIdentityArgs>;
     /**
-     * Load Test name.
+     * Load Test name
      */
     loadTestName?: pulumi.Input<string>;
     /**

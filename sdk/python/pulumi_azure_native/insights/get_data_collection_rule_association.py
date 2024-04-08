@@ -160,6 +160,8 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
     Definition of generic ARM proxy resource.
     Azure REST API version: 2022-06-01.
 
+    Other available API versions: 2023-03-11.
+
 
     :param str association_name: The name of the association. The name is case insensitive.
     :param str resource_uri: The identifier of the resource.
@@ -190,6 +192,8 @@ def get_data_collection_rule_association_output(association_name: Optional[pulum
     """
     Definition of generic ARM proxy resource.
     Azure REST API version: 2022-06-01.
+
+    Other available API versions: 2023-03-11.
 
 
     :param str association_name: The name of the association. The name is case insensitive.

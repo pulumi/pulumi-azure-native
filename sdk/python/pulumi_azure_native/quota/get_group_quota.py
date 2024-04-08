@@ -94,19 +94,19 @@ class AwaitableGetGroupQuotaResult(GetGroupQuotaResult):
 
 
 def get_group_quota(group_quota_name: Optional[str] = None,
-                    mg_id: Optional[str] = None,
+                    management_group_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupQuotaResult:
     """
-    Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on groupQuota can be access from the groupQuota APIs.
+    Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
     Azure REST API version: 2023-06-01-preview.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
-    :param str mg_id: Management Group Id.
+    :param str management_group_id: Management Group Id.
     """
     __args__ = dict()
     __args__['groupQuotaName'] = group_quota_name
-    __args__['mgId'] = mg_id
+    __args__['managementGroupId'] = management_group_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:quota:getGroupQuota', __args__, opts=opts, typ=GetGroupQuotaResult).value
 
@@ -120,14 +120,14 @@ def get_group_quota(group_quota_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_group_quota)
 def get_group_quota_output(group_quota_name: Optional[pulumi.Input[str]] = None,
-                           mg_id: Optional[pulumi.Input[str]] = None,
+                           management_group_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupQuotaResult]:
     """
-    Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on groupQuota can be access from the groupQuota APIs.
+    Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
     Azure REST API version: 2023-06-01-preview.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
-    :param str mg_id: Management Group Id.
+    :param str management_group_id: Management Group Id.
     """
     ...

@@ -29,8 +29,8 @@ class LoadTestArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] description: Description of the resource.
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: CMK Encryption property.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The type of identity used for the resource.
-        :param pulumi.Input[str] load_test_name: Load Test name.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[str] load_test_name: Load Test name
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -88,7 +88,7 @@ class LoadTestArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        The type of identity used for the resource.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -100,7 +100,7 @@ class LoadTestArgs:
     @pulumi.getter(name="loadTestName")
     def load_test_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Load Test name.
+        Load Test name
         """
         return pulumi.get(self, "load_test_name")
 
@@ -147,14 +147,14 @@ class LoadTest(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        LoadTest details
+        LoadTest details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the resource.
         :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: CMK Encryption property.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The type of identity used for the resource.
-        :param pulumi.Input[str] load_test_name: Load Test name.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[str] load_test_name: Load Test name
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -166,7 +166,7 @@ class LoadTest(pulumi.CustomResource):
                  args: LoadTestArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        LoadTest details
+        LoadTest details.
 
         :param str resource_name: The name of the resource.
         :param LoadTestArgs args: The arguments to use to populate this resource's properties.
@@ -277,7 +277,7 @@ class LoadTest(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        The type of identity used for the resource.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 

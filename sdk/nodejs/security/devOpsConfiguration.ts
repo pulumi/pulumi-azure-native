@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * DevOps Configuration resource.
  * Azure REST API version: 2023-09-01-preview.
+ *
+ * Other available API versions: 2024-04-01.
  */
 export class DevOpsConfiguration extends pulumi.CustomResource {
     /**
@@ -85,7 +87,7 @@ export class DevOpsConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20230901preview:DevOpsConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20230901preview:DevOpsConfiguration" }, { type: "azure-native:security/v20240401:DevOpsConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevOpsConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -19,6 +19,9 @@ __all__ = [
     'ActiveDirectoryConnectorStatusResponse',
     'ActiveDirectoryDomainControllerResponse',
     'ActiveDirectoryDomainControllersResponse',
+    'AvailabilityGroupConfigureResponse',
+    'AvailabilityGroupInfoResponse',
+    'AvailabilityGroupStateResponse',
     'BasicLoginInformationResponse',
     'DataControllerPropertiesResponse',
     'ExtendedLocationResponse',
@@ -37,14 +40,20 @@ __all__ = [
     'OnPremisePropertyResponse',
     'PostgresInstancePropertiesResponse',
     'PostgresInstanceSkuResponse',
+    'SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse',
+    'SqlAvailabilityGroupReplicaResourcePropertiesResponse',
     'SqlManagedInstanceK8sRawResponse',
     'SqlManagedInstanceK8sSpecResponse',
     'SqlManagedInstancePropertiesResponse',
     'SqlManagedInstanceSkuResponse',
+    'SqlServerAvailabilityGroupResourcePropertiesResponse',
+    'SqlServerAvailabilityGroupResourcePropertiesResponseDatabases',
+    'SqlServerAvailabilityGroupResourcePropertiesResponseReplicas',
     'SqlServerDatabaseResourcePropertiesResponse',
     'SqlServerDatabaseResourcePropertiesResponseBackupInformation',
     'SqlServerDatabaseResourcePropertiesResponseDatabaseOptions',
     'SqlServerInstancePropertiesResponse',
+    'SqlServerInstanceTelemetryColumnResponse',
     'SystemDataResponse',
     'UploadServicePrincipalResponse',
     'UploadWatermarkResponse',
@@ -494,6 +503,546 @@ class ActiveDirectoryDomainControllersResponse(dict):
         null
         """
         return pulumi.get(self, "secondary_domain_controllers")
+
+
+@pulumi.output_type
+class AvailabilityGroupConfigureResponse(dict):
+    """
+    The specifications of the availability group replica configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityModeDescription":
+            suggest = "availability_mode_description"
+        elif key == "failoverModeDescription":
+            suggest = "failover_mode_description"
+        elif key == "primaryRoleAllowConnectionsDescription":
+            suggest = "primary_role_allow_connections_description"
+        elif key == "replicaCreateDate":
+            suggest = "replica_create_date"
+        elif key == "replicaModifyDate":
+            suggest = "replica_modify_date"
+        elif key == "secondaryRoleAllowConnectionsDescription":
+            suggest = "secondary_role_allow_connections_description"
+        elif key == "seedingModeDescription":
+            suggest = "seeding_mode_description"
+        elif key == "backupPriority":
+            suggest = "backup_priority"
+        elif key == "endpointUrl":
+            suggest = "endpoint_url"
+        elif key == "readOnlyRoutingUrl":
+            suggest = "read_only_routing_url"
+        elif key == "readWriteRoutingUrl":
+            suggest = "read_write_routing_url"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvailabilityGroupConfigureResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvailabilityGroupConfigureResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvailabilityGroupConfigureResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_mode_description: str,
+                 failover_mode_description: str,
+                 primary_role_allow_connections_description: str,
+                 replica_create_date: str,
+                 replica_modify_date: str,
+                 secondary_role_allow_connections_description: str,
+                 seeding_mode_description: str,
+                 backup_priority: Optional[int] = None,
+                 endpoint_url: Optional[str] = None,
+                 read_only_routing_url: Optional[str] = None,
+                 read_write_routing_url: Optional[str] = None,
+                 session_timeout: Optional[int] = None):
+        """
+        The specifications of the availability group replica configuration
+        :param str availability_mode_description: The Availability Synchronization mode of the availability group replica.
+        :param str failover_mode_description: The failover mode of the availability group replica.
+        :param str primary_role_allow_connections_description: Whether the availability allows all connections or only read-write connections.
+        :param str replica_create_date: Date that the replica was created.
+        :param str replica_modify_date: Date that the replica was modified.
+        :param str secondary_role_allow_connections_description: Whether an availability replica that is performing the secondary role (that is, a secondary replica) can accept connections from clients.
+        :param str seeding_mode_description: Describes seeding mode.
+        :param int backup_priority: Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
+        :param str endpoint_url: Mirroring endpoint URL of availability group replica
+        :param str read_only_routing_url: Connectivity endpoint (URL) of the read only availability replica.
+        :param str read_write_routing_url: Connectivity endpoint (URL) of the read write availability replica.
+        :param int session_timeout: The time-out period of availability group session replica, in seconds.
+        """
+        pulumi.set(__self__, "availability_mode_description", availability_mode_description)
+        pulumi.set(__self__, "failover_mode_description", failover_mode_description)
+        pulumi.set(__self__, "primary_role_allow_connections_description", primary_role_allow_connections_description)
+        pulumi.set(__self__, "replica_create_date", replica_create_date)
+        pulumi.set(__self__, "replica_modify_date", replica_modify_date)
+        pulumi.set(__self__, "secondary_role_allow_connections_description", secondary_role_allow_connections_description)
+        pulumi.set(__self__, "seeding_mode_description", seeding_mode_description)
+        if backup_priority is not None:
+            pulumi.set(__self__, "backup_priority", backup_priority)
+        if endpoint_url is not None:
+            pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if read_only_routing_url is not None:
+            pulumi.set(__self__, "read_only_routing_url", read_only_routing_url)
+        if read_write_routing_url is not None:
+            pulumi.set(__self__, "read_write_routing_url", read_write_routing_url)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+
+    @property
+    @pulumi.getter(name="availabilityModeDescription")
+    def availability_mode_description(self) -> str:
+        """
+        The Availability Synchronization mode of the availability group replica.
+        """
+        return pulumi.get(self, "availability_mode_description")
+
+    @property
+    @pulumi.getter(name="failoverModeDescription")
+    def failover_mode_description(self) -> str:
+        """
+        The failover mode of the availability group replica.
+        """
+        return pulumi.get(self, "failover_mode_description")
+
+    @property
+    @pulumi.getter(name="primaryRoleAllowConnectionsDescription")
+    def primary_role_allow_connections_description(self) -> str:
+        """
+        Whether the availability allows all connections or only read-write connections.
+        """
+        return pulumi.get(self, "primary_role_allow_connections_description")
+
+    @property
+    @pulumi.getter(name="replicaCreateDate")
+    def replica_create_date(self) -> str:
+        """
+        Date that the replica was created.
+        """
+        return pulumi.get(self, "replica_create_date")
+
+    @property
+    @pulumi.getter(name="replicaModifyDate")
+    def replica_modify_date(self) -> str:
+        """
+        Date that the replica was modified.
+        """
+        return pulumi.get(self, "replica_modify_date")
+
+    @property
+    @pulumi.getter(name="secondaryRoleAllowConnectionsDescription")
+    def secondary_role_allow_connections_description(self) -> str:
+        """
+        Whether an availability replica that is performing the secondary role (that is, a secondary replica) can accept connections from clients.
+        """
+        return pulumi.get(self, "secondary_role_allow_connections_description")
+
+    @property
+    @pulumi.getter(name="seedingModeDescription")
+    def seeding_mode_description(self) -> str:
+        """
+        Describes seeding mode.
+        """
+        return pulumi.get(self, "seeding_mode_description")
+
+    @property
+    @pulumi.getter(name="backupPriority")
+    def backup_priority(self) -> Optional[int]:
+        """
+        Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
+        """
+        return pulumi.get(self, "backup_priority")
+
+    @property
+    @pulumi.getter(name="endpointUrl")
+    def endpoint_url(self) -> Optional[str]:
+        """
+        Mirroring endpoint URL of availability group replica
+        """
+        return pulumi.get(self, "endpoint_url")
+
+    @property
+    @pulumi.getter(name="readOnlyRoutingUrl")
+    def read_only_routing_url(self) -> Optional[str]:
+        """
+        Connectivity endpoint (URL) of the read only availability replica.
+        """
+        return pulumi.get(self, "read_only_routing_url")
+
+    @property
+    @pulumi.getter(name="readWriteRoutingUrl")
+    def read_write_routing_url(self) -> Optional[str]:
+        """
+        Connectivity endpoint (URL) of the read write availability replica.
+        """
+        return pulumi.get(self, "read_write_routing_url")
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> Optional[int]:
+        """
+        The time-out period of availability group session replica, in seconds.
+        """
+        return pulumi.get(self, "session_timeout")
+
+
+@pulumi.output_type
+class AvailabilityGroupInfoResponse(dict):
+    """
+    The specifications of the availability group state
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automatedBackupPreferenceDescription":
+            suggest = "automated_backup_preference_description"
+        elif key == "clusterTypeDescription":
+            suggest = "cluster_type_description"
+        elif key == "primaryRecoveryHealthDescription":
+            suggest = "primary_recovery_health_description"
+        elif key == "primaryReplica":
+            suggest = "primary_replica"
+        elif key == "replicationPartnerType":
+            suggest = "replication_partner_type"
+        elif key == "secondaryRecoveryHealthDescription":
+            suggest = "secondary_recovery_health_description"
+        elif key == "synchronizationHealthDescription":
+            suggest = "synchronization_health_description"
+        elif key == "basicFeatures":
+            suggest = "basic_features"
+        elif key == "dbFailover":
+            suggest = "db_failover"
+        elif key == "dtcSupport":
+            suggest = "dtc_support"
+        elif key == "failureConditionLevel":
+            suggest = "failure_condition_level"
+        elif key == "healthCheckTimeout":
+            suggest = "health_check_timeout"
+        elif key == "isContained":
+            suggest = "is_contained"
+        elif key == "isDistributed":
+            suggest = "is_distributed"
+        elif key == "requiredSynchronizedSecondariesToCommit":
+            suggest = "required_synchronized_secondaries_to_commit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvailabilityGroupInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvailabilityGroupInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvailabilityGroupInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 automated_backup_preference_description: str,
+                 cluster_type_description: str,
+                 primary_recovery_health_description: str,
+                 primary_replica: str,
+                 replication_partner_type: str,
+                 secondary_recovery_health_description: str,
+                 synchronization_health_description: str,
+                 version: int,
+                 basic_features: Optional[bool] = None,
+                 db_failover: Optional[bool] = None,
+                 dtc_support: Optional[bool] = None,
+                 failure_condition_level: Optional[int] = None,
+                 health_check_timeout: Optional[int] = None,
+                 is_contained: Optional[bool] = None,
+                 is_distributed: Optional[bool] = None,
+                 required_synchronized_secondaries_to_commit: Optional[int] = None):
+        """
+        The specifications of the availability group state
+        :param str automated_backup_preference_description: Preferred location for performing backups on the availability databases in this availability group.
+        :param str cluster_type_description: SQL Server availability group cluster type description
+        :param str primary_recovery_health_description: Indicates the recovery health of the primary replica.
+        :param str primary_replica: Name of the server instance that is hosting the current primary replica.
+        :param str secondary_recovery_health_description: Indicates the recovery health of a secondary replica.
+        :param str synchronization_health_description: Reflects a roll-up of the synchronization health of all availability replicas in the availability group.
+        :param int version: SQL Server availability group current version.
+        :param bool basic_features: Specifies whether this is a basic availability group.
+        :param bool db_failover: Specifies whether the availability group supports failover for database health conditions.
+        :param bool dtc_support: Specifies whether DTC support has been enabled for this availability group.
+        :param int failure_condition_level: User-defined failure condition level under which an automatic failover must be triggered.
+        :param int health_check_timeout: Wait time (in milliseconds) for the sp_server_diagnostics system stored procedure to return server-health information, before the server instance is assumed to be slow or not responding.
+        :param bool is_contained: SQL Server availability group contained system databases.
+        :param bool is_distributed: Specifies whether this is a distributed availability group.
+        :param int required_synchronized_secondaries_to_commit: The number of secondary replicas that must be in a synchronized state for a commit to complete.
+        """
+        pulumi.set(__self__, "automated_backup_preference_description", automated_backup_preference_description)
+        pulumi.set(__self__, "cluster_type_description", cluster_type_description)
+        pulumi.set(__self__, "primary_recovery_health_description", primary_recovery_health_description)
+        pulumi.set(__self__, "primary_replica", primary_replica)
+        pulumi.set(__self__, "replication_partner_type", replication_partner_type)
+        pulumi.set(__self__, "secondary_recovery_health_description", secondary_recovery_health_description)
+        pulumi.set(__self__, "synchronization_health_description", synchronization_health_description)
+        pulumi.set(__self__, "version", version)
+        if basic_features is not None:
+            pulumi.set(__self__, "basic_features", basic_features)
+        if db_failover is not None:
+            pulumi.set(__self__, "db_failover", db_failover)
+        if dtc_support is not None:
+            pulumi.set(__self__, "dtc_support", dtc_support)
+        if failure_condition_level is not None:
+            pulumi.set(__self__, "failure_condition_level", failure_condition_level)
+        if health_check_timeout is not None:
+            pulumi.set(__self__, "health_check_timeout", health_check_timeout)
+        if is_contained is not None:
+            pulumi.set(__self__, "is_contained", is_contained)
+        if is_distributed is not None:
+            pulumi.set(__self__, "is_distributed", is_distributed)
+        if required_synchronized_secondaries_to_commit is not None:
+            pulumi.set(__self__, "required_synchronized_secondaries_to_commit", required_synchronized_secondaries_to_commit)
+
+    @property
+    @pulumi.getter(name="automatedBackupPreferenceDescription")
+    def automated_backup_preference_description(self) -> str:
+        """
+        Preferred location for performing backups on the availability databases in this availability group.
+        """
+        return pulumi.get(self, "automated_backup_preference_description")
+
+    @property
+    @pulumi.getter(name="clusterTypeDescription")
+    def cluster_type_description(self) -> str:
+        """
+        SQL Server availability group cluster type description
+        """
+        return pulumi.get(self, "cluster_type_description")
+
+    @property
+    @pulumi.getter(name="primaryRecoveryHealthDescription")
+    def primary_recovery_health_description(self) -> str:
+        """
+        Indicates the recovery health of the primary replica.
+        """
+        return pulumi.get(self, "primary_recovery_health_description")
+
+    @property
+    @pulumi.getter(name="primaryReplica")
+    def primary_replica(self) -> str:
+        """
+        Name of the server instance that is hosting the current primary replica.
+        """
+        return pulumi.get(self, "primary_replica")
+
+    @property
+    @pulumi.getter(name="replicationPartnerType")
+    def replication_partner_type(self) -> str:
+        return pulumi.get(self, "replication_partner_type")
+
+    @property
+    @pulumi.getter(name="secondaryRecoveryHealthDescription")
+    def secondary_recovery_health_description(self) -> str:
+        """
+        Indicates the recovery health of a secondary replica.
+        """
+        return pulumi.get(self, "secondary_recovery_health_description")
+
+    @property
+    @pulumi.getter(name="synchronizationHealthDescription")
+    def synchronization_health_description(self) -> str:
+        """
+        Reflects a roll-up of the synchronization health of all availability replicas in the availability group.
+        """
+        return pulumi.get(self, "synchronization_health_description")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        SQL Server availability group current version.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="basicFeatures")
+    def basic_features(self) -> Optional[bool]:
+        """
+        Specifies whether this is a basic availability group.
+        """
+        return pulumi.get(self, "basic_features")
+
+    @property
+    @pulumi.getter(name="dbFailover")
+    def db_failover(self) -> Optional[bool]:
+        """
+        Specifies whether the availability group supports failover for database health conditions.
+        """
+        return pulumi.get(self, "db_failover")
+
+    @property
+    @pulumi.getter(name="dtcSupport")
+    def dtc_support(self) -> Optional[bool]:
+        """
+        Specifies whether DTC support has been enabled for this availability group.
+        """
+        return pulumi.get(self, "dtc_support")
+
+    @property
+    @pulumi.getter(name="failureConditionLevel")
+    def failure_condition_level(self) -> Optional[int]:
+        """
+        User-defined failure condition level under which an automatic failover must be triggered.
+        """
+        return pulumi.get(self, "failure_condition_level")
+
+    @property
+    @pulumi.getter(name="healthCheckTimeout")
+    def health_check_timeout(self) -> Optional[int]:
+        """
+        Wait time (in milliseconds) for the sp_server_diagnostics system stored procedure to return server-health information, before the server instance is assumed to be slow or not responding.
+        """
+        return pulumi.get(self, "health_check_timeout")
+
+    @property
+    @pulumi.getter(name="isContained")
+    def is_contained(self) -> Optional[bool]:
+        """
+        SQL Server availability group contained system databases.
+        """
+        return pulumi.get(self, "is_contained")
+
+    @property
+    @pulumi.getter(name="isDistributed")
+    def is_distributed(self) -> Optional[bool]:
+        """
+        Specifies whether this is a distributed availability group.
+        """
+        return pulumi.get(self, "is_distributed")
+
+    @property
+    @pulumi.getter(name="requiredSynchronizedSecondariesToCommit")
+    def required_synchronized_secondaries_to_commit(self) -> Optional[int]:
+        """
+        The number of secondary replicas that must be in a synchronized state for a commit to complete.
+        """
+        return pulumi.get(self, "required_synchronized_secondaries_to_commit")
+
+
+@pulumi.output_type
+class AvailabilityGroupStateResponse(dict):
+    """
+    The specifications of the availability group state
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityGroupReplicaRole":
+            suggest = "availability_group_replica_role"
+        elif key == "connectedStateDescription":
+            suggest = "connected_state_description"
+        elif key == "lastConnectErrorDescription":
+            suggest = "last_connect_error_description"
+        elif key == "lastConnectErrorTimestamp":
+            suggest = "last_connect_error_timestamp"
+        elif key == "operationalStateDescription":
+            suggest = "operational_state_description"
+        elif key == "recoveryHealthDescription":
+            suggest = "recovery_health_description"
+        elif key == "synchronizationHealthDescription":
+            suggest = "synchronization_health_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvailabilityGroupStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvailabilityGroupStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvailabilityGroupStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_group_replica_role: str,
+                 connected_state_description: str,
+                 last_connect_error_description: str,
+                 last_connect_error_timestamp: str,
+                 operational_state_description: str,
+                 recovery_health_description: str,
+                 synchronization_health_description: str):
+        """
+        The specifications of the availability group state
+        :param str availability_group_replica_role: Current Always On availability groups role of the availability group replica.
+        :param str connected_state_description: Whether a secondary replica is currently connected to the primary replica.
+        :param str last_connect_error_description: Text description of the last connection error of the availability group replica.
+        :param str last_connect_error_timestamp: Date and time timestamp indicating when the last connect error occurred.
+        :param str operational_state_description: Current operational state of the availability group replica
+        :param str recovery_health_description: Recovery health of the availability group replica.
+        :param str synchronization_health_description: Reflects a rollup of the database synchronization state (synchronization_state) of all joined availability databases (also known as replicas) and the availability mode of the replica (synchronous-commit or asynchronous-commit mode). The rollup will reflect the least healthy accumulated state the databases on the replica.
+        """
+        pulumi.set(__self__, "availability_group_replica_role", availability_group_replica_role)
+        pulumi.set(__self__, "connected_state_description", connected_state_description)
+        pulumi.set(__self__, "last_connect_error_description", last_connect_error_description)
+        pulumi.set(__self__, "last_connect_error_timestamp", last_connect_error_timestamp)
+        pulumi.set(__self__, "operational_state_description", operational_state_description)
+        pulumi.set(__self__, "recovery_health_description", recovery_health_description)
+        pulumi.set(__self__, "synchronization_health_description", synchronization_health_description)
+
+    @property
+    @pulumi.getter(name="availabilityGroupReplicaRole")
+    def availability_group_replica_role(self) -> str:
+        """
+        Current Always On availability groups role of the availability group replica.
+        """
+        return pulumi.get(self, "availability_group_replica_role")
+
+    @property
+    @pulumi.getter(name="connectedStateDescription")
+    def connected_state_description(self) -> str:
+        """
+        Whether a secondary replica is currently connected to the primary replica.
+        """
+        return pulumi.get(self, "connected_state_description")
+
+    @property
+    @pulumi.getter(name="lastConnectErrorDescription")
+    def last_connect_error_description(self) -> str:
+        """
+        Text description of the last connection error of the availability group replica.
+        """
+        return pulumi.get(self, "last_connect_error_description")
+
+    @property
+    @pulumi.getter(name="lastConnectErrorTimestamp")
+    def last_connect_error_timestamp(self) -> str:
+        """
+        Date and time timestamp indicating when the last connect error occurred.
+        """
+        return pulumi.get(self, "last_connect_error_timestamp")
+
+    @property
+    @pulumi.getter(name="operationalStateDescription")
+    def operational_state_description(self) -> str:
+        """
+        Current operational state of the availability group replica
+        """
+        return pulumi.get(self, "operational_state_description")
+
+    @property
+    @pulumi.getter(name="recoveryHealthDescription")
+    def recovery_health_description(self) -> str:
+        """
+        Recovery health of the availability group replica.
+        """
+        return pulumi.get(self, "recovery_health_description")
+
+    @property
+    @pulumi.getter(name="synchronizationHealthDescription")
+    def synchronization_health_description(self) -> str:
+        """
+        Reflects a rollup of the database synchronization state (synchronization_state) of all joined availability databases (also known as replicas) and the availability mode of the replica (synchronous-commit or asynchronous-commit mode). The rollup will reflect the least healthy accumulated state the databases on the replica.
+        """
+        return pulumi.get(self, "synchronization_health_description")
 
 
 @pulumi.output_type
@@ -1651,6 +2200,240 @@ class PostgresInstanceSkuResponse(dict):
 
 
 @pulumi.output_type
+class SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse(dict):
+    """
+    The properties of Arc Sql availability group database replica resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseStateDescription":
+            suggest = "database_state_description"
+        elif key == "isCommitParticipant":
+            suggest = "is_commit_participant"
+        elif key == "isLocal":
+            suggest = "is_local"
+        elif key == "isPrimaryReplica":
+            suggest = "is_primary_replica"
+        elif key == "isSuspended":
+            suggest = "is_suspended"
+        elif key == "replicaName":
+            suggest = "replica_name"
+        elif key == "suspendReasonDescription":
+            suggest = "suspend_reason_description"
+        elif key == "synchronizationHealthDescription":
+            suggest = "synchronization_health_description"
+        elif key == "synchronizationStateDescription":
+            suggest = "synchronization_state_description"
+        elif key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_state_description: str,
+                 is_commit_participant: bool,
+                 is_local: bool,
+                 is_primary_replica: bool,
+                 is_suspended: bool,
+                 replica_name: str,
+                 suspend_reason_description: str,
+                 synchronization_health_description: str,
+                 synchronization_state_description: str,
+                 database_name: Optional[str] = None):
+        """
+        The properties of Arc Sql availability group database replica resource
+        :param str database_state_description: Description of the database state of the availability replica.
+        :param bool is_commit_participant: Whether this replica is transaction committer.
+        :param bool is_local: Whether the availability database is local.
+        :param bool is_primary_replica: Returns 1 if the replica is primary, or 0 if it is a secondary replica.
+        :param bool is_suspended: Whether this data movement is suspended.
+        :param str replica_name: the database replica name.
+        :param str suspend_reason_description: Description of the database suspended state reason.
+        :param str synchronization_health_description: Description of the health of database.
+        :param str synchronization_state_description: Description of the data-movement state.
+        :param str database_name: the database name.
+        """
+        pulumi.set(__self__, "database_state_description", database_state_description)
+        pulumi.set(__self__, "is_commit_participant", is_commit_participant)
+        pulumi.set(__self__, "is_local", is_local)
+        pulumi.set(__self__, "is_primary_replica", is_primary_replica)
+        pulumi.set(__self__, "is_suspended", is_suspended)
+        pulumi.set(__self__, "replica_name", replica_name)
+        pulumi.set(__self__, "suspend_reason_description", suspend_reason_description)
+        pulumi.set(__self__, "synchronization_health_description", synchronization_health_description)
+        pulumi.set(__self__, "synchronization_state_description", synchronization_state_description)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="databaseStateDescription")
+    def database_state_description(self) -> str:
+        """
+        Description of the database state of the availability replica.
+        """
+        return pulumi.get(self, "database_state_description")
+
+    @property
+    @pulumi.getter(name="isCommitParticipant")
+    def is_commit_participant(self) -> bool:
+        """
+        Whether this replica is transaction committer.
+        """
+        return pulumi.get(self, "is_commit_participant")
+
+    @property
+    @pulumi.getter(name="isLocal")
+    def is_local(self) -> bool:
+        """
+        Whether the availability database is local.
+        """
+        return pulumi.get(self, "is_local")
+
+    @property
+    @pulumi.getter(name="isPrimaryReplica")
+    def is_primary_replica(self) -> bool:
+        """
+        Returns 1 if the replica is primary, or 0 if it is a secondary replica.
+        """
+        return pulumi.get(self, "is_primary_replica")
+
+    @property
+    @pulumi.getter(name="isSuspended")
+    def is_suspended(self) -> bool:
+        """
+        Whether this data movement is suspended.
+        """
+        return pulumi.get(self, "is_suspended")
+
+    @property
+    @pulumi.getter(name="replicaName")
+    def replica_name(self) -> str:
+        """
+        the database replica name.
+        """
+        return pulumi.get(self, "replica_name")
+
+    @property
+    @pulumi.getter(name="suspendReasonDescription")
+    def suspend_reason_description(self) -> str:
+        """
+        Description of the database suspended state reason.
+        """
+        return pulumi.get(self, "suspend_reason_description")
+
+    @property
+    @pulumi.getter(name="synchronizationHealthDescription")
+    def synchronization_health_description(self) -> str:
+        """
+        Description of the health of database.
+        """
+        return pulumi.get(self, "synchronization_health_description")
+
+    @property
+    @pulumi.getter(name="synchronizationStateDescription")
+    def synchronization_state_description(self) -> str:
+        """
+        Description of the data-movement state.
+        """
+        return pulumi.get(self, "synchronization_state_description")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        the database name.
+        """
+        return pulumi.get(self, "database_name")
+
+
+@pulumi.output_type
+class SqlAvailabilityGroupReplicaResourcePropertiesResponse(dict):
+    """
+    The properties of Arc Sql availability group replica resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaId":
+            suggest = "replica_id"
+        elif key == "replicaName":
+            suggest = "replica_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlAvailabilityGroupReplicaResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlAvailabilityGroupReplicaResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlAvailabilityGroupReplicaResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replica_id: str,
+                 configure: Optional['outputs.AvailabilityGroupConfigureResponse'] = None,
+                 replica_name: Optional[str] = None,
+                 state: Optional['outputs.AvailabilityGroupStateResponse'] = None):
+        """
+        The properties of Arc Sql availability group replica resource
+        :param str replica_id: ID GUID of the availability group.
+        :param 'AvailabilityGroupConfigureResponse' configure: null
+        :param str replica_name: the replica name.
+        :param 'AvailabilityGroupStateResponse' state: null
+        """
+        pulumi.set(__self__, "replica_id", replica_id)
+        if configure is not None:
+            pulumi.set(__self__, "configure", configure)
+        if replica_name is not None:
+            pulumi.set(__self__, "replica_name", replica_name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="replicaId")
+    def replica_id(self) -> str:
+        """
+        ID GUID of the availability group.
+        """
+        return pulumi.get(self, "replica_id")
+
+    @property
+    @pulumi.getter
+    def configure(self) -> Optional['outputs.AvailabilityGroupConfigureResponse']:
+        """
+        null
+        """
+        return pulumi.get(self, "configure")
+
+    @property
+    @pulumi.getter(name="replicaName")
+    def replica_name(self) -> Optional[str]:
+        """
+        the replica name.
+        """
+        return pulumi.get(self, "replica_name")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['outputs.AvailabilityGroupStateResponse']:
+        """
+        null
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class SqlManagedInstanceK8sRawResponse(dict):
     """
     The raw kubernetes information.
@@ -1995,6 +2778,235 @@ class SqlManagedInstanceSkuResponse(dict):
         The pricing tier for the instance.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SqlServerAvailabilityGroupResourcePropertiesResponse(dict):
+    """
+    The properties of Arc Sql Server availability group resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityGroupId":
+            suggest = "availability_group_id"
+        elif key == "collectionTimestamp":
+            suggest = "collection_timestamp"
+        elif key == "instanceName":
+            suggest = "instance_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serverName":
+            suggest = "server_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerAvailabilityGroupResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerAvailabilityGroupResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerAvailabilityGroupResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_group_id: str,
+                 collection_timestamp: str,
+                 instance_name: str,
+                 provisioning_state: str,
+                 server_name: str,
+                 databases: Optional['outputs.SqlServerAvailabilityGroupResourcePropertiesResponseDatabases'] = None,
+                 info: Optional['outputs.AvailabilityGroupInfoResponse'] = None,
+                 replicas: Optional['outputs.SqlServerAvailabilityGroupResourcePropertiesResponseReplicas'] = None):
+        """
+        The properties of Arc Sql Server availability group resource
+        :param str availability_group_id: ID GUID of the availability group.
+        :param str collection_timestamp: Timestamp for when the data was collected from the client machine.
+        :param str instance_name: the SQL Server Instance name.
+        :param str provisioning_state: The provisioning state of the Arc-enabled SQL Server availability group resource.
+        :param str server_name: the SQL server name.
+        :param 'SqlServerAvailabilityGroupResourcePropertiesResponseDatabases' databases: A list of Availability Group Database Replicas.
+        :param 'AvailabilityGroupInfoResponse' info: Availability Group Info
+        :param 'SqlServerAvailabilityGroupResourcePropertiesResponseReplicas' replicas: A list of Availability Group Replicas.
+        """
+        pulumi.set(__self__, "availability_group_id", availability_group_id)
+        pulumi.set(__self__, "collection_timestamp", collection_timestamp)
+        pulumi.set(__self__, "instance_name", instance_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "server_name", server_name)
+        if databases is not None:
+            pulumi.set(__self__, "databases", databases)
+        if info is not None:
+            pulumi.set(__self__, "info", info)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+
+    @property
+    @pulumi.getter(name="availabilityGroupId")
+    def availability_group_id(self) -> str:
+        """
+        ID GUID of the availability group.
+        """
+        return pulumi.get(self, "availability_group_id")
+
+    @property
+    @pulumi.getter(name="collectionTimestamp")
+    def collection_timestamp(self) -> str:
+        """
+        Timestamp for when the data was collected from the client machine.
+        """
+        return pulumi.get(self, "collection_timestamp")
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> str:
+        """
+        the SQL Server Instance name.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the Arc-enabled SQL Server availability group resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        """
+        the SQL server name.
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter
+    def databases(self) -> Optional['outputs.SqlServerAvailabilityGroupResourcePropertiesResponseDatabases']:
+        """
+        A list of Availability Group Database Replicas.
+        """
+        return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter
+    def info(self) -> Optional['outputs.AvailabilityGroupInfoResponse']:
+        """
+        Availability Group Info
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional['outputs.SqlServerAvailabilityGroupResourcePropertiesResponseReplicas']:
+        """
+        A list of Availability Group Replicas.
+        """
+        return pulumi.get(self, "replicas")
+
+
+@pulumi.output_type
+class SqlServerAvailabilityGroupResourcePropertiesResponseDatabases(dict):
+    """
+    A list of Availability Group Database Replicas.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextLink":
+            suggest = "next_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerAvailabilityGroupResourcePropertiesResponseDatabases. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerAvailabilityGroupResourcePropertiesResponseDatabases.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerAvailabilityGroupResourcePropertiesResponseDatabases.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 next_link: str,
+                 value: Optional[Sequence['outputs.SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse']] = None):
+        """
+        A list of Availability Group Database Replicas.
+        :param str next_link: Link to retrieve next page of results.
+        :param Sequence['SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse'] value: Array of Availability Group Database Replicas.
+        """
+        pulumi.set(__self__, "next_link", next_link)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> str:
+        """
+        Link to retrieve next page of results.
+        """
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence['outputs.SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse']]:
+        """
+        Array of Availability Group Database Replicas.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SqlServerAvailabilityGroupResourcePropertiesResponseReplicas(dict):
+    """
+    A list of Availability Group Replicas.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextLink":
+            suggest = "next_link"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerAvailabilityGroupResourcePropertiesResponseReplicas. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerAvailabilityGroupResourcePropertiesResponseReplicas.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerAvailabilityGroupResourcePropertiesResponseReplicas.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 next_link: str,
+                 value: Optional[Sequence['outputs.SqlAvailabilityGroupReplicaResourcePropertiesResponse']] = None):
+        """
+        A list of Availability Group Replicas.
+        :param str next_link: Link to retrieve next page of results.
+        :param Sequence['SqlAvailabilityGroupReplicaResourcePropertiesResponse'] value: Array of Availability Group Replicas.
+        """
+        pulumi.set(__self__, "next_link", next_link)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="nextLink")
+    def next_link(self) -> str:
+        """
+        Link to retrieve next page of results.
+        """
+        return pulumi.get(self, "next_link")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence['outputs.SqlAvailabilityGroupReplicaResourcePropertiesResponse']]:
+        """
+        Array of Availability Group Replicas.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2602,6 +3614,41 @@ class SqlServerInstancePropertiesResponse(dict):
         SQL Server version.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SqlServerInstanceTelemetryColumnResponse(dict):
+    """
+    The telemetry column for the SQL Server instance.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The telemetry column for the SQL Server instance.
+        :param str name: The name of the telemetry column.
+        :param str type: The type of the telemetry column.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the telemetry column.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the telemetry column.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

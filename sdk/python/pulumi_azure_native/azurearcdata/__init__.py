@@ -14,10 +14,14 @@ from .get_data_controller import *
 from .get_failover_group import *
 from .get_postgres_instance import *
 from .get_sql_managed_instance import *
+from .get_sql_server_availability_group import *
+from .get_sql_server_availability_group_detail_view import *
 from .get_sql_server_database import *
 from .get_sql_server_instance import *
+from .get_sql_server_instance_telemetry import *
 from .postgres_instance import *
 from .sql_managed_instance import *
+from .sql_server_availability_group import *
 from .sql_server_database import *
 from .sql_server_instance import *
 from ._inputs import *
@@ -27,6 +31,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.azurearcdata.v20230115preview as __v20230115preview
     v20230115preview = __v20230115preview
+    import pulumi_azure_native.azurearcdata.v20240101 as __v20240101
+    v20240101 = __v20240101
 else:
     v20230115preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20230115preview')
+    v20240101 = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20240101')
 

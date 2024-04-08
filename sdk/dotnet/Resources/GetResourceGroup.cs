@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Resources
         /// Gets a resource group.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2018-02-01, 2023-07-01.
+        /// Other available API versions: 2018-02-01, 2023-07-01, 2024-03-01.
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure-native:resources:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Resources
         /// Gets a resource group.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2018-02-01, 2023-07-01.
+        /// Other available API versions: 2018-02-01, 2023-07-01, 2024-03-01.
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());

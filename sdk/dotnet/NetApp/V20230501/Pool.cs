@@ -161,6 +161,7 @@ namespace Pulumi.AzureNative.NetApp.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

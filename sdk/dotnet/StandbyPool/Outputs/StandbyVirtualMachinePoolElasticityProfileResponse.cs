@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.StandbyPool.Outputs
     public sealed class StandbyVirtualMachinePoolElasticityProfileResponse
     {
         /// <summary>
-        /// Specifies maximum number of virtual machines in the standby virtual machine pool.
+        /// Specifies the maximum number of virtual machines in the standby virtual machine pool.
         /// </summary>
         public readonly double MaxReadyCapacity;
 

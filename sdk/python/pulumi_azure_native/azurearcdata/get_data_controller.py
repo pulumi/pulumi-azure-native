@@ -136,6 +136,8 @@ def get_data_controller(data_controller_name: Optional[str] = None,
     Retrieves a dataController resource
     Azure REST API version: 2023-01-15-preview.
 
+    Other available API versions: 2024-01-01.
+
 
     :param str data_controller_name: The name of the data controller
     :param str resource_group_name: The name of the Azure resource group
@@ -164,6 +166,8 @@ def get_data_controller_output(data_controller_name: Optional[pulumi.Input[str]]
     """
     Retrieves a dataController resource
     Azure REST API version: 2023-01-15-preview.
+
+    Other available API versions: 2024-01-01.
 
 
     :param str data_controller_name: The name of the data controller

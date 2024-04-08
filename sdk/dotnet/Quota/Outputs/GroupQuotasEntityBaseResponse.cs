@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Quota.Outputs
     public sealed class GroupQuotasEntityBaseResponse
     {
         /// <summary>
-        /// Additional attributes to allow subscription, which can be added to the subscriptionIds.
+        /// Additional attributes to filter/restrict the subscriptions, which can be added to the subscriptionIds.
         /// </summary>
         public readonly Outputs.AdditionalAttributesResponse? AdditionalAttributes;
         /// <summary>

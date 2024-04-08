@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Quota.Outputs
 {
 
     /// <summary>
-    /// The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
+    /// The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
     /// </summary>
     [OutputType]
     public sealed class GroupingIdResponse
     {
         /// <summary>
-        /// GroupingId type. It is a required property. More types of groupIds can be supported in future. MGID is already in the URI, so it's not needed.'
+        /// GroupingId type. It is a required property. More types of groupIds can be supported in future.
         /// </summary>
         public readonly string? GroupingIdType;
         /// <summary>
-        /// GroupId value based on the groupingType selected - management Group Id or ServiceTreeId.
+        /// GroupId value based on the groupingType selected - Billing Id or ServiceTreeId.
         /// </summary>
         public readonly string? Value;
 

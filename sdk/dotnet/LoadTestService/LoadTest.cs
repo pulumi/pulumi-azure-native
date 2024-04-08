@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LoadTestService
 {
     /// <summary>
-    /// LoadTest details
+    /// LoadTest details.
     /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
     /// 
     /// Other available API versions: 2021-12-01-preview.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.LoadTestService
         public Output<Outputs.EncryptionPropertiesResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// The type of identity used for the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.AzureNative.LoadTestService
         public Input<Inputs.EncryptionPropertiesArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// The type of identity used for the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Load Test name.
+        /// Load Test name
         /// </summary>
         [Input("loadTestName")]
         public Input<string>? LoadTestName { get; set; }

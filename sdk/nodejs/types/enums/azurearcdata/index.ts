@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20230115preview from "./v20230115preview";
+import * as v20240101 from "./v20240101";
 
 export {
     v20230115preview,
+    v20240101,
 };
 
 export const AccountProvisioningMode = {
@@ -17,6 +19,19 @@ export const AccountProvisioningMode = {
  * The service account provisioning mode for this Active Directory connector.
  */
 export type AccountProvisioningMode = (typeof AccountProvisioningMode)[keyof typeof AccountProvisioningMode];
+
+export const AggregationType = {
+    Average: "Average",
+    Minimum: "Minimum",
+    Maximum: "Maximum",
+    Sum: "Sum",
+    Count: "Count",
+} as const;
+
+/**
+ * The aggregation type to use for the numerical columns in the dataset.
+ */
+export type AggregationType = (typeof AggregationType)[keyof typeof AggregationType];
 
 export const ArcSqlManagedInstanceLicenseType = {
     BasePrice: "BasePrice",

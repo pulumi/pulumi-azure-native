@@ -197,7 +197,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         Quota Rule of a Volume
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-01-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01.
+        Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,7 +222,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         Quota Rule of a Volume
         Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-01-01.
 
-        Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01.
+        Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VolumeQuotaRuleArgs args: The arguments to use to populate this resource's properties.
@@ -280,7 +280,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20220101:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20221101:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20230501:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20230701:VolumeQuotaRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20220101:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20221101:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20221101preview:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20230501:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20230501preview:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20230701:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20230701preview:VolumeQuotaRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeQuotaRule, __self__).__init__(
             'azure-native:netapp:VolumeQuotaRule',

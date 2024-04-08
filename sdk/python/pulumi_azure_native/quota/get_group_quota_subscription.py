@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetGroupQuotaSubscriptionResult:
     """
-    This represents a Azure subscriptionId that is associated with a GroupQuotaSEntity.
+    This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
     """
     def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
@@ -91,19 +91,19 @@ class AwaitableGetGroupQuotaSubscriptionResult(GetGroupQuotaSubscriptionResult):
 
 
 def get_group_quota_subscription(group_quota_name: Optional[str] = None,
-                                 mg_id: Optional[str] = None,
+                                 management_group_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupQuotaSubscriptionResult:
     """
-    Returns the subscriptionId along with its provisioning state for being associated with the GroupQuotasEntity.
+    Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
     Azure REST API version: 2023-06-01-preview.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
-    :param str mg_id: Management Group Id.
+    :param str management_group_id: Management Group Id.
     """
     __args__ = dict()
     __args__['groupQuotaName'] = group_quota_name
-    __args__['mgId'] = mg_id
+    __args__['managementGroupId'] = management_group_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:quota:getGroupQuotaSubscription', __args__, opts=opts, typ=GetGroupQuotaSubscriptionResult).value
 
@@ -117,14 +117,14 @@ def get_group_quota_subscription(group_quota_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_group_quota_subscription)
 def get_group_quota_subscription_output(group_quota_name: Optional[pulumi.Input[str]] = None,
-                                        mg_id: Optional[pulumi.Input[str]] = None,
+                                        management_group_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupQuotaSubscriptionResult]:
     """
-    Returns the subscriptionId along with its provisioning state for being associated with the GroupQuotasEntity.
+    Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
     Azure REST API version: 2023-06-01-preview.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
-    :param str mg_id: Management Group Id.
+    :param str management_group_id: Management Group Id.
     """
     ...

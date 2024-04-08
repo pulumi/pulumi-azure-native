@@ -8,14 +8,14 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on groupQuota can be access from the groupQuota APIs.
+ * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
  */
 export function getGroupQuota(args: GetGroupQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupQuotaResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:quota/v20230601preview:getGroupQuota", {
         "groupQuotaName": args.groupQuotaName,
-        "mgId": args.mgId,
+        "managementGroupId": args.managementGroupId,
     }, opts);
 }
 
@@ -27,7 +27,7 @@ export interface GetGroupQuotaArgs {
     /**
      * Management Group Id.
      */
-    mgId: string;
+    managementGroupId: string;
 }
 
 /**
@@ -56,7 +56,7 @@ export interface GetGroupQuotaResult {
     readonly type: string;
 }
 /**
- * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on groupQuota can be access from the groupQuota APIs.
+ * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
  */
 export function getGroupQuotaOutput(args: GetGroupQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupQuotaResult> {
     return pulumi.output(args).apply((a: any) => getGroupQuota(a, opts))
@@ -70,5 +70,5 @@ export interface GetGroupQuotaOutputArgs {
     /**
      * Management Group Id.
      */
-    mgId: pulumi.Input<string>;
+    managementGroupId: pulumi.Input<string>;
 }

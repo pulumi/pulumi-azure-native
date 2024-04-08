@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.Quota.V20230601Preview
         /// <summary>
         /// Management Group Id.
         /// </summary>
-        [Input("mgId", required: true)]
-        public Input<string> MgId { get; set; } = null!;
+        [Input("managementGroupId", required: true)]
+        public Input<string> ManagementGroupId { get; set; } = null!;
 
         /// <summary>
         /// Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.

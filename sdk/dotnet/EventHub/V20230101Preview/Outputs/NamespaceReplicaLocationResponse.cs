@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.EventHub.V20230101Preview.Outputs
         /// </summary>
         public readonly string? LocationName;
         /// <summary>
+        /// state of Namespace replica.
+        /// </summary>
+        public readonly string ReplicaState;
+        /// <summary>
         /// GeoDR Role Types
         /// </summary>
         public readonly string? RoleType;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.EventHub.V20230101Preview.Outputs
 
             string? locationName,
 
+            string replicaState,
+
             string? roleType)
         {
             ClusterArmId = clusterArmId;
             LocationName = locationName;
+            ReplicaState = replicaState;
             RoleType = roleType;
         }
     }

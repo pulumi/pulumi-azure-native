@@ -159,6 +159,10 @@ AzureActiveDirectory:
         CIAMTenant: 2023-05-17-preview
 AzureArcData:
     tracking: 2023-01-15-preview
+    additions:
+        SqlServerAvailabilityGroup: "2024-01-01"
+        getSqlServerAvailabilityGroupDetailView: "2024-01-01"
+        getSqlServerInstanceTelemetry: "2024-01-01"
 AzureData:
     tracking: 2019-07-24-preview
 AzureDataTransfer:

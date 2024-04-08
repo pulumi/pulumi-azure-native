@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Quota.V20230601Preview.Inputs
     public sealed class GroupQuotasEntityBaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Additional attributes to allow subscription, which can be added to the subscriptionIds.
+        /// Additional attributes to filter/restrict the subscriptions, which can be added to the subscriptionIds.
         /// </summary>
         [Input("additionalAttributes")]
         public Input<Inputs.AdditionalAttributesArgs>? AdditionalAttributes { get; set; }

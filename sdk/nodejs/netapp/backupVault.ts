@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Backup Vault information
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-05-01-preview.
+ * Other available API versions: 2023-05-01-preview, 2023-07-01-preview.
  */
 export class BackupVault extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class BackupVault extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20221101preview:BackupVault" }, { type: "azure-native:netapp/v20230501preview:BackupVault" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20221101preview:BackupVault" }, { type: "azure-native:netapp/v20230501preview:BackupVault" }, { type: "azure-native:netapp/v20230701preview:BackupVault" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupVault.__pulumiType, name, resourceInputs, opts);
     }

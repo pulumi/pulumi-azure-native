@@ -11,14 +11,14 @@ namespace Pulumi.AzureNative.Quota.Outputs
 {
 
     /// <summary>
-    /// Additional attribute to allow subscriptions to be part of the GroupQuota.
+    /// Additional attribute or filter to allow subscriptions meeting the requirements to be part of the GroupQuota.
     /// </summary>
     [OutputType]
     public sealed class AdditionalAttributesResponse
     {
         public readonly object? Environment;
         /// <summary>
-        /// The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
+        /// The grouping Id for the group quota. It can be Billing Id or ServiceTreeId if applicable. 
         /// </summary>
         public readonly Outputs.GroupingIdResponse GroupId;
 

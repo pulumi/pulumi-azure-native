@@ -16,14 +16,14 @@ __all__ = ['GroupQuotaSubscriptionArgs', 'GroupQuotaSubscription']
 class GroupQuotaSubscriptionArgs:
     def __init__(__self__, *,
                  group_quota_name: pulumi.Input[str],
-                 mg_id: pulumi.Input[str]):
+                 management_group_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a GroupQuotaSubscription resource.
         :param pulumi.Input[str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
-        :param pulumi.Input[str] mg_id: Management Group Id.
+        :param pulumi.Input[str] management_group_id: Management Group Id.
         """
         pulumi.set(__self__, "group_quota_name", group_quota_name)
-        pulumi.set(__self__, "mg_id", mg_id)
+        pulumi.set(__self__, "management_group_id", management_group_id)
 
     @property
     @pulumi.getter(name="groupQuotaName")
@@ -38,16 +38,16 @@ class GroupQuotaSubscriptionArgs:
         pulumi.set(self, "group_quota_name", value)
 
     @property
-    @pulumi.getter(name="mgId")
-    def mg_id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="managementGroupId")
+    def management_group_id(self) -> pulumi.Input[str]:
         """
         Management Group Id.
         """
-        return pulumi.get(self, "mg_id")
+        return pulumi.get(self, "management_group_id")
 
-    @mg_id.setter
-    def mg_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "mg_id", value)
+    @management_group_id.setter
+    def management_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "management_group_id", value)
 
 
 class GroupQuotaSubscription(pulumi.CustomResource):
@@ -56,16 +56,16 @@ class GroupQuotaSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_quota_name: Optional[pulumi.Input[str]] = None,
-                 mg_id: Optional[pulumi.Input[str]] = None,
+                 management_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This represents a Azure subscriptionId that is associated with a GroupQuotaSEntity.
+        This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
         Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
-        :param pulumi.Input[str] mg_id: Management Group Id.
+        :param pulumi.Input[str] management_group_id: Management Group Id.
         """
         ...
     @overload
@@ -74,7 +74,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
                  args: GroupQuotaSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This represents a Azure subscriptionId that is associated with a GroupQuotaSEntity.
+        This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
         Azure REST API version: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
@@ -93,7 +93,7 @@ class GroupQuotaSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_quota_name: Optional[pulumi.Input[str]] = None,
-                 mg_id: Optional[pulumi.Input[str]] = None,
+                 management_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -106,9 +106,9 @@ class GroupQuotaSubscription(pulumi.CustomResource):
             if group_quota_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_quota_name'")
             __props__.__dict__["group_quota_name"] = group_quota_name
-            if mg_id is None and not opts.urn:
-                raise TypeError("Missing required property 'mg_id'")
-            __props__.__dict__["mg_id"] = mg_id
+            if management_group_id is None and not opts.urn:
+                raise TypeError("Missing required property 'management_group_id'")
+            __props__.__dict__["management_group_id"] = management_group_id
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None

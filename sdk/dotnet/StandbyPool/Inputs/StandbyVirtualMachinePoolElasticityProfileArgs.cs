@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.StandbyPool.Inputs
     public sealed class StandbyVirtualMachinePoolElasticityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies maximum number of virtual machines in the standby virtual machine pool.
+        /// Specifies the maximum number of virtual machines in the standby virtual machine pool.
         /// </summary>
         [Input("maxReadyCapacity", required: true)]
         public Input<double> MaxReadyCapacity { get; set; } = null!;

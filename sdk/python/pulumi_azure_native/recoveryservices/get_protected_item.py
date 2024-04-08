@@ -129,7 +129,7 @@ def get_protected_item(container_name: Optional[str] = None,
     call the GetItemOperationResult API.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2016-06-01, 2023-06-01, 2023-08-01, 2024-01-01.
+    Other available API versions: 2016-06-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
 
 
     :param str container_name: Container name associated with the backed up item.
@@ -172,7 +172,7 @@ def get_protected_item_output(container_name: Optional[pulumi.Input[str]] = None
     call the GetItemOperationResult API.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2016-06-01, 2023-06-01, 2023-08-01, 2024-01-01.
+    Other available API versions: 2016-06-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
 
 
     :param str container_name: Container name associated with the backed up item.

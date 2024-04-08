@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * LoadTest details
+ * LoadTest details.
  */
 export class LoadTest extends pulumi.CustomResource {
     /**
@@ -50,7 +50,7 @@ export class LoadTest extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.loadtestservice.v20221201.EncryptionPropertiesResponse | undefined>;
     /**
-     * The type of identity used for the resource.
+     * The managed service identities assigned to this resource.
      */
     public readonly identity!: pulumi.Output<outputs.loadtestservice.v20221201.ManagedServiceIdentityResponse | undefined>;
     /**
@@ -136,11 +136,11 @@ export interface LoadTestArgs {
      */
     encryption?: pulumi.Input<inputs.loadtestservice.v20221201.EncryptionPropertiesArgs>;
     /**
-     * The type of identity used for the resource.
+     * The managed service identities assigned to this resource.
      */
     identity?: pulumi.Input<inputs.loadtestservice.v20221201.ManagedServiceIdentityArgs>;
     /**
-     * Load Test name.
+     * Load Test name
      */
     loadTestName?: pulumi.Input<string>;
     /**

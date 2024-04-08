@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources
     /// Resource group information.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01.
     /// 
-    /// Other available API versions: 2018-02-01, 2023-07-01.
+    /// Other available API versions: 2018-02-01, 2023-07-01, 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource
@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Resources
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20210401:ResourceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220901:ResourceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230701:ResourceGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20240301:ResourceGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

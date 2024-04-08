@@ -63,7 +63,7 @@ class TagAtScope(pulumi.CustomResource):
         Wrapper resource for tags API requests and responses.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-10-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,7 +80,7 @@ class TagAtScope(pulumi.CustomResource):
         Wrapper resource for tags API requests and responses.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-10-01.
 
-        Other available API versions: 2023-07-01.
+        Other available API versions: 2023-07-01, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param TagAtScopeArgs args: The arguments to use to populate this resource's properties.
@@ -116,7 +116,7 @@ class TagAtScope(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20200601:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20200801:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20201001:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20210101:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20210401:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20220901:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20230701:TagAtScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20200601:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20200801:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20201001:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20210101:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20210401:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20220901:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20230701:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20240301:TagAtScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagAtScope, __self__).__init__(
             'azure-native:resources:TagAtScope',

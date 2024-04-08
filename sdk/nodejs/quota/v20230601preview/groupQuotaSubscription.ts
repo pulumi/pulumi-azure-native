@@ -8,7 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * This represents a Azure subscriptionId that is associated with a GroupQuotaSEntity.
+ * This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
  */
 export class GroupQuotaSubscription extends pulumi.CustomResource {
     /**
@@ -65,11 +65,11 @@ export class GroupQuotaSubscription extends pulumi.CustomResource {
             if ((!args || args.groupQuotaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupQuotaName'");
             }
-            if ((!args || args.mgId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'mgId'");
+            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'managementGroupId'");
             }
             resourceInputs["groupQuotaName"] = args ? args.groupQuotaName : undefined;
-            resourceInputs["mgId"] = args ? args.mgId : undefined;
+            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -98,5 +98,5 @@ export interface GroupQuotaSubscriptionArgs {
     /**
      * Management Group Id.
      */
-    mgId: pulumi.Input<string>;
+    managementGroupId: pulumi.Input<string>;
 }

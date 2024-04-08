@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a LoadTest resource.
+ * Get a LoadTestResource
  * Azure REST API version: 2022-12-01.
  *
  * Other available API versions: 2021-12-01-preview.
@@ -24,7 +24,7 @@ export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetLoadTestArgs {
     /**
-     * Load Test name.
+     * Load Test name
      */
     loadTestName: string;
     /**
@@ -34,7 +34,7 @@ export interface GetLoadTestArgs {
 }
 
 /**
- * LoadTest details
+ * LoadTest details.
  */
 export interface GetLoadTestResult {
     /**
@@ -50,11 +50,11 @@ export interface GetLoadTestResult {
      */
     readonly encryption?: outputs.loadtestservice.EncryptionPropertiesResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The type of identity used for the resource.
+     * The managed service identities assigned to this resource.
      */
     readonly identity?: outputs.loadtestservice.ManagedServiceIdentityResponse;
     /**
@@ -83,7 +83,7 @@ export interface GetLoadTestResult {
     readonly type: string;
 }
 /**
- * Get a LoadTest resource.
+ * Get a LoadTestResource
  * Azure REST API version: 2022-12-01.
  *
  * Other available API versions: 2021-12-01-preview.
@@ -94,7 +94,7 @@ export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.Inv
 
 export interface GetLoadTestOutputArgs {
     /**
-     * Load Test name.
+     * Load Test name
      */
     loadTestName: pulumi.Input<string>;
     /**

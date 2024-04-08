@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201.Outputs
 {
 
     /// <summary>
-    /// Key and identity details for Customer Managed Key encryption of load test resource
+    /// Key and identity details for Customer Managed Key encryption of load test resource.
     /// </summary>
     [OutputType]
     public sealed class EncryptionPropertiesResponse
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201.Outputs
         /// <summary>
         /// All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
         /// </summary>
-        public readonly Outputs.EncryptionPropertiesResponseIdentity? Identity;
+        public readonly Outputs.EncryptionPropertiesIdentityResponse? Identity;
         /// <summary>
         /// key encryption key Url, versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201.Outputs
 
         [OutputConstructor]
         private EncryptionPropertiesResponse(
-            Outputs.EncryptionPropertiesResponseIdentity? identity,
+            Outputs.EncryptionPropertiesIdentityResponse? identity,
 
             string? keyUrl)
         {

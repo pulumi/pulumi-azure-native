@@ -2575,6 +2575,7 @@ _utilities.register(
    "azure-native:azurearcdata:FailoverGroup": "FailoverGroup",
    "azure-native:azurearcdata:PostgresInstance": "PostgresInstance",
    "azure-native:azurearcdata:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata:SqlServerAvailabilityGroup": "SqlServerAvailabilityGroup",
    "azure-native:azurearcdata:SqlServerDatabase": "SqlServerDatabase",
    "azure-native:azurearcdata:SqlServerInstance": "SqlServerInstance"
   }
@@ -2591,6 +2592,21 @@ _utilities.register(
    "azure-native:azurearcdata/v20230115preview:SqlManagedInstance": "SqlManagedInstance",
    "azure-native:azurearcdata/v20230115preview:SqlServerDatabase": "SqlServerDatabase",
    "azure-native:azurearcdata/v20230115preview:SqlServerInstance": "SqlServerInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurearcdata/v20240101",
+  "fqn": "pulumi_azure_native.azurearcdata.v20240101",
+  "classes": {
+   "azure-native:azurearcdata/v20240101:ActiveDirectoryConnector": "ActiveDirectoryConnector",
+   "azure-native:azurearcdata/v20240101:DataController": "DataController",
+   "azure-native:azurearcdata/v20240101:FailoverGroup": "FailoverGroup",
+   "azure-native:azurearcdata/v20240101:PostgresInstance": "PostgresInstance",
+   "azure-native:azurearcdata/v20240101:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup": "SqlServerAvailabilityGroup",
+   "azure-native:azurearcdata/v20240101:SqlServerDatabase": "SqlServerDatabase",
+   "azure-native:azurearcdata/v20240101:SqlServerInstance": "SqlServerInstance"
   }
  },
  {
@@ -8475,6 +8491,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "insights/v20230311",
+  "fqn": "pulumi_azure_native.insights.v20230311",
+  "classes": {
+   "azure-native:insights/v20230311:DataCollectionEndpoint": "DataCollectionEndpoint",
+   "azure-native:insights/v20230311:DataCollectionRule": "DataCollectionRule",
+   "azure-native:insights/v20230311:DataCollectionRuleAssociation": "DataCollectionRuleAssociation"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "insights/v20230315preview",
   "fqn": "pulumi_azure_native.insights.v20230315preview",
   "classes": {
@@ -10717,6 +10743,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "netapp/v20230701preview",
+  "fqn": "pulumi_azure_native.netapp.v20230701preview",
+  "classes": {
+   "azure-native:netapp/v20230701preview:Account": "Account",
+   "azure-native:netapp/v20230701preview:Backup": "Backup",
+   "azure-native:netapp/v20230701preview:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20230701preview:BackupVault": "BackupVault",
+   "azure-native:netapp/v20230701preview:Pool": "Pool",
+   "azure-native:netapp/v20230701preview:Snapshot": "Snapshot",
+   "azure-native:netapp/v20230701preview:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20230701preview:Subvolume": "Subvolume",
+   "azure-native:netapp/v20230701preview:Volume": "Volume",
+   "azure-native:netapp/v20230701preview:VolumeGroup": "VolumeGroup",
+   "azure-native:netapp/v20230701preview:VolumeQuotaRule": "VolumeQuotaRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "network",
   "fqn": "pulumi_azure_native.network",
   "classes": {
@@ -12654,6 +12698,12 @@ _utilities.register(
   "mod": "recoveryservices/v20240201",
   "fqn": "pulumi_azure_native.recoveryservices.v20240201",
   "classes": {
+   "azure-native:recoveryservices/v20240201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20240201:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20240201:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20240201:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20240201:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20240201:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20240201:Vault": "Vault"
   }
  },
@@ -12927,6 +12977,21 @@ _utilities.register(
   "classes": {
    "azure-native:resources/v20230801:AzureCliScript": "AzureCliScript",
    "azure-native:resources/v20230801:AzurePowerShellScript": "AzurePowerShellScript"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "resources/v20240301",
+  "fqn": "pulumi_azure_native.resources.v20240301",
+  "classes": {
+   "azure-native:resources/v20240301:Deployment": "Deployment",
+   "azure-native:resources/v20240301:DeploymentAtManagementGroupScope": "DeploymentAtManagementGroupScope",
+   "azure-native:resources/v20240301:DeploymentAtScope": "DeploymentAtScope",
+   "azure-native:resources/v20240301:DeploymentAtSubscriptionScope": "DeploymentAtSubscriptionScope",
+   "azure-native:resources/v20240301:DeploymentAtTenantScope": "DeploymentAtTenantScope",
+   "azure-native:resources/v20240301:Resource": "Resource",
+   "azure-native:resources/v20240301:ResourceGroup": "ResourceGroup",
+   "azure-native:resources/v20240301:TagAtScope": "TagAtScope"
   }
  },
  {
@@ -13337,6 +13402,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20240301preview",
   "classes": {
    "azure-native:security/v20240301preview:SecurityConnector": "SecurityConnector"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20240401",
+  "fqn": "pulumi_azure_native.security.v20240401",
+  "classes": {
+   "azure-native:security/v20240401:DevOpsConfiguration": "DevOpsConfiguration"
   }
  },
  {

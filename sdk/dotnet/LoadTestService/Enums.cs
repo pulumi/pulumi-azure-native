@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.LoadTestService
     }
 
     /// <summary>
-    /// Managed identity type to use for accessing encryption key Url
+    /// Managed identity type to use for accessing encryption key Url.
     /// </summary>
     [EnumType]
     public readonly struct Type : IEquatable<Type>
@@ -53,7 +53,13 @@ namespace Pulumi.AzureNative.LoadTestService
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// System assigned identity.
+        /// </summary>
         public static Type SystemAssigned { get; } = new Type("SystemAssigned");
+        /// <summary>
+        /// User assigned identity.
+        /// </summary>
         public static Type UserAssigned { get; } = new Type("UserAssigned");
 
         public static bool operator ==(Type left, Type right) => left.Equals(right);

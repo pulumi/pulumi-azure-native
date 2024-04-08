@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.Security.V20230901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security:DevOpsConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20240401:DevOpsConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

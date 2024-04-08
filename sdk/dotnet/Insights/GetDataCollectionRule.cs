@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Definition of ARM tracked top level resource.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2023-03-11.
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Insights
         /// <summary>
         /// Definition of ARM tracked top level resource.
         /// Azure REST API version: 2022-06-01.
+        /// 
+        /// Other available API versions: 2023-03-11.
         /// </summary>
         public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());

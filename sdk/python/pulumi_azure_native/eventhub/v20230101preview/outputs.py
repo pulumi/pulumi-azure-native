@@ -782,7 +782,9 @@ class NamespaceReplicaLocationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clusterArmId":
+        if key == "replicaState":
+            suggest = "replica_state"
+        elif key == "clusterArmId":
             suggest = "cluster_arm_id"
         elif key == "locationName":
             suggest = "location_name"
@@ -801,21 +803,32 @@ class NamespaceReplicaLocationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 replica_state: str,
                  cluster_arm_id: Optional[str] = None,
                  location_name: Optional[str] = None,
                  role_type: Optional[str] = None):
         """
         Namespace replication properties
+        :param str replica_state: state of Namespace replica.
         :param str cluster_arm_id: Optional property that denotes the ARM ID of the Cluster. This is required, if a namespace replica should be placed in a Dedicated Event Hub Cluster
         :param str location_name: Azure regions where a replica of the namespace is maintained
         :param str role_type: GeoDR Role Types
         """
+        pulumi.set(__self__, "replica_state", replica_state)
         if cluster_arm_id is not None:
             pulumi.set(__self__, "cluster_arm_id", cluster_arm_id)
         if location_name is not None:
             pulumi.set(__self__, "location_name", location_name)
         if role_type is not None:
             pulumi.set(__self__, "role_type", role_type)
+
+    @property
+    @pulumi.getter(name="replicaState")
+    def replica_state(self) -> str:
+        """
+        state of Namespace replica.
+        """
+        return pulumi.get(self, "replica_state")
 
     @property
     @pulumi.getter(name="clusterArmId")

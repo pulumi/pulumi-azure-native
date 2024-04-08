@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Deployment information.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2023-07-01.
+ * Other available API versions: 2023-07-01, 2024-03-01.
  */
 export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
     /**
@@ -89,7 +89,7 @@ export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20180501:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190301:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190501:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190510:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190701:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190801:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20191001:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20200601:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20200801:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20201001:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20210101:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20210401:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20220901:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20230701:DeploymentAtSubscriptionScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20180501:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190301:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190501:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190510:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190701:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190801:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20191001:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20200601:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20200801:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20201001:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20210101:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20210401:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20220901:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20230701:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20240301:DeploymentAtSubscriptionScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentAtSubscriptionScope.__pulumiType, name, resourceInputs, opts);
     }
