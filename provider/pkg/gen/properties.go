@@ -43,7 +43,27 @@ type propertyBag struct {
 
 type RequiredContainers [][]string
 
-func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType, isResponse bool) (*propertyBag, error) {
+// genPropertiesVariant is a set of flags that control the behavior of property generation
+// in genProperties and genProperty
+type genPropertiesVariant struct {
+	// isOutput indicates that the properties are being generated for an output type.
+	isOutput bool
+	// isType indicates that the properties are being generated for a type definition.
+	isType bool
+	// isResponse indicates that the properties are being generated for a response type.
+	isResponse bool
+}
+
+// noResponse returns a new copy of the variant with isResponse set to false.
+func (v *genPropertiesVariant) noResponse() genPropertiesVariant {
+	return genPropertiesVariant{
+		isOutput:   v.isOutput,
+		isType:     v.isType,
+		isResponse: false,
+	}
+}
+
+func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants genPropertiesVariant) (*propertyBag, error) {
 	result := newPropertyBag()
 
 	// Sort properties to make codegen deterministic.
@@ -60,7 +80,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
-		if name == "etag" && !isType && !isOutput {
+		if name == "etag" && !variants.isType && !variants.isOutput {
 			// ETags may be defined as inputs to PUT endpoints, but we should never model them as
 			// resource inputs because they are a protocol implementation detail rather than
 			// a meaningful desired-state property.
@@ -98,7 +118,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
-			bag, err := m.genProperties(resolvedProperty, isOutput, isType, false /* isResponse */)
+			bag, err := m.genProperties(resolvedProperty, variants.noResponse())
 			if err != nil {
 				return nil, err
 			}
@@ -136,14 +156,14 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		// Skip read-only properties for input types and write-only properties for output types.
-		if resolvedProperty.ReadOnly && !isOutput {
+		if resolvedProperty.ReadOnly && !variants.isOutput {
 			continue
 		}
-		if isOutput && isWriteOnly(resolvedProperty) {
+		if variants.isOutput && isWriteOnly(resolvedProperty) {
 			continue
 		}
 
-		propertySpec, apiProperty, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, resolvedProperty, isOutput, isType)
+		propertySpec, apiProperty, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, resolvedProperty, variants)
 		if err != nil {
 			return nil, err
 		}
@@ -153,7 +173,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		if isOutput && resolvedProperty.ReadOnly {
+		if variants.isOutput && resolvedProperty.ReadOnly {
 			result.requiredSpecs.Add(sdkName)
 		}
 
@@ -171,7 +191,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			return nil, err
 		}
 
-		allOfProperties, err := m.genProperties(allOfSchema, isOutput, isType, false /* isResponse */)
+		allOfProperties, err := m.genProperties(allOfSchema, variants.noResponse())
 		if err != nil {
 			return nil, err
 		}
@@ -220,7 +240,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	// If the schema has no properties but is a primitive output, we include it as a property so invokes can be generated.
 	// Ideally we'd just represent it as a primitive type and use FunctionSpec.ReturnType to specify this, but pulumi/pulumi
 	// #15739 and #15738 prevent this.
-	if len(names) == 0 && len(result.specs) == 0 && isResponse && len(resolvedSchema.Type) == 1 && resolvedSchema.Type[0] != "object" {
+	if len(names) == 0 && len(result.specs) == 0 && variants.isResponse && len(resolvedSchema.Type) == 1 && resolvedSchema.Type[0] != "object" {
 		result.specs[resources.SingleValueProperty] = pschema.PropertySpec{
 			TypeSpec: pschema.TypeSpec{
 				Type: resolvedSchema.Type[0],
@@ -235,7 +255,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	return result, nil
 }
 
-func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, isOutput, isType bool) (*pschema.PropertySpec, *resources.AzureAPIProperty, error) {
+func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, variants genPropertiesVariant) (*pschema.PropertySpec, *resources.AzureAPIProperty, error) {
 	// Identify properties which are aso available as standalone resources and mark them to be maintained if not specified inline.
 	// Ignore types as we only support top-level resource properties
 	// Ignore outputs as this is only affecting the input args of a resource, not the resource outputs.
@@ -243,7 +263,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	// There is other kinds of sub-resources where there's only a single instance within the parent resource but these are not handled here.
 	// They are currently handled by the openapi.default module - where we have to add a special case for them *because* they're not managed by the parent and don't have their own delete method.
 	maintainSubResourceIfUnset := false
-	if !isType && !isOutput && schema.Items != nil && schema.Items.Schema != nil {
+	if !variants.isType && !variants.isOutput && schema.Items != nil && schema.Items.Schema != nil {
 		itemsRef := schema.Items.Schema.Ref.String()
 		for _, nestedRef := range m.nestedResourceBodyRefs {
 			if itemsRef == nestedRef {
@@ -263,7 +283,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 		return nil, nil, err
 	}
 
-	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput)
+	typeSpec, err := m.genTypeSpec(name, schema, context, variants.isOutput)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -316,8 +336,8 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	isStringSet := typeSpec.Type == "object" && typeSpec.AdditionalProperties == nil && typeSpec.Ref == ""
 
 	forceNewSpec := noForceNew
-	if !isOutput {
-		forceNewSpec = m.forceNew(resolvedProperty, name, isType)
+	if !variants.isOutput {
+		forceNewSpec = m.forceNew(resolvedProperty, name, variants.isType)
 	}
 
 	schemaProperty := pschema.PropertySpec{
@@ -352,7 +372,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	// Input types only get extra information attached
-	if !isOutput {
+	if !variants.isOutput {
 		if m.isEnum(&schemaProperty.TypeSpec) {
 			metadataProperty = resources.AzureAPIProperty{
 				Type:     "string",

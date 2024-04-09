@@ -117,7 +117,12 @@ func TestNonObjectInvokeResponses(t *testing.T) {
 	}
 
 	t.Run("string type, response properties requested", func(t *testing.T) {
-		props, err := m.genProperties(resolvedSchema, true, false, true)
+		variant := genPropertiesVariant{
+			isOutput:   true,
+			isType:     false,
+			isResponse: true,
+		}
+		props, err := m.genProperties(resolvedSchema, variant)
 		require.NoError(t, err)
 
 		require.Len(t, props.specs, 1)
@@ -128,7 +133,12 @@ func TestNonObjectInvokeResponses(t *testing.T) {
 	})
 
 	t.Run("string type, response properties not requested", func(t *testing.T) {
-		props, err := m.genProperties(resolvedSchema, true, false, false)
+		variant := genPropertiesVariant{
+			isOutput:   true,
+			isType:     false,
+			isResponse: false,
+		}
+		props, err := m.genProperties(resolvedSchema, variant)
 		require.NoError(t, err)
 
 		require.Len(t, props.specs, 0)
@@ -144,7 +154,12 @@ func TestNonObjectInvokeResponses(t *testing.T) {
 			},
 		}
 
-		props, err := m.genProperties(schema, true, false, true)
+		variant := genPropertiesVariant{
+			isOutput:   true,
+			isType:     false,
+			isResponse: true,
+		}
+		props, err := m.genProperties(schema, variant)
 		require.NoError(t, err)
 
 		require.Len(t, props.specs, 0)
@@ -165,7 +180,12 @@ func TestNonObjectInvokeResponses(t *testing.T) {
 			},
 		}
 
-		props, err := m.genProperties(schema, true, false, true)
+		variant := genPropertiesVariant{
+			isOutput:   true,
+			isType:     false,
+			isResponse: true,
+		}
+		props, err := m.genProperties(schema, variant)
 		require.NoError(t, err)
 
 		require.Len(t, props.specs, 1)
