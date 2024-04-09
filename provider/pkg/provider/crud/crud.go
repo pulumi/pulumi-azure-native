@@ -354,8 +354,11 @@ func (r *resourceCrudClient) Read(ctx context.Context, id string) (map[string]an
 	if err != nil {
 		return nil, err
 	}
-	// Cast is safe because we're reading a resource, only invokes return non-objects.
-	return resp.(map[string]any), nil
+	// Cast should be safe because we're reading a resource, only invokes return non-objects.
+	if respMap, ok := resp.(map[string]any); ok {
+		return respMap, nil
+	}
+	return nil, errors.Errorf("expected object from Read of '%s', got %T", url, resp)
 }
 
 type propertyPath struct {
