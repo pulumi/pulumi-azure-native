@@ -31,10 +31,10 @@ type AzureDeleter interface {
 type AzureClient interface {
 	AzureDeleter
 	CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error
-	Get(ctx context.Context, id string, apiVersion string) (map[string]interface{}, error)
+	Get(ctx context.Context, id string, apiVersion string) (any, error)
 	Head(ctx context.Context, id string, apiVersion string) error
 	Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
-	Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (map[string]interface{}, error)
+	Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (any, error)
 	Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error)
 }
 
@@ -124,7 +124,7 @@ func (a *azureClientImpl) Post(
 	ctx context.Context,
 	id string,
 	bodyProps map[string]interface{},
-	queryParameters map[string]interface{}) (map[string]interface{}, error) {
+	queryParameters map[string]interface{}) (any, error) {
 
 	preparer := autorest.CreatePreparer(
 		autorest.AsContentType("application/json; charset=utf-8"),
@@ -146,7 +146,7 @@ func (a *azureClientImpl) Post(
 	if err != nil {
 		return nil, err
 	}
-	var outputs map[string]interface{}
+	var outputs any
 	err = autorest.Respond(
 		resp,
 		a.client.ByInspecting(),
@@ -159,8 +159,7 @@ func (a *azureClientImpl) Post(
 	return outputs, nil
 }
 
-func (a *azureClientImpl) Get(ctx context.Context, id string,
-	apiVersion string) (map[string]interface{}, error) {
+func (a *azureClientImpl) Get(ctx context.Context, id string, apiVersion string) (any, error) {
 	queryParameters := map[string]interface{}{
 		"api-version": apiVersion,
 	}
@@ -181,7 +180,7 @@ func (a *azureClientImpl) Get(ctx context.Context, id string,
 	if err != nil {
 		return nil, err
 	}
-	var outputs map[string]interface{}
+	var outputs any
 	err = autorest.Respond(
 		resp,
 		a.client.ByInspecting(),

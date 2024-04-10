@@ -78,7 +78,11 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		if _, ok := m.visitedTypes[tok]; !ok {
 			m.visitedTypes[tok] = true
 
-			props, err := m.genProperties(resolvedSchema, isOutput, true /* isType */)
+			props, err := m.genProperties(resolvedSchema, genPropertiesVariant{
+				isOutput:   isOutput,
+				isType:     true,
+				isResponse: false,
+			})
 			if err != nil {
 				return nil, err
 			}
@@ -176,7 +180,10 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 		if err != nil {
 			return nil, err
 		}
-		itemsSpec, _, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, resolvedProperty, isOutput, true /* isType */)
+		itemsSpec, _, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, resolvedProperty, genPropertiesVariant{
+			isOutput: isOutput,
+			isType:   true,
+		})
 		if err != nil {
 			return nil, err
 		}
