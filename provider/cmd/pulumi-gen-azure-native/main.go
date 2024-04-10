@@ -23,6 +23,7 @@ import (
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	pythongen "github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/splitschema"
 )
 
 func main() {
@@ -121,6 +122,16 @@ func main() {
 		}
 		fmt.Printf("Emitted %s.\n", codegenMetadataOutputPath)
 
+		metadata := splitschema.TypedPackageMetadata[resources.AzureAPIResource, resources.AzureAPIInvoke, resources.AzureAPIType]{
+			Resources: buildSchemaResult.Metadata.Resources,
+			Functions: buildSchemaResult.Metadata.Invokes,
+			Types:     buildSchemaResult.Metadata.Types,
+		}
+		err := splitschema.WritePackageSpecWithTypedMetadata(filepath.Join("bin", "schema"), &buildSchemaResult.PackageSpec, &metadata, splitschema.WriteOptionCompact())
+		if err != nil {
+			panic(err)
+		}
+
 	case "docs":
 		buildSchemaArgs.ExcludeExplicitVersions = true
 		buildSchemaArgs.ExampleLanguages = []string{"nodejs", "dotnet", "python", "go", "java", "yaml"}
@@ -209,7 +220,7 @@ func generate(ppkg *schema.Package, language string) (map[string][]byte, error) 
 	extraFiles := map[string][]byte{}
 	switch language {
 	case "nodejs":
-		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles)
+		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles, nil)
 	case "python":
 		return pythongen.GeneratePackage(toolDescription, ppkg, extraFiles)
 	case "go":
