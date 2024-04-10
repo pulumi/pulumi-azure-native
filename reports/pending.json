@@ -1082,7 +1082,8 @@
   "VMwareCloudSimple": [],
   "VideoAnalyzer": [],
   "VideoIndexer": [
-    "2024-01-01"
+    "2024-01-01",
+    "2024-04-01-preview"
   ],
   "VirtualMachineImages": [
     "2023-07-01"

@@ -3924,6 +3924,7 @@
       {
         "resourceType": "SqlServerInstances",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -3942,6 +3943,7 @@
       {
         "resourceType": "SqlServerInstances/AvailabilityGroups",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -3954,6 +3956,7 @@
       {
         "resourceType": "SqlServerInstances/Databases",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -3968,6 +3971,7 @@
       {
         "resourceType": "SqlServerLicenses",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview"
         ]
       }
@@ -23453,6 +23457,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2024-08-01-preview",
           "2023-03-15",
           "2022-05-01-preview",
           "2021-10-06-preview"
