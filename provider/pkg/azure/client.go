@@ -476,7 +476,7 @@ func handleResponseError(err error, resp *http.Response) error {
 		// The service returned a non-JSON response, which is unexpected. The JSON unmarshaling error is not
 		// useful; return the response body and the HTTP status as an error.
 		body, _ := io.ReadAll(resp.Body)
-		return fmt.Errorf("unexpected response from the service: '%s', HTTP status: %s", body, resp.Status)
+		return fmt.Errorf("unexpected response from Azure: '%s', HTTP status: %s", body, resp.Status)
 	}
 	return err
 }
