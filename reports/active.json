@@ -2948,7 +2948,8 @@
       "2023-12-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-04-01-preview"
     ],
     "sqlserverinstances/availabilitygroups": [
       "2023-05-16-preview",
@@ -2957,7 +2958,8 @@
       "2023-12-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-04-01-preview"
     ],
     "sqlserverinstances/databases": [
       "2022-06-15-preview",
@@ -2968,10 +2970,12 @@
       "2023-12-01-preview",
       "2024-01-01",
       "2024-02-01-preview",
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-04-01-preview"
     ],
     "sqlserverlicenses": [
-      "2024-03-01-preview"
+      "2024-03-01-preview",
+      "2024-04-01-preview"
     ]
   },
   "azurefleet": {
@@ -18972,7 +18976,8 @@
     "locations/operationstatuses": [
       "2021-10-06-preview",
       "2022-05-01-preview",
-      "2023-03-15"
+      "2023-03-15",
+      "2024-08-01-preview"
     ],
     "operations": [
       "2021-07-08-privatepreview",
@@ -22222,7 +22227,8 @@
       "2022-07-01-preview",
       "2022-11-01-preview",
       "2023-04-01",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2023-10-01-preview"
     ],
     "applyupdates": [
       "2016-01-01",
@@ -22238,7 +22244,8 @@
       "2022-07-01-preview",
       "2022-11-01-preview",
       "2023-04-01",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2023-10-01-preview"
     ],
     "configurationassignments": [
       "2016-01-01",
@@ -22268,7 +22275,25 @@
       "2022-07-01-preview",
       "2022-11-01-preview",
       "2023-04-01",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2023-10-01-preview"
+    ],
+    "maintenanceconfigurations/eventgridfilters": [
+      "2016-01-01",
+      "2017-01-01",
+      "2017-04-26",
+      "2018-06-01-preview",
+      "2018-10-01",
+      "2020-04-01",
+      "2020-07-01-preview",
+      "2021-04-01-preview",
+      "2021-05-01",
+      "2021-09-01-preview",
+      "2022-07-01-preview",
+      "2022-11-01-preview",
+      "2023-04-01",
+      "2023-09-01-preview",
+      "2023-10-01-preview"
     ],
     "operations": [
       "2016-01-01",
@@ -22284,7 +22309,8 @@
       "2022-07-01-preview",
       "2022-11-01-preview",
       "2023-04-01",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2023-10-01-preview"
     ],
     "publicmaintenanceconfigurations": [
       "2020-07-01-preview",
@@ -22294,7 +22320,14 @@
       "2022-07-01-preview",
       "2022-11-01-preview",
       "2023-04-01",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2023-10-01-preview"
+    ],
+    "scheduledevents": [
+      "2023-10-01-preview"
+    ],
+    "scheduledevents/acknowledge": [
+      "2023-10-01-preview"
     ],
     "updates": [
       "2016-01-01",
@@ -22310,7 +22343,8 @@
       "2022-07-01-preview",
       "2022-11-01-preview",
       "2023-04-01",
-      "2023-09-01-preview"
+      "2023-09-01-preview",
+      "2023-10-01-preview"
     ]
   },
   "managedidentity": {

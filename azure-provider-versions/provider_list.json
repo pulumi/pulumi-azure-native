@@ -3924,6 +3924,7 @@
       {
         "resourceType": "SqlServerInstances",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -3942,6 +3943,7 @@
       {
         "resourceType": "SqlServerInstances/AvailabilityGroups",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -3954,6 +3956,7 @@
       {
         "resourceType": "SqlServerInstances/Databases",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview",
           "2024-02-01-preview",
           "2024-01-01",
@@ -3968,6 +3971,7 @@
       {
         "resourceType": "SqlServerLicenses",
         "apiVersions": [
+          "2024-04-01-preview",
           "2024-03-01-preview"
         ]
       }
@@ -23453,6 +23457,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2024-08-01-preview",
           "2023-03-15",
           "2022-05-01-preview",
           "2021-10-06-preview"
@@ -26794,6 +26799,7 @@
       {
         "resourceType": "applyUpdates",
         "apiVersions": [
+          "2023-10-01-preview",
           "2023-09-01-preview",
           "2023-04-01",
           "2022-11-01-preview",
@@ -26830,6 +26836,27 @@
       {
         "resourceType": "maintenanceConfigurations",
         "apiVersions": [
+          "2023-10-01-preview",
+          "2023-09-01-preview",
+          "2023-04-01",
+          "2022-11-01-preview",
+          "2022-07-01-preview",
+          "2021-09-01-preview",
+          "2021-05-01",
+          "2021-04-01-preview",
+          "2020-07-01-preview",
+          "2020-04-01",
+          "2018-10-01",
+          "2018-06-01-preview",
+          "2017-04-26",
+          "2017-01-01",
+          "2016-01-01"
+        ]
+      },
+      {
+        "resourceType": "maintenanceConfigurations/eventGridFilters",
+        "apiVersions": [
+          "2023-10-01-preview",
           "2023-09-01-preview",
           "2023-04-01",
           "2022-11-01-preview",
@@ -26849,6 +26876,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-10-01-preview",
           "2023-09-01-preview",
           "2023-04-01",
           "2022-11-01-preview",
@@ -26868,6 +26896,7 @@
       {
         "resourceType": "publicMaintenanceConfigurations",
         "apiVersions": [
+          "2023-10-01-preview",
           "2023-09-01-preview",
           "2023-04-01",
           "2022-11-01-preview",
@@ -26879,8 +26908,21 @@
         ]
       },
       {
+        "resourceType": "scheduledevents",
+        "apiVersions": [
+          "2023-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "scheduledevents/acknowledge",
+        "apiVersions": [
+          "2023-10-01-preview"
+        ]
+      },
+      {
         "resourceType": "updates",
         "apiVersions": [
+          "2023-10-01-preview",
           "2023-09-01-preview",
           "2023-04-01",
           "2022-11-01-preview",
