@@ -154,7 +154,7 @@ func (a *azureClientImpl) Post(
 		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {
-		return nil, err
+		return nil, handleResponseError(err, resp)
 	}
 	return outputs, nil
 }
@@ -332,7 +332,7 @@ func (a *azureClientImpl) update(
 		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {
-		return nil, created, err
+		return nil, created, handleResponseError(err, resp)
 	}
 	return outputs, true, nil
 }
@@ -386,7 +386,7 @@ func (a *azureClientImpl) CanCreate(ctx context.Context, id, path, apiVersion, r
 			autorest.ByUnmarshallingJSON(&outputs),
 			autorest.ByClosing())
 		if err != nil {
-			return err
+			return handleResponseError(err, resp)
 		}
 		if !isDefaultResponse(outputs) {
 			return fmt.Errorf("cannot create already existing subresource '%s'", id)
@@ -467,4 +467,16 @@ func byInspecting() autorest.RespondDecorator {
 			return r.Respond(resp)
 		})
 	}
+}
+
+// handleResponseError checks for certain kinds of errors and returns a more informative error message.
+// Most of the time, it will return the original error.
+func handleResponseError(err error, resp *http.Response) error {
+	if strings.Contains(err.Error(), "autorest/azure: error response cannot be parsed") {
+		// The service returned a non-JSON response, which is unexpected. The JSON unmarshaling error is not
+		// useful; return the response body and the HTTP status as an error.
+		body, _ := io.ReadAll(resp.Body)
+		return fmt.Errorf("unexpected response from the service: '%s', HTTP status: %s", body, resp.Status)
+	}
+	return err
 }
