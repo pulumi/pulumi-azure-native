@@ -1201,7 +1201,9 @@ Network:
         ExpressRoutePort: "2023-02-01"
         ExpressRoutePortAuthorization: "2023-02-01"
         FirewallPolicy: "2023-02-01"
+        FirewallPolicyDraft: "2023-11-01"
         FirewallPolicyRuleCollectionGroup: "2023-02-01"
+        FirewallPolicyRuleCollectionGroupDraft: "2023-11-01"
         FirewallPolicyRuleGroup: "2020-04-01"
         FlowLog: "2023-02-01"
         ForwardingRule: "2022-07-01"
@@ -1342,6 +1344,9 @@ Network:
         - provider: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-09-01 is greater than 2022-09-01
+        - provider: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2023-11-01 is greater than 2022-09-01
 NetworkAnalytics:
     tracking: "2023-11-15"
 NetworkCloud:
