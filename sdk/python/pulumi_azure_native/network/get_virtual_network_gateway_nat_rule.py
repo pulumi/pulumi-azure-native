@@ -149,7 +149,7 @@ def get_virtual_network_gateway_nat_rule(nat_rule_name: Optional[str] = None,
     Retrieves the details of a nat rule.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
 
 
     :param str nat_rule_name: The name of the nat rule.
@@ -184,7 +184,7 @@ def get_virtual_network_gateway_nat_rule_output(nat_rule_name: Optional[pulumi.I
     Retrieves the details of a nat rule.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
 
 
     :param str nat_rule_name: The name of the nat rule.

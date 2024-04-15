@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Task<GetConnectivityConfigurationResult> InvokeAsync(GetConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectivityConfigurationResult>("azure-native:network:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Output<GetConnectivityConfigurationResult> Invoke(GetConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectivityConfigurationResult>("azure-native:network:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationInvokeArgs(), options.WithDefaults());

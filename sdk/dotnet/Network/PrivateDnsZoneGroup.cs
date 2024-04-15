@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// Private dns zone group resource.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
     /// 
-    /// Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+    /// Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateDnsZoneGroup")]
     public partial class PrivateDnsZoneGroup : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:PrivateDnsZoneGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:PrivateDnsZoneGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:PrivateDnsZoneGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20231101:PrivateDnsZoneGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

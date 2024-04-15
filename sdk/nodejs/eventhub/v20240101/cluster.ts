@@ -135,7 +135,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["upgradePreferences"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:Cluster" }, { type: "azure-native:eventhub/v20180101preview:Cluster" }, { type: "azure-native:eventhub/v20210601preview:Cluster" }, { type: "azure-native:eventhub/v20211101:Cluster" }, { type: "azure-native:eventhub/v20220101preview:Cluster" }, { type: "azure-native:eventhub/v20221001preview:Cluster" }, { type: "azure-native:eventhub/v20230101preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:Cluster" }, { type: "azure-native:eventhub/v20180101preview:Cluster" }, { type: "azure-native:eventhub/v20210601preview:Cluster" }, { type: "azure-native:eventhub/v20211101:Cluster" }, { type: "azure-native:eventhub/v20220101preview:Cluster" }, { type: "azure-native:eventhub/v20221001preview:Cluster" }, { type: "azure-native:eventhub/v20230101preview:Cluster" }, { type: "azure-native:eventhub/v20240501preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Description of topic resource.
  * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20230101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20240101:NamespaceNetworkRuleSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20210601preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20230101preview:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20240101:NamespaceNetworkRuleSet" }, { type: "azure-native:eventhub/v20240501preview:NamespaceNetworkRuleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceNetworkRuleSet.__pulumiType, name, resourceInputs, opts);
     }

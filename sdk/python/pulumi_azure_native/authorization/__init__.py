@@ -107,6 +107,8 @@ if typing.TYPE_CHECKING:
     v20220801preview = __v20220801preview
     import pulumi_azure_native.authorization.v20230401 as __v20230401
     v20230401 = __v20230401
+    import pulumi_azure_native.authorization.v20240401 as __v20240401
+    v20240401 = __v20240401
 else:
     v20171001preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20171001preview')
     v20180501 = _utilities.lazy_import('pulumi_azure_native.authorization.v20180501')
@@ -125,4 +127,5 @@ else:
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220701preview')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220801preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.authorization.v20230401')
+    v20240401 = _utilities.lazy_import('pulumi_azure_native.authorization.v20240401')
 

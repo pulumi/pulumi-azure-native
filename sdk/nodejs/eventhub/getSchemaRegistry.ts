@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of an EventHub schema group.
  * Azure REST API version: 2022-10-01-preview.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export function getSchemaRegistry(args: GetSchemaRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaRegistryResult> {
 
@@ -85,7 +85,7 @@ export interface GetSchemaRegistryResult {
  * Gets the details of an EventHub schema group.
  * Azure REST API version: 2022-10-01-preview.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
     return pulumi.output(args).apply((a: any) => getSchemaRegistry(a, opts))

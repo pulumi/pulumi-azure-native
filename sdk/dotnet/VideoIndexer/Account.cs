@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VideoIndexer
     /// An Azure Video Indexer account.
     /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview.
     /// 
-    /// Other available API versions: 2024-01-01.
+    /// Other available API versions: 2024-01-01, 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoindexer:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -122,6 +122,7 @@ namespace Pulumi.AzureNative.VideoIndexer
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20220720preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20220801:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240101:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240401preview:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

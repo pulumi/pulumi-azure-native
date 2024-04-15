@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Get specified scope connection created by this Network Manager.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Task<GetScopeConnectionResult> InvokeAsync(GetScopeConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeConnectionResult>("azure-native:network:getScopeConnection", args ?? new GetScopeConnectionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Get specified scope connection created by this Network Manager.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Output<GetScopeConnectionResult> Invoke(GetScopeConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithDefaults());

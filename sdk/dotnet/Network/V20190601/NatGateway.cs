@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Network.V20190601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:NatGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:NatGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:NatGateway" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20231101:NatGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

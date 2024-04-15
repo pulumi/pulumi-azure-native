@@ -101,7 +101,7 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
     Gets the private dns zone group resource by specified private dns zone group name.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+    Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
 
 
     :param str private_dns_zone_group_name: The name of the private dns zone group.
@@ -132,7 +132,7 @@ def get_private_dns_zone_group_output(private_dns_zone_group_name: Optional[pulu
     Gets the private dns zone group resource by specified private dns zone group name.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+    Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
 
 
     :param str private_dns_zone_group_name: The name of the private dns zone group.

@@ -2272,6 +2272,39 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallPolicyIntrusionDetectionProfileType : IEquatable<FirewallPolicyIntrusionDetectionProfileType>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyIntrusionDetectionProfileType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyIntrusionDetectionProfileType Basic { get; } = new FirewallPolicyIntrusionDetectionProfileType("Basic");
+        public static FirewallPolicyIntrusionDetectionProfileType Standard { get; } = new FirewallPolicyIntrusionDetectionProfileType("Standard");
+        public static FirewallPolicyIntrusionDetectionProfileType Advanced { get; } = new FirewallPolicyIntrusionDetectionProfileType("Advanced");
+        public static FirewallPolicyIntrusionDetectionProfileType Extended { get; } = new FirewallPolicyIntrusionDetectionProfileType("Extended");
+
+        public static bool operator ==(FirewallPolicyIntrusionDetectionProfileType left, FirewallPolicyIntrusionDetectionProfileType right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyIntrusionDetectionProfileType left, FirewallPolicyIntrusionDetectionProfileType right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyIntrusionDetectionProfileType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyIntrusionDetectionProfileType other && Equals(other);
+        public bool Equals(FirewallPolicyIntrusionDetectionProfileType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The rule bypass protocol.
     /// </summary>
     [EnumType]
@@ -2305,7 +2338,7 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
-    /// Intrusion detection general state.
+    /// Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
     /// </summary>
     [EnumType]
     public readonly struct FirewallPolicyIntrusionDetectionStateType : IEquatable<FirewallPolicyIntrusionDetectionStateType>

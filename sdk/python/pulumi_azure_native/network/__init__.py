@@ -36,7 +36,9 @@ from .express_route_gateway import *
 from .express_route_port import *
 from .express_route_port_authorization import *
 from .firewall_policy import *
+from .firewall_policy_draft import *
 from .firewall_policy_rule_collection_group import *
+from .firewall_policy_rule_collection_group_draft import *
 from .firewall_policy_rule_group import *
 from .flow_log import *
 from .forwarding_rule import *
@@ -75,7 +77,9 @@ from .get_express_route_gateway import *
 from .get_express_route_port import *
 from .get_express_route_port_authorization import *
 from .get_firewall_policy import *
+from .get_firewall_policy_draft import *
 from .get_firewall_policy_rule_collection_group import *
+from .get_firewall_policy_rule_collection_group_draft import *
 from .get_firewall_policy_rule_group import *
 from .get_flow_log import *
 from .get_forwarding_rule import *
@@ -347,6 +351,8 @@ if typing.TYPE_CHECKING:
     v20230801preview = __v20230801preview
     import pulumi_azure_native.network.v20230901 as __v20230901
     v20230901 = __v20230901
+    import pulumi_azure_native.network.v20231101 as __v20231101
+    v20231101 = __v20231101
     import pulumi_azure_native.network.v20240201 as __v20240201
     v20240201 = __v20240201
 else:
@@ -383,5 +389,6 @@ else:
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.network.v20230701preview')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.network.v20230801preview')
     v20230901 = _utilities.lazy_import('pulumi_azure_native.network.v20230901')
+    v20231101 = _utilities.lazy_import('pulumi_azure_native.network.v20231101')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.network.v20240201')
 

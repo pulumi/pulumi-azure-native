@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get the specified service endpoint policy definitions from service endpoint policy.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
 
@@ -76,7 +76,7 @@ export interface GetServiceEndpointPolicyDefinitionResult {
  * Get the specified service endpoint policy definitions from service endpoint policy.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export function getServiceEndpointPolicyDefinitionOutput(args: GetServiceEndpointPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointPolicyDefinition(a, opts))

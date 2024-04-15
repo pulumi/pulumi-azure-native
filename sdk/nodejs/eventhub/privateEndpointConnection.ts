@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Properties of the PrivateEndpointConnection.
  * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
  *
- * Other available API versions: 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20210101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20211101:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20220101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20221001preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20230101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20240101:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20180101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20210101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20211101:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20220101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20221001preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20230101preview:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20240101:PrivateEndpointConnection" }, { type: "azure-native:eventhub/v20240501preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

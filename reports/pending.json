@@ -79,7 +79,8 @@
     "2022-06-01",
     "2022-07-01-preview",
     "2022-08-01-preview",
-    "2023-04-01"
+    "2023-04-01",
+    "2024-04-01"
   ],
   "Automanage": [
     "2021-04-30-preview",
@@ -490,7 +491,8 @@
     "2022-01-01-preview",
     "2022-10-01-preview",
     "2023-01-01-preview",
-    "2024-01-01"
+    "2024-01-01",
+    "2024-05-01-preview"
   ],
   "ExtendedLocation": [
     "2021-08-31-preview"
@@ -826,6 +828,7 @@
     "2023-07-01-preview",
     "2023-08-01-preview",
     "2023-09-01",
+    "2023-11-01",
     "2024-02-01"
   ],
   "NetworkAnalytics": [],
@@ -1082,7 +1085,8 @@
   "VMwareCloudSimple": [],
   "VideoAnalyzer": [],
   "VideoIndexer": [
-    "2024-01-01"
+    "2024-01-01",
+    "2024-04-01-preview"
   ],
   "VirtualMachineImages": [
     "2023-07-01"

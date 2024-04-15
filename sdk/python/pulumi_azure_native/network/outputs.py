@@ -16008,16 +16008,20 @@ class FirewallPolicyIntrusionDetectionResponse(dict):
     """
     def __init__(__self__, *,
                  configuration: Optional['outputs.FirewallPolicyIntrusionDetectionConfigurationResponse'] = None,
-                 mode: Optional[str] = None):
+                 mode: Optional[str] = None,
+                 profile: Optional[str] = None):
         """
         Configuration for intrusion detection mode and rules.
         :param 'FirewallPolicyIntrusionDetectionConfigurationResponse' configuration: Intrusion detection configuration properties.
-        :param str mode: Intrusion detection general state.
+        :param str mode: Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
+        :param str profile: IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
 
     @property
     @pulumi.getter
@@ -16031,9 +16035,17 @@ class FirewallPolicyIntrusionDetectionResponse(dict):
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        Intrusion detection general state.
+        Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
         """
         return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
+        """
+        return pulumi.get(self, "profile")
 
 
 @pulumi.output_type

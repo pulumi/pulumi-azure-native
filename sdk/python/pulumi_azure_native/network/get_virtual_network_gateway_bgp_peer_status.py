@@ -53,7 +53,7 @@ def get_virtual_network_gateway_bgp_peer_status(peer: Optional[str] = None,
     The GetBgpPeerStatus operation retrieves the status of all BGP peers.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+    Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
 
 
     :param str peer: The IP address of the peer to retrieve the status of.
@@ -80,7 +80,7 @@ def get_virtual_network_gateway_bgp_peer_status_output(peer: Optional[pulumi.Inp
     The GetBgpPeerStatus operation retrieves the status of all BGP peers.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+    Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
 
 
     :param str peer: The IP address of the peer to retrieve the status of.

@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.Network.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:VirtualNetworkPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:VirtualNetworkPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:VirtualNetworkPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20231101:VirtualNetworkPeering" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

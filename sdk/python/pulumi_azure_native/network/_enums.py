@@ -75,6 +75,7 @@ __all__ = [
     'FirewallPolicyFilterRuleActionType',
     'FirewallPolicyFilterRuleCollectionActionType',
     'FirewallPolicyIDPSQuerySortOrder',
+    'FirewallPolicyIntrusionDetectionProfileType',
     'FirewallPolicyIntrusionDetectionProtocol',
     'FirewallPolicyIntrusionDetectionStateType',
     'FirewallPolicyNatRuleActionType',
@@ -872,6 +873,16 @@ class FirewallPolicyIDPSQuerySortOrder(str, Enum):
     DESCENDING = "Descending"
 
 
+class FirewallPolicyIntrusionDetectionProfileType(str, Enum):
+    """
+    IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+    ADVANCED = "Advanced"
+    EXTENDED = "Extended"
+
+
 class FirewallPolicyIntrusionDetectionProtocol(str, Enum):
     """
     The rule bypass protocol.
@@ -884,7 +895,7 @@ class FirewallPolicyIntrusionDetectionProtocol(str, Enum):
 
 class FirewallPolicyIntrusionDetectionStateType(str, Enum):
     """
-    Intrusion detection general state.
+    Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
     """
     OFF = "Off"
     ALERT = "Alert"

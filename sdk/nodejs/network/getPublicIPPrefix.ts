@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the specified public IP prefix in a specified resource group.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export function getPublicIPPrefix(args: GetPublicIPPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPPrefixResult> {
 
@@ -123,7 +123,7 @@ export interface GetPublicIPPrefixResult {
  * Gets the specified public IP prefix in a specified resource group.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPPrefix(a, opts))

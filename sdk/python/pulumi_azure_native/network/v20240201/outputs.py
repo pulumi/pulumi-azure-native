@@ -576,7 +576,7 @@ class FrontDoorPolicySettingsResponse(dict):
         :param str custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param int custom_block_response_status_code: If the action type is block, customer can override the response status code.
         :param str enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-        :param int javascript_challenge_expiration_in_minutes: Defines the JavaScript challenge cookie validity lifetime in minutes. Value must be an integer between 5 and 1440 with the default value being 30.
+        :param int javascript_challenge_expiration_in_minutes: Defines the JavaScript challenge cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
         :param str mode: Describes if it is in detection mode or prevention mode at policy level.
         :param str redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param str request_body_check: Describes if policy managed rules will inspect the request body content.
@@ -589,8 +589,6 @@ class FrontDoorPolicySettingsResponse(dict):
             pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
-        if javascript_challenge_expiration_in_minutes is None:
-            javascript_challenge_expiration_in_minutes = 30
         if javascript_challenge_expiration_in_minutes is not None:
             pulumi.set(__self__, "javascript_challenge_expiration_in_minutes", javascript_challenge_expiration_in_minutes)
         if mode is not None:
@@ -632,7 +630,7 @@ class FrontDoorPolicySettingsResponse(dict):
     @pulumi.getter(name="javascriptChallengeExpirationInMinutes")
     def javascript_challenge_expiration_in_minutes(self) -> Optional[int]:
         """
-        Defines the JavaScript challenge cookie validity lifetime in minutes. Value must be an integer between 5 and 1440 with the default value being 30.
+        Defines the JavaScript challenge cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
         """
         return pulumi.get(self, "javascript_challenge_expiration_in_minutes")
 

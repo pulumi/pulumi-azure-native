@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub
     /// Single Event Hubs Cluster resource in List or Get operations.
     /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
     /// 
-    /// Other available API versions: 2023-01-01-preview, 2024-01-01.
+    /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.EventHub
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240501preview:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

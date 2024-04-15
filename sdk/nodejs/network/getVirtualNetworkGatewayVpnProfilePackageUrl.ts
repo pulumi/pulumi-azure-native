@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export function getVirtualNetworkGatewayVpnProfilePackageUrl(args: GetVirtualNetworkGatewayVpnProfilePackageUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> {
 
@@ -37,7 +37,7 @@ export interface GetVirtualNetworkGatewayVpnProfilePackageUrlResult {
  * Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export function getVirtualNetworkGatewayVpnProfilePackageUrlOutput(args: GetVirtualNetworkGatewayVpnProfilePackageUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayVpnProfilePackageUrl(a, opts))

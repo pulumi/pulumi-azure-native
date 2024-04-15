@@ -10530,16 +10530,20 @@ class FirewallPolicyIntrusionDetectionSignatureSpecificationArgs:
 class FirewallPolicyIntrusionDetectionArgs:
     def __init__(__self__, *,
                  configuration: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionConfigurationArgs']] = None,
-                 mode: Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]] = None,
+                 profile: Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionProfileType']]] = None):
         """
         Configuration for intrusion detection mode and rules.
         :param pulumi.Input['FirewallPolicyIntrusionDetectionConfigurationArgs'] configuration: Intrusion detection configuration properties.
-        :param pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']] mode: Intrusion detection general state.
+        :param pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']] mode: Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
+        :param pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionProfileType']] profile: IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
 
     @property
     @pulumi.getter
@@ -10557,13 +10561,25 @@ class FirewallPolicyIntrusionDetectionArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]]:
         """
-        Intrusion detection general state.
+        Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionStateType']]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionProfileType']]]:
+        """
+        IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[Union[str, 'FirewallPolicyIntrusionDetectionProfileType']]]):
+        pulumi.set(self, "profile", value)
 
 
 @pulumi.input_type

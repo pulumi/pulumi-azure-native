@@ -155,10 +155,20 @@ export type FirewallPolicy = import("./firewallPolicy").FirewallPolicy;
 export const FirewallPolicy: typeof import("./firewallPolicy").FirewallPolicy = null as any;
 utilities.lazyLoad(exports, ["FirewallPolicy"], () => require("./firewallPolicy"));
 
+export { FirewallPolicyDraftArgs } from "./firewallPolicyDraft";
+export type FirewallPolicyDraft = import("./firewallPolicyDraft").FirewallPolicyDraft;
+export const FirewallPolicyDraft: typeof import("./firewallPolicyDraft").FirewallPolicyDraft = null as any;
+utilities.lazyLoad(exports, ["FirewallPolicyDraft"], () => require("./firewallPolicyDraft"));
+
 export { FirewallPolicyRuleCollectionGroupArgs } from "./firewallPolicyRuleCollectionGroup";
 export type FirewallPolicyRuleCollectionGroup = import("./firewallPolicyRuleCollectionGroup").FirewallPolicyRuleCollectionGroup;
 export const FirewallPolicyRuleCollectionGroup: typeof import("./firewallPolicyRuleCollectionGroup").FirewallPolicyRuleCollectionGroup = null as any;
 utilities.lazyLoad(exports, ["FirewallPolicyRuleCollectionGroup"], () => require("./firewallPolicyRuleCollectionGroup"));
+
+export { FirewallPolicyRuleCollectionGroupDraftArgs } from "./firewallPolicyRuleCollectionGroupDraft";
+export type FirewallPolicyRuleCollectionGroupDraft = import("./firewallPolicyRuleCollectionGroupDraft").FirewallPolicyRuleCollectionGroupDraft;
+export const FirewallPolicyRuleCollectionGroupDraft: typeof import("./firewallPolicyRuleCollectionGroupDraft").FirewallPolicyRuleCollectionGroupDraft = null as any;
+utilities.lazyLoad(exports, ["FirewallPolicyRuleCollectionGroupDraft"], () => require("./firewallPolicyRuleCollectionGroupDraft"));
 
 export { FirewallPolicyRuleGroupArgs } from "./firewallPolicyRuleGroup";
 export type FirewallPolicyRuleGroup = import("./firewallPolicyRuleGroup").FirewallPolicyRuleGroup;
@@ -350,10 +360,20 @@ export const getFirewallPolicy: typeof import("./getFirewallPolicy").getFirewall
 export const getFirewallPolicyOutput: typeof import("./getFirewallPolicy").getFirewallPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallPolicy","getFirewallPolicyOutput"], () => require("./getFirewallPolicy"));
 
+export { GetFirewallPolicyDraftArgs, GetFirewallPolicyDraftResult, GetFirewallPolicyDraftOutputArgs } from "./getFirewallPolicyDraft";
+export const getFirewallPolicyDraft: typeof import("./getFirewallPolicyDraft").getFirewallPolicyDraft = null as any;
+export const getFirewallPolicyDraftOutput: typeof import("./getFirewallPolicyDraft").getFirewallPolicyDraftOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallPolicyDraft","getFirewallPolicyDraftOutput"], () => require("./getFirewallPolicyDraft"));
+
 export { GetFirewallPolicyRuleCollectionGroupArgs, GetFirewallPolicyRuleCollectionGroupResult, GetFirewallPolicyRuleCollectionGroupOutputArgs } from "./getFirewallPolicyRuleCollectionGroup";
 export const getFirewallPolicyRuleCollectionGroup: typeof import("./getFirewallPolicyRuleCollectionGroup").getFirewallPolicyRuleCollectionGroup = null as any;
 export const getFirewallPolicyRuleCollectionGroupOutput: typeof import("./getFirewallPolicyRuleCollectionGroup").getFirewallPolicyRuleCollectionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallPolicyRuleCollectionGroup","getFirewallPolicyRuleCollectionGroupOutput"], () => require("./getFirewallPolicyRuleCollectionGroup"));
+
+export { GetFirewallPolicyRuleCollectionGroupDraftArgs, GetFirewallPolicyRuleCollectionGroupDraftResult, GetFirewallPolicyRuleCollectionGroupDraftOutputArgs } from "./getFirewallPolicyRuleCollectionGroupDraft";
+export const getFirewallPolicyRuleCollectionGroupDraft: typeof import("./getFirewallPolicyRuleCollectionGroupDraft").getFirewallPolicyRuleCollectionGroupDraft = null as any;
+export const getFirewallPolicyRuleCollectionGroupDraftOutput: typeof import("./getFirewallPolicyRuleCollectionGroupDraft").getFirewallPolicyRuleCollectionGroupDraftOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallPolicyRuleCollectionGroupDraft","getFirewallPolicyRuleCollectionGroupDraftOutput"], () => require("./getFirewallPolicyRuleCollectionGroupDraft"));
 
 export { GetFirewallPolicyRuleGroupArgs, GetFirewallPolicyRuleGroupResult, GetFirewallPolicyRuleGroupOutputArgs } from "./getFirewallPolicyRuleGroup";
 export const getFirewallPolicyRuleGroup: typeof import("./getFirewallPolicyRuleGroup").getFirewallPolicyRuleGroup = null as any;
@@ -1393,6 +1413,7 @@ import * as v20230601 from "./v20230601";
 import * as v20230701preview from "./v20230701preview";
 import * as v20230801preview from "./v20230801preview";
 import * as v20230901 from "./v20230901";
+import * as v20231101 from "./v20231101";
 import * as v20240201 from "./v20240201";
 
 export {
@@ -1429,6 +1450,7 @@ export {
     v20230701preview,
     v20230801preview,
     v20230901,
+    v20231101,
     v20240201,
 };
 
@@ -1496,8 +1518,12 @@ const _module = {
                 return new ExpressRoutePortAuthorization(name, <any>undefined, { urn })
             case "azure-native:network:FirewallPolicy":
                 return new FirewallPolicy(name, <any>undefined, { urn })
+            case "azure-native:network:FirewallPolicyDraft":
+                return new FirewallPolicyDraft(name, <any>undefined, { urn })
             case "azure-native:network:FirewallPolicyRuleCollectionGroup":
                 return new FirewallPolicyRuleCollectionGroup(name, <any>undefined, { urn })
+            case "azure-native:network:FirewallPolicyRuleCollectionGroupDraft":
+                return new FirewallPolicyRuleCollectionGroupDraft(name, <any>undefined, { urn })
             case "azure-native:network:FirewallPolicyRuleGroup":
                 return new FirewallPolicyRuleGroup(name, <any>undefined, { urn })
             case "azure-native:network:FlowLog":

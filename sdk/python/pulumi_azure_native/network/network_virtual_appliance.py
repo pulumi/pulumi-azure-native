@@ -286,7 +286,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         NetworkVirtualAppliance Resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+        Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,7 +316,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         NetworkVirtualAppliance Resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+        Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkVirtualApplianceArgs args: The arguments to use to populate this resource's properties.
@@ -384,7 +384,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_appliance_nics"] = None
             __props__.__dict__["virtual_appliance_sites"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230901:NetworkVirtualAppliance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230901:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20231101:NetworkVirtualAppliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkVirtualAppliance, __self__).__init__(
             'azure-native:network:NetworkVirtualAppliance',

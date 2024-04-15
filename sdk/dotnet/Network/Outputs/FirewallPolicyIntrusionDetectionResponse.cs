@@ -21,18 +21,25 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.FirewallPolicyIntrusionDetectionConfigurationResponse? Configuration;
         /// <summary>
-        /// Intrusion detection general state.
+        /// Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
         /// </summary>
         public readonly string? Mode;
+        /// <summary>
+        /// IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
+        /// </summary>
+        public readonly string? Profile;
 
         [OutputConstructor]
         private FirewallPolicyIntrusionDetectionResponse(
             Outputs.FirewallPolicyIntrusionDetectionConfigurationResponse? configuration,
 
-            string? mode)
+            string? mode,
+
+            string? profile)
         {
             Configuration = configuration;
             Mode = mode;
+            Profile = profile;
         }
     }
 }

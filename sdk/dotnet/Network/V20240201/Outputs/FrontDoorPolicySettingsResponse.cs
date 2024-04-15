@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Network.V20240201.Outputs
         /// </summary>
         public readonly string? EnabledState;
         /// <summary>
-        /// Defines the JavaScript challenge cookie validity lifetime in minutes. Value must be an integer between 5 and 1440 with the default value being 30.
+        /// Defines the JavaScript challenge cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
         /// </summary>
         public readonly int? JavascriptChallengeExpirationInMinutes;
         /// <summary>

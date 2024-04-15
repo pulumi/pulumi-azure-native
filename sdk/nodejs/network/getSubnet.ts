@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the specified subnet by virtual network and resource group.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
 
@@ -144,7 +144,7 @@ export interface GetSubnetResult {
  * Gets the specified subnet by virtual network and resource group.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2015-05-01-preview, 2016-03-30, 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
     return pulumi.output(args).apply((a: any) => getSubnet(a, opts))

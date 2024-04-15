@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Network.V20240201.Inputs
         public InputUnion<string, Pulumi.AzureNative.Network.V20240201.PolicyEnabledState>? EnabledState { get; set; }
 
         /// <summary>
-        /// Defines the JavaScript challenge cookie validity lifetime in minutes. Value must be an integer between 5 and 1440 with the default value being 30.
+        /// Defines the JavaScript challenge cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
         /// </summary>
         [Input("javascriptChallengeExpirationInMinutes")]
         public Input<int>? JavascriptChallengeExpirationInMinutes { get; set; }
@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.Network.V20240201.Inputs
 
         public FrontDoorPolicySettingsArgs()
         {
-            JavascriptChallengeExpirationInMinutes = 30;
         }
         public static new FrontDoorPolicySettingsArgs Empty => new FrontDoorPolicySettingsArgs();
     }

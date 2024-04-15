@@ -22,10 +22,16 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<Inputs.FirewallPolicyIntrusionDetectionConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Intrusion detection general state.
+        /// Intrusion detection general state. When attached to a parent policy, the firewall's effective IDPS mode is the stricter mode of the two.
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.Network.FirewallPolicyIntrusionDetectionStateType>? Mode { get; set; }
+
+        /// <summary>
+        /// IDPS profile name. When attached to a parent policy, the firewall's effective profile is the profile name of the parent policy.
+        /// </summary>
+        [Input("profile")]
+        public InputUnion<string, Pulumi.AzureNative.Network.FirewallPolicyIntrusionDetectionProfileType>? Profile { get; set; }
 
         public FirewallPolicyIntrusionDetectionArgs()
         {

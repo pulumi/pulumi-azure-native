@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Authorization
     /// The policy assignment.
     /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
     /// 
-    /// Other available API versions: 2016-04-01, 2016-12-01, 2019-06-01, 2020-03-01, 2023-04-01.
+    /// Other available API versions: 2016-04-01, 2016-12-01, 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyAssignment")]
     public partial class PolicyAssignment : global::Pulumi.CustomResource
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.Authorization
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20210601:PolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20220601:PolicyAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20230401:PolicyAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20240401:PolicyAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

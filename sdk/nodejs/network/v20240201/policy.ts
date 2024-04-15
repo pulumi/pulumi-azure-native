@@ -109,7 +109,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedRules"] = args ? args.managedRules : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["policySettings"] = args ? (args.policySettings ? pulumi.output(args.policySettings).apply(inputs.network.v20240201.frontDoorPolicySettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["policySettings"] = args ? args.policySettings : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;

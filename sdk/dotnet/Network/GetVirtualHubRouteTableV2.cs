@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves the details of a VirtualHubRouteTableV2.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Task<GetVirtualHubRouteTableV2Result> InvokeAsync(GetVirtualHubRouteTableV2Args args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubRouteTableV2Result>("azure-native:network:getVirtualHubRouteTableV2", args ?? new GetVirtualHubRouteTableV2Args(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves the details of a VirtualHubRouteTableV2.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
         /// </summary>
         public static Output<GetVirtualHubRouteTableV2Result> Invoke(GetVirtualHubRouteTableV2InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubRouteTableV2Result>("azure-native:network:getVirtualHubRouteTableV2", args ?? new GetVirtualHubRouteTableV2InvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * VirtualNetworkGatewayNatRule Resource.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01.
  */
 export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
     /**
@@ -113,7 +113,7 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210301:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210801:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220101:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220701:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220901:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20221101:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230201:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230401:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230601:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230901:VirtualNetworkGatewayNatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210301:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210801:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220101:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220701:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20220901:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20221101:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230201:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230401:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230501:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230601:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20230901:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20231101:VirtualNetworkGatewayNatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkGatewayNatRule.__pulumiType, name, resourceInputs, opts);
     }

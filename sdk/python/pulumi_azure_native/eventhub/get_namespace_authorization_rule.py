@@ -113,7 +113,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
     Gets an AuthorizationRule for a Namespace by rule name.
     Azure REST API version: 2022-10-01-preview.
 
-    Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -145,7 +145,7 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
     Gets an AuthorizationRule for a Namespace by rule name.
     Azure REST API version: 2022-10-01-preview.
 
-    Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01.
+    Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 
 
     :param str authorization_rule_name: The authorization rule name.

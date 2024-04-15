@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20220801 from "./v20220801";
 import * as v20240101 from "./v20240101";
+import * as v20240401preview from "./v20240401preview";
 
 export {
     v20220801,
     v20240101,
+    v20240401preview,
 };
 
 export const ManagedServiceIdentityType = {
