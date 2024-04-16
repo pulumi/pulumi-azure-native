@@ -710,6 +710,9 @@ DesktopVirtualization:
 DevCenter:
     tracking: "2023-04-01"
     additions:
+        EncryptionSet: 2024-05-01-preview
+        Plan: 2024-05-01-preview
+        PlanMember: 2024-05-01-preview
         ProjectCatalog: "2024-02-01"
         getCatalogDevBoxDefinitionErrorDetails: 2023-08-01-preview
         getCatalogSyncErrorDetails: 2023-08-01-preview
@@ -717,6 +720,7 @@ DevCenter:
         getEnvironmentDefinitionErrorDetails: 2023-08-01-preview
         getProjectCatalogEnvironmentDefinitionErrorDetails: "2024-02-01"
         getProjectCatalogSyncErrorDetails: "2024-02-01"
+        getProjectInheritedSettings: 2024-05-01-preview
 DevHub:
     tracking: 2022-10-11-preview
 DevOps: {}

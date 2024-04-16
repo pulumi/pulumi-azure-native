@@ -914,9 +914,12 @@
     "Catalog": "2023-04-01",
     "DevBoxDefinition": "2023-04-01",
     "DevCenter": "2023-04-01",
+    "EncryptionSet": "2024-05-01-preview",
     "EnvironmentType": "2023-04-01",
     "Gallery": "2023-04-01",
     "NetworkConnection": "2023-04-01",
+    "Plan": "2024-05-01-preview",
+    "PlanMember": "2024-05-01-preview",
     "Pool": "2023-04-01",
     "Project": "2023-04-01",
     "ProjectCatalog": "2024-02-01",
@@ -927,7 +930,8 @@
     "getCustomizationTaskErrorDetails": "2023-08-01-preview",
     "getEnvironmentDefinitionErrorDetails": "2023-08-01-preview",
     "getProjectCatalogEnvironmentDefinitionErrorDetails": "2024-02-01",
-    "getProjectCatalogSyncErrorDetails": "2024-02-01"
+    "getProjectCatalogSyncErrorDetails": "2024-02-01",
+    "getProjectInheritedSettings": "2024-05-01-preview"
   },
   "DevHub": {
     "Workflow": "2022-10-11-preview",

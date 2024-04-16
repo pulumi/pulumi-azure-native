@@ -7729,6 +7729,29 @@
       "getEnvironmentDefinitionErrorDetails",
       "getProjectCatalogEnvironmentDefinitionErrorDetails",
       "getProjectCatalogSyncErrorDetails"
+    ],
+    "2024-05-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EncryptionSet",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Plan",
+      "PlanMember",
+      "Pool",
+      "Project",
+      "ProjectCatalog",
+      "ProjectEnvironmentType",
+      "Schedule",
+      "getCatalogSyncErrorDetails",
+      "getCustomizationTaskErrorDetails",
+      "getEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogSyncErrorDetails",
+      "getProjectInheritedSettings"
     ]
   },
   "DevHub": {
@@ -18085,6 +18108,14 @@
       "ProtectionPolicy",
       "ResourceGuardProxy",
       "Vault"
+    ],
+    "2024-04-01": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy"
     ]
   },
   "RedHatOpenShift": {
