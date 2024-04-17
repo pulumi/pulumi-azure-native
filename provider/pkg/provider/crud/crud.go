@@ -201,7 +201,8 @@ func (r *resourceCrudClient) HandleErrorWithCheckpoint(ctx context.Context, err 
 	// Try reading its state by ID and return a partial error if succeeded.
 	checkpoint, getErr := r.currentResourceStateCheckpoint(ctx, id, inputs)
 	if getErr != nil {
-		return azure.AzureError(errors.Wrapf(err, "resource updated but read failed %s", getErr))
+		// If reading the state failed, combine the errors but still return the partial state.
+		err = azure.AzureError(errors.Wrapf(err, "resource created but read failed %s", getErr))
 	}
 	return partialError(id, err, checkpoint, properties)
 }
