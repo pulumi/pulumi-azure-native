@@ -639,6 +639,12 @@
         ]
       },
       {
+        "resourceType": "privateClouds/iscsiPaths",
+        "apiVersions": [
+          "2023-09-01"
+        ]
+      },
+      {
         "resourceType": "privateClouds/scriptExecutions",
         "apiVersions": [
           "2023-09-01",
