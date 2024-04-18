@@ -65,6 +65,9 @@ type azureNativeProvider struct {
 	rgLocationMap    map[string]string
 	lookupType       resources.TypeLookupFunc
 	skipReadOnUpdate bool
+
+	context  context.Context
+	shutdown context.CancelFunc
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
@@ -76,6 +79,8 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	}
 
 	converter := convert.NewSdkShapeConverterPartial(resourceMap.Types)
+
+	ctx, shutdown := context.WithCancel(context.Background())
 
 	// Return the new provider
 	p := &azureNativeProvider{
@@ -89,6 +94,8 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		schemaBytes:   schemaBytes,
 		converter:     &converter,
 		rgLocationMap: map[string]string{},
+		context:       ctx,
+		shutdown:      shutdown,
 	}
 	p.lookupType = p.lookupTypeDefault
 	return p, nil
@@ -790,6 +797,8 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 
 // Create allocates a new instance of the provided resource and returns its unique ID afterwards.
 func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest) (*rpc.CreateResponse, error) {
+	// Use the global context to handle provider shutdown.
+	ctx = k.context
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Create(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -1007,6 +1016,8 @@ func (k *azureNativeProvider) findUnsetPropertiesToMaintain(res *resources.Azure
 
 // Read the current live state associated with a resource.
 func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*rpc.ReadResponse, error) {
+	// Use the global context to handle provider shutdown.
+	ctx = k.context
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Read(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -1171,6 +1182,8 @@ Verbose logs contain more information, see https://www.pulumi.com/docs/support/t
 
 // Update updates an existing resource with new values.
 func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest) (*rpc.UpdateResponse, error) {
+	// Use the global context to handle provider shutdown.
+	ctx = k.context
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Update(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -1317,6 +1330,8 @@ func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res r
 // Delete tears down an existing resource with the given ID. If it fails, the resource is assumed
 // to still exist.
 func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
+	// Use the global context to handle provider shutdown.
+	ctx = k.context
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Delete(%s)", k.name, urn)
 	logging.V(9).Infof("%s executing", label)
@@ -1412,7 +1427,7 @@ func (k *azureNativeProvider) GetMapping(context.Context, *rpc.GetMappingRequest
 // to the host to decide how long to wait after Cancel is called before (e.g.)
 // hard-closing any gRPC connection.
 func (k *azureNativeProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
-	// TODO
+	k.shutdown() // Cancel the global provider context.
 	return &pbempty.Empty{}, nil
 }
 
