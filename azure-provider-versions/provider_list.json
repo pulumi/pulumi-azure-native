@@ -639,6 +639,12 @@
         ]
       },
       {
+        "resourceType": "privateClouds/iscsiPaths",
+        "apiVersions": [
+          "2023-09-01"
+        ]
+      },
+      {
         "resourceType": "privateClouds/scriptExecutions",
         "apiVersions": [
           "2023-09-01",
@@ -33227,17 +33233,6 @@
           "2015-06-15",
           "2015-05-01-preview",
           "2014-12-01-preview"
-        ]
-      },
-      {
-        "resourceType": "networkSecurityPerimeters",
-        "apiVersions": [
-          "2023-09-01-preview",
-          "2023-08-01-preview",
-          "2023-07-01-preview",
-          "2022-02-01-preview",
-          "2021-05-01-preview",
-          "2021-02-01-preview"
         ]
       },
       {

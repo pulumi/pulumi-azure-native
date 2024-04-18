@@ -2692,6 +2692,9 @@
       "2023-03-01",
       "2023-09-01"
     ],
+    "privateclouds/iscsipaths": [
+      "2023-09-01"
+    ],
     "privateclouds/scriptexecutions": [
       "2021-06-01",
       "2021-12-01",
@@ -27892,14 +27895,6 @@
       "2023-06-01",
       "2023-09-01",
       "2023-11-01"
-    ],
-    "networksecurityperimeters": [
-      "2021-02-01-preview",
-      "2021-05-01-preview",
-      "2022-02-01-preview",
-      "2023-07-01-preview",
-      "2023-08-01-preview",
-      "2023-09-01-preview"
     ],
     "networkvirtualappliances": [
       "2019-12-01",
