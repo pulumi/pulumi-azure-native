@@ -1650,6 +1650,29 @@
       "listContainerAppSecrets",
       "listDaprComponentSecrets",
       "listJobSecrets"
+    ],
+    "2024-03-01": [
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "Job",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getCustomDomainVerificationId",
+      "getManagedEnvironmentAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -7187,6 +7210,13 @@
       "BackupVault",
       "DppResourceGuardProxy",
       "ResourceGuard"
+    ],
+    "2024-04-01": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "DppResourceGuardProxy",
+      "ResourceGuard"
     ]
   },
   "DataReplication": {
@@ -7729,6 +7759,29 @@
       "getEnvironmentDefinitionErrorDetails",
       "getProjectCatalogEnvironmentDefinitionErrorDetails",
       "getProjectCatalogSyncErrorDetails"
+    ],
+    "2024-05-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EncryptionSet",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Plan",
+      "PlanMember",
+      "Pool",
+      "Project",
+      "ProjectCatalog",
+      "ProjectEnvironmentType",
+      "Schedule",
+      "getCatalogSyncErrorDetails",
+      "getCustomizationTaskErrorDetails",
+      "getEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogEnvironmentDefinitionErrorDetails",
+      "getProjectCatalogSyncErrorDetails",
+      "getProjectInheritedSettings"
     ]
   },
   "DevHub": {
@@ -12263,6 +12316,77 @@
       "listEndpointKeys",
       "listOnlineEndpointKeys",
       "listServerlessEndpointKeys",
+      "listWorkspaceConnectionSecrets",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
+    ],
+    "2024-04-01-preview": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CapacityReservationGroup",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "ConnectionDeployment",
+      "ConnectionRaiBlocklist",
+      "ConnectionRaiBlocklistItem",
+      "ConnectionRaiPolicy",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EndpointDeployment",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "FeaturesetContainerEntity",
+      "FeaturesetVersion",
+      "FeaturestoreEntityContainerEntity",
+      "FeaturestoreEntityVersion",
+      "InferenceEndpoint",
+      "InferenceGroup",
+      "InferencePool",
+      "Job",
+      "LabelingJob",
+      "ManagedNetworkSettingsRule",
+      "MarketplaceSubscription",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "RaiPolicy",
+      "Registry",
+      "RegistryCodeContainer",
+      "RegistryCodeVersion",
+      "RegistryComponentContainer",
+      "RegistryComponentVersion",
+      "RegistryDataContainer",
+      "RegistryDataVersion",
+      "RegistryEnvironmentContainer",
+      "RegistryEnvironmentVersion",
+      "RegistryModelContainer",
+      "RegistryModelVersion",
+      "Schedule",
+      "ServerlessEndpoint",
+      "Workspace",
+      "WorkspaceConnection",
+      "getComputeAllowedResizeSizes",
+      "getInferenceGroupStatus",
+      "getInferencePoolStatus",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "getServerlessEndpointStatus",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listEndpointKeys",
+      "listOnlineEndpointKeys",
+      "listServerlessEndpointKeys",
+      "listWorkspaceConnectionModels",
       "listWorkspaceConnectionSecrets",
       "listWorkspaceKeys",
       "listWorkspaceNotebookAccessToken",
@@ -18085,6 +18209,15 @@
       "ProtectionPolicy",
       "ResourceGuardProxy",
       "Vault"
+    ],
+    "2024-04-01": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy",
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
@@ -19882,6 +20015,16 @@
       "NodeType",
       "getmanagedAzResiliencyStatus",
       "getmanagedMaintenanceWindowStatus"
+    ],
+    "2024-04-01": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
     ]
   },
   "ServiceFabricMesh": {
@@ -20114,6 +20257,13 @@
       "listApplicationTokens"
     ],
     "2021-07-01": [
+      "Application",
+      "ApplicationDefinition",
+      "JitRequest",
+      "listApplicationAllowedUpgradePlans",
+      "listApplicationTokens"
+    ],
+    "2023-12-01-preview": [
       "Application",
       "ApplicationDefinition",
       "JitRequest",
@@ -21121,6 +21271,11 @@
       "SqlVirtualMachineGroup"
     ],
     "2023-01-01-preview": [
+      "AvailabilityGroupListener",
+      "SqlVirtualMachine",
+      "SqlVirtualMachineGroup"
+    ],
+    "2023-10-01": [
       "AvailabilityGroupListener",
       "SqlVirtualMachine",
       "SqlVirtualMachineGroup"

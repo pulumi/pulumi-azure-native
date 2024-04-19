@@ -1146,5 +1146,61 @@
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
     "GeneratedName": "Service",
     "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2024-04-01/managedapplication.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2024-04-01/managedapplication.json",
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2024-04-01/managedapplication.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2024-04-01/managedapplication.json",
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2024-04-01/managedapplication.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2024-04-01/managedapplication.json",
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2024-04-01/managedapplication.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "FileLocation": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/stable/2024-04-01/managedapplication.json",
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
   }
 ]

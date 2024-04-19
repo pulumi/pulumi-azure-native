@@ -710,6 +710,9 @@ DesktopVirtualization:
 DevCenter:
     tracking: "2023-04-01"
     additions:
+        EncryptionSet: 2024-05-01-preview
+        Plan: 2024-05-01-preview
+        PlanMember: 2024-05-01-preview
         ProjectCatalog: "2024-02-01"
         getCatalogDevBoxDefinitionErrorDetails: 2023-08-01-preview
         getCatalogSyncErrorDetails: 2023-08-01-preview
@@ -717,6 +720,7 @@ DevCenter:
         getEnvironmentDefinitionErrorDetails: 2023-08-01-preview
         getProjectCatalogEnvironmentDefinitionErrorDetails: "2024-02-01"
         getProjectCatalogSyncErrorDetails: "2024-02-01"
+        getProjectInheritedSettings: 2024-05-01-preview
 DevHub:
     tracking: 2022-10-11-preview
 DevOps: {}
@@ -1000,6 +1004,10 @@ MachineLearningServices:
     tracking: "2023-04-01"
     additions:
         CapacityReservationGroup: 2023-08-01-preview
+        ConnectionDeployment: 2024-04-01-preview
+        ConnectionRaiBlocklist: 2024-04-01-preview
+        ConnectionRaiBlocklistItem: 2024-04-01-preview
+        ConnectionRaiPolicy: 2024-04-01-preview
         EndpointDeployment: 2024-01-01-preview
         EnvironmentSpecificationVersion: 2021-03-01-preview
         FeaturesetContainerEntity: 2023-04-01-preview
@@ -1016,6 +1024,7 @@ MachineLearningServices:
         MachineLearningDatastore: 2020-05-01-preview
         ManagedNetworkSettingsRule: 2023-04-01-preview
         MarketplaceSubscription: 2024-01-01-preview
+        RaiPolicy: 2024-04-01-preview
         ServerlessEndpoint: 2023-08-01-preview
         getComputeAllowedResizeSizes: 2023-08-01-preview
         getFeaturesetVersionFeature: 2023-02-01-preview
@@ -1026,6 +1035,7 @@ MachineLearningServices:
         listFeaturesetVersionFeatures: 2023-02-01-preview
         listFeaturesetVersionMaterializationJobs: 2023-04-01-preview
         listServerlessEndpointKeys: 2023-08-01-preview
+        listWorkspaceConnectionModels: 2024-04-01-preview
         listWorkspaceConnectionSecrets: 2023-06-01-preview
     exclusionErrors:
         - provider: MachineLearningServices
