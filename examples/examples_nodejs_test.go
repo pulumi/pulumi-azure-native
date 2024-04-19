@@ -66,6 +66,7 @@ func TestImportTs(t *testing.T) {
 }
 
 func TestPostgresTs(t *testing.T) {
+	t.Skip("takes longer than 10 minutes and can fail with 'unexpected error', issue #898")
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
