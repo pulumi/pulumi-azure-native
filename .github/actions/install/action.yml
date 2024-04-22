@@ -26,7 +26,7 @@ runs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: "3.8"
+        python-version: "3.9"
 
     - name: Setup DotNet
       if: inputs.skip_dotnet_and_java != 'true'
@@ -44,6 +44,6 @@ runs:
 
     - name: Setup Gradle
       if: inputs.skip_dotnet_and_java != 'true'
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3
       with:
-        gradle-version: "8.3"
+        gradle-version: "8.7"
