@@ -251,7 +251,7 @@ class Application(pulumi.CustomResource):
         Information about managed application.
         Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
 
-        Other available API versions: 2017-12-01, 2018-06-01.
+        Other available API versions: 2017-12-01, 2018-06-01, 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,7 +279,7 @@ class Application(pulumi.CustomResource):
         Information about managed application.
         Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
 
-        Other available API versions: 2017-12-01, 2018-06-01.
+        Other available API versions: 2017-12-01, 2018-06-01, 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -349,7 +349,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20160901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20170901:Application"), pulumi.Alias(type_="azure-native:solutions/v20171201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180301:Application"), pulumi.Alias(type_="azure-native:solutions/v20180601:Application"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20190701:Application"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210701:Application")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20160901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20170901:Application"), pulumi.Alias(type_="azure-native:solutions/v20171201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180301:Application"), pulumi.Alias(type_="azure-native:solutions/v20180601:Application"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20190701:Application"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210701:Application"), pulumi.Alias(type_="azure-native:solutions/v20231201preview:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Application, __self__).__init__(
             'azure-native:solutions:Application',

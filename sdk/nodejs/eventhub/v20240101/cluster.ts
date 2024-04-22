@@ -85,10 +85,6 @@ export class Cluster extends pulumi.CustomResource {
      * The UTC time when the Event Hubs Cluster was last updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    /**
-     * Properties of the cluster upgrade preferences.
-     */
-    public readonly upgradePreferences!: pulumi.Output<outputs.eventhub.v20240101.UpgradePreferencesResponse | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -110,7 +106,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["supportsScaling"] = args ? args.supportsScaling : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePreferences"] = args ? args.upgradePreferences : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -132,7 +127,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
-            resourceInputs["upgradePreferences"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:Cluster" }, { type: "azure-native:eventhub/v20180101preview:Cluster" }, { type: "azure-native:eventhub/v20210601preview:Cluster" }, { type: "azure-native:eventhub/v20211101:Cluster" }, { type: "azure-native:eventhub/v20220101preview:Cluster" }, { type: "azure-native:eventhub/v20221001preview:Cluster" }, { type: "azure-native:eventhub/v20230101preview:Cluster" }, { type: "azure-native:eventhub/v20240501preview:Cluster" }] };
@@ -169,8 +163,4 @@ export interface ClusterArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Properties of the cluster upgrade preferences.
-     */
-    upgradePreferences?: pulumi.Input<inputs.eventhub.v20240101.UpgradePreferencesArgs>;
 }

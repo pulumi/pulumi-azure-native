@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Description for Gets all legal agreements that user needs to accept before purchasing a domain.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2015-04-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01.
+ * Other available API versions: 2015-04-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01.
  */
 export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsArgs, opts?: pulumi.InvokeOptions): Promise<ListTopLevelDomainAgreementsResult> {
 
@@ -55,7 +55,7 @@ export interface ListTopLevelDomainAgreementsResult {
  * Description for Gets all legal agreements that user needs to accept before purchasing a domain.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2015-04-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01.
+ * Other available API versions: 2015-04-01, 2018-02-01, 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01.
  */
 export function listTopLevelDomainAgreementsOutput(args: ListTopLevelDomainAgreementsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopLevelDomainAgreementsResult> {
     return pulumi.output(args).apply((a: any) => listTopLevelDomainAgreements(a, opts))

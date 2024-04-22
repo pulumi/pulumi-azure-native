@@ -51,9 +51,11 @@ export * from "../types/enums/solutions";
 
 // Export sub-modules:
 import * as v20210701 from "./v20210701";
+import * as v20231201preview from "./v20231201preview";
 
 export {
     v20210701,
+    v20231201preview,
 };
 
 const _module = {

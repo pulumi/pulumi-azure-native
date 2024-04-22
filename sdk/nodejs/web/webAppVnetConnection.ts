@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Virtual Network information ARM resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01.
+ * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export class WebAppVnetConnection extends pulumi.CustomResource {
     /**
@@ -124,7 +124,7 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
             resourceInputs["vnetResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppVnetConnection" }, { type: "azure-native:web/v20160801:WebAppVnetConnection" }, { type: "azure-native:web/v20180201:WebAppVnetConnection" }, { type: "azure-native:web/v20181101:WebAppVnetConnection" }, { type: "azure-native:web/v20190801:WebAppVnetConnection" }, { type: "azure-native:web/v20200601:WebAppVnetConnection" }, { type: "azure-native:web/v20200901:WebAppVnetConnection" }, { type: "azure-native:web/v20201001:WebAppVnetConnection" }, { type: "azure-native:web/v20201201:WebAppVnetConnection" }, { type: "azure-native:web/v20210101:WebAppVnetConnection" }, { type: "azure-native:web/v20210115:WebAppVnetConnection" }, { type: "azure-native:web/v20210201:WebAppVnetConnection" }, { type: "azure-native:web/v20210301:WebAppVnetConnection" }, { type: "azure-native:web/v20220301:WebAppVnetConnection" }, { type: "azure-native:web/v20220901:WebAppVnetConnection" }, { type: "azure-native:web/v20230101:WebAppVnetConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppVnetConnection" }, { type: "azure-native:web/v20160801:WebAppVnetConnection" }, { type: "azure-native:web/v20180201:WebAppVnetConnection" }, { type: "azure-native:web/v20181101:WebAppVnetConnection" }, { type: "azure-native:web/v20190801:WebAppVnetConnection" }, { type: "azure-native:web/v20200601:WebAppVnetConnection" }, { type: "azure-native:web/v20200901:WebAppVnetConnection" }, { type: "azure-native:web/v20201001:WebAppVnetConnection" }, { type: "azure-native:web/v20201201:WebAppVnetConnection" }, { type: "azure-native:web/v20210101:WebAppVnetConnection" }, { type: "azure-native:web/v20210115:WebAppVnetConnection" }, { type: "azure-native:web/v20210201:WebAppVnetConnection" }, { type: "azure-native:web/v20210301:WebAppVnetConnection" }, { type: "azure-native:web/v20220301:WebAppVnetConnection" }, { type: "azure-native:web/v20220901:WebAppVnetConnection" }, { type: "azure-native:web/v20230101:WebAppVnetConnection" }, { type: "azure-native:web/v20231201:WebAppVnetConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppVnetConnection.__pulumiType, name, resourceInputs, opts);
     }

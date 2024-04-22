@@ -96,6 +96,8 @@ class MarketplaceSubscription(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2024-01-01-preview.
 
+        Other available API versions: 2024-04-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MarketplaceSubscriptionArgs']] marketplace_subscription_properties: [Required] Additional attributes of the entity.
@@ -112,6 +114,8 @@ class MarketplaceSubscription(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
         Azure REST API version: 2024-01-01-preview.
+
+        Other available API versions: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MarketplaceSubscriptionInitArgs args: The arguments to use to populate this resource's properties.
@@ -153,7 +157,7 @@ class MarketplaceSubscription(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MarketplaceSubscription, __self__).__init__(
             'azure-native:machinelearningservices:MarketplaceSubscription',

@@ -14,6 +14,10 @@ from .code_version import *
 from .component_container import *
 from .component_version import *
 from .compute import *
+from .connection_deployment import *
+from .connection_rai_blocklist import *
+from .connection_rai_blocklist_item import *
+from .connection_rai_policy import *
 from .data_container import *
 from .data_version import *
 from .datastore import *
@@ -34,6 +38,10 @@ from .get_component_container import *
 from .get_component_version import *
 from .get_compute import *
 from .get_compute_allowed_resize_sizes import *
+from .get_connection_deployment import *
+from .get_connection_rai_blocklist import *
+from .get_connection_rai_blocklist_item import *
+from .get_connection_rai_policy import *
 from .get_data_container import *
 from .get_data_version import *
 from .get_datastore import *
@@ -66,6 +74,7 @@ from .get_online_deployment_logs import *
 from .get_online_endpoint import *
 from .get_online_endpoint_token import *
 from .get_private_endpoint_connection import *
+from .get_rai_policy import *
 from .get_registry import *
 from .get_registry_code_container import *
 from .get_registry_code_version import *
@@ -98,6 +107,7 @@ from .list_featureset_version_features import *
 from .list_featureset_version_materialization_jobs import *
 from .list_online_endpoint_keys import *
 from .list_serverless_endpoint_keys import *
+from .list_workspace_connection_models import *
 from .list_workspace_connection_secrets import *
 from .list_workspace_keys import *
 from .list_workspace_notebook_access_token import *
@@ -112,6 +122,7 @@ from .model_version import *
 from .online_deployment import *
 from .online_endpoint import *
 from .private_endpoint_connection import *
+from .rai_policy import *
 from .registry import *
 from .registry_code_container import *
 from .registry_code_version import *
@@ -162,6 +173,8 @@ if typing.TYPE_CHECKING:
     v20231001 = __v20231001
     import pulumi_azure_native.machinelearningservices.v20240101preview as __v20240101preview
     v20240101preview = __v20240101preview
+    import pulumi_azure_native.machinelearningservices.v20240401preview as __v20240401preview
+    v20240401preview = __v20240401preview
 else:
     v20200501preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200501preview')
     v20200515preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20200515preview')
@@ -178,4 +191,5 @@ else:
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20230801preview')
     v20231001 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20231001')
     v20240101preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240101preview')
+    v20240401preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20240401preview')
 

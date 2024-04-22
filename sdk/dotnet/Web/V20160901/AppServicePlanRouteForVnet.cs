@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.Web.V20160901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlanRouteForVnet" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:AppServicePlanRouteForVnet" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:AppServicePlanRouteForVnet" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:AppServicePlanRouteForVnet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

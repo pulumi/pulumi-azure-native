@@ -173,7 +173,7 @@ def get_web_app_premier_add_on_slot(name: Optional[str] = None,
     Description for Gets a named add-on of an app.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
+    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
 
     :param str name: Name of the app.
@@ -213,7 +213,7 @@ def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = N
     Description for Gets a named add-on of an app.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
+    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
 
     :param str name: Name of the app.

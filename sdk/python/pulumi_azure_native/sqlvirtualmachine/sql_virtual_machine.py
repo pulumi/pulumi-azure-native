@@ -354,7 +354,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
         A SQL virtual machine.
         Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
 
-        Other available API versions: 2023-01-01-preview.
+        Other available API versions: 2023-01-01-preview, 2023-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,7 +388,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
         A SQL virtual machine.
         Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
 
-        Other available API versions: 2023-01-01-preview.
+        Other available API versions: 2023-01-01-preview, 2023-10-01.
 
         :param str resource_name: The name of the resource.
         :param SqlVirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -458,7 +458,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine"), pulumi.Alias(type_="azure-native:sqlvirtualmachine/v20231001:SqlVirtualMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlVirtualMachine, __self__).__init__(
             'azure-native:sqlvirtualmachine:SqlVirtualMachine',

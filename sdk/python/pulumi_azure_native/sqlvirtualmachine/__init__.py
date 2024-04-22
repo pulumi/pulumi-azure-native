@@ -21,7 +21,10 @@ if typing.TYPE_CHECKING:
     v20220201 = __v20220201
     import pulumi_azure_native.sqlvirtualmachine.v20230101preview as __v20230101preview
     v20230101preview = __v20230101preview
+    import pulumi_azure_native.sqlvirtualmachine.v20231001 as __v20231001
+    v20231001 = __v20231001
 else:
     v20220201 = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20220201')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20230101preview')
+    v20231001 = _utilities.lazy_import('pulumi_azure_native.sqlvirtualmachine.v20231001')
 

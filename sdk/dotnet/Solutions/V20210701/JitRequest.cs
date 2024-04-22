@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Solutions.V20210701
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20190701:JitRequest" },
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:JitRequest" },
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:JitRequest" },
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20231201preview:JitRequest" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

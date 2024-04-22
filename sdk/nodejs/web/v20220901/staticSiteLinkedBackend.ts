@@ -99,7 +99,7 @@ export class StaticSiteLinkedBackend extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSiteLinkedBackend" }, { type: "azure-native:web/v20220301:StaticSiteLinkedBackend" }, { type: "azure-native:web/v20230101:StaticSiteLinkedBackend" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSiteLinkedBackend" }, { type: "azure-native:web/v20220301:StaticSiteLinkedBackend" }, { type: "azure-native:web/v20230101:StaticSiteLinkedBackend" }, { type: "azure-native:web/v20231201:StaticSiteLinkedBackend" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteLinkedBackend.__pulumiType, name, resourceInputs, opts);
     }

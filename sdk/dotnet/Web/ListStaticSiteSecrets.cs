@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Lists the secrets for an existing static site.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01.
+        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Task<ListStaticSiteSecretsResult> InvokeAsync(ListStaticSiteSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteSecretsResult>("azure-native:web:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Lists the secrets for an existing static site.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01.
+        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Output<ListStaticSiteSecretsResult> Invoke(ListStaticSiteSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteSecretsResult>("azure-native:web:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsInvokeArgs(), options.WithDefaults());

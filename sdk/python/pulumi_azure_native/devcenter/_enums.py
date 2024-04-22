@@ -6,12 +6,14 @@ from enum import Enum
 
 __all__ = [
     'CatalogSyncType',
+    'DevboxDisksEncryptionEnableStatus',
     'DomainJoinType',
     'EnvironmentTypeEnableStatus',
     'HibernateSupport',
     'LicenseType',
     'LocalAdminStatus',
     'ManagedServiceIdentityType',
+    'PlanMemberType',
     'ScheduleEnableStatus',
     'ScheduledFrequency',
     'ScheduledType',
@@ -26,6 +28,14 @@ class CatalogSyncType(str, Enum):
     """
     MANUAL = "Manual"
     SCHEDULED = "Scheduled"
+
+
+class DevboxDisksEncryptionEnableStatus(str, Enum):
+    """
+    Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class DomainJoinType(str, Enum):
@@ -75,6 +85,14 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
+class PlanMemberType(str, Enum):
+    """
+    The type of the member (user, group)
+    """
+    USER = "User"
+    GROUP = "Group"
 
 
 class ScheduleEnableStatus(str, Enum):

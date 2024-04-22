@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents an environment type.
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview.
  */
 export class EnvironmentType extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class EnvironmentType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230101preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230401:EnvironmentType" }, { type: "azure-native:devcenter/v20230801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20231001preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240201:EnvironmentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230101preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230401:EnvironmentType" }, { type: "azure-native:devcenter/v20230801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20231001preview:EnvironmentType" }, { type: "azure-native:devcenter/v20240201:EnvironmentType" }, { type: "azure-native:devcenter/v20240501preview:EnvironmentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentType.__pulumiType, name, resourceInputs, opts);
     }

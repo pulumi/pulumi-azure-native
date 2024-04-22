@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the API portal and its properties.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function getApiPortal(args: GetApiPortalArgs, opts?: pulumi.InvokeOptions): Promise<GetApiPortalResult> {
 
@@ -71,7 +71,7 @@ export interface GetApiPortalResult {
  * Get the API portal and its properties.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function getApiPortalOutput(args: GetApiPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalResult> {
     return pulumi.output(args).apply((a: any) => getApiPortal(a, opts))

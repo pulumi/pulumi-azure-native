@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Dapr component Secrets Collection for ListSecrets Action.
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
  */
 export function listDaprComponentSecrets(args: ListDaprComponentSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListDaprComponentSecretsResult> {
 
@@ -51,7 +51,7 @@ export interface ListDaprComponentSecretsResult {
  * Dapr component Secrets Collection for ListSecrets Action.
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
  */
 export function listDaprComponentSecretsOutput(args: ListDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDaprComponentSecretsResult> {
     return pulumi.output(args).apply((a: any) => listDaprComponentSecrets(a, opts))

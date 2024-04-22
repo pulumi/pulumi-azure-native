@@ -85,6 +85,10 @@ export class EventHub extends pulumi.CustomResource {
      * The exact time the message was updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * Gets and Sets Metadata of User.
+     */
+    public readonly userMetadata!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventHub resource with the given unique name, arguments, and options.
@@ -111,6 +115,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionDescription"] = args ? args.retentionDescription : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -131,6 +136,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["userMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:EventHub" }, { type: "azure-native:eventhub/v20140901:EventHub" }, { type: "azure-native:eventhub/v20150801:EventHub" }, { type: "azure-native:eventhub/v20170401:EventHub" }, { type: "azure-native:eventhub/v20180101preview:EventHub" }, { type: "azure-native:eventhub/v20210101preview:EventHub" }, { type: "azure-native:eventhub/v20210601preview:EventHub" }, { type: "azure-native:eventhub/v20211101:EventHub" }, { type: "azure-native:eventhub/v20220101preview:EventHub" }, { type: "azure-native:eventhub/v20221001preview:EventHub" }, { type: "azure-native:eventhub/v20230101preview:EventHub" }, { type: "azure-native:eventhub/v20240501preview:EventHub" }] };
@@ -175,4 +181,8 @@ export interface EventHubArgs {
      * Enumerates the possible values for the status of the Event Hub.
      */
     status?: pulumi.Input<enums.eventhub.v20240101.EntityStatus>;
+    /**
+     * Gets and Sets Metadata of User.
+     */
+    userMetadata?: pulumi.Input<string>;
 }

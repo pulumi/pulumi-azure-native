@@ -64,7 +64,7 @@ def list_online_endpoint_keys(endpoint_name: Optional[str] = None,
     Keys for endpoint authentication.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01-preview.
 
 
     :param str endpoint_name: Online Endpoint name.
@@ -92,7 +92,7 @@ def list_online_endpoint_keys_output(endpoint_name: Optional[pulumi.Input[str]] 
     Keys for endpoint authentication.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview.
+    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01-preview.
 
 
     :param str endpoint_name: Online Endpoint name.

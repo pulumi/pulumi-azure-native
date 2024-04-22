@@ -418,7 +418,7 @@ class AppServicePlan(pulumi.CustomResource):
         App Service plan.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01.
+        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -457,7 +457,7 @@ class AppServicePlan(pulumi.CustomResource):
         App Service plan.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01.
+        Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param AppServicePlanArgs args: The arguments to use to populate this resource's properties.
@@ -548,7 +548,7 @@ class AppServicePlan(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["subscription"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210101:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210115:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210301:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20220301:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20220901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20230101:AppServicePlan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20160901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20180201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20190801:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200601:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20200901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201001:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20201201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210101:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210115:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210201:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20210301:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20220301:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20220901:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20230101:AppServicePlan"), pulumi.Alias(type_="azure-native:web/v20231201:AppServicePlan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServicePlan, __self__).__init__(
             'azure-native:web:AppServicePlan',

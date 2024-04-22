@@ -582,7 +582,6 @@ __all__ = [
     'SynapseNotebookReferenceArgs',
     'SynapseSparkJobDefinitionActivityArgs',
     'SynapseSparkJobReferenceArgs',
-    'SystemAssignedManagedIdentityCredentialArgs',
     'TabularSourceArgs',
     'TarGZipReadSettingsArgs',
     'TarReadSettingsArgs',
@@ -600,7 +599,6 @@ __all__ = [
     'TumblingWindowTriggerArgs',
     'TwilioLinkedServiceArgs',
     'UntilActivityArgs',
-    'UserAssignedManagedIdentityCredentialArgs',
     'UserPropertyArgs',
     'ValidationActivityArgs',
     'VariableSpecificationArgs',
@@ -48725,19 +48723,23 @@ class ManagedIdentityCredentialArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
         """
         Managed identity credential.
         :param pulumi.Input[str] type: Type of credential.
                Expected value is 'ManagedIdentity'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Credential.
         :param pulumi.Input[str] description: Credential description.
+        :param pulumi.Input[str] resource_id: The resource id of user assigned managed identity
         """
         pulumi.set(__self__, "type", 'ManagedIdentity')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter
@@ -48775,6 +48777,18 @@ class ManagedIdentityCredentialArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of user assigned managed identity
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -73437,12 +73451,12 @@ class ScriptActivityParameterArgs:
 class ScriptActivityScriptBlockArgs:
     def __init__(__self__, *,
                  text: Any,
-                 type: pulumi.Input[Union[str, 'ScriptType']],
+                 type: Any,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActivityParameterArgs']]]] = None):
         """
         Script block of scripts.
         :param Any text: The query text. Type: string (or Expression with resultType string).
-        :param pulumi.Input[Union[str, 'ScriptType']] type: The type of the query. Type: string.
+        :param Any type: The type of the query. Please refer to the ScriptType for valid options. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[pulumi.Input['ScriptActivityParameterArgs']]] parameters: Array of script parameters. Type: array.
         """
         pulumi.set(__self__, "text", text)
@@ -73464,14 +73478,14 @@ class ScriptActivityScriptBlockArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ScriptType']]:
+    def type(self) -> Any:
         """
-        The type of the query. Type: string.
+        The type of the query. Please refer to the ScriptType for valid options. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ScriptType']]):
+    def type(self, value: Any):
         pulumi.set(self, "type", value)
 
     @property
@@ -83810,63 +83824,6 @@ class SynapseSparkJobReferenceArgs:
 
 
 @pulumi.input_type
-class SystemAssignedManagedIdentityCredentialArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
-        """
-        System Assigned Managed identity credential.
-        :param pulumi.Input[str] type: Type of credential.
-               Expected value is 'SystemAssignedManagedIdentityCredential'.
-        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Credential.
-        :param pulumi.Input[str] description: Credential description.
-        """
-        pulumi.set(__self__, "type", 'SystemAssignedManagedIdentityCredential')
-        if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Type of credential.
-        Expected value is 'SystemAssignedManagedIdentityCredential'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
-        """
-        List of tags that can be used for describing the Credential.
-        """
-        return pulumi.get(self, "annotations")
-
-    @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
-        pulumi.set(self, "annotations", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Credential description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-
-@pulumi.input_type
 class TabularSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -85787,63 +85744,6 @@ class UntilActivityArgs:
     @user_properties.setter
     def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
-
-
-@pulumi.input_type
-class UserAssignedManagedIdentityCredentialArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
-        """
-        User Assigned Managed identity credential.
-        :param pulumi.Input[str] type: Type of credential.
-               Expected value is 'UserAssignedManagedIdentityCredential'.
-        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Credential.
-        :param pulumi.Input[str] description: Credential description.
-        """
-        pulumi.set(__self__, "type", 'UserAssignedManagedIdentityCredential')
-        if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Type of credential.
-        Expected value is 'UserAssignedManagedIdentityCredential'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
-        """
-        List of tags that can be used for describing the Credential.
-        """
-        return pulumi.get(self, "annotations")
-
-    @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
-        pulumi.set(self, "annotations", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Credential description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

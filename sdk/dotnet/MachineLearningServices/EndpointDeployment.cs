@@ -11,6 +11,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:EndpointDeployment")]
     public partial class EndpointDeployment : global::Pulumi.CustomResource
@@ -62,6 +64,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:EndpointDeployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

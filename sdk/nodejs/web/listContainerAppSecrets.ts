@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Container App Secrets Collection ARM resource.
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2023-12-01.
  */
 export function listContainerAppSecrets(args: ListContainerAppSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListContainerAppSecretsResult> {
 
@@ -38,6 +40,8 @@ export interface ListContainerAppSecretsResult {
 /**
  * Container App Secrets Collection ARM resource.
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2023-12-01.
  */
 export function listContainerAppSecretsOutput(args: ListContainerAppSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppSecretsResult> {
     return pulumi.output(args).apply((a: any) => listContainerAppSecrets(a, opts))

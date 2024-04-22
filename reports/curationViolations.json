@@ -16,6 +16,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "AppPlatform",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "AzureActiveDirectory",
     "Detail": "expected no additions but found some"
   },

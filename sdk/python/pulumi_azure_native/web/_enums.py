@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ActiveRevisionsMode',
     'ApiType',
+    'AuthType',
     'AutoHealActionType',
     'AzureResourceType',
     'AzureStorageType',
@@ -64,6 +65,16 @@ class ApiType(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     REST = "Rest"
     SOAP = "Soap"
+
+
+class AuthType(str, Enum):
+    """
+    Auth Type
+    """
+    ANONYMOUS = "Anonymous"
+    USER_CREDENTIALS = "UserCredentials"
+    SYSTEM_IDENTITY = "SystemIdentity"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class AutoHealActionType(str, Enum):

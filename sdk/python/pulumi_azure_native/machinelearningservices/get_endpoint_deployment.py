@@ -95,6 +95,8 @@ def get_endpoint_deployment(deployment_name: Optional[str] = None,
     """
     Azure REST API version: 2024-01-01-preview.
 
+    Other available API versions: 2024-04-01-preview.
+
 
     :param str deployment_name: Name of the deployment resource
     :param str endpoint_name: Name of the endpoint resource.
@@ -125,6 +127,8 @@ def get_endpoint_deployment_output(deployment_name: Optional[pulumi.Input[str]] 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointDeploymentResult]:
     """
     Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str deployment_name: Name of the deployment resource

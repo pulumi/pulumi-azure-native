@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets a private endpoint connection
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01.
+        /// Other available API versions: 2023-01-01, 2023-12-01.
         /// </summary>
         public static Task<GetWebAppPrivateEndpointConnectionSlotResult> InvokeAsync(GetWebAppPrivateEndpointConnectionSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPrivateEndpointConnectionSlotResult>("azure-native:web:getWebAppPrivateEndpointConnectionSlot", args ?? new GetWebAppPrivateEndpointConnectionSlotArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets a private endpoint connection
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01.
+        /// Other available API versions: 2023-01-01, 2023-12-01.
         /// </summary>
         public static Output<GetWebAppPrivateEndpointConnectionSlotResult> Invoke(GetWebAppPrivateEndpointConnectionSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPrivateEndpointConnectionSlotResult>("azure-native:web:getWebAppPrivateEndpointConnectionSlot", args ?? new GetWebAppPrivateEndpointConnectionSlotInvokeArgs(), options.WithDefaults());

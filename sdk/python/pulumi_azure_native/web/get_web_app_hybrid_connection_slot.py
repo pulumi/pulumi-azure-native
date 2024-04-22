@@ -187,7 +187,7 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01.
+    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
 
 
     :param str name: The name of the web app.
@@ -231,7 +231,7 @@ def get_web_app_hybrid_connection_slot_output(name: Optional[pulumi.Input[str]] 
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01.
+    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
 
 
     :param str name: The name of the web app.

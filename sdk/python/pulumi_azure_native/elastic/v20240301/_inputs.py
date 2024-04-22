@@ -474,13 +474,21 @@ class MonitoringTagRulesPropertiesArgs:
 @pulumi.input_type
 class OpenAIIntegrationPropertiesArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None):
+                 key: Optional[pulumi.Input[str]] = None,
+                 open_ai_resource_endpoint: Optional[pulumi.Input[str]] = None,
+                 open_ai_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Open AI Integration details.
         :param pulumi.Input[str] key: Value of API key for Open AI resource
+        :param pulumi.Input[str] open_ai_resource_endpoint: The API endpoint for Open AI resource
+        :param pulumi.Input[str] open_ai_resource_id: The resource id of Open AI resource
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if open_ai_resource_endpoint is not None:
+            pulumi.set(__self__, "open_ai_resource_endpoint", open_ai_resource_endpoint)
+        if open_ai_resource_id is not None:
+            pulumi.set(__self__, "open_ai_resource_id", open_ai_resource_id)
 
     @property
     @pulumi.getter
@@ -493,6 +501,30 @@ class OpenAIIntegrationPropertiesArgs:
     @key.setter
     def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="openAIResourceEndpoint")
+    def open_ai_resource_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API endpoint for Open AI resource
+        """
+        return pulumi.get(self, "open_ai_resource_endpoint")
+
+    @open_ai_resource_endpoint.setter
+    def open_ai_resource_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "open_ai_resource_endpoint", value)
+
+    @property
+    @pulumi.getter(name="openAIResourceId")
+    def open_ai_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of Open AI resource
+        """
+        return pulumi.get(self, "open_ai_resource_id")
+
+    @open_ai_resource_id.setter
+    def open_ai_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "open_ai_resource_id", value)
 
 
 @pulumi.input_type

@@ -10,6 +10,7 @@ from .attached_network_by_dev_center import *
 from .catalog import *
 from .dev_box_definition import *
 from .dev_center import *
+from .encryption_set import *
 from .environment_type import *
 from .gallery import *
 from .get_attached_network_by_dev_center import *
@@ -19,18 +20,24 @@ from .get_catalog_sync_error_details import *
 from .get_customization_task_error_details import *
 from .get_dev_box_definition import *
 from .get_dev_center import *
+from .get_encryption_set import *
 from .get_environment_definition_error_details import *
 from .get_environment_type import *
 from .get_gallery import *
 from .get_network_connection import *
+from .get_plan import *
+from .get_plan_member import *
 from .get_pool import *
 from .get_project import *
 from .get_project_catalog import *
 from .get_project_catalog_environment_definition_error_details import *
 from .get_project_catalog_sync_error_details import *
 from .get_project_environment_type import *
+from .get_project_inherited_settings import *
 from .get_schedule import *
 from .network_connection import *
+from .plan import *
+from .plan_member import *
 from .pool import *
 from .project import *
 from .project_catalog import *
@@ -51,10 +58,13 @@ if typing.TYPE_CHECKING:
     v20231001preview = __v20231001preview
     import pulumi_azure_native.devcenter.v20240201 as __v20240201
     v20240201 = __v20240201
+    import pulumi_azure_native.devcenter.v20240501preview as __v20240501preview
+    v20240501preview = __v20240501preview
 else:
     v20221111preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20221111preview')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.devcenter.v20230401')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20230801preview')
     v20231001preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20231001preview')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240201')
+    v20240501preview = _utilities.lazy_import('pulumi_azure_native.devcenter.v20240501preview')
 

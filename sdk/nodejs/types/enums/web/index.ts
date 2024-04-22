@@ -13,6 +13,7 @@ import * as v20210115 from "./v20210115";
 import * as v20210201 from "./v20210201";
 import * as v20220901 from "./v20220901";
 import * as v20230101 from "./v20230101";
+import * as v20231201 from "./v20231201";
 
 export {
     v20150801preview,
@@ -26,6 +27,7 @@ export {
     v20210201,
     v20220901,
     v20230101,
+    v20231201,
 };
 
 export const ActiveRevisionsMode = {
@@ -49,6 +51,18 @@ export const ApiType = {
  * The API type
  */
 export type ApiType = (typeof ApiType)[keyof typeof ApiType];
+
+export const AuthType = {
+    Anonymous: "Anonymous",
+    UserCredentials: "UserCredentials",
+    SystemIdentity: "SystemIdentity",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Auth Type
+ */
+export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
 export const AutoHealActionType = {
     Recycle: "Recycle",

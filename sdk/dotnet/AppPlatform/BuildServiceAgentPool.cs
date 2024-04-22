@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AppPlatform
     /// The build service agent pool resource
     /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:BuildServiceAgentPool")]
     public partial class BuildServiceAgentPool : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:BuildServiceAgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:BuildServiceAgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:BuildServiceAgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:BuildServiceAgentPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

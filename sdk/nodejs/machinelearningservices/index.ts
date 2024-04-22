@@ -45,6 +45,26 @@ export type Compute = import("./compute").Compute;
 export const Compute: typeof import("./compute").Compute = null as any;
 utilities.lazyLoad(exports, ["Compute"], () => require("./compute"));
 
+export { ConnectionDeploymentArgs } from "./connectionDeployment";
+export type ConnectionDeployment = import("./connectionDeployment").ConnectionDeployment;
+export const ConnectionDeployment: typeof import("./connectionDeployment").ConnectionDeployment = null as any;
+utilities.lazyLoad(exports, ["ConnectionDeployment"], () => require("./connectionDeployment"));
+
+export { ConnectionRaiBlocklistArgs } from "./connectionRaiBlocklist";
+export type ConnectionRaiBlocklist = import("./connectionRaiBlocklist").ConnectionRaiBlocklist;
+export const ConnectionRaiBlocklist: typeof import("./connectionRaiBlocklist").ConnectionRaiBlocklist = null as any;
+utilities.lazyLoad(exports, ["ConnectionRaiBlocklist"], () => require("./connectionRaiBlocklist"));
+
+export { ConnectionRaiBlocklistItemArgs } from "./connectionRaiBlocklistItem";
+export type ConnectionRaiBlocklistItem = import("./connectionRaiBlocklistItem").ConnectionRaiBlocklistItem;
+export const ConnectionRaiBlocklistItem: typeof import("./connectionRaiBlocklistItem").ConnectionRaiBlocklistItem = null as any;
+utilities.lazyLoad(exports, ["ConnectionRaiBlocklistItem"], () => require("./connectionRaiBlocklistItem"));
+
+export { ConnectionRaiPolicyArgs } from "./connectionRaiPolicy";
+export type ConnectionRaiPolicy = import("./connectionRaiPolicy").ConnectionRaiPolicy;
+export const ConnectionRaiPolicy: typeof import("./connectionRaiPolicy").ConnectionRaiPolicy = null as any;
+utilities.lazyLoad(exports, ["ConnectionRaiPolicy"], () => require("./connectionRaiPolicy"));
+
 export { DataContainerArgs } from "./dataContainer";
 export type DataContainer = import("./dataContainer").DataContainer;
 export const DataContainer: typeof import("./dataContainer").DataContainer = null as any;
@@ -144,6 +164,26 @@ export { GetComputeAllowedResizeSizesArgs, GetComputeAllowedResizeSizesResult, G
 export const getComputeAllowedResizeSizes: typeof import("./getComputeAllowedResizeSizes").getComputeAllowedResizeSizes = null as any;
 export const getComputeAllowedResizeSizesOutput: typeof import("./getComputeAllowedResizeSizes").getComputeAllowedResizeSizesOutput = null as any;
 utilities.lazyLoad(exports, ["getComputeAllowedResizeSizes","getComputeAllowedResizeSizesOutput"], () => require("./getComputeAllowedResizeSizes"));
+
+export { GetConnectionDeploymentArgs, GetConnectionDeploymentResult, GetConnectionDeploymentOutputArgs } from "./getConnectionDeployment";
+export const getConnectionDeployment: typeof import("./getConnectionDeployment").getConnectionDeployment = null as any;
+export const getConnectionDeploymentOutput: typeof import("./getConnectionDeployment").getConnectionDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionDeployment","getConnectionDeploymentOutput"], () => require("./getConnectionDeployment"));
+
+export { GetConnectionRaiBlocklistArgs, GetConnectionRaiBlocklistResult, GetConnectionRaiBlocklistOutputArgs } from "./getConnectionRaiBlocklist";
+export const getConnectionRaiBlocklist: typeof import("./getConnectionRaiBlocklist").getConnectionRaiBlocklist = null as any;
+export const getConnectionRaiBlocklistOutput: typeof import("./getConnectionRaiBlocklist").getConnectionRaiBlocklistOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionRaiBlocklist","getConnectionRaiBlocklistOutput"], () => require("./getConnectionRaiBlocklist"));
+
+export { GetConnectionRaiBlocklistItemArgs, GetConnectionRaiBlocklistItemResult, GetConnectionRaiBlocklistItemOutputArgs } from "./getConnectionRaiBlocklistItem";
+export const getConnectionRaiBlocklistItem: typeof import("./getConnectionRaiBlocklistItem").getConnectionRaiBlocklistItem = null as any;
+export const getConnectionRaiBlocklistItemOutput: typeof import("./getConnectionRaiBlocklistItem").getConnectionRaiBlocklistItemOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionRaiBlocklistItem","getConnectionRaiBlocklistItemOutput"], () => require("./getConnectionRaiBlocklistItem"));
+
+export { GetConnectionRaiPolicyArgs, GetConnectionRaiPolicyResult, GetConnectionRaiPolicyOutputArgs } from "./getConnectionRaiPolicy";
+export const getConnectionRaiPolicy: typeof import("./getConnectionRaiPolicy").getConnectionRaiPolicy = null as any;
+export const getConnectionRaiPolicyOutput: typeof import("./getConnectionRaiPolicy").getConnectionRaiPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionRaiPolicy","getConnectionRaiPolicyOutput"], () => require("./getConnectionRaiPolicy"));
 
 export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
 export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
@@ -305,6 +345,11 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetRaiPolicyArgs, GetRaiPolicyResult, GetRaiPolicyOutputArgs } from "./getRaiPolicy";
+export const getRaiPolicy: typeof import("./getRaiPolicy").getRaiPolicy = null as any;
+export const getRaiPolicyOutput: typeof import("./getRaiPolicy").getRaiPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getRaiPolicy","getRaiPolicyOutput"], () => require("./getRaiPolicy"));
+
 export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
 export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
@@ -465,6 +510,11 @@ export const listServerlessEndpointKeys: typeof import("./listServerlessEndpoint
 export const listServerlessEndpointKeysOutput: typeof import("./listServerlessEndpointKeys").listServerlessEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listServerlessEndpointKeys","listServerlessEndpointKeysOutput"], () => require("./listServerlessEndpointKeys"));
 
+export { ListWorkspaceConnectionModelsArgs, ListWorkspaceConnectionModelsResult, ListWorkspaceConnectionModelsOutputArgs } from "./listWorkspaceConnectionModels";
+export const listWorkspaceConnectionModels: typeof import("./listWorkspaceConnectionModels").listWorkspaceConnectionModels = null as any;
+export const listWorkspaceConnectionModelsOutput: typeof import("./listWorkspaceConnectionModels").listWorkspaceConnectionModelsOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceConnectionModels","listWorkspaceConnectionModelsOutput"], () => require("./listWorkspaceConnectionModels"));
+
 export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
 export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
 export const listWorkspaceConnectionSecretsOutput: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecretsOutput = null as any;
@@ -534,6 +584,11 @@ export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { RaiPolicyArgs } from "./raiPolicy";
+export type RaiPolicy = import("./raiPolicy").RaiPolicy;
+export const RaiPolicy: typeof import("./raiPolicy").RaiPolicy = null as any;
+utilities.lazyLoad(exports, ["RaiPolicy"], () => require("./raiPolicy"));
 
 export { RegistryArgs } from "./registry";
 export type Registry = import("./registry").Registry;
@@ -630,6 +685,7 @@ import * as v20230601preview from "./v20230601preview";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231001 from "./v20231001";
 import * as v20240101preview from "./v20240101preview";
+import * as v20240401preview from "./v20240401preview";
 
 export {
     v20200501preview,
@@ -647,6 +703,7 @@ export {
     v20230801preview,
     v20231001,
     v20240101preview,
+    v20240401preview,
 };
 
 const _module = {
@@ -669,6 +726,14 @@ const _module = {
                 return new ComponentVersion(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Compute":
                 return new Compute(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ConnectionDeployment":
+                return new ConnectionDeployment(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ConnectionRaiBlocklist":
+                return new ConnectionRaiBlocklist(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ConnectionRaiBlocklistItem":
+                return new ConnectionRaiBlocklistItem(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ConnectionRaiPolicy":
+                return new ConnectionRaiPolicy(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:DataContainer":
                 return new DataContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:DataVersion":
@@ -723,6 +788,8 @@ const _module = {
                 return new OnlineEndpoint(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RaiPolicy":
+                return new RaiPolicy(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Registry":
                 return new Registry(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:RegistryCodeContainer":

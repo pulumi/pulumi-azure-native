@@ -97,7 +97,7 @@ class DppResourceGuardProxy(pulumi.CustomResource):
         ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
         Azure REST API version: 2023-01-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01.
+        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class DppResourceGuardProxy(pulumi.CustomResource):
         ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
         Azure REST API version: 2023-01-01.
 
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01.
+        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param DppResourceGuardProxyArgs args: The arguments to use to populate this resource's properties.
@@ -157,7 +157,7 @@ class DppResourceGuardProxy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230401preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230501:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230601preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230801preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20231101:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20231201:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20240201preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20240301:DppResourceGuardProxy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230401preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230501:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230601preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20230801preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20231101:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20231201:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20240201preview:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20240301:DppResourceGuardProxy"), pulumi.Alias(type_="azure-native:dataprotection/v20240401:DppResourceGuardProxy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DppResourceGuardProxy, __self__).__init__(
             'azure-native:dataprotection:DppResourceGuardProxy',

@@ -91,6 +91,10 @@ export interface GetEventHubResult {
      * The exact time the message was updated.
      */
     readonly updatedAt: string;
+    /**
+     * Gets and Sets Metadata of User.
+     */
+    readonly userMetadata?: string;
 }
 /**
  * Gets an Event Hubs description for the specified Event Hub.

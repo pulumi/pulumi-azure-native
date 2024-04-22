@@ -17,6 +17,7 @@ __all__ = [
     'AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse',
     'AccountApiKeysResponse',
     'AccountKeyDatastoreCredentialsResponse',
+    'AccountModelResponse',
     'AcrDetailsResponse',
     'ActualCapacityInfoResponse',
     'AksNetworkingConfigurationResponse',
@@ -55,6 +56,8 @@ __all__ = [
     'BayesianSamplingAlgorithmResponse',
     'BindOptionsResponse',
     'BuildContextResponse',
+    'CallRateLimitResponse',
+    'CapacityConfigResponse',
     'CapacityReservationGroupResponse',
     'CertificateDatastoreCredentialsResponse',
     'ClassificationResponse',
@@ -114,6 +117,7 @@ __all__ = [
     'DatasetStateResponseDeprecatedBy',
     'DatastoreResponse',
     'DefaultScaleSettingsResponse',
+    'DeploymentModelResponse',
     'DeploymentResourceConfigurationResponse',
     'DockerBuildResponse',
     'DockerImagePlatformResponse',
@@ -208,6 +212,8 @@ __all__ = [
     'MaterializationSettingsResponse',
     'MedianStoppingPolicyResponse',
     'ModelContainerResponse',
+    'ModelDeprecationInfoResponse',
+    'ModelSkuResponse',
     'ModelVersionResponse',
     'MpiResponse',
     'NlpVerticalFeaturizationSettingsResponse',
@@ -238,6 +244,11 @@ __all__ = [
     'ProbeSettingsResponse',
     'ProgressMetricsResponse',
     'PyTorchResponse',
+    'RaiBlocklistConfigResponse',
+    'RaiBlocklistItemPropertiesResponse',
+    'RaiBlocklistPropertiesResponse',
+    'RaiPolicyContentFilterResponse',
+    'RaiPolicyPropertiesResponse',
     'RandomSamplingAlgorithmResponse',
     'RecurrenceResponse',
     'RecurrenceScheduleResponse',
@@ -251,6 +262,7 @@ __all__ = [
     'RegressionResponse',
     'RegressionTrainingSettingsResponse',
     'RequestConfigurationResponse',
+    'RequestMatchPatternResponse',
     'ResourceIdResponse',
     'RouteResponse',
     'SASAuthTypeWorkspaceConnectionPropertiesResponse',
@@ -293,6 +305,7 @@ __all__ = [
     'TextClassificationMultilabelResponse',
     'TextClassificationResponse',
     'TextNerResponse',
+    'ThrottlingRuleResponse',
     'TmpfsOptionsResponse',
     'TrialComponentResponse',
     'TritonModelJobInputResponse',
@@ -778,6 +791,183 @@ class AccountKeyDatastoreCredentialsResponse(dict):
         Expected value is 'AccountKey'.
         """
         return pulumi.get(self, "credentials_type")
+
+
+@pulumi.output_type
+class AccountModelResponse(dict):
+    """
+    Cognitive Services account Model.
+    """
+    def __init__(__self__, *,
+                 call_rate_limit: 'outputs.CallRateLimitResponse',
+                 system_data: 'outputs.SystemDataResponse',
+                 base_model: Optional['outputs.DeploymentModelResponse'] = None,
+                 capabilities: Optional[Mapping[str, str]] = None,
+                 deprecation: Optional['outputs.ModelDeprecationInfoResponse'] = None,
+                 finetune_capabilities: Optional[Mapping[str, str]] = None,
+                 format: Optional[str] = None,
+                 is_default_version: Optional[bool] = None,
+                 lifecycle_status: Optional[str] = None,
+                 max_capacity: Optional[int] = None,
+                 name: Optional[str] = None,
+                 skus: Optional[Sequence['outputs.ModelSkuResponse']] = None,
+                 source: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Cognitive Services account Model.
+        :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param 'DeploymentModelResponse' base_model: Base Model Identifier.
+        :param Mapping[str, str] capabilities: The capabilities.
+        :param 'ModelDeprecationInfoResponse' deprecation: Cognitive Services account ModelDeprecationInfo.
+        :param Mapping[str, str] finetune_capabilities: The capabilities for finetune models.
+        :param str format: Deployment model format.
+        :param bool is_default_version: If the model is default version.
+        :param str lifecycle_status: Model lifecycle status.
+        :param int max_capacity: The max capacity.
+        :param str name: Deployment model name.
+        :param Sequence['ModelSkuResponse'] skus: The list of Model Sku.
+        :param str source: Optional. Deployment model source ARM resource ID.
+        :param str version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
+        """
+        pulumi.set(__self__, "call_rate_limit", call_rate_limit)
+        pulumi.set(__self__, "system_data", system_data)
+        if base_model is not None:
+            pulumi.set(__self__, "base_model", base_model)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if deprecation is not None:
+            pulumi.set(__self__, "deprecation", deprecation)
+        if finetune_capabilities is not None:
+            pulumi.set(__self__, "finetune_capabilities", finetune_capabilities)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if is_default_version is not None:
+            pulumi.set(__self__, "is_default_version", is_default_version)
+        if lifecycle_status is not None:
+            pulumi.set(__self__, "lifecycle_status", lifecycle_status)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if skus is not None:
+            pulumi.set(__self__, "skus", skus)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="callRateLimit")
+    def call_rate_limit(self) -> 'outputs.CallRateLimitResponse':
+        """
+        The call rate limit Cognitive Services account.
+        """
+        return pulumi.get(self, "call_rate_limit")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="baseModel")
+    def base_model(self) -> Optional['outputs.DeploymentModelResponse']:
+        """
+        Base Model Identifier.
+        """
+        return pulumi.get(self, "base_model")
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[Mapping[str, str]]:
+        """
+        The capabilities.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter
+    def deprecation(self) -> Optional['outputs.ModelDeprecationInfoResponse']:
+        """
+        Cognitive Services account ModelDeprecationInfo.
+        """
+        return pulumi.get(self, "deprecation")
+
+    @property
+    @pulumi.getter(name="finetuneCapabilities")
+    def finetune_capabilities(self) -> Optional[Mapping[str, str]]:
+        """
+        The capabilities for finetune models.
+        """
+        return pulumi.get(self, "finetune_capabilities")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        Deployment model format.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="isDefaultVersion")
+    def is_default_version(self) -> Optional[bool]:
+        """
+        If the model is default version.
+        """
+        return pulumi.get(self, "is_default_version")
+
+    @property
+    @pulumi.getter(name="lifecycleStatus")
+    def lifecycle_status(self) -> Optional[str]:
+        """
+        Model lifecycle status.
+        """
+        return pulumi.get(self, "lifecycle_status")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[int]:
+        """
+        The max capacity.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Deployment model name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def skus(self) -> Optional[Sequence['outputs.ModelSkuResponse']]:
+        """
+        The list of Model Sku.
+        """
+        return pulumi.get(self, "skus")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Optional. Deployment model source ARM resource ID.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -4936,6 +5126,120 @@ class BuildContextResponse(dict):
         <seealso href="https://docs.docker.com/engine/reference/builder/" />
         """
         return pulumi.get(self, "dockerfile_path")
+
+
+@pulumi.output_type
+class CallRateLimitResponse(dict):
+    """
+    The call rate limit Cognitive Services account.
+    """
+    def __init__(__self__, *,
+                 count: Optional[float] = None,
+                 renewal_period: Optional[float] = None,
+                 rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None):
+        """
+        The call rate limit Cognitive Services account.
+        :param float count: The count value of Call Rate Limit.
+        :param float renewal_period: The renewal period in seconds of Call Rate Limit.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if renewal_period is not None:
+            pulumi.set(__self__, "renewal_period", renewal_period)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        """
+        The count value of Call Rate Limit.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="renewalPeriod")
+    def renewal_period(self) -> Optional[float]:
+        """
+        The renewal period in seconds of Call Rate Limit.
+        """
+        return pulumi.get(self, "renewal_period")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ThrottlingRuleResponse']]:
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class CapacityConfigResponse(dict):
+    """
+    The capacity configuration.
+    """
+    def __init__(__self__, *,
+                 allowed_values: Optional[Sequence[int]] = None,
+                 default: Optional[int] = None,
+                 maximum: Optional[int] = None,
+                 minimum: Optional[int] = None,
+                 step: Optional[int] = None):
+        """
+        The capacity configuration.
+        :param Sequence[int] allowed_values: The array of allowed values for capacity.
+        :param int default: The default capacity.
+        :param int maximum: The maximum capacity.
+        :param int minimum: The minimum capacity.
+        :param int step: The minimal incremental between allowed values for capacity.
+        """
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+        if step is not None:
+            pulumi.set(__self__, "step", step)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[int]]:
+        """
+        The array of allowed values for capacity.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[int]:
+        """
+        The default capacity.
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[int]:
+        """
+        The maximum capacity.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[int]:
+        """
+        The minimum capacity.
+        """
+        return pulumi.get(self, "minimum")
+
+    @property
+    @pulumi.getter
+    def step(self) -> Optional[int]:
+        """
+        The minimal incremental between allowed values for capacity.
+        """
+        return pulumi.get(self, "step")
 
 
 @pulumi.output_type
@@ -10738,6 +11042,76 @@ class DefaultScaleSettingsResponse(dict):
         Expected value is 'Default'.
         """
         return pulumi.get(self, "scale_type")
+
+
+@pulumi.output_type
+class DeploymentModelResponse(dict):
+    """
+    Properties of Cognitive Services account deployment model.
+    """
+    def __init__(__self__, *,
+                 call_rate_limit: 'outputs.CallRateLimitResponse',
+                 format: Optional[str] = None,
+                 name: Optional[str] = None,
+                 source: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Properties of Cognitive Services account deployment model.
+        :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
+        :param str format: Deployment model format.
+        :param str name: Deployment model name.
+        :param str source: Optional. Deployment model source ARM resource ID.
+        :param str version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
+        """
+        pulumi.set(__self__, "call_rate_limit", call_rate_limit)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="callRateLimit")
+    def call_rate_limit(self) -> 'outputs.CallRateLimitResponse':
+        """
+        The call rate limit Cognitive Services account.
+        """
+        return pulumi.get(self, "call_rate_limit")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        """
+        Deployment model format.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Deployment model name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Optional. Deployment model source ARM resource ID.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -21415,6 +21789,124 @@ class ModelContainerResponse(dict):
 
 
 @pulumi.output_type
+class ModelDeprecationInfoResponse(dict):
+    """
+    Cognitive Services account ModelDeprecationInfo.
+    """
+    def __init__(__self__, *,
+                 fine_tune: Optional[str] = None,
+                 inference: Optional[str] = None):
+        """
+        Cognitive Services account ModelDeprecationInfo.
+        :param str fine_tune: The datetime of deprecation of the fineTune Model.
+        :param str inference: The datetime of deprecation of the inference Model.
+        """
+        if fine_tune is not None:
+            pulumi.set(__self__, "fine_tune", fine_tune)
+        if inference is not None:
+            pulumi.set(__self__, "inference", inference)
+
+    @property
+    @pulumi.getter(name="fineTune")
+    def fine_tune(self) -> Optional[str]:
+        """
+        The datetime of deprecation of the fineTune Model.
+        """
+        return pulumi.get(self, "fine_tune")
+
+    @property
+    @pulumi.getter
+    def inference(self) -> Optional[str]:
+        """
+        The datetime of deprecation of the inference Model.
+        """
+        return pulumi.get(self, "inference")
+
+
+@pulumi.output_type
+class ModelSkuResponse(dict):
+    """
+    Describes an available Cognitive Services Model SKU.
+    """
+    def __init__(__self__, *,
+                 capacity: Optional['outputs.CapacityConfigResponse'] = None,
+                 connection_ids: Optional[Sequence[str]] = None,
+                 deprecation_date: Optional[str] = None,
+                 name: Optional[str] = None,
+                 rate_limits: Optional[Sequence['outputs.CallRateLimitResponse']] = None,
+                 usage_name: Optional[str] = None):
+        """
+        Describes an available Cognitive Services Model SKU.
+        :param 'CapacityConfigResponse' capacity: The capacity configuration.
+        :param Sequence[str] connection_ids: The list of connection ids.
+        :param str deprecation_date: The datetime of deprecation of the model SKU.
+        :param str name: The name of the model SKU.
+        :param Sequence['CallRateLimitResponse'] rate_limits: The list of rateLimit.
+        :param str usage_name: The usage name of the model SKU.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if connection_ids is not None:
+            pulumi.set(__self__, "connection_ids", connection_ids)
+        if deprecation_date is not None:
+            pulumi.set(__self__, "deprecation_date", deprecation_date)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rate_limits is not None:
+            pulumi.set(__self__, "rate_limits", rate_limits)
+        if usage_name is not None:
+            pulumi.set(__self__, "usage_name", usage_name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional['outputs.CapacityConfigResponse']:
+        """
+        The capacity configuration.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="connectionIds")
+    def connection_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of connection ids.
+        """
+        return pulumi.get(self, "connection_ids")
+
+    @property
+    @pulumi.getter(name="deprecationDate")
+    def deprecation_date(self) -> Optional[str]:
+        """
+        The datetime of deprecation of the model SKU.
+        """
+        return pulumi.get(self, "deprecation_date")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the model SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rateLimits")
+    def rate_limits(self) -> Optional[Sequence['outputs.CallRateLimitResponse']]:
+        """
+        The list of rateLimit.
+        """
+        return pulumi.get(self, "rate_limits")
+
+    @property
+    @pulumi.getter(name="usageName")
+    def usage_name(self) -> Optional[str]:
+        """
+        The usage name of the model SKU.
+        """
+        return pulumi.get(self, "usage_name")
+
+
+@pulumi.output_type
 class ModelVersionResponse(dict):
     """
     Model asset version details.
@@ -23837,6 +24329,315 @@ class PyTorchResponse(dict):
 
 
 @pulumi.output_type
+class RaiBlocklistConfigResponse(dict):
+    """
+    Azure OpenAI blocklist config.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blocklistName":
+            suggest = "blocklist_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiBlocklistConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiBlocklistConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiBlocklistConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blocking: Optional[bool] = None,
+                 blocklist_name: Optional[str] = None):
+        """
+        Azure OpenAI blocklist config.
+        :param bool blocking: If blocking would occur.
+        :param str blocklist_name: Name of ContentFilter.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if blocklist_name is not None:
+            pulumi.set(__self__, "blocklist_name", blocklist_name)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[bool]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @property
+    @pulumi.getter(name="blocklistName")
+    def blocklist_name(self) -> Optional[str]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "blocklist_name")
+
+
+@pulumi.output_type
+class RaiBlocklistItemPropertiesResponse(dict):
+    """
+    RAI Custom Blocklist Item properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isRegex":
+            suggest = "is_regex"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiBlocklistItemPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiBlocklistItemPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiBlocklistItemPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_regex: Optional[bool] = None,
+                 pattern: Optional[str] = None):
+        """
+        RAI Custom Blocklist Item properties.
+        :param bool is_regex: If the pattern is a regex pattern.
+        :param str pattern: Pattern to match against.
+        """
+        if is_regex is not None:
+            pulumi.set(__self__, "is_regex", is_regex)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter(name="isRegex")
+    def is_regex(self) -> Optional[bool]:
+        """
+        If the pattern is a regex pattern.
+        """
+        return pulumi.get(self, "is_regex")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[str]:
+        """
+        Pattern to match against.
+        """
+        return pulumi.get(self, "pattern")
+
+
+@pulumi.output_type
+class RaiBlocklistPropertiesResponse(dict):
+    """
+    RAI Custom Blocklist properties.
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None):
+        """
+        RAI Custom Blocklist properties.
+        :param str description: Description of the block list.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the block list.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class RaiPolicyContentFilterResponse(dict):
+    """
+    Azure OpenAI Content Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedContentLevel":
+            suggest = "allowed_content_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyContentFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiPolicyContentFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiPolicyContentFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_content_level: Optional[str] = None,
+                 blocking: Optional[bool] = None,
+                 enabled: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 source: Optional[str] = None):
+        """
+        Azure OpenAI Content Filter.
+        :param str allowed_content_level: Level at which content is filtered.
+        :param bool blocking: If blocking would occur.
+        :param bool enabled: If the ContentFilter is enabled.
+        :param str name: Name of ContentFilter.
+        :param str source: Content source to apply the Content Filters.
+        """
+        if allowed_content_level is not None:
+            pulumi.set(__self__, "allowed_content_level", allowed_content_level)
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="allowedContentLevel")
+    def allowed_content_level(self) -> Optional[str]:
+        """
+        Level at which content is filtered.
+        """
+        return pulumi.get(self, "allowed_content_level")
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[bool]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        If the ContentFilter is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Content source to apply the Content Filters.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class RaiPolicyPropertiesResponse(dict):
+    """
+    Azure OpenAI Content Filters properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basePolicyName":
+            suggest = "base_policy_name"
+        elif key == "completionBlocklists":
+            suggest = "completion_blocklists"
+        elif key == "contentFilters":
+            suggest = "content_filters"
+        elif key == "promptBlocklists":
+            suggest = "prompt_blocklists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_policy_name: Optional[str] = None,
+                 completion_blocklists: Optional[Sequence['outputs.RaiBlocklistConfigResponse']] = None,
+                 content_filters: Optional[Sequence['outputs.RaiPolicyContentFilterResponse']] = None,
+                 mode: Optional[str] = None,
+                 prompt_blocklists: Optional[Sequence['outputs.RaiBlocklistConfigResponse']] = None,
+                 type: Optional[str] = None):
+        """
+        Azure OpenAI Content Filters properties.
+        :param str base_policy_name: Name of the base Content Filters.
+        :param str mode: Content Filters mode.
+        :param str type: Content Filters policy type.
+        """
+        if base_policy_name is not None:
+            pulumi.set(__self__, "base_policy_name", base_policy_name)
+        if completion_blocklists is not None:
+            pulumi.set(__self__, "completion_blocklists", completion_blocklists)
+        if content_filters is not None:
+            pulumi.set(__self__, "content_filters", content_filters)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if prompt_blocklists is not None:
+            pulumi.set(__self__, "prompt_blocklists", prompt_blocklists)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="basePolicyName")
+    def base_policy_name(self) -> Optional[str]:
+        """
+        Name of the base Content Filters.
+        """
+        return pulumi.get(self, "base_policy_name")
+
+    @property
+    @pulumi.getter(name="completionBlocklists")
+    def completion_blocklists(self) -> Optional[Sequence['outputs.RaiBlocklistConfigResponse']]:
+        return pulumi.get(self, "completion_blocklists")
+
+    @property
+    @pulumi.getter(name="contentFilters")
+    def content_filters(self) -> Optional[Sequence['outputs.RaiPolicyContentFilterResponse']]:
+        return pulumi.get(self, "content_filters")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Content Filters mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="promptBlocklists")
+    def prompt_blocklists(self) -> Optional[Sequence['outputs.RaiBlocklistConfigResponse']]:
+        return pulumi.get(self, "prompt_blocklists")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Content Filters policy type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class RandomSamplingAlgorithmResponse(dict):
     """
     Defines a Sampling Algorithm that generates values randomly
@@ -25080,6 +25881,27 @@ class RequestConfigurationResponse(dict):
         Defaults to 5000ms.
         """
         return pulumi.get(self, "request_timeout")
+
+
+@pulumi.output_type
+class RequestMatchPatternResponse(dict):
+    def __init__(__self__, *,
+                 method: Optional[str] = None,
+                 path: Optional[str] = None):
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
 
 
 @pulumi.output_type
@@ -28755,6 +29577,59 @@ class TextNerResponse(dict):
         Validation data inputs.
         """
         return pulumi.get(self, "validation_data")
+
+
+@pulumi.output_type
+class ThrottlingRuleResponse(dict):
+    def __init__(__self__, *,
+                 count: Optional[float] = None,
+                 dynamic_throttling_enabled: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 match_patterns: Optional[Sequence['outputs.RequestMatchPatternResponse']] = None,
+                 min_count: Optional[float] = None,
+                 renewal_period: Optional[float] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if dynamic_throttling_enabled is not None:
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if match_patterns is not None:
+            pulumi.set(__self__, "match_patterns", match_patterns)
+        if min_count is not None:
+            pulumi.set(__self__, "min_count", min_count)
+        if renewal_period is not None:
+            pulumi.set(__self__, "renewal_period", renewal_period)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[float]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="matchPatterns")
+    def match_patterns(self) -> Optional[Sequence['outputs.RequestMatchPatternResponse']]:
+        return pulumi.get(self, "match_patterns")
+
+    @property
+    @pulumi.getter(name="minCount")
+    def min_count(self) -> Optional[float]:
+        return pulumi.get(self, "min_count")
+
+    @property
+    @pulumi.getter(name="renewalPeriod")
+    def renewal_period(self) -> Optional[float]:
+        return pulumi.get(self, "renewal_period")
 
 
 @pulumi.output_type

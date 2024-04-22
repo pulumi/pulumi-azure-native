@@ -113,7 +113,7 @@ class FeaturesetVersion(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview.
+        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +133,7 @@ class FeaturesetVersion(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview.
+        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FeaturesetVersionInitArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +179,7 @@ class FeaturesetVersion(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:FeaturesetVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20231001:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:FeaturesetVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:FeaturesetVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FeaturesetVersion, __self__).__init__(
             'azure-native:machinelearningservices:FeaturesetVersion',

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a catalog.
  * Azure REST API version: 2024-02-01.
+ *
+ * Other available API versions: 2024-05-01-preview.
  */
 export class ProjectCatalog extends pulumi.CustomResource {
     /**
@@ -140,7 +142,7 @@ export class ProjectCatalog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240201:ProjectCatalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240201:ProjectCatalog" }, { type: "azure-native:devcenter/v20240501preview:ProjectCatalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectCatalog.__pulumiType, name, resourceInputs, opts);
     }

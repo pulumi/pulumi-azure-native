@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.Web.V20160801
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppInstanceFunctionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppInstanceFunctionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppInstanceFunctionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppInstanceFunctionSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

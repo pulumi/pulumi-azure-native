@@ -80,6 +80,7 @@ __all__ = [
     'DefaultAuthorizationPolicyResponse',
     'EnabledConfigResponse',
     'EnvironmentVarResponse',
+    'EnvironmentVariableResponse',
     'ErrorEntityResponse',
     'ExperimentsResponse',
     'ExpressionResponse',
@@ -159,6 +160,7 @@ __all__ = [
     'VirtualDirectoryResponse',
     'VirtualNetworkProfileResponse',
     'VnetRouteResponse',
+    'VolumeMountResponse',
     'WorkflowEnvelopeResponseProperties',
     'WorkflowHealthResponse',
     'WorkflowTriggerListCallbackUrlQueriesResponse',
@@ -4922,6 +4924,35 @@ class EnvironmentVarResponse(dict):
     def value(self) -> Optional[str]:
         """
         Non-secret environment variable value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EnvironmentVariableResponse(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Environment variable name
+        :param str value: Environment variable value
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Environment variable name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Environment variable value
         """
         return pulumi.get(self, "value")
 
@@ -11646,6 +11677,80 @@ class VnetRouteResponse(dict):
         The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
         return pulumi.get(self, "start_address")
+
+
+@pulumi.output_type
+class VolumeMountResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerMountPath":
+            suggest = "container_mount_path"
+        elif key == "volumeSubPath":
+            suggest = "volume_sub_path"
+        elif key == "readOnly":
+            suggest = "read_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeMountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeMountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeMountResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_mount_path: str,
+                 volume_sub_path: str,
+                 data: Optional[str] = None,
+                 read_only: Optional[bool] = None):
+        """
+        :param str container_mount_path: Target path on the container where volume is mounted on
+        :param str volume_sub_path: Sub path in the volume where volume is mounted from.
+        :param str data: Config Data to be mounted on the volume
+        :param bool read_only: Boolean to specify if the mount is read only on the container
+        """
+        pulumi.set(__self__, "container_mount_path", container_mount_path)
+        pulumi.set(__self__, "volume_sub_path", volume_sub_path)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="containerMountPath")
+    def container_mount_path(self) -> str:
+        """
+        Target path on the container where volume is mounted on
+        """
+        return pulumi.get(self, "container_mount_path")
+
+    @property
+    @pulumi.getter(name="volumeSubPath")
+    def volume_sub_path(self) -> str:
+        """
+        Sub path in the volume where volume is mounted from.
+        """
+        return pulumi.get(self, "volume_sub_path")
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        """
+        Config Data to be mounted on the volume
+        """
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        """
+        Boolean to specify if the mount is read only on the container
+        """
+        return pulumi.get(self, "read_only")
 
 
 @pulumi.output_type

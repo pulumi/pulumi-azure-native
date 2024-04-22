@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.Web.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:AppServiceEnvironmentPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironmentPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:AppServiceEnvironmentPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:AppServiceEnvironmentPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

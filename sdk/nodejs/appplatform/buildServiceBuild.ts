@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Build resource payload
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export class BuildServiceBuild extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class BuildServiceBuild extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230301preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230501preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230701preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230901preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20231101preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20231201:BuildServiceBuild" }, { type: "azure-native:appplatform/v20240101preview:BuildServiceBuild" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20230301preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230501preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230701preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230901preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20231101preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20231201:BuildServiceBuild" }, { type: "azure-native:appplatform/v20240101preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20240501preview:BuildServiceBuild" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildServiceBuild.__pulumiType, name, resourceInputs, opts);
     }

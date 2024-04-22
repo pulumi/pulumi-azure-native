@@ -145,7 +145,7 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
     Description for Gets an existing custom domain for a particular static site.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01.
+    Other available API versions: 2023-01-01, 2023-12-01.
 
 
     :param str domain_name: The custom domain name.
@@ -180,7 +180,7 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]
     Description for Gets an existing custom domain for a particular static site.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01.
+    Other available API versions: 2023-01-01, 2023-12-01.
 
 
     :param str domain_name: The custom domain name.

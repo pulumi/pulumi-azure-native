@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     /// A SQL Server availability group listener.
     /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
     /// 
-    /// Other available API versions: 2023-01-01-preview.
+    /// Other available API versions: 2023-01-01-preview, 2023-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:AvailabilityGroupListener")]
     public partial class AvailabilityGroupListener : global::Pulumi.CustomResource
@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20231001:AvailabilityGroupListener" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

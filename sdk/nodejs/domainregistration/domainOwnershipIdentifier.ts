@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Domain ownership Identifier.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01.
+ * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
@@ -84,7 +84,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210115:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20220301:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20220901:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20230101:DomainOwnershipIdentifier" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200601:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210115:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20220301:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20220901:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20230101:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20231201:DomainOwnershipIdentifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainOwnershipIdentifier.__pulumiType, name, resourceInputs, opts);
     }

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01-preview.
         /// </summary>
         public static Task<GetMarketplaceSubscriptionResult> InvokeAsync(GetMarketplaceSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMarketplaceSubscriptionResult>("azure-native:machinelearningservices:getMarketplaceSubscription", args ?? new GetMarketplaceSubscriptionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01-preview.
         /// </summary>
         public static Output<GetMarketplaceSubscriptionResult> Invoke(GetMarketplaceSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceSubscriptionResult>("azure-native:machinelearningservices:getMarketplaceSubscription", args ?? new GetMarketplaceSubscriptionInvokeArgs(), options.WithDefaults());

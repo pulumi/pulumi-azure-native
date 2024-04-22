@@ -245,7 +245,7 @@ def get_kube_environment(name: Optional[str] = None,
     Description for Get the properties of a Kubernetes Environment.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01.
+    Other available API versions: 2023-01-01, 2023-12-01.
 
 
     :param str name: Name of the Kubernetes Environment.
@@ -285,7 +285,7 @@ def get_kube_environment_output(name: Optional[pulumi.Input[str]] = None,
     Description for Get the properties of a Kubernetes Environment.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01.
+    Other available API versions: 2023-01-01, 2023-12-01.
 
 
     :param str name: Name of the Kubernetes Environment.

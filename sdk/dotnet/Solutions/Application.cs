@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Solutions
     /// Information about managed application.
     /// Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
     /// 
-    /// Other available API versions: 2017-12-01, 2018-06-01.
+    /// Other available API versions: 2017-12-01, 2018-06-01, 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:Application")]
     public partial class Application : global::Pulumi.CustomResource
@@ -204,6 +204,7 @@ namespace Pulumi.AzureNative.Solutions
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20210201preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:solutions/v20210701:Application" },
+                    new global::Pulumi.Alias { Type = "azure-native:solutions/v20231201preview:Application" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

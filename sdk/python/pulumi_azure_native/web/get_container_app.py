@@ -184,6 +184,8 @@ def get_container_app(name: Optional[str] = None,
     Container App.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2023-12-01.
+
 
     :param str name: Name of the Container App.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -216,6 +218,8 @@ def get_container_app_output(name: Optional[pulumi.Input[str]] = None,
     """
     Container App.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2023-12-01.
 
 
     :param str name: Name of the Container App.

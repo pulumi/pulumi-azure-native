@@ -638,43 +638,6 @@ namespace Pulumi.AzureNative.EventHub.V20240101
     }
 
     /// <summary>
-    /// Preferred day of the week in UTC time to begin an upgrade. If 'Any' is selected, upgrade will proceed at any given weekday
-    /// </summary>
-    [EnumType]
-    public readonly struct StartDayOfWeek : IEquatable<StartDayOfWeek>
-    {
-        private readonly string _value;
-
-        private StartDayOfWeek(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StartDayOfWeek Sunday { get; } = new StartDayOfWeek("Sunday");
-        public static StartDayOfWeek Monday { get; } = new StartDayOfWeek("Monday");
-        public static StartDayOfWeek Tuesday { get; } = new StartDayOfWeek("Tuesday");
-        public static StartDayOfWeek Wednesday { get; } = new StartDayOfWeek("Wednesday");
-        public static StartDayOfWeek Thursday { get; } = new StartDayOfWeek("Thursday");
-        public static StartDayOfWeek Friday { get; } = new StartDayOfWeek("Friday");
-        public static StartDayOfWeek Saturday { get; } = new StartDayOfWeek("Saturday");
-        public static StartDayOfWeek Any { get; } = new StartDayOfWeek("Any");
-
-        public static bool operator ==(StartDayOfWeek left, StartDayOfWeek right) => left.Equals(right);
-        public static bool operator !=(StartDayOfWeek left, StartDayOfWeek right) => !left.Equals(right);
-
-        public static explicit operator string(StartDayOfWeek value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StartDayOfWeek other && Equals(other);
-        public bool Equals(StartDayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The minimum TLS version for the cluster to support, e.g. '1.2'
     /// </summary>
     [EnumType]

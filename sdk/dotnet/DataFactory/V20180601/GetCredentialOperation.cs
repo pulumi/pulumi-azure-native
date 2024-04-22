@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// <summary>
         /// Properties of credentials.
         /// </summary>
-        public readonly object Properties;
+        public readonly Union<Outputs.ManagedIdentityCredentialResponse, Outputs.ServicePrincipalCredentialResponse> Properties;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
 
             string name,
 
-            object properties,
+            Union<Outputs.ManagedIdentityCredentialResponse, Outputs.ServicePrincipalCredentialResponse> properties,
 
             string type)
         {

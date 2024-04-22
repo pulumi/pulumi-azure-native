@@ -189,7 +189,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         The resource model definition representing SKU
-        :param pulumi.Input[str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param pulumi.Input[str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
@@ -209,7 +209,7 @@ class SkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
+        The name of the SKU. E.g. P3. It is typically a letter+number code
         """
         return pulumi.get(self, "name")
 

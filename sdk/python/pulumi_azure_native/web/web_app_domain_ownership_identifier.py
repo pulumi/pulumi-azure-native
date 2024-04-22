@@ -112,7 +112,7 @@ class WebAppDomainOwnershipIdentifier(pulumi.CustomResource):
         A domain specific resource identifier.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01.
+        Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class WebAppDomainOwnershipIdentifier(pulumi.CustomResource):
         A domain specific resource identifier.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01.
+        Other available API versions: 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppDomainOwnershipIdentifierArgs args: The arguments to use to populate this resource's properties.
@@ -173,7 +173,7 @@ class WebAppDomainOwnershipIdentifier(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["value"] = value
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppDomainOwnershipIdentifier")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppDomainOwnershipIdentifier"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppDomainOwnershipIdentifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDomainOwnershipIdentifier, __self__).__init__(
             'azure-native:web:WebAppDomainOwnershipIdentifier',

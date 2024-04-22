@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets the application settings of a static site.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01.
+        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Task<ListStaticSiteFunctionAppSettingsResult> InvokeAsync(ListStaticSiteFunctionAppSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteFunctionAppSettingsResult>("azure-native:web:listStaticSiteFunctionAppSettings", args ?? new ListStaticSiteFunctionAppSettingsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets the application settings of a static site.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01.
+        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01.
         /// </summary>
         public static Output<ListStaticSiteFunctionAppSettingsResult> Invoke(ListStaticSiteFunctionAppSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteFunctionAppSettingsResult>("azure-native:web:listStaticSiteFunctionAppSettings", args ?? new ListStaticSiteFunctionAppSettingsInvokeArgs(), options.WithDefaults());

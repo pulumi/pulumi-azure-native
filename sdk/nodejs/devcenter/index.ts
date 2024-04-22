@@ -25,6 +25,11 @@ export type DevCenter = import("./devCenter").DevCenter;
 export const DevCenter: typeof import("./devCenter").DevCenter = null as any;
 utilities.lazyLoad(exports, ["DevCenter"], () => require("./devCenter"));
 
+export { EncryptionSetArgs } from "./encryptionSet";
+export type EncryptionSet = import("./encryptionSet").EncryptionSet;
+export const EncryptionSet: typeof import("./encryptionSet").EncryptionSet = null as any;
+utilities.lazyLoad(exports, ["EncryptionSet"], () => require("./encryptionSet"));
+
 export { EnvironmentTypeArgs } from "./environmentType";
 export type EnvironmentType = import("./environmentType").EnvironmentType;
 export const EnvironmentType: typeof import("./environmentType").EnvironmentType = null as any;
@@ -70,6 +75,11 @@ export const getDevCenter: typeof import("./getDevCenter").getDevCenter = null a
 export const getDevCenterOutput: typeof import("./getDevCenter").getDevCenterOutput = null as any;
 utilities.lazyLoad(exports, ["getDevCenter","getDevCenterOutput"], () => require("./getDevCenter"));
 
+export { GetEncryptionSetArgs, GetEncryptionSetResult, GetEncryptionSetOutputArgs } from "./getEncryptionSet";
+export const getEncryptionSet: typeof import("./getEncryptionSet").getEncryptionSet = null as any;
+export const getEncryptionSetOutput: typeof import("./getEncryptionSet").getEncryptionSetOutput = null as any;
+utilities.lazyLoad(exports, ["getEncryptionSet","getEncryptionSetOutput"], () => require("./getEncryptionSet"));
+
 export { GetEnvironmentDefinitionErrorDetailsArgs, GetEnvironmentDefinitionErrorDetailsResult, GetEnvironmentDefinitionErrorDetailsOutputArgs } from "./getEnvironmentDefinitionErrorDetails";
 export const getEnvironmentDefinitionErrorDetails: typeof import("./getEnvironmentDefinitionErrorDetails").getEnvironmentDefinitionErrorDetails = null as any;
 export const getEnvironmentDefinitionErrorDetailsOutput: typeof import("./getEnvironmentDefinitionErrorDetails").getEnvironmentDefinitionErrorDetailsOutput = null as any;
@@ -89,6 +99,16 @@ export { GetNetworkConnectionArgs, GetNetworkConnectionResult, GetNetworkConnect
 export const getNetworkConnection: typeof import("./getNetworkConnection").getNetworkConnection = null as any;
 export const getNetworkConnectionOutput: typeof import("./getNetworkConnection").getNetworkConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkConnection","getNetworkConnectionOutput"], () => require("./getNetworkConnection"));
+
+export { GetPlanArgs, GetPlanResult, GetPlanOutputArgs } from "./getPlan";
+export const getPlan: typeof import("./getPlan").getPlan = null as any;
+export const getPlanOutput: typeof import("./getPlan").getPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getPlan","getPlanOutput"], () => require("./getPlan"));
+
+export { GetPlanMemberArgs, GetPlanMemberResult, GetPlanMemberOutputArgs } from "./getPlanMember";
+export const getPlanMember: typeof import("./getPlanMember").getPlanMember = null as any;
+export const getPlanMemberOutput: typeof import("./getPlanMember").getPlanMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getPlanMember","getPlanMemberOutput"], () => require("./getPlanMember"));
 
 export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
 export const getPool: typeof import("./getPool").getPool = null as any;
@@ -120,6 +140,11 @@ export const getProjectEnvironmentType: typeof import("./getProjectEnvironmentTy
 export const getProjectEnvironmentTypeOutput: typeof import("./getProjectEnvironmentType").getProjectEnvironmentTypeOutput = null as any;
 utilities.lazyLoad(exports, ["getProjectEnvironmentType","getProjectEnvironmentTypeOutput"], () => require("./getProjectEnvironmentType"));
 
+export { GetProjectInheritedSettingsArgs, GetProjectInheritedSettingsResult, GetProjectInheritedSettingsOutputArgs } from "./getProjectInheritedSettings";
+export const getProjectInheritedSettings: typeof import("./getProjectInheritedSettings").getProjectInheritedSettings = null as any;
+export const getProjectInheritedSettingsOutput: typeof import("./getProjectInheritedSettings").getProjectInheritedSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getProjectInheritedSettings","getProjectInheritedSettingsOutput"], () => require("./getProjectInheritedSettings"));
+
 export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./getSchedule";
 export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
 export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
@@ -129,6 +154,16 @@ export { NetworkConnectionArgs } from "./networkConnection";
 export type NetworkConnection = import("./networkConnection").NetworkConnection;
 export const NetworkConnection: typeof import("./networkConnection").NetworkConnection = null as any;
 utilities.lazyLoad(exports, ["NetworkConnection"], () => require("./networkConnection"));
+
+export { PlanArgs } from "./plan";
+export type Plan = import("./plan").Plan;
+export const Plan: typeof import("./plan").Plan = null as any;
+utilities.lazyLoad(exports, ["Plan"], () => require("./plan"));
+
+export { PlanMemberArgs } from "./planMember";
+export type PlanMember = import("./planMember").PlanMember;
+export const PlanMember: typeof import("./planMember").PlanMember = null as any;
+utilities.lazyLoad(exports, ["PlanMember"], () => require("./planMember"));
 
 export { PoolArgs } from "./pool";
 export type Pool = import("./pool").Pool;
@@ -165,6 +200,7 @@ import * as v20230401 from "./v20230401";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231001preview from "./v20231001preview";
 import * as v20240201 from "./v20240201";
+import * as v20240501preview from "./v20240501preview";
 
 export {
     v20221111preview,
@@ -172,6 +208,7 @@ export {
     v20230801preview,
     v20231001preview,
     v20240201,
+    v20240501preview,
 };
 
 const _module = {
@@ -186,12 +223,18 @@ const _module = {
                 return new DevBoxDefinition(name, <any>undefined, { urn })
             case "azure-native:devcenter:DevCenter":
                 return new DevCenter(name, <any>undefined, { urn })
+            case "azure-native:devcenter:EncryptionSet":
+                return new EncryptionSet(name, <any>undefined, { urn })
             case "azure-native:devcenter:EnvironmentType":
                 return new EnvironmentType(name, <any>undefined, { urn })
             case "azure-native:devcenter:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
             case "azure-native:devcenter:NetworkConnection":
                 return new NetworkConnection(name, <any>undefined, { urn })
+            case "azure-native:devcenter:Plan":
+                return new Plan(name, <any>undefined, { urn })
+            case "azure-native:devcenter:PlanMember":
+                return new PlanMember(name, <any>undefined, { urn })
             case "azure-native:devcenter:Pool":
                 return new Pool(name, <any>undefined, { urn })
             case "azure-native:devcenter:Project":

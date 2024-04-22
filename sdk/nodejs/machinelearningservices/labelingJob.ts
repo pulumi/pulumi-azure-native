@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
  *
- * Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
+ * Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
  */
 export class LabelingJob extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class LabelingJob extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200901preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20210301preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20220601preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20221001preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20221201preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230201preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230401preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230601preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230801preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20240101preview:LabelingJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200901preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20210301preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20220601preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20221001preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20221201preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230201preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230401preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230601preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230801preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20240101preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20240401preview:LabelingJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabelingJob.__pulumiType, name, resourceInputs, opts);
     }

@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.DevCenter
     }
 
     /// <summary>
+    /// Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct DevboxDisksEncryptionEnableStatus : IEquatable<DevboxDisksEncryptionEnableStatus>
+    {
+        private readonly string _value;
+
+        private DevboxDisksEncryptionEnableStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DevboxDisksEncryptionEnableStatus Enabled { get; } = new DevboxDisksEncryptionEnableStatus("Enabled");
+        public static DevboxDisksEncryptionEnableStatus Disabled { get; } = new DevboxDisksEncryptionEnableStatus("Disabled");
+
+        public static bool operator ==(DevboxDisksEncryptionEnableStatus left, DevboxDisksEncryptionEnableStatus right) => left.Equals(right);
+        public static bool operator !=(DevboxDisksEncryptionEnableStatus left, DevboxDisksEncryptionEnableStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DevboxDisksEncryptionEnableStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DevboxDisksEncryptionEnableStatus other && Equals(other);
+        public bool Equals(DevboxDisksEncryptionEnableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// AAD Join type.
     /// </summary>
     [EnumType]
@@ -218,6 +249,37 @@ namespace Pulumi.AzureNative.DevCenter
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the member (user, group)
+    /// </summary>
+    [EnumType]
+    public readonly struct PlanMemberType : IEquatable<PlanMemberType>
+    {
+        private readonly string _value;
+
+        private PlanMemberType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlanMemberType User { get; } = new PlanMemberType("User");
+        public static PlanMemberType Group { get; } = new PlanMemberType("Group");
+
+        public static bool operator ==(PlanMemberType left, PlanMemberType right) => left.Equals(right);
+        public static bool operator !=(PlanMemberType left, PlanMemberType right) => !left.Equals(right);
+
+        public static explicit operator string(PlanMemberType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlanMemberType other && Equals(other);
+        public bool Equals(PlanMemberType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

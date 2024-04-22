@@ -19,6 +19,7 @@ __all__ = [
     'ProbeActionType',
     'SessionAffinity',
     'StorageType',
+    'TriggerType',
     'Type',
 ]
 
@@ -165,6 +166,13 @@ class StorageType(str, Enum):
     The type of the storage.
     """
     STORAGE_ACCOUNT = "StorageAccount"
+
+
+class TriggerType(str, Enum):
+    """
+    Type of job trigger
+    """
+    MANUAL = "Manual"
 
 
 class Type(str, Enum):

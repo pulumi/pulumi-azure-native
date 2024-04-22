@@ -27,7 +27,6 @@ __all__ = [
     'SkuArgs',
     'SubnetArgs',
     'ThrottlingPolicyArgs',
-    'UpgradePreferencesArgs',
     'UserAssignedIdentityPropertiesArgs',
 ]
 
@@ -919,46 +918,6 @@ class ThrottlingPolicyArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class UpgradePreferencesArgs:
-    def __init__(__self__, *,
-                 start_day_of_week: Optional[pulumi.Input[Union[str, 'StartDayOfWeek']]] = None,
-                 start_hour_of_day: Optional[pulumi.Input[int]] = None):
-        """
-        Contains all settings for the cluster upgrade window.
-        :param pulumi.Input[Union[str, 'StartDayOfWeek']] start_day_of_week: Preferred day of the week in UTC time to begin an upgrade. If 'Any' is selected, upgrade will proceed at any given weekday
-        :param pulumi.Input[int] start_hour_of_day: Preferred hour of the day in UTC time to begin an upgrade
-        """
-        if start_day_of_week is not None:
-            pulumi.set(__self__, "start_day_of_week", start_day_of_week)
-        if start_hour_of_day is not None:
-            pulumi.set(__self__, "start_hour_of_day", start_hour_of_day)
-
-    @property
-    @pulumi.getter(name="startDayOfWeek")
-    def start_day_of_week(self) -> Optional[pulumi.Input[Union[str, 'StartDayOfWeek']]]:
-        """
-        Preferred day of the week in UTC time to begin an upgrade. If 'Any' is selected, upgrade will proceed at any given weekday
-        """
-        return pulumi.get(self, "start_day_of_week")
-
-    @start_day_of_week.setter
-    def start_day_of_week(self, value: Optional[pulumi.Input[Union[str, 'StartDayOfWeek']]]):
-        pulumi.set(self, "start_day_of_week", value)
-
-    @property
-    @pulumi.getter(name="startHourOfDay")
-    def start_hour_of_day(self) -> Optional[pulumi.Input[int]]:
-        """
-        Preferred hour of the day in UTC time to begin an upgrade
-        """
-        return pulumi.get(self, "start_hour_of_day")
-
-    @start_hour_of_day.setter
-    def start_hour_of_day(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "start_hour_of_day", value)
 
 
 @pulumi.input_type

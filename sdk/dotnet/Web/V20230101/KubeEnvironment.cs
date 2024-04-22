@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.Web.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:KubeEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:KubeEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:KubeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:KubeEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

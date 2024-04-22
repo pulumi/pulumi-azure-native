@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * SSL certificate purchase order.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01.
+ * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**
@@ -213,7 +213,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             resourceInputs["validityInYears"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200601:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20201201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210101:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210301:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20220301:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20220901:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20230101:AppServiceCertificateOrder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200601:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20201201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210101:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210301:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20220301:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20220901:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20230101:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20231201:AppServiceCertificateOrder" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceCertificateOrder.__pulumiType, name, resourceInputs, opts);
     }

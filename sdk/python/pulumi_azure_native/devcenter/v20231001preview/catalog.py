@@ -198,7 +198,7 @@ class Catalog(pulumi.CustomResource):
             __props__.__dict__["sync_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Catalog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Catalog"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Catalog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Catalog, __self__).__init__(
             'azure-native:devcenter/v20231001preview:Catalog',

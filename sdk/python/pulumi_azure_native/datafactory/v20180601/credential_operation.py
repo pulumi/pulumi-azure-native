@@ -18,13 +18,13 @@ __all__ = ['CredentialOperationArgs', 'CredentialOperation']
 class CredentialOperationArgs:
     def __init__(__self__, *,
                  factory_name: pulumi.Input[str],
-                 properties: pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs', 'SystemAssignedManagedIdentityCredentialArgs', 'UserAssignedManagedIdentityCredentialArgs']],
+                 properties: pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs']],
                  resource_group_name: pulumi.Input[str],
                  credential_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CredentialOperation resource.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs', 'SystemAssignedManagedIdentityCredentialArgs', 'UserAssignedManagedIdentityCredentialArgs']] properties: Properties of credentials.
+        :param pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs']] properties: Properties of credentials.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] credential_name: Credential name
         """
@@ -48,14 +48,14 @@ class CredentialOperationArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs', 'SystemAssignedManagedIdentityCredentialArgs', 'UserAssignedManagedIdentityCredentialArgs']]:
+    def properties(self) -> pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs']]:
         """
         Properties of credentials.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs', 'SystemAssignedManagedIdentityCredentialArgs', 'UserAssignedManagedIdentityCredentialArgs']]):
+    def properties(self, value: pulumi.Input[Union['ManagedIdentityCredentialArgs', 'ServicePrincipalCredentialArgs']]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -90,7 +90,7 @@ class CredentialOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credential_name: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIdentityCredentialArgs'], pulumi.InputType['ServicePrincipalCredentialArgs'], pulumi.InputType['SystemAssignedManagedIdentityCredentialArgs'], pulumi.InputType['UserAssignedManagedIdentityCredentialArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIdentityCredentialArgs'], pulumi.InputType['ServicePrincipalCredentialArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -100,7 +100,7 @@ class CredentialOperation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] credential_name: Credential name
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[Union[pulumi.InputType['ManagedIdentityCredentialArgs'], pulumi.InputType['ServicePrincipalCredentialArgs'], pulumi.InputType['SystemAssignedManagedIdentityCredentialArgs'], pulumi.InputType['UserAssignedManagedIdentityCredentialArgs']]] properties: Properties of credentials.
+        :param pulumi.Input[Union[pulumi.InputType['ManagedIdentityCredentialArgs'], pulumi.InputType['ServicePrincipalCredentialArgs']]] properties: Properties of credentials.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
         ...
@@ -129,7 +129,7 @@ class CredentialOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credential_name: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIdentityCredentialArgs'], pulumi.InputType['ServicePrincipalCredentialArgs'], pulumi.InputType['SystemAssignedManagedIdentityCredentialArgs'], pulumi.InputType['UserAssignedManagedIdentityCredentialArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ManagedIdentityCredentialArgs'], pulumi.InputType['ServicePrincipalCredentialArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

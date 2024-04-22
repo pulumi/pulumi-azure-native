@@ -87,6 +87,12 @@ namespace Pulumi.AzureNative.EventHub.V20240101
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Gets and Sets Metadata of User.
+        /// </summary>
+        [Output("userMetadata")]
+        public Output<string?> UserMetadata { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EventHub resource with the given unique name, arguments, and options.
@@ -194,6 +200,12 @@ namespace Pulumi.AzureNative.EventHub.V20240101
         /// </summary>
         [Input("status")]
         public Input<Pulumi.AzureNative.EventHub.V20240101.EntityStatus>? Status { get; set; }
+
+        /// <summary>
+        /// Gets and Sets Metadata of User.
+        /// </summary>
+        [Input("userMetadata")]
+        public Input<string>? UserMetadata { get; set; }
 
         public EventHubArgs()
         {

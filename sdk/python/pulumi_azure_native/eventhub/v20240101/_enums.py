@@ -25,7 +25,6 @@ __all__ = [
     'SchemaType',
     'SkuName',
     'SkuTier',
-    'StartDayOfWeek',
     'TlsVersion',
 ]
 
@@ -198,20 +197,6 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
-
-
-class StartDayOfWeek(str, Enum):
-    """
-    Preferred day of the week in UTC time to begin an upgrade. If 'Any' is selected, upgrade will proceed at any given weekday
-    """
-    SUNDAY = "Sunday"
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"
-    ANY = "Any"
 
 
 class TlsVersion(str, Enum):

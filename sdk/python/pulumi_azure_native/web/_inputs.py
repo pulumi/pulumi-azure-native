@@ -75,6 +75,7 @@ __all__ = [
     'DatabaseBackupSettingArgs',
     'DefaultAuthorizationPolicyArgs',
     'EnabledConfigArgs',
+    'EnvironmentVariableArgs',
     'EnvironmentVarArgs',
     'ExperimentsArgs',
     'ExtendedLocationArgs',
@@ -141,6 +142,7 @@ __all__ = [
     'VirtualApplicationArgs',
     'VirtualDirectoryArgs',
     'VirtualNetworkProfileArgs',
+    'VolumeMountArgs',
     'WsdlDefinitionArgs',
     'WsdlService',
     'WsdlServiceArgs',
@@ -4375,6 +4377,43 @@ class EnabledConfigArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class EnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Environment variable name
+        :param pulumi.Input[str] value: Environment variable value
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Environment variable name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Environment variable value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -9586,6 +9625,75 @@ class VirtualNetworkProfileArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class VolumeMountArgs:
+    def __init__(__self__, *,
+                 container_mount_path: pulumi.Input[str],
+                 volume_sub_path: pulumi.Input[str],
+                 data: Optional[pulumi.Input[str]] = None,
+                 read_only: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] container_mount_path: Target path on the container where volume is mounted on
+        :param pulumi.Input[str] volume_sub_path: Sub path in the volume where volume is mounted from.
+        :param pulumi.Input[str] data: Config Data to be mounted on the volume
+        :param pulumi.Input[bool] read_only: Boolean to specify if the mount is read only on the container
+        """
+        pulumi.set(__self__, "container_mount_path", container_mount_path)
+        pulumi.set(__self__, "volume_sub_path", volume_sub_path)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="containerMountPath")
+    def container_mount_path(self) -> pulumi.Input[str]:
+        """
+        Target path on the container where volume is mounted on
+        """
+        return pulumi.get(self, "container_mount_path")
+
+    @container_mount_path.setter
+    def container_mount_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_mount_path", value)
+
+    @property
+    @pulumi.getter(name="volumeSubPath")
+    def volume_sub_path(self) -> pulumi.Input[str]:
+        """
+        Sub path in the volume where volume is mounted from.
+        """
+        return pulumi.get(self, "volume_sub_path")
+
+    @volume_sub_path.setter
+    def volume_sub_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "volume_sub_path", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Config Data to be mounted on the volume
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean to specify if the mount is read only on the container
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
 
 
 @pulumi.input_type

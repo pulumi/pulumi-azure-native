@@ -111,7 +111,7 @@ class WebAppApplicationSettingsSlot(pulumi.CustomResource):
         String dictionary resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class WebAppApplicationSettingsSlot(pulumi.CustomResource):
         String dictionary resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01.
+        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppApplicationSettingsSlotArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +174,7 @@ class WebAppApplicationSettingsSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__.__dict__["slot"] = slot
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppApplicationSettingsSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppApplicationSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppApplicationSettingsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppApplicationSettingsSlot, __self__).__init__(
             'azure-native:web:WebAppApplicationSettingsSlot',

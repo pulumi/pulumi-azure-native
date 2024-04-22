@@ -113,7 +113,7 @@ def get_environment_type(dev_center_name: Optional[str] = None,
     Gets an environment type.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview.
 
 
     :param str dev_center_name: The name of the devcenter.
@@ -145,7 +145,7 @@ def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = N
     Gets an environment type.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
+    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview.
 
 
     :param str dev_center_name: The name of the devcenter.

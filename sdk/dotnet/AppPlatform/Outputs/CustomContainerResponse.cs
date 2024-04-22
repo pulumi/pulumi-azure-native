@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly Outputs.ImageRegistryCredentialResponse? ImageRegistryCredential;
         /// <summary>
-        /// Language framework of the container image uploaded
+        /// Language framework of the container image uploaded. Supported values: "springboot", "", null.
         /// </summary>
         public readonly string? LanguageFramework;
         /// <summary>

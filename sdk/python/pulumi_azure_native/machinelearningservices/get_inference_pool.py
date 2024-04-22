@@ -157,7 +157,7 @@ def get_inference_pool(inference_pool_name: Optional[str] = None,
     """
     Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2024-01-01-preview.
+    Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
 
 
     :param str inference_pool_name: Name of InferencePool
@@ -192,7 +192,7 @@ def get_inference_pool_output(inference_pool_name: Optional[pulumi.Input[str]] =
     """
     Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2024-01-01-preview.
+    Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
 
 
     :param str inference_pool_name: Name of InferencePool

@@ -1932,37 +1932,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
-    /// The type of the query. Type: string.
-    /// </summary>
-    [EnumType]
-    public readonly struct ScriptType : IEquatable<ScriptType>
-    {
-        private readonly string _value;
-
-        private ScriptType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ScriptType Query { get; } = new ScriptType("Query");
-        public static ScriptType NonQuery { get; } = new ScriptType("NonQuery");
-
-        public static bool operator ==(ScriptType left, ScriptType right) => left.Equals(right);
-        public static bool operator !=(ScriptType left, ScriptType right) => !left.Equals(right);
-
-        public static explicit operator string(ScriptType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ScriptType other && Equals(other);
-        public bool Equals(ScriptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The authentication type to use.
     /// </summary>
     [EnumType]

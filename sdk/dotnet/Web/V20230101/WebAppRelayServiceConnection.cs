@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Web.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppRelayServiceConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppRelayServiceConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppRelayServiceConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppRelayServiceConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

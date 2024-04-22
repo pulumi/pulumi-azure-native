@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Web.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

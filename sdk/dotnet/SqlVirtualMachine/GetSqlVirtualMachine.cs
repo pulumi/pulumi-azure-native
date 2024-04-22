@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// Gets a SQL virtual machine.
         /// Azure REST API version: 2022-02-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview.
+        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
         /// </summary>
         public static Task<GetSqlVirtualMachineResult> InvokeAsync(GetSqlVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// Gets a SQL virtual machine.
         /// Azure REST API version: 2022-02-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview.
+        /// Other available API versions: 2023-01-01-preview, 2023-10-01.
         /// </summary>
         public static Output<GetSqlVirtualMachineResult> Invoke(GetSqlVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithDefaults());

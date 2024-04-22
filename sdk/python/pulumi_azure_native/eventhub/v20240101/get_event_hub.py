@@ -22,7 +22,7 @@ class GetEventHubResult:
     """
     Single item in List or Get Event Hub operation
     """
-    def __init__(__self__, capture_description=None, created_at=None, id=None, location=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, retention_description=None, status=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, capture_description=None, created_at=None, id=None, location=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, retention_description=None, status=None, system_data=None, type=None, updated_at=None, user_metadata=None):
         if capture_description and not isinstance(capture_description, dict):
             raise TypeError("Expected argument 'capture_description' to be a dict")
         pulumi.set(__self__, "capture_description", capture_description)
@@ -62,6 +62,9 @@ class GetEventHubResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if user_metadata and not isinstance(user_metadata, str):
+            raise TypeError("Expected argument 'user_metadata' to be a str")
+        pulumi.set(__self__, "user_metadata", user_metadata)
 
     @property
     @pulumi.getter(name="captureDescription")
@@ -167,6 +170,14 @@ class GetEventHubResult:
         """
         return pulumi.get(self, "updated_at")
 
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[str]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
+
 
 class AwaitableGetEventHubResult(GetEventHubResult):
     # pylint: disable=using-constant-test
@@ -186,7 +197,8 @@ class AwaitableGetEventHubResult(GetEventHubResult):
             status=self.status,
             system_data=self.system_data,
             type=self.type,
-            updated_at=self.updated_at)
+            updated_at=self.updated_at,
+            user_metadata=self.user_metadata)
 
 
 def get_event_hub(event_hub_name: Optional[str] = None,
@@ -221,7 +233,8 @@ def get_event_hub(event_hub_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
-        updated_at=pulumi.get(__ret__, 'updated_at'))
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        user_metadata=pulumi.get(__ret__, 'user_metadata'))
 
 
 @_utilities.lift_output_func(get_event_hub)

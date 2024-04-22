@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
     /// 
-    /// Other available API versions: 2020-10-01, 2023-01-01.
+    /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrderCertificate")]
     public partial class AppServiceCertificateOrderCertificate : global::Pulumi.CustomResource
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrderCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220901:AppServiceCertificateOrderCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20230101:AppServiceCertificateOrderCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20231201:AppServiceCertificateOrderCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

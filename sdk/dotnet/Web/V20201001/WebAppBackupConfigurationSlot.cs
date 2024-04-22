@@ -110,6 +110,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppBackupConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppBackupConfigurationSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppBackupConfigurationSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppBackupConfigurationSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,6 +8,7 @@ import * as v20230901preview from "./v20230901preview";
 import * as v20231101preview from "./v20231101preview";
 import * as v20231201 from "./v20231201";
 import * as v20240101preview from "./v20240101preview";
+import * as v20240501preview from "./v20240501preview";
 
 export {
     v20230501preview,
@@ -16,6 +17,7 @@ export {
     v20231101preview,
     v20231201,
     v20240101preview,
+    v20240501preview,
 };
 
 export const ApmType = {
@@ -189,6 +191,15 @@ export const StorageType = {
  * The type of the storage.
  */
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
+
+export const TriggerType = {
+    Manual: "Manual",
+} as const;
+
+/**
+ * Type of job trigger
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 export const Type = {
     AzureFileVolume: "AzureFileVolume",

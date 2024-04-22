@@ -27,11 +27,11 @@ namespace Pulumi.AzureNative.Elastic.V20240301.Outputs
         /// <summary>
         /// The API endpoint for Open AI resource
         /// </summary>
-        public readonly string OpenAIResourceEndpoint;
+        public readonly string? OpenAIResourceEndpoint;
         /// <summary>
         /// The resource id of Open AI resource
         /// </summary>
-        public readonly string OpenAIResourceId;
+        public readonly string? OpenAIResourceId;
 
         [OutputConstructor]
         private OpenAIIntegrationPropertiesResponse(
@@ -39,9 +39,9 @@ namespace Pulumi.AzureNative.Elastic.V20240301.Outputs
 
             string lastRefreshAt,
 
-            string openAIResourceEndpoint,
+            string? openAIResourceEndpoint,
 
-            string openAIResourceId)
+            string? openAIResourceId)
         {
             Key = key;
             LastRefreshAt = lastRefreshAt;

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Information about managed application.
  * Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
  *
- * Other available API versions: 2017-12-01, 2018-06-01.
+ * Other available API versions: 2017-12-01, 2018-06-01, 2023-12-01-preview.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -213,7 +213,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["updatedBy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20160901preview:Application" }, { type: "azure-native:solutions/v20170901:Application" }, { type: "azure-native:solutions/v20171201:Application" }, { type: "azure-native:solutions/v20180201:Application" }, { type: "azure-native:solutions/v20180301:Application" }, { type: "azure-native:solutions/v20180601:Application" }, { type: "azure-native:solutions/v20180901preview:Application" }, { type: "azure-native:solutions/v20190701:Application" }, { type: "azure-native:solutions/v20200821preview:Application" }, { type: "azure-native:solutions/v20210201preview:Application" }, { type: "azure-native:solutions/v20210701:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20160901preview:Application" }, { type: "azure-native:solutions/v20170901:Application" }, { type: "azure-native:solutions/v20171201:Application" }, { type: "azure-native:solutions/v20180201:Application" }, { type: "azure-native:solutions/v20180301:Application" }, { type: "azure-native:solutions/v20180601:Application" }, { type: "azure-native:solutions/v20180901preview:Application" }, { type: "azure-native:solutions/v20190701:Application" }, { type: "azure-native:solutions/v20200821preview:Application" }, { type: "azure-native:solutions/v20210201preview:Application" }, { type: "azure-native:solutions/v20210701:Application" }, { type: "azure-native:solutions/v20231201preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

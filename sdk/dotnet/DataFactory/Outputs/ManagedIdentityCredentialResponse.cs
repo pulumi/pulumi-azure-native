@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The resource id of user assigned managed identity
+        /// </summary>
+        public readonly string? ResourceId;
+        /// <summary>
         /// Type of credential.
         /// Expected value is 'ManagedIdentity'.
         /// </summary>
@@ -36,10 +40,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
+            string? resourceId,
+
             string type)
         {
             Annotations = annotations;
             Description = description;
+            ResourceId = resourceId;
             Type = type;
         }
     }

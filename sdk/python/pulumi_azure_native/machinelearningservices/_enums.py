@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AllowedContentLevel',
     'ApplicationSharingPolicy',
     'AuthMode',
     'AutoDeleteCondition',
@@ -76,6 +77,9 @@ __all__ = [
     'Protocol',
     'PublicNetworkAccess',
     'PublicNetworkAccessType',
+    'RaiPolicyContentSource',
+    'RaiPolicyMode',
+    'RaiPolicyType',
     'RandomSamplingAlgorithmRule',
     'RecurrenceFrequency',
     'ReferenceType',
@@ -116,6 +120,15 @@ __all__ = [
     'WebhookType',
     'WeekDay',
 ]
+
+
+class AllowedContentLevel(str, Enum):
+    """
+    Level at which content is filtered.
+    """
+    LOW = "Low"
+    MEDIUM = "Medium"
+    HIGH = "High"
 
 
 class ApplicationSharingPolicy(str, Enum):
@@ -1079,6 +1092,31 @@ class PublicNetworkAccessType(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class RaiPolicyContentSource(str, Enum):
+    """
+    Content source to apply the Content Filters.
+    """
+    PROMPT = "Prompt"
+    COMPLETION = "Completion"
+
+
+class RaiPolicyMode(str, Enum):
+    """
+    Content Filters mode.
+    """
+    DEFAULT = "Default"
+    DEFERRED = "Deferred"
+    BLOCKING = "Blocking"
+
+
+class RaiPolicyType(str, Enum):
+    """
+    Content Filters policy type.
+    """
+    USER_MANAGED = "UserManaged"
+    SYSTEM_MANAGED = "SystemManaged"
 
 
 class RandomSamplingAlgorithmRule(str, Enum):

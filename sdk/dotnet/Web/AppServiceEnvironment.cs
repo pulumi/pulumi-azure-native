@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     /// App Service Environment ARM resource.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01.
+    /// Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : global::Pulumi.CustomResource
@@ -209,6 +209,7 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:AppServiceEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:AppServiceEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:AppServiceEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

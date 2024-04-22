@@ -49,6 +49,8 @@ def list_endpoint_keys(endpoint_name: Optional[str] = None,
     """
     Azure REST API version: 2024-01-01-preview.
 
+    Other available API versions: 2024-04-01-preview.
+
 
     :param str endpoint_name: Name of the endpoint resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -72,6 +74,8 @@ def list_endpoint_keys_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointKeysResult]:
     """
     Azure REST API version: 2024-01-01-preview.
+
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str endpoint_name: Name of the endpoint resource.

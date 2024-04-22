@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     Single Event Hubs Cluster resource in List or Get operations.
     """
-    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, provisioning_state=None, sku=None, status=None, supports_scaling=None, system_data=None, tags=None, type=None, updated_at=None, upgrade_preferences=None):
+    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, provisioning_state=None, sku=None, status=None, supports_scaling=None, system_data=None, tags=None, type=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -62,9 +62,6 @@ class GetClusterResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
-        if upgrade_preferences and not isinstance(upgrade_preferences, dict):
-            raise TypeError("Expected argument 'upgrade_preferences' to be a dict")
-        pulumi.set(__self__, "upgrade_preferences", upgrade_preferences)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -170,14 +167,6 @@ class GetClusterResult:
         """
         return pulumi.get(self, "updated_at")
 
-    @property
-    @pulumi.getter(name="upgradePreferences")
-    def upgrade_preferences(self) -> Optional['outputs.UpgradePreferencesResponse']:
-        """
-        Properties of the cluster upgrade preferences.
-        """
-        return pulumi.get(self, "upgrade_preferences")
-
 
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
@@ -197,8 +186,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            updated_at=self.updated_at,
-            upgrade_preferences=self.upgrade_preferences)
+            updated_at=self.updated_at)
 
 
 def get_cluster(cluster_name: Optional[str] = None,
@@ -230,8 +218,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
-        updated_at=pulumi.get(__ret__, 'updated_at'),
-        upgrade_preferences=pulumi.get(__ret__, 'upgrade_preferences'))
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_cluster)

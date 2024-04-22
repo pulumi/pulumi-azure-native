@@ -92,6 +92,10 @@ export interface GetWebAppSlotResult {
      */
     readonly enabledHostNames: string[];
     /**
+     * Whether to use end to end encryption between the FrontEnd and the Worker
+     */
+    readonly endToEndEncryptionEnabled?: boolean;
+    /**
      * Extended Location.
      */
     readonly extendedLocation?: outputs.web.v20230101.ExtendedLocationResponse;

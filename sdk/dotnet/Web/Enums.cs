@@ -72,6 +72,39 @@ namespace Pulumi.AzureNative.Web
     }
 
     /// <summary>
+    /// Auth Type
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthType : IEquatable<AuthType>
+    {
+        private readonly string _value;
+
+        private AuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthType Anonymous { get; } = new AuthType("Anonymous");
+        public static AuthType UserCredentials { get; } = new AuthType("UserCredentials");
+        public static AuthType SystemIdentity { get; } = new AuthType("SystemIdentity");
+        public static AuthType UserAssigned { get; } = new AuthType("UserAssigned");
+
+        public static bool operator ==(AuthType left, AuthType right) => left.Equals(right);
+        public static bool operator !=(AuthType left, AuthType right) => !left.Equals(right);
+
+        public static explicit operator string(AuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthType other && Equals(other);
+        public bool Equals(AuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Predefined action to be taken.
     /// </summary>
     [EnumType]

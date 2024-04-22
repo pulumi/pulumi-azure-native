@@ -149,7 +149,7 @@ def get_static_site_database_connection(database_connection_name: Optional[str] 
     Static Site Database Connection resource.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01.
+    Other available API versions: 2023-01-01, 2023-12-01.
 
 
     :param str database_connection_name: Name of the database connection.
@@ -184,7 +184,7 @@ def get_static_site_database_connection_output(database_connection_name: Optiona
     Static Site Database Connection resource.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01.
+    Other available API versions: 2023-01-01, 2023-12-01.
 
 
     :param str database_connection_name: Name of the database connection.

@@ -212,22 +212,6 @@ export const SkuTier = {
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
-export const StartDayOfWeek = {
-    Sunday: "Sunday",
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-    Any: "Any",
-} as const;
-
-/**
- * Preferred day of the week in UTC time to begin an upgrade. If 'Any' is selected, upgrade will proceed at any given weekday
- */
-export type StartDayOfWeek = (typeof StartDayOfWeek)[keyof typeof StartDayOfWeek];
-
 export const TlsVersion = {
     TlsVersion_1_0: "1.0",
     TlsVersion_1_1: "1.1",

@@ -51,6 +51,8 @@ def list_container_app_secrets(name: Optional[str] = None,
     Container App Secrets Collection ARM resource.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2023-12-01.
+
 
     :param str name: Name of the Container App.
     """
@@ -69,6 +71,8 @@ def list_container_app_secrets_output(name: Optional[pulumi.Input[str]] = None,
     """
     Container App Secrets Collection ARM resource.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2023-12-01.
 
 
     :param str name: Name of the Container App.

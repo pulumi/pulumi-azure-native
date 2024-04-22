@@ -86,7 +86,7 @@ export class EndpointDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:EndpointDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:EndpointDeployment" }, { type: "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EndpointDeployment.__pulumiType, name, resourceInputs, opts);
     }

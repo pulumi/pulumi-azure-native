@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public Input<Inputs.ImageRegistryCredentialArgs>? ImageRegistryCredential { get; set; }
 
         /// <summary>
-        /// Language framework of the container image uploaded
+        /// Language framework of the container image uploaded. Supported values: "springboot", "", null.
         /// </summary>
         [Input("languageFramework")]
         public Input<string>? LanguageFramework { get; set; }

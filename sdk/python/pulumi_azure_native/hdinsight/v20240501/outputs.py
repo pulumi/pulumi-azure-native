@@ -815,7 +815,7 @@ class ClusterPoolResourcePropertiesResponseNetworkProfile(dict):
         """
         Cluster pool network profile.
         :param str subnet_id: Cluster pool subnet resource id.
-        :param Sequence[str] api_server_authorized_ip_ranges: IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time.
+        :param Sequence[str] api_server_authorized_ip_ranges: IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time. Currently, this property is not supported and please don't use it.
         :param bool enable_private_api_server: ClusterPool is based on AKS cluster. AKS cluster exposes the API server to public internet by default. If you set this property to true, a private AKS cluster will be created, and it will use private apiserver, which is not exposed to public internet.
         :param str outbound_type: This can only be set at cluster pool creation time and cannot be changed later. 
         """
@@ -841,7 +841,7 @@ class ClusterPoolResourcePropertiesResponseNetworkProfile(dict):
     @pulumi.getter(name="apiServerAuthorizedIpRanges")
     def api_server_authorized_ip_ranges(self) -> Optional[Sequence[str]]:
         """
-        IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time.
+        IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time. Currently, this property is not supported and please don't use it.
         """
         return pulumi.get(self, "api_server_authorized_ip_ranges")
 

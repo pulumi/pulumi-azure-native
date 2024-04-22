@@ -22,8 +22,7 @@ class ClusterArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ClusterSkuArgs']] = None,
                  supports_scaling: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_preferences: Optional[pulumi.Input['UpgradePreferencesArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
@@ -32,7 +31,6 @@ class ClusterArgs:
         :param pulumi.Input['ClusterSkuArgs'] sku: Properties of the cluster SKU.
         :param pulumi.Input[bool] supports_scaling: A value that indicates whether Scaling is Supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input['UpgradePreferencesArgs'] upgrade_preferences: Properties of the cluster upgrade preferences.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cluster_name is not None:
@@ -45,8 +43,6 @@ class ClusterArgs:
             pulumi.set(__self__, "supports_scaling", supports_scaling)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if upgrade_preferences is not None:
-            pulumi.set(__self__, "upgrade_preferences", upgrade_preferences)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -120,18 +116,6 @@ class ClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="upgradePreferences")
-    def upgrade_preferences(self) -> Optional[pulumi.Input['UpgradePreferencesArgs']]:
-        """
-        Properties of the cluster upgrade preferences.
-        """
-        return pulumi.get(self, "upgrade_preferences")
-
-    @upgrade_preferences.setter
-    def upgrade_preferences(self, value: Optional[pulumi.Input['UpgradePreferencesArgs']]):
-        pulumi.set(self, "upgrade_preferences", value)
-
 
 class Cluster(pulumi.CustomResource):
     @overload
@@ -144,7 +128,6 @@ class Cluster(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
                  supports_scaling: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_preferences: Optional[pulumi.Input[pulumi.InputType['UpgradePreferencesArgs']]] = None,
                  __props__=None):
         """
         Single Event Hubs Cluster resource in List or Get operations.
@@ -157,7 +140,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: Properties of the cluster SKU.
         :param pulumi.Input[bool] supports_scaling: A value that indicates whether Scaling is Supported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[pulumi.InputType['UpgradePreferencesArgs']] upgrade_preferences: Properties of the cluster upgrade preferences.
         """
         ...
     @overload
@@ -189,7 +171,6 @@ class Cluster(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
                  supports_scaling: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 upgrade_preferences: Optional[pulumi.Input[pulumi.InputType['UpgradePreferencesArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,7 +188,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["supports_scaling"] = supports_scaling
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["upgrade_preferences"] = upgrade_preferences
             __props__.__dict__["created_at"] = None
             __props__.__dict__["metric_id"] = None
             __props__.__dict__["name"] = None
@@ -252,7 +232,6 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
-        __props__.__dict__["upgrade_preferences"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -350,12 +329,4 @@ class Cluster(pulumi.CustomResource):
         The UTC time when the Event Hubs Cluster was last updated.
         """
         return pulumi.get(self, "updated_at")
-
-    @property
-    @pulumi.getter(name="upgradePreferences")
-    def upgrade_preferences(self) -> pulumi.Output[Optional['outputs.UpgradePreferencesResponse']]:
-        """
-        Properties of the cluster upgrade preferences.
-        """
-        return pulumi.get(self, "upgrade_preferences")
 

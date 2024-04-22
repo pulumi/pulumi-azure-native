@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.HDInsight.V20231101Preview.Outputs
     public sealed class ClusterPoolResourcePropertiesResponseNetworkProfile
     {
         /// <summary>
-        /// IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time.
+        /// IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with private AKS clusters. So you cannot set enablePrivateApiServer to true and apiServerAuthorizedIpRanges at the same time. Currently, this property is not supported and please don't use it.
         /// </summary>
         public readonly ImmutableArray<string> ApiServerAuthorizedIpRanges;
         /// <summary>

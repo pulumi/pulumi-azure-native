@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object> Text { get; set; } = null!;
 
         /// <summary>
-        /// The type of the query. Type: string.
+        /// The type of the query. Please refer to the ScriptType for valid options. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.DataFactory.ScriptType> Type { get; set; } = null!;
+        public Input<object> Type { get; set; } = null!;
 
         public ScriptActivityScriptBlockArgs()
         {

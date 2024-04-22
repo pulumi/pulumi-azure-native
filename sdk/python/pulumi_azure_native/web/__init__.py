@@ -57,6 +57,8 @@ from .get_web_app_public_certificate_slot import *
 from .get_web_app_relay_service_connection import *
 from .get_web_app_relay_service_connection_slot import *
 from .get_web_app_scm_allowed import *
+from .get_web_app_site_container import *
+from .get_web_app_site_container_slot import *
 from .get_web_app_site_extension import *
 from .get_web_app_site_extension_slot import *
 from .get_web_app_slot import *
@@ -161,6 +163,8 @@ from .web_app_public_certificate_slot import *
 from .web_app_relay_service_connection import *
 from .web_app_relay_service_connection_slot import *
 from .web_app_scm_allowed import *
+from .web_app_site_container import *
+from .web_app_site_container_slot import *
 from .web_app_site_extension import *
 from .web_app_site_extension_slot import *
 from .web_app_site_push_settings import *
@@ -216,6 +220,8 @@ if typing.TYPE_CHECKING:
     v20220901 = __v20220901
     import pulumi_azure_native.web.v20230101 as __v20230101
     v20230101 = __v20230101
+    import pulumi_azure_native.web.v20231201 as __v20231201
+    v20231201 = __v20231201
 else:
     v20150801preview = _utilities.lazy_import('pulumi_azure_native.web.v20150801preview')
     v20160301 = _utilities.lazy_import('pulumi_azure_native.web.v20160301')
@@ -236,4 +242,5 @@ else:
     v20220301 = _utilities.lazy_import('pulumi_azure_native.web.v20220301')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.web.v20220901')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.web.v20230101')
+    v20231201 = _utilities.lazy_import('pulumi_azure_native.web.v20231201')
 

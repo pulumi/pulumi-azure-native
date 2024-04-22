@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object Text;
         /// <summary>
-        /// The type of the query. Type: string.
+        /// The type of the query. Please refer to the ScriptType for valid options. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string Type;
+        public readonly object Type;
 
         [OutputConstructor]
         private ScriptActivityScriptBlockResponse(
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object text,
 
-            string type)
+            object type)
         {
             Parameters = parameters;
             Text = text;

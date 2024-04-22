@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
     /// SSL certificate purchase order.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
     /// 
-    /// Other available API versions: 2020-10-01, 2023-01-01.
+    /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : global::Pulumi.CustomResource
@@ -207,6 +207,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20220901:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20230101:AppServiceCertificateOrder" },
+                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20231201:AppServiceCertificateOrder" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

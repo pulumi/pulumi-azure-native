@@ -7,6 +7,7 @@ import * as v20230401 from "./v20230401";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231001preview from "./v20231001preview";
 import * as v20240201 from "./v20240201";
+import * as v20240501preview from "./v20240501preview";
 
 export {
     v20221111preview,
@@ -14,6 +15,7 @@ export {
     v20230801preview,
     v20231001preview,
     v20240201,
+    v20240501preview,
 };
 
 export const CatalogSyncType = {
@@ -25,6 +27,16 @@ export const CatalogSyncType = {
  * Indicates the type of sync that is configured for the catalog.
  */
 export type CatalogSyncType = (typeof CatalogSyncType)[keyof typeof CatalogSyncType];
+
+export const DevboxDisksEncryptionEnableStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
+ */
+export type DevboxDisksEncryptionEnableStatus = (typeof DevboxDisksEncryptionEnableStatus)[keyof typeof DevboxDisksEncryptionEnableStatus];
 
 export const DomainJoinType = {
     HybridAzureADJoin: "HybridAzureADJoin",
@@ -86,6 +98,16 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const PlanMemberType = {
+    User: "User",
+    Group: "Group",
+} as const;
+
+/**
+ * The type of the member (user, group)
+ */
+export type PlanMemberType = (typeof PlanMemberType)[keyof typeof PlanMemberType];
 
 export const ScheduleEnableStatus = {
     Enabled: "Enabled",

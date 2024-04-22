@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Container App.
  * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
  *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
+ * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
  */
 export class ContainerApp extends pulumi.CustomResource {
     /**
@@ -174,7 +174,7 @@ export class ContainerApp extends pulumi.CustomResource {
             resourceInputs["workloadProfileType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerApp" }, { type: "azure-native:app/v20220301:ContainerApp" }, { type: "azure-native:app/v20220601preview:ContainerApp" }, { type: "azure-native:app/v20221001:ContainerApp" }, { type: "azure-native:app/v20221101preview:ContainerApp" }, { type: "azure-native:app/v20230401preview:ContainerApp" }, { type: "azure-native:app/v20230501:ContainerApp" }, { type: "azure-native:app/v20230502preview:ContainerApp" }, { type: "azure-native:app/v20230801preview:ContainerApp" }, { type: "azure-native:app/v20231102preview:ContainerApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerApp" }, { type: "azure-native:app/v20220301:ContainerApp" }, { type: "azure-native:app/v20220601preview:ContainerApp" }, { type: "azure-native:app/v20221001:ContainerApp" }, { type: "azure-native:app/v20221101preview:ContainerApp" }, { type: "azure-native:app/v20230401preview:ContainerApp" }, { type: "azure-native:app/v20230501:ContainerApp" }, { type: "azure-native:app/v20230502preview:ContainerApp" }, { type: "azure-native:app/v20230801preview:ContainerApp" }, { type: "azure-native:app/v20231102preview:ContainerApp" }, { type: "azure-native:app/v20240301:ContainerApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerApp.__pulumiType, name, resourceInputs, opts);
     }

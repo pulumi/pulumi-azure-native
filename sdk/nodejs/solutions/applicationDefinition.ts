@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Information about managed application definition.
  * Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
  *
- * Other available API versions: 2017-12-01.
+ * Other available API versions: 2017-12-01, 2023-12-01-preview.
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**
@@ -195,7 +195,7 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20171201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180301:ApplicationDefinition" }, { type: "azure-native:solutions/v20180601:ApplicationDefinition" }, { type: "azure-native:solutions/v20180901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210201preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210701:ApplicationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20160901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20170901:ApplicationDefinition" }, { type: "azure-native:solutions/v20171201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180201:ApplicationDefinition" }, { type: "azure-native:solutions/v20180301:ApplicationDefinition" }, { type: "azure-native:solutions/v20180601:ApplicationDefinition" }, { type: "azure-native:solutions/v20180901preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20190701:ApplicationDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210201preview:ApplicationDefinition" }, { type: "azure-native:solutions/v20210701:ApplicationDefinition" }, { type: "azure-native:solutions/v20231201preview:ApplicationDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationDefinition.__pulumiType, name, resourceInputs, opts);
     }

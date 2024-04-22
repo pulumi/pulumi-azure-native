@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2023-08-01-preview.
  *
- * Other available API versions: 2024-01-01-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
 
@@ -74,7 +74,7 @@ export interface GetCapacityReservationGroupResult {
 /**
  * Azure REST API version: 2023-08-01-preview.
  *
- * Other available API versions: 2024-01-01-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationGroupResult> {
     return pulumi.output(args).apply((a: any) => getCapacityReservationGroup(a, opts))

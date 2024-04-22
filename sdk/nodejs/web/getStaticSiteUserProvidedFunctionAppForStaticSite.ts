@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Description for Gets the details of the user provided function app registered with a static site
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-01-01.
+ * Other available API versions: 2023-01-01, 2023-12-01.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSite(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
 
@@ -72,7 +72,7 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteResult {
  * Description for Gets the details of the user provided function app registered with a static site
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2023-01-01.
+ * Other available API versions: 2023-01-01, 2023-12-01.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteUserProvidedFunctionAppForStaticSite(a, opts))

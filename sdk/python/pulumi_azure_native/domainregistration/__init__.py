@@ -35,6 +35,8 @@ if typing.TYPE_CHECKING:
     v20220901 = __v20220901
     import pulumi_azure_native.domainregistration.v20230101 as __v20230101
     v20230101 = __v20230101
+    import pulumi_azure_native.domainregistration.v20231201 as __v20231201
+    v20231201 = __v20231201
 else:
     v20201001 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20201001')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20201201')
@@ -45,4 +47,5 @@ else:
     v20220301 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20220301')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20220901')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20230101')
+    v20231201 = _utilities.lazy_import('pulumi_azure_native.domainregistration.v20231201')
 

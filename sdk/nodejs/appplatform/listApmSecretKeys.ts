@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * List keys of APM sensitive properties.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function listApmSecretKeys(args: ListApmSecretKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListApmSecretKeysResult> {
 
@@ -48,7 +48,7 @@ export interface ListApmSecretKeysResult {
  * List keys of APM sensitive properties.
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
 export function listApmSecretKeysOutput(args: ListApmSecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApmSecretKeysResult> {
     return pulumi.output(args).apply((a: any) => listApmSecretKeys(a, opts))

@@ -133,6 +133,10 @@ namespace Pulumi.AzureNative.EventHub.V20240101
         /// The exact time the message was updated.
         /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// Gets and Sets Metadata of User.
+        /// </summary>
+        public readonly string? UserMetadata;
 
         [OutputConstructor]
         private GetEventHubResult(
@@ -160,7 +164,9 @@ namespace Pulumi.AzureNative.EventHub.V20240101
 
             string type,
 
-            string updatedAt)
+            string updatedAt,
+
+            string? userMetadata)
         {
             CaptureDescription = captureDescription;
             CreatedAt = createdAt;
@@ -175,6 +181,7 @@ namespace Pulumi.AzureNative.EventHub.V20240101
             SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
+            UserMetadata = userMetadata;
         }
     }
 }

@@ -85,7 +85,7 @@ export class ConnectedEnvironmentsStorage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20220601preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20221001:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20230501:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20230502preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20230801preview:ConnectedEnvironmentsStorage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20220601preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20221001:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20230501:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20230502preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20230801preview:ConnectedEnvironmentsStorage" }, { type: "azure-native:app/v20240301:ConnectedEnvironmentsStorage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironmentsStorage.__pulumiType, name, resourceInputs, opts);
     }

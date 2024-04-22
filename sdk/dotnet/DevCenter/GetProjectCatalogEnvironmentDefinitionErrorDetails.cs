@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Environment Definition error details
         /// Azure REST API version: 2024-02-01.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Task<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult> InvokeAsync(GetProjectCatalogEnvironmentDefinitionErrorDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult>("azure-native:devcenter:getProjectCatalogEnvironmentDefinitionErrorDetails", args ?? new GetProjectCatalogEnvironmentDefinitionErrorDetailsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets Environment Definition error details
         /// Azure REST API version: 2024-02-01.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult> Invoke(GetProjectCatalogEnvironmentDefinitionErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult>("azure-native:devcenter:getProjectCatalogEnvironmentDefinitionErrorDetails", args ?? new GetProjectCatalogEnvironmentDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());

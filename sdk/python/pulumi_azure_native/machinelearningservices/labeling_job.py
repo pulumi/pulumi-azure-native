@@ -97,7 +97,7 @@ class LabelingJob(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
 
-        Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
+        Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class LabelingJob(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
 
-        Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview.
+        Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param LabelingJobInitArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +159,7 @@ class LabelingJob(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:LabelingJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:LabelingJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LabelingJob, __self__).__init__(
             'azure-native:machinelearningservices:LabelingJob',

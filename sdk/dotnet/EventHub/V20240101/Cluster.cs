@@ -87,12 +87,6 @@ namespace Pulumi.AzureNative.EventHub.V20240101
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
-        /// <summary>
-        /// Properties of the cluster upgrade preferences.
-        /// </summary>
-        [Output("upgradePreferences")]
-        public Output<Outputs.UpgradePreferencesResponse?> UpgradePreferences { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a Cluster resource with the given unique name, arguments, and options.
@@ -190,12 +184,6 @@ namespace Pulumi.AzureNative.EventHub.V20240101
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Properties of the cluster upgrade preferences.
-        /// </summary>
-        [Input("upgradePreferences")]
-        public Input<Inputs.UpgradePreferencesArgs>? UpgradePreferences { get; set; }
 
         public ClusterArgs()
         {

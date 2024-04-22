@@ -46,7 +46,7 @@ def get_custom_domain_verification_id(opts: Optional[pulumi.InvokeOptions] = Non
     Get the verification id of a subscription used for verifying custom domains
     Azure REST API version: 2023-05-02-preview.
 
-    Other available API versions: 2023-08-01-preview, 2023-11-02-preview.
+    Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -62,6 +62,6 @@ def get_custom_domain_verification_id_output(opts: Optional[pulumi.InvokeOptions
     Get the verification id of a subscription used for verifying custom domains
     Azure REST API version: 2023-05-02-preview.
 
-    Other available API versions: 2023-08-01-preview, 2023-11-02-preview.
+    Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
     """
     ...

@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.Elastic.Inputs
         [Input("key")]
         public Input<string>? Key { get; set; }
 
+        /// <summary>
+        /// The API endpoint for Open AI resource
+        /// </summary>
+        [Input("openAIResourceEndpoint")]
+        public Input<string>? OpenAIResourceEndpoint { get; set; }
+
+        /// <summary>
+        /// The resource id of Open AI resource
+        /// </summary>
+        [Input("openAIResourceId")]
+        public Input<string>? OpenAIResourceId { get; set; }
+
         public OpenAIIntegrationPropertiesArgs()
         {
         }

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// Azure REST API version: 2024-01-01-preview.
+    /// 
+    /// Other available API versions: 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:MarketplaceSubscription")]
     public partial class MarketplaceSubscription : global::Pulumi.CustomResource
@@ -66,6 +68,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:MarketplaceSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:MarketplaceSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

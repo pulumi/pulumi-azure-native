@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.App.V20231102Preview
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230501:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ConnectedEnvironmentsStorage" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:ConnectedEnvironmentsStorage" },
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ConnectedEnvironmentsStorage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

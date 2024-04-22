@@ -136,7 +136,7 @@ def get_static_site_linked_backend(linked_backend_name: Optional[str] = None,
     Static Site Linked Backend ARM resource.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01.
+    Other available API versions: 2023-01-01, 2023-12-01.
 
 
     :param str linked_backend_name: Name of the linked backend that should be retrieved
@@ -170,7 +170,7 @@ def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.I
     Static Site Linked Backend ARM resource.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01.
+    Other available API versions: 2023-01-01, 2023-12-01.
 
 
     :param str linked_backend_name: Name of the linked backend that should be retrieved

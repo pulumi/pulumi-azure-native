@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DevCenter
     /// Network related settings
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
     /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
+    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:NetworkConnection")]
     public partial class NetworkConnection : global::Pulumi.CustomResource
@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230801preview:NetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20231001preview:NetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240201:NetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240501preview:NetworkConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

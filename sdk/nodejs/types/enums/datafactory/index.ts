@@ -672,16 +672,6 @@ export const ScriptActivityParameterType = {
  */
 export type ScriptActivityParameterType = (typeof ScriptActivityParameterType)[keyof typeof ScriptActivityParameterType];
 
-export const ScriptType = {
-    Query: "Query",
-    NonQuery: "NonQuery",
-} as const;
-
-/**
- * The type of the query. Type: string.
- */
-export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
-
 export const ServiceNowAuthenticationType = {
     Basic: "Basic",
     OAuth2: "OAuth2",

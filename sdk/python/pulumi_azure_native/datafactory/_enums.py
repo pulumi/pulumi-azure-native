@@ -65,7 +65,6 @@ __all__ = [
     'ScriptActivityLogDestination',
     'ScriptActivityParameterDirection',
     'ScriptActivityParameterType',
-    'ScriptType',
     'ServiceNowAuthenticationType',
     'ServiceNowV2AuthenticationType',
     'SftpAuthenticationType',
@@ -634,14 +633,6 @@ class ScriptActivityParameterType(str, Enum):
     SINGLE = "Single"
     STRING = "String"
     TIMESPAN = "Timespan"
-
-
-class ScriptType(str, Enum):
-    """
-    The type of the query. Type: string.
-    """
-    QUERY = "Query"
-    NON_QUERY = "NonQuery"
 
 
 class ServiceNowAuthenticationType(str, Enum):

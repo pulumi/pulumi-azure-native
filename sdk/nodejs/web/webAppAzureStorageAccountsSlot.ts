@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * AzureStorageInfo dictionary resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-10-01, 2023-01-01.
+ * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
  */
 export class WebAppAzureStorageAccountsSlot extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class WebAppAzureStorageAccountsSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20180201:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20181101:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20190801:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20200601:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20200901:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20201001:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20201201:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20210101:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20210115:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20210201:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20210301:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20220301:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20220901:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20230101:WebAppAzureStorageAccountsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20180201:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20181101:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20190801:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20200601:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20200901:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20201001:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20201201:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20210101:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20210115:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20210201:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20210301:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20220301:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20220901:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20230101:WebAppAzureStorageAccountsSlot" }, { type: "azure-native:web/v20231201:WebAppAzureStorageAccountsSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppAzureStorageAccountsSlot.__pulumiType, name, resourceInputs, opts);
     }

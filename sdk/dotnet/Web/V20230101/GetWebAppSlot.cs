@@ -134,6 +134,10 @@ namespace Pulumi.AzureNative.Web.V20230101
         /// </summary>
         public readonly ImmutableArray<string> EnabledHostNames;
         /// <summary>
+        /// Whether to use end to end encryption between the FrontEnd and the Worker
+        /// </summary>
+        public readonly bool? EndToEndEncryptionEnabled;
+        /// <summary>
         /// Extended Location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
@@ -340,6 +344,8 @@ namespace Pulumi.AzureNative.Web.V20230101
 
             ImmutableArray<string> enabledHostNames,
 
+            bool? endToEndEncryptionEnabled,
+
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             ImmutableArray<Outputs.HostNameSslStateResponse> hostNameSslStates,
@@ -440,6 +446,7 @@ namespace Pulumi.AzureNative.Web.V20230101
             DefaultHostName = defaultHostName;
             Enabled = enabled;
             EnabledHostNames = enabledHostNames;
+            EndToEndEncryptionEnabled = endToEndEncryptionEnabled;
             ExtendedLocation = extendedLocation;
             HostNameSslStates = hostNameSslStates;
             HostNames = hostNames;

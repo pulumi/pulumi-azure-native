@@ -15,6 +15,7 @@ import * as v20230601preview from "./v20230601preview";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231001 from "./v20231001";
 import * as v20240101preview from "./v20240101preview";
+import * as v20240401preview from "./v20240401preview";
 
 export {
     v20200501preview,
@@ -30,7 +31,19 @@ export {
     v20230801preview,
     v20231001,
     v20240101preview,
+    v20240401preview,
 };
+
+export const AllowedContentLevel = {
+    Low: "Low",
+    Medium: "Medium",
+    High: "High",
+} as const;
+
+/**
+ * Level at which content is filtered.
+ */
+export type AllowedContentLevel = (typeof AllowedContentLevel)[keyof typeof AllowedContentLevel];
 
 export const ApplicationSharingPolicy = {
     Personal: "Personal",
@@ -1136,6 +1149,37 @@ export const PublicNetworkAccessType = {
  * Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
  */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
+
+export const RaiPolicyContentSource = {
+    Prompt: "Prompt",
+    Completion: "Completion",
+} as const;
+
+/**
+ * Content source to apply the Content Filters.
+ */
+export type RaiPolicyContentSource = (typeof RaiPolicyContentSource)[keyof typeof RaiPolicyContentSource];
+
+export const RaiPolicyMode = {
+    Default: "Default",
+    Deferred: "Deferred",
+    Blocking: "Blocking",
+} as const;
+
+/**
+ * Content Filters mode.
+ */
+export type RaiPolicyMode = (typeof RaiPolicyMode)[keyof typeof RaiPolicyMode];
+
+export const RaiPolicyType = {
+    UserManaged: "UserManaged",
+    SystemManaged: "SystemManaged",
+} as const;
+
+/**
+ * Content Filters policy type.
+ */
+export type RaiPolicyType = (typeof RaiPolicyType)[keyof typeof RaiPolicyType];
 
 export const RandomSamplingAlgorithmRule = {
     Random: "Random",

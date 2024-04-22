@@ -15,6 +15,7 @@ __all__ = [
     'CatalogConflictErrorResponse',
     'CatalogErrorDetailsResponse',
     'CatalogSyncErrorResponse',
+    'DevCenterProjectCatalogSettingsResponse',
     'EnvironmentRoleResponse',
     'GitCatalogResponse',
     'HealthStatusDetailResponse',
@@ -22,6 +23,7 @@ __all__ = [
     'ImageValidationErrorDetailsResponse',
     'ManagedServiceIdentityResponse',
     'ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment',
+    'ProjectNetworkSettingsResponse',
     'SkuResponse',
     'StopOnDisconnectConfigurationResponse',
     'SyncStatsResponse',
@@ -129,6 +131,29 @@ class CatalogSyncErrorResponse(dict):
         The path of the file the error is associated with.
         """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class DevCenterProjectCatalogSettingsResponse(dict):
+    """
+    Project catalog settings for project catalogs under a project associated to this dev center.
+    """
+    def __init__(__self__, *,
+                 catalog_item_sync_enable_status: Optional[str] = None):
+        """
+        Project catalog settings for project catalogs under a project associated to this dev center.
+        :param str catalog_item_sync_enable_status: Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+        """
+        if catalog_item_sync_enable_status is not None:
+            pulumi.set(__self__, "catalog_item_sync_enable_status", catalog_item_sync_enable_status)
+
+    @property
+    @pulumi.getter(name="catalogItemSyncEnableStatus")
+    def catalog_item_sync_enable_status(self) -> Optional[str]:
+        """
+        Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+        """
+        return pulumi.get(self, "catalog_item_sync_enable_status")
 
 
 @pulumi.output_type
@@ -477,6 +502,28 @@ class ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment(dict):
 
 
 @pulumi.output_type
+class ProjectNetworkSettingsResponse(dict):
+    """
+    Network settings for the project.
+    """
+    def __init__(__self__, *,
+                 microsoft_hosted_network_enable_status: str):
+        """
+        Network settings for the project.
+        :param str microsoft_hosted_network_enable_status: Indicates whether pools in this Dev Center can use Microsoft Hosted Networks. Defaults to Enabled if not set.
+        """
+        pulumi.set(__self__, "microsoft_hosted_network_enable_status", microsoft_hosted_network_enable_status)
+
+    @property
+    @pulumi.getter(name="microsoftHostedNetworkEnableStatus")
+    def microsoft_hosted_network_enable_status(self) -> str:
+        """
+        Indicates whether pools in this Dev Center can use Microsoft Hosted Networks. Defaults to Enabled if not set.
+        """
+        return pulumi.get(self, "microsoft_hosted_network_enable_status")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The resource model definition representing SKU
@@ -489,7 +536,7 @@ class SkuResponse(dict):
                  tier: Optional[str] = None):
         """
         The resource model definition representing SKU
-        :param str name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
@@ -509,7 +556,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
+        The name of the SKU. E.g. P3. It is typically a letter+number code
         """
         return pulumi.get(self, "name")
 

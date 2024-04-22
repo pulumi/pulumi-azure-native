@@ -260,6 +260,16 @@ export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebA
 export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
 
+export { GetWebAppSiteContainerArgs, GetWebAppSiteContainerResult, GetWebAppSiteContainerOutputArgs } from "./getWebAppSiteContainer";
+export const getWebAppSiteContainer: typeof import("./getWebAppSiteContainer").getWebAppSiteContainer = null as any;
+export const getWebAppSiteContainerOutput: typeof import("./getWebAppSiteContainer").getWebAppSiteContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSiteContainer","getWebAppSiteContainerOutput"], () => require("./getWebAppSiteContainer"));
+
+export { GetWebAppSiteContainerSlotArgs, GetWebAppSiteContainerSlotResult, GetWebAppSiteContainerSlotOutputArgs } from "./getWebAppSiteContainerSlot";
+export const getWebAppSiteContainerSlot: typeof import("./getWebAppSiteContainerSlot").getWebAppSiteContainerSlot = null as any;
+export const getWebAppSiteContainerSlotOutput: typeof import("./getWebAppSiteContainerSlot").getWebAppSiteContainerSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSiteContainerSlot","getWebAppSiteContainerSlotOutput"], () => require("./getWebAppSiteContainerSlot"));
+
 export { GetWebAppSiteExtensionArgs, GetWebAppSiteExtensionResult, GetWebAppSiteExtensionOutputArgs } from "./getWebAppSiteExtension";
 export const getWebAppSiteExtension: typeof import("./getWebAppSiteExtension").getWebAppSiteExtension = null as any;
 export const getWebAppSiteExtensionOutput: typeof import("./getWebAppSiteExtension").getWebAppSiteExtensionOutput = null as any;
@@ -780,6 +790,16 @@ export type WebAppScmAllowed = import("./webAppScmAllowed").WebAppScmAllowed;
 export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllowed = null as any;
 utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
 
+export { WebAppSiteContainerArgs } from "./webAppSiteContainer";
+export type WebAppSiteContainer = import("./webAppSiteContainer").WebAppSiteContainer;
+export const WebAppSiteContainer: typeof import("./webAppSiteContainer").WebAppSiteContainer = null as any;
+utilities.lazyLoad(exports, ["WebAppSiteContainer"], () => require("./webAppSiteContainer"));
+
+export { WebAppSiteContainerSlotArgs } from "./webAppSiteContainerSlot";
+export type WebAppSiteContainerSlot = import("./webAppSiteContainerSlot").WebAppSiteContainerSlot;
+export const WebAppSiteContainerSlot: typeof import("./webAppSiteContainerSlot").WebAppSiteContainerSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppSiteContainerSlot"], () => require("./webAppSiteContainerSlot"));
+
 export { WebAppSiteExtensionArgs } from "./webAppSiteExtension";
 export type WebAppSiteExtension = import("./webAppSiteExtension").WebAppSiteExtension;
 export const WebAppSiteExtension: typeof import("./webAppSiteExtension").WebAppSiteExtension = null as any;
@@ -864,6 +884,7 @@ import * as v20210301 from "./v20210301";
 import * as v20220301 from "./v20220301";
 import * as v20220901 from "./v20220901";
 import * as v20230101 from "./v20230101";
+import * as v20231201 from "./v20231201";
 
 export {
     v20150801preview,
@@ -885,6 +906,7 @@ export {
     v20220301,
     v20220901,
     v20230101,
+    v20231201,
 };
 
 const _module = {
@@ -1003,6 +1025,10 @@ const _module = {
                 return new WebAppRelayServiceConnectionSlot(name, <any>undefined, { urn })
             case "azure-native:web:WebAppScmAllowed":
                 return new WebAppScmAllowed(name, <any>undefined, { urn })
+            case "azure-native:web:WebAppSiteContainer":
+                return new WebAppSiteContainer(name, <any>undefined, { urn })
+            case "azure-native:web:WebAppSiteContainerSlot":
+                return new WebAppSiteContainerSlot(name, <any>undefined, { urn })
             case "azure-native:web:WebAppSiteExtension":
                 return new WebAppSiteExtension(name, <any>undefined, { urn })
             case "azure-native:web:WebAppSiteExtensionSlot":

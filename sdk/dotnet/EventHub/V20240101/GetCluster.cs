@@ -121,10 +121,6 @@ namespace Pulumi.AzureNative.EventHub.V20240101
         /// The UTC time when the Event Hubs Cluster was last updated.
         /// </summary>
         public readonly string UpdatedAt;
-        /// <summary>
-        /// Properties of the cluster upgrade preferences.
-        /// </summary>
-        public readonly Outputs.UpgradePreferencesResponse? UpgradePreferences;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -152,9 +148,7 @@ namespace Pulumi.AzureNative.EventHub.V20240101
 
             string type,
 
-            string updatedAt,
-
-            Outputs.UpgradePreferencesResponse? upgradePreferences)
+            string updatedAt)
         {
             CreatedAt = createdAt;
             Id = id;
@@ -169,7 +163,6 @@ namespace Pulumi.AzureNative.EventHub.V20240101
             Tags = tags;
             Type = type;
             UpdatedAt = updatedAt;
-            UpgradePreferences = upgradePreferences;
         }
     }
 }

@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener" },
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20231001:AvailabilityGroupListener" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

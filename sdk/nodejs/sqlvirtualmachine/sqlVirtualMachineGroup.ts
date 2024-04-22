@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A SQL virtual machine group.
  * Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
  *
- * Other available API versions: 2023-01-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-10-01.
  */
 export class SqlVirtualMachineGroup extends pulumi.CustomResource {
     /**
@@ -132,7 +132,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
             resourceInputs["wsfcDomainProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20231001:SqlVirtualMachineGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlVirtualMachineGroup.__pulumiType, name, resourceInputs, opts);
     }

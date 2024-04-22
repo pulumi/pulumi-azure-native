@@ -92,6 +92,12 @@ namespace Pulumi.AzureNative.Web.V20230101
         public Output<ImmutableArray<string>> EnabledHostNames { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to use end to end encryption between the FrontEnd and the Worker
+        /// </summary>
+        [Output("endToEndEncryptionEnabled")]
+        public Output<bool?> EndToEndEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Extended Location.
         /// </summary>
         [Output("extendedLocation")]
@@ -394,6 +400,7 @@ namespace Pulumi.AzureNative.Web.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebApp" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebApp" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebApp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -479,6 +486,12 @@ namespace Pulumi.AzureNative.Web.V20230101
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Whether to use end to end encryption between the FrontEnd and the Worker
+        /// </summary>
+        [Input("endToEndEncryptionEnabled")]
+        public Input<bool>? EndToEndEncryptionEnabled { get; set; }
 
         /// <summary>
         /// Extended Location.

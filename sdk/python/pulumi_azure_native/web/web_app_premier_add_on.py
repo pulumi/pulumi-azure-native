@@ -214,7 +214,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         Premier add-on.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
+        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +240,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
         Premier add-on.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
+        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppPremierAddOnArgs args: The arguments to use to populate this resource's properties.
@@ -293,7 +293,7 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vendor"] = vendor
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPremierAddOn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPremierAddOn"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppPremierAddOn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppPremierAddOn, __self__).__init__(
             'azure-native:web:WebAppPremierAddOn',

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Workflow properties definition.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01.
+        /// Other available API versions: 2023-01-01, 2023-12-01.
         /// </summary>
         public static Task<ListWebAppWorkflowsConnectionsSlotResult> InvokeAsync(ListWebAppWorkflowsConnectionsSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppWorkflowsConnectionsSlotResult>("azure-native:web:listWebAppWorkflowsConnectionsSlot", args ?? new ListWebAppWorkflowsConnectionsSlotArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Workflow properties definition.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01.
+        /// Other available API versions: 2023-01-01, 2023-12-01.
         /// </summary>
         public static Output<ListWebAppWorkflowsConnectionsSlotResult> Invoke(ListWebAppWorkflowsConnectionsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppWorkflowsConnectionsSlotResult>("azure-native:web:listWebAppWorkflowsConnectionsSlot", args ?? new ListWebAppWorkflowsConnectionsSlotInvokeArgs(), options.WithDefaults());

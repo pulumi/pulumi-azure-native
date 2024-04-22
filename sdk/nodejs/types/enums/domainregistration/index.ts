@@ -5,11 +5,13 @@
 import * as v20201001 from "./v20201001";
 import * as v20220901 from "./v20220901";
 import * as v20230101 from "./v20230101";
+import * as v20231201 from "./v20231201";
 
 export {
     v20201001,
     v20220901,
     v20230101,
+    v20231201,
 };
 
 export const DnsType = {

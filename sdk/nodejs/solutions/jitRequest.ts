@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Information about JIT request definition.
  * Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
+ *
+ * Other available API versions: 2023-12-01-preview.
  */
 export class JitRequest extends pulumi.CustomResource {
     /**
@@ -145,7 +147,7 @@ export class JitRequest extends pulumi.CustomResource {
             resourceInputs["updatedBy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20180301:JitRequest" }, { type: "azure-native:solutions/v20180601:JitRequest" }, { type: "azure-native:solutions/v20180901preview:JitRequest" }, { type: "azure-native:solutions/v20190701:JitRequest" }, { type: "azure-native:solutions/v20200821preview:JitRequest" }, { type: "azure-native:solutions/v20210201preview:JitRequest" }, { type: "azure-native:solutions/v20210701:JitRequest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20180301:JitRequest" }, { type: "azure-native:solutions/v20180601:JitRequest" }, { type: "azure-native:solutions/v20180901preview:JitRequest" }, { type: "azure-native:solutions/v20190701:JitRequest" }, { type: "azure-native:solutions/v20200821preview:JitRequest" }, { type: "azure-native:solutions/v20210201preview:JitRequest" }, { type: "azure-native:solutions/v20210701:JitRequest" }, { type: "azure-native:solutions/v20231201preview:JitRequest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JitRequest.__pulumiType, name, resourceInputs, opts);
     }

@@ -181,7 +181,7 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
         Description of a backup which will be performed.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
+        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,7 +205,7 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
         Description of a backup which will be performed.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
+        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppBackupConfigurationSlotArgs args: The arguments to use to populate this resource's properties.
@@ -258,7 +258,7 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_url'")
             __props__.__dict__["storage_account_url"] = storage_account_url
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppBackupConfigurationSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppBackupConfigurationSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppBackupConfigurationSlot, __self__).__init__(
             'azure-native:web:WebAppBackupConfigurationSlot',

@@ -29,7 +29,6 @@ __all__ = [
     'SubnetResponse',
     'SystemDataResponse',
     'ThrottlingPolicyResponse',
-    'UpgradePreferencesResponse',
     'UserAssignedIdentityPropertiesResponse',
     'UserAssignedIdentityResponse',
 ]
@@ -1190,60 +1189,6 @@ class ThrottlingPolicyResponse(dict):
         Expected value is 'ThrottlingPolicy'.
         """
         return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class UpgradePreferencesResponse(dict):
-    """
-    Contains all settings for the cluster upgrade window.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "startDayOfWeek":
-            suggest = "start_day_of_week"
-        elif key == "startHourOfDay":
-            suggest = "start_hour_of_day"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UpgradePreferencesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UpgradePreferencesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UpgradePreferencesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 start_day_of_week: Optional[str] = None,
-                 start_hour_of_day: Optional[int] = None):
-        """
-        Contains all settings for the cluster upgrade window.
-        :param str start_day_of_week: Preferred day of the week in UTC time to begin an upgrade. If 'Any' is selected, upgrade will proceed at any given weekday
-        :param int start_hour_of_day: Preferred hour of the day in UTC time to begin an upgrade
-        """
-        if start_day_of_week is not None:
-            pulumi.set(__self__, "start_day_of_week", start_day_of_week)
-        if start_hour_of_day is not None:
-            pulumi.set(__self__, "start_hour_of_day", start_hour_of_day)
-
-    @property
-    @pulumi.getter(name="startDayOfWeek")
-    def start_day_of_week(self) -> Optional[str]:
-        """
-        Preferred day of the week in UTC time to begin an upgrade. If 'Any' is selected, upgrade will proceed at any given weekday
-        """
-        return pulumi.get(self, "start_day_of_week")
-
-    @property
-    @pulumi.getter(name="startHourOfDay")
-    def start_hour_of_day(self) -> Optional[int]:
-        """
-        Preferred hour of the day in UTC time to begin an upgrade
-        """
-        return pulumi.get(self, "start_hour_of_day")
 
 
 @pulumi.output_type

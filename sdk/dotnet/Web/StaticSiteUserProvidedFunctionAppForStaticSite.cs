@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     /// Static Site User Provided Function App ARM resource.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2023-01-01.
+    /// Other available API versions: 2023-01-01, 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite")]
     public partial class StaticSiteUserProvidedFunctionAppForStaticSite : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSite" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:StaticSiteUserProvidedFunctionAppForStaticSite" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:StaticSiteUserProvidedFunctionAppForStaticSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

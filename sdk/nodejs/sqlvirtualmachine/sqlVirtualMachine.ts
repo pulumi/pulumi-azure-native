@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A SQL virtual machine.
  * Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
  *
- * Other available API versions: 2023-01-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-10-01.
  */
 export class SqlVirtualMachine extends pulumi.CustomResource {
     /**
@@ -186,7 +186,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             resourceInputs["wsfcStaticIp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20231001:SqlVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

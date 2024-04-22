@@ -196,7 +196,7 @@ def get_web_app_deployment(id: Optional[str] = None,
     Description for Get a deployment by its ID for an app, or a deployment slot.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01.
+    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
 
 
     :param str id: Deployment ID.
@@ -235,7 +235,7 @@ def get_web_app_deployment_output(id: Optional[pulumi.Input[str]] = None,
     Description for Get a deployment by its ID for an app, or a deployment slot.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2020-10-01, 2023-01-01.
+    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01.
 
 
     :param str id: Deployment ID.

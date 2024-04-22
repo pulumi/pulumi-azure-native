@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DevCenter.Outputs
         /// </summary>
         public readonly string? Family;
         /// <summary>
-        /// The name of the SKU. Ex - P3. It is typically a letter+number code
+        /// The name of the SKU. E.g. P3. It is typically a letter+number code
         /// </summary>
         public readonly string Name;
         /// <summary>

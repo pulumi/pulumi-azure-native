@@ -116,7 +116,7 @@ class DevCenter(pulumi.CustomResource):
         Represents a devcenter resource.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
+        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +136,7 @@ class DevCenter(pulumi.CustomResource):
         Represents a devcenter resource.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01.
+        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DevCenterArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +179,7 @@ class DevCenter(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230401:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20240201:DevCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230401:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20240201:DevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:DevCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevCenter, __self__).__init__(
             'azure-native:devcenter:DevCenter',

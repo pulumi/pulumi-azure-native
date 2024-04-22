@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A Kubernetes cluster specialized for web workloads by Azure App Service
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2023-01-01.
+ * Other available API versions: 2023-01-01, 2023-12-01.
  */
 export class KubeEnvironment extends pulumi.CustomResource {
     /**
@@ -156,7 +156,7 @@ export class KubeEnvironment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20210101:KubeEnvironment" }, { type: "azure-native:web/v20210115:KubeEnvironment" }, { type: "azure-native:web/v20210201:KubeEnvironment" }, { type: "azure-native:web/v20210301:KubeEnvironment" }, { type: "azure-native:web/v20220301:KubeEnvironment" }, { type: "azure-native:web/v20220901:KubeEnvironment" }, { type: "azure-native:web/v20230101:KubeEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20210101:KubeEnvironment" }, { type: "azure-native:web/v20210115:KubeEnvironment" }, { type: "azure-native:web/v20210201:KubeEnvironment" }, { type: "azure-native:web/v20210301:KubeEnvironment" }, { type: "azure-native:web/v20220301:KubeEnvironment" }, { type: "azure-native:web/v20220901:KubeEnvironment" }, { type: "azure-native:web/v20230101:KubeEnvironment" }, { type: "azure-native:web/v20231201:KubeEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KubeEnvironment.__pulumiType, name, resourceInputs, opts);
     }

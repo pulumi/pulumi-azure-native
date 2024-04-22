@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231101preview:ContainerRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:ContainerRegistry" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:ContainerRegistry" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:ContainerRegistry" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

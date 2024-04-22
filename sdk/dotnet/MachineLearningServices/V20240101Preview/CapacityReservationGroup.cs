@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:CapacityReservationGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:CapacityReservationGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:CapacityReservationGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     /// A SQL virtual machine.
     /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
     /// 
-    /// Other available API versions: 2023-01-01-preview.
+    /// Other available API versions: 2023-01-01-preview, 2023-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachine")]
     public partial class SqlVirtualMachine : global::Pulumi.CustomResource
@@ -176,6 +176,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20231001:SqlVirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

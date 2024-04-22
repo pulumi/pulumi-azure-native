@@ -22,8 +22,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview.Inputs
         public Input<int>? MaxConcurrentRequestsPerInstance { get; set; }
 
         /// <summary>
-        /// The maximum amount of time a request will stay in the queue in ISO 8601 format.
+        /// (Deprecated for Managed Online Endpoints) The maximum amount of time a request will stay in the queue in ISO 8601 format.
         /// Defaults to 500ms.
+        /// (Now increase `request_timeout_ms` to account for any networking/queue delays)
         /// </summary>
         [Input("maxQueueWait")]
         public Input<string>? MaxQueueWait { get; set; }

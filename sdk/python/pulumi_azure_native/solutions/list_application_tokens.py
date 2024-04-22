@@ -54,7 +54,7 @@ def list_application_tokens(application_name: Optional[str] = None,
     List tokens for application.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2018-06-01.
+    Other available API versions: 2018-06-01, 2023-12-01-preview.
 
 
     :param str application_name: The name of the managed application.
@@ -84,7 +84,7 @@ def list_application_tokens_output(application_name: Optional[pulumi.Input[str]]
     List tokens for application.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2018-06-01.
+    Other available API versions: 2018-06-01, 2023-12-01-preview.
 
 
     :param str application_name: The name of the managed application.

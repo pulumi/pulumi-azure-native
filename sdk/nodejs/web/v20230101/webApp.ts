@@ -90,6 +90,10 @@ export class WebApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly enabledHostNames!: pulumi.Output<string[]>;
     /**
+     * Whether to use end to end encryption between the FrontEnd and the Worker
+     */
+    public readonly endToEndEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Extended Location.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.web.v20230101.ExtendedLocationResponse | undefined>;
@@ -290,6 +294,7 @@ export class WebApp extends pulumi.CustomResource {
             resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             resourceInputs["daprConfig"] = args ? (args.daprConfig ? pulumi.output(args.daprConfig).apply(inputs.web.v20230101.daprConfigArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["endToEndEncryptionEnabled"] = args ? args.endToEndEncryptionEnabled : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["hostNameSslStates"] = args ? args.hostNameSslStates : undefined;
             resourceInputs["hostNamesDisabled"] = args ? args.hostNamesDisabled : undefined;
@@ -350,6 +355,7 @@ export class WebApp extends pulumi.CustomResource {
             resourceInputs["defaultHostName"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["enabledHostNames"] = undefined /*out*/;
+            resourceInputs["endToEndEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hostNameSslStates"] = undefined /*out*/;
             resourceInputs["hostNames"] = undefined /*out*/;
@@ -395,7 +401,7 @@ export class WebApp extends pulumi.CustomResource {
             resourceInputs["workloadProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:WebApp" }, { type: "azure-native:web/v20150801:WebApp" }, { type: "azure-native:web/v20160801:WebApp" }, { type: "azure-native:web/v20180201:WebApp" }, { type: "azure-native:web/v20181101:WebApp" }, { type: "azure-native:web/v20190801:WebApp" }, { type: "azure-native:web/v20200601:WebApp" }, { type: "azure-native:web/v20200901:WebApp" }, { type: "azure-native:web/v20201001:WebApp" }, { type: "azure-native:web/v20201201:WebApp" }, { type: "azure-native:web/v20210101:WebApp" }, { type: "azure-native:web/v20210115:WebApp" }, { type: "azure-native:web/v20210201:WebApp" }, { type: "azure-native:web/v20210301:WebApp" }, { type: "azure-native:web/v20220301:WebApp" }, { type: "azure-native:web/v20220901:WebApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebApp" }, { type: "azure-native:web/v20150801:WebApp" }, { type: "azure-native:web/v20160801:WebApp" }, { type: "azure-native:web/v20180201:WebApp" }, { type: "azure-native:web/v20181101:WebApp" }, { type: "azure-native:web/v20190801:WebApp" }, { type: "azure-native:web/v20200601:WebApp" }, { type: "azure-native:web/v20200901:WebApp" }, { type: "azure-native:web/v20201001:WebApp" }, { type: "azure-native:web/v20201201:WebApp" }, { type: "azure-native:web/v20210101:WebApp" }, { type: "azure-native:web/v20210115:WebApp" }, { type: "azure-native:web/v20210201:WebApp" }, { type: "azure-native:web/v20210301:WebApp" }, { type: "azure-native:web/v20220301:WebApp" }, { type: "azure-native:web/v20220901:WebApp" }, { type: "azure-native:web/v20231201:WebApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebApp.__pulumiType, name, resourceInputs, opts);
     }
@@ -448,6 +454,10 @@ export interface WebAppArgs {
      * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Whether to use end to end encryption between the FrontEnd and the Worker
+     */
+    endToEndEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Extended Location.
      */

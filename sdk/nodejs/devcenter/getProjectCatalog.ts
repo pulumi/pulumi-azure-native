@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets an associated project catalog.
  * Azure REST API version: 2024-02-01.
+ *
+ * Other available API versions: 2024-05-01-preview.
  */
 export function getProjectCatalog(args: GetProjectCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCatalogResult> {
 
@@ -100,6 +102,8 @@ export interface GetProjectCatalogResult {
 /**
  * Gets an associated project catalog.
  * Azure REST API version: 2024-02-01.
+ *
+ * Other available API versions: 2024-05-01-preview.
  */
 export function getProjectCatalogOutput(args: GetProjectCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogResult> {
     return pulumi.output(args).apply((a: any) => getProjectCatalog(a, opts))

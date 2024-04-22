@@ -76,6 +76,7 @@ __all__ = [
     'DevToolPortalPropertiesResponse',
     'DevToolPortalResourceRequestsResponse',
     'DevToolPortalSsoPropertiesResponse',
+    'EnvVarResponse',
     'ErrorResponse',
     'ExecActionResponse',
     'GatewayApiMetadataPropertiesResponse',
@@ -99,9 +100,14 @@ __all__ = [
     'IngressSettingsResponse',
     'IngressSettingsResponseClientAuth',
     'JarUploadedUserSourceInfoResponse',
+    'JobExecutionTemplateResponse',
+    'JobResourcePropertiesResponse',
+    'JobResourceRequestsResponse',
     'KeyVaultCertificatePropertiesResponse',
     'LoadedCertificateResponse',
+    'ManagedComponentReferenceResponse',
     'ManagedIdentityPropertiesResponse',
+    'ManualJobTriggerConfigResponse',
     'MarketplaceResourceResponse',
     'MonitoringSettingPropertiesResponse',
     'NetCoreZipUploadedUserSourceInfoResponse',
@@ -132,6 +138,7 @@ __all__ = [
     'TriggeredBuildResultResponse',
     'UploadedUserSourceInfoResponse',
     'UserAssignedManagedIdentityResponse',
+    'WarUploadedUserSourceInfoResponse',
 ]
 
 @pulumi.output_type
@@ -3469,7 +3476,7 @@ class CustomContainerResponse(dict):
         :param Sequence[str] command: Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided.
         :param str container_image: Container image of the custom container. This should be in the form of <repository>:<tag> without the server name of the registry
         :param 'ImageRegistryCredentialResponse' image_registry_credential: Credential of the image registry
-        :param str language_framework: Language framework of the container image uploaded
+        :param str language_framework: Language framework of the container image uploaded. Supported values: "springboot", "", null.
         :param str server: The name of the registry that contains the container image
         """
         if args is not None:
@@ -3521,7 +3528,7 @@ class CustomContainerResponse(dict):
     @pulumi.getter(name="languageFramework")
     def language_framework(self) -> Optional[str]:
         """
-        Language framework of the container image uploaded
+        Language framework of the container image uploaded. Supported values: "springboot", "", null.
         """
         return pulumi.get(self, "language_framework")
 
@@ -4640,6 +4647,70 @@ class DevToolPortalSsoPropertiesResponse(dict):
         It defines the specific actions applications can be allowed to do on a user's behalf
         """
         return pulumi.get(self, "scopes")
+
+
+@pulumi.output_type
+class EnvVarResponse(dict):
+    """
+    Azure Spring Apps components' environment variable.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretValue":
+            suggest = "secret_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvVarResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvVarResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvVarResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 secret_value: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Azure Spring Apps components' environment variable.
+        :param str name: Environment variable name.
+        :param str secret_value: secret environment variable value.
+        :param str value: Non-secret environment variable value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_value is not None:
+            pulumi.set(__self__, "secret_value", secret_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Environment variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretValue")
+    def secret_value(self) -> Optional[str]:
+        """
+        secret environment variable value.
+        """
+        return pulumi.get(self, "secret_value")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Non-secret environment variable value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -6287,6 +6358,202 @@ class JarUploadedUserSourceInfoResponse(dict):
 
 
 @pulumi.output_type
+class JobExecutionTemplateResponse(dict):
+    """
+    Job's execution template, containing configuration for an execution
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "resourceRequests":
+            suggest = "resource_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobExecutionTemplateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobExecutionTemplateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobExecutionTemplateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 args: Optional[Sequence[str]] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvVarResponse']] = None,
+                 resource_requests: Optional['outputs.JobResourceRequestsResponse'] = None):
+        """
+        Job's execution template, containing configuration for an execution
+        :param Sequence[str] args: Arguments for the Job execution.
+        :param Sequence['EnvVarResponse'] environment_variables: Environment variables of Job execution
+        :param 'JobResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
+        """
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if resource_requests is not None:
+            pulumi.set(__self__, "resource_requests", resource_requests)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        """
+        Arguments for the Job execution.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvVarResponse']]:
+        """
+        Environment variables of Job execution
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="resourceRequests")
+    def resource_requests(self) -> Optional['outputs.JobResourceRequestsResponse']:
+        """
+        The requested resource quantity for required CPU and Memory.
+        """
+        return pulumi.get(self, "resource_requests")
+
+
+@pulumi.output_type
+class JobResourcePropertiesResponse(dict):
+    """
+    Job resource properties payload
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "managedComponentReferences":
+            suggest = "managed_component_references"
+        elif key == "triggerConfig":
+            suggest = "trigger_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 managed_component_references: Optional[Sequence['outputs.ManagedComponentReferenceResponse']] = None,
+                 source: Optional[Any] = None,
+                 template: Optional['outputs.JobExecutionTemplateResponse'] = None,
+                 trigger_config: Optional['outputs.ManualJobTriggerConfigResponse'] = None):
+        """
+        Job resource properties payload
+        :param str provisioning_state: Provisioning state of the Job
+        :param Sequence['ManagedComponentReferenceResponse'] managed_component_references: Referenced managed components collection
+        :param Union['BuildResultUserSourceInfoResponse', 'CustomContainerUserSourceInfoResponse', 'JarUploadedUserSourceInfoResponse', 'NetCoreZipUploadedUserSourceInfoResponse', 'SourceUploadedUserSourceInfoResponse', 'UploadedUserSourceInfoResponse', 'WarUploadedUserSourceInfoResponse'] source: Uploaded source information of the Job.
+        :param 'JobExecutionTemplateResponse' template: The template which is applied for all executions of the Job.
+        :param 'ManualJobTriggerConfigResponse' trigger_config: The Job trigger related configuration.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if managed_component_references is not None:
+            pulumi.set(__self__, "managed_component_references", managed_component_references)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if trigger_config is not None:
+            pulumi.set(__self__, "trigger_config", trigger_config)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Job
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="managedComponentReferences")
+    def managed_component_references(self) -> Optional[Sequence['outputs.ManagedComponentReferenceResponse']]:
+        """
+        Referenced managed components collection
+        """
+        return pulumi.get(self, "managed_component_references")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[Any]:
+        """
+        Uploaded source information of the Job.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional['outputs.JobExecutionTemplateResponse']:
+        """
+        The template which is applied for all executions of the Job.
+        """
+        return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter(name="triggerConfig")
+    def trigger_config(self) -> Optional['outputs.ManualJobTriggerConfigResponse']:
+        """
+        The Job trigger related configuration.
+        """
+        return pulumi.get(self, "trigger_config")
+
+
+@pulumi.output_type
+class JobResourceRequestsResponse(dict):
+    """
+    Job resource request payload
+    """
+    def __init__(__self__, *,
+                 cpu: Optional[str] = None,
+                 memory: Optional[str] = None):
+        """
+        Job resource request payload
+        :param str cpu: CPU allocated to each job execution instance.
+        :param str memory: Memory allocated to each job execution instance.
+        """
+        if cpu is None:
+            cpu = '1'
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is None:
+            memory = '2Gi'
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[str]:
+        """
+        CPU allocated to each job execution instance.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        Memory allocated to each job execution instance.
+        """
+        return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
 class KeyVaultCertificatePropertiesResponse(dict):
     """
     Properties of certificate imported from key vault.
@@ -6537,6 +6804,45 @@ class LoadedCertificateResponse(dict):
 
 
 @pulumi.output_type
+class ManagedComponentReferenceResponse(dict):
+    """
+    A reference to the managed component like Config Server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedComponentReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedComponentReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedComponentReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: str):
+        """
+        A reference to the managed component like Config Server.
+        :param str resource_id: Resource Id of the managed component
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        Resource Id of the managed component
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class ManagedIdentityPropertiesResponse(dict):
     """
     Managed identity properties retrieved from ARM request headers.
@@ -6614,6 +6920,89 @@ class ManagedIdentityPropertiesResponse(dict):
         Properties of user-assigned managed identities
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ManualJobTriggerConfigResponse(dict):
+    """
+    Configuration for manual triggered job
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "triggerType":
+            suggest = "trigger_type"
+        elif key == "retryLimit":
+            suggest = "retry_limit"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManualJobTriggerConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManualJobTriggerConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManualJobTriggerConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trigger_type: Optional[str] = None,
+                 parallelism: Optional[int] = None,
+                 retry_limit: Optional[int] = None,
+                 timeout_in_seconds: Optional[int] = None):
+        """
+        Configuration for manual triggered job
+        :param str trigger_type: Type of job trigger
+               Expected value is 'Manual'.
+        :param int parallelism: Number of parallel replicas of a job execution can run.
+        :param int retry_limit: Maximum number of retries before failing the job.
+        :param int timeout_in_seconds: Maximum number of seconds an execution is allowed to run.
+        """
+        if trigger_type is None:
+            trigger_type = 'Manual'
+        pulumi.set(__self__, "trigger_type", 'Manual')
+        if parallelism is not None:
+            pulumi.set(__self__, "parallelism", parallelism)
+        if retry_limit is not None:
+            pulumi.set(__self__, "retry_limit", retry_limit)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="triggerType")
+    def trigger_type(self) -> str:
+        """
+        Type of job trigger
+        Expected value is 'Manual'.
+        """
+        return pulumi.get(self, "trigger_type")
+
+    @property
+    @pulumi.getter
+    def parallelism(self) -> Optional[int]:
+        """
+        Number of parallel replicas of a job execution can run.
+        """
+        return pulumi.get(self, "parallelism")
+
+    @property
+    @pulumi.getter(name="retryLimit")
+    def retry_limit(self) -> Optional[int]:
+        """
+        Maximum number of retries before failing the job.
+        """
+        return pulumi.get(self, "retry_limit")
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[int]:
+        """
+        Maximum number of seconds an execution is allowed to run.
+        """
+        return pulumi.get(self, "timeout_in_seconds")
 
 
 @pulumi.output_type
@@ -8537,5 +8926,112 @@ class UserAssignedManagedIdentityResponse(dict):
         Principal Id of user-assigned managed identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class WarUploadedUserSourceInfoResponse(dict):
+    """
+    Uploaded War binary for a deployment
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jvmOptions":
+            suggest = "jvm_options"
+        elif key == "relativePath":
+            suggest = "relative_path"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+        elif key == "serverVersion":
+            suggest = "server_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WarUploadedUserSourceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WarUploadedUserSourceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WarUploadedUserSourceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 jvm_options: Optional[str] = None,
+                 relative_path: Optional[str] = None,
+                 runtime_version: Optional[str] = None,
+                 server_version: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Uploaded War binary for a deployment
+        :param str type: Type of the source uploaded
+               Expected value is 'War'.
+        :param str jvm_options: JVM parameter
+        :param str relative_path: Relative path of the storage which stores the source
+        :param str runtime_version: Runtime version of the war file
+        :param str server_version: Server version, currently only Apache Tomcat is supported
+        :param str version: Version of the source
+        """
+        pulumi.set(__self__, "type", 'War')
+        if jvm_options is not None:
+            pulumi.set(__self__, "jvm_options", jvm_options)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the source uploaded
+        Expected value is 'War'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="jvmOptions")
+    def jvm_options(self) -> Optional[str]:
+        """
+        JVM parameter
+        """
+        return pulumi.get(self, "jvm_options")
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[str]:
+        """
+        Relative path of the storage which stores the source
+        """
+        return pulumi.get(self, "relative_path")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[str]:
+        """
+        Runtime version of the war file
+        """
+        return pulumi.get(self, "runtime_version")
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[str]:
+        """
+        Server version, currently only Apache Tomcat is supported
+        """
+        return pulumi.get(self, "server_version")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of the source
+        """
+        return pulumi.get(self, "version")
 
 

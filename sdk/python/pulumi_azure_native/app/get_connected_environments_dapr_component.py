@@ -185,7 +185,7 @@ def get_connected_environments_dapr_component(component_name: Optional[str] = No
     Dapr Component.
     Azure REST API version: 2022-10-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -223,7 +223,7 @@ def get_connected_environments_dapr_component_output(component_name: Optional[pu
     Dapr Component.
     Azure REST API version: 2022-10-01.
 
-    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview.
+    Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-03-01.
 
 
     :param str component_name: Name of the Dapr Component.

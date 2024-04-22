@@ -474,6 +474,36 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
+    /// Type of job trigger
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerType : IEquatable<TriggerType>
+    {
+        private readonly string _value;
+
+        private TriggerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerType Manual { get; } = new TriggerType("Manual");
+
+        public static bool operator ==(TriggerType left, TriggerType right) => left.Equals(right);
+        public static bool operator !=(TriggerType left, TriggerType right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerType other && Equals(other);
+        public bool Equals(TriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the underlying resource to mount as a persistent disk.
     /// </summary>
     [EnumType]

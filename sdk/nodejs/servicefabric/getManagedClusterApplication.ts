@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01.
  */
 export function getManagedClusterApplication(args: GetManagedClusterApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterApplicationResult> {
 
@@ -96,7 +96,7 @@ export interface GetManagedClusterApplicationResult {
  * Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01.
  */
 export function getManagedClusterApplicationOutput(args: GetManagedClusterApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterApplicationResult> {
     return pulumi.output(args).apply((a: any) => getManagedClusterApplication(a, opts))

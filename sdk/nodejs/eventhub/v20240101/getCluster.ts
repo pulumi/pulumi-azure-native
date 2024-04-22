@@ -86,10 +86,6 @@ export interface GetClusterResult {
      * The UTC time when the Event Hubs Cluster was last updated.
      */
     readonly updatedAt: string;
-    /**
-     * Properties of the cluster upgrade preferences.
-     */
-    readonly upgradePreferences?: outputs.eventhub.v20240101.UpgradePreferencesResponse;
 }
 /**
  * Gets the resource description of the specified Event Hubs Cluster.

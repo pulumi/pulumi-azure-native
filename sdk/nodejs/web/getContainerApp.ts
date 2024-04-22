@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Container App.
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2023-12-01.
  */
 export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppResult> {
 
@@ -87,6 +89,8 @@ export interface GetContainerAppResult {
 /**
  * Container App.
  * Azure REST API version: 2023-01-01.
+ *
+ * Other available API versions: 2023-12-01.
  */
 export function getContainerAppOutput(args: GetContainerAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppResult> {
     return pulumi.output(args).apply((a: any) => getContainerApp(a, opts))

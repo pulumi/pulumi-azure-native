@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
     /// 
-    /// Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    /// Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:NodeType")]
     public partial class NodeType : global::Pulumi.CustomResource
@@ -349,6 +349,7 @@ namespace Pulumi.AzureNative.ServiceFabric
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231101preview:NodeType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20231201preview:NodeType" },
                     new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240201preview:NodeType" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicefabric/v20240401:NodeType" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

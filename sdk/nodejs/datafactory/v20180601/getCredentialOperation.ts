@@ -54,7 +54,7 @@ export interface GetCredentialOperationResult {
     /**
      * Properties of credentials.
      */
-    readonly properties: outputs.datafactory.v20180601.ManagedIdentityCredentialResponse | outputs.datafactory.v20180601.ServicePrincipalCredentialResponse | outputs.datafactory.v20180601.SystemAssignedManagedIdentityCredentialResponse | outputs.datafactory.v20180601.UserAssignedManagedIdentityCredentialResponse;
+    readonly properties: outputs.datafactory.v20180601.ManagedIdentityCredentialResponse | outputs.datafactory.v20180601.ServicePrincipalCredentialResponse;
     /**
      * The resource type.
      */
