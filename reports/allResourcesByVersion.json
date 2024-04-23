@@ -6226,6 +6226,13 @@
       "View",
       "ViewByScope"
     ],
+    "2023-07-01-preview": [
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
+      "View",
+      "ViewByScope"
+    ],
     "2023-08-01": [
       "Budget",
       "CostAllocationRule",
@@ -21769,6 +21776,13 @@
       "StorageTarget",
       "amlFilesystem",
       "getRequiredAmlFSSubnetsSize"
+    ],
+    "2024-03-01": [
+      "Cache",
+      "StorageTarget",
+      "amlFilesystem",
+      "getRequiredAmlFSSubnetsSize",
+      "importJob"
     ]
   },
   "StorageMover": {

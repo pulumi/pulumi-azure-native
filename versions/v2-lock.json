@@ -2507,7 +2507,8 @@
     "Cache": "2023-05-01",
     "StorageTarget": "2023-05-01",
     "amlFilesystem": "2023-05-01",
-    "getRequiredAmlFSSubnetsSize": "2023-05-01"
+    "getRequiredAmlFSSubnetsSize": "2023-05-01",
+    "importJob": "2024-03-01"
   },
   "StorageMover": {
     "Agent": "2023-03-01",
