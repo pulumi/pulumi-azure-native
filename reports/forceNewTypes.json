@@ -2674,6 +2674,62 @@
     "Property": "nodeImageSelection"
   },
   {
+    "Module": "containerservice/v20240401",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "SubnetResourceId",
+    "Property": "subnetId"
+  },
+  {
+    "Module": "containerservice/v20240401",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "vmSize"
+  },
+  {
+    "Module": "containerservice/v20240401",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "AgentProfile",
+    "Property": "agentProfile"
+  },
+  {
+    "Module": "containerservice/v20240401",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "enablePrivateCluster"
+  },
+  {
+    "Module": "containerservice/v20240401",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "APIServerAccessProfile",
+    "Property": "apiServerAccessProfile"
+  },
+  {
+    "Module": "containerservice/v20240401",
+    "Provider": "ContainerService",
+    "ResourceName": "Fleet",
+    "ReferenceName": "FleetHubProfile",
+    "Property": "dnsPrefix"
+  },
+  {
+    "Module": "containerservice/v20240401",
+    "Provider": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelectionType",
+    "Property": "type"
+  },
+  {
+    "Module": "containerservice/v20240401",
+    "Provider": "ContainerService",
+    "ResourceName": "UpdateRun",
+    "ReferenceName": "NodeImageSelection",
+    "Property": "nodeImageSelection"
+  },
+  {
     "Module": "containerstorage",
     "Provider": "ContainerStorage",
     "ResourceName": "Pool",
@@ -45291,6 +45347,34 @@
   },
   {
     "Module": "storagecache/v20231101preview",
+    "Provider": "StorageCache",
+    "ResourceName": "AmlFilesystem",
+    "ReferenceName": "AmlFilesystemHsmSettings",
+    "Property": "settings"
+  },
+  {
+    "Module": "storagecache/v20240301",
+    "Provider": "StorageCache",
+    "ResourceName": "StorageTarget",
+    "ReferenceName": "URLString",
+    "Property": "target"
+  },
+  {
+    "Module": "storagecache/v20240301",
+    "Provider": "StorageCache",
+    "ResourceName": "StorageTarget",
+    "ReferenceName": "URLString",
+    "Property": "target"
+  },
+  {
+    "Module": "storagecache/v20240301",
+    "Provider": "StorageCache",
+    "ResourceName": "StorageTarget",
+    "ReferenceName": "Nfs3Target",
+    "Property": "target"
+  },
+  {
+    "Module": "storagecache/v20240301",
     "Provider": "StorageCache",
     "ResourceName": "AmlFilesystem",
     "ReferenceName": "AmlFilesystemHsmSettings",
