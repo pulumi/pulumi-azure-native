@@ -146,7 +146,6 @@
     "2020-05-01"
   ],
   "BillingBenefits": [],
-  "Blockchain": [],
   "Blueprint": [],
   "BotService": [
     "2023-09-15-preview"
@@ -310,7 +309,8 @@
     "2024-01-01",
     "2024-01-02-preview",
     "2024-02-01",
-    "2024-02-02-preview"
+    "2024-02-02-preview",
+    "2024-04-01"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -333,6 +333,7 @@
     "2022-10-05-preview",
     "2023-03-01",
     "2023-04-01-preview",
+    "2023-07-01-preview",
     "2023-08-01",
     "2023-09-01",
     "2023-11-01"
@@ -434,7 +435,8 @@
   "DevOps": [],
   "DevOpsInfrastructure": [
     "2023-12-13-preview",
-    "2024-03-26-preview"
+    "2024-03-26-preview",
+    "2024-04-04-preview"
   ],
   "DevSpaces": [],
   "DevTestLab": [],
@@ -487,7 +489,8 @@
   "EnterpriseKnowledgeGraph": [],
   "EventGrid": [
     "2023-06-01-preview",
-    "2023-12-15-preview"
+    "2023-12-15-preview",
+    "2024-06-01-preview"
   ],
   "EventHub": [
     "2021-01-01-preview",
@@ -606,6 +609,7 @@
     "2023-03-15-preview",
     "2023-05-01-preview",
     "2023-06-01",
+    "2023-09-01-preview",
     "2023-12-01"
   ],
   "IntegrationSpaces": [],
@@ -675,8 +679,6 @@
     "2017-01-01",
     "2019-10-01"
   ],
-  "MachineLearningCompute": [],
-  "MachineLearningExperimentation": [],
   "MachineLearningServices": [
     "2020-05-15-preview",
     "2020-06-01",
@@ -700,6 +702,7 @@
     "2023-08-01-preview",
     "2023-10-01",
     "2024-01-01-preview",
+    "2024-04-01",
     "2024-04-01-preview"
   ],
   "Maintenance": [
@@ -1012,7 +1015,8 @@
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2024-04-01"
   ],
   "ServiceNetworking": [
     "2023-11-01"
@@ -1064,7 +1068,8 @@
   ],
   "StorageActions": [],
   "StorageCache": [
-    "2023-11-01-preview"
+    "2023-11-01-preview",
+    "2024-03-01"
   ],
   "StorageMover": [
     "2023-07-01-preview",

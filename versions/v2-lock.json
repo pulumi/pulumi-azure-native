@@ -432,13 +432,6 @@
     "listBillingAccountInvoiceSectionsByCreateSubscriptionPermission": "2020-05-01"
   },
   "BillingBenefits": {},
-  "Blockchain": {
-    "BlockchainMember": "2018-06-01-preview",
-    "TransactionNode": "2018-06-01-preview",
-    "listBlockchainMemberApiKeys": "2018-06-01-preview",
-    "listLocationConsortiums": "2018-06-01-preview",
-    "listTransactionNodeApiKeys": "2018-06-01-preview"
-  },
   "Blueprint": {
     "Artifact": "2018-11-01-preview",
     "Assignment": "2018-11-01-preview",
@@ -1134,6 +1127,7 @@
     "getEventSubscriptionDeliveryAttributes": "2022-06-15",
     "getEventSubscriptionFullUrl": "2022-06-15",
     "getNamespaceTopicEventSubscriptionDeliveryAttributes": "2023-12-15-preview",
+    "getNamespaceTopicEventSubscriptionFullUrl": "2024-06-01-preview",
     "getPartnerTopicEventSubscriptionDeliveryAttributes": "2022-06-15",
     "getPartnerTopicEventSubscriptionFullUrl": "2022-06-15",
     "getSystemTopicEventSubscriptionDeliveryAttributes": "2022-06-15",
@@ -1483,15 +1477,6 @@
     "WebService": "2017-01-01",
     "Workspace": "2019-10-01",
     "listWorkspaceKeys": "2019-10-01"
-  },
-  "MachineLearningCompute": {
-    "OperationalizationCluster": "2017-08-01-preview",
-    "listOperationalizationClusterKeys": "2017-08-01-preview"
-  },
-  "MachineLearningExperimentation": {
-    "Account": "2017-05-01-preview",
-    "Project": "2017-05-01-preview",
-    "Workspace": "2017-05-01-preview"
   },
   "MachineLearningServices": {
     "BatchDeployment": "2023-04-01",
@@ -2507,7 +2492,8 @@
     "Cache": "2023-05-01",
     "StorageTarget": "2023-05-01",
     "amlFilesystem": "2023-05-01",
-    "getRequiredAmlFSSubnetsSize": "2023-05-01"
+    "getRequiredAmlFSSubnetsSize": "2023-05-01",
+    "importJob": "2024-03-01"
   },
   "StorageMover": {
     "Agent": "2023-03-01",
