@@ -209,8 +209,6 @@ Billing:
         BillingRoleAssignmentByDepartment: 2019-10-01-preview
         BillingRoleAssignmentByEnrollmentAccount: 2019-10-01-preview
 BillingBenefits: {}
-Blockchain:
-    tracking: 2018-06-01-preview
 Blueprint:
     tracking: 2018-11-01-preview
 BotService:
@@ -808,6 +806,7 @@ EventGrid:
         PermissionBinding: 2023-06-01-preview
         TopicSpace: 2023-06-01-preview
         getNamespaceTopicEventSubscriptionDeliveryAttributes: 2023-12-15-preview
+        getNamespaceTopicEventSubscriptionFullUrl: 2024-06-01-preview
         listNamespaceSharedAccessKeys: 2023-06-01-preview
         listNamespaceTopicSharedAccessKeys: 2023-06-01-preview
 EventHub:
@@ -999,10 +998,6 @@ MachineLearning:
     additions:
         CommitmentPlan: 2016-05-01-preview
         WebService: "2017-01-01"
-MachineLearningCompute:
-    tracking: 2017-08-01-preview
-MachineLearningExperimentation:
-    tracking: 2017-05-01-preview
 MachineLearningServices:
     tracking: "2023-04-01"
     additions:
@@ -1627,6 +1622,8 @@ StorageActions:
     tracking: "2023-01-01"
 StorageCache:
     tracking: "2023-05-01"
+    additions:
+        importJob: "2024-03-01"
 StorageMover:
     tracking: "2023-03-01"
 StoragePool:
