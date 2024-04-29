@@ -7,14 +7,8 @@ on:
 
 jobs:
   version:
-    runs-on: ubuntu-latest
-    steps:
-      - id: version
-        name: Calculate build version
-        # Remove "v" if present
-        run: echo "version=${GITHUB_REF_NAME/v/}" >> "$GITHUB_OUTPUT"
-    outputs:
-      version: ${{ steps.version.outputs.version }}
+    uses: ./.github/workflows/version.yml
+    secrets: inherit
 
   build_test:
     uses: ./.github/workflows/build-test.yml

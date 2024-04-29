@@ -21,7 +21,7 @@ on:
 
 jobs:
   version:
-    uses: ./.github/workflows/dev-version.yml
+    uses: ./.github/workflows/version.yml
     secrets: inherit
 
   build_test:
