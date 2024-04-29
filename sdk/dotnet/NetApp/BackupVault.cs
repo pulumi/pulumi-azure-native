@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetApp
     /// Backup Vault information
     /// Azure REST API version: 2022-11-01-preview.
     /// 
-    /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview.
+    /// Other available API versions: 2023-05-01-preview, 2023-07-01-preview, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:BackupVault")]
     public partial class BackupVault : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:BackupVault" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:BackupVault" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -158,38 +158,6 @@ export const LogCollectionLevel = {
  */
 export type LogCollectionLevel = (typeof LogCollectionLevel)[keyof typeof LogCollectionLevel];
 
-export const ModelNames = {
-    /**
-     * Data Box.
-     */
-    DataBox: "DataBox",
-    /**
-     * Data Box Disk.
-     */
-    DataBoxDisk: "DataBoxDisk",
-    /**
-     * Data Box Heavy.
-     */
-    DataBoxHeavy: "DataBoxHeavy",
-    /**
-     * Data Box Customer Disk
-     */
-    DataBoxCustomerDisk: "DataBoxCustomerDisk",
-    /**
-     * Data Box V2 100TB.
-     */
-    DataBoxV2x100: "DataBoxV2x100",
-    /**
-     * Data Box V2 500TB.
-     */
-    DataBoxV2x500: "DataBoxV2x500",
-} as const;
-
-/**
- * The display name of the sku.
- */
-export type ModelNames = (typeof ModelNames)[keyof typeof ModelNames];
-
 export const NotificationStageName = {
     /**
      * Notification at device prepared stage.

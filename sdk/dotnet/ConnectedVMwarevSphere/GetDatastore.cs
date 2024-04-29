@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Implements datastore GET method.
         /// Azure REST API version: 2022-07-15-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:connectedvmwarevsphere:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Implements datastore GET method.
         /// Azure REST API version: 2022-07-15-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:connectedvmwarevsphere:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());

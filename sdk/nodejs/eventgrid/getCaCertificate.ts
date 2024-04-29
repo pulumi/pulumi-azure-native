@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of a CA certificate.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getCaCertificate(args: GetCaCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCaCertificateResult> {
 
@@ -83,7 +83,7 @@ export interface GetCaCertificateResult {
  * Get properties of a CA certificate.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCaCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCaCertificate(a, opts))

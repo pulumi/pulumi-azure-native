@@ -7,8 +7,12 @@ from enum import Enum
 __all__ = [
     'ActivityOnInactiveMarkAs',
     'ActivityState',
+    'AmazonRdsForSqlAuthenticationType',
     'AzureFunctionActivityMethod',
     'AzureSearchIndexWriteBehaviorType',
+    'AzureSqlDWAuthenticationType',
+    'AzureSqlDatabaseAuthenticationType',
+    'AzureSqlMIAuthenticationType',
     'AzureStorageAuthenticationType',
     'BigDataPoolReferenceType',
     'BlobEventTypes',
@@ -75,6 +79,7 @@ __all__ = [
     'SparkServerType',
     'SparkThriftTransportProtocol',
     'SqlAlwaysEncryptedAkvAuthType',
+    'SqlServerAuthenticationType',
     'SsisLogLocationType',
     'SsisPackageLocationType',
     'SybaseAuthenticationType',
@@ -108,6 +113,14 @@ class ActivityState(str, Enum):
     INACTIVE = "Inactive"
 
 
+class AmazonRdsForSqlAuthenticationType(str, Enum):
+    """
+    The type used for authentication. Type: string.
+    """
+    SQL = "SQL"
+    WINDOWS = "Windows"
+
+
 class AzureFunctionActivityMethod(str, Enum):
     """
     Rest API method for target endpoint.
@@ -127,6 +140,36 @@ class AzureSearchIndexWriteBehaviorType(str, Enum):
     """
     MERGE = "Merge"
     UPLOAD = "Upload"
+
+
+class AzureSqlDWAuthenticationType(str, Enum):
+    """
+    The type used for authentication. Type: string.
+    """
+    SQL = "SQL"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+
+
+class AzureSqlDatabaseAuthenticationType(str, Enum):
+    """
+    The type used for authentication. Type: string.
+    """
+    SQL = "SQL"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+
+
+class AzureSqlMIAuthenticationType(str, Enum):
+    """
+    The type used for authentication. Type: string.
+    """
+    SQL = "SQL"
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
 class AzureStorageAuthenticationType(str, Enum):
@@ -718,6 +761,14 @@ class SqlAlwaysEncryptedAkvAuthType(str, Enum):
     SERVICE_PRINCIPAL = "ServicePrincipal"
     MANAGED_IDENTITY = "ManagedIdentity"
     USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+
+
+class SqlServerAuthenticationType(str, Enum):
+    """
+    The type used for authentication. Type: string.
+    """
+    SQL = "SQL"
+    WINDOWS = "Windows"
 
 
 class SsisLogLocationType(str, Enum):

@@ -256,6 +256,8 @@ def get_action_group(action_group_name: Optional[str] = None,
     Get an action group.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2023-09-01-preview.
+
 
     :param str action_group_name: The name of the action group.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -294,6 +296,8 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
     """
     Get an action group.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2023-09-01-preview.
 
 
     :param str action_group_name: The name of the action group.

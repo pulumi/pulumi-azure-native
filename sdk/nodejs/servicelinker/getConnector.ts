@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns Connector resource for a given name.
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2024-04-01.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
 
@@ -104,7 +104,7 @@ export interface GetConnectorResult {
  * Returns Connector resource for a given name.
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2024-04-01.
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
     return pulumi.output(args).apply((a: any) => getConnector(a, opts))

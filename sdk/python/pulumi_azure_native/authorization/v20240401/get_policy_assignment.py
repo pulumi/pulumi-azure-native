@@ -22,7 +22,10 @@ class GetPolicyAssignmentResult:
     """
     The policy assignment.
     """
-    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, is_system_policy=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, overrides=None, parameters=None, policy_definition_id=None, resource_selectors=None, scope=None, system_data=None, type=None):
+    def __init__(__self__, assignment_type=None, description=None, display_name=None, enforcement_mode=None, id=None, identity=None, location=None, metadata=None, name=None, non_compliance_messages=None, not_scopes=None, overrides=None, parameters=None, policy_definition_id=None, resource_selectors=None, scope=None, system_data=None, type=None):
+        if assignment_type and not isinstance(assignment_type, str):
+            raise TypeError("Expected argument 'assignment_type' to be a str")
+        pulumi.set(__self__, "assignment_type", assignment_type)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -38,9 +41,6 @@ class GetPolicyAssignmentResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
-        if is_system_policy and not isinstance(is_system_policy, bool):
-            raise TypeError("Expected argument 'is_system_policy' to be a bool")
-        pulumi.set(__self__, "is_system_policy", is_system_policy)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -77,6 +77,14 @@ class GetPolicyAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> Optional[str]:
+        """
+        The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        """
+        return pulumi.get(self, "assignment_type")
 
     @property
     @pulumi.getter
@@ -117,14 +125,6 @@ class GetPolicyAssignmentResult:
         The managed identity associated with the policy assignment.
         """
         return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter(name="isSystemPolicy")
-    def is_system_policy(self) -> Optional[bool]:
-        """
-        A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-        """
-        return pulumi.get(self, "is_system_policy")
 
     @property
     @pulumi.getter
@@ -229,12 +229,12 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
         if False:
             yield self
         return GetPolicyAssignmentResult(
+            assignment_type=self.assignment_type,
             description=self.description,
             display_name=self.display_name,
             enforcement_mode=self.enforcement_mode,
             id=self.id,
             identity=self.identity,
-            is_system_policy=self.is_system_policy,
             location=self.location,
             metadata=self.metadata,
             name=self.name,
@@ -266,12 +266,12 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20240401:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult).value
 
     return AwaitableGetPolicyAssignmentResult(
+        assignment_type=pulumi.get(__ret__, 'assignment_type'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         enforcement_mode=pulumi.get(__ret__, 'enforcement_mode'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
-        is_system_policy=pulumi.get(__ret__, 'is_system_policy'),
         location=pulumi.get(__ret__, 'location'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),

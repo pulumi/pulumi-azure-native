@@ -302,7 +302,7 @@ class View(pulumi.CustomResource):
         States and configurations of Cost Analysis.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01.
 
-        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,7 +333,7 @@ class View(pulumi.CustomResource):
         States and configurations of Cost Analysis.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01.
 
-        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.
@@ -398,7 +398,7 @@ class View(pulumi.CustomResource):
             __props__.__dict__["created_on"] = None
             __props__.__dict__["currency"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:View"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:View")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230701preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:View"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:View")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(
             'azure-native:costmanagement:View',

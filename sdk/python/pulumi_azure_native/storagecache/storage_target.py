@@ -199,7 +199,7 @@ class StorageTarget(pulumi.CustomResource):
         Type of the Storage Target.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2019-11-01, 2021-03-01, 2023-11-01-preview.
+        Other available API versions: 2019-11-01, 2021-03-01, 2023-11-01-preview, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,7 +224,7 @@ class StorageTarget(pulumi.CustomResource):
         Type of the Storage Target.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2019-11-01, 2021-03-01, 2023-11-01-preview.
+        Other available API versions: 2019-11-01, 2021-03-01, 2023-11-01-preview, 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param StorageTargetArgs args: The arguments to use to populate this resource's properties.
@@ -282,7 +282,7 @@ class StorageTarget(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20190801preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20191101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20200301:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20201001:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210301:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210901:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20231101preview:StorageTarget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20190801preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20191101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20200301:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20201001:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210301:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20210901:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20220501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230101:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20230501:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20231101preview:StorageTarget"), pulumi.Alias(type_="azure-native:storagecache/v20240301:StorageTarget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StorageTarget, __self__).__init__(
             'azure-native:storagecache:StorageTarget',

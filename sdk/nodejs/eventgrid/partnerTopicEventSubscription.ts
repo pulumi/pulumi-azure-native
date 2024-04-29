@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Event Subscription
  * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-04-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export class PartnerTopicEventSubscription extends pulumi.CustomResource {
     /**
@@ -152,7 +152,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20220615:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:PartnerTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20220615:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20240601preview:PartnerTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

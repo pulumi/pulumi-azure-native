@@ -3264,15 +3264,6 @@
   "BillingBenefits": {
     "": []
   },
-  "Blockchain": {
-    "2018-06-01-preview": [
-      "BlockchainMember",
-      "TransactionNode",
-      "listBlockchainMemberApiKeys",
-      "listLocationConsortiums",
-      "listTransactionNodeApiKeys"
-    ]
-  },
   "Blueprint": {
     "2017-11-11-preview": [
       "Artifact",
@@ -4967,6 +4958,18 @@
       "VirtualMachineInstance",
       "VirtualMachineTemplate",
       "VirtualNetwork"
+    ],
+    "2023-12-01": [
+      "Cluster",
+      "Datastore",
+      "Host",
+      "InventoryItem",
+      "ResourcePool",
+      "VCenter",
+      "VMInstanceGuestAgent",
+      "VirtualMachineInstance",
+      "VirtualMachineTemplate",
+      "VirtualNetwork"
     ]
   },
   "Consumption": {
@@ -6117,6 +6120,13 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2024-04-01": [
+      "Fleet",
+      "FleetMember",
+      "FleetUpdateStrategy",
+      "UpdateRun",
+      "listFleetCredentials"
     ]
   },
   "ContainerStorage": {
@@ -6220,6 +6230,13 @@
     ],
     "2023-04-01-preview": [
       "Budget",
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
+      "View",
+      "ViewByScope"
+    ],
+    "2023-07-01-preview": [
       "Export",
       "ScheduledAction",
       "ScheduledActionByScope",
@@ -7851,6 +7868,9 @@
       "Pool"
     ],
     "2024-03-26-preview": [
+      "Pool"
+    ],
+    "2024-04-04-preview": [
       "Pool"
     ]
   },
@@ -9877,6 +9897,53 @@
       "listNamespaceTopicSharedAccessKeys",
       "listPartnerNamespaceSharedAccessKeys",
       "listTopicSharedAccessKeys"
+    ],
+    "2024-06-01-preview": [
+      "CaCertificate",
+      "Channel",
+      "Client",
+      "ClientGroup",
+      "Domain",
+      "DomainEventSubscription",
+      "DomainTopic",
+      "DomainTopicEventSubscription",
+      "EventSubscription",
+      "Namespace",
+      "NamespaceTopic",
+      "NamespaceTopicEventSubscription",
+      "PartnerConfiguration",
+      "PartnerDestination",
+      "PartnerNamespace",
+      "PartnerRegistration",
+      "PartnerTopic",
+      "PartnerTopicEventSubscription",
+      "PermissionBinding",
+      "PrivateEndpointConnection",
+      "SystemTopic",
+      "SystemTopicEventSubscription",
+      "Topic",
+      "TopicEventSubscription",
+      "TopicSpace",
+      "getChannelFullUrl",
+      "getDomainEventSubscriptionDeliveryAttributes",
+      "getDomainEventSubscriptionFullUrl",
+      "getDomainTopicEventSubscriptionDeliveryAttributes",
+      "getDomainTopicEventSubscriptionFullUrl",
+      "getEventSubscriptionDeliveryAttributes",
+      "getEventSubscriptionFullUrl",
+      "getNamespaceTopicEventSubscriptionDeliveryAttributes",
+      "getNamespaceTopicEventSubscriptionFullUrl",
+      "getPartnerTopicEventSubscriptionDeliveryAttributes",
+      "getPartnerTopicEventSubscriptionFullUrl",
+      "getSystemTopicEventSubscriptionDeliveryAttributes",
+      "getSystemTopicEventSubscriptionFullUrl",
+      "getTopicEventSubscriptionDeliveryAttributes",
+      "getTopicEventSubscriptionFullUrl",
+      "listDomainSharedAccessKeys",
+      "listNamespaceSharedAccessKeys",
+      "listNamespaceTopicSharedAccessKeys",
+      "listPartnerNamespaceSharedAccessKeys",
+      "listTopicSharedAccessKeys"
     ]
   },
   "EventHub": {
@@ -10851,6 +10918,9 @@
     "2023-06-01": [
       "Workbook"
     ],
+    "2023-09-01-preview": [
+      "ActionGroup"
+    ],
     "2023-12-01": [
       "ScheduledQueryRule"
     ]
@@ -11545,23 +11615,6 @@
     "2019-10-01": [
       "Workspace",
       "listWorkspaceKeys"
-    ]
-  },
-  "MachineLearningCompute": {
-    "2017-06-01-preview": [
-      "OperationalizationCluster",
-      "listOperationalizationClusterKeys"
-    ],
-    "2017-08-01-preview": [
-      "OperationalizationCluster",
-      "listOperationalizationClusterKeys"
-    ]
-  },
-  "MachineLearningExperimentation": {
-    "2017-05-01-preview": [
-      "Account",
-      "Project",
-      "Workspace"
     ]
   },
   "MachineLearningServices": {
@@ -12364,6 +12417,57 @@
       "listEndpointKeys",
       "listOnlineEndpointKeys",
       "listServerlessEndpointKeys",
+      "listWorkspaceConnectionSecrets",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
+    ],
+    "2024-04-01": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "FeaturesetContainerEntity",
+      "FeaturesetVersion",
+      "FeaturestoreEntityContainerEntity",
+      "FeaturestoreEntityVersion",
+      "Job",
+      "ManagedNetworkSettingsRule",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "Registry",
+      "RegistryCodeContainer",
+      "RegistryCodeVersion",
+      "RegistryComponentContainer",
+      "RegistryComponentVersion",
+      "RegistryDataContainer",
+      "RegistryDataVersion",
+      "RegistryEnvironmentContainer",
+      "RegistryEnvironmentVersion",
+      "RegistryModelContainer",
+      "RegistryModelVersion",
+      "Schedule",
+      "Workspace",
+      "WorkspaceConnection",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listOnlineEndpointKeys",
       "listWorkspaceConnectionSecrets",
       "listWorkspaceKeys",
       "listWorkspaceNotebookAccessToken",
@@ -13510,6 +13614,22 @@
       "listVolumeReplications"
     ],
     "2023-07-01-preview": [
+      "Account",
+      "Backup",
+      "BackupPolicy",
+      "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2023-11-01": [
       "Account",
       "Backup",
       "BackupPolicy",
@@ -20117,6 +20237,13 @@
       "Linker",
       "LinkerDryrun",
       "listLinkerConfigurations"
+    ],
+    "2024-04-01": [
+      "Connector",
+      "ConnectorDryrun",
+      "Linker",
+      "LinkerDryrun",
+      "listLinkerConfigurations"
     ]
   },
   "ServiceNetworking": {
@@ -21769,6 +21896,13 @@
       "StorageTarget",
       "amlFilesystem",
       "getRequiredAmlFSSubnetsSize"
+    ],
+    "2024-03-01": [
+      "Cache",
+      "StorageTarget",
+      "amlFilesystem",
+      "getRequiredAmlFSSubnetsSize",
+      "importJob"
     ]
   },
   "StorageMover": {

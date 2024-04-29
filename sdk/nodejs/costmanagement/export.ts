@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An export resource.
  * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
  *
- * Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+ * Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
  */
 export class Export extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-native:costmanagement/v20201201preview:Export" }, { type: "azure-native:costmanagement/v20210101:Export" }, { type: "azure-native:costmanagement/v20211001:Export" }, { type: "azure-native:costmanagement/v20221001:Export" }, { type: "azure-native:costmanagement/v20230301:Export" }, { type: "azure-native:costmanagement/v20230401preview:Export" }, { type: "azure-native:costmanagement/v20230801:Export" }, { type: "azure-native:costmanagement/v20230901:Export" }, { type: "azure-native:costmanagement/v20231101:Export" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-native:costmanagement/v20201201preview:Export" }, { type: "azure-native:costmanagement/v20210101:Export" }, { type: "azure-native:costmanagement/v20211001:Export" }, { type: "azure-native:costmanagement/v20221001:Export" }, { type: "azure-native:costmanagement/v20230301:Export" }, { type: "azure-native:costmanagement/v20230401preview:Export" }, { type: "azure-native:costmanagement/v20230701preview:Export" }, { type: "azure-native:costmanagement/v20230801:Export" }, { type: "azure-native:costmanagement/v20230901:Export" }, { type: "azure-native:costmanagement/v20231101:Export" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Export.__pulumiType, name, resourceInputs, opts);
     }

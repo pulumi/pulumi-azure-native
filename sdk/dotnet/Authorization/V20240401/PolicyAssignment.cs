@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Authorization.V20240401
     public partial class PolicyAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        /// </summary>
+        [Output("assignmentType")]
+        public Output<string?> AssignmentType { get; private set; } = null!;
+
+        /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>
         [Output("description")]
@@ -38,12 +44,6 @@ namespace Pulumi.AzureNative.Authorization.V20240401
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
-        /// A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-        /// </summary>
-        [Output("isSystemPolicy")]
-        public Output<bool?> IsSystemPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.
@@ -181,6 +181,12 @@ namespace Pulumi.AzureNative.Authorization.V20240401
     public sealed class PolicyAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        /// </summary>
+        [Input("assignmentType")]
+        public InputUnion<string, Pulumi.AzureNative.Authorization.V20240401.AssignmentType>? AssignmentType { get; set; }
+
+        /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>
         [Input("description")]
@@ -203,12 +209,6 @@ namespace Pulumi.AzureNative.Authorization.V20240401
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
-
-        /// <summary>
-        /// A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-        /// </summary>
-        [Input("isSystemPolicy")]
-        public Input<bool>? IsSystemPolicy { get; set; }
 
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.

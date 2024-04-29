@@ -38,6 +38,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+     */
+    public readonly assignmentType!: pulumi.Output<string | undefined>;
+    /**
      * This message will be part of response in case of policy violation.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -53,10 +57,6 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * The managed identity associated with the policy assignment.
      */
     public readonly identity!: pulumi.Output<outputs.authorization.v20240401.IdentityResponse | undefined>;
-    /**
-     * A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-     */
-    public readonly isSystemPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
@@ -120,11 +120,11 @@ export class PolicyAssignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            resourceInputs["assignmentType"] = args ? args.assignmentType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["enforcementMode"] = (args ? args.enforcementMode : undefined) ?? "Default";
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isSystemPolicy"] = args ? args.isSystemPolicy : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
@@ -139,11 +139,11 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["assignmentType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["enforcementMode"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["isSystemPolicy"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -169,6 +169,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
  */
 export interface PolicyAssignmentArgs {
     /**
+     * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+     */
+    assignmentType?: pulumi.Input<string | enums.authorization.v20240401.AssignmentType>;
+    /**
      * This message will be part of response in case of policy violation.
      */
     description?: pulumi.Input<string>;
@@ -184,10 +188,6 @@ export interface PolicyAssignmentArgs {
      * The managed identity associated with the policy assignment.
      */
     identity?: pulumi.Input<inputs.authorization.v20240401.IdentityArgs>;
-    /**
-     * A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-     */
-    isSystemPolicy?: pulumi.Input<boolean>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */

@@ -115,7 +115,7 @@ class ConnectorDryrun(pulumi.CustomResource):
         a dryrun job resource
         Azure REST API version: 2022-11-01-preview.
 
-        Other available API versions: 2023-04-01-preview.
+        Other available API versions: 2023-04-01-preview, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class ConnectorDryrun(pulumi.CustomResource):
         a dryrun job resource
         Azure REST API version: 2022-11-01-preview.
 
-        Other available API versions: 2023-04-01-preview.
+        Other available API versions: 2023-04-01-preview, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param ConnectorDryrunArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +181,7 @@ class ConnectorDryrun(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicelinker/v20221101preview:ConnectorDryrun"), pulumi.Alias(type_="azure-native:servicelinker/v20230401preview:ConnectorDryrun")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicelinker/v20221101preview:ConnectorDryrun"), pulumi.Alias(type_="azure-native:servicelinker/v20230401preview:ConnectorDryrun"), pulumi.Alias(type_="azure-native:servicelinker/v20240401:ConnectorDryrun")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectorDryrun, __self__).__init__(
             'azure-native:servicelinker:ConnectorDryrun',

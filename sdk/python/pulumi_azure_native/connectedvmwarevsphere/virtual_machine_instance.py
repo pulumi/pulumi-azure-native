@@ -184,7 +184,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
         Define the virtualMachineInstance.
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2023-10-01.
+        Other available API versions: 2023-10-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,7 +208,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
         Define the virtualMachineInstance.
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2023-10-01.
+        Other available API versions: 2023-10-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -261,7 +261,7 @@ class VirtualMachineInstance(pulumi.CustomResource):
             __props__.__dict__["statuses"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:VirtualMachineInstance"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:VirtualMachineInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:VirtualMachineInstance"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:VirtualMachineInstance"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231201:VirtualMachineInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineInstance, __self__).__init__(
             'azure-native:connectedvmwarevsphere:VirtualMachineInstance',

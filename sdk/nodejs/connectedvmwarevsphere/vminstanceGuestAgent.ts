@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Defines the GuestAgent.
  * Azure REST API version: 2023-03-01-preview.
  *
- * Other available API versions: 2023-10-01.
+ * Other available API versions: 2023-10-01, 2023-12-01.
  */
 export class VMInstanceGuestAgent extends pulumi.CustomResource {
     /**
@@ -131,7 +131,7 @@ export class VMInstanceGuestAgent extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20230301preview:VMInstanceGuestAgent" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VMInstanceGuestAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20230301preview:VMInstanceGuestAgent" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VMInstanceGuestAgent" }, { type: "azure-native:connectedvmwarevsphere/v20231201:VMInstanceGuestAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VMInstanceGuestAgent.__pulumiType, name, resourceInputs, opts);
     }

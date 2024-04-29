@@ -73,6 +73,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230801Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:RegistryModelContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:RegistryModelContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:RegistryModelContainer" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:RegistryModelContainer" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:RegistryModelContainer" },
                 },
             };

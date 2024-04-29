@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Define the virtualNetwork.
  * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-10-01.
+ * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -150,7 +150,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["vCenterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere/v20231201:VirtualNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }

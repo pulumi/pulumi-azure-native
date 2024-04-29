@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:FeaturesetContainerEntity" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:FeaturesetContainerEntity" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:FeaturesetContainerEntity" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:FeaturesetContainerEntity" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:FeaturesetContainerEntity" },
                 },
             };

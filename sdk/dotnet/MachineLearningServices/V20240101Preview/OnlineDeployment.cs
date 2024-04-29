@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:OnlineDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:OnlineDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:OnlineDeployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:OnlineDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:OnlineDeployment" },
                 },
             };

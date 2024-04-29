@@ -71,6 +71,37 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
+    /// The type used for authentication. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct AmazonRdsForSqlAuthenticationType : IEquatable<AmazonRdsForSqlAuthenticationType>
+    {
+        private readonly string _value;
+
+        private AmazonRdsForSqlAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AmazonRdsForSqlAuthenticationType SQL { get; } = new AmazonRdsForSqlAuthenticationType("SQL");
+        public static AmazonRdsForSqlAuthenticationType Windows { get; } = new AmazonRdsForSqlAuthenticationType("Windows");
+
+        public static bool operator ==(AmazonRdsForSqlAuthenticationType left, AmazonRdsForSqlAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AmazonRdsForSqlAuthenticationType left, AmazonRdsForSqlAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AmazonRdsForSqlAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AmazonRdsForSqlAuthenticationType other && Equals(other);
+        public bool Equals(AmazonRdsForSqlAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Rest API method for target endpoint.
     /// </summary>
     [EnumType]
@@ -130,6 +161,105 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AzureSearchIndexWriteBehaviorType other && Equals(other);
         public bool Equals(AzureSearchIndexWriteBehaviorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type used for authentication. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureSqlDWAuthenticationType : IEquatable<AzureSqlDWAuthenticationType>
+    {
+        private readonly string _value;
+
+        private AzureSqlDWAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureSqlDWAuthenticationType SQL { get; } = new AzureSqlDWAuthenticationType("SQL");
+        public static AzureSqlDWAuthenticationType ServicePrincipal { get; } = new AzureSqlDWAuthenticationType("ServicePrincipal");
+        public static AzureSqlDWAuthenticationType SystemAssignedManagedIdentity { get; } = new AzureSqlDWAuthenticationType("SystemAssignedManagedIdentity");
+        public static AzureSqlDWAuthenticationType UserAssignedManagedIdentity { get; } = new AzureSqlDWAuthenticationType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(AzureSqlDWAuthenticationType left, AzureSqlDWAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AzureSqlDWAuthenticationType left, AzureSqlDWAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureSqlDWAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureSqlDWAuthenticationType other && Equals(other);
+        public bool Equals(AzureSqlDWAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type used for authentication. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureSqlDatabaseAuthenticationType : IEquatable<AzureSqlDatabaseAuthenticationType>
+    {
+        private readonly string _value;
+
+        private AzureSqlDatabaseAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureSqlDatabaseAuthenticationType SQL { get; } = new AzureSqlDatabaseAuthenticationType("SQL");
+        public static AzureSqlDatabaseAuthenticationType ServicePrincipal { get; } = new AzureSqlDatabaseAuthenticationType("ServicePrincipal");
+        public static AzureSqlDatabaseAuthenticationType SystemAssignedManagedIdentity { get; } = new AzureSqlDatabaseAuthenticationType("SystemAssignedManagedIdentity");
+        public static AzureSqlDatabaseAuthenticationType UserAssignedManagedIdentity { get; } = new AzureSqlDatabaseAuthenticationType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(AzureSqlDatabaseAuthenticationType left, AzureSqlDatabaseAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AzureSqlDatabaseAuthenticationType left, AzureSqlDatabaseAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureSqlDatabaseAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureSqlDatabaseAuthenticationType other && Equals(other);
+        public bool Equals(AzureSqlDatabaseAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type used for authentication. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureSqlMIAuthenticationType : IEquatable<AzureSqlMIAuthenticationType>
+    {
+        private readonly string _value;
+
+        private AzureSqlMIAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureSqlMIAuthenticationType SQL { get; } = new AzureSqlMIAuthenticationType("SQL");
+        public static AzureSqlMIAuthenticationType ServicePrincipal { get; } = new AzureSqlMIAuthenticationType("ServicePrincipal");
+        public static AzureSqlMIAuthenticationType SystemAssignedManagedIdentity { get; } = new AzureSqlMIAuthenticationType("SystemAssignedManagedIdentity");
+        public static AzureSqlMIAuthenticationType UserAssignedManagedIdentity { get; } = new AzureSqlMIAuthenticationType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(AzureSqlMIAuthenticationType left, AzureSqlMIAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(AzureSqlMIAuthenticationType left, AzureSqlMIAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureSqlMIAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureSqlMIAuthenticationType other && Equals(other);
+        public bool Equals(AzureSqlMIAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2239,6 +2369,37 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SqlAlwaysEncryptedAkvAuthType other && Equals(other);
         public bool Equals(SqlAlwaysEncryptedAkvAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type used for authentication. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct SqlServerAuthenticationType : IEquatable<SqlServerAuthenticationType>
+    {
+        private readonly string _value;
+
+        private SqlServerAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SqlServerAuthenticationType SQL { get; } = new SqlServerAuthenticationType("SQL");
+        public static SqlServerAuthenticationType Windows { get; } = new SqlServerAuthenticationType("Windows");
+
+        public static bool operator ==(SqlServerAuthenticationType left, SqlServerAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(SqlServerAuthenticationType left, SqlServerAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(SqlServerAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SqlServerAuthenticationType other && Equals(other);
+        public bool Equals(SqlServerAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * a dryrun job resource
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2024-04-01.
  */
 export class LinkerDryrun extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class LinkerDryrun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20221101preview:LinkerDryrun" }, { type: "azure-native:servicelinker/v20230401preview:LinkerDryrun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20221101preview:LinkerDryrun" }, { type: "azure-native:servicelinker/v20230401preview:LinkerDryrun" }, { type: "azure-native:servicelinker/v20240401:LinkerDryrun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkerDryrun.__pulumiType, name, resourceInputs, opts);
     }

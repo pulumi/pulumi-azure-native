@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:DataVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:DataVersion" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:DataVersion" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:DataVersion" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

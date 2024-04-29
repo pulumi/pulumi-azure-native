@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Implements cluster GET method.
         /// Azure REST API version: 2022-07-15-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:connectedvmwarevsphere:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Implements cluster GET method.
         /// Azure REST API version: 2022-07-15-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:connectedvmwarevsphere:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

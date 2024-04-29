@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns Linker resource for a given name.
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2021-11-01-preview, 2023-04-01-preview.
+ * Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01.
  */
 export function getLinker(args: GetLinkerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkerResult> {
 
@@ -94,7 +94,7 @@ export interface GetLinkerResult {
  * Returns Linker resource for a given name.
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2021-11-01-preview, 2023-04-01-preview.
+ * Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01.
  */
 export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
     return pulumi.output(args).apply((a: any) => getLinker(a, opts))

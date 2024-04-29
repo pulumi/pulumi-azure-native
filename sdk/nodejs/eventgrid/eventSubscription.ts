@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Event Subscription
  * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
  *
- * Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview.
+ * Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**
@@ -148,7 +148,7 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-native:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180101:EventSubscription" }, { type: "azure-native:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190101:EventSubscription" }, { type: "azure-native:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190601:EventSubscription" }, { type: "azure-native:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200601:EventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211201:EventSubscription" }, { type: "azure-native:eventgrid/v20220615:EventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:EventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-native:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180101:EventSubscription" }, { type: "azure-native:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190101:EventSubscription" }, { type: "azure-native:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190601:EventSubscription" }, { type: "azure-native:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200601:EventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211201:EventSubscription" }, { type: "azure-native:eventgrid/v20220615:EventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:EventSubscription" }, { type: "azure-native:eventgrid/v20240601preview:EventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }

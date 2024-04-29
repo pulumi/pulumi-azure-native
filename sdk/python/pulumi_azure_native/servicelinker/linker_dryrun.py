@@ -82,7 +82,7 @@ class LinkerDryrun(pulumi.CustomResource):
         a dryrun job resource
         Azure REST API version: 2022-11-01-preview.
 
-        Other available API versions: 2023-04-01-preview.
+        Other available API versions: 2023-04-01-preview, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,7 +100,7 @@ class LinkerDryrun(pulumi.CustomResource):
         a dryrun job resource
         Azure REST API version: 2022-11-01-preview.
 
-        Other available API versions: 2023-04-01-preview.
+        Other available API versions: 2023-04-01-preview, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param LinkerDryrunArgs args: The arguments to use to populate this resource's properties.
@@ -140,7 +140,7 @@ class LinkerDryrun(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicelinker/v20221101preview:LinkerDryrun"), pulumi.Alias(type_="azure-native:servicelinker/v20230401preview:LinkerDryrun")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicelinker/v20221101preview:LinkerDryrun"), pulumi.Alias(type_="azure-native:servicelinker/v20230401preview:LinkerDryrun"), pulumi.Alias(type_="azure-native:servicelinker/v20240401:LinkerDryrun")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkerDryrun, __self__).__init__(
             'azure-native:servicelinker:LinkerDryrun',

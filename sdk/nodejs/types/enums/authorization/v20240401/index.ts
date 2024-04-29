@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AssignmentType = {
+    NotSpecified: "NotSpecified",
+    System: "System",
+    SystemHidden: "SystemHidden",
+    Custom: "Custom",
+} as const;
+
+/**
+ * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+ */
+export type AssignmentType = (typeof AssignmentType)[keyof typeof AssignmentType];
+
 export const EnforcementMode = {
     /**
      * The policy effect is enforced during resource creation or update.

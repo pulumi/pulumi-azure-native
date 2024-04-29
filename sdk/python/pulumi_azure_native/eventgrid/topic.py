@@ -226,7 +226,7 @@ class Topic(pulumi.CustomResource):
         EventGrid Topic
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview.
+        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,7 +253,7 @@ class Topic(pulumi.CustomResource):
         EventGrid Topic
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview.
+        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.
@@ -316,7 +316,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20170615preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20170915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180501preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:Topic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20170615preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20170915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180501preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(
             'azure-native:eventgrid:Topic',

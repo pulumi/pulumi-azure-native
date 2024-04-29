@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.Cache.V20230501Preview.Inputs
         public Input<string>? MaxmemoryReserved { get; set; }
 
         /// <summary>
+        /// The keyspace events which should be monitored.
+        /// </summary>
+        [Input("notifyKeyspaceEvents")]
+        public Input<string>? NotifyKeyspaceEvents { get; set; }
+
+        /// <summary>
         /// Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
         /// </summary>
         [Input("preferredDataPersistenceAuthMethod")]

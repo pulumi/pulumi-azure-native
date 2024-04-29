@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.DataBox.V20240301Preview.Inputs
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The display name of the sku.
-        /// </summary>
-        [Input("model")]
-        public InputUnion<string, Pulumi.AzureNative.DataBox.V20240301Preview.ModelNames>? Model { get; set; }
-
-        /// <summary>
         /// The sku name.
         /// </summary>
         [Input("name", required: true)]

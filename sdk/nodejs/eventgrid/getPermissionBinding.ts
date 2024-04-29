@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of a permission binding.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getPermissionBinding(args: GetPermissionBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionBindingResult> {
 
@@ -85,7 +85,7 @@ export interface GetPermissionBindingResult {
  * Get properties of a permission binding.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export function getPermissionBindingOutput(args: GetPermissionBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionBindingResult> {
     return pulumi.output(args).apply((a: any) => getPermissionBinding(a, opts))

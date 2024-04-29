@@ -5,11 +5,22 @@
 from enum import Enum
 
 __all__ = [
+    'AssignmentType',
     'EnforcementMode',
     'OverrideKind',
     'ResourceIdentityType',
     'SelectorKind',
 ]
+
+
+class AssignmentType(str, Enum):
+    """
+    The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+    """
+    NOT_SPECIFIED = "NotSpecified"
+    SYSTEM = "System"
+    SYSTEM_HIDDEN = "SystemHidden"
+    CUSTOM = "Custom"
 
 
 class EnforcementMode(str, Enum):

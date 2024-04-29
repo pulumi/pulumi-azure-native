@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AmlFilesystemIdentityType',
     'CacheIdentityType',
+    'ConflictResolutionMode',
     'MaintenanceDayOfWeekType',
     'NfsAccessRuleAccess',
     'NfsAccessRuleScope',
@@ -32,6 +33,16 @@ class CacheIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
+
+
+class ConflictResolutionMode(str, Enum):
+    """
+    How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
+    """
+    FAIL = "Fail"
+    SKIP = "Skip"
+    OVERWRITE_IF_DIRTY = "OverwriteIfDirty"
+    OVERWRITE_ALWAYS = "OverwriteAlways"
 
 
 class MaintenanceDayOfWeekType(str, Enum):

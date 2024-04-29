@@ -42,7 +42,6 @@ import * as azurestackhci from "./azurestackhci";
 import * as baremetalinfrastructure from "./baremetalinfrastructure";
 import * as batch from "./batch";
 import * as billing from "./billing";
-import * as blockchain from "./blockchain";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
 import * as cache from "./cache";
@@ -144,8 +143,6 @@ import * as logic from "./logic";
 import * as logz from "./logz";
 import * as m365securityandcompliance from "./m365securityandcompliance";
 import * as machinelearning from "./machinelearning";
-import * as machinelearningcompute from "./machinelearningcompute";
-import * as machinelearningexperimentation from "./machinelearningexperimentation";
 import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
 import * as managedidentity from "./managedidentity";
@@ -271,7 +268,6 @@ export {
     baremetalinfrastructure,
     batch,
     billing,
-    blockchain,
     blueprint,
     botservice,
     cache,
@@ -373,8 +369,6 @@ export {
     logz,
     m365securityandcompliance,
     machinelearning,
-    machinelearningcompute,
-    machinelearningexperimentation,
     machinelearningservices,
     maintenance,
     managedidentity,

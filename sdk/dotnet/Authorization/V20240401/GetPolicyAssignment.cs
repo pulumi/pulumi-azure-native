@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.Authorization.V20240401
     public sealed class GetPolicyAssignmentResult
     {
         /// <summary>
+        /// The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        /// </summary>
+        public readonly string? AssignmentType;
+        /// <summary>
         /// This message will be part of response in case of policy violation.
         /// </summary>
         public readonly string? Description;
@@ -89,10 +93,6 @@ namespace Pulumi.AzureNative.Authorization.V20240401
         /// The managed identity associated with the policy assignment.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
-        /// <summary>
-        /// A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-        /// </summary>
-        public readonly bool? IsSystemPolicy;
         /// <summary>
         /// The location of the policy assignment. Only required when utilizing managed identity.
         /// </summary>
@@ -144,6 +144,8 @@ namespace Pulumi.AzureNative.Authorization.V20240401
 
         [OutputConstructor]
         private GetPolicyAssignmentResult(
+            string? assignmentType,
+
             string? description,
 
             string? displayName,
@@ -153,8 +155,6 @@ namespace Pulumi.AzureNative.Authorization.V20240401
             string id,
 
             Outputs.IdentityResponse? identity,
-
-            bool? isSystemPolicy,
 
             string? location,
 
@@ -180,12 +180,12 @@ namespace Pulumi.AzureNative.Authorization.V20240401
 
             string type)
         {
+            AssignmentType = assignmentType;
             Description = description;
             DisplayName = displayName;
             EnforcementMode = enforcementMode;
             Id = id;
             Identity = identity;
-            IsSystemPolicy = isSystemPolicy;
             Location = location;
             Metadata = metadata;
             Name = name;

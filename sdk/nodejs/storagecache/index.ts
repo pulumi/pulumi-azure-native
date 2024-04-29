@@ -25,6 +25,11 @@ export const getCache: typeof import("./getCache").getCache = null as any;
 export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
 utilities.lazyLoad(exports, ["getCache","getCacheOutput"], () => require("./getCache"));
 
+export { GetImportJobArgs, GetImportJobResult, GetImportJobOutputArgs } from "./getImportJob";
+export const getImportJob: typeof import("./getImportJob").getImportJob = null as any;
+export const getImportJobOutput: typeof import("./getImportJob").getImportJobOutput = null as any;
+utilities.lazyLoad(exports, ["getImportJob","getImportJobOutput"], () => require("./getImportJob"));
+
 export { GetRequiredAmlFSSubnetsSizeArgs, GetRequiredAmlFSSubnetsSizeResult, GetRequiredAmlFSSubnetsSizeOutputArgs } from "./getRequiredAmlFSSubnetsSize";
 export const getRequiredAmlFSSubnetsSize: typeof import("./getRequiredAmlFSSubnetsSize").getRequiredAmlFSSubnetsSize = null as any;
 export const getRequiredAmlFSSubnetsSizeOutput: typeof import("./getRequiredAmlFSSubnetsSize").getRequiredAmlFSSubnetsSizeOutput = null as any;
@@ -34,6 +39,11 @@ export { GetStorageTargetArgs, GetStorageTargetResult, GetStorageTargetOutputArg
 export const getStorageTarget: typeof import("./getStorageTarget").getStorageTarget = null as any;
 export const getStorageTargetOutput: typeof import("./getStorageTarget").getStorageTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageTarget","getStorageTargetOutput"], () => require("./getStorageTarget"));
+
+export { ImportJobArgs } from "./importJob";
+export type ImportJob = import("./importJob").ImportJob;
+export const ImportJob: typeof import("./importJob").ImportJob = null as any;
+utilities.lazyLoad(exports, ["ImportJob"], () => require("./importJob"));
 
 export { StorageTargetArgs } from "./storageTarget";
 export type StorageTarget = import("./storageTarget").StorageTarget;
@@ -49,12 +59,14 @@ import * as v20210301 from "./v20210301";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
 import * as v20231101preview from "./v20231101preview";
+import * as v20240301 from "./v20240301";
 
 export {
     v20210301,
     v20230301preview,
     v20230501,
     v20231101preview,
+    v20240301,
 };
 
 const _module = {
@@ -65,6 +77,8 @@ const _module = {
                 return new AmlFilesystem(name, <any>undefined, { urn })
             case "azure-native:storagecache:Cache":
                 return new Cache(name, <any>undefined, { urn })
+            case "azure-native:storagecache:ImportJob":
+                return new ImportJob(name, <any>undefined, { urn })
             case "azure-native:storagecache:StorageTarget":
                 return new StorageTarget(name, <any>undefined, { urn })
             default:

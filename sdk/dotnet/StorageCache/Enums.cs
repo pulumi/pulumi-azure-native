@@ -72,6 +72,39 @@ namespace Pulumi.AzureNative.StorageCache
     }
 
     /// <summary>
+    /// How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConflictResolutionMode : IEquatable<ConflictResolutionMode>
+    {
+        private readonly string _value;
+
+        private ConflictResolutionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConflictResolutionMode Fail { get; } = new ConflictResolutionMode("Fail");
+        public static ConflictResolutionMode Skip { get; } = new ConflictResolutionMode("Skip");
+        public static ConflictResolutionMode OverwriteIfDirty { get; } = new ConflictResolutionMode("OverwriteIfDirty");
+        public static ConflictResolutionMode OverwriteAlways { get; } = new ConflictResolutionMode("OverwriteAlways");
+
+        public static bool operator ==(ConflictResolutionMode left, ConflictResolutionMode right) => left.Equals(right);
+        public static bool operator !=(ConflictResolutionMode left, ConflictResolutionMode right) => !left.Equals(right);
+
+        public static explicit operator string(ConflictResolutionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConflictResolutionMode other && Equals(other);
+        public bool Equals(ConflictResolutionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Day of the week on which the maintenance window will occur.
     /// </summary>
     [EnumType]

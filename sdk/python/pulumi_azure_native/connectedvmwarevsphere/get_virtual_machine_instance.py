@@ -231,7 +231,7 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
     Retrieves information about a virtual machine instance.
     Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2023-10-01.
+    Other available API versions: 2023-10-01, 2023-12-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
@@ -267,7 +267,7 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
     Retrieves information about a virtual machine instance.
     Azure REST API version: 2023-03-01-preview.
 
-    Other available API versions: 2023-10-01.
+    Other available API versions: 2023-10-01, 2023-12-01.
 
 
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.

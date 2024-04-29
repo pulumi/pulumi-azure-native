@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20231001:Datastore" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:Datastore" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401:Datastore" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

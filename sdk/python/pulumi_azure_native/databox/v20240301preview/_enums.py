@@ -14,7 +14,6 @@ __all__ = [
     'JobDeliveryType',
     'KekType',
     'LogCollectionLevel',
-    'ModelNames',
     'NotificationStageName',
     'SkuName',
     'StorageAccountAccessTier',
@@ -159,36 +158,6 @@ class LogCollectionLevel(str, Enum):
     VERBOSE = "Verbose"
     """
     Verbose logging (includes Errors, CRC, size information and others).
-    """
-
-
-class ModelNames(str, Enum):
-    """
-    The display name of the sku.
-    """
-    DATA_BOX = "DataBox"
-    """
-    Data Box.
-    """
-    DATA_BOX_DISK = "DataBoxDisk"
-    """
-    Data Box Disk.
-    """
-    DATA_BOX_HEAVY = "DataBoxHeavy"
-    """
-    Data Box Heavy.
-    """
-    DATA_BOX_CUSTOMER_DISK = "DataBoxCustomerDisk"
-    """
-    Data Box Customer Disk
-    """
-    DATA_BOX_V2X100 = "DataBoxV2x100"
-    """
-    Data Box V2 100TB.
-    """
-    DATA_BOX_V2X500 = "DataBoxV2x500"
-    """
-    Data Box V2 500TB.
     """
 
 

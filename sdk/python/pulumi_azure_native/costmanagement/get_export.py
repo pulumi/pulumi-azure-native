@@ -173,7 +173,7 @@ def get_export(expand: Optional[str] = None,
     The operation to get the export for the defined scope by export name.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+    Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
 
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
@@ -210,7 +210,7 @@ def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     The operation to get the export for the defined scope by export name.
     Azure REST API version: 2023-03-01.
 
-    Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+    Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
 
 
     :param str expand: May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.

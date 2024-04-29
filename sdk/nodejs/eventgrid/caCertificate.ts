@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The CA Certificate resource.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
 export class CaCertificate extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class CaCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:CaCertificate" }, { type: "azure-native:eventgrid/v20231215preview:CaCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20230601preview:CaCertificate" }, { type: "azure-native:eventgrid/v20231215preview:CaCertificate" }, { type: "azure-native:eventgrid/v20240601preview:CaCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CaCertificate.__pulumiType, name, resourceInputs, opts);
     }

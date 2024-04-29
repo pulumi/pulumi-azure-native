@@ -438,6 +438,7 @@ namespace Pulumi.AzureNative.NetApp.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230501preview:Volume" },
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20230701preview:Volume" },
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20231101:Volume" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

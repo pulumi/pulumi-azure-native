@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20230401Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker:LinkerDryrun" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20221101preview:LinkerDryrun" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20240401:LinkerDryrun" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

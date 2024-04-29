@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Implements virtual machine template GET method.
         /// Azure REST API version: 2022-07-15-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
         public static Task<GetVirtualMachineTemplateResult> InvokeAsync(GetVirtualMachineTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Implements virtual machine template GET method.
         /// Azure REST API version: 2022-07-15-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
         public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithDefaults());

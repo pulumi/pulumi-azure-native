@@ -18,11 +18,11 @@ __all__ = ['PolicyAssignmentArgs', 'PolicyAssignment']
 class PolicyAssignmentArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[str],
+                 assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 is_system_policy: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input['NonComplianceMessageArgs']]]] = None,
@@ -35,11 +35,11 @@ class PolicyAssignmentArgs:
         """
         The set of arguments for constructing a PolicyAssignment resource.
         :param pulumi.Input[str] scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        :param pulumi.Input[Union[str, 'AssignmentType']] assignment_type: The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
         :param pulumi.Input[str] display_name: The display name of the policy assignment.
         :param pulumi.Input[Union[str, 'EnforcementMode']] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         :param pulumi.Input['IdentityArgs'] identity: The managed identity associated with the policy assignment.
-        :param pulumi.Input[bool] is_system_policy: A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
         :param pulumi.Input[str] location: The location of the policy assignment. Only required when utilizing managed identity.
         :param Any metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Sequence[pulumi.Input['NonComplianceMessageArgs']]] non_compliance_messages: The messages that describe why a resource is non-compliant with the policy.
@@ -51,6 +51,8 @@ class PolicyAssignmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]] resource_selectors: The resource selector list to filter policies by resource properties.
         """
         pulumi.set(__self__, "scope", scope)
+        if assignment_type is not None:
+            pulumi.set(__self__, "assignment_type", assignment_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -61,8 +63,6 @@ class PolicyAssignmentArgs:
             pulumi.set(__self__, "enforcement_mode", enforcement_mode)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if is_system_policy is not None:
-            pulumi.set(__self__, "is_system_policy", is_system_policy)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metadata is not None:
@@ -93,6 +93,18 @@ class PolicyAssignmentArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> Optional[pulumi.Input[Union[str, 'AssignmentType']]]:
+        """
+        The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        """
+        return pulumi.get(self, "assignment_type")
+
+    @assignment_type.setter
+    def assignment_type(self, value: Optional[pulumi.Input[Union[str, 'AssignmentType']]]):
+        pulumi.set(self, "assignment_type", value)
 
     @property
     @pulumi.getter
@@ -141,18 +153,6 @@ class PolicyAssignmentArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter(name="isSystemPolicy")
-    def is_system_policy(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-        """
-        return pulumi.get(self, "is_system_policy")
-
-    @is_system_policy.setter
-    def is_system_policy(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_system_policy", value)
 
     @property
     @pulumi.getter
@@ -268,11 +268,11 @@ class PolicyAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 is_system_policy: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NonComplianceMessageArgs']]]]] = None,
@@ -289,11 +289,11 @@ class PolicyAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'AssignmentType']] assignment_type: The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
         :param pulumi.Input[str] display_name: The display name of the policy assignment.
         :param pulumi.Input[Union[str, 'EnforcementMode']] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The managed identity associated with the policy assignment.
-        :param pulumi.Input[bool] is_system_policy: A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
         :param pulumi.Input[str] location: The location of the policy assignment. Only required when utilizing managed identity.
         :param Any metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NonComplianceMessageArgs']]]] non_compliance_messages: The messages that describe why a resource is non-compliant with the policy.
@@ -329,11 +329,11 @@ class PolicyAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 is_system_policy: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  non_compliance_messages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NonComplianceMessageArgs']]]]] = None,
@@ -353,13 +353,13 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyAssignmentArgs.__new__(PolicyAssignmentArgs)
 
+            __props__.__dict__["assignment_type"] = assignment_type
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             if enforcement_mode is None:
                 enforcement_mode = 'Default'
             __props__.__dict__["enforcement_mode"] = enforcement_mode
             __props__.__dict__["identity"] = identity
-            __props__.__dict__["is_system_policy"] = is_system_policy
             __props__.__dict__["location"] = location
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["non_compliance_messages"] = non_compliance_messages
@@ -399,11 +399,11 @@ class PolicyAssignment(pulumi.CustomResource):
 
         __props__ = PolicyAssignmentArgs.__new__(PolicyAssignmentArgs)
 
+        __props__.__dict__["assignment_type"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["enforcement_mode"] = None
         __props__.__dict__["identity"] = None
-        __props__.__dict__["is_system_policy"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
@@ -417,6 +417,14 @@ class PolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PolicyAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="assignmentType")
+    def assignment_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+        """
+        return pulumi.get(self, "assignment_type")
 
     @property
     @pulumi.getter
@@ -449,14 +457,6 @@ class PolicyAssignment(pulumi.CustomResource):
         The managed identity associated with the policy assignment.
         """
         return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter(name="isSystemPolicy")
-    def is_system_policy(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-        """
-        return pulumi.get(self, "is_system_policy")
 
     @property
     @pulumi.getter

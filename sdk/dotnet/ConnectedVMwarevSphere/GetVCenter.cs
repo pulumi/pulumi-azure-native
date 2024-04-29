@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Implements vCenter GET method.
         /// Azure REST API version: 2022-07-15-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
         public static Task<GetVCenterResult> InvokeAsync(GetVCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Implements vCenter GET method.
         /// Azure REST API version: 2022-07-15-preview.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01.
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
         /// </summary>
         public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());

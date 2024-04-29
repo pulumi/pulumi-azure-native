@@ -5736,24 +5736,31 @@ class SkuResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 model: str,
                  name: str,
                  display_name: Optional[str] = None,
-                 family: Optional[str] = None,
-                 model: Optional[str] = None):
+                 family: Optional[str] = None):
         """
         The Sku.
+        :param str model: The model name.
         :param str name: The sku name.
         :param str display_name: The display name of the sku.
         :param str family: The sku family.
-        :param str model: The display name of the sku.
         """
+        pulumi.set(__self__, "model", model)
         pulumi.set(__self__, "name", name)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if family is not None:
             pulumi.set(__self__, "family", family)
-        if model is not None:
-            pulumi.set(__self__, "model", model)
+
+    @property
+    @pulumi.getter
+    def model(self) -> str:
+        """
+        The model name.
+        """
+        return pulumi.get(self, "model")
 
     @property
     @pulumi.getter
@@ -5778,14 +5785,6 @@ class SkuResponse(dict):
         The sku family.
         """
         return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter
-    def model(self) -> Optional[str]:
-        """
-        The display name of the sku.
-        """
-        return pulumi.get(self, "model")
 
 
 @pulumi.output_type

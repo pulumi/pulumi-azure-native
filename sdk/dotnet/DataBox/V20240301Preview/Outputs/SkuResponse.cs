@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.DataBox.V20240301Preview.Outputs
         /// </summary>
         public readonly string? Family;
         /// <summary>
-        /// The display name of the sku.
+        /// The model name.
         /// </summary>
-        public readonly string? Model;
+        public readonly string Model;
         /// <summary>
         /// The sku name.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DataBox.V20240301Preview.Outputs
 
             string? family,
 
-            string? model,
+            string model,
 
             string name)
         {

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Defines the vCenter.
  * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-10-01.
+ * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
  */
 export class VCenter extends pulumi.CustomResource {
     /**
@@ -165,7 +165,7 @@ export class VCenter extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20231001:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20231201:VCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VCenter.__pulumiType, name, resourceInputs, opts);
     }

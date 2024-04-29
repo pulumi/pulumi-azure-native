@@ -172,7 +172,7 @@ def get_system_topic(resource_group_name: Optional[str] = None,
     Get properties of a system topic.
     Azure REST API version: 2022-06-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -206,7 +206,7 @@ def get_system_topic_output(resource_group_name: Optional[pulumi.Input[str]] = N
     Get properties of a system topic.
     Azure REST API version: 2022-06-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

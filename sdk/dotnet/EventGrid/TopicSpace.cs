@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// The Topic space resource.
     /// Azure REST API version: 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-12-15-preview.
+    /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:TopicSpace")]
     public partial class TopicSpace : global::Pulumi.CustomResource
@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.EventGrid
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:TopicSpace" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:TopicSpace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:TopicSpace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

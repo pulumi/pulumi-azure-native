@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetApp
         /// Get details of the specified snapshot
         /// Azure REST API version: 2022-11-01.
         /// 
-        /// Other available API versions: 2017-08-15, 2019-06-01, 2019-10-01, 2019-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview.
+        /// Other available API versions: 2017-08-15, 2019-06-01, 2019-10-01, 2019-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:netapp:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetApp
         /// Get details of the specified snapshot
         /// Azure REST API version: 2022-11-01.
         /// 
-        /// Other available API versions: 2017-08-15, 2019-06-01, 2019-10-01, 2019-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview.
+        /// Other available API versions: 2017-08-15, 2019-06-01, 2019-10-01, 2019-11-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:netapp:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());

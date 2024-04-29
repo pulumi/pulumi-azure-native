@@ -183,7 +183,7 @@ class ResourcePool(pulumi.CustomResource):
         Define the resourcePool.
         Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-10-01.
+        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,7 +207,7 @@ class ResourcePool(pulumi.CustomResource):
         Define the resourcePool.
         Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-10-01.
+        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
 
         :param str resource_name: The name of the resource.
         :param ResourcePoolArgs args: The arguments to use to populate this resource's properties.
@@ -269,7 +269,7 @@ class ResourcePool(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:ResourcePool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:ResourcePool"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231201:ResourcePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourcePool, __self__).__init__(
             'azure-native:connectedvmwarevsphere:ResourcePool',

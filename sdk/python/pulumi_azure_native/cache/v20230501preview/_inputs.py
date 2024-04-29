@@ -125,6 +125,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
                  maxmemory_delta: Optional[pulumi.Input[str]] = None,
                  maxmemory_policy: Optional[pulumi.Input[str]] = None,
                  maxmemory_reserved: Optional[pulumi.Input[str]] = None,
+                 notify_keyspace_events: Optional[pulumi.Input[str]] = None,
                  preferred_data_persistence_auth_method: Optional[pulumi.Input[str]] = None,
                  rdb_backup_enabled: Optional[pulumi.Input[str]] = None,
                  rdb_backup_frequency: Optional[pulumi.Input[str]] = None,
@@ -142,6 +143,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         :param pulumi.Input[str] maxmemory_delta: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param pulumi.Input[str] maxmemory_policy: The eviction strategy used when your data won't fit within its memory limit.
         :param pulumi.Input[str] maxmemory_reserved: Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        :param pulumi.Input[str] notify_keyspace_events: The keyspace events which should be monitored.
         :param pulumi.Input[str] preferred_data_persistence_auth_method: Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
         :param pulumi.Input[str] rdb_backup_enabled: Specifies whether the rdb backup is enabled
         :param pulumi.Input[str] rdb_backup_frequency: Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
@@ -167,6 +169,8 @@ class RedisCommonPropertiesRedisConfigurationArgs:
             pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
             pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+        if notify_keyspace_events is not None:
+            pulumi.set(__self__, "notify_keyspace_events", notify_keyspace_events)
         if preferred_data_persistence_auth_method is not None:
             pulumi.set(__self__, "preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
         if rdb_backup_enabled is not None:
@@ -287,6 +291,18 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @maxmemory_reserved.setter
     def maxmemory_reserved(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maxmemory_reserved", value)
+
+    @property
+    @pulumi.getter(name="notifyKeyspaceEvents")
+    def notify_keyspace_events(self) -> Optional[pulumi.Input[str]]:
+        """
+        The keyspace events which should be monitored.
+        """
+        return pulumi.get(self, "notify_keyspace_events")
+
+    @notify_keyspace_events.setter
+    def notify_keyspace_events(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notify_keyspace_events", value)
 
     @property
     @pulumi.getter(name="preferredDataPersistenceAuthMethod")

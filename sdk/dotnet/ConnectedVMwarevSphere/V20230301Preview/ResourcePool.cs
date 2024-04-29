@@ -213,6 +213,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20230301Preview
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:ResourcePool" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:ResourcePool" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231001:ResourcePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231201:ResourcePool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

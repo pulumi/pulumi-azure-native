@@ -1960,22 +1960,18 @@ class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[str, 'SkuName']],
                  display_name: Optional[pulumi.Input[str]] = None,
-                 family: Optional[pulumi.Input[str]] = None,
-                 model: Optional[pulumi.Input[Union[str, 'ModelNames']]] = None):
+                 family: Optional[pulumi.Input[str]] = None):
         """
         The Sku.
         :param pulumi.Input[Union[str, 'SkuName']] name: The sku name.
         :param pulumi.Input[str] display_name: The display name of the sku.
         :param pulumi.Input[str] family: The sku family.
-        :param pulumi.Input[Union[str, 'ModelNames']] model: The display name of the sku.
         """
         pulumi.set(__self__, "name", name)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if family is not None:
             pulumi.set(__self__, "family", family)
-        if model is not None:
-            pulumi.set(__self__, "model", model)
 
     @property
     @pulumi.getter
@@ -2012,18 +2008,6 @@ class SkuArgs:
     @family.setter
     def family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter
-    def model(self) -> Optional[pulumi.Input[Union[str, 'ModelNames']]]:
-        """
-        The display name of the sku.
-        """
-        return pulumi.get(self, "model")
-
-    @model.setter
-    def model(self, value: Optional[pulumi.Input[Union[str, 'ModelNames']]]):
-        pulumi.set(self, "model", value)
 
 
 @pulumi.input_type

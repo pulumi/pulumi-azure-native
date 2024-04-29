@@ -1825,60 +1825,129 @@ class AmazonRdsForOracleTableDatasetArgs:
 @pulumi.input_type
 class AmazonRdsForSqlServerLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: pulumi.Input[str],
                  always_encrypted_settings: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 application_intent: Optional[Any] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AmazonRdsForSqlAuthenticationType']]] = None,
+                 command_timeout: Optional[Any] = None,
+                 connect_retry_count: Optional[Any] = None,
+                 connect_retry_interval: Optional[Any] = None,
+                 connect_timeout: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 connection_string: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encrypt: Optional[Any] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
+                 failover_partner: Optional[Any] = None,
+                 host_name_in_certificate: Optional[Any] = None,
+                 integrated_security: Optional[Any] = None,
+                 load_balance_timeout: Optional[Any] = None,
+                 max_pool_size: Optional[Any] = None,
+                 min_pool_size: Optional[Any] = None,
+                 multi_subnet_failover: Optional[Any] = None,
+                 multiple_active_result_sets: Optional[Any] = None,
+                 packet_size: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 pooling: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 trust_server_certificate: Optional[Any] = None,
                  user_name: Optional[Any] = None):
         """
         Amazon RDS for SQL Server linked service.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AmazonRdsForSqlServer'.
         :param pulumi.Input['SqlAlwaysEncryptedPropertiesArgs'] always_encrypted_settings: Sql always encrypted properties.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any application_intent: The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'AmazonRdsForSqlAuthenticationType']] authentication_type: The type used for authentication. Type: string.
+        :param Any command_timeout: The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_count: The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_interval: The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        :param Any connect_timeout: The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any database: The name of the database, used by recommended version. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypt: Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any failover_partner: The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any host_name_in_certificate: The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any integrated_security: Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any load_balance_timeout: The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any max_pool_size: The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any min_pool_size: The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any multi_subnet_failover: If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any multiple_active_result_sets: When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any packet_size: The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The on-premises Windows authentication password.
+        :param Any pooling: Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any server: The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
         :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AmazonRdsForSqlServer')
         if always_encrypted_settings is not None:
             pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if application_intent is not None:
+            pulumi.set(__self__, "application_intent", application_intent)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if command_timeout is not None:
+            pulumi.set(__self__, "command_timeout", command_timeout)
+        if connect_retry_count is not None:
+            pulumi.set(__self__, "connect_retry_count", connect_retry_count)
+        if connect_retry_interval is not None:
+            pulumi.set(__self__, "connect_retry_interval", connect_retry_interval)
+        if connect_timeout is not None:
+            pulumi.set(__self__, "connect_timeout", connect_timeout)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encrypt is not None:
+            pulumi.set(__self__, "encrypt", encrypt)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if failover_partner is not None:
+            pulumi.set(__self__, "failover_partner", failover_partner)
+        if host_name_in_certificate is not None:
+            pulumi.set(__self__, "host_name_in_certificate", host_name_in_certificate)
+        if integrated_security is not None:
+            pulumi.set(__self__, "integrated_security", integrated_security)
+        if load_balance_timeout is not None:
+            pulumi.set(__self__, "load_balance_timeout", load_balance_timeout)
+        if max_pool_size is not None:
+            pulumi.set(__self__, "max_pool_size", max_pool_size)
+        if min_pool_size is not None:
+            pulumi.set(__self__, "min_pool_size", min_pool_size)
+        if multi_subnet_failover is not None:
+            pulumi.set(__self__, "multi_subnet_failover", multi_subnet_failover)
+        if multiple_active_result_sets is not None:
+            pulumi.set(__self__, "multiple_active_result_sets", multiple_active_result_sets)
+        if packet_size is not None:
+            pulumi.set(__self__, "packet_size", packet_size)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if pooling is not None:
+            pulumi.set(__self__, "pooling", pooling)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: Any):
-        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter
@@ -1918,6 +1987,78 @@ class AmazonRdsForSqlServerLinkedServiceArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="applicationIntent")
+    def application_intent(self) -> Optional[Any]:
+        """
+        The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "application_intent")
+
+    @application_intent.setter
+    def application_intent(self, value: Optional[Any]):
+        pulumi.set(self, "application_intent", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AmazonRdsForSqlAuthenticationType']]]:
+        """
+        The type used for authentication. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AmazonRdsForSqlAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="commandTimeout")
+    def command_timeout(self) -> Optional[Any]:
+        """
+        The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "command_timeout")
+
+    @command_timeout.setter
+    def command_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "command_timeout", value)
+
+    @property
+    @pulumi.getter(name="connectRetryCount")
+    def connect_retry_count(self) -> Optional[Any]:
+        """
+        The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_count")
+
+    @connect_retry_count.setter
+    def connect_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_count", value)
+
+    @property
+    @pulumi.getter(name="connectRetryInterval")
+    def connect_retry_interval(self) -> Optional[Any]:
+        """
+        The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_interval")
+
+    @connect_retry_interval.setter
+    def connect_retry_interval(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_interval", value)
+
+    @property
+    @pulumi.getter(name="connectTimeout")
+    def connect_timeout(self) -> Optional[Any]:
+        """
+        The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_timeout")
+
+    @connect_timeout.setter
+    def connect_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "connect_timeout", value)
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
         """
@@ -1928,6 +2069,30 @@ class AmazonRdsForSqlServerLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[Any]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        The name of the database, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[Any]):
+        pulumi.set(self, "database", value)
 
     @property
     @pulumi.getter
@@ -1942,6 +2107,18 @@ class AmazonRdsForSqlServerLinkedServiceArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def encrypt(self) -> Optional[Any]:
+        """
+        Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypt")
+
+    @encrypt.setter
+    def encrypt(self, value: Optional[Any]):
+        pulumi.set(self, "encrypt", value)
+
+    @property
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1952,6 +2129,114 @@ class AmazonRdsForSqlServerLinkedServiceArgs:
     @encrypted_credential.setter
     def encrypted_credential(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter(name="failoverPartner")
+    def failover_partner(self) -> Optional[Any]:
+        """
+        The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "failover_partner")
+
+    @failover_partner.setter
+    def failover_partner(self, value: Optional[Any]):
+        pulumi.set(self, "failover_partner", value)
+
+    @property
+    @pulumi.getter(name="hostNameInCertificate")
+    def host_name_in_certificate(self) -> Optional[Any]:
+        """
+        The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "host_name_in_certificate")
+
+    @host_name_in_certificate.setter
+    def host_name_in_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "host_name_in_certificate", value)
+
+    @property
+    @pulumi.getter(name="integratedSecurity")
+    def integrated_security(self) -> Optional[Any]:
+        """
+        Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "integrated_security")
+
+    @integrated_security.setter
+    def integrated_security(self, value: Optional[Any]):
+        pulumi.set(self, "integrated_security", value)
+
+    @property
+    @pulumi.getter(name="loadBalanceTimeout")
+    def load_balance_timeout(self) -> Optional[Any]:
+        """
+        The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "load_balance_timeout")
+
+    @load_balance_timeout.setter
+    def load_balance_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "load_balance_timeout", value)
+
+    @property
+    @pulumi.getter(name="maxPoolSize")
+    def max_pool_size(self) -> Optional[Any]:
+        """
+        The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_pool_size")
+
+    @max_pool_size.setter
+    def max_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "max_pool_size", value)
+
+    @property
+    @pulumi.getter(name="minPoolSize")
+    def min_pool_size(self) -> Optional[Any]:
+        """
+        The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "min_pool_size")
+
+    @min_pool_size.setter
+    def min_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "min_pool_size", value)
+
+    @property
+    @pulumi.getter(name="multiSubnetFailover")
+    def multi_subnet_failover(self) -> Optional[Any]:
+        """
+        If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multi_subnet_failover")
+
+    @multi_subnet_failover.setter
+    def multi_subnet_failover(self, value: Optional[Any]):
+        pulumi.set(self, "multi_subnet_failover", value)
+
+    @property
+    @pulumi.getter(name="multipleActiveResultSets")
+    def multiple_active_result_sets(self) -> Optional[Any]:
+        """
+        When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multiple_active_result_sets")
+
+    @multiple_active_result_sets.setter
+    def multiple_active_result_sets(self, value: Optional[Any]):
+        pulumi.set(self, "multiple_active_result_sets", value)
+
+    @property
+    @pulumi.getter(name="packetSize")
+    def packet_size(self) -> Optional[Any]:
+        """
+        The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "packet_size")
+
+    @packet_size.setter
+    def packet_size(self, value: Optional[Any]):
+        pulumi.set(self, "packet_size", value)
 
     @property
     @pulumi.getter
@@ -1976,6 +2261,42 @@ class AmazonRdsForSqlServerLinkedServiceArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pooling(self) -> Optional[Any]:
+        """
+        Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "pooling")
+
+    @pooling.setter
+    def pooling(self, value: Optional[Any]):
+        pulumi.set(self, "pooling", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[Any]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[Any]:
+        """
+        Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @trust_server_certificate.setter
+    def trust_server_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "trust_server_certificate", value)
 
     @property
     @pulumi.getter(name="userName")
@@ -15219,72 +15540,153 @@ class AzureSearchLinkedServiceArgs:
 @pulumi.input_type
 class AzureSqlDWLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 application_intent: Optional[Any] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AzureSqlDWAuthenticationType']]] = None,
                  azure_cloud_type: Optional[Any] = None,
+                 command_timeout: Optional[Any] = None,
+                 connect_retry_count: Optional[Any] = None,
+                 connect_retry_interval: Optional[Any] = None,
+                 connect_timeout: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 connection_string: Optional[Any] = None,
                  credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
+                 database: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encrypt: Optional[Any] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
+                 failover_partner: Optional[Any] = None,
+                 host_name_in_certificate: Optional[Any] = None,
+                 integrated_security: Optional[Any] = None,
+                 load_balance_timeout: Optional[Any] = None,
+                 max_pool_size: Optional[Any] = None,
+                 min_pool_size: Optional[Any] = None,
+                 multi_subnet_failover: Optional[Any] = None,
+                 multiple_active_result_sets: Optional[Any] = None,
+                 packet_size: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
+                 pooling: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 trust_server_certificate: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
         """
         Azure SQL Data Warehouse linked service.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureSqlDW'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any application_intent: The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'AzureSqlDWAuthenticationType']] authentication_type: The type used for authentication. Type: string.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        :param Any command_timeout: The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_count: The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_interval: The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        :param Any connect_timeout: The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
+        :param Any database: The name of the database, used by recommended version. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypt: Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any failover_partner: The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any host_name_in_certificate: The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any integrated_security: Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any load_balance_timeout: The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any max_pool_size: The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any min_pool_size: The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any multi_subnet_failover: If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any multiple_active_result_sets: When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any packet_size: The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] password: The Azure key vault secret reference of password in connection string.
+        :param Any pooling: Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any server: The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any user_name: The user name to be used when connecting to server. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlDW')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if application_intent is not None:
+            pulumi.set(__self__, "application_intent", application_intent)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if azure_cloud_type is not None:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
+        if command_timeout is not None:
+            pulumi.set(__self__, "command_timeout", command_timeout)
+        if connect_retry_count is not None:
+            pulumi.set(__self__, "connect_retry_count", connect_retry_count)
+        if connect_retry_interval is not None:
+            pulumi.set(__self__, "connect_retry_interval", connect_retry_interval)
+        if connect_timeout is not None:
+            pulumi.set(__self__, "connect_timeout", connect_timeout)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
         if credential is not None:
             pulumi.set(__self__, "credential", credential)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encrypt is not None:
+            pulumi.set(__self__, "encrypt", encrypt)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if failover_partner is not None:
+            pulumi.set(__self__, "failover_partner", failover_partner)
+        if host_name_in_certificate is not None:
+            pulumi.set(__self__, "host_name_in_certificate", host_name_in_certificate)
+        if integrated_security is not None:
+            pulumi.set(__self__, "integrated_security", integrated_security)
+        if load_balance_timeout is not None:
+            pulumi.set(__self__, "load_balance_timeout", load_balance_timeout)
+        if max_pool_size is not None:
+            pulumi.set(__self__, "max_pool_size", max_pool_size)
+        if min_pool_size is not None:
+            pulumi.set(__self__, "min_pool_size", min_pool_size)
+        if multi_subnet_failover is not None:
+            pulumi.set(__self__, "multi_subnet_failover", multi_subnet_failover)
+        if multiple_active_result_sets is not None:
+            pulumi.set(__self__, "multiple_active_result_sets", multiple_active_result_sets)
+        if packet_size is not None:
+            pulumi.set(__self__, "packet_size", packet_size)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if pooling is not None:
+            pulumi.set(__self__, "pooling", pooling)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if service_principal_credential is not None:
+            pulumi.set(__self__, "service_principal_credential", service_principal_credential)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
         if service_principal_id is not None:
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if service_principal_key is not None:
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: Any):
-        pulumi.set(self, "connection_string", value)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter
@@ -15312,6 +15714,30 @@ class AzureSqlDWLinkedServiceArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="applicationIntent")
+    def application_intent(self) -> Optional[Any]:
+        """
+        The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "application_intent")
+
+    @application_intent.setter
+    def application_intent(self, value: Optional[Any]):
+        pulumi.set(self, "application_intent", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AzureSqlDWAuthenticationType']]]:
+        """
+        The type used for authentication. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlDWAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
     @pulumi.getter(name="azureCloudType")
     def azure_cloud_type(self) -> Optional[Any]:
         """
@@ -15324,6 +15750,54 @@ class AzureSqlDWLinkedServiceArgs:
         pulumi.set(self, "azure_cloud_type", value)
 
     @property
+    @pulumi.getter(name="commandTimeout")
+    def command_timeout(self) -> Optional[Any]:
+        """
+        The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "command_timeout")
+
+    @command_timeout.setter
+    def command_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "command_timeout", value)
+
+    @property
+    @pulumi.getter(name="connectRetryCount")
+    def connect_retry_count(self) -> Optional[Any]:
+        """
+        The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_count")
+
+    @connect_retry_count.setter
+    def connect_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_count", value)
+
+    @property
+    @pulumi.getter(name="connectRetryInterval")
+    def connect_retry_interval(self) -> Optional[Any]:
+        """
+        The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_interval")
+
+    @connect_retry_interval.setter
+    def connect_retry_interval(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_interval", value)
+
+    @property
+    @pulumi.getter(name="connectTimeout")
+    def connect_timeout(self) -> Optional[Any]:
+        """
+        The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_timeout")
+
+    @connect_timeout.setter
+    def connect_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "connect_timeout", value)
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
         """
@@ -15334,6 +15808,18 @@ class AzureSqlDWLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[Any]):
+        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter
@@ -15349,6 +15835,18 @@ class AzureSqlDWLinkedServiceArgs:
 
     @property
     @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        The name of the database, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[Any]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Linked service description.
@@ -15358,6 +15856,18 @@ class AzureSqlDWLinkedServiceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def encrypt(self) -> Optional[Any]:
+        """
+        Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypt")
+
+    @encrypt.setter
+    def encrypt(self, value: Optional[Any]):
+        pulumi.set(self, "encrypt", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
@@ -15370,6 +15880,114 @@ class AzureSqlDWLinkedServiceArgs:
     @encrypted_credential.setter
     def encrypted_credential(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter(name="failoverPartner")
+    def failover_partner(self) -> Optional[Any]:
+        """
+        The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "failover_partner")
+
+    @failover_partner.setter
+    def failover_partner(self, value: Optional[Any]):
+        pulumi.set(self, "failover_partner", value)
+
+    @property
+    @pulumi.getter(name="hostNameInCertificate")
+    def host_name_in_certificate(self) -> Optional[Any]:
+        """
+        The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "host_name_in_certificate")
+
+    @host_name_in_certificate.setter
+    def host_name_in_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "host_name_in_certificate", value)
+
+    @property
+    @pulumi.getter(name="integratedSecurity")
+    def integrated_security(self) -> Optional[Any]:
+        """
+        Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "integrated_security")
+
+    @integrated_security.setter
+    def integrated_security(self, value: Optional[Any]):
+        pulumi.set(self, "integrated_security", value)
+
+    @property
+    @pulumi.getter(name="loadBalanceTimeout")
+    def load_balance_timeout(self) -> Optional[Any]:
+        """
+        The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "load_balance_timeout")
+
+    @load_balance_timeout.setter
+    def load_balance_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "load_balance_timeout", value)
+
+    @property
+    @pulumi.getter(name="maxPoolSize")
+    def max_pool_size(self) -> Optional[Any]:
+        """
+        The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_pool_size")
+
+    @max_pool_size.setter
+    def max_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "max_pool_size", value)
+
+    @property
+    @pulumi.getter(name="minPoolSize")
+    def min_pool_size(self) -> Optional[Any]:
+        """
+        The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "min_pool_size")
+
+    @min_pool_size.setter
+    def min_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "min_pool_size", value)
+
+    @property
+    @pulumi.getter(name="multiSubnetFailover")
+    def multi_subnet_failover(self) -> Optional[Any]:
+        """
+        If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multi_subnet_failover")
+
+    @multi_subnet_failover.setter
+    def multi_subnet_failover(self, value: Optional[Any]):
+        pulumi.set(self, "multi_subnet_failover", value)
+
+    @property
+    @pulumi.getter(name="multipleActiveResultSets")
+    def multiple_active_result_sets(self) -> Optional[Any]:
+        """
+        When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multiple_active_result_sets")
+
+    @multiple_active_result_sets.setter
+    def multiple_active_result_sets(self, value: Optional[Any]):
+        pulumi.set(self, "multiple_active_result_sets", value)
+
+    @property
+    @pulumi.getter(name="packetSize")
+    def packet_size(self) -> Optional[Any]:
+        """
+        The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "packet_size")
+
+    @packet_size.setter
+    def packet_size(self, value: Optional[Any]):
+        pulumi.set(self, "packet_size", value)
 
     @property
     @pulumi.getter
@@ -15394,6 +16012,54 @@ class AzureSqlDWLinkedServiceArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pooling(self) -> Optional[Any]:
+        """
+        Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "pooling")
+
+    @pooling.setter
+    def pooling(self, value: Optional[Any]):
+        pulumi.set(self, "pooling", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[Any]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredential")
+    def service_principal_credential(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "service_principal_credential")
+
+    @service_principal_credential.setter
+    def service_principal_credential(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "service_principal_credential", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @service_principal_credential_type.setter
+    def service_principal_credential_type(self, value: Optional[Any]):
+        pulumi.set(self, "service_principal_credential_type", value)
 
     @property
     @pulumi.getter(name="servicePrincipalId")
@@ -15430,6 +16096,30 @@ class AzureSqlDWLinkedServiceArgs:
     @tenant.setter
     def tenant(self, value: Optional[Any]):
         pulumi.set(self, "tenant", value)
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[Any]:
+        """
+        Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @trust_server_certificate.setter
+    def trust_server_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "trust_server_certificate", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        The user name to be used when connecting to server. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[Any]):
+        pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
@@ -15603,76 +16293,157 @@ class AzureSqlDWTableDatasetArgs:
 @pulumi.input_type
 class AzureSqlDatabaseLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: pulumi.Input[str],
                  always_encrypted_settings: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 application_intent: Optional[Any] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AzureSqlDatabaseAuthenticationType']]] = None,
                  azure_cloud_type: Optional[Any] = None,
+                 command_timeout: Optional[Any] = None,
+                 connect_retry_count: Optional[Any] = None,
+                 connect_retry_interval: Optional[Any] = None,
+                 connect_timeout: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 connection_string: Optional[Any] = None,
                  credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
+                 database: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encrypt: Optional[Any] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
+                 failover_partner: Optional[Any] = None,
+                 host_name_in_certificate: Optional[Any] = None,
+                 integrated_security: Optional[Any] = None,
+                 load_balance_timeout: Optional[Any] = None,
+                 max_pool_size: Optional[Any] = None,
+                 min_pool_size: Optional[Any] = None,
+                 multi_subnet_failover: Optional[Any] = None,
+                 multiple_active_result_sets: Optional[Any] = None,
+                 packet_size: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
+                 pooling: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 trust_server_certificate: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
         """
         Microsoft Azure SQL Database linked service.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureSqlDatabase'.
         :param pulumi.Input['SqlAlwaysEncryptedPropertiesArgs'] always_encrypted_settings: Sql always encrypted properties.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any application_intent: The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'AzureSqlDatabaseAuthenticationType']] authentication_type: The type used for authentication. Type: string.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        :param Any command_timeout: The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_count: The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_interval: The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        :param Any connect_timeout: The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
+        :param Any database: The name of the database, used by recommended version. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypt: Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any failover_partner: The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any host_name_in_certificate: The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any integrated_security: Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any load_balance_timeout: The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any max_pool_size: The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any min_pool_size: The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any multi_subnet_failover: If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any multiple_active_result_sets: When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any packet_size: The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] password: The Azure key vault secret reference of password in connection string.
+        :param Any pooling: Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any server: The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against Azure SQL Database.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any user_name: The user name to be used when connecting to server. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlDatabase')
         if always_encrypted_settings is not None:
             pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if application_intent is not None:
+            pulumi.set(__self__, "application_intent", application_intent)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if azure_cloud_type is not None:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
+        if command_timeout is not None:
+            pulumi.set(__self__, "command_timeout", command_timeout)
+        if connect_retry_count is not None:
+            pulumi.set(__self__, "connect_retry_count", connect_retry_count)
+        if connect_retry_interval is not None:
+            pulumi.set(__self__, "connect_retry_interval", connect_retry_interval)
+        if connect_timeout is not None:
+            pulumi.set(__self__, "connect_timeout", connect_timeout)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
         if credential is not None:
             pulumi.set(__self__, "credential", credential)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encrypt is not None:
+            pulumi.set(__self__, "encrypt", encrypt)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if failover_partner is not None:
+            pulumi.set(__self__, "failover_partner", failover_partner)
+        if host_name_in_certificate is not None:
+            pulumi.set(__self__, "host_name_in_certificate", host_name_in_certificate)
+        if integrated_security is not None:
+            pulumi.set(__self__, "integrated_security", integrated_security)
+        if load_balance_timeout is not None:
+            pulumi.set(__self__, "load_balance_timeout", load_balance_timeout)
+        if max_pool_size is not None:
+            pulumi.set(__self__, "max_pool_size", max_pool_size)
+        if min_pool_size is not None:
+            pulumi.set(__self__, "min_pool_size", min_pool_size)
+        if multi_subnet_failover is not None:
+            pulumi.set(__self__, "multi_subnet_failover", multi_subnet_failover)
+        if multiple_active_result_sets is not None:
+            pulumi.set(__self__, "multiple_active_result_sets", multiple_active_result_sets)
+        if packet_size is not None:
+            pulumi.set(__self__, "packet_size", packet_size)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if pooling is not None:
+            pulumi.set(__self__, "pooling", pooling)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if service_principal_credential is not None:
+            pulumi.set(__self__, "service_principal_credential", service_principal_credential)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
         if service_principal_id is not None:
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if service_principal_key is not None:
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: Any):
-        pulumi.set(self, "connection_string", value)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter
@@ -15712,6 +16483,30 @@ class AzureSqlDatabaseLinkedServiceArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="applicationIntent")
+    def application_intent(self) -> Optional[Any]:
+        """
+        The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "application_intent")
+
+    @application_intent.setter
+    def application_intent(self, value: Optional[Any]):
+        pulumi.set(self, "application_intent", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AzureSqlDatabaseAuthenticationType']]]:
+        """
+        The type used for authentication. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlDatabaseAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
     @pulumi.getter(name="azureCloudType")
     def azure_cloud_type(self) -> Optional[Any]:
         """
@@ -15724,6 +16519,54 @@ class AzureSqlDatabaseLinkedServiceArgs:
         pulumi.set(self, "azure_cloud_type", value)
 
     @property
+    @pulumi.getter(name="commandTimeout")
+    def command_timeout(self) -> Optional[Any]:
+        """
+        The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "command_timeout")
+
+    @command_timeout.setter
+    def command_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "command_timeout", value)
+
+    @property
+    @pulumi.getter(name="connectRetryCount")
+    def connect_retry_count(self) -> Optional[Any]:
+        """
+        The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_count")
+
+    @connect_retry_count.setter
+    def connect_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_count", value)
+
+    @property
+    @pulumi.getter(name="connectRetryInterval")
+    def connect_retry_interval(self) -> Optional[Any]:
+        """
+        The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_interval")
+
+    @connect_retry_interval.setter
+    def connect_retry_interval(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_interval", value)
+
+    @property
+    @pulumi.getter(name="connectTimeout")
+    def connect_timeout(self) -> Optional[Any]:
+        """
+        The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_timeout")
+
+    @connect_timeout.setter
+    def connect_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "connect_timeout", value)
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
         """
@@ -15734,6 +16577,18 @@ class AzureSqlDatabaseLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[Any]):
+        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter
@@ -15749,6 +16604,18 @@ class AzureSqlDatabaseLinkedServiceArgs:
 
     @property
     @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        The name of the database, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[Any]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Linked service description.
@@ -15758,6 +16625,18 @@ class AzureSqlDatabaseLinkedServiceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def encrypt(self) -> Optional[Any]:
+        """
+        Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypt")
+
+    @encrypt.setter
+    def encrypt(self, value: Optional[Any]):
+        pulumi.set(self, "encrypt", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
@@ -15770,6 +16649,114 @@ class AzureSqlDatabaseLinkedServiceArgs:
     @encrypted_credential.setter
     def encrypted_credential(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter(name="failoverPartner")
+    def failover_partner(self) -> Optional[Any]:
+        """
+        The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "failover_partner")
+
+    @failover_partner.setter
+    def failover_partner(self, value: Optional[Any]):
+        pulumi.set(self, "failover_partner", value)
+
+    @property
+    @pulumi.getter(name="hostNameInCertificate")
+    def host_name_in_certificate(self) -> Optional[Any]:
+        """
+        The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "host_name_in_certificate")
+
+    @host_name_in_certificate.setter
+    def host_name_in_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "host_name_in_certificate", value)
+
+    @property
+    @pulumi.getter(name="integratedSecurity")
+    def integrated_security(self) -> Optional[Any]:
+        """
+        Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "integrated_security")
+
+    @integrated_security.setter
+    def integrated_security(self, value: Optional[Any]):
+        pulumi.set(self, "integrated_security", value)
+
+    @property
+    @pulumi.getter(name="loadBalanceTimeout")
+    def load_balance_timeout(self) -> Optional[Any]:
+        """
+        The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "load_balance_timeout")
+
+    @load_balance_timeout.setter
+    def load_balance_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "load_balance_timeout", value)
+
+    @property
+    @pulumi.getter(name="maxPoolSize")
+    def max_pool_size(self) -> Optional[Any]:
+        """
+        The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_pool_size")
+
+    @max_pool_size.setter
+    def max_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "max_pool_size", value)
+
+    @property
+    @pulumi.getter(name="minPoolSize")
+    def min_pool_size(self) -> Optional[Any]:
+        """
+        The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "min_pool_size")
+
+    @min_pool_size.setter
+    def min_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "min_pool_size", value)
+
+    @property
+    @pulumi.getter(name="multiSubnetFailover")
+    def multi_subnet_failover(self) -> Optional[Any]:
+        """
+        If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multi_subnet_failover")
+
+    @multi_subnet_failover.setter
+    def multi_subnet_failover(self, value: Optional[Any]):
+        pulumi.set(self, "multi_subnet_failover", value)
+
+    @property
+    @pulumi.getter(name="multipleActiveResultSets")
+    def multiple_active_result_sets(self) -> Optional[Any]:
+        """
+        When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multiple_active_result_sets")
+
+    @multiple_active_result_sets.setter
+    def multiple_active_result_sets(self, value: Optional[Any]):
+        pulumi.set(self, "multiple_active_result_sets", value)
+
+    @property
+    @pulumi.getter(name="packetSize")
+    def packet_size(self) -> Optional[Any]:
+        """
+        The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "packet_size")
+
+    @packet_size.setter
+    def packet_size(self, value: Optional[Any]):
+        pulumi.set(self, "packet_size", value)
 
     @property
     @pulumi.getter
@@ -15794,6 +16781,54 @@ class AzureSqlDatabaseLinkedServiceArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pooling(self) -> Optional[Any]:
+        """
+        Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "pooling")
+
+    @pooling.setter
+    def pooling(self, value: Optional[Any]):
+        pulumi.set(self, "pooling", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[Any]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredential")
+    def service_principal_credential(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "service_principal_credential")
+
+    @service_principal_credential.setter
+    def service_principal_credential(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "service_principal_credential", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @service_principal_credential_type.setter
+    def service_principal_credential_type(self, value: Optional[Any]):
+        pulumi.set(self, "service_principal_credential_type", value)
 
     @property
     @pulumi.getter(name="servicePrincipalId")
@@ -15831,80 +16866,185 @@ class AzureSqlDatabaseLinkedServiceArgs:
     def tenant(self, value: Optional[Any]):
         pulumi.set(self, "tenant", value)
 
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[Any]:
+        """
+        Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @trust_server_certificate.setter
+    def trust_server_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "trust_server_certificate", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        The user name to be used when connecting to server. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[Any]):
+        pulumi.set(self, "user_name", value)
+
 
 @pulumi.input_type
 class AzureSqlMILinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: pulumi.Input[str],
                  always_encrypted_settings: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 application_intent: Optional[Any] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AzureSqlMIAuthenticationType']]] = None,
                  azure_cloud_type: Optional[Any] = None,
+                 command_timeout: Optional[Any] = None,
+                 connect_retry_count: Optional[Any] = None,
+                 connect_retry_interval: Optional[Any] = None,
+                 connect_timeout: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 connection_string: Optional[Any] = None,
                  credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
+                 database: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encrypt: Optional[Any] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
+                 failover_partner: Optional[Any] = None,
+                 host_name_in_certificate: Optional[Any] = None,
+                 integrated_security: Optional[Any] = None,
+                 load_balance_timeout: Optional[Any] = None,
+                 max_pool_size: Optional[Any] = None,
+                 min_pool_size: Optional[Any] = None,
+                 multi_subnet_failover: Optional[Any] = None,
+                 multiple_active_result_sets: Optional[Any] = None,
+                 packet_size: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
+                 pooling: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 tenant: Optional[Any] = None):
+                 tenant: Optional[Any] = None,
+                 trust_server_certificate: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
         """
         Azure SQL Managed Instance linked service.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureSqlMI'.
         :param pulumi.Input['SqlAlwaysEncryptedPropertiesArgs'] always_encrypted_settings: Sql always encrypted properties.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any application_intent: The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'AzureSqlMIAuthenticationType']] authentication_type: The type used for authentication. Type: string.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        :param Any command_timeout: The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_count: The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_interval: The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        :param Any connect_timeout: The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
+        :param Any database: The name of the database, used by recommended version. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypt: Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any failover_partner: The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any host_name_in_certificate: The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any integrated_security: Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any load_balance_timeout: The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any max_pool_size: The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any min_pool_size: The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any multi_subnet_failover: If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any multiple_active_result_sets: When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any packet_size: The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] password: The Azure key vault secret reference of password in connection string.
+        :param Any pooling: Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any server: The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Managed Instance. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The key of the service principal used to authenticate against Azure SQL Managed Instance.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any user_name: The user name to be used when connecting to server. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'AzureSqlMI')
         if always_encrypted_settings is not None:
             pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if application_intent is not None:
+            pulumi.set(__self__, "application_intent", application_intent)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if azure_cloud_type is not None:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
+        if command_timeout is not None:
+            pulumi.set(__self__, "command_timeout", command_timeout)
+        if connect_retry_count is not None:
+            pulumi.set(__self__, "connect_retry_count", connect_retry_count)
+        if connect_retry_interval is not None:
+            pulumi.set(__self__, "connect_retry_interval", connect_retry_interval)
+        if connect_timeout is not None:
+            pulumi.set(__self__, "connect_timeout", connect_timeout)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
         if credential is not None:
             pulumi.set(__self__, "credential", credential)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encrypt is not None:
+            pulumi.set(__self__, "encrypt", encrypt)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if failover_partner is not None:
+            pulumi.set(__self__, "failover_partner", failover_partner)
+        if host_name_in_certificate is not None:
+            pulumi.set(__self__, "host_name_in_certificate", host_name_in_certificate)
+        if integrated_security is not None:
+            pulumi.set(__self__, "integrated_security", integrated_security)
+        if load_balance_timeout is not None:
+            pulumi.set(__self__, "load_balance_timeout", load_balance_timeout)
+        if max_pool_size is not None:
+            pulumi.set(__self__, "max_pool_size", max_pool_size)
+        if min_pool_size is not None:
+            pulumi.set(__self__, "min_pool_size", min_pool_size)
+        if multi_subnet_failover is not None:
+            pulumi.set(__self__, "multi_subnet_failover", multi_subnet_failover)
+        if multiple_active_result_sets is not None:
+            pulumi.set(__self__, "multiple_active_result_sets", multiple_active_result_sets)
+        if packet_size is not None:
+            pulumi.set(__self__, "packet_size", packet_size)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if pooling is not None:
+            pulumi.set(__self__, "pooling", pooling)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if service_principal_credential is not None:
+            pulumi.set(__self__, "service_principal_credential", service_principal_credential)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
         if service_principal_id is not None:
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if service_principal_key is not None:
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: Any):
-        pulumi.set(self, "connection_string", value)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter
@@ -15944,6 +17084,30 @@ class AzureSqlMILinkedServiceArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="applicationIntent")
+    def application_intent(self) -> Optional[Any]:
+        """
+        The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "application_intent")
+
+    @application_intent.setter
+    def application_intent(self, value: Optional[Any]):
+        pulumi.set(self, "application_intent", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AzureSqlMIAuthenticationType']]]:
+        """
+        The type used for authentication. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AzureSqlMIAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
     @pulumi.getter(name="azureCloudType")
     def azure_cloud_type(self) -> Optional[Any]:
         """
@@ -15956,6 +17120,54 @@ class AzureSqlMILinkedServiceArgs:
         pulumi.set(self, "azure_cloud_type", value)
 
     @property
+    @pulumi.getter(name="commandTimeout")
+    def command_timeout(self) -> Optional[Any]:
+        """
+        The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "command_timeout")
+
+    @command_timeout.setter
+    def command_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "command_timeout", value)
+
+    @property
+    @pulumi.getter(name="connectRetryCount")
+    def connect_retry_count(self) -> Optional[Any]:
+        """
+        The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_count")
+
+    @connect_retry_count.setter
+    def connect_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_count", value)
+
+    @property
+    @pulumi.getter(name="connectRetryInterval")
+    def connect_retry_interval(self) -> Optional[Any]:
+        """
+        The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_interval")
+
+    @connect_retry_interval.setter
+    def connect_retry_interval(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_interval", value)
+
+    @property
+    @pulumi.getter(name="connectTimeout")
+    def connect_timeout(self) -> Optional[Any]:
+        """
+        The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_timeout")
+
+    @connect_timeout.setter
+    def connect_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "connect_timeout", value)
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
         """
@@ -15966,6 +17178,18 @@ class AzureSqlMILinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[Any]):
+        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter
@@ -15981,6 +17205,18 @@ class AzureSqlMILinkedServiceArgs:
 
     @property
     @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        The name of the database, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[Any]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Linked service description.
@@ -15990,6 +17226,18 @@ class AzureSqlMILinkedServiceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def encrypt(self) -> Optional[Any]:
+        """
+        Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypt")
+
+    @encrypt.setter
+    def encrypt(self, value: Optional[Any]):
+        pulumi.set(self, "encrypt", value)
 
     @property
     @pulumi.getter(name="encryptedCredential")
@@ -16002,6 +17250,114 @@ class AzureSqlMILinkedServiceArgs:
     @encrypted_credential.setter
     def encrypted_credential(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter(name="failoverPartner")
+    def failover_partner(self) -> Optional[Any]:
+        """
+        The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "failover_partner")
+
+    @failover_partner.setter
+    def failover_partner(self, value: Optional[Any]):
+        pulumi.set(self, "failover_partner", value)
+
+    @property
+    @pulumi.getter(name="hostNameInCertificate")
+    def host_name_in_certificate(self) -> Optional[Any]:
+        """
+        The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "host_name_in_certificate")
+
+    @host_name_in_certificate.setter
+    def host_name_in_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "host_name_in_certificate", value)
+
+    @property
+    @pulumi.getter(name="integratedSecurity")
+    def integrated_security(self) -> Optional[Any]:
+        """
+        Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "integrated_security")
+
+    @integrated_security.setter
+    def integrated_security(self, value: Optional[Any]):
+        pulumi.set(self, "integrated_security", value)
+
+    @property
+    @pulumi.getter(name="loadBalanceTimeout")
+    def load_balance_timeout(self) -> Optional[Any]:
+        """
+        The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "load_balance_timeout")
+
+    @load_balance_timeout.setter
+    def load_balance_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "load_balance_timeout", value)
+
+    @property
+    @pulumi.getter(name="maxPoolSize")
+    def max_pool_size(self) -> Optional[Any]:
+        """
+        The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_pool_size")
+
+    @max_pool_size.setter
+    def max_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "max_pool_size", value)
+
+    @property
+    @pulumi.getter(name="minPoolSize")
+    def min_pool_size(self) -> Optional[Any]:
+        """
+        The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "min_pool_size")
+
+    @min_pool_size.setter
+    def min_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "min_pool_size", value)
+
+    @property
+    @pulumi.getter(name="multiSubnetFailover")
+    def multi_subnet_failover(self) -> Optional[Any]:
+        """
+        If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multi_subnet_failover")
+
+    @multi_subnet_failover.setter
+    def multi_subnet_failover(self, value: Optional[Any]):
+        pulumi.set(self, "multi_subnet_failover", value)
+
+    @property
+    @pulumi.getter(name="multipleActiveResultSets")
+    def multiple_active_result_sets(self) -> Optional[Any]:
+        """
+        When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multiple_active_result_sets")
+
+    @multiple_active_result_sets.setter
+    def multiple_active_result_sets(self, value: Optional[Any]):
+        pulumi.set(self, "multiple_active_result_sets", value)
+
+    @property
+    @pulumi.getter(name="packetSize")
+    def packet_size(self) -> Optional[Any]:
+        """
+        The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "packet_size")
+
+    @packet_size.setter
+    def packet_size(self, value: Optional[Any]):
+        pulumi.set(self, "packet_size", value)
 
     @property
     @pulumi.getter
@@ -16026,6 +17382,54 @@ class AzureSqlMILinkedServiceArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pooling(self) -> Optional[Any]:
+        """
+        Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "pooling")
+
+    @pooling.setter
+    def pooling(self, value: Optional[Any]):
+        pulumi.set(self, "pooling", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[Any]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredential")
+    def service_principal_credential(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "service_principal_credential")
+
+    @service_principal_credential.setter
+    def service_principal_credential(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "service_principal_credential", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @service_principal_credential_type.setter
+    def service_principal_credential_type(self, value: Optional[Any]):
+        pulumi.set(self, "service_principal_credential_type", value)
 
     @property
     @pulumi.getter(name="servicePrincipalId")
@@ -16062,6 +17466,30 @@ class AzureSqlMILinkedServiceArgs:
     @tenant.setter
     def tenant(self, value: Optional[Any]):
         pulumi.set(self, "tenant", value)
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[Any]:
+        """
+        Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @trust_server_certificate.setter
+    def trust_server_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "trust_server_certificate", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        The user name to be used when connecting to server. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[Any]):
+        pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type
@@ -80206,60 +81634,129 @@ class SqlPartitionSettingsArgs:
 @pulumi.input_type
 class SqlServerLinkedServiceArgs:
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: pulumi.Input[str],
                  always_encrypted_settings: Optional[pulumi.Input['SqlAlwaysEncryptedPropertiesArgs']] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 application_intent: Optional[Any] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'SqlServerAuthenticationType']]] = None,
+                 command_timeout: Optional[Any] = None,
+                 connect_retry_count: Optional[Any] = None,
+                 connect_retry_interval: Optional[Any] = None,
+                 connect_timeout: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 connection_string: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encrypt: Optional[Any] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
+                 failover_partner: Optional[Any] = None,
+                 host_name_in_certificate: Optional[Any] = None,
+                 integrated_security: Optional[Any] = None,
+                 load_balance_timeout: Optional[Any] = None,
+                 max_pool_size: Optional[Any] = None,
+                 min_pool_size: Optional[Any] = None,
+                 multi_subnet_failover: Optional[Any] = None,
+                 multiple_active_result_sets: Optional[Any] = None,
+                 packet_size: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 pooling: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 trust_server_certificate: Optional[Any] = None,
                  user_name: Optional[Any] = None):
         """
         SQL Server linked service.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'SqlServer'.
         :param pulumi.Input['SqlAlwaysEncryptedPropertiesArgs'] always_encrypted_settings: Sql always encrypted properties.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any application_intent: The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'SqlServerAuthenticationType']] authentication_type: The type used for authentication. Type: string.
+        :param Any command_timeout: The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_count: The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        :param Any connect_retry_interval: The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        :param Any connect_timeout: The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any database: The name of the database, used by recommended version. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypt: Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any failover_partner: The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any host_name_in_certificate: The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any integrated_security: Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any load_balance_timeout: The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any max_pool_size: The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any min_pool_size: The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        :param Any multi_subnet_failover: If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any multiple_active_result_sets: When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any packet_size: The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The on-premises Windows authentication password.
+        :param Any pooling: Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        :param Any server: The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        :param Any trust_server_certificate: Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
         :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'SqlServer')
         if always_encrypted_settings is not None:
             pulumi.set(__self__, "always_encrypted_settings", always_encrypted_settings)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if application_intent is not None:
+            pulumi.set(__self__, "application_intent", application_intent)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if command_timeout is not None:
+            pulumi.set(__self__, "command_timeout", command_timeout)
+        if connect_retry_count is not None:
+            pulumi.set(__self__, "connect_retry_count", connect_retry_count)
+        if connect_retry_interval is not None:
+            pulumi.set(__self__, "connect_retry_interval", connect_retry_interval)
+        if connect_timeout is not None:
+            pulumi.set(__self__, "connect_timeout", connect_timeout)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encrypt is not None:
+            pulumi.set(__self__, "encrypt", encrypt)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if failover_partner is not None:
+            pulumi.set(__self__, "failover_partner", failover_partner)
+        if host_name_in_certificate is not None:
+            pulumi.set(__self__, "host_name_in_certificate", host_name_in_certificate)
+        if integrated_security is not None:
+            pulumi.set(__self__, "integrated_security", integrated_security)
+        if load_balance_timeout is not None:
+            pulumi.set(__self__, "load_balance_timeout", load_balance_timeout)
+        if max_pool_size is not None:
+            pulumi.set(__self__, "max_pool_size", max_pool_size)
+        if min_pool_size is not None:
+            pulumi.set(__self__, "min_pool_size", min_pool_size)
+        if multi_subnet_failover is not None:
+            pulumi.set(__self__, "multi_subnet_failover", multi_subnet_failover)
+        if multiple_active_result_sets is not None:
+            pulumi.set(__self__, "multiple_active_result_sets", multiple_active_result_sets)
+        if packet_size is not None:
+            pulumi.set(__self__, "packet_size", packet_size)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if pooling is not None:
+            pulumi.set(__self__, "pooling", pooling)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: Any):
-        pulumi.set(self, "connection_string", value)
 
     @property
     @pulumi.getter
@@ -80299,6 +81796,78 @@ class SqlServerLinkedServiceArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="applicationIntent")
+    def application_intent(self) -> Optional[Any]:
+        """
+        The application workload type when connecting to a server, used by recommended version. Possible values are ReadOnly and ReadWrite. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "application_intent")
+
+    @application_intent.setter
+    def application_intent(self, value: Optional[Any]):
+        pulumi.set(self, "application_intent", value)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'SqlServerAuthenticationType']]]:
+        """
+        The type used for authentication. Type: string.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'SqlServerAuthenticationType']]]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="commandTimeout")
+    def command_timeout(self) -> Optional[Any]:
+        """
+        The default wait time (in seconds) before terminating the attempt to execute a command and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "command_timeout")
+
+    @command_timeout.setter
+    def command_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "command_timeout", value)
+
+    @property
+    @pulumi.getter(name="connectRetryCount")
+    def connect_retry_count(self) -> Optional[Any]:
+        """
+        The number of re-connections attempted after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 0 and 255. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_count")
+
+    @connect_retry_count.setter
+    def connect_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_count", value)
+
+    @property
+    @pulumi.getter(name="connectRetryInterval")
+    def connect_retry_interval(self) -> Optional[Any]:
+        """
+        The amount of time (in seconds) between each re-connection attempt after identifying that there was an idle connection failure, used by recommended version. This must be an integer between 1 and 60. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_retry_interval")
+
+    @connect_retry_interval.setter
+    def connect_retry_interval(self, value: Optional[Any]):
+        pulumi.set(self, "connect_retry_interval", value)
+
+    @property
+    @pulumi.getter(name="connectTimeout")
+    def connect_timeout(self) -> Optional[Any]:
+        """
+        The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "connect_timeout")
+
+    @connect_timeout.setter
+    def connect_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "connect_timeout", value)
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
         """
@@ -80309,6 +81878,30 @@ class SqlServerLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[Any]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        The name of the database, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[Any]):
+        pulumi.set(self, "database", value)
 
     @property
     @pulumi.getter
@@ -80323,6 +81916,18 @@ class SqlServerLinkedServiceArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def encrypt(self) -> Optional[Any]:
+        """
+        Indicate whether TLS encryption is required for all data sent between the client and server, used by recommended version. Possible values are true/yes/mandatory, false/no/optional and strict. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypt")
+
+    @encrypt.setter
+    def encrypt(self, value: Optional[Any]):
+        pulumi.set(self, "encrypt", value)
+
+    @property
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[pulumi.Input[str]]:
         """
@@ -80333,6 +81938,114 @@ class SqlServerLinkedServiceArgs:
     @encrypted_credential.setter
     def encrypted_credential(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter(name="failoverPartner")
+    def failover_partner(self) -> Optional[Any]:
+        """
+        The name or address of the partner server to connect to if the primary server is down, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "failover_partner")
+
+    @failover_partner.setter
+    def failover_partner(self, value: Optional[Any]):
+        pulumi.set(self, "failover_partner", value)
+
+    @property
+    @pulumi.getter(name="hostNameInCertificate")
+    def host_name_in_certificate(self) -> Optional[Any]:
+        """
+        The host name to use when validating the server certificate for the connection. When not specified, the server name from the Data Source is used for certificate validation, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "host_name_in_certificate")
+
+    @host_name_in_certificate.setter
+    def host_name_in_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "host_name_in_certificate", value)
+
+    @property
+    @pulumi.getter(name="integratedSecurity")
+    def integrated_security(self) -> Optional[Any]:
+        """
+        Indicate whether User ID and Password are specified in the connection (when false) or whether the current Windows account credentials are used for authentication (when true), used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "integrated_security")
+
+    @integrated_security.setter
+    def integrated_security(self, value: Optional[Any]):
+        pulumi.set(self, "integrated_security", value)
+
+    @property
+    @pulumi.getter(name="loadBalanceTimeout")
+    def load_balance_timeout(self) -> Optional[Any]:
+        """
+        The minimum time, in seconds, for the connection to live in the connection pool before being destroyed, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "load_balance_timeout")
+
+    @load_balance_timeout.setter
+    def load_balance_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "load_balance_timeout", value)
+
+    @property
+    @pulumi.getter(name="maxPoolSize")
+    def max_pool_size(self) -> Optional[Any]:
+        """
+        The maximum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_pool_size")
+
+    @max_pool_size.setter
+    def max_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "max_pool_size", value)
+
+    @property
+    @pulumi.getter(name="minPoolSize")
+    def min_pool_size(self) -> Optional[Any]:
+        """
+        The minimum number of connections allowed in the connection pool for this specific connection string, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "min_pool_size")
+
+    @min_pool_size.setter
+    def min_pool_size(self, value: Optional[Any]):
+        pulumi.set(self, "min_pool_size", value)
+
+    @property
+    @pulumi.getter(name="multiSubnetFailover")
+    def multi_subnet_failover(self) -> Optional[Any]:
+        """
+        If your application is connecting to an AlwaysOn availability group (AG) on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multi_subnet_failover")
+
+    @multi_subnet_failover.setter
+    def multi_subnet_failover(self, value: Optional[Any]):
+        pulumi.set(self, "multi_subnet_failover", value)
+
+    @property
+    @pulumi.getter(name="multipleActiveResultSets")
+    def multiple_active_result_sets(self) -> Optional[Any]:
+        """
+        When true, an application can maintain multiple active result sets (MARS). When false, an application must process or cancel all result sets from one batch before it can execute any other batch on that connection, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "multiple_active_result_sets")
+
+    @multiple_active_result_sets.setter
+    def multiple_active_result_sets(self, value: Optional[Any]):
+        pulumi.set(self, "multiple_active_result_sets", value)
+
+    @property
+    @pulumi.getter(name="packetSize")
+    def packet_size(self) -> Optional[Any]:
+        """
+        The size in bytes of the network packets used to communicate with an instance of server, used by recommended version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "packet_size")
+
+    @packet_size.setter
+    def packet_size(self, value: Optional[Any]):
+        pulumi.set(self, "packet_size", value)
 
     @property
     @pulumi.getter
@@ -80357,6 +82070,42 @@ class SqlServerLinkedServiceArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pooling(self) -> Optional[Any]:
+        """
+        Indicate whether the connection will be pooled or explicitly opened every time that the connection is requested, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "pooling")
+
+    @pooling.setter
+    def pooling(self, value: Optional[Any]):
+        pulumi.set(self, "pooling", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        The name or network address of the instance of SQL Server to which to connect, used by recommended version. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[Any]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[Any]:
+        """
+        Indicate whether the channel will be encrypted while bypassing walking the certificate chain to validate trust, used by recommended version. Type: Boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @trust_server_certificate.setter
+    def trust_server_certificate(self, value: Optional[Any]):
+        pulumi.set(self, "trust_server_certificate", value)
 
     @property
     @pulumi.getter(name="userName")

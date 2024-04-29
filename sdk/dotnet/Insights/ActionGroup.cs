@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Insights
     /// <summary>
     /// An action group resource.
     /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2019-06-01.
+    /// 
+    /// Other available API versions: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ActionGroup")]
     public partial class ActionGroup : global::Pulumi.CustomResource
@@ -152,6 +154,7 @@ namespace Pulumi.AzureNative.Insights
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220401:ActionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220601:ActionGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20230101:ActionGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230901preview:ActionGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

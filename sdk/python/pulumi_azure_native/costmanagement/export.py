@@ -165,7 +165,7 @@ class Export(pulumi.CustomResource):
         An export resource.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+        Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,7 +188,7 @@ class Export(pulumi.CustomResource):
         An export resource.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
+        Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param ExportArgs args: The arguments to use to populate this resource's properties.
@@ -240,7 +240,7 @@ class Export(pulumi.CustomResource):
             __props__.__dict__["next_run_time_estimate"] = None
             __props__.__dict__["run_history"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20190901:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20201201preview:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20210101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:Export")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20190901:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20201201preview:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20210101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230701preview:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:Export")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Export, __self__).__init__(
             'azure-native:costmanagement:Export',

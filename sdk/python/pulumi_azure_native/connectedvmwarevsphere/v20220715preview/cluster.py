@@ -257,7 +257,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:Cluster"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231201:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:connectedvmwarevsphere/v20220715preview:Cluster',

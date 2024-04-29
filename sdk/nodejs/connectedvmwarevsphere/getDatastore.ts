@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Implements datastore GET method.
  * Azure REST API version: 2022-07-15-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-10-01.
+ * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
 
@@ -114,7 +114,7 @@ export interface GetDatastoreResult {
  * Implements datastore GET method.
  * Azure REST API version: 2022-07-15-preview.
  *
- * Other available API versions: 2023-03-01-preview, 2023-10-01.
+ * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
     return pulumi.output(args).apply((a: any) => getDatastore(a, opts))

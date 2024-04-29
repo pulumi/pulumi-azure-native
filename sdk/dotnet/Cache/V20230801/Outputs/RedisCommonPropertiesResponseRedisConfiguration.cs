@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.Cache.V20230801.Outputs
         /// </summary>
         public readonly string? MaxmemoryReserved;
         /// <summary>
+        /// The keyspace events which should be monitored.
+        /// </summary>
+        public readonly string? NotifyKeyspaceEvents;
+        /// <summary>
         /// Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
         /// </summary>
         public readonly string PreferredDataArchiveAuthMethod;
@@ -111,6 +115,8 @@ namespace Pulumi.AzureNative.Cache.V20230801.Outputs
 
             string? maxmemoryReserved,
 
+            string? notifyKeyspaceEvents,
+
             string preferredDataArchiveAuthMethod,
 
             string? preferredDataPersistenceAuthMethod,
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNative.Cache.V20230801.Outputs
             MaxmemoryDelta = maxmemoryDelta;
             MaxmemoryPolicy = maxmemoryPolicy;
             MaxmemoryReserved = maxmemoryReserved;
+            NotifyKeyspaceEvents = notifyKeyspaceEvents;
             PreferredDataArchiveAuthMethod = preferredDataArchiveAuthMethod;
             PreferredDataPersistenceAuthMethod = preferredDataPersistenceAuthMethod;
             RdbBackupEnabled = rdbBackupEnabled;

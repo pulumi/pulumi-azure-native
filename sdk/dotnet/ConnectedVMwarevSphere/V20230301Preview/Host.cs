@@ -171,6 +171,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20230301Preview
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:Host" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:Host" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231001:Host" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231201:Host" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

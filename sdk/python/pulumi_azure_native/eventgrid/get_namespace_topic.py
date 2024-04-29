@@ -138,7 +138,7 @@ def get_namespace_topic(namespace_name: Optional[str] = None,
     Get properties of a namespace topic.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-12-15-preview.
+    Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str namespace_name: Name of the namespace.
@@ -172,7 +172,7 @@ def get_namespace_topic_output(namespace_name: Optional[pulumi.Input[str]] = Non
     Get properties of a namespace topic.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-12-15-preview.
+    Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str namespace_name: Name of the namespace.

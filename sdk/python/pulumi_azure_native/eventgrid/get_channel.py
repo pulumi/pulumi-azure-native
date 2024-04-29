@@ -162,7 +162,7 @@ def get_channel(channel_name: Optional[str] = None,
     Get properties of a channel.
     Azure REST API version: 2022-06-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str channel_name: Name of the channel.
@@ -198,7 +198,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
     Get properties of a channel.
     Azure REST API version: 2022-06-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
 
 
     :param str channel_name: Name of the channel.

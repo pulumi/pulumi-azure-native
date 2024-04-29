@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:ClientGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:ClientGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:ClientGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

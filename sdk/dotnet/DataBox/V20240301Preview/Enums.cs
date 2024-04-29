@@ -353,59 +353,6 @@ namespace Pulumi.AzureNative.DataBox.V20240301Preview
     }
 
     /// <summary>
-    /// The display name of the sku.
-    /// </summary>
-    [EnumType]
-    public readonly struct ModelNames : IEquatable<ModelNames>
-    {
-        private readonly string _value;
-
-        private ModelNames(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// Data Box.
-        /// </summary>
-        public static ModelNames DataBox { get; } = new ModelNames("DataBox");
-        /// <summary>
-        /// Data Box Disk.
-        /// </summary>
-        public static ModelNames DataBoxDisk { get; } = new ModelNames("DataBoxDisk");
-        /// <summary>
-        /// Data Box Heavy.
-        /// </summary>
-        public static ModelNames DataBoxHeavy { get; } = new ModelNames("DataBoxHeavy");
-        /// <summary>
-        /// Data Box Customer Disk
-        /// </summary>
-        public static ModelNames DataBoxCustomerDisk { get; } = new ModelNames("DataBoxCustomerDisk");
-        /// <summary>
-        /// Data Box V2 100TB.
-        /// </summary>
-        public static ModelNames DataBoxV2x100 { get; } = new ModelNames("DataBoxV2x100");
-        /// <summary>
-        /// Data Box V2 500TB.
-        /// </summary>
-        public static ModelNames DataBoxV2x500 { get; } = new ModelNames("DataBoxV2x500");
-
-        public static bool operator ==(ModelNames left, ModelNames right) => left.Equals(right);
-        public static bool operator !=(ModelNames left, ModelNames right) => !left.Equals(right);
-
-        public static explicit operator string(ModelNames value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ModelNames other && Equals(other);
-        public bool Equals(ModelNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Name of the stage.
     /// </summary>
     [EnumType]

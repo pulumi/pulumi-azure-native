@@ -6,12 +6,14 @@ import * as v20210301 from "./v20210301";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
 import * as v20231101preview from "./v20231101preview";
+import * as v20240301 from "./v20240301";
 
 export {
     v20210301,
     v20230301preview,
     v20230501,
     v20231101preview,
+    v20240301,
 };
 
 export const AmlFilesystemIdentityType = {
@@ -35,6 +37,18 @@ export const CacheIdentityType = {
  * The type of identity used for the cache
  */
 export type CacheIdentityType = (typeof CacheIdentityType)[keyof typeof CacheIdentityType];
+
+export const ConflictResolutionMode = {
+    Fail: "Fail",
+    Skip: "Skip",
+    OverwriteIfDirty: "OverwriteIfDirty",
+    OverwriteAlways: "OverwriteAlways",
+} as const;
+
+/**
+ * How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
+ */
+export type ConflictResolutionMode = (typeof ConflictResolutionMode)[keyof typeof ConflictResolutionMode];
 
 export const MaintenanceDayOfWeekType = {
     Monday: "Monday",

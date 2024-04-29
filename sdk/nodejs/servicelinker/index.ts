@@ -58,11 +58,13 @@ export * from "../types/enums/servicelinker";
 import * as v20211101preview from "./v20211101preview";
 import * as v20221101preview from "./v20221101preview";
 import * as v20230401preview from "./v20230401preview";
+import * as v20240401 from "./v20240401";
 
 export {
     v20211101preview,
     v20221101preview,
     v20230401preview,
+    v20240401,
 };
 
 const _module = {

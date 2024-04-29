@@ -135,7 +135,7 @@ class NamespaceTopic(pulumi.CustomResource):
         Namespace topic details.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview.
+        Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class NamespaceTopic(pulumi.CustomResource):
         Namespace topic details.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview.
+        Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceTopicArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class NamespaceTopic(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:NamespaceTopic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:NamespaceTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:NamespaceTopic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceTopic, __self__).__init__(
             'azure-native:eventgrid:NamespaceTopic',

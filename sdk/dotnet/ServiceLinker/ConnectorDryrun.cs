@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceLinker
     /// a dryrun job resource
     /// Azure REST API version: 2022-11-01-preview.
     /// 
-    /// Other available API versions: 2023-04-01-preview.
+    /// Other available API versions: 2023-04-01-preview, 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:ConnectorDryrun")]
     public partial class ConnectorDryrun : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.ServiceLinker
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20221101preview:ConnectorDryrun" },
                     new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20230401preview:ConnectorDryrun" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicelinker/v20240401:ConnectorDryrun" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * get a dryrun job
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2024-04-01.
  */
 export function getLinkerDryrun(args: GetLinkerDryrunArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkerDryrunResult> {
 
@@ -74,7 +74,7 @@ export interface GetLinkerDryrunResult {
  * get a dryrun job
  * Azure REST API version: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01-preview.
+ * Other available API versions: 2023-04-01-preview, 2024-04-01.
  */
 export function getLinkerDryrunOutput(args: GetLinkerDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerDryrunResult> {
     return pulumi.output(args).apply((a: any) => getLinkerDryrun(a, opts))

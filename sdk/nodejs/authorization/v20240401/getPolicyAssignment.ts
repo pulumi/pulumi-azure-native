@@ -35,6 +35,10 @@ export interface GetPolicyAssignmentArgs {
  */
 export interface GetPolicyAssignmentResult {
     /**
+     * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+     */
+    readonly assignmentType?: string;
+    /**
      * This message will be part of response in case of policy violation.
      */
     readonly description?: string;
@@ -54,10 +58,6 @@ export interface GetPolicyAssignmentResult {
      * The managed identity associated with the policy assignment.
      */
     readonly identity?: outputs.authorization.v20240401.IdentityResponse;
-    /**
-     * A value indicating whether the policy assignment is for a system level policy assignment. Immutable.
-     */
-    readonly isSystemPolicy?: boolean;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */

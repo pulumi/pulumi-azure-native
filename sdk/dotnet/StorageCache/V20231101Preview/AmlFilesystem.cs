@@ -155,6 +155,8 @@ namespace Pulumi.AzureNative.StorageCache.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:amlFilesystem" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:AmlFilesystem" },
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:amlFilesystem" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:AmlFilesystem" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20240301:amlFilesystem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
