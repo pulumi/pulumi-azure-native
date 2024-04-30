@@ -71,7 +71,7 @@ jobs:
           compare_to: ${{  github.base_ref }}
 
       - name: Check worktree clean
-        uses: ./.github/actions/check-worktree-clean
+        uses: pulumi/git-status-check-action@v1
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -86,7 +86,7 @@ jobs:
     # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
     runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'go') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         language:
           - nodejs
@@ -122,7 +122,7 @@ jobs:
         run: make build_${{ matrix.language }}
 
       - name: Check worktree clean
-        uses: ./.github/actions/check-worktree-clean
+        uses: pulumi/git-status-check-action@v1
 
       - name: Tar SDK folder
         if: ${{ matrix.language != 'go' }}
@@ -161,7 +161,7 @@ jobs:
     # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
     runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'go') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         language:
           - nodejs
@@ -204,7 +204,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Test pulumi/examples
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         language:
           - nodejs
@@ -250,7 +250,7 @@ jobs:
             go mod edit -replace github.com/pulumi/examples/misc/test=../p-examples/misc/test/ && \
             go mod tidy && \
             go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-          
+
   test_provider:
     runs-on: ubuntu-latest
     name: Test Provider
