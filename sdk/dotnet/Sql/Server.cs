@@ -14,6 +14,16 @@ namespace Pulumi.AzureNative.Sql
     /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
     /// 
     /// Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview.
+    /// 
+    /// **Warning:** when `AzureADOnlyAuthentication` is enabled, the Azure SQL API rejects any `AdministratorLoginPassword`, even if it is the same as the current one.
+    /// 
+    /// According to the Azure team, this API design owes to the following reasons:
+    /// - Changing the password is not allowed when Entra-only authentication is enabled because it could lead to invalid templates.
+    /// - Any updates containing the same, unchanged password are also rejected because different behavior for same vs different passwords would be a vector for brute forcing the password.
+    /// 
+    /// To work around this, you can comment out `AdministratorLoginPassword` when enabling `AzureADOnlyAuthentication`. To update the password, you can disable `AzureADOnlyAuthentication` and re-enable it after the update.
+    /// 
+    /// For more details and discussion please see [this issue](https://github.com/pulumi/pulumi-azure-native/issues/2937).
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Server")]
     public partial class Server : global::Pulumi.CustomResource

@@ -251,12 +251,6 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
 
-	// TODO: Remove this once https://github.com/pulumi/pulumi/issues/12832 is fixed.
-	if match, err := path.Match("azure-rest-api-specs/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/*/*/examples/metadata/PutMetadata.json", example.Location); match || err != nil {
-		fmt.Printf("Skipping generating example program %s\n%s\n", example.Location, programBody)
-		return nil, err
-	}
-
 	writeDebugProgram("pp", programBody, example.Location)
 
 	debug.Log("Generating example programs for %s\n%s\n", example.Location, programBody)
