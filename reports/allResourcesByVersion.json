@@ -3530,6 +3530,12 @@
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
+    ],
+    "2024-03-01-preview": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
     ]
   },
   "Capacity": {
@@ -6117,6 +6123,19 @@
       "TrustedAccessRoleBinding",
       "UpdateRun",
       "listFleetCredentials",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2024-03-02-preview": [
+      "AgentPool",
+      "LoadBalancer",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
@@ -17691,7 +17710,10 @@
     ]
   },
   "PortalServices": {
-    "": []
+    "": [],
+    "2024-04-01-preview": [
+      "CopilotSetting"
+    ]
   },
   "PowerBI": {
     "2016-01-29": [
