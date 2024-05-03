@@ -19,12 +19,8 @@ env:
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  ARM_CLIENT_ID: 30e520fa-12b4-4e21-b473-9426c5ac2e1e
-  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   ARM_ENVIRONMENT: public
   ARM_LOCATION: westus2
-  ARM_SUBSCRIPTION_ID: 0282681f-7a9e-424b-80b2-96babd57a8a1
-  ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
   PULUMI_API: https://api.pulumi-staging.io
   PROVIDER_VERSION: 2.0.0-alpha.0+dev
 jobs:
@@ -45,7 +41,7 @@ jobs:
         with:
           skip_dotnet_and_java: "true"
 
-      - uses: azure/login@v1
+      - uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
 
