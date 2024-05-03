@@ -316,9 +316,11 @@
   "Cache": {
     "Databases_Export": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/export",
     "Databases_Flush": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/flush",
+    "Databases_ForceLinkToReplicationGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/forceLinkToReplicationGroup",
     "Databases_ForceUnlink": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/forceUnlink",
     "Databases_Import": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/import",
     "Databases_RegenerateKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/regenerateKey",
+    "Databases_UpgradeDBRedisVersion": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/upgradeDBRedisVersion",
     "RedisEnterprise_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Cache/checkNameAvailability",
     "Redis_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.Cache/CheckNameAvailability",
     "Redis_ExportData": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redis/{name}/export",
@@ -558,6 +560,7 @@
     "AgentPools_DeleteMachines": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/deleteMachines",
     "AgentPools_UpgradeNodeImageVersion": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/upgradeNodeImageVersion",
     "ManagedClusters_AbortLatestOperation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/abort",
+    "ManagedClusters_RebalanceLoadBalancers": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/rebalanceLoadBalancers",
     "ManagedClusters_ResetAADProfile": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resetAADProfile",
     "ManagedClusters_ResetServicePrincipalProfile": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/resetServicePrincipalProfile",
     "ManagedClusters_RotateClusterCertificates": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/rotateClusterCertificates",
@@ -1808,7 +1811,8 @@
     "keepAliveWithLocation": "/providers/Microsoft.Portal/locations/{location}/consoles/{consoleName}/keepAlive"
   },
   "PortalServices": {
-    "PortalTenant_CompileFile": "/providers/Microsoft.PortalServices/compilefile"
+    "PortalTenant_CompileFile": "/providers/Microsoft.PortalServices/compilefile",
+    "PortalTenant_Compilefile": "/providers/Microsoft.PortalServices/compilefile"
   },
   "PowerBI": {
     "WorkspaceCollections_checkNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.PowerBI/locations/{location}/checkNameAvailability",
@@ -1945,6 +1949,9 @@
     "DeploymentStacks_ExportTemplateAtManagementGroup": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName}/exportTemplate",
     "DeploymentStacks_ExportTemplateAtResourceGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName}/exportTemplate",
     "DeploymentStacks_ExportTemplateAtSubscription": "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName}/exportTemplate",
+    "DeploymentStacks_ValidateStackAtManagementGroup": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName}/validate",
+    "DeploymentStacks_ValidateStackAtResourceGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName}/validate",
+    "DeploymentStacks_ValidateStackAtSubscription": "/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deploymentStacks/{deploymentStackName}/validate",
     "Deployments_CalculateTemplateHash": "/providers/Microsoft.Resources/calculateTemplateHash",
     "Deployments_Cancel": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}/cancel",
     "Deployments_CancelAtManagementGroupScope": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}/cancel",

@@ -260,6 +260,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "Monitor",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "NetApp",
     "Detail": "expected no additions but found some"
   },
@@ -282,6 +286,10 @@
   {
     "Provider": "Orbital",
     "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "PortalServices",
+    "Detail": "expected tracking stable but found preview"
   },
   {
     "Provider": "Quantum",
