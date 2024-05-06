@@ -215,7 +215,7 @@ func generate(ppkg *schema.Package, language string) (map[string][]byte, error) 
 	case "go":
 		return gogen.GeneratePackage(toolDescription, ppkg)
 	case "dotnet":
-		return dotnetgen.GeneratePackage(toolDescription, ppkg, extraFiles)
+		return dotnetgen.GeneratePackage(toolDescription, ppkg, extraFiles, nil)
 	}
 
 	return nil, errors.Errorf("unknown language '%s'", language)
