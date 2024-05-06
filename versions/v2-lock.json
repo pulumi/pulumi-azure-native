@@ -667,6 +667,7 @@
     "Fleet": "2023-03-15-preview",
     "FleetMember": "2023-03-15-preview",
     "FleetUpdateStrategy": "2023-08-15-preview",
+    "LoadBalancer": "2024-03-02-preview",
     "MaintenanceConfiguration": "2023-04-01",
     "ManagedCluster": "2023-04-01",
     "ManagedClusterSnapshot": "2023-05-02-preview",
@@ -1740,7 +1741,8 @@
     "UpfDeployment": "2023-10-15-preview"
   },
   "Monitor": {
-    "AzureMonitorWorkspace": "2023-04-03"
+    "AzureMonitorWorkspace": "2023-04-03",
+    "PipelineGroup": "2023-10-01-preview"
   },
   "NetApp": {
     "Account": "2022-11-01",
@@ -2047,7 +2049,9 @@
     "UserSettingsWithLocation": "2018-10-01",
     "listListTenantConfigurationViolation": "2020-09-01-preview"
   },
-  "PortalServices": {},
+  "PortalServices": {
+    "CopilotSetting": "2024-04-01-preview"
+  },
   "PowerBI": {
     "PowerBIResource": "2020-06-01",
     "PrivateEndpointConnection": "2020-06-01",
