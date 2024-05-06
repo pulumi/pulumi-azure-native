@@ -5,12 +5,32 @@
 from enum import Enum
 
 __all__ = [
+    'DenySettingsMode',
     'DeploymentMode',
+    'DeploymentStacksDeleteDetachEnum',
     'ExpressionEvaluationOptionsScopeType',
     'ExtendedLocationType',
     'OnErrorDeploymentType',
     'ResourceIdentityType',
 ]
+
+
+class DenySettingsMode(str, Enum):
+    """
+    denySettings Mode that defines denied actions.
+    """
+    DENY_DELETE = "denyDelete"
+    """
+    Authorized users are able to read and modify the resources, but cannot delete.
+    """
+    DENY_WRITE_AND_DELETE = "denyWriteAndDelete"
+    """
+    Authorized users can read from a resource, but cannot modify or delete it.
+    """
+    NONE = "none"
+    """
+    No denyAssignments have been applied.
+    """
 
 
 class DeploymentMode(str, Enum):
@@ -19,6 +39,14 @@ class DeploymentMode(str, Enum):
     """
     INCREMENTAL = "Incremental"
     COMPLETE = "Complete"
+
+
+class DeploymentStacksDeleteDetachEnum(str, Enum):
+    """
+    Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+    """
+    DELETE = "delete"
+    DETACH = "detach"
 
 
 class ExpressionEvaluationOptionsScopeType(str, Enum):

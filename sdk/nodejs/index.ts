@@ -174,6 +174,7 @@ import * as orbital from "./orbital";
 import * as peering from "./peering";
 import * as policyinsights from "./policyinsights";
 import * as portal from "./portal";
+import * as portalservices from "./portalservices";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
@@ -400,6 +401,7 @@ export {
     peering,
     policyinsights,
     portal,
+    portalservices,
     powerbi,
     powerbidedicated,
     powerplatform,

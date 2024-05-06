@@ -45,6 +45,11 @@ export const getFleetUpdateStrategy: typeof import("./getFleetUpdateStrategy").g
 export const getFleetUpdateStrategyOutput: typeof import("./getFleetUpdateStrategy").getFleetUpdateStrategyOutput = null as any;
 utilities.lazyLoad(exports, ["getFleetUpdateStrategy","getFleetUpdateStrategyOutput"], () => require("./getFleetUpdateStrategy"));
 
+export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
+export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
+export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
+
 export { GetMaintenanceConfigurationArgs, GetMaintenanceConfigurationResult, GetMaintenanceConfigurationOutputArgs } from "./getMaintenanceConfiguration";
 export const getMaintenanceConfiguration: typeof import("./getMaintenanceConfiguration").getMaintenanceConfiguration = null as any;
 export const getMaintenanceConfigurationOutput: typeof import("./getMaintenanceConfiguration").getMaintenanceConfigurationOutput = null as any;
@@ -109,6 +114,11 @@ export { ListManagedClusterUserCredentialsArgs, ListManagedClusterUserCredential
 export const listManagedClusterUserCredentials: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentials = null as any;
 export const listManagedClusterUserCredentialsOutput: typeof import("./listManagedClusterUserCredentials").listManagedClusterUserCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["listManagedClusterUserCredentials","listManagedClusterUserCredentialsOutput"], () => require("./listManagedClusterUserCredentials"));
+
+export { LoadBalancerArgs } from "./loadBalancer";
+export type LoadBalancer = import("./loadBalancer").LoadBalancer;
+export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
 
 export { MaintenanceConfigurationArgs } from "./maintenanceConfiguration";
 export type MaintenanceConfiguration = import("./maintenanceConfiguration").MaintenanceConfiguration;
@@ -186,6 +196,7 @@ import * as v20240101 from "./v20240101";
 import * as v20240102preview from "./v20240102preview";
 import * as v20240201 from "./v20240201";
 import * as v20240202preview from "./v20240202preview";
+import * as v20240302preview from "./v20240302preview";
 import * as v20240401 from "./v20240401";
 
 export {
@@ -220,6 +231,7 @@ export {
     v20240102preview,
     v20240201,
     v20240202preview,
+    v20240302preview,
     v20240401,
 };
 
@@ -235,6 +247,8 @@ const _module = {
                 return new FleetMember(name, <any>undefined, { urn })
             case "azure-native:containerservice:FleetUpdateStrategy":
                 return new FleetUpdateStrategy(name, <any>undefined, { urn })
+            case "azure-native:containerservice:LoadBalancer":
+                return new LoadBalancer(name, <any>undefined, { urn })
             case "azure-native:containerservice:MaintenanceConfiguration":
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedCluster":

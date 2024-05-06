@@ -304,6 +304,8 @@ def get_deployment_stack_at_management_group(deployment_stack_name: Optional[str
     Gets a Deployment Stack with a given name.
     Azure REST API version: 2022-08-01-preview.
 
+    Other available API versions: 2024-03-01.
+
 
     :param str deployment_stack_name: Name of the deployment stack.
     :param str management_group_id: Management Group.
@@ -346,6 +348,8 @@ def get_deployment_stack_at_management_group_output(deployment_stack_name: Optio
     """
     Gets a Deployment Stack with a given name.
     Azure REST API version: 2022-08-01-preview.
+
+    Other available API versions: 2024-03-01.
 
 
     :param str deployment_stack_name: Name of the deployment stack.

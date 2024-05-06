@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Cache.V20240201
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230801preview:EnterprisePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20231001preview:EnterprisePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20231101:EnterprisePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20240301preview:EnterprisePrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

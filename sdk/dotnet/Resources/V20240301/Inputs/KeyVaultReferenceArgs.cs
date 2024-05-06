@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Resources.V20240301.Inputs
     public sealed class KeyVaultReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Azure Key Vault resource id.
+        /// Azure Key Vault resourceId.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActionOnUnmanageResponse',
     'AliasPathMetadataResponse',
     'AliasPathResponse',
     'AliasPatternResponse',
@@ -19,13 +20,21 @@ __all__ = [
     'ApiProfileResponse',
     'BasicDependencyResponse',
     'DebugSettingResponse',
+    'DenySettingsResponse',
     'DependencyResponse',
+    'DeploymentParameterResponse',
     'DeploymentPropertiesExtendedResponse',
+    'DeploymentStacksDebugSettingResponse',
+    'DeploymentStacksParametersLinkResponse',
     'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
     'ErrorResponseResponse',
     'ExtendedLocationResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
+    'KeyVaultParameterReferenceResponse',
+    'KeyVaultReferenceResponse',
+    'ManagedResourceReferenceResponse',
     'OnErrorDeploymentExtendedResponse',
     'ParametersLinkResponse',
     'PlanResponse',
@@ -33,12 +42,79 @@ __all__ = [
     'ProviderResourceTypeResponse',
     'ProviderResponse',
     'ResourceGroupPropertiesResponse',
+    'ResourceReferenceExtendedResponse',
     'ResourceReferenceResponse',
     'SkuResponse',
+    'SystemDataResponse',
     'TagsResponse',
     'TemplateLinkResponse',
     'ZoneMappingResponse',
 ]
+
+@pulumi.output_type
+class ActionOnUnmanageResponse(dict):
+    """
+    Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managementGroups":
+            suggest = "management_groups"
+        elif key == "resourceGroups":
+            suggest = "resource_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionOnUnmanageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionOnUnmanageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionOnUnmanageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resources: str,
+                 management_groups: Optional[str] = None,
+                 resource_groups: Optional[str] = None):
+        """
+        Defines the behavior of resources that are no longer managed after the stack is updated or deleted.
+        :param str resources: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param str management_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        :param str resource_groups: Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        pulumi.set(__self__, "resources", resources)
+        if management_groups is not None:
+            pulumi.set(__self__, "management_groups", management_groups)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> str:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="managementGroups")
+    def management_groups(self) -> Optional[str]:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "management_groups")
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[str]:
+        """
+        Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+        """
+        return pulumi.get(self, "resource_groups")
+
 
 @pulumi.output_type
 class AliasPathMetadataResponse(dict):
@@ -449,6 +525,85 @@ class DebugSettingResponse(dict):
 
 
 @pulumi.output_type
+class DenySettingsResponse(dict):
+    """
+    Defines how resources deployed by the Deployment stack are locked.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyToChildScopes":
+            suggest = "apply_to_child_scopes"
+        elif key == "excludedActions":
+            suggest = "excluded_actions"
+        elif key == "excludedPrincipals":
+            suggest = "excluded_principals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DenySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DenySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DenySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: str,
+                 apply_to_child_scopes: Optional[bool] = None,
+                 excluded_actions: Optional[Sequence[str]] = None,
+                 excluded_principals: Optional[Sequence[str]] = None):
+        """
+        Defines how resources deployed by the Deployment stack are locked.
+        :param str mode: denySettings Mode that defines denied actions.
+        :param bool apply_to_child_scopes: DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
+        :param Sequence[str] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
+        :param Sequence[str] excluded_principals: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if apply_to_child_scopes is not None:
+            pulumi.set(__self__, "apply_to_child_scopes", apply_to_child_scopes)
+        if excluded_actions is not None:
+            pulumi.set(__self__, "excluded_actions", excluded_actions)
+        if excluded_principals is not None:
+            pulumi.set(__self__, "excluded_principals", excluded_principals)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        denySettings Mode that defines denied actions.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="applyToChildScopes")
+    def apply_to_child_scopes(self) -> Optional[bool]:
+        """
+        DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
+        """
+        return pulumi.get(self, "apply_to_child_scopes")
+
+    @property
+    @pulumi.getter(name="excludedActions")
+    def excluded_actions(self) -> Optional[Sequence[str]]:
+        """
+        List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*\\/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
+        """
+        return pulumi.get(self, "excluded_actions")
+
+    @property
+    @pulumi.getter(name="excludedPrincipals")
+    def excluded_principals(self) -> Optional[Sequence[str]]:
+        """
+        List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
+        """
+        return pulumi.get(self, "excluded_principals")
+
+
+@pulumi.output_type
 class DependencyResponse(dict):
     """
     Deployment dependency information.
@@ -526,6 +681,53 @@ class DependencyResponse(dict):
         The dependency resource type.
         """
         return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class DeploymentParameterResponse(dict):
+    """
+    Deployment parameter for the template.
+    """
+    def __init__(__self__, *,
+                 reference: Optional['outputs.KeyVaultParameterReferenceResponse'] = None,
+                 type: Optional[str] = None,
+                 value: Optional[Any] = None):
+        """
+        Deployment parameter for the template.
+        :param 'KeyVaultParameterReferenceResponse' reference: Azure Key Vault parameter reference.
+        :param str type: Type of the value.
+        :param Any value: Input value to the parameter.
+        """
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def reference(self) -> Optional['outputs.KeyVaultParameterReferenceResponse']:
+        """
+        Azure Key Vault parameter reference.
+        """
+        return pulumi.get(self, "reference")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the value.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Input value to the parameter.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -760,6 +962,97 @@ class DeploymentPropertiesExtendedResponse(dict):
 
 
 @pulumi.output_type
+class DeploymentStacksDebugSettingResponse(dict):
+    """
+    The debug setting.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailLevel":
+            suggest = "detail_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksDebugSettingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksDebugSettingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksDebugSettingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 detail_level: Optional[str] = None):
+        """
+        The debug setting.
+        :param str detail_level: Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
+        """
+        if detail_level is not None:
+            pulumi.set(__self__, "detail_level", detail_level)
+
+    @property
+    @pulumi.getter(name="detailLevel")
+    def detail_level(self) -> Optional[str]:
+        """
+        Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
+        """
+        return pulumi.get(self, "detail_level")
+
+
+@pulumi.output_type
+class DeploymentStacksParametersLinkResponse(dict):
+    """
+    Entity representing the reference to the deployment parameters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentVersion":
+            suggest = "content_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStacksParametersLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStacksParametersLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStacksParametersLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 content_version: Optional[str] = None):
+        """
+        Entity representing the reference to the deployment parameters.
+        :param str uri: The URI of the parameters file.
+        :param str content_version: If included, must match the ContentVersion in the template.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if content_version is not None:
+            pulumi.set(__self__, "content_version", content_version)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI of the parameters file.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="contentVersion")
+    def content_version(self) -> Optional[str]:
+        """
+        If included, must match the ContentVersion in the template.
+        """
+        return pulumi.get(self, "content_version")
+
+
+@pulumi.output_type
 class ErrorAdditionalInfoResponse(dict):
     """
     The resource management error additional info.
@@ -790,6 +1083,89 @@ class ErrorAdditionalInfoResponse(dict):
         The additional info type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: str,
+                 target: str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -1034,6 +1410,159 @@ class IdentityResponseUserAssignedIdentities(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class KeyVaultParameterReferenceResponse(dict):
+    """
+    Azure Key Vault parameter reference.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVault":
+            suggest = "key_vault"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultParameterReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultParameterReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultParameterReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault: 'outputs.KeyVaultReferenceResponse',
+                 secret_name: str,
+                 secret_version: Optional[str] = None):
+        """
+        Azure Key Vault parameter reference.
+        :param 'KeyVaultReferenceResponse' key_vault: Azure Key Vault reference.
+        :param str secret_name: Azure Key Vault secret name.
+        :param str secret_version: Azure Key Vault secret version.
+        """
+        pulumi.set(__self__, "key_vault", key_vault)
+        pulumi.set(__self__, "secret_name", secret_name)
+        if secret_version is not None:
+            pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> 'outputs.KeyVaultReferenceResponse':
+        """
+        Azure Key Vault reference.
+        """
+        return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Azure Key Vault secret name.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> Optional[str]:
+        """
+        Azure Key Vault secret version.
+        """
+        return pulumi.get(self, "secret_version")
+
+
+@pulumi.output_type
+class KeyVaultReferenceResponse(dict):
+    """
+    Azure Key Vault reference.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Azure Key Vault reference.
+        :param str id: Azure Key Vault resourceId.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure Key Vault resourceId.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ManagedResourceReferenceResponse(dict):
+    """
+    The managed resource model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "denyStatus":
+            suggest = "deny_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedResourceReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedResourceReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedResourceReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 deny_status: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        The managed resource model.
+        :param str id: The resourceId of a resource managed by the deployment stack.
+        :param str deny_status: denyAssignment settings applied to the resource.
+        :param str status: Current management state of the resource in the deployment stack.
+        """
+        pulumi.set(__self__, "id", id)
+        if deny_status is None:
+            deny_status = 'none'
+        if deny_status is not None:
+            pulumi.set(__self__, "deny_status", deny_status)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resourceId of a resource managed by the deployment stack.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="denyStatus")
+    def deny_status(self) -> Optional[str]:
+        """
+        denyAssignment settings applied to the resource.
+        """
+        return pulumi.get(self, "deny_status")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Current management state of the resource in the deployment stack.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -1598,15 +2127,49 @@ class ResourceGroupPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ResourceReferenceExtendedResponse(dict):
+    """
+    The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 error: Optional['outputs.ErrorDetailResponse'] = None):
+        """
+        The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
+        :param str id: The resourceId of a resource managed by the deployment stack.
+        :param 'ErrorDetailResponse' error: The error detail.
+        """
+        pulumi.set(__self__, "id", id)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resourceId of a resource managed by the deployment stack.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorDetailResponse']:
+        """
+        The error detail.
+        """
+        return pulumi.get(self, "error")
+
+
+@pulumi.output_type
 class ResourceReferenceResponse(dict):
     """
-    The resource Id model.
+    The resourceId model.
     """
     def __init__(__self__, *,
                  id: str):
         """
-        The resource Id model.
-        :param str id: The fully qualified resource Id.
+        The resourceId model.
+        :param str id: The resourceId of a resource managed by the deployment stack.
         """
         pulumi.set(__self__, "id", id)
 
@@ -1614,7 +2177,7 @@ class ResourceReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The fully qualified resource Id.
+        The resourceId of a resource managed by the deployment stack.
         """
         return pulumi.get(self, "id")
 
@@ -1700,6 +2263,116 @@ class SkuResponse(dict):
         The SKU tier.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

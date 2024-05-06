@@ -250,6 +250,8 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
         Deployment stack object.
         Azure REST API version: 2022-08-01-preview.
 
+        Other available API versions: 2024-03-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DeploymentStackPropertiesActionOnUnmanageArgs']] action_on_unmanage: Defines the behavior of resources that are not managed immediately after the stack is updated.
@@ -275,6 +277,8 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
         """
         Deployment stack object.
         Azure REST API version: 2022-08-01-preview.
+
+        Other available API versions: 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param DeploymentStackAtResourceGroupArgs args: The arguments to use to populate this resource's properties.
@@ -344,7 +348,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
             __props__.__dict__["resources"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20220801preview:DeploymentStackAtResourceGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20220801preview:DeploymentStackAtResourceGroup"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentStackAtResourceGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentStackAtResourceGroup, __self__).__init__(
             'azure-native:resources:DeploymentStackAtResourceGroup',

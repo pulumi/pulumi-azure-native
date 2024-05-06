@@ -131,6 +131,7 @@ import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
 import * as mobilepacketcore from "./mobilepacketcore";
+import * as monitor from "./monitor";
 import * as netapp from "./netapp";
 import * as network from "./network";
 import * as networkanalytics from "./networkanalytics";
@@ -330,6 +331,7 @@ export {
     mixedreality,
     mobilenetwork,
     mobilepacketcore,
+    monitor,
     netapp,
     network,
     networkanalytics,

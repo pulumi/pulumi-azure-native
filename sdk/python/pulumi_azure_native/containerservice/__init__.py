@@ -14,6 +14,7 @@ from .get_agent_pool import *
 from .get_fleet import *
 from .get_fleet_member import *
 from .get_fleet_update_strategy import *
+from .get_load_balancer import *
 from .get_maintenance_configuration import *
 from .get_managed_cluster import *
 from .get_managed_cluster_snapshot import *
@@ -27,6 +28,7 @@ from .list_managed_cluster_access_profile import *
 from .list_managed_cluster_admin_credentials import *
 from .list_managed_cluster_monitoring_user_credentials import *
 from .list_managed_cluster_user_credentials import *
+from .load_balancer import *
 from .maintenance_configuration import *
 from .managed_cluster import *
 from .managed_cluster_snapshot import *
@@ -102,6 +104,8 @@ if typing.TYPE_CHECKING:
     v20240201 = __v20240201
     import pulumi_azure_native.containerservice.v20240202preview as __v20240202preview
     v20240202preview = __v20240202preview
+    import pulumi_azure_native.containerservice.v20240302preview as __v20240302preview
+    v20240302preview = __v20240302preview
     import pulumi_azure_native.containerservice.v20240401 as __v20240401
     v20240401 = __v20240401
 else:
@@ -136,5 +140,6 @@ else:
     v20240102preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240102preview')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240201')
     v20240202preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240202preview')
+    v20240302preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240302preview')
     v20240401 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20240401')
 

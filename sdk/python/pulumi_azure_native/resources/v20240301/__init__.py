@@ -11,11 +11,17 @@ from .deployment_at_management_group_scope import *
 from .deployment_at_scope import *
 from .deployment_at_subscription_scope import *
 from .deployment_at_tenant_scope import *
+from .deployment_stack_at_management_group import *
+from .deployment_stack_at_resource_group import *
+from .deployment_stack_at_subscription import *
 from .get_deployment import *
 from .get_deployment_at_management_group_scope import *
 from .get_deployment_at_scope import *
 from .get_deployment_at_subscription_scope import *
 from .get_deployment_at_tenant_scope import *
+from .get_deployment_stack_at_management_group import *
+from .get_deployment_stack_at_resource_group import *
+from .get_deployment_stack_at_subscription import *
 from .get_resource import *
 from .get_resource_group import *
 from .get_tag_at_scope import *

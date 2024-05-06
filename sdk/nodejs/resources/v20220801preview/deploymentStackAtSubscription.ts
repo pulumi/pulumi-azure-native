@@ -187,7 +187,7 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentStackAtSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentStackAtSubscription" }, { type: "azure-native:resources/v20240301:DeploymentStackAtSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentStackAtSubscription.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * An Azure Monitor Workspace definition
  * Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
@@ -130,7 +132,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20210603preview:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20230403:AzureMonitorWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:monitor/v20210603preview:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20230403:AzureMonitorWorkspace" }, { type: "azure-native:monitor/v20231001preview:AzureMonitorWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureMonitorWorkspace.__pulumiType, name, resourceInputs, opts);
     }

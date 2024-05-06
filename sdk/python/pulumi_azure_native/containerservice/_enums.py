@@ -31,6 +31,7 @@ __all__ = [
     'OSType',
     'OpenShiftAgentPoolProfileRole',
     'OpenShiftContainerServiceVMSize',
+    'Operator',
     'OutboundType',
     'PublicNetworkAccess',
     'ResourceIdentityType',
@@ -417,6 +418,28 @@ class OpenShiftContainerServiceVMSize(str, Enum):
     STANDARD_L8S = "Standard_L8s"
     STANDARD_L16S = "Standard_L16s"
     STANDARD_L32S = "Standard_L32s"
+
+
+class Operator(str, Enum):
+    """
+    operator represents a key's relationship to a set of values. Valid operators are In and NotIn
+    """
+    IN_ = "In"
+    """
+    The value of the key should be in the given list.
+    """
+    NOT_IN = "NotIn"
+    """
+    The value of the key should not be in the given list.
+    """
+    EXISTS = "Exists"
+    """
+    The value of the key should exist.
+    """
+    DOES_NOT_EXIST = "DoesNotExist"
+    """
+    The value of the key should not exist.
+    """
 
 
 class OutboundType(str, Enum):

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a database on the RedisEnterprise cluster
  * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
  *
- * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01.
+ * Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -136,7 +136,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20201001preview:Database" }, { type: "azure-native:cache/v20210201preview:Database" }, { type: "azure-native:cache/v20210301:Database" }, { type: "azure-native:cache/v20210801:Database" }, { type: "azure-native:cache/v20220101:Database" }, { type: "azure-native:cache/v20221101preview:Database" }, { type: "azure-native:cache/v20230301preview:Database" }, { type: "azure-native:cache/v20230701:Database" }, { type: "azure-native:cache/v20230801preview:Database" }, { type: "azure-native:cache/v20231001preview:Database" }, { type: "azure-native:cache/v20231101:Database" }, { type: "azure-native:cache/v20240201:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20201001preview:Database" }, { type: "azure-native:cache/v20210201preview:Database" }, { type: "azure-native:cache/v20210301:Database" }, { type: "azure-native:cache/v20210801:Database" }, { type: "azure-native:cache/v20220101:Database" }, { type: "azure-native:cache/v20221101preview:Database" }, { type: "azure-native:cache/v20230301preview:Database" }, { type: "azure-native:cache/v20230701:Database" }, { type: "azure-native:cache/v20230801preview:Database" }, { type: "azure-native:cache/v20231001preview:Database" }, { type: "azure-native:cache/v20231101:Database" }, { type: "azure-native:cache/v20240201:Database" }, { type: "azure-native:cache/v20240301preview:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }

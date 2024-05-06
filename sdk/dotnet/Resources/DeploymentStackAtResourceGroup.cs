@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Resources
     /// <summary>
     /// Deployment stack object.
     /// Azure REST API version: 2022-08-01-preview.
+    /// 
+    /// Other available API versions: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentStackAtResourceGroup")]
     public partial class DeploymentStackAtResourceGroup : global::Pulumi.CustomResource
@@ -168,6 +170,7 @@ namespace Pulumi.AzureNative.Resources
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220801preview:DeploymentStackAtResourceGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20240301:DeploymentStackAtResourceGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

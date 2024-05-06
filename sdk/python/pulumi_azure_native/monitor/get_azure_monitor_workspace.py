@@ -196,6 +196,8 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
     Returns the specified Azure Monitor Workspace
     Azure REST API version: 2023-04-03.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -229,6 +231,8 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
     """
     Returns the specified Azure Monitor Workspace
     Azure REST API version: 2023-04-03.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive

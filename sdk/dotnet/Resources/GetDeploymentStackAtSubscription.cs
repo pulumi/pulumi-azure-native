@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a Deployment Stack with a given name.
         /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Task<GetDeploymentStackAtSubscriptionResult> InvokeAsync(GetDeploymentStackAtSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Gets a Deployment Stack with a given name.
         /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetDeploymentStackAtSubscriptionResult> Invoke(GetDeploymentStackAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionInvokeArgs(), options.WithDefaults());

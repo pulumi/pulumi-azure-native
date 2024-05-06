@@ -31,6 +31,7 @@ import * as v20240101 from "./v20240101";
 import * as v20240102preview from "./v20240102preview";
 import * as v20240201 from "./v20240201";
 import * as v20240202preview from "./v20240202preview";
+import * as v20240302preview from "./v20240302preview";
 import * as v20240401 from "./v20240401";
 
 export {
@@ -63,6 +64,7 @@ export {
     v20240102preview,
     v20240201,
     v20240202preview,
+    v20240302preview,
     v20240401,
 };
 
@@ -492,6 +494,30 @@ export const OpenShiftContainerServiceVMSize = {
  * Size of agent VMs.
  */
 export type OpenShiftContainerServiceVMSize = (typeof OpenShiftContainerServiceVMSize)[keyof typeof OpenShiftContainerServiceVMSize];
+
+export const Operator = {
+    /**
+     * The value of the key should be in the given list.
+     */
+    In: "In",
+    /**
+     * The value of the key should not be in the given list.
+     */
+    NotIn: "NotIn",
+    /**
+     * The value of the key should exist.
+     */
+    Exists: "Exists",
+    /**
+     * The value of the key should not exist.
+     */
+    DoesNotExist: "DoesNotExist",
+} as const;
+
+/**
+ * operator represents a key's relationship to a set of values. Valid operators are In and NotIn
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const OutboundType = {
     /**

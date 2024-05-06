@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Cache.V20240201
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230801preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20231001preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20231101:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20240301preview:Database" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

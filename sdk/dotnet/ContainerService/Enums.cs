@@ -981,6 +981,51 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// operator represents a key's relationship to a set of values. Valid operators are In and NotIn
+    /// </summary>
+    [EnumType]
+    public readonly struct Operator : IEquatable<Operator>
+    {
+        private readonly string _value;
+
+        private Operator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The value of the key should be in the given list.
+        /// </summary>
+        public static Operator In { get; } = new Operator("In");
+        /// <summary>
+        /// The value of the key should not be in the given list.
+        /// </summary>
+        public static Operator NotIn { get; } = new Operator("NotIn");
+        /// <summary>
+        /// The value of the key should exist.
+        /// </summary>
+        public static Operator Exists { get; } = new Operator("Exists");
+        /// <summary>
+        /// The value of the key should not exist.
+        /// </summary>
+        public static Operator DoesNotExist { get; } = new Operator("DoesNotExist");
+
+        public static bool operator ==(Operator left, Operator right) => left.Equals(right);
+        public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
+
+        public static explicit operator string(Operator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Operator other && Equals(other);
+        public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
     /// </summary>
     [EnumType]

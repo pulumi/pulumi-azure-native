@@ -97,6 +97,8 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         An Azure Monitor Workspace definition
         Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
 
+        Other available API versions: 2023-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
@@ -113,6 +115,8 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         """
         An Azure Monitor Workspace definition
         Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AzureMonitorWorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -158,7 +162,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
             __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20210603preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20230403:AzureMonitorWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20210603preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20230403:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20231001preview:AzureMonitorWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureMonitorWorkspace, __self__).__init__(
             'azure-native:monitor:AzureMonitorWorkspace',

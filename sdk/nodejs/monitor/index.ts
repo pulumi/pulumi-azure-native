@@ -15,12 +15,27 @@ export const getAzureMonitorWorkspace: typeof import("./getAzureMonitorWorkspace
 export const getAzureMonitorWorkspaceOutput: typeof import("./getAzureMonitorWorkspace").getAzureMonitorWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getAzureMonitorWorkspace","getAzureMonitorWorkspaceOutput"], () => require("./getAzureMonitorWorkspace"));
 
+export { GetPipelineGroupArgs, GetPipelineGroupResult, GetPipelineGroupOutputArgs } from "./getPipelineGroup";
+export const getPipelineGroup: typeof import("./getPipelineGroup").getPipelineGroup = null as any;
+export const getPipelineGroupOutput: typeof import("./getPipelineGroup").getPipelineGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPipelineGroup","getPipelineGroupOutput"], () => require("./getPipelineGroup"));
+
+export { PipelineGroupArgs } from "./pipelineGroup";
+export type PipelineGroup = import("./pipelineGroup").PipelineGroup;
+export const PipelineGroup: typeof import("./pipelineGroup").PipelineGroup = null as any;
+utilities.lazyLoad(exports, ["PipelineGroup"], () => require("./pipelineGroup"));
+
+
+// Export enums:
+export * from "../types/enums/monitor";
 
 // Export sub-modules:
 import * as v20230403 from "./v20230403";
+import * as v20231001preview from "./v20231001preview";
 
 export {
     v20230403,
+    v20231001preview,
 };
 
 const _module = {
@@ -29,6 +44,8 @@ const _module = {
         switch (type) {
             case "azure-native:monitor:AzureMonitorWorkspace":
                 return new AzureMonitorWorkspace(name, <any>undefined, { urn })
+            case "azure-native:monitor:PipelineGroup":
+                return new PipelineGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

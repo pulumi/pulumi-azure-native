@@ -333,6 +333,8 @@ if typing.TYPE_CHECKING:
     policyinsights = __policyinsights
     import pulumi_azure_native.portal as __portal
     portal = __portal
+    import pulumi_azure_native.portalservices as __portalservices
+    portalservices = __portalservices
     import pulumi_azure_native.powerbi as __powerbi
     powerbi = __powerbi
     import pulumi_azure_native.powerbidedicated as __powerbidedicated
@@ -618,6 +620,7 @@ else:
     peering = _utilities.lazy_import('pulumi_azure_native.peering')
     policyinsights = _utilities.lazy_import('pulumi_azure_native.policyinsights')
     portal = _utilities.lazy_import('pulumi_azure_native.portal')
+    portalservices = _utilities.lazy_import('pulumi_azure_native.portalservices')
     powerbi = _utilities.lazy_import('pulumi_azure_native.powerbi')
     powerbidedicated = _utilities.lazy_import('pulumi_azure_native.powerbidedicated')
     powerplatform = _utilities.lazy_import('pulumi_azure_native.powerplatform')
@@ -3339,6 +3342,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cache/v20240301preview",
+  "fqn": "pulumi_azure_native.cache.v20240301preview",
+  "classes": {
+   "azure-native:cache/v20240301preview:Database": "Database",
+   "azure-native:cache/v20240301preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
+   "azure-native:cache/v20240301preview:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cdn",
   "fqn": "pulumi_azure_native.cdn",
   "classes": {
@@ -4543,6 +4556,7 @@ _utilities.register(
    "azure-native:containerservice:Fleet": "Fleet",
    "azure-native:containerservice:FleetMember": "FleetMember",
    "azure-native:containerservice:FleetUpdateStrategy": "FleetUpdateStrategy",
+   "azure-native:containerservice:LoadBalancer": "LoadBalancer",
    "azure-native:containerservice:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:containerservice:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice:ManagedClusterSnapshot": "ManagedClusterSnapshot",
@@ -4901,6 +4915,21 @@ _utilities.register(
    "azure-native:containerservice/v20240202preview:Snapshot": "Snapshot",
    "azure-native:containerservice/v20240202preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding",
    "azure-native:containerservice/v20240202preview:UpdateRun": "UpdateRun"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20240302preview",
+  "fqn": "pulumi_azure_native.containerservice.v20240302preview",
+  "classes": {
+   "azure-native:containerservice/v20240302preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20240302preview:LoadBalancer": "LoadBalancer",
+   "azure-native:containerservice/v20240302preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20240302preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20240302preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20240302preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20240302preview:Snapshot": "Snapshot",
+   "azure-native:containerservice/v20240302preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
   }
  },
  {
@@ -10861,7 +10890,8 @@ _utilities.register(
   "mod": "monitor",
   "fqn": "pulumi_azure_native.monitor",
   "classes": {
-   "azure-native:monitor:AzureMonitorWorkspace": "AzureMonitorWorkspace"
+   "azure-native:monitor:AzureMonitorWorkspace": "AzureMonitorWorkspace",
+   "azure-native:monitor:PipelineGroup": "PipelineGroup"
   }
  },
  {
@@ -10870,6 +10900,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.monitor.v20230403",
   "classes": {
    "azure-native:monitor/v20230403:AzureMonitorWorkspace": "AzureMonitorWorkspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "monitor/v20231001preview",
+  "fqn": "pulumi_azure_native.monitor.v20231001preview",
+  "classes": {
+   "azure-native:monitor/v20231001preview:AzureMonitorWorkspace": "AzureMonitorWorkspace",
+   "azure-native:monitor/v20231001preview:PipelineGroup": "PipelineGroup"
   }
  },
  {
@@ -12703,6 +12742,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "portalservices",
+  "fqn": "pulumi_azure_native.portalservices",
+  "classes": {
+   "azure-native:portalservices:CopilotSetting": "CopilotSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "portalservices/v20240401preview",
+  "fqn": "pulumi_azure_native.portalservices.v20240401preview",
+  "classes": {
+   "azure-native:portalservices/v20240401preview:CopilotSetting": "CopilotSetting"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "powerbi",
   "fqn": "pulumi_azure_native.powerbi",
   "classes": {
@@ -13388,6 +13443,9 @@ _utilities.register(
    "azure-native:resources/v20240301:DeploymentAtScope": "DeploymentAtScope",
    "azure-native:resources/v20240301:DeploymentAtSubscriptionScope": "DeploymentAtSubscriptionScope",
    "azure-native:resources/v20240301:DeploymentAtTenantScope": "DeploymentAtTenantScope",
+   "azure-native:resources/v20240301:DeploymentStackAtManagementGroup": "DeploymentStackAtManagementGroup",
+   "azure-native:resources/v20240301:DeploymentStackAtResourceGroup": "DeploymentStackAtResourceGroup",
+   "azure-native:resources/v20240301:DeploymentStackAtSubscription": "DeploymentStackAtSubscription",
    "azure-native:resources/v20240301:Resource": "Resource",
    "azure-native:resources/v20240301:ResourceGroup": "ResourceGroup",
    "azure-native:resources/v20240301:TagAtScope": "TagAtScope"

@@ -26,6 +26,8 @@ __all__ = [
     'FleetCredentialResultResponse',
     'FleetHubProfileResponse',
     'KubeletConfigResponse',
+    'LabelSelectorRequirementResponse',
+    'LabelSelectorResponse',
     'LinuxOSConfigResponse',
     'ManagedClusterAADProfileResponse',
     'ManagedClusterAPIServerAccessProfileResponse',
@@ -1099,6 +1101,107 @@ class KubeletConfigResponse(dict):
         For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
         """
         return pulumi.get(self, "topology_manager_policy")
+
+
+@pulumi.output_type
+class LabelSelectorRequirementResponse(dict):
+    """
+    A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 operator: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+        :param str key: key is the label key that the selector applies to.
+        :param str operator: operator represents a key's relationship to a set of values. Valid operators are In and NotIn
+        :param Sequence[str] values: values is an array of string values, the values array must be non-empty.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        key is the label key that the selector applies to.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        operator represents a key's relationship to a set of values. Valid operators are In and NotIn
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        values is an array of string values, the values array must be non-empty.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class LabelSelectorResponse(dict):
+    """
+    A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchExpressions":
+            suggest = "match_expressions"
+        elif key == "matchLabels":
+            suggest = "match_labels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelSelectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelSelectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelSelectorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_expressions: Optional[Sequence['outputs.LabelSelectorRequirementResponse']] = None,
+                 match_labels: Optional[Sequence[str]] = None):
+        """
+        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+        :param Sequence['LabelSelectorRequirementResponse'] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        :param Sequence[str] match_labels: matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+        """
+        if match_expressions is not None:
+            pulumi.set(__self__, "match_expressions", match_expressions)
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> Optional[Sequence['outputs.LabelSelectorRequirementResponse']]:
+        """
+        matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> Optional[Sequence[str]]:
+        """
+        matchLabels is an array of {key=value} pairs. A single {key=value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is `key`, the operator is `In`, and the values array contains only `value`. The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_labels")
 
 
 @pulumi.output_type
