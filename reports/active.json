@@ -3143,44 +3143,47 @@
   },
   "azureplaywrightservice": {
     "": [
-      "2022-04-05-preview",
       "2023-06-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01-preview"
     ],
     "accounts": [
-      "2022-04-05-preview",
       "2023-06-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01-preview"
+    ],
+    "accounts/quotas": [
+      "2024-02-01-preview"
     ],
     "checknameavailability": [
-      "2022-04-05-preview",
       "2023-06-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01-preview"
     ],
     "locations": [
-      "2022-04-05-preview",
       "2023-06-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01-preview"
     ],
     "locations/operationstatuses": [
-      "2022-04-05-preview",
       "2023-06-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01-preview"
     ],
     "locations/quotas": [
-      "2022-04-05-preview",
       "2023-06-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01-preview"
     ],
     "operations": [
-      "2022-04-05-preview",
       "2023-06-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01-preview"
     ],
     "registeredsubscriptions": [
-      "2022-04-05-preview",
       "2023-06-01-preview",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-02-01-preview"
     ]
   },
   "azurescan": {
@@ -15908,6 +15911,61 @@
       "2023-07-01",
       "2023-09-01-preview",
       "2024-04-01-preview"
+    ]
+  },
+  "devopsinfrastructure": {
+    "": [
+      "2023-10-30-preview",
+      "2023-12-13-preview",
+      "2024-03-26-preview",
+      "2024-04-04-preview"
+    ],
+    "images": [
+      "2024-04-04-preview"
+    ],
+    "images/versions": [
+      "2024-04-04-preview"
+    ],
+    "locations": [
+      "2023-10-30-preview",
+      "2023-12-13-preview",
+      "2024-03-26-preview",
+      "2024-04-04-preview"
+    ],
+    "locations/operationstatuses": [
+      "2023-10-30-preview",
+      "2023-12-13-preview",
+      "2024-03-26-preview",
+      "2024-04-04-preview"
+    ],
+    "locations/skus": [
+      "2024-03-26-preview",
+      "2024-04-04-preview"
+    ],
+    "locations/usages": [
+      "2024-04-04-preview"
+    ],
+    "operations": [
+      "2023-10-30-preview",
+      "2023-12-13-preview",
+      "2024-03-26-preview",
+      "2024-04-04-preview"
+    ],
+    "pools": [
+      "2023-10-30-preview",
+      "2023-12-13-preview",
+      "2024-03-26-preview",
+      "2024-04-04-preview"
+    ],
+    "pools/resources": [
+      "2024-03-26-preview",
+      "2024-04-04-preview"
+    ],
+    "resources": [
+      "2024-03-26-preview"
+    ],
+    "skus": [
+      "2024-03-26-preview"
     ]
   },
   "devtestlab": {
@@ -31602,7 +31660,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ],
     "backupprotecteditems": [
       "2017-07-01-preview"
@@ -31638,7 +31697,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ],
     "locations/allocatedstamp": [
       "2015-08-15",
@@ -31712,7 +31772,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ],
     "locations/backupstatus": [
       "2016-06-01",
@@ -31743,7 +31804,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ],
     "locations/backupvalidatefeatures": [
       "2017-07-01",
@@ -31773,7 +31835,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ],
     "locations/capabilities": [
       "2022-01-31-preview",
@@ -31788,7 +31851,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ],
     "locations/checknameavailability": [
       "2018-01-10"
@@ -31852,7 +31916,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ],
     "replicationeligibilityresults": [
       "2018-07-10",
@@ -31882,7 +31947,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ],
     "vaults": [
       "2015-03-15",
@@ -31943,7 +32009,8 @@
       "2024-01-01",
       "2024-01-31-preview",
       "2024-02-01",
-      "2024-04-01"
+      "2024-04-01",
+      "2024-04-30-preview"
     ]
   },
   "redhatopenshift": {

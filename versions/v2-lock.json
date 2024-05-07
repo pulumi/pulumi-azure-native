@@ -1728,6 +1728,7 @@
     "SimPolicy": "2023-06-01",
     "Site": "2023-06-01",
     "Slice": "2023-06-01",
+    "listMobileNetworkSimGroups": "2024-04-01",
     "listMobileNetworkSimIds": "2022-04-01-preview"
   },
   "MobilePacketCore": {
