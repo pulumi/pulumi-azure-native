@@ -34,6 +34,11 @@ yarn link @pulumi/azure-native
 pulumi up
 ```
 
+## Adding Resource Documentation
+
+Documentation is mostly generated automatically from the specifications. Additional documentation can be added for specific resources by adding markdown files in the [docs/resources](./docs/resources/) folder. Each filename is the combination of the module and resource name as it appears in the registry: `[module]-[Resource].md` e.g. `sql-Server.md`.
+
+Once documentation has been added, run `make generate generate_docs` to re-generate the SDKs and the registry docs. Commit the changes and open a pull request.
 
 ## Azure Versions
 
@@ -120,17 +125,16 @@ The default version is calculated and written to a 'lock' file which list every 
 - `deprecated.json` is a list of API versions which are older than the versions included in the default version **and** at least 2 years old. These will be removed in the next major version of the provider.
 - `pending.json` is a list of new API versions which aren't yet included in the default version. These should be included in the default version at the next major release of the provider.
 
-
 ## New Go SDK
 
 As the size of the Go SDK is close to exceeding the limit of 512Mb, we've created a new SDK which we're publishing in parallel which defined a Go module per Azure namespace rather than a single root Go module. The additional go modules are auto-generated with the required dependencies in [provider/cmd/pulumi-gen-azure-native/main.go](./provider/cmd/pulumi-gen-azure-native/main.go#L312).
 
 This new SDK is published to its own repository at [github.com/pulumi/pulumi-azure-native-sdk](https://github.com/pulumi/pulumi-azure-native-sdk). This is separate partly due to the large number of tags which are created in this new repository per release, but also to remove the need to commit the SDK code into this repository.
 
-
 ## Sub-resources
 
 Some resources which are also settable on a parent resource. For instance, the subnets of a virtual network can be specified inline with the virtual network resource:
+
 ```typescript
 new network.VirtualNetwork("inline", {
     subnets: [
@@ -140,6 +144,7 @@ new network.VirtualNetwork("inline", {
 ```
 
 But they can also be specified as stand-alone resources:
+
 ```typescript
 new network.Subnet("third", { ... })
 ```
@@ -151,11 +156,13 @@ The choice between inline and stand-alone sub-resource definitions offers flexib
 On Create: when the user opts for stand-alone representations of the sub-resource, they omit the sub-resource property on the parent. For instance, `new network.VirtualNetwork` will be defined without `subnets`. In this example, however, creating a `VirtualNetwork` without subnets will fail in Azure because it's a required property. Therefore, on Create, we find sub-resource properties that are not set, and set them to their default value in the request payload. This happens in the `azureNativeProvider.setUnsetSubresourcePropertiesToDefaults` method.
 
 On Update: consider the naive implementation. When a virtual network `v` is updated, any stand-alone subnets are not in `v.subnets`, therefore they would be removed on update. To prevent this, we need to retrieve the existing sub-resources and fill them into the parent's sub-resource property. This is done in the `azureNativeProvider.maintainSubResourcePropertiesIfNotSet` method. For example:
+
 ```typescript
 new network.VirtualNetwork("vnet", { ... })
 
 new network.Subnet("sub1", { ... })
 ```
+
 When `vnet` is updated, the provider first reads `vnet` from Azure and populates `vnets.subnets` with the subnets from the response. This way, the subnets are simply round-tripped and not removed on update.
 
 On Read: when reading a parent resource, the Azure response will contain the sub-resources. If the user defined them stand-alone, we need to reset them to the empty value to avoid recording them in state. This is done in the `azureNativeProvider.resetUnsetSubResourceProperties` method.
@@ -163,6 +170,7 @@ On Read: when reading a parent resource, the Azure response will contain the sub
 A note on the "default value" mentioned above: it's hard-coded as a an empty array currently. We haven't seen any other type, and it's the only one that really makes sense for sub-resources: they must be a variable number of items.
 
 Relevant PRs:
+
 - #2755
 - #2950
 - #3054
