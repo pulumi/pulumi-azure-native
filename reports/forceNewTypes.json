@@ -49084,6 +49084,13 @@
     "Property": "keyType"
   },
   {
+    "Module": "storage/v20230501",
+    "Provider": "Storage",
+    "ResourceName": "StorageAccount",
+    "ReferenceName": "EncryptionService",
+    "Property": "keyType"
+  },
+  {
     "Module": "storagecache",
     "Provider": "StorageCache",
     "ResourceName": "StorageTarget",

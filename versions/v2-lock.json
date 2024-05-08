@@ -1728,6 +1728,7 @@
     "SimPolicy": "2023-06-01",
     "Site": "2023-06-01",
     "Slice": "2023-06-01",
+    "listMobileNetworkSimGroups": "2024-04-01",
     "listMobileNetworkSimIds": "2022-04-01-preview"
   },
   "MobilePacketCore": {
@@ -2482,6 +2483,7 @@
     "Queue": "2022-09-01",
     "QueueServiceProperties": "2022-09-01",
     "StorageAccount": "2022-09-01",
+    "StorageTaskAssignment": "2023-05-01",
     "Table": "2022-09-01",
     "TableServiceProperties": "2022-09-01",
     "listLocalUserKeys": "2022-09-01",

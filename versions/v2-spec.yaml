@@ -1162,6 +1162,7 @@ MixedReality:
 MobileNetwork:
     tracking: "2023-06-01"
     additions:
+        listMobileNetworkSimGroups: "2024-04-01"
         listMobileNetworkSimIds: 2022-04-01-preview
 MobilePacketCore:
     tracking: 2023-05-15-preview
@@ -1622,6 +1623,8 @@ StorSimple:
     tracking: "2017-06-01"
 Storage:
     tracking: "2022-09-01"
+    additions:
+        StorageTaskAssignment: "2023-05-01"
 StorageActions:
     tracking: "2023-01-01"
 StorageCache:
