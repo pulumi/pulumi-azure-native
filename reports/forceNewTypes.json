@@ -4382,6 +4382,13 @@
     "Property": "location"
   },
   {
+    "Module": "hybridcompute/v20240331preview",
+    "Provider": "HybridCompute",
+    "ResourceName": "Machine",
+    "ReferenceName": "TrackedResource",
+    "Property": "location"
+  },
+  {
     "Module": "hybridnetwork",
     "Provider": "HybridNetwork",
     "ResourceName": "ArtifactManifest",
@@ -49084,6 +49091,13 @@
     "Property": "keyType"
   },
   {
+    "Module": "storage/v20230501",
+    "Provider": "Storage",
+    "ResourceName": "StorageAccount",
+    "ReferenceName": "EncryptionService",
+    "Property": "keyType"
+  },
+  {
     "Module": "storagecache",
     "Provider": "StorageCache",
     "ResourceName": "StorageTarget",
@@ -50713,5 +50727,47 @@
     "ResourceName": "SAPVirtualInstance",
     "ReferenceName": "ConfigurationType",
     "Property": "configurationType"
+  },
+  {
+    "Module": "workloads/v20231201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20231201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20231201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20231201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20231201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
+  },
+  {
+    "Module": "workloads/v20231201preview",
+    "Provider": "Workloads",
+    "ResourceName": "ProviderInstance",
+    "ReferenceName": "ProviderSpecificProperties",
+    "Property": "providerType"
   }
 ]
