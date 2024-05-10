@@ -7422,6 +7422,12 @@
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
+    ],
+    "2024-05-01": [
+      "AccessConnector",
+      "PrivateEndpointConnection",
+      "Workspace",
+      "vNetPeering"
     ]
   },
   "Datadog": {
@@ -10619,6 +10625,16 @@
       "MachineRunCommand",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2024-03-31-preview": [
+      "Gateway",
+      "License",
+      "LicenseProfile",
+      "Machine",
+      "MachineExtension",
+      "MachineRunCommand",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -13301,6 +13317,22 @@
       "SimPolicy",
       "Site",
       "Slice"
+    ],
+    "2024-04-01": [
+      "AttachedDataNetwork",
+      "DataNetwork",
+      "DiagnosticsPackage",
+      "MobileNetwork",
+      "PacketCapture",
+      "PacketCoreControlPlane",
+      "PacketCoreDataPlane",
+      "Service",
+      "Sim",
+      "SimGroup",
+      "SimPolicy",
+      "Site",
+      "Slice",
+      "listMobileNetworkSimGroups"
     ]
   },
   "MobilePacketCore": {
@@ -18412,6 +18444,15 @@
       "ProtectionPolicy",
       "ResourceGuardProxy",
       "Vault"
+    ],
+    "2024-04-30-preview": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy",
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
@@ -21860,6 +21901,29 @@
       "listStorageAccountKeys",
       "listStorageAccountSAS",
       "listStorageAccountServiceSAS"
+    ],
+    "2023-05-01": [
+      "BlobContainer",
+      "BlobContainerImmutabilityPolicy",
+      "BlobInventoryPolicy",
+      "BlobServiceProperties",
+      "EncryptionScope",
+      "FileServiceProperties",
+      "FileShare",
+      "LocalUser",
+      "ManagementPolicy",
+      "ObjectReplicationPolicy",
+      "PrivateEndpointConnection",
+      "Queue",
+      "QueueServiceProperties",
+      "StorageAccount",
+      "StorageTaskAssignment",
+      "Table",
+      "TableServiceProperties",
+      "listLocalUserKeys",
+      "listStorageAccountKeys",
+      "listStorageAccountSAS",
+      "listStorageAccountServiceSAS"
     ]
   },
   "StorageActions": {
@@ -24235,6 +24299,11 @@
       "getSAPSizingRecommendations",
       "getSAPSupportedSku",
       "monitor"
+    ],
+    "2023-12-01-preview": [
+      "Monitor",
+      "ProviderInstance",
+      "SapLandscapeMonitor"
     ]
   }
 }

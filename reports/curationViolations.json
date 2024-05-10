@@ -316,6 +316,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "Storage",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "StorageCache",
     "Detail": "expected no additions but found some"
   },

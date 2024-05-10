@@ -1217,6 +1217,7 @@
     "CloudConnector": "2023-01-01-preview"
   },
   "HybridCompute": {
+    "Gateway": "2024-03-31-preview",
     "License": "2023-06-20-preview",
     "LicenseProfile": "2023-06-20-preview",
     "Machine": "2022-12-27",
@@ -1728,6 +1729,7 @@
     "SimPolicy": "2023-06-01",
     "Site": "2023-06-01",
     "Slice": "2023-06-01",
+    "listMobileNetworkSimGroups": "2024-04-01",
     "listMobileNetworkSimIds": "2022-04-01-preview"
   },
   "MobilePacketCore": {
@@ -2482,6 +2484,7 @@
     "Queue": "2022-09-01",
     "QueueServiceProperties": "2022-09-01",
     "StorageAccount": "2022-09-01",
+    "StorageTaskAssignment": "2023-05-01",
     "Table": "2022-09-01",
     "TableServiceProperties": "2022-09-01",
     "listLocalUserKeys": "2022-09-01",
@@ -2769,6 +2772,7 @@
   "Workloads": {
     "ACSSBackupConnection": "2023-10-01-preview",
     "Connector": "2023-10-01-preview",
+    "Monitor": "2023-12-01-preview",
     "ProviderInstance": "2023-04-01",
     "SAPApplicationServerInstance": "2023-04-01",
     "SAPCentralInstance": "2023-04-01",
