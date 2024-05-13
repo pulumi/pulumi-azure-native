@@ -116,7 +116,7 @@ class AccessConnector(pulumi.CustomResource):
         Information about azure databricks accessConnector.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
 
-        Other available API versions: 2022-04-01-preview.
+        Other available API versions: 2022-04-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +136,7 @@ class AccessConnector(pulumi.CustomResource):
         Information about azure databricks accessConnector.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
 
-        Other available API versions: 2022-04-01-preview.
+        Other available API versions: 2022-04-01-preview, 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param AccessConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class AccessConnector(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20220401preview:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20221001preview:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20230501:AccessConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20220401preview:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20221001preview:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20230501:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20240501:AccessConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessConnector, __self__).__init__(
             'azure-native:databricks:AccessConnector',

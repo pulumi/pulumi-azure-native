@@ -26,6 +26,7 @@ __all__ = [
     'Format',
     'HttpProtocol',
     'IdentityType',
+    'IntervalUnit',
     'InventoryRuleType',
     'KeySource',
     'KeyType',
@@ -48,6 +49,7 @@ __all__ = [
     'SignedResourceTypes',
     'SkuName',
     'State',
+    'TriggerType',
 ]
 
 
@@ -243,6 +245,13 @@ class IdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class IntervalUnit(str, Enum):
+    """
+    Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+    """
+    DAYS = "Days"
 
 
 class InventoryRuleType(str, Enum):
@@ -445,3 +454,11 @@ class State(str, Enum):
     SUCCEEDED = "Succeeded"
     FAILED = "Failed"
     NETWORK_SOURCE_DELETED = "NetworkSourceDeleted"
+
+
+class TriggerType(str, Enum):
+    """
+    The trigger type of the storage task assignment execution
+    """
+    RUN_ONCE = "RunOnce"
+    ON_SCHEDULE = "OnSchedule"

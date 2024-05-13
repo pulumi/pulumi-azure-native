@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// Diagnostics package resource.
     /// Azure REST API version: 2023-06-01.
     /// 
-    /// Other available API versions: 2023-09-01, 2024-02-01.
+    /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:DiagnosticsPackage")]
     public partial class DiagnosticsPackage : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:DiagnosticsPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:DiagnosticsPackage" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:DiagnosticsPackage" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:DiagnosticsPackage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

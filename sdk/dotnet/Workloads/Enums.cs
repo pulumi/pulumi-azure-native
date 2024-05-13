@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
+    /// The App Service plan tier.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppServicePlanTier : IEquatable<AppServicePlanTier>
+    {
+        private readonly string _value;
+
+        private AppServicePlanTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Elastic Premium plan
+        /// </summary>
+        public static AppServicePlanTier ElasticPremium { get; } = new AppServicePlanTier("ElasticPremium");
+        /// <summary>
+        /// Dedicated Premium V3 plan
+        /// </summary>
+        public static AppServicePlanTier PremiumV3 { get; } = new AppServicePlanTier("PremiumV3");
+
+        public static bool operator ==(AppServicePlanTier left, AppServicePlanTier right) => left.Equals(right);
+        public static bool operator !=(AppServicePlanTier left, AppServicePlanTier right) => !left.Equals(right);
+
+        public static explicit operator string(AppServicePlanTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppServicePlanTier other && Equals(other);
+        public bool Equals(AppServicePlanTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of backup, VM, SQL or HANA.
     /// </summary>
     [EnumType]

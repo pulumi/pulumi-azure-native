@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads
     /// A provider instance associated with SAP monitor.
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
     /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:ProviderInstance")]
     public partial class ProviderInstance : global::Pulumi.CustomResource
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Workloads
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:ProviderInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:ProviderInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:ProviderInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:ProviderInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -5507,6 +5507,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databricks/v20240501",
+  "fqn": "pulumi_azure_native.databricks.v20240501",
+  "classes": {
+   "azure-native:databricks/v20240501:AccessConnector": "AccessConnector",
+   "azure-native:databricks/v20240501:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:databricks/v20240501:VNetPeering": "VNetPeering",
+   "azure-native:databricks/v20240501:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datacatalog",
   "fqn": "pulumi_azure_native.datacatalog",
   "classes": {
@@ -8178,6 +8189,7 @@ _utilities.register(
   "mod": "hybridcompute",
   "fqn": "pulumi_azure_native.hybridcompute",
   "classes": {
+   "azure-native:hybridcompute:Gateway": "Gateway",
    "azure-native:hybridcompute:License": "License",
    "azure-native:hybridcompute:LicenseProfile": "LicenseProfile",
    "azure-native:hybridcompute:Machine": "Machine",
@@ -8253,6 +8265,21 @@ _utilities.register(
    "azure-native:hybridcompute/v20231003preview:MachineRunCommand": "MachineRunCommand",
    "azure-native:hybridcompute/v20231003preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute/v20231003preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcompute/v20240331preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20240331preview",
+  "classes": {
+   "azure-native:hybridcompute/v20240331preview:Gateway": "Gateway",
+   "azure-native:hybridcompute/v20240331preview:License": "License",
+   "azure-native:hybridcompute/v20240331preview:LicenseProfile": "LicenseProfile",
+   "azure-native:hybridcompute/v20240331preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20240331preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20240331preview:MachineRunCommand": "MachineRunCommand",
+   "azure-native:hybridcompute/v20240331preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20240331preview:PrivateLinkScope": "PrivateLinkScope"
   }
  },
  {
@@ -10850,6 +10877,26 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "mobilenetwork/v20240401",
+  "fqn": "pulumi_azure_native.mobilenetwork.v20240401",
+  "classes": {
+   "azure-native:mobilenetwork/v20240401:AttachedDataNetwork": "AttachedDataNetwork",
+   "azure-native:mobilenetwork/v20240401:DataNetwork": "DataNetwork",
+   "azure-native:mobilenetwork/v20240401:DiagnosticsPackage": "DiagnosticsPackage",
+   "azure-native:mobilenetwork/v20240401:MobileNetwork": "MobileNetwork",
+   "azure-native:mobilenetwork/v20240401:PacketCapture": "PacketCapture",
+   "azure-native:mobilenetwork/v20240401:PacketCoreControlPlane": "PacketCoreControlPlane",
+   "azure-native:mobilenetwork/v20240401:PacketCoreDataPlane": "PacketCoreDataPlane",
+   "azure-native:mobilenetwork/v20240401:Service": "Service",
+   "azure-native:mobilenetwork/v20240401:Sim": "Sim",
+   "azure-native:mobilenetwork/v20240401:SimGroup": "SimGroup",
+   "azure-native:mobilenetwork/v20240401:SimPolicy": "SimPolicy",
+   "azure-native:mobilenetwork/v20240401:Site": "Site",
+   "azure-native:mobilenetwork/v20240401:Slice": "Slice"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "mobilepacketcore",
   "fqn": "pulumi_azure_native.mobilepacketcore",
   "classes": {
@@ -13159,6 +13206,20 @@ _utilities.register(
    "azure-native:recoveryservices/v20240401:ProtectionPolicy": "ProtectionPolicy",
    "azure-native:recoveryservices/v20240401:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20240401:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "recoveryservices/v20240430preview",
+  "fqn": "pulumi_azure_native.recoveryservices.v20240430preview",
+  "classes": {
+   "azure-native:recoveryservices/v20240430preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20240430preview:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20240430preview:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20240430preview:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20240430preview:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20240430preview:ResourceGuardProxy": "ResourceGuardProxy",
+   "azure-native:recoveryservices/v20240430preview:Vault": "Vault"
   }
  },
  {
@@ -15679,6 +15740,7 @@ _utilities.register(
    "azure-native:storage:QueueServiceProperties": "QueueServiceProperties",
    "azure-native:storage:StorageAccount": "StorageAccount",
    "azure-native:storage:StorageAccountStaticWebsite": "StorageAccountStaticWebsite",
+   "azure-native:storage:StorageTaskAssignment": "StorageTaskAssignment",
    "azure-native:storage:Table": "Table",
    "azure-native:storage:TableServiceProperties": "TableServiceProperties"
   }
@@ -15750,6 +15812,30 @@ _utilities.register(
    "azure-native:storage/v20230401:StorageAccount": "StorageAccount",
    "azure-native:storage/v20230401:Table": "Table",
    "azure-native:storage/v20230401:TableServiceProperties": "TableServiceProperties"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storage/v20230501",
+  "fqn": "pulumi_azure_native.storage.v20230501",
+  "classes": {
+   "azure-native:storage/v20230501:BlobContainer": "BlobContainer",
+   "azure-native:storage/v20230501:BlobContainerImmutabilityPolicy": "BlobContainerImmutabilityPolicy",
+   "azure-native:storage/v20230501:BlobInventoryPolicy": "BlobInventoryPolicy",
+   "azure-native:storage/v20230501:BlobServiceProperties": "BlobServiceProperties",
+   "azure-native:storage/v20230501:EncryptionScope": "EncryptionScope",
+   "azure-native:storage/v20230501:FileServiceProperties": "FileServiceProperties",
+   "azure-native:storage/v20230501:FileShare": "FileShare",
+   "azure-native:storage/v20230501:LocalUser": "LocalUser",
+   "azure-native:storage/v20230501:ManagementPolicy": "ManagementPolicy",
+   "azure-native:storage/v20230501:ObjectReplicationPolicy": "ObjectReplicationPolicy",
+   "azure-native:storage/v20230501:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:storage/v20230501:Queue": "Queue",
+   "azure-native:storage/v20230501:QueueServiceProperties": "QueueServiceProperties",
+   "azure-native:storage/v20230501:StorageAccount": "StorageAccount",
+   "azure-native:storage/v20230501:StorageTaskAssignment": "StorageTaskAssignment",
+   "azure-native:storage/v20230501:Table": "Table",
+   "azure-native:storage/v20230501:TableServiceProperties": "TableServiceProperties"
   }
  },
  {
@@ -17142,6 +17228,16 @@ _utilities.register(
    "azure-native:workloads/v20231001preview:SapInstance": "SapInstance",
    "azure-native:workloads/v20231001preview:SapLandscapeMonitor": "SapLandscapeMonitor",
    "azure-native:workloads/v20231001preview:ServerInstance": "ServerInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "workloads/v20231201preview",
+  "fqn": "pulumi_azure_native.workloads.v20231201preview",
+  "classes": {
+   "azure-native:workloads/v20231201preview:Monitor": "Monitor",
+   "azure-native:workloads/v20231201preview:ProviderInstance": "ProviderInstance",
+   "azure-native:workloads/v20231201preview:SapLandscapeMonitor": "SapLandscapeMonitor"
   }
  }
 ]

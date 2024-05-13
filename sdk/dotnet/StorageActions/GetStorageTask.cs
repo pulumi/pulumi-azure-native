@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.StorageActions
         /// <summary>
         /// The managed service identity of the resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AzureNative.StorageActions
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse identity,
 
             string location,
 

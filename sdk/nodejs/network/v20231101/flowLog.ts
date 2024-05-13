@@ -54,10 +54,6 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly format!: pulumi.Output<outputs.network.v20231101.FlowLogFormatParametersResponse | undefined>;
     /**
-     * FlowLog resource Managed Identity
-     */
-    public readonly identity!: pulumi.Output<outputs.network.v20231101.ManagedServiceIdentityResponse | undefined>;
-    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -122,7 +118,6 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["flowLogName"] = args ? args.flowLogName : undefined;
             resourceInputs["format"] = args ? (args.format ? pulumi.output(args.format).apply(inputs.network.v20231101.flowLogFormatParametersArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -140,7 +135,6 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flowAnalyticsConfiguration"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -182,10 +176,6 @@ export interface FlowLogArgs {
      * Resource ID.
      */
     id?: pulumi.Input<string>;
-    /**
-     * FlowLog resource Managed Identity
-     */
-    identity?: pulumi.Input<inputs.network.v20231101.ManagedServiceIdentityArgs>;
     /**
      * Resource location.
      */

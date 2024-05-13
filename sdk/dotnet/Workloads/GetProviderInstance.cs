@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Workloads
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());

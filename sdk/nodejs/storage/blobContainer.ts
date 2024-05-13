@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01.
+ * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**
@@ -196,7 +196,7 @@ export class BlobContainer extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20180201:BlobContainer" }, { type: "azure-native:storage/v20180301preview:BlobContainer" }, { type: "azure-native:storage/v20180701:BlobContainer" }, { type: "azure-native:storage/v20181101:BlobContainer" }, { type: "azure-native:storage/v20190401:BlobContainer" }, { type: "azure-native:storage/v20190601:BlobContainer" }, { type: "azure-native:storage/v20200801preview:BlobContainer" }, { type: "azure-native:storage/v20210101:BlobContainer" }, { type: "azure-native:storage/v20210201:BlobContainer" }, { type: "azure-native:storage/v20210401:BlobContainer" }, { type: "azure-native:storage/v20210601:BlobContainer" }, { type: "azure-native:storage/v20210801:BlobContainer" }, { type: "azure-native:storage/v20210901:BlobContainer" }, { type: "azure-native:storage/v20220501:BlobContainer" }, { type: "azure-native:storage/v20220901:BlobContainer" }, { type: "azure-native:storage/v20230101:BlobContainer" }, { type: "azure-native:storage/v20230401:BlobContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20180201:BlobContainer" }, { type: "azure-native:storage/v20180301preview:BlobContainer" }, { type: "azure-native:storage/v20180701:BlobContainer" }, { type: "azure-native:storage/v20181101:BlobContainer" }, { type: "azure-native:storage/v20190401:BlobContainer" }, { type: "azure-native:storage/v20190601:BlobContainer" }, { type: "azure-native:storage/v20200801preview:BlobContainer" }, { type: "azure-native:storage/v20210101:BlobContainer" }, { type: "azure-native:storage/v20210201:BlobContainer" }, { type: "azure-native:storage/v20210401:BlobContainer" }, { type: "azure-native:storage/v20210601:BlobContainer" }, { type: "azure-native:storage/v20210801:BlobContainer" }, { type: "azure-native:storage/v20210901:BlobContainer" }, { type: "azure-native:storage/v20220501:BlobContainer" }, { type: "azure-native:storage/v20220901:BlobContainer" }, { type: "azure-native:storage/v20230101:BlobContainer" }, { type: "azure-native:storage/v20230401:BlobContainer" }, { type: "azure-native:storage/v20230501:BlobContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobContainer.__pulumiType, name, resourceInputs, opts);
     }

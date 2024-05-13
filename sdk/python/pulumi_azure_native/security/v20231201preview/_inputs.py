@@ -159,7 +159,7 @@ class AutomationActionWorkspaceArgs:
                  action_type: pulumi.Input[str],
                  workspace_resource_id: Optional[pulumi.Input[str]] = None):
         """
-        The�Log�Analytics�Workspace�to�which�event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
         :param pulumi.Input[str] action_type: The type of the action that will be triggered by the Automation
                Expected value is 'Workspace'.
         :param pulumi.Input[str] workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.

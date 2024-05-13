@@ -105,7 +105,7 @@ class GetStorageTaskResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> 'outputs.ManagedServiceIdentityResponse':
         """
         The managed service identity of the resource.
         """

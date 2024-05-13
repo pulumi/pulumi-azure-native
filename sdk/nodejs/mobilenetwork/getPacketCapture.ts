@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets information about the specified packet capture session.
  * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2023-09-01, 2024-02-01.
+ * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
 
@@ -95,7 +95,7 @@ export interface GetPacketCaptureResult {
  * Gets information about the specified packet capture session.
  * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2023-09-01, 2024-02-01.
+ * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
     return pulumi.output(args).apply((a: any) => getPacketCapture(a, opts))

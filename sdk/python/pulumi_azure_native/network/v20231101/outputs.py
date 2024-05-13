@@ -14342,7 +14342,6 @@ class FlowLogResponse(dict):
                  flow_analytics_configuration: Optional['outputs.TrafficAnalyticsPropertiesResponse'] = None,
                  format: Optional['outputs.FlowLogFormatParametersResponse'] = None,
                  id: Optional[str] = None,
-                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
                  location: Optional[str] = None,
                  retention_policy: Optional['outputs.RetentionPolicyParametersResponse'] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -14359,7 +14358,6 @@ class FlowLogResponse(dict):
         :param 'TrafficAnalyticsPropertiesResponse' flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
         :param 'FlowLogFormatParametersResponse' format: Parameters that define the flow log format.
         :param str id: Resource ID.
-        :param 'ManagedServiceIdentityResponse' identity: FlowLog resource Managed Identity
         :param str location: Resource location.
         :param 'RetentionPolicyParametersResponse' retention_policy: Parameters that define the retention policy for flow log.
         :param Mapping[str, str] tags: Resource tags.
@@ -14379,8 +14377,6 @@ class FlowLogResponse(dict):
             pulumi.set(__self__, "format", format)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if retention_policy is not None:
@@ -14475,14 +14471,6 @@ class FlowLogResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
-        """
-        FlowLog resource Managed Identity
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

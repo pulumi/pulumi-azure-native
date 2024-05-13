@@ -60,10 +60,6 @@ export interface GetFlowLogResult {
      */
     readonly id?: string;
     /**
-     * FlowLog resource Managed Identity
-     */
-    readonly identity?: outputs.network.v20231101.ManagedServiceIdentityResponse;
-    /**
      * Resource location.
      */
     readonly location?: string;

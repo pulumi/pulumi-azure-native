@@ -48,7 +48,7 @@ class IfConditionArgs:
                  operations: pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]]):
         """
         The if block of storage task operation
-        :param pulumi.Input[str] condition: The condition predicate which is composed of object properties, eg: blob and container properties.
+        :param pulumi.Input[str] condition: Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
         :param pulumi.Input[Sequence[pulumi.Input['StorageTaskOperationArgs']]] operations: List of operations to execute when the condition predicate satisfies.
         """
         pulumi.set(__self__, "condition", condition)
@@ -58,7 +58,7 @@ class IfConditionArgs:
     @pulumi.getter
     def condition(self) -> pulumi.Input[str]:
         """
-        The condition predicate which is composed of object properties, eg: blob and container properties.
+        Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
         """
         return pulumi.get(self, "condition")
 

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The storage account blob inventory policy.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01.
+ * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export class BlobInventoryPolicy extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210101:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210201:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210401:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210801:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210901:BlobInventoryPolicy" }, { type: "azure-native:storage/v20220501:BlobInventoryPolicy" }, { type: "azure-native:storage/v20220901:BlobInventoryPolicy" }, { type: "azure-native:storage/v20230101:BlobInventoryPolicy" }, { type: "azure-native:storage/v20230401:BlobInventoryPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20200801preview:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210101:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210201:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210401:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210601:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210801:BlobInventoryPolicy" }, { type: "azure-native:storage/v20210901:BlobInventoryPolicy" }, { type: "azure-native:storage/v20220501:BlobInventoryPolicy" }, { type: "azure-native:storage/v20220901:BlobInventoryPolicy" }, { type: "azure-native:storage/v20230101:BlobInventoryPolicy" }, { type: "azure-native:storage/v20230401:BlobInventoryPolicy" }, { type: "azure-native:storage/v20230501:BlobInventoryPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobInventoryPolicy.__pulumiType, name, resourceInputs, opts);
     }

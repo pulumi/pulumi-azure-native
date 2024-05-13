@@ -125,7 +125,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
     Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01.
+    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -158,7 +158,7 @@ def get_file_service_properties_output(account_name: Optional[pulumi.Input[str]]
     Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01.
+    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

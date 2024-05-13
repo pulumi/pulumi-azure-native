@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Packet capture session resource.
  * Azure REST API version: 2023-06-01.
  *
- * Other available API versions: 2023-09-01, 2024-02-01.
+ * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**
@@ -130,7 +130,7 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20230601:PacketCapture" }, { type: "azure-native:mobilenetwork/v20230901:PacketCapture" }, { type: "azure-native:mobilenetwork/v20240201:PacketCapture" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20230601:PacketCapture" }, { type: "azure-native:mobilenetwork/v20230901:PacketCapture" }, { type: "azure-native:mobilenetwork/v20240201:PacketCapture" }, { type: "azure-native:mobilenetwork/v20240401:PacketCapture" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PacketCapture.__pulumiType, name, resourceInputs, opts);
     }

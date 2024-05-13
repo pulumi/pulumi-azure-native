@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.StorageActions.Inputs
     public sealed class IfConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition predicate which is composed of object properties, eg: blob and container properties.
+        /// Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
         /// </summary>
         [Input("condition", required: true)]
         public Input<string> Condition { get; set; } = null!;

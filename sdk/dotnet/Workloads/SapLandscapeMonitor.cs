@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads
     /// configuration associated with SAP Landscape Monitor Dashboard.
     /// Azure REST API version: 2023-04-01.
     /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapLandscapeMonitor")]
     public partial class SapLandscapeMonitor : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Workloads
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SapLandscapeMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SapLandscapeMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231001preview:SapLandscapeMonitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:SapLandscapeMonitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -29,6 +29,7 @@ from .get_private_endpoint_connection import *
 from .get_queue import *
 from .get_queue_service_properties import *
 from .get_storage_account import *
+from .get_storage_task_assignment import *
 from .get_table import *
 from .get_table_service_properties import *
 from .list_local_user_keys import *
@@ -43,6 +44,7 @@ from .queue import *
 from .queue_service_properties import *
 from .storage_account import *
 from .storage_account_static_website import *
+from .storage_task_assignment import *
 from .table import *
 from .table_service_properties import *
 from ._inputs import *
@@ -56,8 +58,11 @@ if typing.TYPE_CHECKING:
     v20230101 = __v20230101
     import pulumi_azure_native.storage.v20230401 as __v20230401
     v20230401 = __v20230401
+    import pulumi_azure_native.storage.v20230501 as __v20230501
+    v20230501 = __v20230501
 else:
     v20220901 = _utilities.lazy_import('pulumi_azure_native.storage.v20220901')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.storage.v20230101')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.storage.v20230401')
+    v20230501 = _utilities.lazy_import('pulumi_azure_native.storage.v20230501')
 

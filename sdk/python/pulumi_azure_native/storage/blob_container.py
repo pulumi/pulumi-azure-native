@@ -200,7 +200,7 @@ class BlobContainer(pulumi.CustomResource):
         Properties of the blob container, including Id, resource name, resource type, Etag.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01.
+        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,7 +225,7 @@ class BlobContainer(pulumi.CustomResource):
         Properties of the blob container, including Id, resource name, resource type, Etag.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
 
-        Other available API versions: 2023-01-01, 2023-04-01.
+        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param BlobContainerArgs args: The arguments to use to populate this resource's properties.
@@ -290,7 +290,7 @@ class BlobContainer(pulumi.CustomResource):
             __props__.__dict__["remaining_retention_days"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20180201:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20180301preview:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20180701:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20181101:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20190401:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210401:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210601:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210801:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210901:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20220501:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20220901:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20230101:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20230401:BlobContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage/v20180201:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20180301preview:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20180701:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20181101:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20190401:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20190601:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20200801preview:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210101:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210201:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210401:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210601:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210801:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20210901:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20220501:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20220901:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20230101:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20230401:BlobContainer"), pulumi.Alias(type_="azure-native:storage/v20230501:BlobContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BlobContainer, __self__).__init__(
             'azure-native:storage:BlobContainer',

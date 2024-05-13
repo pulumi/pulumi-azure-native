@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Storage
         /// Gets the blob inventory policy associated with the specified storage account.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Task<GetBlobInventoryPolicyResult> InvokeAsync(GetBlobInventoryPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-native:storage:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Storage
         /// Gets the blob inventory policy associated with the specified storage account.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01.
+        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
         /// </summary>
         public static Output<GetBlobInventoryPolicyResult> Invoke(GetBlobInventoryPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobInventoryPolicyResult>("azure-native:storage:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyInvokeArgs(), options.WithDefaults());

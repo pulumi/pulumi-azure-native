@@ -199,7 +199,7 @@ class SimPolicy(pulumi.CustomResource):
         SIM policy resource.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
 
-        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,7 +224,7 @@ class SimPolicy(pulumi.CustomResource):
         SIM policy resource.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
 
-        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param SimPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -287,7 +287,7 @@ class SimPolicy(pulumi.CustomResource):
             __props__.__dict__["site_provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:SimPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:SimPolicy"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240401:SimPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SimPolicy, __self__).__init__(
             'azure-native:mobilenetwork:SimPolicy',

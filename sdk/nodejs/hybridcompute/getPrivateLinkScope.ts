@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Returns a Azure Arc PrivateLinkScope.
  * Azure REST API version: 2022-12-27.
  *
- * Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview.
+ * Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
 
@@ -70,7 +70,7 @@ export interface GetPrivateLinkScopeResult {
  * Returns a Azure Arc PrivateLinkScope.
  * Azure REST API version: 2022-12-27.
  *
- * Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview.
+ * Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))

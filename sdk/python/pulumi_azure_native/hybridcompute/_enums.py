@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AssessmentModeTypes',
+    'GatewayType',
     'LicenseCoreType',
     'LicenseEdition',
     'LicenseState',
@@ -24,6 +25,13 @@ class AssessmentModeTypes(str, Enum):
     """
     IMAGE_DEFAULT = "ImageDefault"
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
+class GatewayType(str, Enum):
+    """
+    The type of the Gateway resource.
+    """
+    PUBLIC = "Public"
 
 
 class LicenseCoreType(str, Enum):

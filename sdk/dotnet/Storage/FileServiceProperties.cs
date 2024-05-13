@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Storage
     /// The properties of File services in storage account.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
     /// 
-    /// Other available API versions: 2023-01-01, 2023-04-01.
+    /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:FileServiceProperties")]
     public partial class FileServiceProperties : global::Pulumi.CustomResource
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Storage
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:FileServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:FileServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230401:FileServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:FileServiceProperties" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

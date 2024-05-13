@@ -97,7 +97,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         A private endpoint connection
         Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview.
 
-        Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview.
+        Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         A private endpoint connection
         Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview.
 
-        Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview.
+        Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -157,7 +157,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:hybridcompute:PrivateEndpointConnection',

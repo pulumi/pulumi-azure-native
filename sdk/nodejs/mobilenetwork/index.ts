@@ -85,6 +85,11 @@ export const getSlice: typeof import("./getSlice").getSlice = null as any;
 export const getSliceOutput: typeof import("./getSlice").getSliceOutput = null as any;
 utilities.lazyLoad(exports, ["getSlice","getSliceOutput"], () => require("./getSlice"));
 
+export { ListMobileNetworkSimGroupsArgs, ListMobileNetworkSimGroupsResult, ListMobileNetworkSimGroupsOutputArgs } from "./listMobileNetworkSimGroups";
+export const listMobileNetworkSimGroups: typeof import("./listMobileNetworkSimGroups").listMobileNetworkSimGroups = null as any;
+export const listMobileNetworkSimGroupsOutput: typeof import("./listMobileNetworkSimGroups").listMobileNetworkSimGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["listMobileNetworkSimGroups","listMobileNetworkSimGroupsOutput"], () => require("./listMobileNetworkSimGroups"));
+
 export { ListMobileNetworkSimIdsArgs, ListMobileNetworkSimIdsResult, ListMobileNetworkSimIdsOutputArgs } from "./listMobileNetworkSimIds";
 export const listMobileNetworkSimIds: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIds = null as any;
 export const listMobileNetworkSimIdsOutput: typeof import("./listMobileNetworkSimIds").listMobileNetworkSimIdsOutput = null as any;
@@ -151,6 +156,7 @@ import * as v20221101 from "./v20221101";
 import * as v20230601 from "./v20230601";
 import * as v20230901 from "./v20230901";
 import * as v20240201 from "./v20240201";
+import * as v20240401 from "./v20240401";
 
 export {
     v20220301preview,
@@ -159,6 +165,7 @@ export {
     v20230601,
     v20230901,
     v20240201,
+    v20240401,
 };
 
 const _module = {

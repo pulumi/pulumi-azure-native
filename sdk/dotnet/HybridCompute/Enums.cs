@@ -39,6 +39,36 @@ namespace Pulumi.AzureNative.HybridCompute
     }
 
     /// <summary>
+    /// The type of the Gateway resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayType : IEquatable<GatewayType>
+    {
+        private readonly string _value;
+
+        private GatewayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayType Public { get; } = new GatewayType("Public");
+
+        public static bool operator ==(GatewayType left, GatewayType right) => left.Equals(right);
+        public static bool operator !=(GatewayType left, GatewayType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayType other && Equals(other);
+        public bool Equals(GatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the license core type (pCore or vCore).
     /// </summary>
     [EnumType]

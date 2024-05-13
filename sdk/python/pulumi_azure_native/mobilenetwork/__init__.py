@@ -22,6 +22,7 @@ from .get_sim_group import *
 from .get_sim_policy import *
 from .get_site import *
 from .get_slice import *
+from .list_mobile_network_sim_groups import *
 from .list_mobile_network_sim_ids import *
 from .mobile_network import *
 from .packet_capture import *
@@ -50,6 +51,8 @@ if typing.TYPE_CHECKING:
     v20230901 = __v20230901
     import pulumi_azure_native.mobilenetwork.v20240201 as __v20240201
     v20240201 = __v20240201
+    import pulumi_azure_native.mobilenetwork.v20240401 as __v20240401
+    v20240401 = __v20240401
 else:
     v20220301preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220301preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220401preview')
@@ -57,4 +60,5 @@ else:
     v20230601 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20230601')
     v20230901 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20230901')
     v20240201 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20240201')
+    v20240401 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20240401')
 

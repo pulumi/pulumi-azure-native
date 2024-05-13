@@ -5,11 +5,13 @@
 import * as v20220901 from "./v20220901";
 import * as v20230101 from "./v20230101";
 import * as v20230401 from "./v20230401";
+import * as v20230501 from "./v20230501";
 
 export {
     v20220901,
     v20230101,
     v20230401,
+    v20230501,
 };
 
 export const AccessTier = {
@@ -247,6 +249,15 @@ export const IdentityType = {
  * The identity type.
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
+export const IntervalUnit = {
+    Days: "Days",
+} as const;
+
+/**
+ * Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+ */
+export type IntervalUnit = (typeof IntervalUnit)[keyof typeof IntervalUnit];
 
 export const InventoryRuleType = {
     Inventory: "Inventory",
@@ -493,3 +504,13 @@ export const State = {
  * Gets the state of virtual network rule.
  */
 export type State = (typeof State)[keyof typeof State];
+
+export const TriggerType = {
+    RunOnce: "RunOnce",
+    OnSchedule: "OnSchedule",
+} as const;
+
+/**
+ * The trigger type of the storage task assignment execution
+ */
+export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];

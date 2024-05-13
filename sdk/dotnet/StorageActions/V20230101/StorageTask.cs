@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.StorageActions.V20230101
         /// The managed service identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.StorageActions.V20230101
         /// <summary>
         /// The managed service identity of the resource.
         /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        [Input("identity", required: true)]
+        public Input<Inputs.ManagedServiceIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

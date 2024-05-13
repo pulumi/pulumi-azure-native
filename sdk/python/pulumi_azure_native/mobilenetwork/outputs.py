@@ -41,6 +41,7 @@ __all__ = [
     'QosPolicyResponse',
     'ServiceDataFlowTemplateResponse',
     'ServiceResourceIdResponse',
+    'SimGroupResponse',
     'SimPolicyResourceIdResponse',
     'SimStaticIpPropertiesResponse',
     'SimStaticIpPropertiesResponseStaticIp',
@@ -1685,6 +1686,131 @@ class ServiceResourceIdResponse(dict):
         Service resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SimGroupResponse(dict):
+    """
+    SIM group resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 location: str,
+                 name: str,
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 encryption_key: Optional['outputs.KeyVaultKeyResponse'] = None,
+                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
+                 mobile_network: Optional['outputs.MobileNetworkResourceIdResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        SIM group resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str location: The geo-location where the resource lives
+        :param str name: The name of the resource
+        :param str provisioning_state: The provisioning state of the SIM group resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'KeyVaultKeyResponse' encryption_key: A key to encrypt the SIM data that belongs to this SIM group.
+        :param 'ManagedServiceIdentityResponse' identity: The identity used to retrieve the encryption key from Azure key vault.
+        :param 'MobileNetworkResourceIdResponse' mobile_network: Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if mobile_network is not None:
+            pulumi.set(__self__, "mobile_network", mobile_network)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the SIM group resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> Optional['outputs.KeyVaultKeyResponse']:
+        """
+        A key to encrypt the SIM data that belongs to this SIM group.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity used to retrieve the encryption key from Azure key vault.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="mobileNetwork")
+    def mobile_network(self) -> Optional['outputs.MobileNetworkResourceIdResponse']:
+        """
+        Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
+        """
+        return pulumi.get(self, "mobile_network")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

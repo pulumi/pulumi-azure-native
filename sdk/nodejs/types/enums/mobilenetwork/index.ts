@@ -8,6 +8,7 @@ import * as v20221101 from "./v20221101";
 import * as v20230601 from "./v20230601";
 import * as v20230901 from "./v20230901";
 import * as v20240201 from "./v20240201";
+import * as v20240401 from "./v20240401";
 
 export {
     v20220301preview,
@@ -16,6 +17,7 @@ export {
     v20230601,
     v20230901,
     v20240201,
+    v20240401,
 };
 
 export const AuthenticationType = {

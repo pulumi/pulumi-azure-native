@@ -148,7 +148,7 @@ export class Slice extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:Slice" }, { type: "azure-native:mobilenetwork/v20220301preview:Slice" }, { type: "azure-native:mobilenetwork/v20221101:Slice" }, { type: "azure-native:mobilenetwork/v20230601:Slice" }, { type: "azure-native:mobilenetwork/v20230901:Slice" }, { type: "azure-native:mobilenetwork/v20240201:Slice" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:Slice" }, { type: "azure-native:mobilenetwork/v20220301preview:Slice" }, { type: "azure-native:mobilenetwork/v20221101:Slice" }, { type: "azure-native:mobilenetwork/v20230601:Slice" }, { type: "azure-native:mobilenetwork/v20230901:Slice" }, { type: "azure-native:mobilenetwork/v20240201:Slice" }, { type: "azure-native:mobilenetwork/v20240401:Slice" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Slice.__pulumiType, name, resourceInputs, opts);
     }

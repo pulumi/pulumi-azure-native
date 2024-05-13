@@ -685,6 +685,36 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
+    /// Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+    /// </summary>
+    [EnumType]
+    public readonly struct IntervalUnit : IEquatable<IntervalUnit>
+    {
+        private readonly string _value;
+
+        private IntervalUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntervalUnit Days { get; } = new IntervalUnit("Days");
+
+        public static bool operator ==(IntervalUnit left, IntervalUnit right) => left.Equals(right);
+        public static bool operator !=(IntervalUnit left, IntervalUnit right) => !left.Equals(right);
+
+        public static explicit operator string(IntervalUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntervalUnit other && Equals(other);
+        public bool Equals(IntervalUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The valid value is Inventory
     /// </summary>
     [EnumType]
@@ -1385,6 +1415,37 @@ namespace Pulumi.AzureNative.Storage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is State other && Equals(other);
         public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The trigger type of the storage task assignment execution
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerType : IEquatable<TriggerType>
+    {
+        private readonly string _value;
+
+        private TriggerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerType RunOnce { get; } = new TriggerType("RunOnce");
+        public static TriggerType OnSchedule { get; } = new TriggerType("OnSchedule");
+
+        public static bool operator ==(TriggerType left, TriggerType right) => left.Equals(right);
+        public static bool operator !=(TriggerType left, TriggerType right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerType other && Equals(other);
+        public bool Equals(TriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.Network.V20231101
         public Output<Outputs.FlowLogFormatParametersResponse?> Format { get; private set; } = null!;
 
         /// <summary>
-        /// FlowLog resource Managed Identity
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -200,12 +194,6 @@ namespace Pulumi.AzureNative.Network.V20231101
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// FlowLog resource Managed Identity
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Resource location.

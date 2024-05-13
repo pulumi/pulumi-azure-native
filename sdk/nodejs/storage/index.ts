@@ -120,6 +120,11 @@ export const getStorageAccount: typeof import("./getStorageAccount").getStorageA
 export const getStorageAccountOutput: typeof import("./getStorageAccount").getStorageAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageAccount","getStorageAccountOutput"], () => require("./getStorageAccount"));
 
+export { GetStorageTaskAssignmentArgs, GetStorageTaskAssignmentResult, GetStorageTaskAssignmentOutputArgs } from "./getStorageTaskAssignment";
+export const getStorageTaskAssignment: typeof import("./getStorageTaskAssignment").getStorageTaskAssignment = null as any;
+export const getStorageTaskAssignmentOutput: typeof import("./getStorageTaskAssignment").getStorageTaskAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageTaskAssignment","getStorageTaskAssignmentOutput"], () => require("./getStorageTaskAssignment"));
+
 export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
 export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
@@ -190,6 +195,11 @@ export type StorageAccountStaticWebsite = import("./storageAccountStaticWebsite"
 export const StorageAccountStaticWebsite: typeof import("./storageAccountStaticWebsite").StorageAccountStaticWebsite = null as any;
 utilities.lazyLoad(exports, ["StorageAccountStaticWebsite"], () => require("./storageAccountStaticWebsite"));
 
+export { StorageTaskAssignmentArgs } from "./storageTaskAssignment";
+export type StorageTaskAssignment = import("./storageTaskAssignment").StorageTaskAssignment;
+export const StorageTaskAssignment: typeof import("./storageTaskAssignment").StorageTaskAssignment = null as any;
+utilities.lazyLoad(exports, ["StorageTaskAssignment"], () => require("./storageTaskAssignment"));
+
 export { TableArgs } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
@@ -208,11 +218,13 @@ export * from "../types/enums/storage";
 import * as v20220901 from "./v20220901";
 import * as v20230101 from "./v20230101";
 import * as v20230401 from "./v20230401";
+import * as v20230501 from "./v20230501";
 
 export {
     v20220901,
     v20230101,
     v20230401,
+    v20230501,
 };
 
 const _module = {
@@ -253,6 +265,8 @@ const _module = {
                 return new StorageAccount(name, <any>undefined, { urn })
             case "azure-native:storage:StorageAccountStaticWebsite":
                 return new StorageAccountStaticWebsite(name, <any>undefined, { urn })
+            case "azure-native:storage:StorageTaskAssignment":
+                return new StorageTaskAssignment(name, <any>undefined, { urn })
             case "azure-native:storage:Table":
                 return new Table(name, <any>undefined, { urn })
             case "azure-native:storage:TableServiceProperties":

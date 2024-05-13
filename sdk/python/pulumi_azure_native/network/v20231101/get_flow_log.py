@@ -22,7 +22,7 @@ class GetFlowLogResult:
     """
     A flow log resource.
     """
-    def __init__(__self__, enabled=None, etag=None, flow_analytics_configuration=None, format=None, id=None, identity=None, location=None, name=None, provisioning_state=None, retention_policy=None, storage_id=None, tags=None, target_resource_guid=None, target_resource_id=None, type=None):
+    def __init__(__self__, enabled=None, etag=None, flow_analytics_configuration=None, format=None, id=None, location=None, name=None, provisioning_state=None, retention_policy=None, storage_id=None, tags=None, target_resource_guid=None, target_resource_id=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -38,9 +38,6 @@ class GetFlowLogResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -108,14 +105,6 @@ class GetFlowLogResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
-        """
-        FlowLog resource Managed Identity
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -201,7 +190,6 @@ class AwaitableGetFlowLogResult(GetFlowLogResult):
             flow_analytics_configuration=self.flow_analytics_configuration,
             format=self.format,
             id=self.id,
-            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -238,7 +226,6 @@ def get_flow_log(flow_log_name: Optional[str] = None,
         flow_analytics_configuration=pulumi.get(__ret__, 'flow_analytics_configuration'),
         format=pulumi.get(__ret__, 'format'),
         id=pulumi.get(__ret__, 'id'),
-        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),

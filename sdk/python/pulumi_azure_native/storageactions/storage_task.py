@@ -20,8 +20,8 @@ class StorageTaskArgs:
                  action: pulumi.Input['StorageTaskActionArgs'],
                  description: pulumi.Input[str],
                  enabled: pulumi.Input[bool],
+                 identity: pulumi.Input['ManagedServiceIdentityArgs'],
                  resource_group_name: pulumi.Input[str],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  storage_task_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -30,8 +30,8 @@ class StorageTaskArgs:
         :param pulumi.Input['StorageTaskActionArgs'] action: The storage task action that is executed
         :param pulumi.Input[str] description: Text that describes the purpose of the storage task
         :param pulumi.Input[bool] enabled: Storage Task is enabled when set to true and disabled when set to false
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identity of the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] storage_task_name: The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -39,9 +39,8 @@ class StorageTaskArgs:
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if storage_task_name is not None:
@@ -86,6 +85,18 @@ class StorageTaskArgs:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['ManagedServiceIdentityArgs']:
+        """
+        The managed service identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['ManagedServiceIdentityArgs']):
+        pulumi.set(self, "identity", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -96,18 +107,6 @@ class StorageTaskArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
-        """
-        The managed service identity of the resource.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -226,6 +225,8 @@ class StorageTask(pulumi.CustomResource):
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
+            if identity is None and not opts.urn:
+                raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -311,7 +312,7 @@ class StorageTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output['outputs.ManagedServiceIdentityResponse']:
         """
         The managed service identity of the resource.
         """

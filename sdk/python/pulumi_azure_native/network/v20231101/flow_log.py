@@ -26,7 +26,6 @@ class FlowLogArgs:
                  flow_log_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input['FlowLogFormatParametersArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  retention_policy: Optional[pulumi.Input['RetentionPolicyParametersArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -41,7 +40,6 @@ class FlowLogArgs:
         :param pulumi.Input[str] flow_log_name: The name of the flow log.
         :param pulumi.Input['FlowLogFormatParametersArgs'] format: Parameters that define the flow log format.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: FlowLog resource Managed Identity
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['RetentionPolicyParametersArgs'] retention_policy: Parameters that define the retention policy for flow log.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -60,8 +58,6 @@ class FlowLogArgs:
             pulumi.set(__self__, "format", format)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if retention_policy is not None:
@@ -179,18 +175,6 @@ class FlowLogArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
-        """
-        FlowLog resource Managed Identity
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
-        pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Resource location.
@@ -236,7 +220,6 @@ class FlowLog(pulumi.CustomResource):
                  flow_log_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -255,7 +238,6 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] flow_log_name: The name of the flow log.
         :param pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']] format: Parameters that define the flow log format.
         :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: FlowLog resource Managed Identity
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -293,7 +275,6 @@ class FlowLog(pulumi.CustomResource):
                  flow_log_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[pulumi.InputType['FlowLogFormatParametersArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -315,7 +296,6 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["flow_log_name"] = flow_log_name
             __props__.__dict__["format"] = format
             __props__.__dict__["id"] = id
-            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
@@ -364,7 +344,6 @@ class FlowLog(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["flow_analytics_configuration"] = None
         __props__.__dict__["format"] = None
-        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -407,14 +386,6 @@ class FlowLog(pulumi.CustomResource):
         Parameters that define the flow log format.
         """
         return pulumi.get(self, "format")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
-        """
-        FlowLog resource Managed Identity
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

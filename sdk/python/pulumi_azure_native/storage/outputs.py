@@ -36,6 +36,8 @@ __all__ = [
     'EncryptionServiceResponse',
     'EncryptionServicesResponse',
     'EndpointsResponse',
+    'ExecutionTargetResponse',
+    'ExecutionTriggerResponse',
     'ExtendedLocationResponse',
     'GeoReplicationStatsResponse',
     'IPRuleResponse',
@@ -78,11 +80,16 @@ __all__ = [
     'StorageAccountKeyResponse',
     'StorageAccountMicrosoftEndpointsResponse',
     'StorageAccountSkuConversionStatusResponse',
+    'StorageTaskAssignmentExecutionContextResponse',
+    'StorageTaskAssignmentPropertiesResponse',
+    'StorageTaskAssignmentReportResponse',
+    'StorageTaskReportPropertiesResponse',
     'SystemDataResponse',
     'TableAccessPolicyResponse',
     'TableSignedIdentifierResponse',
     'TagFilterResponse',
     'TagPropertyResponse',
+    'TriggerParametersResponse',
     'UpdateHistoryPropertyResponse',
     'UserAssignedIdentityResponse',
     'VirtualNetworkRuleResponse',
@@ -1794,6 +1801,90 @@ class EndpointsResponse(dict):
         Gets the microsoft routing storage endpoints.
         """
         return pulumi.get(self, "microsoft_endpoints")
+
+
+@pulumi.output_type
+class ExecutionTargetResponse(dict):
+    """
+    Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludePrefix":
+            suggest = "exclude_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExecutionTargetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExecutionTargetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExecutionTargetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix: Sequence[str],
+                 exclude_prefix: Optional[Sequence[str]] = None):
+        """
+        Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
+        :param Sequence[str] prefix: Required list of object prefixes to be included for task execution
+        :param Sequence[str] exclude_prefix: List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
+        """
+        pulumi.set(__self__, "prefix", prefix)
+        if exclude_prefix is not None:
+            pulumi.set(__self__, "exclude_prefix", exclude_prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Sequence[str]:
+        """
+        Required list of object prefixes to be included for task execution
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="excludePrefix")
+    def exclude_prefix(self) -> Optional[Sequence[str]]:
+        """
+        List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
+        """
+        return pulumi.get(self, "exclude_prefix")
+
+
+@pulumi.output_type
+class ExecutionTriggerResponse(dict):
+    """
+    Execution trigger for storage task assignment
+    """
+    def __init__(__self__, *,
+                 parameters: 'outputs.TriggerParametersResponse',
+                 type: str):
+        """
+        Execution trigger for storage task assignment
+        :param 'TriggerParametersResponse' parameters: The trigger parameters of the storage task assignment execution
+        :param str type: The trigger type of the storage task assignment execution
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> 'outputs.TriggerParametersResponse':
+        """
+        The trigger parameters of the storage task assignment execution
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The trigger type of the storage task assignment execution
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -4387,6 +4478,381 @@ class StorageAccountSkuConversionStatusResponse(dict):
 
 
 @pulumi.output_type
+class StorageTaskAssignmentExecutionContextResponse(dict):
+    """
+    Execution context of the storage task assignment.
+    """
+    def __init__(__self__, *,
+                 target: 'outputs.ExecutionTargetResponse',
+                 trigger: 'outputs.ExecutionTriggerResponse'):
+        """
+        Execution context of the storage task assignment.
+        :param 'ExecutionTargetResponse' target: Execution target of the storage task assignment
+        :param 'ExecutionTriggerResponse' trigger: Execution trigger of the storage task assignment
+        """
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def target(self) -> 'outputs.ExecutionTargetResponse':
+        """
+        Execution target of the storage task assignment
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> 'outputs.ExecutionTriggerResponse':
+        """
+        Execution trigger of the storage task assignment
+        """
+        return pulumi.get(self, "trigger")
+
+
+@pulumi.output_type
+class StorageTaskAssignmentPropertiesResponse(dict):
+    """
+    Properties of the storage task assignment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionContext":
+            suggest = "execution_context"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "taskId":
+            suggest = "task_id"
+        elif key == "runStatus":
+            suggest = "run_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageTaskAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageTaskAssignmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageTaskAssignmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 enabled: bool,
+                 execution_context: 'outputs.StorageTaskAssignmentExecutionContextResponse',
+                 provisioning_state: str,
+                 report: 'outputs.StorageTaskAssignmentReportResponse',
+                 task_id: str,
+                 run_status: Optional['outputs.StorageTaskReportPropertiesResponse'] = None):
+        """
+        Properties of the storage task assignment.
+        :param str description: Text that describes the purpose of the storage task assignment
+        :param bool enabled: Whether the storage task assignment is enabled or not
+        :param 'StorageTaskAssignmentExecutionContextResponse' execution_context: The storage task assignment execution context
+        :param str provisioning_state: Represents the provisioning state of the storage task assignment.
+        :param 'StorageTaskAssignmentReportResponse' report: The storage task assignment report
+        :param str task_id: Id of the corresponding storage task
+        :param 'StorageTaskReportPropertiesResponse' run_status: Run status of storage task assignment
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "execution_context", execution_context)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "report", report)
+        pulumi.set(__self__, "task_id", task_id)
+        if run_status is not None:
+            pulumi.set(__self__, "run_status", run_status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Text that describes the purpose of the storage task assignment
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether the storage task assignment is enabled or not
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="executionContext")
+    def execution_context(self) -> 'outputs.StorageTaskAssignmentExecutionContextResponse':
+        """
+        The storage task assignment execution context
+        """
+        return pulumi.get(self, "execution_context")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Represents the provisioning state of the storage task assignment.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def report(self) -> 'outputs.StorageTaskAssignmentReportResponse':
+        """
+        The storage task assignment report
+        """
+        return pulumi.get(self, "report")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> str:
+        """
+        Id of the corresponding storage task
+        """
+        return pulumi.get(self, "task_id")
+
+    @property
+    @pulumi.getter(name="runStatus")
+    def run_status(self) -> Optional['outputs.StorageTaskReportPropertiesResponse']:
+        """
+        Run status of storage task assignment
+        """
+        return pulumi.get(self, "run_status")
+
+
+@pulumi.output_type
+class StorageTaskAssignmentReportResponse(dict):
+    """
+    The storage task assignment report
+    """
+    def __init__(__self__, *,
+                 prefix: str):
+        """
+        The storage task assignment report
+        :param str prefix: The container prefix for the location of storage task assignment report
+        """
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        """
+        The container prefix for the location of storage task assignment report
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class StorageTaskReportPropertiesResponse(dict):
+    """
+    Storage task execution report for a run instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "finishTime":
+            suggest = "finish_time"
+        elif key == "objectFailedCount":
+            suggest = "object_failed_count"
+        elif key == "objectsOperatedOnCount":
+            suggest = "objects_operated_on_count"
+        elif key == "objectsSucceededCount":
+            suggest = "objects_succeeded_count"
+        elif key == "objectsTargetedCount":
+            suggest = "objects_targeted_count"
+        elif key == "runResult":
+            suggest = "run_result"
+        elif key == "runStatusEnum":
+            suggest = "run_status_enum"
+        elif key == "runStatusError":
+            suggest = "run_status_error"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "summaryReportPath":
+            suggest = "summary_report_path"
+        elif key == "taskAssignmentId":
+            suggest = "task_assignment_id"
+        elif key == "taskId":
+            suggest = "task_id"
+        elif key == "taskVersion":
+            suggest = "task_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageTaskReportPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageTaskReportPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageTaskReportPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 finish_time: str,
+                 object_failed_count: str,
+                 objects_operated_on_count: str,
+                 objects_succeeded_count: str,
+                 objects_targeted_count: str,
+                 run_result: str,
+                 run_status_enum: str,
+                 run_status_error: str,
+                 start_time: str,
+                 storage_account_id: str,
+                 summary_report_path: str,
+                 task_assignment_id: str,
+                 task_id: str,
+                 task_version: str):
+        """
+        Storage task execution report for a run instance.
+        :param str finish_time: End time of the run instance. Filter options such as startTime gt '2023-06-26T20:51:24.4494016Z' and other comparison operators can be used as described for DateTime properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        :param str object_failed_count: Total number of objects where task operation failed when was attempted. Filter options such as objectFailedCount eq 0 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        :param str objects_operated_on_count: Total number of objects that meet the storage tasks condition and were operated upon. Filter options such as objectsOperatedOnCount ge 100 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        :param str objects_succeeded_count: Total number of objects where task operation succeeded when was attempted.Filter options such as objectsSucceededCount gt 150 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        :param str objects_targeted_count: Total number of objects that meet the condition as defined in the storage task assignment execution context. Filter options such as objectsTargetedCount gt 50 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        :param str run_result: Represents the overall result of the execution for the run instance
+        :param str run_status_enum: Represents the status of the execution.
+        :param str run_status_error: Well known Azure Storage error code that represents the error encountered during execution of the run instance.
+        :param str start_time: Start time of the run instance. Filter options such as startTime gt '2023-06-26T20:51:24.4494016Z' and other comparison operators can be used as described for DateTime properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        :param str storage_account_id: Represents the Storage Account Id where the storage task definition was applied and executed.
+        :param str summary_report_path: Full path to the verbose report stored in the reporting container as specified in the assignment execution context for the storage account. 
+        :param str task_assignment_id: Represents the Storage Task Assignment Id associated with the storage task that provided an execution context.
+        :param str task_id: Storage Task Arm Id.
+        :param str task_version: Storage Task Version
+        """
+        pulumi.set(__self__, "finish_time", finish_time)
+        pulumi.set(__self__, "object_failed_count", object_failed_count)
+        pulumi.set(__self__, "objects_operated_on_count", objects_operated_on_count)
+        pulumi.set(__self__, "objects_succeeded_count", objects_succeeded_count)
+        pulumi.set(__self__, "objects_targeted_count", objects_targeted_count)
+        pulumi.set(__self__, "run_result", run_result)
+        pulumi.set(__self__, "run_status_enum", run_status_enum)
+        pulumi.set(__self__, "run_status_error", run_status_error)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "summary_report_path", summary_report_path)
+        pulumi.set(__self__, "task_assignment_id", task_assignment_id)
+        pulumi.set(__self__, "task_id", task_id)
+        pulumi.set(__self__, "task_version", task_version)
+
+    @property
+    @pulumi.getter(name="finishTime")
+    def finish_time(self) -> str:
+        """
+        End time of the run instance. Filter options such as startTime gt '2023-06-26T20:51:24.4494016Z' and other comparison operators can be used as described for DateTime properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        """
+        return pulumi.get(self, "finish_time")
+
+    @property
+    @pulumi.getter(name="objectFailedCount")
+    def object_failed_count(self) -> str:
+        """
+        Total number of objects where task operation failed when was attempted. Filter options such as objectFailedCount eq 0 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        """
+        return pulumi.get(self, "object_failed_count")
+
+    @property
+    @pulumi.getter(name="objectsOperatedOnCount")
+    def objects_operated_on_count(self) -> str:
+        """
+        Total number of objects that meet the storage tasks condition and were operated upon. Filter options such as objectsOperatedOnCount ge 100 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        """
+        return pulumi.get(self, "objects_operated_on_count")
+
+    @property
+    @pulumi.getter(name="objectsSucceededCount")
+    def objects_succeeded_count(self) -> str:
+        """
+        Total number of objects where task operation succeeded when was attempted.Filter options such as objectsSucceededCount gt 150 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        """
+        return pulumi.get(self, "objects_succeeded_count")
+
+    @property
+    @pulumi.getter(name="objectsTargetedCount")
+    def objects_targeted_count(self) -> str:
+        """
+        Total number of objects that meet the condition as defined in the storage task assignment execution context. Filter options such as objectsTargetedCount gt 50 and other comparison operators can be used as described for Numerical properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        """
+        return pulumi.get(self, "objects_targeted_count")
+
+    @property
+    @pulumi.getter(name="runResult")
+    def run_result(self) -> str:
+        """
+        Represents the overall result of the execution for the run instance
+        """
+        return pulumi.get(self, "run_result")
+
+    @property
+    @pulumi.getter(name="runStatusEnum")
+    def run_status_enum(self) -> str:
+        """
+        Represents the status of the execution.
+        """
+        return pulumi.get(self, "run_status_enum")
+
+    @property
+    @pulumi.getter(name="runStatusError")
+    def run_status_error(self) -> str:
+        """
+        Well known Azure Storage error code that represents the error encountered during execution of the run instance.
+        """
+        return pulumi.get(self, "run_status_error")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time of the run instance. Filter options such as startTime gt '2023-06-26T20:51:24.4494016Z' and other comparison operators can be used as described for DateTime properties in https://learn.microsoft.com/en-us/rest/api/storageservices/querying-tables-and-entities#supported-comparison-operators
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        Represents the Storage Account Id where the storage task definition was applied and executed.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="summaryReportPath")
+    def summary_report_path(self) -> str:
+        """
+        Full path to the verbose report stored in the reporting container as specified in the assignment execution context for the storage account. 
+        """
+        return pulumi.get(self, "summary_report_path")
+
+    @property
+    @pulumi.getter(name="taskAssignmentId")
+    def task_assignment_id(self) -> str:
+        """
+        Represents the Storage Task Assignment Id associated with the storage task that provided an execution context.
+        """
+        return pulumi.get(self, "task_assignment_id")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> str:
+        """
+        Storage Task Arm Id.
+        """
+        return pulumi.get(self, "task_id")
+
+    @property
+    @pulumi.getter(name="taskVersion")
+    def task_version(self) -> str:
+        """
+        Storage Task Version
+        """
+        return pulumi.get(self, "task_version")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -4739,6 +5205,100 @@ class TagPropertyResponse(dict):
         Returns the User Principal Name of the user who added the tag.
         """
         return pulumi.get(self, "upn")
+
+
+@pulumi.output_type
+class TriggerParametersResponse(dict):
+    """
+    The trigger parameters update for the storage task assignment execution
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endBy":
+            suggest = "end_by"
+        elif key == "intervalUnit":
+            suggest = "interval_unit"
+        elif key == "startFrom":
+            suggest = "start_from"
+        elif key == "startOn":
+            suggest = "start_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerParametersResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerParametersResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerParametersResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_by: Optional[str] = None,
+                 interval: Optional[int] = None,
+                 interval_unit: Optional[str] = None,
+                 start_from: Optional[str] = None,
+                 start_on: Optional[str] = None):
+        """
+        The trigger parameters update for the storage task assignment execution
+        :param str end_by: When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        :param int interval: Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        :param str interval_unit: Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        :param str start_from: When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        :param str start_on: When to start task execution. This is an optional field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
+        """
+        if end_by is not None:
+            pulumi.set(__self__, "end_by", end_by)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if interval_unit is not None:
+            pulumi.set(__self__, "interval_unit", interval_unit)
+        if start_from is not None:
+            pulumi.set(__self__, "start_from", start_from)
+        if start_on is not None:
+            pulumi.set(__self__, "start_on", start_on)
+
+    @property
+    @pulumi.getter(name="endBy")
+    def end_by(self) -> Optional[str]:
+        """
+        When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        """
+        return pulumi.get(self, "end_by")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> Optional[str]:
+        """
+        Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        """
+        return pulumi.get(self, "interval_unit")
+
+    @property
+    @pulumi.getter(name="startFrom")
+    def start_from(self) -> Optional[str]:
+        """
+        When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        """
+        return pulumi.get(self, "start_from")
+
+    @property
+    @pulumi.getter(name="startOn")
+    def start_on(self) -> Optional[str]:
+        """
+        When to start task execution. This is an optional field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
+        """
+        return pulumi.get(self, "start_on")
 
 
 @pulumi.output_type

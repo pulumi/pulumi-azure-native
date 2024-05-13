@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.Storage.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220501:QueueServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:QueueServiceProperties" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:QueueServiceProperties" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:QueueServiceProperties" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

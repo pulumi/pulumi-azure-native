@@ -7,6 +7,7 @@ import * as v20220510preview from "./v20220510preview";
 import * as v20221227 from "./v20221227";
 import * as v20230620preview from "./v20230620preview";
 import * as v20231003preview from "./v20231003preview";
+import * as v20240331preview from "./v20240331preview";
 
 export {
     v20200815preview,
@@ -14,6 +15,7 @@ export {
     v20221227,
     v20230620preview,
     v20231003preview,
+    v20240331preview,
 };
 
 export const AssessmentModeTypes = {
@@ -25,6 +27,15 @@ export const AssessmentModeTypes = {
  * Specifies the assessment mode.
  */
 export type AssessmentModeTypes = (typeof AssessmentModeTypes)[keyof typeof AssessmentModeTypes];
+
+export const GatewayType = {
+    Public: "Public",
+} as const;
+
+/**
+ * The type of the Gateway resource.
+ */
+export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
 
 export const LicenseCoreType = {
     PCore: "pCore",

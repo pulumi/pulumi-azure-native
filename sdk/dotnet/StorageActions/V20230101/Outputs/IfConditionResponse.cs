@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.StorageActions.V20230101.Outputs
     public sealed class IfConditionResponse
     {
         /// <summary>
-        /// The condition predicate which is composed of object properties, eg: blob and container properties.
+        /// Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
         /// </summary>
         public readonly string Condition;
         /// <summary>

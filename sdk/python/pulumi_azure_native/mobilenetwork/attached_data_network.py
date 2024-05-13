@@ -224,7 +224,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
         Attached data network resource. Must be created in the same location as its parent packet core data plane.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
 
-        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +255,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
         Attached data network resource. Must be created in the same location as its parent packet core data plane.
         Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
 
-        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
+        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param AttachedDataNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -317,7 +317,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:AttachedDataNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:AttachedDataNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240401:AttachedDataNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedDataNetwork, __self__).__init__(
             'azure-native:mobilenetwork:AttachedDataNetwork',

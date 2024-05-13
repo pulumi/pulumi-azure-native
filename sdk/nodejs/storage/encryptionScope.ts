@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Encryption Scope resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01.
+ * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
 export class EncryptionScope extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class EncryptionScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190601:EncryptionScope" }, { type: "azure-native:storage/v20200801preview:EncryptionScope" }, { type: "azure-native:storage/v20210101:EncryptionScope" }, { type: "azure-native:storage/v20210201:EncryptionScope" }, { type: "azure-native:storage/v20210401:EncryptionScope" }, { type: "azure-native:storage/v20210601:EncryptionScope" }, { type: "azure-native:storage/v20210801:EncryptionScope" }, { type: "azure-native:storage/v20210901:EncryptionScope" }, { type: "azure-native:storage/v20220501:EncryptionScope" }, { type: "azure-native:storage/v20220901:EncryptionScope" }, { type: "azure-native:storage/v20230101:EncryptionScope" }, { type: "azure-native:storage/v20230401:EncryptionScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage/v20190601:EncryptionScope" }, { type: "azure-native:storage/v20200801preview:EncryptionScope" }, { type: "azure-native:storage/v20210101:EncryptionScope" }, { type: "azure-native:storage/v20210201:EncryptionScope" }, { type: "azure-native:storage/v20210401:EncryptionScope" }, { type: "azure-native:storage/v20210601:EncryptionScope" }, { type: "azure-native:storage/v20210801:EncryptionScope" }, { type: "azure-native:storage/v20210901:EncryptionScope" }, { type: "azure-native:storage/v20220501:EncryptionScope" }, { type: "azure-native:storage/v20220901:EncryptionScope" }, { type: "azure-native:storage/v20230101:EncryptionScope" }, { type: "azure-native:storage/v20230401:EncryptionScope" }, { type: "azure-native:storage/v20230501:EncryptionScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EncryptionScope.__pulumiType, name, resourceInputs, opts);
     }

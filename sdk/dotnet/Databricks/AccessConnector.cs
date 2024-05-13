@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Databricks
     /// Information about azure databricks accessConnector.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
     /// 
-    /// Other available API versions: 2022-04-01-preview.
+    /// Other available API versions: 2022-04-01-preview, 2024-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:AccessConnector")]
     public partial class AccessConnector : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Databricks
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20221001preview:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230501:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:AccessConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

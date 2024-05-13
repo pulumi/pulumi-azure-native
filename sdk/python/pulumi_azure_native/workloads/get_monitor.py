@@ -244,6 +244,8 @@ def get_monitor(monitor_name: Optional[str] = None,
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-12-01-preview.
+
 
     :param str monitor_name: Name of the SAP monitor resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -281,6 +283,8 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-12-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// Network slice resource. Must be created in the same location as its parent mobile network.
     /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
     /// 
-    /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01.
+    /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Slice")]
     public partial class Slice : global::Pulumi.CustomResource
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Slice" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:Slice" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:Slice" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:Slice" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

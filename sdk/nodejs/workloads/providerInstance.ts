@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A provider instance associated with SAP monitor.
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
  *
- * Other available API versions: 2023-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2023-12-01-preview.
  */
 export class ProviderInstance extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class ProviderInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:ProviderInstance" }, { type: "azure-native:workloads/v20221101preview:ProviderInstance" }, { type: "azure-native:workloads/v20230401:ProviderInstance" }, { type: "azure-native:workloads/v20231001preview:ProviderInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:ProviderInstance" }, { type: "azure-native:workloads/v20221101preview:ProviderInstance" }, { type: "azure-native:workloads/v20230401:ProviderInstance" }, { type: "azure-native:workloads/v20231001preview:ProviderInstance" }, { type: "azure-native:workloads/v20231201preview:ProviderInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProviderInstance.__pulumiType, name, resourceInputs, opts);
     }

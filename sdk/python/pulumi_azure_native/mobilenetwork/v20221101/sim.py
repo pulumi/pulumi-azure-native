@@ -277,7 +277,7 @@ class Sim(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["vendor_key_fingerprint"] = None
             __props__.__dict__["vendor_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:Sim")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240401:Sim")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Sim, __self__).__init__(
             'azure-native:mobilenetwork/v20221101:Sim',

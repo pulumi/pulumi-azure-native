@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AppServicePlanTier',
     'BackupType',
     'ConfigurationType',
     'DayOfWeek',
@@ -34,6 +35,20 @@ __all__ = [
     'WeekOfMonth',
     'WorkloadType',
 ]
+
+
+class AppServicePlanTier(str, Enum):
+    """
+    The App Service plan tier.
+    """
+    ELASTIC_PREMIUM = "ElasticPremium"
+    """
+    Elastic Premium plan
+    """
+    PREMIUM_V3 = "PremiumV3"
+    """
+    Dedicated Premium V3 plan
+    """
 
 
 class BackupType(str, Enum):

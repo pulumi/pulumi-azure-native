@@ -126,7 +126,7 @@ def get_protection_policy(policy_name: Optional[str] = None,
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2016-06-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2016-06-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview.
 
 
     :param str policy_name: Backup policy information to be fetched.
@@ -160,7 +160,7 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2016-06-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
+    Other available API versions: 2016-06-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview.
 
 
     :param str policy_name: Backup policy information to be fetched.

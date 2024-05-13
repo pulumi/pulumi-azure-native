@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.Network.V20231101.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// FlowLog resource Managed Identity
-        /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
-        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -89,8 +85,6 @@ namespace Pulumi.AzureNative.Network.V20231101.Outputs
 
             string? id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
-
             string? location,
 
             string name,
@@ -114,7 +108,6 @@ namespace Pulumi.AzureNative.Network.V20231101.Outputs
             FlowAnalyticsConfiguration = flowAnalyticsConfiguration;
             Format = format;
             Id = id;
-            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

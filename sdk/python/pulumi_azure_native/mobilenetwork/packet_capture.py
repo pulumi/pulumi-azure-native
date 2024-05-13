@@ -153,7 +153,7 @@ class PacketCapture(pulumi.CustomResource):
         Packet capture session resource.
         Azure REST API version: 2023-06-01.
 
-        Other available API versions: 2023-09-01, 2024-02-01.
+        Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +175,7 @@ class PacketCapture(pulumi.CustomResource):
         Packet capture session resource.
         Azure REST API version: 2023-06-01.
 
-        Other available API versions: 2023-09-01, 2024-02-01.
+        Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.
@@ -232,7 +232,7 @@ class PacketCapture(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:PacketCapture")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230901:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240201:PacketCapture"), pulumi.Alias(type_="azure-native:mobilenetwork/v20240401:PacketCapture")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PacketCapture, __self__).__init__(
             'azure-native:mobilenetwork:PacketCapture',

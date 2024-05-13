@@ -269,6 +269,8 @@ def get_machine_run_command(machine_name: Optional[str] = None,
     The operation to get a run command.
     Azure REST API version: 2023-10-03-preview.
 
+    Other available API versions: 2024-03-31-preview.
+
 
     :param str machine_name: The name of the hybrid machine.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -311,6 +313,8 @@ def get_machine_run_command_output(machine_name: Optional[pulumi.Input[str]] = N
     """
     The operation to get a run command.
     Azure REST API version: 2023-10-03-preview.
+
+    Other available API versions: 2024-03-31-preview.
 
 
     :param str machine_name: The name of the hybrid machine.

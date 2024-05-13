@@ -31,6 +31,8 @@ __all__ = [
     'EncryptionServicesArgs',
     'EncryptionServiceArgs',
     'EncryptionArgs',
+    'ExecutionTargetArgs',
+    'ExecutionTriggerArgs',
     'ExtendedLocationArgs',
     'IPRuleArgs',
     'IdentityArgs',
@@ -62,9 +64,13 @@ __all__ = [
     'SkuArgs',
     'SmbSettingArgs',
     'SshPublicKeyArgs',
+    'StorageTaskAssignmentExecutionContextArgs',
+    'StorageTaskAssignmentPropertiesArgs',
+    'StorageTaskAssignmentReportArgs',
     'TableAccessPolicyArgs',
     'TableSignedIdentifierArgs',
     'TagFilterArgs',
+    'TriggerParametersArgs',
     'VirtualNetworkRuleArgs',
 ]
 
@@ -1294,6 +1300,83 @@ class EncryptionArgs:
     @services.setter
     def services(self, value: Optional[pulumi.Input['EncryptionServicesArgs']]):
         pulumi.set(self, "services", value)
+
+
+@pulumi.input_type
+class ExecutionTargetArgs:
+    def __init__(__self__, *,
+                 prefix: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Target helps provide filter parameters for the objects in the storage account and forms the execution context for the storage task
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix: Required list of object prefixes to be included for task execution
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_prefix: List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
+        """
+        pulumi.set(__self__, "prefix", prefix)
+        if exclude_prefix is not None:
+            pulumi.set(__self__, "exclude_prefix", exclude_prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Required list of object prefixes to be included for task execution
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="excludePrefix")
+    def exclude_prefix(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of object prefixes to be excluded from task execution. If there is a conflict between include and exclude prefixes, the exclude prefix will be the determining factor
+        """
+        return pulumi.get(self, "exclude_prefix")
+
+    @exclude_prefix.setter
+    def exclude_prefix(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_prefix", value)
+
+
+@pulumi.input_type
+class ExecutionTriggerArgs:
+    def __init__(__self__, *,
+                 parameters: pulumi.Input['TriggerParametersArgs'],
+                 type: pulumi.Input['TriggerType']):
+        """
+        Execution trigger for storage task assignment
+        :param pulumi.Input['TriggerParametersArgs'] parameters: The trigger parameters of the storage task assignment execution
+        :param pulumi.Input['TriggerType'] type: The trigger type of the storage task assignment execution
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input['TriggerParametersArgs']:
+        """
+        The trigger parameters of the storage task assignment execution
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input['TriggerParametersArgs']):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['TriggerType']:
+        """
+        The trigger type of the storage task assignment execution
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['TriggerType']):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -2874,6 +2957,150 @@ class SshPublicKeyArgs:
 
 
 @pulumi.input_type
+class StorageTaskAssignmentExecutionContextArgs:
+    def __init__(__self__, *,
+                 target: pulumi.Input['ExecutionTargetArgs'],
+                 trigger: pulumi.Input['ExecutionTriggerArgs']):
+        """
+        Execution context of the storage task assignment.
+        :param pulumi.Input['ExecutionTargetArgs'] target: Execution target of the storage task assignment
+        :param pulumi.Input['ExecutionTriggerArgs'] trigger: Execution trigger of the storage task assignment
+        """
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input['ExecutionTargetArgs']:
+        """
+        Execution target of the storage task assignment
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input['ExecutionTargetArgs']):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> pulumi.Input['ExecutionTriggerArgs']:
+        """
+        Execution trigger of the storage task assignment
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: pulumi.Input['ExecutionTriggerArgs']):
+        pulumi.set(self, "trigger", value)
+
+
+@pulumi.input_type
+class StorageTaskAssignmentPropertiesArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[str],
+                 enabled: pulumi.Input[bool],
+                 execution_context: pulumi.Input['StorageTaskAssignmentExecutionContextArgs'],
+                 report: pulumi.Input['StorageTaskAssignmentReportArgs'],
+                 task_id: pulumi.Input[str]):
+        """
+        Properties of the storage task assignment.
+        :param pulumi.Input[str] description: Text that describes the purpose of the storage task assignment
+        :param pulumi.Input[bool] enabled: Whether the storage task assignment is enabled or not
+        :param pulumi.Input['StorageTaskAssignmentExecutionContextArgs'] execution_context: The storage task assignment execution context
+        :param pulumi.Input['StorageTaskAssignmentReportArgs'] report: The storage task assignment report
+        :param pulumi.Input[str] task_id: Id of the corresponding storage task
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "execution_context", execution_context)
+        pulumi.set(__self__, "report", report)
+        pulumi.set(__self__, "task_id", task_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[str]:
+        """
+        Text that describes the purpose of the storage task assignment
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether the storage task assignment is enabled or not
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="executionContext")
+    def execution_context(self) -> pulumi.Input['StorageTaskAssignmentExecutionContextArgs']:
+        """
+        The storage task assignment execution context
+        """
+        return pulumi.get(self, "execution_context")
+
+    @execution_context.setter
+    def execution_context(self, value: pulumi.Input['StorageTaskAssignmentExecutionContextArgs']):
+        pulumi.set(self, "execution_context", value)
+
+    @property
+    @pulumi.getter
+    def report(self) -> pulumi.Input['StorageTaskAssignmentReportArgs']:
+        """
+        The storage task assignment report
+        """
+        return pulumi.get(self, "report")
+
+    @report.setter
+    def report(self, value: pulumi.Input['StorageTaskAssignmentReportArgs']):
+        pulumi.set(self, "report", value)
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> pulumi.Input[str]:
+        """
+        Id of the corresponding storage task
+        """
+        return pulumi.get(self, "task_id")
+
+    @task_id.setter
+    def task_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "task_id", value)
+
+
+@pulumi.input_type
+class StorageTaskAssignmentReportArgs:
+    def __init__(__self__, *,
+                 prefix: pulumi.Input[str]):
+        """
+        The storage task assignment report
+        :param pulumi.Input[str] prefix: The container prefix for the location of storage task assignment report
+        """
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        """
+        The container prefix for the location of storage task assignment report
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
 class TableAccessPolicyArgs:
     def __init__(__self__, *,
                  permission: pulumi.Input[str],
@@ -3018,6 +3245,94 @@ class TagFilterArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TriggerParametersArgs:
+    def __init__(__self__, *,
+                 end_by: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 interval_unit: Optional[pulumi.Input['IntervalUnit']] = None,
+                 start_from: Optional[pulumi.Input[str]] = None,
+                 start_on: Optional[pulumi.Input[str]] = None):
+        """
+        The trigger parameters update for the storage task assignment execution
+        :param pulumi.Input[str] end_by: When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        :param pulumi.Input[int] interval: Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        :param pulumi.Input['IntervalUnit'] interval_unit: Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        :param pulumi.Input[str] start_from: When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        :param pulumi.Input[str] start_on: When to start task execution. This is an optional field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
+        """
+        if end_by is not None:
+            pulumi.set(__self__, "end_by", end_by)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if interval_unit is not None:
+            pulumi.set(__self__, "interval_unit", interval_unit)
+        if start_from is not None:
+            pulumi.set(__self__, "start_from", start_from)
+        if start_on is not None:
+            pulumi.set(__self__, "start_on", start_on)
+
+    @property
+    @pulumi.getter(name="endBy")
+    def end_by(self) -> Optional[pulumi.Input[str]]:
+        """
+        When to end task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        """
+        return pulumi.get(self, "end_by")
+
+    @end_by.setter
+    def end_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_by", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Run interval of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> Optional[pulumi.Input['IntervalUnit']]:
+        """
+        Run interval unit of task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        """
+        return pulumi.get(self, "interval_unit")
+
+    @interval_unit.setter
+    def interval_unit(self, value: Optional[pulumi.Input['IntervalUnit']]):
+        pulumi.set(self, "interval_unit", value)
+
+    @property
+    @pulumi.getter(name="startFrom")
+    def start_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        When to start task execution. This is a required field when ExecutionTrigger.properties.type is 'OnSchedule'; this property should not be present when ExecutionTrigger.properties.type is 'RunOnce'
+        """
+        return pulumi.get(self, "start_from")
+
+    @start_from.setter
+    def start_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_from", value)
+
+    @property
+    @pulumi.getter(name="startOn")
+    def start_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        When to start task execution. This is an optional field when ExecutionTrigger.properties.type is 'RunOnce'; this property should not be present when ExecutionTrigger.properties.type is 'OnSchedule'
+        """
+        return pulumi.get(self, "start_on")
+
+    @start_on.setter
+    def start_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_on", value)
 
 
 @pulumi.input_type

@@ -58,7 +58,7 @@ export interface GetStorageTaskResult {
     /**
      * The managed service identity of the resource.
      */
-    readonly identity?: outputs.storageactions.ManagedServiceIdentityResponse;
+    readonly identity: outputs.storageactions.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */

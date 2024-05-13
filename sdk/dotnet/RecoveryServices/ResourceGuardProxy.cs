@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// <summary>
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01.
+    /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ResourceGuardProxy")]
     public partial class ResourceGuardProxy : global::Pulumi.CustomResource
@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240101:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240201:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240401:ResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240430preview:ResourceGuardProxy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

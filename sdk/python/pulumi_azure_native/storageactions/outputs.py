@@ -53,7 +53,7 @@ class IfConditionResponse(dict):
                  operations: Sequence['outputs.StorageTaskOperationResponse']):
         """
         The if block of storage task operation
-        :param str condition: The condition predicate which is composed of object properties, eg: blob and container properties.
+        :param str condition: Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
         :param Sequence['StorageTaskOperationResponse'] operations: List of operations to execute when the condition predicate satisfies.
         """
         pulumi.set(__self__, "condition", condition)
@@ -63,7 +63,7 @@ class IfConditionResponse(dict):
     @pulumi.getter
     def condition(self) -> str:
         """
-        The condition predicate which is composed of object properties, eg: blob and container properties.
+        Condition predicate to evaluate each object. See https://aka.ms/storagetaskconditions for valid properties and operators.
         """
         return pulumi.get(self, "condition")
 
