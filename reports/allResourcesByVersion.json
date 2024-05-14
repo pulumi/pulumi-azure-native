@@ -3862,6 +3862,13 @@
       "Experiment",
       "Target",
       "getExperimentExecutionDetails"
+    ],
+    "2024-03-22-preview": [
+      "Capability",
+      "Experiment",
+      "PrivateAccess",
+      "Target",
+      "getExperimentExecutionDetails"
     ]
   },
   "Cloudngfw": {
@@ -4176,6 +4183,19 @@
       "listAccountKeys"
     ],
     "2023-10-01-preview": [
+      "Account",
+      "CommitmentPlan",
+      "CommitmentPlanAssociation",
+      "Deployment",
+      "EncryptionScope",
+      "PrivateEndpointConnection",
+      "RaiBlocklist",
+      "RaiBlocklistItem",
+      "RaiPolicy",
+      "SharedCommitmentPlan",
+      "listAccountKeys"
+    ],
+    "2024-04-01-preview": [
       "Account",
       "CommitmentPlan",
       "CommitmentPlanAssociation",
@@ -7711,6 +7731,19 @@
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
       "Workspace"
+    ],
+    "2024-04-03": [
+      "AppAttachPackage",
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
     ]
   },
   "DevCenter": {
@@ -9237,6 +9270,12 @@
       "listDatabaseAccountKeys",
       "listMongoClusterConnectionStrings",
       "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2024-03-01-preview": [
+      "FirewallRule",
+      "MongoCluster",
+      "PrivateEndpointConnection",
+      "listMongoClusterConnectionStrings"
     ]
   },
   "DomainRegistration": {

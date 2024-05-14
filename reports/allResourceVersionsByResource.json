@@ -4053,7 +4053,8 @@
       "2023-09-01-preview",
       "2023-10-27-preview",
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-03-22-preview"
     ],
     "Experiment": [
       "2021-09-15-preview",
@@ -4064,10 +4065,12 @@
       "2023-09-01-preview",
       "2023-10-27-preview",
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-03-22-preview"
     ],
     "PrivateAccess": [
-      "2023-10-27-preview"
+      "2023-10-27-preview",
+      "2024-03-22-preview"
     ],
     "Target": [
       "2021-09-15-preview",
@@ -4078,11 +4081,13 @@
       "2023-09-01-preview",
       "2023-10-27-preview",
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-03-22-preview"
     ],
     "getExperimentExecutionDetails": [
       "2023-11-01",
-      "2024-01-01"
+      "2024-01-01",
+      "2024-03-22-preview"
     ]
   },
   "Cloudngfw": {
@@ -4411,7 +4416,8 @@
       "2022-10-01",
       "2022-12-01",
       "2023-05-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "CognitiveServicesAccount": [
       "2016-02-01-preview"
@@ -4422,12 +4428,14 @@
       "2022-10-01",
       "2022-12-01",
       "2023-05-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "CommitmentPlanAssociation": [
       "2022-12-01",
       "2023-05-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "Deployment": [
       "2021-10-01",
@@ -4435,10 +4443,12 @@
       "2022-10-01",
       "2022-12-01",
       "2023-05-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "EncryptionScope": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2017-04-18",
@@ -4448,21 +4458,26 @@
       "2022-10-01",
       "2022-12-01",
       "2023-05-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "RaiBlocklist": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "RaiBlocklistItem": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "RaiPolicy": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "SharedCommitmentPlan": [
       "2022-12-01",
       "2023-05-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "listAccountKeys": [
       "2017-04-18",
@@ -4472,7 +4487,8 @@
       "2022-10-01",
       "2022-12-01",
       "2023-05-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-04-01-preview"
     ],
     "listCognitiveServicesAccountKeys": [
       "2016-02-01-preview"
@@ -7570,7 +7586,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "Application": [
       "2019-01-23-preview",
@@ -7595,7 +7612,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "ApplicationGroup": [
       "2019-01-23-preview",
@@ -7620,7 +7638,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "HostPool": [
       "2019-01-23-preview",
@@ -7645,7 +7664,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "MSIXPackage": [
       "2020-09-21-preview",
@@ -7667,7 +7687,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "PrivateEndpointConnectionByHostPool": [
       "2021-04-01-preview",
@@ -7680,7 +7701,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "PrivateEndpointConnectionByWorkspace": [
       "2021-04-01-preview",
@@ -7693,7 +7715,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "ScalingPlan": [
       "2020-11-10-preview",
@@ -7712,7 +7735,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "ScalingPlanPersonalSchedule": [
       "2023-07-07-preview",
@@ -7720,7 +7744,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "ScalingPlanPooledSchedule": [
       "2022-04-01-preview",
@@ -7731,7 +7756,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ],
     "Workspace": [
       "2019-01-23-preview",
@@ -7756,7 +7782,8 @@
       "2023-10-04-preview",
       "2023-11-01-preview",
       "2024-01-16-preview",
-      "2024-03-06-preview"
+      "2024-03-06-preview",
+      "2024-04-03"
     ]
   },
   "DevCenter": {
@@ -8615,6 +8642,9 @@
       "2016-03-19",
       "2016-03-31"
     ],
+    "FirewallRule": [
+      "2024-03-01-preview"
+    ],
     "GraphResourceGraph": [
       "2021-07-01-preview",
       "2021-10-15-preview",
@@ -8704,7 +8734,8 @@
       "2023-03-15-preview",
       "2023-09-15-preview",
       "2023-11-15-preview",
-      "2024-02-15-preview"
+      "2024-02-15-preview",
+      "2024-03-01-preview"
     ],
     "MongoClusterFirewallRule": [
       "2023-03-01-preview",
@@ -8884,7 +8915,8 @@
       "2023-09-15-preview",
       "2023-11-15",
       "2023-11-15-preview",
-      "2024-02-15-preview"
+      "2024-02-15-preview",
+      "2024-03-01-preview"
     ],
     "Service": [
       "2021-04-01-preview",
@@ -9267,7 +9299,8 @@
       "2023-03-15-preview",
       "2023-09-15-preview",
       "2023-11-15-preview",
-      "2024-02-15-preview"
+      "2024-02-15-preview",
+      "2024-03-01-preview"
     ],
     "listNotebookWorkspaceConnectionInfo": [
       "2019-08-01",
