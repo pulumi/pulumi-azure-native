@@ -2,9 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
+import * as v20230403 from "./v20230403";
 import * as v20231001preview from "./v20231001preview";
 
 export {
+    v20230403,
     v20231001preview,
 };
 
@@ -71,6 +73,16 @@ export const ProcessorType = {
  * The type of processor.
  */
 export type ProcessorType = (typeof ProcessorType)[keyof typeof ProcessorType];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Gets or sets allow or disallow public network access to Azure Monitor Workspace
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ReceiverType = {
     /**

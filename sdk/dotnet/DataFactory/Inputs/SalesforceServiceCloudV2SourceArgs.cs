@@ -40,7 +40,13 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? MaxConcurrentConnections { get; set; }
 
         /// <summary>
-        /// Database query. Type: string (or Expression with resultType string).
+        /// You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("query")]
+        public Input<object>? Query { get; set; }
+
+        /// <summary>
+        /// Deprecating, please use 'query' property instead. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("sOQLQuery")]
         public Input<object>? SOQLQuery { get; set; }

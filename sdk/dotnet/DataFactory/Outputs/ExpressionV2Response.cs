@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ExpressionV2Response> Operands;
         /// <summary>
-        /// Expression operator value Type: string.
+        /// Expression operator value Type: list of strings.
         /// </summary>
-        public readonly string? Operator;
+        public readonly ImmutableArray<string> Operators;
         /// <summary>
         /// Type of expressions supported by the system. Type: string.
         /// </summary>
@@ -37,14 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private ExpressionV2Response(
             ImmutableArray<Outputs.ExpressionV2Response> operands,
 
-            string? @operator,
+            ImmutableArray<string> operators,
 
             string? type,
 
             string? value)
         {
             Operands = operands;
-            Operator = @operator;
+            Operators = operators;
             Type = type;
             Value = value;
         }

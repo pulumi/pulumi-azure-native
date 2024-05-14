@@ -127,7 +127,7 @@ class Capability(pulumi.CustomResource):
         Model that represents a Capability resource.
         Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview.
 
-        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01.
+        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class Capability(pulumi.CustomResource):
         Model that represents a Capability resource.
         Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview.
 
-        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01.
+        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview.
 
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.
@@ -200,7 +200,7 @@ class Capability(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos/v20210915preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20220701preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20221001preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230401preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230415preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230901preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20231027preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20231101:Capability"), pulumi.Alias(type_="azure-native:chaos/v20240101:Capability")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos/v20210915preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20220701preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20221001preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230401preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230415preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230901preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20231027preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20231101:Capability"), pulumi.Alias(type_="azure-native:chaos/v20240101:Capability"), pulumi.Alias(type_="azure-native:chaos/v20240322preview:Capability")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Capability, __self__).__init__(
             'azure-native:chaos:Capability',

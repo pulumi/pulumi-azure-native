@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
         /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -149,6 +149,12 @@ namespace Pulumi.AzureNative.Monitor.V20230403
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Monitor.V20230403.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

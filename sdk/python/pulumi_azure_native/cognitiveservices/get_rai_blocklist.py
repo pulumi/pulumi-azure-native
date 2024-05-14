@@ -125,6 +125,8 @@ def get_rai_blocklist(account_name: Optional[str] = None,
     Gets the specified custom blocklist associated with the Azure OpenAI account.
     Azure REST API version: 2023-10-01-preview.
 
+    Other available API versions: 2024-04-01-preview.
+
 
     :param str account_name: The name of Cognitive Services account.
     :param str rai_blocklist_name: The name of the RaiBlocklist associated with the Cognitive Services Account
@@ -155,6 +157,8 @@ def get_rai_blocklist_output(account_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the specified custom blocklist associated with the Azure OpenAI account.
     Azure REST API version: 2023-10-01-preview.
+
+    Other available API versions: 2024-04-01-preview.
 
 
     :param str account_name: The name of Cognitive Services account.

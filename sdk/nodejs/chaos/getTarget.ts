@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Target resource that extends a tracked regional resource.
  * Azure REST API version: 2023-04-15-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01.
+ * Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview.
  */
 export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetResult> {
 
@@ -81,7 +81,7 @@ export interface GetTargetResult {
  * Get a Target resource that extends a tracked regional resource.
  * Azure REST API version: 2023-04-15-preview.
  *
- * Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01.
+ * Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview.
  */
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {
     return pulumi.output(args).apply((a: any) => getTarget(a, opts))

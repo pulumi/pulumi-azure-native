@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a ScalingPlanPersonalSchedule.
         /// Azure REST API version: 2023-07-07-preview.
         /// 
-        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
+        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03.
         /// </summary>
         public static Task<GetScalingPlanPersonalScheduleResult> InvokeAsync(GetScalingPlanPersonalScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a ScalingPlanPersonalSchedule.
         /// Azure REST API version: 2023-07-07-preview.
         /// 
-        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
+        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03.
         /// </summary>
         public static Output<GetScalingPlanPersonalScheduleResult> Invoke(GetScalingPlanPersonalScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleInvokeArgs(), options.WithDefaults());

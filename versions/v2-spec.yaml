@@ -751,6 +751,7 @@ DocumentDB:
     tracking: "2023-04-15"
     additions:
         CassandraResourceCassandraView: 2023-03-15-preview
+        FirewallRule: 2024-03-01-preview
         GraphResourceGraph: 2023-03-15-preview
         MongoCluster: 2023-03-15-preview
         MongoClusterFirewallRule: 2023-03-15-preview

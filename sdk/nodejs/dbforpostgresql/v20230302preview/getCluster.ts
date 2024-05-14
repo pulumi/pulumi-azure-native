@@ -35,6 +35,10 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * Indicates whether the cluster was created using AAD authentication.
+     */
+    readonly aadAuthEnabled: string;
+    /**
      * The administrator's login name of the servers in the cluster.
      */
     readonly administratorLogin: string;
@@ -63,6 +67,10 @@ export interface GetClusterResult {
      */
     readonly coordinatorVCores?: number;
     /**
+     * The data encryption properties of a cluster.
+     */
+    readonly dataEncryption?: outputs.dbforpostgresql.v20230302preview.DataEncryptionResponse;
+    /**
      * The database name of the cluster. Only one database per cluster is supported.
      */
     readonly databaseName?: string;
@@ -86,6 +94,10 @@ export interface GetClusterResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Describes the identity of the cluster.
+     */
+    readonly identity?: outputs.dbforpostgresql.v20230302preview.IdentityPropertiesResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -118,6 +130,10 @@ export interface GetClusterResult {
      * The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
     readonly nodeVCores?: number;
+    /**
+     * Indicates whether the cluster was created with a password or using AAD authentication.
+     */
+    readonly passwordEnabled: string;
     /**
      * Date and time in UTC (ISO8601 format) for cluster restore.
      */

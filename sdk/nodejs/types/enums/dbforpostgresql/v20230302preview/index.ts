@@ -9,6 +9,20 @@ export const ActiveDirectoryAuth = {
 
 export type ActiveDirectoryAuth = (typeof ActiveDirectoryAuth)[keyof typeof ActiveDirectoryAuth];
 
+export const DataEncryptionType = {
+    AzureKeyVault: "AzureKeyVault",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+export type DataEncryptionType = (typeof DataEncryptionType)[keyof typeof DataEncryptionType];
+
+export const IdentityType = {
+    UserAssigned: "UserAssigned",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
 export const PasswordAuth = {
     Enabled: "enabled",
     Disabled: "disabled",

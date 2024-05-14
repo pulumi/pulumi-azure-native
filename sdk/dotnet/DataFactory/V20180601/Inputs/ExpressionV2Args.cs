@@ -27,11 +27,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
             set => _operands = value;
         }
 
+        [Input("operators")]
+        private InputList<string>? _operators;
+
         /// <summary>
-        /// Expression operator value Type: string.
+        /// Expression operator value Type: list of strings.
         /// </summary>
-        [Input("operator")]
-        public Input<string>? Operator { get; set; }
+        public InputList<string> Operators
+        {
+            get => _operators ?? (_operators = new InputList<string>());
+            set => _operators = value;
+        }
 
         /// <summary>
         /// Type of expressions supported by the system. Type: string.

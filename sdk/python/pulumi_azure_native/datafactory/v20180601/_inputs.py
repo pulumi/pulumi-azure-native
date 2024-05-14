@@ -33852,20 +33852,20 @@ class ExecutionActivityArgs:
 class ExpressionV2Args:
     def __init__(__self__, *,
                  operands: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressionV2Args']]]] = None,
-                 operator: Optional[pulumi.Input[str]] = None,
+                 operators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ExpressionV2Type']]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Nested representation of a complex expression.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressionV2Args']]] operands: List of nested expressions.
-        :param pulumi.Input[str] operator: Expression operator value Type: string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] operators: Expression operator value Type: list of strings.
         :param pulumi.Input[Union[str, 'ExpressionV2Type']] type: Type of expressions supported by the system. Type: string.
         :param pulumi.Input[str] value: Value for Constant/Field Type: string.
         """
         if operands is not None:
             pulumi.set(__self__, "operands", operands)
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+        if operators is not None:
+            pulumi.set(__self__, "operators", operators)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if value is not None:
@@ -33885,15 +33885,15 @@ class ExpressionV2Args:
 
     @property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
+    def operators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Expression operator value Type: string.
+        Expression operator value Type: list of strings.
         """
-        return pulumi.get(self, "operator")
+        return pulumi.get(self, "operators")
 
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operator", value)
+    @operators.setter
+    def operators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "operators", value)
 
     @property
     @pulumi.getter
@@ -69140,6 +69140,7 @@ class SalesforceServiceCloudV2SourceArgs:
                  disable_metrics_collection: Optional[Any] = None,
                  include_deleted_objects: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
+                 query: Optional[Any] = None,
                  s_oql_query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
@@ -69151,7 +69152,8 @@ class SalesforceServiceCloudV2SourceArgs:
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any include_deleted_objects: This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any s_oql_query: Database query. Type: string (or Expression with resultType string).
+        :param Any query: You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
+        :param Any s_oql_query: Deprecating, please use 'query' property instead. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -69164,6 +69166,8 @@ class SalesforceServiceCloudV2SourceArgs:
             pulumi.set(__self__, "include_deleted_objects", include_deleted_objects)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
         if s_oql_query is not None:
             pulumi.set(__self__, "s_oql_query", s_oql_query)
         if source_retry_count is not None:
@@ -69233,10 +69237,22 @@ class SalesforceServiceCloudV2SourceArgs:
         pulumi.set(self, "max_concurrent_connections", value)
 
     @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
     @pulumi.getter(name="sOQLQuery")
     def s_oql_query(self) -> Optional[Any]:
         """
-        Database query. Type: string (or Expression with resultType string).
+        Deprecating, please use 'query' property instead. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "s_oql_query")
 
@@ -70121,6 +70137,7 @@ class SalesforceV2SourceArgs:
                  disable_metrics_collection: Optional[Any] = None,
                  include_deleted_objects: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
+                 query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
                  s_oql_query: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -70133,8 +70150,9 @@ class SalesforceV2SourceArgs:
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any include_deleted_objects: This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any query: You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Any s_oql_query: Database query. Type: string (or Expression with resultType string).
+        :param Any s_oql_query: Deprecating, please use 'query' property instead. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -70147,6 +70165,8 @@ class SalesforceV2SourceArgs:
             pulumi.set(__self__, "include_deleted_objects", include_deleted_objects)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
         if query_timeout is not None:
             pulumi.set(__self__, "query_timeout", query_timeout)
         if s_oql_query is not None:
@@ -70218,6 +70238,18 @@ class SalesforceV2SourceArgs:
         pulumi.set(self, "max_concurrent_connections", value)
 
     @property
+    @pulumi.getter
+    def query(self) -> Optional[Any]:
+        """
+        You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[Any]):
+        pulumi.set(self, "query", value)
+
+    @property
     @pulumi.getter(name="queryTimeout")
     def query_timeout(self) -> Optional[Any]:
         """
@@ -70233,7 +70265,7 @@ class SalesforceV2SourceArgs:
     @pulumi.getter(name="sOQLQuery")
     def s_oql_query(self) -> Optional[Any]:
         """
-        Database query. Type: string (or Expression with resultType string).
+        Deprecating, please use 'query' property instead. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "s_oql_query")
 

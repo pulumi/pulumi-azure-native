@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Cognitive Services RaiPolicy.
  * Azure REST API version: 2023-10-01-preview.
+ *
+ * Other available API versions: 2024-04-01-preview.
  */
 export class RaiPolicy extends pulumi.CustomResource {
     /**
@@ -98,7 +100,7 @@ export class RaiPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiPolicy.__pulumiType, name, resourceInputs, opts);
     }

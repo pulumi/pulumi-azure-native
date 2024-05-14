@@ -1002,6 +1002,7 @@
     "CassandraResourceCassandraTable": "2023-04-15",
     "CassandraResourceCassandraView": "2023-03-15-preview",
     "DatabaseAccount": "2023-04-15",
+    "FirewallRule": "2024-03-01-preview",
     "GraphResourceGraph": "2023-03-15-preview",
     "GremlinResourceGremlinDatabase": "2023-04-15",
     "GremlinResourceGremlinGraph": "2023-04-15",

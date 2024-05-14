@@ -16,6 +16,9 @@ export const getAzureMonitorWorkspaceOutput: typeof import("./getAzureMonitorWor
 utilities.lazyLoad(exports, ["getAzureMonitorWorkspace","getAzureMonitorWorkspaceOutput"], () => require("./getAzureMonitorWorkspace"));
 
 
+// Export enums:
+export * from "../../types/enums/monitor/v20230403";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

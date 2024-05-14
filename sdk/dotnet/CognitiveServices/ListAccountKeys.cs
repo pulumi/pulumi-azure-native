@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Lists the account keys for the specified Cognitive Services account.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2017-04-18, 2023-10-01-preview.
+        /// Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:cognitiveservices:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Lists the account keys for the specified Cognitive Services account.
         /// Azure REST API version: 2023-05-01.
         /// 
-        /// Other available API versions: 2017-04-18, 2023-10-01-preview.
+        /// Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview.
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:cognitiveservices:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());

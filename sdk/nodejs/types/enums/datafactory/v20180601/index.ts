@@ -259,6 +259,7 @@ export const ExpressionV2Type = {
     Field: "Field",
     Unary: "Unary",
     Binary: "Binary",
+    NAry: "NAry",
 } as const;
 
 /**

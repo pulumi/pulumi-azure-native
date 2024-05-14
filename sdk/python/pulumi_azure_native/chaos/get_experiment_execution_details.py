@@ -149,7 +149,7 @@ def get_experiment_execution_details(execution_id: Optional[str] = None,
     Execution details of an experiment resource.
     Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2024-01-01.
+    Other available API versions: 2024-01-01, 2024-03-22-preview.
 
 
     :param str execution_id: GUID that represents a Experiment execution detail.
@@ -184,7 +184,7 @@ def get_experiment_execution_details_output(execution_id: Optional[pulumi.Input[
     Execution details of an experiment resource.
     Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2024-01-01.
+    Other available API versions: 2024-01-01, 2024-03-22-preview.
 
 
     :param str execution_id: GUID that represents a Experiment execution detail.

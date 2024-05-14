@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Cognitive Services RaiBlocklist.
  * Azure REST API version: 2023-10-01-preview.
+ *
+ * Other available API versions: 2024-04-01-preview.
  */
 export class RaiBlocklist extends pulumi.CustomResource {
     /**
@@ -98,7 +100,7 @@ export class RaiBlocklist extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiBlocklist" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiBlocklist" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiBlocklist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiBlocklist.__pulumiType, name, resourceInputs, opts);
     }

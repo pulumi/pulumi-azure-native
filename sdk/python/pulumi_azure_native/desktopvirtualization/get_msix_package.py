@@ -221,7 +221,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
     Get a msixpackage.
     Azure REST API version: 2022-09-09.
 
-    Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
+    Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -262,7 +262,7 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     Get a msixpackage.
     Azure REST API version: 2022-09-09.
 
-    Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
+    Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

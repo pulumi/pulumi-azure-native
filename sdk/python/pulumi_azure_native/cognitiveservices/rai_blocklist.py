@@ -114,6 +114,8 @@ class RaiBlocklist(pulumi.CustomResource):
         Cognitive Services RaiBlocklist.
         Azure REST API version: 2023-10-01-preview.
 
+        Other available API versions: 2024-04-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
@@ -131,6 +133,8 @@ class RaiBlocklist(pulumi.CustomResource):
         """
         Cognitive Services RaiBlocklist.
         Azure REST API version: 2023-10-01-preview.
+
+        Other available API versions: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RaiBlocklistArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +178,7 @@ class RaiBlocklist(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:RaiBlocklist")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20231001preview:RaiBlocklist"), pulumi.Alias(type_="azure-native:cognitiveservices/v20240401preview:RaiBlocklist")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RaiBlocklist, __self__).__init__(
             'azure-native:cognitiveservices:RaiBlocklist',

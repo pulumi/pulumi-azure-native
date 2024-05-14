@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
  *
- * Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview.
+ * Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03.
  */
 export class PrivateEndpointConnectionByHostPool extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class PrivateEndpointConnectionByHostPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20240306preview:PrivateEndpointConnectionByHostPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20240306preview:PrivateEndpointConnectionByHostPool" }, { type: "azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByHostPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionByHostPool.__pulumiType, name, resourceInputs, opts);
     }

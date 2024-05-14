@@ -97,7 +97,7 @@ export class EncryptionScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:EncryptionScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:EncryptionScope" }, { type: "azure-native:cognitiveservices/v20240401preview:EncryptionScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EncryptionScope.__pulumiType, name, resourceInputs, opts);
     }

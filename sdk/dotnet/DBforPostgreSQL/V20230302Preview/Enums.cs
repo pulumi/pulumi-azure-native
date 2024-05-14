@@ -36,6 +36,62 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
     }
 
     [EnumType]
+    public readonly struct DataEncryptionType : IEquatable<DataEncryptionType>
+    {
+        private readonly string _value;
+
+        private DataEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataEncryptionType AzureKeyVault { get; } = new DataEncryptionType("AzureKeyVault");
+        public static DataEncryptionType SystemAssigned { get; } = new DataEncryptionType("SystemAssigned");
+
+        public static bool operator ==(DataEncryptionType left, DataEncryptionType right) => left.Equals(right);
+        public static bool operator !=(DataEncryptionType left, DataEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(DataEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataEncryptionType other && Equals(other);
+        public bool Equals(DataEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PasswordAuth : IEquatable<PasswordAuth>
     {
         private readonly string _value;

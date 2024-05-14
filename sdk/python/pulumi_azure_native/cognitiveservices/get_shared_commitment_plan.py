@@ -160,7 +160,7 @@ def get_shared_commitment_plan(commitment_plan_name: Optional[str] = None,
     Returns a Cognitive Services commitment plan specified by the parameters.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2023-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-04-01-preview.
 
 
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
@@ -193,7 +193,7 @@ def get_shared_commitment_plan_output(commitment_plan_name: Optional[pulumi.Inpu
     Returns a Cognitive Services commitment plan specified by the parameters.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2023-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-04-01-preview.
 
 
     :param str commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account

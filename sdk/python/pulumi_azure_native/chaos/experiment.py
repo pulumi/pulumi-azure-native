@@ -132,7 +132,7 @@ class Experiment(pulumi.CustomResource):
         Model that represents a Experiment resource.
         Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview.
 
-        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01.
+        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +153,7 @@ class Experiment(pulumi.CustomResource):
         Model that represents a Experiment resource.
         Azure REST API version: 2023-04-15-preview. Prior API version in Azure Native 1.x: 2021-09-15-preview.
 
-        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01.
+        Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview.
 
         :param str resource_name: The name of the resource.
         :param ExperimentArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +198,7 @@ class Experiment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos/v20210915preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20220701preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20221001preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20230401preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20230415preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20230901preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20231027preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20231101:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20240101:Experiment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos/v20210915preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20220701preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20221001preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20230401preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20230415preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20230901preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20231027preview:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20231101:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20240101:Experiment"), pulumi.Alias(type_="azure-native:chaos/v20240322preview:Experiment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Experiment, __self__).__init__(
             'azure-native:chaos:Experiment',

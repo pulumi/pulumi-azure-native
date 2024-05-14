@@ -12,12 +12,14 @@ from .cassandra_resource_cassandra_keyspace import *
 from .cassandra_resource_cassandra_table import *
 from .cassandra_resource_cassandra_view import *
 from .database_account import *
+from .firewall_rule import *
 from .get_cassandra_cluster import *
 from .get_cassandra_data_center import *
 from .get_cassandra_resource_cassandra_keyspace import *
 from .get_cassandra_resource_cassandra_table import *
 from .get_cassandra_resource_cassandra_view import *
 from .get_database_account import *
+from .get_firewall_rule import *
 from .get_graph_resource_graph import *
 from .get_gremlin_resource_gremlin_database import *
 from .get_gremlin_resource_gremlin_graph import *
@@ -91,6 +93,8 @@ if typing.TYPE_CHECKING:
     v20231115preview = __v20231115preview
     import pulumi_azure_native.documentdb.v20240215preview as __v20240215preview
     v20240215preview = __v20240215preview
+    import pulumi_azure_native.documentdb.v20240301preview as __v20240301preview
+    v20240301preview = __v20240301preview
 else:
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210401preview')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210701preview')
@@ -102,4 +106,5 @@ else:
     v20231115 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20231115')
     v20231115preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20231115preview')
     v20240215preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20240215preview')
+    v20240301preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20240301preview')
 

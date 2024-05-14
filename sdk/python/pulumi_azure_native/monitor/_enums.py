@@ -10,6 +10,7 @@ __all__ = [
     'ExternalNetworkingMode',
     'PipelineType',
     'ProcessorType',
+    'PublicNetworkAccess',
     'ReceiverType',
     'StreamEncodingType',
     'SyslogProtocol',
@@ -68,6 +69,14 @@ class ProcessorType(str, Enum):
     """
     Batch processor.
     """
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Gets or sets allow or disallow public network access to Azure Monitor Workspace
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ReceiverType(str, Enum):

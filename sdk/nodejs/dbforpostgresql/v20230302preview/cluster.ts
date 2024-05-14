@@ -38,6 +38,10 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates whether the cluster was created using AAD authentication.
+     */
+    public /*out*/ readonly aadAuthEnabled!: pulumi.Output<string>;
+    /**
      * The administrator's login name of the servers in the cluster.
      */
     public /*out*/ readonly administratorLogin!: pulumi.Output<string>;
@@ -66,6 +70,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly coordinatorVCores!: pulumi.Output<number | undefined>;
     /**
+     * The data encryption properties of a cluster.
+     */
+    public readonly dataEncryption!: pulumi.Output<outputs.dbforpostgresql.v20230302preview.DataEncryptionResponse | undefined>;
+    /**
      * The database name of the cluster. Only one database per cluster is supported.
      */
     public readonly databaseName!: pulumi.Output<string | undefined>;
@@ -85,6 +93,10 @@ export class Cluster extends pulumi.CustomResource {
      * If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
      */
     public readonly enableShardsOnCoordinator!: pulumi.Output<boolean | undefined>;
+    /**
+     * Describes the identity of the cluster.
+     */
+    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.v20230302preview.IdentityPropertiesResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -117,6 +129,10 @@ export class Cluster extends pulumi.CustomResource {
      * The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
     public readonly nodeVCores!: pulumi.Output<number | undefined>;
+    /**
+     * Indicates whether the cluster was created with a password or using AAD authentication.
+     */
+    public /*out*/ readonly passwordEnabled!: pulumi.Output<string>;
     /**
      * Date and time in UTC (ISO8601 format) for cluster restore.
      */
@@ -192,10 +208,12 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["coordinatorServerEdition"] = args ? args.coordinatorServerEdition : undefined;
             resourceInputs["coordinatorStorageQuotaInMb"] = args ? args.coordinatorStorageQuotaInMb : undefined;
             resourceInputs["coordinatorVCores"] = args ? args.coordinatorVCores : undefined;
+            resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["enableGeoBackup"] = args ? args.enableGeoBackup : undefined;
             resourceInputs["enableHa"] = args ? args.enableHa : undefined;
             resourceInputs["enableShardsOnCoordinator"] = args ? args.enableShardsOnCoordinator : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
@@ -210,9 +228,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["sourceLocation"] = args ? args.sourceLocation : undefined;
             resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aadAuthEnabled"] = undefined /*out*/;
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["earliestRestoreTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["passwordEnabled"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readReplicas"] = undefined /*out*/;
@@ -221,6 +241,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["aadAuthEnabled"] = undefined /*out*/;
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["authConfig"] = undefined /*out*/;
             resourceInputs["citusVersion"] = undefined /*out*/;
@@ -228,11 +249,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["coordinatorServerEdition"] = undefined /*out*/;
             resourceInputs["coordinatorStorageQuotaInMb"] = undefined /*out*/;
             resourceInputs["coordinatorVCores"] = undefined /*out*/;
+            resourceInputs["dataEncryption"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["earliestRestoreTime"] = undefined /*out*/;
             resourceInputs["enableGeoBackup"] = undefined /*out*/;
             resourceInputs["enableHa"] = undefined /*out*/;
             resourceInputs["enableShardsOnCoordinator"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maintenanceWindow"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -241,6 +264,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["nodeServerEdition"] = undefined /*out*/;
             resourceInputs["nodeStorageQuotaInMb"] = undefined /*out*/;
             resourceInputs["nodeVCores"] = undefined /*out*/;
+            resourceInputs["passwordEnabled"] = undefined /*out*/;
             resourceInputs["pointInTimeUTC"] = undefined /*out*/;
             resourceInputs["postgresqlVersion"] = undefined /*out*/;
             resourceInputs["preferredPrimaryZone"] = undefined /*out*/;
@@ -299,6 +323,10 @@ export interface ClusterArgs {
      */
     coordinatorVCores?: pulumi.Input<number>;
     /**
+     * The data encryption properties of a cluster.
+     */
+    dataEncryption?: pulumi.Input<inputs.dbforpostgresql.v20230302preview.DataEncryptionArgs>;
+    /**
      * The database name of the cluster. Only one database per cluster is supported.
      */
     databaseName?: pulumi.Input<string>;
@@ -314,6 +342,10 @@ export interface ClusterArgs {
      * If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
      */
     enableShardsOnCoordinator?: pulumi.Input<boolean>;
+    /**
+     * Describes the identity of the cluster.
+     */
+    identity?: pulumi.Input<inputs.dbforpostgresql.v20230302preview.IdentityPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get a private access resource
  * Azure REST API version: 2023-10-27-preview.
+ *
+ * Other available API versions: 2024-03-22-preview.
  */
 export function getPrivateAccess(args: GetPrivateAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAccessResult> {
 
@@ -67,6 +69,8 @@ export interface GetPrivateAccessResult {
 /**
  * Get a private access resource
  * Azure REST API version: 2023-10-27-preview.
+ *
+ * Other available API versions: 2024-03-22-preview.
  */
 export function getPrivateAccessOutput(args: GetPrivateAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAccessResult> {
     return pulumi.output(args).apply((a: any) => getPrivateAccess(a, opts))

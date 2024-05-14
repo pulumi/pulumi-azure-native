@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates whether the cluster was created using AAD authentication.
+        /// </summary>
+        [Output("aadAuthEnabled")]
+        public Output<string> AadAuthEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The administrator's login name of the servers in the cluster.
         /// </summary>
         [Output("administratorLogin")]
@@ -58,6 +64,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
         public Output<int?> CoordinatorVCores { get; private set; } = null!;
 
         /// <summary>
+        /// The data encryption properties of a cluster.
+        /// </summary>
+        [Output("dataEncryption")]
+        public Output<Outputs.DataEncryptionResponse?> DataEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// The database name of the cluster. Only one database per cluster is supported.
         /// </summary>
         [Output("databaseName")]
@@ -86,6 +98,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
         /// </summary>
         [Output("enableShardsOnCoordinator")]
         public Output<bool?> EnableShardsOnCoordinator { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the identity of the cluster.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -134,6 +152,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
         /// </summary>
         [Output("nodeVCores")]
         public Output<int?> NodeVCores { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the cluster was created with a password or using AAD authentication.
+        /// </summary>
+        [Output("passwordEnabled")]
+        public Output<string> PasswordEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in UTC (ISO8601 format) for cluster restore.
@@ -313,6 +337,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
         public Input<int>? CoordinatorVCores { get; set; }
 
         /// <summary>
+        /// The data encryption properties of a cluster.
+        /// </summary>
+        [Input("dataEncryption")]
+        public Input<Inputs.DataEncryptionArgs>? DataEncryption { get; set; }
+
+        /// <summary>
         /// The database name of the cluster. Only one database per cluster is supported.
         /// </summary>
         [Input("databaseName")]
@@ -335,6 +365,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
         /// </summary>
         [Input("enableShardsOnCoordinator")]
         public Input<bool>? EnableShardsOnCoordinator { get; set; }
+
+        /// <summary>
+        /// Describes the identity of the cluster.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityPropertiesArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

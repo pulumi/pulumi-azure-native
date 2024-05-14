@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// <summary>
     /// Cognitive Services EncryptionScope
     /// Azure REST API version: 2023-10-01-preview.
+    /// 
+    /// Other available API versions: 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:EncryptionScope")]
     public partial class EncryptionScope : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:EncryptionScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:EncryptionScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

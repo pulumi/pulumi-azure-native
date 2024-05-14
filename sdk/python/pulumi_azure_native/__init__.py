@@ -3576,6 +3576,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "chaos/v20240322preview",
+  "fqn": "pulumi_azure_native.chaos.v20240322preview",
+  "classes": {
+   "azure-native:chaos/v20240322preview:Capability": "Capability",
+   "azure-native:chaos/v20240322preview:Experiment": "Experiment",
+   "azure-native:chaos/v20240322preview:PrivateAccess": "PrivateAccess",
+   "azure-native:chaos/v20240322preview:Target": "Target"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cloudngfw",
   "fqn": "pulumi_azure_native.cloudngfw",
   "classes": {
@@ -3797,6 +3808,23 @@ _utilities.register(
    "azure-native:cognitiveservices/v20231001preview:RaiBlocklistItem": "RaiBlocklistItem",
    "azure-native:cognitiveservices/v20231001preview:RaiPolicy": "RaiPolicy",
    "azure-native:cognitiveservices/v20231001preview:SharedCommitmentPlan": "SharedCommitmentPlan"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cognitiveservices/v20240401preview",
+  "fqn": "pulumi_azure_native.cognitiveservices.v20240401preview",
+  "classes": {
+   "azure-native:cognitiveservices/v20240401preview:Account": "Account",
+   "azure-native:cognitiveservices/v20240401preview:CommitmentPlan": "CommitmentPlan",
+   "azure-native:cognitiveservices/v20240401preview:CommitmentPlanAssociation": "CommitmentPlanAssociation",
+   "azure-native:cognitiveservices/v20240401preview:Deployment": "Deployment",
+   "azure-native:cognitiveservices/v20240401preview:EncryptionScope": "EncryptionScope",
+   "azure-native:cognitiveservices/v20240401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cognitiveservices/v20240401preview:RaiBlocklist": "RaiBlocklist",
+   "azure-native:cognitiveservices/v20240401preview:RaiBlocklistItem": "RaiBlocklistItem",
+   "azure-native:cognitiveservices/v20240401preview:RaiPolicy": "RaiPolicy",
+   "azure-native:cognitiveservices/v20240401preview:SharedCommitmentPlan": "SharedCommitmentPlan"
   }
  },
  {
@@ -6554,6 +6582,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "desktopvirtualization/v20240403",
+  "fqn": "pulumi_azure_native.desktopvirtualization.v20240403",
+  "classes": {
+   "azure-native:desktopvirtualization/v20240403:AppAttachPackage": "AppAttachPackage",
+   "azure-native:desktopvirtualization/v20240403:Application": "Application",
+   "azure-native:desktopvirtualization/v20240403:ApplicationGroup": "ApplicationGroup",
+   "azure-native:desktopvirtualization/v20240403:HostPool": "HostPool",
+   "azure-native:desktopvirtualization/v20240403:MSIXPackage": "MSIXPackage",
+   "azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByHostPool": "PrivateEndpointConnectionByHostPool",
+   "azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
+   "azure-native:desktopvirtualization/v20240403:ScalingPlan": "ScalingPlan",
+   "azure-native:desktopvirtualization/v20240403:ScalingPlanPersonalSchedule": "ScalingPlanPersonalSchedule",
+   "azure-native:desktopvirtualization/v20240403:ScalingPlanPooledSchedule": "ScalingPlanPooledSchedule",
+   "azure-native:desktopvirtualization/v20240403:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devcenter",
   "fqn": "pulumi_azure_native.devcenter",
   "classes": {
@@ -6998,6 +7044,7 @@ _utilities.register(
    "azure-native:documentdb:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
    "azure-native:documentdb:CassandraResourceCassandraView": "CassandraResourceCassandraView",
    "azure-native:documentdb:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb:FirewallRule": "FirewallRule",
    "azure-native:documentdb:GraphResourceGraph": "GraphResourceGraph",
    "azure-native:documentdb:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
    "azure-native:documentdb:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
@@ -7258,6 +7305,16 @@ _utilities.register(
    "azure-native:documentdb/v20240215preview:TableResourceTable": "TableResourceTable",
    "azure-native:documentdb/v20240215preview:ThroughputPool": "ThroughputPool",
    "azure-native:documentdb/v20240215preview:ThroughputPoolAccount": "ThroughputPoolAccount"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20240301preview",
+  "fqn": "pulumi_azure_native.documentdb.v20240301preview",
+  "classes": {
+   "azure-native:documentdb/v20240301preview:FirewallRule": "FirewallRule",
+   "azure-native:documentdb/v20240301preview:MongoCluster": "MongoCluster",
+   "azure-native:documentdb/v20240301preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {

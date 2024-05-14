@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2017-04-18.
     /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Other available API versions: 2023-10-01-preview, 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240401preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

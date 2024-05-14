@@ -97,7 +97,7 @@ export class RaiPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:RaiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiPolicy.__pulumiType, name, resourceInputs, opts);
     }

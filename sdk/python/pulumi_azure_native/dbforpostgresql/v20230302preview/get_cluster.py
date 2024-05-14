@@ -22,7 +22,10 @@ class GetClusterResult:
     """
     Represents a cluster.
     """
-    def __init__(__self__, administrator_login=None, auth_config=None, citus_version=None, coordinator_enable_public_ip_access=None, coordinator_server_edition=None, coordinator_storage_quota_in_mb=None, coordinator_v_cores=None, database_name=None, earliest_restore_time=None, enable_geo_backup=None, enable_ha=None, enable_shards_on_coordinator=None, id=None, location=None, maintenance_window=None, name=None, node_count=None, node_enable_public_ip_access=None, node_server_edition=None, node_storage_quota_in_mb=None, node_v_cores=None, point_in_time_utc=None, postgresql_version=None, preferred_primary_zone=None, private_endpoint_connections=None, provisioning_state=None, read_replicas=None, server_names=None, source_location=None, source_resource_id=None, state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, aad_auth_enabled=None, administrator_login=None, auth_config=None, citus_version=None, coordinator_enable_public_ip_access=None, coordinator_server_edition=None, coordinator_storage_quota_in_mb=None, coordinator_v_cores=None, data_encryption=None, database_name=None, earliest_restore_time=None, enable_geo_backup=None, enable_ha=None, enable_shards_on_coordinator=None, id=None, identity=None, location=None, maintenance_window=None, name=None, node_count=None, node_enable_public_ip_access=None, node_server_edition=None, node_storage_quota_in_mb=None, node_v_cores=None, password_enabled=None, point_in_time_utc=None, postgresql_version=None, preferred_primary_zone=None, private_endpoint_connections=None, provisioning_state=None, read_replicas=None, server_names=None, source_location=None, source_resource_id=None, state=None, system_data=None, tags=None, type=None):
+        if aad_auth_enabled and not isinstance(aad_auth_enabled, str):
+            raise TypeError("Expected argument 'aad_auth_enabled' to be a str")
+        pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -44,6 +47,9 @@ class GetClusterResult:
         if coordinator_v_cores and not isinstance(coordinator_v_cores, int):
             raise TypeError("Expected argument 'coordinator_v_cores' to be a int")
         pulumi.set(__self__, "coordinator_v_cores", coordinator_v_cores)
+        if data_encryption and not isinstance(data_encryption, dict):
+            raise TypeError("Expected argument 'data_encryption' to be a dict")
+        pulumi.set(__self__, "data_encryption", data_encryption)
         if database_name and not isinstance(database_name, str):
             raise TypeError("Expected argument 'database_name' to be a str")
         pulumi.set(__self__, "database_name", database_name)
@@ -62,6 +68,9 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -86,6 +95,9 @@ class GetClusterResult:
         if node_v_cores and not isinstance(node_v_cores, int):
             raise TypeError("Expected argument 'node_v_cores' to be a int")
         pulumi.set(__self__, "node_v_cores", node_v_cores)
+        if password_enabled and not isinstance(password_enabled, str):
+            raise TypeError("Expected argument 'password_enabled' to be a str")
+        pulumi.set(__self__, "password_enabled", password_enabled)
         if point_in_time_utc and not isinstance(point_in_time_utc, str):
             raise TypeError("Expected argument 'point_in_time_utc' to be a str")
         pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
@@ -125,6 +137,14 @@ class GetClusterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="aadAuthEnabled")
+    def aad_auth_enabled(self) -> str:
+        """
+        Indicates whether the cluster was created using AAD authentication.
+        """
+        return pulumi.get(self, "aad_auth_enabled")
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -183,6 +203,14 @@ class GetClusterResult:
         return pulumi.get(self, "coordinator_v_cores")
 
     @property
+    @pulumi.getter(name="dataEncryption")
+    def data_encryption(self) -> Optional['outputs.DataEncryptionResponse']:
+        """
+        The data encryption properties of a cluster.
+        """
+        return pulumi.get(self, "data_encryption")
+
+    @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[str]:
         """
@@ -229,6 +257,14 @@ class GetClusterResult:
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityPropertiesResponse']:
+        """
+        Describes the identity of the cluster.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -293,6 +329,14 @@ class GetClusterResult:
         The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "node_v_cores")
+
+    @property
+    @pulumi.getter(name="passwordEnabled")
+    def password_enabled(self) -> str:
+        """
+        Indicates whether the cluster was created with a password or using AAD authentication.
+        """
+        return pulumi.get(self, "password_enabled")
 
     @property
     @pulumi.getter(name="pointInTimeUTC")
@@ -405,6 +449,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            aad_auth_enabled=self.aad_auth_enabled,
             administrator_login=self.administrator_login,
             auth_config=self.auth_config,
             citus_version=self.citus_version,
@@ -412,12 +457,14 @@ class AwaitableGetClusterResult(GetClusterResult):
             coordinator_server_edition=self.coordinator_server_edition,
             coordinator_storage_quota_in_mb=self.coordinator_storage_quota_in_mb,
             coordinator_v_cores=self.coordinator_v_cores,
+            data_encryption=self.data_encryption,
             database_name=self.database_name,
             earliest_restore_time=self.earliest_restore_time,
             enable_geo_backup=self.enable_geo_backup,
             enable_ha=self.enable_ha,
             enable_shards_on_coordinator=self.enable_shards_on_coordinator,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             maintenance_window=self.maintenance_window,
             name=self.name,
@@ -426,6 +473,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             node_server_edition=self.node_server_edition,
             node_storage_quota_in_mb=self.node_storage_quota_in_mb,
             node_v_cores=self.node_v_cores,
+            password_enabled=self.password_enabled,
             point_in_time_utc=self.point_in_time_utc,
             postgresql_version=self.postgresql_version,
             preferred_primary_zone=self.preferred_primary_zone,
@@ -458,6 +506,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbforpostgresql/v20230302preview:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        aad_auth_enabled=pulumi.get(__ret__, 'aad_auth_enabled'),
         administrator_login=pulumi.get(__ret__, 'administrator_login'),
         auth_config=pulumi.get(__ret__, 'auth_config'),
         citus_version=pulumi.get(__ret__, 'citus_version'),
@@ -465,12 +514,14 @@ def get_cluster(cluster_name: Optional[str] = None,
         coordinator_server_edition=pulumi.get(__ret__, 'coordinator_server_edition'),
         coordinator_storage_quota_in_mb=pulumi.get(__ret__, 'coordinator_storage_quota_in_mb'),
         coordinator_v_cores=pulumi.get(__ret__, 'coordinator_v_cores'),
+        data_encryption=pulumi.get(__ret__, 'data_encryption'),
         database_name=pulumi.get(__ret__, 'database_name'),
         earliest_restore_time=pulumi.get(__ret__, 'earliest_restore_time'),
         enable_geo_backup=pulumi.get(__ret__, 'enable_geo_backup'),
         enable_ha=pulumi.get(__ret__, 'enable_ha'),
         enable_shards_on_coordinator=pulumi.get(__ret__, 'enable_shards_on_coordinator'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         name=pulumi.get(__ret__, 'name'),
@@ -479,6 +530,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         node_server_edition=pulumi.get(__ret__, 'node_server_edition'),
         node_storage_quota_in_mb=pulumi.get(__ret__, 'node_storage_quota_in_mb'),
         node_v_cores=pulumi.get(__ret__, 'node_v_cores'),
+        password_enabled=pulumi.get(__ret__, 'password_enabled'),
         point_in_time_utc=pulumi.get(__ret__, 'point_in_time_utc'),
         postgresql_version=pulumi.get(__ret__, 'postgresql_version'),
         preferred_primary_zone=pulumi.get(__ret__, 'preferred_primary_zone'),

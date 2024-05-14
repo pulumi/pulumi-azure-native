@@ -26,10 +26,12 @@ class ClusterArgs:
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
                  coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
                  coordinator_v_cores: Optional[pulumi.Input[int]] = None,
+                 data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_geo_backup: Optional[pulumi.Input[bool]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
@@ -54,10 +56,12 @@ class ClusterArgs:
         :param pulumi.Input[str] coordinator_server_edition: The edition of a coordinator server (default: GeneralPurpose). Required for creation.
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[int] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input['DataEncryptionArgs'] data_encryption: The data encryption properties of a cluster.
         :param pulumi.Input[str] database_name: The database name of the cluster. Only one database per cluster is supported.
         :param pulumi.Input[bool] enable_geo_backup: If cluster backup is stored in another Azure region in addition to the copy of the backup stored in the cluster's region. Enabled only at the time of cluster creation.
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
         :param pulumi.Input[bool] enable_shards_on_coordinator: If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
+        :param pulumi.Input['IdentityPropertiesArgs'] identity: Describes the identity of the cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a cluster.
         :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
@@ -89,6 +93,8 @@ class ClusterArgs:
             pulumi.set(__self__, "coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
         if coordinator_v_cores is not None:
             pulumi.set(__self__, "coordinator_v_cores", coordinator_v_cores)
+        if data_encryption is not None:
+            pulumi.set(__self__, "data_encryption", data_encryption)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if enable_geo_backup is not None:
@@ -97,6 +103,8 @@ class ClusterArgs:
             pulumi.set(__self__, "enable_ha", enable_ha)
         if enable_shards_on_coordinator is not None:
             pulumi.set(__self__, "enable_shards_on_coordinator", enable_shards_on_coordinator)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
@@ -233,6 +241,18 @@ class ClusterArgs:
         pulumi.set(self, "coordinator_v_cores", value)
 
     @property
+    @pulumi.getter(name="dataEncryption")
+    def data_encryption(self) -> Optional[pulumi.Input['DataEncryptionArgs']]:
+        """
+        The data encryption properties of a cluster.
+        """
+        return pulumi.get(self, "data_encryption")
+
+    @data_encryption.setter
+    def data_encryption(self, value: Optional[pulumi.Input['DataEncryptionArgs']]):
+        pulumi.set(self, "data_encryption", value)
+
+    @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -279,6 +299,18 @@ class ClusterArgs:
     @enable_shards_on_coordinator.setter
     def enable_shards_on_coordinator(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_shards_on_coordinator", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
+        """
+        Describes the identity of the cluster.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -450,10 +482,12 @@ class Cluster(pulumi.CustomResource):
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
                  coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
                  coordinator_v_cores: Optional[pulumi.Input[int]] = None,
+                 data_encryption: Optional[pulumi.Input[pulumi.InputType['DataEncryptionArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_geo_backup: Optional[pulumi.Input[bool]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
@@ -482,10 +516,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] coordinator_server_edition: The edition of a coordinator server (default: GeneralPurpose). Required for creation.
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         :param pulumi.Input[int] coordinator_v_cores: The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
+        :param pulumi.Input[pulumi.InputType['DataEncryptionArgs']] data_encryption: The data encryption properties of a cluster.
         :param pulumi.Input[str] database_name: The database name of the cluster. Only one database per cluster is supported.
         :param pulumi.Input[bool] enable_geo_backup: If cluster backup is stored in another Azure region in addition to the copy of the backup stored in the cluster's region. Enabled only at the time of cluster creation.
         :param pulumi.Input[bool] enable_ha: If high availability (HA) is enabled or not for the cluster.
         :param pulumi.Input[bool] enable_shards_on_coordinator: If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
+        :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: Describes the identity of the cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a cluster.
         :param pulumi.Input[int] node_count: Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
@@ -533,10 +569,12 @@ class Cluster(pulumi.CustomResource):
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
                  coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
                  coordinator_v_cores: Optional[pulumi.Input[int]] = None,
+                 data_encryption: Optional[pulumi.Input[pulumi.InputType['DataEncryptionArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_geo_backup: Optional[pulumi.Input[bool]] = None,
                  enable_ha: Optional[pulumi.Input[bool]] = None,
                  enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
@@ -568,10 +606,12 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["coordinator_server_edition"] = coordinator_server_edition
             __props__.__dict__["coordinator_storage_quota_in_mb"] = coordinator_storage_quota_in_mb
             __props__.__dict__["coordinator_v_cores"] = coordinator_v_cores
+            __props__.__dict__["data_encryption"] = data_encryption
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["enable_geo_backup"] = enable_geo_backup
             __props__.__dict__["enable_ha"] = enable_ha
             __props__.__dict__["enable_shards_on_coordinator"] = enable_shards_on_coordinator
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["node_count"] = node_count
@@ -588,9 +628,11 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["source_location"] = source_location
             __props__.__dict__["source_resource_id"] = source_resource_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aad_auth_enabled"] = None
             __props__.__dict__["administrator_login"] = None
             __props__.__dict__["earliest_restore_time"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["password_enabled"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["read_replicas"] = None
@@ -622,6 +664,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["aad_auth_enabled"] = None
         __props__.__dict__["administrator_login"] = None
         __props__.__dict__["auth_config"] = None
         __props__.__dict__["citus_version"] = None
@@ -629,11 +672,13 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["coordinator_server_edition"] = None
         __props__.__dict__["coordinator_storage_quota_in_mb"] = None
         __props__.__dict__["coordinator_v_cores"] = None
+        __props__.__dict__["data_encryption"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["earliest_restore_time"] = None
         __props__.__dict__["enable_geo_backup"] = None
         __props__.__dict__["enable_ha"] = None
         __props__.__dict__["enable_shards_on_coordinator"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["name"] = None
@@ -642,6 +687,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["node_server_edition"] = None
         __props__.__dict__["node_storage_quota_in_mb"] = None
         __props__.__dict__["node_v_cores"] = None
+        __props__.__dict__["password_enabled"] = None
         __props__.__dict__["point_in_time_utc"] = None
         __props__.__dict__["postgresql_version"] = None
         __props__.__dict__["preferred_primary_zone"] = None
@@ -656,6 +702,14 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aadAuthEnabled")
+    def aad_auth_enabled(self) -> pulumi.Output[str]:
+        """
+        Indicates whether the cluster was created using AAD authentication.
+        """
+        return pulumi.get(self, "aad_auth_enabled")
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -714,6 +768,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "coordinator_v_cores")
 
     @property
+    @pulumi.getter(name="dataEncryption")
+    def data_encryption(self) -> pulumi.Output[Optional['outputs.DataEncryptionResponse']]:
+        """
+        The data encryption properties of a cluster.
+        """
+        return pulumi.get(self, "data_encryption")
+
+    @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -752,6 +814,14 @@ class Cluster(pulumi.CustomResource):
         If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         """
         return pulumi.get(self, "enable_shards_on_coordinator")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityPropertiesResponse']]:
+        """
+        Describes the identity of the cluster.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -816,6 +886,14 @@ class Cluster(pulumi.CustomResource):
         The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
         return pulumi.get(self, "node_v_cores")
+
+    @property
+    @pulumi.getter(name="passwordEnabled")
+    def password_enabled(self) -> pulumi.Output[str]:
+        """
+        Indicates whether the cluster was created with a password or using AAD authentication.
+        """
+        return pulumi.get(self, "password_enabled")
 
     @property
     @pulumi.getter(name="pointInTimeUTC")

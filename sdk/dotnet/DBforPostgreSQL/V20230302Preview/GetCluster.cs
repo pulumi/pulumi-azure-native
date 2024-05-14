@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// Indicates whether the cluster was created using AAD authentication.
+        /// </summary>
+        public readonly string AadAuthEnabled;
+        /// <summary>
         /// The administrator's login name of the servers in the cluster.
         /// </summary>
         public readonly string AdministratorLogin;
@@ -98,6 +102,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
         /// </summary>
         public readonly int? CoordinatorVCores;
         /// <summary>
+        /// The data encryption properties of a cluster.
+        /// </summary>
+        public readonly Outputs.DataEncryptionResponse? DataEncryption;
+        /// <summary>
         /// The database name of the cluster. Only one database per cluster is supported.
         /// </summary>
         public readonly string? DatabaseName;
@@ -121,6 +129,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Describes the identity of the cluster.
+        /// </summary>
+        public readonly Outputs.IdentityPropertiesResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -153,6 +165,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
         /// The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         /// </summary>
         public readonly int? NodeVCores;
+        /// <summary>
+        /// Indicates whether the cluster was created with a password or using AAD authentication.
+        /// </summary>
+        public readonly string PasswordEnabled;
         /// <summary>
         /// Date and time in UTC (ISO8601 format) for cluster restore.
         /// </summary>
@@ -208,6 +224,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
 
         [OutputConstructor]
         private GetClusterResult(
+            string aadAuthEnabled,
+
             string administratorLogin,
 
             Outputs.AuthConfigResponse? authConfig,
@@ -222,6 +240,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
 
             int? coordinatorVCores,
 
+            Outputs.DataEncryptionResponse? dataEncryption,
+
             string? databaseName,
 
             string earliestRestoreTime,
@@ -233,6 +253,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
             bool? enableShardsOnCoordinator,
 
             string id,
+
+            Outputs.IdentityPropertiesResponse? identity,
 
             string location,
 
@@ -249,6 +271,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
             int? nodeStorageQuotaInMb,
 
             int? nodeVCores,
+
+            string passwordEnabled,
 
             string? pointInTimeUTC,
 
@@ -276,6 +300,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
 
             string type)
         {
+            AadAuthEnabled = aadAuthEnabled;
             AdministratorLogin = administratorLogin;
             AuthConfig = authConfig;
             CitusVersion = citusVersion;
@@ -283,12 +308,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
             CoordinatorServerEdition = coordinatorServerEdition;
             CoordinatorStorageQuotaInMb = coordinatorStorageQuotaInMb;
             CoordinatorVCores = coordinatorVCores;
+            DataEncryption = dataEncryption;
             DatabaseName = databaseName;
             EarliestRestoreTime = earliestRestoreTime;
             EnableGeoBackup = enableGeoBackup;
             EnableHa = enableHa;
             EnableShardsOnCoordinator = enableShardsOnCoordinator;
             Id = id;
+            Identity = identity;
             Location = location;
             MaintenanceWindow = maintenanceWindow;
             Name = name;
@@ -297,6 +324,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230302Preview
             NodeServerEdition = nodeServerEdition;
             NodeStorageQuotaInMb = nodeStorageQuotaInMb;
             NodeVCores = nodeVCores;
+            PasswordEnabled = passwordEnabled;
             PointInTimeUTC = pointInTimeUTC;
             PostgresqlVersion = postgresqlVersion;
             PreferredPrimaryZone = preferredPrimaryZone;

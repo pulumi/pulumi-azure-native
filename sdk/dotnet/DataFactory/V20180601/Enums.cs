@@ -759,6 +759,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public static ExpressionV2Type Field { get; } = new ExpressionV2Type("Field");
         public static ExpressionV2Type Unary { get; } = new ExpressionV2Type("Unary");
         public static ExpressionV2Type Binary { get; } = new ExpressionV2Type("Binary");
+        public static ExpressionV2Type NAry { get; } = new ExpressionV2Type("NAry");
 
         public static bool operator ==(ExpressionV2Type left, ExpressionV2Type right) => left.Equals(right);
         public static bool operator !=(ExpressionV2Type left, ExpressionV2Type right) => !left.Equals(right);

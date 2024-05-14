@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'AuthConfigArgs',
+    'DataEncryptionArgs',
+    'IdentityPropertiesArgs',
     'MaintenanceWindowArgs',
     'PrivateLinkServiceConnectionStateArgs',
 ]
@@ -46,6 +48,94 @@ class AuthConfigArgs:
     @password_auth.setter
     def password_auth(self, value: Optional[pulumi.Input[Union[str, 'PasswordAuth']]]):
         pulumi.set(self, "password_auth", value)
+
+
+@pulumi.input_type
+class DataEncryptionArgs:
+    def __init__(__self__, *,
+                 primary_key_uri: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'DataEncryptionType']]] = None):
+        """
+        The data encryption properties of a cluster.
+        :param pulumi.Input[str] primary_key_uri: URI for the key in keyvault for data encryption of the primary server.
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        """
+        if primary_key_uri is not None:
+            pulumi.set(__self__, "primary_key_uri", primary_key_uri)
+        if primary_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="primaryKeyUri")
+    def primary_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI for the key in keyvault for data encryption of the primary server.
+        """
+        return pulumi.get(self, "primary_key_uri")
+
+    @primary_key_uri.setter
+    def primary_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key_uri", value)
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id for the User assigned identity to be used for data encryption of the primary server.
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
+
+    @primary_user_assigned_identity_id.setter
+    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_user_assigned_identity_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'DataEncryptionType']]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'DataEncryptionType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class IdentityPropertiesArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Describes the identity of the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

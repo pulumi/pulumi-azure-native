@@ -194,7 +194,7 @@ class Capability(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos:Capability"), pulumi.Alias(type_="azure-native:chaos/v20210915preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20220701preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20221001preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230401preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230415preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230901preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20231101:Capability"), pulumi.Alias(type_="azure-native:chaos/v20240101:Capability")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos:Capability"), pulumi.Alias(type_="azure-native:chaos/v20210915preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20220701preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20221001preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230401preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230415preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20230901preview:Capability"), pulumi.Alias(type_="azure-native:chaos/v20231101:Capability"), pulumi.Alias(type_="azure-native:chaos/v20240101:Capability"), pulumi.Alias(type_="azure-native:chaos/v20240322preview:Capability")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Capability, __self__).__init__(
             'azure-native:chaos/v20231027preview:Capability',

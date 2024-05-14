@@ -137,7 +137,7 @@ class GetAzureMonitorWorkspaceResult:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> str:
+    def public_network_access(self) -> Optional[str]:
         """
         Gets or sets allow or disallow public network access to Azure Monitor Workspace
         """

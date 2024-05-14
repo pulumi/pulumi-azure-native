@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Chaos
     /// <summary>
     /// PrivateAccesses tracked resource.
     /// Azure REST API version: 2023-10-27-preview.
+    /// 
+    /// Other available API versions: 2024-03-22-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:PrivateAccess")]
     public partial class PrivateAccess : global::Pulumi.CustomResource
@@ -78,6 +80,7 @@ namespace Pulumi.AzureNative.Chaos
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:chaos/v20231027preview:PrivateAccess" },
+                    new global::Pulumi.Alias { Type = "azure-native:chaos/v20240322preview:PrivateAccess" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

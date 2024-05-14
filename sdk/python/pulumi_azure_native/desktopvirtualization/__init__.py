@@ -55,6 +55,8 @@ if typing.TYPE_CHECKING:
     v20240116preview = __v20240116preview
     import pulumi_azure_native.desktopvirtualization.v20240306preview as __v20240306preview
     v20240306preview = __v20240306preview
+    import pulumi_azure_native.desktopvirtualization.v20240403 as __v20240403
+    v20240403 = __v20240403
 else:
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210201preview')
     v20220210preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20220210preview')
@@ -67,4 +69,5 @@ else:
     v20231101preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20231101preview')
     v20240116preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20240116preview')
     v20240306preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20240306preview')
+    v20240403 = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20240403')
 

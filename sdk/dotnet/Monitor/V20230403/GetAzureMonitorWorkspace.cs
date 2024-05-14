@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
         /// <summary>
         /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
         /// </summary>
-        public readonly string PublicNetworkAccess;
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
 
             string provisioningState,
 
-            string publicNetworkAccess,
+            string? publicNetworkAccess,
 
             Outputs.SystemDataResponse systemData,
 

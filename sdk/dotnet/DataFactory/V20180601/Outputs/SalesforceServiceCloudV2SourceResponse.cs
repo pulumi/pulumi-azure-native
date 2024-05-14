@@ -33,7 +33,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? MaxConcurrentConnections;
         /// <summary>
-        /// Database query. Type: string (or Expression with resultType string).
+        /// You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Query;
+        /// <summary>
+        /// Deprecating, please use 'query' property instead. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? SOQLQuery;
         /// <summary>
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? maxConcurrentConnections,
 
+            object? query,
+
             object? sOQLQuery,
 
             object? sourceRetryCount,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             DisableMetricsCollection = disableMetricsCollection;
             IncludeDeletedObjects = includeDeletedObjects;
             MaxConcurrentConnections = maxConcurrentConnections;
+            Query = query;
             SOQLQuery = sOQLQuery;
             SourceRetryCount = sourceRetryCount;
             SourceRetryWait = sourceRetryWait;

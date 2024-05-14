@@ -76,7 +76,7 @@ export interface GetAzureMonitorWorkspaceResult {
     /**
      * Gets or sets allow or disallow public network access to Azure Monitor Workspace
      */
-    readonly publicNetworkAccess: string;
+    readonly publicNetworkAccess?: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

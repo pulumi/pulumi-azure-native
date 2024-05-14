@@ -132,7 +132,7 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoCluster" }, { type: "azure-native:documentdb/v20230301preview:MongoCluster" }, { type: "azure-native:documentdb/v20230915preview:MongoCluster" }, { type: "azure-native:documentdb/v20231115preview:MongoCluster" }, { type: "azure-native:documentdb/v20240215preview:MongoCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:MongoCluster" }, { type: "azure-native:documentdb/v20230301preview:MongoCluster" }, { type: "azure-native:documentdb/v20230915preview:MongoCluster" }, { type: "azure-native:documentdb/v20231115preview:MongoCluster" }, { type: "azure-native:documentdb/v20240215preview:MongoCluster" }, { type: "azure-native:documentdb/v20240301preview:MongoCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoCluster.__pulumiType, name, resourceInputs, opts);
     }

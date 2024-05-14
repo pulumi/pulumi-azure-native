@@ -6,6 +6,8 @@ from enum import Enum
 
 __all__ = [
     'ActiveDirectoryAuth',
+    'DataEncryptionType',
+    'IdentityType',
     'PasswordAuth',
     'PrincipalType',
     'PrivateEndpointServiceConnectionStatus',
@@ -16,6 +18,16 @@ __all__ = [
 class ActiveDirectoryAuth(str, Enum):
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+class DataEncryptionType(str, Enum):
+    AZURE_KEY_VAULT = "AzureKeyVault"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class IdentityType(str, Enum):
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 class PasswordAuth(str, Enum):
