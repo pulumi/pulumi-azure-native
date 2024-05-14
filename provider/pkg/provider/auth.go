@@ -139,6 +139,15 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 		return nil, err
 	}
 
+	// CLI authentication can only use the environment that the CLI is configured for.
+	// Fail early if that's not the one from config, to avoid obscure errors about missing subscriptions or endpoints later.
+	if c.Environment != envName {
+		return nil, errors.Errorf(`The configured Azure environment '%s' does not match the determined environment '%s'.
+When authenticating using the Azure CLI, the configured environment needs to match the one shown by 'az account show'.
+You can change environments using 'az cloud set --name <environment>'.`,
+			envName, c.Environment)
+	}
+
 	return &authConfig{c, needCli}, nil
 }
 
