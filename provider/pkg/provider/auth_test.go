@@ -3,6 +3,7 @@
 package provider
 
 import (
+	"os"
 	"testing"
 
 	goversion "github.com/hashicorp/go-version"
@@ -132,13 +133,20 @@ func TestOidcPrefersToken(t *testing.T) {
 	assert.NotEmpty(t, config.oidcToken)
 }
 
-// Note: for the CLI authentication method, getAuthConfig() will shell out to the `az` CLI program to determine the
-// cloud and subscription. This makes the test slower and will fail if `az` is not installed. By default, it is
-// installed on GH runners, however, so we include the test for completeness.
+// For the CLI authentication method, getAuthConfig() will shell out to the `az` CLI program to determine the
+// cloud and subscription. This makes the test slower and will fail if `az` is not installed. In addition,
+// go-azure-helpers only allows using `az` with user authentication, not service principal, which azure/login
+// doesn't support. Therefore, we don't test the CLI authentication method by default. To test it locally, set
+// PULUMI_RUN_CLI_AUTH_TESTS="true".
 func TestAuthConfigs(t *testing.T) {
+	// Unset the service principal env vars for this test so each subtest starts with a clean slate.
+	t.Setenv("ARM_TENANT_ID", "")
+	t.Setenv("ARM_CLIENT_ID", "")
+	t.Setenv("ARM_CLIENT_SECRET", "")
+
 	type providerFactory func() azureNativeProvider
 
-	for authMethod, f := range map[string]providerFactory{
+	authMethods := map[string]providerFactory{
 		"oidc": func() azureNativeProvider {
 			return azureNativeProvider{
 				config: map[string]string{
@@ -166,12 +174,17 @@ func TestAuthConfigs(t *testing.T) {
 				},
 			}
 		},
-		"cli": func() azureNativeProvider {
+	}
+
+	if os.Getenv("PULUMI_RUN_CLI_AUTH_TESTS") == "true" {
+		authMethods["cli"] = func() azureNativeProvider {
 			return azureNativeProvider{
-				config: map[string]string{}, // CLI is fallback
+				config: map[string]string{}, // CLI is fallback so doesn't need configuration
 			}
-		},
-	} {
+		}
+	}
+
+	for authMethod, f := range authMethods {
 		t.Run(authMethod+" is valid", func(t *testing.T) {
 			p := f()
 			conf, err := p.getAuthConfig()
@@ -182,6 +195,7 @@ func TestAuthConfigs(t *testing.T) {
 		t.Run(authMethod+" uses CLI", func(t *testing.T) {
 			p := f()
 			conf, _ := p.getAuthConfig()
+			require.NotNil(t, conf)
 			assert.Equal(t, authMethod == "cli", conf.useCli)
 		})
 
@@ -199,12 +213,12 @@ func TestAuthConfigs(t *testing.T) {
 			assert.Equal(t, "public", conf.Environment)
 		})
 
-		// The CLI auth method requires that the user switches `az` to the desired cloud/environment manually,
-		// it will fail here and we assert an appropriate error.
 		t.Run(authMethod+" usgov env", func(t *testing.T) {
 			p := f()
 			p.config["environment"] = "usgovernment"
 
+			// The CLI auth method requires that the user switches `az` to the desired cloud/environment manually.
+			// It will fail here and we assert an appropriate error.
 			conf, err := p.getAuthConfig()
 			if authMethod == "cli" {
 				require.Error(t, err)
