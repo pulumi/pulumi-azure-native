@@ -7,6 +7,7 @@ import (
 
 	goversion "github.com/hashicorp/go-version"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestAcceptedAzVersions(t *testing.T) {
@@ -129,4 +130,89 @@ func TestOidcPrefersToken(t *testing.T) {
 	config, err := p.determineOidcConfig()
 	assert.Nil(t, err)
 	assert.NotEmpty(t, config.oidcToken)
+}
+
+// Note: for the CLI authentication method, getAuthConfig() will shell out to the `az` CLI program to determine the
+// cloud and subscription. This makes the test slower and will fail if `az` is not installed. By default, it is
+// installed on GH runners, however, so we include the test for completeness.
+func TestAuthConfigs(t *testing.T) {
+	type providerFactory func() azureNativeProvider
+
+	for authMethod, f := range map[string]providerFactory{
+		"oidc": func() azureNativeProvider {
+			return azureNativeProvider{
+				config: map[string]string{
+					"useOidc":   "true",
+					"oidcToken": "t3",
+					"tenantId":  "123",
+					"clientId":  "123",
+				},
+			}
+		},
+		"clientSecret": func() azureNativeProvider {
+			return azureNativeProvider{
+				config: map[string]string{
+					"tenantId":       "123",
+					"clientId":       "123",
+					"clientSecret":   "123",
+					"subscriptionId": "123",
+				},
+			}
+		},
+		"msi": func() azureNativeProvider {
+			return azureNativeProvider{
+				config: map[string]string{
+					"useMsi": "true",
+				},
+			}
+		},
+		"cli": func() azureNativeProvider {
+			return azureNativeProvider{
+				config: map[string]string{}, // CLI is fallback
+			}
+		},
+	} {
+		t.Run(authMethod+" is valid", func(t *testing.T) {
+			p := f()
+			conf, err := p.getAuthConfig()
+			require.NoError(t, err)
+			require.NotNil(t, conf)
+		})
+
+		t.Run(authMethod+" uses CLI", func(t *testing.T) {
+			p := f()
+			conf, _ := p.getAuthConfig()
+			assert.Equal(t, authMethod == "cli", conf.useCli)
+		})
+
+		t.Run(authMethod+" default env", func(t *testing.T) {
+			p := f()
+			conf, _ := p.getAuthConfig()
+			assert.Equal(t, "public", conf.Environment)
+		})
+
+		t.Run(authMethod+" public env", func(t *testing.T) {
+			p := f()
+			p.config["environment"] = "public"
+
+			conf, _ := p.getAuthConfig()
+			assert.Equal(t, "public", conf.Environment)
+		})
+
+		// The CLI auth method requires that the user switches `az` to the desired cloud/environment manually,
+		// it will fail here and we assert an appropriate error.
+		t.Run(authMethod+" usgov env", func(t *testing.T) {
+			p := f()
+			p.config["environment"] = "usgovernment"
+
+			conf, err := p.getAuthConfig()
+			if authMethod == "cli" {
+				require.Error(t, err)
+				assert.Contains(t, err.Error(), "configured Azure environment 'usgovernment' does not match the determined environment 'public'")
+			} else {
+				require.NoError(t, err)
+				assert.Equal(t, "usgovernment", conf.Environment)
+			}
+		})
+	}
 }
