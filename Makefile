@@ -235,7 +235,8 @@ bin/$(CODEGEN): bin/pulumictl .make/prebuild .make/provider_mod_download provide
 bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) azure-provider-versions/provider_list.json versions/v1-lock.json versions/v2-config.yaml versions/v2-spec.yaml versions/v2-removed-resources.json
 	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
-# Docs schema
+# Docs schema - treat as phony becasuse it's committed so we always need to rebuild it.
+.PHONY: provider/cmd/pulumi-resource-azure-native/schema.json
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v1-lock.json versions/v2-config.yaml versions/v2-removed-resources.json
 	bin/$(CODEGEN) docs $(VERSION_GENERIC)
 
