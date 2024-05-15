@@ -123,6 +123,12 @@ jobs:
 
       - name: Check worktree clean
         uses: pulumi/git-status-check-action@v1
+        with:
+          allowed-changes: |
+            sdk/**/pulumi-plugin.json
+            sdk/dotnet/Pulumi.*.csproj
+            sdk/nodejs/package.json
+            sdk/python/pyproject.toml
 
       - name: Tar SDK folder
         if: ${{ matrix.language != 'go' }}

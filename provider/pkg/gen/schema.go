@@ -349,6 +349,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 		"generateResourceContainerTypes": false,
 		"disableInputTypeRegistrations":  true,
 		"internalModuleName":             "utilities",
+		"respectSchemaVersion":           true,
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
@@ -359,6 +360,7 @@ resources and their properties. Resources are exposed as types from modules base
 Providers such as 'compute', 'network', 'storage', and 'web', among many others. Using this package
 allows you to programmatically declare instances of any Azure resource and any supported resource
 version using infrastructure as code, which Pulumi then uses to drive the ARM API.`,
+		"respectSchemaVersion": true,
 	})
 
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
@@ -375,6 +377,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		"pyproject": map[string]bool{
 			"enabled": true,
 		},
+		"respectSchemaVersion": true,
 	})
 
 	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
@@ -382,7 +385,8 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 			"Pulumi":                       "3.*",
 			"System.Collections.Immutable": "5.0.0",
 		},
-		"namespaces": csharpNamespaces,
+		"namespaces":           csharpNamespaces,
+		"respectSchemaVersion": true,
 	})
 
 	pkg.Language["java"] = rawMessage(map[string]interface{}{
