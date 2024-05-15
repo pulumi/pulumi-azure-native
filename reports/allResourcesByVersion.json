@@ -3531,6 +3531,16 @@
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
+    "2024-03-01": [
+      "AccessPolicy",
+      "AccessPolicyAssignment",
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
+    ],
     "2024-03-01-preview": [
       "Database",
       "EnterprisePrivateEndpointConnection",
@@ -5120,7 +5130,6 @@
     ]
   },
   "ContainerRegistry": {
-    "": [],
     "2017-03-01": [
       "Registry",
       "listRegistryCredentials"
