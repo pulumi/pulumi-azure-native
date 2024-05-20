@@ -4067,6 +4067,97 @@
     "Property": "restoreParameters"
   },
   {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "dataCenterLocation"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "delegatedSubnetId"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinGraph",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBCollection",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlContainer",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "TableResourceTable",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
     "Module": "elastic",
     "Provider": "Elastic",
     "ResourceName": "Monitor",
