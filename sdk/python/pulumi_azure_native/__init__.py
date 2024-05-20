@@ -891,6 +891,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "alertsmanagement/v20240301preview",
+  "fqn": "pulumi_azure_native.alertsmanagement.v20240301preview",
+  "classes": {
+   "azure-native:alertsmanagement/v20240301preview:AlertProcessingRuleByName": "AlertProcessingRuleByName"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "analysisservices",
   "fqn": "pulumi_azure_native.analysisservices",
   "classes": {
@@ -3338,6 +3346,20 @@ _utilities.register(
    "azure-native:cache/v20240201:Database": "Database",
    "azure-native:cache/v20240201:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
    "azure-native:cache/v20240201:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cache/v20240301",
+  "fqn": "pulumi_azure_native.cache.v20240301",
+  "classes": {
+   "azure-native:cache/v20240301:AccessPolicy": "AccessPolicy",
+   "azure-native:cache/v20240301:AccessPolicyAssignment": "AccessPolicyAssignment",
+   "azure-native:cache/v20240301:FirewallRule": "FirewallRule",
+   "azure-native:cache/v20240301:LinkedServer": "LinkedServer",
+   "azure-native:cache/v20240301:PatchSchedule": "PatchSchedule",
+   "azure-native:cache/v20240301:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cache/v20240301:Redis": "Redis"
   }
  },
  {
@@ -7315,6 +7337,35 @@ _utilities.register(
    "azure-native:documentdb/v20240301preview:FirewallRule": "FirewallRule",
    "azure-native:documentdb/v20240301preview:MongoCluster": "MongoCluster",
    "azure-native:documentdb/v20240301preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20240515",
+  "fqn": "pulumi_azure_native.documentdb.v20240515",
+  "classes": {
+   "azure-native:documentdb/v20240515:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20240515:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20240515:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20240515:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20240515:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20240515:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20240515:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20240515:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20240515:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20240515:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb/v20240515:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
+   "azure-native:documentdb/v20240515:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20240515:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20240515:Service": "Service",
+   "azure-native:documentdb/v20240515:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20240515:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20240515:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20240515:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20240515:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20240515:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20240515:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20240515:TableResourceTable": "TableResourceTable"
   }
  },
  {
@@ -13115,6 +13166,7 @@ _utilities.register(
    "azure-native:recoveryservices:ReplicationNetworkMapping": "ReplicationNetworkMapping",
    "azure-native:recoveryservices:ReplicationPolicy": "ReplicationPolicy",
    "azure-native:recoveryservices:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices:ReplicationProtectionCluster": "ReplicationProtectionCluster",
    "azure-native:recoveryservices:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
    "azure-native:recoveryservices:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
    "azure-native:recoveryservices:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
@@ -13247,6 +13299,17 @@ _utilities.register(
    "azure-native:recoveryservices/v20240201:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20240201:ProtectionIntent": "ProtectionIntent",
    "azure-native:recoveryservices/v20240201:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20240201:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20240201:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20240201:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20240201:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20240201:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20240201:ReplicationProtectionCluster": "ReplicationProtectionCluster",
+   "azure-native:recoveryservices/v20240201:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20240201:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20240201:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20240201:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20240201:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20240201:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20240201:Vault": "Vault"
   }

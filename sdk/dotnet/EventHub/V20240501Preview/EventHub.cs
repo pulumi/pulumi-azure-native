@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
         public Output<double?> MessageRetentionInDays { get; private set; } = null!;
 
         /// <summary>
-        /// Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+        /// Properties of MessageTimestamp Description
         /// </summary>
-        [Output("messageTimestampType")]
-        public Output<string?> MessageTimestampType { get; private set; } = null!;
+        [Output("messageTimestampDescription")]
+        public Output<Outputs.MessageTimestampDescriptionResponse?> MessageTimestampDescription { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -184,10 +184,10 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
         public Input<double>? MessageRetentionInDays { get; set; }
 
         /// <summary>
-        /// Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+        /// Properties of MessageTimestamp Description
         /// </summary>
-        [Input("messageTimestampType")]
-        public InputUnion<string, Pulumi.AzureNative.EventHub.V20240501Preview.TimestampType>? MessageTimestampType { get; set; }
+        [Input("messageTimestampDescription")]
+        public Input<Inputs.MessageTimestampDescriptionArgs>? MessageTimestampDescription { get; set; }
 
         /// <summary>
         /// The Namespace name

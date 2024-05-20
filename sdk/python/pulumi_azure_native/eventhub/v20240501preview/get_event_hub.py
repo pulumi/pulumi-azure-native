@@ -22,7 +22,7 @@ class GetEventHubResult:
     """
     Single item in List or Get Event Hub operation
     """
-    def __init__(__self__, capture_description=None, created_at=None, id=None, identifier=None, location=None, message_retention_in_days=None, message_timestamp_type=None, name=None, partition_count=None, partition_ids=None, retention_description=None, status=None, system_data=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, capture_description=None, created_at=None, id=None, identifier=None, location=None, message_retention_in_days=None, message_timestamp_description=None, name=None, partition_count=None, partition_ids=None, retention_description=None, status=None, system_data=None, type=None, updated_at=None, user_metadata=None):
         if capture_description and not isinstance(capture_description, dict):
             raise TypeError("Expected argument 'capture_description' to be a dict")
         pulumi.set(__self__, "capture_description", capture_description)
@@ -41,9 +41,9 @@ class GetEventHubResult:
         if message_retention_in_days and not isinstance(message_retention_in_days, float):
             raise TypeError("Expected argument 'message_retention_in_days' to be a float")
         pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
-        if message_timestamp_type and not isinstance(message_timestamp_type, str):
-            raise TypeError("Expected argument 'message_timestamp_type' to be a str")
-        pulumi.set(__self__, "message_timestamp_type", message_timestamp_type)
+        if message_timestamp_description and not isinstance(message_timestamp_description, dict):
+            raise TypeError("Expected argument 'message_timestamp_description' to be a dict")
+        pulumi.set(__self__, "message_timestamp_description", message_timestamp_description)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -121,12 +121,12 @@ class GetEventHubResult:
         return pulumi.get(self, "message_retention_in_days")
 
     @property
-    @pulumi.getter(name="messageTimestampType")
-    def message_timestamp_type(self) -> Optional[str]:
+    @pulumi.getter(name="messageTimestampDescription")
+    def message_timestamp_description(self) -> Optional['outputs.MessageTimestampDescriptionResponse']:
         """
-        Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+        Properties of MessageTimestamp Description
         """
-        return pulumi.get(self, "message_timestamp_type")
+        return pulumi.get(self, "message_timestamp_description")
 
     @property
     @pulumi.getter
@@ -213,7 +213,7 @@ class AwaitableGetEventHubResult(GetEventHubResult):
             identifier=self.identifier,
             location=self.location,
             message_retention_in_days=self.message_retention_in_days,
-            message_timestamp_type=self.message_timestamp_type,
+            message_timestamp_description=self.message_timestamp_description,
             name=self.name,
             partition_count=self.partition_count,
             partition_ids=self.partition_ids,
@@ -251,7 +251,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
         identifier=pulumi.get(__ret__, 'identifier'),
         location=pulumi.get(__ret__, 'location'),
         message_retention_in_days=pulumi.get(__ret__, 'message_retention_in_days'),
-        message_timestamp_type=pulumi.get(__ret__, 'message_timestamp_type'),
+        message_timestamp_description=pulumi.get(__ret__, 'message_timestamp_description'),
         name=pulumi.get(__ret__, 'name'),
         partition_count=pulumi.get(__ret__, 'partition_count'),
         partition_ids=pulumi.get(__ret__, 'partition_ids'),

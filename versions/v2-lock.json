@@ -2116,6 +2116,7 @@
     "ReplicationNetworkMapping": "2023-04-01",
     "ReplicationPolicy": "2023-04-01",
     "ReplicationProtectedItem": "2023-04-01",
+    "ReplicationProtectionCluster": "2024-02-01",
     "ReplicationProtectionContainerMapping": "2023-04-01",
     "ReplicationRecoveryPlan": "2023-04-01",
     "ReplicationRecoveryServicesProvider": "2023-04-01",

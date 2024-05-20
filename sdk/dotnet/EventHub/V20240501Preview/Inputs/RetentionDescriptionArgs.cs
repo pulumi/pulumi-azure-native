@@ -22,19 +22,19 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.EventHub.V20240501Preview.CleanupPolicyRetentionDescription>? CleanupPolicy { get; set; }
 
         /// <summary>
-        /// The minimum time a message will remain ineligible for compaction in the log. Only applicable for logs that are being compacted.
+        /// The minimum time a message will remain ineligible for compaction in the log. This value is used when cleanupPolicy is Compact or DeleteOrCompact.
         /// </summary>
         [Input("minCompactionLagInMins")]
         public Input<double>? MinCompactionLagInMins { get; set; }
 
         /// <summary>
-        /// Number of hours to retain the events for this Event Hub. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        /// Number of hours to retain the events for this Event Hub. This should be positive value upto namespace SKU max. -1 is a special case where retention time is infinite, but the size of an entity is restricted and its size depends on namespace SKU type.
         /// </summary>
         [Input("retentionTimeInHours")]
         public Input<double>? RetentionTimeInHours { get; set; }
 
         /// <summary>
-        /// Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        /// Number of hours to retain the tombstone markers of a compacted Event Hub. This value is used when cleanupPolicy is Compact or DeleteOrCompact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
         /// </summary>
         [Input("tombstoneRetentionTimeInHours")]
         public Input<int>? TombstoneRetentionTimeInHours { get; set; }

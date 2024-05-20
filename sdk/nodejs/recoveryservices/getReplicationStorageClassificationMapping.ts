@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the details of the specified storage classification mapping.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
+ * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
  */
 export function getReplicationStorageClassificationMapping(args: GetReplicationStorageClassificationMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationStorageClassificationMappingResult> {
 
@@ -77,7 +77,7 @@ export interface GetReplicationStorageClassificationMappingResult {
  * Gets the details of the specified storage classification mapping.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
+ * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
  */
 export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {
     return pulumi.output(args).apply((a: any) => getReplicationStorageClassificationMapping(a, opts))

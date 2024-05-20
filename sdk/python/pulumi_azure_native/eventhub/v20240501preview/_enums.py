@@ -58,7 +58,7 @@ class CleanupPolicyRetentionDescription(str, Enum):
     """
     DELETE = "Delete"
     COMPACT = "Compact"
-    DELETE_COMPACT = "Delete,Compact"
+    DELETE_OR_COMPACT = "DeleteOrCompact"
 
 
 class ClusterSkuName(str, Enum):
@@ -214,10 +214,10 @@ class SkuTier(str, Enum):
 
 class TimestampType(str, Enum):
     """
-    Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+    Denotes the type of timestamp the message will hold.Two types of timestamp types - "AppendTime" and "CreateTime". AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime and its behavior remains the same.
     """
-    APPEND_TIME = "AppendTime"
-    CREATE_TIME = "CreateTime"
+    LOG_APPEND = "LogAppend"
+    CREATE = "Create"
 
 
 class TlsVersion(str, Enum):

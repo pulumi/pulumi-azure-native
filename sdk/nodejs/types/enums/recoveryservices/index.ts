@@ -49,6 +49,16 @@ export const AlertsState = {
 
 export type AlertsState = (typeof AlertsState)[keyof typeof AlertsState];
 
+export const AutoProtectionOfDataDisk = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * A value indicating whether the disk auto protection is enabled.
+ */
+export type AutoProtectionOfDataDisk = (typeof AutoProtectionOfDataDisk)[keyof typeof AutoProtectionOfDataDisk];
+
 export const AutomationAccountAuthenticationType = {
     RunAsAccount: "RunAsAccount",
     SystemAssignedIdentity: "SystemAssignedIdentity",
@@ -162,6 +172,16 @@ export const FailoverDeploymentModel = {
  */
 export type FailoverDeploymentModel = (typeof FailoverDeploymentModel)[keyof typeof FailoverDeploymentModel];
 
+export const HealthErrorCustomerResolvability = {
+    Allowed: "Allowed",
+    NotAllowed: "NotAllowed",
+} as const;
+
+/**
+ * Value indicating whether the health error is customer resolvable.
+ */
+export type HealthErrorCustomerResolvability = (typeof HealthErrorCustomerResolvability)[keyof typeof HealthErrorCustomerResolvability];
+
 export const IAASVMPolicyType = {
     Invalid: "Invalid",
     V1: "V1",
@@ -228,6 +248,16 @@ export const MonthOfYear = {
 } as const;
 
 export type MonthOfYear = (typeof MonthOfYear)[keyof typeof MonthOfYear];
+
+export const MultiVmGroupCreateOption = {
+    AutoCreated: "AutoCreated",
+    UserSpecified: "UserSpecified",
+} as const;
+
+/**
+ * Whether Multi VM group is auto created or specified by user.
+ */
+export type MultiVmGroupCreateOption = (typeof MultiVmGroupCreateOption)[keyof typeof MultiVmGroupCreateOption];
 
 export const OperationType = {
     Invalid: "Invalid",

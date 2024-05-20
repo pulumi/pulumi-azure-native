@@ -17,6 +17,7 @@ from .get_replication_migration_item import *
 from .get_replication_network_mapping import *
 from .get_replication_policy import *
 from .get_replication_protected_item import *
+from .get_replication_protection_cluster import *
 from .get_replication_protection_container_mapping import *
 from .get_replication_recovery_plan import *
 from .get_replication_recovery_services_provider import *
@@ -34,6 +35,7 @@ from .replication_migration_item import *
 from .replication_network_mapping import *
 from .replication_policy import *
 from .replication_protected_item import *
+from .replication_protection_cluster import *
 from .replication_protection_container_mapping import *
 from .replication_recovery_plan import *
 from .replication_recovery_services_provider import *

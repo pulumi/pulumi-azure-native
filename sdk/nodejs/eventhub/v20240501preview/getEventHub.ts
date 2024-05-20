@@ -64,9 +64,9 @@ export interface GetEventHubResult {
      */
     readonly messageRetentionInDays?: number;
     /**
-     * Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+     * Properties of MessageTimestamp Description
      */
-    readonly messageTimestampType?: string;
+    readonly messageTimestampDescription?: outputs.eventhub.v20240501preview.MessageTimestampDescriptionResponse;
     /**
      * The name of the resource
      */

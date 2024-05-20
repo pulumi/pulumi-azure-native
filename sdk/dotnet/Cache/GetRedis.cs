@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Cache
         /// Gets a Redis cache (resource description).
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01.
+        /// Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01.
         /// </summary>
         public static Task<GetRedisResult> InvokeAsync(GetRedisArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRedisResult>("azure-native:cache:getRedis", args ?? new GetRedisArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Cache
         /// Gets a Redis cache (resource description).
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01.
+        /// Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01.
         /// </summary>
         public static Output<GetRedisResult> Invoke(GetRedisInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedisResult>("azure-native:cache:getRedis", args ?? new GetRedisInvokeArgs(), options.WithDefaults());

@@ -98,6 +98,37 @@ namespace Pulumi.AzureNative.RecoveryServices
     }
 
     /// <summary>
+    /// A value indicating whether the disk auto protection is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoProtectionOfDataDisk : IEquatable<AutoProtectionOfDataDisk>
+    {
+        private readonly string _value;
+
+        private AutoProtectionOfDataDisk(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoProtectionOfDataDisk Disabled { get; } = new AutoProtectionOfDataDisk("Disabled");
+        public static AutoProtectionOfDataDisk Enabled { get; } = new AutoProtectionOfDataDisk("Enabled");
+
+        public static bool operator ==(AutoProtectionOfDataDisk left, AutoProtectionOfDataDisk right) => left.Equals(right);
+        public static bool operator !=(AutoProtectionOfDataDisk left, AutoProtectionOfDataDisk right) => !left.Equals(right);
+
+        public static explicit operator string(AutoProtectionOfDataDisk value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoProtectionOfDataDisk other && Equals(other);
+        public bool Equals(AutoProtectionOfDataDisk other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A value indicating the type authentication to use for automation Account.
     /// </summary>
     [EnumType]
@@ -399,6 +430,37 @@ namespace Pulumi.AzureNative.RecoveryServices
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Value indicating whether the health error is customer resolvable.
+    /// </summary>
+    [EnumType]
+    public readonly struct HealthErrorCustomerResolvability : IEquatable<HealthErrorCustomerResolvability>
+    {
+        private readonly string _value;
+
+        private HealthErrorCustomerResolvability(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HealthErrorCustomerResolvability Allowed { get; } = new HealthErrorCustomerResolvability("Allowed");
+        public static HealthErrorCustomerResolvability NotAllowed { get; } = new HealthErrorCustomerResolvability("NotAllowed");
+
+        public static bool operator ==(HealthErrorCustomerResolvability left, HealthErrorCustomerResolvability right) => left.Equals(right);
+        public static bool operator !=(HealthErrorCustomerResolvability left, HealthErrorCustomerResolvability right) => !left.Equals(right);
+
+        public static explicit operator string(HealthErrorCustomerResolvability value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HealthErrorCustomerResolvability other && Equals(other);
+        public bool Equals(HealthErrorCustomerResolvability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct IAASVMPolicyType : IEquatable<IAASVMPolicyType>
     {
@@ -585,6 +647,37 @@ namespace Pulumi.AzureNative.RecoveryServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MonthOfYear other && Equals(other);
         public bool Equals(MonthOfYear other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether Multi VM group is auto created or specified by user.
+    /// </summary>
+    [EnumType]
+    public readonly struct MultiVmGroupCreateOption : IEquatable<MultiVmGroupCreateOption>
+    {
+        private readonly string _value;
+
+        private MultiVmGroupCreateOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MultiVmGroupCreateOption AutoCreated { get; } = new MultiVmGroupCreateOption("AutoCreated");
+        public static MultiVmGroupCreateOption UserSpecified { get; } = new MultiVmGroupCreateOption("UserSpecified");
+
+        public static bool operator ==(MultiVmGroupCreateOption left, MultiVmGroupCreateOption right) => left.Equals(right);
+        public static bool operator !=(MultiVmGroupCreateOption left, MultiVmGroupCreateOption right) => !left.Equals(right);
+
+        public static explicit operator string(MultiVmGroupCreateOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MultiVmGroupCreateOption other && Equals(other);
+        public bool Equals(MultiVmGroupCreateOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

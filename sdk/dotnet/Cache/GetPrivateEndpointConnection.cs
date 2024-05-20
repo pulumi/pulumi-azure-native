@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Cache
         /// Gets the specified private endpoint connection associated with the redis cache.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-08-01.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:cache:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Cache
         /// Gets the specified private endpoint connection associated with the redis cache.
         /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-05-01-preview, 2023-08-01.
+        /// Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:cache:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

@@ -103,7 +103,7 @@ def get_replication_migration_item(fabric_name: Optional[str] = None,
     Migration item.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
+    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
 
 
     :param str fabric_name: Fabric unique name.
@@ -140,7 +140,7 @@ def get_replication_migration_item_output(fabric_name: Optional[pulumi.Input[str
     Migration item.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
+    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
 
 
     :param str fabric_name: Fabric unique name.

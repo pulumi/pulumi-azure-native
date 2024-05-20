@@ -101,7 +101,7 @@ def get_replication_recovery_plan(recovery_plan_name: Optional[str] = None,
     Gets the details of the recovery plan.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
+    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
 
 
     :param str recovery_plan_name: Name of the recovery plan.
@@ -132,7 +132,7 @@ def get_replication_recovery_plan_output(recovery_plan_name: Optional[pulumi.Inp
     Gets the details of the recovery plan.
     Azure REST API version: 2023-04-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
+    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
 
 
     :param str recovery_plan_name: Name of the recovery plan.

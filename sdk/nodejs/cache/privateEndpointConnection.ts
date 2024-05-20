@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01.
  *
- * Other available API versions: 2023-05-01-preview, 2023-08-01.
+ * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -97,7 +97,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20200601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20201201:PrivateEndpointConnection" }, { type: "azure-native:cache/v20210601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20220501:PrivateEndpointConnection" }, { type: "azure-native:cache/v20220601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20230401:PrivateEndpointConnection" }, { type: "azure-native:cache/v20230501preview:PrivateEndpointConnection" }, { type: "azure-native:cache/v20230801:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20200601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20201201:PrivateEndpointConnection" }, { type: "azure-native:cache/v20210601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20220501:PrivateEndpointConnection" }, { type: "azure-native:cache/v20220601:PrivateEndpointConnection" }, { type: "azure-native:cache/v20230401:PrivateEndpointConnection" }, { type: "azure-native:cache/v20230501preview:PrivateEndpointConnection" }, { type: "azure-native:cache/v20230801:PrivateEndpointConnection" }, { type: "azure-native:cache/v20240301:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

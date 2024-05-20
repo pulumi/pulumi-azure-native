@@ -32,7 +32,7 @@ export type CaptureIdentityType = (typeof CaptureIdentityType)[keyof typeof Capt
 export const CleanupPolicyRetentionDescription = {
     Delete: "Delete",
     Compact: "Compact",
-    Delete_Compact: "Delete,Compact",
+    DeleteOrCompact: "DeleteOrCompact",
 } as const;
 
 /**
@@ -226,12 +226,12 @@ export const SkuTier = {
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const TimestampType = {
-    AppendTime: "AppendTime",
-    CreateTime: "CreateTime",
+    LogAppend: "LogAppend",
+    Create: "Create",
 } as const;
 
 /**
- * Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+ * Denotes the type of timestamp the message will hold.Two types of timestamp types - "AppendTime" and "CreateTime". AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime and its behavior remains the same.
  */
 export type TimestampType = (typeof TimestampType)[keyof typeof TimestampType];
 

@@ -8,6 +8,7 @@ __all__ = [
     'AcquireStorageAccountLock',
     'AgentAutoUpdateStatus',
     'AlertsState',
+    'AutoProtectionOfDataDisk',
     'AutomationAccountAuthenticationType',
     'BackupItemType',
     'BackupManagementType',
@@ -17,12 +18,14 @@ __all__ = [
     'DiskAccountType',
     'ExtendedLocationType',
     'FailoverDeploymentModel',
+    'HealthErrorCustomerResolvability',
     'IAASVMPolicyType',
     'ImmutabilityState',
     'InfrastructureEncryptionState',
     'LastBackupStatus',
     'LicenseType',
     'MonthOfYear',
+    'MultiVmGroupCreateOption',
     'OperationType',
     'PolicyType',
     'PossibleOperationsDirections',
@@ -75,6 +78,14 @@ class AgentAutoUpdateStatus(str, Enum):
 class AlertsState(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class AutoProtectionOfDataDisk(str, Enum):
+    """
+    A value indicating whether the disk auto protection is enabled.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class AutomationAccountAuthenticationType(str, Enum):
@@ -172,6 +183,14 @@ class FailoverDeploymentModel(str, Enum):
     RESOURCE_MANAGER = "ResourceManager"
 
 
+class HealthErrorCustomerResolvability(str, Enum):
+    """
+    Value indicating whether the health error is customer resolvable.
+    """
+    ALLOWED = "Allowed"
+    NOT_ALLOWED = "NotAllowed"
+
+
 class IAASVMPolicyType(str, Enum):
     INVALID = "Invalid"
     V1 = "V1"
@@ -225,6 +244,14 @@ class MonthOfYear(str, Enum):
     OCTOBER = "October"
     NOVEMBER = "November"
     DECEMBER = "December"
+
+
+class MultiVmGroupCreateOption(str, Enum):
+    """
+    Whether Multi VM group is auto created or specified by user.
+    """
+    AUTO_CREATED = "AutoCreated"
+    USER_SPECIFIED = "UserSpecified"
 
 
 class OperationType(str, Enum):

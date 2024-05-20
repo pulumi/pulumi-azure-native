@@ -106,9 +106,9 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
         /// </summary>
         public readonly double? MessageRetentionInDays;
         /// <summary>
-        /// Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+        /// Properties of MessageTimestamp Description
         /// </summary>
-        public readonly string? MessageTimestampType;
+        public readonly Outputs.MessageTimestampDescriptionResponse? MessageTimestampDescription;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
 
             double? messageRetentionInDays,
 
-            string? messageTimestampType,
+            Outputs.MessageTimestampDescriptionResponse? messageTimestampDescription,
 
             string name,
 
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
             Identifier = identifier;
             Location = location;
             MessageRetentionInDays = messageRetentionInDays;
-            MessageTimestampType = messageTimestampType;
+            MessageTimestampDescription = messageTimestampDescription;
             Name = name;
             PartitionCount = partitionCount;
             PartitionIds = partitionIds;

@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
 
         public static CleanupPolicyRetentionDescription Delete { get; } = new CleanupPolicyRetentionDescription("Delete");
         public static CleanupPolicyRetentionDescription Compact { get; } = new CleanupPolicyRetentionDescription("Compact");
-        public static CleanupPolicyRetentionDescription Delete_Compact { get; } = new CleanupPolicyRetentionDescription("Delete,Compact");
+        public static CleanupPolicyRetentionDescription DeleteOrCompact { get; } = new CleanupPolicyRetentionDescription("DeleteOrCompact");
 
         public static bool operator ==(CleanupPolicyRetentionDescription left, CleanupPolicyRetentionDescription right) => left.Equals(right);
         public static bool operator !=(CleanupPolicyRetentionDescription left, CleanupPolicyRetentionDescription right) => !left.Equals(right);
@@ -672,7 +672,7 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
     }
 
     /// <summary>
-    /// Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+    /// Denotes the type of timestamp the message will hold.Two types of timestamp types - "AppendTime" and "CreateTime". AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime and its behavior remains the same.
     /// </summary>
     [EnumType]
     public readonly struct TimestampType : IEquatable<TimestampType>
@@ -684,8 +684,8 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TimestampType AppendTime { get; } = new TimestampType("AppendTime");
-        public static TimestampType CreateTime { get; } = new TimestampType("CreateTime");
+        public static TimestampType LogAppend { get; } = new TimestampType("LogAppend");
+        public static TimestampType Create { get; } = new TimestampType("Create");
 
         public static bool operator ==(TimestampType left, TimestampType right) => left.Equals(right);
         public static bool operator !=(TimestampType left, TimestampType right) => !left.Equals(right);

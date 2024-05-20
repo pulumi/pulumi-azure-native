@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Response to an operation on access policy assignment
  * Azure REST API version: 2023-05-01-preview.
  *
- * Other available API versions: 2023-08-01.
+ * Other available API versions: 2023-08-01, 2024-03-01.
  */
 export class AccessPolicyAssignment extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class AccessPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20230501preview:AccessPolicyAssignment" }, { type: "azure-native:cache/v20230801:AccessPolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20230501preview:AccessPolicyAssignment" }, { type: "azure-native:cache/v20230801:AccessPolicyAssignment" }, { type: "azure-native:cache/v20240301:AccessPolicyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }

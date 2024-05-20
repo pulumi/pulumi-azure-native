@@ -22,7 +22,7 @@ class EventHubArgs:
                  capture_description: Optional[pulumi.Input['CaptureDescriptionArgs']] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
-                 message_timestamp_type: Optional[pulumi.Input[Union[str, 'TimestampType']]] = None,
+                 message_timestamp_description: Optional[pulumi.Input['MessageTimestampDescriptionArgs']] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  retention_description: Optional[pulumi.Input['RetentionDescriptionArgs']] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
@@ -34,7 +34,7 @@ class EventHubArgs:
         :param pulumi.Input['CaptureDescriptionArgs'] capture_description: Properties of capture description
         :param pulumi.Input[str] event_hub_name: The Event Hub name
         :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-        :param pulumi.Input[Union[str, 'TimestampType']] message_timestamp_type: Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+        :param pulumi.Input['MessageTimestampDescriptionArgs'] message_timestamp_description: Properties of MessageTimestamp Description
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input['RetentionDescriptionArgs'] retention_description: Event Hub retention settings
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
@@ -48,8 +48,8 @@ class EventHubArgs:
             pulumi.set(__self__, "event_hub_name", event_hub_name)
         if message_retention_in_days is not None:
             pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
-        if message_timestamp_type is not None:
-            pulumi.set(__self__, "message_timestamp_type", message_timestamp_type)
+        if message_timestamp_description is not None:
+            pulumi.set(__self__, "message_timestamp_description", message_timestamp_description)
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
         if retention_description is not None:
@@ -120,16 +120,16 @@ class EventHubArgs:
         pulumi.set(self, "message_retention_in_days", value)
 
     @property
-    @pulumi.getter(name="messageTimestampType")
-    def message_timestamp_type(self) -> Optional[pulumi.Input[Union[str, 'TimestampType']]]:
+    @pulumi.getter(name="messageTimestampDescription")
+    def message_timestamp_description(self) -> Optional[pulumi.Input['MessageTimestampDescriptionArgs']]:
         """
-        Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+        Properties of MessageTimestamp Description
         """
-        return pulumi.get(self, "message_timestamp_type")
+        return pulumi.get(self, "message_timestamp_description")
 
-    @message_timestamp_type.setter
-    def message_timestamp_type(self, value: Optional[pulumi.Input[Union[str, 'TimestampType']]]):
-        pulumi.set(self, "message_timestamp_type", value)
+    @message_timestamp_description.setter
+    def message_timestamp_description(self, value: Optional[pulumi.Input['MessageTimestampDescriptionArgs']]):
+        pulumi.set(self, "message_timestamp_description", value)
 
     @property
     @pulumi.getter(name="partitionCount")
@@ -188,7 +188,7 @@ class EventHub(pulumi.CustomResource):
                  capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
-                 message_timestamp_type: Optional[pulumi.Input[Union[str, 'TimestampType']]] = None,
+                 message_timestamp_description: Optional[pulumi.Input[pulumi.InputType['MessageTimestampDescriptionArgs']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -204,7 +204,7 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']] capture_description: Properties of capture description
         :param pulumi.Input[str] event_hub_name: The Event Hub name
         :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-        :param pulumi.Input[Union[str, 'TimestampType']] message_timestamp_type: Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+        :param pulumi.Input[pulumi.InputType['MessageTimestampDescriptionArgs']] message_timestamp_description: Properties of MessageTimestamp Description
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
@@ -239,7 +239,7 @@ class EventHub(pulumi.CustomResource):
                  capture_description: Optional[pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
-                 message_timestamp_type: Optional[pulumi.Input[Union[str, 'TimestampType']]] = None,
+                 message_timestamp_description: Optional[pulumi.Input[pulumi.InputType['MessageTimestampDescriptionArgs']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -258,7 +258,7 @@ class EventHub(pulumi.CustomResource):
             __props__.__dict__["capture_description"] = capture_description
             __props__.__dict__["event_hub_name"] = event_hub_name
             __props__.__dict__["message_retention_in_days"] = message_retention_in_days
-            __props__.__dict__["message_timestamp_type"] = message_timestamp_type
+            __props__.__dict__["message_timestamp_description"] = message_timestamp_description
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
@@ -306,7 +306,7 @@ class EventHub(pulumi.CustomResource):
         __props__.__dict__["identifier"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["message_retention_in_days"] = None
-        __props__.__dict__["message_timestamp_type"] = None
+        __props__.__dict__["message_timestamp_description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partition_count"] = None
         __props__.__dict__["partition_ids"] = None
@@ -359,12 +359,12 @@ class EventHub(pulumi.CustomResource):
         return pulumi.get(self, "message_retention_in_days")
 
     @property
-    @pulumi.getter(name="messageTimestampType")
-    def message_timestamp_type(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="messageTimestampDescription")
+    def message_timestamp_description(self) -> pulumi.Output[Optional['outputs.MessageTimestampDescriptionResponse']]:
         """
-        Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+        Properties of MessageTimestamp Description
         """
-        return pulumi.get(self, "message_timestamp_type")
+        return pulumi.get(self, "message_timestamp_description")
 
     @property
     @pulumi.getter

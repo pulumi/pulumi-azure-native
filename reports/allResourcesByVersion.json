@@ -283,6 +283,9 @@
     ],
     "2023-05-01-preview": [
       "AlertProcessingRuleByName"
+    ],
+    "2024-03-01-preview": [
+      "AlertProcessingRuleByName"
     ]
   },
   "AnalysisServices": {
@@ -3531,6 +3534,16 @@
       "RedisEnterprise",
       "listDatabaseKeys"
     ],
+    "2024-03-01": [
+      "AccessPolicy",
+      "AccessPolicyAssignment",
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
+    ],
     "2024-03-01-preview": [
       "Database",
       "EnterprisePrivateEndpointConnection",
@@ -5120,7 +5133,6 @@
     ]
   },
   "ContainerRegistry": {
-    "": [],
     "2017-03-01": [
       "Registry",
       "listRegistryCredentials"
@@ -9276,6 +9288,33 @@
       "MongoCluster",
       "PrivateEndpointConnection",
       "listMongoClusterConnectionStrings"
+    ],
+    "2024-05-15": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "DatabaseAccount",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
     ]
   },
   "DomainRegistration": {
@@ -18472,6 +18511,17 @@
       "ProtectionContainer",
       "ProtectionIntent",
       "ProtectionPolicy",
+      "ReplicationFabric",
+      "ReplicationMigrationItem",
+      "ReplicationNetworkMapping",
+      "ReplicationPolicy",
+      "ReplicationProtectedItem",
+      "ReplicationProtectionCluster",
+      "ReplicationProtectionContainerMapping",
+      "ReplicationRecoveryPlan",
+      "ReplicationRecoveryServicesProvider",
+      "ReplicationStorageClassificationMapping",
+      "ReplicationvCenter",
       "ResourceGuardProxy",
       "Vault"
     ],

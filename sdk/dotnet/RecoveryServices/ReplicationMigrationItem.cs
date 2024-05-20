@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Migration item.
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10.
     /// 
-    /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01.
+    /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationMigrationItem")]
     public partial class ReplicationMigrationItem : global::Pulumi.CustomResource
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230601:ReplicationMigrationItem" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230801:ReplicationMigrationItem" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240101:ReplicationMigrationItem" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240201:ReplicationMigrationItem" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -16,6 +16,10 @@ __all__ = [
     'A2ACrossClusterMigrationPolicyCreationInputArgs',
     'A2AEnableProtectionInputArgs',
     'A2APolicyCreationInputArgs',
+    'A2AProtectedManagedDiskDetailsArgs',
+    'A2AReplicationProtectionClusterDetailsArgs',
+    'A2ASharedDiskReplicationDetailsArgs',
+    'A2AUnprotectedDiskDetailsArgs',
     'A2AVmDiskInputDetailsArgs',
     'A2AVmManagedDiskInputDetailsArgs',
     'AADProperties',
@@ -65,6 +69,7 @@ __all__ = [
     'CreateProtectionContainerMappingInputPropertiesArgs',
     'CreateRecoveryPlanInputPropertiesArgs',
     'CrossSubscriptionRestoreSettingsArgs',
+    'CurrentScenarioDetailsArgs',
     'DPMContainerExtendedInfoArgs',
     'DPMProtectedItemExtendedInfoArgs',
     'DPMProtectedItemArgs',
@@ -86,6 +91,7 @@ __all__ = [
     'GenericContainerArgs',
     'GenericProtectedItemArgs',
     'GenericProtectionPolicyArgs',
+    'HealthErrorArgs',
     'HourlyScheduleArgs',
     'HyperVReplicaAzureDiskInputDetailsArgs',
     'HyperVReplicaAzureEnableProtectionInputArgs',
@@ -110,6 +116,7 @@ __all__ = [
     'InMageRcmFailbackPolicyCreationInputArgs',
     'InMageRcmPolicyCreationInputArgs',
     'InMageVolumeExclusionOptionsArgs',
+    'InnerHealthErrorArgs',
     'InquiryInfoArgs',
     'InquiryValidationArgs',
     'InstantRPAdditionalDetailsArgs',
@@ -136,12 +143,15 @@ __all__ = [
     'RecoveryPlanManualActionDetailsArgs',
     'RecoveryPlanProtectedItemArgs',
     'RecoveryPlanScriptActionDetailsArgs',
+    'RegisteredClusterNodesArgs',
+    'ReplicationProtectionClusterPropertiesArgs',
     'ResourceGuardOperationDetailArgs',
     'ResourceGuardProxyBaseArgs',
     'RestoreSettingsArgs',
     'RetentionDurationArgs',
     'SecuritySettingsArgs',
     'SettingsArgs',
+    'SharedDiskReplicationItemPropertiesArgs',
     'SimpleRetentionPolicyArgs',
     'SimpleSchedulePolicyV2Args',
     'SimpleSchedulePolicyArgs',
@@ -722,6 +732,1032 @@ class A2APolicyCreationInputArgs:
     @recovery_point_history.setter
     def recovery_point_history(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_point_history", value)
+
+
+@pulumi.input_type
+class A2AProtectedManagedDiskDetailsArgs:
+    def __init__(__self__, *,
+                 allowed_disk_level_operation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_pending_at_source_agent_in_mb: Optional[pulumi.Input[float]] = None,
+                 data_pending_in_staging_storage_account_in_mb: Optional[pulumi.Input[float]] = None,
+                 dek_key_vault_arm_id: Optional[pulumi.Input[str]] = None,
+                 disk_capacity_in_bytes: Optional[pulumi.Input[float]] = None,
+                 disk_id: Optional[pulumi.Input[str]] = None,
+                 disk_name: Optional[pulumi.Input[str]] = None,
+                 disk_state: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[str]] = None,
+                 failover_disk_name: Optional[pulumi.Input[str]] = None,
+                 is_disk_encrypted: Optional[pulumi.Input[bool]] = None,
+                 is_disk_key_encrypted: Optional[pulumi.Input[bool]] = None,
+                 kek_key_vault_arm_id: Optional[pulumi.Input[str]] = None,
+                 key_identifier: Optional[pulumi.Input[str]] = None,
+                 monitoring_job_type: Optional[pulumi.Input[str]] = None,
+                 monitoring_percentage_completion: Optional[pulumi.Input[int]] = None,
+                 primary_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 primary_staging_azure_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 recovery_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 recovery_orignal_target_disk_id: Optional[pulumi.Input[str]] = None,
+                 recovery_replica_disk_account_type: Optional[pulumi.Input[str]] = None,
+                 recovery_replica_disk_id: Optional[pulumi.Input[str]] = None,
+                 recovery_resource_group_id: Optional[pulumi.Input[str]] = None,
+                 recovery_target_disk_account_type: Optional[pulumi.Input[str]] = None,
+                 recovery_target_disk_id: Optional[pulumi.Input[str]] = None,
+                 resync_required: Optional[pulumi.Input[bool]] = None,
+                 secret_identifier: Optional[pulumi.Input[str]] = None,
+                 tfo_disk_name: Optional[pulumi.Input[str]] = None):
+        """
+        A2A protected managed disk details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_disk_level_operation: The disk level operations list.
+        :param pulumi.Input[float] data_pending_at_source_agent_in_mb: The data pending at source virtual machine in MB.
+        :param pulumi.Input[float] data_pending_in_staging_storage_account_in_mb: The data pending for replication in MB at staging account.
+        :param pulumi.Input[str] dek_key_vault_arm_id: The KeyVault resource id for secret (BEK).
+        :param pulumi.Input[float] disk_capacity_in_bytes: The disk capacity in bytes.
+        :param pulumi.Input[str] disk_id: The managed disk Arm id.
+        :param pulumi.Input[str] disk_name: The disk name.
+        :param pulumi.Input[str] disk_state: The disk state.
+        :param pulumi.Input[str] disk_type: The type of disk.
+        :param pulumi.Input[str] failover_disk_name: The failover name for the managed disk.
+        :param pulumi.Input[bool] is_disk_encrypted: A value indicating whether vm has encrypted os disk or not.
+        :param pulumi.Input[bool] is_disk_key_encrypted: A value indicating whether disk key got encrypted or not.
+        :param pulumi.Input[str] kek_key_vault_arm_id: The KeyVault resource id for key (KEK).
+        :param pulumi.Input[str] key_identifier: The key URL / identifier (KEK).
+        :param pulumi.Input[str] monitoring_job_type: The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
+        :param pulumi.Input[int] monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+        :param pulumi.Input[str] primary_disk_encryption_set_id: The primary disk encryption set Id.
+        :param pulumi.Input[str] primary_staging_azure_storage_account_id: The primary staging storage account.
+        :param pulumi.Input[str] recovery_disk_encryption_set_id: The recovery disk encryption set Id.
+        :param pulumi.Input[str] recovery_orignal_target_disk_id: Recovery original target disk Arm Id.
+        :param pulumi.Input[str] recovery_replica_disk_account_type: The replica disk type. Its an optional value and will be same as source disk type if not user provided.
+        :param pulumi.Input[str] recovery_replica_disk_id: Recovery replica disk Arm Id.
+        :param pulumi.Input[str] recovery_resource_group_id: The recovery disk resource group Arm Id.
+        :param pulumi.Input[str] recovery_target_disk_account_type: The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
+        :param pulumi.Input[str] recovery_target_disk_id: Recovery target disk Arm Id.
+        :param pulumi.Input[bool] resync_required: A value indicating whether resync is required for this disk.
+        :param pulumi.Input[str] secret_identifier: The secret URL / identifier (BEK).
+        :param pulumi.Input[str] tfo_disk_name: The test failover name for the managed disk.
+        """
+        if allowed_disk_level_operation is not None:
+            pulumi.set(__self__, "allowed_disk_level_operation", allowed_disk_level_operation)
+        if data_pending_at_source_agent_in_mb is not None:
+            pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+        if data_pending_in_staging_storage_account_in_mb is not None:
+            pulumi.set(__self__, "data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
+        if dek_key_vault_arm_id is not None:
+            pulumi.set(__self__, "dek_key_vault_arm_id", dek_key_vault_arm_id)
+        if disk_capacity_in_bytes is not None:
+            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+        if disk_id is not None:
+            pulumi.set(__self__, "disk_id", disk_id)
+        if disk_name is not None:
+            pulumi.set(__self__, "disk_name", disk_name)
+        if disk_state is not None:
+            pulumi.set(__self__, "disk_state", disk_state)
+        if disk_type is not None:
+            pulumi.set(__self__, "disk_type", disk_type)
+        if failover_disk_name is not None:
+            pulumi.set(__self__, "failover_disk_name", failover_disk_name)
+        if is_disk_encrypted is not None:
+            pulumi.set(__self__, "is_disk_encrypted", is_disk_encrypted)
+        if is_disk_key_encrypted is not None:
+            pulumi.set(__self__, "is_disk_key_encrypted", is_disk_key_encrypted)
+        if kek_key_vault_arm_id is not None:
+            pulumi.set(__self__, "kek_key_vault_arm_id", kek_key_vault_arm_id)
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+        if monitoring_job_type is not None:
+            pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
+        if monitoring_percentage_completion is not None:
+            pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+        if primary_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "primary_disk_encryption_set_id", primary_disk_encryption_set_id)
+        if primary_staging_azure_storage_account_id is not None:
+            pulumi.set(__self__, "primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
+        if recovery_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "recovery_disk_encryption_set_id", recovery_disk_encryption_set_id)
+        if recovery_orignal_target_disk_id is not None:
+            pulumi.set(__self__, "recovery_orignal_target_disk_id", recovery_orignal_target_disk_id)
+        if recovery_replica_disk_account_type is not None:
+            pulumi.set(__self__, "recovery_replica_disk_account_type", recovery_replica_disk_account_type)
+        if recovery_replica_disk_id is not None:
+            pulumi.set(__self__, "recovery_replica_disk_id", recovery_replica_disk_id)
+        if recovery_resource_group_id is not None:
+            pulumi.set(__self__, "recovery_resource_group_id", recovery_resource_group_id)
+        if recovery_target_disk_account_type is not None:
+            pulumi.set(__self__, "recovery_target_disk_account_type", recovery_target_disk_account_type)
+        if recovery_target_disk_id is not None:
+            pulumi.set(__self__, "recovery_target_disk_id", recovery_target_disk_id)
+        if resync_required is not None:
+            pulumi.set(__self__, "resync_required", resync_required)
+        if secret_identifier is not None:
+            pulumi.set(__self__, "secret_identifier", secret_identifier)
+        if tfo_disk_name is not None:
+            pulumi.set(__self__, "tfo_disk_name", tfo_disk_name)
+
+    @property
+    @pulumi.getter(name="allowedDiskLevelOperation")
+    def allowed_disk_level_operation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The disk level operations list.
+        """
+        return pulumi.get(self, "allowed_disk_level_operation")
+
+    @allowed_disk_level_operation.setter
+    def allowed_disk_level_operation(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_disk_level_operation", value)
+
+    @property
+    @pulumi.getter(name="dataPendingAtSourceAgentInMB")
+    def data_pending_at_source_agent_in_mb(self) -> Optional[pulumi.Input[float]]:
+        """
+        The data pending at source virtual machine in MB.
+        """
+        return pulumi.get(self, "data_pending_at_source_agent_in_mb")
+
+    @data_pending_at_source_agent_in_mb.setter
+    def data_pending_at_source_agent_in_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "data_pending_at_source_agent_in_mb", value)
+
+    @property
+    @pulumi.getter(name="dataPendingInStagingStorageAccountInMB")
+    def data_pending_in_staging_storage_account_in_mb(self) -> Optional[pulumi.Input[float]]:
+        """
+        The data pending for replication in MB at staging account.
+        """
+        return pulumi.get(self, "data_pending_in_staging_storage_account_in_mb")
+
+    @data_pending_in_staging_storage_account_in_mb.setter
+    def data_pending_in_staging_storage_account_in_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "data_pending_in_staging_storage_account_in_mb", value)
+
+    @property
+    @pulumi.getter(name="dekKeyVaultArmId")
+    def dek_key_vault_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KeyVault resource id for secret (BEK).
+        """
+        return pulumi.get(self, "dek_key_vault_arm_id")
+
+    @dek_key_vault_arm_id.setter
+    def dek_key_vault_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dek_key_vault_arm_id", value)
+
+    @property
+    @pulumi.getter(name="diskCapacityInBytes")
+    def disk_capacity_in_bytes(self) -> Optional[pulumi.Input[float]]:
+        """
+        The disk capacity in bytes.
+        """
+        return pulumi.get(self, "disk_capacity_in_bytes")
+
+    @disk_capacity_in_bytes.setter
+    def disk_capacity_in_bytes(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "disk_capacity_in_bytes", value)
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed disk Arm id.
+        """
+        return pulumi.get(self, "disk_id")
+
+    @disk_id.setter
+    def disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_id", value)
+
+    @property
+    @pulumi.getter(name="diskName")
+    def disk_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk name.
+        """
+        return pulumi.get(self, "disk_name")
+
+    @disk_name.setter
+    def disk_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_name", value)
+
+    @property
+    @pulumi.getter(name="diskState")
+    def disk_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk state.
+        """
+        return pulumi.get(self, "disk_state")
+
+    @disk_state.setter
+    def disk_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_state", value)
+
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of disk.
+        """
+        return pulumi.get(self, "disk_type")
+
+    @disk_type.setter
+    def disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_type", value)
+
+    @property
+    @pulumi.getter(name="failoverDiskName")
+    def failover_disk_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The failover name for the managed disk.
+        """
+        return pulumi.get(self, "failover_disk_name")
+
+    @failover_disk_name.setter
+    def failover_disk_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "failover_disk_name", value)
+
+    @property
+    @pulumi.getter(name="isDiskEncrypted")
+    def is_disk_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value indicating whether vm has encrypted os disk or not.
+        """
+        return pulumi.get(self, "is_disk_encrypted")
+
+    @is_disk_encrypted.setter
+    def is_disk_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_disk_encrypted", value)
+
+    @property
+    @pulumi.getter(name="isDiskKeyEncrypted")
+    def is_disk_key_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value indicating whether disk key got encrypted or not.
+        """
+        return pulumi.get(self, "is_disk_key_encrypted")
+
+    @is_disk_key_encrypted.setter
+    def is_disk_key_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_disk_key_encrypted", value)
+
+    @property
+    @pulumi.getter(name="kekKeyVaultArmId")
+    def kek_key_vault_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The KeyVault resource id for key (KEK).
+        """
+        return pulumi.get(self, "kek_key_vault_arm_id")
+
+    @kek_key_vault_arm_id.setter
+    def kek_key_vault_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kek_key_vault_arm_id", value)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key URL / identifier (KEK).
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_identifier", value)
+
+    @property
+    @pulumi.getter(name="monitoringJobType")
+    def monitoring_job_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
+        """
+        return pulumi.get(self, "monitoring_job_type")
+
+    @monitoring_job_type.setter
+    def monitoring_job_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_job_type", value)
+
+    @property
+    @pulumi.getter(name="monitoringPercentageCompletion")
+    def monitoring_percentage_completion(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+        """
+        return pulumi.get(self, "monitoring_percentage_completion")
+
+    @monitoring_percentage_completion.setter
+    def monitoring_percentage_completion(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitoring_percentage_completion", value)
+
+    @property
+    @pulumi.getter(name="primaryDiskEncryptionSetId")
+    def primary_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary disk encryption set Id.
+        """
+        return pulumi.get(self, "primary_disk_encryption_set_id")
+
+    @primary_disk_encryption_set_id.setter
+    def primary_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="primaryStagingAzureStorageAccountId")
+    def primary_staging_azure_storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary staging storage account.
+        """
+        return pulumi.get(self, "primary_staging_azure_storage_account_id")
+
+    @primary_staging_azure_storage_account_id.setter
+    def primary_staging_azure_storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_staging_azure_storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryDiskEncryptionSetId")
+    def recovery_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery disk encryption set Id.
+        """
+        return pulumi.get(self, "recovery_disk_encryption_set_id")
+
+    @recovery_disk_encryption_set_id.setter
+    def recovery_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryOrignalTargetDiskId")
+    def recovery_orignal_target_disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recovery original target disk Arm Id.
+        """
+        return pulumi.get(self, "recovery_orignal_target_disk_id")
+
+    @recovery_orignal_target_disk_id.setter
+    def recovery_orignal_target_disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_orignal_target_disk_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryReplicaDiskAccountType")
+    def recovery_replica_disk_account_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The replica disk type. Its an optional value and will be same as source disk type if not user provided.
+        """
+        return pulumi.get(self, "recovery_replica_disk_account_type")
+
+    @recovery_replica_disk_account_type.setter
+    def recovery_replica_disk_account_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_replica_disk_account_type", value)
+
+    @property
+    @pulumi.getter(name="recoveryReplicaDiskId")
+    def recovery_replica_disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recovery replica disk Arm Id.
+        """
+        return pulumi.get(self, "recovery_replica_disk_id")
+
+    @recovery_replica_disk_id.setter
+    def recovery_replica_disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_replica_disk_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryResourceGroupId")
+    def recovery_resource_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery disk resource group Arm Id.
+        """
+        return pulumi.get(self, "recovery_resource_group_id")
+
+    @recovery_resource_group_id.setter
+    def recovery_resource_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_resource_group_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryTargetDiskAccountType")
+    def recovery_target_disk_account_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The target disk type after failover. Its an optional value and will be same as source disk type if not user provided.
+        """
+        return pulumi.get(self, "recovery_target_disk_account_type")
+
+    @recovery_target_disk_account_type.setter
+    def recovery_target_disk_account_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_target_disk_account_type", value)
+
+    @property
+    @pulumi.getter(name="recoveryTargetDiskId")
+    def recovery_target_disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recovery target disk Arm Id.
+        """
+        return pulumi.get(self, "recovery_target_disk_id")
+
+    @recovery_target_disk_id.setter
+    def recovery_target_disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_target_disk_id", value)
+
+    @property
+    @pulumi.getter(name="resyncRequired")
+    def resync_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value indicating whether resync is required for this disk.
+        """
+        return pulumi.get(self, "resync_required")
+
+    @resync_required.setter
+    def resync_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "resync_required", value)
+
+    @property
+    @pulumi.getter(name="secretIdentifier")
+    def secret_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secret URL / identifier (BEK).
+        """
+        return pulumi.get(self, "secret_identifier")
+
+    @secret_identifier.setter
+    def secret_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_identifier", value)
+
+    @property
+    @pulumi.getter(name="tfoDiskName")
+    def tfo_disk_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The test failover name for the managed disk.
+        """
+        return pulumi.get(self, "tfo_disk_name")
+
+    @tfo_disk_name.setter
+    def tfo_disk_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tfo_disk_name", value)
+
+
+@pulumi.input_type
+class A2AReplicationProtectionClusterDetailsArgs:
+    def __init__(__self__, *,
+                 instance_type: pulumi.Input[str],
+                 cluster_management_id: Optional[pulumi.Input[str]] = None,
+                 failover_recovery_point_id: Optional[pulumi.Input[str]] = None,
+                 initial_primary_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 initial_primary_fabric_location: Optional[pulumi.Input[str]] = None,
+                 initial_primary_zone: Optional[pulumi.Input[str]] = None,
+                 initial_recovery_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 initial_recovery_fabric_location: Optional[pulumi.Input[str]] = None,
+                 initial_recovery_zone: Optional[pulumi.Input[str]] = None,
+                 last_rpo_calculated_time: Optional[pulumi.Input[str]] = None,
+                 lifecycle_id: Optional[pulumi.Input[str]] = None,
+                 multi_vm_group_create_option: Optional[pulumi.Input[Union[str, 'MultiVmGroupCreateOption']]] = None,
+                 multi_vm_group_id: Optional[pulumi.Input[str]] = None,
+                 multi_vm_group_name: Optional[pulumi.Input[str]] = None,
+                 primary_availability_zone: Optional[pulumi.Input[str]] = None,
+                 primary_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 primary_fabric_location: Optional[pulumi.Input[str]] = None,
+                 recovery_availability_zone: Optional[pulumi.Input[str]] = None,
+                 recovery_extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 recovery_fabric_location: Optional[pulumi.Input[str]] = None,
+                 rpo_in_seconds: Optional[pulumi.Input[float]] = None):
+        """
+        A2A provider specific settings.
+        :param pulumi.Input[str] instance_type: Gets the Instance type.
+               Expected value is 'A2A'.
+        :param pulumi.Input[str] cluster_management_id: The cluster management Id.
+        :param pulumi.Input[str] failover_recovery_point_id: The recovery point Id to which the cluster was failed over.
+        :param pulumi.Input['ExtendedLocationArgs'] initial_primary_extended_location: The initial primary extended location.
+        :param pulumi.Input[str] initial_primary_fabric_location: The initial primary fabric location.
+        :param pulumi.Input[str] initial_primary_zone: The initial primary availability zone.
+        :param pulumi.Input['ExtendedLocationArgs'] initial_recovery_extended_location: The initial recovery extended location.
+        :param pulumi.Input[str] initial_recovery_fabric_location: The initial recovery fabric location.
+        :param pulumi.Input[str] initial_recovery_zone: The initial recovery availability zone.
+        :param pulumi.Input[str] last_rpo_calculated_time: The time (in UTC) when the last RPO value was calculated by Protection Service.
+        :param pulumi.Input[str] lifecycle_id: An id that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected cluster even though other internal Ids/ARM Id might be changing.
+        :param pulumi.Input[Union[str, 'MultiVmGroupCreateOption']] multi_vm_group_create_option: Whether Multi VM group is auto created or specified by user.
+        :param pulumi.Input[str] multi_vm_group_id: The multi vm group Id.
+        :param pulumi.Input[str] multi_vm_group_name: The multi vm group name.
+        :param pulumi.Input[str] primary_availability_zone: The primary availability zone.
+        :param pulumi.Input['ExtendedLocationArgs'] primary_extended_location: The primary Extended Location.
+        :param pulumi.Input[str] primary_fabric_location: Primary fabric location.
+        :param pulumi.Input[str] recovery_availability_zone: The recovery availability zone.
+        :param pulumi.Input['ExtendedLocationArgs'] recovery_extended_location: The recovery Extended Location.
+        :param pulumi.Input[str] recovery_fabric_location: The recovery fabric location.
+        :param pulumi.Input[float] rpo_in_seconds: The last RPO value in seconds.
+        """
+        pulumi.set(__self__, "instance_type", 'A2A')
+        if cluster_management_id is not None:
+            pulumi.set(__self__, "cluster_management_id", cluster_management_id)
+        if failover_recovery_point_id is not None:
+            pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
+        if initial_primary_extended_location is not None:
+            pulumi.set(__self__, "initial_primary_extended_location", initial_primary_extended_location)
+        if initial_primary_fabric_location is not None:
+            pulumi.set(__self__, "initial_primary_fabric_location", initial_primary_fabric_location)
+        if initial_primary_zone is not None:
+            pulumi.set(__self__, "initial_primary_zone", initial_primary_zone)
+        if initial_recovery_extended_location is not None:
+            pulumi.set(__self__, "initial_recovery_extended_location", initial_recovery_extended_location)
+        if initial_recovery_fabric_location is not None:
+            pulumi.set(__self__, "initial_recovery_fabric_location", initial_recovery_fabric_location)
+        if initial_recovery_zone is not None:
+            pulumi.set(__self__, "initial_recovery_zone", initial_recovery_zone)
+        if last_rpo_calculated_time is not None:
+            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+        if lifecycle_id is not None:
+            pulumi.set(__self__, "lifecycle_id", lifecycle_id)
+        if multi_vm_group_create_option is not None:
+            pulumi.set(__self__, "multi_vm_group_create_option", multi_vm_group_create_option)
+        if multi_vm_group_id is not None:
+            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+        if multi_vm_group_name is not None:
+            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+        if primary_availability_zone is not None:
+            pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
+        if primary_extended_location is not None:
+            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+        if primary_fabric_location is not None:
+            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+        if recovery_availability_zone is not None:
+            pulumi.set(__self__, "recovery_availability_zone", recovery_availability_zone)
+        if recovery_extended_location is not None:
+            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+        if recovery_fabric_location is not None:
+            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+        if rpo_in_seconds is not None:
+            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        """
+        Gets the Instance type.
+        Expected value is 'A2A'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="clusterManagementId")
+    def cluster_management_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster management Id.
+        """
+        return pulumi.get(self, "cluster_management_id")
+
+    @cluster_management_id.setter
+    def cluster_management_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_management_id", value)
+
+    @property
+    @pulumi.getter(name="failoverRecoveryPointId")
+    def failover_recovery_point_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery point Id to which the cluster was failed over.
+        """
+        return pulumi.get(self, "failover_recovery_point_id")
+
+    @failover_recovery_point_id.setter
+    def failover_recovery_point_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "failover_recovery_point_id", value)
+
+    @property
+    @pulumi.getter(name="initialPrimaryExtendedLocation")
+    def initial_primary_extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The initial primary extended location.
+        """
+        return pulumi.get(self, "initial_primary_extended_location")
+
+    @initial_primary_extended_location.setter
+    def initial_primary_extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "initial_primary_extended_location", value)
+
+    @property
+    @pulumi.getter(name="initialPrimaryFabricLocation")
+    def initial_primary_fabric_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The initial primary fabric location.
+        """
+        return pulumi.get(self, "initial_primary_fabric_location")
+
+    @initial_primary_fabric_location.setter
+    def initial_primary_fabric_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_primary_fabric_location", value)
+
+    @property
+    @pulumi.getter(name="initialPrimaryZone")
+    def initial_primary_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The initial primary availability zone.
+        """
+        return pulumi.get(self, "initial_primary_zone")
+
+    @initial_primary_zone.setter
+    def initial_primary_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_primary_zone", value)
+
+    @property
+    @pulumi.getter(name="initialRecoveryExtendedLocation")
+    def initial_recovery_extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The initial recovery extended location.
+        """
+        return pulumi.get(self, "initial_recovery_extended_location")
+
+    @initial_recovery_extended_location.setter
+    def initial_recovery_extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "initial_recovery_extended_location", value)
+
+    @property
+    @pulumi.getter(name="initialRecoveryFabricLocation")
+    def initial_recovery_fabric_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The initial recovery fabric location.
+        """
+        return pulumi.get(self, "initial_recovery_fabric_location")
+
+    @initial_recovery_fabric_location.setter
+    def initial_recovery_fabric_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_recovery_fabric_location", value)
+
+    @property
+    @pulumi.getter(name="initialRecoveryZone")
+    def initial_recovery_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The initial recovery availability zone.
+        """
+        return pulumi.get(self, "initial_recovery_zone")
+
+    @initial_recovery_zone.setter
+    def initial_recovery_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_recovery_zone", value)
+
+    @property
+    @pulumi.getter(name="lastRpoCalculatedTime")
+    def last_rpo_calculated_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time (in UTC) when the last RPO value was calculated by Protection Service.
+        """
+        return pulumi.get(self, "last_rpo_calculated_time")
+
+    @last_rpo_calculated_time.setter
+    def last_rpo_calculated_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_rpo_calculated_time", value)
+
+    @property
+    @pulumi.getter(name="lifecycleId")
+    def lifecycle_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An id that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected cluster even though other internal Ids/ARM Id might be changing.
+        """
+        return pulumi.get(self, "lifecycle_id")
+
+    @lifecycle_id.setter
+    def lifecycle_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lifecycle_id", value)
+
+    @property
+    @pulumi.getter(name="multiVmGroupCreateOption")
+    def multi_vm_group_create_option(self) -> Optional[pulumi.Input[Union[str, 'MultiVmGroupCreateOption']]]:
+        """
+        Whether Multi VM group is auto created or specified by user.
+        """
+        return pulumi.get(self, "multi_vm_group_create_option")
+
+    @multi_vm_group_create_option.setter
+    def multi_vm_group_create_option(self, value: Optional[pulumi.Input[Union[str, 'MultiVmGroupCreateOption']]]):
+        pulumi.set(self, "multi_vm_group_create_option", value)
+
+    @property
+    @pulumi.getter(name="multiVmGroupId")
+    def multi_vm_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The multi vm group Id.
+        """
+        return pulumi.get(self, "multi_vm_group_id")
+
+    @multi_vm_group_id.setter
+    def multi_vm_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multi_vm_group_id", value)
+
+    @property
+    @pulumi.getter(name="multiVmGroupName")
+    def multi_vm_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The multi vm group name.
+        """
+        return pulumi.get(self, "multi_vm_group_name")
+
+    @multi_vm_group_name.setter
+    def multi_vm_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multi_vm_group_name", value)
+
+    @property
+    @pulumi.getter(name="primaryAvailabilityZone")
+    def primary_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary availability zone.
+        """
+        return pulumi.get(self, "primary_availability_zone")
+
+    @primary_availability_zone.setter
+    def primary_availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_availability_zone", value)
+
+    @property
+    @pulumi.getter(name="primaryExtendedLocation")
+    def primary_extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The primary Extended Location.
+        """
+        return pulumi.get(self, "primary_extended_location")
+
+    @primary_extended_location.setter
+    def primary_extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "primary_extended_location", value)
+
+    @property
+    @pulumi.getter(name="primaryFabricLocation")
+    def primary_fabric_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary fabric location.
+        """
+        return pulumi.get(self, "primary_fabric_location")
+
+    @primary_fabric_location.setter
+    def primary_fabric_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_fabric_location", value)
+
+    @property
+    @pulumi.getter(name="recoveryAvailabilityZone")
+    def recovery_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery availability zone.
+        """
+        return pulumi.get(self, "recovery_availability_zone")
+
+    @recovery_availability_zone.setter
+    def recovery_availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_availability_zone", value)
+
+    @property
+    @pulumi.getter(name="recoveryExtendedLocation")
+    def recovery_extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The recovery Extended Location.
+        """
+        return pulumi.get(self, "recovery_extended_location")
+
+    @recovery_extended_location.setter
+    def recovery_extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "recovery_extended_location", value)
+
+    @property
+    @pulumi.getter(name="recoveryFabricLocation")
+    def recovery_fabric_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery fabric location.
+        """
+        return pulumi.get(self, "recovery_fabric_location")
+
+    @recovery_fabric_location.setter
+    def recovery_fabric_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_fabric_location", value)
+
+    @property
+    @pulumi.getter(name="rpoInSeconds")
+    def rpo_in_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The last RPO value in seconds.
+        """
+        return pulumi.get(self, "rpo_in_seconds")
+
+    @rpo_in_seconds.setter
+    def rpo_in_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "rpo_in_seconds", value)
+
+
+@pulumi.input_type
+class A2ASharedDiskReplicationDetailsArgs:
+    def __init__(__self__, *,
+                 instance_type: pulumi.Input[str],
+                 failover_recovery_point_id: Optional[pulumi.Input[str]] = None,
+                 last_rpo_calculated_time: Optional[pulumi.Input[str]] = None,
+                 management_id: Optional[pulumi.Input[str]] = None,
+                 monitoring_job_type: Optional[pulumi.Input[str]] = None,
+                 monitoring_percentage_completion: Optional[pulumi.Input[int]] = None,
+                 primary_fabric_location: Optional[pulumi.Input[str]] = None,
+                 protected_managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['A2AProtectedManagedDiskDetailsArgs']]]] = None,
+                 recovery_fabric_location: Optional[pulumi.Input[str]] = None,
+                 rpo_in_seconds: Optional[pulumi.Input[float]] = None,
+                 unprotected_disks: Optional[pulumi.Input[Sequence[pulumi.Input['A2AUnprotectedDiskDetailsArgs']]]] = None):
+        """
+        A2A provider specific settings.
+        :param pulumi.Input[str] instance_type: Gets the Instance type.
+               Expected value is 'A2A'.
+        :param pulumi.Input[str] failover_recovery_point_id: The recovery point id to which the Virtual node was failed over.
+        :param pulumi.Input[str] last_rpo_calculated_time: The time (in UTC) when the last RPO value was calculated by Protection Service.
+        :param pulumi.Input[str] management_id: The management Id.
+        :param pulumi.Input[str] monitoring_job_type: The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
+        :param pulumi.Input[int] monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+        :param pulumi.Input[str] primary_fabric_location: Primary fabric location.
+        :param pulumi.Input[Sequence[pulumi.Input['A2AProtectedManagedDiskDetailsArgs']]] protected_managed_disks: The list of protected managed disks.
+        :param pulumi.Input[str] recovery_fabric_location: The recovery fabric location.
+        :param pulumi.Input[float] rpo_in_seconds: The last RPO value in seconds.
+        :param pulumi.Input[Sequence[pulumi.Input['A2AUnprotectedDiskDetailsArgs']]] unprotected_disks: The list of unprotected disks.
+        """
+        pulumi.set(__self__, "instance_type", 'A2A')
+        if failover_recovery_point_id is not None:
+            pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
+        if last_rpo_calculated_time is not None:
+            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+        if management_id is not None:
+            pulumi.set(__self__, "management_id", management_id)
+        if monitoring_job_type is not None:
+            pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
+        if monitoring_percentage_completion is not None:
+            pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+        if primary_fabric_location is not None:
+            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+        if protected_managed_disks is not None:
+            pulumi.set(__self__, "protected_managed_disks", protected_managed_disks)
+        if recovery_fabric_location is not None:
+            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+        if rpo_in_seconds is not None:
+            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+        if unprotected_disks is not None:
+            pulumi.set(__self__, "unprotected_disks", unprotected_disks)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        """
+        Gets the Instance type.
+        Expected value is 'A2A'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="failoverRecoveryPointId")
+    def failover_recovery_point_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery point id to which the Virtual node was failed over.
+        """
+        return pulumi.get(self, "failover_recovery_point_id")
+
+    @failover_recovery_point_id.setter
+    def failover_recovery_point_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "failover_recovery_point_id", value)
+
+    @property
+    @pulumi.getter(name="lastRpoCalculatedTime")
+    def last_rpo_calculated_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time (in UTC) when the last RPO value was calculated by Protection Service.
+        """
+        return pulumi.get(self, "last_rpo_calculated_time")
+
+    @last_rpo_calculated_time.setter
+    def last_rpo_calculated_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_rpo_calculated_time", value)
+
+    @property
+    @pulumi.getter(name="managementId")
+    def management_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The management Id.
+        """
+        return pulumi.get(self, "management_id")
+
+    @management_id.setter
+    def management_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "management_id", value)
+
+    @property
+    @pulumi.getter(name="monitoringJobType")
+    def monitoring_job_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
+        """
+        return pulumi.get(self, "monitoring_job_type")
+
+    @monitoring_job_type.setter
+    def monitoring_job_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_job_type", value)
+
+    @property
+    @pulumi.getter(name="monitoringPercentageCompletion")
+    def monitoring_percentage_completion(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+        """
+        return pulumi.get(self, "monitoring_percentage_completion")
+
+    @monitoring_percentage_completion.setter
+    def monitoring_percentage_completion(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitoring_percentage_completion", value)
+
+    @property
+    @pulumi.getter(name="primaryFabricLocation")
+    def primary_fabric_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary fabric location.
+        """
+        return pulumi.get(self, "primary_fabric_location")
+
+    @primary_fabric_location.setter
+    def primary_fabric_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_fabric_location", value)
+
+    @property
+    @pulumi.getter(name="protectedManagedDisks")
+    def protected_managed_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['A2AProtectedManagedDiskDetailsArgs']]]]:
+        """
+        The list of protected managed disks.
+        """
+        return pulumi.get(self, "protected_managed_disks")
+
+    @protected_managed_disks.setter
+    def protected_managed_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['A2AProtectedManagedDiskDetailsArgs']]]]):
+        pulumi.set(self, "protected_managed_disks", value)
+
+    @property
+    @pulumi.getter(name="recoveryFabricLocation")
+    def recovery_fabric_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery fabric location.
+        """
+        return pulumi.get(self, "recovery_fabric_location")
+
+    @recovery_fabric_location.setter
+    def recovery_fabric_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_fabric_location", value)
+
+    @property
+    @pulumi.getter(name="rpoInSeconds")
+    def rpo_in_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The last RPO value in seconds.
+        """
+        return pulumi.get(self, "rpo_in_seconds")
+
+    @rpo_in_seconds.setter
+    def rpo_in_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "rpo_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="unprotectedDisks")
+    def unprotected_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['A2AUnprotectedDiskDetailsArgs']]]]:
+        """
+        The list of unprotected disks.
+        """
+        return pulumi.get(self, "unprotected_disks")
+
+    @unprotected_disks.setter
+    def unprotected_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['A2AUnprotectedDiskDetailsArgs']]]]):
+        pulumi.set(self, "unprotected_disks", value)
+
+
+@pulumi.input_type
+class A2AUnprotectedDiskDetailsArgs:
+    def __init__(__self__, *,
+                 disk_auto_protection_status: Optional[pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']]] = None,
+                 disk_lun_id: Optional[pulumi.Input[int]] = None):
+        """
+        A2A unprotected disk details.
+        :param pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']] disk_auto_protection_status: A value indicating whether the disk auto protection is enabled.
+        :param pulumi.Input[int] disk_lun_id: The source lun Id for the data disk.
+        """
+        if disk_auto_protection_status is not None:
+            pulumi.set(__self__, "disk_auto_protection_status", disk_auto_protection_status)
+        if disk_lun_id is not None:
+            pulumi.set(__self__, "disk_lun_id", disk_lun_id)
+
+    @property
+    @pulumi.getter(name="diskAutoProtectionStatus")
+    def disk_auto_protection_status(self) -> Optional[pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']]]:
+        """
+        A value indicating whether the disk auto protection is enabled.
+        """
+        return pulumi.get(self, "disk_auto_protection_status")
+
+    @disk_auto_protection_status.setter
+    def disk_auto_protection_status(self, value: Optional[pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']]]):
+        pulumi.set(self, "disk_auto_protection_status", value)
+
+    @property
+    @pulumi.getter(name="diskLunId")
+    def disk_lun_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The source lun Id for the data disk.
+        """
+        return pulumi.get(self, "disk_lun_id")
+
+    @disk_lun_id.setter
+    def disk_lun_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_lun_id", value)
 
 
 @pulumi.input_type
@@ -8485,6 +9521,62 @@ class CrossSubscriptionRestoreSettingsArgs:
 
 
 @pulumi.input_type
+class CurrentScenarioDetailsArgs:
+    def __init__(__self__, *,
+                 job_id: Optional[pulumi.Input[str]] = None,
+                 scenario_name: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        Current scenario details of the protected entity.
+        :param pulumi.Input[str] job_id: ARM Id of the job being executed.
+        :param pulumi.Input[str] scenario_name: Scenario name.
+        :param pulumi.Input[str] start_time: Start time of the workflow.
+        """
+        if job_id is not None:
+            pulumi.set(__self__, "job_id", job_id)
+        if scenario_name is not None:
+            pulumi.set(__self__, "scenario_name", scenario_name)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM Id of the job being executed.
+        """
+        return pulumi.get(self, "job_id")
+
+    @job_id.setter
+    def job_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_id", value)
+
+    @property
+    @pulumi.getter(name="scenarioName")
+    def scenario_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scenario name.
+        """
+        return pulumi.get(self, "scenario_name")
+
+    @scenario_name.setter
+    def scenario_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scenario_name", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Start time of the workflow.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
 class DPMContainerExtendedInfoArgs:
     def __init__(__self__, *,
                  last_refreshed_at: Optional[pulumi.Input[str]] = None):
@@ -10471,6 +11563,254 @@ class GenericProtectionPolicyArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class HealthErrorArgs:
+    def __init__(__self__, *,
+                 creation_time_utc: Optional[pulumi.Input[str]] = None,
+                 customer_resolvability: Optional[pulumi.Input[Union[str, 'HealthErrorCustomerResolvability']]] = None,
+                 entity_id: Optional[pulumi.Input[str]] = None,
+                 error_category: Optional[pulumi.Input[str]] = None,
+                 error_code: Optional[pulumi.Input[str]] = None,
+                 error_id: Optional[pulumi.Input[str]] = None,
+                 error_level: Optional[pulumi.Input[str]] = None,
+                 error_message: Optional[pulumi.Input[str]] = None,
+                 error_source: Optional[pulumi.Input[str]] = None,
+                 error_type: Optional[pulumi.Input[str]] = None,
+                 inner_health_errors: Optional[pulumi.Input[Sequence[pulumi.Input['InnerHealthErrorArgs']]]] = None,
+                 possible_causes: Optional[pulumi.Input[str]] = None,
+                 recommended_action: Optional[pulumi.Input[str]] = None,
+                 recovery_provider_error_message: Optional[pulumi.Input[str]] = None,
+                 summary_message: Optional[pulumi.Input[str]] = None):
+        """
+        Health Error.
+        :param pulumi.Input[str] creation_time_utc: Error creation time (UTC).
+        :param pulumi.Input[Union[str, 'HealthErrorCustomerResolvability']] customer_resolvability: Value indicating whether the health error is customer resolvable.
+        :param pulumi.Input[str] entity_id: ID of the entity.
+        :param pulumi.Input[str] error_category: Category of error.
+        :param pulumi.Input[str] error_code: Error code.
+        :param pulumi.Input[str] error_id: The health error unique id.
+        :param pulumi.Input[str] error_level: Level of error.
+        :param pulumi.Input[str] error_message: Error message.
+        :param pulumi.Input[str] error_source: Source of error.
+        :param pulumi.Input[str] error_type: Type of error.
+        :param pulumi.Input[Sequence[pulumi.Input['InnerHealthErrorArgs']]] inner_health_errors: The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+        :param pulumi.Input[str] possible_causes: Possible causes of error.
+        :param pulumi.Input[str] recommended_action: Recommended action to resolve error.
+        :param pulumi.Input[str] recovery_provider_error_message: DRA error message.
+        :param pulumi.Input[str] summary_message: Summary message of the entity.
+        """
+        if creation_time_utc is not None:
+            pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+        if customer_resolvability is not None:
+            pulumi.set(__self__, "customer_resolvability", customer_resolvability)
+        if entity_id is not None:
+            pulumi.set(__self__, "entity_id", entity_id)
+        if error_category is not None:
+            pulumi.set(__self__, "error_category", error_category)
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_id is not None:
+            pulumi.set(__self__, "error_id", error_id)
+        if error_level is not None:
+            pulumi.set(__self__, "error_level", error_level)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if error_source is not None:
+            pulumi.set(__self__, "error_source", error_source)
+        if error_type is not None:
+            pulumi.set(__self__, "error_type", error_type)
+        if inner_health_errors is not None:
+            pulumi.set(__self__, "inner_health_errors", inner_health_errors)
+        if possible_causes is not None:
+            pulumi.set(__self__, "possible_causes", possible_causes)
+        if recommended_action is not None:
+            pulumi.set(__self__, "recommended_action", recommended_action)
+        if recovery_provider_error_message is not None:
+            pulumi.set(__self__, "recovery_provider_error_message", recovery_provider_error_message)
+        if summary_message is not None:
+            pulumi.set(__self__, "summary_message", summary_message)
+
+    @property
+    @pulumi.getter(name="creationTimeUtc")
+    def creation_time_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Error creation time (UTC).
+        """
+        return pulumi.get(self, "creation_time_utc")
+
+    @creation_time_utc.setter
+    def creation_time_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_time_utc", value)
+
+    @property
+    @pulumi.getter(name="customerResolvability")
+    def customer_resolvability(self) -> Optional[pulumi.Input[Union[str, 'HealthErrorCustomerResolvability']]]:
+        """
+        Value indicating whether the health error is customer resolvable.
+        """
+        return pulumi.get(self, "customer_resolvability")
+
+    @customer_resolvability.setter
+    def customer_resolvability(self, value: Optional[pulumi.Input[Union[str, 'HealthErrorCustomerResolvability']]]):
+        pulumi.set(self, "customer_resolvability", value)
+
+    @property
+    @pulumi.getter(name="entityId")
+    def entity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the entity.
+        """
+        return pulumi.get(self, "entity_id")
+
+    @entity_id.setter
+    def entity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_id", value)
+
+    @property
+    @pulumi.getter(name="errorCategory")
+    def error_category(self) -> Optional[pulumi.Input[str]]:
+        """
+        Category of error.
+        """
+        return pulumi.get(self, "error_category")
+
+    @error_category.setter
+    def error_category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_category", value)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        Error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @error_code.setter
+    def error_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_code", value)
+
+    @property
+    @pulumi.getter(name="errorId")
+    def error_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The health error unique id.
+        """
+        return pulumi.get(self, "error_id")
+
+    @error_id.setter
+    def error_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_id", value)
+
+    @property
+    @pulumi.getter(name="errorLevel")
+    def error_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Level of error.
+        """
+        return pulumi.get(self, "error_level")
+
+    @error_level.setter
+    def error_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_level", value)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @error_message.setter
+    def error_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_message", value)
+
+    @property
+    @pulumi.getter(name="errorSource")
+    def error_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source of error.
+        """
+        return pulumi.get(self, "error_source")
+
+    @error_source.setter
+    def error_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_source", value)
+
+    @property
+    @pulumi.getter(name="errorType")
+    def error_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of error.
+        """
+        return pulumi.get(self, "error_type")
+
+    @error_type.setter
+    def error_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_type", value)
+
+    @property
+    @pulumi.getter(name="innerHealthErrors")
+    def inner_health_errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InnerHealthErrorArgs']]]]:
+        """
+        The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+        """
+        return pulumi.get(self, "inner_health_errors")
+
+    @inner_health_errors.setter
+    def inner_health_errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InnerHealthErrorArgs']]]]):
+        pulumi.set(self, "inner_health_errors", value)
+
+    @property
+    @pulumi.getter(name="possibleCauses")
+    def possible_causes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible causes of error.
+        """
+        return pulumi.get(self, "possible_causes")
+
+    @possible_causes.setter
+    def possible_causes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "possible_causes", value)
+
+    @property
+    @pulumi.getter(name="recommendedAction")
+    def recommended_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recommended action to resolve error.
+        """
+        return pulumi.get(self, "recommended_action")
+
+    @recommended_action.setter
+    def recommended_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recommended_action", value)
+
+    @property
+    @pulumi.getter(name="recoveryProviderErrorMessage")
+    def recovery_provider_error_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        DRA error message.
+        """
+        return pulumi.get(self, "recovery_provider_error_message")
+
+    @recovery_provider_error_message.setter
+    def recovery_provider_error_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_provider_error_message", value)
+
+    @property
+    @pulumi.getter(name="summaryMessage")
+    def summary_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Summary message of the entity.
+        """
+        return pulumi.get(self, "summary_message")
+
+    @summary_message.setter
+    def summary_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "summary_message", value)
 
 
 @pulumi.input_type
@@ -13506,6 +14846,238 @@ class InMageVolumeExclusionOptionsArgs:
 
 
 @pulumi.input_type
+class InnerHealthErrorArgs:
+    def __init__(__self__, *,
+                 creation_time_utc: Optional[pulumi.Input[str]] = None,
+                 customer_resolvability: Optional[pulumi.Input[Union[str, 'HealthErrorCustomerResolvability']]] = None,
+                 entity_id: Optional[pulumi.Input[str]] = None,
+                 error_category: Optional[pulumi.Input[str]] = None,
+                 error_code: Optional[pulumi.Input[str]] = None,
+                 error_id: Optional[pulumi.Input[str]] = None,
+                 error_level: Optional[pulumi.Input[str]] = None,
+                 error_message: Optional[pulumi.Input[str]] = None,
+                 error_source: Optional[pulumi.Input[str]] = None,
+                 error_type: Optional[pulumi.Input[str]] = None,
+                 possible_causes: Optional[pulumi.Input[str]] = None,
+                 recommended_action: Optional[pulumi.Input[str]] = None,
+                 recovery_provider_error_message: Optional[pulumi.Input[str]] = None,
+                 summary_message: Optional[pulumi.Input[str]] = None):
+        """
+        Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
+        :param pulumi.Input[str] creation_time_utc: Error creation time (UTC).
+        :param pulumi.Input[Union[str, 'HealthErrorCustomerResolvability']] customer_resolvability: Value indicating whether the health error is customer resolvable.
+        :param pulumi.Input[str] entity_id: ID of the entity.
+        :param pulumi.Input[str] error_category: Category of error.
+        :param pulumi.Input[str] error_code: Error code.
+        :param pulumi.Input[str] error_id: The health error unique id.
+        :param pulumi.Input[str] error_level: Level of error.
+        :param pulumi.Input[str] error_message: Error message.
+        :param pulumi.Input[str] error_source: Source of error.
+        :param pulumi.Input[str] error_type: Type of error.
+        :param pulumi.Input[str] possible_causes: Possible causes of error.
+        :param pulumi.Input[str] recommended_action: Recommended action to resolve error.
+        :param pulumi.Input[str] recovery_provider_error_message: DRA error message.
+        :param pulumi.Input[str] summary_message: Summary message of the entity.
+        """
+        if creation_time_utc is not None:
+            pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+        if customer_resolvability is not None:
+            pulumi.set(__self__, "customer_resolvability", customer_resolvability)
+        if entity_id is not None:
+            pulumi.set(__self__, "entity_id", entity_id)
+        if error_category is not None:
+            pulumi.set(__self__, "error_category", error_category)
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_id is not None:
+            pulumi.set(__self__, "error_id", error_id)
+        if error_level is not None:
+            pulumi.set(__self__, "error_level", error_level)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if error_source is not None:
+            pulumi.set(__self__, "error_source", error_source)
+        if error_type is not None:
+            pulumi.set(__self__, "error_type", error_type)
+        if possible_causes is not None:
+            pulumi.set(__self__, "possible_causes", possible_causes)
+        if recommended_action is not None:
+            pulumi.set(__self__, "recommended_action", recommended_action)
+        if recovery_provider_error_message is not None:
+            pulumi.set(__self__, "recovery_provider_error_message", recovery_provider_error_message)
+        if summary_message is not None:
+            pulumi.set(__self__, "summary_message", summary_message)
+
+    @property
+    @pulumi.getter(name="creationTimeUtc")
+    def creation_time_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Error creation time (UTC).
+        """
+        return pulumi.get(self, "creation_time_utc")
+
+    @creation_time_utc.setter
+    def creation_time_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_time_utc", value)
+
+    @property
+    @pulumi.getter(name="customerResolvability")
+    def customer_resolvability(self) -> Optional[pulumi.Input[Union[str, 'HealthErrorCustomerResolvability']]]:
+        """
+        Value indicating whether the health error is customer resolvable.
+        """
+        return pulumi.get(self, "customer_resolvability")
+
+    @customer_resolvability.setter
+    def customer_resolvability(self, value: Optional[pulumi.Input[Union[str, 'HealthErrorCustomerResolvability']]]):
+        pulumi.set(self, "customer_resolvability", value)
+
+    @property
+    @pulumi.getter(name="entityId")
+    def entity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the entity.
+        """
+        return pulumi.get(self, "entity_id")
+
+    @entity_id.setter
+    def entity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "entity_id", value)
+
+    @property
+    @pulumi.getter(name="errorCategory")
+    def error_category(self) -> Optional[pulumi.Input[str]]:
+        """
+        Category of error.
+        """
+        return pulumi.get(self, "error_category")
+
+    @error_category.setter
+    def error_category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_category", value)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        Error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @error_code.setter
+    def error_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_code", value)
+
+    @property
+    @pulumi.getter(name="errorId")
+    def error_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The health error unique id.
+        """
+        return pulumi.get(self, "error_id")
+
+    @error_id.setter
+    def error_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_id", value)
+
+    @property
+    @pulumi.getter(name="errorLevel")
+    def error_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Level of error.
+        """
+        return pulumi.get(self, "error_level")
+
+    @error_level.setter
+    def error_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_level", value)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @error_message.setter
+    def error_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_message", value)
+
+    @property
+    @pulumi.getter(name="errorSource")
+    def error_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source of error.
+        """
+        return pulumi.get(self, "error_source")
+
+    @error_source.setter
+    def error_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_source", value)
+
+    @property
+    @pulumi.getter(name="errorType")
+    def error_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of error.
+        """
+        return pulumi.get(self, "error_type")
+
+    @error_type.setter
+    def error_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_type", value)
+
+    @property
+    @pulumi.getter(name="possibleCauses")
+    def possible_causes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible causes of error.
+        """
+        return pulumi.get(self, "possible_causes")
+
+    @possible_causes.setter
+    def possible_causes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "possible_causes", value)
+
+    @property
+    @pulumi.getter(name="recommendedAction")
+    def recommended_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recommended action to resolve error.
+        """
+        return pulumi.get(self, "recommended_action")
+
+    @recommended_action.setter
+    def recommended_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recommended_action", value)
+
+    @property
+    @pulumi.getter(name="recoveryProviderErrorMessage")
+    def recovery_provider_error_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        DRA error message.
+        """
+        return pulumi.get(self, "recovery_provider_error_message")
+
+    @recovery_provider_error_message.setter
+    def recovery_provider_error_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_provider_error_message", value)
+
+    @property
+    @pulumi.getter(name="summaryMessage")
+    def summary_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Summary message of the entity.
+        """
+        return pulumi.get(self, "summary_message")
+
+    @summary_message.setter
+    def summary_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "summary_message", value)
+
+
+@pulumi.input_type
 class InquiryInfoArgs:
     def __init__(__self__, *,
                  inquiry_details: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInquiryDetailsArgs']]]] = None,
@@ -15459,6 +17031,550 @@ class RecoveryPlanScriptActionDetailsArgs:
 
 
 @pulumi.input_type
+class RegisteredClusterNodesArgs:
+    def __init__(__self__, *,
+                 bios_id: Optional[pulumi.Input[str]] = None,
+                 cluster_node_fqdn: Optional[pulumi.Input[str]] = None,
+                 is_shared_disk_virtual_node: Optional[pulumi.Input[bool]] = None,
+                 machine_id: Optional[pulumi.Input[str]] = None):
+        """
+        Extended location of the resource.
+        :param pulumi.Input[str] bios_id: The BIOS ID.
+        :param pulumi.Input[str] cluster_node_fqdn: The cluster node name.
+        :param pulumi.Input[bool] is_shared_disk_virtual_node: A value indicating whether this represents virtual entity hosting all the shared disks.
+        :param pulumi.Input[str] machine_id: The machine ID.
+        """
+        if bios_id is not None:
+            pulumi.set(__self__, "bios_id", bios_id)
+        if cluster_node_fqdn is not None:
+            pulumi.set(__self__, "cluster_node_fqdn", cluster_node_fqdn)
+        if is_shared_disk_virtual_node is not None:
+            pulumi.set(__self__, "is_shared_disk_virtual_node", is_shared_disk_virtual_node)
+        if machine_id is not None:
+            pulumi.set(__self__, "machine_id", machine_id)
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The BIOS ID.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @bios_id.setter
+    def bios_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bios_id", value)
+
+    @property
+    @pulumi.getter(name="clusterNodeFqdn")
+    def cluster_node_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster node name.
+        """
+        return pulumi.get(self, "cluster_node_fqdn")
+
+    @cluster_node_fqdn.setter
+    def cluster_node_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_node_fqdn", value)
+
+    @property
+    @pulumi.getter(name="isSharedDiskVirtualNode")
+    def is_shared_disk_virtual_node(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value indicating whether this represents virtual entity hosting all the shared disks.
+        """
+        return pulumi.get(self, "is_shared_disk_virtual_node")
+
+    @is_shared_disk_virtual_node.setter
+    def is_shared_disk_virtual_node(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared_disk_virtual_node", value)
+
+    @property
+    @pulumi.getter(name="machineId")
+    def machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The machine ID.
+        """
+        return pulumi.get(self, "machine_id")
+
+    @machine_id.setter
+    def machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "machine_id", value)
+
+
+@pulumi.input_type
+class ReplicationProtectionClusterPropertiesArgs:
+    def __init__(__self__, *,
+                 active_location: Optional[pulumi.Input[str]] = None,
+                 agent_cluster_id: Optional[pulumi.Input[str]] = None,
+                 allowed_operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 are_all_cluster_nodes_registered: Optional[pulumi.Input[bool]] = None,
+                 cluster_fqdn: Optional[pulumi.Input[str]] = None,
+                 cluster_node_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_protected_item_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cluster_registered_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredClusterNodesArgs']]]] = None,
+                 current_scenario: Optional[pulumi.Input['CurrentScenarioDetailsArgs']] = None,
+                 health_errors: Optional[pulumi.Input[Sequence[pulumi.Input['HealthErrorArgs']]]] = None,
+                 last_successful_failover_time: Optional[pulumi.Input[str]] = None,
+                 last_successful_test_failover_time: Optional[pulumi.Input[str]] = None,
+                 policy_friendly_name: Optional[pulumi.Input[str]] = None,
+                 policy_id: Optional[pulumi.Input[str]] = None,
+                 primary_fabric_friendly_name: Optional[pulumi.Input[str]] = None,
+                 primary_fabric_provider: Optional[pulumi.Input[str]] = None,
+                 primary_protection_container_friendly_name: Optional[pulumi.Input[str]] = None,
+                 protection_cluster_type: Optional[pulumi.Input[str]] = None,
+                 protection_state: Optional[pulumi.Input[str]] = None,
+                 protection_state_description: Optional[pulumi.Input[str]] = None,
+                 provider_specific_details: Optional[pulumi.Input['A2AReplicationProtectionClusterDetailsArgs']] = None,
+                 recovery_container_id: Optional[pulumi.Input[str]] = None,
+                 recovery_fabric_friendly_name: Optional[pulumi.Input[str]] = None,
+                 recovery_fabric_id: Optional[pulumi.Input[str]] = None,
+                 recovery_protection_container_friendly_name: Optional[pulumi.Input[str]] = None,
+                 replication_health: Optional[pulumi.Input[str]] = None,
+                 shared_disk_properties: Optional[pulumi.Input['SharedDiskReplicationItemPropertiesArgs']] = None,
+                 test_failover_state: Optional[pulumi.Input[str]] = None,
+                 test_failover_state_description: Optional[pulumi.Input[str]] = None):
+        """
+        Replication protection cluster custom data details.
+        :param pulumi.Input[str] active_location: The Current active location of the Protection cluster.
+        :param pulumi.Input[str] agent_cluster_id: The Agent cluster Id.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_operations: The allowed operations on the Replication protection cluster.
+        :param pulumi.Input[bool] are_all_cluster_nodes_registered: A value indicating whether all nodes of the cluster are registered or not.
+        :param pulumi.Input[str] cluster_fqdn: The cluster FQDN.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_node_fqdns: The List of cluster Node FQDNs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_protected_item_ids: The List of Protected Item Id's.
+        :param pulumi.Input[Sequence[pulumi.Input['RegisteredClusterNodesArgs']]] cluster_registered_nodes: The registered node details.
+        :param pulumi.Input['CurrentScenarioDetailsArgs'] current_scenario: The current scenario.
+        :param pulumi.Input[Sequence[pulumi.Input['HealthErrorArgs']]] health_errors: List of health errors.
+        :param pulumi.Input[str] last_successful_failover_time: The last successful failover time.
+        :param pulumi.Input[str] last_successful_test_failover_time: The last successful test failover time.
+        :param pulumi.Input[str] policy_friendly_name: The name of Policy governing this PE.
+        :param pulumi.Input[str] policy_id: The Policy Id.
+        :param pulumi.Input[str] primary_fabric_friendly_name: The friendly name of the primary fabric.
+        :param pulumi.Input[str] primary_fabric_provider: The fabric provider of the primary fabric.
+        :param pulumi.Input[str] primary_protection_container_friendly_name: The name of primary protection container friendly name.
+        :param pulumi.Input[str] protection_cluster_type: The type of protection cluster type.
+        :param pulumi.Input[str] protection_state: The protection status.
+        :param pulumi.Input[str] protection_state_description: The protection state description.
+        :param pulumi.Input['A2AReplicationProtectionClusterDetailsArgs'] provider_specific_details: The Replication cluster provider custom settings.
+        :param pulumi.Input[str] recovery_container_id: The recovery container Id.
+        :param pulumi.Input[str] recovery_fabric_friendly_name: The friendly name of recovery fabric.
+        :param pulumi.Input[str] recovery_fabric_id: The Arm Id of recovery fabric.
+        :param pulumi.Input[str] recovery_protection_container_friendly_name: The name of recovery container friendly name.
+        :param pulumi.Input[str] replication_health: The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
+        :param pulumi.Input['SharedDiskReplicationItemPropertiesArgs'] shared_disk_properties: The shared disk properties.
+        :param pulumi.Input[str] test_failover_state: The Test failover state.
+        :param pulumi.Input[str] test_failover_state_description: The Test failover state description.
+        """
+        if active_location is not None:
+            pulumi.set(__self__, "active_location", active_location)
+        if agent_cluster_id is not None:
+            pulumi.set(__self__, "agent_cluster_id", agent_cluster_id)
+        if allowed_operations is not None:
+            pulumi.set(__self__, "allowed_operations", allowed_operations)
+        if are_all_cluster_nodes_registered is not None:
+            pulumi.set(__self__, "are_all_cluster_nodes_registered", are_all_cluster_nodes_registered)
+        if cluster_fqdn is not None:
+            pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
+        if cluster_node_fqdns is not None:
+            pulumi.set(__self__, "cluster_node_fqdns", cluster_node_fqdns)
+        if cluster_protected_item_ids is not None:
+            pulumi.set(__self__, "cluster_protected_item_ids", cluster_protected_item_ids)
+        if cluster_registered_nodes is not None:
+            pulumi.set(__self__, "cluster_registered_nodes", cluster_registered_nodes)
+        if current_scenario is not None:
+            pulumi.set(__self__, "current_scenario", current_scenario)
+        if health_errors is not None:
+            pulumi.set(__self__, "health_errors", health_errors)
+        if last_successful_failover_time is not None:
+            pulumi.set(__self__, "last_successful_failover_time", last_successful_failover_time)
+        if last_successful_test_failover_time is not None:
+            pulumi.set(__self__, "last_successful_test_failover_time", last_successful_test_failover_time)
+        if policy_friendly_name is not None:
+            pulumi.set(__self__, "policy_friendly_name", policy_friendly_name)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if primary_fabric_friendly_name is not None:
+            pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
+        if primary_fabric_provider is not None:
+            pulumi.set(__self__, "primary_fabric_provider", primary_fabric_provider)
+        if primary_protection_container_friendly_name is not None:
+            pulumi.set(__self__, "primary_protection_container_friendly_name", primary_protection_container_friendly_name)
+        if protection_cluster_type is not None:
+            pulumi.set(__self__, "protection_cluster_type", protection_cluster_type)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if protection_state_description is not None:
+            pulumi.set(__self__, "protection_state_description", protection_state_description)
+        if provider_specific_details is not None:
+            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+        if recovery_container_id is not None:
+            pulumi.set(__self__, "recovery_container_id", recovery_container_id)
+        if recovery_fabric_friendly_name is not None:
+            pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
+        if recovery_fabric_id is not None:
+            pulumi.set(__self__, "recovery_fabric_id", recovery_fabric_id)
+        if recovery_protection_container_friendly_name is not None:
+            pulumi.set(__self__, "recovery_protection_container_friendly_name", recovery_protection_container_friendly_name)
+        if replication_health is not None:
+            pulumi.set(__self__, "replication_health", replication_health)
+        if shared_disk_properties is not None:
+            pulumi.set(__self__, "shared_disk_properties", shared_disk_properties)
+        if test_failover_state is not None:
+            pulumi.set(__self__, "test_failover_state", test_failover_state)
+        if test_failover_state_description is not None:
+            pulumi.set(__self__, "test_failover_state_description", test_failover_state_description)
+
+    @property
+    @pulumi.getter(name="activeLocation")
+    def active_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Current active location of the Protection cluster.
+        """
+        return pulumi.get(self, "active_location")
+
+    @active_location.setter
+    def active_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "active_location", value)
+
+    @property
+    @pulumi.getter(name="agentClusterId")
+    def agent_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Agent cluster Id.
+        """
+        return pulumi.get(self, "agent_cluster_id")
+
+    @agent_cluster_id.setter
+    def agent_cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_cluster_id", value)
+
+    @property
+    @pulumi.getter(name="allowedOperations")
+    def allowed_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The allowed operations on the Replication protection cluster.
+        """
+        return pulumi.get(self, "allowed_operations")
+
+    @allowed_operations.setter
+    def allowed_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_operations", value)
+
+    @property
+    @pulumi.getter(name="areAllClusterNodesRegistered")
+    def are_all_cluster_nodes_registered(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value indicating whether all nodes of the cluster are registered or not.
+        """
+        return pulumi.get(self, "are_all_cluster_nodes_registered")
+
+    @are_all_cluster_nodes_registered.setter
+    def are_all_cluster_nodes_registered(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "are_all_cluster_nodes_registered", value)
+
+    @property
+    @pulumi.getter(name="clusterFqdn")
+    def cluster_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster FQDN.
+        """
+        return pulumi.get(self, "cluster_fqdn")
+
+    @cluster_fqdn.setter
+    def cluster_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_fqdn", value)
+
+    @property
+    @pulumi.getter(name="clusterNodeFqdns")
+    def cluster_node_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The List of cluster Node FQDNs.
+        """
+        return pulumi.get(self, "cluster_node_fqdns")
+
+    @cluster_node_fqdns.setter
+    def cluster_node_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cluster_node_fqdns", value)
+
+    @property
+    @pulumi.getter(name="clusterProtectedItemIds")
+    def cluster_protected_item_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The List of Protected Item Id's.
+        """
+        return pulumi.get(self, "cluster_protected_item_ids")
+
+    @cluster_protected_item_ids.setter
+    def cluster_protected_item_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cluster_protected_item_ids", value)
+
+    @property
+    @pulumi.getter(name="clusterRegisteredNodes")
+    def cluster_registered_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredClusterNodesArgs']]]]:
+        """
+        The registered node details.
+        """
+        return pulumi.get(self, "cluster_registered_nodes")
+
+    @cluster_registered_nodes.setter
+    def cluster_registered_nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredClusterNodesArgs']]]]):
+        pulumi.set(self, "cluster_registered_nodes", value)
+
+    @property
+    @pulumi.getter(name="currentScenario")
+    def current_scenario(self) -> Optional[pulumi.Input['CurrentScenarioDetailsArgs']]:
+        """
+        The current scenario.
+        """
+        return pulumi.get(self, "current_scenario")
+
+    @current_scenario.setter
+    def current_scenario(self, value: Optional[pulumi.Input['CurrentScenarioDetailsArgs']]):
+        pulumi.set(self, "current_scenario", value)
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HealthErrorArgs']]]]:
+        """
+        List of health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @health_errors.setter
+    def health_errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HealthErrorArgs']]]]):
+        pulumi.set(self, "health_errors", value)
+
+    @property
+    @pulumi.getter(name="lastSuccessfulFailoverTime")
+    def last_successful_failover_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last successful failover time.
+        """
+        return pulumi.get(self, "last_successful_failover_time")
+
+    @last_successful_failover_time.setter
+    def last_successful_failover_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_successful_failover_time", value)
+
+    @property
+    @pulumi.getter(name="lastSuccessfulTestFailoverTime")
+    def last_successful_test_failover_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The last successful test failover time.
+        """
+        return pulumi.get(self, "last_successful_test_failover_time")
+
+    @last_successful_test_failover_time.setter
+    def last_successful_test_failover_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_successful_test_failover_time", value)
+
+    @property
+    @pulumi.getter(name="policyFriendlyName")
+    def policy_friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of Policy governing this PE.
+        """
+        return pulumi.get(self, "policy_friendly_name")
+
+    @policy_friendly_name.setter
+    def policy_friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_friendly_name", value)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Policy Id.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @policy_id.setter
+    def policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_id", value)
+
+    @property
+    @pulumi.getter(name="primaryFabricFriendlyName")
+    def primary_fabric_friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name of the primary fabric.
+        """
+        return pulumi.get(self, "primary_fabric_friendly_name")
+
+    @primary_fabric_friendly_name.setter
+    def primary_fabric_friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_fabric_friendly_name", value)
+
+    @property
+    @pulumi.getter(name="primaryFabricProvider")
+    def primary_fabric_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fabric provider of the primary fabric.
+        """
+        return pulumi.get(self, "primary_fabric_provider")
+
+    @primary_fabric_provider.setter
+    def primary_fabric_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_fabric_provider", value)
+
+    @property
+    @pulumi.getter(name="primaryProtectionContainerFriendlyName")
+    def primary_protection_container_friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of primary protection container friendly name.
+        """
+        return pulumi.get(self, "primary_protection_container_friendly_name")
+
+    @primary_protection_container_friendly_name.setter
+    def primary_protection_container_friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_protection_container_friendly_name", value)
+
+    @property
+    @pulumi.getter(name="protectionClusterType")
+    def protection_cluster_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of protection cluster type.
+        """
+        return pulumi.get(self, "protection_cluster_type")
+
+    @protection_cluster_type.setter
+    def protection_cluster_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_cluster_type", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protection status.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_state", value)
+
+    @property
+    @pulumi.getter(name="protectionStateDescription")
+    def protection_state_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protection state description.
+        """
+        return pulumi.get(self, "protection_state_description")
+
+    @protection_state_description.setter
+    def protection_state_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_state_description", value)
+
+    @property
+    @pulumi.getter(name="providerSpecificDetails")
+    def provider_specific_details(self) -> Optional[pulumi.Input['A2AReplicationProtectionClusterDetailsArgs']]:
+        """
+        The Replication cluster provider custom settings.
+        """
+        return pulumi.get(self, "provider_specific_details")
+
+    @provider_specific_details.setter
+    def provider_specific_details(self, value: Optional[pulumi.Input['A2AReplicationProtectionClusterDetailsArgs']]):
+        pulumi.set(self, "provider_specific_details", value)
+
+    @property
+    @pulumi.getter(name="recoveryContainerId")
+    def recovery_container_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recovery container Id.
+        """
+        return pulumi.get(self, "recovery_container_id")
+
+    @recovery_container_id.setter
+    def recovery_container_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_container_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryFabricFriendlyName")
+    def recovery_fabric_friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name of recovery fabric.
+        """
+        return pulumi.get(self, "recovery_fabric_friendly_name")
+
+    @recovery_fabric_friendly_name.setter
+    def recovery_fabric_friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_fabric_friendly_name", value)
+
+    @property
+    @pulumi.getter(name="recoveryFabricId")
+    def recovery_fabric_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Arm Id of recovery fabric.
+        """
+        return pulumi.get(self, "recovery_fabric_id")
+
+    @recovery_fabric_id.setter
+    def recovery_fabric_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_fabric_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryProtectionContainerFriendlyName")
+    def recovery_protection_container_friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of recovery container friendly name.
+        """
+        return pulumi.get(self, "recovery_protection_container_friendly_name")
+
+    @recovery_protection_container_friendly_name.setter
+    def recovery_protection_container_friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_protection_container_friendly_name", value)
+
+    @property
+    @pulumi.getter(name="replicationHealth")
+    def replication_health(self) -> Optional[pulumi.Input[str]]:
+        """
+        The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
+        """
+        return pulumi.get(self, "replication_health")
+
+    @replication_health.setter
+    def replication_health(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_health", value)
+
+    @property
+    @pulumi.getter(name="sharedDiskProperties")
+    def shared_disk_properties(self) -> Optional[pulumi.Input['SharedDiskReplicationItemPropertiesArgs']]:
+        """
+        The shared disk properties.
+        """
+        return pulumi.get(self, "shared_disk_properties")
+
+    @shared_disk_properties.setter
+    def shared_disk_properties(self, value: Optional[pulumi.Input['SharedDiskReplicationItemPropertiesArgs']]):
+        pulumi.set(self, "shared_disk_properties", value)
+
+    @property
+    @pulumi.getter(name="testFailoverState")
+    def test_failover_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Test failover state.
+        """
+        return pulumi.get(self, "test_failover_state")
+
+    @test_failover_state.setter
+    def test_failover_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "test_failover_state", value)
+
+    @property
+    @pulumi.getter(name="testFailoverStateDescription")
+    def test_failover_state_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Test failover state description.
+        """
+        return pulumi.get(self, "test_failover_state_description")
+
+    @test_failover_state_description.setter
+    def test_failover_state_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "test_failover_state_description", value)
+
+
+@pulumi.input_type
 class ResourceGuardOperationDetailArgs:
     def __init__(__self__, *,
                  default_resource_request: Optional[pulumi.Input[str]] = None,
@@ -15702,6 +17818,142 @@ class SettingsArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class SharedDiskReplicationItemPropertiesArgs:
+    def __init__(__self__, *,
+                 active_location: Optional[pulumi.Input[str]] = None,
+                 allowed_operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 current_scenario: Optional[pulumi.Input['CurrentScenarioDetailsArgs']] = None,
+                 health_errors: Optional[pulumi.Input[Sequence[pulumi.Input['HealthErrorArgs']]]] = None,
+                 protection_state: Optional[pulumi.Input[str]] = None,
+                 replication_health: Optional[pulumi.Input[str]] = None,
+                 shared_disk_provider_specific_details: Optional[pulumi.Input['A2ASharedDiskReplicationDetailsArgs']] = None,
+                 test_failover_state: Optional[pulumi.Input[str]] = None):
+        """
+        Shared Disk Replication item custom data details.
+        :param pulumi.Input[str] active_location: The Current active location of the PE.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_operations: The allowed operations on the Replication protected item.
+        :param pulumi.Input['CurrentScenarioDetailsArgs'] current_scenario: The current scenario.
+        :param pulumi.Input[Sequence[pulumi.Input['HealthErrorArgs']]] health_errors: List of health errors.
+        :param pulumi.Input[str] protection_state: The protection state of shared disk.
+        :param pulumi.Input[str] replication_health: The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
+        :param pulumi.Input['A2ASharedDiskReplicationDetailsArgs'] shared_disk_provider_specific_details: The Replication provider custom settings.
+        :param pulumi.Input[str] test_failover_state: The tfo state of shared disk.
+        """
+        if active_location is not None:
+            pulumi.set(__self__, "active_location", active_location)
+        if allowed_operations is not None:
+            pulumi.set(__self__, "allowed_operations", allowed_operations)
+        if current_scenario is not None:
+            pulumi.set(__self__, "current_scenario", current_scenario)
+        if health_errors is not None:
+            pulumi.set(__self__, "health_errors", health_errors)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if replication_health is not None:
+            pulumi.set(__self__, "replication_health", replication_health)
+        if shared_disk_provider_specific_details is not None:
+            pulumi.set(__self__, "shared_disk_provider_specific_details", shared_disk_provider_specific_details)
+        if test_failover_state is not None:
+            pulumi.set(__self__, "test_failover_state", test_failover_state)
+
+    @property
+    @pulumi.getter(name="activeLocation")
+    def active_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Current active location of the PE.
+        """
+        return pulumi.get(self, "active_location")
+
+    @active_location.setter
+    def active_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "active_location", value)
+
+    @property
+    @pulumi.getter(name="allowedOperations")
+    def allowed_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The allowed operations on the Replication protected item.
+        """
+        return pulumi.get(self, "allowed_operations")
+
+    @allowed_operations.setter
+    def allowed_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_operations", value)
+
+    @property
+    @pulumi.getter(name="currentScenario")
+    def current_scenario(self) -> Optional[pulumi.Input['CurrentScenarioDetailsArgs']]:
+        """
+        The current scenario.
+        """
+        return pulumi.get(self, "current_scenario")
+
+    @current_scenario.setter
+    def current_scenario(self, value: Optional[pulumi.Input['CurrentScenarioDetailsArgs']]):
+        pulumi.set(self, "current_scenario", value)
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HealthErrorArgs']]]]:
+        """
+        List of health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @health_errors.setter
+    def health_errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HealthErrorArgs']]]]):
+        pulumi.set(self, "health_errors", value)
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protection state of shared disk.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @protection_state.setter
+    def protection_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_state", value)
+
+    @property
+    @pulumi.getter(name="replicationHealth")
+    def replication_health(self) -> Optional[pulumi.Input[str]]:
+        """
+        The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
+        """
+        return pulumi.get(self, "replication_health")
+
+    @replication_health.setter
+    def replication_health(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_health", value)
+
+    @property
+    @pulumi.getter(name="sharedDiskProviderSpecificDetails")
+    def shared_disk_provider_specific_details(self) -> Optional[pulumi.Input['A2ASharedDiskReplicationDetailsArgs']]:
+        """
+        The Replication provider custom settings.
+        """
+        return pulumi.get(self, "shared_disk_provider_specific_details")
+
+    @shared_disk_provider_specific_details.setter
+    def shared_disk_provider_specific_details(self, value: Optional[pulumi.Input['A2ASharedDiskReplicationDetailsArgs']]):
+        pulumi.set(self, "shared_disk_provider_specific_details", value)
+
+    @property
+    @pulumi.getter(name="testFailoverState")
+    def test_failover_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tfo state of shared disk.
+        """
+        return pulumi.get(self, "test_failover_state")
+
+    @test_failover_state.setter
+    def test_failover_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "test_failover_state", value)
 
 
 @pulumi.input_type

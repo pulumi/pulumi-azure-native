@@ -64,7 +64,7 @@ def list_notebook_workspace_connection_info(account_name: Optional[str] = None,
     Retrieves the connection info for the notebook workspace
     Azure REST API version: 2023-04-15.
 
-    Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview.
+    Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -92,7 +92,7 @@ def list_notebook_workspace_connection_info_output(account_name: Optional[pulumi
     Retrieves the connection info for the notebook workspace
     Azure REST API version: 2023-04-15.
 
-    Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview.
+    Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15.
 
 
     :param str account_name: Cosmos DB database account name.

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Get the properties of a managed Cassandra data center.
         /// Azure REST API version: 2023-04-15.
         /// 
-        /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview.
+        /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15.
         /// </summary>
         public static Task<GetCassandraDataCenterResult> InvokeAsync(GetCassandraDataCenterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCassandraDataCenterResult>("azure-native:documentdb:getCassandraDataCenter", args ?? new GetCassandraDataCenterArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Get the properties of a managed Cassandra data center.
         /// Azure REST API version: 2023-04-15.
         /// 
-        /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview.
+        /// Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15.
         /// </summary>
         public static Output<GetCassandraDataCenterResult> Invoke(GetCassandraDataCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraDataCenterResult>("azure-native:documentdb:getCassandraDataCenter", args ?? new GetCassandraDataCenterInvokeArgs(), options.WithDefaults());

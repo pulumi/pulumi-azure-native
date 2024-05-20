@@ -58,9 +58,9 @@ export class EventHub extends pulumi.CustomResource {
      */
     public readonly messageRetentionInDays!: pulumi.Output<number | undefined>;
     /**
-     * Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+     * Properties of MessageTimestamp Description
      */
-    public readonly messageTimestampType!: pulumi.Output<string | undefined>;
+    public readonly messageTimestampDescription!: pulumi.Output<outputs.eventhub.v20240501preview.MessageTimestampDescriptionResponse | undefined>;
     /**
      * The name of the resource
      */
@@ -118,7 +118,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["captureDescription"] = args ? args.captureDescription : undefined;
             resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
             resourceInputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
-            resourceInputs["messageTimestampType"] = args ? args.messageTimestampType : undefined;
+            resourceInputs["messageTimestampDescription"] = args ? args.messageTimestampDescription : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -139,7 +139,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["messageRetentionInDays"] = undefined /*out*/;
-            resourceInputs["messageTimestampType"] = undefined /*out*/;
+            resourceInputs["messageTimestampDescription"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partitionCount"] = undefined /*out*/;
             resourceInputs["partitionIds"] = undefined /*out*/;
@@ -174,9 +174,9 @@ export interface EventHubArgs {
      */
     messageRetentionInDays?: pulumi.Input<number>;
     /**
-     * Denotes the type of timestamp the message will hold. Two types of timestamp types AppendTime, CreateTime. AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime for now and will full have runtime support later.
+     * Properties of MessageTimestamp Description
      */
-    messageTimestampType?: pulumi.Input<string | enums.eventhub.v20240501preview.TimestampType>;
+    messageTimestampDescription?: pulumi.Input<inputs.eventhub.v20240501preview.MessageTimestampDescriptionArgs>;
     /**
      * The Namespace name
      */

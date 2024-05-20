@@ -1471,6 +1471,7 @@ RecommendationsService:
 RecoveryServices:
     tracking: "2023-04-01"
     additions:
+        ReplicationProtectionCluster: "2024-02-01"
         getRecoveryPointAccessToken: "2023-01-15"
 RedHatOpenShift:
     tracking: "2022-09-04"

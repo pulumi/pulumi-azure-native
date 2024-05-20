@@ -21,6 +21,7 @@ __all__ = [
     'GeoDataReplicationPropertiesResponse',
     'IdentityResponse',
     'KeyVaultPropertiesResponse',
+    'MessageTimestampDescriptionResponse',
     'NWRuleSetIpRulesResponse',
     'NWRuleSetVirtualNetworkRulesResponse',
     'NamespaceReplicaLocationResponse',
@@ -671,6 +672,46 @@ class KeyVaultPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class MessageTimestampDescriptionResponse(dict):
+    """
+    Properties of MessageTimestamp Description
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timestampType":
+            suggest = "timestamp_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MessageTimestampDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MessageTimestampDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MessageTimestampDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timestamp_type: Optional[str] = None):
+        """
+        Properties of MessageTimestamp Description
+        :param str timestamp_type: Denotes the type of timestamp the message will hold.Two types of timestamp types - "AppendTime" and "CreateTime". AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime and its behavior remains the same.
+        """
+        if timestamp_type is not None:
+            pulumi.set(__self__, "timestamp_type", timestamp_type)
+
+    @property
+    @pulumi.getter(name="timestampType")
+    def timestamp_type(self) -> Optional[str]:
+        """
+        Denotes the type of timestamp the message will hold.Two types of timestamp types - "AppendTime" and "CreateTime". AppendTime refers the time in which message got appended inside broker log. CreateTime refers to the time in which the message was generated on source side and producers can set this timestamp while sending the message. Default value is AppendTime. If you are using AMQP protocol, CreateTime equals AppendTime and its behavior remains the same.
+        """
+        return pulumi.get(self, "timestamp_type")
+
+
+@pulumi.output_type
 class NWRuleSetIpRulesResponse(dict):
     """
     The response from the List namespace operation.
@@ -1039,9 +1080,9 @@ class RetentionDescriptionResponse(dict):
         """
         Properties to configure retention settings for the  eventhub
         :param str cleanup_policy: Enumerates the possible values for cleanup policy
-        :param float min_compaction_lag_in_mins: The minimum time a message will remain ineligible for compaction in the log. Only applicable for logs that are being compacted.
-        :param float retention_time_in_hours: Number of hours to retain the events for this Event Hub. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
-        :param int tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        :param float min_compaction_lag_in_mins: The minimum time a message will remain ineligible for compaction in the log. This value is used when cleanupPolicy is Compact or DeleteOrCompact.
+        :param float retention_time_in_hours: Number of hours to retain the events for this Event Hub. This should be positive value upto namespace SKU max. -1 is a special case where retention time is infinite, but the size of an entity is restricted and its size depends on namespace SKU type.
+        :param int tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is used when cleanupPolicy is Compact or DeleteOrCompact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
         """
         if cleanup_policy is not None:
             pulumi.set(__self__, "cleanup_policy", cleanup_policy)
@@ -1064,7 +1105,7 @@ class RetentionDescriptionResponse(dict):
     @pulumi.getter(name="minCompactionLagInMins")
     def min_compaction_lag_in_mins(self) -> Optional[float]:
         """
-        The minimum time a message will remain ineligible for compaction in the log. Only applicable for logs that are being compacted.
+        The minimum time a message will remain ineligible for compaction in the log. This value is used when cleanupPolicy is Compact or DeleteOrCompact.
         """
         return pulumi.get(self, "min_compaction_lag_in_mins")
 
@@ -1072,7 +1113,7 @@ class RetentionDescriptionResponse(dict):
     @pulumi.getter(name="retentionTimeInHours")
     def retention_time_in_hours(self) -> Optional[float]:
         """
-        Number of hours to retain the events for this Event Hub. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        Number of hours to retain the events for this Event Hub. This should be positive value upto namespace SKU max. -1 is a special case where retention time is infinite, but the size of an entity is restricted and its size depends on namespace SKU type.
         """
         return pulumi.get(self, "retention_time_in_hours")
 
@@ -1080,7 +1121,7 @@ class RetentionDescriptionResponse(dict):
     @pulumi.getter(name="tombstoneRetentionTimeInHours")
     def tombstone_retention_time_in_hours(self) -> Optional[int]:
         """
-        Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        Number of hours to retain the tombstone markers of a compacted Event Hub. This value is used when cleanupPolicy is Compact or DeleteOrCompact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
         """
         return pulumi.get(self, "tombstone_retention_time_in_hours")
 
