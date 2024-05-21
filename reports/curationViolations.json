@@ -32,6 +32,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "AzureFleet",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "AzurePlaywrightService",
     "Detail": "expected tracking stable but found preview"
   },

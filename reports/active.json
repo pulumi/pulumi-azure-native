@@ -719,15 +719,6 @@
       "2022-03-02-privatepreview",
       "2022-09-12-privatepreview"
     ],
-    "apicollections/apicollectiondetails": [
-      "2022-03-02-privatepreview"
-    ],
-    "apicollectionsmeta": [
-      "2022-03-02-privatepreview"
-    ],
-    "apicollectionsmeta/apicollectionmetadetails": [
-      "2022-03-02-privatepreview"
-    ],
     "locations": [
       "2021-03-01-preview"
     ],
@@ -3433,22 +3424,28 @@
   },
   "azurelargeinstance": {
     "": [
-      "2023-07-20-preview"
+      "2023-07-20-preview",
+      "2024-04-10"
     ],
     "azurelargeinstances": [
-      "2023-07-20-preview"
+      "2023-07-20-preview",
+      "2024-04-10"
     ],
     "azurelargestorageinstances": [
-      "2023-07-20-preview"
+      "2023-07-20-preview",
+      "2024-04-10"
     ],
     "locations": [
-      "2023-07-20-preview"
+      "2023-07-20-preview",
+      "2024-04-10"
     ],
     "locations/operationsstatus": [
-      "2023-07-20-preview"
+      "2023-07-20-preview",
+      "2024-04-10"
     ],
     "operations": [
-      "2023-07-20-preview"
+      "2023-07-20-preview",
+      "2024-04-10"
     ]
   },
   "azureplaywrightservice": {
