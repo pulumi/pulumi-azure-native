@@ -3112,6 +3112,12 @@
       "2024-01-25"
     ]
   },
+  "AzureFleet": {
+    "Fleet": [
+      "2023-11-01-preview",
+      "2024-05-01-preview"
+    ]
+  },
   "AzureLargeInstance": {},
   "AzurePlaywrightService": {
     "Account": [

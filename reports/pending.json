@@ -113,6 +113,7 @@
   "AzureDataTransfer": [
     "2024-01-25"
   ],
+  "AzureFleet": [],
   "AzureLargeInstance": [],
   "AzurePlaywrightService": [
     "2024-02-01-preview"
