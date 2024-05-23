@@ -2450,6 +2450,34 @@
     "Property": "name"
   },
   {
+    "Module": "cache/v20240601preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "Module": "cache/v20240601preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "Module": "cache/v20240601preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "Module": "cache/v20240601preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
     "Module": "confluent/v20230822",
     "Provider": "Confluent",
     "ResourceName": "Organization",
@@ -4152,6 +4180,97 @@
   },
   {
     "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "TableResourceTable",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "dataCenterLocation"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "delegatedSubnetId"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinGraph",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBCollection",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlContainer",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
     "Provider": "DocumentDB",
     "ResourceName": "TableResourceTable",
     "ReferenceName": "ResourceRestoreParameters",

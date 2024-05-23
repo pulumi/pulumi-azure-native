@@ -2836,6 +2836,14 @@
       "listListSchema"
     ]
   },
+  "AzureFleet": {
+    "2023-11-01-preview": [
+      "Fleet"
+    ],
+    "2024-05-01-preview": [
+      "Fleet"
+    ]
+  },
   "AzureLargeInstance": {
     "": []
   },
@@ -3545,6 +3553,22 @@
       "listRedisKeys"
     ],
     "2024-03-01-preview": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
+    ],
+    "2024-04-01-preview": [
+      "AccessPolicy",
+      "AccessPolicyAssignment",
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
+    ],
+    "2024-06-01-preview": [
       "Database",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
@@ -9312,6 +9336,37 @@
       "SqlResourceSqlTrigger",
       "SqlResourceSqlUserDefinedFunction",
       "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2024-05-15-preview": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "CassandraResourceCassandraView",
+      "DatabaseAccount",
+      "GraphResourceGraph",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "ThroughputPool",
+      "ThroughputPoolAccount",
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
@@ -20524,6 +20579,15 @@
       "SignalRReplica",
       "SignalRSharedPrivateLinkResource",
       "listSignalRKeys"
+    ],
+    "2024-03-01": [
+      "SignalR",
+      "SignalRCustomCertificate",
+      "SignalRCustomDomain",
+      "SignalRPrivateEndpointConnection",
+      "SignalRReplica",
+      "SignalRSharedPrivateLinkResource",
+      "listSignalRKeys"
     ]
   },
   "SoftwarePlan": {
@@ -24304,6 +24368,16 @@
       "listWebPubSubKeys"
     ],
     "2024-01-01-preview": [
+      "WebPubSub",
+      "WebPubSubCustomCertificate",
+      "WebPubSubCustomDomain",
+      "WebPubSubHub",
+      "WebPubSubPrivateEndpointConnection",
+      "WebPubSubReplica",
+      "WebPubSubSharedPrivateLinkResource",
+      "listWebPubSubKeys"
+    ],
+    "2024-03-01": [
       "WebPubSub",
       "WebPubSubCustomCertificate",
       "WebPubSubCustomDomain",
