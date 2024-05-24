@@ -2450,6 +2450,34 @@
     "Property": "name"
   },
   {
+    "Module": "cache/v20240601preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "DatabaseProperties",
+    "Property": "groupNickname"
+  },
+  {
+    "Module": "cache/v20240601preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "LinkedDatabase",
+    "Property": "id"
+  },
+  {
+    "Module": "cache/v20240601preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "args"
+  },
+  {
+    "Module": "cache/v20240601preview",
+    "Provider": "Cache",
+    "ResourceName": "Database",
+    "ReferenceName": "Module",
+    "Property": "name"
+  },
+  {
     "Module": "confluent/v20230822",
     "Provider": "Confluent",
     "ResourceName": "Organization",
@@ -2966,6 +2994,41 @@
     "ResourceName": "Server",
     "ReferenceName": "ImportSourceProperties",
     "Property": "storageUrl"
+  },
+  {
+    "Module": "dbformysql/v20240201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "dataDirPath"
+  },
+  {
+    "Module": "dbformysql/v20240201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "sasToken"
+  },
+  {
+    "Module": "dbformysql/v20240201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageType"
+  },
+  {
+    "Module": "dbformysql/v20240201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "ImportSourceProperties",
+    "Property": "storageUrl"
+  },
+  {
+    "Module": "dbformysql/v20240201preview",
+    "Provider": "DBforMySQL",
+    "ResourceName": "Server",
+    "ReferenceName": "StorageRedundancyEnum",
+    "Property": "storageRedundancy"
   },
   {
     "Module": "dbforpostgresql",
@@ -4152,6 +4215,97 @@
   },
   {
     "Module": "documentdb/v20240515",
+    "Provider": "DocumentDB",
+    "ResourceName": "TableResourceTable",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "clusterNameOverride"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "delegatedManagementSubnetId"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "initialCassandraAdminPassword"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraCluster",
+    "ReferenceName": "ClusterResource",
+    "Property": "restoreFromBackupId"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "dataCenterLocation"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "CassandraDataCenter",
+    "ReferenceName": "DataCenterResource",
+    "Property": "delegatedSubnetId"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "GremlinResourceGremlinGraph",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBCollection",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoDBResourceMongoDBDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlContainer",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "SqlResourceSqlDatabase",
+    "ReferenceName": "ResourceRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "Module": "documentdb/v20240515preview",
     "Provider": "DocumentDB",
     "ResourceName": "TableResourceTable",
     "ReferenceName": "ResourceRestoreParameters",
@@ -45237,13 +45391,6 @@
     "Module": "networkcloud",
     "Provider": "NetworkCloud",
     "ResourceName": "AgentPool",
-    "ReferenceName": "AdministratorConfiguration",
-    "Property": "sshPublicKeys"
-  },
-  {
-    "Module": "networkcloud",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
     "ReferenceName": "AgentOptions",
     "Property": "hugepagesSize"
   },
@@ -45470,13 +45617,6 @@
     "ResourceName": "KubernetesCluster",
     "ReferenceName": "AdministratorConfiguration",
     "Property": "adminUsername"
-  },
-  {
-    "Module": "networkcloud",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AdministratorConfiguration",
-    "Property": "sshPublicKeys"
   },
   {
     "Module": "networkcloud",
@@ -46047,846 +46187,6 @@
   },
   {
     "Module": "networkcloud",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Volume",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "AdministratorConfiguration",
-    "Property": "adminUsername"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "AdministratorConfiguration",
-    "Property": "sshPublicKeys"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "AgentOptions",
-    "Property": "hugepagesSize"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "L2NetworkAttachmentConfiguration",
-    "Property": "networkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "L2NetworkAttachmentConfiguration",
-    "Property": "pluginType"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "AttachedNetworkConfiguration",
-    "Property": "l2Networks"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "L3NetworkAttachmentConfiguration",
-    "Property": "ipamEnabled"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "L3NetworkAttachmentConfiguration",
-    "Property": "networkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "L3NetworkAttachmentConfiguration",
-    "Property": "pluginType"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "AttachedNetworkConfiguration",
-    "Property": "l3Networks"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "TrunkedNetworkAttachmentConfiguration",
-    "Property": "networkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "TrunkedNetworkAttachmentConfiguration",
-    "Property": "pluginType"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "AttachedNetworkConfiguration",
-    "Property": "trunkedNetworks"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "KubernetesLabel",
-    "Property": "key"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "AgentPool",
-    "ReferenceName": "KubernetesLabel",
-    "Property": "value"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "BareMetalMachine",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "BareMetalMachine",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "BareMetalMachineKeySet",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "BareMetalMachineKeySet",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "BmcKeySet",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "BmcKeySet",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "CloudServicesNetwork",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "CloudServicesNetwork",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Cluster",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Cluster",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Cluster",
-    "ReferenceName": "ManagedResourceGroupConfiguration",
-    "Property": "location"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Cluster",
-    "ReferenceName": "ManagedResourceGroupConfiguration",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "ClusterManager",
-    "ReferenceName": "ManagedResourceGroupConfiguration",
-    "Property": "location"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "ClusterManager",
-    "ReferenceName": "ManagedResourceGroupConfiguration",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Console",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Console",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AadConfiguration",
-    "Property": "adminGroupObjectIds"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AdministratorConfiguration",
-    "Property": "adminUsername"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AdministratorConfiguration",
-    "Property": "sshPublicKeys"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AdministratorConfiguration",
-    "Property": "administratorConfiguration"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ControlPlaneNodeConfiguration",
-    "Property": "availabilityZones"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ControlPlaneNodeConfiguration",
-    "Property": "vmSkuName"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AdministratorConfiguration",
-    "Property": "administratorConfiguration"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AgentOptions",
-    "Property": "hugepagesSize"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AgentOptions",
-    "Property": "agentOptions"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "L2NetworkAttachmentConfiguration",
-    "Property": "networkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "L2NetworkAttachmentConfiguration",
-    "Property": "pluginType"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AttachedNetworkConfiguration",
-    "Property": "l2Networks"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "L3NetworkAttachmentConfiguration",
-    "Property": "ipamEnabled"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "L3NetworkAttachmentConfiguration",
-    "Property": "networkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "L3NetworkAttachmentConfiguration",
-    "Property": "pluginType"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AttachedNetworkConfiguration",
-    "Property": "l3Networks"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "TrunkedNetworkAttachmentConfiguration",
-    "Property": "networkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "TrunkedNetworkAttachmentConfiguration",
-    "Property": "pluginType"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AttachedNetworkConfiguration",
-    "Property": "trunkedNetworks"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AttachedNetworkConfiguration",
-    "Property": "attachedNetworkConfiguration"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "InitialAgentPoolConfiguration",
-    "Property": "availabilityZones"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "InitialAgentPoolConfiguration",
-    "Property": "count"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "KubernetesLabel",
-    "Property": "key"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "KubernetesLabel",
-    "Property": "value"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "InitialAgentPoolConfiguration",
-    "Property": "labels"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "InitialAgentPoolConfiguration",
-    "Property": "mode"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "InitialAgentPoolConfiguration",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "InitialAgentPoolConfiguration",
-    "Property": "taints"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "InitialAgentPoolConfiguration",
-    "Property": "vmSkuName"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ManagedResourceGroupConfiguration",
-    "Property": "location"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ManagedResourceGroupConfiguration",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "AttachedNetworkConfiguration",
-    "Property": "attachedNetworkConfiguration"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpAdvertisement",
-    "Property": "advertiseToFabric"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpAdvertisement",
-    "Property": "communities"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpAdvertisement",
-    "Property": "ipAddressPools"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpAdvertisement",
-    "Property": "peers"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpServiceLoadBalancerConfiguration",
-    "Property": "bgpAdvertisements"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "bfdEnabled"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "bgpMultiHop"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "holdTime"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "keepAliveTime"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "myAsn"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "password"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "peerAddress"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "peerAsn"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "ServiceLoadBalancerBgpPeer",
-    "Property": "peerPort"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpServiceLoadBalancerConfiguration",
-    "Property": "bgpPeers"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpServiceLoadBalancerConfiguration",
-    "Property": "fabricPeeringEnabled"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "IpAddressPool",
-    "Property": "addresses"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "IpAddressPool",
-    "Property": "autoAssign"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "IpAddressPool",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "IpAddressPool",
-    "Property": "onlyUseHostIps"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpServiceLoadBalancerConfiguration",
-    "Property": "ipAddressPools"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "BgpServiceLoadBalancerConfiguration",
-    "Property": "bgpServiceLoadBalancerConfiguration"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "NetworkConfiguration",
-    "Property": "cloudServicesNetworkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "NetworkConfiguration",
-    "Property": "cniNetworkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "NetworkConfiguration",
-    "Property": "dnsServiceIp"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "NetworkConfiguration",
-    "Property": "podCidrs"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "KubernetesCluster",
-    "ReferenceName": "NetworkConfiguration",
-    "Property": "serviceCidrs"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "L2Network",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "L2Network",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "L3Network",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "L3Network",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "MetricsConfiguration",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "MetricsConfiguration",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Rack",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Rack",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "StorageAppliance",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "StorageAppliance",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "TrunkedNetwork",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "TrunkedNetwork",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "type"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "NetworkAttachment",
-    "Property": "attachedNetworkId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "NetworkAttachment",
-    "Property": "ipAllocationMethod"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "NetworkAttachment",
-    "Property": "ipv4Address"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "NetworkAttachment",
-    "Property": "ipv6Address"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "NetworkAttachment",
-    "Property": "networkAttachmentName"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "VirtualMachinePlacementHint",
-    "Property": "hintType"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "VirtualMachinePlacementHint",
-    "Property": "resourceId"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "VirtualMachinePlacementHint",
-    "Property": "schedulingExecution"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "VirtualMachine",
-    "ReferenceName": "VirtualMachinePlacementHint",
-    "Property": "scope"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
-    "Provider": "NetworkCloud",
-    "ResourceName": "Volume",
-    "ReferenceName": "ExtendedLocation",
-    "Property": "name"
-  },
-  {
-    "Module": "networkcloud/v20230501preview",
     "Provider": "NetworkCloud",
     "ResourceName": "Volume",
     "ReferenceName": "ExtendedLocation",
