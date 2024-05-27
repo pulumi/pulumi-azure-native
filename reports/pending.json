@@ -113,6 +113,7 @@
   "AzureDataTransfer": [
     "2024-01-25"
   ],
+  "AzureFleet": [],
   "AzureLargeInstance": [],
   "AzurePlaywrightService": [
     "2024-02-01-preview"
@@ -161,7 +162,9 @@
     "2023-11-01",
     "2024-02-01",
     "2024-03-01",
-    "2024-03-01-preview"
+    "2024-03-01-preview",
+    "2024-04-01-preview",
+    "2024-06-01-preview"
   ],
   "Capacity": [],
   "Cdn": [
@@ -359,7 +362,8 @@
     "2023-06-30",
     "2023-10-01-preview",
     "2023-12-01-preview",
-    "2023-12-30"
+    "2023-12-30",
+    "2024-02-01-preview"
   ],
   "DBforPostgreSQL": [
     "2022-12-01",
@@ -467,7 +471,8 @@
     "2023-11-15-preview",
     "2024-02-15-preview",
     "2024-03-01-preview",
-    "2024-05-15"
+    "2024-05-15",
+    "2024-05-15-preview"
   ],
   "DomainRegistration": [
     "2023-01-01",
@@ -857,10 +862,7 @@
     "2024-02-01"
   ],
   "NetworkAnalytics": [],
-  "NetworkCloud": [
-    "2023-07-01",
-    "2023-10-01-preview"
-  ],
+  "NetworkCloud": [],
   "NetworkFunction": [],
   "NotificationHubs": [
     "2023-09-01",
@@ -966,7 +968,8 @@
   "Scom": [],
   "Search": [
     "2023-11-01",
-    "2024-03-01-preview"
+    "2024-03-01-preview",
+    "2024-06-01-preview"
   ],
   "Security": [
     "2019-01-01",
@@ -1036,13 +1039,15 @@
     "2024-04-01"
   ],
   "ServiceNetworking": [
-    "2023-11-01"
+    "2023-11-01",
+    "2024-05-01-preview"
   ],
   "SignalRService": [
     "2023-03-01-preview",
     "2023-06-01-preview",
     "2023-08-01-preview",
-    "2024-01-01-preview"
+    "2024-01-01-preview",
+    "2024-03-01"
   ],
   "SoftwarePlan": [],
   "Solutions": [
@@ -1156,7 +1161,8 @@
     "2023-03-01-preview",
     "2023-06-01-preview",
     "2023-08-01-preview",
-    "2024-01-01-preview"
+    "2024-01-01-preview",
+    "2024-03-01"
   ],
   "WindowsESU": [],
   "WindowsIoT": [],
