@@ -366,6 +366,9 @@
     "listListPendingFlow": "2023-10-11-preview",
     "listListSchema": "2023-10-11-preview"
   },
+  "AzureFleet": {
+    "Fleet": "2024-05-01-preview"
+  },
   "AzureLargeInstance": {},
   "AzurePlaywrightService": {
     "Account": "2023-10-01-preview"
@@ -1065,6 +1068,7 @@
   },
   "Elastic": {
     "Monitor": "2023-06-01",
+    "MonitoredSubscription": "2024-05-01-preview",
     "OpenAI": "2024-03-01",
     "TagRule": "2023-06-01",
     "getBillingInfo": "2023-07-01-preview",
@@ -1924,23 +1928,23 @@
     "listDataProductRolesAssignments": "2023-11-15"
   },
   "NetworkCloud": {
-    "AgentPool": "2023-05-01-preview",
-    "BareMetalMachine": "2023-05-01-preview",
-    "BareMetalMachineKeySet": "2023-05-01-preview",
-    "BmcKeySet": "2023-05-01-preview",
-    "CloudServicesNetwork": "2023-05-01-preview",
-    "Cluster": "2023-05-01-preview",
-    "ClusterManager": "2023-05-01-preview",
-    "Console": "2023-05-01-preview",
-    "KubernetesCluster": "2023-05-01-preview",
-    "L2Network": "2023-05-01-preview",
-    "L3Network": "2023-05-01-preview",
-    "MetricsConfiguration": "2023-05-01-preview",
-    "Rack": "2023-05-01-preview",
-    "StorageAppliance": "2023-05-01-preview",
-    "TrunkedNetwork": "2023-05-01-preview",
-    "VirtualMachine": "2023-05-01-preview",
-    "Volume": "2023-05-01-preview"
+    "AgentPool": "2023-10-01-preview",
+    "BareMetalMachine": "2023-10-01-preview",
+    "BareMetalMachineKeySet": "2023-10-01-preview",
+    "BmcKeySet": "2023-10-01-preview",
+    "CloudServicesNetwork": "2023-10-01-preview",
+    "Cluster": "2023-10-01-preview",
+    "ClusterManager": "2023-10-01-preview",
+    "Console": "2023-10-01-preview",
+    "KubernetesCluster": "2023-10-01-preview",
+    "L2Network": "2023-10-01-preview",
+    "L3Network": "2023-10-01-preview",
+    "MetricsConfiguration": "2023-10-01-preview",
+    "Rack": "2023-10-01-preview",
+    "StorageAppliance": "2023-10-01-preview",
+    "TrunkedNetwork": "2023-10-01-preview",
+    "VirtualMachine": "2023-10-01-preview",
+    "Volume": "2023-10-01-preview"
   },
   "NetworkFunction": {
     "AzureTrafficCollector": "2022-11-01",
@@ -2228,6 +2232,7 @@
     "CustomEntityStoreAssignment": "2021-07-01-preview",
     "DefenderForStorage": "2022-12-01-preview",
     "DevOpsConfiguration": "2023-09-01-preview",
+    "DevOpsPolicyAssignment": "2024-05-15-preview",
     "DeviceSecurityGroup": "2019-08-01",
     "GovernanceAssignment": "2022-01-01-preview",
     "GovernanceRule": "2022-01-01-preview",
@@ -2355,6 +2360,7 @@
   "ServiceNetworking": {
     "AssociationsInterface": "2023-05-01-preview",
     "FrontendsInterface": "2023-05-01-preview",
+    "SecurityPoliciesInterface": "2024-05-01-preview",
     "TrafficControllerInterface": "2023-05-01-preview"
   },
   "SignalRService": {
